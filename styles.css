@@ -2573,15 +2573,11 @@ dialog[open] #modalClose.modal-close:hover {
   display: flex !important;
   flex-wrap: wrap !important;
   gap: 8px !important;
-  margin: 0 0 28px !important;
+  margin: 0 !important;
 }
 
 .bey-modal-tags {
-  margin: 0 0 28px !important;
-}
-
-.bey-modal-tags + .mounted-parts {
-  margin-top: 0 !important;
+  margin: 0 !important;
 }
 
 .modal-tags > * {
@@ -2625,11 +2621,6 @@ dialog[open] {
 
 #detailModal[open] {
   overflow: hidden !important;
-}
-
-dialog[open] .modal-info > p {
-  font-weight: 400 !important;
-  min-height: calc(1.6em * 2) !important;
 }
 
 #modalContent {
@@ -2708,14 +2699,14 @@ dialog[open] button[aria-label="Close"] {
     height: var(--modal-h) !important;
     max-height: var(--modal-h) !important;
     grid-template-columns: minmax(0, 1fr) !important;
-    grid-template-rows: 140px minmax(0, 1fr) !important;
+    grid-template-rows: minmax(180px, 38%) minmax(0, 1fr) !important;
     overflow: hidden !important;
   }
 
   dialog[open] .modal-art {
-    height: 140px !important;
-    min-height: 140px !important;
-    max-height: 140px !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: none !important;
     border-right: 0 !important;
     border-bottom: 0 !important;
   }
@@ -2763,6 +2754,38 @@ dialog[open] .modal-name {
   font-weight: 900 !important; line-height: 1.15 !important;
   color: var(--ui-text) !important;
   word-break: keep-all !important;
+}
+
+.modal-info-slot {
+  --modal-info-lines: 3;
+  display: grid !important;
+  grid-template-rows: 34px calc(1.5rem * var(--modal-info-lines)) !important;
+  gap: 10px !important;
+  margin: 0 0 14px !important;
+}
+
+.modal-description {
+  min-height: 0 !important;
+  margin: 0 !important;
+  color: var(--ui-text) !important;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  overflow: hidden !important;
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical !important;
+  -webkit-line-clamp: var(--modal-info-lines) !important;
+}
+
+.modal-slot-tags {
+  min-height: 34px !important;
+  overflow: hidden !important;
+}
+
+@media (max-width: 900px) {
+  .modal-info-slot {
+    --modal-info-lines: 4;
+  }
 }
 
 dialog[open] .modal-en {
@@ -2962,26 +2985,26 @@ dialog[open] .product-modal-name {
 
 .product-lineup-grid {
   display: grid !important;
-  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   gap: 8px 10px !important;
 }
 
 .product-lineup-card {
   box-sizing: border-box !important;
   min-width: 0 !important;
-  min-height: 84px !important;
+  min-height: 38px !important;
   display: grid !important;
-  grid-template-columns: 1fr !important;
-  grid-template-rows: 38px auto !important;
-  place-items: center !important;
-  gap: 6px !important;
-  padding: 8px 5px !important;
-  border-radius: 10px !important;
+  grid-template-columns: minmax(0, 1fr) 24px !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 0 10px !important;
+  border-radius: 12px !important;
+  background: transparent !important;
   color: var(--ui-text) !important;
   font-size: 1rem !important;
-  font-weight: 700 !important;
-  line-height: 1.25 !important;
-  text-align: center !important;
+  font-weight: 400 !important;
+  line-height: 1.2 !important;
+  text-align: left !important;
   text-decoration: none !important;
   box-shadow: none !important;
   filter: none !important;
@@ -2997,22 +3020,25 @@ dialog[open] .product-modal-name {
   transform: none !important;
 }
 
-.product-lineup-image-slot {
-  width: 38px !important;
-  height: 38px !important;
-  display: block !important;
-  border-radius: 10px !important;
-  background: color-mix(in srgb, var(--ui-surface) 68%, var(--ui-section-bg)) !important;
+.product-lineup-card > b {
+  justify-self: end !important;
+  font-weight: 400 !important;
 }
 
 .product-lineup-name {
+  min-width: 0 !important;
   max-width: 100% !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-  display: -webkit-box !important;
-  -webkit-box-orient: vertical !important;
-  -webkit-line-clamp: 2 !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  display: block !important;
   white-space: normal !important;
+  line-height: 1.25 !important;
+}
+
+@media (max-width: 900px) {
+  .product-lineup-grid {
+    grid-template-columns: 1fr !important;
+  }
 }
 
 .mounted-link {
@@ -3074,9 +3100,9 @@ dialog[open] .product-modal-art {
 
 @media (max-width: 760px) {
   dialog[open] .product-modal-art {
-    height: 140px !important;
-    min-height: 140px !important;
-    max-height: 140px !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: none !important;
     padding: 0 !important;
     align-items: center !important;
   }
