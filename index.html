@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>베이 아카이브 - 베이블레이드 도감</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css"
+      type="text/css"
+    />
+  <link rel="stylesheet" href="./styles.css?v=20260613-overviewsize1" />
+  </head>
+  <body>
+    <div class="noise"></div>
+    <header class="topbar">
+      <a class="brand" href="#" data-home>
+        <span class="brand-mark">B</span>
+        <span><b>베이</b> 아카이브</span>
+      </a>
+      <nav class="nav">
+        <div class="nav-group">
+          <button class="nav-link" data-toy-section="product">제품</button>
+          <div class="nav-submenu nav-filter-menu" id="productFilters">
+            <button class="sub-filter active" type="button" data-product-filter="일반 판매">일반</button>
+            <div class="filter-group">
+              <button class="sub-filter" type="button" data-product-filter-group="limited">한정</button>
+              <div class="filter-submenu">
+                <button class="sub-filter" type="button" data-product-filter="한정 판매">한정 판매</button>
+                <button class="sub-filter" type="button" data-product-filter="한정 배포">한정 배포</button>
+              </div>
+            </div>
+            <button class="sub-filter" type="button" data-product-filter="게임">게임</button>
+          </div>
+        </div>
+        <div class="nav-group">
+          <button class="nav-link" data-toy-section="bey">베이</button>
+          <div class="nav-submenu nav-filter-menu" id="filters">
+            <div class="filter-group">
+              <button class="sub-filter active" data-filter-group="bey">베이</button>
+              <div class="filter-submenu">
+                <button class="sub-filter" data-filter="bey" data-structure="basic">기본</button>
+                <button class="sub-filter" data-filter="bey" data-structure="hybrid">하이브리드</button>
+                <button class="sub-filter" data-filter="bey" data-structure="4d">4D</button>
+                <button class="sub-filter" data-filter="bey" data-structure="synchrom">제로G</button>
+              </div>
+            </div>
+            <div class="filter-group">
+              <button class="sub-filter" data-filter-group="face">페이스</button>
+              <div class="filter-submenu">
+                <button class="sub-filter" data-filter="face">페이스</button>
+                <button class="sub-filter" data-filter="stoneface">스톤페이스</button>
+              </div>
+            </div>
+            <div class="filter-group">
+              <button class="sub-filter" data-filter-group="wheel">휠</button>
+              <div class="filter-submenu">
+                <button class="sub-filter" data-filter="wheel">휠</button>
+                <button class="sub-filter" data-filter="clearwheel">클리어휠</button>
+                <button class="sub-filter" data-filter="lightwheel">라이트휠</button>
+                <button class="sub-filter" data-filter="metalwheel">메탈휠</button>
+                <button class="sub-filter" data-filter="chromewheel">크롬휠</button>
+                <button class="sub-filter" data-filter="crystalwheel">크리스탈휠</button>
+              </div>
+            </div>
+            <button class="sub-filter" data-filter="track">트랙</button>
+            <div class="filter-group">
+              <button class="sub-filter" data-filter-group="bottom">버텀</button>
+              <div class="filter-submenu">
+                <button class="sub-filter" data-filter="bottom">버텀</button>
+                <button class="sub-filter" data-filter="fourdbottom">4D버텀</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="nav-group">
+          <button class="nav-link" data-toy-section="equipment">장비</button>
+          <div class="nav-submenu nav-filter-menu" id="equipmentFilters">
+            <button class="sub-filter active" type="button" data-equipment-filter="런처">런처</button>
+            <button class="sub-filter" type="button" data-equipment-filter="그립">그립</button>
+            <button class="sub-filter" type="button" data-equipment-filter="스타디움">스타디움</button>
+            <button class="sub-filter" type="button" data-equipment-filter="기타">기타</button>
+          </div>
+        </div>
+      </nav>
+      <button class="menu-button" id="menuButton" aria-label="메뉴 열기">
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+
+    <main>
+      <section class="catalog-section active" id="catalogContent">
+        <div class="toy-panel active overview-panel" data-toy-panel="overview">
+          <div class="overview-hero">
+            <h2>구조</h2>
+          </div>
+
+          <section class="overview-structure">
+            <div>
+              <div class="overview-tabs" id="overviewStructureTabs"></div>
+            </div>
+            <div class="overview-structure-card">
+              <div class="overview-structure-copy">
+                <h3 id="overviewStructureTitle">4단 구조 시스템</h3>
+                <p id="overviewStructureDesc">[설명]</p>
+                <div class="overview-parts" id="overviewStructureParts"></div>
+              </div>
+              <div class="overview-photo-area" aria-label="사진 영역"></div>
+            </div>
+          </section>
+        </div>
+
+        <div class="toy-panel" data-toy-panel="product">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">&nbsp;</p>
+              <h2>제품</h2>
+              <p class="section-copy">&nbsp;</p>
+            </div>
+            <p class="result-count"><b id="productCount">0</b>개 항목</p>
+          </div>
+          <div class="toolbar">
+            <label class="search-box">
+              <span aria-hidden="true"></span>
+              <input id="productSearch" type="search" placeholder="제품 검색" />
+            </label>
+          </div>
+          <div class="gear-grid product-grid" id="productGrid"></div>
+        </div>
+
+        <div class="toy-panel" data-toy-panel="bey">
+          <div class="section-heading">
+          <div>
+            <h2>베이</h2>
+          </div>
+          <p class="result-count"><b id="resultCount">0</b>개 항목</p>
+          </div>
+
+          <div class="toolbar">
+          <label class="search-box">
+            <span aria-hidden="true"></span>
+            <input id="searchInput" type="search" placeholder="베이 또는 부품 검색" />
+          </label>
+          </div>
+          <div class="gear-grid" id="gearGrid"></div>
+        </div>
+
+        <div class="toy-panel" data-toy-panel="equipment">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">&nbsp;</p>
+              <h2>장비</h2>
+              <p class="section-copy">&nbsp;</p>
+            </div>
+            <p class="result-count"><b id="equipmentCount">0</b>개 항목</p>
+          </div>
+          <div class="toolbar">
+            <label class="search-box">
+              <span aria-hidden="true"></span>
+              <input id="equipmentSearch" type="search" placeholder="장비 검색" />
+            </label>
+          </div>
+          <div class="gear-grid product-grid" id="equipmentGrid"></div>
+        </div>
+      </section>
+
+    </main>
+
+    <dialog id="detailModal">
+      <button class="modal-close" id="modalClose" aria-label="상세 닫기">×</button>
+      <div id="modalContent"></div>
+    </dialog>
+
+    <footer>
+      <a class="brand" href="#"><span class="brand-mark">B</span><span><b>베이</b> 아카이브</span></a>
+      <p> 블레이더를 위한 비공식 팬 아카이브</p>
+    </footer>
+    <button class="to-top" id="toTop" type="button" aria-label="맨 위로 이동">↑</button>
+  <script src="./app.js?v=20260613-overviewsize1"></script>
+  </body>
+</html>
