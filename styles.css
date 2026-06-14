@@ -195,7 +195,7 @@ article {
     align-items:center !important;
     justify-content:center !important;
     text-align:center !important;
-    font-size:18px !important;
+    font-size:15pt !important;
     font-weight:700 !important;
     line-height:1 !important; white-space:nowrap !important;
     border:0 !important;
@@ -277,7 +277,7 @@ article {
     align-items:center !important;
     justify-content:center !important;
     text-align:center !important;
-    font-size:16px !important;
+    font-size:15pt !important;
     font-weight:700 !important;
     line-height:1 !important;
     white-space:nowrap !important;
@@ -359,7 +359,7 @@ article {
     align-items:center !important;
     justify-content:center !important;
     text-align:center !important;
-    font-size:16px !important;
+    font-size:15pt !important;
     font-weight:700 !important;
     line-height:1 !important;
     white-space:nowrap !important;
@@ -422,7 +422,7 @@ article {
     align-items:center !important;
     justify-content:center !important;
     text-align:center !important;
-    font-size:16px !important;
+    font-size:15pt !important;
     font-weight:700 !important;
     line-height:1 !important;
     white-space:nowrap !important;
@@ -539,7 +539,7 @@ footer {
 }
 
 body {
-  font-size: 13pt !important;
+  font-size: 15pt !important;
 }
 
 .topbar {
@@ -592,7 +592,7 @@ body {
   background: transparent !important;
   box-shadow: none !important;
   color: var(--ui-muted) !important;
-  font-size: 18px !important;
+  font-size: 15pt !important;
   font-weight: 700 !important;
   line-height: 1 !important; text-align: center !important;
   white-space: nowrap !important;
@@ -662,7 +662,7 @@ body {
   background: transparent !important;
   box-shadow: none !important;
   color: var(--ui-muted) !important;
-  font-size: 16px !important;
+  font-size: 15pt !important;
   font-weight: 700 !important;
   line-height: 1 !important; text-align: center !important;
   white-space: nowrap !important;
@@ -808,6 +808,7 @@ body {
   background: transparent !important;
   color: var(--ui-control-text-active) !important;
   font: inherit !important;
+  font-size: 15pt !important;
 }
 
 .search-box span {
@@ -1108,7 +1109,7 @@ footer {
 }
 
 body {
-  font-size: 13pt !important;
+  font-size: 15pt !important;
 }
 
 .topbar {
@@ -1146,7 +1147,9 @@ body {
   overflow: visible !important;
 }
 
-.nav-link {
+.nav-link,
+.menu-open .nav-link,
+.menu-open .nav > .nav-link {
   width: 76px !important;
   min-width: 76px !important;
   height: 44px !important;
@@ -1160,7 +1163,7 @@ body {
   background: transparent !important;
   box-shadow: none !important;
   color: var(--ui-muted) !important;
-  font-size: 18px !important;
+  font-size: 15pt !important;
   font-weight: 700 !important;
   line-height: 1 !important; text-align: center !important;
   white-space: nowrap !important;
@@ -1226,7 +1229,7 @@ body {
   background: transparent !important;
   box-shadow: none !important;
   color: var(--ui-muted) !important;
-  font-size: 16px !important;
+  font-size: 15pt !important;
   font-weight: 700 !important;
   line-height: 1 !important; text-align: center !important;
   white-space: nowrap !important;
@@ -1887,7 +1890,7 @@ button.menu-button {
   gap: 12px !important;
   margin: 0 !important;
   color: var(--ui-muted) !important;
-  font-size: 13pt !important;
+  font-size: 15pt !important;
   font-weight: 700 !important;
   line-height: 1.2 !important; opacity: 1 !important;
 }
@@ -1904,8 +1907,8 @@ button.menu-button {
   z-index: 3 !important;
   margin: auto 0 4px !important;
   color: var(--ui-control-text-active) !important;
-  font-size: 18px !important;
-  font-weight: 900 !important;
+  font-size: 15pt !important;
+  font-weight: 700 !important;
   line-height: 1.18 !important; opacity: 1 !important;
 }
 
@@ -1928,7 +1931,7 @@ button.menu-button {
   position: relative !important;
   z-index: 3 !important;
   color: var(--ui-muted) !important;
-  font-size: 13pt !important;
+  font-size: 15pt !important;
   font-weight: 600 !important;
   line-height: 1.25 !important; opacity: 1 !important;
 }
@@ -2017,15 +2020,19 @@ button.menu-button {
 .menu-button:hover,
 .menu-button:focus-visible,
 .nav-filter-menu .filter,
+.nav-filter-menu .filter-group > .filter,
 .nav-filter-menu .sub-filter,
 .nav-filter-menu .filter:hover,
+.nav-filter-menu .filter-group > .filter:hover,
 .nav-filter-menu .sub-filter:hover,
 .nav-filter-menu .filter:focus-visible,
+.nav-filter-menu .filter-group > .filter:focus-visible,
 .nav-filter-menu .sub-filter:focus-visible,
 .nav-filter-menu .filter-group:hover > .filter,
 .nav-filter-menu .filter-group:hover > .sub-filter,
 .menu-open .nav-link,
 .menu-open .nav-filter-menu .filter,
+.menu-open .nav-filter-menu .filter-group > .filter,
 .menu-open .nav-filter-menu .sub-filter {
   border-radius: 12px !important;
   opacity: 1 !important;
@@ -2034,17 +2041,72 @@ button.menu-button {
 }
 
 .nav-link {
+  box-sizing: border-box !important;
+  width: 76px !important;
+  min-width: 76px !important;
+  max-width: 76px !important;
+  height: 44px !important;
+  min-height: 44px !important;
+  max-height: 44px !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 0 !important;
+  outline: 0 !important;
+  font-size: 15pt !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  transform: none !important;
   background: transparent !important;
   color: var(--ui-muted) !important;
 }
 
 .nav-link:hover,
-.nav-link:focus-visible {
+.nav-link:focus-visible,
+.menu-open .nav-link:hover,
+.menu-open .nav-link:focus-visible,
+.menu-open .nav > .nav-link:hover,
+.menu-open .nav > .nav-link:focus-visible {
+  width: 76px !important;
+  min-width: 76px !important;
+  max-width: 76px !important;
+  height: 44px !important;
+  min-height: 44px !important;
+  max-height: 44px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  outline: 0 !important;
+  font-size: 15pt !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  transform: none !important;
   background: var(--ui-control-hover) !important;
   color: var(--ui-control-text-active) !important;
 }
 
-.nav-link.active {
+.nav-link.active,
+.menu-open .nav-link.active,
+.menu-open .nav > .nav-link.active {
+  width: 76px !important;
+  min-width: 76px !important;
+  max-width: 76px !important;
+  height: 44px !important;
+  min-height: 44px !important;
+  max-height: 44px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  outline: 0 !important;
+  font-size: 15pt !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  transform: none !important;
   background: var(--ui-control-active) !important;
   color: var(--ui-control-text-active) !important;
 }
@@ -2060,35 +2122,122 @@ button.menu-button {
 }
 
 .nav-filter-menu .filter,
-.nav-filter-menu .sub-filter {
+.nav-filter-menu .filter-group > .filter,
+.nav-filter-menu .sub-filter,
+.nav-filter-menu > .sub-filter,
+.nav-filter-menu > .filter-group > .sub-filter,
+.nav-filter-menu .filter-submenu .sub-filter,
+.menu-open .nav-filter-menu .filter,
+.menu-open .nav-filter-menu .filter-group > .filter,
+.menu-open .nav-filter-menu .sub-filter,
+.menu-open .nav-filter-menu > .sub-filter,
+.menu-open .nav-filter-menu > .filter-group > .sub-filter,
+.menu-open .nav-filter-menu .filter-submenu .sub-filter {
+  box-sizing: border-box !important;
+  width: var(--ui-item-width) !important;
+  min-width: var(--ui-item-width) !important;
+  max-width: var(--ui-item-width) !important;
+  height: 40px !important;
+  min-height: 40px !important;
+  max-height: 40px !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   background: transparent !important;
   color: var(--ui-muted) !important;
   border: 0 !important;
+  outline: 0 !important;
+  font-size: 15pt !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  transform: none !important;
 }
 
 .nav-filter-menu .filter:hover,
+.nav-filter-menu .filter-group > .filter:hover,
 .nav-filter-menu .sub-filter:hover,
 .nav-filter-menu .filter:focus-visible,
+.nav-filter-menu .filter-group > .filter:focus-visible,
 .nav-filter-menu .sub-filter:focus-visible,
 .nav-filter-menu .filter-group:hover > .filter,
-.nav-filter-menu .filter-group:hover > .sub-filter {
+.nav-filter-menu .filter-group.open > .filter,
+.nav-filter-menu .filter-group:hover > .sub-filter,
+.nav-filter-menu > .sub-filter:hover,
+.nav-filter-menu > .filter-group > .sub-filter:hover,
+.nav-filter-menu .filter-submenu .sub-filter:hover,
+.menu-open .nav-filter-menu .filter:hover,
+.menu-open .nav-filter-menu .filter-group > .filter:hover,
+.menu-open .nav-filter-menu .sub-filter:hover,
+.menu-open .nav-filter-menu .filter:focus-visible,
+.menu-open .nav-filter-menu .filter-group > .filter:focus-visible,
+.menu-open .nav-filter-menu .sub-filter:focus-visible,
+.menu-open .nav-filter-menu .filter-group:hover > .filter,
+.menu-open .nav-filter-menu .filter-group.open > .filter,
+.menu-open .nav-filter-menu .filter-group:hover > .sub-filter,
+.menu-open .nav-filter-menu > .sub-filter:hover,
+.menu-open .nav-filter-menu > .filter-group > .sub-filter:hover,
+.menu-open .nav-filter-menu .filter-submenu .sub-filter:hover {
+  width: var(--ui-item-width) !important;
+  min-width: var(--ui-item-width) !important;
+  max-width: var(--ui-item-width) !important;
+  height: 40px !important;
+  min-height: 40px !important;
+  max-height: 40px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  outline: 0 !important;
+  font-size: 15pt !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  transform: none !important;
   background: var(--ui-control-hover) !important;
   color: var(--ui-control-text-active) !important;
   border-radius: 12px !important;
 }
 
 .nav-filter-menu .filter.active,
+.nav-filter-menu .filter-group > .filter.active,
 .nav-filter-menu .sub-filter.active,
 .nav-filter-menu .filter[aria-selected="true"],
-.nav-filter-menu .sub-filter[aria-selected="true"] {
+.nav-filter-menu .filter-group > .filter[aria-selected="true"],
+.nav-filter-menu .sub-filter[aria-selected="true"],
+.menu-open .nav-filter-menu .filter.active,
+.menu-open .nav-filter-menu .filter-group > .filter.active,
+.menu-open .nav-filter-menu .sub-filter.active,
+.menu-open .nav-filter-menu .filter[aria-selected="true"],
+.menu-open .nav-filter-menu .filter-group > .filter[aria-selected="true"],
+.menu-open .nav-filter-menu .sub-filter[aria-selected="true"] {
+  font-size: 15pt !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
   background: transparent !important;
   color: var(--ui-muted) !important;
 }
 
 .nav-filter-menu .filter.active:hover,
+.nav-filter-menu .filter-group > .filter.active:hover,
 .nav-filter-menu .sub-filter.active:hover,
 .nav-filter-menu .filter[aria-selected="true"]:hover,
-.nav-filter-menu .sub-filter[aria-selected="true"]:hover {
+.nav-filter-menu .filter-group > .filter[aria-selected="true"]:hover,
+.nav-filter-menu .sub-filter[aria-selected="true"]:hover,
+.menu-open .nav-filter-menu .filter.active:hover,
+.menu-open .nav-filter-menu .filter-group > .filter.active:hover,
+.menu-open .nav-filter-menu .sub-filter.active:hover,
+.menu-open .nav-filter-menu .filter[aria-selected="true"]:hover,
+.menu-open .nav-filter-menu .filter-group > .filter[aria-selected="true"]:hover,
+.menu-open .nav-filter-menu .sub-filter[aria-selected="true"]:hover {
+  font-size: 15pt !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
   background: var(--ui-control-hover) !important;
   color: var(--ui-control-text-active) !important;
 }
@@ -2403,8 +2552,8 @@ dialog[open] #modalClose.modal-close:hover {
   background: var(--ui-control) !important;
   color: var(--ui-tag-text) !important;
   font: inherit !important;
-  font-size: 15px !important;
-  font-weight: 700 !important;
+  font-size: 15pt !important;
+  font-weight: 500 !important;
   line-height: 1 !important;
   white-space: nowrap !important;
   box-shadow: none !important;
@@ -2572,7 +2721,7 @@ dialog[open] .modal-en {
   display: inline-block !important;
   margin-left: 0 !important;
   color: var(--ui-modal-subtext) !important;
-  font-size: 16px !important;
+  font-size: 13pt !important;
   font-weight: 600 !important;
   line-height: 1 !important;
   opacity: .9 !important;
@@ -2662,7 +2811,7 @@ dialog[open] .product-modal-name {
   display: inline !important;
   margin-left: 10px !important;
   color: var(--ui-modal-subtext) !important;
-  font-size: 16px !important;
+  font-size: 13pt !important;
   font-weight: 600 !important;
   line-height: 1 !important;
   white-space: nowrap !important;
@@ -2670,7 +2819,7 @@ dialog[open] .product-modal-name {
 
 .product-modal-extra {
   color: var(--ui-muted) !important;
-  font-size: 15px !important;
+  font-size: 13pt !important;
   font-weight: 600 !important;
   line-height: 1.45 !important;
   text-align: right !important;
@@ -2713,7 +2862,7 @@ dialog[open] .product-modal-name {
   background: transparent !important;
   background-image: none !important;
   color: var(--ui-text) !important;
-  font-size: 15px !important;
+  font-size: 15pt !important;
   font-weight: 400 !important;
   line-height: 1.2 !important;
   text-decoration: none !important;
@@ -2726,7 +2875,7 @@ dialog[open] .product-modal-name {
 .product-composition-item > span {
   min-width: 0 !important;
   justify-self: start !important;
-  font-weight: 700 !important;
+  font-weight: 500 !important;
   text-align: left !important;
 }
 
@@ -2737,7 +2886,7 @@ dialog[open] .product-modal-name {
 
 .product-composition-item > b {
   justify-self: end !important;
-  font-weight: 700 !important;
+  font-weight: 500 !important;
   text-align: right !important;
 }
 
@@ -2781,7 +2930,7 @@ dialog[open] .product-modal-name {
   padding: 8px 5px !important;
   border-radius: 10px !important;
   color: var(--ui-text) !important;
-  font-size: 15px !important;
+  font-size: 15pt !important;
   font-weight: 700 !important;
   line-height: 1.25 !important;
   text-align: center !important;
@@ -2833,7 +2982,7 @@ dialog[open] .product-modal-name {
   background: transparent !important;
   background-image: none !important;
   color: var(--ui-text) !important;
-  font-size: 15px !important;
+  font-size: 15pt !important;
   line-height: 1.2 !important;
   box-shadow: none !important;
   filter: none !important;
@@ -2844,13 +2993,13 @@ dialog[open] .product-modal-name {
 
 .mounted-link > * {
   justify-self: start !important;
-  font-weight: 700 !important;
+  font-weight: 500 !important;
   text-align: left !important;
 }
 
 .mounted-link > :last-child {
   justify-self: end !important;
-  font-weight: 700 !important;
+  font-weight: 500 !important;
   text-align: right !important;
 }
 
@@ -2944,21 +3093,21 @@ dialog[open] .product-modal-art {
   gap: 12px !important;
   margin: 9px 0 !important;
   color: var(--ui-text) !important;
-  font-size: 15px !important;
+  font-size: 15pt !important;
   line-height: 1.35 !important;
 }
 
 .stat-row span,
 .track-height-row span {
-  font-size: 15px !important;
-  font-weight: 600 !important;
+  font-size: 15pt !important;
+  font-weight: 500 !important;
   text-align: left !important;
 }
 
 .stat-row b,
 .track-height-row b {
-  font-size: 15px !important;
-  font-weight: 700 !important;
+  font-size: 15pt !important;
+  font-weight: 500 !important;
   text-align: left !important;
   white-space: nowrap !important;
   color: var(--ui-text) !important;
@@ -2996,7 +3145,7 @@ dialog[open] .product-modal-art {
 .mode-title {
   margin: 0 0 8px !important;
   color: var(--ui-text) !important;
-  font-size: 15px !important;
+  font-size: 15pt !important;
   font-weight: 700 !important;
   line-height: 1.35 !important;
 }
@@ -3004,7 +3153,7 @@ dialog[open] .product-modal-art {
 .stat-note {
   margin: 12px 0 0 !important;
   color: var(--ui-muted) !important;
-  font-size: 15px !important;
+  font-size: 15pt !important;
   line-height: 1.6 !important;
 }
 
@@ -3234,7 +3383,7 @@ dialog[open] .product-modal-art {
   border-radius: var(--ui-radius) !important;
   background: transparent !important;
   color: var(--ui-muted) !important;
-  font-size: 15px !important;
+  font-size: 15pt !important;
   font-weight: 800 !important;
   text-align: center !important;
   box-shadow: none !important;
@@ -3269,7 +3418,7 @@ dialog[open] .product-modal-art {
   max-width: 680px !important;
   margin: 14px 0 0 !important;
   color: var(--ui-muted) !important;
-  font-size: 16px !important;
+  font-size: 15pt !important;
   font-weight: 600 !important;
   line-height: 1.7 !important;
 }
@@ -3290,7 +3439,7 @@ dialog[open] .product-modal-art {
   border-radius: var(--ui-radius) !important;
   background: var(--ui-surface) !important;
   color: var(--ui-text) !important;
-  font-size: 15px !important;
+  font-size: 15pt !important;
   font-weight: 800 !important;
 }
 
