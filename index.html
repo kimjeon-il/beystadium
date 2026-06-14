@@ -4,12 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>베이 아카이브 - 베이블레이드 도감</title>
+    <style>
+      @font-face {
+        font-family: "Pretendard Variable";
+        font-style: normal;
+        font-weight: 45 920;
+        font-display: block;
+        src: url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/woff2/PretendardVariable.woff2") format("woff2");
+      }
+      html {
+        font-family: "Pretendard Variable", "Pretendard", "Noto Sans KR", system-ui, sans-serif;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      body { margin: 0; }
+      button, input, select, textarea { font-family: inherit; }
+    </style>
     <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css"
-      type="text/css"
+      rel="preload"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/woff2/PretendardVariable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
-  <link rel="stylesheet" href="./styles.css?v=20260614-overviewsize2" />
+  <link rel="stylesheet" href="./styles.css?v=20260614-fontload3" />
   </head>
   <body>
     <div class="noise"></div>
@@ -176,6 +196,6 @@
       <p> 블레이더를 위한 비공식 팬 아카이브</p>
     </footer>
     <button class="to-top" id="toTop" type="button" aria-label="맨 위로 이동">↑</button>
-  <script src="./app.js?v=20260614-overviewsize2"></script>
+  <script src="./app.js?v=20260614-fontload3"></script>
   </body>
 </html>

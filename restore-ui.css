@@ -328,14 +328,10 @@ body {
 .section-heading h2 {
   margin: 0 !important;
   color: var(--ui-text) !important;
-  font-size: clamp(32px, 3.5vw, 56px) !important;
+  font-size: clamp(38px, 4vw, 56px) !important;
   font-weight: 900 !important;
   letter-spacing: -0.08em !important;
   line-height: 1.02 !important;
-  white-space: nowrap !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-  max-width: 100% !important;
 }
 
 .section-copy,
