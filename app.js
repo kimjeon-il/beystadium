@@ -827,15 +827,33 @@ const equipmentSortOrder = item => {
   };
   return order[item.id] ?? 1000;
 };
+const visibleProductItems = () => {
+  const query = document.querySelector("#productSearch")?.value.trim() || "";
+  return productItems
+    .filter(item => (!productFilter || (Array.isArray(productFilter) ? productFilter.includes(item.sale) : item.sale === productFilter)) && productMatchesSearch(item, query))
+    .sort((a, b) => productSerialNumber(a) - productSerialNumber(b));
+};
+const visibleEquipmentItems = () => {
+  const query = document.querySelector("#equipmentSearch")?.value.trim() || "";
+  return equipmentItems
+    .filter(item => (!equipmentFilter || item.category === equipmentFilter) && equipmentMatchesSearch(item, query))
+    .sort((a, b) => equipmentSortOrder(a) - equipmentSortOrder(b) || a.name.localeCompare(b.name, "ko"));
+};
+const visibleGearItems = () => {
+  const query = search.value.trim();
+  return items
+    .filter(item => (filter === "all" || (filterTypes ? filterTypes.includes(item.type) : item.type === filter)) && (!filterStructure || item.structure === filterStructure) && itemMatchesSearch(item, query))
+    .sort((a, b) => {
+      if (a.type === "bey" && b.type === "bey") return beySerialNumber(a) - beySerialNumber(b);
+      if (filter === "wheel" && filterTypes) return (wheelTypeOrder[a.type] ?? 99) - (wheelTypeOrder[b.type] ?? 99);
+      return 0;
+    });
+};
 const renderProductCards = () => {
   const grid = document.querySelector("#productGrid");
   const count = document.querySelector("#productCount");
-  const searchInput = document.querySelector("#productSearch");
-  if (!grid || !count || !searchInput) return;
-  const query = searchInput.value.trim();
-  const visible = productItems
-    .filter(item => (!productFilter || (Array.isArray(productFilter) ? productFilter.includes(item.sale) : item.sale === productFilter)) && productMatchesSearch(item, query))
-    .sort((a, b) => productSerialNumber(a) - productSerialNumber(b));
+  if (!grid || !count) return;
+  const visible = visibleProductItems();
   count.textContent = visible.length;
   grid.innerHTML = visible.map(item => productCard(item)).join("");
   grid.querySelectorAll(".product-card").forEach(card => card.addEventListener("click", () => openProductDetail(card.dataset.productId)));
@@ -843,12 +861,8 @@ const renderProductCards = () => {
 const renderEquipmentCards = () => {
   const grid = document.querySelector("#equipmentGrid");
   const count = document.querySelector("#equipmentCount");
-  const searchInput = document.querySelector("#equipmentSearch");
-  if (!grid || !count || !searchInput) return;
-  const query = searchInput.value.trim();
-  const visible = equipmentItems
-    .filter(item => (!equipmentFilter || item.category === equipmentFilter) && equipmentMatchesSearch(item, query))
-    .sort((a, b) => equipmentSortOrder(a) - equipmentSortOrder(b) || a.name.localeCompare(b.name, "ko"));
+  if (!grid || !count) return;
+  const visible = visibleEquipmentItems();
   count.textContent = visible.length;
   grid.innerHTML = visible.map(item => equipmentCard(item)).join("");
   grid.querySelectorAll(".product-card").forEach(card => card.addEventListener("click", () => openEquipmentDetail(card.dataset.equipmentId)));
@@ -1019,14 +1033,7 @@ async function initModelViewer() {
 }
 
 function renderCards() {
-  const query = search.value.trim();
-  const visible = items
-    .filter(item => (filter === "all" || (filterTypes ? filterTypes.includes(item.type) : item.type === filter)) && (!filterStructure || item.structure === filterStructure) && itemMatchesSearch(item, query))
-    .sort((a, b) => {
-      if (a.type === "bey" && b.type === "bey") return beySerialNumber(a) - beySerialNumber(b);
-      if (filter === "wheel" && filterTypes) return (wheelTypeOrder[a.type] ?? 99) - (wheelTypeOrder[b.type] ?? 99);
-      return 0;
-    });
+  const visible = visibleGearItems();
   count.textContent = visible.length;
   grid.innerHTML = visible.map(item => `
     <button class="gear-card${item.type === "bey" ? " bey-card" : ""}" data-id="${item.id}">
@@ -1308,7 +1315,8 @@ function openDetail(id, options = {}) {
     modelViewerCleanup = null;
   }
   const description = item.desc ? `<p>${item.desc}</p>` : "";
-  document.querySelector("#modalContent").innerHTML = `${modalStepButtons(items, item.id, "item")}<div class="modal-inner">
+  const stepItems = visibleGearItems().some(entry => entry.id === item.id) ? visibleGearItems() : items;
+  document.querySelector("#modalContent").innerHTML = `${modalStepButtons(stepItems, item.id, "item")}<div class="modal-inner">
     <div class="modal-art">${modalArt(item)}</div>
     <div class="modal-info">${detailHeading(item)}
     ${description}${item.type === "bey" ? beyDetailSections(item) : `<div class="modal-tags">${modalTags(item)}</div>${partStats(item)}`}${detailBackButton(options.backId, options.backProductId)}</div></div>`;
@@ -1381,7 +1389,8 @@ function openProductDetail(id, options = {}) {
     modelViewerCleanup = null;
   }
   const backButton = options.backProductId ? `<button class="modal-back icon-back-button" type="button" data-back-product-id="${options.backProductId}" aria-label="제품으로 돌아가기">←</button>` : "";
-  document.querySelector("#modalContent").innerHTML = `${modalStepButtons(productItems, item.id, "product")}<div class="modal-inner">
+  const stepItems = visibleProductItems().some(entry => entry.id === item.id) ? visibleProductItems() : productItems.slice().sort((a, b) => productSerialNumber(a) - productSerialNumber(b));
+  document.querySelector("#modalContent").innerHTML = `${modalStepButtons(stepItems, item.id, "product")}<div class="modal-inner">
     <div class="modal-art product-modal-art"></div>
     <div class="modal-info">
     ${productHeader(item)}
@@ -1408,7 +1417,8 @@ function openEquipmentDetail(id, options = {}) {
     modelViewerCleanup = null;
   }
   const backButton = options.backProductId ? `<button class="modal-back icon-back-button" type="button" data-back-product-id="${options.backProductId}" aria-label="제품으로 돌아가기">←</button>` : "";
-  document.querySelector("#modalContent").innerHTML = `${modalStepButtons(equipmentItems, item.id, "equipment")}<div class="modal-inner">
+  const stepItems = visibleEquipmentItems().some(entry => entry.id === item.id) ? visibleEquipmentItems() : equipmentItems.slice().sort((a, b) => equipmentSortOrder(a) - equipmentSortOrder(b) || a.name.localeCompare(b.name, "ko"));
+  document.querySelector("#modalContent").innerHTML = `${modalStepButtons(stepItems, item.id, "equipment")}<div class="modal-inner">
     <div class="modal-art"></div>
     <div class="modal-info"><h3 class="modal-name">${item.name}<small class="modal-en">${item.en}</small></h3>
     <p>${item.desc}</p><div class="modal-tags"><span>${item.category}</span></div>${backButton}</div></div>`;

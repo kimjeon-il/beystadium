@@ -4,6 +4,15 @@ body { margin: 0; }
 button, input, select, textarea { font-family:inherit; }
 button, input { font: inherit; }
 button { cursor: pointer; }
+a,
+button,
+input,
+select,
+textarea,
+[role="button"],
+[tabindex] {
+  -webkit-tap-highlight-color: transparent;
+}
 /* Unified UI system layer */
 :root {
   --ui-bg:#F0F2F5;
@@ -113,7 +122,7 @@ article {
 }
 
 .section-heading h2 {
-  font-size: clamp(42px, 4vw, 58px) !important;
+  font-size: clamp(2.625rem, 4vw, 3.625rem) !important;
 }
 
 .toolbar {
@@ -195,7 +204,7 @@ article {
     align-items:center !important;
     justify-content:center !important;
     text-align:center !important;
-    font-size:15pt !important;
+    font-size:1rem !important;
     font-weight:700 !important;
     line-height:1 !important; white-space:nowrap !important;
     border:0 !important;
@@ -277,7 +286,7 @@ article {
     align-items:center !important;
     justify-content:center !important;
     text-align:center !important;
-    font-size:15pt !important;
+    font-size:1rem !important;
     font-weight:700 !important;
     line-height:1 !important;
     white-space:nowrap !important;
@@ -359,7 +368,7 @@ article {
     align-items:center !important;
     justify-content:center !important;
     text-align:center !important;
-    font-size:15pt !important;
+    font-size:1rem !important;
     font-weight:700 !important;
     line-height:1 !important;
     white-space:nowrap !important;
@@ -422,7 +431,7 @@ article {
     align-items:center !important;
     justify-content:center !important;
     text-align:center !important;
-    font-size:15pt !important;
+    font-size:1rem !important;
     font-weight:700 !important;
     line-height:1 !important;
     white-space:nowrap !important;
@@ -539,7 +548,7 @@ footer {
 }
 
 body {
-  font-size: 15pt !important;
+  font-size: 1rem !important;
 }
 
 .topbar {
@@ -592,7 +601,7 @@ body {
   background: transparent !important;
   box-shadow: none !important;
   color: var(--ui-muted) !important;
-  font-size: 15pt !important;
+  font-size: 1rem !important;
   font-weight: 700 !important;
   line-height: 1 !important; text-align: center !important;
   white-space: nowrap !important;
@@ -662,7 +671,7 @@ body {
   background: transparent !important;
   box-shadow: none !important;
   color: var(--ui-muted) !important;
-  font-size: 15pt !important;
+  font-size: 1rem !important;
   font-weight: 700 !important;
   line-height: 1 !important; text-align: center !important;
   white-space: nowrap !important;
@@ -749,7 +758,7 @@ body {
 .section-heading h2 {
   margin: 0 !important;
   color: var(--ui-text) !important;
-  font-size: clamp(38px, 4vw, 56px) !important;
+  font-size: clamp(2.375rem, 4vw, 3.5rem) !important;
   font-weight: 900 !important; line-height: 1.02 !important;
 }
 
@@ -808,7 +817,7 @@ body {
   background: transparent !important;
   color: var(--ui-control-text-active) !important;
   font: inherit !important;
-  font-size: 15pt !important;
+  font-size: 1rem !important;
 }
 
 .search-box span {
@@ -1109,7 +1118,7 @@ footer {
 }
 
 body {
-  font-size: 15pt !important;
+  font-size: 1rem !important;
 }
 
 .topbar {
@@ -1163,7 +1172,7 @@ body {
   background: transparent !important;
   box-shadow: none !important;
   color: var(--ui-muted) !important;
-  font-size: 15pt !important;
+  font-size: 1rem !important;
   font-weight: 700 !important;
   line-height: 1 !important; text-align: center !important;
   white-space: nowrap !important;
@@ -1229,7 +1238,7 @@ body {
   background: transparent !important;
   box-shadow: none !important;
   color: var(--ui-muted) !important;
-  font-size: 15pt !important;
+  font-size: 1rem !important;
   font-weight: 700 !important;
   line-height: 1 !important; text-align: center !important;
   white-space: nowrap !important;
@@ -1315,7 +1324,7 @@ body {
 .section-heading h2 {
   margin: 0 !important;
   color: var(--ui-text) !important;
-  font-size: clamp(38px, 4vw, 56px) !important;
+  font-size: clamp(2.375rem, 4vw, 3.5rem) !important;
   font-weight: 900 !important; line-height: 1.02 !important;
 }
 
@@ -1592,7 +1601,7 @@ button.icon-back-button,
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  font-size: 22px !important;
+  font-size: 1.375rem !important;
   font-weight: 700 !important;
   line-height: 1 !important; text-indent: 0 !important;
   white-space: nowrap !important;
@@ -1664,7 +1673,7 @@ dialog[open] .back-to-bey:hover {
   background: transparent !important;
   color: var(--ui-control-text) !important;
   box-shadow: none !important;
-  font-size: 22px !important;
+  font-size: 1.375rem !important;
   font-weight: 700 !important;
   line-height: 1 !important;
   text-indent: 0 !important;
@@ -1890,7 +1899,7 @@ button.menu-button {
   gap: 12px !important;
   margin: 0 !important;
   color: var(--ui-muted) !important;
-  font-size: 15pt !important;
+  font-size: 1rem !important;
   font-weight: 700 !important;
   line-height: 1.2 !important; opacity: 1 !important;
 }
@@ -1907,7 +1916,7 @@ button.menu-button {
   z-index: 3 !important;
   margin: auto 0 4px !important;
   color: var(--ui-control-text-active) !important;
-  font-size: 15pt !important;
+  font-size: 1rem !important;
   font-weight: 700 !important;
   line-height: 1.18 !important; opacity: 1 !important;
 }
@@ -1931,7 +1940,7 @@ button.menu-button {
   position: relative !important;
   z-index: 3 !important;
   color: var(--ui-muted) !important;
-  font-size: 15pt !important;
+  font-size: 1rem !important;
   font-weight: 600 !important;
   line-height: 1.25 !important; opacity: 1 !important;
 }
@@ -2054,7 +2063,7 @@ button.menu-button {
   justify-content: center !important;
   border: 0 !important;
   outline: 0 !important;
-  font-size: 15pt !important;
+  font-size: 1rem !important;
   font-weight: 700 !important;
   line-height: 1 !important;
   text-align: center !important;
@@ -2079,7 +2088,7 @@ button.menu-button {
   padding: 0 !important;
   border: 0 !important;
   outline: 0 !important;
-  font-size: 15pt !important;
+  font-size: 1rem !important;
   font-weight: 700 !important;
   line-height: 1 !important;
   text-align: center !important;
@@ -2101,7 +2110,7 @@ button.menu-button {
   padding: 0 !important;
   border: 0 !important;
   outline: 0 !important;
-  font-size: 15pt !important;
+  font-size: 1rem !important;
   font-weight: 700 !important;
   line-height: 1 !important;
   text-align: center !important;
@@ -2148,7 +2157,7 @@ button.menu-button {
   color: var(--ui-muted) !important;
   border: 0 !important;
   outline: 0 !important;
-  font-size: 15pt !important;
+  font-size: 1rem !important;
   font-weight: 700 !important;
   line-height: 1 !important;
   text-align: center !important;
@@ -2189,7 +2198,7 @@ button.menu-button {
   padding: 0 !important;
   border: 0 !important;
   outline: 0 !important;
-  font-size: 15pt !important;
+  font-size: 1rem !important;
   font-weight: 700 !important;
   line-height: 1 !important;
   text-align: center !important;
@@ -2212,7 +2221,7 @@ button.menu-button {
 .menu-open .nav-filter-menu .filter[aria-selected="true"],
 .menu-open .nav-filter-menu .filter-group > .filter[aria-selected="true"],
 .menu-open .nav-filter-menu .sub-filter[aria-selected="true"] {
-  font-size: 15pt !important;
+  font-size: 1rem !important;
   font-weight: 700 !important;
   line-height: 1 !important;
   text-align: center !important;
@@ -2233,7 +2242,7 @@ button.menu-button {
 .menu-open .nav-filter-menu .filter[aria-selected="true"]:hover,
 .menu-open .nav-filter-menu .filter-group > .filter[aria-selected="true"]:hover,
 .menu-open .nav-filter-menu .sub-filter[aria-selected="true"]:hover {
-  font-size: 15pt !important;
+  font-size: 1rem !important;
   font-weight: 700 !important;
   line-height: 1 !important;
   text-align: center !important;
@@ -2357,7 +2366,7 @@ dialog[open] #modalClose.modal-close {
   color: var(--ui-control-text) !important;
   box-shadow: none !important;
   filter: none !important;
-  font-size: 22px !important;
+  font-size: 1.375rem !important;
   font-weight: 700 !important;
   line-height: 1 !important; text-indent: 0 !important;
   transform: none !important;
@@ -2398,7 +2407,7 @@ dialog[open] #modalClose.modal-close:hover {
   background: transparent !important;
   color: var(--ui-control-text) !important;
   box-shadow: none !important;
-  font-size: 24px !important;
+  font-size: 1.375rem !important;
   font-weight: 700 !important;
   line-height: 1 !important;
   text-indent: 0 !important;
@@ -2412,11 +2421,11 @@ dialog[open] #modalClose.modal-close:hover {
 }
 
 .modal-step-prev::before {
-  content: "‹" !important;
+  content: "←" !important;
 }
 
 .modal-step-next::before {
-  content: "›" !important;
+  content: "→" !important;
 }
 
 .modal-step-prev {
@@ -2430,6 +2439,40 @@ dialog[open] #modalClose.modal-close:hover {
 .modal-step:hover {
   background: var(--ui-control-hover) !important;
   color: var(--ui-control-text-active) !important;
+}
+
+@media (max-width: 1092px) {
+  .modal-step {
+    top: auto !important;
+    bottom: calc(50dvh - (min(620px, calc(100dvh - 48px)) / 2) + 22px) !important;
+    transform: none !important;
+  }
+
+  .modal-step::before {
+    transform: none !important;
+  }
+
+  .modal-step-prev {
+    left: calc(50dvw - (min(980px, calc(100dvw - 48px)) / 2) + (min(980px, calc(100dvw - 48px)) * 0.38) + 42px) !important;
+  }
+
+  .modal-step-next {
+    right: calc(50dvw - (min(980px, calc(100dvw - 48px)) / 2) + 42px) !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .modal-step {
+    bottom: 22px !important;
+  }
+
+  .modal-step-prev {
+    left: 34px !important;
+  }
+
+  .modal-step-next {
+    right: 34px !important;
+  }
 }
 /* Bey heading keeps only the title; remove reserved copy/eyebrow space. */
 .toy-panel[data-toy-panel="bey"] .section-heading {
@@ -2474,7 +2517,7 @@ dialog[open] #modalClose.modal-close:hover {
 
 .toy-panel[data-toy-panel] .section-heading h2 {
   margin: 0 !important;
-  font-size: clamp(42px, 4.2vw, 58px) !important;
+  font-size: clamp(2.625rem, 4.2vw, 3.625rem) !important;
   line-height: 1 !important;
   color: var(--ui-text) !important;
   white-space: nowrap !important;
@@ -2552,8 +2595,8 @@ dialog[open] #modalClose.modal-close:hover {
   background: var(--ui-control) !important;
   color: var(--ui-tag-text) !important;
   font: inherit !important;
-  font-size: 15pt !important;
-  font-weight: 500 !important;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
   line-height: 1 !important;
   white-space: nowrap !important;
   box-shadow: none !important;
@@ -2582,6 +2625,11 @@ dialog[open] {
 
 #detailModal[open] {
   overflow: hidden !important;
+}
+
+dialog[open] .modal-info > p {
+  font-weight: 400 !important;
+  min-height: calc(1.6em * 2) !important;
 }
 
 #modalContent {
@@ -2711,7 +2759,7 @@ dialog[open] .modal-name {
   column-gap: 10px !important;
   row-gap: 2px !important;
   margin: 0 0 24px !important;
-  font-size: clamp(28px, 2.6vw, 40px) !important;
+  font-size: clamp(1.75rem, 2.6vw, 2.5rem) !important;
   font-weight: 900 !important; line-height: 1.15 !important;
   color: var(--ui-text) !important;
   word-break: keep-all !important;
@@ -2721,7 +2769,7 @@ dialog[open] .modal-en {
   display: inline-block !important;
   margin-left: 0 !important;
   color: var(--ui-modal-subtext) !important;
-  font-size: 13pt !important;
+  font-size: 1.083333rem !important;
   font-weight: 600 !important;
   line-height: 1 !important;
   opacity: .9 !important;
@@ -2811,7 +2859,7 @@ dialog[open] .product-modal-name {
   display: inline !important;
   margin-left: 10px !important;
   color: var(--ui-modal-subtext) !important;
-  font-size: 13pt !important;
+  font-size: 1.083333rem !important;
   font-weight: 600 !important;
   line-height: 1 !important;
   white-space: nowrap !important;
@@ -2819,7 +2867,7 @@ dialog[open] .product-modal-name {
 
 .product-modal-extra {
   color: var(--ui-muted) !important;
-  font-size: 13pt !important;
+  font-size: 1.083333rem !important;
   font-weight: 600 !important;
   line-height: 1.45 !important;
   text-align: right !important;
@@ -2830,8 +2878,8 @@ dialog[open] .product-modal-name {
 .mounted-title {
   margin: 0 0 8px !important;
   color: var(--ui-text) !important;
-  font-size: 20px !important;
-  font-weight: 800 !important;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
   line-height: 1.2 !important;
   padding: 0 10px !important;
 }
@@ -2862,7 +2910,7 @@ dialog[open] .product-modal-name {
   background: transparent !important;
   background-image: none !important;
   color: var(--ui-text) !important;
-  font-size: 15pt !important;
+  font-size: 1rem !important;
   font-weight: 400 !important;
   line-height: 1.2 !important;
   text-decoration: none !important;
@@ -2875,7 +2923,7 @@ dialog[open] .product-modal-name {
 .product-composition-item > span {
   min-width: 0 !important;
   justify-self: start !important;
-  font-weight: 500 !important;
+  font-weight: 400 !important;
   text-align: left !important;
 }
 
@@ -2886,7 +2934,7 @@ dialog[open] .product-modal-name {
 
 .product-composition-item > b {
   justify-self: end !important;
-  font-weight: 500 !important;
+  font-weight: 400 !important;
   text-align: right !important;
 }
 
@@ -2930,7 +2978,7 @@ dialog[open] .product-modal-name {
   padding: 8px 5px !important;
   border-radius: 10px !important;
   color: var(--ui-text) !important;
-  font-size: 15pt !important;
+  font-size: 1rem !important;
   font-weight: 700 !important;
   line-height: 1.25 !important;
   text-align: center !important;
@@ -2982,7 +3030,7 @@ dialog[open] .product-modal-name {
   background: transparent !important;
   background-image: none !important;
   color: var(--ui-text) !important;
-  font-size: 15pt !important;
+  font-size: 1rem !important;
   line-height: 1.2 !important;
   box-shadow: none !important;
   filter: none !important;
@@ -2993,13 +3041,13 @@ dialog[open] .product-modal-name {
 
 .mounted-link > * {
   justify-self: start !important;
-  font-weight: 500 !important;
+  font-weight: 400 !important;
   text-align: left !important;
 }
 
 .mounted-link > :last-child {
   justify-self: end !important;
-  font-weight: 500 !important;
+  font-weight: 400 !important;
   text-align: right !important;
 }
 
@@ -3093,21 +3141,21 @@ dialog[open] .product-modal-art {
   gap: 12px !important;
   margin: 9px 0 !important;
   color: var(--ui-text) !important;
-  font-size: 15pt !important;
+  font-size: 1rem !important;
   line-height: 1.35 !important;
 }
 
 .stat-row span,
 .track-height-row span {
-  font-size: 15pt !important;
-  font-weight: 500 !important;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
   text-align: left !important;
 }
 
 .stat-row b,
 .track-height-row b {
-  font-size: 15pt !important;
-  font-weight: 500 !important;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
   text-align: left !important;
   white-space: nowrap !important;
   color: var(--ui-text) !important;
@@ -3145,7 +3193,7 @@ dialog[open] .product-modal-art {
 .mode-title {
   margin: 0 0 8px !important;
   color: var(--ui-text) !important;
-  font-size: 15pt !important;
+  font-size: 1rem !important;
   font-weight: 700 !important;
   line-height: 1.35 !important;
 }
@@ -3153,7 +3201,7 @@ dialog[open] .product-modal-art {
 .stat-note {
   margin: 12px 0 0 !important;
   color: var(--ui-muted) !important;
-  font-size: 15pt !important;
+  font-size: 1rem !important;
   line-height: 1.6 !important;
 }
 
@@ -3292,7 +3340,7 @@ dialog[open] .product-modal-art {
   align-items: center !important;
   gap: 12px !important;
   color: var(--ui-control-text-active) !important;
-  font-size: 18px !important;
+  font-size: 1rem !important;
   font-weight: 800 !important;
   line-height: 1 !important;
   white-space: nowrap !important;
@@ -3302,7 +3350,7 @@ dialog[open] .product-modal-art {
 .brand span:not(.brand-mark),
 .brand span:not(.brand-mark) b {
   color: var(--ui-control-text-active) !important;
-  font-size: 18px !important;
+  font-size: 1rem !important;
   font-weight: 800 !important;
   line-height: 1 !important;
 }
@@ -3318,7 +3366,7 @@ dialog[open] .product-modal-art {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  font-size: 18px !important;
+  font-size: 1rem !important;
   font-weight: 900 !important;
   font-style: normal !important;
   line-height: 1 !important;
@@ -3341,7 +3389,7 @@ dialog[open] .product-modal-art {
 .overview-hero h2 {
   margin: 0 !important;
   color: var(--ui-text) !important;
-  font-size: clamp(42px, 4.2vw, 58px) !important;
+  font-size: clamp(2.625rem, 4.2vw, 3.625rem) !important;
   font-weight: 900 !important;
   line-height: 1 !important;
   white-space: nowrap !important;
@@ -3383,7 +3431,7 @@ dialog[open] .product-modal-art {
   border-radius: var(--ui-radius) !important;
   background: transparent !important;
   color: var(--ui-muted) !important;
-  font-size: 15pt !important;
+  font-size: 1rem !important;
   font-weight: 800 !important;
   text-align: center !important;
   box-shadow: none !important;
@@ -3409,7 +3457,7 @@ dialog[open] .product-modal-art {
 .overview-structure-copy h3 {
   margin: 0 !important;
   color: var(--ui-text) !important;
-  font-size: clamp(28px, 3.2vw, 42px) !important;
+  font-size: clamp(1.75rem, 3.2vw, 2.625rem) !important;
   font-weight: 900 !important;
   line-height: 1.05 !important;
 }
@@ -3418,7 +3466,7 @@ dialog[open] .product-modal-art {
   max-width: 680px !important;
   margin: 14px 0 0 !important;
   color: var(--ui-muted) !important;
-  font-size: 15pt !important;
+  font-size: 1rem !important;
   font-weight: 600 !important;
   line-height: 1.7 !important;
 }
@@ -3439,7 +3487,7 @@ dialog[open] .product-modal-art {
   border-radius: var(--ui-radius) !important;
   background: var(--ui-surface) !important;
   color: var(--ui-text) !important;
-  font-size: 15pt !important;
+  font-size: 1rem !important;
   font-weight: 800 !important;
 }
 
