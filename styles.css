@@ -2674,6 +2674,8 @@ dialog[open] .modal-info {
 }
 
 dialog[open] .modal-info {
+  --modal-body-width: min(100%, 520px);
+  --modal-flow-gap: 16px;
   overflow: hidden !important;
   padding: clamp(24px, 4vw, 44px) !important;
 }
@@ -2744,24 +2746,58 @@ dialog[open] button[aria-label="Close"] {
 }
 
 dialog[open] .modal-name {
+  width: var(--modal-body-width) !important;
   display: flex !important;
   align-items: baseline !important;
   flex-wrap: wrap !important;
   column-gap: 10px !important;
   row-gap: 2px !important;
-  margin: 0 0 24px !important;
+  margin: 0 auto var(--modal-flow-gap) !important;
   font-size: clamp(1.75rem, 2.6vw, 2.5rem) !important;
   font-weight: 900 !important; line-height: 1.15 !important;
   color: var(--ui-text) !important;
   word-break: keep-all !important;
 }
 
+.bey-modal-info,
+.part-modal-info,
+.product-modal-info,
+.lineup-modal-info {
+  display: grid !important;
+  align-content: stretch !important;
+  row-gap: 0 !important;
+}
+
+.bey-modal-info,
+.part-modal-info {
+  grid-template-rows: auto auto auto minmax(0, 1fr) !important;
+}
+
+.product-modal-info {
+  grid-template-rows: auto auto minmax(0, 1fr) !important;
+}
+
+.lineup-modal-info {
+  grid-template-rows: auto auto minmax(0, 1fr) !important;
+}
+
 .modal-info-slot {
-  --modal-info-lines: 3;
+  --modal-info-lines: 2;
+  width: var(--modal-body-width) !important;
   display: grid !important;
   grid-template-rows: 34px calc(1.5rem * var(--modal-info-lines)) !important;
   gap: 10px !important;
-  margin: 0 0 14px !important;
+  margin: 0 auto var(--modal-flow-gap) !important;
+}
+
+.modal-info-slot.single-line-info-slot {
+  --modal-info-lines: 1;
+  grid-template-rows: 34px !important;
+  gap: 0 !important;
+}
+
+.modal-info-slot.single-line-info-slot .modal-description:empty {
+  display: none !important;
 }
 
 .modal-description {
@@ -2784,22 +2820,14 @@ dialog[open] .modal-name {
 
 @media (max-width: 900px) {
   .modal-info-slot {
-    --modal-info-lines: 4;
+    --modal-info-lines: 3;
+  }
+
+  .modal-info-slot.single-line-info-slot {
+    --modal-info-lines: 1;
+    grid-template-rows: 34px !important;
   }
 }
-
-dialog[open] .modal-en {
-  display: inline-block !important;
-  margin-left: 0 !important;
-  color: var(--ui-modal-subtext) !important;
-  font-size: 0.875rem !important;
-  font-weight: 600 !important;
-  line-height: 1 !important;
-  opacity: .9 !important;
-  white-space: nowrap !important;
-  vertical-align: baseline !important;
-}
-
 
 /* Final top/bottom bar rhythm. */
 .topbar,
@@ -2844,8 +2872,8 @@ footer p {
 
 .modal-section {
   box-sizing: border-box !important;
-  width: 100% !important;
-  margin-top: 14px !important;
+  width: var(--modal-body-width) !important;
+  margin: 0 auto !important;
   padding: 16px 22px 18px !important;
   border: 0 !important;
   border-radius: 16px !important;
@@ -2862,10 +2890,53 @@ footer p {
   margin-top: 0 !important;
 }
 
+.product-composition,
+.product-lineup,
+.mounted-parts {
+  --modal-row-arrow-column: 24px;
+  --modal-row-x-padding: 10px;
+  --modal-row-gap: 12px;
+  --modal-scroll-gutter: 8px;
+}
+
+.modal-section-scroll {
+  min-height: 0 !important;
+  max-height: 248px !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  overscroll-behavior: contain !important;
+  scrollbar-gutter: stable both-edges !important;
+  scrollbar-width: thin !important;
+  scrollbar-color: var(--ui-line) transparent !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+.modal-section-scroll::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
+}
+
+.modal-section-scroll::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+.modal-section-scroll::-webkit-scrollbar-thumb {
+  min-height: 36px !important;
+  border: 2px solid transparent !important;
+  border-radius: 999px !important;
+  background: var(--ui-line) !important;
+  background-clip: content-box !important;
+}
+
+.modal-section-scroll::-webkit-scrollbar-corner {
+  background: transparent !important;
+}
+
 .product-modal-header {
   display: block !important;
-  min-height: 132px !important;
-  margin: 0 !important;
+  min-height: 0 !important;
+  width: var(--modal-body-width) !important;
+  margin: 0 auto var(--modal-flow-gap) !important;
 }
 
 .product-modal-title-group {
@@ -2895,7 +2966,9 @@ dialog[open] .product-modal-name {
   line-height: 1.45 !important;
   text-align: right !important;
   white-space: nowrap !important;
-  margin: 8px 0 0 auto !important;
+  margin: 0 0 0 auto !important;
+  justify-self: end !important;
+  align-self: start !important;
 }
 
 .mounted-title {
@@ -2908,13 +2981,16 @@ dialog[open] .product-modal-name {
 }
 
 .product-composition > .mounted-title,
+.product-lineup > .mounted-title,
 .mounted-parts > .mounted-title {
   position: relative !important;
   display: block !important;
-  width: 100% !important;
+  width: calc(100% - (var(--modal-scroll-gutter) * 2)) !important;
   max-width: none !important;
   margin: 0 0 12px !important;
-  padding: 0 10px 12px !important;
+  padding: 0 var(--modal-row-x-padding) 12px !important;
+  margin-left: var(--modal-scroll-gutter) !important;
+  margin-right: var(--modal-scroll-gutter) !important;
   border-bottom: 1px solid var(--ui-line) !important;
 }
 
@@ -2922,11 +2998,11 @@ dialog[open] .product-modal-name {
   width: 100% !important;
   box-sizing: border-box !important;
   display: grid !important;
-  grid-template-columns: minmax(0, 1fr) 24px !important;
+  grid-template-columns: minmax(0, 1fr) var(--modal-row-arrow-column) !important;
   align-items: center !important;
-  gap: 12px !important;
+  gap: var(--modal-row-gap) !important;
   min-height: 38px !important;
-  padding: 0 10px !important;
+  padding: 0 var(--modal-row-x-padding) !important;
   margin: 0 !important;
   border: 0 !important;
   border-radius: 12px !important;
@@ -2973,16 +3049,6 @@ dialog[open] .product-modal-name {
   margin-top: 14px !important;
 }
 
-.product-lineup > .mounted-title {
-  position: relative !important;
-  display: block !important;
-  width: 100% !important;
-  max-width: none !important;
-  margin: 0 0 12px !important;
-  padding: 0 10px 12px !important;
-  border-bottom: 1px solid var(--ui-line) !important;
-}
-
 .product-lineup-grid {
   display: grid !important;
   grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
@@ -2994,10 +3060,10 @@ dialog[open] .product-modal-name {
   min-width: 0 !important;
   min-height: 38px !important;
   display: grid !important;
-  grid-template-columns: minmax(0, 1fr) 24px !important;
+  grid-template-columns: minmax(0, 1fr) var(--modal-row-arrow-column) !important;
   align-items: center !important;
-  gap: 12px !important;
-  padding: 0 10px !important;
+  gap: var(--modal-row-gap) !important;
+  padding: 0 var(--modal-row-x-padding) !important;
   border-radius: 12px !important;
   background: transparent !important;
   color: var(--ui-text) !important;
@@ -3036,6 +3102,10 @@ dialog[open] .product-modal-name {
 }
 
 @media (max-width: 900px) {
+  .modal-section-scroll {
+    max-height: 40dvh !important;
+  }
+
   .product-lineup-grid {
     grid-template-columns: 1fr !important;
   }
@@ -3045,11 +3115,11 @@ dialog[open] .product-modal-name {
   width: 100% !important;
   box-sizing: border-box !important;
   display: grid !important;
-  grid-template-columns: 84px minmax(0, 1fr) 24px !important;
+  grid-template-columns: 84px minmax(0, 1fr) var(--modal-row-arrow-column) !important;
   align-items: center !important;
-  gap: 12px !important;
+  gap: var(--modal-row-gap) !important;
   min-height: 38px !important;
-  padding: 0 10px !important;
+  padding: 0 var(--modal-row-x-padding) !important;
   margin: 0 !important;
   border: 0 !important;
   border-radius: 12px !important;
@@ -3161,11 +3231,12 @@ dialog[open] .product-modal-art {
 
 .stat-row,
 .track-height-row {
+  width: var(--modal-body-width) !important;
   display: grid !important;
   grid-template-columns: 80px minmax(0, 1fr) 42px !important;
   align-items: center !important;
   gap: 12px !important;
-  margin: 9px 0 !important;
+  margin: 9px auto !important;
   color: var(--ui-text) !important;
   font-size: 1rem !important;
   line-height: 1.35 !important;
@@ -3206,10 +3277,11 @@ dialog[open] .product-modal-art {
 }
 
 .mode-stats {
+  width: var(--modal-body-width) !important;
   display: grid !important;
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  grid-template-columns: 1fr !important;
   gap: 16px !important;
-  margin-top: 18px !important;
+  margin: 18px auto 0 !important;
 }
 
 .mode-stats section {
@@ -3225,16 +3297,32 @@ dialog[open] .product-modal-art {
 }
 
 .stat-note {
-  margin: 12px 0 0 !important;
+  width: var(--modal-body-width) !important;
+  margin: 12px auto 0 !important;
   color: var(--ui-muted) !important;
   font-size: 1rem !important;
   line-height: 1.6 !important;
 }
 
-@media (max-width: 520px) {
-  .mode-stats {
-    grid-template-columns: 1fr !important;
-  }
+.modal-body-block {
+  width: var(--modal-body-width) !important;
+  min-height: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.modal-body-block > .modal-section,
+.modal-body-block > .stat-block {
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+.stat-block {
+  width: 100% !important;
+  margin: 0 !important;
 }
 
 /* Final light/dark color tokens. Keep this last so older color layers cannot win. */
@@ -3423,36 +3511,109 @@ dialog[open] .product-modal-art {
   overflow-wrap: normal !important;
 }
 
-.overview-structure {
-  display: grid !important;
-  grid-template-columns: 176px minmax(0, 1fr) !important;
-  gap: 18px !important;
-  align-items: stretch !important;
-  width: min(100%, 860px) !important;
-  max-width: 860px !important;
+.overview-entry {
+  width: min(100%, 520px) !important;
 }
 
-.overview-structure > div:first-child {
-  display: flex !important;
-  min-height: 100% !important;
-  align-items: stretch !important;
+.overview-open-card {
+  width: 100% !important;
+  min-height: 156px !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  grid-template-areas:
+    "eyebrow arrow"
+    "title arrow"
+    "desc arrow" !important;
+  gap: 8px 18px !important;
+  align-items: center !important;
+  padding: 24px !important;
+  border: 0 !important;
+  border-radius: 24px !important;
+  background: var(--ui-section-bg) !important;
+  color: var(--ui-text) !important;
+  text-align: left !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+  transition: background-color .16s ease, transform .16s ease !important;
+}
+
+.overview-open-card:hover {
+  background: var(--ui-control-hover) !important;
+  transform: translateY(-1px) !important;
+}
+
+.overview-open-card span {
+  grid-area: eyebrow !important;
+  color: var(--ui-muted) !important;
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+}
+
+.overview-open-card strong {
+  grid-area: title !important;
+  color: var(--ui-text) !important;
+  font-size: 1.375rem !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+}
+
+.overview-open-card small {
+  grid-area: desc !important;
+  color: var(--ui-muted) !important;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  line-height: 1.45 !important;
+}
+
+.overview-open-card b {
+  grid-area: arrow !important;
+  color: var(--ui-text) !important;
+  font-size: 1.375rem !important;
+  font-weight: 400 !important;
+  line-height: 1 !important;
 }
 
 .overview-tabs {
-  display: grid !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
   gap: 8px !important;
-  align-content: center !important;
-  flex: 1 1 auto !important;
-  width: 100% !important;
-  min-height: 100% !important;
-  padding: 12px !important;
-  border-radius: 22px !important;
-  background: var(--ui-section-bg) !important;
+  align-items: center !important;
+  width: auto !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+
+dialog[open] .modal-inner.overview-structure-modal {
+  grid-template-columns: minmax(220px, 30%) minmax(0, 1fr) !important;
+}
+
+.overview-structure-modal .overview-modal-art {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 22px !important;
+}
+
+.overview-title-row {
+  width: var(--modal-body-width) !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 10px 14px !important;
+  margin: 0 auto 16px !important;
+}
+
+.overview-title-row .modal-name {
+  width: auto !important;
+  margin: 0 !important;
+  flex: 0 1 auto !important;
 }
 
 .overview-tabs button {
-  min-height: 46px !important;
-  padding: 0 12px !important;
+  min-height: 34px !important;
+  padding: 0 10px !important;
   border: 0 !important;
   border-radius: var(--ui-radius) !important;
   background: transparent !important;
@@ -3470,66 +3631,41 @@ dialog[open] .product-modal-art {
   color: var(--ui-text) !important;
 }
 
-.overview-structure-card {
-  display: grid !important;
-  grid-template-columns: minmax(0, 1fr) minmax(220px, 300px) !important;
-  gap: 22px !important;
-  align-items: center !important;
-  padding: clamp(24px, 3vw, 34px) !important;
-  border-radius: 24px !important;
-  background: var(--ui-section-bg) !important;
-}
-
-.overview-structure-copy h3 {
-  margin: 0 !important;
-  color: var(--ui-text) !important;
-  font-size: clamp(1.75rem, 3.2vw, 2.625rem) !important;
-  font-weight: 900 !important;
-  line-height: 1.05 !important;
-}
-
-.overview-structure-copy p {
-  max-width: 680px !important;
-  margin: 14px 0 0 !important;
-  color: var(--ui-muted) !important;
-  font-size: 1rem !important;
-  font-weight: 600 !important;
-  line-height: 1.7 !important;
-}
-
 .overview-parts {
   display: flex !important;
   flex-wrap: wrap !important;
-  gap: 10px !important;
-  margin-top: 24px !important;
+  gap: 8px !important;
+  margin: 0 !important;
 }
 
 .overview-parts span {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  min-height: 42px !important;
-  padding: 0 14px !important;
+  min-height: 34px !important;
+  padding: 0 12px !important;
   border-radius: var(--ui-radius) !important;
-  background: var(--ui-surface) !important;
+  background: var(--ui-control) !important;
   color: var(--ui-text) !important;
   font-size: 1rem !important;
-  font-weight: 800 !important;
+  font-weight: 400 !important;
 }
 
 .overview-photo-area {
-  min-height: 470px !important;
+  width: min(78%, 240px) !important;
+  height: min(72%, 420px) !important;
+  min-height: 280px !important;
   border-radius: 20px !important;
   background: var(--ui-art-bg) !important;
 }
 
 @media (max-width: 980px) {
-  .overview-structure,
-  .overview-structure-card {
-    grid-template-columns: 1fr !important;
+  .overview-entry {
+    width: 100% !important;
   }
 
   .overview-photo-area {
+    width: min(72%, 220px) !important;
     min-height: 260px !important;
   }
 }
