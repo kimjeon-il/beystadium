@@ -1421,7 +1421,7 @@ function openEquipmentDetail(id, options = {}) {
   document.querySelector("#modalContent").innerHTML = `${modalStepButtons(stepItems, item.id, "equipment")}<div class="modal-inner">
     <div class="modal-art"></div>
     <div class="modal-info"><h3 class="modal-name">${item.name}<small class="modal-en">${item.en}</small></h3>
-    <p>${item.desc}</p><div class="modal-tags"><span>${item.category}</span></div>${backButton}</div></div>`;
+    ${item.desc ? `<p>${item.desc}</p>` : ""}<div class="modal-tags"><span>${item.category}</span></div>${backButton}</div></div>`;
   bindModalStepButtons({ equipment: options });
   document.querySelector(".modal-back")?.addEventListener("click", event => {
     openProductDetail(event.currentTarget.dataset.backProductId);
