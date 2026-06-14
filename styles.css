@@ -2769,7 +2769,7 @@ dialog[open] .modal-en {
   display: inline-block !important;
   margin-left: 0 !important;
   color: var(--ui-modal-subtext) !important;
-  font-size: 1.083333rem !important;
+  font-size: 0.875rem !important;
   font-weight: 600 !important;
   line-height: 1 !important;
   opacity: .9 !important;
@@ -2859,7 +2859,7 @@ dialog[open] .product-modal-name {
   display: inline !important;
   margin-left: 10px !important;
   color: var(--ui-modal-subtext) !important;
-  font-size: 1.083333rem !important;
+  font-size: 0.875rem !important;
   font-weight: 600 !important;
   line-height: 1 !important;
   white-space: nowrap !important;
@@ -2867,7 +2867,7 @@ dialog[open] .product-modal-name {
 
 .product-modal-extra {
   color: var(--ui-muted) !important;
-  font-size: 1.083333rem !important;
+  font-size: 0.875rem !important;
   font-weight: 600 !important;
   line-height: 1.45 !important;
   text-align: right !important;
