@@ -2781,6 +2781,13 @@ dialog[open] .modal-name {
   grid-template-rows: auto auto minmax(0, 1fr) !important;
 }
 
+.overview-modal-info {
+  display: grid !important;
+  align-content: stretch !important;
+  grid-template-rows: auto auto minmax(0, 1fr) !important;
+  row-gap: 0 !important;
+}
+
 .modal-info-slot {
   --modal-info-lines: 2;
   width: var(--modal-body-width) !important;
@@ -2874,7 +2881,7 @@ footer p {
   box-sizing: border-box !important;
   width: var(--modal-body-width) !important;
   margin: 0 auto !important;
-  padding: 16px 22px 18px !important;
+  padding: 30px 22px !important;
   border: 0 !important;
   border-radius: 16px !important;
   background: var(--ui-section-bg) !important;
@@ -3585,10 +3592,6 @@ dialog[open] .product-modal-art {
   background: transparent !important;
 }
 
-dialog[open] .modal-inner.overview-structure-modal {
-  grid-template-columns: minmax(220px, 30%) minmax(0, 1fr) !important;
-}
-
 .overview-structure-modal .overview-modal-art {
   display: flex !important;
   align-items: center !important;
@@ -3666,6 +3669,22 @@ dialog[open] .modal-inner.overview-structure-modal {
 
   .overview-photo-area {
     width: min(72%, 220px) !important;
-    min-height: 260px !important;
+    min-height: 0 !important;
+    height: min(72%, 220px) !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .overview-title-row {
+    width: var(--modal-body-width) !important;
+    margin: 0 auto var(--modal-flow-gap) !important;
+  }
+
+  .overview-title-row .modal-name {
+    width: 100% !important;
+  }
+
+  .overview-tabs {
+    width: 100% !important;
   }
 }

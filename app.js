@@ -1121,7 +1121,7 @@ function openOverviewStructureDetail() {
     <div class="modal-art overview-modal-art">
       <div class="overview-photo-area" aria-label="사진 영역"></div>
     </div>
-      <div class="modal-info">
+      <div class="modal-info overview-modal-info">
       <div class="overview-title-row">
         <h3 class="modal-name overview-modal-name"></h3>
         <div class="overview-tabs"></div>
