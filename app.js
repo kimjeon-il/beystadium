@@ -560,11 +560,18 @@ const structureLabels = { basic: "4단 구조 시스템", hybrid: "하이브리�
 const categoryTags = ["FACE", "STONEFACE", "WHEEL", "CLEARWHEEL", "LIGHTWHEEL", "METALWHEEL", "CHROMEWHEEL", "CRYSTALWHEEL", "TRACK", "BOTTOM", "4DBOTTOM"];
 const spinTags = ["RIGHT SPIN", "LEFT SPIN", "DUAL SPIN"];
 const typeTags = ["ATTACK", "DEFENSE", "STAMINA", "BALANCE"];
-let filter = "bey";
+let filter = "all";
 let filterTypes = null;
 let filterStructure = null;
-let productFilter = "일반 판매";
+let productFilter = null;
+let productKindFilter = null;
+let productNoteFilter = null;
 let equipmentFilter = null;
+let gearKindFilter = "";
+let gearSubtypeFilter = null;
+let gearTypeFilter = null;
+let gearSpinFilter = null;
+let gearStructureFilter = null;
 
 const productItems = [
   { id: "PRODUCT-BB-01", no: "BB-01", name: "페가시스 105F", sale: "일반 판매", kind: "리미티드스타터세트", price: "₩17,600", releaseDate: "2008년 10월", composition: [
@@ -827,10 +834,31 @@ const equipmentSortOrder = item => {
   };
   return order[item.id] ?? 1000;
 };
+const hasTag = (item, tag) => Array.isArray(item.tags) && item.tags.includes(tag);
+const matchesGearType = item => !gearTypeFilter || hasTag(item, gearTypeFilter);
+const matchesGearSpin = item => {
+  if (!gearSpinFilter) return true;
+  if (gearSpinFilter === "DUAL SPIN") return hasTag(item, "DUAL SPIN") || (hasTag(item, "RIGHT SPIN") && hasTag(item, "LEFT SPIN"));
+  if (hasTag(item, gearSpinFilter)) return true;
+  return hasTag(item, "DUAL SPIN") && (gearSpinFilter === "RIGHT SPIN" || gearSpinFilter === "LEFT SPIN");
+};
+const applyGearDropdownFilter = () => {
+  if (!gearKindFilter) {
+    filter = "all";
+    filterTypes = null;
+  } else if (gearKindFilter === "face" || gearKindFilter === "wheel" || gearKindFilter === "bottom") {
+    filter = gearSubtypeFilter || gearKindFilter;
+    filterTypes = gearSubtypeFilter ? null : filterGroups[gearKindFilter];
+  } else {
+    filter = gearKindFilter;
+    filterTypes = null;
+  }
+  filterStructure = gearKindFilter === "bey" ? gearStructureFilter : null;
+};
 const visibleProductItems = () => {
   const query = document.querySelector("#productSearch")?.value.trim() || "";
   return productItems
-    .filter(item => (!productFilter || (Array.isArray(productFilter) ? productFilter.includes(item.sale) : item.sale === productFilter)) && productMatchesSearch(item, query))
+    .filter(item => (!productFilter || (Array.isArray(productFilter) ? productFilter.includes(item.sale) : item.sale === productFilter)) && (!productKindFilter || item.kind === productKindFilter) && (!productNoteFilter || item.sale === productNoteFilter) && productMatchesSearch(item, query))
     .sort((a, b) => productSerialNumber(a) - productSerialNumber(b));
 };
 const visibleEquipmentItems = () => {
@@ -842,7 +870,7 @@ const visibleEquipmentItems = () => {
 const visibleGearItems = () => {
   const query = search.value.trim();
   return items
-    .filter(item => (filter === "all" || (filterTypes ? filterTypes.includes(item.type) : item.type === filter)) && (!filterStructure || item.structure === filterStructure) && itemMatchesSearch(item, query))
+    .filter(item => (filter === "all" || (filterTypes ? filterTypes.includes(item.type) : item.type === filter)) && (!filterStructure || item.structure === filterStructure) && matchesGearType(item) && matchesGearSpin(item) && itemMatchesSearch(item, query))
     .sort((a, b) => {
       if (a.type === "bey" && b.type === "bey") return beySerialNumber(a) - beySerialNumber(b);
       if (filter === "wheel" && filterTypes) return (wheelTypeOrder[a.type] ?? 99) - (wheelTypeOrder[b.type] ?? 99);
@@ -1173,6 +1201,85 @@ search.addEventListener("input", renderCards);
 document.querySelector("#productSearch")?.addEventListener("input", renderProductCards);
 document.querySelector("#equipmentSearch")?.addEventListener("input", renderEquipmentCards);
 const resetNavFilterActives = root => root.querySelectorAll(".filter.active,.sub-filter.active").forEach(active => active.classList.remove("active"));
+const setDropdownOption = button => {
+  const menu = button.closest(".catalog-dropdown-menu");
+  const dropdown = button.closest(".catalog-dropdown");
+  menu?.querySelectorAll("button").forEach(option => option.classList.toggle("active", option === button));
+  const label = dropdown?.querySelector(".catalog-dropdown-value");
+  if (label) label.textContent = button.textContent.trim();
+  dropdown?.removeAttribute("open");
+};
+const resetDropdown = dropdown => {
+  const firstOption = dropdown?.querySelector(".catalog-dropdown-menu button");
+  if (firstOption) setDropdownOption(firstOption);
+};
+const resetDropdowns = root => root?.querySelectorAll(".catalog-dropdown").forEach(resetDropdown);
+const resetGearDependentDropdowns = () => {
+  document.querySelectorAll("#gearDropdownFilters .catalog-dropdown[data-gear-dependent]").forEach(resetDropdown);
+};
+const syncGearDropdownVisibility = () => {
+  const visibility = {
+    system: gearKindFilter === "bey",
+    "face-subtype": gearKindFilter === "face",
+    "wheel-subtype": gearKindFilter === "wheel",
+    "bottom-subtype": gearKindFilter === "bottom",
+    type: gearKindFilter === "bey" || gearKindFilter === "wheel" || gearKindFilter === "bottom",
+    spin: gearKindFilter === "bey" || gearKindFilter === "wheel"
+  };
+  document.querySelectorAll("#gearDropdownFilters .catalog-dropdown[data-gear-dependent]").forEach(dropdown => {
+    const hidden = !visibility[dropdown.dataset.gearDependent];
+    dropdown.hidden = hidden;
+    if (hidden) dropdown.removeAttribute("open");
+  });
+};
+document.querySelector("#productDropdownFilters")?.addEventListener("click", event => {
+  const button = event.target.closest("button[data-product-kind],button[data-product-note]");
+  if (!button) return;
+  setDropdownOption(button);
+  if (button.hasAttribute("data-product-kind")) productKindFilter = button.dataset.productKind || null;
+  if (button.hasAttribute("data-product-note")) productNoteFilter = button.dataset.productNote || null;
+  renderProductCards();
+});
+document.querySelector("#equipmentDropdownFilters")?.addEventListener("click", event => {
+  const button = event.target.closest("button[data-equipment-kind]");
+  if (!button) return;
+  setDropdownOption(button);
+  equipmentFilter = button.dataset.equipmentKind || null;
+  renderEquipmentCards();
+});
+document.querySelector("#gearDropdownFilters")?.addEventListener("click", event => {
+  const button = event.target.closest("button[data-gear-kind],button[data-gear-subtype],button[data-gear-system],button[data-gear-type],button[data-gear-spin]");
+  if (!button) return;
+  setDropdownOption(button);
+  if (button.hasAttribute("data-gear-kind")) {
+    gearKindFilter = button.dataset.gearKind || "";
+    gearSubtypeFilter = null;
+    gearTypeFilter = null;
+    gearSpinFilter = null;
+    gearStructureFilter = null;
+    resetGearDependentDropdowns();
+    syncGearDropdownVisibility();
+  }
+  if (button.hasAttribute("data-gear-subtype")) gearSubtypeFilter = button.dataset.gearSubtype || null;
+  if (button.hasAttribute("data-gear-system")) gearStructureFilter = button.dataset.gearSystem || null;
+  if (button.hasAttribute("data-gear-type")) gearTypeFilter = button.dataset.gearType || null;
+  if (button.hasAttribute("data-gear-spin")) gearSpinFilter = button.dataset.gearSpin || null;
+  applyGearDropdownFilter();
+  renderCards();
+});
+document.querySelectorAll(".catalog-dropdown").forEach(dropdown => {
+  dropdown.addEventListener("toggle", () => {
+    if (!dropdown.open) return;
+    document.querySelectorAll(".catalog-dropdown[open]").forEach(openDropdown => {
+      if (openDropdown !== dropdown) openDropdown.removeAttribute("open");
+    });
+  });
+});
+document.addEventListener("click", event => {
+  if (!event.target.closest(".catalog-dropdown")) {
+    document.querySelectorAll(".catalog-dropdown[open]").forEach(dropdown => dropdown.removeAttribute("open"));
+  }
+});
 document.querySelector("#filters")?.addEventListener("click", event => {
   const button = event.target.closest("[data-filter],[data-filter-group]");
   if (!button) return;
@@ -1526,17 +1633,28 @@ const activatePrimarySection = section => {
 
   if (section === "product") {
     productFilter = null;
+    productKindFilter = null;
+    productNoteFilter = null;
     resetNavFilterActives(document.querySelector("#productFilters"));
+    resetDropdowns(document.querySelector("#productDropdownFilters"));
     renderProductCards();
   } else if (section === "bey") {
     filter = "all";
     filterTypes = null;
     filterStructure = null;
+    gearKindFilter = "";
+    gearSubtypeFilter = null;
+    gearTypeFilter = null;
+    gearSpinFilter = null;
+    gearStructureFilter = null;
     resetNavFilterActives(document.querySelector("#filters"));
+    resetDropdowns(document.querySelector("#gearDropdownFilters"));
+    syncGearDropdownVisibility();
     renderCards();
   } else if (section === "equipment") {
     equipmentFilter = null;
     resetNavFilterActives(document.querySelector("#equipmentFilters"));
+    resetDropdowns(document.querySelector("#equipmentDropdownFilters"));
     renderEquipmentCards();
   }
 
@@ -1562,6 +1680,7 @@ document.addEventListener("click", event => {
   if (!event.target.closest(".topbar")) document.body.classList.remove("menu-open");
 });
 
+syncGearDropdownVisibility();
 renderCards(); renderProductCards(); renderEquipmentCards();
 if (window.location.hash) {
   const hashId = window.location.hash.slice(1);
