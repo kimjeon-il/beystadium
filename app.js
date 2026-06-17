@@ -1,17 +1,17 @@
-﻿const items = [
-  { id: "BEY-STORM-PEGASIS", type: "bey", structure: "hybrid", name: "스톰 페가시스", en: "Storm Pegasis", sub: "105RF · BB-28", color: "#00d9ff", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "CLEARWHEEL-PEGASIS", "METALWHEEL-STORM", "TRACK-105", "BOTTOM-RUBBER-FLAT"] },
-  { id: "BEY-ROCK-LEONE", type: "bey", structure: "hybrid", name: "로크 레온", en: "Rock Leone", sub: "145WB · BB-30", color: "#e5ca51", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-LEONE", "CLEARWHEEL-LEONE", "METALWHEEL-ROCK", "TRACK-145", "BOTTOM-WIDE-BALL"] },
-  { id: "BEY-FLAME-SAGITTARIO", type: "bey", structure: "hybrid", name: "플레임 사지타리오", en: "Flame Sagittario", sub: "C145S · BB-35", color: "#ff9f1c", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-SAGITTARIO", "CLEARWHEEL-SAGITTARIO", "METALWHEEL-FLAME", "TRACK-CLAW-145", "BOTTOM-SHARP"] },
-  { id: "BEY-DARK-BULL", type: "bey", structure: "hybrid", name: "다크 불", en: "Dark Bull", sub: "H145SD · BB-40", color: "#b88aff", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-BULL", "CLEARWHEEL-BULL", "METALWHEEL-DARK", "TRACK-HORN-145", "BOTTOM-SEMI-DEFENSE"] },
-  { id: "BEY-BB-01", type: "bey", structure: "basic", name: "페가시스", en: "Pegasis", sub: "105F · BB-01", color: "#00d9ff", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "WHEEL-PEGASIS", "TRACK-105", "BOTTOM-FLAT"] },
-  { id: "BEY-BB-02", type: "bey", structure: "basic", name: "불", en: "Bull", sub: "125SF · BB-02", color: "#b88aff", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-BULL", "WHEEL-BULL", "TRACK-125", "BOTTOM-SEMI-FLAT"] },
-  { id: "BEY-BB-03", type: "bey", structure: "basic", name: "사지타리오", en: "Sagittario", sub: "145S · BB-03", color: "#ff9f1c", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-SAGITTARIO", "WHEEL-SAGITTARIO", "TRACK-145", "BOTTOM-SHARP"] },
-  { id: "BEY-BB-04", type: "bey", structure: "basic", name: "레온", en: "Leone", sub: "145D · BB-04", color: "#e5ca51", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-LEONE", "WHEEL-LEONE", "TRACK-145", "BOTTOM-DEFENSE"] },
-  { id: "BEY-BB-05", type: "bey", structure: "basic", name: "페가시스", en: "Pegasis", sub: "145D · BB-05", color: "#00d9ff", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "WHEEL-PEGASIS", "TRACK-145", "BOTTOM-DEFENSE"] },
-  { id: "BEY-BB-06", type: "bey", structure: "basic", name: "불", en: "Bull", sub: "145S · BB-06", color: "#b88aff", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-BULL", "WHEEL-BULL", "TRACK-145", "BOTTOM-SHARP"] },
-  { id: "BEY-BB-07", type: "bey", structure: "basic", name: "사지타리오", en: "Sagittario", sub: "125SF · BB-07", color: "#ff9f1c", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-SAGITTARIO", "WHEEL-SAGITTARIO", "TRACK-125", "BOTTOM-SEMI-FLAT"] },
-  { id: "BEY-BB-08", type: "bey", structure: "basic", name: "레온", en: "Leone", sub: "105F · BB-08", color: "#e5ca51", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-LEONE", "WHEEL-LEONE", "TRACK-105", "BOTTOM-FLAT"] },
-  { id: "BEY-BB-09", type: "bey", structure: "basic", name: "페가시스", en: "Pegasis", sub: "105F · BB-09", color: "#00d9ff", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "WHEEL-PEGASIS", "TRACK-105", "BOTTOM-FLAT"] },
+const items = [
+  { id: "BEY-BB-28-STORM-PEGASIS-105RF", type: "bey", structure: "hybrid", name: "스톰 페가시스", en: "Storm Pegasis", sub: "105RF · BB-28", color: "#00d9ff", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "CLEARWHEEL-PEGASIS", "METALWHEEL-STORM", "TRACK-105", "BOTTOM-RUBBER-FLAT"] },
+  { id: "BEY-BB-30-ROCK-LEONE-145WB", type: "bey", structure: "hybrid", name: "로크 레온", en: "Rock Leone", sub: "145WB · BB-30", color: "#e5ca51", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-LEONE", "CLEARWHEEL-LEONE", "METALWHEEL-ROCK", "TRACK-145", "BOTTOM-WIDE-BALL"] },
+  { id: "BEY-BB-35-FLAME-SAGITTARIO-C145S", type: "bey", structure: "hybrid", name: "플레임 사지타리오", en: "Flame Sagittario", sub: "C145S · BB-35", color: "#ff9f1c", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-SAGITTARIO", "CLEARWHEEL-SAGITTARIO", "METALWHEEL-FLAME", "TRACK-CLAW-145", "BOTTOM-SHARP"] },
+  { id: "BEY-BB-40-DARK-BULL-H145SD", type: "bey", structure: "hybrid", name: "다크 불", en: "Dark Bull", sub: "H145SD · BB-40", color: "#b88aff", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-BULL", "CLEARWHEEL-BULL", "METALWHEEL-DARK", "TRACK-HORN-145", "BOTTOM-SEMI-DEFENSE"] },
+  { id: "BEY-BB-01-PEGASIS-105F", type: "bey", structure: "basic", name: "페가시스", en: "Pegasis", sub: "105F · BB-01", color: "#00d9ff", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "WHEEL-PEGASIS", "TRACK-105", "BOTTOM-FLAT"] },
+  { id: "BEY-BB-02-BULL-125SF", type: "bey", structure: "basic", name: "불", en: "Bull", sub: "125SF · BB-02", color: "#b88aff", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-BULL", "WHEEL-BULL", "TRACK-125", "BOTTOM-SEMI-FLAT"] },
+  { id: "BEY-BB-03-SAGITTARIO-145S", type: "bey", structure: "basic", name: "사지타리오", en: "Sagittario", sub: "145S · BB-03", color: "#ff9f1c", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-SAGITTARIO", "WHEEL-SAGITTARIO", "TRACK-145", "BOTTOM-SHARP"] },
+  { id: "BEY-BB-04-LEONE-145D", type: "bey", structure: "basic", name: "레온", en: "Leone", sub: "145D · BB-04", color: "#e5ca51", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-LEONE", "WHEEL-LEONE", "TRACK-145", "BOTTOM-DEFENSE"] },
+  { id: "BEY-BB-05-PEGASIS-145D", type: "bey", structure: "basic", name: "페가시스", en: "Pegasis", sub: "145D · BB-05", color: "#00d9ff", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "WHEEL-PEGASIS", "TRACK-145", "BOTTOM-DEFENSE"] },
+  { id: "BEY-BB-06-BULL-145S", type: "bey", structure: "basic", name: "불", en: "Bull", sub: "145S · BB-06", color: "#b88aff", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-BULL", "WHEEL-BULL", "TRACK-145", "BOTTOM-SHARP"] },
+  { id: "BEY-BB-07-SAGITTARIO-125SF", type: "bey", structure: "basic", name: "사지타리오", en: "Sagittario", sub: "125SF · BB-07", color: "#ff9f1c", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-SAGITTARIO", "WHEEL-SAGITTARIO", "TRACK-125", "BOTTOM-SEMI-FLAT"] },
+  { id: "BEY-BB-08-LEONE-105F", type: "bey", structure: "basic", name: "레온", en: "Leone", sub: "105F · BB-08", color: "#e5ca51", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-LEONE", "WHEEL-LEONE", "TRACK-105", "BOTTOM-FLAT"] },
+  { id: "BEY-BB-09-PEGASIS-105F", type: "bey", structure: "basic", name: "페가시스", en: "Pegasis", sub: "105F · BB-09", color: "#00d9ff", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "WHEEL-PEGASIS", "TRACK-105", "BOTTOM-FLAT"] },
   { id: "BEY-BB-11-WOLF-D125B", type: "bey", structure: "basic", name: "울프", en: "Wolf", sub: "D125B · BB-11", color: "#7d8ca3", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-WOLF", "WHEEL-WOLF", "TRACK-D125", "BOTTOM-BALL"] },
   { id: "BEY-BB-12-WOLF-105F", type: "bey", structure: "basic", name: "울프", en: "Wolf", sub: "105F · BB-12", color: "#7d8ca3", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-WOLF", "WHEEL-WOLF", "TRACK-105", "BOTTOM-FLAT"] },
   { id: "BEY-BB-13-ARIES-125D", type: "bey", structure: "basic", name: "아리에스", en: "Aries", sub: "125D · BB-13", color: "#f2a7c3", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-ARIES", "WHEEL-ARIES", "TRACK-125", "BOTTOM-DEFENSE"] },
@@ -43,7 +43,7 @@
   { id: "BEY-BB-25-BULL-DF145HF", type: "bey", structure: "basic", name: "불", en: "Bull", sub: "DF145HF · BB-25", color: "#b88aff", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-BULL", "WHEEL-BULL", "TRACK-DF145", "BOTTOM-HOLE-FLAT"] },
   { id: "BEY-BB-26-GEMIOS-DF145FS", type: "bey", structure: "basic", name: "제미오스", en: "Gemios", sub: "DF145FS · BB-26", color: "#d37d55", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-GEMIOS", "WHEEL-GEMIOS", "TRACK-DF145", "BOTTOM-FLAT-SHARP"] },
   { id: "BEY-BB-27-CAPRICORNE-100HF", type: "bey", structure: "basic", name: "카프리콘", en: "Capricorne", sub: "100HF · BB-27", color: "#d6b75d", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-CAPRICORNE", "WHEEL-CAPRICORNE", "TRACK-100", "BOTTOM-HOLE-FLAT"] },
-  { id: "BEY-QUETZALCOATL", type: "bey", structure: "basic", name: "케찰코아틀", en: "Quetzalcoatl", sub: "90WF", color: "#67e8c6", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-QUETZALCOATL", "WHEEL-QUETZALCOATL", "TRACK-90", "BOTTOM-WIDE-FLAT"] },
+  { id: "BEY-QUETZALCOATL-90WF", type: "bey", structure: "basic", name: "케찰코아틀", en: "Quetzalcoatl", sub: "90WF", color: "#67e8c6", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-QUETZALCOATL", "WHEEL-QUETZALCOATL", "TRACK-90", "BOTTOM-WIDE-FLAT"] },
   { id: "BEY-BB-29-DARK-WOLF-DF145FS", type: "bey", structure: "hybrid", name: "다크 울프", en: "Dark Wolf", sub: "DF145FS · BB-29", color: "#7d8ca3", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-WOLF", "CLEARWHEEL-WOLF", "METALWHEEL-DARK", "TRACK-DF145", "BOTTOM-FLAT-SHARP"] },
   { id: "BEY-BB-31-MAD-CANCER-CH120FS", type: "bey", structure: "hybrid", name: "매드 캔서", en: "Mad Cancer", sub: "CH120FS · BB-31", color: "#d05c7e", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-CANCER", "CLEARWHEEL-CANCER", "LIGHTWHEEL-MAD", "TRACK-CH120", "BOTTOM-FLAT-SHARP"] },
   { id: "BEY-BB-31-HEAT-PEGASIS-100WB", type: "bey", structure: "hybrid", name: "히트 페가시스", en: "Heat Pegasis", sub: "100WB · BB-31", color: "#e58b5b", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "CLEARWHEEL-PEGASIS", "LIGHTWHEEL-HEAT", "TRACK-100", "BOTTOM-WIDE-BALL"] },
@@ -123,7 +123,7 @@
   { id: "BEY-BB-88-METEO-LDRAGO-LW105LF", type: "bey", structure: "hybrid", name: "메테오 엘드라고", en: "Meteo L-Drago", sub: "LW105LF · BB-88", color: "#c65a70", tags: ["ATTACK", "LEFT SPIN"], desc: "", parts: ["FACE-LDRAGO", "CLEARWHEEL-LDRAGO-II", "METALWHEEL-METEOR", "TRACK-LW105", "BOTTOM-LEFT-FLAT"] },
   { id: "BEY-BB-89-ARIES-145D", type: "bey", structure: "basic", name: "아리에스", en: "Aries", sub: "145D · BB-89", color: "#f2a7c3", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-ARIES", "WHEEL-ARIES", "TRACK-145", "BOTTOM-DEFENSE"] },
   { id: "BEY-DIVINE-CHIMERA-TR145FB", type: "bey", structure: "hybrid", name: "디바인 키메라", en: "Divine Chimera", sub: "TR145FB", color: "#b06ad8", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-CHIMERA", "CLEARWHEEL-CHIMERA", "METALWHEEL-DIVINE", "TRACK-TR145", "BOTTOM-FLAT-BALL"] },
-  { id: "BEY-BBP01-VULCAN-HORUSEUS-145D", type: "bey", structure: "hybrid", name: "발칸 호르세우스", en: "Vulcan Horuseus", sub: "145D · BB-P01", color: "#66c7c7", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-HORUSEUS", "CLEARWHEEL-HORUSEUS", "METALWHEEL-VULCAN", "TRACK-145", "BOTTOM-DEFENSE"] },
+  { id: "BEY-BB-P01-VULCAN-HORUSEUS-145D", type: "bey", structure: "hybrid", name: "발칸 호르세우스", en: "Vulcan Horuseus", sub: "145D · BB-P01", color: "#66c7c7", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-HORUSEUS", "CLEARWHEEL-HORUSEUS", "METALWHEEL-VULCAN", "TRACK-145", "BOTTOM-DEFENSE"] },
   { id: "BEY-BB-91-RAY-KILL-100RSF", type: "bey", structure: "hybrid", name: "레이 킬", en: "Ray Kill", sub: "100RSF · BB-91", color: "#d36b55", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-KILL", "CLEARWHEEL-KILL", "METALWHEEL-RAY", "TRACK-100", "BOTTOM-RUBBER-SEMI-FLAT"] },
   { id: "BEY-BB-92-GALAXY-PEGASIS-W105R2F", type: "bey", structure: "hybrid", name: "갤럭시 페가시스", en: "Galaxy Pegasis", sub: "W105R²F · BB-92", color: "#269dff", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "CLEARWHEEL-PEGASIS", "METALWHEEL-GALAXY", "TRACK-W105", "BOTTOM-RIGHT-RUBBER-FLAT"] },
   { id: "BEY-BB-93-RAY-UNICORNO-D125CS", type: "bey", structure: "hybrid", name: "레이 유니콘", en: "Ray Unicorno", sub: "D125CS · BB-93", color: "#6fd0ff", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-UNICORNO", "CLEARWHEEL-UNICORNO", "METALWHEEL-RAY", "TRACK-D125", "BOTTOM-COAT-SHARP"] },
@@ -216,12 +216,12 @@
   { id: "BEY-BBG-23-PIRATES-PHOENIC-WD145SF", type: "bey", structure: "synchrom", name: "파이레츠 피닉", en: "Pirates Phoenic", sub: "WD145SF · BBG-23", color: "#e26b3f", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-PHOENIC", "CRYSTALWHEEL-PIRATES", "CHROMEWHEEL-PHOENIC", "TRACK-WD145", "BOTTOM-SEMI-FLAT"] },
   { id: "BEY-BBG-23-ARCHER-KILLERKEN-130B", type: "bey", structure: "synchrom", name: "아처 크라켄", en: "Archer Killerken", sub: "130B · BBG-23", color: "#4fa9cf", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-KRAKEN", "CRYSTALWHEEL-ARCHER", "CHROMEWHEEL-KRAKEN", "TRACK-130", "BOTTOM-BALL"] },
   { id: "BEY-BBG-23-BANDID-KILLERKEN-125W2D", type: "bey", structure: "synchrom", name: "반디드 크라켄", en: "Bandid Killerken", sub: "125W²D · BBG-23", color: "#4fa9cf", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-KRAKEN", "CRYSTALWHEEL-BANDIT", "CHROMEWHEEL-KRAKEN", "TRACK-125", "BOTTOM-WAVE-WIDE-DEFENSE"] },
-  { id: "BEY-BBG-24-GARGOLE-IFRAID-SA165GCF", type: "bey", structure: "synchrom", name: "가고일 이프레이드", en: "Gargole Ifraid", sub: "SA165GCF · BBG-24", color: "#d34d38", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-IFRAID", "CRYSTALWHEEL-GARGOYLE", "CHROMEWHEEL-IFRAID", "TRACK-SA165", "BOTTOM-GEAR-CIRCLE-FLAT"] },
-  { id: "BEY-BBG-24-SARAMANDA-BALRO-DF145SWD", type: "bey", structure: "synchrom", name: "사라만다 발록", en: "Saramanda Balro", sub: "DF145SWD · BBG-24", color: "#e05c5c", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-BALRO", "CRYSTALWHEEL-SARAMANDA", "CHROMEWHEEL-BALRO", "TRACK-DF145", "BOTTOM-SHARP-WIDE-DEFENSE"] },
-  { id: "BEY-BBG-24-GRYPH-GIRAGO-WA130HF", type: "bey", structure: "synchrom", name: "그리프 지라고", en: "Gryph Girago", sub: "WA130HF · BBG-24", color: "#67e8c6", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-GIRAGO", "CRYSTALWHEEL-GRYPH", "CHROMEWHEEL-GIRAGO", "TRACK-WA130", "BOTTOM-HOLE-FLAT"] },
-  { id: "BEY-BBG-25-GOREIM-REVIZER-E230SB", type: "bey", structure: "synchrom", name: "골렘 리바이저", en: "Goreim Revizer", sub: "E230SB · BBG-25", color: "#8a6b50", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-REVIZER", "CRYSTALWHEEL-GOREIM", "CHROMEWHEEL-REVIZER", "TRACK-E230", "BOTTOM-SHARP-BALL"] },
-  { id: "BEY-BBG-25-KILLERKEN-BALRO-A230WB", type: "bey", structure: "synchrom", name: "크라켄 발록", en: "Killerken Balro", sub: "A230WB · BBG-25", color: "#4fa9cf", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-BALRO", "CRYSTALWHEEL-KRAKEN", "CHROMEWHEEL-BALRO", "TRACK-A230", "BOTTOM-WIDE-BALL"] },
-  { id: "BEY-BBG-25-OROJYA-WYVANG-145EDS", type: "bey", structure: "synchrom", name: "오로자 와이번", en: "Orojya Wyvang", sub: "145EDS · BBG-25", color: "#7d8ca3", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-WYVANG", "CRYSTALWHEEL-OROJYA", "CHROMEWHEEL-WYVANG", "TRACK-145", "BOTTOM-ETERNAL-DEFENSE-SHARP"] },
+  { id: "BEY-BBG-24-GARGOLE-IFRAID-SA165GCF", type: "bey", structure: "synchrom", name: "가고일 이프레이드", en: "Gargole Ifraid", sub: "SA165GCF · BBG-24", color: "#d34d38", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-IFRAID", "CHROMEWHEEL-GARGOYLE", "CHROMEWHEEL-IFRAID", "TRACK-SA165", "BOTTOM-GEAR-CIRCLE-FLAT"] },
+  { id: "BEY-BBG-24-SARAMANDA-BALRO-DF145SWD", type: "bey", structure: "synchrom", name: "사라만다 발록", en: "Saramanda Balro", sub: "DF145SWD · BBG-24", color: "#e05c5c", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-BALRO", "CHROMEWHEEL-SARAMANDA", "CHROMEWHEEL-BALRO", "TRACK-DF145", "BOTTOM-SHARP-WIDE-DEFENSE"] },
+  { id: "BEY-BBG-24-GRYPH-GIRAGO-WA130HF", type: "bey", structure: "synchrom", name: "그리프 지라고", en: "Gryph Girago", sub: "WA130HF · BBG-24", color: "#67e8c6", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-GIRAGO", "CHROMEWHEEL-GRYPH", "CHROMEWHEEL-GIRAGO", "TRACK-WA130", "BOTTOM-HOLE-FLAT"] },
+  { id: "BEY-BBG-25-GOREIM-REVIZER-E230SB", type: "bey", structure: "synchrom", name: "골렘 리바이저", en: "Goreim Revizer", sub: "E230SB · BBG-25", color: "#8a6b50", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-REVIZER", "CHROMEWHEEL-GOREIM", "CHROMEWHEEL-REVIZER", "TRACK-E230", "BOTTOM-SHARP-BALL"] },
+  { id: "BEY-BBG-25-KILLERKEN-BALRO-A230WB", type: "bey", structure: "synchrom", name: "크라켄 발록", en: "Killerken Balro", sub: "A230WB · BBG-25", color: "#4fa9cf", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-BALRO", "CHROMEWHEEL-KRAKEN", "CHROMEWHEEL-BALRO", "TRACK-A230", "BOTTOM-WIDE-BALL"] },
+  { id: "BEY-BBG-25-OROJYA-WYVANG-145EDS", type: "bey", structure: "synchrom", name: "오로자 와이번", en: "Orojya Wyvang", sub: "145EDS · BBG-25", color: "#7d8ca3", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-WYVANG", "CHROMEWHEEL-OROJYA", "CHROMEWHEEL-WYVANG", "TRACK-145", "BOTTOM-ETERNAL-DEFENSE-SHARP"] },
   { id: "BEY-BBG-26-WARRIORS-PEGASIS-W105R2F", type: "bey", structure: "synchrom", name: "워리어스 페가시스", en: "Warriors Pegasis", sub: "W105R²F · BBG-26", color: "#00d9ff", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-PEGASIS", "CRYSTALWHEEL-WARRIORS", "CHROMEWHEEL-PEGASIS", "TRACK-W105", "BOTTOM-RIGHT-RUBBER-FLAT"] },
   { id: "BEY-BBG-27-GLADIATOR-BAHAMDIA-SP230GF", type: "bey", structure: "synchrom", name: "글레디에이터 바함디아", en: "Gladiator Bahamdia", sub: "SP230GF · BBG-27", color: "#d0ad4f", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-BAHAMDIA", "CRYSTALWHEEL-GLADIATOR", "CHROMEWHEEL-BAHAMDIA", "TRACK-SP230", "BOTTOM-GIGA-FLAT"] },
   { id: "FACE-PEGASIS", type: "face", name: "페가시스", en: "Pegasis", sub: "페이스", color: "#00d9ff", tags: ["FACE"], desc: "페가시스의 별자리를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
@@ -430,11 +430,6 @@
   { id: "CRYSTALWHEEL-BANDIT", type: "crystalwheel", name: "반디드", en: "Bandid", sub: "크리스탈휠 · 방어형", color: "#8a6b50", tags: ["CRYSTALWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "바깥쪽으로 향해 있는 경사면이 적의 공격을 받아넘긴다.", stats: [10, 50, 10] },
   { id: "CRYSTALWHEEL-BERSERKER", type: "crystalwheel", name: "버서커", en: "Berserker", sub: "크리스탈휠 · 지구형", color: "#7d70d8", tags: ["CRYSTALWHEEL", "STAMINA", "RIGHT SPIN"], desc: "양끝에 배치된 철구슬과 쇠사슬이 바깥중심이 되어 원심력을 강화한다.", stats: [30, 0, 40] },
   { id: "CRYSTALWHEEL-GLADIATOR", type: "crystalwheel", name: "글레디에이터", en: "Gladiator", sub: "크리스탈휠 · 공격형", color: "#d36b55", tags: ["CRYSTALWHEEL", "ATTACK", "RIGHT SPIN"], desc: "사방으로 향하는 검이 회전함으로써 공격과 방어를 하나로 묶는다.", stats: [30, 20, 10] },
-  { id: "CRYSTALWHEEL-GARGOYLE", type: "crystalwheel", name: "가고일", en: "Gargole", sub: "크리스탈휠 · 공격형", color: "#8a8190", tags: ["CRYSTALWHEEL", "ATTACK", "RIGHT SPIN"], desc: "좌우의 날개에 있는 틈 사이로 바람을 일으켜 회전력이 상승하고 회전공격을 퍼붓는다.", stats: [40, 10, 20] },
-  { id: "CRYSTALWHEEL-SARAMANDA", type: "crystalwheel", name: "사라만다", en: "Saramanda", sub: "크리스탈휠 · 균형형", color: "#e26b3f", tags: ["CRYSTALWHEEL", "BALANCE", "RIGHT SPIN"], desc: "지느러미 모양의 돌기가 폭풍과 같은 연타공격을 가한다.", stats: [40, 20, 10] },
-  { id: "CRYSTALWHEEL-GRYPH", type: "crystalwheel", name: "그리프", en: "Gryph", sub: "크리스탈휠 · 균형형", color: "#d6b46a", tags: ["CRYSTALWHEEL", "BALANCE", "RIGHT SPIN"], desc: "5개의 날개로 강습연타공격이 가능하고 동시에 방어력이 뛰어난 휠.", stats: [35, 35, 0] },
-  { id: "CRYSTALWHEEL-KRAKEN", type: "crystalwheel", name: "크라켄", en: "Killerken", sub: "크리스탈휠 · 방어형", color: "#4fa9cf", tags: ["CRYSTALWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "8개의 커다란 다리가 테두리에 위치하여 적의 공격으로부터 몸체를 보호한다.", stats: [10, 50, 10] },
-  { id: "CRYSTALWHEEL-OROJYA", type: "crystalwheel", name: "오로자", en: "Orojya", sub: "크리스탈휠 · 지구형", color: "#6ca86b", tags: ["CRYSTALWHEEL", "STAMINA", "RIGHT SPIN"], desc: "6마리의 뱀을 형상화한 휠의 끝부분이 바깥중심이 되어 강한 원심력을 만든다.", stats: [10, 20, 40] },
   { id: "CHROMEWHEEL-IFRAID", type: "chromewheel", name: "이프레이드", en: "Ifraid", sub: "크롬휠 · 공격형", color: "#d34d38", tags: ["CHROMEWHEEL", "ATTACK", "RIGHT SPIN"], desc: "커다란 2개의 날개로 연타공격을 한다.", stats: [50, 10, 10] },
   { id: "CHROMEWHEEL-SARAMANDA", type: "chromewheel", name: "사라만다", en: "Saramanda", sub: "크롬휠 · 균형형", color: "#e26b3f", tags: ["CHROMEWHEEL", "BALANCE", "RIGHT SPIN"], desc: "지느러미 모양의 돌기가 폭풍과 같은 연타공격을 가한다.", stats: [40, 20, 10] },
   { id: "CHROMEWHEEL-OROJYA", type: "chromewheel", name: "오로자", en: "Orojya", sub: "크롬휠 · 지구형", color: "#6ca86b", tags: ["CHROMEWHEEL", "STAMINA", "RIGHT SPIN"], desc: "6마리의 뱀을 형상화한 휠의 끝부분이 바깥중심이 되어 강한 원심력을 만든다.", stats: [10, 20, 40] },
@@ -444,7 +439,6 @@
   { id: "CHROMEWHEEL-KRAKEN", type: "chromewheel", name: "크라켄", en: "Killerken", sub: "크롬휠 · 방어형", color: "#4fa9cf", tags: ["CHROMEWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "8개의 커다란 다리가 테두리에 위치하여 적의 공격으로부터 몸체를 보호한다.", stats: [10, 50, 10] },
   { id: "CHROMEWHEEL-DRAGOON", type: "chromewheel", name: "드래곤", en: "Dragooon", sub: "크롬휠 · 공격형", color: "#605c75", tags: ["CHROMEWHEEL", "ATTACK", "RIGHT SPIN"], desc: "중심이 기울어지도록 배치된 3마리의 용이 연타공격을 만들어내고, 적의 회전력을 약화시킨다.", stats: [60, 5, 5] },
   { id: "CHROMEWHEEL-GARGOYLE", type: "chromewheel", name: "가고일", en: "Gargole", sub: "크롬휠 · 공격형", color: "#8a8190", tags: ["CHROMEWHEEL", "ATTACK", "RIGHT SPIN"], desc: "좌우의 날개에 있는 틈 사이로 바람을 일으켜 회전력이 상승하고 회전공격을 퍼붓는다.", stats: [40, 10, 20] },
-  { id: "CRYSTALWHEEL-GOREIM", type: "crystalwheel", name: "골렘", en: "Goreim", sub: "크리스탈휠 · 방어형", color: "#8a6b50", tags: ["CRYSTALWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "갑옷으로 둘러싸인 몸체와 사다리 모양의 휠이 철벽방어를 자랑한다.", stats: [10, 40, 20] },
   { id: "CHROMEWHEEL-GOREIM", type: "chromewheel", name: "골렘", en: "Goreim", sub: "크롬휠 · 방어형", color: "#8a6b50", tags: ["CHROMEWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "갑옷으로 둘러싸인 몸체와 사다리 모양의 휠이 철벽방어를 자랑한다.", stats: [10, 40, 20] },
   { id: "CHROMEWHEEL-BEGIRADOS", type: "chromewheel", name: "베기라도스", en: "Begirados", sub: "크롬휠 · 지구형", color: "#9ed36a", tags: ["CHROMEWHEEL", "STAMINA", "RIGHT SPIN"], desc: "강력한 원심력과 지구력을 자랑한다.", stats: [20, 10, 40] },
   { id: "CHROMEWHEEL-GENBULL", type: "chromewheel", name: "겐블", en: "Genbull", sub: "크롬휠 · 지구형", color: "#b88aff", tags: ["CHROMEWHEEL", "STAMINA", "RIGHT SPIN"], desc: "강고한 대칭의 등껍질이 원심력을 만들어내 지구력을 더한다.", stats: [10, 20, 40] },
@@ -549,7 +543,11 @@
 
 const grid = document.querySelector("#gearGrid");
 const count = document.querySelector("#resultCount");
-const search = document.querySelector("#searchInput");
+const globalSearch = document.querySelector("#globalSearchInput");
+const globalSearchScope = document.querySelector("#globalSearchScope");
+const overviewSearch = document.querySelector("#overviewSearchInput");
+const globalGrid = document.querySelector("#globalGrid");
+const globalCount = document.querySelector("#globalCount");
 const activeToyPanel = () => document.querySelector(".toy-panel.active");
 const activeToolbar = () => activeToyPanel()?.querySelector(".toolbar");
 const activeSearchBox = () => activeToyPanel()?.querySelector(".search-box");
@@ -566,6 +564,7 @@ let filterStructure = null;
 let productFilter = null;
 let productKindFilter = null;
 let productNoteFilter = null;
+let activeReleaseRegion = "kr";
 let equipmentFilter = null;
 let gearKindFilter = "";
 let gearSubtypeFilter = null;
@@ -574,70 +573,146 @@ let gearSpinFilter = null;
 let gearStructureFilter = null;
 
 const productItems = [
-  { id: "PRODUCT-BB-01", no: "BB-01", name: "페가시스 105F", sale: "일반 판매", kind: "리미티드스타터세트", price: "₩17,600", releaseDate: "2008년 10월", composition: [
-    { label: "베이", name: "페가시스 105F", target: "BEY-BB-01" },
+  { id: "PRODUCT-BB-01", series: "metal fight", no: "BB-01", name: "페가시스 105F", sale: "일반 판매", kind: "리미티드스타터세트", price: "₩17600", releaseDate: "2008-10", releases: {
+    jp: { no: "BB-01", name: "페가시스 105F", sale: "일반 판매", kind: "스타터", releaseDate: "2008-08-09", price: "¥1544", composition: [
+      { label: "베이", name: "페가시스 105F", target: "BEY-BB-01-PEGASIS-105F" },
+      { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
+      { label: "기타", name: "베이포인터", target: "EQUIPMENT-POINTER" },
+      { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
+    ] }
+  }, composition: [
+    { label: "베이", name: "페가시스 105F", target: "BEY-BB-01-PEGASIS-105F" },
     { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
     { label: "기타", name: "포인터", target: "EQUIPMENT-POINTER" },
     { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
   ] },
-  { id: "PRODUCT-BB-02", no: "BB-02", name: "불 125SF", sale: "일반 판매", kind: "리미티드스타터세트", composition: [
-    { label: "베이", name: "불 125SF", target: "BEY-BB-02" },
+  { id: "PRODUCT-BB-02", series: "metal fight", no: "BB-02", name: "불 125SF", sale: "일반 판매", kind: "리미티드스타터세트", price: "₩17600", releaseDate: "2008-10", releases: {
+    jp: { no: "BB-02", name: "불 125SF", sale: "일반 판매", kind: "스타터", releaseDate: "2008-08-09", price: "¥1544", composition: [
+      { label: "베이", name: "불 125SF", target: "BEY-BB-02-BULL-125SF" },
+      { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
+      { label: "기타", name: "베이포인터", target: "EQUIPMENT-POINTER" },
+      { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
+    ] }
+  }, composition: [
+    { label: "베이", name: "불 125SF", target: "BEY-BB-02-BULL-125SF" },
     { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
     { label: "기타", name: "포인터", target: "EQUIPMENT-POINTER" },
     { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
   ] },
-  { id: "PRODUCT-BB-03", no: "BB-03", name: "사지타리오 145S", sale: "일반 판매", kind: "스타터세트", composition: [
-    { label: "베이", name: "사지타리오 145S", target: "BEY-BB-03" },
+  { id: "PRODUCT-BB-03", series: "metal fight", no: "BB-03", name: "사지타리오 145S", sale: "일반 판매", kind: "스타터세트", price: "₩8000", releaseDate: "2008-10", releases: {
+    jp: { no: "BB-03", name: "사지타리오 145S", sale: "일반 판매", kind: "부스터", releaseDate: "2008-08-09", price: "¥819", composition: [
+      { label: "베이", name: "사지타리오 145S", target: "BEY-BB-03-SAGITTARIO-145S" },
+      { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
+      { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
+    ] }
+  }, composition: [
+    { label: "베이", name: "사지타리오 145S", target: "BEY-BB-03-SAGITTARIO-145S" },
     { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
     { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
   ] },
-  { id: "PRODUCT-BB-04", no: "BB-04", name: "레온 145D", sale: "일반 판매", kind: "스타터세트", composition: [
-    { label: "베이", name: "레온 145D", target: "BEY-BB-04" },
+  { id: "PRODUCT-BB-04", series: "metal fight", no: "BB-04", name: "레온 145D", sale: "일반 판매", kind: "스타터세트", price: "₩8000", releaseDate: "2008-10", releases: {
+    jp: { no: "BB-04", name: "레오네 145D", sale: "일반 판매", kind: "부스터", releaseDate: "2008-08-09", price: "¥819", composition: [
+      { label: "베이", name: "레오네 145D", target: "BEY-BB-04-LEONE-145D" },
+      { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
+      { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
+    ] }
+  }, composition: [
+    { label: "베이", name: "레온 145D", target: "BEY-BB-04-LEONE-145D" },
     { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
     { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
   ] },
-  { id: "PRODUCT-BB-05", no: "BB-05", name: "페가시스 145D", sale: "일반 판매", kind: "스타터세트", composition: [
-    { label: "베이", name: "페가시스 145D", target: "BEY-BB-05" },
+  { id: "PRODUCT-BB-05", series: "metal fight", no: "BB-05", name: "페가시스 145D", sale: "일반 판매", kind: "스타터세트", price: "₩8000", releaseDate: "2008-10", releases: {
+    jp: { no: "BB-05", name: "페가시스 145D", sale: "일반 판매", kind: "부스터", releaseDate: "2008-08-09", price: "¥630", composition: [
+      { label: "베이", name: "페가시스 145D", target: "BEY-BB-05-PEGASIS-145D" },
+      { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" }
+    ] }
+  }, composition: [
+    { label: "베이", name: "페가시스 145D", target: "BEY-BB-05-PEGASIS-145D" },
     { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
     { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
   ] },
-  { id: "PRODUCT-BB-06", no: "BB-06", name: "불 145S", sale: "일반 판매", kind: "스타터세트", composition: [
-    { label: "베이", name: "불 145S", target: "BEY-BB-06" },
+  { id: "PRODUCT-BB-06", series: "metal fight", no: "BB-06", name: "불 145S", sale: "일반 판매", kind: "스타터세트", price: "₩8000", releaseDate: "2008-10", releases: {
+    jp: { no: "BB-06", name: "불 145S", sale: "일반 판매", kind: "부스터", releaseDate: "2008-08-09", price: "¥630", composition: [
+      { label: "베이", name: "불 145S", target: "BEY-BB-06-BULL-145S" },
+      { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" }
+    ] }
+  }, composition: [
+    { label: "베이", name: "불 145S", target: "BEY-BB-06-BULL-145S" },
     { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
     { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
   ] },
-  { id: "PRODUCT-BB-07", no: "BB-07", name: "사지타리오 125SF", sale: "일반 판매", kind: "스타터세트", composition: [
-    { label: "베이", name: "사지타리오 125SF", target: "BEY-BB-07" },
+  { id: "PRODUCT-BB-07", series: "metal fight", no: "BB-07", name: "사지타리오 125SF", sale: "일반 판매", kind: "스타터세트", price: "₩8000", releaseDate: "2008-10", releases: {
+    jp: { no: "BB-07", name: "사지타리오 125SF", sale: "일반 판매", kind: "부스터", releaseDate: "2008-08-09", price: "¥630", composition: [
+      { label: "베이", name: "사지타리오 125SF", target: "BEY-BB-07-SAGITTARIO-125SF" },
+      { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" }
+    ] }
+  }, composition: [
+    { label: "베이", name: "사지타리오 125SF", target: "BEY-BB-07-SAGITTARIO-125SF" },
     { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
     { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
   ] },
-  { id: "PRODUCT-BB-08", no: "BB-08", name: "레온 105F", sale: "일반 판매", kind: "스타터세트", composition: [
-    { label: "베이", name: "레온 105F", target: "BEY-BB-08" },
+  { id: "PRODUCT-BB-08", series: "metal fight", no: "BB-08", name: "레온 105F", sale: "일반 판매", kind: "스타터세트", price: "₩8000", releaseDate: "2008-10", releases: {
+    jp: { no: "BB-08", name: "레오네 105F", sale: "일반 판매", kind: "부스터", releaseDate: "2008-08-09", price: "¥630", composition: [
+      { label: "베이", name: "레오네 105F", target: "BEY-BB-08-LEONE-105F" },
+      { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" }
+    ] }
+  }, composition: [
+    { label: "베이", name: "레온 105F", target: "BEY-BB-08-LEONE-105F" },
     { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
     { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
   ] },
-  { id: "PRODUCT-BB-09", no: "BB-09", name: "메탈스피드 DX 세트", sale: "일반 판매", kind: "세트", composition: [
-    { label: "베이", name: "페가시스 105F", target: "BEY-BB-09" },
+  { id: "PRODUCT-BB-09", series: "metal fight", no: "BB-09", name: "메탈스피드 DX 세트", sale: "일반 판매", kind: "세트", price: "₩25600", releaseDate: "2008-10", releases: {
+    jp: { no: "BB-09", name: "페가시스 DX 세트", sale: "일반 판매", kind: "세트", releaseDate: "2008-08-09", price: "¥3150", composition: [
+      { label: "베이", name: "페가시스 105F", target: "BEY-BB-09-PEGASIS-105F" },
+      { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" },
+      { label: "기타", name: "베이포인터", target: "EQUIPMENT-POINTER" },
+      { label: "스타디움", name: "베이스타디움 어택타입", target: "EQUIPMENT-ATTACK-BEYSTADIUM" },
+      { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }
+    ] }
+  }, composition: [
+    { label: "베이", name: "페가시스 105F", target: "BEY-BB-09-PEGASIS-105F" },
     { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" },
     { label: "기타", name: "포인터", target: "EQUIPMENT-POINTER" },
     { label: "스타디움", name: "메탈파이트 스타디움 공격형", target: "EQUIPMENT-ATTACK-BEYSTADIUM" },
     { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }
   ] },
-  { id: "PRODUCT-BB-10", no: "BB-10", name: "메탈파이트 스타디움 공격형", sale: "일반 판매", kind: "스타디움", equipment: "스타디움", composition: [
-    { label: "스타디움", name: "메탈파이트 스타디움 공격형", target: "EQUIPMENT-ATTACK-BEYSTADIUM" },
+  { id: "PRODUCT-BB-10", series: "metal fight", no: "BB-10", name: "공격형 메탈파이트 스타디움", sale: "일반 판매", kind: "", equipment: "스타디움", price: "₩6400", releaseDate: "2008-10", releases: {
+    jp: { no: "BB-10", name: "베이스타디움 어택타입", sale: "일반 판매", kind: "기타", releaseDate: "2008-08-09", price: "¥1260", composition: [
+      { label: "스타디움", name: "베이스타디움 어택타입", target: "EQUIPMENT-ATTACK-BEYSTADIUM" },
+      { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }
+    ] }
+  }, composition: [
+    { label: "스타디움", name: "공격형 메탈파이트 스타디움", target: "EQUIPMENT-ATTACK-BEYSTADIUM" },
     { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }
   ] },
-  { id: "PRODUCT-BB-11", no: "BB-11", name: "울프 D125B", sale: "일반 판매", kind: "스타터세트", composition: [
+  { id: "PRODUCT-BB-11", series: "metal fight", no: "BB-11", name: "울프 D125B", sale: "일반 판매", kind: "스타터세트", releaseDate: "2008-12", price: "₩8000", releases: {
+    jp: { no: "BB-11", name: "볼프 D125B", sale: "일반 판매", kind: "스타터", releaseDate: "2008-09-18", price: "¥819", composition: [
+      { label: "베이", name: "볼프 D125B", target: "BEY-BB-11-WOLF-D125B" },
+      { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
+      { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
+    ] }
+  }, composition: [
     { label: "베이", name: "울프 D125B", target: "BEY-BB-11-WOLF-D125B" },
     { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
     { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
   ] },
-  { id: "PRODUCT-BB-12", no: "BB-12", name: "울프 105F", sale: "일반 판매", kind: "스타터세트", composition: [
+  { id: "PRODUCT-BB-12", series: "metal fight", no: "BB-12", name: "울프 105F", sale: "일반 판매", kind: "스타터세트", releaseDate: "2008-12", price: "₩10400", releases: {
+    jp: { no: "BB-12", name: "볼프 105F", sale: "일반 판매", kind: "부스터", releaseDate: "2008-09-18", price: "¥630", composition: [
+      { label: "베이", name: "볼프 105F", target: "BEY-BB-12-WOLF-105F" },
+      { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" }
+    ] }
+  }, composition: [
     { label: "베이", name: "울프 105F", target: "BEY-BB-12-WOLF-105F" },
     { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
     { label: "런처", name: "파워런처", target: "EQUIPMENT-POWER-LAUNCHER" }
   ] },
-  { id: "PRODUCT-BB-13", no: "BB-13", name: "랜덤부스터 Vol.1", sale: "일반 판매", kind: "부스터", composition: [
+  { id: "PRODUCT-BB-13", series: "metal fight", no: "BB-13", name: "BB-13", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BB-13", name: "랜덤부스터 Vol.1 시크릿 아리에스", sale: "일반 판매", kind: "부스터", releaseDate: "2008-09-18", price: "¥630", composition: [
+      { label: "베이", name: "무작위 베이", target: "BEY-BB-13-ARIES-125D" },
+      { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" }
+    ] }
+  }, composition: [
     { label: "베이", name: "무작위 베이", target: "BEY-BB-13-ARIES-125D" },
     { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" }
   ], beyPool: [
@@ -650,29 +725,68 @@ const productItems = [
     "BEY-BB-13-BULL-105D",
     "BEY-BB-13-PEGASIS-145F"
   ] },
-  { id: "PRODUCT-BB-14", no: "BB-14", name: "메탈파이트 스타디움 밸런스형", sale: "일반 판매", kind: "스타디움", equipment: "스타디움", composition: [
+  { id: "PRODUCT-BB-14", series: "metal fight", no: "BB-14", name: "BB-14", sale: "일반 판매", kind: "", equipment: "스타디움", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BB-14", name: "베이스타디움 밸런스타입", sale: "일반 판매", kind: "기타", equipment: "스타디움", releaseDate: "2008-09-18", price: "¥1260", composition: [
+      { label: "스타디움", name: "메탈파이트 스타디움 밸런스형", target: "EQUIPMENT-BALANCE-BEYSTADIUM" },
+      { label: "기타", name: "오버펜스", quantity: "7개", target: "EQUIPMENT-OVER-FENCE" }
+    ] }
+  }, composition: [
     { label: "스타디움", name: "메탈파이트 스타디움 밸런스형", target: "EQUIPMENT-BALANCE-BEYSTADIUM" },
     { label: "기타", name: "오버펜스", quantity: "7개", target: "EQUIPMENT-OVER-FENCE" }
   ] },
-  { id: "PRODUCT-BB-15", no: "BB-15", name: "런처그립", sale: "일반 판매", kind: "그립", equipment: "그립", composition: [
+  { id: "PRODUCT-BB-15", series: "metal fight", no: "BB-15", name: "런처그립", sale: "일반 판매", kind: "", equipment: "그립", releaseDate: "2008-12", price: "₩8000", releases: {
+    jp: { no: "BB-15", name: "런처그립", sale: "일반 판매", kind: "기타", equipment: "그립", releaseDate: "2008-09-18", price: "¥525", composition: [
+      { label: "그립", name: "런처그립", target: "EQUIPMENT-LAUNCHER-GRIP" }
+    ] }
+  }, composition: [
     { label: "그립", name: "런처그립", target: "EQUIPMENT-LAUNCHER-GRIP" }
   ] },
-  { id: "PRODUCT-BB-16", no: "BB-16", name: "포인터", sale: "일반 판매", kind: "기타", equipment: "기타", composition: [
+  { id: "PRODUCT-BB-16", series: "metal fight", no: "BB-16", name: "포인터", sale: "일반 판매", kind: "", equipment: "기타", releaseDate: "2008-12", price: "₩9600", releases: {
+    jp: { no: "BB-16", name: "베이포인터", sale: "일반 판매", kind: "기타", equipment: "기타", releaseDate: "2008-09-18", price: "¥1050", composition: [
+      { label: "기타", name: "베이포인터", target: "EQUIPMENT-POINTER" }
+    ] }
+  }, composition: [
     { label: "기타", name: "포인터", target: "EQUIPMENT-POINTER" }
   ] },
-  { id: "PRODUCT-BB-17", no: "BB-17", name: "파워런처", sale: "일반 판매", kind: "런처", equipment: "런처", composition: [
+  { id: "PRODUCT-BB-17", series: "metal fight", no: "BB-17", name: "파워런처", sale: "일반 판매", kind: "", equipment: "런처", releaseDate: "2008-12", price: "₩6400", releases: {
+    jp: { no: "BB-17", name: "베이런처", sale: "일반 판매", kind: "기타", equipment: "런처", releaseDate: "2008-09-18", price: "¥630", composition: [
+      { label: "런처", name: "베이런처", target: "EQUIPMENT-POWER-LAUNCHER" }
+    ] }
+  }, composition: [
     { label: "런처", name: "파워런처", target: "EQUIPMENT-POWER-LAUNCHER" }
   ] },
-  { id: "PRODUCT-BB-18", no: "BB-18", name: "리브라 DF145BS", sale: "일반 판매", kind: "스타터세트", composition: [
+  { id: "PRODUCT-BB-18", series: "metal fight", no: "BB-18", name: "리브라 DF145BS", sale: "일반 판매", kind: "스타터세트", releaseDate: "2008-12", price: "₩10400", releases: {
+    jp: { no: "BB-18", name: "리브라 DF125BS", sale: "일반 판매", kind: "부스터", releaseDate: "2008-10-23", price: "¥630", composition: [
+      { label: "베이", name: "리브라 DF125BS", target: "BEY-BB-18-LIBRA-DF145BS" },
+      { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" }
+    ] }
+  }, composition: [
     { label: "베이", name: "리브라 DF145BS", target: "BEY-BB-18-LIBRA-DF145BS" },
     { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
     { label: "런처", name: "파워런처", target: "EQUIPMENT-POWER-LAUNCHER" }
   ] },
-  { id: "PRODUCT-BB-19", no: "BB-19", name: "메탈파이트 스타디움 스테미너형", sale: "일반 판매", kind: "스타디움", equipment: "스타디움", composition: [
+  { id: "PRODUCT-BB-19", series: "metal fight", no: "BB-19", name: "BB-19", sale: "일반 판매", kind: "", equipment: "스타디움", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BB-19", name: "베이스타디움 스태미나타입", sale: "일반 판매", kind: "기타", equipment: "스타디움", releaseDate: "2008-10-23", price: "¥1365", composition: [
+      { label: "스타디움", name: "메탈파이트 스타디움 스테미너형", target: "EQUIPMENT-STAMINA-BEYSTADIUM" },
+      { label: "기타", name: "오버펜스", quantity: "7개", target: "EQUIPMENT-OVER-FENCE" }
+    ] }
+  }, composition: [
     { label: "스타디움", name: "메탈파이트 스타디움 스테미너형", target: "EQUIPMENT-STAMINA-BEYSTADIUM" },
     { label: "기타", name: "오버펜스", quantity: "7개", target: "EQUIPMENT-OVER-FENCE" }
   ] },
-  { id: "PRODUCT-BB-20", no: "BB-20", name: "메탈파이트 DX 세트", sale: "일반 판매", kind: "세트", composition: [
+  { id: "PRODUCT-BB-20", series: "metal fight", no: "BB-20", name: "메탈파이트 DX 세트", sale: "일반 판매", kind: "세트", releaseDate: "2008-12", price: "₩44000", releases: {
+    jp: { no: "BB-20", name: "베이 배틀 트라이 세트", sale: "일반 판매", kind: "세트", releaseDate: "2008-10-23", price: "¥5250", composition: [
+      { label: "베이", name: "페가시스 105F", target: "BEY-BB-20-PEGASIS-105F" },
+      { label: "베이", name: "볼프 D125B", target: "BEY-BB-20-WOLF-D125B" },
+      { label: "기타", name: "툴", quantity: "2개", target: "EQUIPMENT-TOOL" },
+      { label: "기타", name: "베이포인터", quantity: "2개", target: "EQUIPMENT-POINTER" },
+      { label: "런처", name: "베이런처", quantity: "2개", target: "EQUIPMENT-POWER-LAUNCHER" },
+      { label: "스타디움", name: "베이스타디움 밸런스타입", target: "EQUIPMENT-BALANCE-BEYSTADIUM" },
+      { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }
+    ] }
+  }, composition: [
     { label: "베이", name: "페가시스 105F", target: "BEY-BB-20-PEGASIS-105F" },
     { label: "베이", name: "울프 D125B", target: "BEY-BB-20-WOLF-D125B" },
     { label: "기타", name: "툴", quantity: "2개", target: "EQUIPMENT-TOOL" },
@@ -681,14 +795,32 @@ const productItems = [
     { label: "스타디움", name: "메탈파이트 스타디움 밸런스형", target: "EQUIPMENT-BALANCE-BEYSTADIUM" },
     { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }
   ] },
-  { id: "PRODUCT-BB-21", no: "BB-21", name: "파워커스터마이즈세트 공격형&밸런스형", sale: "일반 판매", kind: "세트", composition: [
+  { id: "PRODUCT-BB-21", series: "metal fight", no: "BB-21", name: "파워커스터마이즈세트 공격형&밸런스형", sale: "일반 판매", kind: "세트", releaseDate: "2008-12", price: "₩24000", releases: {
+    jp: { no: "BB-21", name: "베이 개조 세트 어택&밸런스타입", sale: "일반 판매", kind: "세트", releaseDate: "2008-10-23", price: "¥2625", composition: [
+      { label: "베이", name: "페가시스 100HF", quantity: "1개", target: "BEY-BB-21-PEGASIS-100HF" },
+      { label: "베이", name: "아쿠아리오 105F", quantity: "1개", target: "BEY-BB-21-AQUARIO-105F" },
+      { label: "베이", name: "볼프 125SF", quantity: "1개", target: "BEY-BB-21-WOLF-125SF" },
+      { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" },
+      { label: "런처", name: "베이런처", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER" }
+    ] }
+  }, composition: [
     { label: "베이", name: "페가시스 100HF", quantity: "1개", target: "BEY-BB-21-PEGASIS-100HF" },
     { label: "베이", name: "아쿠아리오 105F", quantity: "1개", target: "BEY-BB-21-AQUARIO-105F" },
     { label: "베이", name: "울프 125SF", quantity: "1개", target: "BEY-BB-21-WOLF-125SF" },
     { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" },
     { label: "런처", name: "파워런처", target: "EQUIPMENT-POWER-LAUNCHER" }
   ] },
-  { id: "PRODUCT-BB-22", no: "BB-22", name: "액션커스터마이즈세트 스테미너형&방어형", sale: "일반 판매", kind: "세트", composition: [
+  { id: "PRODUCT-BB-22", series: "metal fight", no: "BB-22", name: "액션커스터마이즈세트 스테미너형&방어형", sale: "일반 판매", kind: "세트", releaseDate: "2008-12", price: "₩24000", releases: {
+    jp: { no: "BB-22", name: "베이 개조 세트 스태미나&디펜스타입", sale: "일반 판매", kind: "세트", releaseDate: "2008-10-23", price: "¥2625", composition: [
+      { label: "베이", name: "비르고 DF145BS", quantity: "1개", target: "BEY-BB-22-VIRGO-DF145BS" },
+      { label: "베이", name: "리브라 145S", quantity: "1개", target: "BEY-BB-22-LIBRA-145S" },
+      { label: "베이", name: "레오네 D125B", quantity: "1개", target: "BEY-BB-22-LEONE-D125B" },
+      { label: "트랙", name: "105 트랙", quantity: "1개", target: "TRACK-105" },
+      { label: "버텀", name: "F 버텀", quantity: "1개", target: "BOTTOM-FLAT" },
+      { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" },
+      { label: "그립", name: "런처그립", quantity: "1개", target: "EQUIPMENT-LAUNCHER-GRIP" }
+    ] }
+  }, composition: [
     { label: "베이", name: "비르고 DF145BS", quantity: "1개", target: "BEY-BB-22-VIRGO-DF145BS" },
     { label: "베이", name: "리브라 145S", quantity: "1개", target: "BEY-BB-22-LIBRA-145S" },
     { label: "베이", name: "레온 D125B", quantity: "1개", target: "BEY-BB-22-LEONE-D125B" },
@@ -697,12 +829,114 @@ const productItems = [
     { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" },
     { label: "그립", name: "런처그립", quantity: "1개", target: "EQUIPMENT-LAUNCHER-GRIP" }
   ] },
-  { id: "PRODUCT-BB-23", no: "BB-23", name: "엘드라고 105F", sale: "일반 판매", kind: "베이" },
-  { id: "PRODUCT-BB-24", no: "BB-24", name: "에스콜피오 WD145B", sale: "일반 판매", kind: "베이" },
-  { id: "PRODUCT-BB-25", no: "BB-25", name: "랜덤부스터 Vol.2", sale: "일반 판매", kind: "랜덤부스터" },
-  { id: "PRODUCT-BB-26", no: "BB-26", name: "제미오스 DF145FS", sale: "일반 판매", kind: "베이" },
-  { id: "PRODUCT-BB-27", no: "BB-27", name: "카프리콘 100HF", sale: "일반 판매", kind: "베이" }
+  { id: "PRODUCT-BB-23", series: "metal fight", no: "BB-23", name: "BB-23", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BB-23", name: "엘드라고 105F", sale: "일반 판매", kind: "스타터", releaseDate: "2008-12-25", price: "¥1344", composition: [
+      { label: "베이", name: "엘드라고 105F", target: "BEY-BB-23-LDRAGO-105F" },
+      { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
+      { label: "런처", name: "베이런처L", target: "EQUIPMENT-POWER-LAUNCHER-L" }
+    ] }
+  } },
+  { id: "PRODUCT-BB-24", series: "metal fight", no: "BB-24", name: "BB-24", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BB-24", name: "제미오스 DF145FS", sale: "일반 판매", kind: "부스터", releaseDate: "2009-02-22", price: "¥630", composition: [
+      { label: "베이", name: "제미오스 DF145FS", target: "BEY-BB-26-GEMIOS-DF145FS" },
+      { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" }
+    ] }
+  } },
+  { id: "PRODUCT-BB-25", series: "metal fight", no: "BB-25", name: "BB-25", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BB-25", name: "에스콜피오 WD145B", sale: "일반 판매", kind: "부스터", releaseDate: "2008-12-25", price: "¥630", composition: [
+      { label: "베이", name: "에스콜피오 WD145B", target: "BEY-BB-24-ESCOLPIO-WD145B" },
+      { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" }
+    ] }
+  } },
+  { id: "PRODUCT-BB-26", series: "metal fight", no: "BB-26", name: "BB-26", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BB-26", name: "랜덤부스터 Vol.2 레전드 파이시즈", sale: "일반 판매", kind: "부스터", releaseDate: "2009-02-22", price: "¥630", composition: [
+      { label: "베이", name: "무작위 베이", target: "BEY-BB-25-PISCES-D125BS" },
+      { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" }
+    ] }
+  }, beyPool: [
+    "BEY-BB-25-PISCES-D125BS",
+    "BEY-BB-25-AQUARIO-DF145SF",
+    "BEY-BB-25-VIRGO-125BS",
+    "BEY-BB-25-LIBRA-D125HF",
+    "BEY-BB-25-AQUARIO-105B",
+    "BEY-BB-25-VIRGO-100B",
+    "BEY-BB-25-LIBRA-100F",
+    "BEY-BB-25-BULL-DF145HF"
+  ] },
+  { id: "PRODUCT-BB-27", series: "metal fight", no: "BB-27", name: "BB-27", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BB-27", name: "카프리코네 100HF", sale: "일반 판매", kind: "부스터", releaseDate: "2009-02-22", price: "¥630", composition: [
+      { label: "베이", name: "카프리코네 100HF", target: "BEY-BB-27-CAPRICORNE-100HF" },
+      { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" }
+    ] }
+  } }
 ];
+
+const releaseRegionLabels = {
+  kr: "한국",
+  jp: "일본"
+};
+const normalizeProductKind = kind => kind === "기타" ? "" : kind || "";
+const baseProductRelease = item => ({
+  status: "released",
+  no: item.no || "",
+  name: item.name || "",
+  sale: item.sale || "",
+  kind: normalizeProductKind(item.kind),
+  equipment: item.equipment || "",
+  releaseDate: item.releaseDate || item.release || "",
+  price: item.price || "",
+  composition: item.composition || []
+});
+const blankProductRelease = () => ({
+  status: "unreleased",
+  no: "",
+  name: "",
+  sale: "",
+  kind: "",
+  equipment: "",
+  releaseDate: "",
+  price: "",
+  composition: []
+});
+const productRelease = (item, region = activeReleaseRegion) => {
+  const base = baseProductRelease(item);
+  const blank = blankProductRelease();
+  if (!item.releases) return region === "kr" ? base : blank;
+  const release = item.releases?.[region];
+  if (!release) return region === "kr" ? base : blank;
+  if (release.status === "unreleased") return blank;
+  const merged = { ...(region === "kr" ? base : blank), ...release, status: release.status || "released" };
+  return { ...merged, kind: normalizeProductKind(merged.kind) };
+};
+const productReleaseValue = (item, key, region = activeReleaseRegion) => productRelease(item, region)[key] || "";
+const productReleasedInRegion = (item, region = activeReleaseRegion) => productRelease(item, region).status !== "unreleased";
+const productDisplayName = (item, region = activeReleaseRegion) => {
+  const release = productRelease(item, region);
+  if (release.name) return release.name;
+  const baseName = item.name || "";
+  if (!baseName || baseName === item.no) {
+    const japanName = productRelease(item, "jp").name;
+    if (japanName) return japanName;
+  }
+  return baseName || item.no || "";
+};
+const releaseDateLabel = value => {
+  if (!value) return "";
+  const match = String(value).match(/^(\d{4})-(\d{2})(?:-\d{2})?$/);
+  return match ? `${match[1]}년 ${Number(match[2])}월` : value;
+};
+const priceLabel = value => {
+  if (!value) return "";
+  return String(value).replace(/^([₩¥])(\d+)$/, (_, currency, amount) => `${currency}${Number(amount).toLocaleString("en-US")}`);
+};
+const releaseRegionControls = () => `<div class="release-region-tabs" role="tablist" aria-label="발매 지역">
+  ${Object.entries(releaseRegionLabels).map(([region, label]) => `<button class="release-region-tab${activeReleaseRegion === region ? " active" : ""}" type="button" data-release-region="${region}" aria-selected="${activeReleaseRegion === region ? "true" : "false"}">${label}</button>`).join("")}
+</div>`;
 
 const equipmentItems = [
   { id: "EQUIPMENT-TOOL", name: "툴", en: "Tool", category: "기타", desc: "" },
@@ -710,6 +944,7 @@ const equipmentItems = [
   { id: "EQUIPMENT-LAUNCHER-GRIP", name: "런처그립", en: "Launcher Grip", category: "그립", desc: "" },
   { id: "EQUIPMENT-LIGHT-LAUNCHER", name: "라이트런처", en: "Light Launcher", category: "런처", desc: "" },
   { id: "EQUIPMENT-POWER-LAUNCHER", name: "파워런처", en: "Power Launcher", category: "런처", desc: "" },
+  { id: "EQUIPMENT-POWER-LAUNCHER-L", name: "파워런처L", en: "Power Launcher L", category: "런처", desc: "" },
   { id: "EQUIPMENT-ATTACK-BEYSTADIUM", name: "공격형 베이스타디움", en: "Beystadium Attack Type", category: "스타디움", desc: "공격형의 힘을 끌어내는 베이블레이드 전용 스타디움!" },
   { id: "EQUIPMENT-BALANCE-BEYSTADIUM", name: "밸런스형 베이스타디움", en: "Beystadium Balance Type", category: "스타디움", desc: "" },
   { id: "EQUIPMENT-STAMINA-BEYSTADIUM", name: "스테미너형 베이스타디움", en: "Beystadium Stamina Type", category: "스타디움", desc: "" },
@@ -755,12 +990,12 @@ const cardInfo = item => {
   return `<p class="card-en">${item.en}</p><h3 class="card-name">${item.name}</h3>`;
 };
 const beySerialNumber = item => {
-  if (item.id === "BEY-QUETZALCOATL") return 27.5;
+  if (item.id === "BEY-QUETZALCOATL-90WF") return 27.5;
   if (item.id === "BEY-CYBER-PEGASIS-100HF") return 57.5;
   if (item.id === "BEY-MERCURY-ANUBIUS-85XF") return 69.5;
   if (item.id === "BEY-SOL-BLAZE-V145AS") return 87.5;
   if (item.id === "BEY-DIVINE-CHIMERA-TR145FB") return 90;
-  if (item.id === "BEY-BBP01-VULCAN-HORUSEUS-145D") return 90.5;
+  if (item.id === "BEY-BB-P01-VULCAN-HORUSEUS-145D") return 90.5;
   if (item.id === "BEY-NIGHTMARE-REX-SW145SD") return 98;
   if (item.id === "BEY-OMEGA-DRAGONIS-85XF") return 123.5;
   const match = beySerial(item).match(/BB-(\d+)/);
@@ -799,8 +1034,10 @@ const equipmentMatchesSearch = (item, query) => {
   const text = equipmentSearchText(item);
   return terms.length ? terms.every(term => searchIncludes(text, term)) : searchIncludes(text, query);
 };
-const productSerialNumber = item => {
-  const match = item.no.match(/BB-(\d+)/);
+const globalSearchQuery = () => globalSearch?.value.trim() || "";
+const productSerialNumber = (item, region = activeReleaseRegion) => {
+  const no = productReleaseValue(item, "no", region) || item.no || "";
+  const match = no.match(/BB-(\d+)/);
   return match ? Number(match[1]) : Number.MAX_SAFE_INTEGER;
 };
 const saleLabel = sale => sale === "일반 판매" ? "일반" : sale === "한정 판매" ? "한정 판매" : sale === "한정 배포" ? "한정 배포" : sale;
@@ -808,8 +1045,8 @@ const productCard = (item, mode = "product") => `
   <button class="gear-card product-card" data-product-id="${item.id}">
     <div class="card-top"><span class="card-type">${mode === "equipment" ? item.equipment : saleLabel(item.sale)}</span><span>${item.no}</span></div>
     <div class="gear-visual"></div>
-    <h3 class="card-name">${item.name}</h3>
-    <p class="card-full-en">${item.kind}</p>
+    <h3 class="card-name">${productDisplayName(item, "kr")}</h3>
+    <p class="card-full-en">${normalizeProductKind(item.kind)}</p>
     <p class="card-full-ko">&nbsp;</p>
   </button>`;
 const equipmentCard = item => `
@@ -826,7 +1063,8 @@ const equipmentSortOrder = item => {
     "EQUIPMENT-LAUNCHER-GRIP": 15,
     "EQUIPMENT-LIGHT-LAUNCHER": 20,
     "EQUIPMENT-POWER-LAUNCHER": 25,
-    "EQUIPMENT-POINTER": 30,
+    "EQUIPMENT-POWER-LAUNCHER-L": 30,
+    "EQUIPMENT-POINTER": 35,
     "EQUIPMENT-ATTACK-BEYSTADIUM": 40,
     "EQUIPMENT-BALANCE-BEYSTADIUM": 45,
     "EQUIPMENT-STAMINA-BEYSTADIUM": 47,
@@ -856,19 +1094,19 @@ const applyGearDropdownFilter = () => {
   filterStructure = gearKindFilter === "bey" ? gearStructureFilter : null;
 };
 const visibleProductItems = () => {
-  const query = document.querySelector("#productSearch")?.value.trim() || "";
+  const query = globalSearchQuery();
   return productItems
     .filter(item => (!productFilter || (Array.isArray(productFilter) ? productFilter.includes(item.sale) : item.sale === productFilter)) && (!productKindFilter || item.kind === productKindFilter) && (!productNoteFilter || item.sale === productNoteFilter) && productMatchesSearch(item, query))
     .sort((a, b) => productSerialNumber(a) - productSerialNumber(b));
 };
 const visibleEquipmentItems = () => {
-  const query = document.querySelector("#equipmentSearch")?.value.trim() || "";
+  const query = globalSearchQuery();
   return equipmentItems
     .filter(item => (!equipmentFilter || item.category === equipmentFilter) && equipmentMatchesSearch(item, query))
     .sort((a, b) => equipmentSortOrder(a) - equipmentSortOrder(b) || a.name.localeCompare(b.name, "ko"));
 };
 const visibleGearItems = () => {
-  const query = search.value.trim();
+  const query = globalSearchQuery();
   return items
     .filter(item => (filter === "all" || (filterTypes ? filterTypes.includes(item.type) : item.type === filter)) && (!filterStructure || item.structure === filterStructure) && matchesGearType(item) && matchesGearSpin(item) && itemMatchesSearch(item, query))
     .sort((a, b) => {
@@ -895,6 +1133,27 @@ const renderEquipmentCards = () => {
   grid.innerHTML = visible.map(item => equipmentCard(item)).join("");
   grid.querySelectorAll(".product-card").forEach(card => card.addEventListener("click", () => openEquipmentDetail(card.dataset.equipmentId)));
 };
+const visibleGlobalItems = () => {
+  const query = globalSearchQuery();
+  return [
+    ...productItems.filter(item => productMatchesSearch(item, query)).map(item => ({ kind: "product", item })),
+    ...items.filter(item => itemMatchesSearch(item, query)).map(item => ({ kind: "gear", item })),
+    ...equipmentItems.filter(item => equipmentMatchesSearch(item, query)).map(item => ({ kind: "equipment", item }))
+  ];
+};
+const renderGlobalCards = () => {
+  if (!globalGrid || !globalCount) return;
+  const visible = visibleGlobalItems();
+  globalCount.textContent = visible.length;
+  globalGrid.innerHTML = visible.map(entry => {
+    if (entry.kind === "product") return productCard(entry.item);
+    if (entry.kind === "equipment") return equipmentCard(entry.item);
+    return gearCard(entry.item);
+  }).join("");
+  globalGrid.querySelectorAll("[data-product-id]").forEach(card => card.addEventListener("click", () => openProductDetail(card.dataset.productId)));
+  globalGrid.querySelectorAll("[data-equipment-id]").forEach(card => card.addEventListener("click", () => openEquipmentDetail(card.dataset.equipmentId)));
+  globalGrid.querySelectorAll("[data-id]").forEach(card => card.addEventListener("click", () => openDetail(card.dataset.id)));
+};
 
 const orderedTags = item => item.tags.slice().sort((a, b) => {
   const rank = tag => categoryTags.includes(tag) ? 0 : spinTags.includes(tag) ? 1 : typeTags.includes(tag) ? 2 : 3;
@@ -911,10 +1170,10 @@ function beyModalTags(item) {
   const categories = visibleModalTags(item).map(t => tagLabels[t] || t).filter(Boolean);
   return modalTagGroup(categories.map(label => `<span>${label}</span>`).join(""), "bey-modal-tags");
 }
-function beyDetailSections(item) {
+function beyDetailSections(item, region) {
   const info = item.parts.length ? `<section class="modal-section mounted-parts"><p class="mounted-title">구성</p><div class="modal-section-scroll mounted-parts-list">${item.parts.map(partId => {
     const part = items.find(x => x.id === partId);
-    return `<a class="mounted-link" href="#${part.id}" data-part-id="${part.id}"><span>${typeLabels[part.type]}</span><strong>${part.name}</strong><b>→</b></a>`;
+    return `<a class="mounted-link" href="#${part.id}" data-part-id="${part.id}"><span>${typeLabels[part.type]}</span><strong>${regionalDisplayName(part.name, region)}</strong><b>→</b></a>`;
   }).join("")}</div></section>` : "";
   return info;
 }
@@ -1065,15 +1324,17 @@ async function initModelViewer() {
   };
 }
 
-function renderCards() {
-  const visible = visibleGearItems();
-  count.textContent = visible.length;
-  grid.innerHTML = visible.map(item => `
+const gearCard = item => `
     <button class="gear-card${item.type === "bey" ? " bey-card" : ""}" data-id="${item.id}">
       <div class="card-top"><span class="card-type">${item.type === "bey" ? typeLabels[item.type] : partCategory(item)}</span>${item.type === "track" ? "" : `<span>${item.type === "bey" ? beySerial(item) : partTrait(item)}</span>`}</div>
       <div class="gear-visual">${visual(item)}</div>
       ${cardInfo(item)}
-    </button>`).join("");
+    </button>`;
+
+function renderCards() {
+  const visible = visibleGearItems();
+  count.textContent = visible.length;
+  grid.innerHTML = visible.map(gearCard).join("");
   grid.querySelectorAll(".gear-card").forEach(card => card.addEventListener("click", () => openDetail(card.dataset.id)));
 }
 
@@ -1139,6 +1400,38 @@ function bindOverviewStructureTabs(scope = document) {
   }));
 }
 
+const modalContextStorageKey = "beyArchiveModalContext";
+const modalContextOptions = options => {
+  const context = {};
+  ["backId", "backProductId", "region"].forEach(key => {
+    if (options?.[key]) context[key] = options[key];
+  });
+  if (options?.backRelease) context.backRelease = true;
+  return context;
+};
+function rememberModalContext(kind, id, options = {}) {
+  try {
+    sessionStorage.setItem(modalContextStorageKey, JSON.stringify({ kind, id, options: modalContextOptions(options) }));
+  } catch {
+    // Browsers can disable sessionStorage; the modal still works without refresh restoration.
+  }
+}
+function restoredModalContext(id) {
+  try {
+    const context = JSON.parse(sessionStorage.getItem(modalContextStorageKey) || "null");
+    return context?.id === id ? context : null;
+  } catch {
+    return null;
+  }
+}
+function clearModalContext() {
+  try {
+    sessionStorage.removeItem(modalContextStorageKey);
+  } catch {
+    // Ignore storage restrictions.
+  }
+}
+
 function openOverviewStructureDetail() {
   if (modelViewerCleanup) {
     modelViewerCleanup();
@@ -1162,10 +1455,156 @@ function openOverviewStructureDetail() {
   </div>`;
   renderOverviewStructure(content);
   bindOverviewStructureTabs(content);
+  rememberModalContext("overview-structure", "OVERVIEW-STRUCTURE");
+  window.location.hash = "OVERVIEW-STRUCTURE";
   if (!modal.open) modal.showModal();
 }
 
-document.querySelector("#overviewStructureOpen")?.addEventListener("click", openOverviewStructureDetail);
+function openOverviewTypeDetail() {
+  if (modelViewerCleanup) {
+    modelViewerCleanup();
+    modelViewerCleanup = null;
+  }
+  const content = document.querySelector("#modalContent");
+  content.innerHTML = `<div class="modal-inner overview-structure-modal overview-type-modal">
+    <div class="modal-art overview-modal-art">
+      <div class="overview-type-art" aria-label="타입과 회전 방향 도식">
+        <section class="overview-type-visual-card">
+          <h4>타입 상성</h4>
+          <div class="type-relation-diagram" aria-label="공격형, 지구형, 방어형, 균형형 관계">
+            <img class="type-matchup-image" src="./assets/type-matchup.svg" alt="어택형, 디펜스형, 스태미나형, 밸런스형 타입 상성도" />
+          </div>
+        </section>
+        <section class="overview-type-visual-card">
+          <h4>회전 방향</h4>
+          <div class="spin-relation-diagram" aria-label="우회전, 좌회전, 양회전">
+            <div class="spin-direction-item">
+              <span class="spin-arrow counter">↺</span>
+              <b>우회전</b>
+              <small>시계 반대 방향</small>
+            </div>
+            <div class="spin-direction-item">
+              <span class="spin-arrow clockwise">↻</span>
+              <b>좌회전</b>
+              <small>시계 방향</small>
+            </div>
+            <div class="spin-direction-item">
+              <span class="spin-arrow dual" aria-hidden="true">
+                <svg viewBox="0 0 72 72" focusable="false" aria-hidden="true">
+                  <defs>
+                    <marker id="overviewDualSpinHead" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
+                      <path d="M0,0 L8,4 L0,8 Z" />
+                    </marker>
+                  </defs>
+                  <path class="dual-spin-path" d="M36 58 C20 58 10 47 10 34 C10 23 17 14 28 11" marker-end="url(#overviewDualSpinHead)" />
+                  <path class="dual-spin-path" d="M36 58 C52 58 62 47 62 34 C62 23 55 14 44 11" marker-end="url(#overviewDualSpinHead)" />
+                </svg>
+              </span>
+              <b>양회전</b>
+              <small>양쪽 방향</small>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+      <div class="modal-info overview-modal-info">
+      <div class="overview-title-row">
+        <h3 class="modal-name overview-modal-name">타입과 회전 방향</h3>
+      </div>
+      <div class="modal-info-slot overview-type-info">
+        <div class="overview-type-copy">
+          <section>
+            <h4>타입</h4>
+            <p>어택형은 상대를 경기장 밖으로 밀어내는 데, 디펜스형은 공격을 버티는 데, 스태미나형은 오래 회전하는 데 특화된다. 밸런스형은 공격력, 방어력, 지구력을 고르게 갖춘 타입이다.</p>
+          </section>
+          <section>
+            <h4>회전</h4>
+            <p>우회전은 반시계 방향으로, 좌회전은 시계 방향으로 회전한다. 양회전은 양쪽 방향으로 모두 회전할 수 있다.</p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>`;
+  rememberModalContext("overview-type", "OVERVIEW-TYPE");
+  window.location.hash = "OVERVIEW-TYPE";
+  if (!modal.open) modal.showModal();
+}
+
+const productReleaseTableRows = (region = activeReleaseRegion) => productItems
+  .slice()
+  .filter(item => productReleasedInRegion(item, region))
+  .sort((a, b) => productSerialNumber(a, region) - productSerialNumber(b, region))
+  .map(item => {
+    const release = productRelease(item, region);
+    return `<tr>
+    <td>${release.no || ""}</td>
+    <td><button class="release-product-link" type="button" data-product-id="${item.id}" data-release-region="${region}">${release.name || item.name}</button></td>
+    <td>${release.kind || ""}</td>
+    <td>${releaseDateLabel(release.releaseDate || release.release)}</td>
+    <td>${priceLabel(release.price)}</td>
+  </tr>`;
+  })
+  .join("");
+
+function bindProductReleaseTable(root = document) {
+  root.querySelectorAll(".release-product-link").forEach(button => button.addEventListener("click", event => {
+    event.preventDefault();
+    openProductDetail(event.currentTarget.dataset.productId, { backRelease: true, region: event.currentTarget.dataset.releaseRegion || activeReleaseRegion });
+  }));
+  root.querySelectorAll(".release-region-tab[data-release-region]").forEach(button => button.addEventListener("click", event => {
+    activeReleaseRegion = event.currentTarget.dataset.releaseRegion;
+    openOverviewReleaseDetail({ region: activeReleaseRegion });
+  }));
+}
+
+function openOverviewReleaseDetail(options = {}) {
+  if (options.region && releaseRegionLabels[options.region]) activeReleaseRegion = options.region;
+  if (modelViewerCleanup) {
+    modelViewerCleanup();
+    modelViewerCleanup = null;
+  }
+  const content = document.querySelector("#modalContent");
+  content.innerHTML = `<div class="modal-inner overview-structure-modal overview-release-modal">
+    <div class="modal-info overview-release-info">
+      <div class="overview-title-row">
+        <h3 class="modal-name overview-modal-name">출시 정보</h3>
+      </div>
+      <div class="modal-body-block">
+        ${releaseRegionControls()}
+        <section class="modal-section release-table-section">
+          <div class="modal-section-scroll release-table-scroll">
+            <table class="release-table">
+              <thead>
+                <tr>
+                  <th>번호</th>
+                  <th>제품명</th>
+                  <th>종류</th>
+                  <th>발매</th>
+                  <th>가격</th>
+                </tr>
+              </thead>
+              <tbody>${productReleaseTableRows(activeReleaseRegion)}</tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>`;
+  bindProductReleaseTable(content);
+  rememberModalContext("overview-release", "OVERVIEW-RELEASE", { region: activeReleaseRegion });
+  window.location.hash = "OVERVIEW-RELEASE";
+  if (!modal.open) modal.showModal();
+}
+
+document.querySelectorAll("[data-overview-structure-open]").forEach(button => {
+  button.addEventListener("click", openOverviewStructureDetail);
+});
+document.querySelectorAll("[data-overview-type-open]").forEach(button => {
+  button.addEventListener("click", openOverviewTypeDetail);
+});
+document.querySelectorAll("[data-overview-release-open]").forEach(button => {
+  button.addEventListener("click", openOverviewReleaseDetail);
+});
 document.querySelectorAll("#filters .filter").forEach(button => button.addEventListener("click", () => {
   if (button.dataset.filterGroup) {
     const group = button.closest(".filter-group");
@@ -1197,9 +1636,66 @@ document.addEventListener("click", event => {
     document.querySelectorAll(".filter-group.open").forEach(openGroup => openGroup.classList.remove("open"));
   }
 });
-search.addEventListener("input", renderCards);
-document.querySelector("#productSearch")?.addEventListener("input", renderProductCards);
-document.querySelector("#equipmentSearch")?.addEventListener("input", renderEquipmentCards);
+const renderSearchResults = () => {
+  renderGlobalCards();
+  renderProductCards();
+  renderCards();
+  renderEquipmentCards();
+};
+const activeToyPanelName = () => activeToyPanel()?.dataset.toyPanel || "";
+const showSearchScopePanel = () => {
+  const scope = globalSearchScope?.value || "all";
+  if (scope === "all") {
+    document.querySelectorAll(".nav-link").forEach(link => link.classList.remove("active"));
+    activateToyPanel("all");
+    renderGlobalCards();
+    document.body.classList.remove("menu-open");
+    return;
+  }
+  if (activeToyPanelName() !== scope) {
+    activatePrimarySection(scope);
+    return;
+  }
+  renderSearchResults();
+};
+globalSearch?.addEventListener("input", () => {
+  renderSearchResults();
+  if (globalSearchQuery() && activeToyPanelName() === "overview") showSearchScopePanel();
+});
+globalSearch?.addEventListener("keydown", event => {
+  if (event.key !== "Enter") return;
+  event.preventDefault();
+  showSearchScopePanel();
+});
+globalSearch?.closest(".search-box")?.querySelector(".search-icon")?.addEventListener("click", showSearchScopePanel);
+overviewSearch?.addEventListener("input", () => {
+  if (globalSearch) globalSearch.value = overviewSearch.value;
+  if (globalSearchScope) globalSearchScope.value = "all";
+  renderSearchResults();
+  if (overviewSearch.value.trim()) showSearchScopePanel();
+});
+overviewSearch?.addEventListener("keydown", event => {
+  if (event.key !== "Enter") return;
+  event.preventDefault();
+  if (globalSearch) globalSearch.value = overviewSearch.value;
+  if (globalSearchScope) globalSearchScope.value = "all";
+  showSearchScopePanel();
+});
+overviewSearch?.closest(".overview-search")?.querySelector("span")?.addEventListener("click", () => {
+  if (globalSearch) globalSearch.value = overviewSearch.value;
+  if (globalSearchScope) globalSearchScope.value = "all";
+  showSearchScopePanel();
+});
+globalSearchScope?.addEventListener("change", () => {
+  const scope = globalSearchScope.value;
+  if (scope === "all") {
+    document.querySelectorAll(".nav-link").forEach(link => link.classList.remove("active"));
+    activateToyPanel("all");
+    renderGlobalCards();
+    return;
+  }
+  activatePrimarySection(scope);
+});
 const resetNavFilterActives = root => root.querySelectorAll(".filter.active,.sub-filter.active").forEach(active => active.classList.remove("active"));
 const setDropdownOption = button => {
   const menu = button.closest(".catalog-dropdown-menu");
@@ -1418,11 +1914,13 @@ function partStats(item) {
   if (!item.modes) return `<div class="stat-block">${statRows(item.stats, item.extraStats)}${zeroGStadiumNote(item)}</div>`;
   return `<div class="stat-block"><div class="mode-stats">${item.modes.map(mode => `<section><p class="mode-title">${mode.name}</p>${statRows(mode.stats, mode.extraStats)}</section>`).join("")}</div>${zeroGStadiumNote(item)}</div>`;
 }
-const detailBackButton = (backId, backProductId) => {
+const detailBackButton = (backId, backProductId, backRelease, backRegion) => {
+  const releaseBackAttr = backRelease ? ` data-back-release="true"` : "";
+  const regionBackAttr = backRegion ? ` data-back-region="${backRegion}"` : "";
   if (backId) {
-    return `<button class="modal-back icon-back-button" type="button" data-back-id="${backId}" ${backProductId ? `data-back-product-id="${backProductId}"` : ""} aria-label="베이로 돌아가기">←</button>`;
+    return `<button class="modal-back icon-back-button" type="button" data-back-id="${backId}" ${backProductId ? `data-back-product-id="${backProductId}"` : ""}${releaseBackAttr}${regionBackAttr} aria-label="베이로 돌아가기">←</button>`;
   }
-  return backProductId ? `<button class="modal-back icon-back-button" type="button" data-back-product-id="${backProductId}" aria-label="제품으로 돌아가기">←</button>` : "";
+  return backProductId ? `<button class="modal-back icon-back-button" type="button" data-back-product-id="${backProductId}"${releaseBackAttr}${regionBackAttr} aria-label="제품으로 돌아가기">←</button>` : "";
 };
 function modalStepButtons(list, currentId, kind) {
   const index = list.findIndex(entry => entry.id === currentId);
@@ -1442,15 +1940,15 @@ function bindModalStepButtons(options = {}) {
     else openDetail(targetId, options.item || {});
   }));
 }
-function detailHeading(item) {
+function detailHeading(item, options = {}) {
   if (["track", "bottom", "fourdbottom"].includes(item.type)) {
     const numericTrack = item.type === "track" && /^\d+$/.test(item.name);
     const koName = partKoName(item);
     return numericTrack
-      ? `<h3 class="modal-name">${item.name}</h3>`
-      : `<h3 class="modal-name">${koName}</h3>`;
+      ? `<h3 class="modal-name">${regionalDisplayName(item.name, options.region)}</h3>`
+      : `<h3 class="modal-name">${regionalDisplayName(koName, options.region)}</h3>`;
   }
-  return `<h3 class="modal-name">${item.name}</h3>`;
+  return `<h3 class="modal-name">${regionalDisplayName(item.name, options.region)}</h3>`;
 }
 function openDetail(id, options = {}) {
   const item = items.find(x => x.id === id);
@@ -1462,56 +1960,104 @@ function openDetail(id, options = {}) {
   const slot = item.type === "bey"
     ? modalInfoSlot(item.desc || "", beyModalTags(item), "single-line-info-slot")
     : modalInfoSlot(item.desc || "", modalTagGroup(modalTags(item)));
-  const body = item.type === "bey" ? beyDetailSections(item) : partStats(item);
+  const body = item.type === "bey" ? beyDetailSections(item, options.region) : partStats(item);
   const stepItems = visibleGearItems().some(entry => entry.id === item.id) ? visibleGearItems() : items;
   document.querySelector("#modalContent").innerHTML = `${modalStepButtons(stepItems, item.id, "item")}<div class="modal-inner">
     <div class="modal-art">${modalArt(item)}</div>
-    <div class="modal-info ${item.type === "bey" ? "bey-modal-info" : "part-modal-info"}">${detailHeading(item)}
-    ${slot}<div class="modal-body-block">${body}</div>${detailBackButton(options.backId, options.backProductId)}</div></div>`;
+    <div class="modal-info ${item.type === "bey" ? "bey-modal-info" : "part-modal-info"}">${detailHeading(item, options)}
+    ${slot}<div class="modal-body-block">${body}</div>${detailBackButton(options.backId, options.backProductId, options.backRelease, options.region)}</div></div>`;
   bindModalStepButtons({ item: options });
   document.querySelector(".modal-back")?.addEventListener("click", event => {
+    const backRelease = Boolean(event.currentTarget.dataset.backRelease);
+    const backRegion = event.currentTarget.dataset.backRegion;
     if (event.currentTarget.dataset.backId) {
-      openDetail(event.currentTarget.dataset.backId, event.currentTarget.dataset.backProductId ? { backProductId: event.currentTarget.dataset.backProductId } : {});
+      const backOptions = {};
+      if (event.currentTarget.dataset.backProductId) backOptions.backProductId = event.currentTarget.dataset.backProductId;
+      if (backRelease) backOptions.backRelease = true;
+      if (backRegion) backOptions.region = backRegion;
+      openDetail(event.currentTarget.dataset.backId, backOptions);
     } else if (event.currentTarget.dataset.backProductId) {
-      openProductDetail(event.currentTarget.dataset.backProductId);
+      openProductDetail(event.currentTarget.dataset.backProductId, { ...(backRelease ? { backRelease: true } : {}), ...(backRegion ? { region: backRegion } : {}) });
     }
   });
   document.querySelectorAll(".mounted-link").forEach(link => link.addEventListener("click", event => {
     event.preventDefault();
-    openDetail(link.dataset.partId, options.backProductId ? { backId: item.id, backProductId: options.backProductId } : { backId: item.id });
+    const linkOptions = { backId: item.id };
+    if (options.backProductId) linkOptions.backProductId = options.backProductId;
+    if (options.backRelease) linkOptions.backRelease = true;
+    if (options.region) linkOptions.region = options.region;
+    openDetail(link.dataset.partId, linkOptions);
   }));
+  rememberModalContext("item", item.id, options);
   window.location.hash = item.id;
   if (!modal.open) modal.showModal();
   if (item.model || item.modelKey) requestAnimationFrame(initModelViewer);
 }
-function productHeader(item) {
-  const identity = [item.no, item.kind].filter(Boolean).join(" ");
+function productHeader(item, region = activeReleaseRegion) {
+  const release = productRelease(item, region);
+  const identity = [release.no, release.kind].filter(Boolean).join(" ");
   return `<header class="product-modal-header">
     <div class="product-modal-title-group">
-      <h3 class="modal-name product-modal-name">${item.name}<small class="product-modal-identity">${identity}</small></h3>
+      <h3 class="modal-name product-modal-name">${release.name || (region === "kr" ? item.name : "")}<small class="product-modal-identity">${identity}</small></h3>
     </div>
   </header>`;
 }
-function productMeta(item) {
-  const release = item.releaseDate || item.release || "";
-  const price = item.price || "";
-  if (!release && !price) return "";
-  return `<div class="product-modal-extra">${[release, price].filter(Boolean).join("<br>")}</div>`;
+function productMeta(item, region = activeReleaseRegion) {
+  const release = productRelease(item, region);
+  const releaseDate = releaseDateLabel(release.releaseDate || release.release);
+  const price = priceLabel(release.price);
+  if (!releaseDate && !price) return "";
+  return `<div class="product-modal-extra">${[releaseDate, price].filter(Boolean).join("<br>")}</div>`;
 }
-function productMetaSlot(item) {
-  return `<div class="modal-info-slot product-meta-slot single-line-info-slot">${productMeta(item)}</div>`;
+function productMetaSlot(item, region = activeReleaseRegion) {
+  return `<div class="modal-info-slot product-meta-slot single-line-info-slot">${productMeta(item, region)}</div>`;
 }
 const randomBeyComposition = (product, part) => Boolean(product.beyPool?.length && part.target && product.beyPool.includes(part.target) && /무작위/.test(part.name || part.label || ""));
 
-function productComposition(item, region = "kr") {
-  const regionComposition = region === "jp" ? item.compositionJp || item.compositionJapan : item.compositionKr || item.compositionKorea;
-  const composition = regionComposition || item.composition || [
-    { label: "페이스" },
-    { label: "휠" },
-    { label: "트랙" },
-    { label: "버텀" },
-    { label: "런처" }
-  ];
+const jpCompositionName = name => {
+  let value = name || "";
+  [
+    ["공격형 베이스타디움", "베이스타디움 어택타입"],
+    ["밸런스형 베이스타디움", "베이스타디움 밸런스타입"],
+    ["스테미너형 베이스타디움", "베이스타디움 스태미나타입"],
+    ["방어형 베이스타디움", "베이스타디움 디펜스타입"],
+    ["공격형 메탈파이트 스타디움", "베이스타디움 어택타입"],
+    ["메탈파이트 스타디움 공격형", "베이스타디움 어택타입"],
+    ["메탈파이트 스타디움 밸런스형", "베이스타디움 밸런스타입"],
+    ["메탈파이트 스타디움 스테미너형", "베이스타디움 스태미나타입"],
+    ["메탈파이트 스타디움 방어형", "베이스타디움 디펜스타입"]
+  ].forEach(([from, to]) => {
+    value = value.replaceAll(from, to);
+  });
+  value = value
+    .replaceAll("레온", "레오네")
+    .replaceAll("울프", "볼프")
+    .replaceAll("카프리콘", "카프리코네")
+    .replaceAll("베이포인터", "__BEY_POINTER__")
+    .replaceAll("파워런처L", "베이런처L")
+    .replaceAll("파워런처", "베이런처")
+    .replaceAll("포인터", "베이포인터")
+    .replaceAll("__BEY_POINTER__", "베이포인터");
+  return value;
+};
+const regionalDisplayName = (name, region) => region === "jp" ? jpCompositionName(name) : name;
+const productCompositionForRegion = (composition, region, item, release) => {
+  const list = Array.isArray(composition) ? composition : [];
+  if (region !== "jp") return list;
+  return list.map(part => {
+    const name = part.name || part.label || "";
+    const useReleaseName = part.label === "베이" && item.name && release.name && name === item.name;
+    return { ...part, name: useReleaseName ? release.name : jpCompositionName(name) };
+  });
+};
+
+function productComposition(item, region = activeReleaseRegion) {
+  const release = productRelease(item, region);
+  const releaseComposition = Array.isArray(release.composition) && release.composition.length ? release.composition : null;
+  const regionComposition = releaseComposition || (region === "jp" ? item.compositionJp || item.compositionJapan : item.compositionKr || item.compositionKorea);
+  const baseComposition = region === "jp" ? item.composition : region === "kr" ? item.composition : null;
+  const composition = productCompositionForRegion(regionComposition || baseComposition || [], region, item, release);
+  if (!composition.length) return "";
   return `<section class="modal-section product-composition"><p class="mounted-title">구성</p><div class="modal-section-scroll product-composition-list">${composition.map(part => {
     const name = part.name || part.label || "";
     const quantity = part.quantity || part.qty || "1개";
@@ -1522,7 +2068,7 @@ function productComposition(item, region = "kr") {
     return `<a class="product-composition-item composition-link" href="#${part.target}" data-target-id="${part.target}"><span>${displayName} ${quantity}</span><b>→</b></a>`;
   }).join("")}</div></section>`;
 }
-function productBeyPool(item) {
+function productBeyPool(item, region = activeReleaseRegion) {
   if (!item.beyPool?.length) return "";
   const pool = item.beyPool
     .map(id => items.find(x => x.id === id))
@@ -1530,65 +2076,93 @@ function productBeyPool(item) {
   if (!pool.length) return "";
   return `<section class="modal-section product-lineup"><p class="mounted-title">목록</p><div class="modal-section-scroll product-lineup-scroll"><div class="product-lineup-grid">${pool.map(bey => {
     const combo = partCategory(bey);
-    const name = combo ? `${bey.name} ${combo}` : bey.name;
+    const beyName = regionalDisplayName(bey.name, region);
+    const name = combo ? `${beyName} ${combo}` : beyName;
     return `<a class="product-lineup-card composition-link" href="#${bey.id}" data-target-id="${bey.id}"><span class="product-lineup-name">${name}</span><b>→</b></a>`;
   }).join("")}</div></div></section>`;
 }
-function bindProductCompositionLinks(product, root = document) {
+function bindProductCompositionLinks(product, root = document, options = {}) {
   root.querySelectorAll(".composition-link").forEach(link => link.addEventListener("click", event => {
     event.preventDefault();
     const targetId = link.dataset.targetId;
-    if (targetId.startsWith("PRODUCT-")) openProductDetail(targetId, { backProductId: product.id });
-    else if (targetId.startsWith("EQUIPMENT-")) openEquipmentDetail(targetId, { backProductId: product.id });
-    else openDetail(targetId, { backProductId: product.id });
+    const backOptions = { backProductId: product.id };
+    if (options.backRelease) backOptions.backRelease = true;
+    if (options.region) backOptions.region = options.region;
+    if (targetId.startsWith("PRODUCT-")) openProductDetail(targetId, backOptions);
+    else if (targetId.startsWith("EQUIPMENT-")) openEquipmentDetail(targetId, backOptions);
+    else openDetail(targetId, backOptions);
   }));
 }
-function bindProductLineupTriggers(product) {
+function bindProductLineupTriggers(product, options = {}) {
   document.querySelectorAll(".product-lineup-trigger").forEach(button => button.addEventListener("click", event => {
     event.preventDefault();
-    openProductBeyPoolDetail(button.dataset.productId);
+    openProductBeyPoolDetail(button.dataset.productId, options);
   }));
 }
-function openProductBeyPoolDetail(id) {
+function openProductBeyPoolDetail(id, options = {}) {
   const item = productItems.find(x => x.id === id);
   if (!item) return;
   if (modelViewerCleanup) {
     modelViewerCleanup();
     modelViewerCleanup = null;
   }
+  const releaseBackAttr = options.backRelease ? ` data-back-release="true"` : "";
+  const regionBackAttr = options.region ? ` data-back-region="${options.region}"` : "";
   document.querySelector("#modalContent").innerHTML = `<div class="modal-inner">
     <div class="modal-art product-modal-art"></div>
-    <div class="modal-info lineup-modal-info"><button class="modal-back icon-back-button" type="button" data-back-product-id="${item.id}" aria-label="제품으로 돌아가기">←</button>
-    <h3 class="modal-name">${item.name} 등장 베이</h3>
-    <div class="modal-body-block">${productBeyPool(item)}</div></div></div>`;
+    <div class="modal-info lineup-modal-info"><button class="modal-back icon-back-button" type="button" data-back-product-id="${item.id}"${releaseBackAttr}${regionBackAttr} aria-label="제품으로 돌아가기">←</button>
+    <h3 class="modal-name">${productDisplayName(item, options.region || activeReleaseRegion)} 등장 베이</h3>
+    <div class="modal-body-block">${productBeyPool(item, options.region || activeReleaseRegion)}</div></div></div>`;
   document.querySelector(".modal-back")?.addEventListener("click", event => {
-    openProductDetail(event.currentTarget.dataset.backProductId);
+    const backOptions = event.currentTarget.dataset.backRelease ? { backRelease: true } : {};
+    if (options.region) backOptions.region = options.region;
+    openProductDetail(event.currentTarget.dataset.backProductId, backOptions);
   });
-  bindProductCompositionLinks(item, document.querySelector("#modalContent"));
+  bindProductCompositionLinks(item, document.querySelector("#modalContent"), options);
+  rememberModalContext("product-lineup", item.id, options);
   window.location.hash = item.id;
   if (!modal.open) modal.showModal();
 }
 function openProductDetail(id, options = {}) {
   const item = productItems.find(x => x.id === id);
   if (!item) return;
+  const region = options.region && releaseRegionLabels[options.region]
+    ? options.region
+    : productReleasedInRegion(item, "kr") ? "kr" : "jp";
+  activeReleaseRegion = region;
   if (modelViewerCleanup) {
     modelViewerCleanup();
     modelViewerCleanup = null;
   }
-  const backButton = options.backProductId ? `<button class="modal-back icon-back-button" type="button" data-back-product-id="${options.backProductId}" aria-label="제품으로 돌아가기">←</button>` : "";
-  const stepItems = visibleProductItems().some(entry => entry.id === item.id) ? visibleProductItems() : productItems.slice().sort((a, b) => productSerialNumber(a) - productSerialNumber(b));
+  const releaseBackAttr = options.backRelease ? ` data-back-release="true"` : "";
+  const regionBackAttr = ` data-back-region="${region}"`;
+  const backButton = options.backProductId
+    ? `<button class="modal-back icon-back-button" type="button" data-back-product-id="${options.backProductId}"${releaseBackAttr}${regionBackAttr} aria-label="제품으로 돌아가기">←</button>`
+    : options.backRelease
+      ? `<button class="modal-back icon-back-button" type="button" data-back-release="true"${regionBackAttr} aria-label="출시 정보로 돌아가기">←</button>`
+      : "";
+  const stepItems = visibleProductItems().some(entry => entry.id === item.id) ? visibleProductItems() : productItems.slice().sort((a, b) => productSerialNumber(a, region) - productSerialNumber(b, region));
   document.querySelector("#modalContent").innerHTML = `${modalStepButtons(stepItems, item.id, "product")}<div class="modal-inner">
     <div class="modal-art product-modal-art"></div>
     <div class="modal-info product-modal-info">
-    ${productHeader(item)}
-    ${productMetaSlot(item)}
-    <div class="modal-body-block">${productComposition(item)}</div>${backButton}</div></div>`;
-  bindModalStepButtons({ product: options });
+    ${productHeader(item, region)}
+    ${productMetaSlot(item, region)}
+    <div class="modal-body-block">${productComposition(item, region)}</div>${backButton}</div></div>`;
+  bindModalStepButtons({ product: { ...options, region } });
   document.querySelector(".modal-back")?.addEventListener("click", event => {
-    openProductDetail(event.currentTarget.dataset.backProductId);
+    const backRelease = Boolean(event.currentTarget.dataset.backRelease);
+    if (event.currentTarget.dataset.backProductId) {
+      openProductDetail(event.currentTarget.dataset.backProductId, backRelease ? { backRelease: true, region } : { region });
+      return;
+    }
+    if (backRelease) {
+      openOverviewReleaseDetail({ region });
+      return;
+    }
   });
-  bindProductLineupTriggers(item);
-  bindProductCompositionLinks(item, document.querySelector("#modalContent"));
+  bindProductLineupTriggers(item, { ...options, region });
+  bindProductCompositionLinks(item, document.querySelector("#modalContent"), { ...options, region });
+  rememberModalContext("product", item.id, { ...options, region });
   window.location.hash = item.id;
   if (!modal.open) modal.showModal();
 }
@@ -1599,16 +2173,20 @@ function openEquipmentDetail(id, options = {}) {
     modelViewerCleanup();
     modelViewerCleanup = null;
   }
-  const backButton = options.backProductId ? `<button class="modal-back icon-back-button" type="button" data-back-product-id="${options.backProductId}" aria-label="제품으로 돌아가기">←</button>` : "";
+  const backButton = options.backProductId ? `<button class="modal-back icon-back-button" type="button" data-back-product-id="${options.backProductId}"${options.backRelease ? ` data-back-release="true"` : ""}${options.region ? ` data-back-region="${options.region}"` : ""} aria-label="제품으로 돌아가기">←</button>` : "";
   const stepItems = visibleEquipmentItems().some(entry => entry.id === item.id) ? visibleEquipmentItems() : equipmentItems.slice().sort((a, b) => equipmentSortOrder(a) - equipmentSortOrder(b) || a.name.localeCompare(b.name, "ko"));
   document.querySelector("#modalContent").innerHTML = `${modalStepButtons(stepItems, item.id, "equipment")}<div class="modal-inner">
     <div class="modal-art"></div>
-    <div class="modal-info"><h3 class="modal-name">${item.name}</h3>
+    <div class="modal-info"><h3 class="modal-name">${regionalDisplayName(item.name, options.region)}</h3>
     ${modalInfoSlot(item.desc || "", "")}${backButton}</div></div>`;
   bindModalStepButtons({ equipment: options });
   document.querySelector(".modal-back")?.addEventListener("click", event => {
-    openProductDetail(event.currentTarget.dataset.backProductId);
+    openProductDetail(event.currentTarget.dataset.backProductId, {
+      ...(event.currentTarget.dataset.backRelease ? { backRelease: true } : {}),
+      ...(event.currentTarget.dataset.backRegion ? { region: event.currentTarget.dataset.backRegion } : {})
+    });
   });
+  rememberModalContext("equipment", item.id, options);
   window.location.hash = item.id;
   if (!modal.open) modal.showModal();
 }
@@ -1618,6 +2196,7 @@ function closeDetail() {
     modelViewerCleanup = null;
   }
   modal.close();
+  clearModalContext();
   history.replaceState(null, "", window.location.pathname + window.location.search);
 }
 document.querySelector("#modalClose").addEventListener("click", closeDetail);
@@ -1630,6 +2209,8 @@ const activatePrimarySection = section => {
   document.querySelectorAll(".nav-link").forEach(link => link.classList.toggle("active", link.dataset.toySection === section));
   activateToyPanel(section);
   document.querySelectorAll(".nav-group.open, .filter-group.open").forEach(group => group.classList.remove("open"));
+  if (section === "overview" && globalSearchScope) globalSearchScope.value = "all";
+  if (globalSearchScope && ["product", "bey", "equipment"].includes(section)) globalSearchScope.value = section;
 
   if (section === "product") {
     productFilter = null;
@@ -1664,6 +2245,10 @@ document.querySelectorAll(".nav-link").forEach(button => button.addEventListener
   event.preventDefault();
   activatePrimarySection(button.dataset.toySection || "product");
 }));
+document.querySelectorAll(".overview-panel [data-toy-section]").forEach(button => button.addEventListener("click", event => {
+  event.preventDefault();
+  activatePrimarySection(button.dataset.toySection || "product");
+}));
 document.querySelector(".topbar > .brand")?.addEventListener("click", event => {
   event.preventDefault();
   activatePrimarySection("overview");
@@ -1681,10 +2266,16 @@ document.addEventListener("click", event => {
 });
 
 syncGearDropdownVisibility();
-renderCards(); renderProductCards(); renderEquipmentCards();
+renderCards(); renderProductCards(); renderEquipmentCards(); renderGlobalCards();
 if (window.location.hash) {
   const hashId = window.location.hash.slice(1);
-  if (hashId.startsWith("PRODUCT-")) openProductDetail(hashId);
-  else if (hashId.startsWith("EQUIPMENT-")) openEquipmentDetail(hashId);
-  else openDetail(hashId);
+  const restoredContext = restoredModalContext(hashId);
+  const restoredOptions = restoredContext?.options || {};
+  if (hashId === "OVERVIEW-STRUCTURE") openOverviewStructureDetail();
+  else if (hashId === "OVERVIEW-TYPE") openOverviewTypeDetail();
+  else if (hashId === "OVERVIEW-RELEASE") openOverviewReleaseDetail(restoredOptions);
+  else if (restoredContext?.kind === "product-lineup") openProductBeyPoolDetail(hashId, restoredOptions);
+  else if (hashId.startsWith("PRODUCT-")) openProductDetail(hashId, restoredOptions);
+  else if (hashId.startsWith("EQUIPMENT-")) openEquipmentDetail(hashId, restoredOptions);
+  else openDetail(hashId, restoredOptions);
 }

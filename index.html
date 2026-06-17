@@ -29,7 +29,7 @@
       type="font/woff2"
       crossorigin
     />
-  <link rel="stylesheet" href="./styles.css?v=20260616-dropdown-polish" />
+  <link rel="stylesheet" href="./styles.css?v=20260617-regional-release" />
   </head>
   <body>
     <div class="noise"></div>
@@ -110,19 +110,121 @@
 
     <main>
       <section class="catalog-section active" id="catalogContent">
-        <div class="toy-panel active overview-panel" data-toy-panel="overview">
-          <div class="overview-hero">
-            <h2>구조</h2>
+        <div class="unified-search">
+          <div class="search-box global-search-box">
+            <span class="search-scope" aria-label="검색 범위">
+              <select id="globalSearchScope">
+                <option value="all">전체</option>
+                <option value="product">제품</option>
+                <option value="bey">베이</option>
+                <option value="equipment">장비</option>
+              </select>
+            </span>
+            <span class="search-icon" aria-hidden="true"></span>
+            <input id="globalSearchInput" type="search" placeholder="검색어를 입력해주세요." />
           </div>
+        </div>
+        <div class="toy-panel active overview-panel" data-toy-panel="overview">
+          <section class="overview-home">
+            <div class="overview-hero">
+              <div class="overview-copy">
+                <p class="overview-kicker">Metal Fight Beyblade Archive</p>
+                <h2>베이 아카이브</h2>
+                <p class="overview-intro">
+                  메탈파이트 베이블레이드의 완구 구조, 제품, 베이, 장비, 미디어 정보를 정리한 비공식 팬 도감입니다.
+                </p>
+                <div class="overview-series" aria-label="시리즈">
+                  <span>탑블레이드</span>
+                  <span class="active">메탈파이트</span>
+                  <span>버스트</span>
+                  <span>X</span>
+                </div>
+                <div class="overview-actions">
+                  <button class="overview-cta" type="button" data-toy-section="product">도감 탐색</button>
+                </div>
+                <label class="overview-search">
+                  <span aria-hidden="true">⌕</span>
+                  <input id="overviewSearchInput" type="search" placeholder="제품명, 베이 이름, 장비명, 인물명으로 검색" />
+                  <b>전체</b>
+                </label>
+              </div>
 
-          <section class="overview-entry">
-            <button class="overview-open-card" id="overviewStructureOpen" type="button">
-              <span>구조</span>
-              <strong>시리즈별 완구 구조</strong>
-              <small>4단 구조, 하이브리드, 4D, 싱크롬 시스템 보기</small>
-              <b aria-hidden="true">→</b>
-            </button>
+              <div class="overview-visual" aria-hidden="true">
+                <div class="overview-core">BB</div>
+                <span>4단 구조</span>
+                <span>하이브리드</span>
+                <span>4D</span>
+                <span>싱크롬</span>
+              </div>
+            </div>
+
+            <div class="overview-card-grid" aria-label="도감 탐색">
+              <button class="overview-open-card" type="button" data-overview-structure-open>
+                <span>완구 소개</span>
+                <strong>구조</strong>
+                <small>4단 구조, 하이브리드, 4D, 싱크롬 시스템</small>
+                <b aria-hidden="true">→</b>
+              </button>
+              <button class="overview-open-card" type="button" data-overview-type-open>
+                <span>용어</span>
+                <strong>타입</strong>
+                <small>공격형, 방어형, 지구형, 균형형 정리</small>
+                <b aria-hidden="true">→</b>
+              </button>
+              <button class="overview-open-card" type="button" data-overview-release-open>
+                <span>자료</span>
+                <strong>출시 정보</strong>
+                <small>제품번호, 발매, 국내판과 일본판 정보</small>
+                <b aria-hidden="true">→</b>
+              </button>
+              <button class="overview-open-card" type="button" data-toy-section="product">
+                <span>완구 도감</span>
+                <strong>제품</strong>
+                <small>스타터, 부스터, 세트, 한정 제품</small>
+                <b aria-hidden="true">→</b>
+              </button>
+              <button class="overview-open-card" type="button" data-toy-section="bey">
+                <span>완구 도감</span>
+                <strong>베이</strong>
+                <small>베이와 페이스, 휠, 트랙, 버텀</small>
+                <b aria-hidden="true">→</b>
+              </button>
+              <button class="overview-open-card" type="button" data-toy-section="equipment">
+                <span>완구 도감</span>
+                <strong>장비</strong>
+                <small>런처, 그립, 스타디움, 기타 장비</small>
+                <b aria-hidden="true">→</b>
+              </button>
+              <button class="overview-open-card is-pending" type="button">
+                <span>미디어</span>
+                <strong>등장인물</strong>
+                <small>블레이더, 소속, 사용 베이 정보</small>
+                <b aria-hidden="true">→</b>
+              </button>
+              <button class="overview-open-card is-pending" type="button">
+                <span>미디어</span>
+                <strong>만화</strong>
+                <small>연재 목록과 권별 정보</small>
+                <b aria-hidden="true">→</b>
+              </button>
+              <button class="overview-open-card is-pending" type="button">
+                <span>미디어</span>
+                <strong>애니메이션</strong>
+                <small>방영 목록과 에피소드 정보</small>
+                <b aria-hidden="true">→</b>
+              </button>
+            </div>
           </section>
+        </div>
+
+        <div class="toy-panel" data-toy-panel="all">
+          <div class="section-heading">
+            <div>
+              <h2>전체</h2>
+            </div>
+            <p class="result-count"><b id="globalCount">0</b>개 항목</p>
+          </div>
+          <div class="gear-grid product-grid" id="globalGrid"></div>
         </div>
 
         <div class="toy-panel" data-toy-panel="product">
@@ -163,10 +265,6 @@
                 </div>
               </details>
             </div>
-            <label class="search-box">
-              <span aria-hidden="true"></span>
-              <input id="productSearch" type="search" placeholder="제품 검색" />
-            </label>
           </div>
           <div class="gear-grid product-grid" id="productGrid"></div>
         </div>
@@ -250,10 +348,6 @@
               </div>
             </details>
           </div>
-          <label class="search-box">
-            <span aria-hidden="true"></span>
-            <input id="searchInput" type="search" placeholder="베이 또는 부품 검색" />
-          </label>
           </div>
           <div class="gear-grid" id="gearGrid"></div>
         </div>
@@ -280,10 +374,6 @@
                 </div>
               </details>
             </div>
-            <label class="search-box">
-              <span aria-hidden="true"></span>
-              <input id="equipmentSearch" type="search" placeholder="장비 검색" />
-            </label>
           </div>
           <div class="gear-grid product-grid" id="equipmentGrid"></div>
         </div>
@@ -301,6 +391,6 @@
       <p> 블레이더를 위한 비공식 팬 아카이브</p>
     </footer>
     <button class="to-top" id="toTop" type="button" aria-label="맨 위로 이동">↑</button>
-  <script src="./app.js?v=20260616-dropdown-polish"></script>
+  <script src="./app.js?v=20260617-release-back-chain"></script>
   </body>
 </html>
