@@ -1,4 +1,4 @@
-const items = [
+﻿const items = [
   { id: "BEY-BB-28-STORM-PEGASIS-105RF", type: "bey", structure: "hybrid", name: "스톰 페가시스", en: "Storm Pegasis", sub: "105RF · BB-28", color: "#00d9ff", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "CLEARWHEEL-PEGASIS", "METALWHEEL-STORM", "TRACK-105", "BOTTOM-RUBBER-FLAT"] },
   { id: "BEY-BB-30-ROCK-LEONE-145WB", type: "bey", structure: "hybrid", name: "로크 레온", en: "Rock Leone", sub: "145WB · BB-30", color: "#e5ca51", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-LEONE", "CLEARWHEEL-LEONE", "METALWHEEL-ROCK", "TRACK-145", "BOTTOM-WIDE-BALL"] },
   { id: "BEY-BB-35-FLAME-SAGITTARIO-C145S", type: "bey", structure: "hybrid", name: "플레임 사지타리오", en: "Flame Sagittario", sub: "C145S · BB-35", color: "#ff9f1c", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-SAGITTARIO", "CLEARWHEEL-SAGITTARIO", "METALWHEEL-FLAME", "TRACK-CLAW-145", "BOTTOM-SHARP"] },
@@ -124,7 +124,7 @@ const items = [
   { id: "BEY-BB-89-ARIES-145D", type: "bey", structure: "basic", name: "아리에스", en: "Aries", sub: "145D · BB-89", color: "#f2a7c3", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-ARIES", "WHEEL-ARIES", "TRACK-145", "BOTTOM-DEFENSE"] },
   { id: "BEY-DIVINE-CHIMERA-TR145FB", type: "bey", structure: "hybrid", name: "디바인 키메라", en: "Divine Chimera", sub: "TR145FB", color: "#b06ad8", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-CHIMERA", "CLEARWHEEL-CHIMERA", "METALWHEEL-DIVINE", "TRACK-TR145", "BOTTOM-FLAT-BALL"] },
   { id: "BEY-BB-P01-VULCAN-HORUSEUS-145D", type: "bey", structure: "hybrid", name: "발칸 호르세우스", en: "Vulcan Horuseus", sub: "145D · BB-P01", color: "#66c7c7", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-HORUSEUS", "CLEARWHEEL-HORUSEUS", "METALWHEEL-VULCAN", "TRACK-145", "BOTTOM-DEFENSE"] },
-  { id: "BEY-BB-91-RAY-KILL-100RSF", type: "bey", structure: "hybrid", name: "레이 킬", en: "Ray Kill", sub: "100RSF · BB-91", color: "#d36b55", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-KILL", "CLEARWHEEL-KILL", "METALWHEEL-RAY", "TRACK-100", "BOTTOM-RUBBER-SEMI-FLAT"] },
+  { id: "BEY-BB-91-RAY-KILL-100RSF", type: "bey", structure: "hybrid", name: "레이 킬", en: "Ray Keel", sub: "100RSF · BB-91", color: "#d36b55", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-KILL", "CLEARWHEEL-KILL", "METALWHEEL-RAY", "TRACK-100", "BOTTOM-RUBBER-SEMI-FLAT"] },
   { id: "BEY-BB-92-GALAXY-PEGASIS-W105R2F", type: "bey", structure: "hybrid", name: "갤럭시 페가시스", en: "Galaxy Pegasis", sub: "W105R²F · BB-92", color: "#269dff", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "CLEARWHEEL-PEGASIS", "METALWHEEL-GALAXY", "TRACK-W105", "BOTTOM-RIGHT-RUBBER-FLAT"] },
   { id: "BEY-BB-93-RAY-UNICORNO-D125CS", type: "bey", structure: "hybrid", name: "레이 유니콘", en: "Ray Unicorno", sub: "D125CS · BB-93", color: "#6fd0ff", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-UNICORNO", "CLEARWHEEL-UNICORNO", "METALWHEEL-RAY", "TRACK-D125", "BOTTOM-COAT-SHARP"] },
   { id: "BEY-BB-94-TORNADO-HERCULEO-105F", type: "bey", structure: "hybrid", name: "토네이도 헤라클레오", en: "Tornado Herculeo", sub: "105F · BB-94", color: "#d8aa4c", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-HERCULEO", "CLEARWHEEL-HERCULEO", "METALWHEEL-TORNADO", "TRACK-105", "BOTTOM-FLAT"] },
@@ -253,7 +253,7 @@ const items = [
   { id: "FACE-BLAZE", type: "face", name: "블레이즈", en: "Blaze", sub: "페이스", color: "#e05c5c", tags: ["FACE"], desc: "블레이즈를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
   { id: "FACE-CHIMERA", type: "face", name: "키메라", en: "Chimera", sub: "페이스", color: "#b06ad8", tags: ["FACE"], desc: "키메라를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
   { id: "FACE-HORUSEUS", type: "face", name: "호르세우스", en: "Horuseus", sub: "페이스", color: "#66c7c7", tags: ["FACE"], desc: "호르세우스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-KILL", type: "face", name: "킬", en: "Kill", sub: "페이스", color: "#d36b55", tags: ["FACE"], desc: "킬을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-KILL", type: "face", name: "킬", en: "Keel", sub: "페이스", color: "#d36b55", tags: ["FACE"], desc: "킬을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
   { id: "FACE-HERCULEO", type: "face", name: "헤라클레오", en: "Herculeo", sub: "페이스", color: "#d8aa4c", tags: ["FACE"], desc: "헤라클레오를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
   { id: "FACE-BYXIS", type: "face", name: "픽시스", en: "Byxis", sub: "페이스", color: "#79a7d8", tags: ["FACE"], desc: "픽시스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
   { id: "FACE-REX", type: "face", name: "렉스", en: "Rex", sub: "페이스", color: "#7bc66b", tags: ["FACE"], desc: "렉스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
@@ -306,7 +306,7 @@ const items = [
   { id: "CLEARWHEEL-LDRAGO-II", type: "clearwheel", name: "엘드라고Ⅱ", en: "L-Drago II", sub: "클리어휠 · 공격형", color: "#c65a70", tags: ["CLEARWHEEL", "ATTACK", "LEFT SPIN"], desc: "유일하게 메테오 휠에 결합 가능한 좌회전 클리어휠. 위와 옆 방향에 위치한 고무가 적의 회전력을 흡수한다.", stats: [40, 10, 20], extraStats: [{ name: "흡수력", value: 40 }] },
   { id: "CLEARWHEEL-CHIMERA", type: "clearwheel", name: "키메라", en: "Chimera", sub: "클리어휠 · 공격형", color: "#b06ad8", tags: ["CLEARWHEEL", "ATTACK", "RIGHT SPIN"], desc: "", stats: [50, 10, 10] },
   { id: "CLEARWHEEL-HORUSEUS", type: "clearwheel", name: "호르세우스", en: "Horuseus", sub: "클리어휠 · 방어형", color: "#66c7c7", tags: ["CLEARWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "부드러운 곡선으로 이루어진 큰 날개가 적의 공격을 받아넘긴다.", stats: [20, 40, 10] },
-  { id: "CLEARWHEEL-KILL", type: "clearwheel", name: "킬", en: "Kill", sub: "클리어휠 · 공격형", color: "#d36b55", tags: ["CLEARWHEEL", "ATTACK", "RIGHT SPIN"], desc: "용골 모양의 휠이 적에게 섬세한 연타공격을 가한다.", stats: [40, 10, 20] },
+  { id: "CLEARWHEEL-KILL", type: "clearwheel", name: "킬", en: "Keel", sub: "클리어휠 · 공격형", color: "#d36b55", tags: ["CLEARWHEEL", "ATTACK", "RIGHT SPIN"], desc: "용골 모양의 휠이 적에게 섬세한 연타공격을 가한다.", stats: [40, 10, 20] },
   { id: "CLEARWHEEL-HERCULEO", type: "clearwheel", name: "헤라클레오", en: "Herculeo", sub: "클리어휠 · 공격형", color: "#d8aa4c", tags: ["CLEARWHEEL", "ATTACK", "RIGHT SPIN"], desc: "사자의 갈기가 거침없이 어퍼공격을 가한다.", stats: [30, 20, 20] },
   { id: "CLEARWHEEL-BYXIS", type: "clearwheel", name: "픽시스", en: "Byxis", sub: "클리어휠 · 공격형", color: "#79a7d8", tags: ["CLEARWHEEL", "ATTACK", "RIGHT SPIN"], desc: "바깥에 중심이 있어서 원심력을 발휘하면서 나침반 바늘로 적을 공격한다.", stats: [30, 10, 30] },
   { id: "CLEARWHEEL-REX", type: "clearwheel", name: "렉스", en: "Rex", sub: "클리어휠 · 균형형", color: "#7bc66b", tags: ["CLEARWHEEL", "BALANCE", "RIGHT SPIN"], desc: "두개골은 어퍼공격을 가하고, 등뼈는 상대의 공격을 받아넘기는 효과를 발휘한다.", stats: [30, 30, 0] },
@@ -355,10 +355,10 @@ const items = [
   { id: "METALWHEEL-ROCK", type: "metalwheel", name: "로크", en: "Rock", sub: "메탈휠 · 방어형", color: "#b8c3c8", tags: ["METALWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "묵직한 중량을 가진 메탈휠로 적의 공격에도 끄떡없는 방어력을 자랑한다.", stats: [10, 40, 20] },
   { id: "METALWHEEL-FLAME", type: "metalwheel", name: "플레임", en: "Flame", sub: "메탈휠 · 지구형", color: "#ff9f1c", tags: ["METALWHEEL", "STAMINA", "RIGHT SPIN"], desc: "4면에 장착된 무게추가 강한 원심력을 발생시킨다.", stats: [10, 20, 40] },
   { id: "METALWHEEL-DARK", type: "metalwheel", name: "다크", en: "Dark", sub: "메탈휠 · 균형형", color: "#b88aff", tags: ["METALWHEEL", "BALANCE", "RIGHT SPIN"], desc: "6개의 톱날로 적을 가르고, 6개의 다른 톱날은 적을 튕겨낸다.", stats: [30, 30, 10] },
-  { id: "LIGHTWHEEL-MAD", type: "lightwheel", name: "매드", en: "Mad", sub: "라이트휠 · 균형형", color: "#d05c7e", tags: ["LIGHTWHEEL", "BALANCE", "RIGHT SPIN"], desc: "다양한 상황에 대응하기 좋은 균형형 라이트휠입니다.", stats: [20, 30, 20] },
-  { id: "LIGHTWHEEL-HEAT", type: "lightwheel", name: "히트", en: "Heat", sub: "라이트휠 · 지구형", color: "#e58b5b", tags: ["LIGHTWHEEL", "STAMINA", "RIGHT SPIN"], desc: "히트의 특성을 담은 지구형 라이트휠입니다.", stats: [10, 20, 40] },
-  { id: "LIGHTWHEEL-CLAY", type: "lightwheel", name: "클레이", en: "Clay", sub: "라이트휠 · 방어형", color: "#ad9678", tags: ["LIGHTWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "클레이의 특성을 담은 방어형 라이트휠입니다.", stats: [10, 40, 20] },
-  { id: "LIGHTWHEEL-WIND", type: "lightwheel", name: "윈드", en: "Wind", sub: "라이트휠 · 공격형", color: "#8ccfd1", tags: ["LIGHTWHEEL", "ATTACK", "RIGHT SPIN"], desc: "윈드의 특성을 담은 공격형 라이트휠입니다.", stats: [40, 20, 10] },
+  { id: "LIGHTWHEEL-MAD", type: "lightwheel", name: "매드", en: "Mad", sub: "라이트휠 · 균형형", color: "#d05c7e", tags: ["LIGHTWHEEL", "BALANCE", "RIGHT SPIN"], desc: "", stats: [20, 30, 20] },
+  { id: "LIGHTWHEEL-HEAT", type: "lightwheel", name: "히트", en: "Heat", sub: "라이트휠 · 지구형", color: "#e58b5b", tags: ["LIGHTWHEEL", "STAMINA", "RIGHT SPIN"], desc: "", stats: [10, 20, 40] },
+  { id: "LIGHTWHEEL-CLAY", type: "lightwheel", name: "클레이", en: "Clay", sub: "라이트휠 · 방어형", color: "#ad9678", tags: ["LIGHTWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "", stats: [10, 40, 20] },
+  { id: "LIGHTWHEEL-WIND", type: "lightwheel", name: "윈드", en: "Wind", sub: "라이트휠 · 공격형", color: "#8ccfd1", tags: ["LIGHTWHEEL", "ATTACK", "RIGHT SPIN"], desc: "", stats: [40, 20, 10] },
   { id: "METALWHEEL-LIGHTNING", type: "metalwheel", name: "라이트닝", en: "Lightning", sub: "메탈휠 · 공격형", color: "#c65a70", tags: ["METALWHEEL", "ATTACK", "LEFT SPIN"], desc: "어퍼와 연타공격이 가능하도록 3개의 톱날을 가진 다재다능한 공격형 휠.", stats: [60, 0, 0] },
   { id: "METALWHEEL-EARTH", type: "metalwheel", name: "어스", en: "Earth", sub: "메탈휠 · 지구형", color: "#8fb9cb", tags: ["METALWHEEL", "STAMINA", "RIGHT SPIN"], desc: "커다란 날개의 중량이 바깥쪽으로 분배되어 강력한 원심력을 발휘한다.", stats: [10, 10, 50] },
   { id: "METALWHEEL-COUNTER", type: "metalwheel", name: "카운터", en: "Counter", sub: "메탈휠 · 방어형", color: "#e5ca51", tags: ["METALWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "묵직한 중량으로 적의 공격을 막아내고 기존 레온의 힘을 이어받았다.", stats: [10, 40, 10] },
@@ -545,6 +545,19 @@ const grid = document.querySelector("#gearGrid");
 const count = document.querySelector("#resultCount");
 const globalSearch = document.querySelector("#globalSearchInput");
 const globalSearchScope = document.querySelector("#globalSearchScope");
+const globalSearchScopeValue = () => globalSearchScope?.dataset.scope || "all";
+const setGlobalSearchScope = scope => {
+  if (!globalSearchScope) return;
+  const value = scope || "all";
+  globalSearchScope.dataset.scope = value;
+  const activeButton = globalSearchScope.querySelector(`button[data-global-search-scope="${value}"]`);
+  globalSearchScope.querySelectorAll("button[data-global-search-scope]").forEach(button => {
+    button.classList.toggle("active", button === activeButton);
+  });
+  const label = globalSearchScope.querySelector(".catalog-dropdown-value");
+  if (label && activeButton) label.textContent = activeButton.textContent.trim();
+  globalSearchScope.removeAttribute("open");
+};
 const overviewSearch = document.querySelector("#overviewSearchInput");
 const globalGrid = document.querySelector("#globalGrid");
 const globalCount = document.querySelector("#globalCount");
@@ -552,6 +565,8 @@ const activeToyPanel = () => document.querySelector(".toy-panel.active");
 const activeToolbar = () => activeToyPanel()?.querySelector(".toolbar");
 const activeSearchBox = () => activeToyPanel()?.querySelector(".search-box");
 const toTop = document.querySelector("#toTop");
+const menuButton = document.querySelector("#menuButton");
+const mobileDrawer = document.querySelector("#mobileDrawer");
 const typeLabels = { bey: "베이", face: "페이스", wheel: "휠", clearwheel: "클리어휠", lightwheel: "라이트휠", metalwheel: "메탈휠", track: "트랙", bottom: "버텀", fourdbottom: "4D버텀", stoneface: "스톤페이스", chromewheel: "크롬휠", crystalwheel: "크리스탈휠" };
 const tagLabels = { ATTACK: "공격형", DEFENSE: "방어형", STAMINA: "지구형", BALANCE: "균형형", "RIGHT SPIN": "우회전", "LEFT SPIN": "좌회전", "DUAL SPIN": "양회전", FACE: "페이스", STONEFACE: "스톤페이스", WHEEL: "휠", CLEARWHEEL: "클리어휠", LIGHTWHEEL: "라이트휠", METALWHEEL: "메탈휠", CHROMEWHEEL: "크롬휠", CRYSTALWHEEL: "크리스탈휠", TRACK: "트랙", BOTTOM: "버텀", "4DBOTTOM": "4D버텀", LOW: "낮은 높이", HIGH: "높은 높이" };
 const structureLabels = { basic: "4단 구조 시스템", hybrid: "하이브리드 시스템", "4d": "4D 시스템", synchrom: "싱크롬 시스템" };
@@ -562,10 +577,13 @@ let filter = "all";
 let filterTypes = null;
 let filterStructure = null;
 let productFilter = null;
+let productSeriesFilter = null;
 let productKindFilter = null;
-let productNoteFilter = null;
 let activeReleaseRegion = "kr";
+let activeReleaseSeries = "metal fight";
+let equipmentSeriesFilter = null;
 let equipmentFilter = null;
+let gearSeriesFilter = null;
 let gearKindFilter = "";
 let gearSubtypeFilter = null;
 let gearTypeFilter = null;
@@ -677,7 +695,7 @@ const productItems = [
     { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }
   ] },
   { id: "PRODUCT-BB-10", series: "metal fight", no: "BB-10", name: "공격형 메탈파이트 스타디움", sale: "일반 판매", kind: "", equipment: "스타디움", price: "₩6400", releaseDate: "2008-10", releases: {
-    jp: { no: "BB-10", name: "베이스타디움 어택타입", sale: "일반 판매", kind: "기타", releaseDate: "2008-08-09", price: "¥1260", composition: [
+    jp: { no: "BB-10", name: "베이스타디움 어택타입", sale: "일반 판매", kind: "", releaseDate: "2008-08-09", price: "¥1260", composition: [
       { label: "스타디움", name: "베이스타디움 어택타입", target: "EQUIPMENT-ATTACK-BEYSTADIUM" },
       { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }
     ] }
@@ -727,7 +745,7 @@ const productItems = [
   ] },
   { id: "PRODUCT-BB-14", series: "metal fight", no: "BB-14", name: "BB-14", sale: "일반 판매", kind: "", equipment: "스타디움", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "BB-14", name: "베이스타디움 밸런스타입", sale: "일반 판매", kind: "기타", equipment: "스타디움", releaseDate: "2008-09-18", price: "¥1260", composition: [
+    jp: { no: "BB-14", name: "베이스타디움 밸런스타입", sale: "일반 판매", kind: "", equipment: "스타디움", releaseDate: "2008-09-18", price: "¥1260", composition: [
       { label: "스타디움", name: "메탈파이트 스타디움 밸런스형", target: "EQUIPMENT-BALANCE-BEYSTADIUM" },
       { label: "기타", name: "오버펜스", quantity: "7개", target: "EQUIPMENT-OVER-FENCE" }
     ] }
@@ -736,21 +754,21 @@ const productItems = [
     { label: "기타", name: "오버펜스", quantity: "7개", target: "EQUIPMENT-OVER-FENCE" }
   ] },
   { id: "PRODUCT-BB-15", series: "metal fight", no: "BB-15", name: "런처그립", sale: "일반 판매", kind: "", equipment: "그립", releaseDate: "2008-12", price: "₩8000", releases: {
-    jp: { no: "BB-15", name: "런처그립", sale: "일반 판매", kind: "기타", equipment: "그립", releaseDate: "2008-09-18", price: "¥525", composition: [
+    jp: { no: "BB-15", name: "런처그립", sale: "일반 판매", kind: "", equipment: "그립", releaseDate: "2008-09-18", price: "¥525", composition: [
       { label: "그립", name: "런처그립", target: "EQUIPMENT-LAUNCHER-GRIP" }
     ] }
   }, composition: [
     { label: "그립", name: "런처그립", target: "EQUIPMENT-LAUNCHER-GRIP" }
   ] },
   { id: "PRODUCT-BB-16", series: "metal fight", no: "BB-16", name: "포인터", sale: "일반 판매", kind: "", equipment: "기타", releaseDate: "2008-12", price: "₩9600", releases: {
-    jp: { no: "BB-16", name: "베이포인터", sale: "일반 판매", kind: "기타", equipment: "기타", releaseDate: "2008-09-18", price: "¥1050", composition: [
+    jp: { no: "BB-16", name: "베이포인터", sale: "일반 판매", kind: "", equipment: "기타", releaseDate: "2008-09-18", price: "¥1050", composition: [
       { label: "기타", name: "베이포인터", target: "EQUIPMENT-POINTER" }
     ] }
   }, composition: [
     { label: "기타", name: "포인터", target: "EQUIPMENT-POINTER" }
   ] },
   { id: "PRODUCT-BB-17", series: "metal fight", no: "BB-17", name: "파워런처", sale: "일반 판매", kind: "", equipment: "런처", releaseDate: "2008-12", price: "₩6400", releases: {
-    jp: { no: "BB-17", name: "베이런처", sale: "일반 판매", kind: "기타", equipment: "런처", releaseDate: "2008-09-18", price: "¥630", composition: [
+    jp: { no: "BB-17", name: "베이런처", sale: "일반 판매", kind: "", equipment: "런처", releaseDate: "2008-09-18", price: "¥630", composition: [
       { label: "런처", name: "베이런처", target: "EQUIPMENT-POWER-LAUNCHER" }
     ] }
   }, composition: [
@@ -768,7 +786,7 @@ const productItems = [
   ] },
   { id: "PRODUCT-BB-19", series: "metal fight", no: "BB-19", name: "BB-19", sale: "일반 판매", kind: "", equipment: "스타디움", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "BB-19", name: "베이스타디움 스태미나타입", sale: "일반 판매", kind: "기타", equipment: "스타디움", releaseDate: "2008-10-23", price: "¥1365", composition: [
+    jp: { no: "BB-19", name: "베이스타디움 스태미나타입", sale: "일반 판매", kind: "", equipment: "스타디움", releaseDate: "2008-10-23", price: "¥1365", composition: [
       { label: "스타디움", name: "메탈파이트 스타디움 스테미너형", target: "EQUIPMENT-STAMINA-BEYSTADIUM" },
       { label: "기타", name: "오버펜스", quantity: "7개", target: "EQUIPMENT-OVER-FENCE" }
     ] }
@@ -880,6 +898,12 @@ const releaseRegionLabels = {
   kr: "한국",
   jp: "일본"
 };
+const releaseSeriesLabels = {
+  topblade: "탑블레이드",
+  "metal fight": "메탈파이트",
+  burst: "버스트",
+  x: "X"
+};
 const normalizeProductKind = kind => kind === "기타" ? "" : kind || "";
 const baseProductRelease = item => ({
   status: "released",
@@ -915,6 +939,10 @@ const productRelease = (item, region = activeReleaseRegion) => {
 };
 const productReleaseValue = (item, key, region = activeReleaseRegion) => productRelease(item, region)[key] || "";
 const productReleasedInRegion = (item, region = activeReleaseRegion) => productRelease(item, region).status !== "unreleased";
+const productKindTag = (item, region = "kr") => productRelease(item, region).kind || "기타";
+const seriesLabels = { topblade: "탑블레이드", "metal fight": "메탈베이블레이드", burst: "베이블레이드 버스트", x: "베이블레이드 X" };
+const itemSeries = item => item.series || "metal fight";
+const itemSeriesLabel = item => seriesLabels[itemSeries(item)] || itemSeries(item);
 const productDisplayName = (item, region = activeReleaseRegion) => {
   const release = productRelease(item, region);
   if (release.name) return release.name;
@@ -934,8 +962,22 @@ const priceLabel = value => {
   if (!value) return "";
   return String(value).replace(/^([₩¥])(\d+)$/, (_, currency, amount) => `${currency}${Number(amount).toLocaleString("en-US")}`);
 };
-const releaseRegionControls = () => `<div class="release-region-tabs" role="tablist" aria-label="발매 지역">
-  ${Object.entries(releaseRegionLabels).map(([region, label]) => `<button class="release-region-tab${activeReleaseRegion === region ? " active" : ""}" type="button" data-release-region="${region}" aria-selected="${activeReleaseRegion === region ? "true" : "false"}">${label}</button>`).join("")}
+const releaseDropdownOptions = (entries, activeValue, dataAttr) => entries
+  .map(([value, label]) => `<button type="button" class="${activeValue === value ? "active" : ""}" ${dataAttr}="${value}">${label}</button>`)
+  .join("");
+const releaseControls = () => `<div class="release-dropdowns" aria-label="출시 정보 필터">
+  <details class="catalog-dropdown release-dropdown">
+    <summary><span>시리즈</span><b class="catalog-dropdown-value">${releaseSeriesLabels[activeReleaseSeries]}</b></summary>
+    <div class="catalog-dropdown-menu">
+      ${releaseDropdownOptions(Object.entries(releaseSeriesLabels), activeReleaseSeries, "data-release-series")}
+    </div>
+  </details>
+  <details class="catalog-dropdown release-dropdown">
+    <summary><span>지역</span><b class="catalog-dropdown-value">${releaseRegionLabels[activeReleaseRegion]}</b></summary>
+    <div class="catalog-dropdown-menu">
+      ${releaseDropdownOptions(Object.entries(releaseRegionLabels), activeReleaseRegion, "data-release-region")}
+    </div>
+  </details>
 </div>`;
 
 const equipmentItems = [
@@ -1009,7 +1051,7 @@ const itemSearchText = item => {
   const typeText = typeLabels[item.type] || item.type;
   const structureText = item.type === "bey" ? structureLabels[item.structure] || "" : "";
   const spinAlias = item.tags.includes("DUAL SPIN") ? "양회전 좌회전 우회전" : "";
-  return `${item.name} ${item.en} ${item.sub} ${item.desc || ""} ${typeText} ${structureText} ${labels} ${spinAlias}`;
+  return `${item.name} ${item.en} ${item.sub} ${item.desc || ""} ${itemSeriesLabel(item)} ${typeText} ${structureText} ${labels} ${spinAlias}`;
 };
 const escapeSearchTerm = term => term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 const searchIncludes = (text, term) => new RegExp(escapeSearchTerm(term), "i").test(text);
@@ -1020,14 +1062,14 @@ const itemMatchesSearch = (item, query) => {
   return terms.length ? terms.every(term => searchIncludes(text, term)) : searchIncludes(text, query);
 };
 
-const productSearchText = item => `${item.no} ${item.name} ${item.sale} ${item.kind} ${item.equipment || ""} ${(item.composition || []).map(part => `${part.label} ${part.name}`).join(" ")}`;
+const productSearchText = item => `${item.no} ${item.name} ${itemSeriesLabel(item)} ${productKindTag(item)} ${item.equipment || ""} ${(item.composition || []).map(part => `${part.label} ${part.name}`).join(" ")}`;
 const productMatchesSearch = (item, query) => {
   if (!query) return true;
   const terms = query.split(",").map(term => term.trim()).filter(Boolean);
   const text = productSearchText(item);
   return terms.length ? terms.every(term => searchIncludes(text, term)) : searchIncludes(text, query);
 };
-const equipmentSearchText = item => `${item.name} ${item.en} ${item.category} ${item.desc}`;
+const equipmentSearchText = item => `${item.name} ${item.en} ${itemSeriesLabel(item)} ${item.category} ${item.desc}`;
 const equipmentMatchesSearch = (item, query) => {
   if (!query) return true;
   const terms = query.split(",").map(term => term.trim()).filter(Boolean);
@@ -1040,13 +1082,12 @@ const productSerialNumber = (item, region = activeReleaseRegion) => {
   const match = no.match(/BB-(\d+)/);
   return match ? Number(match[1]) : Number.MAX_SAFE_INTEGER;
 };
-const saleLabel = sale => sale === "일반 판매" ? "일반" : sale === "한정 판매" ? "한정 판매" : sale === "한정 배포" ? "한정 배포" : sale;
 const productCard = (item, mode = "product") => `
   <button class="gear-card product-card" data-product-id="${item.id}">
-    <div class="card-top"><span class="card-type">${mode === "equipment" ? item.equipment : saleLabel(item.sale)}</span><span>${item.no}</span></div>
+    <div class="card-top"><span class="card-type">${mode === "equipment" ? item.equipment : productKindTag(item)}</span><span>${item.no}</span></div>
     <div class="gear-visual"></div>
     <h3 class="card-name">${productDisplayName(item, "kr")}</h3>
-    <p class="card-full-en">${normalizeProductKind(item.kind)}</p>
+    <p class="card-full-en">&nbsp;</p>
     <p class="card-full-ko">&nbsp;</p>
   </button>`;
 const equipmentCard = item => `
@@ -1096,19 +1137,19 @@ const applyGearDropdownFilter = () => {
 const visibleProductItems = () => {
   const query = globalSearchQuery();
   return productItems
-    .filter(item => (!productFilter || (Array.isArray(productFilter) ? productFilter.includes(item.sale) : item.sale === productFilter)) && (!productKindFilter || item.kind === productKindFilter) && (!productNoteFilter || item.sale === productNoteFilter) && productMatchesSearch(item, query))
+    .filter(item => (!productSeriesFilter || itemSeries(item) === productSeriesFilter) && (!productFilter || (Array.isArray(productFilter) ? productFilter.includes(item.sale) : item.sale === productFilter)) && (!productKindFilter || productKindTag(item) === productKindFilter) && productMatchesSearch(item, query))
     .sort((a, b) => productSerialNumber(a) - productSerialNumber(b));
 };
 const visibleEquipmentItems = () => {
   const query = globalSearchQuery();
   return equipmentItems
-    .filter(item => (!equipmentFilter || item.category === equipmentFilter) && equipmentMatchesSearch(item, query))
+    .filter(item => (!equipmentSeriesFilter || itemSeries(item) === equipmentSeriesFilter) && (!equipmentFilter || item.category === equipmentFilter) && equipmentMatchesSearch(item, query))
     .sort((a, b) => equipmentSortOrder(a) - equipmentSortOrder(b) || a.name.localeCompare(b.name, "ko"));
 };
 const visibleGearItems = () => {
   const query = globalSearchQuery();
   return items
-    .filter(item => (filter === "all" || (filterTypes ? filterTypes.includes(item.type) : item.type === filter)) && (!filterStructure || item.structure === filterStructure) && matchesGearType(item) && matchesGearSpin(item) && itemMatchesSearch(item, query))
+    .filter(item => (!gearSeriesFilter || itemSeries(item) === gearSeriesFilter) && (filter === "all" || (filterTypes ? filterTypes.includes(item.type) : item.type === filter)) && (!filterStructure || item.structure === filterStructure) && matchesGearType(item) && matchesGearSpin(item) && itemMatchesSearch(item, query))
     .sort((a, b) => {
       if (a.type === "bey" && b.type === "bey") return beySerialNumber(a) - beySerialNumber(b);
       if (filter === "wheel" && filterTypes) return (wheelTypeOrder[a.type] ?? 99) - (wheelTypeOrder[b.type] ?? 99);
@@ -1340,9 +1381,14 @@ function renderCards() {
 
 const filterGroups = {
   bey: ["bey"],
+  parts: ["face", "stoneface", "wheel", "clearwheel", "lightwheel", "metalwheel", "chromewheel", "crystalwheel", "track", "bottom", "fourdbottom"],
   face: ["face", "stoneface"],
   wheel: ["wheel", "clearwheel", "lightwheel", "metalwheel", "chromewheel", "crystalwheel"],
   bottom: ["bottom", "fourdbottom"]
+};
+const productFilterGroups = {
+  general: ["일반 판매", "게임"],
+  limited: ["한정 판매", "한정 배포"]
 };
 
 const overviewStructures = [
@@ -1369,6 +1415,20 @@ const overviewStructures = [
 ];
 
 let overviewStructureIndex = 0;
+let overviewSeriesIndex = 1;
+
+const overviewSeries = [
+  { key: "topblade", label: "탑블레이드" },
+  { key: "metal", label: "메탈파이트" },
+  { key: "burst", label: "버스트" },
+  { key: "x", label: "X" }
+];
+
+const overviewSeriesTabsMarkup = () => overviewSeries.map((series, index) => `
+    <button type="button" class="${index === overviewSeriesIndex ? "active" : ""}" data-overview-series="${index}">
+      ${series.label}
+    </button>
+  `).join("");
 
 const overviewStructureTabsMarkup = () => overviewStructures.map((structure, index) => `
     <button type="button" class="${index === overviewStructureIndex ? "active" : ""}" data-overview-structure="${index}">
@@ -1386,13 +1446,20 @@ function renderOverviewStructure(scope = document) {
   const title = scope.querySelector(".overview-modal-name");
   const desc = scope.querySelector(".overview-modal-desc");
   const parts = scope.querySelector(".overview-parts");
+  const seriesTabs = scope.querySelector(".overview-series-tabs");
   if (title) title.textContent = current.title;
   if (desc) desc.textContent = current.desc;
   if (parts) parts.innerHTML = overviewStructurePartsMarkup(current.parts);
+  if (seriesTabs) seriesTabs.innerHTML = overviewSeriesTabsMarkup();
   tabs.innerHTML = overviewStructureTabsMarkup();
 }
 
 function bindOverviewStructureTabs(scope = document) {
+  scope.querySelectorAll("[data-overview-series]").forEach(button => button.addEventListener("click", event => {
+    overviewSeriesIndex = Number(event.currentTarget.dataset.overviewSeries);
+    renderOverviewStructure(scope);
+    bindOverviewStructureTabs(scope);
+  }));
   scope.querySelectorAll("[data-overview-structure]").forEach(button => button.addEventListener("click", event => {
     overviewStructureIndex = Number(event.currentTarget.dataset.overviewStructure);
     renderOverviewStructure(scope);
@@ -1439,18 +1506,19 @@ function openOverviewStructureDetail() {
   }
   const content = document.querySelector("#modalContent");
   content.innerHTML = `<div class="modal-inner overview-structure-modal">
-    <div class="modal-art overview-modal-art">
-      <div class="overview-photo-area" aria-label="사진 영역"></div>
-    </div>
-      <div class="modal-info overview-modal-info">
+    <div class="modal-info overview-modal-info">
       <div class="overview-title-row">
         <h3 class="modal-name overview-modal-name"></h3>
+        <div class="overview-series-tabs"></div>
         <div class="overview-tabs"></div>
       </div>
       <div class="modal-info-slot">
         <div class="modal-slot-tags overview-parts"></div>
         <p class="modal-description overview-modal-desc"></p>
       </div>
+    </div>
+    <div class="modal-art overview-modal-art">
+      <div class="overview-photo-area" aria-label="부품 이미지 영역"></div>
     </div>
   </div>`;
   renderOverviewStructure(content);
@@ -1470,23 +1538,21 @@ function openOverviewTypeDetail() {
     <div class="modal-art overview-modal-art">
       <div class="overview-type-art" aria-label="타입과 회전 방향 도식">
         <section class="overview-type-visual-card">
-          <h4>타입 상성</h4>
           <div class="type-relation-diagram" aria-label="공격형, 지구형, 방어형, 균형형 관계">
             <img class="type-matchup-image" src="./assets/type-matchup.svg" alt="어택형, 디펜스형, 스태미나형, 밸런스형 타입 상성도" />
           </div>
         </section>
         <section class="overview-type-visual-card">
-          <h4>회전 방향</h4>
           <div class="spin-relation-diagram" aria-label="우회전, 좌회전, 양회전">
             <div class="spin-direction-item">
-              <span class="spin-arrow counter">↺</span>
+              <span class="spin-arrow clockwise">↻</span>
               <b>우회전</b>
-              <small>시계 반대 방향</small>
+              <small>시계 방향</small>
             </div>
             <div class="spin-direction-item">
-              <span class="spin-arrow clockwise">↻</span>
+              <span class="spin-arrow counter">↺</span>
               <b>좌회전</b>
-              <small>시계 방향</small>
+              <small>반시계 방향</small>
             </div>
             <div class="spin-direction-item">
               <span class="spin-arrow dual" aria-hidden="true">
@@ -1515,11 +1581,20 @@ function openOverviewTypeDetail() {
         <div class="overview-type-copy">
           <section>
             <h4>타입</h4>
-            <p>어택형은 상대를 경기장 밖으로 밀어내는 데, 디펜스형은 공격을 버티는 데, 스태미나형은 오래 회전하는 데 특화된다. 밸런스형은 공격력, 방어력, 지구력을 고르게 갖춘 타입이다.</p>
+            <ul>
+              <li><span>어택형</span>공격에 특화된 타입으로 스태미나형에 유리하다</li>
+              <li><span>디펜스형</span>방어에 특화된 타입으로 공격형에 유리하다</li>
+              <li><span>스태미나형</span>지구력이 높은 타입으로 디펜스형에 유리하다</li>
+              <li><span>밸런스형</span>공격·방어·지구력을 고르게 갖춘 타입으로 유리한 타입도 불리한 타입도 없다</li>
+            </ul>
           </section>
           <section>
             <h4>회전</h4>
-            <p>우회전은 반시계 방향으로, 좌회전은 시계 방향으로 회전한다. 양회전은 양쪽 방향으로 모두 회전할 수 있다.</p>
+            <ul>
+              <li><span>우회전</span>시계 방향으로 회전</li>
+              <li><span>좌회전</span>반시계 방향으로 회전</li>
+              <li><span>양회전</span>좌우회전 모두 가능</li>
+            </ul>
           </section>
         </div>
       </div>
@@ -1530,15 +1605,15 @@ function openOverviewTypeDetail() {
   if (!modal.open) modal.showModal();
 }
 
-const productReleaseTableRows = (region = activeReleaseRegion) => productItems
+const productReleaseTableRows = (region = activeReleaseRegion, series = activeReleaseSeries) => productItems
   .slice()
-  .filter(item => productReleasedInRegion(item, region))
+  .filter(item => item.series === series && productReleasedInRegion(item, region))
   .sort((a, b) => productSerialNumber(a, region) - productSerialNumber(b, region))
   .map(item => {
     const release = productRelease(item, region);
-    return `<tr>
+    return `<tr class="release-product-row" role="button" tabindex="0" data-product-id="${item.id}" data-release-region="${region}">
     <td>${release.no || ""}</td>
-    <td><button class="release-product-link" type="button" data-product-id="${item.id}" data-release-region="${region}">${release.name || item.name}</button></td>
+    <td><span class="release-product-link">${release.name || item.name}</span></td>
     <td>${release.kind || ""}</td>
     <td>${releaseDateLabel(release.releaseDate || release.release)}</td>
     <td>${priceLabel(release.price)}</td>
@@ -1547,18 +1622,30 @@ const productReleaseTableRows = (region = activeReleaseRegion) => productItems
   .join("");
 
 function bindProductReleaseTable(root = document) {
-  root.querySelectorAll(".release-product-link").forEach(button => button.addEventListener("click", event => {
-    event.preventDefault();
-    openProductDetail(event.currentTarget.dataset.productId, { backRelease: true, region: event.currentTarget.dataset.releaseRegion || activeReleaseRegion });
-  }));
-  root.querySelectorAll(".release-region-tab[data-release-region]").forEach(button => button.addEventListener("click", event => {
+  const openReleaseRow = row => openProductDetail(row.dataset.productId, { backRelease: true, region: row.dataset.releaseRegion || activeReleaseRegion });
+  root.querySelectorAll(".release-product-row[data-product-id]").forEach(row => {
+    row.addEventListener("click", () => openReleaseRow(row));
+    row.addEventListener("keydown", event => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      openReleaseRow(row);
+    });
+  });
+  root.querySelectorAll("button[data-release-region]").forEach(button => button.addEventListener("click", event => {
+    setDropdownOption(event.currentTarget);
     activeReleaseRegion = event.currentTarget.dataset.releaseRegion;
-    openOverviewReleaseDetail({ region: activeReleaseRegion });
+    openOverviewReleaseDetail({ region: activeReleaseRegion, series: activeReleaseSeries });
+  }));
+  root.querySelectorAll("button[data-release-series]").forEach(button => button.addEventListener("click", event => {
+    setDropdownOption(event.currentTarget);
+    activeReleaseSeries = event.currentTarget.dataset.releaseSeries;
+    openOverviewReleaseDetail({ region: activeReleaseRegion, series: activeReleaseSeries });
   }));
 }
 
 function openOverviewReleaseDetail(options = {}) {
   if (options.region && releaseRegionLabels[options.region]) activeReleaseRegion = options.region;
+  if (options.series && releaseSeriesLabels[options.series]) activeReleaseSeries = options.series;
   if (modelViewerCleanup) {
     modelViewerCleanup();
     modelViewerCleanup = null;
@@ -1570,7 +1657,7 @@ function openOverviewReleaseDetail(options = {}) {
         <h3 class="modal-name overview-modal-name">출시 정보</h3>
       </div>
       <div class="modal-body-block">
-        ${releaseRegionControls()}
+        ${releaseControls()}
         <section class="modal-section release-table-section">
           <div class="modal-section-scroll release-table-scroll">
             <table class="release-table">
@@ -1583,7 +1670,7 @@ function openOverviewReleaseDetail(options = {}) {
                   <th>가격</th>
                 </tr>
               </thead>
-              <tbody>${productReleaseTableRows(activeReleaseRegion)}</tbody>
+              <tbody>${productReleaseTableRows(activeReleaseRegion, activeReleaseSeries)}</tbody>
             </table>
           </div>
         </section>
@@ -1591,7 +1678,7 @@ function openOverviewReleaseDetail(options = {}) {
     </div>
   </div>`;
   bindProductReleaseTable(content);
-  rememberModalContext("overview-release", "OVERVIEW-RELEASE", { region: activeReleaseRegion });
+  rememberModalContext("overview-release", "OVERVIEW-RELEASE", { region: activeReleaseRegion, series: activeReleaseSeries });
   window.location.hash = "OVERVIEW-RELEASE";
   if (!modal.open) modal.showModal();
 }
@@ -1644,12 +1731,12 @@ const renderSearchResults = () => {
 };
 const activeToyPanelName = () => activeToyPanel()?.dataset.toyPanel || "";
 const showSearchScopePanel = () => {
-  const scope = globalSearchScope?.value || "all";
+  const scope = globalSearchScopeValue();
   if (scope === "all") {
     document.querySelectorAll(".nav-link").forEach(link => link.classList.remove("active"));
     activateToyPanel("all");
     renderGlobalCards();
-    document.body.classList.remove("menu-open");
+    setMenuOpen(false);
     return;
   }
   if (activeToyPanelName() !== scope) {
@@ -1660,7 +1747,6 @@ const showSearchScopePanel = () => {
 };
 globalSearch?.addEventListener("input", () => {
   renderSearchResults();
-  if (globalSearchQuery() && activeToyPanelName() === "overview") showSearchScopePanel();
 });
 globalSearch?.addEventListener("keydown", event => {
   if (event.key !== "Enter") return;
@@ -1670,31 +1756,27 @@ globalSearch?.addEventListener("keydown", event => {
 globalSearch?.closest(".search-box")?.querySelector(".search-icon")?.addEventListener("click", showSearchScopePanel);
 overviewSearch?.addEventListener("input", () => {
   if (globalSearch) globalSearch.value = overviewSearch.value;
-  if (globalSearchScope) globalSearchScope.value = "all";
+  setGlobalSearchScope("all");
   renderSearchResults();
-  if (overviewSearch.value.trim()) showSearchScopePanel();
 });
 overviewSearch?.addEventListener("keydown", event => {
   if (event.key !== "Enter") return;
   event.preventDefault();
   if (globalSearch) globalSearch.value = overviewSearch.value;
-  if (globalSearchScope) globalSearchScope.value = "all";
+  setGlobalSearchScope("all");
   showSearchScopePanel();
 });
 overviewSearch?.closest(".overview-search")?.querySelector("span")?.addEventListener("click", () => {
   if (globalSearch) globalSearch.value = overviewSearch.value;
-  if (globalSearchScope) globalSearchScope.value = "all";
+  setGlobalSearchScope("all");
   showSearchScopePanel();
 });
-globalSearchScope?.addEventListener("change", () => {
-  const scope = globalSearchScope.value;
-  if (scope === "all") {
-    document.querySelectorAll(".nav-link").forEach(link => link.classList.remove("active"));
-    activateToyPanel("all");
-    renderGlobalCards();
-    return;
-  }
-  activatePrimarySection(scope);
+globalSearchScope?.addEventListener("click", event => {
+  const button = event.target.closest("button[data-global-search-scope]");
+  if (!button) return;
+  event.preventDefault();
+  setGlobalSearchScope(button.dataset.globalSearchScope || "all");
+  showSearchScopePanel();
 });
 const resetNavFilterActives = root => root.querySelectorAll(".filter.active,.sub-filter.active").forEach(active => active.classList.remove("active"));
 const setDropdownOption = button => {
@@ -1729,24 +1811,26 @@ const syncGearDropdownVisibility = () => {
   });
 };
 document.querySelector("#productDropdownFilters")?.addEventListener("click", event => {
-  const button = event.target.closest("button[data-product-kind],button[data-product-note]");
+  const button = event.target.closest("button[data-product-series],button[data-product-kind]");
   if (!button) return;
   setDropdownOption(button);
+  if (button.hasAttribute("data-product-series")) productSeriesFilter = button.dataset.productSeries || null;
   if (button.hasAttribute("data-product-kind")) productKindFilter = button.dataset.productKind || null;
-  if (button.hasAttribute("data-product-note")) productNoteFilter = button.dataset.productNote || null;
   renderProductCards();
 });
 document.querySelector("#equipmentDropdownFilters")?.addEventListener("click", event => {
-  const button = event.target.closest("button[data-equipment-kind]");
+  const button = event.target.closest("button[data-equipment-series],button[data-equipment-kind]");
   if (!button) return;
   setDropdownOption(button);
-  equipmentFilter = button.dataset.equipmentKind || null;
+  if (button.hasAttribute("data-equipment-series")) equipmentSeriesFilter = button.dataset.equipmentSeries || null;
+  if (button.hasAttribute("data-equipment-kind")) equipmentFilter = button.dataset.equipmentKind || null;
   renderEquipmentCards();
 });
 document.querySelector("#gearDropdownFilters")?.addEventListener("click", event => {
-  const button = event.target.closest("button[data-gear-kind],button[data-gear-subtype],button[data-gear-system],button[data-gear-type],button[data-gear-spin]");
+  const button = event.target.closest("button[data-gear-series],button[data-gear-kind],button[data-gear-subtype],button[data-gear-system],button[data-gear-type],button[data-gear-spin]");
   if (!button) return;
   setDropdownOption(button);
+  if (button.hasAttribute("data-gear-series")) gearSeriesFilter = button.dataset.gearSeries || null;
   if (button.hasAttribute("data-gear-kind")) {
     gearKindFilter = button.dataset.gearKind || "";
     gearSubtypeFilter = null;
@@ -1763,14 +1847,13 @@ document.querySelector("#gearDropdownFilters")?.addEventListener("click", event 
   applyGearDropdownFilter();
   renderCards();
 });
-document.querySelectorAll(".catalog-dropdown").forEach(dropdown => {
-  dropdown.addEventListener("toggle", () => {
-    if (!dropdown.open) return;
-    document.querySelectorAll(".catalog-dropdown[open]").forEach(openDropdown => {
-      if (openDropdown !== dropdown) openDropdown.removeAttribute("open");
-    });
+document.addEventListener("toggle", event => {
+  const dropdown = event.target.closest?.(".catalog-dropdown");
+  if (!dropdown?.open) return;
+  document.querySelectorAll(".catalog-dropdown[open]").forEach(openDropdown => {
+    if (openDropdown !== dropdown) openDropdown.removeAttribute("open");
   });
-});
+}, true);
 document.addEventListener("click", event => {
   if (!event.target.closest(".catalog-dropdown")) {
     document.querySelectorAll(".catalog-dropdown[open]").forEach(dropdown => dropdown.removeAttribute("open"));
@@ -1811,7 +1894,7 @@ document.querySelector("#productFilters")?.addEventListener("click", event => {
     parentButton?.classList.add("active");
     parentGroup.classList.remove("open");
   }
-  productFilter = button.dataset.productFilterGroup === "limited" ? ["한정 판매", "한정 배포"] : button.dataset.productFilter;
+  productFilter = button.dataset.productFilterGroup ? productFilterGroups[button.dataset.productFilterGroup] : button.dataset.productFilter;
   renderProductCards();
 }, true);
 document.querySelector("#equipmentFilters")?.addEventListener("click", event => {
@@ -2030,7 +2113,21 @@ const jpCompositionName = name => {
     value = value.replaceAll(from, to);
   });
   value = value
+    .replaceAll("유니콘", "유니코르노")
+    .replaceAll("호르세우스", "호루세우스")
+    .replaceAll("킬", "길")
+    .replaceAll("픽시스", "빅시스")
+    .replaceAll("켈베로스", "케르벡스")
+    .replaceAll("호로지움", "호로기움")
     .replaceAll("레온", "레오네")
+    .replaceAll("로크", "록")
+    .replaceAll("폭신", "바쿠신")
+    .replaceAll("바셀트", "바살트")
+    .replaceAll("베리아레스", "바리아레스")
+    .replaceAll("드래곤", "드라군")
+    .replaceAll("가고일", "가골")
+    .replaceAll("골렘", "고레임")
+    .replaceAll("발록", "발로")
     .replaceAll("울프", "볼프")
     .replaceAll("카프리콘", "카프리코네")
     .replaceAll("베이포인터", "__BEY_POINTER__")
@@ -2204,18 +2301,31 @@ modal.addEventListener("click", e => { if (e.target === modal) closeDetail(); })
 
 const activateToyPanel = section => {
   document.querySelectorAll(".toy-panel").forEach(panel => panel.classList.toggle("active", panel.dataset.toyPanel === section));
+  document.body.classList.toggle("is-overview", section === "overview");
+};
+const syncMobileDrawer = section => {
+  mobileDrawer?.querySelectorAll("[data-mobile-section]").forEach(button => {
+    button.classList.toggle("active", button.dataset.mobileSection === section);
+  });
+};
+const setMenuOpen = open => {
+  document.body.classList.toggle("menu-open", open);
+  menuButton?.setAttribute("aria-expanded", String(open));
+  mobileDrawer?.setAttribute("aria-hidden", String(!open));
+  if (open) syncMobileDrawer(activeToyPanel()?.dataset.toyPanel || "overview");
 };
 const activatePrimarySection = section => {
   document.querySelectorAll(".nav-link").forEach(link => link.classList.toggle("active", link.dataset.toySection === section));
+  syncMobileDrawer(section);
   activateToyPanel(section);
   document.querySelectorAll(".nav-group.open, .filter-group.open").forEach(group => group.classList.remove("open"));
-  if (section === "overview" && globalSearchScope) globalSearchScope.value = "all";
-  if (globalSearchScope && ["product", "bey", "equipment"].includes(section)) globalSearchScope.value = section;
+  if (section === "overview") setGlobalSearchScope("all");
+  if (["product", "bey", "equipment"].includes(section)) setGlobalSearchScope(section);
 
   if (section === "product") {
     productFilter = null;
+    productSeriesFilter = null;
     productKindFilter = null;
-    productNoteFilter = null;
     resetNavFilterActives(document.querySelector("#productFilters"));
     resetDropdowns(document.querySelector("#productDropdownFilters"));
     renderProductCards();
@@ -2223,6 +2333,7 @@ const activatePrimarySection = section => {
     filter = "all";
     filterTypes = null;
     filterStructure = null;
+    gearSeriesFilter = null;
     gearKindFilter = "";
     gearSubtypeFilter = null;
     gearTypeFilter = null;
@@ -2233,13 +2344,14 @@ const activatePrimarySection = section => {
     syncGearDropdownVisibility();
     renderCards();
   } else if (section === "equipment") {
+    equipmentSeriesFilter = null;
     equipmentFilter = null;
     resetNavFilterActives(document.querySelector("#equipmentFilters"));
     resetDropdowns(document.querySelector("#equipmentDropdownFilters"));
     renderEquipmentCards();
   }
 
-  document.body.classList.remove("menu-open");
+  setMenuOpen(false);
 };
 document.querySelectorAll(".nav-link").forEach(button => button.addEventListener("click", event => {
   event.preventDefault();
@@ -2256,17 +2368,35 @@ document.querySelector(".topbar > .brand")?.addEventListener("click", event => {
 });
 menuButton?.addEventListener("click", event => {
   event.stopPropagation();
-  document.body.classList.toggle("menu-open");
+  setMenuOpen(!document.body.classList.contains("menu-open"));
+});
+mobileDrawer?.addEventListener("click", event => {
+  const sectionButton = event.target.closest("[data-mobile-section]");
+  const proxyButton = event.target.closest("[data-mobile-click]");
+
+  if (sectionButton) {
+    event.preventDefault();
+    activatePrimarySection(sectionButton.dataset.mobileSection || "product");
+    return;
+  }
+
+  if (proxyButton) {
+    event.preventDefault();
+    const target = document.querySelector(proxyButton.dataset.mobileClick);
+    target?.click();
+    setMenuOpen(false);
+  }
 });
 window.addEventListener("resize", () => {
-  if (window.innerWidth > 980) document.body.classList.remove("menu-open");
+  if (window.innerWidth > 980) setMenuOpen(false);
 });
 document.addEventListener("click", event => {
-  if (!event.target.closest(".topbar")) document.body.classList.remove("menu-open");
+  if (!event.target.closest(".topbar") && !event.target.closest(".mobile-drawer")) setMenuOpen(false);
 });
 
 syncGearDropdownVisibility();
 renderCards(); renderProductCards(); renderEquipmentCards(); renderGlobalCards();
+activateToyPanel(activeToyPanelName() || "overview");
 if (window.location.hash) {
   const hashId = window.location.hash.slice(1);
   const restoredContext = restoredModalContext(hashId);
