@@ -1,4 +1,4 @@
-﻿* { box-sizing: border-box; }
+* { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { margin: 0; }
 button, input, select, textarea { font-family:inherit; }
@@ -420,8 +420,8 @@ body {
 
 .nav-group {
   position: relative !important;
-  width: 76px !important;
-  min-width: 76px !important;
+  width: 90px !important;
+  min-width: 90px !important;
   height: 44px !important;
   display: flex !important;
   justify-content: center !important;
@@ -429,8 +429,8 @@ body {
 }
 
 .nav-link {
-  width: 76px !important;
-  min-width: 76px !important;
+  width: 90px !important;
+  min-width: 90px !important;
   height: 44px !important;
   padding: 0 !important;
   display: inline-flex !important;
@@ -613,7 +613,7 @@ body {
   flex: 1 1 auto !important;
   min-width: 0 !important;
   display: grid !important;
-  grid-template-columns: repeat(4, minmax(0, var(--catalog-dropdown-width, 13rem))) !important;
+  grid-template-columns: repeat(4, minmax(0, var(--catalog-dropdown-width, 12.25rem))) !important;
   align-items: flex-start !important;
   justify-content: start !important;
   gap: 12px 14px !important;
@@ -636,15 +636,21 @@ body {
   padding: 0 14px !important;
   display: flex !important;
   align-items: center !important;
-  justify-content: space-between !important;
-  gap: 10px !important;
+  justify-content: center !important;
+  gap: 0 !important;
+  position: relative !important;
   list-style: none !important;
   border: 1px solid var(--ui-line) !important;
   border-radius: var(--ui-radius) !important;
   background: var(--ui-surface) !important;
   color: var(--ui-control-text-active) !important;
+  background-clip: padding-box !important;
+  outline: 0 !important;
+  overflow: hidden !important;
   cursor: pointer !important;
   user-select: none !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
   -webkit-tap-highlight-color: transparent !important;
 }
 
@@ -652,16 +658,15 @@ body {
   display: none !important;
 }
 
-.catalog-dropdown summary span {
-  flex: 0 0 auto !important;
-  color: var(--ui-muted) !important;
-  font-size: 1rem !important;
-  font-weight: 500 !important;
-}
 
 .catalog-dropdown summary b {
+  flex: 1 1 auto !important;
+  width: 100% !important;
   min-width: 0 !important;
+  padding: 0 22px !important;
+  box-sizing: border-box !important;
   overflow: hidden !important;
+  text-align: center !important;
   text-overflow: ellipsis !important;
   color: var(--ui-text) !important;
   font-size: 1rem !important;
@@ -673,17 +678,32 @@ body {
   content: "" !important;
   width: 7px !important;
   height: 7px !important;
-  flex: 0 0 7px !important;
-  margin-left: 2px !important;
+  position: absolute !important;
+  top: 50% !important;
+  right: 14px !important;
+  flex: none !important;
+  margin-left: 0 !important;
   border-right: 1.8px solid currentColor !important;
   border-bottom: 1.8px solid currentColor !important;
   color: var(--ui-muted) !important;
-  transform: translateY(-2px) rotate(45deg) !important;
+  transform: translateY(-60%) rotate(45deg) !important;
   transition: transform .16s ease, color .16s ease !important;
 }
 
 .catalog-dropdown[open] summary::after {
-  transform: translateY(2px) rotate(225deg) !important;
+  transform: translateY(-40%) rotate(225deg) !important;
+}
+
+.catalog-dropdown summary:hover,
+.catalog-dropdown summary:focus,
+.catalog-dropdown summary:focus-visible,
+.catalog-dropdown summary:active,
+.catalog-dropdown[open] summary {
+  border-radius: var(--ui-radius) !important;
+  background: var(--ui-surface) !important;
+  background-clip: padding-box !important;
+  outline: 0 !important;
+  box-shadow: none !important;
 }
 
 .catalog-dropdown-menu {
@@ -694,30 +714,67 @@ body {
   width: 100% !important;
   min-width: 100% !important;
   max-height: min(360px, 62vh) !important;
-  padding: 14px 0 !important;
+  padding: 12px !important;
   display: grid !important;
   gap: 4px !important;
   overflow-x: hidden !important;
   overflow-y: auto !important;
-  scrollbar-gutter: stable both-edges !important;
-  scrollbar-width: thin !important;
-  scrollbar-color: var(--ui-line) transparent !important;
   border: 1px solid var(--ui-line) !important;
   border-radius: var(--ui-radius) !important;
   background: var(--ui-surface) !important;
   box-shadow: none !important;
 }
 
-.catalog-dropdown-menu::-webkit-scrollbar {
+.catalog-dropdown-menu,
+.modal-section-scroll,
+.release-table-scroll,
+dialog[open] .modal-info:not(.overview-release-info),
+.mobile-drawer-nav {
+  scrollbar-width: thin !important;
+  scrollbar-color: var(--ui-line) transparent !important;
+}
+
+.catalog-dropdown-menu::-webkit-scrollbar,
+.modal-section-scroll::-webkit-scrollbar,
+.release-table-scroll::-webkit-scrollbar,
+dialog[open] .modal-info:not(.overview-release-info)::-webkit-scrollbar,
+.mobile-drawer-nav::-webkit-scrollbar {
   width: 8px !important;
   height: 8px !important;
 }
 
-.catalog-dropdown-menu::-webkit-scrollbar-track {
+.catalog-dropdown-menu::-webkit-scrollbar-button,
+.modal-section-scroll::-webkit-scrollbar-button,
+.release-table-scroll::-webkit-scrollbar-button,
+dialog[open] .modal-info:not(.overview-release-info)::-webkit-scrollbar-button,
+.mobile-drawer-nav::-webkit-scrollbar-button {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
   background: transparent !important;
 }
 
-.catalog-dropdown-menu::-webkit-scrollbar-thumb {
+dialog[open] .modal-info:not(.overview-release-info)::-webkit-scrollbar-button:vertical:start:decrement {
+  display: block !important;
+  width: 8px !important;
+  height: calc(var(--modal-close-offset) + 42px) !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+
+.catalog-dropdown-menu::-webkit-scrollbar-track,
+.modal-section-scroll::-webkit-scrollbar-track,
+.release-table-scroll::-webkit-scrollbar-track,
+dialog[open] .modal-info:not(.overview-release-info)::-webkit-scrollbar-track,
+.mobile-drawer-nav::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+.catalog-dropdown-menu::-webkit-scrollbar-thumb,
+.modal-section-scroll::-webkit-scrollbar-thumb,
+.release-table-scroll::-webkit-scrollbar-thumb,
+dialog[open] .modal-info:not(.overview-release-info)::-webkit-scrollbar-thumb,
+.mobile-drawer-nav::-webkit-scrollbar-thumb {
   min-height: 36px !important;
   border: 2px solid transparent !important;
   border-radius: 999px !important;
@@ -725,7 +782,20 @@ body {
   background-clip: content-box !important;
 }
 
-.catalog-dropdown-menu::-webkit-scrollbar-corner {
+.catalog-dropdown-menu::-webkit-scrollbar-thumb:hover,
+.modal-section-scroll::-webkit-scrollbar-thumb:hover,
+.release-table-scroll::-webkit-scrollbar-thumb:hover,
+dialog[open] .modal-info:not(.overview-release-info)::-webkit-scrollbar-thumb:hover,
+.mobile-drawer-nav::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--ui-line) 86%, var(--ui-text) 14%) !important;
+  background-clip: content-box !important;
+}
+
+.catalog-dropdown-menu::-webkit-scrollbar-corner,
+.modal-section-scroll::-webkit-scrollbar-corner,
+.release-table-scroll::-webkit-scrollbar-corner,
+dialog[open] .modal-info:not(.overview-release-info)::-webkit-scrollbar-corner,
+.mobile-drawer-nav::-webkit-scrollbar-corner {
   background: transparent !important;
 }
 
@@ -734,13 +804,16 @@ body {
   min-height: 38px !important;
   padding: 0 12px !important;
   border: 0 !important;
-  border-radius: var(--ui-radius) !important;
+  border-radius: 10px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   background: transparent !important;
   color: var(--ui-control-text) !important;
   font: inherit !important;
   font-size: 1rem !important;
   font-weight: 500 !important;
-  text-align: left !important;
+  text-align: center !important;
   white-space: nowrap !important;
   cursor: pointer !important;
   -webkit-tap-highlight-color: transparent !important;
@@ -759,7 +832,7 @@ body {
   width: min(420px, 100%) !important;
   min-width: 280px !important;
   max-width: 420px !important;
-  height: 44px !important;
+  height: 48px !important;
   padding: 0 16px 0 8px !important;
   display: flex !important;
   align-items: center !important;
@@ -847,38 +920,66 @@ body {
 .search-box .search-scope.catalog-dropdown {
   position: relative !important;
   flex: 0 0 76px !important;
-  width: 76px !important;
-  min-width: 76px !important;
-  max-width: 76px !important;
+  width: 90px !important;
+  min-width: 90px !important;
+  max-width: 90px !important;
   height: 32px !important;
   display: block !important;
   color: var(--ui-control-text-active) !important;
 }
 
 .search-box .search-scope.catalog-dropdown summary {
-  width: 100% !important;
-  min-height: 32px !important;
-  height: 32px !important;
-  padding: 0 10px 0 12px !important;
-  border: 0 !important;
+  min-height: 44px !important;
+  padding: 0 14px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0 !important;
+  position: relative !important;
+  list-style: none !important;
+  border: 1px solid var(--ui-line) !important;
   border-radius: var(--ui-radius) !important;
-  background: var(--ui-control) !important;
+  background: var(--ui-surface) !important;
   color: var(--ui-control-text-active) !important;
-  gap: 6px !important;
+  background-clip: padding-box !important;
+  outline: 0 !important;
+  overflow: hidden !important;
+  cursor: pointer !important;
+  user-select: none !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -webkit-tap-highlight-color: transparent !important;
 }
 
 .search-box .search-scope.catalog-dropdown summary b {
+  flex: 1 1 auto !important;
+  width: 100% !important;
   min-width: 0 !important;
+  padding: 0 22px !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  text-align: center !important;
+  text-overflow: ellipsis !important;
+  color: var(--ui-text) !important;
   font-size: 1rem !important;
-  font-weight: 700 !important;
-  line-height: 1 !important;
+  font-weight: 600 !important;
+  white-space: nowrap !important;
 }
 
 .search-box .search-scope.catalog-dropdown summary::after {
-  width: 6px !important;
-  height: 6px !important;
-  flex: 0 0 6px !important;
+  content: "" !important;
+  width: 7px !important;
+  height: 7px !important;
+  position: absolute !important;
+  top: 50% !important;
+  right: 14px !important;
+  flex: none !important;
   margin-left: 0 !important;
+  border-right: 1.8px solid currentColor !important;
+  border-bottom: 1.8px solid currentColor !important;
+  color: var(--ui-muted) !important;
+  transform: translateY(-60%) rotate(45deg) !important;
+  transition: transform .16s ease, color .16s ease !important;
 }
 
 .search-box .search-scope.catalog-dropdown .catalog-dropdown-menu {
@@ -1164,8 +1265,8 @@ body {
 
 .nav-group {
   position: relative !important;
-  width: 76px !important;
-  min-width: 76px !important;
+  width: 90px !important;
+  min-width: 90px !important;
   height: 44px !important;
   display: flex !important;
   justify-content: center !important;
@@ -1173,8 +1274,8 @@ body {
 }
 
 .nav-link {
-  width: 76px !important;
-  min-width: 76px !important;
+  width: 90px !important;
+  min-width: 90px !important;
   height: 44px !important;
   padding: 0 !important;
   display: inline-flex !important;
@@ -1903,10 +2004,9 @@ dialog[open] .back-to-bey:hover {
 }
 
 .nav-link {
-  box-sizing: border-box !important;
-  width: 76px !important;
-  min-width: 76px !important;
-  max-width: 76px !important;
+  width: 90px !important;
+  min-width: 90px !important;
+  max-width: 90px !important;
   height: 44px !important;
   min-height: 44px !important;
   max-height: 44px !important;
@@ -1928,9 +2028,9 @@ dialog[open] .back-to-bey:hover {
 
 .nav-link:hover,
 .nav-link:focus-visible {
-  width: 76px !important;
-  min-width: 76px !important;
-  max-width: 76px !important;
+  width: 90px !important;
+  min-width: 90px !important;
+  max-width: 90px !important;
   height: 44px !important;
   min-height: 44px !important;
   max-height: 44px !important;
@@ -1948,9 +2048,9 @@ dialog[open] .back-to-bey:hover {
 }
 
 .nav-link.active {
-  width: 76px !important;
-  min-width: 76px !important;
-  max-width: 76px !important;
+  width: 90px !important;
+  min-width: 90px !important;
+  max-width: 90px !important;
   height: 44px !important;
   min-height: 44px !important;
   max-height: 44px !important;
@@ -1982,7 +2082,6 @@ dialog[open] .back-to-bey:hover {
 .nav-filter-menu > .sub-filter,
 .nav-filter-menu > .filter-group > .sub-filter,
 .nav-filter-menu .filter-submenu .sub-filter {
-  box-sizing: border-box !important;
   width: var(--ui-item-width) !important;
   min-width: var(--ui-item-width) !important;
   max-width: var(--ui-item-width) !important;
@@ -2079,7 +2178,6 @@ dialog[open] .back-to-bey:hover {
 
 .catalog-section,
 .toy-panel {
-  box-sizing: border-box !important;
 }
 
 .catalog-section {
@@ -2161,6 +2259,8 @@ dialog[open] .back-to-bey:hover {
 /* Match modal close button with back button style. */
 #modalClose,
 dialog[open] #modalClose.modal-close {
+  -webkit-appearance: none !important;
+  appearance: none !important;
   width: 42px !important;
   min-width: 42px !important;
   height: 42px !important;
@@ -2172,6 +2272,8 @@ dialog[open] #modalClose.modal-close {
   border: 0 !important;
   outline: 0 !important;
   border-radius: 12px !important;
+  overflow: hidden !important;
+  background-clip: padding-box !important;
   background: transparent !important;
   background-color: transparent !important;
   background-image: none !important;
@@ -2197,10 +2299,13 @@ dialog[open] #modalClose.modal-close:hover {
   background: var(--ui-control-hover) !important;
   background-color: var(--ui-control-hover) !important;
   background-image: none !important;
+  border-radius: 12px !important;
   color: var(--ui-control-text-active) !important;
   box-shadow: none !important;
   transform: none !important;
 }
+
+
 
 .modal-step {
   position: absolute !important;
@@ -2216,7 +2321,7 @@ dialog[open] #modalClose.modal-close:hover {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  background: transparent !important;
+  background: var(--ui-surface) !important;
   color: var(--ui-control-text) !important;
   box-shadow: none !important;
   font-size: 1.375rem !important;
@@ -2248,15 +2353,17 @@ dialog[open] #modalClose.modal-close:hover {
   right: max(14px, calc(50dvw - (min(980px, calc(100dvw - 48px)) / 2) - 58px)) !important;
 }
 
-.modal-step:hover {
+.modal-step:hover,
+.modal-step:focus-visible {
   background: var(--ui-control-hover) !important;
   color: var(--ui-control-text-active) !important;
 }
 
-@media (max-width: 1092px) {
+@media (max-width: 1124px) {
   .modal-step {
     top: auto !important;
     bottom: calc(50dvh - (min(620px, calc(100dvh - 48px)) / 2) + 22px) !important;
+    background: transparent !important;
     transform: none !important;
   }
 
@@ -2418,7 +2525,6 @@ dialog[open] #modalClose.modal-close:hover {
 
 /* Latest responsive popover sizing. */
 dialog[open] {
-  box-sizing: border-box !important;
   position: fixed !important;
   inset: 0 !important;
   margin: 0 !important;
@@ -2433,6 +2539,9 @@ dialog[open] {
   display: grid !important;
   place-items: center !important;
   background: rgba(17, 24, 39, 0.58) !important;
+  --modal-gutter: 45px;
+  --modal-close-offset: 18px;
+  --modal-scrollbar-inset: calc(var(--modal-close-offset) + 16px);
 }
 
 #detailModal[open] {
@@ -2441,7 +2550,6 @@ dialog[open] {
 
 #modalContent {
   overflow: visible !important;
-  box-sizing: border-box !important;
   max-width: 100% !important;
   max-height: 100% !important;
 }
@@ -2462,7 +2570,6 @@ dialog[open]::backdrop {
 dialog[open] .modal-inner {
   --modal-w: min(980px, calc(100dvw - 48px));
   --modal-h: min(620px, calc(100dvh - 48px));
-  box-sizing: border-box !important;
   position: relative !important;
   width: var(--modal-w) !important;
   min-width: 0 !important;
@@ -2483,32 +2590,52 @@ dialog[open] .modal-inner {
 
 dialog[open] .modal-art,
 dialog[open] .modal-info {
-  box-sizing: border-box !important;
   min-width: 0 !important;
   min-height: 0 !important;
   max-height: 100% !important;
 }
 
-dialog[open] .modal-info {
+dialog[open] .modal-info:not(.overview-release-info) {
   --modal-body-width: min(100%, 520px);
   --modal-flow-gap: 16px;
-  overflow: hidden !important;
-  padding: clamp(24px, 4vw, 44px) !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  overscroll-behavior: contain !important;
+  scrollbar-gutter: stable both-edges !important;
+  margin-inline: var(--modal-scrollbar-inset) !important;
+  width: calc(100% - (var(--modal-scrollbar-inset) * 2)) !important;
+  padding: 40px 6px !important;
+  display: block !important;
+}
+
+@media (min-width: 901px) {
+  dialog[open] .modal-info:not(.overview-release-info) {
+    align-self: stretch !important;
+    height: 100% !important;
+    margin-inline: var(--modal-scrollbar-inset) !important;
+    padding: 40px 6px !important;
+  }
 }
 
 dialog[open] .modal-close,
 dialog[open] [data-close],
 dialog[open] .close,
 dialog[open] .close-button,
-dialog[open] button[aria-label="?リ린"],
+dialog[open] button[aria-label="???린"],
 dialog[open] button[aria-label="Close"] {
   position: absolute !important;
-  top: calc(50dvh - (min(620px, calc(100dvh - 48px)) / 2) + 18px) !important;
-  right: calc(50dvw - (min(980px, calc(100dvw - 48px)) / 2) + 18px) !important;
+  top: calc(50dvh - (min(620px, calc(100dvh - 48px)) / 2) + var(--modal-close-offset)) !important;
+  right: calc(50dvw - (min(980px, calc(100dvw - 48px)) / 2) + var(--modal-close-offset)) !important;
   z-index: 300 !important;
 }
 
 @media (max-width: 900px) {
+  dialog[open] {
+    --modal-gutter: 6px;
+    --modal-close-offset: 18px;
+    --modal-scrollbar-inset: calc(var(--modal-close-offset) + 16px);
+  }
+
   dialog[open] .modal-inner {
     --modal-w: calc(100dvw - 28px);
     --modal-h: calc(100dvh - 28px);
@@ -2521,6 +2648,10 @@ dialog[open] button[aria-label="Close"] {
     overflow: hidden !important;
   }
 
+  dialog[open] .modal-info:not(.overview-release-info)::-webkit-scrollbar-button:vertical:start:decrement {
+    height: calc(var(--modal-close-offset) + 42px) !important;
+  }
+
   dialog[open] .modal-art {
     height: 100% !important;
     min-height: 0 !important;
@@ -2529,21 +2660,23 @@ dialog[open] button[aria-label="Close"] {
     border-bottom: 0 !important;
   }
 
-  dialog[open] .modal-info {
+  dialog[open] .modal-info:not(.overview-release-info) {
+    height: 100% !important;
     overflow-x: hidden !important;
-    overflow-y: hidden !important;
-    width: 100% !important;
-    padding: 28px !important;
+    overflow-y: auto !important;
+    margin-inline: var(--modal-scrollbar-inset) !important;
+    width: calc(100% - (var(--modal-scrollbar-inset) * 2)) !important;
+    padding: 40px var(--modal-gutter) !important;
   }
 
   dialog[open] .modal-close,
   dialog[open] [data-close],
   dialog[open] .close,
   dialog[open] .close-button,
-  dialog[open] button[aria-label="?リ린"],
+  dialog[open] button[aria-label="???린"],
   dialog[open] button[aria-label="Close"] {
-    top: 28px !important;
-    right: 28px !important;
+    top: calc(50dvh - ((100dvh - 28px) / 2) + var(--modal-close-offset)) !important;
+    right: calc(50dvw - ((100dvw - 28px) / 2) + var(--modal-close-offset)) !important;
   }
 }
 
@@ -2557,10 +2690,11 @@ dialog[open] button[aria-label="Close"] {
     max-height: var(--modal-h) !important;
   }
 
-  dialog[open] .modal-info {
-    padding: 22px !important;
+  dialog[open] .modal-info:not(.overview-release-info) {
+    padding: 40px var(--modal-gutter) !important;
   }
 }
+
 
 dialog[open] .modal-name {
   width: var(--modal-body-width) !important;
@@ -2570,40 +2704,12 @@ dialog[open] .modal-name {
   column-gap: 10px !important;
   row-gap: 2px !important;
   margin: 0 auto var(--modal-flow-gap) !important;
-  font-size: clamp(1.75rem, 2.6vw, 2.5rem) !important;
+  font-size: clamp(1.75rem, 2.4vw, 2.25rem) !important;
   font-weight: 900 !important; line-height: 1.15 !important;
   color: var(--ui-text) !important;
   word-break: keep-all !important;
 }
 
-.bey-modal-info,
-.part-modal-info,
-.product-modal-info,
-.lineup-modal-info {
-  display: grid !important;
-  align-content: stretch !important;
-  row-gap: 0 !important;
-}
-
-.bey-modal-info,
-.part-modal-info {
-  grid-template-rows: auto auto auto minmax(0, 1fr) !important;
-}
-
-.product-modal-info {
-  grid-template-rows: auto auto minmax(0, 1fr) !important;
-}
-
-.lineup-modal-info {
-  grid-template-rows: auto auto minmax(0, 1fr) !important;
-}
-
-.overview-modal-info {
-  display: grid !important;
-  align-content: stretch !important;
-  grid-template-rows: auto auto minmax(0, 1fr) !important;
-  row-gap: 0 !important;
-}
 
 .modal-info-slot {
   --modal-info-lines: 2;
@@ -2695,10 +2801,9 @@ footer p {
 }
 
 .modal-section {
-  box-sizing: border-box !important;
   width: var(--modal-body-width) !important;
   margin: 0 auto !important;
-  padding: 30px 22px !important;
+  padding: 24px !important;
   min-height: 0 !important;
   overflow: hidden !important;
   border: 0 !important;
@@ -2722,49 +2827,23 @@ footer p {
   --modal-row-arrow-column: 24px;
   --modal-row-x-padding: 10px;
   --modal-row-gap: 12px;
-  --modal-scroll-gutter: 8px;
+  --modal-scroll-gutter: 5px;
 }
 
 .modal-section-scroll {
-  box-sizing: border-box !important;
   display: block !important;
-  width: 100% !important;
+  width: calc(100% + var(--modal-scroll-gutter)) !important;
+  margin-right: calc(var(--modal-scroll-gutter) * -1) !important;
   min-height: 0 !important;
   flex: 0 1 auto !important;
   max-height: 248px !important;
   overflow-x: hidden !important;
   overflow-y: auto !important;
   overscroll-behavior: contain !important;
-  scrollbar-gutter: stable both-edges !important;
-  scrollbar-width: thin !important;
-  scrollbar-color: var(--ui-line) transparent !important;
+  scrollbar-gutter: stable !important;
   -webkit-overflow-scrolling: touch !important;
   touch-action: pan-y !important;
-}
-
-.modal-section-scroll::-webkit-scrollbar,
-dialog[open] .modal-info::-webkit-scrollbar {
-  width: 8px !important;
-  height: 8px !important;
-}
-
-.modal-section-scroll::-webkit-scrollbar-track,
-dialog[open] .modal-info::-webkit-scrollbar-track {
-  background: transparent !important;
-}
-
-.modal-section-scroll::-webkit-scrollbar-thumb,
-dialog[open] .modal-info::-webkit-scrollbar-thumb {
-  min-height: 36px !important;
-  border: 2px solid transparent !important;
-  border-radius: 999px !important;
-  background: var(--ui-line) !important;
-  background-clip: content-box !important;
-}
-
-.modal-section-scroll::-webkit-scrollbar-corner,
-dialog[open] .modal-info::-webkit-scrollbar-corner {
-  background: transparent !important;
+  padding-inline: var(--modal-scroll-gutter) 0 !important;
 }
 
 .product-modal-header {
@@ -2784,28 +2863,6 @@ dialog[open] .product-modal-name {
   color: var(--ui-text) !important;
 }
 
-.product-modal-identity {
-  display: inline !important;
-  margin-left: 10px !important;
-  color: var(--ui-modal-subtext) !important;
-  font-size: 0.875rem !important;
-  font-weight: 600 !important;
-  line-height: 1 !important;
-  white-space: nowrap !important;
-}
-
-.product-modal-extra {
-  color: var(--ui-muted) !important;
-  font-size: 0.875rem !important;
-  font-weight: 600 !important;
-  line-height: 1.45 !important;
-  text-align: right !important;
-  white-space: nowrap !important;
-  margin: 0 0 0 auto !important;
-  justify-self: end !important;
-  align-self: start !important;
-}
-
 .mounted-title {
   margin: 0 0 8px !important;
   color: var(--ui-text) !important;
@@ -2820,18 +2877,15 @@ dialog[open] .product-modal-name {
 .mounted-parts > .mounted-title {
   position: relative !important;
   display: block !important;
-  width: calc(100% - (var(--modal-scroll-gutter) * 2)) !important;
+  width: auto !important;
   max-width: none !important;
-  margin: 0 0 12px !important;
+  margin: 0 var(--modal-scroll-gutter) 12px !important;
   padding: 0 var(--modal-row-x-padding) 12px !important;
-  margin-left: var(--modal-scroll-gutter) !important;
-  margin-right: var(--modal-scroll-gutter) !important;
   border-bottom: 1px solid var(--ui-line) !important;
 }
 
 .product-composition-item {
   width: 100% !important;
-  box-sizing: border-box !important;
   display: grid !important;
   grid-template-columns: minmax(0, 1fr) var(--modal-row-arrow-column) !important;
   align-items: center !important;
@@ -2891,7 +2945,6 @@ dialog[open] .product-modal-name {
 }
 
 .product-lineup-card {
-  box-sizing: border-box !important;
   min-width: 0 !important;
   min-height: 38px !important;
   display: grid !important;
@@ -2937,20 +2990,34 @@ dialog[open] .product-modal-name {
 }
 
 .release-dropdowns {
-  width: var(--modal-body-width) !important;
+  width: calc(var(--modal-body-width) - (var(--release-content-inset, 0px) * 2)) !important;
   max-width: 100% !important;
-  margin: 0 auto 14px !important;
-  display: flex !important;
+  margin: 0 auto var(--modal-flow-gap) !important;
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 10.75rem)) !important;
   align-items: flex-start !important;
   gap: 10px !important;
-  flex-wrap: wrap !important;
+  justify-content: start !important;
   position: relative !important;
   z-index: 5 !important;
 }
 
 .release-dropdown {
-  width: 13rem !important;
-  flex: 0 0 13rem !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  flex: 0 0 auto !important;
+}
+
+@media (max-width: 900px) {
+  .release-dropdowns {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .release-dropdowns {
+    grid-template-columns: 1fr !important;
+  }
 }
 
 .release-dropdown .catalog-dropdown-menu {
@@ -2958,8 +3025,9 @@ dialog[open] .product-modal-name {
 }
 
 .release-table-section {
-  margin-top: 0 !important;
-  padding: 16px !important;
+  width: var(--modal-body-width) !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
   background: transparent !important;
   min-height: 0 !important;
 }
@@ -2970,14 +3038,21 @@ dialog[open] .modal-inner.overview-release-modal {
 }
 
 dialog[open] .overview-release-info {
-  --modal-body-width: min(100%, 860px) !important;
-  --modal-flow-gap: 20px !important;
+  --modal-body-width: 100% !important;
+  --modal-flow-gap: 16px !important;
+  --release-content-inset: 40px !important;
+  --release-scrollbar-x-shift: 5px !important;
   grid-column: 1 / -1 !important;
   grid-row: 1 / -1 !important;
   display: grid !important;
   grid-template-rows: auto minmax(0, 1fr) !important;
   align-content: stretch !important;
-  padding: clamp(28px, 4vw, 40px) !important;
+  padding: 40px 0 !important;
+}
+
+dialog[open] .overview-release-info .overview-title-row {
+  width: calc(100% - (var(--release-content-inset) * 2)) !important;
+  margin: 0 auto 0px !important;
 }
 
 dialog[open] .overview-release-info .modal-body-block {
@@ -2986,6 +3061,12 @@ dialog[open] .overview-release-info .modal-body-block {
 }
 
 dialog[open] .overview-release-info .release-table-section {
+  width: var(--modal-body-width) !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+  padding: 0 var(--release-content-inset, 0px) !important;
+  background: transparent !important;
+  min-height: 0 !important;
   flex: 1 1 auto !important;
   display: flex !important;
   flex-direction: column !important;
@@ -2993,7 +3074,13 @@ dialog[open] .overview-release-info .release-table-section {
 
 .release-table-scroll {
   container-type: inline-size !important;
+  box-sizing: border-box !important;
   flex: 1 1 auto !important;
+  width: calc(100% + var(--release-scrollbar-x-shift, 0px)) !important;
+  margin-left: 0 !important;
+  margin-right: calc(var(--release-scrollbar-x-shift, 0px) * -1) !important;
+  padding-left: 0 !important;
+  padding-right: var(--release-scrollbar-x-shift, 0px) !important;
   min-height: 0 !important;
   max-height: none !important;
   overflow-x: auto !important;
@@ -3008,12 +3095,12 @@ dialog[open] .overview-release-info .release-table-section {
   border-spacing: 0 !important;
   color: var(--ui-text) !important;
   font-size: 1rem !important;
-  line-height: 1.4 !important;
+  line-height: 1.45 !important;
 }
 
 .release-table th:nth-child(1),
 .release-table td:nth-child(1) {
-  width: 74px !important;
+  width: 96px !important;
 }
 
 .release-table th:nth-child(2),
@@ -3023,7 +3110,7 @@ dialog[open] .overview-release-info .release-table-section {
 
 .release-table th:nth-child(3),
 .release-table td:nth-child(3) {
-  width: 176px !important;
+  width: 170px !important;
 }
 
 .release-table th:nth-child(4),
@@ -3033,16 +3120,26 @@ dialog[open] .overview-release-info .release-table-section {
 
 .release-table th:nth-child(5),
 .release-table td:nth-child(5) {
-  width: 92px !important;
+  width: 94px !important;
 }
 
 .release-table th,
 .release-table td {
-  padding: 12px 12px !important;
+  padding: 11px 12px !important;
   border-bottom: 0 !important;
   text-align: left !important;
   vertical-align: middle !important;
   white-space: nowrap !important;
+}
+
+.release-table th:first-child,
+.release-table td:first-child {
+  padding-left: 0 !important;
+}
+
+.release-table th:last-child,
+.release-table td:last-child {
+  padding-right: 0 !important;
 }
 
 .release-table thead {
@@ -3060,7 +3157,7 @@ dialog[open] .overview-release-info .release-table-section {
   font-weight: 600 !important;
   text-align: center !important;
   padding-top: 0 !important;
-  padding-bottom: 8px !important;
+  padding-bottom: 10px !important;
 }
 
 .release-table td {
@@ -3129,7 +3226,7 @@ dialog[open] .overview-release-info .release-table-section {
 
   .release-table th:nth-child(1),
   .release-table td:nth-child(1) {
-    width: 70px !important;
+    width: 90px !important;
   }
 
   .release-table th:nth-child(2),
@@ -3139,7 +3236,7 @@ dialog[open] .overview-release-info .release-table-section {
 
   .release-table th:nth-child(4),
   .release-table td:nth-child(4) {
-    width: 112px !important;
+    width: 104px !important;
   }
 
   .release-table tbody td:nth-child(4) {
@@ -3165,7 +3262,6 @@ dialog[open] .overview-release-info .release-table-section {
 
 .mounted-link {
   width: 100% !important;
-  box-sizing: border-box !important;
   display: grid !important;
   grid-template-columns: 84px minmax(0, 1fr) var(--modal-row-arrow-column) !important;
   align-items: center !important;
@@ -3560,7 +3656,7 @@ dialog[open] .product-modal-art {
   grid-template-columns: minmax(0, 1fr) minmax(320px, 430px) !important;
   gap: 36px !important;
   align-items: center !important;
-  overflow: hidden !important;
+  overflow: visible !important;
   padding: clamp(30px, 4vw, 56px) !important;
   border-radius: 28px !important;
   background:
@@ -3661,22 +3757,126 @@ dialog[open] .product-modal-art {
   width: min(760px, 100%) !important;
   min-height: 62px !important;
   display: grid !important;
-  grid-template-columns: auto minmax(0, 1fr) auto !important;
+  grid-template-columns: auto auto minmax(0, 1fr) !important;
   align-items: center !important;
-  gap: 14px !important;
+  gap: 10px !important;
   margin: 28px 0 0 !important;
-  padding: 0 18px !important;
+  padding: 0 14px 0 8px !important;
   border: 1px solid var(--ui-line) !important;
-  border-radius: 18px !important;
+  border-radius: var(--ui-radius) !important;
   background: var(--ui-surface) !important;
   color: var(--ui-muted) !important;
 }
 
-.overview-search span {
+.overview-search .search-scope.catalog-dropdown {
+  position: relative !important;
+  width: 90px !important;
+  min-width: 90px !important;
+  height: 46px !important;
+  display: block !important;
+  color: var(--ui-control-text-active) !important;
+}
+
+.overview-search .search-scope.catalog-dropdown summary {
+  min-height: 44px !important;
+  padding: 0 14px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0 !important;
+  position: relative !important;
+  list-style: none !important;
+  border: 1px solid var(--ui-line) !important;
+  border-radius: var(--ui-radius) !important;
+  background: var(--ui-surface) !important;
+  color: var(--ui-control-text-active) !important;
+  background-clip: padding-box !important;
+  outline: 0 !important;
+  overflow: hidden !important;
+  cursor: pointer !important;
+  user-select: none !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+.overview-search .search-scope.catalog-dropdown summary b {
+  flex: 1 1 auto !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  padding: 0 22px !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  text-align: center !important;
+  text-overflow: ellipsis !important;
+  color: var(--ui-text) !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  white-space: nowrap !important;
+}
+
+.overview-search .search-scope.catalog-dropdown summary::after {
+  content: "" !important;
+  width: 7px !important;
+  height: 7px !important;
+  position: absolute !important;
+  top: 50% !important;
+  right: 14px !important;
+  flex: none !important;
+  margin-left: 0 !important;
+  border-right: 1.8px solid currentColor !important;
+  border-bottom: 1.8px solid currentColor !important;
   color: var(--ui-muted) !important;
-  font-size: 1.375rem !important;
-  font-weight: 400 !important;
-  line-height: 1 !important;
+  transform: translateY(-60%) rotate(45deg) !important;
+  transition: transform .16s ease, color .16s ease !important;
+}
+
+.overview-search .search-scope.catalog-dropdown .catalog-dropdown-menu {
+  top: calc(100% + 8px) !important;
+  left: 0 !important;
+  width: 100% !important;
+  min-width: 100% !important;
+  max-height: none !important;
+  z-index: 80 !important;
+}
+
+.overview-search .search-scope.catalog-dropdown .catalog-dropdown-menu button {
+  min-height: 32px !important;
+  padding: 0 10px !important;
+}
+
+.overview-search .search-icon {
+  position: relative !important;
+  width: 18px !important;
+  height: 18px !important;
+  flex: 0 0 18px !important;
+  cursor: pointer !important;
+}
+
+.overview-search .search-icon::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 1px !important;
+  top: 1px !important;
+  width: 11px !important;
+  height: 11px !important;
+  border: 2px solid var(--ui-accent) !important;
+  border-radius: 50% !important;
+  border-color: var(--ui-control-text) !important;
+
+}
+
+.overview-search .search-icon::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 12px !important;
+  top: 12px !important;
+  width: 7px !important;
+  height: 2px !important;
+  border-radius: 999px !important;
+  background: var(--ui-accent) !important;
+  transform: rotate(45deg) !important;
+  transform-origin: left center !important;
 }
 
 .overview-search input {
@@ -3692,18 +3892,6 @@ dialog[open] .product-modal-art {
 
 .overview-search input::placeholder {
   color: var(--ui-muted) !important;
-}
-
-.overview-search b {
-  min-height: 34px !important;
-  display: inline-grid !important;
-  place-items: center !important;
-  padding: 0 12px !important;
-  border-radius: var(--ui-radius) !important;
-  background: var(--ui-control) !important;
-  color: var(--ui-text) !important;
-  font-size: .9375rem !important;
-  font-weight: 700 !important;
 }
 
 .overview-visual {
@@ -3902,13 +4090,6 @@ dialog[open] .product-modal-art {
   font-weight: 400 !important;
 }
 
-.overview-photo-area {
-  width: min(78%, 240px) !important;
-  height: min(72%, 420px) !important;
-  min-height: 280px !important;
-  border-radius: 20px !important;
-  background: var(--ui-art-bg) !important;
-}
 
 .overview-type-modal .overview-modal-art {
   align-items: stretch !important;
@@ -3994,30 +4175,24 @@ dialog[open] .product-modal-art {
   overflow: visible !important;
 }
 
-.spin-arrow svg {
-  width: 30px !important;
-  height: 30px !important;
-  display: block !important;
-  overflow: visible !important;
+
+
+
+.spin-arrow.dual {
+  position: relative !important;
+  font-size: 1.625rem !important;
 }
 
-.spin-arrow.dual svg {
-  width: 34px !important;
-  height: 34px !important;
+.spin-arrow.dual i {
+  position: absolute !important;
+  inset: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  line-height: 1 !important;
 }
-
-.dual-spin-path {
-  fill: none !important;
-  stroke: currentColor !important;
-  stroke-width: 7 !important;
-  stroke-linecap: round !important;
-  stroke-linejoin: round !important;
-}
-
-.spin-arrow.dual marker path {
-  fill: currentColor !important;
-}
-
 .spin-direction-item b {
   min-width: 0 !important;
   color: var(--ui-text) !important;
@@ -4035,7 +4210,11 @@ dialog[open] .product-modal-art {
 }
 
 .overview-type-info {
+  width: var(--modal-body-width) !important;
+  display: block !important;
+  grid-template-rows: none !important;
   gap: 0 !important;
+  margin: 0 auto !important;
 }
 
 .overview-type-copy {
@@ -4069,7 +4248,7 @@ dialog[open] .product-modal-art {
   min-height: 30px !important;
   margin: 0 8px 0 0 !important;
   padding: 0 10px !important;
-  border-radius: var(--ui-radius) !important;
+  border-radius: 0.5rem !important;
   background: var(--ui-control) !important;
   color: var(--ui-text) !important;
   font-size: 1rem !important;
@@ -4079,10 +4258,6 @@ dialog[open] .product-modal-art {
 }
 
 @media (max-width: 900px) {
-  dialog[open] .overview-type-modal {
-    grid-template-rows: minmax(180px, 38%) minmax(0, 1fr) !important;
-  }
-
   dialog[open] .overview-type-modal .overview-modal-art {
     padding: 18px 22px !important;
     overflow: hidden !important;
@@ -4091,25 +4266,32 @@ dialog[open] .product-modal-art {
   .overview-type-art {
     width: min(100%, 340px) !important;
     height: 100% !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    grid-template-rows: 1fr !important;
     gap: 10px !important;
   }
 
   .overview-type-visual-card {
     padding: 12px !important;
     border-radius: 18px !important;
+  height: 100% !important;
+    aspect-ratio: auto !important;
   }
 
   .type-relation-diagram {
-    aspect-ratio: 1 / 1 !important;
+    height: 100% !important;
+    aspect-ratio: auto !important;
   }
 
   .type-matchup-image {
     max-width: min(100%, 210px) !important;
+  max-height: 100% !important;
   }
 
   .spin-relation-diagram {
     grid-template-columns: 1fr !important;
     gap: 8px !important;
+  height: 100% !important;
   }
 
   .spin-direction-item {
@@ -4126,16 +4308,6 @@ dialog[open] .product-modal-art {
     height: 38px !important;
   }
 
-  .spin-arrow svg {
-    width: 26px !important;
-    height: 26px !important;
-  }
-
-  .spin-arrow.dual svg {
-    width: 30px !important;
-    height: 30px !important;
-  }
-
   .spin-direction-item b {
     font-size: .9375rem !important;
   }
@@ -4146,10 +4318,6 @@ dialog[open] .product-modal-art {
 }
 
 @media (max-width: 460px) {
-  dialog[open] .overview-type-modal {
-    grid-template-rows: minmax(180px, 38%) minmax(0, 1fr) !important;
-  }
-
   dialog[open] .overview-type-modal .overview-modal-art {
     padding: 14px 18px !important;
   }
@@ -4157,31 +4325,45 @@ dialog[open] .product-modal-art {
   .overview-type-art {
     width: min(100%, 300px) !important;
     height: 100% !important;
-    gap: 8px !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    grid-template-rows: 1fr !important;
+    gap: 6px !important;
   }
 
   .overview-type-visual-card {
-    padding: 10px 12px !important;
+    padding: 8px !important;
+    height: 100% !important;
+    aspect-ratio: auto !important;
   }
 
   .type-matchup-image {
-    max-width: min(100%, 170px) !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+  }
+
+  .spin-direction-item {
+    grid-template-columns: 30px minmax(0, 1fr) !important;
+    gap: 1px 6px !important;
   }
 
   .spin-arrow {
-    width: 34px !important;
-    height: 34px !important;
+    width: 30px !important;
+    height: 30px !important;
+    font-size: 1.125rem !important;
   }
 
-  .spin-arrow svg {
-    width: 24px !important;
-    height: 24px !important;
+  .spin-arrow.dual {
+    font-size: 1.25rem !important;
   }
 
-  .spin-arrow.dual svg {
-    width: 28px !important;
-    height: 28px !important;
+  .spin-direction-item b {
+    font-size: .875rem !important;
   }
+
+  .spin-direction-item small {
+    font-size: .75rem !important;
+  }
+
 }
 
 @media (max-width: 980px) {
@@ -4196,12 +4378,6 @@ dialog[open] .product-modal-art {
 
   .overview-card-grid {
     grid-template-columns: 1fr !important;
-  }
-
-  .overview-photo-area {
-    width: min(72%, 220px) !important;
-    min-height: 0 !important;
-    height: min(72%, 220px) !important;
   }
 }
 
@@ -4229,9 +4405,6 @@ dialog[open] .product-modal-art {
     border-radius: var(--ui-radius) !important;
   }
 
-  .overview-search b {
-    display: none !important;
-  }
 
   .overview-visual {
     min-height: 230px !important;
@@ -4368,11 +4541,6 @@ button.menu-button {
   color: var(--ui-text) !important;
 }
 
-.overview-structure-modal .overview-photo-area {
-  width: min(70%, 220px) !important;
-  height: min(78%, 440px) !important;
-  min-height: 300px !important;
-}
 
 @media (max-width: 980px) {
   .topbar > .brand {
@@ -4548,7 +4716,7 @@ button.menu-button {
     align-items: center;
     justify-content: flex-start;
     padding: 0 10px;
-    border-radius: var(--ui-radius-sm);
+    border-radius: var(--ui-radius);
     background: transparent;
     color: var(--ui-muted);
     font-weight: 400;
@@ -4568,3 +4736,8 @@ button.menu-button {
     padding: 88px 24px 34px;
   }
 }
+
+
+
+
+

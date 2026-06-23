@@ -1,551 +1,561 @@
-﻿const items = [
-  { id: "BEY-BB-28-STORM-PEGASIS-105RF", type: "bey", structure: "hybrid", name: "스톰 페가시스", en: "Storm Pegasis", sub: "105RF · BB-28", color: "#00d9ff", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "CLEARWHEEL-PEGASIS", "METALWHEEL-STORM", "TRACK-105", "BOTTOM-RUBBER-FLAT"] },
-  { id: "BEY-BB-30-ROCK-LEONE-145WB", type: "bey", structure: "hybrid", name: "로크 레온", en: "Rock Leone", sub: "145WB · BB-30", color: "#e5ca51", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-LEONE", "CLEARWHEEL-LEONE", "METALWHEEL-ROCK", "TRACK-145", "BOTTOM-WIDE-BALL"] },
-  { id: "BEY-BB-35-FLAME-SAGITTARIO-C145S", type: "bey", structure: "hybrid", name: "플레임 사지타리오", en: "Flame Sagittario", sub: "C145S · BB-35", color: "#ff9f1c", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-SAGITTARIO", "CLEARWHEEL-SAGITTARIO", "METALWHEEL-FLAME", "TRACK-CLAW-145", "BOTTOM-SHARP"] },
-  { id: "BEY-BB-40-DARK-BULL-H145SD", type: "bey", structure: "hybrid", name: "다크 불", en: "Dark Bull", sub: "H145SD · BB-40", color: "#b88aff", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-BULL", "CLEARWHEEL-BULL", "METALWHEEL-DARK", "TRACK-HORN-145", "BOTTOM-SEMI-DEFENSE"] },
-  { id: "BEY-BB-01-PEGASIS-105F", type: "bey", structure: "basic", name: "페가시스", en: "Pegasis", sub: "105F · BB-01", color: "#00d9ff", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "WHEEL-PEGASIS", "TRACK-105", "BOTTOM-FLAT"] },
-  { id: "BEY-BB-02-BULL-125SF", type: "bey", structure: "basic", name: "불", en: "Bull", sub: "125SF · BB-02", color: "#b88aff", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-BULL", "WHEEL-BULL", "TRACK-125", "BOTTOM-SEMI-FLAT"] },
-  { id: "BEY-BB-03-SAGITTARIO-145S", type: "bey", structure: "basic", name: "사지타리오", en: "Sagittario", sub: "145S · BB-03", color: "#ff9f1c", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-SAGITTARIO", "WHEEL-SAGITTARIO", "TRACK-145", "BOTTOM-SHARP"] },
-  { id: "BEY-BB-04-LEONE-145D", type: "bey", structure: "basic", name: "레온", en: "Leone", sub: "145D · BB-04", color: "#e5ca51", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-LEONE", "WHEEL-LEONE", "TRACK-145", "BOTTOM-DEFENSE"] },
-  { id: "BEY-BB-05-PEGASIS-145D", type: "bey", structure: "basic", name: "페가시스", en: "Pegasis", sub: "145D · BB-05", color: "#00d9ff", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "WHEEL-PEGASIS", "TRACK-145", "BOTTOM-DEFENSE"] },
-  { id: "BEY-BB-06-BULL-145S", type: "bey", structure: "basic", name: "불", en: "Bull", sub: "145S · BB-06", color: "#b88aff", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-BULL", "WHEEL-BULL", "TRACK-145", "BOTTOM-SHARP"] },
-  { id: "BEY-BB-07-SAGITTARIO-125SF", type: "bey", structure: "basic", name: "사지타리오", en: "Sagittario", sub: "125SF · BB-07", color: "#ff9f1c", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-SAGITTARIO", "WHEEL-SAGITTARIO", "TRACK-125", "BOTTOM-SEMI-FLAT"] },
-  { id: "BEY-BB-08-LEONE-105F", type: "bey", structure: "basic", name: "레온", en: "Leone", sub: "105F · BB-08", color: "#e5ca51", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-LEONE", "WHEEL-LEONE", "TRACK-105", "BOTTOM-FLAT"] },
-  { id: "BEY-BB-09-PEGASIS-105F", type: "bey", structure: "basic", name: "페가시스", en: "Pegasis", sub: "105F · BB-09", color: "#00d9ff", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "WHEEL-PEGASIS", "TRACK-105", "BOTTOM-FLAT"] },
-  { id: "BEY-BB-11-WOLF-D125B", type: "bey", structure: "basic", name: "울프", en: "Wolf", sub: "D125B · BB-11", color: "#7d8ca3", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-WOLF", "WHEEL-WOLF", "TRACK-D125", "BOTTOM-BALL"] },
-  { id: "BEY-BB-12-WOLF-105F", type: "bey", structure: "basic", name: "울프", en: "Wolf", sub: "105F · BB-12", color: "#7d8ca3", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-WOLF", "WHEEL-WOLF", "TRACK-105", "BOTTOM-FLAT"] },
-  { id: "BEY-BB-13-ARIES-125D", type: "bey", structure: "basic", name: "아리에스", en: "Aries", sub: "125D · BB-13", color: "#f2a7c3", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-ARIES", "WHEEL-ARIES", "TRACK-125", "BOTTOM-DEFENSE"] },
-  { id: "BEY-BB-13-SAGITTARIO-145F", type: "bey", structure: "basic", name: "사지타리오", en: "Sagittario", sub: "145F · BB-13", color: "#ff9f1c", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-SAGITTARIO", "WHEEL-SAGITTARIO", "TRACK-145", "BOTTOM-FLAT"] },
-  { id: "BEY-BB-13-BULL-105S", type: "bey", structure: "basic", name: "불", en: "Bull", sub: "105S · BB-13", color: "#b88aff", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-BULL", "WHEEL-BULL", "TRACK-105", "BOTTOM-SHARP"] },
-  { id: "BEY-BB-13-PEGASIS-145SF", type: "bey", structure: "basic", name: "페가시스", en: "Pegasis", sub: "145SF · BB-13", color: "#00d9ff", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "WHEEL-PEGASIS", "TRACK-145", "BOTTOM-SEMI-FLAT"] },
-  { id: "BEY-BB-13-LEONE-125S", type: "bey", structure: "basic", name: "레온", en: "Leone", sub: "125S · BB-13", color: "#e5ca51", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-LEONE", "WHEEL-LEONE", "TRACK-125", "BOTTOM-SHARP"] },
-  { id: "BEY-BB-13-SAGITTARIO-145SF", type: "bey", structure: "basic", name: "사지타리오", en: "Sagittario", sub: "145SF · BB-13", color: "#ff9f1c", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-SAGITTARIO", "WHEEL-SAGITTARIO", "TRACK-145", "BOTTOM-SEMI-FLAT"] },
-  { id: "BEY-BB-13-BULL-105D", type: "bey", structure: "basic", name: "불", en: "Bull", sub: "105D · BB-13", color: "#b88aff", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-BULL", "WHEEL-BULL", "TRACK-105", "BOTTOM-DEFENSE"] },
-  { id: "BEY-BB-13-PEGASIS-145F", type: "bey", structure: "basic", name: "페가시스", en: "Pegasis", sub: "145F · BB-13", color: "#00d9ff", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "WHEEL-PEGASIS", "TRACK-145", "BOTTOM-FLAT"] },
-  { id: "BEY-BB-18-LIBRA-DF145BS", type: "bey", structure: "basic", name: "리브라", en: "Libra", sub: "DF145BS · BB-18", color: "#9ed36a", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-LIBRA", "WHEEL-LIBRA", "TRACK-DF145", "BOTTOM-BALL-SHARP"] },
-  { id: "BEY-BB-20-WOLF-D125B", type: "bey", structure: "basic", name: "울프", en: "Wolf", sub: "D125B · BB-20", color: "#7d8ca3", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-WOLF", "WHEEL-WOLF", "TRACK-D125", "BOTTOM-BALL"] },
-  { id: "BEY-BB-20-PEGASIS-105F", type: "bey", structure: "basic", name: "페가시스", en: "Pegasis", sub: "105F · BB-20", color: "#00d9ff", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "WHEEL-PEGASIS", "TRACK-105", "BOTTOM-FLAT"] },
-  { id: "BEY-BB-21-PEGASIS-100HF", type: "bey", structure: "basic", name: "페가시스", en: "Pegasis", sub: "100HF · BB-21", color: "#00d9ff", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "WHEEL-PEGASIS", "TRACK-100", "BOTTOM-HOLE-FLAT"] },
-  { id: "BEY-BB-21-AQUARIO-105F", type: "bey", structure: "basic", name: "아쿠아리오", en: "Aquario", sub: "105F · BB-21", color: "#55bde8", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-AQUARIO", "WHEEL-AQUARIO", "TRACK-105", "BOTTOM-FLAT"] },
-  { id: "BEY-BB-21-WOLF-125SF", type: "bey", structure: "basic", name: "울프", en: "Wolf", sub: "125SF · BB-21", color: "#7d8ca3", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-WOLF", "WHEEL-WOLF", "TRACK-125", "BOTTOM-SEMI-FLAT"] },
-  { id: "BEY-BB-22-VIRGO-DF145BS", type: "bey", structure: "basic", name: "비르고", en: "Virgo", sub: "DF145BS · BB-22", color: "#d8b6e8", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-VIRGO", "WHEEL-VIRGO", "TRACK-DF145", "BOTTOM-BALL-SHARP"] },
-  { id: "BEY-BB-22-LIBRA-145S", type: "bey", structure: "basic", name: "리브라", en: "Libra", sub: "145S · BB-22", color: "#9ed36a", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-LIBRA", "WHEEL-LIBRA", "TRACK-145", "BOTTOM-SHARP"] },
-  { id: "BEY-BB-22-LEONE-D125B", type: "bey", structure: "basic", name: "레온", en: "Leone", sub: "D125B · BB-22", color: "#e5ca51", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-LEONE", "WHEEL-LEONE", "TRACK-D125", "BOTTOM-BALL"] },
-  { id: "BEY-BB-23-LDRAGO-105F", type: "bey", structure: "basic", name: "엘드라고", en: "L-Drago", sub: "105F · BB-23", color: "#c65a70", tags: ["ATTACK", "LEFT SPIN"], desc: "", parts: ["FACE-LDRAGO", "WHEEL-LDRAGO", "TRACK-105", "BOTTOM-FLAT"] },
-  { id: "BEY-BB-24-ESCOLPIO-WD145B", type: "bey", structure: "basic", name: "에스콜피오", en: "Escolpio", sub: "WD145B · BB-24", color: "#9659c9", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-ESCOLPIO", "WHEEL-ESCOLPIO", "TRACK-WD145", "BOTTOM-BALL"] },
-  { id: "BEY-BB-25-PISCES-D125BS", type: "bey", structure: "basic", name: "파이시즈", en: "Pisces", sub: "D125BS · BB-25", color: "#4fa9cf", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-PISCES", "WHEEL-PISCES", "TRACK-D125", "BOTTOM-BALL-SHARP"] },
-  { id: "BEY-BB-25-AQUARIO-DF145SF", type: "bey", structure: "basic", name: "아쿠아리오", en: "Aquario", sub: "DF145SF · BB-25", color: "#55bde8", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-AQUARIO", "WHEEL-AQUARIO", "TRACK-DF145", "BOTTOM-SEMI-FLAT"] },
-  { id: "BEY-BB-25-VIRGO-125BS", type: "bey", structure: "basic", name: "비르고", en: "Virgo", sub: "125BS · BB-25", color: "#d8b6e8", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-VIRGO", "WHEEL-VIRGO", "TRACK-125", "BOTTOM-BALL-SHARP"] },
-  { id: "BEY-BB-25-LIBRA-D125HF", type: "bey", structure: "basic", name: "리브라", en: "Libra", sub: "D125HF · BB-25", color: "#9ed36a", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-LIBRA", "WHEEL-LIBRA", "TRACK-D125", "BOTTOM-HOLE-FLAT"] },
-  { id: "BEY-BB-25-AQUARIO-105B", type: "bey", structure: "basic", name: "아쿠아리오", en: "Aquario", sub: "105B · BB-25", color: "#55bde8", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-AQUARIO", "WHEEL-AQUARIO", "TRACK-105", "BOTTOM-BALL"] },
-  { id: "BEY-BB-25-VIRGO-100B", type: "bey", structure: "basic", name: "비르고", en: "Virgo", sub: "100B · BB-25", color: "#d8b6e8", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-VIRGO", "WHEEL-VIRGO", "TRACK-100", "BOTTOM-BALL"] },
-  { id: "BEY-BB-25-LIBRA-100F", type: "bey", structure: "basic", name: "리브라", en: "Libra", sub: "100F · BB-25", color: "#9ed36a", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-LIBRA", "WHEEL-LIBRA", "TRACK-100", "BOTTOM-FLAT"] },
-  { id: "BEY-BB-25-BULL-DF145HF", type: "bey", structure: "basic", name: "불", en: "Bull", sub: "DF145HF · BB-25", color: "#b88aff", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-BULL", "WHEEL-BULL", "TRACK-DF145", "BOTTOM-HOLE-FLAT"] },
-  { id: "BEY-BB-26-GEMIOS-DF145FS", type: "bey", structure: "basic", name: "제미오스", en: "Gemios", sub: "DF145FS · BB-26", color: "#d37d55", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-GEMIOS", "WHEEL-GEMIOS", "TRACK-DF145", "BOTTOM-FLAT-SHARP"] },
-  { id: "BEY-BB-27-CAPRICORNE-100HF", type: "bey", structure: "basic", name: "카프리콘", en: "Capricorne", sub: "100HF · BB-27", color: "#d6b75d", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-CAPRICORNE", "WHEEL-CAPRICORNE", "TRACK-100", "BOTTOM-HOLE-FLAT"] },
-  { id: "BEY-QUETZALCOATL-90WF", type: "bey", structure: "basic", name: "케찰코아틀", en: "Quetzalcoatl", sub: "90WF", color: "#67e8c6", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-QUETZALCOATL", "WHEEL-QUETZALCOATL", "TRACK-90", "BOTTOM-WIDE-FLAT"] },
-  { id: "BEY-BB-29-DARK-WOLF-DF145FS", type: "bey", structure: "hybrid", name: "다크 울프", en: "Dark Wolf", sub: "DF145FS · BB-29", color: "#7d8ca3", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-WOLF", "CLEARWHEEL-WOLF", "METALWHEEL-DARK", "TRACK-DF145", "BOTTOM-FLAT-SHARP"] },
-  { id: "BEY-BB-31-MAD-CANCER-CH120FS", type: "bey", structure: "hybrid", name: "매드 캔서", en: "Mad Cancer", sub: "CH120FS · BB-31", color: "#d05c7e", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-CANCER", "CLEARWHEEL-CANCER", "LIGHTWHEEL-MAD", "TRACK-CH120", "BOTTOM-FLAT-SHARP"] },
-  { id: "BEY-BB-31-HEAT-PEGASIS-100WB", type: "bey", structure: "hybrid", name: "히트 페가시스", en: "Heat Pegasis", sub: "100WB · BB-31", color: "#e58b5b", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "CLEARWHEEL-PEGASIS", "LIGHTWHEEL-HEAT", "TRACK-100", "BOTTOM-WIDE-BALL"] },
-  { id: "BEY-BB-31-CLAY-WOLF-145FS", type: "bey", structure: "hybrid", name: "클레이 울프", en: "Clay Wolf", sub: "145FS · BB-31", color: "#ad9678", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-WOLF", "CLEARWHEEL-WOLF", "LIGHTWHEEL-CLAY", "TRACK-145", "BOTTOM-FLAT-SHARP"] },
-  { id: "BEY-BB-31-HEAT-WOLF-WD145SF", type: "bey", structure: "hybrid", name: "히트 울프", en: "Heat Wolf", sub: "WD145SF · BB-31", color: "#e58b5b", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-WOLF", "CLEARWHEEL-WOLF", "LIGHTWHEEL-HEAT", "TRACK-WD145", "BOTTOM-SEMI-FLAT"] },
-  { id: "BEY-BB-31-MAD-LEONE-145B", type: "bey", structure: "hybrid", name: "매드 레온", en: "Mad Leone", sub: "145B · BB-31", color: "#d05c7e", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-LEONE", "CLEARWHEEL-LEONE", "LIGHTWHEEL-MAD", "TRACK-145", "BOTTOM-BALL"] },
-  { id: "BEY-BB-31-CLAY-LEONE-DF145WB", type: "bey", structure: "hybrid", name: "클레이 레온", en: "Clay Leone", sub: "DF145WB · BB-31", color: "#ad9678", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-LEONE", "CLEARWHEEL-LEONE", "LIGHTWHEEL-CLAY", "TRACK-DF145", "BOTTOM-WIDE-BALL"] },
-  { id: "BEY-BB-31-WIND-PEGASIS-DF145B", type: "bey", structure: "hybrid", name: "윈드 페가시스", en: "Wind Pegasis", sub: "DF145B · BB-31", color: "#8ccfd1", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "CLEARWHEEL-PEGASIS", "LIGHTWHEEL-WIND", "TRACK-DF145", "BOTTOM-BALL"] },
-  { id: "BEY-BB-31-WIND-LEONE-D125HF", type: "bey", structure: "hybrid", name: "윈드 레온", en: "Wind Leone", sub: "D125HF · BB-31", color: "#8ccfd1", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-LEONE", "CLEARWHEEL-LEONE", "LIGHTWHEEL-WIND", "TRACK-D125", "BOTTOM-HOLE-FLAT"] },
-  { id: "BEY-BB-32-STORM-PEGASIS-105RF", type: "bey", structure: "hybrid", name: "스톰 페가시스", en: "Storm Pegasis", sub: "105RF · BB-32", color: "#00d9ff", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "CLEARWHEEL-PEGASIS", "METALWHEEL-STORM", "TRACK-105", "BOTTOM-RUBBER-FLAT"] },
-  { id: "BEY-BB-32-DARK-WOLF-DF145FS", type: "bey", structure: "hybrid", name: "다크 울프", en: "Dark Wolf", sub: "DF145FS · BB-32", color: "#7d8ca3", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-WOLF", "CLEARWHEEL-WOLF", "METALWHEEL-DARK", "TRACK-DF145", "BOTTOM-FLAT-SHARP"] },
-  { id: "BEY-BB-37-WIND-AQUARIO-100HFS", type: "bey", structure: "hybrid", name: "윈드 아쿠아리오", en: "Wind Aquario", sub: "100HF/S · BB-37", color: "#8ccfd1", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-AQUARIO", "CLEARWHEEL-AQUARIO", "LIGHTWHEEL-WIND", "TRACK-100", "BOTTOM-HOLE-FLAT-SHARP"] },
-  { id: "BEY-BB-37-CLAY-WOLF-105B", type: "bey", structure: "hybrid", name: "클레이 울프", en: "Clay Wolf", sub: "105B · BB-37", color: "#ad9678", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-WOLF", "CLEARWHEEL-WOLF", "LIGHTWHEEL-CLAY", "TRACK-105", "BOTTOM-BALL"] },
-  { id: "BEY-BB-37-CLAY-SAGITTARIO-145B", type: "bey", structure: "hybrid", name: "클레이 사지타리오", en: "Clay Sagittario", sub: "145B · BB-37", color: "#ad9678", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-SAGITTARIO", "CLEARWHEEL-SAGITTARIO", "LIGHTWHEEL-CLAY", "TRACK-145", "BOTTOM-BALL"] },
-  { id: "BEY-BB-37-HEAT-PEGASIS-DF145WB", type: "bey", structure: "hybrid", name: "히트 페가시스", en: "Heat Pegasis", sub: "DF145WB · BB-37", color: "#e58b5b", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "CLEARWHEEL-PEGASIS", "LIGHTWHEEL-HEAT", "TRACK-DF145", "BOTTOM-WIDE-BALL"] },
-  { id: "BEY-BB-37-HEAT-LEONE-D125FS", type: "bey", structure: "hybrid", name: "히트 레온", en: "Heat Leone", sub: "D125FS · BB-37", color: "#e58b5b", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-LEONE", "CLEARWHEEL-LEONE", "LIGHTWHEEL-HEAT", "TRACK-D125", "BOTTOM-FLAT-SHARP"] },
-  { id: "BEY-BB-37-MAD-SAGITTARIO-DF145HF", type: "bey", structure: "hybrid", name: "매드 사지타리오", en: "Mad Sagittario", sub: "DF145HF · BB-37", color: "#d05c7e", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-SAGITTARIO", "CLEARWHEEL-SAGITTARIO", "LIGHTWHEEL-MAD", "TRACK-DF145", "BOTTOM-HOLE-FLAT"] },
-  { id: "BEY-BB-37-MAD-LEONE-145FS", type: "bey", structure: "hybrid", name: "매드 레온", en: "Mad Leone", sub: "145FS · BB-37", color: "#d05c7e", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-LEONE", "CLEARWHEEL-LEONE", "LIGHTWHEEL-MAD", "TRACK-145", "BOTTOM-FLAT-SHARP"] },
-  { id: "BEY-BB-37-WIND-WOLF-WD145WB", type: "bey", structure: "hybrid", name: "윈드 울프", en: "Wind Wolf", sub: "WD145WB · BB-37", color: "#8ccfd1", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-WOLF", "CLEARWHEEL-WOLF", "LIGHTWHEEL-WIND", "TRACK-WD145", "BOTTOM-WIDE-BALL"] },
-  { id: "BEY-BB-43-LIGHTNING-LDRAGO-100HF", type: "bey", structure: "hybrid", name: "라이트닝 엘드라고", en: "Lightning L-Drago", sub: "100HF · BB-43", color: "#c65a70", tags: ["ATTACK", "LEFT SPIN"], desc: "", parts: ["FACE-LDRAGO", "CLEARWHEEL-LDRAGO", "METALWHEEL-LIGHTNING", "TRACK-100", "BOTTOM-HOLE-FLAT"] },
-  { id: "BEY-BB-44-STORM-PEGASIS-100RF", type: "bey", structure: "hybrid", name: "스톰 페가시스", en: "Storm Pegasis", sub: "100RF · BB-44", color: "#00d9ff", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "CLEARWHEEL-PEGASIS", "METALWHEEL-STORM", "TRACK-100", "BOTTOM-RUBBER-FLAT"] },
-  { id: "BEY-BB-44-ROCK-WOLF-H145B", type: "bey", structure: "hybrid", name: "로크 울프", en: "Rock Wolf", sub: "H145B · BB-44", color: "#7d8ca3", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-WOLF", "CLEARWHEEL-WOLF", "METALWHEEL-ROCK", "TRACK-HORN-145", "BOTTOM-BALL"] },
-  { id: "BEY-BB-44-DARK-LEONE-C145B", type: "bey", structure: "hybrid", name: "다크 레온", en: "Dark Leone", sub: "C145B · BB-44", color: "#b88aff", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-LEONE", "CLEARWHEEL-LEONE", "METALWHEEL-DARK", "TRACK-CLAW-145", "BOTTOM-BALL"] },
-  { id: "BEY-BB-44-FLAME-WOLF-H145S", type: "bey", structure: "hybrid", name: "플레임 울프", en: "Flame Wolf", sub: "H145S · BB-44", color: "#ff9f1c", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-WOLF", "CLEARWHEEL-WOLF", "METALWHEEL-FLAME", "TRACK-HORN-145", "BOTTOM-SHARP"] },
-  { id: "BEY-BB-44-STORM-SAGITTARIO-145SD", type: "bey", structure: "hybrid", name: "스톰 사지타리오", en: "Storm Sagittario", sub: "145SD · BB-44", color: "#00d9ff", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-SAGITTARIO", "CLEARWHEEL-SAGITTARIO", "METALWHEEL-STORM", "TRACK-145", "BOTTOM-SEMI-DEFENSE"] },
-  { id: "BEY-BB-44-ROCK-BULL-WD145HF", type: "bey", structure: "hybrid", name: "로크 불", en: "Rock Bull", sub: "WD145HF · BB-44", color: "#b8c3c8", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-BULL", "CLEARWHEEL-BULL", "METALWHEEL-ROCK", "TRACK-WD145", "BOTTOM-HOLE-FLAT"] },
-  { id: "BEY-BB-44-DARK-SAGITTARIO-WD145SD", type: "bey", structure: "hybrid", name: "다크 사지타리오", en: "Dark Sagittario", sub: "WD145SD · BB-44", color: "#b88aff", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-SAGITTARIO", "CLEARWHEEL-SAGITTARIO", "METALWHEEL-DARK", "TRACK-WD145", "BOTTOM-SEMI-DEFENSE"] },
-  { id: "BEY-BB-44-FLAME-BULL-105WB", type: "bey", structure: "hybrid", name: "플레임 불", en: "Flame Bull", sub: "105WB · BB-44", color: "#ff9f1c", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-BULL", "CLEARWHEEL-BULL", "METALWHEEL-FLAME", "TRACK-105", "BOTTOM-WIDE-BALL"] },
-  { id: "BEY-BB-45-CLAY-ARIES-ED145B", type: "bey", structure: "hybrid", name: "클레이 아리에스", en: "Clay Aries", sub: "ED145B · BB-45", color: "#ad9678", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-ARIES", "CLEARWHEEL-ARIES", "LIGHTWHEEL-CLAY", "TRACK-ED145", "BOTTOM-BALL"] },
-  { id: "BEY-BB-45-CLAY-PEGASIS-145S", type: "bey", structure: "hybrid", name: "클레이 페가시스", en: "Clay Pegasis", sub: "145S · BB-45", color: "#ad9678", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "CLEARWHEEL-PEGASIS", "LIGHTWHEEL-CLAY", "TRACK-145", "BOTTOM-SHARP"] },
-  { id: "BEY-BB-45-MAD-SAGITTARIO-C145SD", type: "bey", structure: "hybrid", name: "매드 사지타리오", en: "Mad Sagittario", sub: "C145SD · BB-45", color: "#d05c7e", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-SAGITTARIO", "CLEARWHEEL-SAGITTARIO", "LIGHTWHEEL-MAD", "TRACK-CLAW-145", "BOTTOM-SEMI-DEFENSE"] },
-  { id: "BEY-BB-45-HEAT-BULL-D125WB", type: "bey", structure: "hybrid", name: "히트 불", en: "Heat Bull", sub: "D125WB · BB-45", color: "#e58b5b", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-BULL", "CLEARWHEEL-BULL", "LIGHTWHEEL-HEAT", "TRACK-D125", "BOTTOM-WIDE-BALL"] },
-  { id: "BEY-BB-45-WIND-WOLF-H145D", type: "bey", structure: "hybrid", name: "윈드 울프", en: "Wind Wolf", sub: "H145D · BB-45", color: "#8ccfd1", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-WOLF", "CLEARWHEEL-WOLF", "LIGHTWHEEL-WIND", "TRACK-HORN-145", "BOTTOM-DEFENSE"] },
-  { id: "BEY-BB-45-HEAT-LEONE-H145S", type: "bey", structure: "hybrid", name: "히트 레온", en: "Heat Leone", sub: "H145S · BB-45", color: "#e58b5b", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-LEONE", "CLEARWHEEL-LEONE", "LIGHTWHEEL-HEAT", "TRACK-HORN-145", "BOTTOM-SHARP"] },
-  { id: "BEY-BB-45-MAD-BULL-C145HF", type: "bey", structure: "hybrid", name: "매드 불", en: "Mad Bull", sub: "C145HF · BB-45", color: "#d05c7e", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-BULL", "CLEARWHEEL-BULL", "LIGHTWHEEL-MAD", "TRACK-CLAW-145", "BOTTOM-HOLE-FLAT"] },
-  { id: "BEY-BB-45-WIND-SAGITTARIO-100SD", type: "bey", structure: "hybrid", name: "윈드 사지타리오", en: "Wind Sagittario", sub: "100SD · BB-45", color: "#8ccfd1", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-SAGITTARIO", "CLEARWHEEL-SAGITTARIO", "LIGHTWHEEL-WIND", "TRACK-100", "BOTTOM-SEMI-DEFENSE"] },
-  { id: "BEY-BB-47-EARTH-AQUILA-145WD", type: "bey", structure: "hybrid", name: "어스 아쿠이라", en: "Earth Aquila", sub: "145WD · BB-47", color: "#8fb9cb", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-AQUILA", "CLEARWHEEL-AQUILA", "METALWHEEL-EARTH", "TRACK-145", "BOTTOM-WIDE-DEFENSE"] },
-  { id: "BEY-BB-48-FLAME-LIBRA-T125ES", type: "bey", structure: "hybrid", name: "플레임 리브라", en: "Flame Libra", sub: "T125ES · BB-48", color: "#9ed36a", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-LIBRA", "CLEARWHEEL-LIBRA", "METALWHEEL-FLAME", "TRACK-T125", "BOTTOM-ETERNAL-SHARP"] },
-  { id: "BEY-BB-50-STORM-CAPRICORNE-M145Q", type: "bey", structure: "hybrid", name: "스톰 카프리콘", en: "Storm Capricorne", sub: "M145Q · BB-50", color: "#d6b75d", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-CAPRICORNE", "CLEARWHEEL-CAPRICORNE", "METALWHEEL-STORM", "TRACK-M145", "BOTTOM-QUAKE"] },
-  { id: "BEY-BB-51-ROCK-ORSO-D125B", type: "bey", structure: "hybrid", name: "로크 오르소", en: "Rock Orso", sub: "D125B · BB-51", color: "#8a6b50", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-ORSO", "CLEARWHEEL-ORSO", "METALWHEEL-ROCK", "TRACK-D125", "BOTTOM-BALL"] },
-  { id: "BEY-BB-55-DARK-CANCER-CH120SF", type: "bey", structure: "hybrid", name: "다크 캔서", en: "Dark Cancer", sub: "CH120SF · BB-55", color: "#d05c7e", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-CANCER", "CLEARWHEEL-CANCER", "METALWHEEL-DARK", "TRACK-CH120", "BOTTOM-SEMI-FLAT"] },
-  { id: "BEY-BB-56-DARK-CAPRICORNE-105RF", type: "bey", structure: "hybrid", name: "다크 카프리콘", en: "Dark Capricorne", sub: "105RF · BB-56", color: "#b88aff", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-CAPRICORNE", "CLEARWHEEL-CAPRICORNE", "METALWHEEL-DARK", "TRACK-105", "BOTTOM-RUBBER-FLAT"] },
-  { id: "BEY-BB-56-KILLER-GEMIOS-DF145FS", type: "bey", structure: "hybrid", name: "키라 제미오스", en: "Killer Gemios", sub: "DF145FS · BB-56", color: "#d37d55", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-GEMIOS", "CLEARWHEEL-GEMIOS", "METALWHEEL-KILLER", "TRACK-DF145", "BOTTOM-FLAT-SHARP"] },
-  { id: "BEY-BB-56-STORM-AQUARIO-M145Q", type: "bey", structure: "hybrid", name: "스톰 아쿠아리오", en: "Storm Aquario", sub: "M145Q · BB-56", color: "#55bde8", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-AQUARIO", "CLEARWHEEL-AQUARIO", "METALWHEEL-STORM", "TRACK-M145", "BOTTOM-QUAKE"] },
-  { id: "BEY-BB-57-FLAME-LIBRA-DF145BS", type: "bey", structure: "hybrid", name: "플레임 리브라", en: "Flame Libra", sub: "DF145BS · BB-57", color: "#9ed36a", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-LIBRA", "CLEARWHEEL-LIBRA", "METALWHEEL-FLAME", "TRACK-DF145", "BOTTOM-BALL-SHARP"] },
-  { id: "BEY-BB-57-THERMAL-PISCES-T125ES", type: "bey", structure: "hybrid", name: "써멀 파이시즈", en: "Thermal Pisces", sub: "T125ES · BB-57", color: "#4fa9cf", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-PISCES", "CLEARWHEEL-PISCES", "METALWHEEL-THERMAL", "TRACK-T125", "BOTTOM-ETERNAL-SHARP"] },
-  { id: "BEY-BB-57-ROCK-ARIES-145D", type: "bey", structure: "hybrid", name: "로크 아리에스", en: "Rock Aries", sub: "145D · BB-57", color: "#f2a7c3", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-ARIES", "CLEARWHEEL-ARIES", "METALWHEEL-ROCK", "TRACK-145", "BOTTOM-DEFENSE"] },
-  { id: "BEY-CYBER-PEGASIS-100HF", type: "bey", structure: "hybrid", name: "사이버 페가시스", en: "Cyber Pegasis", sub: "100HF", color: "#00d9ff", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "CLEARWHEEL-PEGASIS", "METALWHEEL-CYBER", "TRACK-100", "BOTTOM-HOLE-FLAT"] },
-  { id: "BEY-BB-59-BURN-PHOENIX-135MS", type: "bey", structure: "hybrid", name: "번 피닉스", en: "Burn Phoenix", sub: "135MS · BB-59", color: "#e26b3f", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-PHOENIX", "CLEARWHEEL-PHOENIX", "METALWHEEL-BURN", "TRACK-135", "BOTTOM-METAL-SHARP"] },
-  { id: "BEY-BB-60-EARTH-VIRGO-GB145BS", type: "bey", structure: "hybrid", name: "어스 비르고", en: "Earth Virgo", sub: "GB145BS · BB-60", color: "#d8b6e8", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-VIRGO", "CLEARWHEEL-VIRGO", "METALWHEEL-EARTH", "TRACK-GB145", "BOTTOM-BALL-SHARP"] },
-  { id: "BEY-BB-65-ROCK-SCORPIO-T125JB", type: "bey", structure: "hybrid", name: "로크 에스콜피오", en: "Rock Escolpio", sub: "T125JB · BB-65", color: "#9659c9", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-ESCOLPIO", "CLEARWHEEL-SCORPIO", "METALWHEEL-ROCK", "TRACK-T125", "BOTTOM-JOG-BALL"] },
-  { id: "BEY-BB-69-POISON-SERPENT-SW145SD", type: "bey", structure: "hybrid", name: "포이즌 서펜트", en: "Poison Serpent", sub: "SW145SD · BB-69", color: "#6ca86b", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-SERPENT", "CLEARWHEEL-SERPENT", "METALWHEEL-POISON", "TRACK-SW145", "BOTTOM-SEMI-DEFENSE"] },
-  { id: "BEY-MERCURY-ANUBIUS-85XF", type: "bey", structure: "hybrid", name: "머큐리 아누비우스", en: "Mercury Anubius", sub: "85XF", color: "#57c8ff", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-ANUBIUS", "CLEARWHEEL-ANUBIUS", "METALWHEEL-MERCURY", "TRACK-85", "BOTTOM-EXTREME-FLAT"] },
-  { id: "BEY-BB-70-GALAXY-PEGASIS-W105R2F", type: "bey", structure: "hybrid", name: "갤럭시 페가시스", en: "Galaxy Pegasis", sub: "W105R²F · BB-70", color: "#269dff", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "CLEARWHEEL-PEGASIS", "METALWHEEL-GALAXY", "TRACK-W105", "BOTTOM-RIGHT-RUBBER-FLAT"] },
-  { id: "BEY-BB-71-RAY-UNICORNO-D125CS", type: "bey", structure: "hybrid", name: "레이 유니콘", en: "Ray Unicorno", sub: "D125CS · BB-71", color: "#6fd0ff", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-UNICORNO", "CLEARWHEEL-UNICORNO", "METALWHEEL-RAY", "TRACK-D125", "BOTTOM-COAT-SHARP"] },
-  { id: "BEY-BB-72-AQUARIO-105F", type: "bey", structure: "basic", name: "아쿠아리오", en: "Aquario", sub: "105F · BB-72", color: "#55bde8", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-AQUARIO", "WHEEL-AQUARIO", "TRACK-105", "BOTTOM-FLAT"] },
-  { id: "BEY-BB-74-THERMAL-LACERTA-WA130HF", type: "bey", structure: "hybrid", name: "써멀 라체르타", en: "Thermal Lacerta", sub: "WA130HF · BB-74", color: "#6fcf7f", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-LACERTA", "CLEARWHEEL-LACERTA", "METALWHEEL-THERMAL", "TRACK-WA130", "BOTTOM-HOLE-FLAT"] },
-  { id: "BEY-BB-75-ROCK-ORSO-ED145D", type: "bey", structure: "hybrid", name: "로크 오르소", en: "Rock Orso", sub: "ED145D · BB-75", color: "#8a6b50", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-ORSO", "CLEARWHEEL-ORSO", "METALWHEEL-ROCK", "TRACK-ED145", "BOTTOM-DEFENSE"] },
-  { id: "BEY-BB-75-GALAXY-PEGASIS-W105R2F", type: "bey", structure: "hybrid", name: "갤럭시 페가시스", en: "Galaxy Pegasis", sub: "W105R²F · BB-75", color: "#269dff", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "CLEARWHEEL-PEGASIS", "METALWHEEL-GALAXY", "TRACK-W105", "BOTTOM-RIGHT-RUBBER-FLAT"] },
-  { id: "BEY-BB-75-EARTH-VIRGO-T125ES", type: "bey", structure: "hybrid", name: "어스 비르고", en: "Earth Virgo", sub: "T125ES · BB-75", color: "#d8b6e8", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-VIRGO", "CLEARWHEEL-VIRGO", "METALWHEEL-EARTH", "TRACK-T125", "BOTTOM-ETERNAL-SHARP"] },
-  { id: "BEY-BB-76-GALAXY-PEGASIS-W105R2F", type: "bey", structure: "hybrid", name: "갤럭시 페가시스", en: "Galaxy Pegasis", sub: "W105R²F · BB-76", color: "#269dff", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "CLEARWHEEL-PEGASIS", "METALWHEEL-GALAXY", "TRACK-W105", "BOTTOM-RIGHT-RUBBER-FLAT"] },
-  { id: "BEY-BB-78-ROCK-GIRAFFE-R145WB", type: "bey", structure: "hybrid", name: "로크 기라프", en: "Rock Giraffe", sub: "R145WB · BB-78", color: "#d6b46a", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-GIRAFFE", "CLEARWHEEL-GIRAFFE", "METALWHEEL-ROCK", "TRACK-R145", "BOTTOM-WIDE-BALL"] },
-  { id: "BEY-BB-80-GRAVITY-PERSEUS-AD145WD", type: "bey", structure: "hybrid", name: "그라비티 페르세우스", en: "Gravity Perseus", sub: "AD145WD · BB-80", color: "#7d70d8", tags: ["DEFENSE", "DUAL SPIN"], desc: "", parts: ["FACE-PERSEUS", "CLEARWHEEL-PERSEUS", "METALWHEEL-GRAVITY", "TRACK-AD145", "BOTTOM-WIDE-DEFENSE"] },
-  { id: "BEY-BB-82-GRAND-KETOS-WD145RS", type: "bey", structure: "hybrid", name: "그랜드 케토스", en: "Grand Ketos", sub: "WD145RS · BB-82", color: "#6bb7cf", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-KETOS", "CLEARWHEEL-KETOS", "METALWHEEL-GRAND", "TRACK-WD145", "BOTTOM-RUBBER-SHARP"] },
-  { id: "BEY-BB-82-GRAND-KETOS-T125RS", type: "bey", structure: "hybrid", name: "그랜드 케토스", en: "Grand Ketos", sub: "T125RS · BB-82", color: "#6bb7cf", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-KETOS", "CLEARWHEEL-KETOS", "METALWHEEL-GRAND", "TRACK-T125", "BOTTOM-RUBBER-SHARP"] },
-  { id: "BEY-BB-82-BURN-UNICORNO-SW145JB", type: "bey", structure: "hybrid", name: "번 유니콘", en: "Burn Unicorno", sub: "SW145JB · BB-82", color: "#e26b3f", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-UNICORNO", "CLEARWHEEL-UNICORNO", "METALWHEEL-BURN", "TRACK-SW145", "BOTTOM-JOG-BALL"] },
-  { id: "BEY-BB-82-POISON-UNICORNO-130HF", type: "bey", structure: "hybrid", name: "포이즌 유니콘", en: "Poison Unicorno", sub: "130HF · BB-82", color: "#6ca86b", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-UNICORNO", "CLEARWHEEL-UNICORNO", "METALWHEEL-POISON", "TRACK-130", "BOTTOM-HOLE-FLAT"] },
-  { id: "BEY-BB-82-STORM-PHOENIX-130B", type: "bey", structure: "hybrid", name: "스톰 피닉스", en: "Storm Phoenix", sub: "130B · BB-82", color: "#00d9ff", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PHOENIX", "CLEARWHEEL-PHOENIX", "METALWHEEL-STORM", "TRACK-130", "BOTTOM-BALL"] },
-  { id: "BEY-BB-82-POISON-PHOENIX-WA130SD", type: "bey", structure: "hybrid", name: "포이즌 피닉스", en: "Poison Phoenix", sub: "WA130SD · BB-82", color: "#6ca86b", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-PHOENIX", "CLEARWHEEL-PHOENIX", "METALWHEEL-POISON", "TRACK-WA130", "BOTTOM-SEMI-DEFENSE"] },
-  { id: "BEY-BB-82-BURN-SERPENT-WA130ES", type: "bey", structure: "hybrid", name: "번 서펜트", en: "Burn Serpent", sub: "WA130ES · BB-82", color: "#e26b3f", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-SERPENT", "CLEARWHEEL-SERPENT", "METALWHEEL-BURN", "TRACK-WA130", "BOTTOM-ETERNAL-SHARP"] },
-  { id: "BEY-BB-82-STORM-SERPENT-T125HF", type: "bey", structure: "hybrid", name: "스톰 서펜트", en: "Storm Serpent", sub: "T125HF · BB-82", color: "#00d9ff", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-SERPENT", "CLEARWHEEL-SERPENT", "METALWHEEL-STORM", "TRACK-T125", "BOTTOM-HOLE-FLAT"] },
-  { id: "BEY-BB-83-PISCES-DF145BS", type: "bey", structure: "basic", name: "파이시즈", en: "Pisces", sub: "DF145BS · BB-83", color: "#4fa9cf", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-PISCES", "WHEEL-PISCES", "TRACK-DF145", "BOTTOM-BALL-SHARP"] },
-  { id: "BEY-BB-86-COUNTER-SCORPIO-145D", type: "bey", structure: "hybrid", name: "카운터 에스콜피오", en: "Counter Escolpio", sub: "145D · BB-86", color: "#9659c9", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-ESCOLPIO", "CLEARWHEEL-SCORPIO", "METALWHEEL-COUNTER", "TRACK-145", "BOTTOM-DEFENSE"] },
-  { id: "BEY-BB-86-CYBER-AQUARIO-105F", type: "bey", structure: "hybrid", name: "사이버 아쿠아리오", en: "Cyber Aquario", sub: "105F · BB-86", color: "#55bde8", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-AQUARIO", "CLEARWHEEL-AQUARIO", "METALWHEEL-CYBER", "TRACK-105", "BOTTOM-FLAT"] },
-  { id: "BEY-BB-86-POISON-GIRAFFE-S130MB", type: "bey", structure: "hybrid", name: "포이즌 기라프", en: "Poison Giraffe", sub: "S130MB · BB-86", color: "#d6b46a", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-GIRAFFE", "CLEARWHEEL-GIRAFFE", "METALWHEEL-POISON", "TRACK-S130", "BOTTOM-METAL-BALL"] },
-  { id: "BEY-SOL-BLAZE-V145AS", type: "bey", structure: "hybrid", name: "솔 블레이즈", en: "Sol Blaze", sub: "V145AS", color: "#f0b13c", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-BLAZE", "CLEARWHEEL-BLAZE", "METALWHEEL-SOL", "TRACK-V145", "BOTTOM-AROUND-SHARP"] },
-  { id: "BEY-BB-88-METEO-LDRAGO-LW105LF", type: "bey", structure: "hybrid", name: "메테오 엘드라고", en: "Meteo L-Drago", sub: "LW105LF · BB-88", color: "#c65a70", tags: ["ATTACK", "LEFT SPIN"], desc: "", parts: ["FACE-LDRAGO", "CLEARWHEEL-LDRAGO-II", "METALWHEEL-METEOR", "TRACK-LW105", "BOTTOM-LEFT-FLAT"] },
-  { id: "BEY-BB-89-ARIES-145D", type: "bey", structure: "basic", name: "아리에스", en: "Aries", sub: "145D · BB-89", color: "#f2a7c3", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-ARIES", "WHEEL-ARIES", "TRACK-145", "BOTTOM-DEFENSE"] },
-  { id: "BEY-DIVINE-CHIMERA-TR145FB", type: "bey", structure: "hybrid", name: "디바인 키메라", en: "Divine Chimera", sub: "TR145FB", color: "#b06ad8", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-CHIMERA", "CLEARWHEEL-CHIMERA", "METALWHEEL-DIVINE", "TRACK-TR145", "BOTTOM-FLAT-BALL"] },
-  { id: "BEY-BB-P01-VULCAN-HORUSEUS-145D", type: "bey", structure: "hybrid", name: "발칸 호르세우스", en: "Vulcan Horuseus", sub: "145D · BB-P01", color: "#66c7c7", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-HORUSEUS", "CLEARWHEEL-HORUSEUS", "METALWHEEL-VULCAN", "TRACK-145", "BOTTOM-DEFENSE"] },
-  { id: "BEY-BB-91-RAY-KILL-100RSF", type: "bey", structure: "hybrid", name: "레이 킬", en: "Ray Keel", sub: "100RSF · BB-91", color: "#d36b55", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-KILL", "CLEARWHEEL-KILL", "METALWHEEL-RAY", "TRACK-100", "BOTTOM-RUBBER-SEMI-FLAT"] },
-  { id: "BEY-BB-92-GALAXY-PEGASIS-W105R2F", type: "bey", structure: "hybrid", name: "갤럭시 페가시스", en: "Galaxy Pegasis", sub: "W105R²F · BB-92", color: "#269dff", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "CLEARWHEEL-PEGASIS", "METALWHEEL-GALAXY", "TRACK-W105", "BOTTOM-RIGHT-RUBBER-FLAT"] },
-  { id: "BEY-BB-93-RAY-UNICORNO-D125CS", type: "bey", structure: "hybrid", name: "레이 유니콘", en: "Ray Unicorno", sub: "D125CS · BB-93", color: "#6fd0ff", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-UNICORNO", "CLEARWHEEL-UNICORNO", "METALWHEEL-RAY", "TRACK-D125", "BOTTOM-COAT-SHARP"] },
-  { id: "BEY-BB-94-TORNADO-HERCULEO-105F", type: "bey", structure: "hybrid", name: "토네이도 헤라클레오", en: "Tornado Herculeo", sub: "105F · BB-94", color: "#d8aa4c", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-HERCULEO", "CLEARWHEEL-HERCULEO", "METALWHEEL-TORNADO", "TRACK-105", "BOTTOM-FLAT"] },
-  { id: "BEY-BB-95-FLAME-BYXIS-230WD", type: "bey", structure: "hybrid", name: "플레임 픽시스", en: "Flame Byxis", sub: "230WD · BB-95", color: "#79a7d8", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-BYXIS", "CLEARWHEEL-BYXIS", "METALWHEEL-FLAME", "TRACK-230", "BOTTOM-WIDE-DEFENSE"] },
-  { id: "BEY-BB-96-PEGASIS-85RF", type: "bey", structure: "basic", name: "페가시스", en: "Pegasis", sub: "85RF · BB-96", color: "#00d9ff", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "WHEEL-PEGASIS", "TRACK-85", "BOTTOM-RUBBER-FLAT"] },
-  { id: "BEY-BB-96-LIBRA-100D", type: "bey", structure: "basic", name: "리브라", en: "Libra", sub: "100D · BB-96", color: "#9ed36a", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-LIBRA", "WHEEL-LIBRA", "TRACK-100", "BOTTOM-DEFENSE"] },
-  { id: "BEY-BB-96-BURN-CANCER-90WD", type: "bey", structure: "hybrid", name: "번 캔서", en: "Burn Cancer", sub: "90WD · BB-96", color: "#d05c7e", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-CANCER", "CLEARWHEEL-CANCER", "METALWHEEL-BURN", "TRACK-90", "BOTTOM-WIDE-DEFENSE"] },
-  { id: "BEY-NIGHTMARE-REX-SW145SD", type: "bey", structure: "hybrid", name: "나이트메어 렉스", en: "Nightmare Rex", sub: "SW145SD", color: "#7bc66b", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-REX", "CLEARWHEEL-REX", "METALWHEEL-NIGHTMARE", "TRACK-SW145", "BOTTOM-SEMI-DEFENSE"] },
-  { id: "BEY-BB-99-HELL-KERBECS-BD145DS", type: "bey", structure: "hybrid", name: "헬 켈베로스", en: "Hell Kerbecs", sub: "BD145DS · BB-99", color: "#d0ad4f", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-KERBECS", "CLEARWHEEL-KERBECS", "METALWHEEL-HELL", "TRACK-BD145", "BOTTOM-DEFENSE-SHARP"] },
-  { id: "BEY-BB-100-KILLER-BEAFOWL-UW145EWD", type: "bey", structure: "hybrid", name: "키라 비폴", en: "Killer Beafowl", sub: "UW145EWD · BB-100", color: "#63b7ad", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-BEAFOWL", "CLEARWHEEL-BEAFOWL", "METALWHEEL-KILLER", "TRACK-UW145", "BOTTOM-ETERNAL-WIDE-DEFENSE"] },
-  { id: "BEY-BB-100-GALAXY-CANCER-D125HF", type: "bey", structure: "hybrid", name: "갤럭시 캔서", en: "Galaxy Cancer", sub: "D125HF · BB-100", color: "#d05c7e", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-CANCER", "CLEARWHEEL-CANCER", "METALWHEEL-GALAXY", "TRACK-D125", "BOTTOM-HOLE-FLAT"] },
-  { id: "BEY-BB-100-BURN-SCORPIO-100RF", type: "bey", structure: "hybrid", name: "번 에스콜피오", en: "Burn Escolpio", sub: "100RF · BB-100", color: "#9659c9", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-ESCOLPIO", "CLEARWHEEL-SCORPIO", "METALWHEEL-BURN", "TRACK-100", "BOTTOM-RUBBER-FLAT"] },
-  { id: "BEY-BB-100-FLAME-GEMIOS-105CS", type: "bey", structure: "hybrid", name: "플레임 제미오스", en: "Flame Gemios", sub: "105CS · BB-100", color: "#d37d55", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-GEMIOS", "CLEARWHEEL-GEMIOS", "METALWHEEL-FLAME", "TRACK-105", "BOTTOM-COAT-SHARP"] },
-  { id: "BEY-BB-100-KILLER-SCORPIO-100D", type: "bey", structure: "hybrid", name: "키라 에스콜피오", en: "Killer Escolpio", sub: "100D · BB-100", color: "#9659c9", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-ESCOLPIO", "CLEARWHEEL-SCORPIO", "METALWHEEL-KILLER", "TRACK-100", "BOTTOM-DEFENSE"] },
-  { id: "BEY-BB-100-GALAXY-SAGITTARIO-145CS", type: "bey", structure: "hybrid", name: "갤럭시 사지타리오", en: "Galaxy Sagittario", sub: "145CS · BB-100", color: "#ff9f1c", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-SAGITTARIO", "CLEARWHEEL-SAGITTARIO", "METALWHEEL-GALAXY", "TRACK-145", "BOTTOM-COAT-SHARP"] },
-  { id: "BEY-BB-100-FLAME-CANCER-D125RF", type: "bey", structure: "hybrid", name: "플레임 캔서", en: "Flame Cancer", sub: "D125RF · BB-100", color: "#d05c7e", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-CANCER", "CLEARWHEEL-CANCER", "METALWHEEL-FLAME", "TRACK-D125", "BOTTOM-RUBBER-FLAT"] },
-  { id: "BEY-BB-100-BURN-SAGITTARIO-105HF", type: "bey", structure: "hybrid", name: "번 사지타리오", en: "Burn Sagittario", sub: "105HF · BB-100", color: "#ff9f1c", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-SAGITTARIO", "CLEARWHEEL-SAGITTARIO", "METALWHEEL-BURN", "TRACK-105", "BOTTOM-HOLE-FLAT"] },
-  { id: "BEY-BB-102-SCREW-CAPRICORNE-90MF", type: "bey", structure: "hybrid", name: "스크류 카프리콘", en: "Screw Capricorne", sub: "90MF · BB-102", color: "#d6b75d", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-CAPRICORNE", "CLEARWHEEL-CAPRICORNE", "METALWHEEL-SCREW", "TRACK-90", "BOTTOM-METAL-FLAT"] },
-  { id: "BEY-BB-104-BASALT-HOROGIUM-145WD", type: "bey", structure: "hybrid", name: "바셀트 호로지움", en: "Basalt Horogium", sub: "145WD · BB-104", color: "#9aa5ad", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-HOROGIUM", "CLEARWHEEL-HOROGIUM", "METALWHEEL-BASALT", "TRACK-145", "BOTTOM-WIDE-DEFENSE"] },
-  { id: "BEY-BB-105-BIG-BANG-PEGASIS-FD", type: "bey", structure: "4d", name: "빅뱅 페가시스", en: "Big Bang Pegasis", sub: "F:D · BB-105", color: "#269dff", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "CLEARWHEEL-PEGASIS-III", "METALWHEEL-BIG-BANG", "4DBOTTOM-FINAL-DRIVE"] },
-  { id: "BEY-BB-106-FANG-LEONE-130W2D", type: "bey", structure: "4d", name: "팡 레온", en: "Fang Leone", sub: "130W²D · BB-106", color: "#e5ca51", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-LEONE", "CLEARWHEEL-LEONE-II", "METALWHEEL-FANG", "TRACK-130", "BOTTOM-WAVE-WIDE-DEFENSE"] },
-  { id: "BEY-BB-107-BIG-BANG-PEGASIS-FD", type: "bey", structure: "4d", name: "빅뱅 페가시스", en: "Big Bang Pegasis", sub: "F:D · BB-107", color: "#269dff", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "CLEARWHEEL-PEGASIS-III", "METALWHEEL-BIG-BANG", "4DBOTTOM-FINAL-DRIVE"] },
-  { id: "BEY-BB-108-LDRAGO-DESTROY-FS", type: "bey", structure: "4d", name: "엘드라고 디스트로이", en: "L-Drago Destroy", sub: "F:S · BB-108", color: "#c65a70", tags: ["ATTACK", "LEFT SPIN"], desc: "", parts: ["FACE-LDRAGO", "METALWHEEL-LDRAGO-DESTROY", "4DBOTTOM-FINAL-SURVIVE"] },
-  { id: "BEY-BB-109-BEAT-LYNX-TH170WD", type: "bey", structure: "4d", name: "비트 링크스", en: "Beat Lynx", sub: "TH170WD · BB-109", color: "#d8aa4c", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-LYNX", "CLEARWHEEL-LYNX", "METALWHEEL-BEAT", "TRACK-TH170", "BOTTOM-WIDE-DEFENSE"] },
-  { id: "BEY-BB-109-GRAVITY-PERSEUS-BD145XF", type: "bey", structure: "hybrid", name: "그라비티 페르세우스", en: "Gravity Perseus", sub: "BD145XF · BB-109", color: "#7d70d8", tags: ["ATTACK", "DUAL SPIN"], desc: "", parts: ["FACE-PERSEUS", "CLEARWHEEL-PERSEUS-ATTACK", "METALWHEEL-GRAVITY", "TRACK-BD145", "BOTTOM-EXTREME-FLAT"] },
-  { id: "BEY-BB-109-HELL-HORUSEUS-85RS", type: "bey", structure: "hybrid", name: "헬 호르세우스", en: "Hell Horuseus", sub: "85RS · BB-109", color: "#66c7c7", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-HORUSEUS", "CLEARWHEEL-HORUSEUS", "METALWHEEL-HELL", "TRACK-85", "BOTTOM-RUBBER-SHARP"] },
-  { id: "BEY-BB-109-VULCAN-HERCULEO-130DS", type: "bey", structure: "hybrid", name: "발칸 헤라클레오", en: "Vulcan Herculeo", sub: "130DS · BB-109", color: "#d8aa4c", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-HERCULEO", "CLEARWHEEL-HERCULEO", "METALWHEEL-VULCAN", "TRACK-130", "BOTTOM-DEFENSE-SHARP"] },
-  { id: "BEY-BB-109-GRAVITY-PERSEUS-85DS", type: "bey", structure: "hybrid", name: "그라비티 페르세우스", en: "Gravity Perseus", sub: "85DS · BB-109", color: "#7d70d8", tags: ["STAMINA", "DUAL SPIN"], desc: "", parts: ["FACE-PERSEUS", "CLEARWHEEL-PERSEUS-STAMINA", "METALWHEEL-GRAVITY", "TRACK-85", "BOTTOM-DEFENSE-SHARP"] },
-  { id: "BEY-BB-109-TORNADO-HORUSEUS-130RSF", type: "bey", structure: "hybrid", name: "토네이도 호르세우스", en: "Tornado Horuseus", sub: "130RSF · BB-109", color: "#66c7c7", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-HORUSEUS", "CLEARWHEEL-HORUSEUS", "METALWHEEL-TORNADO", "TRACK-130", "BOTTOM-RUBBER-SEMI-FLAT"] },
-  { id: "BEY-BB-109-HELL-HERCULEO-100XF", type: "bey", structure: "hybrid", name: "헬 헤라클레오", en: "Hell Herculeo", sub: "100XF · BB-109", color: "#d8aa4c", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-HERCULEO", "CLEARWHEEL-HERCULEO", "METALWHEEL-HELL", "TRACK-100", "BOTTOM-EXTREME-FLAT"] },
-  { id: "BEY-BB-109-VULCAN-HOROGIUM-BD145RS", type: "bey", structure: "hybrid", name: "발칸 호로지움", en: "Vulcan Horogium", sub: "BD145RS · BB-109", color: "#9aa5ad", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-HOROGIUM", "CLEARWHEEL-HOROGIUM", "METALWHEEL-VULCAN", "TRACK-BD145", "BOTTOM-RUBBER-SHARP"] },
-  { id: "BEY-BB-113-SCYTHE-KRONOS-T125EDS", type: "bey", structure: "4d", name: "사이즈 크로노스", en: "Scythe Kronos", sub: "T125EDS · BB-113", color: "#9ed36a", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-KRONOS", "CLEARWHEEL-KRONOS", "METALWHEEL-SCYTHE", "TRACK-T125", "BOTTOM-ETERNAL-DEFENSE-SHARP"] },
-  { id: "BEY-BB-114-VARIARES-DD", type: "bey", structure: "4d", name: "베리아레스", en: "Variares", sub: "D:D · BB-114", color: "#7d70d8", tags: ["DEFENSE", "DUAL SPIN"], desc: "", parts: ["FACE-VARIARES", "METALWHEEL-VARIARES", "4DBOTTOM-DELTA-DRIVE"] },
-  { id: "BEY-BB-116-JADE-JUPITER-S130RB", type: "bey", structure: "4d", name: "제이드 쥬피터", en: "Jade Jupiter", sub: "S130RB · BB-116", color: "#b9c8d2", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-JUPITER", "CLEARWHEEL-JUPITER", "METALWHEEL-JADE", "TRACK-S130", "BOTTOM-RUBBER-BALL"] },
-  { id: "BEY-BB-116-FORBIDDEN-EONIS-ED145FB", type: "bey", structure: "hybrid", name: "포비든 이오니스", en: "Forbidden Eonis", sub: "ED145FB · BB-116", color: "#79a7d8", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-IONIS", "CLEARWHEEL-IONIS", "METALWHEEL-FORBIDDEN", "TRACK-ED145", "BOTTOM-FLAT-BALL"] },
-  { id: "BEY-BB-116-DIVINE-FOX-90W2D", type: "bey", structure: "hybrid", name: "디바인 폭스", en: "Divine Fox", sub: "90W²D · BB-116", color: "#d37d55", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-FOX", "CLEARWHEEL-FOX", "METALWHEEL-DIVINE", "TRACK-90", "BOTTOM-WAVE-WIDE-DEFENSE"] },
-  { id: "BEY-BB-116-SCREW-LYRA-ED145MF", type: "bey", structure: "hybrid", name: "스크류 레이라", en: "Screw Lyra", sub: "ED145MF · BB-116", color: "#c796d8", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-LYRA", "CLEARWHEEL-LYRA", "METALWHEEL-SCREW", "TRACK-ED145", "BOTTOM-METAL-FLAT"] },
-  { id: "BEY-BB-116-FORBIDDEN-EONIS-130D", type: "bey", structure: "hybrid", name: "포비든 이오니스", en: "Forbidden Eonis", sub: "130D · BB-116", color: "#79a7d8", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-IONIS", "CLEARWHEEL-IONIS", "METALWHEEL-FORBIDDEN", "TRACK-130", "BOTTOM-DEFENSE"] },
-  { id: "BEY-BB-116-DIVINE-CROWN-TR145D", type: "bey", structure: "hybrid", name: "디바인 크라운", en: "Divine Crown", sub: "TR145D · BB-116", color: "#d0ad4f", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-CROWN", "CLEARWHEEL-CROWN", "METALWHEEL-DIVINE", "TRACK-TR145", "BOTTOM-DEFENSE"] },
-  { id: "BEY-BB-116-SCREW-FOX-TR145W2D", type: "bey", structure: "hybrid", name: "스크류 폭스", en: "Screw Fox", sub: "TR145W²D · BB-116", color: "#d37d55", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-FOX", "CLEARWHEEL-FOX", "METALWHEEL-SCREW", "TRACK-TR145", "BOTTOM-WAVE-WIDE-DEFENSE"] },
-  { id: "BEY-BB-116-HELL-CROWN-130FB", type: "bey", structure: "hybrid", name: "헬 크라운", en: "Hell Crown", sub: "130FB · BB-116", color: "#d0ad4f", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-CROWN", "CLEARWHEEL-CROWN", "METALWHEEL-HELL", "TRACK-130", "BOTTOM-FLAT-BALL"] },
-  { id: "BEY-BB-117-BLITZ-UNICORNO-100RSF", type: "bey", structure: "4d", name: "브릿츠 유니콘", en: "Blitz Unicorno", sub: "100RSF · BB-117", color: "#6fd0ff", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-UNICORNO", "CLEARWHEEL-UNICORNO-II", "METALWHEEL-BLITZ", "TRACK-100", "BOTTOM-RUBBER-SEMI-FLAT"] },
-  { id: "BEY-BB-117-NIGHTMARE-REX-UW145EWD", type: "bey", structure: "hybrid", name: "나이트메어 렉스", en: "Nightmare Rex", sub: "UW145EWD · BB-117", color: "#7bc66b", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-REX", "CLEARWHEEL-REX", "METALWHEEL-NIGHTMARE", "TRACK-UW145", "BOTTOM-ETERNAL-WIDE-DEFENSE"] },
-  { id: "BEY-BB-117-BASALT-HOROGIUM-130RS", type: "bey", structure: "hybrid", name: "바셀트 호로지움", en: "Basalt Horogium", sub: "130RS · BB-117", color: "#9aa5ad", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-HOROGIUM", "CLEARWHEEL-HOROGIUM", "METALWHEEL-BASALT", "TRACK-130", "BOTTOM-RUBBER-SHARP"] },
-  { id: "BEY-BB-118-PHANTOM-ORION-BD", type: "bey", structure: "4d", name: "팬텀 오리온", en: "Phantom Orion", sub: "B:D · BB-118", color: "#5fbdd1", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-ORION", "CLEARWHEEL-ORION", "METALWHEEL-PHANTOM", "4DBOTTOM-BEARING-DRIVE"] },
-  { id: "BEY-BB-119-DEATH-QUETZALCOATL-125RDF", type: "bey", structure: "4d", name: "데쓰 케찰코아틀", en: "Death Quetzalcoatl", sub: "125RDF · BB-119", color: "#67e8c6", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-QUETZALCOATL", "CLEARWHEEL-QUETZALCOATL", "METALWHEEL-DEATH", "TRACK-125", "BOTTOM-RUBBER-DEFENSE-FLAT"] },
-  { id: "BEY-BB-120-PROTOTYPE-NEMESIS", type: "bey", structure: "4d", name: "프로토타입 네메시스", en: "Prototype Nemesis", sub: "BB-120", color: "#605c75", tags: ["BALANCE", "DUAL SPIN"], desc: "", parts: [] },
-  { id: "BEY-BB-121-DUO-URANUS-230WD", type: "bey", structure: "4d", name: "듀오 우라누스", en: "Duo Uranus", sub: "230WD · BB-121", color: "#8a8190", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-URANUS", "CLEARWHEEL-URANUS", "METALWHEEL-DUO", "TRACK-230", "BOTTOM-WIDE-DEFENSE"] },
-  { id: "BEY-BB-121-LDRAGO-GUARDIAN-S130MB", type: "bey", structure: "4d", name: "엘드라고 가디언", en: "L-Drago Guardian", sub: "S130MB · BB-121", color: "#c65a70", tags: ["DEFENSE", "LEFT SPIN"], desc: "", parts: ["FACE-LDRAGO", "METALWHEEL-LDRAGO-GUARDIAN", "TRACK-S130", "BOTTOM-METAL-BALL"] },
-  { id: "BEY-BB-121-WING-PEGASIS-90WF", type: "bey", structure: "4d", name: "윙 페가시스", en: "Wing Pegasis", sub: "90WF · BB-121", color: "#00d9ff", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "CLEARWHEEL-PEGASIS-III", "METALWHEEL-WING", "TRACK-90", "BOTTOM-WIDE-FLAT"] },
-  { id: "BEY-BB-122-DIABLO-NEMESIS-XD", type: "bey", structure: "4d", name: "디아블로 네메시스", en: "Diablo Nemesis", sub: "X:D · BB-122", color: "#605c75", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-NEMESIS", "CLEARWHEEL-NEMESIS", "METALWHEEL-DIABLO", "4DBOTTOM-X-DRIVE"] },
-  { id: "BEY-BB-123-FUSION-HADES-AD145SWD", type: "bey", structure: "4d", name: "퓨전 하데스", en: "Fusion Hades", sub: "AD145SWD · BB-123", color: "#8f73e6", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-HADES", "CLEARWHEEL-HADES", "METALWHEEL-FUSION", "TRACK-AD145", "BOTTOM-SHARP-WIDE-DEFENSE"] },
-  { id: "BEY-BB-123-HELL-BEELZEB-125XF", type: "bey", structure: "hybrid", name: "헬 베르제브", en: "Hell Beelzeb", sub: "125XF · BB-123", color: "#b06ad8", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-BEELZEB", "CLEARWHEEL-BEELZEB", "METALWHEEL-HELL", "TRACK-125", "BOTTOM-EXTREME-FLAT"] },
-  { id: "BEY-BB-123-CLOUD-LYRA-85SF", type: "bey", structure: "hybrid", name: "클라우드 레이라", en: "Cloud Lyra", sub: "85SF · BB-123", color: "#c796d8", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-LYRA", "CLEARWHEEL-LYRA", "METALWHEEL-CLOUD", "TRACK-85", "BOTTOM-SEMI-FLAT"] },
-  { id: "BEY-BB-123-CLOUD-GEMIOS-T125SF", type: "bey", structure: "hybrid", name: "클라우드 제미오스", en: "Cloud Gemios", sub: "T125SF · BB-123", color: "#d37d55", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-GEMIOS", "CLEARWHEEL-GEMIOS", "METALWHEEL-CLOUD", "TRACK-T125", "BOTTOM-SEMI-FLAT"] },
-  { id: "BEY-BB-123-CRASH-ESCOLPIO-125JB", type: "bey", structure: "hybrid", name: "크래시 에스콜피오", en: "Crash Escolpio", sub: "125JB · BB-123", color: "#9659c9", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-ESCOLPIO", "CLEARWHEEL-SCORPIO", "METALWHEEL-CRASH", "TRACK-125", "BOTTOM-JOG-BALL"] },
-  { id: "BEY-BB-123-BAKUSHIN-BEELZEB-T125XF", type: "bey", structure: "hybrid", name: "폭신 베르제브", en: "Bakushin Beelzeb", sub: "T125XF · BB-123", color: "#b06ad8", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-BEELZEB", "CLEARWHEEL-BEELZEB", "METALWHEEL-BAKUSHIN", "TRACK-T125", "BOTTOM-EXTREME-FLAT"] },
-  { id: "BEY-BB-123-METEO-LDRAGO-85LF-RUSH", type: "bey", structure: "hybrid", name: "메테오 엘드라고", en: "Meteo L-Drago", sub: "85LF · BB-123", color: "#c65a70", tags: ["ATTACK", "LEFT SPIN"], desc: "", parts: ["FACE-LDRAGO", "CLEARWHEEL-LDRAGO-II-RUSH", "METALWHEEL-METEOR", "TRACK-85", "BOTTOM-LEFT-FLAT"] },
-  { id: "BEY-BB-123-METEO-LDRAGO-LW105JB-ASSAULT", type: "bey", structure: "hybrid", name: "메테오 엘드라고", en: "Meteo L-Drago", sub: "LW105JB · BB-123", color: "#c65a70", tags: ["ATTACK", "LEFT SPIN"], desc: "", parts: ["FACE-LDRAGO", "CLEARWHEEL-LDRAGO-II-ASSAULT", "METALWHEEL-METEOR", "TRACK-LW105", "BOTTOM-JOG-BALL"] },
-  { id: "BEY-OMEGA-DRAGONIS-85XF", type: "bey", structure: "hybrid", name: "오메가 드라고니스", en: "Omega Dragonis", sub: "85XF", color: "#d36b55", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-DRAGONIS", "CLEARWHEEL-DRAGONIS", "METALWHEEL-OMEGA", "TRACK-85", "BOTTOM-EXTREME-FLAT"] },
-  { id: "BEY-BB-124-KREIS-CYGNUS-145WD", type: "bey", structure: "4d", name: "크라이스 시그너스", en: "Kreis Cygnus", sub: "145WD · BB-124", color: "#d7e4ed", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-CYGNUS", "CLEARWHEEL-CYGNUS", "METALWHEEL-KREIS", "TRACK-145", "BOTTOM-WIDE-DEFENSE"] },
-  { id: "BEY-BB-126-FLASH-SAGITTARIO-230WD", type: "bey", structure: "4d", name: "플래시 사지타리오", en: "Flash Sagittario", sub: "230WD · BB-126", color: "#ff9f1c", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-SAGITTARIO", "CLEARWHEEL-SAGITTARIO-II", "METALWHEEL-FLASH", "TRACK-230", "BOTTOM-WIDE-DEFENSE"] },
-  { id: "BEY-BBG-01-WARRIORS-IFRAID-W145CF", type: "bey", structure: "synchrom", name: "워리어스 이프레이드", en: "Warriors Ifraid", sub: "W145CF · BBG-01", color: "#d34d38", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-IFRAID", "CRYSTALWHEEL-WARRIORS", "CHROMEWHEEL-IFRAID", "TRACK-W145", "BOTTOM-CIRCLE-FLAT"] },
-  { id: "BEY-BBG-02-SHINOBI-SARAMANDA-SW145SD", type: "bey", structure: "synchrom", name: "시노비 사라만다", en: "Shinobi Saramanda", sub: "SW145SD · BBG-02", color: "#e26b3f", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-SARAMANDA", "CRYSTALWHEEL-SHINOBI", "CHROMEWHEEL-SARAMANDA", "TRACK-SW145", "BOTTOM-SEMI-DEFENSE"] },
-  { id: "BEY-BBG-03-WARRIORS-IFRAID-W145CF", type: "bey", structure: "synchrom", name: "워리어스 이프레이드", en: "Warriors Ifraid", sub: "W145CF · BBG-03", color: "#d34d38", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-IFRAID", "CRYSTALWHEEL-WARRIORS", "CHROMEWHEEL-IFRAID", "TRACK-W145", "BOTTOM-CIRCLE-FLAT"] },
-  { id: "BEY-BBG-08-PIRATES-OROJYA-145D", type: "bey", structure: "synchrom", name: "파이레츠 오로자", en: "Pirates Orojya", sub: "145D · BBG-08", color: "#6ca86b", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-OROJYA", "CRYSTALWHEEL-PIRATES", "CHROMEWHEEL-OROJYA", "TRACK-145", "BOTTOM-DEFENSE"] },
-  { id: "BEY-BBG-09-THIEF-PHOENIC-E230GCF", type: "bey", structure: "synchrom", name: "시프 피닉", en: "Thief Phoenic", sub: "E230GCF · BBG-09", color: "#e26b3f", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-PHOENIC", "CRYSTALWHEEL-THIEF", "CHROMEWHEEL-PHOENIC", "TRACK-E230", "BOTTOM-GEAR-CIRCLE-FLAT"] },
-  { id: "BEY-BBG-09-THIEF-SARAMANDA-230WB", type: "bey", structure: "synchrom", name: "시프 사라만다", en: "Thief Saramanda", sub: "230WB · BBG-09", color: "#e26b3f", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-SARAMANDA", "CRYSTALWHEEL-THIEF", "CHROMEWHEEL-SARAMANDA", "TRACK-230", "BOTTOM-WIDE-BALL"] },
-  { id: "BEY-BBG-09-SAMURAI-SARAMANDA-E230ES", type: "bey", structure: "synchrom", name: "워리어스 사라만다", en: "Samurai Saramanda", sub: "E230ES · BBG-09", color: "#e26b3f", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-SARAMANDA", "CRYSTALWHEEL-WARRIORS", "CHROMEWHEEL-SARAMANDA", "TRACK-E230", "BOTTOM-ETERNAL-SHARP"] },
-  { id: "BEY-BBG-09-PIRATES-IFRAID-T125GCF", type: "bey", structure: "synchrom", name: "파이레츠 이프레이드", en: "Pirates Ifraid", sub: "T125GCF · BBG-09", color: "#d34d38", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-IFRAID", "CRYSTALWHEEL-PIRATES", "CHROMEWHEEL-IFRAID", "TRACK-T125", "BOTTOM-GEAR-CIRCLE-FLAT"] },
-  { id: "BEY-BBG-09-SHINOBI-IFRAID-230WD", type: "bey", structure: "synchrom", name: "시노비 이프레이드", en: "Shinobi Ifraid", sub: "230WD · BBG-09", color: "#d34d38", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-IFRAID", "CRYSTALWHEEL-SHINOBI", "CHROMEWHEEL-IFRAID", "TRACK-230", "BOTTOM-WIDE-DEFENSE"] },
-  { id: "BEY-BBG-09-PIRATES-SARAMANDA-T125WB", type: "bey", structure: "synchrom", name: "파이레츠 사라만다", en: "Pirates Saramanda", sub: "T125WB · BBG-09", color: "#e26b3f", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-SARAMANDA", "CRYSTALWHEEL-PIRATES", "CHROMEWHEEL-SARAMANDA", "TRACK-T125", "BOTTOM-WIDE-BALL"] },
-  { id: "BEY-BBG-09-SHINOBI-OROJYA-145ES", type: "bey", structure: "synchrom", name: "시노비 오로자", en: "Shinobi Orojya", sub: "145ES · BBG-09", color: "#6ca86b", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-OROJYA", "CRYSTALWHEEL-SHINOBI", "CHROMEWHEEL-OROJYA", "TRACK-145", "BOTTOM-ETERNAL-SHARP"] },
-  { id: "BEY-BBG-09-SAMURAI-OROJYA-145WD", type: "bey", structure: "synchrom", name: "워리어스 오로자", en: "Samurai Orojya", sub: "145WD · BBG-09", color: "#6ca86b", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-OROJYA", "CRYSTALWHEEL-WARRIORS", "CHROMEWHEEL-OROJYA", "TRACK-145", "BOTTOM-WIDE-DEFENSE"] },
-  { id: "BEY-BBG-10-GUARDIAN-REVIZER-160SB", type: "bey", structure: "synchrom", name: "가디언 리바이저", en: "Guardian Revizer", sub: "160SB · BBG-10", color: "#6bb7cf", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-REVIZER", "CRYSTALWHEEL-GUARDIAN", "CHROMEWHEEL-REVIZER", "TRACK-160", "BOTTOM-SHARP-BALL"] },
-  { id: "BEY-BBG-12-ARCHER-GRYPH-C145S", type: "bey", structure: "synchrom", name: "아처 그리프", en: "Archer Gryph", sub: "C145S · BBG-12", color: "#d6b46a", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-GRYPH", "CRYSTALWHEEL-ARCHER", "CHROMEWHEEL-GRYPH", "TRACK-CLAW-145", "BOTTOM-SHARP"] },
-  { id: "BEY-BBG-13-PIRATES-KRAKEN-A230JSB", type: "bey", structure: "synchrom", name: "파이레츠 크라켄", en: "Pirates Killerken", sub: "A230JSB · BBG-13", color: "#4fa9cf", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-KRAKEN", "CRYSTALWHEEL-PIRATES", "CHROMEWHEEL-KRAKEN", "TRACK-A230", "BOTTOM-JOG-SHARP-BALL"] },
-  { id: "BEY-BBG-13-WARRIORS-IFRAID-W145CF", type: "bey", structure: "synchrom", name: "워리어스 이프레이드", en: "Warriors Ifraid", sub: "W145CF · BBG-13", color: "#d34d38", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-IFRAID", "CRYSTALWHEEL-WARRIORS", "CHROMEWHEEL-IFRAID", "TRACK-W145", "BOTTOM-CIRCLE-FLAT"] },
-  { id: "BEY-BBG-16-DARK-KNIGHT-DRAGOON-LW160BSF", type: "bey", structure: "synchrom", name: "다크나이트 드래곤", en: "Dark Knight Dragooon", sub: "LW160BSF · BBG-16", color: "#605c75", tags: ["ATTACK", "LEFT SPIN"], desc: "", parts: ["STONEFACE-DRAGOON", "CRYSTALWHEEL-DARK-KNIGHT", "CHROMEWHEEL-DRAGOON", "TRACK-LW160", "BOTTOM-BLADE-SEMI-FLAT"] },
-  { id: "BEY-BBG-17-ARCHER-GARGOYLE-SA165WSF", type: "bey", structure: "synchrom", name: "아처 가고일", en: "Archer Gargole", sub: "SA165WSF · BBG-17", color: "#8a8190", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-GARGOYLE", "CRYSTALWHEEL-ARCHER", "CHROMEWHEEL-GARGOYLE", "TRACK-SA165", "BOTTOM-WIDE-SEMI-FLAT"] },
-  { id: "BEY-BBG-20-BANDID-GOREIM-DF145BS", type: "bey", structure: "synchrom", name: "반디드 골렘", en: "Bandid Goreim", sub: "DF145BS · BBG-20", color: "#8a6b50", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-GOREIM", "CRYSTALWHEEL-BANDIT", "CHROMEWHEEL-GOREIM", "TRACK-DF145", "BOTTOM-BALL-SHARP"] },
-  { id: "BEY-BBG-21-SAMURAI-IFRAID-W145CF", type: "bey", structure: "synchrom", name: "워리어스 이프레이드", en: "Samurai Ifraid", sub: "W145CF · BBG-21", color: "#d34d38", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-IFRAID", "CRYSTALWHEEL-WARRIORS", "CHROMEWHEEL-IFRAID", "TRACK-W145", "BOTTOM-CIRCLE-FLAT"] },
-  { id: "BEY-BBG-21-GUARDIAN-REVIZER-160SB", type: "bey", structure: "synchrom", name: "가디언 리바이저", en: "Guardian Revizer", sub: "160SB · BBG-21", color: "#6bb7cf", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-REVIZER", "CRYSTALWHEEL-GUARDIAN", "CHROMEWHEEL-REVIZER", "TRACK-160", "BOTTOM-SHARP-BALL"] },
-  { id: "BEY-BBG-23-BANDID-GENBULL-F230TB", type: "bey", structure: "synchrom", name: "반디드 겐블", en: "Bandid Genbull", sub: "F230TB · BBG-23", color: "#b88aff", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-GENBULL", "CRYSTALWHEEL-BANDIT", "CHROMEWHEEL-GENBULL", "TRACK-F230", "BOTTOM-TWIN-BALL"] },
-  { id: "BEY-BBG-23-SHINOBI-GENBULL-130W2D", type: "bey", structure: "synchrom", name: "시노비 겐블", en: "Shinobi Genbull", sub: "130W²D · BBG-23", color: "#b88aff", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-GENBULL", "CRYSTALWHEEL-SHINOBI", "CHROMEWHEEL-GENBULL", "TRACK-130", "BOTTOM-WAVE-WIDE-DEFENSE"] },
-  { id: "BEY-BBG-23-THIEF-SARAMANDA-F230SF", type: "bey", structure: "synchrom", name: "시프 사라만다", en: "Thief Saramanda", sub: "F230SF · BBG-23", color: "#e26b3f", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-SARAMANDA", "CRYSTALWHEEL-THIEF", "CHROMEWHEEL-SARAMANDA", "TRACK-F230", "BOTTOM-SEMI-FLAT"] },
-  { id: "BEY-BBG-23-SHINOBI-GRYPH-WD145TB", type: "bey", structure: "synchrom", name: "시노비 그리프", en: "Shinobi Gryph", sub: "WD145TB · BBG-23", color: "#d6b46a", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-GRYPH", "CRYSTALWHEEL-SHINOBI", "CHROMEWHEEL-GRYPH", "TRACK-WD145", "BOTTOM-TWIN-BALL"] },
-  { id: "BEY-BBG-23-ARCHER-PHOENIC-125B", type: "bey", structure: "synchrom", name: "아처 피닉", en: "Archer Phoenic", sub: "125B · BBG-23", color: "#e26b3f", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-PHOENIC", "CRYSTALWHEEL-ARCHER", "CHROMEWHEEL-PHOENIC", "TRACK-125", "BOTTOM-BALL"] },
-  { id: "BEY-BBG-23-PIRATES-PHOENIC-WD145SF", type: "bey", structure: "synchrom", name: "파이레츠 피닉", en: "Pirates Phoenic", sub: "WD145SF · BBG-23", color: "#e26b3f", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-PHOENIC", "CRYSTALWHEEL-PIRATES", "CHROMEWHEEL-PHOENIC", "TRACK-WD145", "BOTTOM-SEMI-FLAT"] },
-  { id: "BEY-BBG-23-ARCHER-KILLERKEN-130B", type: "bey", structure: "synchrom", name: "아처 크라켄", en: "Archer Killerken", sub: "130B · BBG-23", color: "#4fa9cf", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-KRAKEN", "CRYSTALWHEEL-ARCHER", "CHROMEWHEEL-KRAKEN", "TRACK-130", "BOTTOM-BALL"] },
-  { id: "BEY-BBG-23-BANDID-KILLERKEN-125W2D", type: "bey", structure: "synchrom", name: "반디드 크라켄", en: "Bandid Killerken", sub: "125W²D · BBG-23", color: "#4fa9cf", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-KRAKEN", "CRYSTALWHEEL-BANDIT", "CHROMEWHEEL-KRAKEN", "TRACK-125", "BOTTOM-WAVE-WIDE-DEFENSE"] },
-  { id: "BEY-BBG-24-GARGOLE-IFRAID-SA165GCF", type: "bey", structure: "synchrom", name: "가고일 이프레이드", en: "Gargole Ifraid", sub: "SA165GCF · BBG-24", color: "#d34d38", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-IFRAID", "CHROMEWHEEL-GARGOYLE", "CHROMEWHEEL-IFRAID", "TRACK-SA165", "BOTTOM-GEAR-CIRCLE-FLAT"] },
-  { id: "BEY-BBG-24-SARAMANDA-BALRO-DF145SWD", type: "bey", structure: "synchrom", name: "사라만다 발록", en: "Saramanda Balro", sub: "DF145SWD · BBG-24", color: "#e05c5c", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-BALRO", "CHROMEWHEEL-SARAMANDA", "CHROMEWHEEL-BALRO", "TRACK-DF145", "BOTTOM-SHARP-WIDE-DEFENSE"] },
-  { id: "BEY-BBG-24-GRYPH-GIRAGO-WA130HF", type: "bey", structure: "synchrom", name: "그리프 지라고", en: "Gryph Girago", sub: "WA130HF · BBG-24", color: "#67e8c6", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-GIRAGO", "CHROMEWHEEL-GRYPH", "CHROMEWHEEL-GIRAGO", "TRACK-WA130", "BOTTOM-HOLE-FLAT"] },
-  { id: "BEY-BBG-25-GOREIM-REVIZER-E230SB", type: "bey", structure: "synchrom", name: "골렘 리바이저", en: "Goreim Revizer", sub: "E230SB · BBG-25", color: "#8a6b50", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-REVIZER", "CHROMEWHEEL-GOREIM", "CHROMEWHEEL-REVIZER", "TRACK-E230", "BOTTOM-SHARP-BALL"] },
-  { id: "BEY-BBG-25-KILLERKEN-BALRO-A230WB", type: "bey", structure: "synchrom", name: "크라켄 발록", en: "Killerken Balro", sub: "A230WB · BBG-25", color: "#4fa9cf", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-BALRO", "CHROMEWHEEL-KRAKEN", "CHROMEWHEEL-BALRO", "TRACK-A230", "BOTTOM-WIDE-BALL"] },
-  { id: "BEY-BBG-25-OROJYA-WYVANG-145EDS", type: "bey", structure: "synchrom", name: "오로자 와이번", en: "Orojya Wyvang", sub: "145EDS · BBG-25", color: "#7d8ca3", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-WYVANG", "CHROMEWHEEL-OROJYA", "CHROMEWHEEL-WYVANG", "TRACK-145", "BOTTOM-ETERNAL-DEFENSE-SHARP"] },
-  { id: "BEY-BBG-26-WARRIORS-PEGASIS-W105R2F", type: "bey", structure: "synchrom", name: "워리어스 페가시스", en: "Warriors Pegasis", sub: "W105R²F · BBG-26", color: "#00d9ff", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-PEGASIS", "CRYSTALWHEEL-WARRIORS", "CHROMEWHEEL-PEGASIS", "TRACK-W105", "BOTTOM-RIGHT-RUBBER-FLAT"] },
-  { id: "BEY-BBG-27-GLADIATOR-BAHAMDIA-SP230GF", type: "bey", structure: "synchrom", name: "글레디에이터 바함디아", en: "Gladiator Bahamdia", sub: "SP230GF · BBG-27", color: "#d0ad4f", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-BAHAMDIA", "CRYSTALWHEEL-GLADIATOR", "CHROMEWHEEL-BAHAMDIA", "TRACK-SP230", "BOTTOM-GIGA-FLAT"] },
-  { id: "FACE-PEGASIS", type: "face", name: "페가시스", en: "Pegasis", sub: "페이스", color: "#00d9ff", tags: ["FACE"], desc: "페가시스의 별자리를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-LEONE", type: "face", name: "레온", en: "Leone", sub: "페이스", color: "#e5ca51", tags: ["FACE"], desc: "레온의 별자리를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-SAGITTARIO", type: "face", name: "사지타리오", en: "Sagittario", sub: "페이스", color: "#ff9f1c", tags: ["FACE"], desc: "사지타리오의 별자리를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-BULL", type: "face", name: "불", en: "Bull", sub: "페이스", color: "#b88aff", tags: ["FACE"], desc: "불의 별자리를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-QUETZALCOATL", type: "face", name: "케찰코아틀", en: "Quetzalcoatl", sub: "페이스", color: "#67e8c6", tags: ["FACE"], desc: "케찰코아틀을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-WOLF", type: "face", name: "울프", en: "Wolf", sub: "페이스", color: "#7d8ca3", tags: ["FACE"], desc: "울프를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-ARIES", type: "face", name: "아리에스", en: "Aries", sub: "페이스", color: "#f2a7c3", tags: ["FACE"], desc: "아리에스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-LIBRA", type: "face", name: "리브라", en: "Libra", sub: "페이스", color: "#9ed36a", tags: ["FACE"], desc: "리브라를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-AQUARIO", type: "face", name: "아쿠아리오", en: "Aquario", sub: "페이스", color: "#55bde8", tags: ["FACE"], desc: "아쿠아리오를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-VIRGO", type: "face", name: "비르고", en: "Virgo", sub: "페이스", color: "#d8b6e8", tags: ["FACE"], desc: "비르고를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-LDRAGO", type: "face", name: "엘드라고", en: "L-Drago", sub: "페이스", color: "#c65a70", tags: ["FACE"], desc: "엘드라고를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-ESCOLPIO", type: "face", name: "에스콜피오", en: "Escolpio", sub: "페이스", color: "#9659c9", tags: ["FACE"], desc: "에스콜피오를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-PISCES", type: "face", name: "파이시즈", en: "Pisces", sub: "페이스", color: "#4fa9cf", tags: ["FACE"], desc: "파이시즈를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-GEMIOS", type: "face", name: "제미오스", en: "Gemios", sub: "페이스", color: "#d37d55", tags: ["FACE"], desc: "제미오스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-CAPRICORNE", type: "face", name: "카프리콘", en: "Capricorne", sub: "페이스", color: "#d6b75d", tags: ["FACE"], desc: "카프리콘을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-CANCER", type: "face", name: "캔서", en: "Cancer", sub: "페이스", color: "#d05c7e", tags: ["FACE"], desc: "캔서를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-AQUILA", type: "face", name: "아쿠이라", en: "Aquila", sub: "페이스", color: "#8fb9cb", tags: ["FACE"], desc: "아쿠이라를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-ORSO", type: "face", name: "오르소", en: "Orso", sub: "페이스", color: "#8a6b50", tags: ["FACE"], desc: "오르소를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-PHOENIX", type: "face", name: "피닉스", en: "Phoenix", sub: "페이스", color: "#e26b3f", tags: ["FACE"], desc: "피닉스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-SERPENT", type: "face", name: "서펜트", en: "Serpent", sub: "페이스", color: "#6ca86b", tags: ["FACE"], desc: "서펜트를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-ANUBIUS", type: "face", name: "아누비우스", en: "Anubius", sub: "페이스", color: "#57c8ff", tags: ["FACE"], desc: "아누비우스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-UNICORNO", type: "face", name: "유니콘", en: "Unicorno", sub: "페이스", color: "#6fd0ff", tags: ["FACE"], desc: "유니콘을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-LACERTA", type: "face", name: "라체르타", en: "Lacerta", sub: "페이스", color: "#6fcf7f", tags: ["FACE"], desc: "라체르타를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-GIRAFFE", type: "face", name: "기라프", en: "Giraffe", sub: "페이스", color: "#d6b46a", tags: ["FACE"], desc: "기라프를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-PERSEUS", type: "face", name: "페르세우스", en: "Perseus", sub: "페이스", color: "#7d70d8", tags: ["FACE"], desc: "페르세우스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-KETOS", type: "face", name: "케토스", en: "Ketos", sub: "페이스", color: "#6bb7cf", tags: ["FACE"], desc: "케토스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-BLAZE", type: "face", name: "블레이즈", en: "Blaze", sub: "페이스", color: "#e05c5c", tags: ["FACE"], desc: "블레이즈를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-CHIMERA", type: "face", name: "키메라", en: "Chimera", sub: "페이스", color: "#b06ad8", tags: ["FACE"], desc: "키메라를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-HORUSEUS", type: "face", name: "호르세우스", en: "Horuseus", sub: "페이스", color: "#66c7c7", tags: ["FACE"], desc: "호르세우스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-KILL", type: "face", name: "킬", en: "Keel", sub: "페이스", color: "#d36b55", tags: ["FACE"], desc: "킬을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-HERCULEO", type: "face", name: "헤라클레오", en: "Herculeo", sub: "페이스", color: "#d8aa4c", tags: ["FACE"], desc: "헤라클레오를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-BYXIS", type: "face", name: "픽시스", en: "Byxis", sub: "페이스", color: "#79a7d8", tags: ["FACE"], desc: "픽시스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-REX", type: "face", name: "렉스", en: "Rex", sub: "페이스", color: "#7bc66b", tags: ["FACE"], desc: "렉스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-KERBECS", type: "face", name: "켈베로스", en: "Kerbecs", sub: "페이스", color: "#d0ad4f", tags: ["FACE"], desc: "켈베로스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-BEAFOWL", type: "face", name: "비폴", en: "Beafowl", sub: "페이스", color: "#63b7ad", tags: ["FACE"], desc: "비폴을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-HOROGIUM", type: "face", name: "호로지움", en: "Horogium", sub: "페이스", color: "#9aa5ad", tags: ["FACE"], desc: "호로지움을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-LYNX", type: "face", name: "링크스", en: "Lynx", sub: "페이스", color: "#d8aa4c", tags: ["FACE"], desc: "링크스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-KRONOS", type: "face", name: "크로노스", en: "Kronos", sub: "페이스", color: "#9ed36a", tags: ["FACE"], desc: "크로노스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-VARIARES", type: "face", name: "베리아레스", en: "Variares", sub: "페이스", color: "#7d70d8", tags: ["FACE"], desc: "베리아레스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-JUPITER", type: "face", name: "쥬피터", en: "Jupiter", sub: "페이스", color: "#b9c8d2", tags: ["FACE"], desc: "쥬피터를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-IONIS", type: "face", name: "이오니스", en: "Ionis", sub: "페이스", color: "#79a7d8", tags: ["FACE"], desc: "이오니스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-FOX", type: "face", name: "폭스", en: "Fox", sub: "페이스", color: "#d37d55", tags: ["FACE"], desc: "폭스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-LYRA", type: "face", name: "레이라", en: "Lyra", sub: "페이스", color: "#c796d8", tags: ["FACE"], desc: "레이라를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-CROWN", type: "face", name: "크라운", en: "Crown", sub: "페이스", color: "#d0ad4f", tags: ["FACE"], desc: "크라운을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-ORION", type: "face", name: "오리온", en: "Orion", sub: "페이스", color: "#5fbdd1", tags: ["FACE"], desc: "오리온을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-URANUS", type: "face", name: "우라누스", en: "Uranus", sub: "페이스", color: "#8a8190", tags: ["FACE"], desc: "우라누스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-NEMESIS", type: "face", name: "네메시스", en: "Nemesis", sub: "페이스", color: "#605c75", tags: ["FACE"], desc: "네메시스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-HADES", type: "face", name: "하데스", en: "Hades", sub: "페이스", color: "#8f73e6", tags: ["FACE"], desc: "하데스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-BEELZEB", type: "face", name: "베르제브", en: "Beelzeb", sub: "페이스", color: "#b06ad8", tags: ["FACE"], desc: "베르제브를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-DRAGONIS", type: "face", name: "드라고니스", en: "Dragonis", sub: "페이스", color: "#c65a70", tags: ["FACE"], desc: "드라고니스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-CYGNUS", type: "face", name: "시그너스", en: "Cygnus", sub: "페이스", color: "#d7e4ed", tags: ["FACE"], desc: "시그너스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "CLEARWHEEL-PEGASIS", type: "clearwheel", name: "페가시스", en: "Pegasis", sub: "클리어휠 · 공격형", color: "#00d9ff", tags: ["CLEARWHEEL", "ATTACK", "RIGHT SPIN"], desc: "위에서의 공격에 대응하며 어퍼공격으로 되받아 공격한다.", stats: [40, 20, 10] },
-  { id: "CLEARWHEEL-LEONE", type: "clearwheel", name: "레온", en: "Leone", sub: "클리어휠 · 방어형", color: "#e5ca51", tags: ["CLEARWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "어느 방향에서의 공격도 막아내는 형태를 가진 방어력이 뛰어난 휠.", stats: [10, 40, 20] },
-  { id: "CLEARWHEEL-SAGITTARIO", type: "clearwheel", name: "사지타리오", en: "Sagittario", sub: "클리어휠 · 지구형", color: "#ff9f1c", tags: ["CLEARWHEEL", "STAMINA", "RIGHT SPIN"], desc: "화살과 같은 형태로 위에서 공격하는 적을 효과적으로 방어한다.", stats: [10, 20, 40] },
-  { id: "CLEARWHEEL-BULL", type: "clearwheel", name: "불", en: "Bull", sub: "클리어휠 · 균형형", color: "#b88aff", tags: ["CLEARWHEEL", "BALANCE", "RIGHT SPIN"], desc: "어느 방향에서의 공격도 막아내는 형태를 가진 방어력이 뛰어난 휠.", stats: [30, 30, 10] },
-  { id: "CLEARWHEEL-WOLF", type: "clearwheel", name: "울프", en: "Wolf", sub: "클리어휠 · 균형형", color: "#7d8ca3", tags: ["CLEARWHEEL", "BALANCE", "RIGHT SPIN"], desc: "네 마리의 늑대가 3방향으로 공격을 펼친다.", stats: [30, 20, 20] },
-  { id: "CLEARWHEEL-CANCER", type: "clearwheel", name: "캔서", en: "Cancer", sub: "클리어휠 · 균형형", color: "#d05c7e", tags: ["CLEARWHEEL", "BALANCE", "RIGHT SPIN"], desc: "어퍼공격을 하고 적의 공격을 가볍게 받아넘긴다.", stats: [30, 30, 10] },
-  { id: "CLEARWHEEL-AQUARIO", type: "clearwheel", name: "아쿠아리오", en: "Aquario", sub: "클리어휠 · 공격형", color: "#55bde8", tags: ["CLEARWHEEL", "ATTACK", "RIGHT SPIN"], desc: "4방향으로 펼쳐진 물덩어리들이 흐르는 듯한 공격을 만들어 낸다.", stats: [40, 10, 20] },
-  { id: "CLEARWHEEL-LDRAGO", type: "clearwheel", name: "엘드라고", en: "L-Drago", sub: "클리어휠 · 공격형", color: "#c65a70", tags: ["CLEARWHEEL", "ATTACK", "LEFT SPIN"], desc: "3마리의 좌회전하는 용이 강력공격! 라이트닝 휠의 힘을 끌어낸다.", stats: [50, 10, 0] },
-  { id: "CLEARWHEEL-ARIES", type: "clearwheel", name: "아리에스", en: "Aries", sub: "클리어휠 · 방어형", color: "#f2a7c3", tags: ["CLEARWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "나선형의 뿔이 모든 방향에 대응하여 방패의 역할을 한다.", stats: [10, 40, 20] },
-  { id: "CLEARWHEEL-AQUILA", type: "clearwheel", name: "아쿠이라", en: "Aquila", sub: "클리어휠 · 지구형", color: "#8fb9cb", tags: ["CLEARWHEEL", "STAMINA", "RIGHT SPIN"], desc: "바람을 가르는 독수리같은 비행능력으로 강한 지구력을 발휘한다.", stats: [20, 10, 40] },
-  { id: "CLEARWHEEL-LIBRA", type: "clearwheel", name: "리브라", en: "Libra", sub: "클리어휠 · 지구형", color: "#9ed36a", tags: ["CLEARWHEEL", "STAMINA", "RIGHT SPIN"], desc: "가장자리의 2개의 저울접시가 강력한 원심력과 지구력을 자랑한다.", stats: [20, 10, 40] },
-  { id: "CLEARWHEEL-CAPRICORNE", type: "clearwheel", name: "카프리콘", en: "Capricorne", sub: "클리어휠 · 공격형", color: "#d6b75d", tags: ["CLEARWHEEL", "ATTACK", "RIGHT SPIN"], desc: "뿔의 작은 돌기는 연타공격을, 발굽은 강력한 어퍼공격을 한다.", stats: [40, 20, 10] },
-  { id: "CLEARWHEEL-ORSO", type: "clearwheel", name: "오르소", en: "Orso", sub: "클리어휠 · 방어형", color: "#8a6b50", tags: ["CLEARWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "큰곰의 앞발을 이용하여 연타공격을 발휘한다.", stats: [20, 30, 20] },
-  { id: "CLEARWHEEL-GEMIOS", type: "clearwheel", name: "제미오스", en: "Gemios", sub: "클리어휠 · 균형형", color: "#d37d55", tags: ["CLEARWHEEL", "BALANCE", "RIGHT SPIN"], desc: "얼음덩어리가 공격을 가하고, 불덩어리가 상대의 공격을 가볍게 받아넘기는 효과를 낸다.", stats: [40, 20, 10] },
-  { id: "CLEARWHEEL-PISCES", type: "clearwheel", name: "파이시즈", en: "Pisces", sub: "클리어휠 · 지구형", color: "#4fa9cf", tags: ["CLEARWHEEL", "STAMINA", "RIGHT SPIN"], desc: "발군의 공력으로 지구력을 발휘한다. 송곳니로 윗면 공격도 가능하다.", stats: [20, 10, 40] },
-  { id: "CLEARWHEEL-PHOENIX", type: "clearwheel", name: "피닉스", en: "Phoenix", sub: "클리어휠 · 지구형", color: "#e26b3f", tags: ["CLEARWHEEL", "STAMINA", "RIGHT SPIN"], desc: "바깥쪽의 봉황의 날개가 원심력을 증가, 꼬리날개로 적의 공격을 가볍게 막는다.", stats: [10, 10, 50] },
-  { id: "CLEARWHEEL-VIRGO", type: "clearwheel", name: "비르고", en: "Virgo", sub: "클리어휠 · 지구형", color: "#d8b6e8", tags: ["CLEARWHEEL", "STAMINA", "RIGHT SPIN"], desc: "원심력을 극대화한 형태로 지구력을 강화하며 스매시공격을 한다.", stats: [10, 20, 40] },
-  { id: "CLEARWHEEL-SCORPIO", type: "clearwheel", name: "에스콜피오", en: "Escolpio", sub: "클리어휠 · 방어형", color: "#9659c9", tags: ["CLEARWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "커다란 가위 모양의 꼬리가 적의 공격을 받아넘기고 아래에서 위로 밀어붙인다.", stats: [20, 40, 10] },
-  { id: "CLEARWHEEL-SERPENT", type: "clearwheel", name: "서펜트", en: "Serpent", sub: "클리어휠 · 균형형", color: "#6ca86b", tags: ["CLEARWHEEL", "BALANCE", "RIGHT SPIN"], desc: "적의 공격을 가볍게 받아넘기면서 연타공격을 한다.", stats: [30, 30, 10] },
-  { id: "CLEARWHEEL-ANUBIUS", type: "clearwheel", name: "아누비우스", en: "Anubius", sub: "클리어휠 · 공격형", color: "#57c8ff", tags: ["CLEARWHEEL", "ATTACK", "RIGHT SPIN"], desc: "", stats: [50, 10, 10] },
-  { id: "CLEARWHEEL-PEGASIS-II", type: "clearwheel", name: "페가시스Ⅱ", en: "Pegasis II", sub: "클리어휠 · 공격형", color: "#00d9ff", tags: ["CLEARWHEEL", "ATTACK", "RIGHT SPIN"], desc: "갈기와 날개가 아래에서 위로 올려치는 어퍼공격을 가한다.", stats: [50, 10, 10] },
-  { id: "CLEARWHEEL-UNICORNO", type: "clearwheel", name: "유니콘", en: "Unicorno", sub: "클리어휠 · 공격형", color: "#6fd0ff", tags: ["CLEARWHEEL", "ATTACK", "RIGHT SPIN"], desc: "3개의 커다란 뿔로 상대를 찌르는 듯이 강한 공격을 한다.", stats: [40, 20, 10] },
-  { id: "CLEARWHEEL-LACERTA", type: "clearwheel", name: "라체르타", en: "Lacerta", sub: "클리어휠 · 균형형", color: "#6fcf7f", tags: ["CLEARWHEEL", "BALANCE", "RIGHT SPIN"], desc: "도마뱀 모양의 몸체가 적의 공격을 받아넘기고 팔꿈치로 어퍼공격을 가한다.", stats: [30, 20, 20] },
-  { id: "CLEARWHEEL-GIRAFFE", type: "clearwheel", name: "기라프", en: "Giraffe", sub: "클리어휠 · 방어형", color: "#d6b46a", tags: ["CLEARWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "바깥쪽에 경사진 모양의 날개가 상대의 공격을 받아넘긴다.", stats: [10, 50, 10] },
-  { id: "CLEARWHEEL-PERSEUS", type: "clearwheel", name: "페르세우스", en: "Perseus", sub: "클리어휠 · 방어형", color: "#7d70d8", tags: ["CLEARWHEEL", "DEFENSE", "DUAL SPIN"], desc: "유일하게 그라비티 휠에 장착 가능한 양방향회전 휠. 투구가 적의 공격을 방어하면서 접근하는 적을 튕겨낸다.", stats: [20, 50, 0] },
-  { id: "CLEARWHEEL-SUSANOW", type: "clearwheel", name: "스사노오", en: "Susanow", sub: "클리어휠 · 공격형", color: "#4fb7dd", tags: ["CLEARWHEEL", "ATTACK", "RIGHT SPIN"], desc: "날카로운 칼끝으로 상대의 공격을 받아넘긴다.", stats: [40, 20, 0] },
-  { id: "CLEARWHEEL-KETOS", type: "clearwheel", name: "케토스", en: "Ketos", sub: "클리어휠 · 방어형", color: "#6bb7cf", tags: ["CLEARWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "두 개의 꼬리 지느러미가 적의 공격을 받아넘기며 충격을 흡수한다.", stats: [20, 40, 10] },
-  { id: "CLEARWHEEL-BLAZE", type: "clearwheel", name: "블레이즈", en: "Blaze", sub: "클리어휠 · 균형형", color: "#e05c5c", tags: ["CLEARWHEEL", "BALANCE", "RIGHT SPIN"], desc: "흔들거리는 불꽃의 형상이 적의 공격을 받아 흘리면서도 예측할 수 없는 불규칙한 연타 공격을 가한다.", stats: [30, 40, 0] },
-  { id: "CLEARWHEEL-LDRAGO-II", type: "clearwheel", name: "엘드라고Ⅱ", en: "L-Drago II", sub: "클리어휠 · 공격형", color: "#c65a70", tags: ["CLEARWHEEL", "ATTACK", "LEFT SPIN"], desc: "유일하게 메테오 휠에 결합 가능한 좌회전 클리어휠. 위와 옆 방향에 위치한 고무가 적의 회전력을 흡수한다.", stats: [40, 10, 20], extraStats: [{ name: "흡수력", value: 40 }] },
-  { id: "CLEARWHEEL-CHIMERA", type: "clearwheel", name: "키메라", en: "Chimera", sub: "클리어휠 · 공격형", color: "#b06ad8", tags: ["CLEARWHEEL", "ATTACK", "RIGHT SPIN"], desc: "", stats: [50, 10, 10] },
-  { id: "CLEARWHEEL-HORUSEUS", type: "clearwheel", name: "호르세우스", en: "Horuseus", sub: "클리어휠 · 방어형", color: "#66c7c7", tags: ["CLEARWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "부드러운 곡선으로 이루어진 큰 날개가 적의 공격을 받아넘긴다.", stats: [20, 40, 10] },
-  { id: "CLEARWHEEL-KILL", type: "clearwheel", name: "킬", en: "Keel", sub: "클리어휠 · 공격형", color: "#d36b55", tags: ["CLEARWHEEL", "ATTACK", "RIGHT SPIN"], desc: "용골 모양의 휠이 적에게 섬세한 연타공격을 가한다.", stats: [40, 10, 20] },
-  { id: "CLEARWHEEL-HERCULEO", type: "clearwheel", name: "헤라클레오", en: "Herculeo", sub: "클리어휠 · 공격형", color: "#d8aa4c", tags: ["CLEARWHEEL", "ATTACK", "RIGHT SPIN"], desc: "사자의 갈기가 거침없이 어퍼공격을 가한다.", stats: [30, 20, 20] },
-  { id: "CLEARWHEEL-BYXIS", type: "clearwheel", name: "픽시스", en: "Byxis", sub: "클리어휠 · 공격형", color: "#79a7d8", tags: ["CLEARWHEEL", "ATTACK", "RIGHT SPIN"], desc: "바깥에 중심이 있어서 원심력을 발휘하면서 나침반 바늘로 적을 공격한다.", stats: [30, 10, 30] },
-  { id: "CLEARWHEEL-REX", type: "clearwheel", name: "렉스", en: "Rex", sub: "클리어휠 · 균형형", color: "#7bc66b", tags: ["CLEARWHEEL", "BALANCE", "RIGHT SPIN"], desc: "두개골은 어퍼공격을 가하고, 등뼈는 상대의 공격을 받아넘기는 효과를 발휘한다.", stats: [30, 30, 0] },
-  { id: "CLEARWHEEL-PERSEUS-ATTACK", type: "clearwheel", name: "페르세우스 어택", en: "Perseus Attack", sub: "클리어휠 · 공격형", color: "#8f73e6", tags: ["CLEARWHEEL", "ATTACK", "DUAL SPIN"], desc: "유일하게 그라비티 휠에 장착 가능한 양방향회전 휠. 미세한 흠이 적에게 연타공격을 가한다.", stats: [50, 20, 0] },
-  { id: "CLEARWHEEL-PERSEUS-STAMINA", type: "clearwheel", name: "페르세우스 스테미너", en: "Perseus Stamina", sub: "클리어휠 · 지구형", color: "#7d70d8", tags: ["CLEARWHEEL", "STAMINA", "DUAL SPIN"], desc: "유일하게 그라비티 휠에 장착 가능한 양방향회전 휠. 중량을 바깥쪽으로 분산시켜 강력한 지구력을 발휘한다.", stats: [0, 20, 50] },
-  { id: "CLEARWHEEL-LDRAGO-II-RUSH", type: "clearwheel", name: "엘드라고Ⅱ 러시", en: "L-Drago II Rush", sub: "클리어휠 · 공격형", color: "#c65a70", tags: ["CLEARWHEEL", "ATTACK", "LEFT SPIN"], desc: "유일하게 메테오 휠에 결합 가능한 좌회전 클리어휠. 울퉁불퉁한 요철로 둘러싸여 있어서 연타공격을 반복한다.", stats: [60, 20, 0] },
-  { id: "CLEARWHEEL-LDRAGO-II-ASSAULT", type: "clearwheel", name: "엘드라고Ⅱ 어썰트", en: "L-Drago II Assault", sub: "클리어휠 · 공격형", color: "#c65a70", tags: ["CLEARWHEEL", "ATTACK", "LEFT SPIN"], desc: "유일하게 메테오 휠에 결합 가능한 좌회전 클리어휠. 바깥쪽으로 돌출된 커다란 머리 부분이 강력한 공격을 펼친다.", stats: [70, 0, 10] },
-  { id: "CLEARWHEEL-KERBECS", type: "clearwheel", name: "켈베로스", en: "Kerbecs", sub: "클리어휠 · 지구형", color: "#d0ad4f", tags: ["CLEARWHEEL", "STAMINA", "RIGHT SPIN"], desc: "바깥 중심을 강화하고 3개의 쇠사슬이 연타공격을 끊임없이 반복한다.", stats: [20, 20, 30] },
-  { id: "CLEARWHEEL-BEAFOWL", type: "clearwheel", name: "비폴", en: "Beafowl", sub: "클리어휠 · 지구형", color: "#5fbdd1", tags: ["CLEARWHEEL", "STAMINA", "RIGHT SPIN"], desc: "공작의 날개와 같은 미세한 돌기가 적의 공격을 방어하며 뛰어난 지구력을 발휘한다.", stats: [0, 20, 50] },
-  { id: "CLEARWHEEL-HOROGIUM", type: "clearwheel", name: "호로지움", en: "Horogium", sub: "클리어휠 · 방어형", color: "#9aa5ad", tags: ["CLEARWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "원판 모양의 휠이 적의 공격을 완벽하게 방어한다.", stats: [0, 70, 0] },
-  { id: "CLEARWHEEL-PEGASIS-III", type: "clearwheel", name: "페가시스Ⅲ", en: "Pegasis III", sub: "클리어휠 · 공격형", color: "#00d9ff", tags: ["CLEARWHEEL", "ATTACK", "RIGHT SPIN"], desc: "위쪽에 있는 갈기가 강한 공격을 펼치고 양쪽의 날개가 연타공격을 가한다.", stats: [60, 0, 10] },
-  { id: "CLEARWHEEL-LEONE-II", type: "clearwheel", name: "레온Ⅱ", en: "Leone II", sub: "클리어휠 · 방어형", color: "#e5ca51", tags: ["CLEARWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "어떤 방향에서의 공격도 효율적으로 받아넘기고 카운터공격을 한다.", stats: [20, 50, 0] },
-  { id: "CLEARWHEEL-LYNX", type: "clearwheel", name: "링크스", en: "Lynx", sub: "클리어휠 · 균형형", color: "#d8aa4c", tags: ["CLEARWHEEL", "BALANCE", "RIGHT SPIN"], desc: "살쾡이의 발톱이 상대를 공격하고 두 개의 커다란 날개가 상대의 공격을 방어한다.", stats: [25, 25, 20] },
-  { id: "CLEARWHEEL-KRONOS", type: "clearwheel", name: "크로노스", en: "Kronos", sub: "클리어휠 · 지구형", color: "#9ed36a", tags: ["CLEARWHEEL", "STAMINA", "RIGHT SPIN"], desc: "토성의 고리를 모티브로 한 링과 크로노스가 소유한 큰 낫 모양의 휠이 지구력을 높인다.", stats: [10, 0, 60] },
-  { id: "CLEARWHEEL-JUPITER", type: "clearwheel", name: "쥬피터", en: "Jupiter", sub: "클리어휠 · 방어형", color: "#b9c8d2", tags: ["CLEARWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "수많은 깃털 모양의 요철부분이 적의 공격을 흡수하여 방어한다.", stats: [0, 50, 20] },
-  { id: "CLEARWHEEL-CROWN", type: "clearwheel", name: "크라운", en: "Crown", sub: "클리어휠 · 지구형", color: "#d0ad4f", tags: ["CLEARWHEEL", "STAMINA", "RIGHT SPIN"], desc: "", stats: [20, 0, 50] },
-  { id: "CLEARWHEEL-FOX", type: "clearwheel", name: "폭스", en: "Fox", sub: "클리어휠 · 균형형", color: "#d37d55", tags: ["CLEARWHEEL", "BALANCE", "RIGHT SPIN"], desc: "", stats: [40, 10, 20] },
-  { id: "CLEARWHEEL-LYRA", type: "clearwheel", name: "레이라", en: "Lyra", sub: "클리어휠 · 방어형", color: "#c796d8", tags: ["CLEARWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "", stats: [20, 50, 0] },
-  { id: "CLEARWHEEL-IONIS", type: "clearwheel", name: "이오니스", en: "Ionis", sub: "클리어휠 · 균형형", color: "#79a7d8", tags: ["CLEARWHEEL", "BALANCE", "RIGHT SPIN"], desc: "", stats: [20, 30, 20] },
-  { id: "CLEARWHEEL-UNICORNO-II", type: "clearwheel", name: "유니콘Ⅱ", en: "Unicorno II", sub: "클리어휠 · 공격형", color: "#6fd0ff", tags: ["CLEARWHEEL", "ATTACK", "RIGHT SPIN"], desc: "3개의 커다란 뿔로 상대에게 피해를 입힌다.", stats: [60, 0, 10] },
-  { id: "CLEARWHEEL-ORION", type: "clearwheel", name: "오리온", en: "Orion", sub: "클리어휠 · 지구형", color: "#5fbdd1", tags: ["CLEARWHEEL", "STAMINA", "RIGHT SPIN"], desc: "강한 원심력을 발휘하면서 돌기를 이용하여 상대를 공격한다.", stats: [10, 0, 60] },
-  { id: "CLEARWHEEL-QUETZALCOATL", type: "clearwheel", name: "케찰코아틀", en: "Quetzalcoatl", sub: "클리어휠 · 균형형", color: "#67e8c6", tags: ["CLEARWHEEL", "BALANCE", "RIGHT SPIN"], desc: "외부에 크게 펼쳐진 날개와 같은 모양으로 공격력과 지구력을 겸비하고 있다.", stats: [50, 0, 20] },
-  { id: "CLEARWHEEL-URANUS", type: "clearwheel", name: "우라누스", en: "Uranus", sub: "클리어휠 · 지구형", color: "#8a8190", tags: ["CLEARWHEEL", "STAMINA", "RIGHT SPIN"], desc: "외부에 중심을 둔 소용돌이 모양으로 원심력과 함께 외부 공격력도 겸비하고 있다.", stats: [40, 0, 40] },
-  { id: "CLEARWHEEL-NEMESIS", type: "clearwheel", name: "네메시스", en: "Nemesis", sub: "클리어휠 · 균형형", color: "#605c75", tags: ["CLEARWHEEL", "BALANCE", "RIGHT SPIN"], desc: "물이 흐르는 듯한 날개 모양으로 강한 원심력을 만들어 내면서 상대의 공격을 받아넘긴다.", stats: [10, 20, 40] },
-  { id: "CLEARWHEEL-HADES", type: "clearwheel", name: "하데스", en: "Hades", sub: "클리어휠 · 균형형", color: "#8f73e6", tags: ["CLEARWHEEL", "BALANCE", "RIGHT SPIN"], desc: "2개의 방패 모양 돌출부가 연타공격을 가하고 동시에 효과적인 방어를 수행한다.", stats: [30, 20, 20] },
-  { id: "CLEARWHEEL-BEELZEB", type: "clearwheel", name: "베르제브", en: "Beelzeb", sub: "클리어휠 · 공격형", color: "#b06ad8", tags: ["CLEARWHEEL", "ATTACK", "RIGHT SPIN"], desc: "", stats: [30, 30, 10] },
-  { id: "CLEARWHEEL-DRAGONIS", type: "clearwheel", name: "드라고니스", en: "Dragonis", sub: "클리어휠 · 공격형", color: "#c65a70", tags: ["CLEARWHEEL", "ATTACK", "RIGHT SPIN"], desc: "", stats: [50, 10, 10] },
-  { id: "CLEARWHEEL-CYGNUS", type: "clearwheel", name: "시그너스", en: "Cygnus", sub: "클리어휠 · 균형형", color: "#d7e4ed", tags: ["CLEARWHEEL", "BALANCE", "RIGHT SPIN"], desc: "백조의 양 날개가 부드러운 곡선을 그리며 방어력을 강화한다.", stats: [10, 40, 20] },
-  { id: "CLEARWHEEL-SAGITTARIO-II", type: "clearwheel", name: "사지타리오Ⅱ", en: "Sagittario II", sub: "클리어휠 · 지구형", color: "#ff9f1c", tags: ["CLEARWHEEL", "STAMINA", "RIGHT SPIN"], desc: "4개의 화살촉이 균형있게 배치되어 최적의 지구력을 유지한다.", stats: [20, 10, 40] },
-  { id: "WHEEL-PEGASIS", type: "wheel", name: "페가시스", en: "Pegasis", sub: "휠 · 공격형", color: "#00d9ff", tags: ["WHEEL", "ATTACK", "RIGHT SPIN"], desc: "3개의 날개가 강력한 공격력을 발휘한다.", stats: [50, 10, 10] },
-  { id: "WHEEL-BULL", type: "wheel", name: "불", en: "Bull", sub: "휠 · 균형형", color: "#b88aff", tags: ["WHEEL", "BALANCE", "RIGHT SPIN"], desc: "양쪽의 뿔이 상대를 밑에서 올려치는 어퍼공격과 상대의 공격을 가볍게 피하는 효과를 균형있게 발휘한다.", stats: [30, 20, 20] },
-  { id: "WHEEL-SAGITTARIO", type: "wheel", name: "사지타리오", en: "Sagittario", sub: "휠 · 지구형", color: "#ff9f1c", tags: ["WHEEL", "STAMINA", "RIGHT SPIN"], desc: "중심에서 멀리 떨어져 있는 무거운 2개의 활 모양 날개가 회전력을 높인다.", stats: [10, 20, 40] },
-  { id: "WHEEL-LEONE", type: "wheel", name: "레온", en: "Leone", sub: "휠 · 방어형", color: "#e5ca51", tags: ["WHEEL", "DEFENSE", "RIGHT SPIN"], desc: "무거운 중량으로 적의 공격을 무력화시킨다.", stats: [10, 40, 20] },
-  { id: "WHEEL-QUETZALCOATL", type: "wheel", name: "케찰코아틀", en: "Quetzalcoatl", sub: "휠 · 공격형", color: "#67e8c6", tags: ["WHEEL", "ATTACK", "RIGHT SPIN"], desc: "어퍼와 스매시 쌍방의 특징을 함께 가진 초공격형 휠.", stats: [50, 10, 10] },
-  { id: "WHEEL-WOLF", type: "wheel", name: "울프", en: "Wolf", sub: "휠 · 균형형", color: "#7d8ca3", tags: ["WHEEL", "BALANCE", "RIGHT SPIN"], desc: "위에서의 공격을 되받아치며 측면의 역방향으로 튀어나와있는 갈기로 연타공격을 가한다.", stats: [30, 30, 10] },
-  { id: "WHEEL-ARIES", type: "wheel", name: "아리에스", en: "Aries", sub: "휠 · 방어형", color: "#f2a7c3", tags: ["WHEEL", "DEFENSE", "RIGHT SPIN"], desc: "6개의 강력한 뿔이 상대의 공격을 역으로 되받아친다.", stats: [20, 40, 10] },
-  { id: "WHEEL-LIBRA", type: "wheel", name: "리브라", en: "Libra", sub: "휠 · 지구형", color: "#9ed36a", tags: ["WHEEL", "STAMINA", "RIGHT SPIN"], desc: "원에 가까운 형태로 발군의 안정성을 자랑하고 지구력이 매우 뛰어나다.", stats: [10, 10, 50] },
-  { id: "WHEEL-AQUARIO", type: "wheel", name: "아쿠아리오", en: "Aquario", sub: "휠 · 공격형", color: "#55bde8", tags: ["WHEEL", "ATTACK", "RIGHT SPIN"], desc: "사방으로 펼쳐져 있는 물회오리들이 강력한 공격력을 발휘한다.", stats: [40, 20, 10] },
-  { id: "WHEEL-VIRGO", type: "wheel", name: "비르고", en: "Virgo", sub: "휠 · 지구형", color: "#d8b6e8", tags: ["WHEEL", "STAMINA", "RIGHT SPIN"], desc: "무게중심을 바깥쪽에 배치하여 원심력과 함께 지구력이 뛰어나다.", stats: [20, 20, 40] },
-  { id: "WHEEL-LDRAGO", type: "wheel", name: "엘드라고", en: "L-Drago", sub: "휠 · 공격형", color: "#c65a70", tags: ["WHEEL", "ATTACK", "LEFT SPIN"], desc: "좌회전하는 세 마리 용이 완전히 새로운 공격을 이끌어낸다.", stats: [55, 10, 10] },
-  { id: "WHEEL-ESCOLPIO", type: "wheel", name: "에스콜피오", en: "Escolpio", sub: "휠 · 방어형", color: "#9659c9", tags: ["WHEEL", "DEFENSE", "RIGHT SPIN"], desc: "외곽의 단단한 집게와 꼬리에 둘러싸인 몸체가 철벽 방어를 수행한다.", stats: [10, 60, 10] },
-  { id: "WHEEL-PISCES", type: "wheel", name: "파이시즈", en: "Pisces", sub: "휠 · 지구형", color: "#4fa9cf", tags: ["WHEEL", "STAMINA", "RIGHT SPIN"], desc: "발군의 공격력과 지구력을 겸비. 상어처럼 거침없이 회전한다.", stats: [10, 20, 40] },
-  { id: "WHEEL-GEMIOS", type: "wheel", name: "제미오스", en: "Gemios", sub: "휠 · 균형형", color: "#d37d55", tags: ["WHEEL", "BALANCE", "RIGHT SPIN"], desc: "불꽃덩어리와 얼음덩어리가 번갈아가며 공격을 가한다.", stats: [20, 30, 20] },
-  { id: "WHEEL-CAPRICORNE", type: "wheel", name: "카프리콘", en: "Capricorne", sub: "휠 · 공격형", color: "#d6b75d", tags: ["WHEEL", "ATTACK", "RIGHT SPIN"], desc: "빙 둘러싼 뿔이 상대의 균형을 무너뜨린다.", stats: [20, 30, 20] },
-  { id: "METALWHEEL-STORM", type: "metalwheel", name: "스톰", en: "Storm", sub: "메탈휠 · 공격형", color: "#00d9ff", tags: ["METALWHEEL", "ATTACK", "RIGHT SPIN"], desc: "3개의 날개로 상대의 팽이를 벨 것 같은 강력한 공격력을 펼친다.", stats: [50, 10, 10] },
-  { id: "METALWHEEL-ROCK", type: "metalwheel", name: "로크", en: "Rock", sub: "메탈휠 · 방어형", color: "#b8c3c8", tags: ["METALWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "묵직한 중량을 가진 메탈휠로 적의 공격에도 끄떡없는 방어력을 자랑한다.", stats: [10, 40, 20] },
-  { id: "METALWHEEL-FLAME", type: "metalwheel", name: "플레임", en: "Flame", sub: "메탈휠 · 지구형", color: "#ff9f1c", tags: ["METALWHEEL", "STAMINA", "RIGHT SPIN"], desc: "4면에 장착된 무게추가 강한 원심력을 발생시킨다.", stats: [10, 20, 40] },
-  { id: "METALWHEEL-DARK", type: "metalwheel", name: "다크", en: "Dark", sub: "메탈휠 · 균형형", color: "#b88aff", tags: ["METALWHEEL", "BALANCE", "RIGHT SPIN"], desc: "6개의 톱날로 적을 가르고, 6개의 다른 톱날은 적을 튕겨낸다.", stats: [30, 30, 10] },
-  { id: "LIGHTWHEEL-MAD", type: "lightwheel", name: "매드", en: "Mad", sub: "라이트휠 · 균형형", color: "#d05c7e", tags: ["LIGHTWHEEL", "BALANCE", "RIGHT SPIN"], desc: "", stats: [20, 30, 20] },
-  { id: "LIGHTWHEEL-HEAT", type: "lightwheel", name: "히트", en: "Heat", sub: "라이트휠 · 지구형", color: "#e58b5b", tags: ["LIGHTWHEEL", "STAMINA", "RIGHT SPIN"], desc: "", stats: [10, 20, 40] },
-  { id: "LIGHTWHEEL-CLAY", type: "lightwheel", name: "클레이", en: "Clay", sub: "라이트휠 · 방어형", color: "#ad9678", tags: ["LIGHTWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "", stats: [10, 40, 20] },
-  { id: "LIGHTWHEEL-WIND", type: "lightwheel", name: "윈드", en: "Wind", sub: "라이트휠 · 공격형", color: "#8ccfd1", tags: ["LIGHTWHEEL", "ATTACK", "RIGHT SPIN"], desc: "", stats: [40, 20, 10] },
-  { id: "METALWHEEL-LIGHTNING", type: "metalwheel", name: "라이트닝", en: "Lightning", sub: "메탈휠 · 공격형", color: "#c65a70", tags: ["METALWHEEL", "ATTACK", "LEFT SPIN"], desc: "어퍼와 연타공격이 가능하도록 3개의 톱날을 가진 다재다능한 공격형 휠.", stats: [60, 0, 0] },
-  { id: "METALWHEEL-EARTH", type: "metalwheel", name: "어스", en: "Earth", sub: "메탈휠 · 지구형", color: "#8fb9cb", tags: ["METALWHEEL", "STAMINA", "RIGHT SPIN"], desc: "커다란 날개의 중량이 바깥쪽으로 분배되어 강력한 원심력을 발휘한다.", stats: [10, 10, 50] },
-  { id: "METALWHEEL-COUNTER", type: "metalwheel", name: "카운터", en: "Counter", sub: "메탈휠 · 방어형", color: "#e5ca51", tags: ["METALWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "묵직한 중량으로 적의 공격을 막아내고 기존 레온의 힘을 이어받았다.", stats: [10, 40, 10] },
-  { id: "METALWHEEL-KILLER", type: "metalwheel", name: "키라", en: "Killer", sub: "메탈휠 · 균형형", color: "#d37d55", tags: ["METALWHEEL", "BALANCE", "RIGHT SPIN"], desc: "윗면은 상대의 공격을 가볍게 받아넘기고 바닥면은 공격을 하는 이면성을 가지고 있다.", stats: [40, 20, 10] },
-  { id: "METALWHEEL-CYBER", type: "metalwheel", name: "사이버", en: "Cyber", sub: "메탈휠 · 공격형", color: "#00d9ff", tags: ["METALWHEEL", "ATTACK", "RIGHT SPIN"], desc: "강력한 공격력을 만드는 3개의 날개를 가지고 있고 기존 페가시스의 힘을 이어받았다.", stats: [40, 10, 10] },
-  { id: "METALWHEEL-THERMAL", type: "metalwheel", name: "써멀", en: "Thermal", sub: "메탈휠 · 지구형", color: "#4fa9cf", tags: ["METALWHEEL", "STAMINA", "RIGHT SPIN"], desc: "공기의 저항을 최대한 줄여 거침없이 오랜 시간 동안 회전한다.", stats: [20, 10, 40] },
-  { id: "METALWHEEL-BURN", type: "metalwheel", name: "번", en: "Burn", sub: "메탈휠 · 지구형", color: "#e26b3f", tags: ["METALWHEEL", "STAMINA", "RIGHT SPIN"], desc: "중심부의 무게를 최대한 바깥쪽으로 이동시켜 원심력을 강화하였다.", stats: [10, 20, 40] },
-  { id: "METALWHEEL-POISON", type: "metalwheel", name: "포이즌", en: "Poison", sub: "메탈휠 · 균형형", color: "#6ca86b", tags: ["METALWHEEL", "BALANCE", "RIGHT SPIN"], desc: "방패 모양의 블록으로 적의 공격을 방어하면서 15개의 날개로 빈틈없는 연타공격을 한다.", stats: [30, 30, 10] },
-  { id: "METALWHEEL-MERCURY", type: "metalwheel", name: "머큐리", en: "Mercury", sub: "메탈휠 · 공격형", color: "#8aa5b5", tags: ["METALWHEEL", "ATTACK", "RIGHT SPIN"], desc: "", stats: [60, 10, 0] },
-  { id: "METALWHEEL-INFINITY", type: "metalwheel", name: "인피니티", en: "Infinity", sub: "메탈휠 · 지구형", color: "#b9c8d2", tags: ["METALWHEEL", "STAMINA", "RIGHT SPIN"], desc: "", stats: [10, 10, 40] },
-  { id: "METALWHEEL-GALAXY", type: "metalwheel", name: "갤럭시", en: "Galaxy", sub: "메탈휠 · 공격형", color: "#269dff", tags: ["METALWHEEL", "ATTACK", "RIGHT SPIN"], desc: "굴곡이 있는 3개의 커다란 날개가 강력한 연타공격을 발휘한다.", stats: [60, 10, 0] },
-  { id: "METALWHEEL-RAY", type: "metalwheel", name: "레이", en: "Ray", sub: "메탈휠 · 공격형", color: "#d7e4ed", tags: ["METALWHEEL", "ATTACK", "RIGHT SPIN"], desc: "9개의 돌출된 형태의 휠이 상대에게 강력한 연타공격을 한다.", stats: [40, 10, 20] },
-  { id: "METALWHEEL-GRAVITY", type: "metalwheel", name: "그라비티", en: "Gravity", sub: "메탈휠 · 방어형", color: "#8a8190", tags: ["METALWHEEL", "DEFENSE", "DUAL SPIN"], desc: "양방향회전에 대응하는 휠. 두꺼운 등껍질로 상대의 공격을 방어하고 카운터공격을 한다.", stats: [20, 50, 0] },
-  { id: "METALWHEEL-BAKUSHIN", type: "metalwheel", name: "폭신", en: "Bakushin", sub: "메탈휠 · 공격형", color: "#d9d0bd", tags: ["METALWHEEL", "ATTACK", "RIGHT SPIN"], desc: "큰 경사를 살려 상대의 중심부 깊숙이 침투해 강렬한 공격을 가한다.", stats: [40, 30, 0] },
-  { id: "METALWHEEL-GRAND", type: "metalwheel", name: "그랜드", en: "Grand", sub: "메탈휠 · 방어형", color: "#aeb7bf", tags: ["METALWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "묵직한 중량의 휠로 상대의 공격에도 끄떡없이 흔들리지 않는 방어력을 보여준다.", stats: [20, 40, 10] },
-  { id: "METALWHEEL-SOL", type: "metalwheel", name: "솔", en: "Sol", sub: "메탈휠 · 균형형", color: "#f0b13c", tags: ["METALWHEEL", "BALANCE", "RIGHT SPIN"], desc: "측면은 벽처럼 적의 공격을 막지만 조금이라도 각도가 기울면 연타공격을 가한다.", stats: [40, 30, 0] },
-  { id: "METALWHEEL-METEOR", type: "metalwheel", name: "메테오", en: "Meteo", sub: "메탈휠 · 공격형", color: "#c65a70", tags: ["METALWHEEL", "ATTACK", "LEFT SPIN"], desc: "용의 아랫턱은 일격필살의 공격을, 발톱은 연타공격을 가한다.", stats: [50, 10, 10] },
-  { id: "METALWHEEL-DIVINE", type: "metalwheel", name: "디바인", en: "Divine", sub: "메탈휠 · 균형형", color: "#e4d3a2", tags: ["METALWHEEL", "BALANCE", "RIGHT SPIN"], desc: "", stats: [30, 30, 10] },
-  { id: "METALWHEEL-VULCAN", type: "metalwheel", name: "발칸", en: "Vulcan", sub: "메탈휠 · 방어형", color: "#c6cfd4", tags: ["METALWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "역사다리꼴로 솟아오른 두 개의 큰 날개가 적의 공격으로부터 몸체를 보호한다.", stats: [20, 40, 10] },
-  { id: "METALWHEEL-TORNADO", type: "metalwheel", name: "토네이도", en: "Tornado", sub: "메탈휠 · 공격형", color: "#9fc7d4", tags: ["METALWHEEL", "ATTACK", "RIGHT SPIN"], desc: "톱날 모양의 5개의 날개가 적에게 강한 피해를 입힌다.", stats: [50, 10, 10] },
-  { id: "METALWHEEL-NIGHTMARE", type: "metalwheel", name: "나이트메어", en: "Nightmare", sub: "메탈휠 · 균형형", color: "#605c75", tags: ["METALWHEEL", "BALANCE", "RIGHT SPIN"], desc: "티라노사우루스의 강인한 꼬리를 형상화한 위협적인 24연타 메탈휠.", stats: [40, 40, 0] },
-  { id: "METALWHEEL-HELL", type: "metalwheel", name: "헬", en: "Hell", sub: "메탈휠 · 지구형", color: "#d34d38", tags: ["METALWHEEL", "STAMINA", "RIGHT SPIN"], desc: "기존의 메탈휠 중에서 가장 넓은 메탈휠로 강력한 공격력과 지구력을 겸비.", stats: [30, 0, 40] },
-  { id: "METALWHEEL-SCREW", type: "metalwheel", name: "스크류", en: "Screw", sub: "메탈휠 · 공격형", color: "#b9c4cf", tags: ["METALWHEEL", "ATTACK", "RIGHT SPIN"], desc: "볼륨 있는 곡선 모양의 3개의 날개가 강력한 어퍼공격을 반복한다.", stats: [55, 10, 5] },
-  { id: "METALWHEEL-BASALT", type: "metalwheel", name: "바셀트", en: "Basalt", sub: "메탈휠 · 방어형", color: "#7b7f86", tags: ["METALWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "중심이 기울어져 있어 지구력은 없지만 굉장히 무거워서 방어능력이 뛰어나다.", stats: [0, 70, 0] },
-  { id: "METALWHEEL-BIG-BANG", type: "metalwheel", name: "빅뱅", en: "Big Bang", sub: "메탈휠 · 공격형", color: "#269dff", tags: ["METALWHEEL", "ATTACK", "RIGHT SPIN"], desc: "PC프레임과 코어의 각도를 달리하여 4가지의 공격모드로 전환이 가능하다.", stats: [60, 0, 10] },
-  { id: "METALWHEEL-FANG", type: "metalwheel", name: "팡", en: "Fang", sub: "메탈휠 · 방어형", color: "#e5ca51", tags: ["METALWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "메탈휠을 뒤집어서 디펜스모드와 카운터공격모드로 전환한다.", stats: [20, 50, 0] },
-  { id: "METALWHEEL-LDRAGO-DESTROY", type: "metalwheel", name: "엘드라고 디스트로이", en: "L-Drago Destroy", sub: "메탈휠 · 공격형", color: "#c65a70", tags: ["METALWHEEL", "ATTACK", "LEFT SPIN"], desc: "메탈휠과 코어의 재조합으로 공격모드와 흡수모드로 전환이 가능하다.", stats: [60, 0, 10], extraStats: [{ name: "흡수력", value: 40 }] },
-  { id: "METALWHEEL-BEAT", type: "metalwheel", name: "비트", en: "Beat", sub: "메탈휠 · 균형형", color: "#d8aa4c", tags: ["METALWHEEL", "BALANCE", "RIGHT SPIN"], desc: "PC프레임의 방향을 바꾸면 공격모드와 방어모드의 2가지 모드로 전환된다.", stats: [25, 25, 20] },
-  { id: "METALWHEEL-SCYTHE", type: "metalwheel", name: "사이즈", en: "Scythe", sub: "메탈휠 · 지구형", color: "#9ed36a", tags: ["METALWHEEL", "STAMINA", "RIGHT SPIN"], desc: "PC프레임을 잠글 때는 공격모드, 자유회전시킬 때는 스테미너모드의 2가지 모드로 전환된다.", stats: [20, 0, 50] },
-  { id: "METALWHEEL-VARIARES", type: "metalwheel", name: "베리아레스", en: "Variares", sub: "메탈휠 · 방어형", color: "#7d70d8", tags: ["METALWHEEL", "DEFENSE", "DUAL SPIN"], desc: "고속회전시에는 공격모드, 저회전시에는 방어모드의 2개 모드로 자동전환한다.", stats: [10, 60, 0] },
-  { id: "METALWHEEL-JADE", type: "metalwheel", name: "제이드", en: "Jade", sub: "메탈휠 · 방어형", color: "#b9c8d2", tags: ["METALWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "쇠구슬이 내장된 메탈프레임을 회전시켜 방어모드와 스테미너모드의 2가지 모드로 전환한다.", stats: [0, 50, 20] },
-  { id: "METALWHEEL-FORBIDDEN", type: "metalwheel", name: "포비든", en: "Forbidden", sub: "메탈휠 · 균형형", color: "#605c75", tags: ["METALWHEEL", "BALANCE", "RIGHT SPIN"], desc: "", stats: [30, 0, 40] },
-  { id: "METALWHEEL-BLITZ", type: "metalwheel", name: "브릿츠", en: "Blitz", sub: "메탈휠 · 공격형", color: "#d7e4ed", tags: ["METALWHEEL", "ATTACK", "RIGHT SPIN"], desc: "메탈프레임과 코어의 각도를 바꿔줌에 따라 3개의 날개 강습모드와 6개의 날개 연타모드로 전환된다.", stats: [60, 10, 0] },
-  { id: "METALWHEEL-PHANTOM", type: "metalwheel", name: "팬텀", en: "Phantom", sub: "메탈휠 · 지구형", color: "#8fb9cb", tags: ["METALWHEEL", "STAMINA", "RIGHT SPIN"], desc: "PC프레임을 뒤집어 장착하면 지구모드와 공격모드로 전환이 가능하다.", stats: [20, 0, 50] },
-  { id: "METALWHEEL-DEATH", type: "metalwheel", name: "데쓰", en: "Death", sub: "메탈휠 · 균형형", color: "#7b7f86", tags: ["METALWHEEL", "BALANCE", "RIGHT SPIN"], desc: "거대한 벽과 같은 중압감으로 뒤집으면 공격모드와 방어모드로 전환된다.", stats: [40, 30, 0] },
-  { id: "METALWHEEL-DUO", type: "metalwheel", name: "듀오", en: "Duo", sub: "메탈휠 · 지구형", color: "#aeb7bf", tags: ["METALWHEEL", "STAMINA", "RIGHT SPIN"], desc: "메탈프레임의 중심밸런스를 바꿔낌에 따라 지구모드와 공격모드로 전환이 가능하다.", stats: [30, 40, 0] },
-  { id: "METALWHEEL-WING", type: "metalwheel", name: "윙", en: "Wing", sub: "메탈휠 · 공격형", color: "#79a7d8", tags: ["METALWHEEL", "ATTACK", "RIGHT SPIN"], desc: "메탈프레임과 코어 각도를 바꿈으로써 3가지 공격력모드로 전환이 가능하다.", stats: [60, 10, 0] },
-  { id: "METALWHEEL-LDRAGO-GUARDIAN", type: "metalwheel", name: "엘드라고 가디언", en: "L-Drago Guardian", sub: "메탈휠 · 방어형", color: "#c65a70", tags: ["METALWHEEL", "DEFENSE", "LEFT SPIN"], desc: "갑옷을 씌운 메탈프레임과 코어의 조립으로 방어력이 높은 공격모드와 흡수모드의 전환이 가능하다.", stats: [30, 40, 0] },
-  { id: "METALWHEEL-DIABLO", type: "metalwheel", name: "디아블로", en: "Diablo", sub: "메탈휠 · 균형형", color: "#d34d38", tags: ["METALWHEEL", "BALANCE", "RIGHT SPIN"], desc: "메탈프레임과 코어의 재조합으로 메탈프레임이 고정되는 공격모드와 자유회전하는 극한의밸런스모드의 2가지 패턴으로 모드 전환이 가능하다.", stats: [40, 20, 10] },
-  { id: "METALWHEEL-FUSION", type: "metalwheel", name: "퓨전", en: "Fusion", sub: "메탈휠 · 균형형", color: "#e05c5c", tags: ["METALWHEEL", "BALANCE", "RIGHT SPIN"], desc: "메탈휠과 러버휠을 반전하여 전환하면 방어모드와 밸런스모드로 전환된다.", stats: [20, 30, 20] },
-  { id: "METALWHEEL-CRASH", type: "metalwheel", name: "크래시", en: "Crash", sub: "메탈휠 · 균형형", color: "#b06ad8", tags: ["METALWHEEL", "BALANCE", "RIGHT SPIN"], desc: "", stats: [30, 20, 10] },
-  { id: "METALWHEEL-CLOUD", type: "metalwheel", name: "클라우드", en: "Cloud", sub: "메탈휠 · 방어형", color: "#8aa5b5", tags: ["METALWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "", stats: [10, 30, 20] },
-  { id: "METALWHEEL-OMEGA", type: "metalwheel", name: "오메가", en: "Omega", sub: "메탈휠 · 공격형", color: "#d36b55", tags: ["METALWHEEL", "ATTACK", "RIGHT SPIN"], desc: "", stats: [50, 10, 10] },
-  { id: "METALWHEEL-KREIS", type: "metalwheel", name: "크라이스", en: "Kreis", sub: "메탈휠 · 방어형", color: "#d7e4ed", tags: ["METALWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "백조가 날개짓하듯 방어하는 방어모드와 날개를 고정한 채 공격하는 공격모드로 전환한다.", stats: [10, 50, 10] },
-  { id: "METALWHEEL-FLASH", type: "metalwheel", name: "플래시", en: "Flash", sub: "메탈휠 · 지구형", color: "#ff9f1c", tags: ["METALWHEEL", "STAMINA", "RIGHT SPIN"], desc: "2개의 활과 화살이 중심과 균형을 잡아 원형 상태에서는 지구력을 발휘하고, 타원형 상태에서는 강력한 타격을 적에게 가한다.", stats: [20, 10, 40] },
-  { id: "STONEFACE-IFRAID", type: "stoneface", name: "이프레이드", en: "Ifraid", sub: "스톤페이스", color: "#d34d38", tags: ["STONEFACE"], desc: "이프레이드를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "STONEFACE-SARAMANDA", type: "stoneface", name: "사라만다", en: "Saramanda", sub: "스톤페이스", color: "#e26b3f", tags: ["STONEFACE"], desc: "사라만다를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "STONEFACE-OROJYA", type: "stoneface", name: "오로자", en: "Orojya", sub: "스톤페이스", color: "#6ca86b", tags: ["STONEFACE"], desc: "오로자를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "STONEFACE-PHOENIC", type: "stoneface", name: "피닉", en: "Phoenic", sub: "스톤페이스", color: "#e26b3f", tags: ["STONEFACE"], desc: "피닉을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "STONEFACE-REVIZER", type: "stoneface", name: "리바이저", en: "Revizer", sub: "스톤페이스", color: "#6bb7cf", tags: ["STONEFACE"], desc: "리바이저를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "STONEFACE-GRYPH", type: "stoneface", name: "그리프", en: "Gryph", sub: "스톤페이스", color: "#d6b46a", tags: ["STONEFACE"], desc: "그리프를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "STONEFACE-KRAKEN", type: "stoneface", name: "크라켄", en: "Killerken", sub: "스톤페이스", color: "#4fa9cf", tags: ["STONEFACE"], desc: "크라켄을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "STONEFACE-DRAGOON", type: "stoneface", name: "드래곤", en: "Dragooon", sub: "스톤페이스", color: "#605c75", tags: ["STONEFACE"], desc: "드래곤을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "STONEFACE-GARGOYLE", type: "stoneface", name: "가고일", en: "Gargole", sub: "스톤페이스", color: "#8a8190", tags: ["STONEFACE"], desc: "가고일을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "STONEFACE-GOREIM", type: "stoneface", name: "골렘", en: "Goreim", sub: "스톤페이스", color: "#8a6b50", tags: ["STONEFACE"], desc: "골렘을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "STONEFACE-GENBULL", type: "stoneface", name: "겐블", en: "Genbull", sub: "스톤페이스", color: "#b88aff", tags: ["STONEFACE"], desc: "겐블을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "STONEFACE-BALRO", type: "stoneface", name: "발록", en: "Balro", sub: "스톤페이스", color: "#e05c5c", tags: ["STONEFACE"], desc: "발록을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "STONEFACE-GIRAGO", type: "stoneface", name: "지라고", en: "Girago", sub: "스톤페이스", color: "#67e8c6", tags: ["STONEFACE"], desc: "지라고를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "STONEFACE-WYVANG", type: "stoneface", name: "와이번", en: "Wyvang", sub: "스톤페이스", color: "#7d8ca3", tags: ["STONEFACE"], desc: "와이번을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "STONEFACE-PEGASIS", type: "stoneface", name: "페가시스", en: "Pegasis", sub: "스톤페이스", color: "#00d9ff", tags: ["STONEFACE"], desc: "페가시스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "STONEFACE-BAHAMDIA", type: "stoneface", name: "바함디아", en: "Bahamdia", sub: "스톤페이스", color: "#d0ad4f", tags: ["STONEFACE"], desc: "바함디아를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "CRYSTALWHEEL-WARRIORS", type: "crystalwheel", name: "워리어스", en: "Warriors", sub: "크리스탈휠 · 공격형", color: "#d34d38", tags: ["CRYSTALWHEEL", "ATTACK", "RIGHT SPIN"], desc: "가장자리의 날개로 적을 공격한다.", stats: [60, 0, 10] },
-  { id: "CRYSTALWHEEL-SHINOBI", type: "crystalwheel", name: "시노비", en: "Shinobi", sub: "크리스탈휠 · 균형형", color: "#6ca86b", tags: ["CRYSTALWHEEL", "BALANCE", "RIGHT SPIN"], desc: "4개의 날개가 균형있게 배치되어 지구력을 만들며 공격력도 뛰어나다.", stats: [30, 20, 20] },
-  { id: "CRYSTALWHEEL-PIRATES", type: "crystalwheel", name: "파이레츠", en: "Pirates", sub: "크리스탈휠 · 지구형", color: "#4fa9cf", tags: ["CRYSTALWHEEL", "STAMINA", "RIGHT SPIN"], desc: "갈고리 모양의 돌기가 방어력과 지구력을 상승시킨다.", stats: [10, 30, 30] },
-  { id: "CRYSTALWHEEL-THIEF", type: "crystalwheel", name: "시프", en: "Thief", sub: "크리스탈휠 · 공격형", color: "#7d8ca3", tags: ["CRYSTALWHEEL", "ATTACK", "RIGHT SPIN"], desc: "줄지어 늘어선 칼날 모양이 원심력을 만들고 연타공격을 한다.", stats: [30, 10, 30] },
-  { id: "CRYSTALWHEEL-GUARDIAN", type: "crystalwheel", name: "가디언", en: "Guardian", sub: "크리스탈휠 · 방어형", color: "#6bb7cf", tags: ["CRYSTALWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "방패를 둘러싼 파도 모양의 돌기가 적의 공격을 받아넘긴다.", stats: [10, 40, 20] },
-  { id: "CRYSTALWHEEL-ARCHER", type: "crystalwheel", name: "아처", en: "Archer", sub: "크리스탈휠 · 균형형", color: "#d6b46a", tags: ["CRYSTALWHEEL", "BALANCE", "RIGHT SPIN"], desc: "활과 화살의 형상으로 적의 공격을 방어, 기울어진 중심과 바람구멍이 예측불가능한 의외의 공격을 만든다.", stats: [40, 30, 0] },
-  { id: "CRYSTALWHEEL-DARK-KNIGHT", type: "crystalwheel", name: "다크나이트", en: "Dark Knight", sub: "크리스탈휠 · 공격형", color: "#605c75", tags: ["CRYSTALWHEEL", "ATTACK", "RIGHT SPIN"], desc: "방패의 톱니로 연타공격을 만들고 거대한 창으로 적을 제압한다.", stats: [50, 10, 10] },
-  { id: "CRYSTALWHEEL-BANDIT", type: "crystalwheel", name: "반디드", en: "Bandid", sub: "크리스탈휠 · 방어형", color: "#8a6b50", tags: ["CRYSTALWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "바깥쪽으로 향해 있는 경사면이 적의 공격을 받아넘긴다.", stats: [10, 50, 10] },
-  { id: "CRYSTALWHEEL-BERSERKER", type: "crystalwheel", name: "버서커", en: "Berserker", sub: "크리스탈휠 · 지구형", color: "#7d70d8", tags: ["CRYSTALWHEEL", "STAMINA", "RIGHT SPIN"], desc: "양끝에 배치된 철구슬과 쇠사슬이 바깥중심이 되어 원심력을 강화한다.", stats: [30, 0, 40] },
-  { id: "CRYSTALWHEEL-GLADIATOR", type: "crystalwheel", name: "글레디에이터", en: "Gladiator", sub: "크리스탈휠 · 공격형", color: "#d36b55", tags: ["CRYSTALWHEEL", "ATTACK", "RIGHT SPIN"], desc: "사방으로 향하는 검이 회전함으로써 공격과 방어를 하나로 묶는다.", stats: [30, 20, 10] },
-  { id: "CHROMEWHEEL-IFRAID", type: "chromewheel", name: "이프레이드", en: "Ifraid", sub: "크롬휠 · 공격형", color: "#d34d38", tags: ["CHROMEWHEEL", "ATTACK", "RIGHT SPIN"], desc: "커다란 2개의 날개로 연타공격을 한다.", stats: [50, 10, 10] },
-  { id: "CHROMEWHEEL-SARAMANDA", type: "chromewheel", name: "사라만다", en: "Saramanda", sub: "크롬휠 · 균형형", color: "#e26b3f", tags: ["CHROMEWHEEL", "BALANCE", "RIGHT SPIN"], desc: "지느러미 모양의 돌기가 폭풍과 같은 연타공격을 가한다.", stats: [40, 20, 10] },
-  { id: "CHROMEWHEEL-OROJYA", type: "chromewheel", name: "오로자", en: "Orojya", sub: "크롬휠 · 지구형", color: "#6ca86b", tags: ["CHROMEWHEEL", "STAMINA", "RIGHT SPIN"], desc: "6마리의 뱀을 형상화한 휠의 끝부분이 바깥중심이 되어 강한 원심력을 만든다.", stats: [10, 20, 40] },
-  { id: "CHROMEWHEEL-PHOENIC", type: "chromewheel", name: "피닉", en: "Phoenic", sub: "크롬휠 · 공격형", color: "#e26b3f", tags: ["CHROMEWHEEL", "ATTACK", "RIGHT SPIN"], desc: "3개의 큰 날개로 강력한 공격을 만들어낸다.", stats: [40, 20, 10] },
-  { id: "CHROMEWHEEL-REVIZER", type: "chromewheel", name: "리바이저", en: "Revizer", sub: "크롬휠 · 방어형", color: "#6bb7cf", tags: ["CHROMEWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "휠 바깥둘레의 매끄러운 높은 벽으로 적의 공격을 받아넘겨 방어한다.", stats: [10, 40, 20] },
-  { id: "CHROMEWHEEL-GRYPH", type: "chromewheel", name: "그리프", en: "Gryph", sub: "크롬휠 · 균형형", color: "#d6b46a", tags: ["CHROMEWHEEL", "BALANCE", "RIGHT SPIN"], desc: "5개의 날개로 강습연타공격이 가능하고 동시에 방어력이 뛰어난 휠.", stats: [35, 35, 0] },
-  { id: "CHROMEWHEEL-KRAKEN", type: "chromewheel", name: "크라켄", en: "Killerken", sub: "크롬휠 · 방어형", color: "#4fa9cf", tags: ["CHROMEWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "8개의 커다란 다리가 테두리에 위치하여 적의 공격으로부터 몸체를 보호한다.", stats: [10, 50, 10] },
-  { id: "CHROMEWHEEL-DRAGOON", type: "chromewheel", name: "드래곤", en: "Dragooon", sub: "크롬휠 · 공격형", color: "#605c75", tags: ["CHROMEWHEEL", "ATTACK", "RIGHT SPIN"], desc: "중심이 기울어지도록 배치된 3마리의 용이 연타공격을 만들어내고, 적의 회전력을 약화시킨다.", stats: [60, 5, 5] },
-  { id: "CHROMEWHEEL-GARGOYLE", type: "chromewheel", name: "가고일", en: "Gargole", sub: "크롬휠 · 공격형", color: "#8a8190", tags: ["CHROMEWHEEL", "ATTACK", "RIGHT SPIN"], desc: "좌우의 날개에 있는 틈 사이로 바람을 일으켜 회전력이 상승하고 회전공격을 퍼붓는다.", stats: [40, 10, 20] },
-  { id: "CHROMEWHEEL-GOREIM", type: "chromewheel", name: "골렘", en: "Goreim", sub: "크롬휠 · 방어형", color: "#8a6b50", tags: ["CHROMEWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "갑옷으로 둘러싸인 몸체와 사다리 모양의 휠이 철벽방어를 자랑한다.", stats: [10, 40, 20] },
-  { id: "CHROMEWHEEL-BEGIRADOS", type: "chromewheel", name: "베기라도스", en: "Begirados", sub: "크롬휠 · 지구형", color: "#9ed36a", tags: ["CHROMEWHEEL", "STAMINA", "RIGHT SPIN"], desc: "강력한 원심력과 지구력을 자랑한다.", stats: [20, 10, 40] },
-  { id: "CHROMEWHEEL-GENBULL", type: "chromewheel", name: "겐블", en: "Genbull", sub: "크롬휠 · 지구형", color: "#b88aff", tags: ["CHROMEWHEEL", "STAMINA", "RIGHT SPIN"], desc: "강고한 대칭의 등껍질이 원심력을 만들어내 지구력을 더한다.", stats: [10, 20, 40] },
-  { id: "CHROMEWHEEL-BALRO", type: "chromewheel", name: "발록", en: "Balro", sub: "크롬휠 · 균형형", color: "#e05c5c", tags: ["CHROMEWHEEL", "BALANCE", "RIGHT SPIN"], desc: "", stats: [30, 30, 10] },
-  { id: "CHROMEWHEEL-GIRAGO", type: "chromewheel", name: "지라고", en: "Girago", sub: "크롬휠 · 공격형", color: "#67e8c6", tags: ["CHROMEWHEEL", "ATTACK", "RIGHT SPIN"], desc: "", stats: [50, 10, 10] },
-  { id: "CHROMEWHEEL-WYVANG", type: "chromewheel", name: "와이번", en: "Wyvang", sub: "크롬휠 · 지구형", color: "#7d8ca3", tags: ["CHROMEWHEEL", "STAMINA", "RIGHT SPIN"], desc: "", stats: [0, 20, 50] },
-  { id: "CHROMEWHEEL-PEGASIS", type: "chromewheel", name: "페가시스", en: "Pegasis", sub: "크롬휠 · 공격형", color: "#00d9ff", tags: ["CHROMEWHEEL", "ATTACK", "RIGHT SPIN"], desc: "3장의 크게 튀어나온 날개로 강렬한 공격을 연달아 가하고 적을 추격한다.", stats: [60, 10, 0] },
-  { id: "CHROMEWHEEL-BAHAMDIA", type: "chromewheel", name: "바함디아", en: "Bahamdia", sub: "크롬휠 · 균형형", color: "#d0ad4f", tags: ["CHROMEWHEEL", "BALANCE", "RIGHT SPIN"], desc: "베이 사상 최대급 직경을 가진 크롬휠. 막강한 원심력을 무기로 상대에게 달려든다.", stats: [30, 10, 30] },
-  { id: "TRACK-105", type: "track", name: "105", en: "105", sub: "트랙 · 낮은 높이", color: "#b8c3c8", tags: ["TRACK"], desc: "10.5mm 높이의 트랙. 아래에서의 어퍼공격이 가능하다.", stats: [10, 4, 5] },
-  { id: "TRACK-145", type: "track", name: "145", en: "145", sub: "트랙 · 높은 높이", color: "#ff9f1c", tags: ["TRACK"], desc: "14.5mm 높이의 트랙. 위에서의 스매시공격이 가능하다.", stats: [4, 12, 9] },
-  { id: "TRACK-CLAW-145", type: "track", name: "C145", en: "Claw 145", sub: "트랙 · 클로145", color: "#ff9f1c", tags: ["TRACK"], desc: "자유롭게 움직이는 발톱이 회전력에 의해 펼쳐지며 원심력을 증가시킨다.", stats: [3, 15, 8] },
-  { id: "TRACK-HORN-145", type: "track", name: "H145", en: "Horn 145", sub: "트랙 · 혼145", color: "#b88aff", tags: ["TRACK"], desc: "4개의 날카로운 톱날이 낮은 위치의 적을 공격하고 6개의 평평한 톱날이 적의 공격을 효율적으로 방어한다.", stats: [12, 7, 5] },
-  { id: "TRACK-125", type: "track", name: "125", en: "125", sub: "트랙 · 중간 높이", color: "#b8c3c8", tags: ["TRACK"], desc: "12.5mm 높이의 트랙. 위와 아래 양방향으로 공격과 방어가 가능하다.", stats: [7, 8, 7] },
-  { id: "TRACK-90", type: "track", name: "90", en: "90", sub: "트랙 · 매우 낮은 높이", color: "#67e8c6", tags: ["TRACK"], desc: "90mm 높이의 트랙. 극단적으로 낮은 위치에서의 공격이 가능하다.", stats: [12, 3, 4] },
-  { id: "TRACK-D125", type: "track", name: "D125", en: "Defense 125", sub: "트랙 · 디펜스125", color: "#7d8ca3", tags: ["TRACK"], desc: "측면에 있는 커다란 고리로 상대방이 밑에서 공격하는 것을 방어한다!", stats: [7, 9, 7] },
-  { id: "TRACK-DF145", type: "track", name: "DF145", en: "Down Force 145", sub: "트랙 · 다운포스145", color: "#9ed36a", tags: ["TRACK"], desc: "4개의 날개가 다운포스를 발생시켜 지면에 강하게 접지하고 안정된 회전을 발휘한다.", stats: [5, 8, 12] },
-  { id: "TRACK-100", type: "track", name: "100", en: "100", sub: "트랙 · 낮은 높이", color: "#55bde8", tags: ["TRACK"], desc: "10mm 높이의 트랙. 매우 낮은 위치에서 어퍼공격이 가능하다.", stats: [11, 4, 5] },
-  { id: "TRACK-WD145", type: "track", name: "WD145", en: "Wide Defense 145", sub: "트랙 · 와이드디펜스145", color: "#9659c9", tags: ["TRACK"], desc: "돌기가 달린 3개의 날개가 측면에서의 공격을 보호한다.", stats: [4, 13, 8] },
-  { id: "TRACK-CH120", type: "track", name: "CH120", en: "Change Height 120", sub: "트랙 · 체인지하이트120", color: "#d05c7e", tags: ["TRACK"], desc: "휠, 버텀과 조합한 상태로 배틀 상황에 따라 120과 145의 높이를 조절할 수 있다.", stats: [8, 8, 8] },
-  { id: "TRACK-ED145", type: "track", name: "ED145", en: "Eternal Defense 145", sub: "트랙 · 이터널디펜스145", color: "#f2a7c3", tags: ["TRACK"], desc: "자유롭게 회전하는 방패가 밑에서의 공격을 받아넘겨서 충격을 완화시킨다.", stats: [4, 14, 8] },
-  { id: "TRACK-T125", type: "track", name: "T125", en: "Tornado 125", sub: "트랙 · 토네이도125", color: "#9ed36a", tags: ["TRACK"], desc: "다운포스와 원심력이 균형있게 조화되어 낮은 위치에서 적을 공격한다.", stats: [5, 7, 12] },
-  { id: "TRACK-M145", type: "track", name: "M145", en: "Movement 145", sub: "트랙 · 무브먼트145", color: "#d6b75d", tags: ["TRACK"], desc: "축의 중심을 어긋나게 하여 불규칙한 움직임으로 점프공격을 한다.", stats: [12, 4, 5] },
-  { id: "TRACK-135", type: "track", name: "135", en: "135", sub: "트랙 · 중간 높이", color: "#e26b3f", tags: ["TRACK"], desc: "13.5mm 높이의 트랙. 위에서의 스매시공격에 유리하면서도 균형이 잡혀 있다.", stats: [6, 9, 8] },
-  { id: "TRACK-GB145", type: "track", name: "GB145", en: "Gravity Ball 145", sub: "트랙 · 그라비티볼145", color: "#d8b6e8", tags: ["TRACK"], desc: "고속회전시 쇠구슬이 바깥쪽으로 이동하여 강력한 원심력을 만들고, 저속회전시 안쪽으로 이동하여 회전력을 발생시킨다.", stats: [4, 15, 9] },
-  { id: "TRACK-SW145", type: "track", name: "SW145", en: "Switch 145", sub: "트랙 · 스위치145", color: "#6ca86b", tags: ["TRACK"], desc: "날개의 윗면과 아랫면을 뒤집으면 공격과 방어의 2가지 타입으로 전환된다.", stats: [8, 8, 8] },
-  { id: "TRACK-85", type: "track", name: "85", en: "85", sub: "트랙 · 매우 낮은 높이", color: "#8aa5b5", tags: ["TRACK"], desc: "지면에 달라붙은 초저중심 트랙으로 어퍼공격이 가능하다.", stats: [12, 3, 4] },
-  { id: "TRACK-W105", type: "track", name: "W105", en: "Wing 105", sub: "트랙 · 윙105", color: "#55bde8", tags: ["TRACK"], desc: "낮은 중심으로 다운포스를 가능하게 하여 접지력을 향상시킨다.", stats: [7, 7, 8] },
-  { id: "TRACK-WA130", type: "track", name: "WA130", en: "Wing Attack 130", sub: "트랙 · 윙어택130", color: "#f0b13c", tags: ["TRACK"], desc: "자유롭게 회전하는 날개가 낮은 위치의 적에게 공격을 한다.", stats: [11, 5, 6] },
-  { id: "TRACK-R145", type: "track", name: "R145", en: "Rubber 145", sub: "트랙 · 러버145", color: "#c65a70", tags: ["TRACK"], desc: "고무 소재의 날개가 적의 공격을 흡수하여 피해를 줄여준다.", stats: [4, 14, 7] },
-  { id: "TRACK-AD145", type: "track", name: "AD145", en: "Armor Defense 145", sub: "트랙 · 아머디펜스145", color: "#9aa5ad", tags: ["TRACK"], desc: "갑옷으로 감싸져 있어 상대의 공격에도 피해를 쉽게 받지 않는다.", stats: [4, 14, 8] },
-  { id: "TRACK-S130", type: "track", name: "S130", en: "Shield 130", sub: "트랙 · 실드130", color: "#6bb7cf", tags: ["TRACK"], desc: "저중심인 동시에 옆으로 뻗은 방패로 적의 공격을 효과적으로 방어한다.", stats: [5, 13, 7] },
-  { id: "TRACK-V145", type: "track", name: "V145", en: "Variable 145", sub: "트랙 · 베리어블145", color: "#d6b46a", tags: ["TRACK"], desc: "날개의 각도를 전환하여 공격과 방어를 전환할 수 있다.", stats: [8, 8, 8] },
-  { id: "TRACK-LW105", type: "track", name: "LW105", en: "Left Wing 105", sub: "트랙 · 레프트윙105", color: "#c65a70", tags: ["TRACK"], desc: "3개의 날개를 갖고 있는 낮은 중심의 트랙으로 좌회전시 다운포스를 발휘한다.", stats: [7, 7, 8] },
-  { id: "TRACK-TR145", type: "track", name: "TR145", en: "Triple Roller 145", sub: "트랙 · 트리플롤러145", color: "#7d70d8", tags: ["TRACK"], desc: "", stats: [8, 8, 8] },
-  { id: "TRACK-230", type: "track", name: "230", en: "230", sub: "트랙 · 매우 높은 높이", color: "#b9c8d2", tags: ["TRACK"], desc: "23mm 높이의 트랙. 휠이 직접적인 공격을 받지 않을 정도의 높이를 자랑한다.", stats: [3, 12, 10] },
-  { id: "TRACK-130", type: "track", name: "130", en: "130", sub: "트랙 · 높은 높이", color: "#d7e4ed", tags: ["TRACK"], desc: "13mm 높이의 트랙. 위에서 아래로 공격하는 스매시공격을 가한다.", stats: [8, 7, 7] },
-  { id: "TRACK-DF105", type: "track", name: "DF105", en: "Down Force 105", sub: "트랙 · 다운포스105", color: "#9ed36a", tags: ["TRACK"], desc: "4개의 날개가 좌회전시 강력한 다운포스를 발생시킨다.", stats: [6, 7, 9] },
-  { id: "TRACK-BD145", type: "track", name: "BD145", en: "Boost Disk 145", sub: "트랙 · 부스트디스크145", color: "#d34d38", tags: ["TRACK"], desc: "거대한 원형 부품이 적의 공격을 방어하면서 지구력을 증가시키고 휠과 합체할 수 있다!", stats: [4, 15, 10] },
-  { id: "TRACK-UW145", type: "track", name: "UW145", en: "Upper Wing 145", sub: "트랙 · 어퍼윙145", color: "#79a7d8", tags: ["TRACK"], desc: "날개의 방향을 바꾸어 장착하면 공격과 방어의 2가지 타입으로 전환된다.", stats: [8, 8, 8] },
-  { id: "TRACK-TH170", type: "track", name: "TH170", en: "Triple Height 170", sub: "트랙 · 트리플하이토이170", color: "#8aa5b5", tags: ["TRACK"], desc: "배틀 상대에 따라 3단계로 높이를 조절한다.", stats: [0, 0, 0] },
-  { id: "TRACK-W145", type: "track", name: "W145", en: "Wing 145", sub: "트랙 · 윙145", color: "#55bde8", tags: ["TRACK"], desc: "강력한 다운포스를 발생시켜 안정된 자세를 유지한다.", stats: [0, 0, 0] },
-  { id: "TRACK-160", type: "track", name: "160", en: "160", sub: "트랙 · 높은 높이", color: "#d7e4ed", tags: ["TRACK"], desc: "16mm 높이의 트랙. 요철이 적은 표면으로 적의 공격을 막는다.", stats: [0, 0, 0] },
-  { id: "TRACK-E230", type: "track", name: "E230", en: "Elevator 230", sub: "트랙 · 엘리베이터230", color: "#b9c8d2", tags: ["TRACK"], desc: "고리 부분이 위아래로 움직이며 회전 속도를 제어한다.", stats: [0, 0, 0] },
-  { id: "TRACK-A230", type: "track", name: "A230", en: "Armor 230", sub: "트랙 · 아머230", color: "#9aaab7", tags: ["TRACK"], desc: "휠의 공격을 방어하는 갑옷이 결합되어 직접타격에 잘 견딘다.", stats: [0, 0, 0] },
-  { id: "TRACK-LW160", type: "track", name: "LW160", en: "Left Wing 160", sub: "트랙 · 레프트윙160", color: "#c65a70", tags: ["TRACK"], desc: "6개의 큰 날개로 좌회전 공격에 유효한 다운포스를 만들어낸다.", stats: [0, 0, 0] },
-  { id: "TRACK-SA165", type: "track", name: "SA165", en: "Switch Attack 165", sub: "트랙 · 스위치어택165", color: "#f0b13c", tags: ["TRACK"], desc: "트랙을 위아래로 결합하여 성능이 다른 2개의 공격방법으로 바꿀 수 있다.", stats: [0, 0, 0] },
-  { id: "TRACK-F230", type: "track", name: "F230", en: "Free 230", sub: "트랙 · 프리230", color: "#d8b6e8", tags: ["TRACK"], desc: "자유롭게 회전하는 트랙이 버텀이 지닌 전체적인 지구력을 최대한으로 이끌어낸다.", stats: [0, 0, 0] },
-  { id: "TRACK-SR200", type: "track", name: "SR200", en: "Stamina Ring 200", sub: "트랙 · 스테미너링200", color: "#9ed36a", tags: ["TRACK"], desc: "두껍고 커다란 고리로 높은 원심력과 안정된 회전력을 만들어낸다.", stats: [0, 0, 0] },
-  { id: "TRACK-SP230", type: "track", name: "SP230", en: "Spike 230", sub: "트랙 · 스파이크230", color: "#79a7d8", tags: ["TRACK"], desc: "발톱 모양의 돌기로 제동을 걸어 속도를 제어한다.", stats: [0, 0, 0] },
-  { id: "BOTTOM-FLAT", type: "bottom", name: "F", en: "Flat", sub: "버텀 · 플랫", color: "#00d9ff", tags: ["BOTTOM", "ATTACK"], desc: "축의 끝이 평평하여 기동력과 공격력이 뛰어나다.", stats: [50, 10, 10] },
-  { id: "BOTTOM-SEMI-FLAT", type: "bottom", name: "SF", en: "Semi Flat", sub: "버텀 · 세미플랫", color: "#b88aff", tags: ["BOTTOM", "BALANCE"], desc: "공격력과 지구력을 균형있게 갖추고 있다.", stats: [30, 20, 20] },
-  { id: "BOTTOM-SHARP", type: "bottom", name: "S", en: "Sharp", sub: "버텀 · 샤프", color: "#ff9f1c", tags: ["BOTTOM", "STAMINA"], desc: "축의 끝이 뾰족하여 안전성이 높고 지구력이 뛰어나다.", stats: [10, 20, 40] },
-  { id: "BOTTOM-DEFENSE", type: "bottom", name: "D", en: "Defense", sub: "버텀 · 디펜스", color: "#e5ca51", tags: ["BOTTOM", "DEFENSE"], desc: "공격을 받았을 때 잘 쓰러지지 않고 방어력이 뛰어나다.", stats: [10, 40, 20] },
-  { id: "BOTTOM-WIDE-FLAT", type: "bottom", name: "WF", en: "Wide Flat", sub: "버텀 · 와이드플랫", color: "#67e8c6", tags: ["BOTTOM", "ATTACK"], desc: "접지면적을 확대한 플랫 버텀. 격렬한 기동력과 공격력을 발휘한다.", stats: [50, 10, 10] },
-  { id: "BOTTOM-BALL", type: "bottom", name: "B", en: "Ball", sub: "버텀 · 볼", color: "#7d8ca3", tags: ["BOTTOM", "DEFENSE"], desc: "접지력이 강한 축의 끝을 가지고 있어서 밸런스와 방어력이 우수하다.", stats: [30, 30, 10], modelKey: "BO_B" },
-  { id: "BOTTOM-BALL-SHARP", type: "bottom", name: "BS", en: "Ball Sharp", sub: "버텀 · 볼샤프", color: "#9ed36a", tags: ["BOTTOM", "STAMINA"], desc: "축의 끝부분이 뾰족하여 안전성이 높고 볼 형태로 되어 있어 방어력이 우수하다.", stats: [0, 30, 40], modes: [{ name: "일반", stats: [0, 30, 40] }, { name: "제로G", stats: [0, 50, 20] }] },
-  { id: "BOTTOM-HOLE-FLAT", type: "bottom", name: "HF", en: "Hole Flat", sub: "버텀 · 홀플랫", color: "#55bde8", tags: ["BOTTOM", "ATTACK"], desc: "축의 끝에 구멍을 만들어 마찰저항을 줄이고 기동력과 공격력을 균형있게 갖추고 있다.", stats: [40, 0, 30] },
-  { id: "BOTTOM-FLAT-SHARP", type: "bottom", name: "FS", en: "Flat Sharp", sub: "버텀 · 플랫샤프", color: "#d37d55", tags: ["BOTTOM", "BALANCE"], desc: "축의 끝이 凸 모양으로 되어 있어 스타디움 중심에서는 스테미너형이, 공격시에는 공격형이 되는 양면성을 지녔다.", stats: [30, 10, 30] },
-  { id: "BOTTOM-RUBBER-FLAT", type: "bottom", name: "RF", en: "Rubber Flat", sub: "버텀 · 러버플랫", color: "#00d9ff", tags: ["BOTTOM", "ATTACK"], desc: "고무 소재를 사용하여 기동력과 공격력을 극한으로 증대시켜 격렬하게 이동하며 공격한다.", stats: [50, 10, 10] },
-  { id: "BOTTOM-WIDE-BALL", type: "bottom", name: "WB", en: "Wide Ball", sub: "버텀 · 와이드볼", color: "#e5ca51", tags: ["BOTTOM", "DEFENSE"], desc: "특대의 볼 형태로 강력한 공격에도 흔들리지 않으며 적의 공격을 막아낸다.", stats: [10, 50, 10] },
-  { id: "BOTTOM-HOLE-FLAT-SHARP", type: "bottom", name: "HF/S", en: "Hole Flat Sharp", sub: "버텀 · 홀플랫샤프", color: "#55bde8", tags: ["BOTTOM", "ATTACK", "STAMINA"], desc: "", stats: [40, 0, 30], modes: [{ name: "홀플랫 모드", stats: [40, 0, 30] }, { name: "샤프 모드", stats: [10, 20, 40] }] },
-  { id: "BOTTOM-SEMI-DEFENSE", type: "bottom", name: "SD", en: "Semi Defense", sub: "버텀 · 세미디펜스", color: "#b88aff", tags: ["BOTTOM", "DEFENSE"], desc: "방어력과 지구력을 균형있게 가지고 있다.", stats: [10, 30, 30] },
-  { id: "BOTTOM-WIDE-DEFENSE", type: "bottom", name: "WD", en: "Wide Defense", sub: "버텀 · 와이드디펜스", color: "#8fb9cb", tags: ["BOTTOM", "DEFENSE"], desc: "디펜스 버텀이 더욱 넓어져서 강한 공격에도 끄떡없이 견딘다.", stats: [0, 50, 20] },
-  { id: "BOTTOM-ETERNAL-SHARP", type: "bottom", name: "ES", en: "Eternal Sharp", sub: "버텀 · 이터널샤프", color: "#9ed36a", tags: ["BOTTOM", "STAMINA"], desc: "축의 끝이 자유롭게 회전하여 접지면의 저항을 받지 않고 오랜 시간 회전력을 유지한다.", stats: [0, 20, 50] },
-  { id: "BOTTOM-QUAKE", type: "bottom", name: "Q", en: "Quake", sub: "버텀 · 퀘이크", color: "#d6b75d", tags: ["BOTTOM", "ATTACK"], desc: "작은 점프를 만들어내서 예측불허의 움직임이 가능하다.", stats: [70, 0, 0] },
-  { id: "BOTTOM-METAL-SHARP", type: "bottom", name: "MS", en: "Metal Sharp", sub: "버텀 · 메탈샤프", color: "#e26b3f", tags: ["BOTTOM", "STAMINA"], desc: "축의 끝에 마찰저항이 낮은 금속 소재를 사용하여 최소의 마찰저항으로 강한 지구력을 가진다.", stats: [0, 10, 70] },
-  { id: "BOTTOM-JOG-BALL", type: "bottom", name: "JB", en: "Jog Ball", sub: "버텀 · 조그볼", color: "#9659c9", tags: ["BOTTOM", "DEFENSE"], desc: "울퉁불퉁한 곳에서 더욱 강한 와이드볼 버텀. 스타디움과 한몸이 되어 튕겨내기 어렵다.", stats: [10, 45, 5] },
-  { id: "BOTTOM-EXTREME-FLAT", type: "bottom", name: "XF", en: "Extreme Flat", sub: "버텀 · 익스트림플랫", color: "#67e8c6", tags: ["BOTTOM", "ATTACK"], desc: "접지면적을 확대한 플랫 버텀. 격렬한 기동력과 공격력을 발휘한다.", stats: [60, 10, 0] },
-  { id: "BOTTOM-RIGHT-RUBBER-FLAT", type: "bottom", name: "R²F", en: "Right Rubber Flat", sub: "버텀 · 라이트러버플랫", color: "#00d9ff", tags: ["BOTTOM", "ATTACK"], desc: "회전방향과 반대로 돌출된 고무 돌기가 스타디움을 박차면서 우회전 시 초기동력과 공격력을 발휘한다.", stats: [60, 10, 0] },
-  { id: "BOTTOM-COAT-SHARP", type: "bottom", name: "CS", en: "Coat Sharp", sub: "버텀 · 코트샤프", color: "#55bde8", tags: ["BOTTOM", "ATTACK"], desc: "고무로 코팅된 샤프축이 강력한 기동력과 지칠 줄 모르는 지구력을 발휘한다.", stats: [30, 10, 30] },
-  { id: "BOTTOM-RUBBER-SHARP", type: "bottom", name: "RS", en: "Rubber Sharp", sub: "버텀 · 러버샤프", color: "#c65a70", tags: ["BOTTOM", "DEFENSE"], desc: "끝이 뾰족하게 생긴 고무 소재의 버텀으로 마찰력이 높아 쉽게 튕겨나가지 않는다.", stats: [10, 50, 10] },
-  { id: "BOTTOM-METAL-BALL", type: "bottom", name: "MB", en: "Metal Ball", sub: "버텀 · 메탈볼", color: "#8fb9cb", tags: ["BOTTOM", "DEFENSE"], desc: "축의 끝에 무거운 금속 소재를 사용하여 안정성을 높이면서 마찰저항을 감소시킨다.", stats: [0, 50, 20] },
-  { id: "BOTTOM-AROUND-SHARP", type: "bottom", name: "AS", en: "Around Sharp", sub: "버텀 · 어라운드샤프", color: "#9ed36a", tags: ["BOTTOM", "BALANCE"], desc: "디펜스버텀의 경사 부분이 자유롭게 회전하여 넘어질 것 같아도 끈기있게 회전을 계속한다.", stats: [0, 30, 40] },
-  { id: "BOTTOM-LEFT-FLAT", type: "bottom", name: "LF", en: "Left Flat", sub: "버텀 · 레프트플랫", color: "#c65a70", tags: ["BOTTOM", "ATTACK"], desc: "돌기가 스타디움을 박차면서 좌회전시 초기동력과 공격력을 발휘한다.", stats: [60, 10, 0] },
-  { id: "BOTTOM-POLISH-DEFENSE", type: "bottom", name: "PD", en: "Polish Defense", sub: "버텀 · 포릿슈디펜스", color: "#e5ca51", tags: ["BOTTOM", "DEFENSE"], desc: "디펜스와 와이드디펜스 버텀의 중간 두께로, 윤활성이 높은 POM수지로 만들어져 지구력을 자랑하는 방어형 버텀.", stats: [0, 50, 20] },
-  { id: "BOTTOM-FLAT-BALL", type: "bottom", name: "FB", en: "Flat Ball", sub: "버텀 · 플랫볼", color: "#b88aff", tags: ["BOTTOM", "BALANCE"], desc: "", stats: [30, 30, 10] },
-  { id: "BOTTOM-RUBBER-SEMI-FLAT", type: "bottom", name: "RSF", en: "Rubber Semi Flat", sub: "버텀 · 러버세미플랫", color: "#d37d55", tags: ["BOTTOM", "ATTACK"], desc: "고무의 마찰력과 공격력을 유지하면서도 섬세한 회전으로 연타공격이 가능하다.", stats: [40, 20, 10] },
-  { id: "BOTTOM-LEFT-RUBBER-FLAT", type: "bottom", name: "LRF", en: "Left Rubber Flat", sub: "버텀 · 레프트러버플랫", color: "#c65a70", tags: ["BOTTOM", "ATTACK"], desc: "회전방향과 반대로 돌출된 고무 돌기가 스타디움을 박차면서 좌회전시 초기동력과 공격력을 발휘한다.", stats: [60, 10, 0] },
-  { id: "BOTTOM-DEFENSE-SHARP", type: "bottom", name: "DS", en: "Defense Sharp", sub: "버텀 · 디펜스샤프", color: "#9ed36a", tags: ["BOTTOM", "STAMINA"], desc: "디펜스 축의 모양을 한 샤프 축으로 지구력이 뛰어나고 방어력이 우수하다.", stats: [5, 25, 40] },
-  { id: "BOTTOM-ETERNAL-WIDE-DEFENSE", type: "bottom", name: "EWD", en: "Eternal Wide Defense", sub: "버텀 · 이터널와이드디펜스", color: "#8fb9cb", tags: ["BOTTOM", "STAMINA"], desc: "중앙이 자유롭게 회전하는 버텀으로 강력한 지구력과 방어력을 발휘한다.", stats: [0, 30, 50] },
-  { id: "BOTTOM-METAL-FLAT", type: "bottom", name: "MF", en: "Metal Flat", sub: "버텀 · 메탈플랫", color: "#e26b3f", tags: ["BOTTOM", "ATTACK"], desc: "기동력 있는 플랫축에 마찰저항이 낮은 금속 소재를 사용하여 지구력도 겸비하고 있다.", stats: [50, 0, 20] },
-  { id: "4DBOTTOM-FINAL-DRIVE", type: "fourdbottom", name: "F:D", en: "Final Drive", sub: "4D버텀 · 파이널드라이브", color: "#00d9ff", tags: ["4DBOTTOM", "ATTACK"], desc: "회전력이 떨어지면 세미플랫 축이 러버플랫 축으로 전환되어 급가속으로 회전한다.", stats: [60, 0, 10] },
-  { id: "BOTTOM-WAVE-WIDE-DEFENSE", type: "bottom", name: "W²D", en: "Wave Wide Defense", sub: "버텀 · 웨이브와이드디펜스", color: "#8fb9cb", tags: ["BOTTOM", "DEFENSE"], desc: "접지점의 끝이 점에 가까워서 지구력을 발휘하고 와이드디펜스 버텀에 가까운 모양으로 방어력이 뛰어나다.", stats: [0, 40, 30] },
-  { id: "4DBOTTOM-FINAL-SURVIVE", type: "fourdbottom", name: "F:S", en: "Final Survive", sub: "4D버텀 · 파이널서바이브", color: "#55bde8", tags: ["4DBOTTOM", "ATTACK"], desc: "홀플랫 축으로 격렬하게 회전하다가 적과 부딪히면 샤프 축으로 전환하여 지구력을 높인다.", stats: [40, 0, 30] },
-  { id: "BOTTOM-ETERNAL-DEFENSE-SHARP", type: "bottom", name: "EDS", en: "Eternal Defense Sharp", sub: "버텀 · 이터널디펜스샤프", color: "#9ed36a", tags: ["BOTTOM", "STAMINA"], desc: "중앙이 자유롭게 회전하는 디펜스 축의 넓이를 가진 샤프 축.", stats: [0, 20, 50] },
-  { id: "4DBOTTOM-DELTA-DRIVE", type: "fourdbottom", name: "D:D", en: "Delta Drive", sub: "4D버텀 · 델타드라이브", color: "#b88aff", tags: ["4DBOTTOM", "BALANCE"], desc: "축의 끝이 방어, 지구, 공격의 3가지 모드로 전환된다.", stats: [30, 30, 20] },
-  { id: "BOTTOM-RUBBER-BALL", type: "bottom", name: "RB", en: "Rubber Ball", sub: "버텀 · 러버볼", color: "#c65a70", tags: ["BOTTOM", "STAMINA"], desc: "돔 모양의 형태와 고무의 마찰력으로 쉽게 쓰러지거나 튕겨나가지 않아 방어력이 뛰어나다.", stats: [20, 50, 0] },
-  { id: "4DBOTTOM-BEARING-DRIVE", type: "fourdbottom", name: "B:D", en: "Bearing Drive", sub: "4D버텀 · 베어링드라이브", color: "#9ed36a", tags: ["4DBOTTOM", "STAMINA"], desc: "자유롭게 회전하는 축 안에 베어링을 내장함으로써 마찰을 최소화시켜 최강의 지구력을 발휘한다.", stats: [0, 10, 60] },
-  { id: "BOTTOM-RUBBER-DEFENSE-FLAT", type: "bottom", name: "RDF", en: "Rubber Defense Flat", sub: "버텀 · 러버디펜스플랫", color: "#d37d55", tags: ["BOTTOM", "BALANCE"], desc: "고무의 공격력은 유지한 채 방어력과 지구력을 동시에 겸비한 밸런스형 버텀.", stats: [20, 30, 20] },
-  { id: "4DBOTTOM-X-DRIVE", type: "fourdbottom", name: "X:D", en: "X Drive", sub: "4D버텀 · 엑스드라이브", color: "#d37d55", tags: ["4DBOTTOM", "BALANCE"], desc: "공격모드에서는 익스트림플랫과 샤프 축으로 전환되고, 극한의밸런스모드에서는 익스트림플랫, 스텔스세미디펜스, 샤프 축으로 자동 전환된다.", stats: [30, 20, 20] },
-  { id: "BOTTOM-SHARP-WIDE-DEFENSE", type: "bottom", name: "SWD", en: "Sharp Wide Defense", sub: "버텀 · 샤프와이드디펜스", color: "#8fb9cb", tags: ["BOTTOM", "BALANCE"], desc: "와이드디펜스 버텀의 특징을 가지면서 샤프축으로 지구력을 높여 안정된 균형잡힌 파워를 가지고 있다.", stats: [10, 30, 30] },
-  { id: "BOTTOM-CIRCLE-FLAT", type: "bottom", name: "CF", en: "Circle Flat", sub: "버텀 · 서클플랫", color: "#00d9ff", tags: ["BOTTOM", "ATTACK"], desc: "플랫부분으로 평면을 달리고, 서클부분으로 경사면을 뛰어오르며 거침없이 회전한다.", stats: [50, 10, 10] },
-  { id: "BOTTOM-GEAR-CIRCLE-FLAT", type: "bottom", name: "GCF", en: "Gear Circle Flat", sub: "버텀 · 기어서클플랫", color: "#67e8c6", tags: ["BOTTOM", "ATTACK"], desc: "돌기가 있는 테두리 부분이 속도를 제어하는 역할을 한다.", stats: [40, 20, 10] },
-  { id: "BOTTOM-SHARP-BALL", type: "bottom", name: "SB", en: "Sharp Ball", sub: "버텀 · 샤프볼", color: "#7d8ca3", tags: ["BOTTOM", "DEFENSE"], desc: "쉽게 끌려다니거나 쓰러지지 않는 방어력을 자랑하는 버텀.", stats: [0, 40, 30] },
-  { id: "BOTTOM-JOG-SHARP-BALL", type: "bottom", name: "JSB", en: "Jog Sharp Ball", sub: "버텀 · 조그샤프볼", color: "#9659c9", tags: ["BOTTOM", "DEFENSE"], desc: "쉽게 쓰러지지 않는 샤프축에 요철이 결합되어 마찰력이 상승하고 방어력이 뛰어나다.", stats: [10, 50, 10] },
-  { id: "BOTTOM-BLADE-SEMI-FLAT", type: "bottom", name: "BSF", en: "Blade Semi Flat", sub: "버텀 · 블레이드세미플랫", color: "#55bde8", tags: ["BOTTOM", "ATTACK"], desc: "격렬하게 회전하는 기동력을 가지면서 작은 회전을 잘 살린 연타공격이 가능하며 8개의 날개로 강력한 다운포스를 발생시킨다.", stats: [40, 15, 15] },
-  { id: "BOTTOM-WIDE-SEMI-FLAT", type: "bottom", name: "WSF", en: "Wide Semi Flat", sub: "버텀 · 와이드세미플랫", color: "#b88aff", tags: ["BOTTOM", "ATTACK"], desc: "격렬하게 회전하는 기동성을 가지면서 스타디움을 크게 흔드는 연타공격이 가능하다.", stats: [40, 20, 10] },
-  { id: "BOTTOM-TWIN-BALL", type: "bottom", name: "TB", en: "Twin Ball", sub: "버텀 · 트윈볼", color: "#9ed36a", tags: ["BOTTOM", "STAMINA"], desc: "두 개의 구가 기울어져도 균형을 잃지 않도록 하고 끈질긴 지구력을 발휘한다.", stats: [0, 30, 40] },
-  { id: "BOTTOM-BIG-WIDE-DEFENSE", type: "bottom", name: "BWD", en: "Big Wide Defense", sub: "버텀 · 빅와이드디펜스", color: "#8fb9cb", tags: ["BOTTOM", "STAMINA"], desc: "가장 넓은 디펜스 버텀으로 쉽게 쓰러지지 않고 강력한 지구력을 발휘한다.", stats: [20, 0, 50] },
-  { id: "BOTTOM-GIGA-FLAT", type: "bottom", name: "GF", en: "Giga Flat", sub: "버텀 · 기가플랫", color: "#00d9ff", tags: ["BOTTOM", "ATTACK"], desc: "기동력에 특화되어 위협적인 추진력을 발휘한다.", stats: [60, 10, 0] }
+const items = [
+  { id: "BEY-BB-01-PEGASIS-105F", type: "bey", structure: "basic", name: "페가시스", en: "Pegasis", sub: "105F", productNo: "BB-01", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "WHEEL-PEGASIS", "TRACK-105", "BOTTOM-FLAT"] },
+  { id: "BEY-BB-02-BULL-125SF", type: "bey", structure: "basic", name: "불", en: "Bull", sub: "125SF", productNo: "BB-02", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-BULL", "WHEEL-BULL", "TRACK-125", "BOTTOM-SEMI-FLAT"] },
+  { id: "BEY-BB-03-SAGITTARIO-145S", type: "bey", structure: "basic", name: "사지타리오", en: "Sagittario", sub: "145S", productNo: "BB-03", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-SAGITTARIO", "WHEEL-SAGITTARIO", "TRACK-145", "BOTTOM-SHARP"] },
+  { id: "BEY-BB-04-LEONE-145D", type: "bey", structure: "basic", name: "레온", en: "Leone", sub: "145D", productNo: "BB-04", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-LEONE", "WHEEL-LEONE", "TRACK-145", "BOTTOM-DEFENSE"] },
+  { id: "BEY-BB-05-PEGASIS-145D", type: "bey", structure: "basic", name: "페가시스", en: "Pegasis", sub: "145D", productNo: "BB-05", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "WHEEL-PEGASIS", "TRACK-145", "BOTTOM-DEFENSE"] },
+  { id: "BEY-BB-06-BULL-145S", type: "bey", structure: "basic", name: "불", en: "Bull", sub: "145S", productNo: "BB-06", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-BULL", "WHEEL-BULL", "TRACK-145", "BOTTOM-SHARP"] },
+  { id: "BEY-BB-07-SAGITTARIO-125SF", type: "bey", structure: "basic", name: "사지타리오", en: "Sagittario", sub: "125SF", productNo: "BB-07", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-SAGITTARIO", "WHEEL-SAGITTARIO", "TRACK-125", "BOTTOM-SEMI-FLAT"] },
+  { id: "BEY-BB-08-LEONE-105F", type: "bey", structure: "basic", name: "레온", en: "Leone", sub: "105F", productNo: "BB-08", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-LEONE", "WHEEL-LEONE", "TRACK-105", "BOTTOM-FLAT"] },
+  { id: "BEY-BB-09-PEGASIS-105F", type: "bey", structure: "basic", name: "페가시스", en: "Pegasis", sub: "105F", productNo: "BB-09", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "WHEEL-PEGASIS", "TRACK-105", "BOTTOM-FLAT"] },
+  { id: "BEY-BB-11-WOLF-D125B", type: "bey", structure: "basic", name: "울프", en: "Wolf", sub: "D125B", productNo: "BB-11", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-WOLF", "WHEEL-WOLF", "TRACK-D125", "BOTTOM-BALL"] },
+  { id: "BEY-BB-12-WOLF-105F", type: "bey", structure: "basic", name: "울프", en: "Wolf", sub: "105F", productNo: "BB-12", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-WOLF", "WHEEL-WOLF", "TRACK-105", "BOTTOM-FLAT"] },
+  { id: "BEY-BB-13-ARIES-125D", type: "bey", structure: "basic", name: "아리에스", en: "Aries", sub: "125D", productNo: "BB-13", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-ARIES", "WHEEL-ARIES", "TRACK-125", "BOTTOM-DEFENSE"] },
+  { id: "BEY-BB-13-SAGITTARIO-145F", type: "bey", structure: "basic", name: "사지타리오", en: "Sagittario", sub: "145F", productNo: "BB-13", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-SAGITTARIO", "WHEEL-SAGITTARIO", "TRACK-145", "BOTTOM-FLAT"] },
+  { id: "BEY-BB-13-BULL-105S", type: "bey", structure: "basic", name: "불", en: "Bull", sub: "105S", productNo: "BB-13", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-BULL", "WHEEL-BULL", "TRACK-105", "BOTTOM-SHARP"] },
+  { id: "BEY-BB-13-PEGASIS-145SF", type: "bey", structure: "basic", name: "페가시스", en: "Pegasis", sub: "145SF", productNo: "BB-13", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "WHEEL-PEGASIS", "TRACK-145", "BOTTOM-SEMI-FLAT"] },
+  { id: "BEY-BB-13-LEONE-125S", type: "bey", structure: "basic", name: "레온", en: "Leone", sub: "125S", productNo: "BB-13", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-LEONE", "WHEEL-LEONE", "TRACK-125", "BOTTOM-SHARP"] },
+  { id: "BEY-BB-13-SAGITTARIO-145SF", type: "bey", structure: "basic", name: "사지타리오", en: "Sagittario", sub: "145SF", productNo: "BB-13", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-SAGITTARIO", "WHEEL-SAGITTARIO", "TRACK-145", "BOTTOM-SEMI-FLAT"] },
+  { id: "BEY-BB-13-BULL-105D", type: "bey", structure: "basic", name: "불", en: "Bull", sub: "105D", productNo: "BB-13", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-BULL", "WHEEL-BULL", "TRACK-105", "BOTTOM-DEFENSE"] },
+  { id: "BEY-BB-13-PEGASIS-145F", type: "bey", structure: "basic", name: "페가시스", en: "Pegasis", sub: "145F", productNo: "BB-13", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "WHEEL-PEGASIS", "TRACK-145", "BOTTOM-FLAT"] },
+  { id: "BEY-BB-18-LIBRA-DF145BS", type: "bey", structure: "basic", name: "리브라", en: "Libra", sub: "DF145BS", productNo: "BB-18", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-LIBRA", "WHEEL-LIBRA", "TRACK-DF145", "BOTTOM-BALL-SHARP"] },
+  { id: "BEY-BB-20-WOLF-D125B", type: "bey", structure: "basic", name: "울프", en: "Wolf", sub: "D125B", productNo: "BB-20", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-WOLF", "WHEEL-WOLF", "TRACK-D125", "BOTTOM-BALL"] },
+  { id: "BEY-BB-20-PEGASIS-105F", type: "bey", structure: "basic", name: "페가시스", en: "Pegasis", sub: "105F", productNo: "BB-20", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "WHEEL-PEGASIS", "TRACK-105", "BOTTOM-FLAT"] },
+  { id: "BEY-BB-21-PEGASIS-100HF", type: "bey", structure: "basic", name: "페가시스", en: "Pegasis", sub: "100HF", productNo: "BB-21", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "WHEEL-PEGASIS", "TRACK-100", "BOTTOM-HOLE-FLAT"] },
+  { id: "BEY-BB-21-AQUARIO-105F", type: "bey", structure: "basic", name: "아쿠아리오", en: "Aquario", sub: "105F", productNo: "BB-21", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-AQUARIO", "WHEEL-AQUARIO", "TRACK-105", "BOTTOM-FLAT"] },
+  { id: "BEY-BB-21-WOLF-125SF", type: "bey", structure: "basic", name: "울프", en: "Wolf", sub: "125SF", productNo: "BB-21", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-WOLF", "WHEEL-WOLF", "TRACK-125", "BOTTOM-SEMI-FLAT"] },
+  { id: "BEY-BB-22-VIRGO-DF145BS", type: "bey", structure: "basic", name: "비르고", en: "Virgo", sub: "DF145BS", productNo: "BB-22", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-VIRGO", "WHEEL-VIRGO", "TRACK-DF145", "BOTTOM-BALL-SHARP"] },
+  { id: "BEY-BB-22-LIBRA-145S", type: "bey", structure: "basic", name: "리브라", en: "Libra", sub: "145S", productNo: "BB-22", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-LIBRA", "WHEEL-LIBRA", "TRACK-145", "BOTTOM-SHARP"] },
+  { id: "BEY-BB-22-LEONE-D125B", type: "bey", structure: "basic", name: "레온", en: "Leone", sub: "D125B", productNo: "BB-22", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-LEONE", "WHEEL-LEONE", "TRACK-D125", "BOTTOM-BALL"] },
+  { id: "BEY-BB-23-LDRAGO-105F", type: "bey", structure: "basic", name: "엘드라고", en: "L-Drago", sub: "105F", productNo: "BB-23", tags: ["ATTACK", "LEFT SPIN"], desc: "", parts: ["FACE-LDRAGO", "WHEEL-LDRAGO", "TRACK-105", "BOTTOM-FLAT"] },
+  { id: "BEY-BB-24-ESCOLPIO-WD145B", type: "bey", structure: "basic", name: "에스콜피오", en: "Escolpio", sub: "WD145B", productNo: "BB-24", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-ESCOLPIO", "WHEEL-ESCOLPIO", "TRACK-WD145", "BOTTOM-BALL"] },
+  { id: "BEY-BB-25-PISCES-D125BS", type: "bey", structure: "basic", name: "파이시즈", en: "Pisces", sub: "D125BS", productNo: "BB-25", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-PISCES", "WHEEL-PISCES", "TRACK-D125", "BOTTOM-BALL-SHARP"] },
+  { id: "BEY-BB-25-AQUARIO-DF145SF", type: "bey", structure: "basic", name: "아쿠아리오", en: "Aquario", sub: "DF145SF", productNo: "BB-25", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-AQUARIO", "WHEEL-AQUARIO", "TRACK-DF145", "BOTTOM-SEMI-FLAT"] },
+  { id: "BEY-BB-25-VIRGO-125BS", type: "bey", structure: "basic", name: "비르고", en: "Virgo", sub: "125BS", productNo: "BB-25", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-VIRGO", "WHEEL-VIRGO", "TRACK-125", "BOTTOM-BALL-SHARP"] },
+  { id: "BEY-BB-25-LIBRA-D125HF", type: "bey", structure: "basic", name: "리브라", en: "Libra", sub: "D125HF", productNo: "BB-25", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-LIBRA", "WHEEL-LIBRA", "TRACK-D125", "BOTTOM-HOLE-FLAT"] },
+  { id: "BEY-BB-25-AQUARIO-105B", type: "bey", structure: "basic", name: "아쿠아리오", en: "Aquario", sub: "105B", productNo: "BB-25", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-AQUARIO", "WHEEL-AQUARIO", "TRACK-105", "BOTTOM-BALL"] },
+  { id: "BEY-BB-25-VIRGO-100B", type: "bey", structure: "basic", name: "비르고", en: "Virgo", sub: "100B", productNo: "BB-25", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-VIRGO", "WHEEL-VIRGO", "TRACK-100", "BOTTOM-BALL"] },
+  { id: "BEY-BB-25-LIBRA-100F", type: "bey", structure: "basic", name: "리브라", en: "Libra", sub: "100F", productNo: "BB-25", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-LIBRA", "WHEEL-LIBRA", "TRACK-100", "BOTTOM-FLAT"] },
+  { id: "BEY-BB-25-BULL-DF145HF", type: "bey", structure: "basic", name: "불", en: "Bull", sub: "DF145HF", productNo: "BB-25", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-BULL", "WHEEL-BULL", "TRACK-DF145", "BOTTOM-HOLE-FLAT"] },
+  { id: "BEY-BB-26-GEMIOS-DF145FS", type: "bey", structure: "basic", name: "제미오스", en: "Gemios", sub: "DF145FS", productNo: "BB-26", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-GEMIOS", "WHEEL-GEMIOS", "TRACK-DF145", "BOTTOM-FLAT-SHARP"] },
+  { id: "BEY-BB-27-CAPRICORNE-100HF", type: "bey", structure: "basic", name: "카프리콘", en: "Capricorne", sub: "100HF", productNo: "BB-27", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-CAPRICORNE", "WHEEL-CAPRICORNE", "TRACK-100", "BOTTOM-HOLE-FLAT"] },
+  { id: "BEY-QUETZALCOATL-90WF", type: "bey", structure: "basic", name: "케찰코아틀", en: "Quetzalcoatl", sub: "90WF", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-QUETZALCOATL", "WHEEL-QUETZALCOATL", "TRACK-90", "BOTTOM-WIDE-FLAT"] },
+  { id: "BEY-BB-28-STORM-PEGASIS-105RF", type: "bey", structure: "hybrid", name: "스톰 페가시스", en: "Storm Pegasis", sub: "105RF", productNo: "BB-28", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "CLEARWHEEL-PEGASIS", "METALWHEEL-STORM", "TRACK-105", "BOTTOM-RUBBER-FLAT"] },
+  { id: "BEY-BB-29-DARK-WOLF-DF145FS", type: "bey", structure: "hybrid", name: "다크 울프", en: "Dark Wolf", sub: "DF145FS", productNo: "BB-29", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-WOLF", "CLEARWHEEL-WOLF", "METALWHEEL-DARK", "TRACK-DF145", "BOTTOM-FLAT-SHARP"] },
+  { id: "BEY-BB-30-ROCK-LEONE-145WB", type: "bey", structure: "hybrid", name: "로크 레온", en: "Rock Leone", sub: "145WB", productNo: "BB-30", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-LEONE", "CLEARWHEEL-LEONE", "METALWHEEL-ROCK", "TRACK-145", "BOTTOM-WIDE-BALL"] },
+  { id: "BEY-BB-31-MAD-CANCER-CH120FS", type: "bey", structure: "hybrid", name: "매드 캔서", en: "Mad Cancer", sub: "CH120FS", productNo: "BB-31", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-CANCER", "CLEARWHEEL-CANCER", "LIGHTWHEEL-MAD", "TRACK-CH120", "BOTTOM-FLAT-SHARP"] },
+  { id: "BEY-BB-31-HEAT-PEGASIS-100WB", type: "bey", structure: "hybrid", name: "히트 페가시스", en: "Heat Pegasis", sub: "100WB", productNo: "BB-31", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "CLEARWHEEL-PEGASIS", "LIGHTWHEEL-HEAT", "TRACK-100", "BOTTOM-WIDE-BALL"] },
+  { id: "BEY-BB-31-CLAY-WOLF-145FS", type: "bey", structure: "hybrid", name: "클레이 울프", en: "Clay Wolf", sub: "145FS", productNo: "BB-31", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-WOLF", "CLEARWHEEL-WOLF", "LIGHTWHEEL-CLAY", "TRACK-145", "BOTTOM-FLAT-SHARP"] },
+  { id: "BEY-BB-31-HEAT-WOLF-WD145SF", type: "bey", structure: "hybrid", name: "히트 울프", en: "Heat Wolf", sub: "WD145SF", productNo: "BB-31", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-WOLF", "CLEARWHEEL-WOLF", "LIGHTWHEEL-HEAT", "TRACK-WD145", "BOTTOM-SEMI-FLAT"] },
+  { id: "BEY-BB-31-MAD-LEONE-145B", type: "bey", structure: "hybrid", name: "매드 레온", en: "Mad Leone", sub: "145B", productNo: "BB-31", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-LEONE", "CLEARWHEEL-LEONE", "LIGHTWHEEL-MAD", "TRACK-145", "BOTTOM-BALL"] },
+  { id: "BEY-BB-31-CLAY-LEONE-DF145WB", type: "bey", structure: "hybrid", name: "클레이 레온", en: "Clay Leone", sub: "DF145WB", productNo: "BB-31", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-LEONE", "CLEARWHEEL-LEONE", "LIGHTWHEEL-CLAY", "TRACK-DF145", "BOTTOM-WIDE-BALL"] },
+  { id: "BEY-BB-31-WIND-PEGASIS-DF145B", type: "bey", structure: "hybrid", name: "윈드 페가시스", en: "Wind Pegasis", sub: "DF145B", productNo: "BB-31", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "CLEARWHEEL-PEGASIS", "LIGHTWHEEL-WIND", "TRACK-DF145", "BOTTOM-BALL"] },
+  { id: "BEY-BB-31-WIND-LEONE-D125HF", type: "bey", structure: "hybrid", name: "윈드 레온", en: "Wind Leone", sub: "D125HF", productNo: "BB-31", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-LEONE", "CLEARWHEEL-LEONE", "LIGHTWHEEL-WIND", "TRACK-D125", "BOTTOM-HOLE-FLAT"] },
+  { id: "BEY-BB-32-STORM-PEGASIS-105RF", type: "bey", structure: "hybrid", name: "스톰 페가시스", en: "Storm Pegasis", sub: "105RF", productNo: "BB-32", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "CLEARWHEEL-PEGASIS", "METALWHEEL-STORM", "TRACK-105", "BOTTOM-RUBBER-FLAT"] },
+  { id: "BEY-BB-32-DARK-WOLF-DF145FS", type: "bey", structure: "hybrid", name: "다크 울프", en: "Dark Wolf", sub: "DF145FS", productNo: "BB-32", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-WOLF", "CLEARWHEEL-WOLF", "METALWHEEL-DARK", "TRACK-DF145", "BOTTOM-FLAT-SHARP"] },
+  { id: "BEY-BB-35-FLAME-SAGITTARIO-C145S", type: "bey", structure: "hybrid", name: "플레임 사지타리오", en: "Flame Sagittario", sub: "C145S", productNo: "BB-35", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-SAGITTARIO", "CLEARWHEEL-SAGITTARIO", "METALWHEEL-FLAME", "TRACK-CLAW-145", "BOTTOM-SHARP"] },
+  { id: "BEY-BB-37-WIND-AQUARIO-100HFS", type: "bey", structure: "hybrid", name: "윈드 아쿠아리오", en: "Wind Aquario", sub: "100HF/S", productNo: "BB-37", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-AQUARIO", "CLEARWHEEL-AQUARIO", "LIGHTWHEEL-WIND", "TRACK-100", "BOTTOM-HOLE-FLAT-SHARP"] },
+  { id: "BEY-BB-37-CLAY-WOLF-105B", type: "bey", structure: "hybrid", name: "클레이 울프", en: "Clay Wolf", sub: "105B", productNo: "BB-37", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-WOLF", "CLEARWHEEL-WOLF", "LIGHTWHEEL-CLAY", "TRACK-105", "BOTTOM-BALL"] },
+  { id: "BEY-BB-37-CLAY-SAGITTARIO-145B", type: "bey", structure: "hybrid", name: "클레이 사지타리오", en: "Clay Sagittario", sub: "145B", productNo: "BB-37", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-SAGITTARIO", "CLEARWHEEL-SAGITTARIO", "LIGHTWHEEL-CLAY", "TRACK-145", "BOTTOM-BALL"] },
+  { id: "BEY-BB-37-HEAT-PEGASIS-DF145WB", type: "bey", structure: "hybrid", name: "히트 페가시스", en: "Heat Pegasis", sub: "DF145WB", productNo: "BB-37", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "CLEARWHEEL-PEGASIS", "LIGHTWHEEL-HEAT", "TRACK-DF145", "BOTTOM-WIDE-BALL"] },
+  { id: "BEY-BB-37-HEAT-LEONE-D125FS", type: "bey", structure: "hybrid", name: "히트 레온", en: "Heat Leone", sub: "D125FS", productNo: "BB-37", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-LEONE", "CLEARWHEEL-LEONE", "LIGHTWHEEL-HEAT", "TRACK-D125", "BOTTOM-FLAT-SHARP"] },
+  { id: "BEY-BB-37-MAD-SAGITTARIO-DF145HF", type: "bey", structure: "hybrid", name: "매드 사지타리오", en: "Mad Sagittario", sub: "DF145HF", productNo: "BB-37", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-SAGITTARIO", "CLEARWHEEL-SAGITTARIO", "LIGHTWHEEL-MAD", "TRACK-DF145", "BOTTOM-HOLE-FLAT"] },
+  { id: "BEY-BB-37-MAD-LEONE-145FS", type: "bey", structure: "hybrid", name: "매드 레온", en: "Mad Leone", sub: "145FS", productNo: "BB-37", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-LEONE", "CLEARWHEEL-LEONE", "LIGHTWHEEL-MAD", "TRACK-145", "BOTTOM-FLAT-SHARP"] },
+  { id: "BEY-BB-37-WIND-WOLF-WD145WB", type: "bey", structure: "hybrid", name: "윈드 울프", en: "Wind Wolf", sub: "WD145WB", productNo: "BB-37", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-WOLF", "CLEARWHEEL-WOLF", "LIGHTWHEEL-WIND", "TRACK-WD145", "BOTTOM-WIDE-BALL"] },
+  { id: "BEY-BB-40-DARK-BULL-H145SD", type: "bey", structure: "hybrid", name: "다크 불", en: "Dark Bull", sub: "H145SD", productNo: "BB-40", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-BULL", "CLEARWHEEL-BULL", "METALWHEEL-DARK", "TRACK-HORN-145", "BOTTOM-SEMI-DEFENSE"] },
+  { id: "BEY-BB-43-LIGHTNING-LDRAGO-100HF", type: "bey", structure: "hybrid", name: "라이트닝 엘드라고", en: "Lightning L-Drago", sub: "100HF", productNo: "BB-43", tags: ["ATTACK", "LEFT SPIN"], desc: "", parts: ["FACE-LDRAGO", "CLEARWHEEL-LDRAGO", "METALWHEEL-LIGHTNING", "TRACK-100", "BOTTOM-HOLE-FLAT"] },
+  { id: "BEY-BB-44-STORM-PEGASIS-100RF", type: "bey", structure: "hybrid", name: "스톰 페가시스", en: "Storm Pegasis", sub: "100RF", productNo: "BB-44", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "CLEARWHEEL-PEGASIS", "METALWHEEL-STORM", "TRACK-100", "BOTTOM-RUBBER-FLAT"] },
+  { id: "BEY-BB-44-ROCK-WOLF-H145B", type: "bey", structure: "hybrid", name: "로크 울프", en: "Rock Wolf", sub: "H145B", productNo: "BB-44", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-WOLF", "CLEARWHEEL-WOLF", "METALWHEEL-ROCK", "TRACK-HORN-145", "BOTTOM-BALL"] },
+  { id: "BEY-BB-44-DARK-LEONE-C145B", type: "bey", structure: "hybrid", name: "다크 레온", en: "Dark Leone", sub: "C145B", productNo: "BB-44", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-LEONE", "CLEARWHEEL-LEONE", "METALWHEEL-DARK", "TRACK-CLAW-145", "BOTTOM-BALL"] },
+  { id: "BEY-BB-44-FLAME-WOLF-H145S", type: "bey", structure: "hybrid", name: "플레임 울프", en: "Flame Wolf", sub: "H145S", productNo: "BB-44", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-WOLF", "CLEARWHEEL-WOLF", "METALWHEEL-FLAME", "TRACK-HORN-145", "BOTTOM-SHARP"] },
+  { id: "BEY-BB-44-STORM-SAGITTARIO-145SD", type: "bey", structure: "hybrid", name: "스톰 사지타리오", en: "Storm Sagittario", sub: "145SD", productNo: "BB-44", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-SAGITTARIO", "CLEARWHEEL-SAGITTARIO", "METALWHEEL-STORM", "TRACK-145", "BOTTOM-SEMI-DEFENSE"] },
+  { id: "BEY-BB-44-ROCK-BULL-WD145HF", type: "bey", structure: "hybrid", name: "로크 불", en: "Rock Bull", sub: "WD145HF", productNo: "BB-44", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-BULL", "CLEARWHEEL-BULL", "METALWHEEL-ROCK", "TRACK-WD145", "BOTTOM-HOLE-FLAT"] },
+  { id: "BEY-BB-44-DARK-SAGITTARIO-WD145SD", type: "bey", structure: "hybrid", name: "다크 사지타리오", en: "Dark Sagittario", sub: "WD145SD", productNo: "BB-44", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-SAGITTARIO", "CLEARWHEEL-SAGITTARIO", "METALWHEEL-DARK", "TRACK-WD145", "BOTTOM-SEMI-DEFENSE"] },
+  { id: "BEY-BB-44-FLAME-BULL-105WB", type: "bey", structure: "hybrid", name: "플레임 불", en: "Flame Bull", sub: "105WB", productNo: "BB-44", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-BULL", "CLEARWHEEL-BULL", "METALWHEEL-FLAME", "TRACK-105", "BOTTOM-WIDE-BALL"] },
+  { id: "BEY-BB-45-CLAY-ARIES-ED145B", type: "bey", structure: "hybrid", name: "클레이 아리에스", en: "Clay Aries", sub: "ED145B", productNo: "BB-45", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-ARIES", "CLEARWHEEL-ARIES", "LIGHTWHEEL-CLAY", "TRACK-ED145", "BOTTOM-BALL"] },
+  { id: "BEY-BB-45-CLAY-PEGASIS-145S", type: "bey", structure: "hybrid", name: "클레이 페가시스", en: "Clay Pegasis", sub: "145S", productNo: "BB-45", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "CLEARWHEEL-PEGASIS", "LIGHTWHEEL-CLAY", "TRACK-145", "BOTTOM-SHARP"] },
+  { id: "BEY-BB-45-MAD-SAGITTARIO-C145SD", type: "bey", structure: "hybrid", name: "매드 사지타리오", en: "Mad Sagittario", sub: "C145SD", productNo: "BB-45", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-SAGITTARIO", "CLEARWHEEL-SAGITTARIO", "LIGHTWHEEL-MAD", "TRACK-CLAW-145", "BOTTOM-SEMI-DEFENSE"] },
+  { id: "BEY-BB-45-HEAT-BULL-D125WB", type: "bey", structure: "hybrid", name: "히트 불", en: "Heat Bull", sub: "D125WB", productNo: "BB-45", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-BULL", "CLEARWHEEL-BULL", "LIGHTWHEEL-HEAT", "TRACK-D125", "BOTTOM-WIDE-BALL"] },
+  { id: "BEY-BB-45-WIND-WOLF-H145D", type: "bey", structure: "hybrid", name: "윈드 울프", en: "Wind Wolf", sub: "H145D", productNo: "BB-45", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-WOLF", "CLEARWHEEL-WOLF", "LIGHTWHEEL-WIND", "TRACK-HORN-145", "BOTTOM-DEFENSE"] },
+  { id: "BEY-BB-45-HEAT-LEONE-H145S", type: "bey", structure: "hybrid", name: "히트 레온", en: "Heat Leone", sub: "H145S", productNo: "BB-45", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-LEONE", "CLEARWHEEL-LEONE", "LIGHTWHEEL-HEAT", "TRACK-HORN-145", "BOTTOM-SHARP"] },
+  { id: "BEY-BB-45-MAD-BULL-C145HF", type: "bey", structure: "hybrid", name: "매드 불", en: "Mad Bull", sub: "C145HF", productNo: "BB-45", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-BULL", "CLEARWHEEL-BULL", "LIGHTWHEEL-MAD", "TRACK-CLAW-145", "BOTTOM-HOLE-FLAT"] },
+  { id: "BEY-BB-45-WIND-SAGITTARIO-100SD", type: "bey", structure: "hybrid", name: "윈드 사지타리오", en: "Wind Sagittario", sub: "100SD", productNo: "BB-45", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-SAGITTARIO", "CLEARWHEEL-SAGITTARIO", "LIGHTWHEEL-WIND", "TRACK-100", "BOTTOM-SEMI-DEFENSE"] },
+  { id: "BEY-BB-47-EARTH-AQUILA-145WD", type: "bey", structure: "hybrid", name: "어스 아쿠이라", en: "Earth Aquila", sub: "145WD", productNo: "BB-47", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-AQUILA", "CLEARWHEEL-AQUILA", "METALWHEEL-EARTH", "TRACK-145", "BOTTOM-WIDE-DEFENSE"] },
+  { id: "BEY-BB-48-FLAME-LIBRA-T125ES", type: "bey", structure: "hybrid", name: "플레임 리브라", en: "Flame Libra", sub: "T125ES", productNo: "BB-48", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-LIBRA", "CLEARWHEEL-LIBRA", "METALWHEEL-FLAME", "TRACK-T125", "BOTTOM-ETERNAL-SHARP"] },
+  { id: "BEY-BB-50-STORM-CAPRICORNE-M145Q", type: "bey", structure: "hybrid", name: "스톰 카프리콘", en: "Storm Capricorne", sub: "M145Q", productNo: "BB-50", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-CAPRICORNE", "CLEARWHEEL-CAPRICORNE", "METALWHEEL-STORM", "TRACK-M145", "BOTTOM-QUAKE"] },
+  { id: "BEY-BB-51-ROCK-ORSO-D125B", type: "bey", structure: "hybrid", name: "로크 오르소", en: "Rock Orso", sub: "D125B", productNo: "BB-51", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-ORSO", "CLEARWHEEL-ORSO", "METALWHEEL-ROCK", "TRACK-D125", "BOTTOM-BALL"] },
+  { id: "BEY-BB-55-DARK-CANCER-CH120SF", type: "bey", structure: "hybrid", name: "다크 캔서", en: "Dark Cancer", sub: "CH120SF", productNo: "BB-55", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-CANCER", "CLEARWHEEL-CANCER", "METALWHEEL-DARK", "TRACK-CH120", "BOTTOM-SEMI-FLAT"] },
+  { id: "BEY-BB-56-DARK-CAPRICORNE-105RF", type: "bey", structure: "hybrid", name: "다크 카프리콘", en: "Dark Capricorne", sub: "105RF", productNo: "BB-56", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-CAPRICORNE", "CLEARWHEEL-CAPRICORNE", "METALWHEEL-DARK", "TRACK-105", "BOTTOM-RUBBER-FLAT"] },
+  { id: "BEY-BB-56-KILLER-GEMIOS-DF145FS", type: "bey", structure: "hybrid", name: "키라 제미오스", en: "Killer Gemios", sub: "DF145FS", productNo: "BB-56", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-GEMIOS", "CLEARWHEEL-GEMIOS", "METALWHEEL-KILLER", "TRACK-DF145", "BOTTOM-FLAT-SHARP"] },
+  { id: "BEY-BB-56-STORM-AQUARIO-M145Q", type: "bey", structure: "hybrid", name: "스톰 아쿠아리오", en: "Storm Aquario", sub: "M145Q", productNo: "BB-56", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-AQUARIO", "CLEARWHEEL-AQUARIO", "METALWHEEL-STORM", "TRACK-M145", "BOTTOM-QUAKE"] },
+  { id: "BEY-BB-57-FLAME-LIBRA-DF145BS", type: "bey", structure: "hybrid", name: "플레임 리브라", en: "Flame Libra", sub: "DF145BS", productNo: "BB-57", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-LIBRA", "CLEARWHEEL-LIBRA", "METALWHEEL-FLAME", "TRACK-DF145", "BOTTOM-BALL-SHARP"] },
+  { id: "BEY-BB-57-THERMAL-PISCES-T125ES", type: "bey", structure: "hybrid", name: "써멀 파이시즈", en: "Thermal Pisces", sub: "T125ES", productNo: "BB-57", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-PISCES", "CLEARWHEEL-PISCES", "METALWHEEL-THERMAL", "TRACK-T125", "BOTTOM-ETERNAL-SHARP"] },
+  { id: "BEY-BB-57-ROCK-ARIES-145D", type: "bey", structure: "hybrid", name: "로크 아리에스", en: "Rock Aries", sub: "145D", productNo: "BB-57", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-ARIES", "CLEARWHEEL-ARIES", "METALWHEEL-ROCK", "TRACK-145", "BOTTOM-DEFENSE"] },
+  { id: "BEY-CYBER-PEGASIS-100HF", type: "bey", structure: "hybrid", name: "사이버 페가시스", en: "Cyber Pegasis", sub: "100HF", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "CLEARWHEEL-PEGASIS", "METALWHEEL-CYBER", "TRACK-100", "BOTTOM-HOLE-FLAT"] },
+  { id: "BEY-BB-59-BURN-PHOENIX-135MS", type: "bey", structure: "hybrid", name: "번 피닉스", en: "Burn Phoenix", sub: "135MS", productNo: "BB-59", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-PHOENIX", "CLEARWHEEL-PHOENIX", "METALWHEEL-BURN", "TRACK-135", "BOTTOM-METAL-SHARP"] },
+  { id: "BEY-BB-60-EARTH-VIRGO-GB145BS", type: "bey", structure: "hybrid", name: "어스 비르고", en: "Earth Virgo", sub: "GB145BS", productNo: "BB-60", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-VIRGO", "CLEARWHEEL-VIRGO", "METALWHEEL-EARTH", "TRACK-GB145", "BOTTOM-BALL-SHARP"] },
+  { id: "BEY-BB-60-EARTH-CANCER-DF145ES", type: "bey", structure: "hybrid", name: "어스 캔서", en: "Earth Cancer", sub: "DF145ES", productNo: "BB-60", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-CANCER", "CLEARWHEEL-CANCER", "METALWHEEL-EARTH", "TRACK-DF145", "BOTTOM-ETERNAL-SHARP"] },
+  { id: "BEY-BB-60-FLAME-CAPRICORNE-T125HF", type: "bey", structure: "hybrid", name: "플레임 카프리콘", en: "Flame Capricorne", sub: "T125HF", productNo: "BB-60", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-CAPRICORNE", "CLEARWHEEL-CAPRICORNE", "METALWHEEL-FLAME", "TRACK-T125", "BOTTOM-HOLE-FLAT"] },
+  { id: "BEY-BB-60-FLAME-AQUILA-100ES", type: "bey", structure: "hybrid", name: "플레임 아쿠이라", en: "Flame Aquila", sub: "100ES", productNo: "BB-60", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-AQUILA", "CLEARWHEEL-AQUILA", "METALWHEEL-FLAME", "TRACK-100", "BOTTOM-ETERNAL-SHARP"] },
+  { id: "BEY-BB-60-ROCK-CAPRICORNE-T125D", type: "bey", structure: "hybrid", name: "로크 카프리콘", en: "Rock Capricorne", sub: "T125D", productNo: "BB-60", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-CAPRICORNE", "CLEARWHEEL-CAPRICORNE", "METALWHEEL-ROCK", "TRACK-T125", "BOTTOM-DEFENSE"] },
+  { id: "BEY-BB-60-ROCK-LIBRA-100WD", type: "bey", structure: "hybrid", name: "로크 리브라", en: "Rock Libra", sub: "100WD", productNo: "BB-60", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-LIBRA", "CLEARWHEEL-LIBRA", "METALWHEEL-ROCK", "TRACK-100", "BOTTOM-WIDE-DEFENSE"] },
+  { id: "BEY-BB-60-STORM-AQUILA-145HF", type: "bey", structure: "hybrid", name: "스톰 아쿠이라", en: "Storm Aquila", sub: "145HF", productNo: "BB-60", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-AQUILA", "CLEARWHEEL-AQUILA", "METALWHEEL-STORM", "TRACK-145", "BOTTOM-HOLE-FLAT"] },
+  { id: "BEY-BB-60-STORM-LIBRA-145S", type: "bey", structure: "hybrid", name: "스톰 리브라", en: "Storm Libra", sub: "145S", productNo: "BB-60", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-LIBRA", "CLEARWHEEL-LIBRA", "METALWHEEL-STORM", "TRACK-145", "BOTTOM-SHARP"] },
+  { id: "BEY-BB-65-ROCK-SCORPIO-T125JB", type: "bey", structure: "hybrid", name: "로크 에스콜피오", en: "Rock Escolpio", sub: "T125JB", productNo: "BB-65", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-ESCOLPIO", "CLEARWHEEL-SCORPIO", "METALWHEEL-ROCK", "TRACK-T125", "BOTTOM-JOG-BALL"] },
+  { id: "BEY-BB-69-POISON-SERPENT-SW145SD", type: "bey", structure: "hybrid", name: "포이즌 서펜트", en: "Poison Serpent", sub: "SW145SD", productNo: "BB-69", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-SERPENT", "CLEARWHEEL-SERPENT", "METALWHEEL-POISON", "TRACK-SW145", "BOTTOM-SEMI-DEFENSE"] },
+  { id: "BEY-MERCURY-ANUBIUS-85XF", type: "bey", structure: "hybrid", name: "머큐리 아누비우스", en: "Mercury Anubius", sub: "85XF", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-ANUBIUS", "CLEARWHEEL-ANUBIUS", "METALWHEEL-MERCURY", "TRACK-85", "BOTTOM-EXTREME-FLAT"] },
+  { id: "BEY-BB-70-GALAXY-PEGASIS-W105R2F", type: "bey", structure: "hybrid", name: "갤럭시 페가시스", en: "Galaxy Pegasis", sub: "W105R²F", productNo: "BB-70", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "CLEARWHEEL-PEGASIS", "METALWHEEL-GALAXY", "TRACK-W105", "BOTTOM-RIGHT-RUBBER-FLAT"] },
+  { id: "BEY-BB-71-RAY-UNICORNO-D125CS", type: "bey", structure: "hybrid", name: "레이 유니콘", en: "Ray Unicorno", sub: "D125CS", productNo: "BB-71", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-UNICORNO", "CLEARWHEEL-UNICORNO", "METALWHEEL-RAY", "TRACK-D125", "BOTTOM-COAT-SHARP"] },
+  { id: "BEY-BB-72-AQUARIO-105F", type: "bey", structure: "basic", name: "아쿠아리오", en: "Aquario", sub: "105F", productNo: "BB-72", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-AQUARIO", "WHEEL-AQUARIO", "TRACK-105", "BOTTOM-FLAT"] },
+  { id: "BEY-BB-74-THERMAL-LACERTA-WA130HF", type: "bey", structure: "hybrid", name: "써멀 라체르타", en: "Thermal Lacerta", sub: "WA130HF", productNo: "BB-74", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-LACERTA", "CLEARWHEEL-LACERTA", "METALWHEEL-THERMAL", "TRACK-WA130", "BOTTOM-HOLE-FLAT"] },
+  { id: "BEY-BB-75-ROCK-ORSO-ED145D", type: "bey", structure: "hybrid", name: "로크 오르소", en: "Rock Orso", sub: "ED145D", productNo: "BB-75", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-ORSO", "CLEARWHEEL-ORSO", "METALWHEEL-ROCK", "TRACK-ED145", "BOTTOM-DEFENSE"] },
+  { id: "BEY-BB-75-GALAXY-PEGASIS-W105R2F", type: "bey", structure: "hybrid", name: "갤럭시 페가시스", en: "Galaxy Pegasis", sub: "W105R²F", productNo: "BB-75", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "CLEARWHEEL-PEGASIS", "METALWHEEL-GALAXY", "TRACK-W105", "BOTTOM-RIGHT-RUBBER-FLAT"] },
+  { id: "BEY-BB-75-EARTH-VIRGO-T125ES", type: "bey", structure: "hybrid", name: "어스 비르고", en: "Earth Virgo", sub: "T125ES", productNo: "BB-75", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-VIRGO", "CLEARWHEEL-VIRGO", "METALWHEEL-EARTH", "TRACK-T125", "BOTTOM-ETERNAL-SHARP"] },
+  { id: "BEY-BB-76-GALAXY-PEGASIS-W105R2F", type: "bey", structure: "hybrid", name: "갤럭시 페가시스", en: "Galaxy Pegasis", sub: "W105R²F", productNo: "BB-76", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "CLEARWHEEL-PEGASIS", "METALWHEEL-GALAXY", "TRACK-W105", "BOTTOM-RIGHT-RUBBER-FLAT"] },
+  { id: "BEY-BB-78-ROCK-GIRAFFE-R145WB", type: "bey", structure: "hybrid", name: "로크 기라프", en: "Rock Giraffe", sub: "R145WB", productNo: "BB-78", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-GIRAFFE", "CLEARWHEEL-GIRAFFE", "METALWHEEL-ROCK", "TRACK-R145", "BOTTOM-WIDE-BALL"] },
+  { id: "BEY-BB-80-GRAVITY-PERSEUS-AD145WD", type: "bey", structure: "hybrid", name: "그라비티 페르세우스", en: "Gravity Perseus", sub: "AD145WD", productNo: "BB-80", tags: ["DEFENSE", "DUAL SPIN"], desc: "", parts: ["FACE-PERSEUS", "CLEARWHEEL-PERSEUS", "METALWHEEL-GRAVITY", "TRACK-AD145", "BOTTOM-WIDE-DEFENSE"] },
+  { id: "BEY-BB-82-GRAND-KETOS-WD145RS", type: "bey", structure: "hybrid", name: "그랜드 케토스", en: "Grand Ketos", sub: "WD145RS", productNo: "BB-82", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-KETOS", "CLEARWHEEL-KETOS", "METALWHEEL-GRAND", "TRACK-WD145", "BOTTOM-RUBBER-SHARP"] },
+  { id: "BEY-BB-82-GRAND-KETOS-T125RS", type: "bey", structure: "hybrid", name: "그랜드 케토스", en: "Grand Ketos", sub: "T125RS", productNo: "BB-82", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-KETOS", "CLEARWHEEL-KETOS", "METALWHEEL-GRAND", "TRACK-T125", "BOTTOM-RUBBER-SHARP"] },
+  { id: "BEY-BB-82-BURN-UNICORNO-SW145JB", type: "bey", structure: "hybrid", name: "번 유니콘", en: "Burn Unicorno", sub: "SW145JB", productNo: "BB-82", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-UNICORNO", "CLEARWHEEL-UNICORNO", "METALWHEEL-BURN", "TRACK-SW145", "BOTTOM-JOG-BALL"] },
+  { id: "BEY-BB-82-POISON-UNICORNO-130HF", type: "bey", structure: "hybrid", name: "포이즌 유니콘", en: "Poison Unicorno", sub: "130HF", productNo: "BB-82", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-UNICORNO", "CLEARWHEEL-UNICORNO", "METALWHEEL-POISON", "TRACK-130", "BOTTOM-HOLE-FLAT"] },
+  { id: "BEY-BB-82-STORM-PHOENIX-130B", type: "bey", structure: "hybrid", name: "스톰 피닉스", en: "Storm Phoenix", sub: "130B", productNo: "BB-82", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PHOENIX", "CLEARWHEEL-PHOENIX", "METALWHEEL-STORM", "TRACK-130", "BOTTOM-BALL"] },
+  { id: "BEY-BB-82-POISON-PHOENIX-WA130SD", type: "bey", structure: "hybrid", name: "포이즌 피닉스", en: "Poison Phoenix", sub: "WA130SD", productNo: "BB-82", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-PHOENIX", "CLEARWHEEL-PHOENIX", "METALWHEEL-POISON", "TRACK-WA130", "BOTTOM-SEMI-DEFENSE"] },
+  { id: "BEY-BB-82-BURN-SERPENT-WA130ES", type: "bey", structure: "hybrid", name: "번 서펜트", en: "Burn Serpent", sub: "WA130ES", productNo: "BB-82", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-SERPENT", "CLEARWHEEL-SERPENT", "METALWHEEL-BURN", "TRACK-WA130", "BOTTOM-ETERNAL-SHARP"] },
+  { id: "BEY-BB-82-STORM-SERPENT-T125HF", type: "bey", structure: "hybrid", name: "스톰 서펜트", en: "Storm Serpent", sub: "T125HF", productNo: "BB-82", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-SERPENT", "CLEARWHEEL-SERPENT", "METALWHEEL-STORM", "TRACK-T125", "BOTTOM-HOLE-FLAT"] },
+  { id: "BEY-BB-83-PISCES-DF145BS", type: "bey", structure: "basic", name: "파이시즈", en: "Pisces", sub: "DF145BS", productNo: "BB-83", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-PISCES", "WHEEL-PISCES", "TRACK-DF145", "BOTTOM-BALL-SHARP"] },
+  { id: "BEY-BB-86-COUNTER-SCORPIO-145D", type: "bey", structure: "hybrid", name: "카운터 에스콜피오", en: "Counter Escolpio", sub: "145D", productNo: "BB-86", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-ESCOLPIO", "CLEARWHEEL-SCORPIO", "METALWHEEL-COUNTER", "TRACK-145", "BOTTOM-DEFENSE"] },
+  { id: "BEY-BB-86-CYBER-AQUARIO-105F", type: "bey", structure: "hybrid", name: "사이버 아쿠아리오", en: "Cyber Aquario", sub: "105F", productNo: "BB-86", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-AQUARIO", "CLEARWHEEL-AQUARIO", "METALWHEEL-CYBER", "TRACK-105", "BOTTOM-FLAT"] },
+  { id: "BEY-BB-86-POISON-GIRAFFE-S130MB", type: "bey", structure: "hybrid", name: "포이즌 기라프", en: "Poison Giraffe", sub: "S130MB", productNo: "BB-86", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-GIRAFFE", "CLEARWHEEL-GIRAFFE", "METALWHEEL-POISON", "TRACK-S130", "BOTTOM-METAL-BALL"] },
+  { id: "BEY-SOL-BLAZE-V145AS", type: "bey", structure: "hybrid", name: "솔 블레이즈", en: "Sol Blaze", sub: "V145AS", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-BLAZE", "CLEARWHEEL-BLAZE", "METALWHEEL-SOL", "TRACK-V145", "BOTTOM-AROUND-SHARP"] },
+  { id: "BEY-BB-88-METEO-LDRAGO-LW105LF", type: "bey", structure: "hybrid", name: "메테오 엘드라고", en: "Meteo L-Drago", sub: "LW105LF", productNo: "BB-88", tags: ["ATTACK", "LEFT SPIN"], desc: "", parts: ["FACE-LDRAGO", "CLEARWHEEL-LDRAGO-II", "METALWHEEL-METEOR", "TRACK-LW105", "BOTTOM-LEFT-FLAT"] },
+  { id: "BEY-BB-89-ARIES-145D", type: "bey", structure: "basic", name: "아리에스", en: "Aries", sub: "145D", productNo: "BB-89", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-ARIES", "WHEEL-ARIES", "TRACK-145", "BOTTOM-DEFENSE"] },
+  { id: "BEY-DIVINE-CHIMERA-TR145FB", type: "bey", structure: "hybrid", name: "디바인 키메라", en: "Divine Chimera", sub: "TR145FB", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-CHIMERA", "CLEARWHEEL-CHIMERA", "METALWHEEL-DIVINE", "TRACK-TR145", "BOTTOM-FLAT-BALL"] },
+  { id: "BEY-BB-P01-VULCAN-HORUSEUS-145D", type: "bey", structure: "hybrid", name: "발칸 호르세우스", en: "Vulcan Horuseus", sub: "145D", productNo: "BB-P01", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-HORUSEUS", "CLEARWHEEL-HORUSEUS", "METALWHEEL-VULCAN", "TRACK-145", "BOTTOM-DEFENSE"] },
+  { id: "BEY-BB-91-RAY-KILL-100RSF", type: "bey", structure: "hybrid", name: "레이 킬", en: "Ray Keel", sub: "100RSF", productNo: "BB-91", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-KILL", "CLEARWHEEL-KILL", "METALWHEEL-RAY", "TRACK-100", "BOTTOM-RUBBER-SEMI-FLAT"] },
+  { id: "BEY-BB-92-GALAXY-PEGASIS-W105R2F", type: "bey", structure: "hybrid", name: "갤럭시 페가시스", en: "Galaxy Pegasis", sub: "W105R²F", productNo: "BB-92", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "CLEARWHEEL-PEGASIS", "METALWHEEL-GALAXY", "TRACK-W105", "BOTTOM-RIGHT-RUBBER-FLAT"] },
+  { id: "BEY-BB-93-RAY-UNICORNO-D125CS", type: "bey", structure: "hybrid", name: "레이 유니콘", en: "Ray Unicorno", sub: "D125CS", productNo: "BB-93", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-UNICORNO", "CLEARWHEEL-UNICORNO", "METALWHEEL-RAY", "TRACK-D125", "BOTTOM-COAT-SHARP"] },
+  { id: "BEY-BB-94-TORNADO-HERCULEO-105F", type: "bey", structure: "hybrid", name: "토네이도 헤라클레오", en: "Tornado Herculeo", sub: "105F", productNo: "BB-94", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-HERCULEO", "CLEARWHEEL-HERCULEO", "METALWHEEL-TORNADO", "TRACK-105", "BOTTOM-FLAT"] },
+  { id: "BEY-BB-95-FLAME-BYXIS-230WD", type: "bey", structure: "hybrid", name: "플레임 픽시스", en: "Flame Byxis", sub: "230WD", productNo: "BB-95", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-BYXIS", "CLEARWHEEL-BYXIS", "METALWHEEL-FLAME", "TRACK-230", "BOTTOM-WIDE-DEFENSE"] },
+  { id: "BEY-BB-96-PEGASIS-85RF", type: "bey", structure: "basic", name: "페가시스", en: "Pegasis", sub: "85RF", productNo: "BB-96", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "WHEEL-PEGASIS", "TRACK-85", "BOTTOM-RUBBER-FLAT"] },
+  { id: "BEY-BB-96-LIBRA-100D", type: "bey", structure: "basic", name: "리브라", en: "Libra", sub: "100D", productNo: "BB-96", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-LIBRA", "WHEEL-LIBRA", "TRACK-100", "BOTTOM-DEFENSE"] },
+  { id: "BEY-BB-96-BURN-CANCER-90WD", type: "bey", structure: "hybrid", name: "번 캔서", en: "Burn Cancer", sub: "90WD", productNo: "BB-96", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-CANCER", "CLEARWHEEL-CANCER", "METALWHEEL-BURN", "TRACK-90", "BOTTOM-WIDE-DEFENSE"] },
+  { id: "BEY-NIGHTMARE-REX-SW145SD", type: "bey", structure: "hybrid", name: "나이트메어 렉스", en: "Nightmare Rex", sub: "SW145SD", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-REX", "CLEARWHEEL-REX", "METALWHEEL-NIGHTMARE", "TRACK-SW145", "BOTTOM-SEMI-DEFENSE"] },
+  { id: "BEY-BB-99-HELL-KERBECS-BD145DS", type: "bey", structure: "hybrid", name: "헬 켈베로스", en: "Hell Kerbecs", sub: "BD145DS", productNo: "BB-99", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-KERBECS", "CLEARWHEEL-KERBECS", "METALWHEEL-HELL", "TRACK-BD145", "BOTTOM-DEFENSE-SHARP"] },
+  { id: "BEY-BB-100-KILLER-BEAFOWL-UW145EWD", type: "bey", structure: "hybrid", name: "키라 비폴", en: "Killer Beafowl", sub: "UW145EWD", productNo: "BB-100", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-BEAFOWL", "CLEARWHEEL-BEAFOWL", "METALWHEEL-KILLER", "TRACK-UW145", "BOTTOM-ETERNAL-WIDE-DEFENSE"] },
+  { id: "BEY-BB-100-GALAXY-CANCER-D125HF", type: "bey", structure: "hybrid", name: "갤럭시 캔서", en: "Galaxy Cancer", sub: "D125HF", productNo: "BB-100", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-CANCER", "CLEARWHEEL-CANCER", "METALWHEEL-GALAXY", "TRACK-D125", "BOTTOM-HOLE-FLAT"] },
+  { id: "BEY-BB-100-BURN-SCORPIO-100RF", type: "bey", structure: "hybrid", name: "번 에스콜피오", en: "Burn Escolpio", sub: "100RF", productNo: "BB-100", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-ESCOLPIO", "CLEARWHEEL-SCORPIO", "METALWHEEL-BURN", "TRACK-100", "BOTTOM-RUBBER-FLAT"] },
+  { id: "BEY-BB-100-FLAME-GEMIOS-105CS", type: "bey", structure: "hybrid", name: "플레임 제미오스", en: "Flame Gemios", sub: "105CS", productNo: "BB-100", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-GEMIOS", "CLEARWHEEL-GEMIOS", "METALWHEEL-FLAME", "TRACK-105", "BOTTOM-COAT-SHARP"] },
+  { id: "BEY-BB-100-KILLER-SCORPIO-100D", type: "bey", structure: "hybrid", name: "키라 에스콜피오", en: "Killer Escolpio", sub: "100D", productNo: "BB-100", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-ESCOLPIO", "CLEARWHEEL-SCORPIO", "METALWHEEL-KILLER", "TRACK-100", "BOTTOM-DEFENSE"] },
+  { id: "BEY-BB-100-GALAXY-SAGITTARIO-145CS", type: "bey", structure: "hybrid", name: "갤럭시 사지타리오", en: "Galaxy Sagittario", sub: "145CS", productNo: "BB-100", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-SAGITTARIO", "CLEARWHEEL-SAGITTARIO", "METALWHEEL-GALAXY", "TRACK-145", "BOTTOM-COAT-SHARP"] },
+  { id: "BEY-BB-100-FLAME-CANCER-D125RF", type: "bey", structure: "hybrid", name: "플레임 캔서", en: "Flame Cancer", sub: "D125RF", productNo: "BB-100", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-CANCER", "CLEARWHEEL-CANCER", "METALWHEEL-FLAME", "TRACK-D125", "BOTTOM-RUBBER-FLAT"] },
+  { id: "BEY-BB-100-BURN-SAGITTARIO-105HF", type: "bey", structure: "hybrid", name: "번 사지타리오", en: "Burn Sagittario", sub: "105HF", productNo: "BB-100", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-SAGITTARIO", "CLEARWHEEL-SAGITTARIO", "METALWHEEL-BURN", "TRACK-105", "BOTTOM-HOLE-FLAT"] },
+  { id: "BEY-BB-102-SCREW-CAPRICORNE-90MF", type: "bey", structure: "hybrid", name: "스크류 카프리콘", en: "Screw Capricorne", sub: "90MF", productNo: "BB-102", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-CAPRICORNE", "CLEARWHEEL-CAPRICORNE", "METALWHEEL-SCREW", "TRACK-90", "BOTTOM-METAL-FLAT"] },
+  { id: "BEY-BB-104-BASALT-HOROGIUM-145WD", type: "bey", structure: "hybrid", name: "바셀트 호로지움", en: "Basalt Horogium", sub: "145WD", productNo: "BB-104", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-HOROGIUM", "CLEARWHEEL-HOROGIUM", "METALWHEEL-BASALT", "TRACK-145", "BOTTOM-WIDE-DEFENSE"] },
+  { id: "BEY-BB-105-BIG-BANG-PEGASIS-FD", type: "bey", structure: "4d", name: "빅뱅 페가시스", en: "Big Bang Pegasis", sub: "F:D", productNo: "BB-105", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "CLEARWHEEL-PEGASIS-III", "METALWHEEL-BIG-BANG", "4DBOTTOM-FINAL-DRIVE"] },
+  { id: "BEY-BB-106-FANG-LEONE-130W2D", type: "bey", structure: "4d", name: "팡 레온", en: "Fang Leone", sub: "130W²D", productNo: "BB-106", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-LEONE", "CLEARWHEEL-LEONE-II", "METALWHEEL-FANG", "TRACK-130", "BOTTOM-WAVE-WIDE-DEFENSE"] },
+  { id: "BEY-BB-107-BIG-BANG-PEGASIS-FD", type: "bey", structure: "4d", name: "빅뱅 페가시스", en: "Big Bang Pegasis", sub: "F:D", productNo: "BB-107", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "CLEARWHEEL-PEGASIS-III", "METALWHEEL-BIG-BANG", "4DBOTTOM-FINAL-DRIVE"] },
+  { id: "BEY-BB-108-LDRAGO-DESTROY-FS", type: "bey", structure: "4d", name: "엘드라고 디스트로이", en: "L-Drago Destroy", sub: "F:S", productNo: "BB-108", tags: ["ATTACK", "LEFT SPIN"], desc: "", parts: ["FACE-LDRAGO", "METALWHEEL-LDRAGO-DESTROY", "4DBOTTOM-FINAL-SURVIVE"] },
+  { id: "BEY-BB-109-BEAT-LYNX-TH170WD", type: "bey", structure: "4d", name: "비트 링크스", en: "Beat Lynx", sub: "TH170WD", productNo: "BB-109", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-LYNX", "CLEARWHEEL-LYNX", "METALWHEEL-BEAT", "TRACK-TH170", "BOTTOM-WIDE-DEFENSE"] },
+  { id: "BEY-BB-109-GRAVITY-PERSEUS-BD145XF", type: "bey", structure: "hybrid", name: "그라비티 페르세우스", en: "Gravity Perseus", sub: "BD145XF", productNo: "BB-109", tags: ["ATTACK", "DUAL SPIN"], desc: "", parts: ["FACE-PERSEUS", "CLEARWHEEL-PERSEUS-ATTACK", "METALWHEEL-GRAVITY", "TRACK-BD145", "BOTTOM-EXTREME-FLAT"] },
+  { id: "BEY-BB-109-HELL-HORUSEUS-85RS", type: "bey", structure: "hybrid", name: "헬 호르세우스", en: "Hell Horuseus", sub: "85RS", productNo: "BB-109", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-HORUSEUS", "CLEARWHEEL-HORUSEUS", "METALWHEEL-HELL", "TRACK-85", "BOTTOM-RUBBER-SHARP"] },
+  { id: "BEY-BB-109-VULCAN-HERCULEO-130DS", type: "bey", structure: "hybrid", name: "발칸 헤라클레오", en: "Vulcan Herculeo", sub: "130DS", productNo: "BB-109", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-HERCULEO", "CLEARWHEEL-HERCULEO", "METALWHEEL-VULCAN", "TRACK-130", "BOTTOM-DEFENSE-SHARP"] },
+  { id: "BEY-BB-109-GRAVITY-PERSEUS-85DS", type: "bey", structure: "hybrid", name: "그라비티 페르세우스", en: "Gravity Perseus", sub: "85DS", productNo: "BB-109", tags: ["STAMINA", "DUAL SPIN"], desc: "", parts: ["FACE-PERSEUS", "CLEARWHEEL-PERSEUS-STAMINA", "METALWHEEL-GRAVITY", "TRACK-85", "BOTTOM-DEFENSE-SHARP"] },
+  { id: "BEY-BB-109-TORNADO-HORUSEUS-130RSF", type: "bey", structure: "hybrid", name: "토네이도 호르세우스", en: "Tornado Horuseus", sub: "130RSF", productNo: "BB-109", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-HORUSEUS", "CLEARWHEEL-HORUSEUS", "METALWHEEL-TORNADO", "TRACK-130", "BOTTOM-RUBBER-SEMI-FLAT"] },
+  { id: "BEY-BB-109-HELL-HERCULEO-100XF", type: "bey", structure: "hybrid", name: "헬 헤라클레오", en: "Hell Herculeo", sub: "100XF", productNo: "BB-109", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-HERCULEO", "CLEARWHEEL-HERCULEO", "METALWHEEL-HELL", "TRACK-100", "BOTTOM-EXTREME-FLAT"] },
+  { id: "BEY-BB-109-VULCAN-HOROGIUM-BD145RS", type: "bey", structure: "hybrid", name: "발칸 호로지움", en: "Vulcan Horogium", sub: "BD145RS", productNo: "BB-109", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-HOROGIUM", "CLEARWHEEL-HOROGIUM", "METALWHEEL-VULCAN", "TRACK-BD145", "BOTTOM-RUBBER-SHARP"] },
+  { id: "BEY-BB-113-SCYTHE-KRONOS-T125EDS", type: "bey", structure: "4d", name: "사이즈 크로노스", en: "Scythe Kronos", sub: "T125EDS", productNo: "BB-113", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-KRONOS", "CLEARWHEEL-KRONOS", "METALWHEEL-SCYTHE", "TRACK-T125", "BOTTOM-ETERNAL-DEFENSE-SHARP"] },
+  { id: "BEY-BB-114-VARIARES-DD", type: "bey", structure: "4d", name: "베리아레스", en: "Variares", sub: "D:D", productNo: "BB-114", tags: ["DEFENSE", "DUAL SPIN"], desc: "", parts: ["FACE-VARIARES", "METALWHEEL-VARIARES", "4DBOTTOM-DELTA-DRIVE"] },
+  { id: "BEY-BB-116-JADE-JUPITER-S130RB", type: "bey", structure: "4d", name: "제이드 쥬피터", en: "Jade Jupiter", sub: "S130RB", productNo: "BB-116", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-JUPITER", "CLEARWHEEL-JUPITER", "METALWHEEL-JADE", "TRACK-S130", "BOTTOM-RUBBER-BALL"] },
+  { id: "BEY-BB-116-FORBIDDEN-EONIS-ED145FB", type: "bey", structure: "hybrid", name: "포비든 이오니스", en: "Forbidden Eonis", sub: "ED145FB", productNo: "BB-116", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-IONIS", "CLEARWHEEL-IONIS", "METALWHEEL-FORBIDDEN", "TRACK-ED145", "BOTTOM-FLAT-BALL"] },
+  { id: "BEY-BB-116-DIVINE-FOX-90W2D", type: "bey", structure: "hybrid", name: "디바인 폭스", en: "Divine Fox", sub: "90W²D", productNo: "BB-116", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-FOX", "CLEARWHEEL-FOX", "METALWHEEL-DIVINE", "TRACK-90", "BOTTOM-WAVE-WIDE-DEFENSE"] },
+  { id: "BEY-BB-116-SCREW-LYRA-ED145MF", type: "bey", structure: "hybrid", name: "스크류 레이라", en: "Screw Lyra", sub: "ED145MF", productNo: "BB-116", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-LYRA", "CLEARWHEEL-LYRA", "METALWHEEL-SCREW", "TRACK-ED145", "BOTTOM-METAL-FLAT"] },
+  { id: "BEY-BB-116-FORBIDDEN-EONIS-130D", type: "bey", structure: "hybrid", name: "포비든 이오니스", en: "Forbidden Eonis", sub: "130D", productNo: "BB-116", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-IONIS", "CLEARWHEEL-IONIS", "METALWHEEL-FORBIDDEN", "TRACK-130", "BOTTOM-DEFENSE"] },
+  { id: "BEY-BB-116-DIVINE-CROWN-TR145D", type: "bey", structure: "hybrid", name: "디바인 크라운", en: "Divine Crown", sub: "TR145D", productNo: "BB-116", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-CROWN", "CLEARWHEEL-CROWN", "METALWHEEL-DIVINE", "TRACK-TR145", "BOTTOM-DEFENSE"] },
+  { id: "BEY-BB-116-SCREW-FOX-TR145W2D", type: "bey", structure: "hybrid", name: "스크류 폭스", en: "Screw Fox", sub: "TR145W²D", productNo: "BB-116", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-FOX", "CLEARWHEEL-FOX", "METALWHEEL-SCREW", "TRACK-TR145", "BOTTOM-WAVE-WIDE-DEFENSE"] },
+  { id: "BEY-BB-116-HELL-CROWN-130FB", type: "bey", structure: "hybrid", name: "헬 크라운", en: "Hell Crown", sub: "130FB", productNo: "BB-116", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-CROWN", "CLEARWHEEL-CROWN", "METALWHEEL-HELL", "TRACK-130", "BOTTOM-FLAT-BALL"] },
+  { id: "BEY-BB-117-BLITZ-UNICORNO-100RSF", type: "bey", structure: "4d", name: "브릿츠 유니콘", en: "Blitz Unicorno", sub: "100RSF", productNo: "BB-117", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-UNICORNO", "CLEARWHEEL-UNICORNO-II", "METALWHEEL-BLITZ", "TRACK-100", "BOTTOM-RUBBER-SEMI-FLAT"] },
+  { id: "BEY-BB-117-NIGHTMARE-REX-UW145EWD", type: "bey", structure: "hybrid", name: "나이트메어 렉스", en: "Nightmare Rex", sub: "UW145EWD", productNo: "BB-117", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-REX", "CLEARWHEEL-REX", "METALWHEEL-NIGHTMARE", "TRACK-UW145", "BOTTOM-ETERNAL-WIDE-DEFENSE"] },
+  { id: "BEY-BB-117-BASALT-HOROGIUM-130RS", type: "bey", structure: "hybrid", name: "바셀트 호로지움", en: "Basalt Horogium", sub: "130RS", productNo: "BB-117", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-HOROGIUM", "CLEARWHEEL-HOROGIUM", "METALWHEEL-BASALT", "TRACK-130", "BOTTOM-RUBBER-SHARP"] },
+  { id: "BEY-BB-118-PHANTOM-ORION-BD", type: "bey", structure: "4d", name: "팬텀 오리온", en: "Phantom Orion", sub: "B:D", productNo: "BB-118", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-ORION", "CLEARWHEEL-ORION", "METALWHEEL-PHANTOM", "4DBOTTOM-BEARING-DRIVE"] },
+  { id: "BEY-BB-119-DEATH-QUETZALCOATL-125RDF", type: "bey", structure: "4d", name: "데쓰 케찰코아틀", en: "Death Quetzalcoatl", sub: "125RDF", productNo: "BB-119", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-QUETZALCOATL", "CLEARWHEEL-QUETZALCOATL", "METALWHEEL-DEATH", "TRACK-125", "BOTTOM-RUBBER-DEFENSE-FLAT"] },
+  { id: "BEY-BB-120-PROTOTYPE-NEMESIS", type: "bey", structure: "4d", name: "프로토타입 네메시스", en: "Prototype Nemesis", sub: "", productNo: "BB-120", tags: ["BALANCE", "DUAL SPIN"], desc: "", parts: [] },
+  { id: "BEY-BB-121-DUO-URANUS-230WD", type: "bey", structure: "4d", name: "듀오 우라누스", en: "Duo Uranus", sub: "230WD", productNo: "BB-121", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-URANUS", "CLEARWHEEL-URANUS", "METALWHEEL-DUO", "TRACK-230", "BOTTOM-WIDE-DEFENSE"] },
+  { id: "BEY-BB-121-LDRAGO-GUARDIAN-S130MB", type: "bey", structure: "4d", name: "엘드라고 가디언", en: "L-Drago Guardian", sub: "S130MB", productNo: "BB-121", tags: ["DEFENSE", "LEFT SPIN"], desc: "", parts: ["FACE-LDRAGO", "METALWHEEL-LDRAGO-GUARDIAN", "TRACK-S130", "BOTTOM-METAL-BALL"] },
+  { id: "BEY-BB-121-WING-PEGASIS-90WF", type: "bey", structure: "4d", name: "윙 페가시스", en: "Wing Pegasis", sub: "90WF", productNo: "BB-121", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-PEGASIS", "CLEARWHEEL-PEGASIS-III", "METALWHEEL-WING", "TRACK-90", "BOTTOM-WIDE-FLAT"] },
+  { id: "BEY-BB-122-DIABLO-NEMESIS-XD", type: "bey", structure: "4d", name: "디아블로 네메시스", en: "Diablo Nemesis", sub: "X:D", productNo: "BB-122", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-NEMESIS", "CLEARWHEEL-NEMESIS", "METALWHEEL-DIABLO", "4DBOTTOM-X-DRIVE"] },
+  { id: "BEY-BB-123-FUSION-HADES-AD145SWD", type: "bey", structure: "4d", name: "퓨전 하데스", en: "Fusion Hades", sub: "AD145SWD", productNo: "BB-123", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-HADES", "CLEARWHEEL-HADES", "METALWHEEL-FUSION", "TRACK-AD145", "BOTTOM-SHARP-WIDE-DEFENSE"] },
+  { id: "BEY-BB-123-HELL-BEELZEB-125XF", type: "bey", structure: "hybrid", name: "헬 베르제브", en: "Hell Beelzeb", sub: "125XF", productNo: "BB-123", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-BEELZEB", "CLEARWHEEL-BEELZEB", "METALWHEEL-HELL", "TRACK-125", "BOTTOM-EXTREME-FLAT"] },
+  { id: "BEY-BB-123-CLOUD-LYRA-85SF", type: "bey", structure: "hybrid", name: "클라우드 레이라", en: "Cloud Lyra", sub: "85SF", productNo: "BB-123", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-LYRA", "CLEARWHEEL-LYRA", "METALWHEEL-CLOUD", "TRACK-85", "BOTTOM-SEMI-FLAT"] },
+  { id: "BEY-BB-123-CLOUD-GEMIOS-T125SF", type: "bey", structure: "hybrid", name: "클라우드 제미오스", en: "Cloud Gemios", sub: "T125SF", productNo: "BB-123", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-GEMIOS", "CLEARWHEEL-GEMIOS", "METALWHEEL-CLOUD", "TRACK-T125", "BOTTOM-SEMI-FLAT"] },
+  { id: "BEY-BB-123-CRASH-ESCOLPIO-125JB", type: "bey", structure: "hybrid", name: "크래시 에스콜피오", en: "Crash Escolpio", sub: "125JB", productNo: "BB-123", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["FACE-ESCOLPIO", "CLEARWHEEL-SCORPIO", "METALWHEEL-CRASH", "TRACK-125", "BOTTOM-JOG-BALL"] },
+  { id: "BEY-BB-123-BAKUSHIN-BEELZEB-T125XF", type: "bey", structure: "hybrid", name: "폭신 베르제브", en: "Bakushin Beelzeb", sub: "T125XF", productNo: "BB-123", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-BEELZEB", "CLEARWHEEL-BEELZEB", "METALWHEEL-BAKUSHIN", "TRACK-T125", "BOTTOM-EXTREME-FLAT"] },
+  { id: "BEY-BB-123-METEO-LDRAGO-85LF-RUSH", type: "bey", structure: "hybrid", name: "메테오 엘드라고", en: "Meteo L-Drago", sub: "85LF", productNo: "BB-123", tags: ["ATTACK", "LEFT SPIN"], desc: "", parts: ["FACE-LDRAGO", "CLEARWHEEL-LDRAGO-II-RUSH", "METALWHEEL-METEOR", "TRACK-85", "BOTTOM-LEFT-FLAT"] },
+  { id: "BEY-BB-123-METEO-LDRAGO-LW105JB-ASSAULT", type: "bey", structure: "hybrid", name: "메테오 엘드라고", en: "Meteo L-Drago", sub: "LW105JB", productNo: "BB-123", tags: ["ATTACK", "LEFT SPIN"], desc: "", parts: ["FACE-LDRAGO", "CLEARWHEEL-LDRAGO-II-ASSAULT", "METALWHEEL-METEOR", "TRACK-LW105", "BOTTOM-JOG-BALL"] },
+  { id: "BEY-OMEGA-DRAGONIS-85XF", type: "bey", structure: "hybrid", name: "오메가 드라고니스", en: "Omega Dragonis", sub: "85XF", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["FACE-DRAGONIS", "CLEARWHEEL-DRAGONIS", "METALWHEEL-OMEGA", "TRACK-85", "BOTTOM-EXTREME-FLAT"] },
+  { id: "BEY-BB-124-KREIS-CYGNUS-145WD", type: "bey", structure: "4d", name: "크라이스 시그너스", en: "Kreis Cygnus", sub: "145WD", productNo: "BB-124", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["FACE-CYGNUS", "CLEARWHEEL-CYGNUS", "METALWHEEL-KREIS", "TRACK-145", "BOTTOM-WIDE-DEFENSE"] },
+  { id: "BEY-BB-126-FLASH-SAGITTARIO-230WD", type: "bey", structure: "4d", name: "플래시 사지타리오", en: "Flash Sagittario", sub: "230WD", productNo: "BB-126", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["FACE-SAGITTARIO", "CLEARWHEEL-SAGITTARIO-II", "METALWHEEL-FLASH", "TRACK-230", "BOTTOM-WIDE-DEFENSE"] },
+  { id: "BEY-BBG-01-WARRIORS-IFRAID-W145CF", type: "bey", structure: "synchrome", name: "워리어스 이프레이드", en: "Warriors Ifraid", sub: "W145CF", productNo: "BBG-01", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-IFRAID", "CRYSTALWHEEL-WARRIORS", "CHROMEWHEEL-IFRAID", "TRACK-W145", "BOTTOM-CIRCLE-FLAT"] },
+  { id: "BEY-BBG-02-SHINOBI-SARAMANDA-SW145SD", type: "bey", structure: "synchrome", name: "시노비 사라만다", en: "Shinobi Saramanda", sub: "SW145SD", productNo: "BBG-02", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-SARAMANDA", "CRYSTALWHEEL-SHINOBI", "CHROMEWHEEL-SARAMANDA", "TRACK-SW145", "BOTTOM-SEMI-DEFENSE"] },
+  { id: "BEY-BBG-03-WARRIORS-IFRAID-W145CF", type: "bey", structure: "synchrome", name: "워리어스 이프레이드", en: "Warriors Ifraid", sub: "W145CF", productNo: "BBG-03", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-IFRAID", "CRYSTALWHEEL-WARRIORS", "CHROMEWHEEL-IFRAID", "TRACK-W145", "BOTTOM-CIRCLE-FLAT"] },
+  { id: "BEY-BBG-08-PIRATES-OROJYA-145D", type: "bey", structure: "synchrome", name: "파이레츠 오로자", en: "Pirates Orojya", sub: "145D", productNo: "BBG-08", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-OROJYA", "CRYSTALWHEEL-PIRATES", "CHROMEWHEEL-OROJYA", "TRACK-145", "BOTTOM-DEFENSE"] },
+  { id: "BEY-BBG-09-THIEF-PHOENIC-E230GCF", type: "bey", structure: "synchrome", name: "시프 피닉", en: "Thief Phoenic", sub: "E230GCF", productNo: "BBG-09", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-PHOENIC", "CRYSTALWHEEL-THIEF", "CHROMEWHEEL-PHOENIC", "TRACK-E230", "BOTTOM-GEAR-CIRCLE-FLAT"] },
+  { id: "BEY-BBG-09-THIEF-SARAMANDA-230WB", type: "bey", structure: "synchrome", name: "시프 사라만다", en: "Thief Saramanda", sub: "230WB", productNo: "BBG-09", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-SARAMANDA", "CRYSTALWHEEL-THIEF", "CHROMEWHEEL-SARAMANDA", "TRACK-230", "BOTTOM-WIDE-BALL"] },
+  { id: "BEY-BBG-09-SAMURAI-SARAMANDA-E230ES", type: "bey", structure: "synchrome", name: "워리어스 사라만다", en: "Samurai Saramanda", sub: "E230ES", productNo: "BBG-09", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-SARAMANDA", "CRYSTALWHEEL-WARRIORS", "CHROMEWHEEL-SARAMANDA", "TRACK-E230", "BOTTOM-ETERNAL-SHARP"] },
+  { id: "BEY-BBG-09-PIRATES-IFRAID-T125GCF", type: "bey", structure: "synchrome", name: "파이레츠 이프레이드", en: "Pirates Ifraid", sub: "T125GCF", productNo: "BBG-09", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-IFRAID", "CRYSTALWHEEL-PIRATES", "CHROMEWHEEL-IFRAID", "TRACK-T125", "BOTTOM-GEAR-CIRCLE-FLAT"] },
+  { id: "BEY-BBG-09-SHINOBI-IFRAID-230WD", type: "bey", structure: "synchrome", name: "시노비 이프레이드", en: "Shinobi Ifraid", sub: "230WD", productNo: "BBG-09", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-IFRAID", "CRYSTALWHEEL-SHINOBI", "CHROMEWHEEL-IFRAID", "TRACK-230", "BOTTOM-WIDE-DEFENSE"] },
+  { id: "BEY-BBG-09-PIRATES-SARAMANDA-T125WB", type: "bey", structure: "synchrome", name: "파이레츠 사라만다", en: "Pirates Saramanda", sub: "T125WB", productNo: "BBG-09", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-SARAMANDA", "CRYSTALWHEEL-PIRATES", "CHROMEWHEEL-SARAMANDA", "TRACK-T125", "BOTTOM-WIDE-BALL"] },
+  { id: "BEY-BBG-09-SHINOBI-OROJYA-145ES", type: "bey", structure: "synchrome", name: "시노비 오로자", en: "Shinobi Orojya", sub: "145ES", productNo: "BBG-09", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-OROJYA", "CRYSTALWHEEL-SHINOBI", "CHROMEWHEEL-OROJYA", "TRACK-145", "BOTTOM-ETERNAL-SHARP"] },
+  { id: "BEY-BBG-09-SAMURAI-OROJYA-145WD", type: "bey", structure: "synchrome", name: "워리어스 오로자", en: "Samurai Orojya", sub: "145WD", productNo: "BBG-09", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-OROJYA", "CRYSTALWHEEL-WARRIORS", "CHROMEWHEEL-OROJYA", "TRACK-145", "BOTTOM-WIDE-DEFENSE"] },
+  { id: "BEY-BBG-10-GUARDIAN-REVIZER-160SB", type: "bey", structure: "synchrome", name: "가디언 리바이저", en: "Guardian Revizer", sub: "160SB", productNo: "BBG-10", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-REVIZER", "CRYSTALWHEEL-GUARDIAN", "CHROMEWHEEL-REVIZER", "TRACK-160", "BOTTOM-SHARP-BALL"] },
+  { id: "BEY-BBG-12-ARCHER-GRYPH-C145S", type: "bey", structure: "synchrome", name: "아처 그리프", en: "Archer Gryph", sub: "C145S", productNo: "BBG-12", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-GRYPH", "CRYSTALWHEEL-ARCHER", "CHROMEWHEEL-GRYPH", "TRACK-CLAW-145", "BOTTOM-SHARP"] },
+  { id: "BEY-BBG-13-PIRATES-KRAKEN-A230JSB", type: "bey", structure: "synchrome", name: "파이레츠 크라켄", en: "Pirates Killerken", sub: "A230JSB", productNo: "BBG-13", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-KRAKEN", "CRYSTALWHEEL-PIRATES", "CHROMEWHEEL-KRAKEN", "TRACK-A230", "BOTTOM-JOG-SHARP-BALL"] },
+  { id: "BEY-BBG-13-WARRIORS-IFRAID-W145CF", type: "bey", structure: "synchrome", name: "워리어스 이프레이드", en: "Warriors Ifraid", sub: "W145CF", productNo: "BBG-13", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-IFRAID", "CRYSTALWHEEL-WARRIORS", "CHROMEWHEEL-IFRAID", "TRACK-W145", "BOTTOM-CIRCLE-FLAT"] },
+  { id: "BEY-BBG-16-DARK-KNIGHT-DRAGOON-LW160BSF", type: "bey", structure: "synchrome", name: "다크나이트 드래곤", en: "Dark Knight Dragooon", sub: "LW160BSF", productNo: "BBG-16", tags: ["ATTACK", "LEFT SPIN"], desc: "", parts: ["STONEFACE-DRAGOON", "CRYSTALWHEEL-DARK-KNIGHT", "CHROMEWHEEL-DRAGOON", "TRACK-LW160", "BOTTOM-BLADE-SEMI-FLAT"] },
+  { id: "BEY-BBG-17-ARCHER-GARGOYLE-SA165WSF", type: "bey", structure: "synchrome", name: "아처 가고일", en: "Archer Gargole", sub: "SA165WSF", productNo: "BBG-17", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-GARGOYLE", "CRYSTALWHEEL-ARCHER", "CHROMEWHEEL-GARGOYLE", "TRACK-SA165", "BOTTOM-WIDE-SEMI-FLAT"] },
+  { id: "BEY-BBG-20-BANDID-GOREIM-DF145BS", type: "bey", structure: "synchrome", name: "반디드 골렘", en: "Bandid Goreim", sub: "DF145BS", productNo: "BBG-20", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-GOREIM", "CRYSTALWHEEL-BANDIT", "CHROMEWHEEL-GOREIM", "TRACK-DF145", "BOTTOM-BALL-SHARP"] },
+  { id: "BEY-BBG-21-SAMURAI-IFRAID-W145CF", type: "bey", structure: "synchrome", name: "워리어스 이프레이드", en: "Samurai Ifraid", sub: "W145CF", productNo: "BBG-21", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-IFRAID", "CRYSTALWHEEL-WARRIORS", "CHROMEWHEEL-IFRAID", "TRACK-W145", "BOTTOM-CIRCLE-FLAT"] },
+  { id: "BEY-BBG-21-GUARDIAN-REVIZER-160SB", type: "bey", structure: "synchrome", name: "가디언 리바이저", en: "Guardian Revizer", sub: "160SB", productNo: "BBG-21", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-REVIZER", "CRYSTALWHEEL-GUARDIAN", "CHROMEWHEEL-REVIZER", "TRACK-160", "BOTTOM-SHARP-BALL"] },
+  { id: "BEY-BBG-23-BANDID-GENBULL-F230TB", type: "bey", structure: "synchrome", name: "반디드 겐블", en: "Bandid Genbull", sub: "F230TB", productNo: "BBG-23", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-GENBULL", "CRYSTALWHEEL-BANDIT", "CHROMEWHEEL-GENBULL", "TRACK-F230", "BOTTOM-TWIN-BALL"] },
+  { id: "BEY-BBG-23-SHINOBI-GENBULL-130W2D", type: "bey", structure: "synchrome", name: "시노비 겐블", en: "Shinobi Genbull", sub: "130W²D", productNo: "BBG-23", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-GENBULL", "CRYSTALWHEEL-SHINOBI", "CHROMEWHEEL-GENBULL", "TRACK-130", "BOTTOM-WAVE-WIDE-DEFENSE"] },
+  { id: "BEY-BBG-23-THIEF-SARAMANDA-F230SF", type: "bey", structure: "synchrome", name: "시프 사라만다", en: "Thief Saramanda", sub: "F230SF", productNo: "BBG-23", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-SARAMANDA", "CRYSTALWHEEL-THIEF", "CHROMEWHEEL-SARAMANDA", "TRACK-F230", "BOTTOM-SEMI-FLAT"] },
+  { id: "BEY-BBG-23-SHINOBI-GRYPH-WD145TB", type: "bey", structure: "synchrome", name: "시노비 그리프", en: "Shinobi Gryph", sub: "WD145TB", productNo: "BBG-23", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-GRYPH", "CRYSTALWHEEL-SHINOBI", "CHROMEWHEEL-GRYPH", "TRACK-WD145", "BOTTOM-TWIN-BALL"] },
+  { id: "BEY-BBG-23-ARCHER-PHOENIC-125B", type: "bey", structure: "synchrome", name: "아처 피닉", en: "Archer Phoenic", sub: "125B", productNo: "BBG-23", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-PHOENIC", "CRYSTALWHEEL-ARCHER", "CHROMEWHEEL-PHOENIC", "TRACK-125", "BOTTOM-BALL"] },
+  { id: "BEY-BBG-23-PIRATES-PHOENIC-WD145SF", type: "bey", structure: "synchrome", name: "파이레츠 피닉", en: "Pirates Phoenic", sub: "WD145SF", productNo: "BBG-23", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-PHOENIC", "CRYSTALWHEEL-PIRATES", "CHROMEWHEEL-PHOENIC", "TRACK-WD145", "BOTTOM-SEMI-FLAT"] },
+  { id: "BEY-BBG-23-ARCHER-KILLERKEN-130B", type: "bey", structure: "synchrome", name: "아처 크라켄", en: "Archer Killerken", sub: "130B", productNo: "BBG-23", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-KRAKEN", "CRYSTALWHEEL-ARCHER", "CHROMEWHEEL-KRAKEN", "TRACK-130", "BOTTOM-BALL"] },
+  { id: "BEY-BBG-23-BANDID-KILLERKEN-125W2D", type: "bey", structure: "synchrome", name: "반디드 크라켄", en: "Bandid Killerken", sub: "125W²D", productNo: "BBG-23", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-KRAKEN", "CRYSTALWHEEL-BANDIT", "CHROMEWHEEL-KRAKEN", "TRACK-125", "BOTTOM-WAVE-WIDE-DEFENSE"] },
+  { id: "BEY-BBG-24-GARGOLE-IFRAID-SA165GCF", type: "bey", structure: "synchrome", name: "가고일 이프레이드", en: "Gargole Ifraid", sub: "SA165GCF", productNo: "BBG-24", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-IFRAID", "CHROMEWHEEL-GARGOYLE", "CHROMEWHEEL-IFRAID", "TRACK-SA165", "BOTTOM-GEAR-CIRCLE-FLAT"] },
+  { id: "BEY-BBG-24-SARAMANDA-BALRO-DF145SWD", type: "bey", structure: "synchrome", name: "사라만다 발록", en: "Saramanda Balro", sub: "DF145SWD", productNo: "BBG-24", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-BALRO", "CHROMEWHEEL-SARAMANDA", "CHROMEWHEEL-BALRO", "TRACK-DF145", "BOTTOM-SHARP-WIDE-DEFENSE"] },
+  { id: "BEY-BBG-24-GRYPH-GIRAGO-WA130HF", type: "bey", structure: "synchrome", name: "그리프 지라고", en: "Gryph Girago", sub: "WA130HF", productNo: "BBG-24", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-GIRAGO", "CHROMEWHEEL-GRYPH", "CHROMEWHEEL-GIRAGO", "TRACK-WA130", "BOTTOM-HOLE-FLAT"] },
+  { id: "BEY-BBG-25-GOREIM-REVIZER-E230SB", type: "bey", structure: "synchrome", name: "골렘 리바이저", en: "Goreim Revizer", sub: "E230SB", productNo: "BBG-25", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-REVIZER", "CHROMEWHEEL-GOREIM", "CHROMEWHEEL-REVIZER", "TRACK-E230", "BOTTOM-SHARP-BALL"] },
+  { id: "BEY-BBG-25-KILLERKEN-BALRO-A230WB", type: "bey", structure: "synchrome", name: "크라켄 발록", en: "Killerken Balro", sub: "A230WB", productNo: "BBG-25", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-BALRO", "CHROMEWHEEL-KRAKEN", "CHROMEWHEEL-BALRO", "TRACK-A230", "BOTTOM-WIDE-BALL"] },
+  { id: "BEY-BBG-25-OROJYA-WYVANG-145EDS", type: "bey", structure: "synchrome", name: "오로자 와이번", en: "Orojya Wyvang", sub: "145EDS", productNo: "BBG-25", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-WYVANG", "CHROMEWHEEL-OROJYA", "CHROMEWHEEL-WYVANG", "TRACK-145", "BOTTOM-ETERNAL-DEFENSE-SHARP"] },
+  { id: "BEY-BBG-26-WARRIORS-PEGASIS-W105R2F", type: "bey", structure: "synchrome", name: "워리어스 페가시스", en: "Warriors Pegasis", sub: "W105R²F", productNo: "BBG-26", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-PEGASIS", "CRYSTALWHEEL-WARRIORS", "CHROMEWHEEL-PEGASIS", "TRACK-W105", "BOTTOM-RIGHT-RUBBER-FLAT"] },
+  { id: "BEY-BBG-27-GLADIATOR-BAHAMDIA-SP230GF", type: "bey", structure: "synchrome", name: "글레디에이터 바함디아", en: "Gladiator Bahamdia", sub: "SP230GF", productNo: "BBG-27", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-BAHAMDIA", "CRYSTALWHEEL-GLADIATOR", "CHROMEWHEEL-BAHAMDIA", "TRACK-SP230", "BOTTOM-GIGA-FLAT"] },
+  { id: "FACE-PEGASIS", type: "face", name: "페가시스", en: "Pegasis", sub: "페이스", tags: ["FACE"], desc: "페가시스의 별자리를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-LEONE", type: "face", name: "레온", en: "Leone", sub: "페이스", tags: ["FACE"], desc: "레온의 별자리를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-SAGITTARIO", type: "face", name: "사지타리오", en: "Sagittario", sub: "페이스", tags: ["FACE"], desc: "사지타리오의 별자리를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-BULL", type: "face", name: "불", en: "Bull", sub: "페이스", tags: ["FACE"], desc: "불의 별자리를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-QUETZALCOATL", type: "face", name: "케찰코아틀", en: "Quetzalcoatl", sub: "페이스", tags: ["FACE"], desc: "케찰코아틀을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-WOLF", type: "face", name: "울프", en: "Wolf", sub: "페이스", tags: ["FACE"], desc: "울프를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-ARIES", type: "face", name: "아리에스", en: "Aries", sub: "페이스", tags: ["FACE"], desc: "아리에스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-LIBRA", type: "face", name: "리브라", en: "Libra", sub: "페이스", tags: ["FACE"], desc: "리브라를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-AQUARIO", type: "face", name: "아쿠아리오", en: "Aquario", sub: "페이스", tags: ["FACE"], desc: "아쿠아리오를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-VIRGO", type: "face", name: "비르고", en: "Virgo", sub: "페이스", tags: ["FACE"], desc: "비르고를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-LDRAGO", type: "face", name: "엘드라고", en: "L-Drago", sub: "페이스", tags: ["FACE"], desc: "엘드라고를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-ESCOLPIO", type: "face", name: "에스콜피오", en: "Escolpio", sub: "페이스", tags: ["FACE"], desc: "에스콜피오를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-PISCES", type: "face", name: "파이시즈", en: "Pisces", sub: "페이스", tags: ["FACE"], desc: "파이시즈를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-GEMIOS", type: "face", name: "제미오스", en: "Gemios", sub: "페이스", tags: ["FACE"], desc: "제미오스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-CAPRICORNE", type: "face", name: "카프리콘", en: "Capricorne", sub: "페이스", tags: ["FACE"], desc: "카프리콘을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-CANCER", type: "face", name: "캔서", en: "Cancer", sub: "페이스", tags: ["FACE"], desc: "캔서를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-AQUILA", type: "face", name: "아쿠이라", en: "Aquila", sub: "페이스", tags: ["FACE"], desc: "아쿠이라를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-ORSO", type: "face", name: "오르소", en: "Orso", sub: "페이스", tags: ["FACE"], desc: "오르소를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-PHOENIX", type: "face", name: "피닉스", en: "Phoenix", sub: "페이스", tags: ["FACE"], desc: "피닉스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-SERPENT", type: "face", name: "서펜트", en: "Serpent", sub: "페이스", tags: ["FACE"], desc: "서펜트를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-ANUBIUS", type: "face", name: "아누비우스", en: "Anubius", sub: "페이스", tags: ["FACE"], desc: "아누비우스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-UNICORNO", type: "face", name: "유니콘", en: "Unicorno", sub: "페이스", tags: ["FACE"], desc: "유니콘을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-LACERTA", type: "face", name: "라체르타", en: "Lacerta", sub: "페이스", tags: ["FACE"], desc: "라체르타를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-GIRAFFE", type: "face", name: "기라프", en: "Giraffe", sub: "페이스", tags: ["FACE"], desc: "기라프를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-PERSEUS", type: "face", name: "페르세우스", en: "Perseus", sub: "페이스", tags: ["FACE"], desc: "페르세우스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-KETOS", type: "face", name: "케토스", en: "Ketos", sub: "페이스", tags: ["FACE"], desc: "케토스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-BLAZE", type: "face", name: "블레이즈", en: "Blaze", sub: "페이스", tags: ["FACE"], desc: "블레이즈를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-CHIMERA", type: "face", name: "키메라", en: "Chimera", sub: "페이스", tags: ["FACE"], desc: "키메라를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-HORUSEUS", type: "face", name: "호르세우스", en: "Horuseus", sub: "페이스", tags: ["FACE"], desc: "호르세우스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-KILL", type: "face", name: "킬", en: "Keel", sub: "페이스", tags: ["FACE"], desc: "킬을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-HERCULEO", type: "face", name: "헤라클레오", en: "Herculeo", sub: "페이스", tags: ["FACE"], desc: "헤라클레오를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-BYXIS", type: "face", name: "픽시스", en: "Byxis", sub: "페이스", tags: ["FACE"], desc: "픽시스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-REX", type: "face", name: "렉스", en: "Rex", sub: "페이스", tags: ["FACE"], desc: "렉스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-KERBECS", type: "face", name: "켈베로스", en: "Kerbecs", sub: "페이스", tags: ["FACE"], desc: "켈베로스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-BEAFOWL", type: "face", name: "비폴", en: "Beafowl", sub: "페이스", tags: ["FACE"], desc: "비폴을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-HOROGIUM", type: "face", name: "호로지움", en: "Horogium", sub: "페이스", tags: ["FACE"], desc: "호로지움을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-LYNX", type: "face", name: "링크스", en: "Lynx", sub: "페이스", tags: ["FACE"], desc: "링크스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-KRONOS", type: "face", name: "크로노스", en: "Kronos", sub: "페이스", tags: ["FACE"], desc: "크로노스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-VARIARES", type: "face", name: "베리아레스", en: "Variares", sub: "페이스", tags: ["FACE"], desc: "베리아레스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-JUPITER", type: "face", name: "쥬피터", en: "Jupiter", sub: "페이스", tags: ["FACE"], desc: "쥬피터를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-IONIS", type: "face", name: "이오니스", en: "Ionis", sub: "페이스", tags: ["FACE"], desc: "이오니스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-FOX", type: "face", name: "폭스", en: "Fox", sub: "페이스", tags: ["FACE"], desc: "폭스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-LYRA", type: "face", name: "레이라", en: "Lyra", sub: "페이스", tags: ["FACE"], desc: "레이라를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-CROWN", type: "face", name: "크라운", en: "Crown", sub: "페이스", tags: ["FACE"], desc: "크라운을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-ORION", type: "face", name: "오리온", en: "Orion", sub: "페이스", tags: ["FACE"], desc: "오리온을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-URANUS", type: "face", name: "우라누스", en: "Uranus", sub: "페이스", tags: ["FACE"], desc: "우라누스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-NEMESIS", type: "face", name: "네메시스", en: "Nemesis", sub: "페이스", tags: ["FACE"], desc: "네메시스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-HADES", type: "face", name: "하데스", en: "Hades", sub: "페이스", tags: ["FACE"], desc: "하데스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-BEELZEB", type: "face", name: "베르제브", en: "Beelzeb", sub: "페이스", tags: ["FACE"], desc: "베르제브를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-DRAGONIS", type: "face", name: "드라고니스", en: "Dragonis", sub: "페이스", tags: ["FACE"], desc: "드라고니스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-CYGNUS", type: "face", name: "시그너스", en: "Cygnus", sub: "페이스", tags: ["FACE"], desc: "시그너스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "CLEARWHEEL-PEGASIS", type: "clearwheel", name: "페가시스", en: "Pegasis", sub: "클리어휠", tags: ["CLEARWHEEL", "ATTACK", "RIGHT SPIN"], desc: "위에서의 공격에 대응하며 어퍼공격으로 되받아 공격한다.", stats: [40, 20, 10] },
+  { id: "CLEARWHEEL-LEONE", type: "clearwheel", name: "레온", en: "Leone", sub: "클리어휠", tags: ["CLEARWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "어느 방향에서의 공격도 막아내는 형태를 가진 방어력이 뛰어난 휠.", stats: [10, 40, 20] },
+  { id: "CLEARWHEEL-SAGITTARIO", type: "clearwheel", name: "사지타리오", en: "Sagittario", sub: "클리어휠", tags: ["CLEARWHEEL", "STAMINA", "RIGHT SPIN"], desc: "화살과 같은 형태로 위에서 공격하는 적을 효과적으로 방어한다.", stats: [10, 20, 40] },
+  { id: "CLEARWHEEL-BULL", type: "clearwheel", name: "불", en: "Bull", sub: "클리어휠", tags: ["CLEARWHEEL", "BALANCE", "RIGHT SPIN"], desc: "어느 방향에서의 공격도 막아내는 형태를 가진 방어력이 뛰어난 휠.", stats: [30, 30, 10] },
+  { id: "CLEARWHEEL-WOLF", type: "clearwheel", name: "울프", en: "Wolf", sub: "클리어휠", tags: ["CLEARWHEEL", "BALANCE", "RIGHT SPIN"], desc: "네 마리의 늑대가 3방향으로 공격을 펼친다.", stats: [30, 20, 20] },
+  { id: "CLEARWHEEL-CANCER", type: "clearwheel", name: "캔서", en: "Cancer", sub: "클리어휠", tags: ["CLEARWHEEL", "BALANCE", "RIGHT SPIN"], desc: "어퍼공격을 하고 적의 공격을 가볍게 받아넘긴다.", stats: [30, 30, 10] },
+  { id: "CLEARWHEEL-AQUARIO", type: "clearwheel", name: "아쿠아리오", en: "Aquario", sub: "클리어휠", tags: ["CLEARWHEEL", "ATTACK", "RIGHT SPIN"], desc: "4방향으로 펼쳐진 물덩어리들이 흐르는 듯한 공격을 만들어 낸다.", stats: [40, 10, 20] },
+  { id: "CLEARWHEEL-LDRAGO", type: "clearwheel", name: "엘드라고", en: "L-Drago", sub: "클리어휠", tags: ["CLEARWHEEL", "ATTACK", "LEFT SPIN"], desc: "3마리의 좌회전하는 용이 강력공격! 라이트닝 휠의 힘을 끌어낸다.", stats: [50, 10, 0] },
+  { id: "CLEARWHEEL-ARIES", type: "clearwheel", name: "아리에스", en: "Aries", sub: "클리어휠", tags: ["CLEARWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "나선형의 뿔이 모든 방향에 대응하여 방패의 역할을 한다.", stats: [10, 40, 20] },
+  { id: "CLEARWHEEL-AQUILA", type: "clearwheel", name: "아쿠이라", en: "Aquila", sub: "클리어휠", tags: ["CLEARWHEEL", "STAMINA", "RIGHT SPIN"], desc: "바람을 가르는 독수리같은 비행능력으로 강한 지구력을 발휘한다.", stats: [20, 10, 40] },
+  { id: "CLEARWHEEL-LIBRA", type: "clearwheel", name: "리브라", en: "Libra", sub: "클리어휠", tags: ["CLEARWHEEL", "STAMINA", "RIGHT SPIN"], desc: "가장자리의 2개의 저울접시가 강력한 원심력과 지구력을 자랑한다.", stats: [20, 10, 40] },
+  { id: "CLEARWHEEL-CAPRICORNE", type: "clearwheel", name: "카프리콘", en: "Capricorne", sub: "클리어휠", tags: ["CLEARWHEEL", "ATTACK", "RIGHT SPIN"], desc: "뿔의 작은 돌기는 연타공격을, 발굽은 강력한 어퍼공격을 한다.", stats: [40, 20, 10] },
+  { id: "CLEARWHEEL-ORSO", type: "clearwheel", name: "오르소", en: "Orso", sub: "클리어휠", tags: ["CLEARWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "큰곰의 앞발을 이용하여 연타공격을 발휘한다.", stats: [20, 30, 20] },
+  { id: "CLEARWHEEL-GEMIOS", type: "clearwheel", name: "제미오스", en: "Gemios", sub: "클리어휠", tags: ["CLEARWHEEL", "BALANCE", "RIGHT SPIN"], desc: "얼음덩어리가 공격을 가하고, 불덩어리가 상대의 공격을 가볍게 받아넘기는 효과를 낸다.", stats: [40, 20, 10] },
+  { id: "CLEARWHEEL-PISCES", type: "clearwheel", name: "파이시즈", en: "Pisces", sub: "클리어휠", tags: ["CLEARWHEEL", "STAMINA", "RIGHT SPIN"], desc: "발군의 공력으로 지구력을 발휘한다. 송곳니로 윗면 공격도 가능하다.", stats: [20, 10, 40] },
+  { id: "CLEARWHEEL-PHOENIX", type: "clearwheel", name: "피닉스", en: "Phoenix", sub: "클리어휠", tags: ["CLEARWHEEL", "STAMINA", "RIGHT SPIN"], desc: "바깥쪽의 봉황의 날개가 원심력을 증가, 꼬리날개로 적의 공격을 가볍게 막는다.", stats: [10, 10, 50] },
+  { id: "CLEARWHEEL-VIRGO", type: "clearwheel", name: "비르고", en: "Virgo", sub: "클리어휠", tags: ["CLEARWHEEL", "STAMINA", "RIGHT SPIN"], desc: "원심력을 극대화한 형태로 지구력을 강화하며 스매시공격을 한다.", stats: [10, 20, 40] },
+  { id: "CLEARWHEEL-SCORPIO", type: "clearwheel", name: "에스콜피오", en: "Escolpio", sub: "클리어휠", tags: ["CLEARWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "커다란 가위 모양의 꼬리가 적의 공격을 받아넘기고 아래에서 위로 밀어붙인다.", stats: [20, 40, 10] },
+  { id: "CLEARWHEEL-SERPENT", type: "clearwheel", name: "서펜트", en: "Serpent", sub: "클리어휠", tags: ["CLEARWHEEL", "BALANCE", "RIGHT SPIN"], desc: "적의 공격을 가볍게 받아넘기면서 연타공격을 한다.", stats: [30, 30, 10] },
+  { id: "CLEARWHEEL-ANUBIUS", type: "clearwheel", name: "아누비우스", en: "Anubius", sub: "클리어휠", tags: ["CLEARWHEEL", "ATTACK", "RIGHT SPIN"], desc: "", stats: [50, 10, 10] },
+  { id: "CLEARWHEEL-PEGASIS-II", type: "clearwheel", name: "페가시스Ⅱ", en: "Pegasis II", sub: "클리어휠", tags: ["CLEARWHEEL", "ATTACK", "RIGHT SPIN"], desc: "갈기와 날개가 아래에서 위로 올려치는 어퍼공격을 가한다.", stats: [50, 10, 10] },
+  { id: "CLEARWHEEL-UNICORNO", type: "clearwheel", name: "유니콘", en: "Unicorno", sub: "클리어휠", tags: ["CLEARWHEEL", "ATTACK", "RIGHT SPIN"], desc: "3개의 커다란 뿔로 상대를 찌르는 듯이 강한 공격을 한다.", stats: [40, 20, 10] },
+  { id: "CLEARWHEEL-LACERTA", type: "clearwheel", name: "라체르타", en: "Lacerta", sub: "클리어휠", tags: ["CLEARWHEEL", "BALANCE", "RIGHT SPIN"], desc: "도마뱀 모양의 몸체가 적의 공격을 받아넘기고 팔꿈치로 어퍼공격을 가한다.", stats: [30, 20, 20] },
+  { id: "CLEARWHEEL-GIRAFFE", type: "clearwheel", name: "기라프", en: "Giraffe", sub: "클리어휠", tags: ["CLEARWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "바깥쪽에 경사진 모양의 날개가 상대의 공격을 받아넘긴다.", stats: [10, 50, 10] },
+  { id: "CLEARWHEEL-PERSEUS", type: "clearwheel", name: "페르세우스", en: "Perseus", sub: "클리어휠", tags: ["CLEARWHEEL", "DEFENSE", "DUAL SPIN"], desc: "유일하게 그라비티 휠에 장착 가능한 양방향회전 휠. 투구가 적의 공격을 방어하면서 접근하는 적을 튕겨낸다.", stats: [20, 50, 0] },
+  { id: "CLEARWHEEL-SUSANOW", type: "clearwheel", name: "스사노오", en: "Susanow", sub: "클리어휠", tags: ["CLEARWHEEL", "ATTACK", "RIGHT SPIN"], desc: "날카로운 칼끝으로 상대의 공격을 받아넘긴다.", stats: [40, 20, 0] },
+  { id: "CLEARWHEEL-KETOS", type: "clearwheel", name: "케토스", en: "Ketos", sub: "클리어휠", tags: ["CLEARWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "두 개의 꼬리 지느러미가 적의 공격을 받아넘기며 충격을 흡수한다.", stats: [20, 40, 10] },
+  { id: "CLEARWHEEL-BLAZE", type: "clearwheel", name: "블레이즈", en: "Blaze", sub: "클리어휠", tags: ["CLEARWHEEL", "BALANCE", "RIGHT SPIN"], desc: "흔들거리는 불꽃의 형상이 적의 공격을 받아 흘리면서도 예측할 수 없는 불규칙한 연타 공격을 가한다.", stats: [30, 40, 0] },
+  { id: "CLEARWHEEL-LDRAGO-II", type: "clearwheel", name: "엘드라고Ⅱ", en: "L-Drago II", sub: "클리어휠", tags: ["CLEARWHEEL", "ATTACK", "LEFT SPIN"], desc: "유일하게 메테오 휠에 결합 가능한 좌회전 클리어휠. 위와 옆 방향에 위치한 고무가 적의 회전력을 흡수한다.", stats: [40, 10, 20], extraStats: [{ name: "흡수력", value: 40 }] },
+  { id: "CLEARWHEEL-CHIMERA", type: "clearwheel", name: "키메라", en: "Chimera", sub: "클리어휠", tags: ["CLEARWHEEL", "ATTACK", "RIGHT SPIN"], desc: "", stats: [50, 10, 10] },
+  { id: "CLEARWHEEL-HORUSEUS", type: "clearwheel", name: "호르세우스", en: "Horuseus", sub: "클리어휠", tags: ["CLEARWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "부드러운 곡선으로 이루어진 큰 날개가 적의 공격을 받아넘긴다.", stats: [20, 40, 10] },
+  { id: "CLEARWHEEL-KILL", type: "clearwheel", name: "킬", en: "Keel", sub: "클리어휠", tags: ["CLEARWHEEL", "ATTACK", "RIGHT SPIN"], desc: "용골 모양의 휠이 적에게 섬세한 연타공격을 가한다.", stats: [40, 10, 20] },
+  { id: "CLEARWHEEL-HERCULEO", type: "clearwheel", name: "헤라클레오", en: "Herculeo", sub: "클리어휠", tags: ["CLEARWHEEL", "ATTACK", "RIGHT SPIN"], desc: "사자의 갈기가 거침없이 어퍼공격을 가한다.", stats: [30, 20, 20] },
+  { id: "CLEARWHEEL-BYXIS", type: "clearwheel", name: "픽시스", en: "Byxis", sub: "클리어휠", tags: ["CLEARWHEEL", "ATTACK", "RIGHT SPIN"], desc: "바깥에 중심이 있어서 원심력을 발휘하면서 나침반 바늘로 적을 공격한다.", stats: [30, 10, 30] },
+  { id: "CLEARWHEEL-REX", type: "clearwheel", name: "렉스", en: "Rex", sub: "클리어휠", tags: ["CLEARWHEEL", "BALANCE", "RIGHT SPIN"], desc: "두개골은 어퍼공격을 가하고, 등뼈는 상대의 공격을 받아넘기는 효과를 발휘한다.", stats: [30, 30, 0] },
+  { id: "CLEARWHEEL-PERSEUS-ATTACK", type: "clearwheel", name: "페르세우스 어택", en: "Perseus Attack", sub: "클리어휠", tags: ["CLEARWHEEL", "ATTACK", "DUAL SPIN"], desc: "유일하게 그라비티 휠에 장착 가능한 양방향회전 휠. 미세한 흠이 적에게 연타공격을 가한다.", stats: [50, 20, 0] },
+  { id: "CLEARWHEEL-PERSEUS-STAMINA", type: "clearwheel", name: "페르세우스 스테미너", en: "Perseus Stamina", sub: "클리어휠", tags: ["CLEARWHEEL", "STAMINA", "DUAL SPIN"], desc: "유일하게 그라비티 휠에 장착 가능한 양방향회전 휠. 중량을 바깥쪽으로 분산시켜 강력한 지구력을 발휘한다.", stats: [0, 20, 50] },
+  { id: "CLEARWHEEL-LDRAGO-II-RUSH", type: "clearwheel", name: "엘드라고Ⅱ 러시", en: "L-Drago II Rush", sub: "클리어휠", tags: ["CLEARWHEEL", "ATTACK", "LEFT SPIN"], desc: "유일하게 메테오 휠에 결합 가능한 좌회전 클리어휠. 울퉁불퉁한 요철로 둘러싸여 있어서 연타공격을 반복한다.", stats: [60, 20, 0] },
+  { id: "CLEARWHEEL-LDRAGO-II-ASSAULT", type: "clearwheel", name: "엘드라고Ⅱ 어썰트", en: "L-Drago II Assault", sub: "클리어휠", tags: ["CLEARWHEEL", "ATTACK", "LEFT SPIN"], desc: "유일하게 메테오 휠에 결합 가능한 좌회전 클리어휠. 바깥쪽으로 돌출된 커다란 머리 부분이 강력한 공격을 펼친다.", stats: [70, 0, 10] },
+  { id: "CLEARWHEEL-KERBECS", type: "clearwheel", name: "켈베로스", en: "Kerbecs", sub: "클리어휠", tags: ["CLEARWHEEL", "STAMINA", "RIGHT SPIN"], desc: "바깥 중심을 강화하고 3개의 쇠사슬이 연타공격을 끊임없이 반복한다.", stats: [20, 20, 30] },
+  { id: "CLEARWHEEL-BEAFOWL", type: "clearwheel", name: "비폴", en: "Beafowl", sub: "클리어휠", tags: ["CLEARWHEEL", "STAMINA", "RIGHT SPIN"], desc: "공작의 날개와 같은 미세한 돌기가 적의 공격을 방어하며 뛰어난 지구력을 발휘한다.", stats: [0, 20, 50] },
+  { id: "CLEARWHEEL-HOROGIUM", type: "clearwheel", name: "호로지움", en: "Horogium", sub: "클리어휠", tags: ["CLEARWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "원판 모양의 휠이 적의 공격을 완벽하게 방어한다.", stats: [0, 70, 0] },
+  { id: "CLEARWHEEL-PEGASIS-III", type: "clearwheel", name: "페가시스Ⅲ", en: "Pegasis III", sub: "클리어휠", tags: ["CLEARWHEEL", "ATTACK", "RIGHT SPIN"], desc: "위쪽에 있는 갈기가 강한 공격을 펼치고 양쪽의 날개가 연타공격을 가한다.", stats: [60, 0, 10] },
+  { id: "CLEARWHEEL-LEONE-II", type: "clearwheel", name: "레온Ⅱ", en: "Leone II", sub: "클리어휠", tags: ["CLEARWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "어떤 방향에서의 공격도 효율적으로 받아넘기고 카운터공격을 한다.", stats: [20, 50, 0] },
+  { id: "CLEARWHEEL-LYNX", type: "clearwheel", name: "링크스", en: "Lynx", sub: "클리어휠", tags: ["CLEARWHEEL", "BALANCE", "RIGHT SPIN"], desc: "살쾡이의 발톱이 상대를 공격하고 두 개의 커다란 날개가 상대의 공격을 방어한다.", stats: [25, 25, 20] },
+  { id: "CLEARWHEEL-KRONOS", type: "clearwheel", name: "크로노스", en: "Kronos", sub: "클리어휠", tags: ["CLEARWHEEL", "STAMINA", "RIGHT SPIN"], desc: "토성의 고리를 모티브로 한 링과 크로노스가 소유한 큰 낫 모양의 휠이 지구력을 높인다.", stats: [10, 0, 60] },
+  { id: "CLEARWHEEL-JUPITER", type: "clearwheel", name: "쥬피터", en: "Jupiter", sub: "클리어휠", tags: ["CLEARWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "수많은 깃털 모양의 요철부분이 적의 공격을 흡수하여 방어한다.", stats: [0, 50, 20] },
+  { id: "CLEARWHEEL-CROWN", type: "clearwheel", name: "크라운", en: "Crown", sub: "클리어휠", tags: ["CLEARWHEEL", "STAMINA", "RIGHT SPIN"], desc: "", stats: [20, 0, 50] },
+  { id: "CLEARWHEEL-FOX", type: "clearwheel", name: "폭스", en: "Fox", sub: "클리어휠", tags: ["CLEARWHEEL", "BALANCE", "RIGHT SPIN"], desc: "", stats: [40, 10, 20] },
+  { id: "CLEARWHEEL-LYRA", type: "clearwheel", name: "레이라", en: "Lyra", sub: "클리어휠", tags: ["CLEARWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "", stats: [20, 50, 0] },
+  { id: "CLEARWHEEL-IONIS", type: "clearwheel", name: "이오니스", en: "Ionis", sub: "클리어휠", tags: ["CLEARWHEEL", "BALANCE", "RIGHT SPIN"], desc: "", stats: [20, 30, 20] },
+  { id: "CLEARWHEEL-UNICORNO-II", type: "clearwheel", name: "유니콘Ⅱ", en: "Unicorno II", sub: "클리어휠", tags: ["CLEARWHEEL", "ATTACK", "RIGHT SPIN"], desc: "3개의 커다란 뿔로 상대에게 피해를 입힌다.", stats: [60, 0, 10] },
+  { id: "CLEARWHEEL-ORION", type: "clearwheel", name: "오리온", en: "Orion", sub: "클리어휠", tags: ["CLEARWHEEL", "STAMINA", "RIGHT SPIN"], desc: "강한 원심력을 발휘하면서 돌기를 이용하여 상대를 공격한다.", stats: [10, 0, 60] },
+  { id: "CLEARWHEEL-QUETZALCOATL", type: "clearwheel", name: "케찰코아틀", en: "Quetzalcoatl", sub: "클리어휠", tags: ["CLEARWHEEL", "BALANCE", "RIGHT SPIN"], desc: "외부에 크게 펼쳐진 날개와 같은 모양으로 공격력과 지구력을 겸비하고 있다.", stats: [50, 0, 20] },
+  { id: "CLEARWHEEL-URANUS", type: "clearwheel", name: "우라누스", en: "Uranus", sub: "클리어휠", tags: ["CLEARWHEEL", "STAMINA", "RIGHT SPIN"], desc: "외부에 중심을 둔 소용돌이 모양으로 원심력과 함께 외부 공격력도 겸비하고 있다.", stats: [40, 0, 40] },
+  { id: "CLEARWHEEL-NEMESIS", type: "clearwheel", name: "네메시스", en: "Nemesis", sub: "클리어휠", tags: ["CLEARWHEEL", "BALANCE", "RIGHT SPIN"], desc: "물이 흐르는 듯한 날개 모양으로 강한 원심력을 만들어 내면서 상대의 공격을 받아넘긴다.", stats: [10, 20, 40] },
+  { id: "CLEARWHEEL-HADES", type: "clearwheel", name: "하데스", en: "Hades", sub: "클리어휠", tags: ["CLEARWHEEL", "BALANCE", "RIGHT SPIN"], desc: "2개의 방패 모양 돌출부가 연타공격을 가하고 동시에 효과적인 방어를 수행한다.", stats: [30, 20, 20] },
+  { id: "CLEARWHEEL-BEELZEB", type: "clearwheel", name: "베르제브", en: "Beelzeb", sub: "클리어휠", tags: ["CLEARWHEEL", "ATTACK", "RIGHT SPIN"], desc: "", stats: [30, 30, 10] },
+  { id: "CLEARWHEEL-DRAGONIS", type: "clearwheel", name: "드라고니스", en: "Dragonis", sub: "클리어휠", tags: ["CLEARWHEEL", "ATTACK", "RIGHT SPIN"], desc: "", stats: [50, 10, 10] },
+  { id: "CLEARWHEEL-CYGNUS", type: "clearwheel", name: "시그너스", en: "Cygnus", sub: "클리어휠", tags: ["CLEARWHEEL", "BALANCE", "RIGHT SPIN"], desc: "백조의 양 날개가 부드러운 곡선을 그리며 방어력을 강화한다.", stats: [10, 40, 20] },
+  { id: "CLEARWHEEL-SAGITTARIO-II", type: "clearwheel", name: "사지타리오Ⅱ", en: "Sagittario II", sub: "클리어휠", tags: ["CLEARWHEEL", "STAMINA", "RIGHT SPIN"], desc: "4개의 화살촉이 균형있게 배치되어 최적의 지구력을 유지한다.", stats: [20, 10, 40] },
+  { id: "WHEEL-PEGASIS", type: "wheel", name: "페가시스", en: "Pegasis", sub: "휠", tags: ["WHEEL", "ATTACK", "RIGHT SPIN"], desc: "3개의 날개가 강력한 공격력을 발휘한다.", stats: [50, 10, 10] },
+  { id: "WHEEL-BULL", type: "wheel", name: "불", en: "Bull", sub: "휠", tags: ["WHEEL", "BALANCE", "RIGHT SPIN"], desc: "양쪽의 뿔이 상대를 밑에서 올려치는 어퍼공격과 상대의 공격을 가볍게 피하는 효과를 균형있게 발휘한다.", stats: [30, 20, 20] },
+  { id: "WHEEL-SAGITTARIO", type: "wheel", name: "사지타리오", en: "Sagittario", sub: "휠", tags: ["WHEEL", "STAMINA", "RIGHT SPIN"], desc: "중심에서 멀리 떨어져 있는 무거운 2개의 활 모양 날개가 회전력을 높인다.", stats: [10, 20, 40] },
+  { id: "WHEEL-LEONE", type: "wheel", name: "레온", en: "Leone", sub: "휠", tags: ["WHEEL", "DEFENSE", "RIGHT SPIN"], desc: "무거운 중량으로 적의 공격을 무력화시킨다.", stats: [10, 40, 20] },
+  { id: "WHEEL-QUETZALCOATL", type: "wheel", name: "케찰코아틀", en: "Quetzalcoatl", sub: "휠", tags: ["WHEEL", "ATTACK", "RIGHT SPIN"], desc: "어퍼와 스매시 쌍방의 특징을 함께 가진 초공격형 휠.", stats: [50, 10, 10] },
+  { id: "WHEEL-WOLF", type: "wheel", name: "울프", en: "Wolf", sub: "휠", tags: ["WHEEL", "BALANCE", "RIGHT SPIN"], desc: "위에서의 공격을 되받아치며 측면의 역방향으로 튀어나와있는 갈기로 연타공격을 가한다.", stats: [30, 30, 10] },
+  { id: "WHEEL-ARIES", type: "wheel", name: "아리에스", en: "Aries", sub: "휠", tags: ["WHEEL", "DEFENSE", "RIGHT SPIN"], desc: "6개의 강력한 뿔이 상대의 공격을 역으로 되받아친다.", stats: [20, 40, 10] },
+  { id: "WHEEL-LIBRA", type: "wheel", name: "리브라", en: "Libra", sub: "휠", tags: ["WHEEL", "STAMINA", "RIGHT SPIN"], desc: "원에 가까운 형태로 발군의 안정성을 자랑하고 지구력이 매우 뛰어나다.", stats: [10, 10, 50] },
+  { id: "WHEEL-AQUARIO", type: "wheel", name: "아쿠아리오", en: "Aquario", sub: "휠", tags: ["WHEEL", "ATTACK", "RIGHT SPIN"], desc: "사방으로 펼쳐져 있는 물회오리들이 강력한 공격력을 발휘한다.", stats: [40, 20, 10] },
+  { id: "WHEEL-VIRGO", type: "wheel", name: "비르고", en: "Virgo", sub: "휠", tags: ["WHEEL", "STAMINA", "RIGHT SPIN"], desc: "무게중심을 바깥쪽에 배치하여 원심력과 함께 지구력이 뛰어나다.", stats: [20, 20, 40] },
+  { id: "WHEEL-LDRAGO", type: "wheel", name: "엘드라고", en: "L-Drago", sub: "휠", tags: ["WHEEL", "ATTACK", "LEFT SPIN"], desc: "좌회전하는 세 마리 용이 완전히 새로운 공격을 이끌어낸다.", stats: [55, 10, 10] },
+  { id: "WHEEL-ESCOLPIO", type: "wheel", name: "에스콜피오", en: "Escolpio", sub: "휠", tags: ["WHEEL", "DEFENSE", "RIGHT SPIN"], desc: "외곽의 단단한 집게와 꼬리에 둘러싸인 몸체가 철벽 방어를 수행한다.", stats: [10, 60, 10] },
+  { id: "WHEEL-PISCES", type: "wheel", name: "파이시즈", en: "Pisces", sub: "휠", tags: ["WHEEL", "STAMINA", "RIGHT SPIN"], desc: "발군의 공격력과 지구력을 겸비. 상어처럼 거침없이 회전한다.", stats: [10, 20, 40] },
+  { id: "WHEEL-GEMIOS", type: "wheel", name: "제미오스", en: "Gemios", sub: "휠", tags: ["WHEEL", "BALANCE", "RIGHT SPIN"], desc: "불꽃덩어리와 얼음덩어리가 번갈아가며 공격을 가한다.", stats: [20, 30, 20] },
+  { id: "WHEEL-CAPRICORNE", type: "wheel", name: "카프리콘", en: "Capricorne", sub: "휠", tags: ["WHEEL", "ATTACK", "RIGHT SPIN"], desc: "빙 둘러싼 뿔이 상대의 균형을 무너뜨린다.", stats: [20, 30, 20] },
+  { id: "METALWHEEL-STORM", type: "metalwheel", name: "스톰", en: "Storm", sub: "메탈휠", tags: ["METALWHEEL", "ATTACK", "RIGHT SPIN"], desc: "3개의 날개로 상대의 팽이를 벨 것 같은 강력한 공격력을 펼친다.", stats: [50, 10, 10] },
+  { id: "METALWHEEL-ROCK", type: "metalwheel", name: "로크", en: "Rock", sub: "메탈휠", tags: ["METALWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "묵직한 중량을 가진 메탈휠로 적의 공격에도 끄떡없는 방어력을 자랑한다.", stats: [10, 40, 20] },
+  { id: "METALWHEEL-FLAME", type: "metalwheel", name: "플레임", en: "Flame", sub: "메탈휠", tags: ["METALWHEEL", "STAMINA", "RIGHT SPIN"], desc: "4면에 장착된 무게추가 강한 원심력을 발생시킨다.", stats: [10, 20, 40] },
+  { id: "METALWHEEL-DARK", type: "metalwheel", name: "다크", en: "Dark", sub: "메탈휠", tags: ["METALWHEEL", "BALANCE", "RIGHT SPIN"], desc: "6개의 톱날로 적을 가르고, 6개의 다른 톱날은 적을 튕겨낸다.", stats: [30, 30, 10] },
+  { id: "LIGHTWHEEL-MAD", type: "lightwheel", name: "매드", en: "Mad", sub: "라이트휠", tags: ["LIGHTWHEEL", "BALANCE", "RIGHT SPIN"], desc: "", stats: [20, 30, 20] },
+  { id: "LIGHTWHEEL-HEAT", type: "lightwheel", name: "히트", en: "Heat", sub: "라이트휠", tags: ["LIGHTWHEEL", "STAMINA", "RIGHT SPIN"], desc: "", stats: [10, 20, 40] },
+  { id: "LIGHTWHEEL-CLAY", type: "lightwheel", name: "클레이", en: "Clay", sub: "라이트휠", tags: ["LIGHTWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "", stats: [10, 40, 20] },
+  { id: "LIGHTWHEEL-WIND", type: "lightwheel", name: "윈드", en: "Wind", sub: "라이트휠", tags: ["LIGHTWHEEL", "ATTACK", "RIGHT SPIN"], desc: "", stats: [40, 20, 10] },
+  { id: "METALWHEEL-LIGHTNING", type: "metalwheel", name: "라이트닝", en: "Lightning", sub: "메탈휠", tags: ["METALWHEEL", "ATTACK", "LEFT SPIN"], desc: "어퍼와 연타공격이 가능하도록 3개의 톱날을 가진 다재다능한 공격형 휠.", stats: [60, 0, 0] },
+  { id: "METALWHEEL-EARTH", type: "metalwheel", name: "어스", en: "Earth", sub: "메탈휠", tags: ["METALWHEEL", "STAMINA", "RIGHT SPIN"], desc: "커다란 날개의 중량이 바깥쪽으로 분배되어 강력한 원심력을 발휘한다.", stats: [10, 10, 50] },
+  { id: "METALWHEEL-COUNTER", type: "metalwheel", name: "카운터", en: "Counter", sub: "메탈휠", tags: ["METALWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "묵직한 중량으로 적의 공격을 막아내고 기존 레온의 힘을 이어받았다.", stats: [10, 40, 10] },
+  { id: "METALWHEEL-KILLER", type: "metalwheel", name: "키라", en: "Killer", sub: "메탈휠", tags: ["METALWHEEL", "BALANCE", "RIGHT SPIN"], desc: "윗면은 상대의 공격을 가볍게 받아넘기고 바닥면은 공격을 하는 이면성을 가지고 있다.", stats: [40, 20, 10] },
+  { id: "METALWHEEL-CYBER", type: "metalwheel", name: "사이버", en: "Cyber", sub: "메탈휠", tags: ["METALWHEEL", "ATTACK", "RIGHT SPIN"], desc: "강력한 공격력을 만드는 3개의 날개를 가지고 있고 기존 페가시스의 힘을 이어받았다.", stats: [40, 10, 10] },
+  { id: "METALWHEEL-THERMAL", type: "metalwheel", name: "써멀", en: "Thermal", sub: "메탈휠", tags: ["METALWHEEL", "STAMINA", "RIGHT SPIN"], desc: "공기의 저항을 최대한 줄여 거침없이 오랜 시간 동안 회전한다.", stats: [20, 10, 40] },
+  { id: "METALWHEEL-BURN", type: "metalwheel", name: "번", en: "Burn", sub: "메탈휠", tags: ["METALWHEEL", "STAMINA", "RIGHT SPIN"], desc: "중심부의 무게를 최대한 바깥쪽으로 이동시켜 원심력을 강화하였다.", stats: [10, 20, 40] },
+  { id: "METALWHEEL-POISON", type: "metalwheel", name: "포이즌", en: "Poison", sub: "메탈휠", tags: ["METALWHEEL", "BALANCE", "RIGHT SPIN"], desc: "방패 모양의 블록으로 적의 공격을 방어하면서 15개의 날개로 빈틈없는 연타공격을 한다.", stats: [30, 30, 10] },
+  { id: "METALWHEEL-MERCURY", type: "metalwheel", name: "머큐리", en: "Mercury", sub: "메탈휠", tags: ["METALWHEEL", "ATTACK", "RIGHT SPIN"], desc: "", stats: [60, 10, 0] },
+  { id: "METALWHEEL-INFINITY", type: "metalwheel", name: "인피니티", en: "Infinity", sub: "메탈휠", tags: ["METALWHEEL", "STAMINA", "RIGHT SPIN"], desc: "", stats: [10, 10, 40] },
+  { id: "METALWHEEL-GALAXY", type: "metalwheel", name: "갤럭시", en: "Galaxy", sub: "메탈휠", tags: ["METALWHEEL", "ATTACK", "RIGHT SPIN"], desc: "굴곡이 있는 3개의 커다란 날개가 강력한 연타공격을 발휘한다.", stats: [60, 10, 0] },
+  { id: "METALWHEEL-RAY", type: "metalwheel", name: "레이", en: "Ray", sub: "메탈휠", tags: ["METALWHEEL", "ATTACK", "RIGHT SPIN"], desc: "9개의 돌출된 형태의 휠이 상대에게 강력한 연타공격을 한다.", stats: [40, 10, 20] },
+  { id: "METALWHEEL-GRAVITY", type: "metalwheel", name: "그라비티", en: "Gravity", sub: "메탈휠", tags: ["METALWHEEL", "DEFENSE", "DUAL SPIN"], desc: "양방향회전에 대응하는 휠. 두꺼운 등껍질로 상대의 공격을 방어하고 카운터공격을 한다.", stats: [20, 50, 0] },
+  { id: "METALWHEEL-BAKUSHIN", type: "metalwheel", name: "폭신", en: "Bakushin", sub: "메탈휠", tags: ["METALWHEEL", "ATTACK", "RIGHT SPIN"], desc: "큰 경사를 살려 상대의 중심부 깊숙이 침투해 강렬한 공격을 가한다.", stats: [40, 30, 0] },
+  { id: "METALWHEEL-GRAND", type: "metalwheel", name: "그랜드", en: "Grand", sub: "메탈휠", tags: ["METALWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "묵직한 중량의 휠로 상대의 공격에도 끄떡없이 흔들리지 않는 방어력을 보여준다.", stats: [20, 40, 10] },
+  { id: "METALWHEEL-SOL", type: "metalwheel", name: "솔", en: "Sol", sub: "메탈휠", tags: ["METALWHEEL", "BALANCE", "RIGHT SPIN"], desc: "측면은 벽처럼 적의 공격을 막지만 조금이라도 각도가 기울면 연타공격을 가한다.", stats: [40, 30, 0] },
+  { id: "METALWHEEL-METEOR", type: "metalwheel", name: "메테오", en: "Meteo", sub: "메탈휠", tags: ["METALWHEEL", "ATTACK", "LEFT SPIN"], desc: "용의 아랫턱은 일격필살의 공격을, 발톱은 연타공격을 가한다.", stats: [50, 10, 10] },
+  { id: "METALWHEEL-DIVINE", type: "metalwheel", name: "디바인", en: "Divine", sub: "메탈휠", tags: ["METALWHEEL", "BALANCE", "RIGHT SPIN"], desc: "", stats: [30, 30, 10] },
+  { id: "METALWHEEL-VULCAN", type: "metalwheel", name: "발칸", en: "Vulcan", sub: "메탈휠", tags: ["METALWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "역사다리꼴로 솟아오른 두 개의 큰 날개가 적의 공격으로부터 몸체를 보호한다.", stats: [20, 40, 10] },
+  { id: "METALWHEEL-TORNADO", type: "metalwheel", name: "토네이도", en: "Tornado", sub: "메탈휠", tags: ["METALWHEEL", "ATTACK", "RIGHT SPIN"], desc: "톱날 모양의 5개의 날개가 적에게 강한 피해를 입힌다.", stats: [50, 10, 10] },
+  { id: "METALWHEEL-NIGHTMARE", type: "metalwheel", name: "나이트메어", en: "Nightmare", sub: "메탈휠", tags: ["METALWHEEL", "BALANCE", "RIGHT SPIN"], desc: "티라노사우루스의 강인한 꼬리를 형상화한 위협적인 24연타 메탈휠.", stats: [40, 40, 0] },
+  { id: "METALWHEEL-HELL", type: "metalwheel", name: "헬", en: "Hell", sub: "메탈휠", tags: ["METALWHEEL", "STAMINA", "RIGHT SPIN"], desc: "기존의 메탈휠 중에서 가장 넓은 메탈휠로 강력한 공격력과 지구력을 겸비.", stats: [30, 0, 40] },
+  { id: "METALWHEEL-SCREW", type: "metalwheel", name: "스크류", en: "Screw", sub: "메탈휠", tags: ["METALWHEEL", "ATTACK", "RIGHT SPIN"], desc: "볼륨 있는 곡선 모양의 3개의 날개가 강력한 어퍼공격을 반복한다.", stats: [55, 10, 5] },
+  { id: "METALWHEEL-BASALT", type: "metalwheel", name: "바셀트", en: "Basalt", sub: "메탈휠", tags: ["METALWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "중심이 기울어져 있어 지구력은 없지만 굉장히 무거워서 방어능력이 뛰어나다.", stats: [0, 70, 0] },
+  { id: "METALWHEEL-BIG-BANG", type: "metalwheel", name: "빅뱅", en: "Big Bang", sub: "메탈휠", tags: ["METALWHEEL", "ATTACK", "RIGHT SPIN"], desc: "PC프레임과 코어의 각도를 달리하여 4가지의 공격모드로 전환이 가능하다.", stats: [60, 0, 10] },
+  { id: "METALWHEEL-FANG", type: "metalwheel", name: "팡", en: "Fang", sub: "메탈휠", tags: ["METALWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "메탈휠을 뒤집어서 디펜스모드와 카운터공격모드로 전환한다.", stats: [20, 50, 0] },
+  { id: "METALWHEEL-LDRAGO-DESTROY", type: "metalwheel", name: "엘드라고 디스트로이", en: "L-Drago Destroy", sub: "메탈휠", tags: ["METALWHEEL", "ATTACK", "LEFT SPIN"], desc: "메탈휠과 코어의 재조합으로 공격모드와 흡수모드로 전환이 가능하다.", stats: [60, 0, 10], extraStats: [{ name: "흡수력", value: 40 }] },
+  { id: "METALWHEEL-BEAT", type: "metalwheel", name: "비트", en: "Beat", sub: "메탈휠", tags: ["METALWHEEL", "BALANCE", "RIGHT SPIN"], desc: "PC프레임의 방향을 바꾸면 공격모드와 방어모드의 2가지 모드로 전환된다.", stats: [25, 25, 20] },
+  { id: "METALWHEEL-SCYTHE", type: "metalwheel", name: "사이즈", en: "Scythe", sub: "메탈휠", tags: ["METALWHEEL", "STAMINA", "RIGHT SPIN"], desc: "PC프레임을 잠글 때는 공격모드, 자유회전시킬 때는 스테미너모드의 2가지 모드로 전환된다.", stats: [20, 0, 50] },
+  { id: "METALWHEEL-VARIARES", type: "metalwheel", name: "베리아레스", en: "Variares", sub: "메탈휠", tags: ["METALWHEEL", "DEFENSE", "DUAL SPIN"], desc: "고속회전시에는 공격모드, 저회전시에는 방어모드의 2개 모드로 자동전환한다.", stats: [10, 60, 0] },
+  { id: "METALWHEEL-JADE", type: "metalwheel", name: "제이드", en: "Jade", sub: "메탈휠", tags: ["METALWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "쇠구슬이 내장된 메탈프레임을 회전시켜 방어모드와 스테미너모드의 2가지 모드로 전환한다.", stats: [0, 50, 20] },
+  { id: "METALWHEEL-FORBIDDEN", type: "metalwheel", name: "포비든", en: "Forbidden", sub: "메탈휠", tags: ["METALWHEEL", "BALANCE", "RIGHT SPIN"], desc: "", stats: [30, 0, 40] },
+  { id: "METALWHEEL-BLITZ", type: "metalwheel", name: "브릿츠", en: "Blitz", sub: "메탈휠", tags: ["METALWHEEL", "ATTACK", "RIGHT SPIN"], desc: "메탈프레임과 코어의 각도를 바꿔줌에 따라 3개의 날개 강습모드와 6개의 날개 연타모드로 전환된다.", stats: [60, 10, 0] },
+  { id: "METALWHEEL-PHANTOM", type: "metalwheel", name: "팬텀", en: "Phantom", sub: "메탈휠", tags: ["METALWHEEL", "STAMINA", "RIGHT SPIN"], desc: "PC프레임을 뒤집어 장착하면 지구모드와 공격모드로 전환이 가능하다.", stats: [20, 0, 50] },
+  { id: "METALWHEEL-DEATH", type: "metalwheel", name: "데쓰", en: "Death", sub: "메탈휠", tags: ["METALWHEEL", "BALANCE", "RIGHT SPIN"], desc: "거대한 벽과 같은 중압감으로 뒤집으면 공격모드와 방어모드로 전환된다.", stats: [40, 30, 0] },
+  { id: "METALWHEEL-DUO", type: "metalwheel", name: "듀오", en: "Duo", sub: "메탈휠", tags: ["METALWHEEL", "STAMINA", "RIGHT SPIN"], desc: "메탈프레임의 중심밸런스를 바꿔낌에 따라 지구모드와 공격모드로 전환이 가능하다.", stats: [30, 40, 0] },
+  { id: "METALWHEEL-WING", type: "metalwheel", name: "윙", en: "Wing", sub: "메탈휠", tags: ["METALWHEEL", "ATTACK", "RIGHT SPIN"], desc: "메탈프레임과 코어 각도를 바꿈으로써 3가지 공격력모드로 전환이 가능하다.", stats: [60, 10, 0] },
+  { id: "METALWHEEL-LDRAGO-GUARDIAN", type: "metalwheel", name: "엘드라고 가디언", en: "L-Drago Guardian", sub: "메탈휠", tags: ["METALWHEEL", "DEFENSE", "LEFT SPIN"], desc: "갑옷을 씌운 메탈프레임과 코어의 조립으로 방어력이 높은 공격모드와 흡수모드의 전환이 가능하다.", stats: [30, 40, 0] },
+  { id: "METALWHEEL-DIABLO", type: "metalwheel", name: "디아블로", en: "Diablo", sub: "메탈휠", tags: ["METALWHEEL", "BALANCE", "RIGHT SPIN"], desc: "메탈프레임과 코어의 재조합으로 메탈프레임이 고정되는 공격모드와 자유회전하는 극한의밸런스모드의 2가지 패턴으로 모드 전환이 가능하다.", stats: [40, 20, 10] },
+  { id: "METALWHEEL-FUSION", type: "metalwheel", name: "퓨전", en: "Fusion", sub: "메탈휠", tags: ["METALWHEEL", "BALANCE", "RIGHT SPIN"], desc: "메탈휠과 러버휠을 반전하여 전환하면 방어모드와 밸런스모드로 전환된다.", stats: [20, 30, 20] },
+  { id: "METALWHEEL-CRASH", type: "metalwheel", name: "크래시", en: "Crash", sub: "메탈휠", tags: ["METALWHEEL", "BALANCE", "RIGHT SPIN"], desc: "", stats: [30, 20, 10] },
+  { id: "METALWHEEL-CLOUD", type: "metalwheel", name: "클라우드", en: "Cloud", sub: "메탈휠", tags: ["METALWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "", stats: [10, 30, 20] },
+  { id: "METALWHEEL-OMEGA", type: "metalwheel", name: "오메가", en: "Omega", sub: "메탈휠", tags: ["METALWHEEL", "ATTACK", "RIGHT SPIN"], desc: "", stats: [50, 10, 10] },
+  { id: "METALWHEEL-KREIS", type: "metalwheel", name: "크라이스", en: "Kreis", sub: "메탈휠", tags: ["METALWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "백조가 날개짓하듯 방어하는 방어모드와 날개를 고정한 채 공격하는 공격모드로 전환한다.", stats: [10, 50, 10] },
+  { id: "METALWHEEL-FLASH", type: "metalwheel", name: "플래시", en: "Flash", sub: "메탈휠", tags: ["METALWHEEL", "STAMINA", "RIGHT SPIN"], desc: "2개의 활과 화살이 중심과 균형을 잡아 원형 상태에서는 지구력을 발휘하고, 타원형 상태에서는 강력한 타격을 적에게 가한다.", stats: [20, 10, 40] },
+  { id: "STONEFACE-IFRAID", type: "stoneface", name: "이프레이드", en: "Ifraid", sub: "스톤페이스", tags: ["STONEFACE"], desc: "이프레이드를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "STONEFACE-SARAMANDA", type: "stoneface", name: "사라만다", en: "Saramanda", sub: "스톤페이스", tags: ["STONEFACE"], desc: "사라만다를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "STONEFACE-OROJYA", type: "stoneface", name: "오로자", en: "Orojya", sub: "스톤페이스", tags: ["STONEFACE"], desc: "오로자를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "STONEFACE-PHOENIC", type: "stoneface", name: "피닉", en: "Phoenic", sub: "스톤페이스", tags: ["STONEFACE"], desc: "피닉을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "STONEFACE-REVIZER", type: "stoneface", name: "리바이저", en: "Revizer", sub: "스톤페이스", tags: ["STONEFACE"], desc: "리바이저를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "STONEFACE-GRYPH", type: "stoneface", name: "그리프", en: "Gryph", sub: "스톤페이스", tags: ["STONEFACE"], desc: "그리프를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "STONEFACE-KRAKEN", type: "stoneface", name: "크라켄", en: "Killerken", sub: "스톤페이스", tags: ["STONEFACE"], desc: "크라켄을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "STONEFACE-DRAGOON", type: "stoneface", name: "드래곤", en: "Dragooon", sub: "스톤페이스", tags: ["STONEFACE"], desc: "드래곤을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "STONEFACE-GARGOYLE", type: "stoneface", name: "가고일", en: "Gargole", sub: "스톤페이스", tags: ["STONEFACE"], desc: "가고일을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "STONEFACE-GOREIM", type: "stoneface", name: "골렘", en: "Goreim", sub: "스톤페이스", tags: ["STONEFACE"], desc: "골렘을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "STONEFACE-GENBULL", type: "stoneface", name: "겐블", en: "Genbull", sub: "스톤페이스", tags: ["STONEFACE"], desc: "겐블을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "STONEFACE-BALRO", type: "stoneface", name: "발록", en: "Balro", sub: "스톤페이스", tags: ["STONEFACE"], desc: "발록을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "STONEFACE-GIRAGO", type: "stoneface", name: "지라고", en: "Girago", sub: "스톤페이스", tags: ["STONEFACE"], desc: "지라고를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "STONEFACE-WYVANG", type: "stoneface", name: "와이번", en: "Wyvang", sub: "스톤페이스", tags: ["STONEFACE"], desc: "와이번을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "STONEFACE-PEGASIS", type: "stoneface", name: "페가시스", en: "Pegasis", sub: "스톤페이스", tags: ["STONEFACE"], desc: "페가시스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "STONEFACE-BAHAMDIA", type: "stoneface", name: "바함디아", en: "Bahamdia", sub: "스톤페이스", tags: ["STONEFACE"], desc: "바함디아를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "CRYSTALWHEEL-WARRIORS", type: "crystalwheel", name: "워리어스", en: "Warriors", sub: "크리스탈휠", tags: ["CRYSTALWHEEL", "ATTACK", "RIGHT SPIN"], desc: "가장자리의 날개로 적을 공격한다.", stats: [60, 0, 10] },
+  { id: "CRYSTALWHEEL-SHINOBI", type: "crystalwheel", name: "시노비", en: "Shinobi", sub: "크리스탈휠", tags: ["CRYSTALWHEEL", "BALANCE", "RIGHT SPIN"], desc: "4개의 날개가 균형있게 배치되어 지구력을 만들며 공격력도 뛰어나다.", stats: [30, 20, 20] },
+  { id: "CRYSTALWHEEL-PIRATES", type: "crystalwheel", name: "파이레츠", en: "Pirates", sub: "크리스탈휠", tags: ["CRYSTALWHEEL", "STAMINA", "RIGHT SPIN"], desc: "갈고리 모양의 돌기가 방어력과 지구력을 상승시킨다.", stats: [10, 30, 30] },
+  { id: "CRYSTALWHEEL-THIEF", type: "crystalwheel", name: "시프", en: "Thief", sub: "크리스탈휠", tags: ["CRYSTALWHEEL", "ATTACK", "RIGHT SPIN"], desc: "줄지어 늘어선 칼날 모양이 원심력을 만들고 연타공격을 한다.", stats: [30, 10, 30] },
+  { id: "CRYSTALWHEEL-GUARDIAN", type: "crystalwheel", name: "가디언", en: "Guardian", sub: "크리스탈휠", tags: ["CRYSTALWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "방패를 둘러싼 파도 모양의 돌기가 적의 공격을 받아넘긴다.", stats: [10, 40, 20] },
+  { id: "CRYSTALWHEEL-ARCHER", type: "crystalwheel", name: "아처", en: "Archer", sub: "크리스탈휠", tags: ["CRYSTALWHEEL", "BALANCE", "RIGHT SPIN"], desc: "활과 화살의 형상으로 적의 공격을 방어, 기울어진 중심과 바람구멍이 예측불가능한 의외의 공격을 만든다.", stats: [40, 30, 0] },
+  { id: "CRYSTALWHEEL-DARK-KNIGHT", type: "crystalwheel", name: "다크나이트", en: "Dark Knight", sub: "크리스탈휠", tags: ["CRYSTALWHEEL", "ATTACK", "RIGHT SPIN"], desc: "방패의 톱니로 연타공격을 만들고 거대한 창으로 적을 제압한다.", stats: [50, 10, 10] },
+  { id: "CRYSTALWHEEL-BANDIT", type: "crystalwheel", name: "반디드", en: "Bandid", sub: "크리스탈휠", tags: ["CRYSTALWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "바깥쪽으로 향해 있는 경사면이 적의 공격을 받아넘긴다.", stats: [10, 50, 10] },
+  { id: "CRYSTALWHEEL-BERSERKER", type: "crystalwheel", name: "버서커", en: "Berserker", sub: "크리스탈휠", tags: ["CRYSTALWHEEL", "STAMINA", "RIGHT SPIN"], desc: "양끝에 배치된 철구슬과 쇠사슬이 바깥중심이 되어 원심력을 강화한다.", stats: [30, 0, 40] },
+  { id: "CRYSTALWHEEL-GLADIATOR", type: "crystalwheel", name: "글레디에이터", en: "Gladiator", sub: "크리스탈휠", tags: ["CRYSTALWHEEL", "ATTACK", "RIGHT SPIN"], desc: "사방으로 향하는 검이 회전함으로써 공격과 방어를 하나로 묶는다.", stats: [30, 20, 10] },
+  { id: "CHROMEWHEEL-IFRAID", type: "chromewheel", name: "이프레이드", en: "Ifraid", sub: "크롬휠", tags: ["CHROMEWHEEL", "ATTACK", "RIGHT SPIN"], desc: "커다란 2개의 날개로 연타공격을 한다.", stats: [50, 10, 10] },
+  { id: "CHROMEWHEEL-SARAMANDA", type: "chromewheel", name: "사라만다", en: "Saramanda", sub: "크롬휠", tags: ["CHROMEWHEEL", "BALANCE", "RIGHT SPIN"], desc: "지느러미 모양의 돌기가 폭풍과 같은 연타공격을 가한다.", stats: [40, 20, 10] },
+  { id: "CHROMEWHEEL-OROJYA", type: "chromewheel", name: "오로자", en: "Orojya", sub: "크롬휠", tags: ["CHROMEWHEEL", "STAMINA", "RIGHT SPIN"], desc: "6마리의 뱀을 형상화한 휠의 끝부분이 바깥중심이 되어 강한 원심력을 만든다.", stats: [10, 20, 40] },
+  { id: "CHROMEWHEEL-PHOENIC", type: "chromewheel", name: "피닉", en: "Phoenic", sub: "크롬휠", tags: ["CHROMEWHEEL", "ATTACK", "RIGHT SPIN"], desc: "3개의 큰 날개로 강력한 공격을 만들어낸다.", stats: [40, 20, 10] },
+  { id: "CHROMEWHEEL-REVIZER", type: "chromewheel", name: "리바이저", en: "Revizer", sub: "크롬휠", tags: ["CHROMEWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "휠 바깥둘레의 매끄러운 높은 벽으로 적의 공격을 받아넘겨 방어한다.", stats: [10, 40, 20] },
+  { id: "CHROMEWHEEL-GRYPH", type: "chromewheel", name: "그리프", en: "Gryph", sub: "크롬휠", tags: ["CHROMEWHEEL", "BALANCE", "RIGHT SPIN"], desc: "5개의 날개로 강습연타공격이 가능하고 동시에 방어력이 뛰어난 휠.", stats: [35, 35, 0] },
+  { id: "CHROMEWHEEL-KRAKEN", type: "chromewheel", name: "크라켄", en: "Killerken", sub: "크롬휠", tags: ["CHROMEWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "8개의 커다란 다리가 테두리에 위치하여 적의 공격으로부터 몸체를 보호한다.", stats: [10, 50, 10] },
+  { id: "CHROMEWHEEL-DRAGOON", type: "chromewheel", name: "드래곤", en: "Dragooon", sub: "크롬휠", tags: ["CHROMEWHEEL", "ATTACK", "RIGHT SPIN"], desc: "중심이 기울어지도록 배치된 3마리의 용이 연타공격을 만들어내고, 적의 회전력을 약화시킨다.", stats: [60, 5, 5] },
+  { id: "CHROMEWHEEL-GARGOYLE", type: "chromewheel", name: "가고일", en: "Gargole", sub: "크롬휠", tags: ["CHROMEWHEEL", "ATTACK", "RIGHT SPIN"], desc: "좌우의 날개에 있는 틈 사이로 바람을 일으켜 회전력이 상승하고 회전공격을 퍼붓는다.", stats: [40, 10, 20] },
+  { id: "CHROMEWHEEL-GOREIM", type: "chromewheel", name: "골렘", en: "Goreim", sub: "크롬휠", tags: ["CHROMEWHEEL", "DEFENSE", "RIGHT SPIN"], desc: "갑옷으로 둘러싸인 몸체와 사다리 모양의 휠이 철벽방어를 자랑한다.", stats: [10, 40, 20] },
+  { id: "CHROMEWHEEL-BEGIRADOS", type: "chromewheel", name: "베기라도스", en: "Begirados", sub: "크롬휠", tags: ["CHROMEWHEEL", "STAMINA", "RIGHT SPIN"], desc: "강력한 원심력과 지구력을 자랑한다.", stats: [20, 10, 40] },
+  { id: "CHROMEWHEEL-GENBULL", type: "chromewheel", name: "겐블", en: "Genbull", sub: "크롬휠", tags: ["CHROMEWHEEL", "STAMINA", "RIGHT SPIN"], desc: "강고한 대칭의 등껍질이 원심력을 만들어내 지구력을 더한다.", stats: [10, 20, 40] },
+  { id: "CHROMEWHEEL-BALRO", type: "chromewheel", name: "발록", en: "Balro", sub: "크롬휠", tags: ["CHROMEWHEEL", "BALANCE", "RIGHT SPIN"], desc: "", stats: [30, 30, 10] },
+  { id: "CHROMEWHEEL-GIRAGO", type: "chromewheel", name: "지라고", en: "Girago", sub: "크롬휠", tags: ["CHROMEWHEEL", "ATTACK", "RIGHT SPIN"], desc: "", stats: [50, 10, 10] },
+  { id: "CHROMEWHEEL-WYVANG", type: "chromewheel", name: "와이번", en: "Wyvang", sub: "크롬휠", tags: ["CHROMEWHEEL", "STAMINA", "RIGHT SPIN"], desc: "", stats: [0, 20, 50] },
+  { id: "CHROMEWHEEL-PEGASIS", type: "chromewheel", name: "페가시스", en: "Pegasis", sub: "크롬휠", tags: ["CHROMEWHEEL", "ATTACK", "RIGHT SPIN"], desc: "3장의 크게 튀어나온 날개로 강렬한 공격을 연달아 가하고 적을 추격한다.", stats: [60, 10, 0] },
+  { id: "CHROMEWHEEL-BAHAMDIA", type: "chromewheel", name: "바함디아", en: "Bahamdia", sub: "크롬휠", tags: ["CHROMEWHEEL", "BALANCE", "RIGHT SPIN"], desc: "베이 사상 최대급 직경을 가진 크롬휠. 막강한 원심력을 무기로 상대에게 달려든다.", stats: [30, 10, 30] },
+  { id: "TRACK-105", type: "track", name: "105", en: "105", sub: "", tags: ["TRACK"], desc: "10.5mm 높이의 트랙. 아래에서의 어퍼공격이 가능하다.", stats: [10, 4, 5] },
+  { id: "TRACK-145", type: "track", name: "145", en: "145", sub: "", tags: ["TRACK"], desc: "14.5mm 높이의 트랙. 위에서의 스매시공격이 가능하다.", stats: [4, 12, 9] },
+  { id: "TRACK-CLAW-145", type: "track", name: "C145", en: "Claw 145", sub: "클로145", tags: ["TRACK"], desc: "자유롭게 움직이는 발톱이 회전력에 의해 펼쳐지며 원심력을 증가시킨다.", stats: [3, 15, 8] },
+  { id: "TRACK-HORN-145", type: "track", name: "H145", en: "Horn 145", sub: "혼145", tags: ["TRACK"], desc: "4개의 날카로운 톱날이 낮은 위치의 적을 공격하고 6개의 평평한 톱날이 적의 공격을 효율적으로 방어한다.", stats: [12, 7, 5] },
+  { id: "TRACK-125", type: "track", name: "125", en: "125", sub: "", tags: ["TRACK"], desc: "12.5mm 높이의 트랙. 위와 아래 양방향으로 공격과 방어가 가능하다.", stats: [7, 8, 7] },
+  { id: "TRACK-90", type: "track", name: "90", en: "90", sub: "", tags: ["TRACK"], desc: "90mm 높이의 트랙. 극단적으로 낮은 위치에서의 공격이 가능하다.", stats: [12, 3, 4] },
+  { id: "TRACK-D125", type: "track", name: "D125", en: "Defense 125", sub: "디펜스125", tags: ["TRACK"], desc: "측면에 있는 커다란 고리로 상대방이 밑에서 공격하는 것을 방어한다!", stats: [7, 9, 7] },
+  { id: "TRACK-DF145", type: "track", name: "DF145", en: "Down Force 145", sub: "다운포스145", tags: ["TRACK"], desc: "4개의 날개가 다운포스를 발생시켜 지면에 강하게 접지하고 안정된 회전을 발휘한다.", stats: [5, 8, 12] },
+  { id: "TRACK-100", type: "track", name: "100", en: "100", sub: "", tags: ["TRACK"], desc: "10mm 높이의 트랙. 매우 낮은 위치에서 어퍼공격이 가능하다.", stats: [11, 4, 5] },
+  { id: "TRACK-WD145", type: "track", name: "WD145", en: "Wide Defense 145", sub: "와이드디펜스145", tags: ["TRACK"], desc: "돌기가 달린 3개의 날개가 측면에서의 공격을 보호한다.", stats: [4, 13, 8] },
+  { id: "TRACK-CH120", type: "track", name: "CH120", en: "Change Height 120", sub: "체인지하이트120", tags: ["TRACK"], desc: "휠, 버텀과 조합한 상태로 배틀 상황에 따라 120과 145의 높이를 조절할 수 있다.", stats: [8, 8, 8] },
+  { id: "TRACK-ED145", type: "track", name: "ED145", en: "Eternal Defense 145", sub: "이터널디펜스145", tags: ["TRACK"], desc: "자유롭게 회전하는 방패가 밑에서의 공격을 받아넘겨서 충격을 완화시킨다.", stats: [4, 14, 8] },
+  { id: "TRACK-T125", type: "track", name: "T125", en: "Tornado 125", sub: "토네이도125", tags: ["TRACK"], desc: "다운포스와 원심력이 균형있게 조화되어 낮은 위치에서 적을 공격한다.", stats: [5, 7, 12] },
+  { id: "TRACK-M145", type: "track", name: "M145", en: "Movement 145", sub: "무브먼트145", tags: ["TRACK"], desc: "축의 중심을 어긋나게 하여 불규칙한 움직임으로 점프공격을 한다.", stats: [12, 4, 5] },
+  { id: "TRACK-135", type: "track", name: "135", en: "135", sub: "", tags: ["TRACK"], desc: "13.5mm 높이의 트랙. 위에서의 스매시공격에 유리하면서도 균형이 잡혀 있다.", stats: [6, 9, 8] },
+  { id: "TRACK-GB145", type: "track", name: "GB145", en: "Gravity Ball 145", sub: "그라비티볼145", tags: ["TRACK"], desc: "고속회전시 쇠구슬이 바깥쪽으로 이동하여 강력한 원심력을 만들고, 저속회전시 안쪽으로 이동하여 회전력을 발생시킨다.", stats: [4, 15, 9] },
+  { id: "TRACK-SW145", type: "track", name: "SW145", en: "Switch 145", sub: "스위치145", tags: ["TRACK"], desc: "날개의 윗면과 아랫면을 뒤집으면 공격과 방어의 2가지 타입으로 전환된다.", stats: [8, 8, 8] },
+  { id: "TRACK-85", type: "track", name: "85", en: "85", sub: "", tags: ["TRACK"], desc: "지면에 달라붙은 초저중심 트랙으로 어퍼공격이 가능하다.", stats: [12, 3, 4] },
+  { id: "TRACK-W105", type: "track", name: "W105", en: "Wing 105", sub: "윙105", tags: ["TRACK"], desc: "낮은 중심으로 다운포스를 가능하게 하여 접지력을 향상시킨다.", stats: [7, 7, 8] },
+  { id: "TRACK-WA130", type: "track", name: "WA130", en: "Wing Attack 130", sub: "윙어택130", tags: ["TRACK"], desc: "자유롭게 회전하는 날개가 낮은 위치의 적에게 공격을 한다.", stats: [11, 5, 6] },
+  { id: "TRACK-R145", type: "track", name: "R145", en: "Rubber 145", sub: "러버145", tags: ["TRACK"], desc: "고무 소재의 날개가 적의 공격을 흡수하여 피해를 줄여준다.", stats: [4, 14, 7] },
+  { id: "TRACK-AD145", type: "track", name: "AD145", en: "Armor Defense 145", sub: "아머디펜스145", tags: ["TRACK"], desc: "갑옷으로 감싸져 있어 상대의 공격에도 피해를 쉽게 받지 않는다.", stats: [4, 14, 8] },
+  { id: "TRACK-S130", type: "track", name: "S130", en: "Shield 130", sub: "실드130", tags: ["TRACK"], desc: "저중심인 동시에 옆으로 뻗은 방패로 적의 공격을 효과적으로 방어한다.", stats: [5, 13, 7] },
+  { id: "TRACK-V145", type: "track", name: "V145", en: "Variable 145", sub: "베리어블145", tags: ["TRACK"], desc: "날개의 각도를 전환하여 공격과 방어를 전환할 수 있다.", stats: [8, 8, 8] },
+  { id: "TRACK-LW105", type: "track", name: "LW105", en: "Left Wing 105", sub: "레프트윙105", tags: ["TRACK"], desc: "3개의 날개를 갖고 있는 낮은 중심의 트랙으로 좌회전시 다운포스를 발휘한다.", stats: [7, 7, 8] },
+  { id: "TRACK-TR145", type: "track", name: "TR145", en: "Triple Roller 145", sub: "트리플롤러145", tags: ["TRACK"], desc: "", stats: [8, 8, 8] },
+  { id: "TRACK-230", type: "track", name: "230", en: "230", sub: "", tags: ["TRACK"], desc: "23mm 높이의 트랙. 휠이 직접적인 공격을 받지 않을 정도의 높이를 자랑한다.", stats: [3, 12, 10] },
+  { id: "TRACK-130", type: "track", name: "130", en: "130", sub: "", tags: ["TRACK"], desc: "13mm 높이의 트랙. 위에서 아래로 공격하는 스매시공격을 가한다.", stats: [8, 7, 7] },
+  { id: "TRACK-DF105", type: "track", name: "DF105", en: "Down Force 105", sub: "다운포스105", tags: ["TRACK"], desc: "4개의 날개가 좌회전시 강력한 다운포스를 발생시킨다.", stats: [6, 7, 9] },
+  { id: "TRACK-BD145", type: "track", name: "BD145", en: "Boost Disk 145", sub: "부스트디스크145", tags: ["TRACK"], desc: "거대한 원형 부품이 적의 공격을 방어하면서 지구력을 증가시키고 휠과 합체할 수 있다!", stats: [4, 15, 10] },
+  { id: "TRACK-UW145", type: "track", name: "UW145", en: "Upper Wing 145", sub: "어퍼윙145", tags: ["TRACK"], desc: "날개의 방향을 바꾸어 장착하면 공격과 방어의 2가지 타입으로 전환된다.", stats: [8, 8, 8] },
+  { id: "TRACK-TH170", type: "track", name: "TH170", en: "Triple Height 170", sub: "트리플하이토이170", tags: ["TRACK"], desc: "배틀 상대에 따라 3단계로 높이를 조절한다.", stats: [0, 0, 0] },
+  { id: "TRACK-W145", type: "track", name: "W145", en: "Wing 145", sub: "윙145", tags: ["TRACK"], desc: "강력한 다운포스를 발생시켜 안정된 자세를 유지한다.", stats: [0, 0, 0] },
+  { id: "TRACK-160", type: "track", name: "160", en: "160", sub: "", tags: ["TRACK"], desc: "16mm 높이의 트랙. 요철이 적은 표면으로 적의 공격을 막는다.", stats: [0, 0, 0] },
+  { id: "TRACK-E230", type: "track", name: "E230", en: "Elevator 230", sub: "엘리베이터230", tags: ["TRACK"], desc: "고리 부분이 위아래로 움직이며 회전 속도를 제어한다.", stats: [0, 0, 0] },
+  { id: "TRACK-A230", type: "track", name: "A230", en: "Armor 230", sub: "아머230", tags: ["TRACK"], desc: "휠의 공격을 방어하는 갑옷이 결합되어 직접타격에 잘 견딘다.", stats: [0, 0, 0] },
+  { id: "TRACK-LW160", type: "track", name: "LW160", en: "Left Wing 160", sub: "레프트윙160", tags: ["TRACK"], desc: "6개의 큰 날개로 좌회전 공격에 유효한 다운포스를 만들어낸다.", stats: [0, 0, 0] },
+  { id: "TRACK-SA165", type: "track", name: "SA165", en: "Switch Attack 165", sub: "스위치어택165", tags: ["TRACK"], desc: "트랙을 위아래로 결합하여 성능이 다른 2개의 공격방법으로 바꿀 수 있다.", stats: [0, 0, 0] },
+  { id: "TRACK-F230", type: "track", name: "F230", en: "Free 230", sub: "프리230", tags: ["TRACK"], desc: "자유롭게 회전하는 트랙이 버텀이 지닌 전체적인 지구력을 최대한으로 이끌어낸다.", stats: [0, 0, 0] },
+  { id: "TRACK-SR200", type: "track", name: "SR200", en: "Stamina Ring 200", sub: "스테미너링200", tags: ["TRACK"], desc: "두껍고 커다란 고리로 높은 원심력과 안정된 회전력을 만들어낸다.", stats: [0, 0, 0] },
+  { id: "TRACK-SP230", type: "track", name: "SP230", en: "Spike 230", sub: "스파이크230", tags: ["TRACK"], desc: "발톱 모양의 돌기로 제동을 걸어 속도를 제어한다.", stats: [0, 0, 0] },
+  { id: "BOTTOM-FLAT", type: "bottom", name: "F", en: "Flat", sub: "플랫", tags: ["BOTTOM", "ATTACK"], desc: "축의 끝이 평평하여 기동력과 공격력이 뛰어나다.", stats: [50, 10, 10] },
+  { id: "BOTTOM-SEMI-FLAT", type: "bottom", name: "SF", en: "Semi Flat", sub: "세미플랫", tags: ["BOTTOM", "BALANCE"], desc: "공격력과 지구력을 균형있게 갖추고 있다.", stats: [30, 20, 20] },
+  { id: "BOTTOM-SHARP", type: "bottom", name: "S", en: "Sharp", sub: "샤프", tags: ["BOTTOM", "STAMINA"], desc: "축의 끝이 뾰족하여 안전성이 높고 지구력이 뛰어나다.", stats: [10, 20, 40] },
+  { id: "BOTTOM-DEFENSE", type: "bottom", name: "D", en: "Defense", sub: "디펜스", tags: ["BOTTOM", "DEFENSE"], desc: "공격을 받았을 때 잘 쓰러지지 않고 방어력이 뛰어나다.", stats: [10, 40, 20] },
+  { id: "BOTTOM-WIDE-FLAT", type: "bottom", name: "WF", en: "Wide Flat", sub: "와이드플랫", tags: ["BOTTOM", "ATTACK"], desc: "접지면적을 확대한 플랫 버텀. 격렬한 기동력과 공격력을 발휘한다.", stats: [50, 10, 10] },
+  { id: "BOTTOM-BALL", type: "bottom", name: "B", en: "Ball", sub: "볼", tags: ["BOTTOM", "DEFENSE"], desc: "접지력이 강한 축의 끝을 가지고 있어서 밸런스와 방어력이 우수하다.", stats: [30, 30, 10], modelKey: "BO_B" },
+  { id: "BOTTOM-BALL-SHARP", type: "bottom", name: "BS", en: "Ball Sharp", sub: "볼샤프", tags: ["BOTTOM", "STAMINA"], desc: "축의 끝부분이 뾰족하여 안전성이 높고 볼 형태로 되어 있어 방어력이 우수하다.", stats: [0, 30, 40], modes: [{ name: "일반", stats: [0, 30, 40] }, { name: "제로G", stats: [0, 50, 20] }] },
+  { id: "BOTTOM-HOLE-FLAT", type: "bottom", name: "HF", en: "Hole Flat", sub: "홀플랫", tags: ["BOTTOM", "ATTACK"], desc: "축의 끝에 구멍을 만들어 마찰저항을 줄이고 기동력과 공격력을 균형있게 갖추고 있다.", stats: [40, 0, 30] },
+  { id: "BOTTOM-FLAT-SHARP", type: "bottom", name: "FS", en: "Flat Sharp", sub: "플랫샤프", tags: ["BOTTOM", "BALANCE"], desc: "축의 끝이 凸 모양으로 되어 있어 스타디움 중심에서는 스테미너형이, 공격시에는 공격형이 되는 양면성을 지녔다.", stats: [30, 10, 30] },
+  { id: "BOTTOM-RUBBER-FLAT", type: "bottom", name: "RF", en: "Rubber Flat", sub: "러버플랫", tags: ["BOTTOM", "ATTACK"], desc: "고무 소재를 사용하여 기동력과 공격력을 극한으로 증대시켜 격렬하게 이동하며 공격한다.", stats: [50, 10, 10] },
+  { id: "BOTTOM-WIDE-BALL", type: "bottom", name: "WB", en: "Wide Ball", sub: "와이드볼", tags: ["BOTTOM", "DEFENSE"], desc: "특대의 볼 형태로 강력한 공격에도 흔들리지 않으며 적의 공격을 막아낸다.", stats: [10, 50, 10] },
+  { id: "BOTTOM-HOLE-FLAT-SHARP", type: "bottom", name: "HF/S", en: "Hole Flat Sharp", sub: "홀플랫샤프", tags: ["BOTTOM", "ATTACK", "STAMINA"], desc: "", stats: [40, 0, 30], modes: [{ name: "홀플랫 모드", stats: [40, 0, 30] }, { name: "샤프 모드", stats: [10, 20, 40] }] },
+  { id: "BOTTOM-SEMI-DEFENSE", type: "bottom", name: "SD", en: "Semi Defense", sub: "세미디펜스", tags: ["BOTTOM", "DEFENSE"], desc: "방어력과 지구력을 균형있게 가지고 있다.", stats: [10, 30, 30] },
+  { id: "BOTTOM-WIDE-DEFENSE", type: "bottom", name: "WD", en: "Wide Defense", sub: "와이드디펜스", tags: ["BOTTOM", "DEFENSE"], desc: "디펜스 버텀이 더욱 넓어져서 강한 공격에도 끄떡없이 견딘다.", stats: [0, 50, 20] },
+  { id: "BOTTOM-ETERNAL-SHARP", type: "bottom", name: "ES", en: "Eternal Sharp", sub: "이터널샤프", tags: ["BOTTOM", "STAMINA"], desc: "축의 끝이 자유롭게 회전하여 접지면의 저항을 받지 않고 오랜 시간 회전력을 유지한다.", stats: [0, 20, 50] },
+  { id: "BOTTOM-QUAKE", type: "bottom", name: "Q", en: "Quake", sub: "퀘이크", tags: ["BOTTOM", "ATTACK"], desc: "작은 점프를 만들어내서 예측불허의 움직임이 가능하다.", stats: [70, 0, 0] },
+  { id: "BOTTOM-METAL-SHARP", type: "bottom", name: "MS", en: "Metal Sharp", sub: "메탈샤프", tags: ["BOTTOM", "STAMINA"], desc: "축의 끝에 마찰저항이 낮은 금속 소재를 사용하여 최소의 마찰저항으로 강한 지구력을 가진다.", stats: [0, 10, 70] },
+  { id: "BOTTOM-JOG-BALL", type: "bottom", name: "JB", en: "Jog Ball", sub: "조그볼", tags: ["BOTTOM", "DEFENSE"], desc: "울퉁불퉁한 곳에서 더욱 강한 와이드볼 버텀. 스타디움과 한몸이 되어 튕겨내기 어렵다.", stats: [10, 45, 5] },
+  { id: "BOTTOM-EXTREME-FLAT", type: "bottom", name: "XF", en: "Extreme Flat", sub: "익스트림플랫", tags: ["BOTTOM", "ATTACK"], desc: "접지면적을 확대한 플랫 버텀. 격렬한 기동력과 공격력을 발휘한다.", stats: [60, 10, 0] },
+  { id: "BOTTOM-RIGHT-RUBBER-FLAT", type: "bottom", name: "R²F", en: "Right Rubber Flat", sub: "라이트러버플랫", tags: ["BOTTOM", "ATTACK"], desc: "회전방향과 반대로 돌출된 고무 돌기가 스타디움을 박차면서 우회전 시 초기동력과 공격력을 발휘한다.", stats: [60, 10, 0] },
+  { id: "BOTTOM-COAT-SHARP", type: "bottom", name: "CS", en: "Coat Sharp", sub: "코트샤프", tags: ["BOTTOM", "ATTACK"], desc: "고무로 코팅된 샤프축이 강력한 기동력과 지칠 줄 모르는 지구력을 발휘한다.", stats: [30, 10, 30] },
+  { id: "BOTTOM-RUBBER-SHARP", type: "bottom", name: "RS", en: "Rubber Sharp", sub: "러버샤프", tags: ["BOTTOM", "DEFENSE"], desc: "끝이 뾰족하게 생긴 고무 소재의 버텀으로 마찰력이 높아 쉽게 튕겨나가지 않는다.", stats: [10, 50, 10] },
+  { id: "BOTTOM-METAL-BALL", type: "bottom", name: "MB", en: "Metal Ball", sub: "메탈볼", tags: ["BOTTOM", "DEFENSE"], desc: "축의 끝에 무거운 금속 소재를 사용하여 안정성을 높이면서 마찰저항을 감소시킨다.", stats: [0, 50, 20] },
+  { id: "BOTTOM-AROUND-SHARP", type: "bottom", name: "AS", en: "Around Sharp", sub: "어라운드샤프", tags: ["BOTTOM", "BALANCE"], desc: "디펜스버텀의 경사 부분이 자유롭게 회전하여 넘어질 것 같아도 끈기있게 회전을 계속한다.", stats: [0, 30, 40] },
+  { id: "BOTTOM-LEFT-FLAT", type: "bottom", name: "LF", en: "Left Flat", sub: "레프트플랫", tags: ["BOTTOM", "ATTACK"], desc: "돌기가 스타디움을 박차면서 좌회전시 초기동력과 공격력을 발휘한다.", stats: [60, 10, 0] },
+  { id: "BOTTOM-POLISH-DEFENSE", type: "bottom", name: "PD", en: "Polish Defense", sub: "포릿슈디펜스", tags: ["BOTTOM", "DEFENSE"], desc: "디펜스와 와이드디펜스 버텀의 중간 두께로, 윤활성이 높은 POM수지로 만들어져 지구력을 자랑하는 방어형 버텀.", stats: [0, 50, 20] },
+  { id: "BOTTOM-FLAT-BALL", type: "bottom", name: "FB", en: "Flat Ball", sub: "플랫볼", tags: ["BOTTOM", "BALANCE"], desc: "", stats: [30, 30, 10] },
+  { id: "BOTTOM-RUBBER-SEMI-FLAT", type: "bottom", name: "RSF", en: "Rubber Semi Flat", sub: "러버세미플랫", tags: ["BOTTOM", "ATTACK"], desc: "고무의 마찰력과 공격력을 유지하면서도 섬세한 회전으로 연타공격이 가능하다.", stats: [40, 20, 10] },
+  { id: "BOTTOM-LEFT-RUBBER-FLAT", type: "bottom", name: "LRF", en: "Left Rubber Flat", sub: "레프트러버플랫", tags: ["BOTTOM", "ATTACK"], desc: "회전방향과 반대로 돌출된 고무 돌기가 스타디움을 박차면서 좌회전시 초기동력과 공격력을 발휘한다.", stats: [60, 10, 0] },
+  { id: "BOTTOM-DEFENSE-SHARP", type: "bottom", name: "DS", en: "Defense Sharp", sub: "디펜스샤프", tags: ["BOTTOM", "STAMINA"], desc: "디펜스 축의 모양을 한 샤프 축으로 지구력이 뛰어나고 방어력이 우수하다.", stats: [5, 25, 40] },
+  { id: "BOTTOM-ETERNAL-WIDE-DEFENSE", type: "bottom", name: "EWD", en: "Eternal Wide Defense", sub: "이터널와이드디펜스", tags: ["BOTTOM", "STAMINA"], desc: "중앙이 자유롭게 회전하는 버텀으로 강력한 지구력과 방어력을 발휘한다.", stats: [0, 30, 50] },
+  { id: "BOTTOM-METAL-FLAT", type: "bottom", name: "MF", en: "Metal Flat", sub: "메탈플랫", tags: ["BOTTOM", "ATTACK"], desc: "기동력 있는 플랫축에 마찰저항이 낮은 금속 소재를 사용하여 지구력도 겸비하고 있다.", stats: [50, 0, 20] },
+  { id: "4DBOTTOM-FINAL-DRIVE", type: "fourdbottom", name: "F:D", en: "Final Drive", sub: "파이널드라이브", tags: ["4DBOTTOM", "ATTACK"], desc: "회전력이 떨어지면 세미플랫 축이 러버플랫 축으로 전환되어 급가속으로 회전한다.", stats: [60, 0, 10] },
+  { id: "BOTTOM-WAVE-WIDE-DEFENSE", type: "bottom", name: "W²D", en: "Wave Wide Defense", sub: "웨이브와이드디펜스", tags: ["BOTTOM", "DEFENSE"], desc: "접지점의 끝이 점에 가까워서 지구력을 발휘하고 와이드디펜스 버텀에 가까운 모양으로 방어력이 뛰어나다.", stats: [0, 40, 30] },
+  { id: "4DBOTTOM-FINAL-SURVIVE", type: "fourdbottom", name: "F:S", en: "Final Survive", sub: "파이널서바이브", tags: ["4DBOTTOM", "ATTACK"], desc: "홀플랫 축으로 격렬하게 회전하다가 적과 부딪히면 샤프 축으로 전환하여 지구력을 높인다.", stats: [40, 0, 30] },
+  { id: "BOTTOM-ETERNAL-DEFENSE-SHARP", type: "bottom", name: "EDS", en: "Eternal Defense Sharp", sub: "이터널디펜스샤프", tags: ["BOTTOM", "STAMINA"], desc: "중앙이 자유롭게 회전하는 디펜스 축의 넓이를 가진 샤프 축.", stats: [0, 20, 50] },
+  { id: "4DBOTTOM-DELTA-DRIVE", type: "fourdbottom", name: "D:D", en: "Delta Drive", sub: "델타드라이브", tags: ["4DBOTTOM", "BALANCE"], desc: "축의 끝이 방어, 지구, 공격의 3가지 모드로 전환된다.", stats: [30, 30, 20] },
+  { id: "BOTTOM-RUBBER-BALL", type: "bottom", name: "RB", en: "Rubber Ball", sub: "러버볼", tags: ["BOTTOM", "STAMINA"], desc: "돔 모양의 형태와 고무의 마찰력으로 쉽게 쓰러지거나 튕겨나가지 않아 방어력이 뛰어나다.", stats: [20, 50, 0] },
+  { id: "4DBOTTOM-BEARING-DRIVE", type: "fourdbottom", name: "B:D", en: "Bearing Drive", sub: "베어링드라이브", tags: ["4DBOTTOM", "STAMINA"], desc: "자유롭게 회전하는 축 안에 베어링을 내장함으로써 마찰을 최소화시켜 최강의 지구력을 발휘한다.", stats: [0, 10, 60] },
+  { id: "BOTTOM-RUBBER-DEFENSE-FLAT", type: "bottom", name: "RDF", en: "Rubber Defense Flat", sub: "러버디펜스플랫", tags: ["BOTTOM", "BALANCE"], desc: "고무의 공격력은 유지한 채 방어력과 지구력을 동시에 겸비한 밸런스형 버텀.", stats: [20, 30, 20] },
+  { id: "4DBOTTOM-X-DRIVE", type: "fourdbottom", name: "X:D", en: "X Drive", sub: "엑스드라이브", tags: ["4DBOTTOM", "BALANCE"], desc: "공격모드에서는 익스트림플랫과 샤프 축으로 전환되고, 극한의밸런스모드에서는 익스트림플랫, 스텔스세미디펜스, 샤프 축으로 자동 전환된다.", stats: [30, 20, 20] },
+  { id: "BOTTOM-SHARP-WIDE-DEFENSE", type: "bottom", name: "SWD", en: "Sharp Wide Defense", sub: "샤프와이드디펜스", tags: ["BOTTOM", "BALANCE"], desc: "와이드디펜스 버텀의 특징을 가지면서 샤프축으로 지구력을 높여 안정된 균형잡힌 파워를 가지고 있다.", stats: [10, 30, 30] },
+  { id: "BOTTOM-CIRCLE-FLAT", type: "bottom", name: "CF", en: "Circle Flat", sub: "서클플랫", tags: ["BOTTOM", "ATTACK"], desc: "플랫부분으로 평면을 달리고, 서클부분으로 경사면을 뛰어오르며 거침없이 회전한다.", stats: [50, 10, 10] },
+  { id: "BOTTOM-GEAR-CIRCLE-FLAT", type: "bottom", name: "GCF", en: "Gear Circle Flat", sub: "기어서클플랫", tags: ["BOTTOM", "ATTACK"], desc: "돌기가 있는 테두리 부분이 속도를 제어하는 역할을 한다.", stats: [40, 20, 10] },
+  { id: "BOTTOM-SHARP-BALL", type: "bottom", name: "SB", en: "Sharp Ball", sub: "샤프볼", tags: ["BOTTOM", "DEFENSE"], desc: "쉽게 끌려다니거나 쓰러지지 않는 방어력을 자랑하는 버텀.", stats: [0, 40, 30] },
+  { id: "BOTTOM-JOG-SHARP-BALL", type: "bottom", name: "JSB", en: "Jog Sharp Ball", sub: "조그샤프볼", tags: ["BOTTOM", "DEFENSE"], desc: "쉽게 쓰러지지 않는 샤프축에 요철이 결합되어 마찰력이 상승하고 방어력이 뛰어나다.", stats: [10, 50, 10] },
+  { id: "BOTTOM-BLADE-SEMI-FLAT", type: "bottom", name: "BSF", en: "Blade Semi Flat", sub: "블레이드세미플랫", tags: ["BOTTOM", "ATTACK"], desc: "격렬하게 회전하는 기동력을 가지면서 작은 회전을 잘 살린 연타공격이 가능하며 8개의 날개로 강력한 다운포스를 발생시킨다.", stats: [40, 15, 15] },
+  { id: "BOTTOM-WIDE-SEMI-FLAT", type: "bottom", name: "WSF", en: "Wide Semi Flat", sub: "와이드세미플랫", tags: ["BOTTOM", "ATTACK"], desc: "격렬하게 회전하는 기동성을 가지면서 스타디움을 크게 흔드는 연타공격이 가능하다.", stats: [40, 20, 10] },
+  { id: "BOTTOM-TWIN-BALL", type: "bottom", name: "TB", en: "Twin Ball", sub: "트윈볼", tags: ["BOTTOM", "STAMINA"], desc: "두 개의 구가 기울어져도 균형을 잃지 않도록 하고 끈질긴 지구력을 발휘한다.", stats: [0, 30, 40] },
+  { id: "BOTTOM-BIG-WIDE-DEFENSE", type: "bottom", name: "BWD", en: "Big Wide Defense", sub: "빅와이드디펜스", tags: ["BOTTOM", "STAMINA"], desc: "가장 넓은 디펜스 버텀으로 쉽게 쓰러지지 않고 강력한 지구력을 발휘한다.", stats: [20, 0, 50] },
+  { id: "BOTTOM-GIGA-FLAT", type: "bottom", name: "GF", en: "Giga Flat", sub: "기가플랫", tags: ["BOTTOM", "ATTACK"], desc: "기동력에 특화되어 위협적인 추진력을 발휘한다.", stats: [60, 10, 0] }
 ];
 
 const grid = document.querySelector("#gearGrid");
 const count = document.querySelector("#resultCount");
 const globalSearch = document.querySelector("#globalSearchInput");
 const globalSearchScope = document.querySelector("#globalSearchScope");
+const overviewSearchScope = document.querySelector("#overviewSearchScope");
 const globalSearchScopeValue = () => globalSearchScope?.dataset.scope || "all";
+const overviewSearchScopeValue = () => overviewSearchScope?.dataset.scope || "all";
+const dropdownSummaryText = button => button?.dataset.summaryLabel || button?.textContent.trim() || "";
 const setGlobalSearchScope = scope => {
   if (!globalSearchScope) return;
   const value = scope || "all";
@@ -555,8 +565,20 @@ const setGlobalSearchScope = scope => {
     button.classList.toggle("active", button === activeButton);
   });
   const label = globalSearchScope.querySelector(".catalog-dropdown-value");
-  if (label && activeButton) label.textContent = activeButton.textContent.trim();
+  if (label && activeButton) label.textContent = dropdownSummaryText(activeButton);
   globalSearchScope.removeAttribute("open");
+};
+const setOverviewSearchScope = scope => {
+  if (!overviewSearchScope) return;
+  const value = scope || "all";
+  overviewSearchScope.dataset.scope = value;
+  const activeButton = overviewSearchScope.querySelector(`button[data-overview-search-scope="${value}"]`);
+  overviewSearchScope.querySelectorAll("button[data-overview-search-scope]").forEach(button => {
+    button.classList.toggle("active", button === activeButton);
+  });
+  const label = overviewSearchScope.querySelector(".catalog-dropdown-value");
+  if (label && activeButton) label.textContent = dropdownSummaryText(activeButton);
+  overviewSearchScope.removeAttribute("open");
 };
 const overviewSearch = document.querySelector("#overviewSearchInput");
 const globalGrid = document.querySelector("#globalGrid");
@@ -569,7 +591,7 @@ const menuButton = document.querySelector("#menuButton");
 const mobileDrawer = document.querySelector("#mobileDrawer");
 const typeLabels = { bey: "베이", face: "페이스", wheel: "휠", clearwheel: "클리어휠", lightwheel: "라이트휠", metalwheel: "메탈휠", track: "트랙", bottom: "버텀", fourdbottom: "4D버텀", stoneface: "스톤페이스", chromewheel: "크롬휠", crystalwheel: "크리스탈휠" };
 const tagLabels = { ATTACK: "공격형", DEFENSE: "방어형", STAMINA: "지구형", BALANCE: "균형형", "RIGHT SPIN": "우회전", "LEFT SPIN": "좌회전", "DUAL SPIN": "양회전", FACE: "페이스", STONEFACE: "스톤페이스", WHEEL: "휠", CLEARWHEEL: "클리어휠", LIGHTWHEEL: "라이트휠", METALWHEEL: "메탈휠", CHROMEWHEEL: "크롬휠", CRYSTALWHEEL: "크리스탈휠", TRACK: "트랙", BOTTOM: "버텀", "4DBOTTOM": "4D버텀", LOW: "낮은 높이", HIGH: "높은 높이" };
-const structureLabels = { basic: "4단 구조 시스템", hybrid: "하이브리드 시스템", "4d": "4D 시스템", synchrom: "싱크롬 시스템" };
+const structureLabels = { basic: "4단 구조 시스템", hybrid: "하이브리드 시스템", "4d": "4D 시스템", synchrome: "싱크롬 시스템" };
 const categoryTags = ["FACE", "STONEFACE", "WHEEL", "CLEARWHEEL", "LIGHTWHEEL", "METALWHEEL", "CHROMEWHEEL", "CRYSTALWHEEL", "TRACK", "BOTTOM", "4DBOTTOM"];
 const spinTags = ["RIGHT SPIN", "LEFT SPIN", "DUAL SPIN"];
 const typeTags = ["ATTACK", "DEFENSE", "STAMINA", "BALANCE"];
@@ -589,10 +611,12 @@ let gearSubtypeFilter = null;
 let gearTypeFilter = null;
 let gearSpinFilter = null;
 let gearStructureFilter = null;
+const METAL_FIGHT_SERIES = "metal fight";
+const isMetalFightSeries = series => series === METAL_FIGHT_SERIES;
 
 const productItems = [
-  { id: "PRODUCT-BB-01", series: "metal fight", no: "BB-01", name: "페가시스 105F", sale: "일반 판매", kind: "리미티드스타터세트", price: "₩17600", releaseDate: "2008-10", releases: {
-    jp: { no: "BB-01", name: "페가시스 105F", sale: "일반 판매", kind: "스타터", releaseDate: "2008-08-09", price: "¥1544", composition: [
+  { id: "PRODUCT-BB-01", series: "metal fight", no: "BB-01", name: "페가시스 105F", sale: "일반 판매", kind: "리미티드스타터세트", price: "17600", releaseDate: "2008-10", releases: {
+    jp: { no: "BB-01", name: "페가시스 105F", sale: "일반 판매", kind: "스타터", releaseDate: "2008-08-09", price: "1544", composition: [
       { label: "베이", name: "페가시스 105F", target: "BEY-BB-01-PEGASIS-105F" },
       { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
       { label: "기타", name: "베이포인터", target: "EQUIPMENT-POINTER" },
@@ -604,8 +628,8 @@ const productItems = [
     { label: "기타", name: "포인터", target: "EQUIPMENT-POINTER" },
     { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
   ] },
-  { id: "PRODUCT-BB-02", series: "metal fight", no: "BB-02", name: "불 125SF", sale: "일반 판매", kind: "리미티드스타터세트", price: "₩17600", releaseDate: "2008-10", releases: {
-    jp: { no: "BB-02", name: "불 125SF", sale: "일반 판매", kind: "스타터", releaseDate: "2008-08-09", price: "¥1544", composition: [
+  { id: "PRODUCT-BB-02", series: "metal fight", no: "BB-02", name: "불 125SF", sale: "일반 판매", kind: "리미티드스타터세트", price: "17600", releaseDate: "2008-10", releases: {
+    jp: { no: "BB-02", name: "불 125SF", sale: "일반 판매", kind: "스타터", releaseDate: "2008-08-09", price: "1544", composition: [
       { label: "베이", name: "불 125SF", target: "BEY-BB-02-BULL-125SF" },
       { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
       { label: "기타", name: "베이포인터", target: "EQUIPMENT-POINTER" },
@@ -617,8 +641,8 @@ const productItems = [
     { label: "기타", name: "포인터", target: "EQUIPMENT-POINTER" },
     { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
   ] },
-  { id: "PRODUCT-BB-03", series: "metal fight", no: "BB-03", name: "사지타리오 145S", sale: "일반 판매", kind: "스타터세트", price: "₩8000", releaseDate: "2008-10", releases: {
-    jp: { no: "BB-03", name: "사지타리오 145S", sale: "일반 판매", kind: "부스터", releaseDate: "2008-08-09", price: "¥819", composition: [
+  { id: "PRODUCT-BB-03", series: "metal fight", no: "BB-03", name: "사지타리오 145S", sale: "일반 판매", kind: "스타터세트", price: "8000", releaseDate: "2008-10", releases: {
+    jp: { no: "BB-03", name: "사지타리오 145S", sale: "일반 판매", kind: "부스터", releaseDate: "2008-08-09", price: "819", composition: [
       { label: "베이", name: "사지타리오 145S", target: "BEY-BB-03-SAGITTARIO-145S" },
       { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
       { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
@@ -628,8 +652,8 @@ const productItems = [
     { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
     { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
   ] },
-  { id: "PRODUCT-BB-04", series: "metal fight", no: "BB-04", name: "레온 145D", sale: "일반 판매", kind: "스타터세트", price: "₩8000", releaseDate: "2008-10", releases: {
-    jp: { no: "BB-04", name: "레오네 145D", sale: "일반 판매", kind: "부스터", releaseDate: "2008-08-09", price: "¥819", composition: [
+  { id: "PRODUCT-BB-04", series: "metal fight", no: "BB-04", name: "레온 145D", sale: "일반 판매", kind: "스타터세트", price: "8000", releaseDate: "2008-10", releases: {
+    jp: { no: "BB-04", name: "레오네 145D", sale: "일반 판매", kind: "부스터", releaseDate: "2008-08-09", price: "819", composition: [
       { label: "베이", name: "레오네 145D", target: "BEY-BB-04-LEONE-145D" },
       { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
       { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
@@ -639,8 +663,8 @@ const productItems = [
     { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
     { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
   ] },
-  { id: "PRODUCT-BB-05", series: "metal fight", no: "BB-05", name: "페가시스 145D", sale: "일반 판매", kind: "스타터세트", price: "₩8000", releaseDate: "2008-10", releases: {
-    jp: { no: "BB-05", name: "페가시스 145D", sale: "일반 판매", kind: "부스터", releaseDate: "2008-08-09", price: "¥630", composition: [
+  { id: "PRODUCT-BB-05", series: "metal fight", no: "BB-05", name: "페가시스 145D", sale: "일반 판매", kind: "스타터세트", price: "8000", releaseDate: "2008-10", releases: {
+    jp: { no: "BB-05", name: "페가시스 145D", sale: "일반 판매", kind: "부스터", releaseDate: "2008-08-09", price: "630", composition: [
       { label: "베이", name: "페가시스 145D", target: "BEY-BB-05-PEGASIS-145D" },
       { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" }
     ] }
@@ -649,8 +673,8 @@ const productItems = [
     { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
     { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
   ] },
-  { id: "PRODUCT-BB-06", series: "metal fight", no: "BB-06", name: "불 145S", sale: "일반 판매", kind: "스타터세트", price: "₩8000", releaseDate: "2008-10", releases: {
-    jp: { no: "BB-06", name: "불 145S", sale: "일반 판매", kind: "부스터", releaseDate: "2008-08-09", price: "¥630", composition: [
+  { id: "PRODUCT-BB-06", series: "metal fight", no: "BB-06", name: "불 145S", sale: "일반 판매", kind: "스타터세트", price: "8000", releaseDate: "2008-10", releases: {
+    jp: { no: "BB-06", name: "불 145S", sale: "일반 판매", kind: "부스터", releaseDate: "2008-08-09", price: "630", composition: [
       { label: "베이", name: "불 145S", target: "BEY-BB-06-BULL-145S" },
       { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" }
     ] }
@@ -659,8 +683,8 @@ const productItems = [
     { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
     { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
   ] },
-  { id: "PRODUCT-BB-07", series: "metal fight", no: "BB-07", name: "사지타리오 125SF", sale: "일반 판매", kind: "스타터세트", price: "₩8000", releaseDate: "2008-10", releases: {
-    jp: { no: "BB-07", name: "사지타리오 125SF", sale: "일반 판매", kind: "부스터", releaseDate: "2008-08-09", price: "¥630", composition: [
+  { id: "PRODUCT-BB-07", series: "metal fight", no: "BB-07", name: "사지타리오 125SF", sale: "일반 판매", kind: "스타터세트", price: "8000", releaseDate: "2008-10", releases: {
+    jp: { no: "BB-07", name: "사지타리오 125SF", sale: "일반 판매", kind: "부스터", releaseDate: "2008-08-09", price: "630", composition: [
       { label: "베이", name: "사지타리오 125SF", target: "BEY-BB-07-SAGITTARIO-125SF" },
       { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" }
     ] }
@@ -669,8 +693,8 @@ const productItems = [
     { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
     { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
   ] },
-  { id: "PRODUCT-BB-08", series: "metal fight", no: "BB-08", name: "레온 105F", sale: "일반 판매", kind: "스타터세트", price: "₩8000", releaseDate: "2008-10", releases: {
-    jp: { no: "BB-08", name: "레오네 105F", sale: "일반 판매", kind: "부스터", releaseDate: "2008-08-09", price: "¥630", composition: [
+  { id: "PRODUCT-BB-08", series: "metal fight", no: "BB-08", name: "레온 105F", sale: "일반 판매", kind: "스타터세트", price: "8000", releaseDate: "2008-10", releases: {
+    jp: { no: "BB-08", name: "레오네 105F", sale: "일반 판매", kind: "부스터", releaseDate: "2008-08-09", price: "630", composition: [
       { label: "베이", name: "레오네 105F", target: "BEY-BB-08-LEONE-105F" },
       { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" }
     ] }
@@ -679,8 +703,8 @@ const productItems = [
     { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
     { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
   ] },
-  { id: "PRODUCT-BB-09", series: "metal fight", no: "BB-09", name: "메탈스피드 DX 세트", sale: "일반 판매", kind: "세트", price: "₩25600", releaseDate: "2008-10", releases: {
-    jp: { no: "BB-09", name: "페가시스 DX 세트", sale: "일반 판매", kind: "세트", releaseDate: "2008-08-09", price: "¥3150", composition: [
+  { id: "PRODUCT-BB-09", series: "metal fight", no: "BB-09", name: "메탈스피드 DX 세트", sale: "일반 판매", kind: "세트", price: "25600", releaseDate: "2008-10", releases: {
+    jp: { no: "BB-09", name: "페가시스 DX 세트", sale: "일반 판매", kind: "세트", releaseDate: "2008-08-09", price: "3150", composition: [
       { label: "베이", name: "페가시스 105F", target: "BEY-BB-09-PEGASIS-105F" },
       { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" },
       { label: "기타", name: "베이포인터", target: "EQUIPMENT-POINTER" },
@@ -694,8 +718,8 @@ const productItems = [
     { label: "스타디움", name: "메탈파이트 스타디움 공격형", target: "EQUIPMENT-ATTACK-BEYSTADIUM" },
     { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }
   ] },
-  { id: "PRODUCT-BB-10", series: "metal fight", no: "BB-10", name: "공격형 메탈파이트 스타디움", sale: "일반 판매", kind: "", equipment: "스타디움", price: "₩6400", releaseDate: "2008-10", releases: {
-    jp: { no: "BB-10", name: "베이스타디움 어택타입", sale: "일반 판매", kind: "", releaseDate: "2008-08-09", price: "¥1260", composition: [
+  { id: "PRODUCT-BB-10", series: "metal fight", no: "BB-10", name: "공격형 메탈파이트 스타디움", sale: "일반 판매", kind: "", equipment: "스타디움", price: "6400", releaseDate: "2008-10", releases: {
+    jp: { no: "BB-10", name: "베이스타디움 어택타입", sale: "일반 판매", kind: "", releaseDate: "2008-08-09", price: "1260", composition: [
       { label: "스타디움", name: "베이스타디움 어택타입", target: "EQUIPMENT-ATTACK-BEYSTADIUM" },
       { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }
     ] }
@@ -703,8 +727,8 @@ const productItems = [
     { label: "스타디움", name: "공격형 메탈파이트 스타디움", target: "EQUIPMENT-ATTACK-BEYSTADIUM" },
     { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }
   ] },
-  { id: "PRODUCT-BB-11", series: "metal fight", no: "BB-11", name: "울프 D125B", sale: "일반 판매", kind: "스타터세트", releaseDate: "2008-12", price: "₩8000", releases: {
-    jp: { no: "BB-11", name: "볼프 D125B", sale: "일반 판매", kind: "스타터", releaseDate: "2008-09-18", price: "¥819", composition: [
+  { id: "PRODUCT-BB-11", series: "metal fight", no: "BB-11", name: "울프 D125B", sale: "일반 판매", kind: "스타터세트", releaseDate: "2008-12", price: "8000", releases: {
+    jp: { no: "BB-11", name: "볼프 D125B", sale: "일반 판매", kind: "스타터", releaseDate: "2008-09-18", price: "819", composition: [
       { label: "베이", name: "볼프 D125B", target: "BEY-BB-11-WOLF-D125B" },
       { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
       { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
@@ -714,8 +738,8 @@ const productItems = [
     { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
     { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
   ] },
-  { id: "PRODUCT-BB-12", series: "metal fight", no: "BB-12", name: "울프 105F", sale: "일반 판매", kind: "스타터세트", releaseDate: "2008-12", price: "₩10400", releases: {
-    jp: { no: "BB-12", name: "볼프 105F", sale: "일반 판매", kind: "부스터", releaseDate: "2008-09-18", price: "¥630", composition: [
+  { id: "PRODUCT-BB-12", series: "metal fight", no: "BB-12", name: "울프 105F", sale: "일반 판매", kind: "스타터세트", releaseDate: "2008-12", price: "10400", releases: {
+    jp: { no: "BB-12", name: "볼프 105F", sale: "일반 판매", kind: "부스터", releaseDate: "2008-09-18", price: "630", composition: [
       { label: "베이", name: "볼프 105F", target: "BEY-BB-12-WOLF-105F" },
       { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" }
     ] }
@@ -724,16 +748,13 @@ const productItems = [
     { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
     { label: "런처", name: "파워런처", target: "EQUIPMENT-POWER-LAUNCHER" }
   ] },
-  { id: "PRODUCT-BB-13", series: "metal fight", no: "BB-13", name: "BB-13", sale: "일반 판매", kind: "", releases: {
+  { id: "PRODUCT-BB-13", series: "metal fight", no: "BB-13", name: "", sale: "일반 판매", kind: "", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "BB-13", name: "랜덤부스터 Vol.1 시크릿 아리에스", sale: "일반 판매", kind: "부스터", releaseDate: "2008-09-18", price: "¥630", composition: [
+    jp: { no: "BB-13", name: "랜덤부스터 Vol.1 시크릿 아리에스", sale: "일반 판매", kind: "부스터", releaseDate: "2008-09-18", price: "630", composition: [
       { label: "베이", name: "무작위 베이", target: "BEY-BB-13-ARIES-125D" },
       { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" }
     ] }
-  }, composition: [
-    { label: "베이", name: "무작위 베이", target: "BEY-BB-13-ARIES-125D" },
-    { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" }
-  ], beyPool: [
+  }, beyPool: [
     "BEY-BB-13-ARIES-125D",
     "BEY-BB-13-SAGITTARIO-145F",
     "BEY-BB-13-BULL-105S",
@@ -743,39 +764,36 @@ const productItems = [
     "BEY-BB-13-BULL-105D",
     "BEY-BB-13-PEGASIS-145F"
   ] },
-  { id: "PRODUCT-BB-14", series: "metal fight", no: "BB-14", name: "BB-14", sale: "일반 판매", kind: "", equipment: "스타디움", releases: {
+  { id: "PRODUCT-BB-14", series: "metal fight", no: "BB-14", name: "", sale: "일반 판매", kind: "", equipment: "스타디움", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "BB-14", name: "베이스타디움 밸런스타입", sale: "일반 판매", kind: "", equipment: "스타디움", releaseDate: "2008-09-18", price: "¥1260", composition: [
+    jp: { no: "BB-14", name: "베이스타디움 밸런스타입", sale: "일반 판매", kind: "", equipment: "스타디움", releaseDate: "2008-09-18", price: "1260", composition: [
       { label: "스타디움", name: "메탈파이트 스타디움 밸런스형", target: "EQUIPMENT-BALANCE-BEYSTADIUM" },
-      { label: "기타", name: "오버펜스", quantity: "7개", target: "EQUIPMENT-OVER-FENCE" }
+      { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }
     ] }
-  }, composition: [
-    { label: "스타디움", name: "메탈파이트 스타디움 밸런스형", target: "EQUIPMENT-BALANCE-BEYSTADIUM" },
-    { label: "기타", name: "오버펜스", quantity: "7개", target: "EQUIPMENT-OVER-FENCE" }
-  ] },
-  { id: "PRODUCT-BB-15", series: "metal fight", no: "BB-15", name: "런처그립", sale: "일반 판매", kind: "", equipment: "그립", releaseDate: "2008-12", price: "₩8000", releases: {
-    jp: { no: "BB-15", name: "런처그립", sale: "일반 판매", kind: "", equipment: "그립", releaseDate: "2008-09-18", price: "¥525", composition: [
+  } },
+  { id: "PRODUCT-BB-15", series: "metal fight", no: "BB-15", name: "런처그립", sale: "일반 판매", kind: "", equipment: "그립", releaseDate: "2008-12", price: "8000", releases: {
+    jp: { no: "BB-15", name: "런처그립", sale: "일반 판매", kind: "", equipment: "그립", releaseDate: "2008-09-18", price: "525", composition: [
       { label: "그립", name: "런처그립", target: "EQUIPMENT-LAUNCHER-GRIP" }
     ] }
   }, composition: [
     { label: "그립", name: "런처그립", target: "EQUIPMENT-LAUNCHER-GRIP" }
   ] },
-  { id: "PRODUCT-BB-16", series: "metal fight", no: "BB-16", name: "포인터", sale: "일반 판매", kind: "", equipment: "기타", releaseDate: "2008-12", price: "₩9600", releases: {
-    jp: { no: "BB-16", name: "베이포인터", sale: "일반 판매", kind: "", equipment: "기타", releaseDate: "2008-09-18", price: "¥1050", composition: [
+  { id: "PRODUCT-BB-16", series: "metal fight", no: "BB-16", name: "포인터", sale: "일반 판매", kind: "", equipment: "기타", releaseDate: "2008-12", price: "9600", releases: {
+    jp: { no: "BB-16", name: "베이포인터", sale: "일반 판매", kind: "", equipment: "기타", releaseDate: "2008-09-18", price: "1050", composition: [
       { label: "기타", name: "베이포인터", target: "EQUIPMENT-POINTER" }
     ] }
   }, composition: [
     { label: "기타", name: "포인터", target: "EQUIPMENT-POINTER" }
   ] },
-  { id: "PRODUCT-BB-17", series: "metal fight", no: "BB-17", name: "파워런처", sale: "일반 판매", kind: "", equipment: "런처", releaseDate: "2008-12", price: "₩6400", releases: {
-    jp: { no: "BB-17", name: "베이런처", sale: "일반 판매", kind: "", equipment: "런처", releaseDate: "2008-09-18", price: "¥630", composition: [
+  { id: "PRODUCT-BB-17", series: "metal fight", no: "BB-17", name: "파워런처", sale: "일반 판매", kind: "", equipment: "런처", releaseDate: "2008-12", price: "6400", releases: {
+    jp: { no: "BB-17", name: "베이런처", sale: "일반 판매", kind: "", equipment: "런처", releaseDate: "2008-09-18", price: "630", composition: [
       { label: "런처", name: "베이런처", target: "EQUIPMENT-POWER-LAUNCHER" }
     ] }
   }, composition: [
     { label: "런처", name: "파워런처", target: "EQUIPMENT-POWER-LAUNCHER" }
   ] },
-  { id: "PRODUCT-BB-18", series: "metal fight", no: "BB-18", name: "리브라 DF145BS", sale: "일반 판매", kind: "스타터세트", releaseDate: "2008-12", price: "₩10400", releases: {
-    jp: { no: "BB-18", name: "리브라 DF125BS", sale: "일반 판매", kind: "부스터", releaseDate: "2008-10-23", price: "¥630", composition: [
+  { id: "PRODUCT-BB-18", series: "metal fight", no: "BB-18", name: "리브라 DF145BS", sale: "일반 판매", kind: "스타터세트", releaseDate: "2008-12", price: "10400", releases: {
+    jp: { no: "BB-18", name: "리브라 DF125BS", sale: "일반 판매", kind: "부스터", releaseDate: "2008-10-23", price: "630", composition: [
       { label: "베이", name: "리브라 DF125BS", target: "BEY-BB-18-LIBRA-DF145BS" },
       { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" }
     ] }
@@ -784,18 +802,15 @@ const productItems = [
     { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
     { label: "런처", name: "파워런처", target: "EQUIPMENT-POWER-LAUNCHER" }
   ] },
-  { id: "PRODUCT-BB-19", series: "metal fight", no: "BB-19", name: "BB-19", sale: "일반 판매", kind: "", equipment: "스타디움", releases: {
+  { id: "PRODUCT-BB-19", series: "metal fight", no: "BB-19", name: "", sale: "일반 판매", kind: "", equipment: "스타디움", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "BB-19", name: "베이스타디움 스태미나타입", sale: "일반 판매", kind: "", equipment: "스타디움", releaseDate: "2008-10-23", price: "¥1365", composition: [
+    jp: { no: "BB-19", name: "베이스타디움 스태미나타입", sale: "일반 판매", kind: "", equipment: "스타디움", releaseDate: "2008-10-23", price: "1365", composition: [
       { label: "스타디움", name: "메탈파이트 스타디움 스테미너형", target: "EQUIPMENT-STAMINA-BEYSTADIUM" },
-      { label: "기타", name: "오버펜스", quantity: "7개", target: "EQUIPMENT-OVER-FENCE" }
+      { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }
     ] }
-  }, composition: [
-    { label: "스타디움", name: "메탈파이트 스타디움 스테미너형", target: "EQUIPMENT-STAMINA-BEYSTADIUM" },
-    { label: "기타", name: "오버펜스", quantity: "7개", target: "EQUIPMENT-OVER-FENCE" }
-  ] },
-  { id: "PRODUCT-BB-20", series: "metal fight", no: "BB-20", name: "메탈파이트 DX 세트", sale: "일반 판매", kind: "세트", releaseDate: "2008-12", price: "₩44000", releases: {
-    jp: { no: "BB-20", name: "베이 배틀 트라이 세트", sale: "일반 판매", kind: "세트", releaseDate: "2008-10-23", price: "¥5250", composition: [
+  } },
+  { id: "PRODUCT-BB-20", series: "metal fight", no: "BB-20", name: "메탈파이트 DX 세트", sale: "일반 판매", kind: "세트", releaseDate: "2008-12", price: "44000", releases: {
+    jp: { no: "BB-20", name: "베이 배틀 트라이 세트", sale: "일반 판매", kind: "세트", releaseDate: "2008-10-23", price: "5250", composition: [
       { label: "베이", name: "페가시스 105F", target: "BEY-BB-20-PEGASIS-105F" },
       { label: "베이", name: "볼프 D125B", target: "BEY-BB-20-WOLF-D125B" },
       { label: "기타", name: "툴", quantity: "2개", target: "EQUIPMENT-TOOL" },
@@ -813,8 +828,8 @@ const productItems = [
     { label: "스타디움", name: "메탈파이트 스타디움 밸런스형", target: "EQUIPMENT-BALANCE-BEYSTADIUM" },
     { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }
   ] },
-  { id: "PRODUCT-BB-21", series: "metal fight", no: "BB-21", name: "파워커스터마이즈세트 공격형&밸런스형", sale: "일반 판매", kind: "세트", releaseDate: "2008-12", price: "₩24000", releases: {
-    jp: { no: "BB-21", name: "베이 개조 세트 어택&밸런스타입", sale: "일반 판매", kind: "세트", releaseDate: "2008-10-23", price: "¥2625", composition: [
+  { id: "PRODUCT-BB-21", series: "metal fight", no: "BB-21", name: "파워커스터마이즈세트 공격형&밸런스형", sale: "일반 판매", kind: "세트", releaseDate: "2008-12", price: "24000", releases: {
+    jp: { no: "BB-21", name: "베이 개조 세트 어택&밸런스타입", sale: "일반 판매", kind: "세트", releaseDate: "2008-10-23", price: "2625", composition: [
       { label: "베이", name: "페가시스 100HF", quantity: "1개", target: "BEY-BB-21-PEGASIS-100HF" },
       { label: "베이", name: "아쿠아리오 105F", quantity: "1개", target: "BEY-BB-21-AQUARIO-105F" },
       { label: "베이", name: "볼프 125SF", quantity: "1개", target: "BEY-BB-21-WOLF-125SF" },
@@ -828,8 +843,8 @@ const productItems = [
     { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" },
     { label: "런처", name: "파워런처", target: "EQUIPMENT-POWER-LAUNCHER" }
   ] },
-  { id: "PRODUCT-BB-22", series: "metal fight", no: "BB-22", name: "액션커스터마이즈세트 스테미너형&방어형", sale: "일반 판매", kind: "세트", releaseDate: "2008-12", price: "₩24000", releases: {
-    jp: { no: "BB-22", name: "베이 개조 세트 스태미나&디펜스타입", sale: "일반 판매", kind: "세트", releaseDate: "2008-10-23", price: "¥2625", composition: [
+  { id: "PRODUCT-BB-22", series: "metal fight", no: "BB-22", name: "액션커스터마이즈세트 스테미너형&방어형", sale: "일반 판매", kind: "세트", releaseDate: "2008-12", price: "24000", releases: {
+    jp: { no: "BB-22", name: "베이 개조 세트 스태미나&디펜스타입", sale: "일반 판매", kind: "세트", releaseDate: "2008-10-23", price: "2625", composition: [
       { label: "베이", name: "비르고 DF145BS", quantity: "1개", target: "BEY-BB-22-VIRGO-DF145BS" },
       { label: "베이", name: "리브라 145S", quantity: "1개", target: "BEY-BB-22-LIBRA-145S" },
       { label: "베이", name: "레오네 D125B", quantity: "1개", target: "BEY-BB-22-LEONE-D125B" },
@@ -847,31 +862,31 @@ const productItems = [
     { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" },
     { label: "그립", name: "런처그립", quantity: "1개", target: "EQUIPMENT-LAUNCHER-GRIP" }
   ] },
-  { id: "PRODUCT-BB-23", series: "metal fight", no: "BB-23", name: "BB-23", sale: "일반 판매", kind: "", releases: {
+  { id: "PRODUCT-BB-23", series: "metal fight", no: "BB-23", name: "", sale: "일반 판매", kind: "", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "BB-23", name: "엘드라고 105F", sale: "일반 판매", kind: "스타터", releaseDate: "2008-12-25", price: "¥1344", composition: [
+    jp: { no: "BB-23", name: "엘드라고 105F", sale: "일반 판매", kind: "스타터", releaseDate: "2008-12-25", price: "1344", composition: [
       { label: "베이", name: "엘드라고 105F", target: "BEY-BB-23-LDRAGO-105F" },
       { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
       { label: "런처", name: "베이런처L", target: "EQUIPMENT-POWER-LAUNCHER-L" }
     ] }
   } },
-  { id: "PRODUCT-BB-24", series: "metal fight", no: "BB-24", name: "BB-24", sale: "일반 판매", kind: "", releases: {
+  { id: "PRODUCT-BB-24", series: "metal fight", no: "BB-24", name: "", sale: "일반 판매", kind: "", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "BB-24", name: "제미오스 DF145FS", sale: "일반 판매", kind: "부스터", releaseDate: "2009-02-22", price: "¥630", composition: [
+    jp: { no: "BB-24", name: "제미오스 DF145FS", sale: "일반 판매", kind: "부스터", releaseDate: "2009-02-22", price: "630", composition: [
       { label: "베이", name: "제미오스 DF145FS", target: "BEY-BB-26-GEMIOS-DF145FS" },
       { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" }
     ] }
   } },
-  { id: "PRODUCT-BB-25", series: "metal fight", no: "BB-25", name: "BB-25", sale: "일반 판매", kind: "", releases: {
+  { id: "PRODUCT-BB-25", series: "metal fight", no: "BB-25", name: "", sale: "일반 판매", kind: "", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "BB-25", name: "에스콜피오 WD145B", sale: "일반 판매", kind: "부스터", releaseDate: "2008-12-25", price: "¥630", composition: [
+    jp: { no: "BB-25", name: "에스콜피오 WD145B", sale: "일반 판매", kind: "부스터", releaseDate: "2008-12-25", price: "630", composition: [
       { label: "베이", name: "에스콜피오 WD145B", target: "BEY-BB-24-ESCOLPIO-WD145B" },
       { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" }
     ] }
   } },
-  { id: "PRODUCT-BB-26", series: "metal fight", no: "BB-26", name: "BB-26", sale: "일반 판매", kind: "", releases: {
+  { id: "PRODUCT-BB-26", series: "metal fight", no: "BB-26", name: "", sale: "일반 판매", kind: "", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "BB-26", name: "랜덤부스터 Vol.2 레전드 파이시즈", sale: "일반 판매", kind: "부스터", releaseDate: "2009-02-22", price: "¥630", composition: [
+    jp: { no: "BB-26", name: "랜덤부스터 Vol.2 레전드 파이시즈", sale: "일반 판매", kind: "부스터", releaseDate: "2009-02-22", price: "630", composition: [
       { label: "베이", name: "무작위 베이", target: "BEY-BB-25-PISCES-D125BS" },
       { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" }
     ] }
@@ -885,12 +900,778 @@ const productItems = [
     "BEY-BB-25-LIBRA-100F",
     "BEY-BB-25-BULL-DF145HF"
   ] },
-  { id: "PRODUCT-BB-27", series: "metal fight", no: "BB-27", name: "BB-27", sale: "일반 판매", kind: "", releases: {
+  { id: "PRODUCT-BB-27", series: "metal fight", no: "BB-27", name: "", sale: "일반 판매", kind: "", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "BB-27", name: "카프리코네 100HF", sale: "일반 판매", kind: "부스터", releaseDate: "2009-02-22", price: "¥630", composition: [
+    jp: { no: "BB-27", name: "카프리코네 100HF", sale: "일반 판매", kind: "부스터", releaseDate: "2009-02-22", price: "630", composition: [
       { label: "베이", name: "카프리코네 100HF", target: "BEY-BB-27-CAPRICORNE-100HF" },
       { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" }
     ] }
+  } },
+  { id: "PRODUCT-BB-28", series: "metal fight", no: "BB-28", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-28", name: "스톰 페가시스 105RF", sale: "일반 판매", kind: "스타터세트", releaseDate: "2009-09-23", price: "12000", composition: [{ label: "베이", name: "스톰 페가시스 105RF", quantity: "1개", target: "BEY-BB-28-STORM-PEGASIS-105RF" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "파워런처", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER" }] },
+    jp: { no: "BB-28", name: "스톰 페가시스 105RF", sale: "일반 판매", kind: "스타터", releaseDate: "2009-03-28", price: "1260", composition: [{ label: "베이", name: "스톰 페가시스 105RF", quantity: "1개", target: "BEY-BB-28-STORM-PEGASIS-105RF" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "베이런처", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER" }] }
+  } },
+  { id: "PRODUCT-BB-29", series: "metal fight", no: "BB-29", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-29", name: "다크 울프 DF145FS", sale: "일반 판매", kind: "스타터세트", releaseDate: "2009-09-23", price: "8000", composition: [{ label: "베이", name: "다크 울프 DF145FS", quantity: "1개", target: "BEY-BB-29-DARK-WOLF-DF145FS" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] },
+    jp: { no: "BB-29", name: "다크 볼프 DF145FS", sale: "일반 판매", kind: "스타터", releaseDate: "2009-03-28", price: "1260", composition: [{ label: "베이", name: "다크 울프 DF145FS", quantity: "1개", target: "BEY-BB-29-DARK-WOLF-DF145FS" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] }
+  } },
+  { id: "PRODUCT-BB-30", series: "metal fight", no: "BB-30", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-30", name: "로크 레온 145WB", sale: "일반 판매", kind: "스타터세트", releaseDate: "2009-09-23", price: "8000", composition: [{ label: "베이", name: "로크 레온 145WB", quantity: "1개", target: "BEY-BB-30-ROCK-LEONE-145WB" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] },
+    jp: { no: "BB-30", name: "록 레오네 145WB", sale: "일반 판매", kind: "부스터", releaseDate: "2009-03-28", price: "682", composition: [{ label: "베이", name: "로크 레온 145WB", quantity: "1개", target: "BEY-BB-30-ROCK-LEONE-145WB" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }
+  } },
+  { id: "PRODUCT-BB-30-1", series: "metal fight", no: "BB-30-1", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-30-1", name: "로크 레온 145WB", sale: "일반 판매", kind: "부스터", releaseDate: "2011-04-12", price: "6400", composition: [{ label: "베이", name: "로크 레온 145WB", quantity: "1개", target: "BEY-BB-30-ROCK-LEONE-145WB" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] },
+    jp: { status: "unreleased" }
+  } },
+  { id: "PRODUCT-BB-31", series: "metal fight", no: "BB-31", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-31", name: "라이트블레이드 Vol.1", sale: "일반 판매", kind: "부스터", releaseDate: "2009-09-23", price: "3200", composition: [{ label: "베이", name: "무작위 베이", quantity: "1개", target: "BEY-BB-31-MAD-CANCER-CH120FS" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] },
+    jp: { no: "BB-31", name: "랜덤부스터 라이트 Vol.1", sale: "일반 판매", kind: "부스터", releaseDate: "2009-03-28", price: "367", composition: [{ label: "베이", name: "무작위 베이", quantity: "1개", target: "BEY-BB-31-MAD-CANCER-CH120FS" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }
+  }, beyPool: [
+    "BEY-BB-31-MAD-CANCER-CH120FS",
+    "BEY-BB-31-HEAT-PEGASIS-100WB",
+    "BEY-BB-31-CLAY-WOLF-145FS",
+    "BEY-BB-31-HEAT-WOLF-WD145SF",
+    "BEY-BB-31-MAD-LEONE-145B",
+    "BEY-BB-31-CLAY-LEONE-DF145WB",
+    "BEY-BB-31-WIND-PEGASIS-DF145B",
+    "BEY-BB-31-WIND-LEONE-D125HF"
+  ] },
+  { id: "PRODUCT-BB-32", series: "metal fight", no: "BB-32", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BB-32", name: "하이브리드휠 대전 세트", sale: "일반 판매", kind: "세트", releaseDate: "2009-03-28", price: "3675", composition: [{ label: "베이", name: "스톰 페가시스 105RF(BB-32)", quantity: "1개", target: "BEY-BB-32-STORM-PEGASIS-105RF" }, { label: "베이", name: "다크 울프 DF145FS(BB-32)", quantity: "1개", target: "BEY-BB-32-DARK-WOLF-DF145FS" }, { label: "기타", name: "툴", quantity: "2개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "베이런처", quantity: "2개", target: "EQUIPMENT-POWER-LAUNCHER" }, { label: "스타디움", name: "베이스타디움 어택타입", quantity: "1개", target: "EQUIPMENT-ATTACK-BEYSTADIUM" }, { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }] }
+  } },
+  { id: "PRODUCT-BB-33", series: "metal fight", no: "BB-33", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-33", name: "스퀘어형 베이스타디움", sale: "일반 판매", kind: "", releaseDate: "2011-02", price: "6400", composition: [{ label: "스타디움", name: "스퀘어형 베이스타디움", quantity: "1개", target: "EQUIPMENT-WIDE-SQUARE-BEYSTADIUM" }, { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }] },
+    jp: { no: "BB-33", name: "베이스타디움 와이드스퀘어타입", sale: "일반 판매", kind: "", releaseDate: "2009-03-28", price: "1680", composition: [{ label: "스타디움", name: "베이스타디움 와이드스퀘어타입", quantity: "1개", target: "EQUIPMENT-WIDE-SQUARE-BEYSTADIUM" }, { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }] }
+  } },
+  { id: "PRODUCT-BB-34", series: "metal fight", no: "BB-34", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BB-34", name: "라이트런처(오렌지)", sale: "일반 판매", kind: "", releaseDate: "2009-03-28", price: "315", composition: [{ label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] }
+  } },
+  { id: "PRODUCT-BB-35", series: "metal fight", no: "BB-35", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-35", name: "플레임 사지타리오 C145S", sale: "일반 판매", kind: "스타터세트", releaseDate: "2009-09-23", price: "8000", composition: [{ label: "베이", name: "플레임 사지타리오 C145S", quantity: "1개", target: "BEY-BB-35-FLAME-SAGITTARIO-C145S" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] },
+    jp: { no: "BB-35", name: "플레임 사지타리오 C145S", sale: "일반 판매", kind: "부스터", releaseDate: "2009-04-25", price: "787", composition: [{ label: "베이", name: "플레임 사지타리오 C145S", quantity: "1개", target: "BEY-BB-35-FLAME-SAGITTARIO-C145S" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }
+  } },
+  { id: "PRODUCT-BB-36", series: "metal fight", no: "BB-36", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BB-36", name: "메탈페이스", sale: "일반 판매", kind: "", releaseDate: "2009-04-25", price: "367", composition: [{ label: "기타", name: "메탈페이스", quantity: "2개", target: "EQUIPMENT-METAL-FACE" }, { label: "기타", name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }] }
+  } },
+  { id: "PRODUCT-BB-37", series: "metal fight", no: "BB-37", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-37", name: "라이트블레이드 Vol.2", sale: "일반 판매", kind: "부스터", releaseDate: "2009-09-23", price: "3200", composition: [{ label: "베이", name: "무작위 베이", quantity: "1개", target: "BEY-BB-37-WIND-AQUARIO-100HFS" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] },
+    jp: { no: "BB-37", name: "랜덤부스터 라이트 Vol.2", sale: "일반 판매", kind: "부스터", releaseDate: "2009-05-23", price: "367", composition: [{ label: "베이", name: "무작위 베이", quantity: "1개", target: "BEY-BB-37-WIND-AQUARIO-100HFS" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }
+  }, beyPool: [
+    "BEY-BB-37-WIND-AQUARIO-100HFS",
+    "BEY-BB-37-CLAY-WOLF-105B",
+    "BEY-BB-37-CLAY-SAGITTARIO-145B",
+    "BEY-BB-37-HEAT-PEGASIS-DF145WB",
+    "BEY-BB-37-HEAT-LEONE-D125FS",
+    "BEY-BB-37-MAD-SAGITTARIO-DF145HF",
+    "BEY-BB-37-MAD-LEONE-145FS",
+    "BEY-BB-37-WIND-WOLF-WD145WB"
+  ] },
+  { id: "PRODUCT-BB-38", series: "metal fight", no: "BB-38", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BB-38", name: "베이런처(아이언그레이)", sale: "일반 판매", kind: "", releaseDate: "2009-05-23", price: "630", composition: [{ label: "런처", name: "베이런처", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER" }] }
+  } },
+  { id: "PRODUCT-BB-39", series: "metal fight", no: "BB-39", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-39", name: "카라비나그립", sale: "일반 판매", kind: "", releaseDate: "2009-09-23", price: "6400", composition: [{ label: "그립", name: "카라비나그립", quantity: "1개", target: "EQUIPMENT-CARABINER-GRIP" }] },
+    jp: { no: "BB-39", name: "카라비나그립", sale: "일반 판매", kind: "", releaseDate: "2009-05-23", price: "630", composition: [{ label: "그립", name: "카라비나그립", quantity: "1개", target: "EQUIPMENT-CARABINER-GRIP" }] }
+  } },
+  { id: "PRODUCT-BB-40", series: "metal fight", no: "BB-40", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-40", name: "다크 불 H145SD", sale: "일반 판매", kind: "스타터세트", releaseDate: "2009-09-23", price: "8000", composition: [{ label: "베이", name: "다크 불 H145SD", quantity: "1개", target: "BEY-BB-40-DARK-BULL-H145SD" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] },
+    jp: { no: "BB-40", name: "다크 불 H145SD", sale: "일반 판매", kind: "부스터", releaseDate: "2009-06-20", price: "682", composition: [{ label: "베이", name: "다크 불 H145SD", quantity: "1개", target: "BEY-BB-40-DARK-BULL-H145SD" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }
+  } },
+  { id: "PRODUCT-BB-41", series: "metal fight", no: "BB-41", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-41", name: "초공격형 베이스타디움", sale: "일반 판매", kind: "", releaseDate: "2009-09-23", price: "6400", composition: [{ label: "스타디움", name: "초공격형 베이스타디움", quantity: "1개", target: "EQUIPMENT-SUPER-ATTACK-BEYSTADIUM" }, { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }] },
+    jp: { no: "BB-41", name: "베이스타디움 슈퍼어택타입", sale: "일반 판매", kind: "", releaseDate: "2009-06-20", price: "1365", composition: [{ label: "스타디움", name: "베이스타디움 슈퍼어택타입", quantity: "1개", target: "EQUIPMENT-SUPER-ATTACK-BEYSTADIUM" }, { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }] }
+  } },
+  { id: "PRODUCT-BB-42", series: "metal fight", no: "BB-42", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BB-42", name: "베이캐리어 웨이스트타입", sale: "일반 판매", kind: "", releaseDate: "2009-06-20", price: "1050", composition: [{ label: "기타", name: "베이캐리어 웨이스트타입", quantity: "1개", target: "EQUIPMENT-BEYCARRIER-WAIST" }] }
+  } },
+  { id: "PRODUCT-BB-43", series: "metal fight", no: "BB-43", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-43", name: "라이트닝 엘드라고 100HF", sale: "일반 판매", kind: "스타터세트", releaseDate: "2009-09-23", price: "12000", composition: [{ label: "베이", name: "라이트닝 엘드라고 100HF", quantity: "1개", target: "BEY-BB-43-LIGHTNING-LDRAGO-100HF" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "파워런처L", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER-L" }] },
+    jp: { no: "BB-43", name: "라이트닝 엘드라고 100HF", sale: "일반 판매", kind: "스타터", releaseDate: "2009-07-18", price: "1260", composition: [{ label: "베이", name: "라이트닝 엘드라고 100HF", quantity: "1개", target: "BEY-BB-43-LIGHTNING-LDRAGO-100HF" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "베이런처L", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER-L" }] }
+  } },
+  { id: "PRODUCT-BB-44", series: "metal fight", no: "BB-44", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-44", name: "메탈블레이드&런처", sale: "일반 판매", kind: "스타터세트", releaseDate: "2009-09-23", price: "8000", composition: [{ label: "베이", name: "무작위 베이", quantity: "1개", target: "BEY-BB-44-STORM-PEGASIS-100RF" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] },
+    jp: { no: "BB-44", name: "랜덤부스터 Vol.3 스타더스트 페가시스", sale: "일반 판매", kind: "부스터", releaseDate: "2009-07-18", price: "682", composition: [{ label: "베이", name: "무작위 베이", quantity: "1개", target: "BEY-BB-44-STORM-PEGASIS-100RF" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }
+  }, beyPool: [
+    "BEY-BB-44-STORM-PEGASIS-100RF",
+    "BEY-BB-44-ROCK-WOLF-H145B",
+    "BEY-BB-44-DARK-LEONE-C145B",
+    "BEY-BB-44-FLAME-WOLF-H145S",
+    "BEY-BB-44-STORM-SAGITTARIO-145SD",
+    "BEY-BB-44-ROCK-BULL-WD145HF",
+    "BEY-BB-44-DARK-SAGITTARIO-WD145SD",
+    "BEY-BB-44-FLAME-BULL-105WB"
+  ] },
+  { id: "PRODUCT-BB-45", series: "metal fight", no: "BB-45", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-45", name: "라이트블레이드 Vol.3", sale: "일반 판매", kind: "부스터", releaseDate: "2009-09-23", price: "3200", composition: [{ label: "베이", name: "무작위 베이", quantity: "1개", target: "BEY-BB-45-CLAY-ARIES-ED145B" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] },
+    jp: { no: "BB-45", name: "랜덤부스터 라이트 Vol.3", sale: "일반 판매", kind: "부스터", releaseDate: "2009-08-08", price: "682", composition: [{ label: "베이", name: "무작위 베이", quantity: "1개", target: "BEY-BB-45-CLAY-ARIES-ED145B" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }
+  }, beyPool: [
+    "BEY-BB-45-CLAY-ARIES-ED145B",
+    "BEY-BB-45-CLAY-PEGASIS-145S",
+    "BEY-BB-45-MAD-SAGITTARIO-C145SD",
+    "BEY-BB-45-HEAT-BULL-D125WB",
+    "BEY-BB-45-WIND-WOLF-H145D",
+    "BEY-BB-45-HEAT-LEONE-H145S",
+    "BEY-BB-45-MAD-BULL-C145HF",
+    "BEY-BB-45-WIND-SAGITTARIO-100SD"
+  ] },
+  { id: "PRODUCT-BB-46", series: "metal fight", no: "BB-46", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BB-46", name: "베이스타디움 스탠다드타입", sale: "일반 판매", kind: "", releaseDate: "2009-08-08", price: "2625", composition: [{ label: "스타디움", name: "베이스타디움 스탠다드타입", quantity: "1개", target: "EQUIPMENT-STANDARD-BEYSTADIUM" }, { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }] }
+  } },
+  { id: "PRODUCT-BB-47", series: "metal fight", no: "BB-47", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-47", name: "어스 아쿠이라 145WD", sale: "일반 판매", kind: "스타터세트", releaseDate: "2009-09-23", price: "8000", composition: [{ label: "베이", name: "어스 아쿠이라 145WD", quantity: "1개", target: "BEY-BB-47-EARTH-AQUILA-145WD" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] },
+    jp: { no: "BB-47", name: "어스 아쿠이라 145WD", sale: "일반 판매", kind: "스타터", releaseDate: "2009-09-19", price: "892", composition: [{ label: "베이", name: "어스 아쿠이라 145WD", quantity: "1개", target: "BEY-BB-47-EARTH-AQUILA-145WD" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] }
+  } },
+  { id: "PRODUCT-BB-47-1", series: "metal fight", no: "BB-47-1", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-47-1", name: "어스 아쿠이라 145WD", sale: "일반 판매", kind: "부스터", releaseDate: "2011-04-12", price: "6400", composition: [{ label: "베이", name: "어스 아쿠이라 145WD", quantity: "1개", target: "BEY-BB-47-EARTH-AQUILA-145WD" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] },
+    jp: { status: "unreleased" }
+  } },
+  { id: "PRODUCT-BB-48", series: "metal fight", no: "BB-48", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-48", name: "플레임 리브라 T125ES", sale: "일반 판매", kind: "스타터세트", releaseDate: "2009-09-23", price: "8000", composition: [{ label: "베이", name: "플레임 리브라 T125ES", quantity: "1개", target: "BEY-BB-48-FLAME-LIBRA-T125ES" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] },
+    jp: { no: "BB-48", name: "플레임 리브라 T125ES", sale: "일반 판매", kind: "부스터", releaseDate: "2009-09-19", price: "787", composition: [{ label: "베이", name: "플레임 리브라 T125ES", quantity: "1개", target: "BEY-BB-48-FLAME-LIBRA-T125ES" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }
+  } },
+  { id: "PRODUCT-BB-48-1", series: "metal fight", no: "BB-48-1", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-48-1", name: "플레임 리브라 T125ES", sale: "일반 판매", kind: "부스터", releaseDate: "2011-04-12", price: "6400", composition: [{ label: "베이", name: "플레임 리브라 T125ES", quantity: "1개", target: "BEY-BB-48-FLAME-LIBRA-T125ES" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] },
+    jp: { status: "unreleased" }
+  } },
+  { id: "PRODUCT-KR-METAL-PERFECT-MASTER-SET", series: "metal fight", no: "", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "", name: "메탈 퍼펙트 마스터 세트", sale: "일반 판매", kind: "세트", releaseDate: "2009-09-23", price: "49600", composition: [{ label: "베이", name: "스톰 페가시스 105RF", quantity: "1개", target: "BEY-BB-28-STORM-PEGASIS-105RF" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }, { label: "그립", name: "런처그립", quantity: "1개", target: "EQUIPMENT-LAUNCHER-GRIP" }, { label: "기타", name: "앵글컴파스", quantity: "1개", target: "EQUIPMENT-ANGLE-COMPASS" }, { label: "스타디움", name: "공격형 베이스타디움", quantity: "1개", target: "EQUIPMENT-ATTACK-BEYSTADIUM" }, { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }, { label: "기타", name: "캐리어케이스", quantity: "1개", target: "EQUIPMENT-CARRIER-CASE" }] },
+    jp: { status: "unreleased" }
+  } },
+  { id: "PRODUCT-KR-LAUNCHER-GRIP-ANGLE-COMPASS", series: "metal fight", no: "", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "", name: "런처그립&앵글컴퍼스", sale: "일반 판매", kind: "", releaseDate: "2010-07", price: "8800", composition: [] },
+    jp: { status: "unreleased" }
+  } },
+  { id: "PRODUCT-BB-49", series: "metal fight", no: "BB-49", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BB-49", name: "앵글컴파스", sale: "일반 판매", kind: "", releaseDate: "2009-09-19", price: "525", composition: [{ label: "기타", name: "앵글컴파스", quantity: "1개", target: "EQUIPMENT-ANGLE-COMPASS" }] }
+  } },
+  { id: "PRODUCT-BB-50", series: "metal fight", no: "BB-50", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-50", name: "스톰 카프리콘 M145Q", sale: "일반 판매", kind: "스타터세트", releaseDate: "2009-12-06", price: "8000", composition: [{ label: "베이", name: "스톰 카프리콘 M145Q", quantity: "1개", target: "BEY-BB-50-STORM-CAPRICORNE-M145Q" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] },
+    jp: { no: "BB-50", name: "스톰 카프리코네 M145Q", sale: "일반 판매", kind: "부스터", releaseDate: "2009-10-24", price: "787", composition: [{ label: "베이", name: "스톰 카프리콘 M145Q", quantity: "1개", target: "BEY-BB-50-STORM-CAPRICORNE-M145Q" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }
+  } },
+  { id: "PRODUCT-BB-51", series: "metal fight", no: "BB-51", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-51", name: "익스트림 스타디움 세트", sale: "일반 판매", kind: "세트", releaseDate: "2009-12-06", price: "46400", composition: [{ label: "베이", name: "로크 오르소", quantity: "1개", target: "BEY-BB-51-ROCK-ORSO-D125B" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }, { label: "스타디움", name: "익스트림 베이스타디움", quantity: "1개", target: "EQUIPMENT-EXTREME-BEYSTADIUM" }, { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }] },
+    jp: { no: "BB-51", name: "익스트림 베이스타디움", sale: "일반 판매", kind: "세트", releaseDate: "2009-10-24", price: "5775", composition: [{ label: "베이", name: "록 오르소", quantity: "1개", target: "BEY-BB-51-ROCK-ORSO-D125B" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }, { label: "스타디움", name: "익스트림 베이스타디움", quantity: "1개", target: "EQUIPMENT-EXTREME-BEYSTADIUM" }, { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }] }
+  } },
+  { id: "PRODUCT-BB-52", series: "metal fight", no: "BB-52", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BB-52", name: "베이캐리어 하드타입", sale: "일반 판매", kind: "", releaseDate: "2009-10-24", price: "1980", composition: [{ label: "기타", name: "베이캐리어 하드타입", quantity: "1개", target: "EQUIPMENT-BEYCARRIER-HARD" }] }
+  } },
+  { id: "PRODUCT-BB-53", series: "metal fight", no: "BB-53", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-53", name: "디지털파워런처 페가시스 Ver.", sale: "일반 판매", kind: "", releaseDate: "2009-12-06", price: "28000", composition: [{ label: "런처", name: "디지털파워런처", quantity: "1개", target: "EQUIPMENT-DIGITAL-POWER-LAUNCHER" }] },
+    jp: { no: "BB-53", name: "디지털파워런처 페가시스 Ver.", sale: "일반 판매", kind: "", releaseDate: "2009-11-14", price: "2100", composition: [{ label: "런처", name: "디지털파워런처", quantity: "1개", target: "EQUIPMENT-DIGITAL-POWER-LAUNCHER" }] }
+  } },
+  { id: "PRODUCT-BB-54", series: "metal fight", no: "BB-54", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-54", name: "디지털파워런처 엘드라고 Ver.", sale: "일반 판매", kind: "", releaseDate: "2009-12-06", price: "28000", composition: [{ label: "런처", name: "디지털파워런처", quantity: "1개", target: "EQUIPMENT-DIGITAL-POWER-LAUNCHER" }] },
+    jp: { no: "BB-54", name: "디지털파워런처 엘드라고 Ver.", sale: "일반 판매", kind: "", releaseDate: "2009-11-14", price: "2100", composition: [{ label: "런처", name: "디지털파워런처", quantity: "1개", target: "EQUIPMENT-DIGITAL-POWER-LAUNCHER" }] }
+  } },
+  { id: "PRODUCT-BB-55", series: "metal fight", no: "BB-55", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-55", name: "다크 캔서 CH120SF", sale: "일반 판매", kind: "스타터세트", releaseDate: "2009-12-06", price: "8000", composition: [{ label: "베이", name: "다크 캔서 CH120SF", quantity: "1개", target: "BEY-BB-55-DARK-CANCER-CH120SF" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] },
+    jp: { no: "BB-55", name: "다크 캔서 CH120SF", sale: "일반 판매", kind: "부스터", releaseDate: "2009-11-21", price: "682", composition: [{ label: "베이", name: "다크 캔서 CH120SF", quantity: "1개", target: "BEY-BB-55-DARK-CANCER-CH120SF" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }
+  } },
+  { id: "PRODUCT-BB-56", series: "metal fight", no: "BB-56", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-56", name: "커스터마이즈 A&B 세트", sale: "일반 판매", kind: "세트", releaseDate: "2009-12-06", price: "24000", composition: [{ label: "베이", name: "다크 카프리콘 105RF", quantity: "1개", target: "BEY-BB-56-DARK-CAPRICORNE-105RF" }, { label: "베이", name: "키라 제미오스 DF145FS", quantity: "1개", target: "BEY-BB-56-KILLER-GEMIOS-DF145FS" }, { label: "베이", name: "스톰 아쿠아리오 M145Q", quantity: "1개", target: "BEY-BB-56-STORM-AQUARIO-M145Q" }, { label: "기타", name: "툴", quantity: "2개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "파워런처", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER" }] },
+    jp: { no: "BB-56", name: "하이브리드휠 개조 세트 어택&밸런스타입", sale: "일반 판매", kind: "세트", releaseDate: "2009-11-21", price: "2100", composition: [{ label: "베이", name: "다크 카프리코네 105RF", quantity: "1개", target: "BEY-BB-56-DARK-CAPRICORNE-105RF" }, { label: "베이", name: "키라 제미오스 DF145FS", quantity: "1개", target: "BEY-BB-56-KILLER-GEMIOS-DF145FS" }, { label: "베이", name: "스톰 아쿠아리오 M145Q", quantity: "1개", target: "BEY-BB-56-STORM-AQUARIO-M145Q" }, { label: "기타", name: "툴", quantity: "2개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "베이런처", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER" }] }
+  } },
+  { id: "PRODUCT-BB-56-D", series: "metal fight", no: "BB-56(D)", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-56(D)", name: "다크 카프리콘 105RF", sale: "일반 판매", kind: "부스터", releaseDate: "2010-04-02", price: "6400", composition: [{ label: "베이", name: "다크 카프리콘 105RF", quantity: "1개", target: "BEY-BB-56-DARK-CAPRICORNE-105RF" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] },
+    jp: { status: "unreleased" }
+  } },
+  { id: "PRODUCT-BB-56-K", series: "metal fight", no: "BB-56(K)", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-56(K)", name: "키라 제미오스 DF145FS", sale: "일반 판매", kind: "스타터세트", releaseDate: "2010-04-02", price: "8000", composition: [{ label: "베이", name: "키라 제미오스 DF145FS", quantity: "1개", target: "BEY-BB-56-KILLER-GEMIOS-DF145FS" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] },
+    jp: { status: "unreleased" }
+  } },
+  { id: "PRODUCT-BB-56-S", series: "metal fight", no: "BB-56(S)", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-56(S)", name: "스톰 아쿠아리오 M145Q", sale: "일반 판매", kind: "부스터", releaseDate: "2010-04-02", price: "6400", composition: [{ label: "베이", name: "스톰 아쿠아리오 M145Q", quantity: "1개", target: "BEY-BB-56-STORM-AQUARIO-M145Q" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] },
+    jp: { status: "unreleased" }
+  } },
+  { id: "PRODUCT-BB-57", series: "metal fight", no: "BB-57", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-57", name: "커스터마이즈 S&D 세트", sale: "일반 판매", kind: "세트", releaseDate: "2009-12-06", price: "24000", composition: [{ label: "베이", name: "플레임 리브라 DF145BS", quantity: "1개", target: "BEY-BB-57-FLAME-LIBRA-DF145BS" }, { label: "베이", name: "써멀 파이시즈 T125ES", quantity: "1개", target: "BEY-BB-57-THERMAL-PISCES-T125ES" }, { label: "베이", name: "로크 아리에스 145D", quantity: "1개", target: "BEY-BB-57-ROCK-ARIES-145D" }, { label: "기타", name: "툴", quantity: "2개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "파워런처", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER" }] },
+    jp: { no: "BB-57", name: "하이브리드휠 개조 세트 스태미나&디펜스타입", sale: "일반 판매", kind: "세트", releaseDate: "2009-11-21", price: "2100", composition: [{ label: "베이", name: "플레임 리브라 DF145BS", quantity: "1개", target: "BEY-BB-57-FLAME-LIBRA-DF145BS" }, { label: "베이", name: "써멀 파이시즈 T125ES", quantity: "1개", target: "BEY-BB-57-THERMAL-PISCES-T125ES" }, { label: "베이", name: "록 아리에스 145D", quantity: "1개", target: "BEY-BB-57-ROCK-ARIES-145D" }, { label: "기타", name: "툴", quantity: "2개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "베이런처", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER" }] }
+  } },
+  { id: "PRODUCT-BB-57-T", series: "metal fight", no: "BB-57(T)", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-57(T)", name: "써멀 파이시즈 T125ES", sale: "일반 판매", kind: "스타터세트", releaseDate: "2010-04-02", price: "8000", composition: [{ label: "베이", name: "써멀 파이시즈 T125ES", quantity: "1개", target: "BEY-BB-57-THERMAL-PISCES-T125ES" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] },
+    jp: { status: "unreleased" }
+  } },
+  { id: "PRODUCT-BB-57-R", series: "metal fight", no: "BB-57(R)", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-57(R)", name: "로크 아리에스 145D", sale: "일반 판매", kind: "부스터", releaseDate: "2010-04-02", price: "6400", composition: [{ label: "베이", name: "로크 아리에스 145D", quantity: "1개", target: "BEY-BB-57-ROCK-ARIES-145D" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] },
+    jp: { status: "unreleased" }
+  } },
+  { id: "PRODUCT-KR-METAL-FACE-SUSPENSION", series: "metal fight", no: "", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "", name: "메탈페이스&서스펜션", sale: "일반 판매", kind: "", releaseDate: "2010-02-10", price: "9600", composition: [{ label: "기타", name: "메탈페이스", quantity: "4개", target: "EQUIPMENT-METAL-FACE" }, { label: "기타", name: "홀더툴", quantity: "2개", target: "EQUIPMENT-HOLDER-TOOL" }, { label: "기타", name: "파워런처 서스펜션", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER-SUSPENSION" }] },
+    jp: { status: "unreleased" }
+  } },
+  { id: "PRODUCT-BB-58", series: "metal fight", no: "BB-58", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BB-58", name: "베이런처 서스펜션", sale: "일반 판매", kind: "", releaseDate: "2009-11-21", price: "315", composition: [{ label: "런처", name: "베이런처 서스펜션", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER-SUSPENSION" }] }
+  } },
+  { id: "PRODUCT-BB-59", series: "metal fight", no: "BB-59", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-59", name: "번 피닉스 135MS", sale: "일반 판매", kind: "스타터세트", releaseDate: "2010-02-10", price: "8000", composition: [{ label: "베이", name: "번 피닉스 135MS", quantity: "1개", target: "BEY-BB-59-BURN-PHOENIX-135MS" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] },
+    jp: { no: "BB-59", name: "번 피닉스 135MS", sale: "일반 판매", kind: "스타터", releaseDate: "2009-12-26", price: "892", composition: [{ label: "베이", name: "번 피닉스 135MS", quantity: "1개", target: "BEY-BB-59-BURN-PHOENIX-135MS" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] }
+  } },
+  { id: "PRODUCT-BB-60", series: "metal fight", no: "BB-60", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-60", name: "어스 비르고 GB145BS", sale: "일반 판매", kind: "스타터세트", releaseDate: "2010-02-10", price: "8000", composition: [{ label: "베이", name: "어스 비르고 GB145BS", quantity: "1개", target: "BEY-BB-60-EARTH-VIRGO-GB145BS" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] },
+    jp: { no: "BB-60", name: "랜덤부스터 Vol.4 미라주 비르고", sale: "일반 판매", kind: "부스터", releaseDate: "2009-12-26", price: "682", composition: [{ label: "베이", name: "무작위 베이", quantity: "1개", target: "BEY-BB-60-EARTH-VIRGO-GB145BS" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }
+  }, beyPool: [
+    "BEY-BB-60-EARTH-VIRGO-GB145BS",
+    "BEY-BB-60-EARTH-CANCER-DF145ES",
+    "BEY-BB-60-FLAME-CAPRICORNE-T125HF",
+    "BEY-BB-60-FLAME-AQUILA-100ES",
+    "BEY-BB-60-ROCK-CAPRICORNE-T125D",
+    "BEY-BB-60-ROCK-LIBRA-100WD",
+    "BEY-BB-60-STORM-AQUILA-145HF",
+    "BEY-BB-60-STORM-LIBRA-145S"
+  ] },
+  { id: "PRODUCT-KR-LAUNCHER-GRIP-BLACK-GRIP-RUBBER-WHITE", series: "metal fight", no: "", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "", name: "런처그립(블랙)&그립러버(화이트)", sale: "일반 판매", kind: "", releaseDate: "2010-02-10", price: "8800", composition: [{ label: "그립", name: "런처그립", quantity: "1개", target: "EQUIPMENT-LAUNCHER-GRIP" }, { label: "그립", name: "그립러버", quantity: "1개", target: "EQUIPMENT-GRIP-RUBBER" }] },
+    jp: { status: "unreleased" }
+  } },
+  { id: "PRODUCT-KR-LAUNCHER-GRIP-WHITE-GRIP-RUBBER-RED", series: "metal fight", no: "", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "", name: "런처그립(화이트)&그립러버(레드)", sale: "일반 판매", kind: "", releaseDate: "2010-02-10", price: "8800", composition: [{ label: "그립", name: "런처그립", quantity: "1개", target: "EQUIPMENT-LAUNCHER-GRIP" }, { label: "그립", name: "그립러버", quantity: "1개", target: "EQUIPMENT-GRIP-RUBBER" }] },
+    jp: { status: "unreleased" }
+  } },
+  { id: "PRODUCT-BB-61", series: "metal fight", no: "BB-61", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BB-61", name: "그립러버(레드)", sale: "일반 판매", kind: "", releaseDate: "2009-12-26", price: "315", composition: [{ label: "그립", name: "그립러버", quantity: "1개", target: "EQUIPMENT-GRIP-RUBBER" }] }
+  } },
+  { id: "PRODUCT-BB-62", series: "metal fight", no: "BB-62", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BB-62", name: "그립러버(화이트)", sale: "일반 판매", kind: "", releaseDate: "2009-12-26", price: "315", composition: [{ label: "그립", name: "그립러버", quantity: "1개", target: "EQUIPMENT-GRIP-RUBBER" }] }
+  } },
+  { id: "PRODUCT-BB-63", series: "metal fight", no: "BB-63", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BB-63", name: "그립러버(블랙)", sale: "일반 판매", kind: "", releaseDate: "2009-12-26", price: "315", composition: [{ label: "그립", name: "그립러버", quantity: "1개", target: "EQUIPMENT-GRIP-RUBBER" }] }
+  } },
+  { id: "PRODUCT-BB-64", series: "metal fight", no: "BB-64", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BB-64", name: "런처그립(화이트)", sale: "일반 판매", kind: "", releaseDate: "2009-12-26", price: "525", composition: [{ label: "그립", name: "런처그립", quantity: "1개", target: "EQUIPMENT-LAUNCHER-GRIP" }] }
+  } },
+  { id: "PRODUCT-BB-65", series: "metal fight", no: "BB-65", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-65", name: "로크 스콜피온 T125JB", sale: "일반 판매", kind: "스타터세트", releaseDate: "2010-02-10", price: "8000", composition: [{ label: "베이", name: "로크 에스콜피오 T125JB", quantity: "1개", target: "BEY-BB-65-ROCK-SCORPIO-T125JB" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] },
+    jp: { no: "BB-65", name: "로크 에스콜피오 T125JB", sale: "일반 판매", kind: "부스터", releaseDate: "2010-01-23", price: "682", composition: [{ label: "베이", name: "로크 에스콜피오 T125JB", quantity: "1개", target: "BEY-BB-65-ROCK-SCORPIO-T125JB" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }
+  } },
+  { id: "PRODUCT-BB-66", series: "metal fight", no: "BB-66", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BB-66", name: "메탈페이스(레드)", sale: "일반 판매", kind: "", releaseDate: "2010-01-23", price: "367", composition: [{ label: "기타", name: "메탈페이스", quantity: "2개", target: "EQUIPMENT-METAL-FACE" }, { label: "기타", name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }] }
+  } },
+  { id: "PRODUCT-BB-67", series: "metal fight", no: "BB-67", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BB-67", name: "메탈페이스(건메탈릭)", sale: "일반 판매", kind: "", releaseDate: "2010-01-23", price: "367", composition: [{ label: "기타", name: "메탈페이스", quantity: "2개", target: "EQUIPMENT-METAL-FACE" }, { label: "기타", name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }] }
+  } },
+  { id: "PRODUCT-BB-68", series: "metal fight", no: "BB-68", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BB-68", name: "베이런처(메탈릭오렌지)", sale: "일반 판매", kind: "", releaseDate: "2010-01-23", price: "630", composition: [{ label: "런처", name: "베이런처", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER" }] }
+  } },
+  { id: "PRODUCT-BB-69", series: "metal fight", no: "BB-69", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-69", name: "포이즌 서펜트 SW145SD", sale: "일반 판매", kind: "스타터세트", releaseDate: "2010-02-10", price: "8000", composition: [{ label: "베이", name: "포이즌 서펜트 SW145SD", quantity: "1개", target: "BEY-BB-69-POISON-SERPENT-SW145SD" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] },
+    jp: { no: "BB-69", name: "포이즌 서펜트 SW145SD", sale: "일반 판매", kind: "스타터", releaseDate: "2010-02-13", price: "892", composition: [{ label: "베이", name: "포이즌 서펜트 SW145SD", quantity: "1개", target: "BEY-BB-69-POISON-SERPENT-SW145SD" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] }
+  } },
+  { id: "PRODUCT-BB-70", series: "metal fight", no: "BB-70", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-70", name: "갤럭시 페가시스 W105R²F", sale: "일반 판매", kind: "스타터세트", releaseDate: "2010-07-30", price: "9600", composition: [{ label: "베이", name: "갤럭시 페가시스 W105R²F", quantity: "1개", target: "BEY-BB-70-GALAXY-PEGASIS-W105R2F" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] },
+    jp: { no: "BB-70", name: "갤럭시 페가시스 W105R²F", sale: "일반 판매", kind: "스타터", releaseDate: "2010-04-01", price: "1680", composition: [{ label: "베이", name: "갤럭시 페가시스 W105R²F", quantity: "1개", target: "BEY-BB-70-GALAXY-PEGASIS-W105R2F" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }, { label: "기타", name: "베이포인트카드", quantity: "1장", target: "EQUIPMENT-BEYPOINT-CARD" }] }
+  } },
+  { id: "PRODUCT-BB-70R2", series: "metal fight", no: "BB-70R2", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-70R2", name: "갤럭시 페가시스 W105R²F", sale: "일반 판매", kind: "스타터세트", releaseDate: "2010-12-07", price: "9600", composition: [{ label: "베이", name: "갤럭시 페가시스 W105R²F", quantity: "1개", target: "BEY-BB-70-GALAXY-PEGASIS-W105R2F" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처2", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER-2" }] },
+    jp: { status: "unreleased" }
+  } },
+  { id: "PRODUCT-BB-71", series: "metal fight", no: "BB-71", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-71", name: "레이 유니콘 D125CS", sale: "일반 판매", kind: "스타터세트", releaseDate: "2010-07-30", price: "9600", composition: [{ label: "베이", name: "레이 유니콘 D125CS", quantity: "1개", target: "BEY-BB-71-RAY-UNICORNO-D125CS" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] },
+    jp: { no: "BB-71", name: "레이 유니코르노 D125CS", sale: "일반 판매", kind: "스타터", releaseDate: "2010-04-01", price: "1680", composition: [{ label: "베이", name: "레이 유니코르노 D125CS", quantity: "1개", target: "BEY-BB-71-RAY-UNICORNO-D125CS" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }, { label: "기타", name: "베이포인트카드", quantity: "1장", target: "EQUIPMENT-BEYPOINT-CARD" }] }
+  } },
+  { id: "PRODUCT-BB-71R2", series: "metal fight", no: "BB-71R2", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-71R2", name: "레이 유니콘 D125CS", sale: "일반 판매", kind: "스타터세트", releaseDate: "2010-12-07", price: "9600", composition: [{ label: "베이", name: "레이 유니콘 D125CS", quantity: "1개", target: "BEY-BB-71-RAY-UNICORNO-D125CS" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처2", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER-2" }] },
+    jp: { status: "unreleased" }
+  } },
+  { id: "PRODUCT-BB-72", series: "metal fight", no: "BB-72", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-72", name: "아쿠아리오 105F", sale: "일반 판매", kind: "부스터", releaseDate: "2010-07-30", price: "6400", composition: [{ label: "베이", name: "아쿠아리오 105F", quantity: "1개", target: "BEY-BB-72-AQUARIO-105F" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] },
+    jp: { no: "BB-72", name: "아쿠아리오 105F", sale: "일반 판매", kind: "부스터", releaseDate: "2010-04-01", price: "682", composition: [{ label: "베이", name: "아쿠아리오 105F", quantity: "1개", target: "BEY-BB-72-AQUARIO-105F" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }
+  } },
+  { id: "PRODUCT-BB-73", series: "metal fight", no: "BB-73", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-73", name: "베이카드 런처그립", sale: "일반 판매", kind: "", releaseDate: "2011-01-13", price: "6400", composition: [{ label: "그립", name: "베이카드 런처그립", quantity: "1개", target: "EQUIPMENT-3SEG-LAUNCHER-GRIP" }] },
+    jp: { no: "BB-73", name: "3세그 런처그립", sale: "일반 판매", kind: "", releaseDate: "2010-04-01", price: "577", composition: [{ label: "그립", name: "3세그 런처그립", quantity: "1개", target: "EQUIPMENT-3SEG-LAUNCHER-GRIP" }] }
+  } },
+  { id: "PRODUCT-KR-PEGASIS-BEYCARD-SET", series: "metal fight", no: "", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "", name: "페가시스 베이카드 세트", sale: "일반 판매", kind: "세트", releaseDate: "2010-11-30", price: "20800", composition: [] },
+    jp: { status: "unreleased" }
+  } },
+  { id: "PRODUCT-KR-LDRAGO-CHARACTER-CARD-SET", series: "metal fight", no: "", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "", name: "엘드라고 캐릭터카드 세트", sale: "일반 판매", kind: "세트", releaseDate: "2010-11-30", price: "20800", composition: [] },
+    jp: { status: "unreleased" }
+  } },
+  { id: "PRODUCT-BB-74", series: "metal fight", no: "BB-74", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-74", name: "써멀 라체르타 WA130HF", sale: "일반 판매", kind: "부스터", releaseDate: "2010-07-30", price: "6400", composition: [{ label: "베이", name: "써멀 라체르타 WA130HF", quantity: "1개", target: "BEY-BB-74-THERMAL-LACERTA-WA130HF" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] },
+    jp: { no: "BB-74", name: "써멀 라체르타 WA130HF", sale: "일반 판매", kind: "부스터", releaseDate: "2010-04-24", price: "787", composition: [{ label: "베이", name: "써멀 라체르타 WA130HF", quantity: "1개", target: "BEY-BB-74-THERMAL-LACERTA-WA130HF" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }
+  } },
+  { id: "PRODUCT-BB-74R2", series: "metal fight", no: "BB-74R2", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-74R2", name: "써멀 라체르타 WA130HF", sale: "일반 판매", kind: "스타터세트", releaseDate: "2010-12-07", price: "9600", composition: [{ label: "베이", name: "써멀 라체르타 WA130HF", quantity: "1개", target: "BEY-BB-74-THERMAL-LACERTA-WA130HF" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처2", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER-2" }] },
+    jp: { status: "unreleased" }
+  } },
+  { id: "PRODUCT-BB-75", series: "metal fight", no: "BB-75", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-75", name: "베이블레이드 덱 엔트리 세트", sale: "일반 판매", kind: "세트", releaseDate: "2010-07-30", price: "24000", composition: [{ label: "베이", name: "로크 오르소 ED145D", quantity: "1개", target: "BEY-BB-75-ROCK-ORSO-ED145D" }, { label: "베이", name: "갤럭시 페가시스 W105R²F", quantity: "1개", target: "BEY-BB-75-GALAXY-PEGASIS-W105R2F" }, { label: "베이", name: "어스 비르고 T125ES", quantity: "1개", target: "BEY-BB-75-EARTH-VIRGO-T125ES" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "기타", name: "베이 덱 케이스", quantity: "1개", target: "EQUIPMENT-BEY-DECK-CASE" }] },
+    jp: { no: "BB-75", name: "베이블레이드 덱 엔트리 세트", sale: "일반 판매", kind: "세트", releaseDate: "2010-04-24", price: "2625", composition: [{ label: "베이", name: "로크 오르소 ED145D", quantity: "1개", target: "BEY-BB-75-ROCK-ORSO-ED145D" }, { label: "베이", name: "갤럭시 페가시스 W105R²F", quantity: "1개", target: "BEY-BB-75-GALAXY-PEGASIS-W105R2F" }, { label: "베이", name: "어스 비르고 T125ES", quantity: "1개", target: "BEY-BB-75-EARTH-VIRGO-T125ES" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "기타", name: "베이 덱 케이스", quantity: "1개", target: "EQUIPMENT-BEY-DECK-CASE" }] }
+  } },
+  { id: "PRODUCT-BB-76", series: "metal fight", no: "BB-76", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BB-76", name: "갤럭시 페가시스 DX 세트", sale: "일반 판매", kind: "세트", releaseDate: "2010-04-24", price: "3780", composition: [{ label: "베이", name: "갤럭시 페가시스 W105R²F", quantity: "1개", target: "BEY-BB-76-GALAXY-PEGASIS-W105R2F" }, { label: "런처", name: "파워런처", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER" }, { label: "기타", name: "베이포인트카드", quantity: "1개", target: "EQUIPMENT-BEYPOINT-CARD" }, { label: "그립", name: "3세그 런처그립", quantity: "1개", target: "EQUIPMENT-3SEG-LAUNCHER-GRIP" }, { label: "스타디움", name: "베이스타디움 어택타입", quantity: "1개", target: "EQUIPMENT-ATTACK-BEYSTADIUM" }, { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }] }
+  } },
+  { id: "PRODUCT-BB-77", series: "metal fight", no: "BB-77", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-77", name: "베이 덱 케이스", sale: "일반 판매", kind: "", releaseDate: "2011-05-18", price: "2000", composition: [{ label: "기타", name: "베이 덱 케이스", quantity: "1개", target: "EQUIPMENT-BEY-DECK-CASE" }] },
+    jp: { no: "BB-77", name: "베이 덱 케이스", sale: "일반 판매", kind: "", releaseDate: "2010-04-24", price: "525", composition: [{ label: "기타", name: "베이 덱 케이스", quantity: "1개", target: "EQUIPMENT-BEY-DECK-CASE" }] }
+  } },
+  { id: "PRODUCT-BB-78", series: "metal fight", no: "BB-78", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-78", name: "로크 기라프 R145WB", sale: "일반 판매", kind: "부스터", releaseDate: "2010-07", price: "6400", composition: [{ label: "베이", name: "로크 기라프 R145WB", quantity: "1개", target: "BEY-BB-78-ROCK-GIRAFFE-R145WB" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] },
+    jp: { no: "BB-78", name: "록 기라프 R145WB", sale: "일반 판매", kind: "부스터", releaseDate: "2010-05-22", price: "787", composition: [{ label: "베이", name: "록 기라프 R145WB", quantity: "1개", target: "BEY-BB-78-ROCK-GIRAFFE-R145WB" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }
+  } },
+  { id: "PRODUCT-BB-78R2", series: "metal fight", no: "BB-78R2", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-78R2", name: "로크 기라프 R145WB", sale: "일반 판매", kind: "스타터세트", releaseDate: "2010-12-07", price: "9600", composition: [{ label: "베이", name: "로크 기라프 R145WB", quantity: "1개", target: "BEY-BB-78-ROCK-GIRAFFE-R145WB" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처2", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER-2" }] },
+    jp: { status: "unreleased" }
+  } },
+  { id: "PRODUCT-BB-79", series: "metal fight", no: "BB-79", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BB-79", name: "메탈어시스트", sale: "일반 판매", kind: "", releaseDate: "2010-06-22", price: "525", composition: [{ label: "기타", name: "메탈어시스트", quantity: "1개", target: "EQUIPMENT-METAL-ASSIST" }] }
+  } },
+  { id: "PRODUCT-BB-80", series: "metal fight", no: "BB-80", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-80", name: "그라비티 페르세우스 AD145WD", sale: "일반 판매", kind: "스타터세트", releaseDate: "2010-07-30", price: "13600", composition: [{ label: "베이", name: "그라비티 페르세우스 AD145WD", quantity: "1개", target: "BEY-BB-80-GRAVITY-PERSEUS-AD145WD" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "파워런처LR", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER-LR" }] },
+    jp: { no: "BB-80", name: "그라비티 페르세우스 AD145WD", sale: "일반 판매", kind: "스타터", releaseDate: "2010-06-22", price: "1365", composition: [{ label: "베이", name: "그라비티 페르세우스 AD145WD", quantity: "1개", target: "BEY-BB-80-GRAVITY-PERSEUS-AD145WD" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "베이런처LR", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER-LR" }] }
+  } },
+  { id: "PRODUCT-KR-BIGBANG-BLADERS-SET", series: "metal fight", no: "", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "", name: "빅뱅블레이더즈 세트", sale: "일반 판매", kind: "세트", releaseDate: "2010-09-17", price: "35000", composition: [] },
+    jp: { status: "unreleased" }
+  } },
+  { id: "PRODUCT-KR-TRIPLE-NATIONAL-TEAM-DX-SET", series: "metal fight", no: "", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "", name: "트리플 내셔널팀 DX 세트", sale: "일반 판매", kind: "세트", releaseDate: "2010-09-17", price: "35000", composition: [] },
+    jp: { status: "unreleased" }
+  } },
+  { id: "PRODUCT-BB-81", series: "metal fight", no: "BB-81", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BB-81", name: "런처러버", sale: "일반 판매", kind: "", releaseDate: "2010-06-22", price: "315", composition: [{ label: "기타", name: "런처러버", quantity: "3개", target: "EQUIPMENT-LAUNCHER-RUBBER" }] }
+  } },
+  { id: "PRODUCT-BB-82", series: "metal fight", no: "BB-82", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BB-82", name: "랜덤부스터 Vol.5 그랜드 케토스", sale: "일반 판매", kind: "부스터", releaseDate: "2010-07-24", price: "682", composition: [{ label: "베이", name: "무작위 베이", quantity: "1개", target: "BEY-BB-82-GRAND-KETOS-WD145RS" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }
+  }, beyPool: [
+    "BEY-BB-82-GRAND-KETOS-WD145RS",
+    "BEY-BB-82-GRAND-KETOS-T125RS",
+    "BEY-BB-82-BURN-UNICORNO-SW145JB",
+    "BEY-BB-82-POISON-UNICORNO-130HF",
+    "BEY-BB-82-STORM-PHOENIX-130B",
+    "BEY-BB-82-POISON-PHOENIX-WA130SD",
+    "BEY-BB-82-BURN-SERPENT-WA130ES",
+    "BEY-BB-82-STORM-SERPENT-T125HF"
+  ] },
+  { id: "PRODUCT-BB-82-1", series: "metal fight", no: "BB-82-1", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-82-1", name: "그랜드 케토스 WD145RS", sale: "일반 판매", kind: "스타터세트", releaseDate: "2010-10-01", price: "9600", composition: [] },
+    jp: { status: "unreleased" }
+  } },
+  { id: "PRODUCT-BB-82-2", series: "metal fight", no: "BB-82-2", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-82-2", name: "그랜드 케토스 T125RS", sale: "일반 판매", kind: "스타터세트", releaseDate: "2010-10-01", price: "9600", composition: [] },
+    jp: { status: "unreleased" }
+  } },
+  { id: "PRODUCT-BB-83", series: "metal fight", no: "BB-83", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-83", name: "파이시즈 DF145BS", sale: "일반 판매", kind: "스타터세트", releaseDate: "2010-10-01", price: "9600", composition: [] },
+    jp: { no: "BB-83", name: "파이시즈 DF145BS", sale: "일반 판매", kind: "부스터", releaseDate: "2010-07-24", price: "682", composition: [] }
+  } },
+  { id: "PRODUCT-BB-84", series: "metal fight", no: "BB-84", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-84", name: "메탈페이스 커스텀 Ver.(클리어)", sale: "일반 판매", kind: "", releaseDate: "2011-01-13", price: "4000", composition: [{ label: "기타", name: "메탈페이스 커스텀 Ver.", quantity: "2개", target: "EQUIPMENT-METAL-FACE" }, { label: "기타", name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }] },
+    jp: { no: "BB-84", name: "메탈페이스 개조 Ver.(클리어)", sale: "일반 판매", kind: "", releaseDate: "2010-07-24", price: "367", composition: [{ label: "기타", name: "메탈페이스 개조 Ver.", quantity: "2개", target: "EQUIPMENT-METAL-FACE" }, { label: "기타", name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }] }
+  } },
+  { id: "PRODUCT-BB-85", series: "metal fight", no: "BB-85", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-85", name: "메탈페이스 커스텀 Ver.(오렌지)", sale: "일반 판매", kind: "", releaseDate: "2011-01-13", price: "4000", composition: [{ label: "기타", name: "메탈페이스 커스텀 Ver.", quantity: "2개", target: "EQUIPMENT-METAL-FACE" }, { label: "기타", name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }] },
+    jp: { no: "BB-85", name: "메탈페이스 개조 Ver.(오렌지)", sale: "일반 판매", kind: "", releaseDate: "2010-07-24", price: "367", composition: [{ label: "기타", name: "메탈페이스 개조 Ver.", quantity: "2개", target: "EQUIPMENT-METAL-FACE" }, { label: "기타", name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }] }
+  } },
+  { id: "PRODUCT-BB-86", series: "metal fight", no: "BB-86", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-86", name: "베이블레이드 덱 어택&디펜스 세트", sale: "일반 판매", kind: "세트", releaseDate: "2010-10-01", price: "25600", composition: [{ label: "베이", name: "카운터 에스콜피오 145D", quantity: "1개", target: "BEY-BB-86-COUNTER-SCORPIO-145D" }, { label: "베이", name: "사이버 아쿠아리오 105F", quantity: "1개", target: "BEY-BB-86-CYBER-AQUARIO-105F" }, { label: "베이", name: "포이즌 기라프 S130MB", quantity: "1개", target: "BEY-BB-86-POISON-GIRAFFE-S130MB" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처2", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER-2" }, { label: "기타", name: "베이 덱 케이스", quantity: "1개", target: "EQUIPMENT-BEY-DECK-CASE" }] },
+    jp: { no: "BB-86", name: "베이블레이드 덱 어택&디펜스 세트", sale: "일반 판매", kind: "세트", releaseDate: "2010-08-07", price: "2625", composition: [{ label: "베이", name: "카운터 에스콜피오 145D", quantity: "1개", target: "BEY-BB-86-COUNTER-SCORPIO-145D" }, { label: "베이", name: "사이버 아쿠아리오 105F", quantity: "1개", target: "BEY-BB-86-CYBER-AQUARIO-105F" }, { label: "베이", name: "포이즌 기라프 S130MB", quantity: "1개", target: "BEY-BB-86-POISON-GIRAFFE-S130MB" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "기타", name: "베이 덱 케이스", quantity: "1개", target: "EQUIPMENT-BEY-DECK-CASE" }] }
+  } },
+  { id: "PRODUCT-BB-87", series: "metal fight", no: "BB-87", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BB-87", name: "라이트런처2", sale: "일반 판매", kind: "", releaseDate: "2010-08-28", price: "420", composition: [{ label: "런처", name: "라이트런처2", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER-2" }] }
+  } },
+  { id: "PRODUCT-BB-88", series: "metal fight", no: "BB-88", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-88", name: "메테오 엘드라고 LW105LF", sale: "일반 판매", kind: "스타터세트", releaseDate: "2010-10-01", price: "12000", composition: [{ label: "베이", name: "메테오 엘드라고 LW105LF", quantity: "1개", target: "BEY-BB-88-METEO-LDRAGO-LW105LF" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "파워런처L", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER-L" }] },
+    jp: { no: "BB-88", name: "메테오 엘드라고 LW105LF", sale: "일반 판매", kind: "스타터", releaseDate: "2010-09-18", price: "1260", composition: [{ label: "베이", name: "메테오 엘드라고 LW105LF", quantity: "1개", target: "BEY-BB-88-METEO-LDRAGO-LW105LF" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "베이런처L", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER-L" }] }
+  } },
+  { id: "PRODUCT-BB-89", series: "metal fight", no: "BB-89", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-89", name: "아리에스 145D", sale: "일반 판매", kind: "스타터세트", releaseDate: "2010-10-01", price: "9600", composition: [] },
+    jp: { no: "BB-89", name: "아리에스 145D", sale: "일반 판매", kind: "부스터", releaseDate: "2010-09-18", price: "682", composition: [] }
+  } },
+  { id: "PRODUCT-BB-90", series: "metal fight", no: "BB-90", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-90", name: "LED스코프라이트", sale: "일반 판매", kind: "", releaseDate: "2010-12-07", price: "9600", composition: [{ label: "기타", name: "LED스코프라이트", quantity: "1개", target: "EQUIPMENT-LED-SIGHT" }] },
+    jp: { no: "BB-90", name: "LED사이트", sale: "일반 판매", kind: "", releaseDate: "2010-09-18", price: "1260", composition: [{ label: "기타", name: "LED사이트", quantity: "1개", target: "EQUIPMENT-LED-SIGHT" }] }
+  } },
+  { id: "PRODUCT-BB-91", series: "metal fight", no: "BB-91", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-91", name: "레이 킬 100RSF", sale: "일반 판매", kind: "스타터세트", releaseDate: "2010-10-01", price: "9600", composition: [] },
+    jp: { no: "BB-91", name: "레이 길 100RSF", sale: "일반 판매", kind: "부스터", releaseDate: "2010-10-23", price: "787", composition: [] }
+  } },
+  { id: "PRODUCT-BB-92", series: "metal fight", no: "BB-92", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BB-92", name: "갤럭시 페가시스 W105R²F", sale: "일반 판매", kind: "부스터", releaseDate: "2010-10-23", price: "787", composition: [] }
+  } },
+  { id: "PRODUCT-BB-93", series: "metal fight", no: "BB-93", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BB-93", name: "레이 유니코르노 D125CS", sale: "일반 판매", kind: "부스터", releaseDate: "2010-10-23", price: "787", composition: [] }
+  } },
+  { id: "PRODUCT-BB-94", series: "metal fight", no: "BB-94", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-94", name: "토네이도 베이스타디움", sale: "일반 판매", kind: "세트", releaseDate: "2010-12-07", price: "49600", composition: [{ label: "베이", name: "토네이도 헤라클레오 105F", quantity: "1개", target: "BEY-BB-94-TORNADO-HERCULEO-105F" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "스타디움", name: "토네이도 베이스타디움", quantity: "1개", target: "EQUIPMENT-TORNADO-BEYSTADIUM" }] },
+    jp: { no: "BB-94", name: "토네이도 베이스타디움", sale: "일반 판매", kind: "세트", releaseDate: "2010-10-23", price: "5775", composition: [{ label: "베이", name: "토네이도 헤라클레오 105F", quantity: "1개", target: "BEY-BB-94-TORNADO-HERCULEO-105F" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "스타디움", name: "토네이도 베이스타디움", quantity: "1개", target: "EQUIPMENT-TORNADO-BEYSTADIUM" }] }
+  } },
+  { id: "PRODUCT-KR-GALAXY-STARGAZER-SET", series: "metal fight", no: "", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "", name: "갤럭시 스타게이저 세트", sale: "일반 판매", kind: "세트", releaseDate: "2010-12-07", price: "", composition: [] },
+    jp: { status: "unreleased" }
+  } },
+  { id: "PRODUCT-KR-BEY-CHARACTER-CUSTOM-SET", series: "metal fight", no: "", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "", name: "베이캐릭터 커스텀 세트", sale: "일반 판매", kind: "세트", releaseDate: "2010-12-07", price: "", composition: [] },
+    jp: { status: "unreleased" }
+  } },
+  { id: "PRODUCT-KR-GOLDEN-BLADERS-DX-SET", series: "metal fight", no: "", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "", name: "골든블레이더즈 DX세트", sale: "일반 판매", kind: "세트", releaseDate: "2010-12-07", price: "62000", composition: [] },
+    jp: { status: "unreleased" }
+  } },
+  { id: "PRODUCT-KR-REVERSE-DRAGON-ATTACK-SET", series: "metal fight", no: "", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "", name: "리버스 드래곤 어택 세트", sale: "일반 판매", kind: "세트", releaseDate: "2010-12-07", price: "", composition: [] },
+    jp: { status: "unreleased" }
+  } },
+  { id: "PRODUCT-BB-95", series: "metal fight", no: "BB-95", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-95", name: "플레임 픽시스 230WD", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-02-01", price: "9600", composition: [] },
+    jp: { no: "BB-95", name: "플레임 빅시스 230WD", sale: "일반 판매", kind: "부스터", releaseDate: "2010-11-20", price: "787", composition: [] }
+  } },
+  { id: "PRODUCT-BB-96", series: "metal fight", no: "BB-96", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-96", name: "베이블레이드 슈퍼 덱", sale: "일반 판매", kind: "세트", releaseDate: "2011-02-01", price: "22400", composition: [{ label: "베이", name: "페가시스 85RF", quantity: "1개", target: "BEY-BB-96-PEGASIS-85RF" }, { label: "베이", name: "리브라 100D", quantity: "1개", target: "BEY-BB-96-LIBRA-100D" }, { label: "베이", name: "번 캔서 90WD", quantity: "1개", target: "BEY-BB-96-BURN-CANCER-90WD" }, { label: "기타", name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }] },
+    jp: { no: "BB-96", name: "베이블레이드 슈퍼 덱", sale: "일반 판매", kind: "세트", releaseDate: "2010-11-20", price: "2415", composition: [{ label: "베이", name: "페가시스 85RF", quantity: "1개", target: "BEY-BB-96-PEGASIS-85RF" }, { label: "베이", name: "리브라 100D", quantity: "1개", target: "BEY-BB-96-LIBRA-100D" }, { label: "베이", name: "번 캔서 90WD", quantity: "1개", target: "BEY-BB-96-BURN-CANCER-90WD" }, { label: "기타", name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }] }
+  } },
+  { id: "PRODUCT-BB-97", series: "metal fight", no: "BB-97", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-97", name: "스페셜 커스텀 세트 페르세우스 Ver.", sale: "일반 판매", kind: "세트", releaseDate: "2011-02-01", price: "39800", composition: [{ label: "페이스", name: "페르세우스 페이스", quantity: "3개", target: "FACE-PERSEUS" }, { label: "기타", name: "메탈페이스 커스텀 Ver.", quantity: "2개", target: "EQUIPMENT-METAL-FACE" }, { label: "클리어휠", name: "페르세우스 클리어휠", quantity: "1개", target: "CLEARWHEEL-PERSEUS" }, { label: "클리어휠", name: "페르세우스 어택 클리어휠", quantity: "1개", target: "CLEARWHEEL-PERSEUS-ATTACK" }, { label: "클리어휠", name: "페르세우스 스테미너 클리어휠", quantity: "1개", target: "CLEARWHEEL-PERSEUS-STAMINA" }, { label: "메탈휠", name: "그라비티 메탈휠", quantity: "2개", target: "METALWHEEL-GRAVITY" }, { label: "트랙", name: "GB145 트랙", quantity: "1개", target: "TRACK-GB145" }, { label: "트랙", name: "AD145 트랙", quantity: "1개", target: "TRACK-AD145" }, { label: "트랙", name: "105 트랙", quantity: "1개", target: "TRACK-105" }, { label: "트랙", name: "130 트랙", quantity: "1개", target: "TRACK-130" }, { label: "버텀", name: "S 버텀", quantity: "1개", target: "BOTTOM-SHARP" }, { label: "버텀", name: "WD 버텀", quantity: "1개", target: "BOTTOM-WIDE-DEFENSE" }, { label: "버텀", name: "F 버텀", quantity: "1개", target: "BOTTOM-FLAT" }, { label: "버텀", name: "RS 버텀", quantity: "1개", target: "BOTTOM-RUBBER-SHARP" }, { label: "기타", name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }, { label: "런처", name: "파워런처LR", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER-LR" }, { label: "그립", name: "런처그립", quantity: "1개", target: "EQUIPMENT-LAUNCHER-GRIP" }, { label: "스타디움", name: "스퀘어형 베이스타디움", quantity: "1개", target: "EQUIPMENT-WIDE-SQUARE-BEYSTADIUM" }] },
+    jp: { no: "BB-97", name: "베이블레이드 궁극 개조 세트 페르세우스 Ver.", sale: "일반 판매", kind: "세트", releaseDate: "2010-11-20", price: "3780", composition: [{ label: "페이스", name: "페르세우스 페이스", quantity: "3개", target: "FACE-PERSEUS" }, { label: "기타", name: "메탈페이스 개조 Ver.", quantity: "2개", target: "EQUIPMENT-METAL-FACE" }, { label: "클리어휠", name: "페르세우스 클리어휠", quantity: "1개", target: "CLEARWHEEL-PERSEUS" }, { label: "클리어휠", name: "페르세우스 어택 클리어휠", quantity: "1개", target: "CLEARWHEEL-PERSEUS-ATTACK" }, { label: "클리어휠", name: "페르세우스 스테미너 클리어휠", quantity: "1개", target: "CLEARWHEEL-PERSEUS-STAMINA" }, { label: "메탈휠", name: "그라비티 메탈휠", quantity: "2개", target: "METALWHEEL-GRAVITY" }, { label: "트랙", name: "GB145 트랙", quantity: "1개", target: "TRACK-GB145" }, { label: "트랙", name: "AD145 트랙", quantity: "1개", target: "TRACK-AD145" }, { label: "트랙", name: "105 트랙", quantity: "1개", target: "TRACK-105" }, { label: "트랙", name: "130 트랙", quantity: "1개", target: "TRACK-130" }, { label: "버텀", name: "S 버텀", quantity: "1개", target: "BOTTOM-SHARP" }, { label: "버텀", name: "WD 버텀", quantity: "1개", target: "BOTTOM-WIDE-DEFENSE" }, { label: "버텀", name: "F 버텀", quantity: "1개", target: "BOTTOM-FLAT" }, { label: "버텀", name: "RS 버텀", quantity: "1개", target: "BOTTOM-RUBBER-SHARP" }, { label: "기타", name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }, { label: "런처", name: "베이런처LR", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER-LR" }, { label: "그립", name: "3세그 런처그립", quantity: "1개", target: "EQUIPMENT-3SEG-LAUNCHER-GRIP" }] }
+  } },
+  { id: "PRODUCT-BB-98", series: "metal fight", no: "BB-98", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-98", name: "스페셜 커스텀 세트 엘드라고 Ver.", sale: "일반 판매", kind: "세트", releaseDate: "2011-02-01", price: "39800", composition: [] },
+    jp: { no: "BB-98", name: "베이블레이드 궁극 개조 세트 엘드라고 Ver.", sale: "일반 판매", kind: "세트", releaseDate: "2010-11-20", price: "3780", composition: [] }
+  } },
+  { id: "PRODUCT-BB-99", series: "metal fight", no: "BB-99", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-99", name: "헬 켈베로스 BD145DS", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-02-01", price: "12000", composition: [] },
+    jp: { no: "BB-99", name: "헬 케르벡스 BD145DS", sale: "일반 판매", kind: "스타터", releaseDate: "2010-12-28", price: "997", composition: [] }
+  } },
+  { id: "PRODUCT-BB-99-1", series: "metal fight", no: "BB-99-1", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-99-1", name: "헬 켈베로스 BD145DS", sale: "일반 판매", kind: "부스터", releaseDate: "2011-06-14", price: "9600", composition: [] },
+    jp: { status: "unreleased" }
+  } },
+  { id: "PRODUCT-BB-100", series: "metal fight", no: "BB-100", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-100", name: "키라 비폴 UW145EWD", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-02-01", price: "9600", composition: [] },
+    jp: { no: "BB-100", name: "랜덤부스터 Vol.6 키라 비폴", sale: "일반 판매", kind: "부스터", releaseDate: "2010-12-28", price: "682", composition: [{ label: "베이", name: "무작위 베이", quantity: "1개", target: "BEY-BB-100-KILLER-BEAFOWL-UW145EWD" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }
+  }, beyPool: [
+    "BEY-BB-100-KILLER-BEAFOWL-UW145EWD",
+    "BEY-BB-100-GALAXY-CANCER-D125HF",
+    "BEY-BB-100-BURN-SCORPIO-100RF",
+    "BEY-BB-100-FLAME-GEMIOS-105CS",
+    "BEY-BB-100-KILLER-SCORPIO-100D",
+    "BEY-BB-100-GALAXY-SAGITTARIO-145CS",
+    "BEY-BB-100-FLAME-CANCER-D125RF",
+    "BEY-BB-100-BURN-SAGITTARIO-105HF"
+  ] },
+  { id: "PRODUCT-BB-101", series: "metal fight", no: "BB-101", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BB-101", name: "그립서포트", sale: "일반 판매", kind: "", releaseDate: "2010-12-28", price: "367", composition: [] }
+  } },
+  { id: "PRODUCT-BB-102", series: "metal fight", no: "BB-102", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-102", name: "스크류 카프리콘 90MF", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-02-01", price: "9600", composition: [] },
+    jp: { no: "BB-102", name: "스크류 카프리코네 90MF", sale: "일반 판매", kind: "부스터", releaseDate: "2011-01-22", price: "787", composition: [] }
+  } },
+  { id: "PRODUCT-BB-103", series: "metal fight", no: "BB-103", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BB-103", name: "스나이프런처", sale: "일반 판매", kind: "", releaseDate: "2011-01-22", price: "472", composition: [] }
+  } },
+  { id: "PRODUCT-BB-104", series: "metal fight", no: "BB-104", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-104", name: "바셀트 호로지움 145WD", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-02-01", price: "12000", composition: [] },
+    jp: { no: "BB-104", name: "바살트 호로기움 145WD", sale: "일반 판매", kind: "스타터", releaseDate: "2011-02-26", price: "945", composition: [] }
+  } },
+  { id: "PRODUCT-KR-BIGBANG-BLADERS-TOOLBOX", series: "metal fight", no: "", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "", name: "빅뱅블레이더즈 툴박스", sale: "일반 판매", kind: "", releaseDate: "2011-02-01", price: "12000", composition: [] },
+    jp: { status: "unreleased" }
+  } },
+  { id: "PRODUCT-KR-STARBREAKER-DX-SET", series: "metal fight", no: "", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "", name: "스타브레이커 DX 세트", sale: "일반 판매", kind: "세트", releaseDate: "2011-04-11", price: "45000", composition: [] },
+    jp: { status: "unreleased" }
+  } },
+  { id: "PRODUCT-BB-105", series: "metal fight", no: "BB-105", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-105", name: "빅뱅 페가시스 F:D", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-10-28", price: "13600", composition: [] },
+    jp: { no: "BB-105", name: "빅뱅 페가시스 F:D", sale: "일반 판매", kind: "스타터", releaseDate: "2011-03-26", price: "1260", composition: [] }
+  } },
+  { id: "PRODUCT-BB-106", series: "metal fight", no: "BB-106", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-106", name: "팡 레온 130W²D", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-10-28", price: "12000", composition: [] },
+    jp: { no: "BB-106", name: "팡 레오네 130W²D", sale: "일반 판매", kind: "스타터", releaseDate: "2011-03-26", price: "945", composition: [] }
+  } },
+  { id: "PRODUCT-BB-107", series: "metal fight", no: "BB-107", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BB-107", name: "빅뱅 페가시스 DX 세트", sale: "일반 판매", kind: "세트", releaseDate: "2011-03-26", price: "3990", composition: [] }
+  } },
+  { id: "PRODUCT-BB-108", series: "metal fight", no: "BB-108", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-108", name: "엘드라고 디스트로이 F:S", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-10-28", price: "13600", composition: [] },
+    jp: { no: "BB-108", name: "엘드라고 디스트로이 F:S", sale: "일반 판매", kind: "스타터", releaseDate: "2011-04-23", price: "1260", composition: [] }
+  } },
+  { id: "PRODUCT-BB-109", series: "metal fight", no: "BB-109", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-109", name: "비트 링크스 TH170WD", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-10-28", price: "12000", composition: [] },
+    jp: { no: "BB-109", name: "랜덤부스터 Vol.7 비트 링크스", sale: "일반 판매", kind: "부스터", releaseDate: "2011-04-23", price: "682", composition: [{ label: "베이", name: "무작위 베이", quantity: "1개", target: "BEY-BB-109-BEAT-LYNX-TH170WD" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }
+  }, beyPool: [
+    "BEY-BB-109-BEAT-LYNX-TH170WD",
+    "BEY-BB-109-GRAVITY-PERSEUS-BD145XF",
+    "BEY-BB-109-HELL-HORUSEUS-85RS",
+    "BEY-BB-109-VULCAN-HERCULEO-130DS",
+    "BEY-BB-109-GRAVITY-PERSEUS-85DS",
+    "BEY-BB-109-TORNADO-HORUSEUS-130RSF",
+    "BEY-BB-109-HELL-HERCULEO-100XF",
+    "BEY-BB-109-VULCAN-HOROGIUM-BD145RS"
+  ] },
+  { id: "PRODUCT-BB-110", series: "metal fight", no: "BB-110", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BB-110", name: "베이런처(코스모블루)", sale: "일반 판매", kind: "", releaseDate: "2011-04-23", price: "525", composition: [{ label: "런처", name: "베이런처", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER" }] }
+  } },
+  { id: "PRODUCT-BB-111", series: "metal fight", no: "BB-111", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BB-111", name: "베이런처(아미그린)", sale: "일반 판매", kind: "", releaseDate: "2011-04-23", price: "525", composition: [{ label: "런처", name: "베이런처", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER" }] }
+  } },
+  { id: "PRODUCT-BB-112", series: "metal fight", no: "BB-112", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-112", name: "카라비나그립(레드)", sale: "일반 판매", kind: "", releaseDate: "2011-10-28", price: "6400", composition: [] },
+    jp: { no: "BB-112", name: "카라비나그립(마스레드)", sale: "일반 판매", kind: "", releaseDate: "2011-05-21", price: "630", composition: [] }
+  } },
+  { id: "PRODUCT-BB-113", series: "metal fight", no: "BB-113", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-113", name: "사이즈 크로노스 T125EDS", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-10-28", price: "12000", composition: [] },
+    jp: { no: "BB-113", name: "사이즈 크로노스 T125EDS", sale: "일반 판매", kind: "스타터", releaseDate: "2011-06-18", price: "945", composition: [] }
+  } },
+  { id: "PRODUCT-BB-114", series: "metal fight", no: "BB-114", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-114", name: "베리아레스 D:D", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-10-28", price: "13600", composition: [] },
+    jp: { no: "BB-114", name: "바리아레스 D:D", sale: "일반 판매", kind: "스타터", releaseDate: "2011-07-16", price: "1260", composition: [] }
+  } },
+  { id: "PRODUCT-BB-115", series: "metal fight", no: "BB-115", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BB-115", name: "베이런처LR(마스레드)", sale: "일반 판매", kind: "스타터", releaseDate: "2011-07-16", price: "735", composition: [] }
+  } },
+  { id: "PRODUCT-BB-116", series: "metal fight", no: "BB-116", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-116", name: "제이드 쥬피터 S130RB", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-10-28", price: "12000", composition: [] },
+    jp: { no: "BB-116", name: "랜덤부스터 Vol.8 제이드 쥬피터", sale: "일반 판매", kind: "부스터", releaseDate: "2011-08-06", price: "682", composition: [{ label: "베이", name: "무작위 베이", quantity: "1개", target: "BEY-BB-116-JADE-JUPITER-S130RB" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }
+  }, beyPool: [
+    "BEY-BB-116-JADE-JUPITER-S130RB",
+    "BEY-BB-116-FORBIDDEN-EONIS-ED145FB",
+    "BEY-BB-116-DIVINE-FOX-90W2D",
+    "BEY-BB-116-SCREW-LYRA-ED145MF",
+    "BEY-BB-116-FORBIDDEN-EONIS-130D",
+    "BEY-BB-116-DIVINE-CROWN-TR145D",
+    "BEY-BB-116-SCREW-FOX-TR145W2D",
+    "BEY-BB-116-HELL-CROWN-130FB"
+  ] },
+  { id: "PRODUCT-BB-117", series: "metal fight", no: "BB-117", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-117", name: "넘버원 블레이더 세트", sale: "일반 판매", kind: "세트", releaseDate: "2011-10-28", price: "29600", composition: [] },
+    jp: { no: "BB-117", name: "최강 블레이더 세트", sale: "일반 판매", kind: "세트", releaseDate: "2011-08-06", price: "2625", composition: [] }
+  } },
+  { id: "PRODUCT-BB-118", series: "metal fight", no: "BB-118", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-118", name: "팬텀 오리온 B:D", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-10-28", price: "12000", composition: [] },
+    jp: { no: "BB-118", name: "팬텀 오리온 B:D", sale: "일반 판매", kind: "스타터", releaseDate: "2011-09-17", price: "1470", composition: [] }
+  } },
+  { id: "PRODUCT-KR-PEGASIS-LIMITED-EDITION", series: "metal fight", no: "", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "", name: "페가시스 리미티드 에디션", sale: "일반 판매", kind: "세트", releaseDate: "2011-10-28", price: "32800", composition: [] },
+    jp: { status: "unreleased" }
+  } },
+  { id: "PRODUCT-KR-LDRAGO-LIMITED-EDITION", series: "metal fight", no: "", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "", name: "엘드라고 리미티드 에디션", sale: "일반 판매", kind: "세트", releaseDate: "2011-10-28", price: "31200", composition: [] },
+    jp: { status: "unreleased" }
+  } },
+  { id: "PRODUCT-KR-ARES-LIMITED-EDITION", series: "metal fight", no: "", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "", name: "아레스 리미티드 에디션", sale: "일반 판매", kind: "세트", releaseDate: "2011-10-28", price: "32800", composition: [] },
+    jp: { status: "unreleased" }
+  } },
+  { id: "PRODUCT-KR-LEGEND-BLADER-DX-SET", series: "metal fight", no: "", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "", name: "레전드블레이더 DX 세트", sale: "일반 판매", kind: "세트", releaseDate: "2011-10-28", price: "34800", composition: [] },
+    jp: { status: "unreleased" }
+  } },
+  { id: "PRODUCT-BB-119", series: "metal fight", no: "BB-119", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-119", name: "데쓰 케찰코아틀 125RDF", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-12-04", price: "12000", composition: [] },
+    jp: { no: "BB-119", name: "데스 케찰코아틀 125RDF", sale: "일반 판매", kind: "스타터", releaseDate: "2011-10-22", price: "997", composition: [] }
+  } },
+  { id: "PRODUCT-BB-120", series: "metal fight", no: "BB-120", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-120", name: "얼티메이트 베이스타디움", sale: "일반 판매", kind: "세트", releaseDate: "2011-12-04", price: "56000", composition: [] },
+    jp: { no: "BB-120", name: "얼티메이트 베이스타디움", sale: "일반 판매", kind: "세트", releaseDate: "2011-10-22", price: "6825", composition: [] }
+  } },
+  { id: "PRODUCT-BB-121", series: "metal fight", no: "BB-121", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-121", name: "베이블레이드 얼티메이트 DX 세트", sale: "일반 판매", kind: "세트", releaseDate: "2012-01-19", price: "39800", composition: [] },
+    jp: { no: "BB-121", name: "베이블레이드 궁극 DX 세트", sale: "일반 판매", kind: "세트", releaseDate: "2011-11-17", price: "3780", composition: [] }
+  } },
+  { id: "PRODUCT-BB-122", series: "metal fight", no: "BB-122", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-122", name: "디아블로 네메시스 X:D", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-02-01", price: "13600", composition: [] },
+    jp: { no: "BB-122", name: "디아블로 네메시스 X:D", sale: "일반 판매", kind: "스타터", releaseDate: "2011-12-18", price: "1470", composition: [] }
+  } },
+  { id: "PRODUCT-BB-123", series: "metal fight", no: "BB-123", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-123", name: "퓨전 하데스 AD145SWD", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-02-01", price: "12000", composition: [] },
+    jp: { no: "BB-123", name: "랜덤부스터 Vol.9 퓨전 하데스", sale: "일반 판매", kind: "부스터", releaseDate: "2011-12-18", price: "682", composition: [{ label: "베이", name: "무작위 베이", quantity: "1개", target: "BEY-BB-123-FUSION-HADES-AD145SWD" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }
+  }, beyPool: [
+    "BEY-BB-123-FUSION-HADES-AD145SWD",
+    "BEY-BB-123-HELL-BEELZEB-125XF",
+    "BEY-BB-123-CLOUD-LYRA-85SF",
+    "BEY-BB-123-CLOUD-GEMIOS-T125SF",
+    "BEY-BB-123-CRASH-ESCOLPIO-125JB",
+    "BEY-BB-123-BAKUSHIN-BEELZEB-T125XF",
+    "BEY-BB-123-METEO-LDRAGO-85LF-RUSH",
+    "BEY-BB-123-METEO-LDRAGO-LW105JB-ASSAULT"
+  ] },
+  { id: "PRODUCT-BB-124", series: "metal fight", no: "BB-124", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-124", name: "크라이스 시그너스 145WD", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-03-04", price: "12000", composition: [] },
+    jp: { no: "BB-124", name: "크라이스 시그너스 145WD", sale: "일반 판매", kind: "스타터", releaseDate: "2012-01-21", price: "997", composition: [] }
+  } },
+  { id: "PRODUCT-BB-125", series: "metal fight", no: "BB-125", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BB-125", name: "라이트런처LR(퍼플)", sale: "일반 판매", kind: "", releaseDate: "2012-01-21", price: "682", composition: [] }
+  } },
+  { id: "PRODUCT-BB-126", series: "metal fight", no: "BB-126", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BB-126", name: "플래시 사지타리오 230WD", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-03-04", price: "12000", composition: [] },
+    jp: { no: "BB-126", name: "플래시 사지타리오 230WD", sale: "일반 판매", kind: "스타터", releaseDate: "2012-01-21", price: "997", composition: [] }
+  } },
+  { id: "PRODUCT-BBG-01", series: "metal fight", no: "BBG-01", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BBG-01", name: "워리어스 이프레이드 W145CF", sale: "일반 판매", kind: "", releaseDate: "2012-09-12", price: "12000", composition: [] },
+    jp: { no: "BBG-01", name: "워리어스 이프레이드 W145CF", sale: "일반 판매", kind: "스타터", releaseDate: "2012-03-31", price: "997", composition: [] }
+  } },
+  { id: "PRODUCT-BBG-02", series: "metal fight", no: "BBG-02", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BBG-02", name: "시노비 사라만다 SW145SD", sale: "일반 판매", kind: "부스터", releaseDate: "2012-09-12", price: "8400", composition: [] },
+    jp: { no: "BBG-02", name: "시노비 사라만다 SW145SD", sale: "일반 판매", kind: "싱크롬부스터", releaseDate: "2012-03-31", price: "892", composition: [] }
+  } },
+  { id: "PRODUCT-BBG-02-KR-STARTER", series: "metal fight", no: "BBG-02", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BBG-02", name: "시노비 사라만다 SW145SD", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-09-12", price: "10400", composition: [] },
+    jp: { status: "unreleased" }
+  } },
+  { id: "PRODUCT-BBG-03", series: "metal fight", no: "BBG-03", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BBG-03", name: "베이블레이드 스타트 대시 세트", sale: "일반 판매", kind: "세트", releaseDate: "2012-03-31", price: "2625", composition: [] }
+  } },
+  { id: "PRODUCT-BBG-04", series: "metal fight", no: "BBG-04", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BBG-04", name: "제로G 공격형 스타디움", sale: "일반 판매", kind: "", releaseDate: "2012-09-12", price: "17600", composition: [] },
+    jp: { no: "BBG-04", name: "ZEROG 스타디움 어택타입", sale: "일반 판매", kind: "", releaseDate: "2012-03-31", price: "2100", composition: [] }
+  } },
+  { id: "PRODUCT-BBG-05", series: "metal fight", no: "BBG-05", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BBG-05", name: "제로G 라이트런처", sale: "일반 판매", kind: "", releaseDate: "2012-09-12", price: "9600", composition: [] },
+    jp: { no: "BBG-05", name: "ZEROG 라이트런처", sale: "일반 판매", kind: "", releaseDate: "2012-03-31", price: "630", composition: [] }
+  } },
+  { id: "PRODUCT-BBG-06", series: "metal fight", no: "BBG-06", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BBG-06", name: "베이캐리어 ZEROG", sale: "일반 판매", kind: "", releaseDate: "2012-03-31", price: "2100", composition: [] }
+  } },
+  { id: "PRODUCT-BBG-07", series: "metal fight", no: "BBG-07", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BBG-07", name: "제로G 런처그립", sale: "일반 판매", kind: "", releaseDate: "2012-09-12", price: "9600", composition: [] },
+    jp: { no: "BBG-07", name: "ZEROG 런처그립", sale: "일반 판매", kind: "", releaseDate: "2012-03-31", price: "525", composition: [] }
+  } },
+  { id: "PRODUCT-BBG-08", series: "metal fight", no: "BBG-08", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BBG-08", name: "파이레츠 오로자 145D", sale: "일반 판매", kind: "부스터", releaseDate: "2012-09-12", price: "8400", composition: [] },
+    jp: { no: "BBG-08", name: "파이레츠 오로자 145D", sale: "일반 판매", kind: "싱크롬부스터", releaseDate: "2012-04-21", price: "892", composition: [] }
+  } },
+  { id: "PRODUCT-BBG-08-KR-STARTER", series: "metal fight", no: "BBG-08", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BBG-08", name: "파이레츠 오로자 145D", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-09-12", price: "10400", composition: [] },
+    jp: { status: "unreleased" }
+  } },
+  { id: "PRODUCT-BBG-09", series: "metal fight", no: "BBG-09", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BBG-09", name: "시프 피닉 E230GCF", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-09-12", price: "10400", composition: [] },
+    jp: { no: "BBG-09", name: "ZEROG 랜덤부스터 Vol.1 시프 피닉 E230GCF", sale: "일반 판매", kind: "부스터", releaseDate: "2012-04-21", price: "682", composition: [{ label: "베이", name: "무작위 베이", quantity: "1개", target: "BEY-BBG-09-THIEF-PHOENIC-E230GCF" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }
+  }, beyPool: [
+    "BEY-BBG-09-THIEF-PHOENIC-E230GCF",
+    "BEY-BBG-09-THIEF-SARAMANDA-230WB",
+    "BEY-BBG-09-SAMURAI-SARAMANDA-E230ES",
+    "BEY-BBG-09-PIRATES-IFRAID-T125GCF",
+    "BEY-BBG-09-SHINOBI-IFRAID-230WD",
+    "BEY-BBG-09-PIRATES-SARAMANDA-T125WB",
+    "BEY-BBG-09-SHINOBI-OROJYA-145ES",
+    "BEY-BBG-09-SAMURAI-OROJYA-145WD"
+  ] },
+  { id: "PRODUCT-BBG-10", series: "metal fight", no: "BBG-10", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BBG-10", name: "가디언 리바이저 160SB", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-09-12", price: "12000", composition: [] },
+    jp: { no: "BBG-10", name: "가디언 리바이저 160SB", sale: "일반 판매", kind: "스타터", releaseDate: "2012-05-19", price: "997", composition: [] }
+  } },
+  { id: "PRODUCT-BBG-11", series: "metal fight", no: "BBG-11", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BBG-11", name: "제로G 방어형 스타디움", sale: "일반 판매", kind: "", releaseDate: "2012-09-12", price: "17600", composition: [] },
+    jp: { no: "BBG-11", name: "ZEROG 스타디움 디펜스타입", sale: "일반 판매", kind: "", releaseDate: "2012-05-19", price: "2100", composition: [] }
+  } },
+  { id: "PRODUCT-BBG-12", series: "metal fight", no: "BBG-12", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BBG-12", name: "아처 그리프 C145S", sale: "일반 판매", kind: "부스터", releaseDate: "2012-09-12", price: "8400", composition: [] },
+    jp: { no: "BBG-12", name: "아처 그리프 C145S", sale: "일반 판매", kind: "싱크롬부스터", releaseDate: "2012-06-23", price: "892", composition: [] }
+  } },
+  { id: "PRODUCT-BBG-12-KR-STARTER", series: "metal fight", no: "BBG-12", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BBG-12", name: "아처 그리프 C145S", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-09-12", price: "10400", composition: [] },
+    jp: { status: "unreleased" }
+  } },
+  { id: "PRODUCT-BBG-13", series: "metal fight", no: "BBG-13", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BBG-13", name: "베이블레이드 싱크롬 배틀 세트", sale: "일반 판매", kind: "세트", releaseDate: "2012-10-20", price: "24000", composition: [] },
+    jp: { no: "BBG-13", name: "베이블레이드 싱크롬 배틀 세트", sale: "일반 판매", kind: "세트", releaseDate: "2012-06-23", price: "2100", composition: [] }
+  } },
+  { id: "PRODUCT-BBG-14", series: "metal fight", no: "BBG-14", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BBG-14", name: "메탈스톤페이스 개조 Ver.(플레임레드)", sale: "일반 판매", kind: "", releaseDate: "2012-06-23", price: "367", composition: [] }
+  } },
+  { id: "PRODUCT-BBG-15", series: "metal fight", no: "BBG-15", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BBG-15", name: "메탈스톤페이스 개조 Ver.(오션블루)", sale: "일반 판매", kind: "", releaseDate: "2012-06-23", price: "367", composition: [] }
+  } },
+  { id: "PRODUCT-BBG-16", series: "metal fight", no: "BBG-16", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BBG-16", name: "다크나이트 드래곤 LW160BSF", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-10-20", price: "12000", composition: [] },
+    jp: { no: "BBG-16", name: "다크나이트 드라군 LW160BSF", sale: "일반 판매", kind: "스타터", releaseDate: "2012-07-21", price: "997", composition: [] }
+  } },
+  { id: "PRODUCT-BBG-17", series: "metal fight", no: "BBG-17", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BBG-17", name: "아처 가고일 SA165WSF", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-10-20", price: "10400", composition: [] },
+    jp: { no: "BBG-17", name: "ZEROG 랜덤부스터 Vol.2 아처 가골 SA165WSF", sale: "일반 판매", kind: "부스터", releaseDate: "2012-07-21", price: "682", composition: [{ label: "베이", name: "무작위 베이", quantity: "1개", target: "BEY-BBG-17-ARCHER-GARGOYLE-SA165WSF" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }
+  }, beyPool: [
+    "BEY-BBG-17-ARCHER-GARGOYLE-SA165WSF"
+  ] },
+  { id: "PRODUCT-BBG-18", series: "metal fight", no: "BBG-18", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BBG-18", name: "ZEROG 스타디움 밸런스타입", sale: "일반 판매", kind: "", releaseDate: "2012-08-11", price: "2100", composition: [] }
+  } },
+  { id: "PRODUCT-BBG-19", series: "metal fight", no: "BBG-19", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BBG-19", name: "ZEROG 런처", sale: "일반 판매", kind: "", releaseDate: "2012-08-11", price: "892", composition: [] }
+  } },
+  { id: "PRODUCT-BBG-20", series: "metal fight", no: "BBG-20", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BBG-20", name: "반디드 골렘 DF145BS", sale: "일반 판매", kind: "부스터", releaseDate: "2012-10-20", price: "8400", composition: [] },
+    jp: { no: "BBG-20", name: "반디드 골렘 DF145BS", sale: "일반 판매", kind: "싱크롬부스터", releaseDate: "2012-08-11", price: "892", composition: [] }
+  } },
+  { id: "PRODUCT-BBG-20-KR-STARTER", series: "metal fight", no: "BBG-20", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BBG-20", name: "반디드 골렘 DF145BS", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-10-20", price: "10400", composition: [] },
+    jp: { status: "unreleased" }
+  } },
+  { id: "PRODUCT-BBG-21", series: "metal fight", no: "BBG-21", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BBG-21", name: "퍼스트 ZEROG 배틀 세트", sale: "일반 판매", kind: "세트", releaseDate: "2012-08-11", price: "4095", composition: [] }
+  } },
+  { id: "PRODUCT-BBG-22", series: "metal fight", no: "BBG-22", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { no: "BBG-22", name: "버서커 베기라도스 SR200BWD", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-10-20", price: "12000", composition: [] },
+    jp: { no: "BBG-22", name: "버서커 베기라도스 SR200BWD", sale: "일반 판매", kind: "스타터", releaseDate: "2012-09-15", price: "997", composition: [] }
+  } },
+  { id: "PRODUCT-BBG-23", series: "metal fight", no: "BBG-23", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BBG-23", name: "ZEROG 랜덤부스터 Vol.3 반디드 겐블 F230TB", sale: "일반 판매", kind: "부스터", releaseDate: "2012-10-20", price: "682", composition: [{ label: "베이", name: "무작위 베이", quantity: "1개", target: "BEY-BBG-23-BANDID-GENBULL-F230TB" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }
+  }, beyPool: [
+    "BEY-BBG-23-BANDID-GENBULL-F230TB",
+    "BEY-BBG-23-SHINOBI-GENBULL-130W2D",
+    "BEY-BBG-23-THIEF-SARAMANDA-F230SF",
+    "BEY-BBG-23-SHINOBI-GRYPH-WD145TB",
+    "BEY-BBG-23-ARCHER-PHOENIC-125B",
+    "BEY-BBG-23-PIRATES-PHOENIC-WD145SF",
+    "BEY-BBG-23-ARCHER-KILLERKEN-130B",
+    "BEY-BBG-23-BANDID-KILLERKEN-125W2D"
+  ] },
+  { id: "PRODUCT-BBG-24", series: "metal fight", no: "BBG-24", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BBG-24", name: "베이블레이드 ZEROG 궁극 싱크롬 DX 세트 어택&밸런스타입", sale: "일반 판매", kind: "세트", releaseDate: "2012-11-17", price: "3300", composition: [] }
+  } },
+  { id: "PRODUCT-BBG-25", series: "metal fight", no: "BBG-25", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BBG-25", name: "베이블레이드 ZEROG 궁극 싱크롬 DX 세트 디펜스&스테미나타입", sale: "일반 판매", kind: "세트", releaseDate: "2012-11-17", price: "3300", composition: [] }
+  } },
+  { id: "PRODUCT-BBG-26", series: "metal fight", no: "BBG-26", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BBG-26", name: "사무라이 페가시스 W105R²F", sale: "일반 판매", kind: "스타터", releaseDate: "2012-12-01", price: "997", composition: [] }
+  } },
+  { id: "PRODUCT-BBG-27", series: "metal fight", no: "BBG-27", name: "", sale: "일반 판매", kind: "", releases: {
+    kr: { status: "unreleased" },
+    jp: { no: "BBG-27", name: "글레디에이터 바함디아 SP230GF", sale: "일반 판매", kind: "스타터", releaseDate: "2012-12-01", price: "997", composition: [] }
   } }
 ];
 
@@ -900,9 +1681,9 @@ const releaseRegionLabels = {
 };
 const releaseSeriesLabels = {
   topblade: "탑블레이드",
-  "metal fight": "메탈파이트",
-  burst: "버스트",
-  x: "X"
+  "metal fight": "메탈베이블레이드",
+  burst: "베이블레이드 버스트",
+  x: "베이블레이드 X"
 };
 const normalizeProductKind = kind => kind === "기타" ? "" : kind || "";
 const baseProductRelease = item => ({
@@ -939,18 +1720,25 @@ const productRelease = (item, region = activeReleaseRegion) => {
 };
 const productReleaseValue = (item, key, region = activeReleaseRegion) => productRelease(item, region)[key] || "";
 const productReleasedInRegion = (item, region = activeReleaseRegion) => productRelease(item, region).status !== "unreleased";
-const productKindTag = (item, region = "kr") => productRelease(item, region).kind || "기타";
+const productDisplayRegion = (item, region = "kr") => {
+  if (productReleasedInRegion(item, region)) return region;
+  return productReleasedInRegion(item, "jp") ? "jp" : region;
+};
+const productDisplayRelease = (item, region = "kr") => productRelease(item, productDisplayRegion(item, region));
+const productKindTag = (item, region = "kr") => productDisplayRelease(item, region).kind || "기타";
+const productStarterKindValues = new Set(["리미티드스타터세트", "스타터세트", "스타터"]);
+const productKindMatches = (item, kind) => {
+  if (!kind) return true;
+  const itemKind = productKindTag(item);
+  return kind === "스타터세트" ? productStarterKindValues.has(itemKind) : itemKind === kind;
+};
 const seriesLabels = { topblade: "탑블레이드", "metal fight": "메탈베이블레이드", burst: "베이블레이드 버스트", x: "베이블레이드 X" };
 const itemSeries = item => item.series || "metal fight";
 const itemSeriesLabel = item => seriesLabels[itemSeries(item)] || itemSeries(item);
 const productDisplayName = (item, region = activeReleaseRegion) => {
-  const release = productRelease(item, region);
+  const release = productDisplayRelease(item, region);
   if (release.name) return release.name;
   const baseName = item.name || "";
-  if (!baseName || baseName === item.no) {
-    const japanName = productRelease(item, "jp").name;
-    if (japanName) return japanName;
-  }
   return baseName || item.no || "";
 };
 const releaseDateLabel = value => {
@@ -958,22 +1746,33 @@ const releaseDateLabel = value => {
   const match = String(value).match(/^(\d{4})-(\d{2})(?:-\d{2})?$/);
   return match ? `${match[1]}년 ${Number(match[2])}월` : value;
 };
-const priceLabel = value => {
+const releaseDateSortValue = value => {
+  if (!value) return Number.MAX_SAFE_INTEGER;
+  const match = String(value).match(/^(\d{4})-(\d{2})(?:-(\d{2}))?$/);
+  if (!match) return Number.MAX_SAFE_INTEGER;
+  return Number(`${match[1]}${match[2]}${match[3] || "15"}`);
+};
+const priceLabel = (value, region = "kr") => {
   if (!value) return "";
-  return String(value).replace(/^([₩¥])(\d+)$/, (_, currency, amount) => `${currency}${Number(amount).toLocaleString("en-US")}`);
+  const digits = String(value).replace(/[^\d]/g, "");
+  if (!digits) return "";
+  const amount = Number(digits);
+  if (!Number.isFinite(amount)) return "";
+  const currency = region === "jp" ? "\u00a5" : "\u20a9";
+  return `${currency}${amount.toLocaleString("ko-KR")}`;
 };
 const releaseDropdownOptions = (entries, activeValue, dataAttr) => entries
   .map(([value, label]) => `<button type="button" class="${activeValue === value ? "active" : ""}" ${dataAttr}="${value}">${label}</button>`)
   .join("");
 const releaseControls = () => `<div class="release-dropdowns" aria-label="출시 정보 필터">
   <details class="catalog-dropdown release-dropdown">
-    <summary><span>시리즈</span><b class="catalog-dropdown-value">${releaseSeriesLabels[activeReleaseSeries]}</b></summary>
+    <summary><b class="catalog-dropdown-value">${releaseSeriesLabels[activeReleaseSeries]}</b></summary>
     <div class="catalog-dropdown-menu">
       ${releaseDropdownOptions(Object.entries(releaseSeriesLabels), activeReleaseSeries, "data-release-series")}
     </div>
   </details>
   <details class="catalog-dropdown release-dropdown">
-    <summary><span>지역</span><b class="catalog-dropdown-value">${releaseRegionLabels[activeReleaseRegion]}</b></summary>
+    <summary><b class="catalog-dropdown-value">${releaseRegionLabels[activeReleaseRegion]}</b></summary>
     <div class="catalog-dropdown-menu">
       ${releaseDropdownOptions(Object.entries(releaseRegionLabels), activeReleaseRegion, "data-release-region")}
     </div>
@@ -982,15 +1781,37 @@ const releaseControls = () => `<div class="release-dropdowns" aria-label="출시
 
 const equipmentItems = [
   { id: "EQUIPMENT-TOOL", name: "툴", en: "Tool", category: "기타", desc: "" },
+  { id: "EQUIPMENT-BEYPOINT-CARD", name: "포인트카드", jpName: "베이포인트카드", en: "BeyPoint Card", category: "기타", desc: "" },
   { id: "EQUIPMENT-POINTER", name: "포인터", en: "Pointer", category: "기타", desc: "" },
+  { id: "EQUIPMENT-METAL-FACE", name: "메탈페이스", en: "Metal Face", category: "기타", desc: "" },
+  { id: "EQUIPMENT-HOLDER-TOOL", name: "홀더툴", en: "Holder Tool", category: "기타", desc: "" },
+  { id: "EQUIPMENT-3SEG-LAUNCHER-GRIP", name: "베이카드 런처그립", jpName: "3세그 런처그립", en: "3 Segment Launcher Grip", category: "그립", desc: "" },
   { id: "EQUIPMENT-LAUNCHER-GRIP", name: "런처그립", en: "Launcher Grip", category: "그립", desc: "" },
+  { id: "EQUIPMENT-GRIP-RUBBER", name: "그립러버", en: "Grip Rubber", category: "그립", desc: "" },
   { id: "EQUIPMENT-LIGHT-LAUNCHER", name: "라이트런처", en: "Light Launcher", category: "런처", desc: "" },
+  { id: "EQUIPMENT-LIGHT-LAUNCHER-2", name: "라이트런처2", en: "Light Launcher 2", category: "런처", desc: "" },
   { id: "EQUIPMENT-POWER-LAUNCHER", name: "파워런처", en: "Power Launcher", category: "런처", desc: "" },
   { id: "EQUIPMENT-POWER-LAUNCHER-L", name: "파워런처L", en: "Power Launcher L", category: "런처", desc: "" },
+  { id: "EQUIPMENT-DIGITAL-POWER-LAUNCHER", name: "디지털파워런처", en: "Digital Power Launcher", category: "런처", desc: "" },
+  { id: "EQUIPMENT-LED-SIGHT", name: "LED스코프라이트", jpName: "LED사이트", en: "LED Sight", category: "기타", desc: "" },
+  { id: "EQUIPMENT-POWER-LAUNCHER-SUSPENSION", name: "파워런처 서스펜션", en: "Power Launcher Suspension", category: "기타", desc: "" },
   { id: "EQUIPMENT-ATTACK-BEYSTADIUM", name: "공격형 베이스타디움", en: "Beystadium Attack Type", category: "스타디움", desc: "공격형의 힘을 끌어내는 베이블레이드 전용 스타디움!" },
+  { id: "EQUIPMENT-WIDE-SQUARE-BEYSTADIUM", name: "스퀘어형 베이스타디움", en: "Beystadium Wide Square Type", category: "스타디움", desc: "" },
+  { id: "EQUIPMENT-SUPER-ATTACK-BEYSTADIUM", name: "초공격형 베이스타디움", en: "Beystadium Super Attack Type", category: "스타디움", desc: "" },
   { id: "EQUIPMENT-BALANCE-BEYSTADIUM", name: "밸런스형 베이스타디움", en: "Beystadium Balance Type", category: "스타디움", desc: "" },
   { id: "EQUIPMENT-STAMINA-BEYSTADIUM", name: "스테미너형 베이스타디움", en: "Beystadium Stamina Type", category: "스타디움", desc: "" },
-  { id: "EQUIPMENT-OVER-FENCE", name: "오버펜스", en: "Over Fence", category: "기타", desc: "" }
+  { id: "EQUIPMENT-STANDARD-BEYSTADIUM", name: "표준형 베이스타디움", jpName: "베이스타디움 스탠다드타입", en: "Beystadium Standard Type", category: "스타디움", desc: "" },
+  { id: "EQUIPMENT-EXTREME-BEYSTADIUM", name: "익스트림 베이스타디움", en: "Extreme Beystadium", category: "스타디움", desc: "" },
+  { id: "EQUIPMENT-TORNADO-BEYSTADIUM", name: "토네이도 베이스타디움", en: "Tornado Beystadium", category: "스타디움", desc: "" },
+  { id: "EQUIPMENT-OVER-FENCE", name: "오버펜스", en: "Over Fence", category: "기타", desc: "" },
+  { id: "EQUIPMENT-CARABINER-GRIP", name: "카라비나그립", en: "Carabiner Grip", category: "그립", desc: "" },
+  { id: "EQUIPMENT-ANGLE-COMPASS", name: "앵글컴파스", en: "Angle Compass", category: "기타", desc: "" },
+  { id: "EQUIPMENT-BEYCARRIER-WAIST", name: "베이캐리어 웨이스트타입", en: "Bey Carrier Waist Type", category: "기타", desc: "" },
+  { id: "EQUIPMENT-BEY-DECK-CASE", name: "베이 덱 케이스", en: "Bey Deck Case", category: "기타", desc: "" },
+  { id: "EQUIPMENT-METAL-ASSIST", name: "메탈어시스트", en: "Metal Assist", category: "기타", desc: "" },
+  { id: "EQUIPMENT-LAUNCHER-RUBBER", name: "런처러버", en: "Launcher Rubber", category: "기타", desc: "" },
+  { id: "EQUIPMENT-POWER-LAUNCHER-LR", name: "파워런처LR", jpName: "베이런처LR", en: "Power Launcher LR", category: "런처", desc: "" },
+  { id: "EQUIPMENT-CARRIER-CASE", name: "캐리어케이스", en: "Carrier Case", category: "기타", desc: "" }
 ];
 
 const visual = item => item.image
@@ -999,16 +1820,16 @@ const visual = item => item.image
 const modalArt = item => item.model || item.modelKey
   ? `<div class="model-viewer" data-model="${item.model || ""}" data-model-key="${item.modelKey || ""}"><p>3D 모델 로딩 중</p><button class="model-reset" type="button">기본 위치</button></div>`
   : visual(item);
-const beySerial = item => item.type === "bey" ? item.sub.split(" · ")[1] || (/^(BB|BBG|BB-P)/.test(item.sub) ? item.sub : "") : item.en;
-const partCategory = item => item.sub.split(" · ")[0];
+const beyProductNo = item => item.type === "bey" ? item.productNo || "" : item.en;
+const partCategory = item => item.sub || "";
 const partTrait = item => {
   const hiddenTags = [...categoryTags, "RIGHT SPIN", "LEFT SPIN", "DUAL SPIN"];
   const traits = item.tags.filter(tag => !hiddenTags.includes(tag));
-  return traits.map(trait => tagLabels[trait] || trait).join(" · ");
+  return traits.map(trait => tagLabels[trait] || trait).join("");
 };
 const partKoName = item => {
   if (!["track", "bottom", "fourdbottom"].includes(item.type)) return "";
-  const detail = item.sub.split(" · ")[1] || "";
+  const detail = item.sub || "";
   return detail.includes("높이") ? "" : detail;
 };
 const wheelTypes = ["wheel", "clearwheel", "lightwheel", "metalwheel", "chromewheel", "crystalwheel"];
@@ -1018,8 +1839,7 @@ const cardInfo = item => {
     return `<h3 class="card-name code-name">${item.name}</h3><p class="card-full-en">${fullEn}</p><p class="card-full-ko">${partKoName(item) || "&nbsp;"}</p>`;
   }
   if (item.type === "bey") {
-    const firstSub = item.sub.split(" · ")[0] || "";
-    const combo = /^(BB|BBG|BB-P)/.test(firstSub) ? "" : firstSub;
+    const combo = partCategory(item);
     const suffix = combo ? ` ${combo}` : "";
     return `<h3 class="card-name">${item.name}${suffix}</h3><p class="card-full-en">${item.en}${suffix}</p><p class="card-full-ko">&nbsp;</p>`;
   }
@@ -1036,13 +1856,13 @@ const beySerialNumber = item => {
   if (item.id === "BEY-CYBER-PEGASIS-100HF") return 57.5;
   if (item.id === "BEY-MERCURY-ANUBIUS-85XF") return 69.5;
   if (item.id === "BEY-SOL-BLAZE-V145AS") return 87.5;
-  if (item.id === "BEY-DIVINE-CHIMERA-TR145FB") return 90;
+  if (item.id === "BEY-DIVINE-CHIMERA-TR145FB") return 90.5;
   if (item.id === "BEY-BB-P01-VULCAN-HORUSEUS-145D") return 90.5;
-  if (item.id === "BEY-NIGHTMARE-REX-SW145SD") return 98;
+  if (item.id === "BEY-NIGHTMARE-REX-SW145SD") return 98.5;
   if (item.id === "BEY-OMEGA-DRAGONIS-85XF") return 123.5;
-  const match = beySerial(item).match(/BB-(\d+)/);
+  const match = beyProductNo(item).match(/BB-(\d+)/);
   if (match) return Number(match[1]);
-  const zeroGMatch = beySerial(item).match(/BBG-(\d+)/);
+  const zeroGMatch = beyProductNo(item).match(/BBG-(\d+)/);
   return zeroGMatch ? 200 + Number(zeroGMatch[1]) : Number.MAX_SAFE_INTEGER;
 };
 const wheelTypeOrder = { wheel: 0, clearwheel: 1, lightwheel: 2, metalwheel: 3, chromewheel: 4, crystalwheel: 5 };
@@ -1051,7 +1871,7 @@ const itemSearchText = item => {
   const typeText = typeLabels[item.type] || item.type;
   const structureText = item.type === "bey" ? structureLabels[item.structure] || "" : "";
   const spinAlias = item.tags.includes("DUAL SPIN") ? "양회전 좌회전 우회전" : "";
-  return `${item.name} ${item.en} ${item.sub} ${item.desc || ""} ${itemSeriesLabel(item)} ${typeText} ${structureText} ${labels} ${spinAlias}`;
+  return `${item.name} ${item.en} ${item.sub || ""} ${item.productNo || ""} ${item.desc || ""} ${itemSeriesLabel(item)} ${typeText} ${structureText} ${labels} ${spinAlias}`;
 };
 const escapeSearchTerm = term => term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 const searchIncludes = (text, term) => new RegExp(escapeSearchTerm(term), "i").test(text);
@@ -1062,7 +1882,7 @@ const itemMatchesSearch = (item, query) => {
   return terms.length ? terms.every(term => searchIncludes(text, term)) : searchIncludes(text, query);
 };
 
-const productSearchText = item => `${item.no} ${item.name} ${itemSeriesLabel(item)} ${productKindTag(item)} ${item.equipment || ""} ${(item.composition || []).map(part => `${part.label} ${part.name}`).join(" ")}`;
+const productSearchText = item => `${item.no} ${productDisplayName(item, "kr")} ${productDisplayName(item, "jp")} ${itemSeriesLabel(item)} ${productKindTag(item)} ${productKindTag(item, "jp")} ${item.equipment || ""} ${productCompositionForRegion(productDisplayRelease(item, "kr").composition || [], productDisplayRegion(item, "kr"), item, productDisplayRelease(item, "kr")).map(part => `${part.label} ${part.name}`).join(" ")}`;
 const productMatchesSearch = (item, query) => {
   if (!query) return true;
   const terms = query.split(",").map(term => term.trim()).filter(Boolean);
@@ -1082,6 +1902,15 @@ const productSerialNumber = (item, region = activeReleaseRegion) => {
   const match = no.match(/BB-(\d+)/);
   return match ? Number(match[1]) : Number.MAX_SAFE_INTEGER;
 };
+const compareProductReleaseOrder = (a, b, region = activeReleaseRegion) => {
+  const releaseA = productRelease(a, region);
+  const releaseB = productRelease(b, region);
+  const dateDiff = releaseDateSortValue(releaseA.releaseDate || releaseA.release) - releaseDateSortValue(releaseB.releaseDate || releaseB.release);
+  if (dateDiff) return dateDiff;
+  const serialDiff = productSerialNumber(a, region) - productSerialNumber(b, region);
+  if (serialDiff) return serialDiff;
+  return (releaseA.no || a.no || "").localeCompare(releaseB.no || b.no || "", "ko", { numeric: true });
+};
 const productCard = (item, mode = "product") => `
   <button class="gear-card product-card" data-product-id="${item.id}">
     <div class="card-top"><span class="card-type">${mode === "equipment" ? item.equipment : productKindTag(item)}</span><span>${item.no}</span></div>
@@ -1100,16 +1929,30 @@ const equipmentCard = item => `
   </button>`;
 const equipmentSortOrder = item => {
   const order = {
-    "EQUIPMENT-TOOL": 10,
+    "EQUIPMENT-TOOL": 1,
+    "EQUIPMENT-POINTER": 2,
+    "EQUIPMENT-LIGHT-LAUNCHER": 3,
+    "EQUIPMENT-ATTACK-BEYSTADIUM": 9,
+    "EQUIPMENT-OVER-FENCE": 10,
+    "EQUIPMENT-BALANCE-BEYSTADIUM": 14,
     "EQUIPMENT-LAUNCHER-GRIP": 15,
-    "EQUIPMENT-LIGHT-LAUNCHER": 20,
-    "EQUIPMENT-POWER-LAUNCHER": 25,
-    "EQUIPMENT-POWER-LAUNCHER-L": 30,
-    "EQUIPMENT-POINTER": 35,
-    "EQUIPMENT-ATTACK-BEYSTADIUM": 40,
-    "EQUIPMENT-BALANCE-BEYSTADIUM": 45,
-    "EQUIPMENT-STAMINA-BEYSTADIUM": 47,
-    "EQUIPMENT-OVER-FENCE": 50
+    "EQUIPMENT-POWER-LAUNCHER": 17,
+    "EQUIPMENT-STAMINA-BEYSTADIUM": 19,
+    "EQUIPMENT-POWER-LAUNCHER-L": 23,
+    "EQUIPMENT-WIDE-SQUARE-BEYSTADIUM": 33,
+    "EQUIPMENT-METAL-FACE": 36,
+    "EQUIPMENT-HOLDER-TOOL": 36,
+    "EQUIPMENT-CARABINER-GRIP": 39,
+    "EQUIPMENT-SUPER-ATTACK-BEYSTADIUM": 41,
+    "EQUIPMENT-BEYCARRIER-WAIST": 42,
+    "EQUIPMENT-STANDARD-BEYSTADIUM": 46,
+    "EQUIPMENT-ANGLE-COMPASS": 49,
+    "EQUIPMENT-CARRIER-CASE": 49.5,
+    "EQUIPMENT-EXTREME-BEYSTADIUM": 51,
+    "EQUIPMENT-BEYCARRIER-HARD": 52,
+    "EQUIPMENT-DIGITAL-POWER-LAUNCHER": 53,
+    "EQUIPMENT-POWER-LAUNCHER-SUSPENSION": 58,
+    "EQUIPMENT-GRIP-RUBBER": 61,
   };
   return order[item.id] ?? 1000;
 };
@@ -1136,23 +1979,26 @@ const applyGearDropdownFilter = () => {
 };
 const visibleProductItems = () => {
   const query = globalSearchQuery();
+  const useMetalFilters = isMetalFightSeries(productSeriesFilter);
   return productItems
-    .filter(item => (!productSeriesFilter || itemSeries(item) === productSeriesFilter) && (!productFilter || (Array.isArray(productFilter) ? productFilter.includes(item.sale) : item.sale === productFilter)) && (!productKindFilter || productKindTag(item) === productKindFilter) && productMatchesSearch(item, query))
+    .filter(item => (!productSeriesFilter || itemSeries(item) === productSeriesFilter) && (!useMetalFilters || !productFilter || (Array.isArray(productFilter) ? productFilter.includes(item.sale) : item.sale === productFilter)) && (!useMetalFilters || productKindMatches(item, productKindFilter)) && productMatchesSearch(item, query))
     .sort((a, b) => productSerialNumber(a) - productSerialNumber(b));
 };
 const visibleEquipmentItems = () => {
   const query = globalSearchQuery();
+  const useMetalFilters = isMetalFightSeries(equipmentSeriesFilter);
   return equipmentItems
-    .filter(item => (!equipmentSeriesFilter || itemSeries(item) === equipmentSeriesFilter) && (!equipmentFilter || item.category === equipmentFilter) && equipmentMatchesSearch(item, query))
+    .filter(item => (!equipmentSeriesFilter || itemSeries(item) === equipmentSeriesFilter) && (!useMetalFilters || !equipmentFilter || item.category === equipmentFilter) && equipmentMatchesSearch(item, query))
     .sort((a, b) => equipmentSortOrder(a) - equipmentSortOrder(b) || a.name.localeCompare(b.name, "ko"));
 };
 const visibleGearItems = () => {
   const query = globalSearchQuery();
+  const useMetalFilters = isMetalFightSeries(gearSeriesFilter);
   return items
-    .filter(item => (!gearSeriesFilter || itemSeries(item) === gearSeriesFilter) && (filter === "all" || (filterTypes ? filterTypes.includes(item.type) : item.type === filter)) && (!filterStructure || item.structure === filterStructure) && matchesGearType(item) && matchesGearSpin(item) && itemMatchesSearch(item, query))
+    .filter(item => (!gearSeriesFilter || itemSeries(item) === gearSeriesFilter) && (!useMetalFilters || filter === "all" || (filterTypes ? filterTypes.includes(item.type) : item.type === filter)) && (!useMetalFilters || !filterStructure || item.structure === filterStructure) && (!useMetalFilters || matchesGearType(item)) && (!useMetalFilters || matchesGearSpin(item)) && itemMatchesSearch(item, query))
     .sort((a, b) => {
-      if (a.type === "bey" && b.type === "bey") return beySerialNumber(a) - beySerialNumber(b);
-      if (filter === "wheel" && filterTypes) return (wheelTypeOrder[a.type] ?? 99) - (wheelTypeOrder[b.type] ?? 99);
+      if (useMetalFilters && a.type === "bey" && b.type === "bey") return beySerialNumber(a) - beySerialNumber(b);
+      if (useMetalFilters && filter === "wheel" && filterTypes) return (wheelTypeOrder[a.type] ?? 99) - (wheelTypeOrder[b.type] ?? 99);
       return 0;
     });
 };
@@ -1367,7 +2213,7 @@ async function initModelViewer() {
 
 const gearCard = item => `
     <button class="gear-card${item.type === "bey" ? " bey-card" : ""}" data-id="${item.id}">
-      <div class="card-top"><span class="card-type">${item.type === "bey" ? typeLabels[item.type] : partCategory(item)}</span>${item.type === "track" ? "" : `<span>${item.type === "bey" ? beySerial(item) : partTrait(item)}</span>`}</div>
+      <div class="card-top"><span class="card-type">${item.type === "bey" ? typeLabels[item.type] : partCategory(item)}</span>${item.type === "track" ? "" : `<span>${item.type === "bey" ? beyProductNo(item) : partTrait(item)}</span>`}</div>
       <div class="gear-visual">${visual(item)}</div>
       ${cardInfo(item)}
     </button>`;
@@ -1419,9 +2265,9 @@ let overviewSeriesIndex = 1;
 
 const overviewSeries = [
   { key: "topblade", label: "탑블레이드" },
-  { key: "metal", label: "메탈파이트" },
-  { key: "burst", label: "버스트" },
-  { key: "x", label: "X" }
+  { key: "metal", label: "메탈베이블레이드" },
+  { key: "burst", label: "베이블레이드 버스트" },
+  { key: "x", label: "베이블레이드 X" }
 ];
 
 const overviewSeriesTabsMarkup = () => overviewSeries.map((series, index) => `
@@ -1518,7 +2364,6 @@ function openOverviewStructureDetail() {
       </div>
     </div>
     <div class="modal-art overview-modal-art">
-      <div class="overview-photo-area" aria-label="부품 이미지 영역"></div>
     </div>
   </div>`;
   renderOverviewStructure(content);
@@ -1545,27 +2390,17 @@ function openOverviewTypeDetail() {
         <section class="overview-type-visual-card">
           <div class="spin-relation-diagram" aria-label="우회전, 좌회전, 양회전">
             <div class="spin-direction-item">
-              <span class="spin-arrow clockwise">↻</span>
+              <span class="spin-arrow clockwise">?</span>
               <b>우회전</b>
               <small>시계 방향</small>
             </div>
             <div class="spin-direction-item">
-              <span class="spin-arrow counter">↺</span>
+              <span class="spin-arrow counter">?</span>
               <b>좌회전</b>
               <small>반시계 방향</small>
             </div>
             <div class="spin-direction-item">
-              <span class="spin-arrow dual" aria-hidden="true">
-                <svg viewBox="0 0 72 72" focusable="false" aria-hidden="true">
-                  <defs>
-                    <marker id="overviewDualSpinHead" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
-                      <path d="M0,0 L8,4 L0,8 Z" />
-                    </marker>
-                  </defs>
-                  <path class="dual-spin-path" d="M36 58 C20 58 10 47 10 34 C10 23 17 14 28 11" marker-end="url(#overviewDualSpinHead)" />
-                  <path class="dual-spin-path" d="M36 58 C52 58 62 47 62 34 C62 23 55 14 44 11" marker-end="url(#overviewDualSpinHead)" />
-                </svg>
-              </span>
+              <span class="spin-arrow dual" aria-hidden="true"><i>?</i><i>?</i></span>
               <b>양회전</b>
               <small>양쪽 방향</small>
             </div>
@@ -1582,18 +2417,18 @@ function openOverviewTypeDetail() {
           <section>
             <h4>타입</h4>
             <ul>
-              <li><span>어택형</span>공격에 특화된 타입으로 스태미나형에 유리하다</li>
-              <li><span>디펜스형</span>방어에 특화된 타입으로 공격형에 유리하다</li>
-              <li><span>스태미나형</span>지구력이 높은 타입으로 디펜스형에 유리하다</li>
-              <li><span>밸런스형</span>공격·방어·지구력을 고르게 갖춘 타입으로 유리한 타입도 불리한 타입도 없다</li>
+              <li><span>어택형</span>공격에 특화되어 스태미나형에 유리하다</li>
+              <li><span>디펜스형</span>방어에 특화되어 어택형에 유리하다</li>
+              <li><span>스태미나형</span>지구력이 높아 디펜스형에 유리하다</li>
+              <li><span>밸런스형</span>공격·방어·지구력을 고르게 갖추고 있다</li>
             </ul>
           </section>
           <section>
             <h4>회전</h4>
             <ul>
-              <li><span>우회전</span>시계 방향으로 회전</li>
-              <li><span>좌회전</span>반시계 방향으로 회전</li>
-              <li><span>양회전</span>좌우회전 모두 가능</li>
+              <li><span>우회전</span>시계 방향으로 회전한다</li>
+              <li><span>좌회전</span>반시계 방향으로 회전한다</li>
+              <li><span>양회전</span>좌우회전 모두 가능하다</li>
             </ul>
           </section>
         </div>
@@ -1608,7 +2443,7 @@ function openOverviewTypeDetail() {
 const productReleaseTableRows = (region = activeReleaseRegion, series = activeReleaseSeries) => productItems
   .slice()
   .filter(item => item.series === series && productReleasedInRegion(item, region))
-  .sort((a, b) => productSerialNumber(a, region) - productSerialNumber(b, region))
+  .sort((a, b) => compareProductReleaseOrder(a, b, region))
   .map(item => {
     const release = productRelease(item, region);
     return `<tr class="release-product-row" role="button" tabindex="0" data-product-id="${item.id}" data-release-region="${region}">
@@ -1616,7 +2451,7 @@ const productReleaseTableRows = (region = activeReleaseRegion, series = activeRe
     <td><span class="release-product-link">${release.name || item.name}</span></td>
     <td>${release.kind || ""}</td>
     <td>${releaseDateLabel(release.releaseDate || release.release)}</td>
-    <td>${priceLabel(release.price)}</td>
+    <td>${priceLabel(release.price, region)}</td>
   </tr>`;
   })
   .join("");
@@ -1756,20 +2591,26 @@ globalSearch?.addEventListener("keydown", event => {
 globalSearch?.closest(".search-box")?.querySelector(".search-icon")?.addEventListener("click", showSearchScopePanel);
 overviewSearch?.addEventListener("input", () => {
   if (globalSearch) globalSearch.value = overviewSearch.value;
-  setGlobalSearchScope("all");
+  setGlobalSearchScope(overviewSearchScopeValue());
   renderSearchResults();
 });
 overviewSearch?.addEventListener("keydown", event => {
   if (event.key !== "Enter") return;
   event.preventDefault();
   if (globalSearch) globalSearch.value = overviewSearch.value;
-  setGlobalSearchScope("all");
+  setGlobalSearchScope(overviewSearchScopeValue());
   showSearchScopePanel();
 });
-overviewSearch?.closest(".overview-search")?.querySelector("span")?.addEventListener("click", () => {
+overviewSearch?.closest(".overview-search")?.querySelector(".search-icon")?.addEventListener("click", () => {
   if (globalSearch) globalSearch.value = overviewSearch.value;
-  setGlobalSearchScope("all");
+  setGlobalSearchScope(overviewSearchScopeValue());
   showSearchScopePanel();
+});
+overviewSearchScope?.addEventListener("click", event => {
+  const button = event.target.closest("button[data-overview-search-scope]");
+  if (!button) return;
+  event.preventDefault();
+  setOverviewSearchScope(button.dataset.overviewSearchScope || "all");
 });
 globalSearchScope?.addEventListener("click", event => {
   const button = event.target.closest("button[data-global-search-scope]");
@@ -1784,7 +2625,7 @@ const setDropdownOption = button => {
   const dropdown = button.closest(".catalog-dropdown");
   menu?.querySelectorAll("button").forEach(option => option.classList.toggle("active", option === button));
   const label = dropdown?.querySelector(".catalog-dropdown-value");
-  if (label) label.textContent = button.textContent.trim();
+  if (label) label.textContent = dropdownSummaryText(button);
   dropdown?.removeAttribute("open");
 };
 const resetDropdown = dropdown => {
@@ -1795,20 +2636,46 @@ const resetDropdowns = root => root?.querySelectorAll(".catalog-dropdown").forEa
 const resetGearDependentDropdowns = () => {
   document.querySelectorAll("#gearDropdownFilters .catalog-dropdown[data-gear-dependent]").forEach(resetDropdown);
 };
-const syncGearDropdownVisibility = () => {
-  const visibility = {
-    system: gearKindFilter === "bey",
-    "face-subtype": gearKindFilter === "face",
-    "wheel-subtype": gearKindFilter === "wheel",
-    "bottom-subtype": gearKindFilter === "bottom",
-    type: gearKindFilter === "bey" || gearKindFilter === "wheel" || gearKindFilter === "bottom",
-    spin: gearKindFilter === "bey" || gearKindFilter === "wheel"
-  };
-  document.querySelectorAll("#gearDropdownFilters .catalog-dropdown[data-gear-dependent]").forEach(dropdown => {
-    const hidden = !visibility[dropdown.dataset.gearDependent];
-    dropdown.hidden = hidden;
-    if (hidden) dropdown.removeAttribute("open");
+const setDropdownHidden = (dropdown, hidden) => {
+  dropdown.hidden = hidden;
+  if (hidden) dropdown.removeAttribute("open");
+};
+const syncProductDropdownVisibility = () => {
+  const metalSelected = isMetalFightSeries(productSeriesFilter);
+  document.querySelectorAll("#productDropdownFilters .catalog-dropdown").forEach(dropdown => {
+    const isSeriesDropdown = !!dropdown.querySelector("button[data-product-series]");
+    if (!isSeriesDropdown) setDropdownHidden(dropdown, !metalSelected);
   });
+};
+const syncEquipmentDropdownVisibility = () => {
+  const metalSelected = isMetalFightSeries(equipmentSeriesFilter);
+  document.querySelectorAll("#equipmentDropdownFilters .catalog-dropdown").forEach(dropdown => {
+    const isSeriesDropdown = !!dropdown.querySelector("button[data-equipment-series]");
+    if (!isSeriesDropdown) setDropdownHidden(dropdown, !metalSelected);
+  });
+};
+const syncGearDropdownVisibility = () => {
+  const metalSelected = isMetalFightSeries(gearSeriesFilter);
+  const visibility = {
+    kind: metalSelected,
+    system: metalSelected && gearKindFilter === "bey",
+    "face-subtype": metalSelected && gearKindFilter === "face",
+    "wheel-subtype": metalSelected && gearKindFilter === "wheel",
+    "bottom-subtype": metalSelected && gearKindFilter === "bottom",
+    type: metalSelected && (gearKindFilter === "bey" || gearKindFilter === "wheel" || gearKindFilter === "bottom"),
+    spin: metalSelected && (gearKindFilter === "bey" || gearKindFilter === "wheel")
+  };
+  document.querySelectorAll("#gearDropdownFilters .catalog-dropdown").forEach(dropdown => {
+    const isSeriesDropdown = !!dropdown.querySelector("button[data-gear-series]");
+    if (isSeriesDropdown) return;
+    const key = dropdown.dataset.gearDependent || "kind";
+    setDropdownHidden(dropdown, !visibility[key]);
+  });
+};
+const syncCatalogDropdownVisibility = () => {
+  syncProductDropdownVisibility();
+  syncGearDropdownVisibility();
+  syncEquipmentDropdownVisibility();
 };
 document.querySelector("#productDropdownFilters")?.addEventListener("click", event => {
   const button = event.target.closest("button[data-product-series],button[data-product-kind]");
@@ -1816,6 +2683,7 @@ document.querySelector("#productDropdownFilters")?.addEventListener("click", eve
   setDropdownOption(button);
   if (button.hasAttribute("data-product-series")) productSeriesFilter = button.dataset.productSeries || null;
   if (button.hasAttribute("data-product-kind")) productKindFilter = button.dataset.productKind || null;
+  syncProductDropdownVisibility();
   renderProductCards();
 });
 document.querySelector("#equipmentDropdownFilters")?.addEventListener("click", event => {
@@ -1824,6 +2692,7 @@ document.querySelector("#equipmentDropdownFilters")?.addEventListener("click", e
   setDropdownOption(button);
   if (button.hasAttribute("data-equipment-series")) equipmentSeriesFilter = button.dataset.equipmentSeries || null;
   if (button.hasAttribute("data-equipment-kind")) equipmentFilter = button.dataset.equipmentKind || null;
+  syncEquipmentDropdownVisibility();
   renderEquipmentCards();
 });
 document.querySelector("#gearDropdownFilters")?.addEventListener("click", event => {
@@ -1838,12 +2707,12 @@ document.querySelector("#gearDropdownFilters")?.addEventListener("click", event 
     gearSpinFilter = null;
     gearStructureFilter = null;
     resetGearDependentDropdowns();
-    syncGearDropdownVisibility();
   }
   if (button.hasAttribute("data-gear-subtype")) gearSubtypeFilter = button.dataset.gearSubtype || null;
   if (button.hasAttribute("data-gear-system")) gearStructureFilter = button.dataset.gearSystem || null;
   if (button.hasAttribute("data-gear-type")) gearTypeFilter = button.dataset.gearType || null;
   if (button.hasAttribute("data-gear-spin")) gearSpinFilter = button.dataset.gearSpin || null;
+  syncGearDropdownVisibility();
   applyGearDropdownFilter();
   renderCards();
 });
@@ -2031,6 +2900,11 @@ function detailHeading(item, options = {}) {
       ? `<h3 class="modal-name">${regionalDisplayName(item.name, options.region)}</h3>`
       : `<h3 class="modal-name">${regionalDisplayName(koName, options.region)}</h3>`;
   }
+  if (item.type === "bey") {
+    const combo = partCategory(item);
+    const name = regionalDisplayName(item.name, options.region);
+    return `<h3 class="modal-name">${combo ? `${name} ${combo}` : name}</h3>`;
+  }
   return `<h3 class="modal-name">${regionalDisplayName(item.name, options.region)}</h3>`;
 }
 function openDetail(id, options = {}) {
@@ -2078,22 +2952,14 @@ function openDetail(id, options = {}) {
 }
 function productHeader(item, region = activeReleaseRegion) {
   const release = productRelease(item, region);
-  const identity = [release.no, release.kind].filter(Boolean).join(" ");
   return `<header class="product-modal-header">
     <div class="product-modal-title-group">
-      <h3 class="modal-name product-modal-name">${release.name || (region === "kr" ? item.name : "")}<small class="product-modal-identity">${identity}</small></h3>
+      <h3 class="modal-name product-modal-name">${productDisplayName(item, region)}</h3>
     </div>
   </header>`;
 }
-function productMeta(item, region = activeReleaseRegion) {
-  const release = productRelease(item, region);
-  const releaseDate = releaseDateLabel(release.releaseDate || release.release);
-  const price = priceLabel(release.price);
-  if (!releaseDate && !price) return "";
-  return `<div class="product-modal-extra">${[releaseDate, price].filter(Boolean).join("<br>")}</div>`;
-}
-function productMetaSlot(item, region = activeReleaseRegion) {
-  return `<div class="modal-info-slot product-meta-slot single-line-info-slot">${productMeta(item, region)}</div>`;
+function productMetaSlot() {
+  return `<div class="modal-info-slot product-meta-slot single-line-info-slot"></div>`;
 }
 const randomBeyComposition = (product, part) => Boolean(product.beyPool?.length && part.target && product.beyPool.includes(part.target) && /무작위/.test(part.name || part.label || ""));
 
@@ -2101,14 +2967,13 @@ const jpCompositionName = name => {
   let value = name || "";
   [
     ["공격형 베이스타디움", "베이스타디움 어택타입"],
+    ["스퀘어형 베이스타디움", "베이스타디움 와이드스퀘어타입"],
+    ["초공격형 베이스타디움", "베이스타디움 슈퍼어택타입"],
+    ["표준형 베이스타디움", "베이스타디움 스탠다드타입"],
     ["밸런스형 베이스타디움", "베이스타디움 밸런스타입"],
     ["스테미너형 베이스타디움", "베이스타디움 스태미나타입"],
     ["방어형 베이스타디움", "베이스타디움 디펜스타입"],
-    ["공격형 메탈파이트 스타디움", "베이스타디움 어택타입"],
-    ["메탈파이트 스타디움 공격형", "베이스타디움 어택타입"],
-    ["메탈파이트 스타디움 밸런스형", "베이스타디움 밸런스타입"],
-    ["메탈파이트 스타디움 스테미너형", "베이스타디움 스태미나타입"],
-    ["메탈파이트 스타디움 방어형", "베이스타디움 디펜스타입"]
+    ["베이카드 런처그립", "3세그 런처그립"]
   ].forEach(([from, to]) => {
     value = value.replaceAll(from, to);
   });
@@ -2130,11 +2995,10 @@ const jpCompositionName = name => {
     .replaceAll("발록", "발로")
     .replaceAll("울프", "볼프")
     .replaceAll("카프리콘", "카프리코네")
-    .replaceAll("베이포인터", "__BEY_POINTER__")
+    .replaceAll("포인트카드", "베이포인트카드")
     .replaceAll("파워런처L", "베이런처L")
     .replaceAll("파워런처", "베이런처")
     .replaceAll("포인터", "베이포인터")
-    .replaceAll("__BEY_POINTER__", "베이포인터");
   return value;
 };
 const regionalDisplayName = (name, region) => region === "jp" ? jpCompositionName(name) : name;
@@ -2223,9 +3087,9 @@ function openProductBeyPoolDetail(id, options = {}) {
 function openProductDetail(id, options = {}) {
   const item = productItems.find(x => x.id === id);
   if (!item) return;
-  const region = options.region && releaseRegionLabels[options.region]
-    ? options.region
-    : productReleasedInRegion(item, "kr") ? "kr" : "jp";
+  const requestedRegion = options.region && releaseRegionLabels[options.region] ? options.region : "kr";
+  const region = productDisplayRegion(item, requestedRegion);
+  const stepRegion = requestedRegion === "kr" ? "kr" : region;
   activeReleaseRegion = region;
   if (modelViewerCleanup) {
     modelViewerCleanup();
@@ -2238,14 +3102,15 @@ function openProductDetail(id, options = {}) {
     : options.backRelease
       ? `<button class="modal-back icon-back-button" type="button" data-back-release="true"${regionBackAttr} aria-label="출시 정보로 돌아가기">←</button>`
       : "";
-  const stepItems = visibleProductItems().some(entry => entry.id === item.id) ? visibleProductItems() : productItems.slice().sort((a, b) => productSerialNumber(a, region) - productSerialNumber(b, region));
+  const productStepSource = visibleProductItems().some(entry => entry.id === item.id) ? visibleProductItems() : productItems.slice().sort((a, b) => productSerialNumber(a, stepRegion) - productSerialNumber(b, stepRegion));
+  const stepItems = productStepSource.filter(entry => productReleasedInRegion(entry, stepRegion));
   document.querySelector("#modalContent").innerHTML = `${modalStepButtons(stepItems, item.id, "product")}<div class="modal-inner">
     <div class="modal-art product-modal-art"></div>
     <div class="modal-info product-modal-info">
     ${productHeader(item, region)}
-    ${productMetaSlot(item, region)}
+    ${productMetaSlot()}
     <div class="modal-body-block">${productComposition(item, region)}</div>${backButton}</div></div>`;
-  bindModalStepButtons({ product: { ...options, region } });
+  bindModalStepButtons({ product: { ...options, region: stepRegion } });
   document.querySelector(".modal-back")?.addEventListener("click", event => {
     const backRelease = Boolean(event.currentTarget.dataset.backRelease);
     if (event.currentTarget.dataset.backProductId) {
@@ -2328,6 +3193,7 @@ const activatePrimarySection = section => {
     productKindFilter = null;
     resetNavFilterActives(document.querySelector("#productFilters"));
     resetDropdowns(document.querySelector("#productDropdownFilters"));
+    syncProductDropdownVisibility();
     renderProductCards();
   } else if (section === "bey") {
     filter = "all";
@@ -2348,6 +3214,7 @@ const activatePrimarySection = section => {
     equipmentFilter = null;
     resetNavFilterActives(document.querySelector("#equipmentFilters"));
     resetDropdowns(document.querySelector("#equipmentDropdownFilters"));
+    syncEquipmentDropdownVisibility();
     renderEquipmentCards();
   }
 
@@ -2394,7 +3261,7 @@ document.addEventListener("click", event => {
   if (!event.target.closest(".topbar") && !event.target.closest(".mobile-drawer")) setMenuOpen(false);
 });
 
-syncGearDropdownVisibility();
+syncCatalogDropdownVisibility();
 renderCards(); renderProductCards(); renderEquipmentCards(); renderGlobalCards();
 activateToyPanel(activeToyPanelName() || "overview");
 if (window.location.hash) {
