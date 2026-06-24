@@ -617,287 +617,84 @@ const METAL_FIGHT_SERIES = "metal fight";
 const isMetalFightSeries = series => series === METAL_FIGHT_SERIES;
 
 const productItems = [
-  { id: "PRODUCT-BB-01", series: "metal fight", no: "BB-01", name: "페가시스 105F", sale: "일반 판매", kind: "리미티드스타터세트", price: "17600", releaseDate: "2008-10", releases: {
-    jp: { no: "BB-01", name: "페가시스 105F", sale: "일반 판매", kind: "스타터", releaseDate: "2008-08-09", price: "1544", composition: [
-      { label: "베이", name: "페가시스 105F", target: "BEY-BB-01-PEGASIS-105F" },
-      { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
-      { label: "기타", name: "베이포인터", target: "EQUIPMENT-POINTER" },
-      { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
-    ] }
-  }, composition: [
-    { label: "베이", name: "페가시스 105F", target: "BEY-BB-01-PEGASIS-105F" },
-    { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
-    { label: "기타", name: "포인터", target: "EQUIPMENT-POINTER" },
-    { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
-  ] },
-  { id: "PRODUCT-BB-02", series: "metal fight", no: "BB-02", name: "불 125SF", sale: "일반 판매", kind: "리미티드스타터세트", price: "17600", releaseDate: "2008-10", releases: {
-    jp: { no: "BB-02", name: "불 125SF", sale: "일반 판매", kind: "스타터", releaseDate: "2008-08-09", price: "1544", composition: [
-      { label: "베이", name: "불 125SF", target: "BEY-BB-02-BULL-125SF" },
-      { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
-      { label: "기타", name: "베이포인터", target: "EQUIPMENT-POINTER" },
-      { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
-    ] }
-  }, composition: [
-    { label: "베이", name: "불 125SF", target: "BEY-BB-02-BULL-125SF" },
-    { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
-    { label: "기타", name: "포인터", target: "EQUIPMENT-POINTER" },
-    { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
-  ] },
-  { id: "PRODUCT-BB-03", series: "metal fight", no: "BB-03", name: "사지타리오 145S", sale: "일반 판매", kind: "스타터세트", price: "8000", releaseDate: "2008-10", releases: {
-    jp: { no: "BB-03", name: "사지타리오 145S", sale: "일반 판매", kind: "부스터", releaseDate: "2008-08-09", price: "819", composition: [
-      { label: "베이", name: "사지타리오 145S", target: "BEY-BB-03-SAGITTARIO-145S" },
-      { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
-      { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
-    ] }
-  }, composition: [
-    { label: "베이", name: "사지타리오 145S", target: "BEY-BB-03-SAGITTARIO-145S" },
-    { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
-    { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
-  ] },
-  { id: "PRODUCT-BB-04", series: "metal fight", no: "BB-04", name: "레온 145D", sale: "일반 판매", kind: "스타터세트", price: "8000", releaseDate: "2008-10", releases: {
-    jp: { no: "BB-04", name: "레오네 145D", sale: "일반 판매", kind: "부스터", releaseDate: "2008-08-09", price: "819", composition: [
-      { label: "베이", name: "레오네 145D", target: "BEY-BB-04-LEONE-145D" },
-      { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
-      { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
-    ] }
-  }, composition: [
-    { label: "베이", name: "레온 145D", target: "BEY-BB-04-LEONE-145D" },
-    { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
-    { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
-  ] },
-  { id: "PRODUCT-BB-05", series: "metal fight", no: "BB-05", name: "페가시스 145D", sale: "일반 판매", kind: "스타터세트", price: "8000", releaseDate: "2008-10", releases: {
-    jp: { no: "BB-05", name: "페가시스 145D", sale: "일반 판매", kind: "부스터", releaseDate: "2008-08-09", price: "630", composition: [
-      { label: "베이", name: "페가시스 145D", target: "BEY-BB-05-PEGASIS-145D" },
-      { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" }
-    ] }
-  }, composition: [
-    { label: "베이", name: "페가시스 145D", target: "BEY-BB-05-PEGASIS-145D" },
-    { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
-    { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
-  ] },
-  { id: "PRODUCT-BB-06", series: "metal fight", no: "BB-06", name: "불 145S", sale: "일반 판매", kind: "스타터세트", price: "8000", releaseDate: "2008-10", releases: {
-    jp: { no: "BB-06", name: "불 145S", sale: "일반 판매", kind: "부스터", releaseDate: "2008-08-09", price: "630", composition: [
-      { label: "베이", name: "불 145S", target: "BEY-BB-06-BULL-145S" },
-      { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" }
-    ] }
-  }, composition: [
-    { label: "베이", name: "불 145S", target: "BEY-BB-06-BULL-145S" },
-    { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
-    { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
-  ] },
-  { id: "PRODUCT-BB-07", series: "metal fight", no: "BB-07", name: "사지타리오 125SF", sale: "일반 판매", kind: "스타터세트", price: "8000", releaseDate: "2008-10", releases: {
-    jp: { no: "BB-07", name: "사지타리오 125SF", sale: "일반 판매", kind: "부스터", releaseDate: "2008-08-09", price: "630", composition: [
-      { label: "베이", name: "사지타리오 125SF", target: "BEY-BB-07-SAGITTARIO-125SF" },
-      { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" }
-    ] }
-  }, composition: [
-    { label: "베이", name: "사지타리오 125SF", target: "BEY-BB-07-SAGITTARIO-125SF" },
-    { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
-    { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
-  ] },
-  { id: "PRODUCT-BB-08", series: "metal fight", no: "BB-08", name: "레온 105F", sale: "일반 판매", kind: "스타터세트", price: "8000", releaseDate: "2008-10", releases: {
-    jp: { no: "BB-08", name: "레오네 105F", sale: "일반 판매", kind: "부스터", releaseDate: "2008-08-09", price: "630", composition: [
-      { label: "베이", name: "레오네 105F", target: "BEY-BB-08-LEONE-105F" },
-      { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" }
-    ] }
-  }, composition: [
-    { label: "베이", name: "레온 105F", target: "BEY-BB-08-LEONE-105F" },
-    { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
-    { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
-  ] },
-  { id: "PRODUCT-BB-09", series: "metal fight", no: "BB-09", name: "메탈스피드 DX 세트", sale: "일반 판매", kind: "세트", price: "25600", releaseDate: "2008-10", releases: {
-    jp: { no: "BB-09", name: "페가시스 DX 세트", sale: "일반 판매", kind: "세트", releaseDate: "2008-08-09", price: "3150", composition: [
-      { label: "베이", name: "페가시스 105F", target: "BEY-BB-09-PEGASIS-105F" },
-      { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" },
-      { label: "기타", name: "베이포인터", target: "EQUIPMENT-POINTER" },
-      { label: "스타디움", name: "베이스타디움 어택타입", target: "EQUIPMENT-ATTACK-BEYSTADIUM" },
-      { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }
-    ] }
-  }, composition: [
-    { label: "베이", name: "페가시스 105F", target: "BEY-BB-09-PEGASIS-105F" },
-    { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" },
-    { label: "기타", name: "포인터", target: "EQUIPMENT-POINTER" },
-    { label: "스타디움", name: "공격형 메탈파이트 스타디움", target: "EQUIPMENT-ATTACK-BEYSTADIUM" },
-    { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }
-  ] },
-  { id: "PRODUCT-BB-10", series: "metal fight", no: "BB-10", name: "공격형 메탈파이트 스타디움", sale: "일반 판매", kind: "", equipment: "스타디움", price: "6400", releaseDate: "2008-10", releases: {
-    jp: { no: "BB-10", name: "베이스타디움 어택타입", sale: "일반 판매", kind: "", releaseDate: "2008-08-09", price: "1260", composition: [
-      { label: "스타디움", name: "베이스타디움 어택타입", target: "EQUIPMENT-ATTACK-BEYSTADIUM" },
-      { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }
-    ] }
-  }, composition: [
-    { label: "스타디움", name: "공격형 메탈파이트 스타디움", target: "EQUIPMENT-ATTACK-BEYSTADIUM" },
-    { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }
-  ] },
-  { id: "PRODUCT-BB-11", series: "metal fight", no: "BB-11", name: "울프 D125B", sale: "일반 판매", kind: "스타터세트", releaseDate: "2008-12", price: "8000", releases: {
-    jp: { no: "BB-11", name: "볼프 D125B", sale: "일반 판매", kind: "스타터", releaseDate: "2008-09-18", price: "819", composition: [
-      { label: "베이", name: "볼프 D125B", target: "BEY-BB-11-WOLF-D125B" },
-      { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
-      { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
-    ] }
-  }, composition: [
-    { label: "베이", name: "울프 D125B", target: "BEY-BB-11-WOLF-D125B" },
-    { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
-    { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" }
-  ] },
-  { id: "PRODUCT-BB-12", series: "metal fight", no: "BB-12", name: "울프 105F", sale: "일반 판매", kind: "스타터세트", releaseDate: "2008-12", price: "10400", releases: {
-    jp: { no: "BB-12", name: "볼프 105F", sale: "일반 판매", kind: "부스터", releaseDate: "2008-09-18", price: "630", composition: [
-      { label: "베이", name: "볼프 105F", target: "BEY-BB-12-WOLF-105F" },
-      { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" }
-    ] }
-  }, composition: [
-    { label: "베이", name: "울프 105F", target: "BEY-BB-12-WOLF-105F" },
-    { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
-    { label: "런처", name: "파워런처", target: "EQUIPMENT-POWER-LAUNCHER" }
-  ] },
-  { id: "PRODUCT-BB-13", series: "metal fight", no: "BB-13", name: "", sale: "일반 판매", kind: "", releases: {
+{ id: "PRODUCT-BB-01", series: "metal fight", no: "BB-01", name: "", sale: "", kind: "", releases: {
+  kr: { no: "BB-01", name: "페가시스 105F", sale: "일반 판매", kind: "리미티드스타터세트", releaseDate: "2008-10", price: "17600", composition: [{ label: "베이", name: "페가시스 105F", quantity: "1개", target: "BEY-BB-01-PEGASIS-105F" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "기타", name: "포인터", quantity: "1개", target: "EQUIPMENT-POINTER" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] },
+  jp: { no: "BB-01", name: "페가시스 105F", sale: "일반 판매", kind: "스타터", releaseDate: "2008-08-09", price: "1544", composition: [{ label: "베이", name: "페가시스 105F", quantity: "1개", target: "BEY-BB-01-PEGASIS-105F" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "기타", name: "베이포인터", quantity: "1개", target: "EQUIPMENT-POINTER" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] } } },
+{ id: "PRODUCT-BB-02", series: "metal fight", no: "BB-02", name: "", sale: "", kind: "", releases: {
+  kr: { no: "BB-02", name: "불 125SF", sale: "일반 판매", kind: "리미티드스타터세트", releaseDate: "2008-10", price: "17600", composition: [{ label: "베이", name: "불 125SF", quantity: "1개", target: "BEY-BB-02-BULL-125SF" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "기타", name: "포인터", quantity: "1개", target: "EQUIPMENT-POINTER" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] },
+  jp: { no: "BB-02", name: "불 125SF", sale: "일반 판매", kind: "스타터", releaseDate: "2008-08-09", price: "1544", composition: [{ label: "베이", name: "불 125SF", quantity: "1개", target: "BEY-BB-02-BULL-125SF" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "기타", name: "베이포인터", quantity: "1개", target: "EQUIPMENT-POINTER" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] } } },
+{ id: "PRODUCT-BB-03", series: "metal fight", no: "BB-03", name: "", sale: "", kind: "", releases: {
+  kr: { no: "BB-03", name: "사지타리오 145S", sale: "일반 판매", kind: "스타터세트", releaseDate: "2008-10", price: "8000", composition: [{ label: "베이", name: "사지타리오 145S", quantity: "1개", target: "BEY-BB-03-SAGITTARIO-145S" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] },
+  jp: { no: "BB-03", name: "사지타리오 145S", sale: "일반 판매", kind: "스타터", releaseDate: "2008-08-09", price: "819", composition: [{ label: "베이", name: "사지타리오 145S", quantity: "1개", target: "BEY-BB-03-SAGITTARIO-145S" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] } } },
+{ id: "PRODUCT-BB-04", series: "metal fight", no: "BB-04", name: "", sale: "", kind: "", releases: {
+  kr: { no: "BB-04", name: "레온 145D", sale: "일반 판매", kind: "스타터세트", releaseDate: "2008-10", price: "8000", composition: [{ label: "베이", name: "레온 145D", quantity: "1개", target: "BEY-BB-04-LEONE-145D" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] },
+  jp: { no: "BB-04", name: "레오네 145D", sale: "일반 판매", kind: "스타터", releaseDate: "2008-08-09", price: "819", composition: [{ label: "베이", name: "레오네 145D", quantity: "1개", target: "BEY-BB-04-LEONE-145D" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] } } },
+{ id: "PRODUCT-BB-05", series: "metal fight", no: "BB-05", name: "", sale: "", kind: "", releases: {
+  kr: { no: "BB-05", name: "페가시스 145D", sale: "일반 판매", kind: "스타터세트", releaseDate: "2008-10", price: "8000", composition: [{ label: "베이", name: "페가시스 145D", quantity: "1개", target: "BEY-BB-05-PEGASIS-145D" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] },
+  jp: { no: "BB-05", name: "페가시스 145D", sale: "일반 판매", kind: "부스터", releaseDate: "2008-08-09", price: "630", composition: [{ label: "베이", name: "페가시스 145D", quantity: "1개", target: "BEY-BB-05-PEGASIS-145D" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] } } },
+{ id: "PRODUCT-BB-06", series: "metal fight", no: "BB-06", name: "", sale: "", kind: "", releases: {
+  kr: { no: "BB-06", name: "불 145S", sale: "일반 판매", kind: "스타터세트", releaseDate: "2008-10", price: "8000", composition: [{ label: "베이", name: "불 145S", quantity: "1개", target: "BEY-BB-06-BULL-145S" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] },
+  jp: { no: "BB-06", name: "불 145S", sale: "일반 판매", kind: "부스터", releaseDate: "2008-08-09", price: "630", composition: [{ label: "베이", name: "불 145S", quantity: "1개", target: "BEY-BB-06-BULL-145S" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] } } },
+{ id: "PRODUCT-BB-07", series: "metal fight", no: "BB-07", name: "", sale: "", kind: "", releases: {
+  kr: { no: "BB-07", name: "사지타리오 125SF", sale: "일반 판매", kind: "스타터세트", releaseDate: "2008-10", price: "8000", composition: [{ label: "베이", name: "사지타리오 125SF", quantity: "1개", target: "BEY-BB-07-SAGITTARIO-125SF" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] },
+  jp: { no: "BB-07", name: "사지타리오 125SF", sale: "일반 판매", kind: "부스터", releaseDate: "2008-08-09", price: "630", composition: [{ label: "베이", name: "사지타리오 125SF", quantity: "1개", target: "BEY-BB-07-SAGITTARIO-125SF" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] } } },
+{ id: "PRODUCT-BB-08", series: "metal fight", no: "BB-08", name: "", sale: "", kind: "", releases: {
+  kr: { no: "BB-08", name: "레온 105F", sale: "일반 판매", kind: "스타터세트", releaseDate: "2008-10", price: "8000", composition: [{ label: "베이", name: "레온 105F", quantity: "1개", target: "BEY-BB-08-LEONE-105F" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] },
+  jp: { no: "BB-08", name: "레오네 105F", sale: "일반 판매", kind: "부스터", releaseDate: "2008-08-09", price: "630", composition: [{ label: "베이", name: "레오네 105F", quantity: "1개", target: "BEY-BB-08-LEONE-105F" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] } } },
+{ id: "PRODUCT-BB-09", series: "metal fight", no: "BB-09", name: "", sale: "", kind: "", releases: {
+  kr: { no: "BB-09", name: "메탈스피드 DX 세트", sale: "일반 판매", kind: "세트", releaseDate: "2008-10", price: "25600", composition: [{ label: "베이", name: "페가시스 105F", quantity: "1개", target: "BEY-BB-09-PEGASIS-105F" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }, { label: "기타", name: "포인터", quantity: "1개", target: "EQUIPMENT-POINTER" }, { label: "스타디움", name: "공격형 메탈파이트 스타디움", quantity: "1개", target: "EQUIPMENT-ATTACK-BEYSTADIUM" }, { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }] },
+  jp: { no: "BB-09", name: "페가시스 DX 세트", sale: "일반 판매", kind: "세트", releaseDate: "2008-08-09", price: "3150", composition: [{ label: "베이", name: "페가시스 105F", quantity: "1개", target: "BEY-BB-09-PEGASIS-105F" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }, { label: "기타", name: "베이포인터", quantity: "1개", target: "EQUIPMENT-POINTER" }, { label: "스타디움", name: "베이스타디움 어택타입", quantity: "1개", target: "EQUIPMENT-ATTACK-BEYSTADIUM" }, { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }] } } },
+{ id: "PRODUCT-BB-10", series: "metal fight", no: "BB-10", name: "", sale: "", kind: "", equipment: "스타디움", releases: {
+  kr: { no: "BB-10", name: "공격형 메탈파이트 스타디움", sale: "일반 판매", kind: "", releaseDate: "2008-10", price: "6400", composition: [{ label: "스타디움", name: "공격형 메탈파이트 스타디움", quantity: "1개", target: "EQUIPMENT-ATTACK-BEYSTADIUM" }, { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }] },
+  jp: { no: "BB-10", name: "베이스타디움 어택타입", sale: "일반 판매", kind: "", releaseDate: "2008-08-09", price: "1260", composition: [{ label: "스타디움", name: "베이스타디움 어택타입", quantity: "1개", target: "EQUIPMENT-ATTACK-BEYSTADIUM" }, { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }] } } },
+{ id: "PRODUCT-BB-11", series: "metal fight", no: "BB-11", name: "", sale: "", kind: "", releases: {
+  kr: { no: "BB-11", name: "울프 D125B", sale: "일반 판매", kind: "스타터세트", releaseDate: "2008-12", price: "8000", composition: [{ label: "베이", name: "울프 D125B", quantity: "1개", target: "BEY-BB-11-WOLF-D125B" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] },
+  jp: { no: "BB-11", name: "볼프 D125B", sale: "일반 판매", kind: "스타터", releaseDate: "2008-09-18", price: "819", composition: [{ label: "베이", name: "볼프 D125B", quantity: "1개", target: "BEY-BB-11-WOLF-D125B" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] } } },
+{ id: "PRODUCT-BB-12", series: "metal fight", no: "BB-12", name: "", sale: "", kind: "", releases: {
+  kr: { no: "BB-12", name: "울프 105F", sale: "일반 판매", kind: "스타터세트", releaseDate: "2008-12", price: "10400", composition: [{ label: "베이", name: "울프 105F", quantity: "1개", target: "BEY-BB-12-WOLF-105F" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "파워런처", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER" }] },
+  jp: { no: "BB-12", name: "볼프 105F", sale: "일반 판매", kind: "부스터", releaseDate: "2008-09-18", price: "630", composition: [{ label: "베이", name: "볼프 105F", quantity: "1개", target: "BEY-BB-12-WOLF-105F" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] } } },
+{ id: "PRODUCT-BB-13", series: "metal fight", no: "BB-13", name: "", sale: "", kind: "", releases: {
+  kr: { status: "unreleased" },
+  jp: { no: "BB-13", name: "랜덤부스터 Vol.1 시크릿 아리에스", sale: "일반 판매", kind: "부스터", releaseDate: "2008-09-18", price: "630", composition: [{ label: "베이", name: "무작위 베이", quantity: "1개", target: "BEY-BB-13-ARIES-125D" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] } }, beyPool: ["BEY-BB-13-ARIES-125D", "BEY-BB-13-SAGITTARIO-145F", "BEY-BB-13-BULL-105S", "BEY-BB-13-PEGASIS-145SF", "BEY-BB-13-LEONE-125S", "BEY-BB-13-SAGITTARIO-145SF", "BEY-BB-13-BULL-105D", "BEY-BB-13-PEGASIS-145F"] },
+{ id: "PRODUCT-BB-14", series: "metal fight", no: "BB-14", name: "", sale: "", kind: "", equipment: "스타디움", releases: {
+  kr: { status: "unreleased" },
+  jp: { no: "BB-14", name: "베이스타디움 밸런스타입", sale: "일반 판매", kind: "", releaseDate: "2008-09-18", price: "1260", composition: [{ label: "스타디움", name: "밸런스형 메탈파이트 스타디움", quantity: "1개", target: "EQUIPMENT-BALANCE-BEYSTADIUM" }, { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }] } } },
+{ id: "PRODUCT-BB-15", series: "metal fight", no: "BB-15", name: "", sale: "", kind: "", equipment: "그립", releases: {
+  kr: { no: "BB-15", name: "런처그립", sale: "일반 판매", kind: "", releaseDate: "2008-12", price: "8000", composition: [{ label: "그립", name: "런처그립", quantity: "1개", target: "EQUIPMENT-LAUNCHER-GRIP" }] },
+  jp: { no: "BB-15", name: "런처그립", sale: "일반 판매", kind: "", releaseDate: "2008-09-18", price: "525", composition: [{ label: "그립", name: "런처그립", quantity: "1개", target: "EQUIPMENT-LAUNCHER-GRIP" }] } } },
+{ id: "PRODUCT-BB-16", series: "metal fight", no: "BB-16", name: "", sale: "", kind: "", equipment: "기타", releases: {
+  kr: { no: "BB-16", name: "포인터", sale: "일반 판매", kind: "", releaseDate: "2008-12", price: "9600", composition: [{ label: "기타", name: "포인터", quantity: "1개", target: "EQUIPMENT-POINTER" }] },
+  jp: { no: "BB-16", name: "베이포인터", sale: "일반 판매", kind: "", releaseDate: "2008-09-18", price: "1050", composition: [{ label: "기타", name: "베이포인터", quantity: "1개", target: "EQUIPMENT-POINTER" }] } } },
+{ id: "PRODUCT-BB-17", series: "metal fight", no: "BB-17", name: "", sale: "", kind: "", equipment: "런처", releases: {
+  kr: { no: "BB-17", name: "파워런처", sale: "일반 판매", kind: "", releaseDate: "2008-12", price: "6400", composition: [{ label: "런처", name: "파워런처", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER" }] },
+  jp: { no: "BB-17", name: "베이런처", sale: "일반 판매", kind: "", releaseDate: "2008-09-18", price: "630", composition: [{ label: "런처", name: "베이런처", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER" }] } } },
+{ id: "PRODUCT-BB-18", series: "metal fight", no: "BB-18", name: "", sale: "", kind: "", releases: {
+  kr: { no: "BB-18", name: "리브라 DF145BS", sale: "일반 판매", kind: "스타터세트", releaseDate: "2008-12", price: "10400", composition: [{ label: "베이", name: "리브라 DF145BS", quantity: "1개", target: "BEY-BB-18-LIBRA-DF145BS" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "파워런처", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER" }] },
+  jp: { no: "BB-18", name: "리브라 DF145BS", sale: "일반 판매", kind: "부스터", releaseDate: "2008-10-23", price: "630", composition: [{ label: "베이", name: "리브라 DF145BS", quantity: "1개", target: "BEY-BB-18-LIBRA-DF145BS" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] } } },
+{ id: "PRODUCT-BB-19", series: "metal fight", no: "BB-19", name: "", sale: "", kind: "", equipment: "스타디움", releases: {
+  kr: { status: "unreleased" },
+  jp: { no: "BB-19", name: "베이스타디움 스태미나타입", sale: "일반 판매", kind: "", releaseDate: "2008-10-23", price: "1365", composition: [{ label: "스타디움", name: "스테미너형 메탈파이트 스타디움", quantity: "1개", target: "EQUIPMENT-STAMINA-BEYSTADIUM" }, { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }] } } },
+  { id: "PRODUCT-BB-20", series: "metal fight", no: "BB-20", name: "", sale: "", kind: "", releases: {
+    kr: { no: "BB-20", name: "메탈파이트 DX 세트", sale: "일반 판매", kind: "세트", releaseDate: "2008-12", price: "44000", composition: [{ label: "베이", name: "페가시스 105F", quantity: "1개", target: "BEY-BB-20-PEGASIS-105F" }, { label: "베이", name: "울프 D125B", quantity: "1개", target: "BEY-BB-20-WOLF-D125B" }, { label: "기타", name: "툴", quantity: "2개", target: "EQUIPMENT-TOOL" }, { label: "기타", name: "포인터", quantity: "2개", target: "EQUIPMENT-POINTER" }, { label: "런처", name: "파워런처", quantity: "2개", target: "EQUIPMENT-POWER-LAUNCHER" }, { label: "스타디움", name: "밸런스형 메탈파이트 스타디움", quantity: "1개", target: "EQUIPMENT-BALANCE-BEYSTADIUM" }, { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }] },
+    jp: { no: "BB-20", name: "베이 배틀 트라이 세트", sale: "일반 판매", kind: "세트", releaseDate: "2008-10-23", price: "5250", composition: [{ label: "베이", name: "페가시스 105F", quantity: "1개", target: "BEY-BB-20-PEGASIS-105F" }, { label: "베이", name: "볼프 D125B", quantity: "1개", target: "BEY-BB-20-WOLF-D125B" }, { label: "기타", name: "툴", quantity: "2개", target: "EQUIPMENT-TOOL" }, { label: "기타", name: "베이포인터", quantity: "2개", target: "EQUIPMENT-POINTER" }, { label: "런처", name: "베이런처", quantity: "2개", target: "EQUIPMENT-POWER-LAUNCHER" }, { label: "스타디움", name: "베이스타디움 밸런스타입", quantity: "1개", target: "EQUIPMENT-BALANCE-BEYSTADIUM" }, { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }] } } },
+  { id: "PRODUCT-BB-21", series: "metal fight", no: "BB-21", name: "", sale: "", kind: "", releases: {
+    kr: { no: "BB-21", name: "파워커스터마이즈세트 공격형&밸런스형", sale: "일반 판매", kind: "세트", releaseDate: "2008-12", price: "24000", composition: [{ label: "베이", name: "페가시스 100HF", quantity: "1개", target: "BEY-BB-21-PEGASIS-100HF" }, { label: "베이", name: "아쿠아리오 105F", quantity: "1개", target: "BEY-BB-21-AQUARIO-105F" }, { label: "베이", name: "울프 125SF", quantity: "1개", target: "BEY-BB-21-WOLF-125SF" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "파워런처", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER" }] },
+    jp: { no: "BB-21", name: "베이 개조 세트 어택&밸런스타입", sale: "일반 판매", kind: "세트", releaseDate: "2008-10-23", price: "2625", composition: [{ label: "베이", name: "페가시스 100HF", quantity: "1개", target: "BEY-BB-21-PEGASIS-100HF" }, { label: "베이", name: "아쿠아리오 105F", quantity: "1개", target: "BEY-BB-21-AQUARIO-105F" }, { label: "베이", name: "볼프 125SF", quantity: "1개", target: "BEY-BB-21-WOLF-125SF" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "베이런처", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER" }] } } },
+  { id: "PRODUCT-BB-22", series: "metal fight", no: "BB-22", name: "", sale: "", kind: "", releases: {
+    kr: { no: "BB-22", name: "액션커스터마이즈세트 스테미너형&방어형", sale: "일반 판매", kind: "세트", releaseDate: "2008-12", price: "24000", composition: [{ label: "베이", name: "비르고 DF145BS", quantity: "1개", target: "BEY-BB-22-VIRGO-DF145BS" }, { label: "베이", name: "리브라 145S", quantity: "1개", target: "BEY-BB-22-LIBRA-145S" }, { label: "베이", name: "레온 D125B", quantity: "1개", target: "BEY-BB-22-LEONE-D125B" }, { label: "트랙", name: "105 트랙", quantity: "1개", target: "TRACK-105" }, { label: "버텀", name: "F 버텀", quantity: "1개", target: "BOTTOM-FLAT" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "그립", name: "런처그립", quantity: "1개", target: "EQUIPMENT-LAUNCHER-GRIP" }] },
+    jp: { no: "BB-22", name: "베이 개조 세트 스태미나&디펜스타입", sale: "일반 판매", kind: "세트", releaseDate: "2008-10-23", price: "2625", composition: [{ label: "베이", name: "비르고 DF145BS", quantity: "1개", target: "BEY-BB-22-VIRGO-DF145BS" }, { label: "베이", name: "리브라 145S", quantity: "1개", target: "BEY-BB-22-LIBRA-145S" }, { label: "베이", name: "레오네 D125B", quantity: "1개", target: "BEY-BB-22-LEONE-D125B" }, { label: "트랙", name: "105 트랙", quantity: "1개", target: "TRACK-105" }, { label: "버텀", name: "F 버텀", quantity: "1개", target: "BOTTOM-FLAT" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "그립", name: "런처그립", quantity: "1개", target: "EQUIPMENT-LAUNCHER-GRIP" }] } } },
+{ id: "PRODUCT-BB-23", series: "metal fight", no: "BB-23", name: "", sale: "", kind: "", releases: {
+  kr: { status: "unreleased" },
+  jp: { no: "BB-23", name: "엘드라고 105F", sale: "일반 판매", kind: "스타터", releaseDate: "2008-12-25", price: "1344", composition: [{ label: "베이", name: "엘드라고 105F", quantity: "1개", target: "BEY-BB-23-LDRAGO-105F" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "베이런처L", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER-L" }] } } },
+{ id: "PRODUCT-BB-24", series: "metal fight", no: "BB-25", name: "", sale: "", kind: "", releases: {
+  kr: { status: "unreleased" },
+  jp: { no: "BB-24", name: "에스콜피오 WD145B", sale: "일반 판매", kind: "부스터", releaseDate: "2008-12-25", price: "630", composition: [{ label: "베이", name: "에스콜피오 WD145B", quantity: "1개", target: "BEY-BB-24-ESCOLPIO-WD145B" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] } } },
+  { id: "PRODUCT-BB-25", series: "metal fight", no: "BB-26", name: "", sale: "", kind: "", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "BB-13", name: "랜덤부스터 Vol.1 시크릿 아리에스", sale: "일반 판매", kind: "부스터", releaseDate: "2008-09-18", price: "630", composition: [
-      { label: "베이", name: "무작위 베이", target: "BEY-BB-13-ARIES-125D" },
-      { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" }
-    ] }
-  }, beyPool: [
-    "BEY-BB-13-ARIES-125D",
-    "BEY-BB-13-SAGITTARIO-145F",
-    "BEY-BB-13-BULL-105S",
-    "BEY-BB-13-PEGASIS-145SF",
-    "BEY-BB-13-LEONE-125S",
-    "BEY-BB-13-SAGITTARIO-145SF",
-    "BEY-BB-13-BULL-105D",
-    "BEY-BB-13-PEGASIS-145F"
-  ] },
-  { id: "PRODUCT-BB-14", series: "metal fight", no: "BB-14", name: "", sale: "일반 판매", kind: "", equipment: "스타디움", releases: {
-    kr: { status: "unreleased" },
-    jp: { no: "BB-14", name: "베이스타디움 밸런스타입", sale: "일반 판매", kind: "", equipment: "스타디움", releaseDate: "2008-09-18", price: "1260", composition: [
-      { label: "스타디움", name: "밸런스형 메탈파이트 스타디움", target: "EQUIPMENT-BALANCE-BEYSTADIUM" },
-      { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }
-    ] }
-  } },
-  { id: "PRODUCT-BB-15", series: "metal fight", no: "BB-15", name: "런처그립", sale: "일반 판매", kind: "", equipment: "그립", releaseDate: "2008-12", price: "8000", releases: {
-    jp: { no: "BB-15", name: "런처그립", sale: "일반 판매", kind: "", equipment: "그립", releaseDate: "2008-09-18", price: "525", composition: [
-      { label: "그립", name: "런처그립", target: "EQUIPMENT-LAUNCHER-GRIP" }
-    ] }
-  }, composition: [
-    { label: "그립", name: "런처그립", target: "EQUIPMENT-LAUNCHER-GRIP" }
-  ] },
-  { id: "PRODUCT-BB-16", series: "metal fight", no: "BB-16", name: "포인터", sale: "일반 판매", kind: "", equipment: "기타", releaseDate: "2008-12", price: "9600", releases: {
-    jp: { no: "BB-16", name: "베이포인터", sale: "일반 판매", kind: "", equipment: "기타", releaseDate: "2008-09-18", price: "1050", composition: [
-      { label: "기타", name: "베이포인터", target: "EQUIPMENT-POINTER" }
-    ] }
-  }, composition: [
-    { label: "기타", name: "포인터", target: "EQUIPMENT-POINTER" }
-  ] },
-  { id: "PRODUCT-BB-17", series: "metal fight", no: "BB-17", name: "파워런처", sale: "일반 판매", kind: "", equipment: "런처", releaseDate: "2008-12", price: "6400", releases: {
-    jp: { no: "BB-17", name: "베이런처", sale: "일반 판매", kind: "", equipment: "런처", releaseDate: "2008-09-18", price: "630", composition: [
-      { label: "런처", name: "베이런처", target: "EQUIPMENT-POWER-LAUNCHER" }
-    ] }
-  }, composition: [
-    { label: "런처", name: "파워런처", target: "EQUIPMENT-POWER-LAUNCHER" }
-  ] },
-  { id: "PRODUCT-BB-18", series: "metal fight", no: "BB-18", name: "리브라 DF145BS", sale: "일반 판매", kind: "스타터세트", releaseDate: "2008-12", price: "10400", releases: {
-    jp: { no: "BB-18", name: "리브라 DF125BS", sale: "일반 판매", kind: "부스터", releaseDate: "2008-10-23", price: "630", composition: [
-      { label: "베이", name: "리브라 DF125BS", target: "BEY-BB-18-LIBRA-DF145BS" },
-      { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" }
-    ] }
-  }, composition: [
-    { label: "베이", name: "리브라 DF145BS", target: "BEY-BB-18-LIBRA-DF145BS" },
-    { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
-    { label: "런처", name: "파워런처", target: "EQUIPMENT-POWER-LAUNCHER" }
-  ] },
-  { id: "PRODUCT-BB-19", series: "metal fight", no: "BB-19", name: "", sale: "일반 판매", kind: "", equipment: "스타디움", releases: {
-    kr: { status: "unreleased" },
-    jp: { no: "BB-19", name: "베이스타디움 스태미나타입", sale: "일반 판매", kind: "", equipment: "스타디움", releaseDate: "2008-10-23", price: "1365", composition: [
-      { label: "스타디움", name: "스테미너형 메탈파이트 스타디움", target: "EQUIPMENT-STAMINA-BEYSTADIUM" },
-      { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }
-    ] }
-  } },
-  { id: "PRODUCT-BB-20", series: "metal fight", no: "BB-20", name: "메탈파이트 DX 세트", sale: "일반 판매", kind: "세트", releaseDate: "2008-12", price: "44000", releases: {
-    jp: { no: "BB-20", name: "베이 배틀 트라이 세트", sale: "일반 판매", kind: "세트", releaseDate: "2008-10-23", price: "5250", composition: [
-      { label: "베이", name: "페가시스 105F", target: "BEY-BB-20-PEGASIS-105F" },
-      { label: "베이", name: "볼프 D125B", target: "BEY-BB-20-WOLF-D125B" },
-      { label: "기타", name: "툴", quantity: "2개", target: "EQUIPMENT-TOOL" },
-      { label: "기타", name: "베이포인터", quantity: "2개", target: "EQUIPMENT-POINTER" },
-      { label: "런처", name: "베이런처", quantity: "2개", target: "EQUIPMENT-POWER-LAUNCHER" },
-      { label: "스타디움", name: "베이스타디움 밸런스타입", target: "EQUIPMENT-BALANCE-BEYSTADIUM" },
-      { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }
-    ] }
-  }, composition: [
-    { label: "베이", name: "페가시스 105F", target: "BEY-BB-20-PEGASIS-105F" },
-    { label: "베이", name: "울프 D125B", target: "BEY-BB-20-WOLF-D125B" },
-    { label: "기타", name: "툴", quantity: "2개", target: "EQUIPMENT-TOOL" },
-    { label: "기타", name: "포인터", quantity: "2개", target: "EQUIPMENT-POINTER" },
-    { label: "런처", name: "파워런처", quantity: "2개", target: "EQUIPMENT-POWER-LAUNCHER" },
-    { label: "스타디움", name: "밸런스형 메탈파이트 스타디움", target: "EQUIPMENT-BALANCE-BEYSTADIUM" },
-    { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }
-  ] },
-  { id: "PRODUCT-BB-21", series: "metal fight", no: "BB-21", name: "파워커스터마이즈세트 공격형&밸런스형", sale: "일반 판매", kind: "세트", releaseDate: "2008-12", price: "24000", releases: {
-    jp: { no: "BB-21", name: "베이 개조 세트 어택&밸런스타입", sale: "일반 판매", kind: "세트", releaseDate: "2008-10-23", price: "2625", composition: [
-      { label: "베이", name: "페가시스 100HF", quantity: "1개", target: "BEY-BB-21-PEGASIS-100HF" },
-      { label: "베이", name: "아쿠아리오 105F", quantity: "1개", target: "BEY-BB-21-AQUARIO-105F" },
-      { label: "베이", name: "볼프 125SF", quantity: "1개", target: "BEY-BB-21-WOLF-125SF" },
-      { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" },
-      { label: "런처", name: "베이런처", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER" }
-    ] }
-  }, composition: [
-    { label: "베이", name: "페가시스 100HF", quantity: "1개", target: "BEY-BB-21-PEGASIS-100HF" },
-    { label: "베이", name: "아쿠아리오 105F", quantity: "1개", target: "BEY-BB-21-AQUARIO-105F" },
-    { label: "베이", name: "울프 125SF", quantity: "1개", target: "BEY-BB-21-WOLF-125SF" },
-    { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" },
-    { label: "런처", name: "파워런처", target: "EQUIPMENT-POWER-LAUNCHER" }
-  ] },
-  { id: "PRODUCT-BB-22", series: "metal fight", no: "BB-22", name: "액션커스터마이즈세트 스테미너형&방어형", sale: "일반 판매", kind: "세트", releaseDate: "2008-12", price: "24000", releases: {
-    jp: { no: "BB-22", name: "베이 개조 세트 스태미나&디펜스타입", sale: "일반 판매", kind: "세트", releaseDate: "2008-10-23", price: "2625", composition: [
-      { label: "베이", name: "비르고 DF145BS", quantity: "1개", target: "BEY-BB-22-VIRGO-DF145BS" },
-      { label: "베이", name: "리브라 145S", quantity: "1개", target: "BEY-BB-22-LIBRA-145S" },
-      { label: "베이", name: "레오네 D125B", quantity: "1개", target: "BEY-BB-22-LEONE-D125B" },
-      { label: "트랙", name: "105 트랙", quantity: "1개", target: "TRACK-105" },
-      { label: "버텀", name: "F 버텀", quantity: "1개", target: "BOTTOM-FLAT" },
-      { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" },
-      { label: "그립", name: "런처그립", quantity: "1개", target: "EQUIPMENT-LAUNCHER-GRIP" }
-    ] }
-  }, composition: [
-    { label: "베이", name: "비르고 DF145BS", quantity: "1개", target: "BEY-BB-22-VIRGO-DF145BS" },
-    { label: "베이", name: "리브라 145S", quantity: "1개", target: "BEY-BB-22-LIBRA-145S" },
-    { label: "베이", name: "레온 D125B", quantity: "1개", target: "BEY-BB-22-LEONE-D125B" },
-    { label: "트랙", name: "105 트랙", quantity: "1개", target: "TRACK-105" },
-    { label: "버텀", name: "F 버텀", quantity: "1개", target: "BOTTOM-FLAT" },
-    { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" },
-    { label: "그립", name: "런처그립", quantity: "1개", target: "EQUIPMENT-LAUNCHER-GRIP" }
-  ] },
-  { id: "PRODUCT-BB-23", series: "metal fight", no: "BB-23", name: "", sale: "", kind: "", releases: {
-    kr: { status: "unreleased" },
-    jp: { no: "BB-23", name: "엘드라고 105F", sale: "일반 판매", kind: "스타터", releaseDate: "2008-12-25", price: "1344", composition: [
-      { label: "베이", name: "엘드라고 105F", target: "BEY-BB-23-LDRAGO-105F" },
-      { label: "기타", name: "툴", target: "EQUIPMENT-TOOL" },
-      { label: "런처", name: "베이런처L", target: "EQUIPMENT-POWER-LAUNCHER-L" }
-    ] }
-  } },
-  { id: "PRODUCT-BB-24", series: "metal fight", no: "BB-24", name: "", sale: "", kind: "", releases: {
-    kr: { status: "unreleased" },
-    jp: { no: "BB-24", name: "제미오스 DF145FS", sale: "일반 판매", kind: "부스터", releaseDate: "2009-02-22", price: "630", composition: [
-      { label: "베이", name: "제미오스 DF145FS", quantity: "1개", target: "BEY-BB-26-GEMIOS-DF145FS" },
-      { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }
-    ] }
-  } },
-  { id: "PRODUCT-BB-25", series: "metal fight", no: "BB-25", name: "", sale: "", kind: "", releases: {
-    kr: { status: "unreleased" },
-    jp: { no: "BB-25", name: "에스콜피오 WD145B", sale: "일반 판매", kind: "부스터", releaseDate: "2008-12-25", price: "630", composition: [
-      { label: "베이", name: "에스콜피오 WD145B", quantity: "1개", target: "BEY-BB-24-ESCOLPIO-WD145B" },
-      { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }
-    ] }
-  } },
-  { id: "PRODUCT-BB-26", series: "metal fight", no: "BB-26", name: "", sale: "", kind: "", releases: {
-    kr: { status: "unreleased" },
-    jp: { no: "BB-26", name: "랜덤부스터 Vol.2 레전드 파이시즈", sale: "일반 판매", kind: "부스터", releaseDate: "2009-02-22", price: "630", composition: [{ label: "베이", name: "무작위 베이", quantity: "1개", target: "BEY-BB-25-PISCES-D125BS" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] } }, beyPool: [
-    "BEY-BB-25-PISCES-D125BS",
-    "BEY-BB-25-AQUARIO-DF145SF",
-    "BEY-BB-25-VIRGO-125BS",
-    "BEY-BB-25-LIBRA-D125HF",
-    "BEY-BB-25-AQUARIO-105B",
-    "BEY-BB-25-VIRGO-100B",
-    "BEY-BB-25-LIBRA-100F",
-    "BEY-BB-25-BULL-DF145HF"
-  ] },
+    jp: { no: "BB-25", name: "랜덤부스터 Vol.2 레전드 파이시즈", sale: "일반 판매", kind: "부스터", releaseDate: "2009-02-22", price: "630", composition: [{ label: "베이", name: "무작위 베이", quantity: "1개", target: "BEY-BB-25-PISCES-D125BS" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] } }, beyPool: ["BEY-BB-25-PISCES-D125BS", "BEY-BB-25-AQUARIO-DF145SF", "BEY-BB-25-VIRGO-125BS", "BEY-BB-25-LIBRA-D125HF", "BEY-BB-25-AQUARIO-105B", "BEY-BB-25-VIRGO-100B", "BEY-BB-25-LIBRA-100F", "BEY-BB-25-BULL-DF145HF"] },
+{ id: "PRODUCT-BB-26", series: "metal fight", no: "BB-24", name: "", sale: "", kind: "", releases: {
+  kr: { status: "unreleased" },
+  jp: { no: "BB-26", name: "제미오스 DF145FS", sale: "일반 판매", kind: "부스터", releaseDate: "2009-02-22", price: "630", composition: [{ label: "베이", name: "제미오스 DF145FS", quantity: "1개", target: "BEY-BB-26-GEMIOS-DF145FS" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] } } },
   { id: "PRODUCT-BB-27", series: "metal fight", no: "BB-27", name: "", sale: "", kind: "", releases: {
     kr: { status: "unreleased" },
     jp: { no: "BB-27", name: "카프리코네 100HF", sale: "일반 판매", kind: "부스터", releaseDate: "2009-02-22", price: "630", composition: [{ label: "베이", name: "카프리코네 100HF", quantity: "1개", target: "BEY-BB-27-CAPRICORNE-100HF" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }
@@ -920,128 +717,70 @@ const productItems = [
   } },
   { id: "PRODUCT-BB-31", series: "metal fight", no: "BB-31", name: "", sale: "", kind: "", releases: {
     kr: { no: "BB-31", name: "라이트블레이드 Vol.1", sale: "일반 판매", kind: "부스터", releaseDate: "2009-09-23", price: "3200", composition: [{ label: "베이", name: "무작위 베이", quantity: "1개", target: "BEY-BB-31-MAD-CANCER-CH120FS" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] },
-    jp: { no: "BB-31", name: "랜덤부스터 라이트 Vol.1", sale: "일반 판매", kind: "부스터", releaseDate: "2009-03-28", price: "367", composition: [{ label: "베이", name: "무작위 베이", quantity: "1개", target: "BEY-BB-31-MAD-CANCER-CH120FS" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }
-  }, beyPool: [
-    "BEY-BB-31-MAD-CANCER-CH120FS",
-    "BEY-BB-31-HEAT-PEGASIS-100WB",
-    "BEY-BB-31-CLAY-WOLF-145FS",
-    "BEY-BB-31-HEAT-WOLF-WD145SF",
-    "BEY-BB-31-MAD-LEONE-145B",
-    "BEY-BB-31-CLAY-LEONE-DF145WB",
-    "BEY-BB-31-WIND-PEGASIS-DF145B",
-    "BEY-BB-31-WIND-LEONE-D125HF"
-  ] },
+    jp: { no: "BB-31", name: "랜덤부스터 라이트 Vol.1", sale: "일반 판매", kind: "부스터", releaseDate: "2009-03-28", price: "367", composition: [{ label: "베이", name: "무작위 베이", quantity: "1개", target: "BEY-BB-31-MAD-CANCER-CH120FS" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }}, beyPool: ["BEY-BB-31-MAD-CANCER-CH120FS","BEY-BB-31-HEAT-PEGASIS-100WB", "BEY-BB-31-CLAY-WOLF-145FS", "BEY-BB-31-HEAT-WOLF-WD145SF", "BEY-BB-31-MAD-LEONE-145B", "BEY-BB-31-CLAY-LEONE-DF145WB", "BEY-BB-31-WIND-PEGASIS-DF145B", "BEY-BB-31-WIND-LEONE-D125HF"] },
   { id: "PRODUCT-BB-32", series: "metal fight", no: "BB-32", name: "", sale: "", kind: "", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "BB-32", name: "하이브리드휠 대전 세트", sale: "일반 판매", kind: "세트", releaseDate: "2009-03-28", price: "3675", composition: [{ label: "베이", name: "스톰 페가시스 105RF(BB-32)", quantity: "1개", target: "BEY-BB-32-STORM-PEGASIS-105RF" }, { label: "베이", name: "다크 울프 DF145FS(BB-32)", quantity: "1개", target: "BEY-BB-32-DARK-WOLF-DF145FS" }, { label: "기타", name: "툴", quantity: "2개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "베이런처", quantity: "2개", target: "EQUIPMENT-POWER-LAUNCHER" }, { label: "스타디움", name: "베이스타디움 어택타입", quantity: "1개", target: "EQUIPMENT-ATTACK-BEYSTADIUM" }, { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }] }
-  } },
+    jp: { no: "BB-32", name: "하이브리드휠 대전 세트", sale: "일반 판매", kind: "세트", releaseDate: "2009-03-28", price: "3675", composition: [{ label: "베이", name: "스톰 페가시스 105RF(BB-32)", quantity: "1개", target: "BEY-BB-32-STORM-PEGASIS-105RF" }, { label: "베이", name: "다크 울프 DF145FS(BB-32)", quantity: "1개", target: "BEY-BB-32-DARK-WOLF-DF145FS" }, { label: "기타", name: "툴", quantity: "2개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "베이런처", quantity: "2개", target: "EQUIPMENT-POWER-LAUNCHER" }, { label: "스타디움", name: "베이스타디움 어택타입", quantity: "1개", target: "EQUIPMENT-ATTACK-BEYSTADIUM" }, { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }] }} },
   { id: "PRODUCT-BB-33", series: "metal fight", no: "BB-33", name: "", sale: "", kind: "", releases: {
     kr: { no: "BB-33", name: "스퀘어형 베이스타디움", sale: "일반 판매", kind: "", releaseDate: "2011-02", price: "6400", composition: [{ label: "스타디움", name: "스퀘어형 베이스타디움", quantity: "1개", target: "EQUIPMENT-WIDE-SQUARE-BEYSTADIUM" }, { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }] },
-    jp: { no: "BB-33", name: "베이스타디움 와이드스퀘어타입", sale: "일반 판매", kind: "", releaseDate: "2009-03-28", price: "1680", composition: [{ label: "스타디움", name: "베이스타디움 와이드스퀘어타입", quantity: "1개", target: "EQUIPMENT-WIDE-SQUARE-BEYSTADIUM" }, { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }] }
-  } },
+    jp: { no: "BB-33", name: "베이스타디움 와이드스퀘어타입", sale: "일반 판매", kind: "", releaseDate: "2009-03-28", price: "1680", composition: [{ label: "스타디움", name: "베이스타디움 와이드스퀘어타입", quantity: "1개", target: "EQUIPMENT-WIDE-SQUARE-BEYSTADIUM" }, { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }] }} },
   { id: "PRODUCT-BB-34", series: "metal fight", no: "BB-34", name: "", sale: "", kind: "", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "BB-34", name: "라이트런처(오렌지)", sale: "일반 판매", kind: "", releaseDate: "2009-03-28", price: "315", composition: [{ label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] }
-  } },
+    jp: { no: "BB-34", name: "라이트런처(오렌지)", sale: "일반 판매", kind: "", releaseDate: "2009-03-28", price: "315", composition: [{ label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] }} },
   { id: "PRODUCT-BB-35", series: "metal fight", no: "BB-35", name: "", sale: "", kind: "", releases: {
     kr: { no: "BB-35", name: "플레임 사지타리오 C145S", sale: "일반 판매", kind: "스타터세트", releaseDate: "2009-09-23", price: "8000", composition: [{ label: "베이", name: "플레임 사지타리오 C145S", quantity: "1개", target: "BEY-BB-35-FLAME-SAGITTARIO-C145S" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] },
-    jp: { no: "BB-35", name: "플레임 사지타리오 C145S", sale: "일반 판매", kind: "부스터", releaseDate: "2009-04-25", price: "787", composition: [{ label: "베이", name: "플레임 사지타리오 C145S", quantity: "1개", target: "BEY-BB-35-FLAME-SAGITTARIO-C145S" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }
-  } },
+    jp: { no: "BB-35", name: "플레임 사지타리오 C145S", sale: "일반 판매", kind: "부스터", releaseDate: "2009-04-25", price: "787", composition: [{ label: "베이", name: "플레임 사지타리오 C145S", quantity: "1개", target: "BEY-BB-35-FLAME-SAGITTARIO-C145S" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }} },
   { id: "PRODUCT-BB-36", series: "metal fight", no: "BB-36", name: "", sale: "", kind: "", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "BB-36", name: "메탈페이스", sale: "일반 판매", kind: "", releaseDate: "2009-04-25", price: "367", composition: [{ label: "페이스", name: "메탈페이스", quantity: "2개", target: "FACE-METAL-FACE" }, { label: "기타", name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }] }
-  } },
+    jp: { no: "BB-36", name: "메탈페이스", sale: "일반 판매", kind: "", releaseDate: "2009-04-25", price: "367", composition: [{ label: "페이스", name: "메탈페이스", quantity: "2개", target: "FACE-METAL-FACE" }, { label: "기타", name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }] }} },
   { id: "PRODUCT-BB-37", series: "metal fight", no: "BB-37", name: "", sale: "", kind: "", releases: {
     kr: { no: "BB-37", name: "라이트블레이드 Vol.2", sale: "일반 판매", kind: "부스터", releaseDate: "2009-09-23", price: "3200", composition: [{ label: "베이", name: "무작위 베이", quantity: "1개", target: "BEY-BB-37-WIND-AQUARIO-100HFS" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] },
-    jp: { no: "BB-37", name: "랜덤부스터 라이트 Vol.2", sale: "일반 판매", kind: "부스터", releaseDate: "2009-05-23", price: "367", composition: [{ label: "베이", name: "무작위 베이", quantity: "1개", target: "BEY-BB-37-WIND-AQUARIO-100HFS" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }
-  }, beyPool: [
-    "BEY-BB-37-WIND-AQUARIO-100HFS",
-    "BEY-BB-37-CLAY-WOLF-105B",
-    "BEY-BB-37-CLAY-SAGITTARIO-145B",
-    "BEY-BB-37-HEAT-PEGASIS-DF145WB",
-    "BEY-BB-37-HEAT-LEONE-D125FS",
-    "BEY-BB-37-MAD-SAGITTARIO-DF145HF",
-    "BEY-BB-37-MAD-LEONE-145FS",
-    "BEY-BB-37-WIND-WOLF-WD145WB"
-  ] },
+    jp: { no: "BB-37", name: "랜덤부스터 라이트 Vol.2", sale: "일반 판매", kind: "부스터", releaseDate: "2009-05-23", price: "367", composition: [{ label: "베이", name: "무작위 베이", quantity: "1개", target: "BEY-BB-37-WIND-AQUARIO-100HFS" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }}, beyPool: ["BEY-BB-37-WIND-AQUARIO-100HFS", "BEY-BB-37-CLAY-WOLF-105B", "BEY-BB-37-CLAY-SAGITTARIO-145B", "BEY-BB-37-HEAT-PEGASIS-DF145WB", "BEY-BB-37-HEAT-LEONE-D125FS", "BEY-BB-37-MAD-SAGITTARIO-DF145HF", "BEY-BB-37-MAD-LEONE-145FS", "BEY-BB-37-WIND-WOLF-WD145WB"] },
   { id: "PRODUCT-BB-38", series: "metal fight", no: "BB-38", name: "", sale: "", kind: "", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "BB-38", name: "베이런처(아이언그레이)", sale: "일반 판매", kind: "", releaseDate: "2009-05-23", price: "630", composition: [{ label: "런처", name: "베이런처", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER" }] }
-  } },
+    jp: { no: "BB-38", name: "베이런처(아이언그레이)", sale: "일반 판매", kind: "", releaseDate: "2009-05-23", price: "630", composition: [{ label: "런처", name: "베이런처", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER" }] }} },
   { id: "PRODUCT-BB-39", series: "metal fight", no: "BB-39", name: "", sale: "", kind: "", releases: {
     kr: { no: "BB-39", name: "카라비나그립", sale: "일반 판매", kind: "", releaseDate: "2009-09-23", price: "6400", composition: [{ label: "그립", name: "카라비나그립", quantity: "1개", target: "EQUIPMENT-CARABINER-GRIP" }] },
-    jp: { no: "BB-39", name: "카라비나그립", sale: "일반 판매", kind: "", releaseDate: "2009-05-23", price: "630", composition: [{ label: "그립", name: "카라비나그립", quantity: "1개", target: "EQUIPMENT-CARABINER-GRIP" }] }
-  } },
+    jp: { no: "BB-39", name: "카라비나그립", sale: "일반 판매", kind: "", releaseDate: "2009-05-23", price: "630", composition: [{ label: "그립", name: "카라비나그립", quantity: "1개", target: "EQUIPMENT-CARABINER-GRIP" }] }} },
   { id: "PRODUCT-BB-40", series: "metal fight", no: "BB-40", name: "", sale: "", kind: "", releases: {
     kr: { no: "BB-40", name: "다크 불 H145SD", sale: "일반 판매", kind: "스타터세트", releaseDate: "2009-09-23", price: "8000", composition: [{ label: "베이", name: "다크 불 H145SD", quantity: "1개", target: "BEY-BB-40-DARK-BULL-H145SD" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] },
-    jp: { no: "BB-40", name: "다크 불 H145SD", sale: "일반 판매", kind: "부스터", releaseDate: "2009-06-20", price: "682", composition: [{ label: "베이", name: "다크 불 H145SD", quantity: "1개", target: "BEY-BB-40-DARK-BULL-H145SD" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }
-  } },
+    jp: { no: "BB-40", name: "다크 불 H145SD", sale: "일반 판매", kind: "부스터", releaseDate: "2009-06-20", price: "682", composition: [{ label: "베이", name: "다크 불 H145SD", quantity: "1개", target: "BEY-BB-40-DARK-BULL-H145SD" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }} },
   { id: "PRODUCT-BB-41", series: "metal fight", no: "BB-41", name: "", sale: "", kind: "", releases: {
     kr: { no: "BB-41", name: "초공격형 베이스타디움", sale: "일반 판매", kind: "", releaseDate: "2009-09-23", price: "6400", composition: [{ label: "스타디움", name: "초공격형 베이스타디움", quantity: "1개", target: "EQUIPMENT-SUPER-ATTACK-BEYSTADIUM" }, { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }] },
-    jp: { no: "BB-41", name: "베이스타디움 슈퍼어택타입", sale: "일반 판매", kind: "", releaseDate: "2009-06-20", price: "1365", composition: [{ label: "스타디움", name: "베이스타디움 슈퍼어택타입", quantity: "1개", target: "EQUIPMENT-SUPER-ATTACK-BEYSTADIUM" }, { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }] }
-  } },
+    jp: { no: "BB-41", name: "베이스타디움 슈퍼어택타입", sale: "일반 판매", kind: "", releaseDate: "2009-06-20", price: "1365", composition: [{ label: "스타디움", name: "베이스타디움 슈퍼어택타입", quantity: "1개", target: "EQUIPMENT-SUPER-ATTACK-BEYSTADIUM" }, { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }] }} },
   { id: "PRODUCT-BB-42", series: "metal fight", no: "BB-42", name: "", sale: "", kind: "", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "BB-42", name: "베이캐리어 웨이스트타입", sale: "일반 판매", kind: "", releaseDate: "2009-06-20", price: "1050", composition: [{ label: "기타", name: "베이캐리어 웨이스트타입", quantity: "1개", target: "EQUIPMENT-BEYCARRIER-WAIST" }] }
-  } },
+    jp: { no: "BB-42", name: "베이캐리어 웨이스트타입", sale: "일반 판매", kind: "", releaseDate: "2009-06-20", price: "1050", composition: [{ label: "기타", name: "베이캐리어 웨이스트타입", quantity: "1개", target: "EQUIPMENT-BEYCARRIER-WAIST" }] }} },
   { id: "PRODUCT-BB-43", series: "metal fight", no: "BB-43", name: "", sale: "", kind: "", releases: {
     kr: { no: "BB-43", name: "라이트닝 엘드라고 100HF", sale: "일반 판매", kind: "스타터세트", releaseDate: "2009-09-23", price: "12000", composition: [{ label: "베이", name: "라이트닝 엘드라고 100HF", quantity: "1개", target: "BEY-BB-43-LIGHTNING-LDRAGO-100HF" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "파워런처L", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER-L" }] },
-    jp: { no: "BB-43", name: "라이트닝 엘드라고 100HF", sale: "일반 판매", kind: "스타터", releaseDate: "2009-07-18", price: "1260", composition: [{ label: "베이", name: "라이트닝 엘드라고 100HF", quantity: "1개", target: "BEY-BB-43-LIGHTNING-LDRAGO-100HF" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "베이런처L", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER-L" }] }
-  } },
+    jp: { no: "BB-43", name: "라이트닝 엘드라고 100HF", sale: "일반 판매", kind: "스타터", releaseDate: "2009-07-18", price: "1260", composition: [{ label: "베이", name: "라이트닝 엘드라고 100HF", quantity: "1개", target: "BEY-BB-43-LIGHTNING-LDRAGO-100HF" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "베이런처L", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER-L" }] }} },
   { id: "PRODUCT-BB-44", series: "metal fight", no: "BB-44", name: "", sale: "", kind: "", releases: {
     kr: { no: "BB-44", name: "메탈블레이드&런처", sale: "일반 판매", kind: "스타터세트", releaseDate: "2009-09-23", price: "8000", composition: [{ label: "베이", name: "무작위 베이", quantity: "1개", target: "BEY-BB-44-STORM-PEGASIS-100RF" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] },
-    jp: { no: "BB-44", name: "랜덤부스터 Vol.3 스타더스트 페가시스", sale: "일반 판매", kind: "부스터", releaseDate: "2009-07-18", price: "682", composition: [{ label: "베이", name: "무작위 베이", quantity: "1개", target: "BEY-BB-44-STORM-PEGASIS-100RF" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }
-  }, beyPool: [
-    "BEY-BB-44-STORM-PEGASIS-100RF",
-    "BEY-BB-44-ROCK-WOLF-H145B",
-    "BEY-BB-44-DARK-LEONE-C145B",
-    "BEY-BB-44-FLAME-WOLF-H145S",
-    "BEY-BB-44-STORM-SAGITTARIO-145SD",
-    "BEY-BB-44-ROCK-BULL-WD145HF",
-    "BEY-BB-44-DARK-SAGITTARIO-WD145SD",
-    "BEY-BB-44-FLAME-BULL-105WB"
-  ] },
+    jp: { no: "BB-44", name: "랜덤부스터 Vol.3 스타더스트 페가시스", sale: "일반 판매", kind: "부스터", releaseDate: "2009-07-18", price: "682", composition: [{ label: "베이", name: "무작위 베이", quantity: "1개", target: "BEY-BB-44-STORM-PEGASIS-100RF" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }}, beyPool: ["BEY-BB-44-STORM-PEGASIS-100RF", "BEY-BB-44-ROCK-WOLF-H145B", "BEY-BB-44-DARK-LEONE-C145B", "BEY-BB-44-FLAME-WOLF-H145S", "BEY-BB-44-STORM-SAGITTARIO-145SD", "BEY-BB-44-ROCK-BULL-WD145HF", "BEY-BB-44-DARK-SAGITTARIO-WD145SD", "BEY-BB-44-FLAME-BULL-105WB"] },
   { id: "PRODUCT-BB-45", series: "metal fight", no: "BB-45", name: "", sale: "", kind: "", releases: {
     kr: { no: "BB-45", name: "라이트블레이드 Vol.3", sale: "일반 판매", kind: "부스터", releaseDate: "2009-09-23", price: "3200", composition: [{ label: "베이", name: "무작위 베이", quantity: "1개", target: "BEY-BB-45-CLAY-ARIES-ED145B" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] },
-    jp: { no: "BB-45", name: "랜덤부스터 라이트 Vol.3", sale: "일반 판매", kind: "부스터", releaseDate: "2009-08-08", price: "682", composition: [{ label: "베이", name: "무작위 베이", quantity: "1개", target: "BEY-BB-45-CLAY-ARIES-ED145B" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }
-  }, beyPool: [
-    "BEY-BB-45-CLAY-ARIES-ED145B",
-    "BEY-BB-45-CLAY-PEGASIS-145S",
-    "BEY-BB-45-MAD-SAGITTARIO-C145SD",
-    "BEY-BB-45-HEAT-BULL-D125WB",
-    "BEY-BB-45-WIND-WOLF-H145D",
-    "BEY-BB-45-HEAT-LEONE-H145S",
-    "BEY-BB-45-MAD-BULL-C145HF",
-    "BEY-BB-45-WIND-SAGITTARIO-100SD"
-  ] },
+    jp: { no: "BB-45", name: "랜덤부스터 라이트 Vol.3", sale: "일반 판매", kind: "부스터", releaseDate: "2009-08-08", price: "682", composition: [{ label: "베이", name: "무작위 베이", quantity: "1개", target: "BEY-BB-45-CLAY-ARIES-ED145B" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }}, beyPool: [ "BEY-BB-45-CLAY-ARIES-ED145B", "BEY-BB-45-CLAY-PEGASIS-145S", "BEY-BB-45-MAD-SAGITTARIO-C145SD", "BEY-BB-45-HEAT-BULL-D125WB", "BEY-BB-45-WIND-WOLF-H145D", "BEY-BB-45-HEAT-LEONE-H145S", "BEY-BB-45-MAD-BULL-C145HF", "BEY-BB-45-WIND-SAGITTARIO-100SD"] },
   { id: "PRODUCT-BB-46", series: "metal fight", no: "BB-46", name: "", sale: "", kind: "", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "BB-46", name: "베이스타디움 스탠다드타입", sale: "일반 판매", kind: "", releaseDate: "2009-08-08", price: "2625", composition: [{ label: "스타디움", name: "베이스타디움 스탠다드타입", quantity: "1개", target: "EQUIPMENT-STANDARD-BEYSTADIUM" }, { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }] }
-  } },
+    jp: { no: "BB-46", name: "베이스타디움 스탠다드타입", sale: "일반 판매", kind: "", releaseDate: "2009-08-08", price: "2625", composition: [{ label: "스타디움", name: "베이스타디움 스탠다드타입", quantity: "1개", target: "EQUIPMENT-STANDARD-BEYSTADIUM" }, { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }] }} },
   { id: "PRODUCT-BB-47", series: "metal fight", no: "BB-47", name: "", sale: "일반 판매", kind: "", releases: {
     kr: { no: "BB-47", name: "어스 아쿠이라 145WD", sale: "일반 판매", kind: "스타터세트", releaseDate: "2009-09-23", price: "8000", composition: [{ label: "베이", name: "어스 아쿠이라 145WD", quantity: "1개", target: "BEY-BB-47-EARTH-AQUILA-145WD" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] },
-    jp: { no: "BB-47", name: "어스 아쿠이라 145WD", sale: "일반 판매", kind: "스타터", releaseDate: "2009-09-19", price: "892", composition: [{ label: "베이", name: "어스 아쿠이라 145WD", quantity: "1개", target: "BEY-BB-47-EARTH-AQUILA-145WD" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] }
-  } },
+    jp: { no: "BB-47", name: "어스 아쿠이라 145WD", sale: "일반 판매", kind: "스타터", releaseDate: "2009-09-19", price: "892", composition: [{ label: "베이", name: "어스 아쿠이라 145WD", quantity: "1개", target: "BEY-BB-47-EARTH-AQUILA-145WD" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] }} },
   { id: "PRODUCT-BB-47-1", series: "metal fight", no: "BB-47-1", name: "", sale: "일반 판매", kind: "", releases: {
     kr: { no: "BB-47-1", name: "어스 아쿠이라 145WD", sale: "일반 판매", kind: "부스터", releaseDate: "2011-04-12", price: "6400", composition: [{ label: "베이", name: "어스 아쿠이라 145WD", quantity: "1개", target: "BEY-BB-47-EARTH-AQUILA-145WD" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] },
-    jp: { status: "unreleased" }
-  } },
+    jp: { status: "unreleased" }} },
   { id: "PRODUCT-BB-48", series: "metal fight", no: "BB-48", name: "", sale: "", kind: "", releases: {
     kr: { no: "BB-48", name: "플레임 리브라 T125ES", sale: "일반 판매", kind: "스타터세트", releaseDate: "2009-09-23", price: "8000", composition: [{ label: "베이", name: "플레임 리브라 T125ES", quantity: "1개", target: "BEY-BB-48-FLAME-LIBRA-T125ES" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] },
-    jp: { no: "BB-48", name: "플레임 리브라 T125ES", sale: "일반 판매", kind: "부스터", releaseDate: "2009-09-19", price: "787", composition: [{ label: "베이", name: "플레임 리브라 T125ES", quantity: "1개", target: "BEY-BB-48-FLAME-LIBRA-T125ES" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }
-  } },
+    jp: { no: "BB-48", name: "플레임 리브라 T125ES", sale: "일반 판매", kind: "부스터", releaseDate: "2009-09-19", price: "787", composition: [{ label: "베이", name: "플레임 리브라 T125ES", quantity: "1개", target: "BEY-BB-48-FLAME-LIBRA-T125ES" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }} },
   { id: "PRODUCT-BB-48-1", series: "metal fight", no: "BB-48-1", name: "", sale: "", kind: "", releases: {
     kr: { no: "BB-48-1", name: "플레임 리브라 T125ES", sale: "일반 판매", kind: "부스터", releaseDate: "2011-04-12", price: "6400", composition: [{ label: "베이", name: "플레임 리브라 T125ES", quantity: "1개", target: "BEY-BB-48-FLAME-LIBRA-T125ES" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] },
-    jp: { status: "unreleased" }
-  } },
+    jp: { status: "unreleased" }} },
   { id: "PRODUCT-KR-METAL-PERFECT-MASTER-SET", series: "metal fight", no: "", name: "", sale: "", kind: "", releases: {
     kr: { no: "", name: "메탈 퍼펙트 마스터 세트", sale: "일반 판매", kind: "세트", releaseDate: "2009-09-23", price: "49600", composition: [{ label: "베이", name: "스톰 페가시스 105RF", quantity: "1개", target: "BEY-BB-28-STORM-PEGASIS-105RF" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }, { label: "그립", name: "런처그립", quantity: "1개", target: "EQUIPMENT-LAUNCHER-GRIP" }, { label: "기타", name: "앵글컴파스", quantity: "1개", target: "EQUIPMENT-ANGLE-COMPASS" }, { label: "스타디움", name: "공격형 베이스타디움", quantity: "1개", target: "EQUIPMENT-ATTACK-BEYSTADIUM" }, { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }, { label: "기타", name: "캐리어케이스", quantity: "1개", target: "EQUIPMENT-CARRIER-CASE" }] },
-    jp: { status: "unreleased" }
-  } },
+    jp: { status: "unreleased" }} },
   { id: "PRODUCT-KR-LAUNCHER-GRIP-ANGLE-COMPASS", series: "metal fight", no: "", name: "", sale: "", kind: "", releases: {
     kr: { no: "", name: "런처그립&앵글컴퍼스", sale: "일반 판매", kind: "", releaseDate: "2010-07", price: "8800", composition: [] },
-    jp: { status: "unreleased" }
-  } },
+    jp: { status: "unreleased" }} },
   { id: "PRODUCT-BB-49", series: "metal fight", no: "BB-49", name: "", sale: "", kind: "", releases: {
     kr: { status: "unreleased" },
     jp: { no: "BB-49", name: "앵글컴파스", sale: "일반 판매", kind: "", releaseDate: "2009-09-19", price: "525", composition: [{ label: "기타", name: "앵글컴파스", quantity: "1개", target: "EQUIPMENT-ANGLE-COMPASS" }] }
