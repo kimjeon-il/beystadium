@@ -717,7 +717,7 @@ const productItems = [
     { label: "베이", name: "페가시스 105F", target: "BEY-BB-09-PEGASIS-105F" },
     { label: "런처", name: "라이트런처", target: "EQUIPMENT-LIGHT-LAUNCHER" },
     { label: "기타", name: "포인터", target: "EQUIPMENT-POINTER" },
-    { label: "스타디움", name: "메탈파이트 스타디움 공격형", target: "EQUIPMENT-ATTACK-BEYSTADIUM" },
+    { label: "스타디움", name: "공격형 메탈파이트 스타디움", target: "EQUIPMENT-ATTACK-BEYSTADIUM" },
     { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }
   ] },
   { id: "PRODUCT-BB-10", series: "metal fight", no: "BB-10", name: "공격형 메탈파이트 스타디움", sale: "일반 판매", kind: "", equipment: "스타디움", price: "6400", releaseDate: "2008-10", releases: {
@@ -769,7 +769,7 @@ const productItems = [
   { id: "PRODUCT-BB-14", series: "metal fight", no: "BB-14", name: "", sale: "일반 판매", kind: "", equipment: "스타디움", releases: {
     kr: { status: "unreleased" },
     jp: { no: "BB-14", name: "베이스타디움 밸런스타입", sale: "일반 판매", kind: "", equipment: "스타디움", releaseDate: "2008-09-18", price: "1260", composition: [
-      { label: "스타디움", name: "메탈파이트 스타디움 밸런스형", target: "EQUIPMENT-BALANCE-BEYSTADIUM" },
+      { label: "스타디움", name: "밸런스형 메탈파이트 스타디움", target: "EQUIPMENT-BALANCE-BEYSTADIUM" },
       { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }
     ] }
   } },
@@ -807,7 +807,7 @@ const productItems = [
   { id: "PRODUCT-BB-19", series: "metal fight", no: "BB-19", name: "", sale: "일반 판매", kind: "", equipment: "스타디움", releases: {
     kr: { status: "unreleased" },
     jp: { no: "BB-19", name: "베이스타디움 스태미나타입", sale: "일반 판매", kind: "", equipment: "스타디움", releaseDate: "2008-10-23", price: "1365", composition: [
-      { label: "스타디움", name: "메탈파이트 스타디움 스테미너형", target: "EQUIPMENT-STAMINA-BEYSTADIUM" },
+      { label: "스타디움", name: "스테미너형 메탈파이트 스타디움", target: "EQUIPMENT-STAMINA-BEYSTADIUM" },
       { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }
     ] }
   } },
@@ -827,7 +827,7 @@ const productItems = [
     { label: "기타", name: "툴", quantity: "2개", target: "EQUIPMENT-TOOL" },
     { label: "기타", name: "포인터", quantity: "2개", target: "EQUIPMENT-POINTER" },
     { label: "런처", name: "파워런처", quantity: "2개", target: "EQUIPMENT-POWER-LAUNCHER" },
-    { label: "스타디움", name: "메탈파이트 스타디움 밸런스형", target: "EQUIPMENT-BALANCE-BEYSTADIUM" },
+    { label: "스타디움", name: "밸런스형 메탈파이트 스타디움", target: "EQUIPMENT-BALANCE-BEYSTADIUM" },
     { label: "기타", name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }
   ] },
   { id: "PRODUCT-BB-21", series: "metal fight", no: "BB-21", name: "파워커스터마이즈세트 공격형&밸런스형", sale: "일반 판매", kind: "세트", releaseDate: "2008-12", price: "24000", releases: {
