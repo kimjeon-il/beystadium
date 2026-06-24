@@ -234,6 +234,7 @@ const items = [
   { id: "FACE-PEGASIS", type: "face", name: "페가시스", en: "Pegasis", sub: "페이스", tags: ["FACE"], desc: "페가시스의 별자리를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
   { id: "FACE-LEONE", type: "face", name: "레온", en: "Leone", sub: "페이스", tags: ["FACE"], desc: "레온의 별자리를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
   { id: "FACE-SAGITTARIO", type: "face", name: "사지타리오", en: "Sagittario", sub: "페이스", tags: ["FACE"], desc: "사지타리오의 별자리를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-METAL-FACE", type: "face", name: "메탈페이스", en: "Metal Face", sub: "페이스", tags: ["FACE"], desc: "무거워진 중량이 공격력과 방어력을 향상시킨다.", stats: [60, 60, 0] },
   { id: "FACE-BULL", type: "face", name: "불", en: "Bull", sub: "페이스", tags: ["FACE"], desc: "불의 별자리를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
   { id: "FACE-QUETZALCOATL", type: "face", name: "케찰코아틀", en: "Quetzalcoatl", sub: "페이스", tags: ["FACE"], desc: "케찰코아틀을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
   { id: "FACE-WOLF", type: "face", name: "울프", en: "Wolf", sub: "페이스", tags: ["FACE"], desc: "울프를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
@@ -257,6 +258,7 @@ const items = [
   { id: "FACE-GIRAFFE", type: "face", name: "기라프", en: "Giraffe", sub: "페이스", tags: ["FACE"], desc: "기라프를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
   { id: "FACE-PERSEUS", type: "face", name: "페르세우스", en: "Perseus", sub: "페이스", tags: ["FACE"], desc: "페르세우스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
   { id: "FACE-KETOS", type: "face", name: "케토스", en: "Ketos", sub: "페이스", tags: ["FACE"], desc: "케토스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "FACE-METAL-FACE-CUSTOM-VERSION", type: "face", name: "메탈페이스 커스텀버전", en: "Metal Face Custom Ver.", sub: "페이스", tags: ["FACE"], desc: "무거워진 중량이 공격력과 방어력을 향상시킨다.", modes: [{ name: "헤비", stats: [60, 60, 0] }, { name: "미들", stats: [0, 0, 0] }, { name: "라이트", stats: [0, 0, 0] }, { name: "제로", stats: [0, 0, 0] }] },
   { id: "FACE-BLAZE", type: "face", name: "블레이즈", en: "Blaze", sub: "페이스", tags: ["FACE"], desc: "블레이즈를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
   { id: "FACE-CHIMERA", type: "face", name: "키메라", en: "Chimera", sub: "페이스", tags: ["FACE"], desc: "키메라를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
   { id: "FACE-HORUSEUS", type: "face", name: "호르세우스", en: "Horuseus", sub: "페이스", tags: ["FACE"], desc: "호르세우스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
@@ -527,15 +529,15 @@ const items = [
   { id: "BOTTOM-DEFENSE-SHARP", type: "bottom", name: "DS", en: "Defense Sharp", sub: "디펜스샤프", tags: ["BOTTOM", "STAMINA"], desc: "디펜스 축의 모양을 한 샤프 축으로 지구력이 뛰어나고 방어력이 우수하다.", stats: [5, 25, 40] },
   { id: "BOTTOM-ETERNAL-WIDE-DEFENSE", type: "bottom", name: "EWD", en: "Eternal Wide Defense", sub: "이터널와이드디펜스", tags: ["BOTTOM", "STAMINA"], desc: "중앙이 자유롭게 회전하는 버텀으로 강력한 지구력과 방어력을 발휘한다.", stats: [0, 30, 50] },
   { id: "BOTTOM-METAL-FLAT", type: "bottom", name: "MF", en: "Metal Flat", sub: "메탈플랫", tags: ["BOTTOM", "ATTACK"], desc: "기동력 있는 플랫축에 마찰저항이 낮은 금속 소재를 사용하여 지구력도 겸비하고 있다.", stats: [50, 0, 20] },
-  { id: "4DBOTTOM-FINAL-DRIVE", type: "fourdbottom", name: "F:D", en: "Final Drive", sub: "파이널드라이브", tags: ["4DBOTTOM", "ATTACK"], desc: "회전력이 떨어지면 세미플랫 축이 러버플랫 축으로 전환되어 급가속으로 회전한다.", stats: [60, 0, 10] },
+  { id: "4DBOTTOM-FINAL-DRIVE", type: "4dbottom", name: "F:D", en: "Final Drive", sub: "파이널드라이브", tags: ["4DBOTTOM", "ATTACK"], desc: "회전력이 떨어지면 세미플랫 축이 러버플랫 축으로 전환되어 급가속으로 회전한다.", stats: [60, 0, 10] },
   { id: "BOTTOM-WAVE-WIDE-DEFENSE", type: "bottom", name: "W²D", en: "Wave Wide Defense", sub: "웨이브와이드디펜스", tags: ["BOTTOM", "DEFENSE"], desc: "접지점의 끝이 점에 가까워서 지구력을 발휘하고 와이드디펜스 버텀에 가까운 모양으로 방어력이 뛰어나다.", stats: [0, 40, 30] },
-  { id: "4DBOTTOM-FINAL-SURVIVE", type: "fourdbottom", name: "F:S", en: "Final Survive", sub: "파이널서바이브", tags: ["4DBOTTOM", "ATTACK"], desc: "홀플랫 축으로 격렬하게 회전하다가 적과 부딪히면 샤프 축으로 전환하여 지구력을 높인다.", stats: [40, 0, 30] },
+  { id: "4DBOTTOM-FINAL-SURVIVE", type: "4dbottom", name: "F:S", en: "Final Survive", sub: "파이널서바이브", tags: ["4DBOTTOM", "ATTACK"], desc: "홀플랫 축으로 격렬하게 회전하다가 적과 부딪히면 샤프 축으로 전환하여 지구력을 높인다.", stats: [40, 0, 30] },
   { id: "BOTTOM-ETERNAL-DEFENSE-SHARP", type: "bottom", name: "EDS", en: "Eternal Defense Sharp", sub: "이터널디펜스샤프", tags: ["BOTTOM", "STAMINA"], desc: "중앙이 자유롭게 회전하는 디펜스 축의 넓이를 가진 샤프 축.", stats: [0, 20, 50] },
-  { id: "4DBOTTOM-DELTA-DRIVE", type: "fourdbottom", name: "D:D", en: "Delta Drive", sub: "델타드라이브", tags: ["4DBOTTOM", "BALANCE"], desc: "축의 끝이 방어, 지구, 공격의 3가지 모드로 전환된다.", stats: [30, 30, 20] },
+  { id: "4DBOTTOM-DELTA-DRIVE", type: "4dbottom", name: "D:D", en: "Delta Drive", sub: "델타드라이브", tags: ["4DBOTTOM", "BALANCE"], desc: "축의 끝이 방어, 지구, 공격의 3가지 모드로 전환된다.", stats: [30, 30, 20] },
   { id: "BOTTOM-RUBBER-BALL", type: "bottom", name: "RB", en: "Rubber Ball", sub: "러버볼", tags: ["BOTTOM", "STAMINA"], desc: "돔 모양의 형태와 고무의 마찰력으로 쉽게 쓰러지거나 튕겨나가지 않아 방어력이 뛰어나다.", stats: [20, 50, 0] },
-  { id: "4DBOTTOM-BEARING-DRIVE", type: "fourdbottom", name: "B:D", en: "Bearing Drive", sub: "베어링드라이브", tags: ["4DBOTTOM", "STAMINA"], desc: "자유롭게 회전하는 축 안에 베어링을 내장함으로써 마찰을 최소화시켜 최강의 지구력을 발휘한다.", stats: [0, 10, 60] },
+  { id: "4DBOTTOM-BEARING-DRIVE", type: "4dbottom", name: "B:D", en: "Bearing Drive", sub: "베어링드라이브", tags: ["4DBOTTOM", "STAMINA"], desc: "자유롭게 회전하는 축 안에 베어링을 내장함으로써 마찰을 최소화시켜 최강의 지구력을 발휘한다.", stats: [0, 10, 60] },
   { id: "BOTTOM-RUBBER-DEFENSE-FLAT", type: "bottom", name: "RDF", en: "Rubber Defense Flat", sub: "러버디펜스플랫", tags: ["BOTTOM", "BALANCE"], desc: "고무의 공격력은 유지한 채 방어력과 지구력을 동시에 겸비한 밸런스형 버텀.", stats: [20, 30, 20] },
-  { id: "4DBOTTOM-X-DRIVE", type: "fourdbottom", name: "X:D", en: "X Drive", sub: "엑스드라이브", tags: ["4DBOTTOM", "BALANCE"], desc: "공격모드에서는 익스트림플랫과 샤프 축으로 전환되고, 극한의밸런스모드에서는 익스트림플랫, 스텔스세미디펜스, 샤프 축으로 자동 전환된다.", stats: [30, 20, 20] },
+  { id: "4DBOTTOM-X-DRIVE", type: "4dbottom", name: "X:D", en: "X Drive", sub: "엑스드라이브", tags: ["4DBOTTOM", "BALANCE"], desc: "공격모드에서는 익스트림플랫과 샤프 축으로 전환되고, 극한의밸런스모드에서는 익스트림플랫, 스텔스세미디펜스, 샤프 축으로 자동 전환된다.", stats: [30, 20, 20] },
   { id: "BOTTOM-SHARP-WIDE-DEFENSE", type: "bottom", name: "SWD", en: "Sharp Wide Defense", sub: "샤프와이드디펜스", tags: ["BOTTOM", "BALANCE"], desc: "와이드디펜스 버텀의 특징을 가지면서 샤프축으로 지구력을 높여 안정된 균형잡힌 파워를 가지고 있다.", stats: [10, 30, 30] },
   { id: "BOTTOM-CIRCLE-FLAT", type: "bottom", name: "CF", en: "Circle Flat", sub: "서클플랫", tags: ["BOTTOM", "ATTACK"], desc: "플랫부분으로 평면을 달리고, 서클부분으로 경사면을 뛰어오르며 거침없이 회전한다.", stats: [50, 10, 10] },
   { id: "BOTTOM-GEAR-CIRCLE-FLAT", type: "bottom", name: "GCF", en: "Gear Circle Flat", sub: "기어서클플랫", tags: ["BOTTOM", "ATTACK"], desc: "돌기가 있는 테두리 부분이 속도를 제어하는 역할을 한다.", stats: [40, 20, 10] },
@@ -589,7 +591,7 @@ const activeSearchBox = () => activeToyPanel()?.querySelector(".search-box");
 const toTop = document.querySelector("#toTop");
 const menuButton = document.querySelector("#menuButton");
 const mobileDrawer = document.querySelector("#mobileDrawer");
-const typeLabels = { bey: "베이", face: "페이스", wheel: "휠", clearwheel: "클리어휠", lightwheel: "라이트휠", metalwheel: "메탈휠", track: "트랙", bottom: "버텀", fourdbottom: "4D버텀", stoneface: "스톤페이스", chromewheel: "크롬휠", crystalwheel: "크리스탈휠" };
+const typeLabels = { bey: "베이", face: "페이스", wheel: "휠", clearwheel: "클리어휠", lightwheel: "라이트휠", metalwheel: "메탈휠", track: "트랙", bottom: "버텀", 4dbottom: "4D버텀", stoneface: "스톤페이스", chromewheel: "크롬휠", crystalwheel: "크리스탈휠" };
 const tagLabels = { ATTACK: "공격형", DEFENSE: "방어형", STAMINA: "지구형", BALANCE: "균형형", "RIGHT SPIN": "우회전", "LEFT SPIN": "좌회전", "DUAL SPIN": "양회전", FACE: "페이스", STONEFACE: "스톤페이스", WHEEL: "휠", CLEARWHEEL: "클리어휠", LIGHTWHEEL: "라이트휠", METALWHEEL: "메탈휠", CHROMEWHEEL: "크롬휠", CRYSTALWHEEL: "크리스탈휠", TRACK: "트랙", BOTTOM: "버텀", "4DBOTTOM": "4D버텀", LOW: "낮은 높이", HIGH: "높은 높이" };
 const structureLabels = { basic: "4단 구조 시스템", hybrid: "하이브리드 시스템", "4d": "4D 시스템", synchrome: "싱크롬 시스템" };
 const categoryTags = ["FACE", "STONEFACE", "WHEEL", "CLEARWHEEL", "LIGHTWHEEL", "METALWHEEL", "CHROMEWHEEL", "CRYSTALWHEEL", "TRACK", "BOTTOM", "4DBOTTOM"];
@@ -954,7 +956,7 @@ const productItems = [
   } },
   { id: "PRODUCT-BB-36", series: "metal fight", no: "BB-36", name: "", sale: "일반 판매", kind: "", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "BB-36", name: "메탈페이스", sale: "일반 판매", kind: "", releaseDate: "2009-04-25", price: "367", composition: [{ label: "기타", name: "메탈페이스", quantity: "2개", target: "EQUIPMENT-METAL-FACE" }, { label: "기타", name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }] }
+    jp: { no: "BB-36", name: "메탈페이스", sale: "일반 판매", kind: "", releaseDate: "2009-04-25", price: "367", composition: [{ label: "페이스", name: "메탈페이스", quantity: "2개", target: "FACE-METAL-FACE" }, { label: "기타", name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }] }
   } },
   { id: "PRODUCT-BB-37", series: "metal fight", no: "BB-37", name: "", sale: "일반 판매", kind: "", releases: {
     kr: { no: "BB-37", name: "라이트블레이드 Vol.2", sale: "일반 판매", kind: "부스터", releaseDate: "2009-09-23", price: "3200", composition: [{ label: "베이", name: "무작위 베이", quantity: "1개", target: "BEY-BB-37-WIND-AQUARIO-100HFS" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] },
@@ -1104,7 +1106,7 @@ const productItems = [
     jp: { status: "unreleased" }
   } },
   { id: "PRODUCT-KR-METAL-FACE-SUSPENSION", series: "metal fight", no: "", name: "", sale: "일반 판매", kind: "", releases: {
-    kr: { no: "", name: "메탈페이스&서스펜션", sale: "일반 판매", kind: "", releaseDate: "2010-02-10", price: "9600", composition: [{ label: "기타", name: "메탈페이스", quantity: "4개", target: "EQUIPMENT-METAL-FACE" }, { label: "기타", name: "홀더툴", quantity: "2개", target: "EQUIPMENT-HOLDER-TOOL" }, { label: "기타", name: "파워런처 서스펜션", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER-SUSPENSION" }] },
+    kr: { no: "", name: "메탈페이스&서스펜션", sale: "일반 판매", kind: "", releaseDate: "2010-02-10", price: "9600", composition: [{ label: "페이스", name: "메탈페이스", quantity: "4개", target: "FACE-METAL-FACE" }, { label: "기타", name: "홀더툴", quantity: "2개", target: "EQUIPMENT-HOLDER-TOOL" }, { label: "기타", name: "파워런처 서스펜션", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER-SUSPENSION" }] },
     jp: { status: "unreleased" }
   } },
   { id: "PRODUCT-BB-58", series: "metal fight", no: "BB-58", name: "", sale: "일반 판매", kind: "", releases: {
@@ -1158,11 +1160,11 @@ const productItems = [
   } },
   { id: "PRODUCT-BB-66", series: "metal fight", no: "BB-66", name: "", sale: "일반 판매", kind: "", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "BB-66", name: "메탈페이스(레드)", sale: "일반 판매", kind: "", releaseDate: "2010-01-23", price: "367", composition: [{ label: "기타", name: "메탈페이스", quantity: "2개", target: "EQUIPMENT-METAL-FACE" }, { label: "기타", name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }] }
+    jp: { no: "BB-66", name: "메탈페이스(레드)", sale: "일반 판매", kind: "", releaseDate: "2010-01-23", price: "367", composition: [{ label: "페이스", name: "메탈페이스", quantity: "2개", target: "FACE-METAL-FACE" }, { label: "기타", name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }] }
   } },
   { id: "PRODUCT-BB-67", series: "metal fight", no: "BB-67", name: "", sale: "일반 판매", kind: "", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "BB-67", name: "메탈페이스(건메탈릭)", sale: "일반 판매", kind: "", releaseDate: "2010-01-23", price: "367", composition: [{ label: "기타", name: "메탈페이스", quantity: "2개", target: "EQUIPMENT-METAL-FACE" }, { label: "기타", name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }] }
+    jp: { no: "BB-67", name: "메탈페이스(건메탈릭)", sale: "일반 판매", kind: "", releaseDate: "2010-01-23", price: "367", composition: [{ label: "페이스", name: "메탈페이스", quantity: "2개", target: "FACE-METAL-FACE" }, { label: "기타", name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }] }
   } },
   { id: "PRODUCT-BB-68", series: "metal fight", no: "BB-68", name: "", sale: "일반 판매", kind: "", releases: {
     kr: { status: "unreleased" },
@@ -1278,12 +1280,12 @@ const productItems = [
     jp: { no: "BB-83", name: "파이시즈 DF145BS", sale: "일반 판매", kind: "부스터", releaseDate: "2010-07-24", price: "682", composition: [] }
   } },
   { id: "PRODUCT-BB-84", series: "metal fight", no: "BB-84", name: "", sale: "일반 판매", kind: "", releases: {
-    kr: { no: "BB-84", name: "메탈페이스 커스텀 Ver.(클리어)", sale: "일반 판매", kind: "", releaseDate: "2011-01-13", price: "4000", composition: [{ label: "기타", name: "메탈페이스 커스텀 Ver.", quantity: "2개", target: "EQUIPMENT-METAL-FACE" }, { label: "기타", name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }] },
-    jp: { no: "BB-84", name: "메탈페이스 개조 Ver.(클리어)", sale: "일반 판매", kind: "", releaseDate: "2010-07-24", price: "367", composition: [{ label: "기타", name: "메탈페이스 개조 Ver.", quantity: "2개", target: "EQUIPMENT-METAL-FACE" }, { label: "기타", name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }] }
+    kr: { no: "BB-84", name: "메탈페이스 커스텀 Ver.(클리어)", sale: "일반 판매", kind: "", releaseDate: "2011-01-13", price: "4000", composition: [{ label: "페이스", name: "메탈페이스 커스텀 Ver.", quantity: "2개", target: "FACE-METAL-FACE-CUSTOM-VERSION" }, { label: "기타", name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }] },
+    jp: { no: "BB-84", name: "메탈페이스 개조 Ver.(클리어)", sale: "일반 판매", kind: "", releaseDate: "2010-07-24", price: "367", composition: [{ label: "페이스", name: "메탈페이스 개조 Ver.", quantity: "2개", target: "FACE-METAL-FACE-CUSTOM-VERSION" }, { label: "기타", name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }] }
   } },
   { id: "PRODUCT-BB-85", series: "metal fight", no: "BB-85", name: "", sale: "일반 판매", kind: "", releases: {
-    kr: { no: "BB-85", name: "메탈페이스 커스텀 Ver.(오렌지)", sale: "일반 판매", kind: "", releaseDate: "2011-01-13", price: "4000", composition: [{ label: "기타", name: "메탈페이스 커스텀 Ver.", quantity: "2개", target: "EQUIPMENT-METAL-FACE" }, { label: "기타", name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }] },
-    jp: { no: "BB-85", name: "메탈페이스 개조 Ver.(오렌지)", sale: "일반 판매", kind: "", releaseDate: "2010-07-24", price: "367", composition: [{ label: "기타", name: "메탈페이스 개조 Ver.", quantity: "2개", target: "EQUIPMENT-METAL-FACE" }, { label: "기타", name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }] }
+    kr: { no: "BB-85", name: "메탈페이스 커스텀 Ver.(오렌지)", sale: "일반 판매", kind: "", releaseDate: "2011-01-13", price: "4000", composition: [{ label: "페이스", name: "메탈페이스 커스텀 Ver.", quantity: "2개", target: "FACE-METAL-FACE-CUSTOM-VERSION" }, { label: "기타", name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }] },
+    jp: { no: "BB-85", name: "메탈페이스 개조 Ver.(오렌지)", sale: "일반 판매", kind: "", releaseDate: "2010-07-24", price: "367", composition: [{ label: "페이스", name: "메탈페이스 개조 Ver.", quantity: "2개", target: "FACE-METAL-FACE-CUSTOM-VERSION" }, { label: "기타", name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }] }
   } },
   { id: "PRODUCT-BB-86", series: "metal fight", no: "BB-86", name: "", sale: "일반 판매", kind: "", releases: {
     kr: { no: "BB-86", name: "베이블레이드 덱 어택&디펜스 세트", sale: "일반 판매", kind: "세트", releaseDate: "2010-10-01", price: "25600", composition: [{ label: "베이", name: "카운터 에스콜피오 145D", quantity: "1개", target: "BEY-BB-86-COUNTER-SCORPIO-145D" }, { label: "베이", name: "사이버 아쿠아리오 105F", quantity: "1개", target: "BEY-BB-86-CYBER-AQUARIO-105F" }, { label: "베이", name: "포이즌 기라프 S130MB", quantity: "1개", target: "BEY-BB-86-POISON-GIRAFFE-S130MB" }, { label: "기타", name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { label: "런처", name: "라이트런처2", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER-2" }, { label: "기타", name: "베이 덱 케이스", quantity: "1개", target: "EQUIPMENT-BEY-DECK-CASE" }] },
@@ -1346,8 +1348,8 @@ const productItems = [
     jp: { no: "BB-96", name: "베이블레이드 슈퍼 덱", sale: "일반 판매", kind: "세트", releaseDate: "2010-11-20", price: "2415", composition: [{ label: "베이", name: "페가시스 85RF", quantity: "1개", target: "BEY-BB-96-PEGASIS-85RF" }, { label: "베이", name: "리브라 100D", quantity: "1개", target: "BEY-BB-96-LIBRA-100D" }, { label: "베이", name: "번 캔서 90WD", quantity: "1개", target: "BEY-BB-96-BURN-CANCER-90WD" }, { label: "기타", name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }] }
   } },
   { id: "PRODUCT-BB-97", series: "metal fight", no: "BB-97", name: "", sale: "일반 판매", kind: "", releases: {
-    kr: { no: "BB-97", name: "스페셜 커스텀 세트 페르세우스 Ver.", sale: "일반 판매", kind: "세트", releaseDate: "2011-02-01", price: "39800", composition: [{ label: "페이스", name: "페르세우스 페이스", quantity: "3개", target: "FACE-PERSEUS" }, { label: "기타", name: "메탈페이스 커스텀 Ver.", quantity: "2개", target: "EQUIPMENT-METAL-FACE" }, { label: "클리어휠", name: "페르세우스 클리어휠", quantity: "1개", target: "CLEARWHEEL-PERSEUS" }, { label: "클리어휠", name: "페르세우스 어택 클리어휠", quantity: "1개", target: "CLEARWHEEL-PERSEUS-ATTACK" }, { label: "클리어휠", name: "페르세우스 스테미너 클리어휠", quantity: "1개", target: "CLEARWHEEL-PERSEUS-STAMINA" }, { label: "메탈휠", name: "그라비티 메탈휠", quantity: "2개", target: "METALWHEEL-GRAVITY" }, { label: "트랙", name: "GB145 트랙", quantity: "1개", target: "TRACK-GB145" }, { label: "트랙", name: "AD145 트랙", quantity: "1개", target: "TRACK-AD145" }, { label: "트랙", name: "105 트랙", quantity: "1개", target: "TRACK-105" }, { label: "트랙", name: "130 트랙", quantity: "1개", target: "TRACK-130" }, { label: "버텀", name: "S 버텀", quantity: "1개", target: "BOTTOM-SHARP" }, { label: "버텀", name: "WD 버텀", quantity: "1개", target: "BOTTOM-WIDE-DEFENSE" }, { label: "버텀", name: "F 버텀", quantity: "1개", target: "BOTTOM-FLAT" }, { label: "버텀", name: "RS 버텀", quantity: "1개", target: "BOTTOM-RUBBER-SHARP" }, { label: "기타", name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }, { label: "런처", name: "파워런처LR", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER-LR" }, { label: "그립", name: "런처그립", quantity: "1개", target: "EQUIPMENT-LAUNCHER-GRIP" }, { label: "스타디움", name: "스퀘어형 베이스타디움", quantity: "1개", target: "EQUIPMENT-WIDE-SQUARE-BEYSTADIUM" }] },
-    jp: { no: "BB-97", name: "베이블레이드 궁극 개조 세트 페르세우스 Ver.", sale: "일반 판매", kind: "세트", releaseDate: "2010-11-20", price: "3780", composition: [{ label: "페이스", name: "페르세우스 페이스", quantity: "3개", target: "FACE-PERSEUS" }, { label: "기타", name: "메탈페이스 개조 Ver.", quantity: "2개", target: "EQUIPMENT-METAL-FACE" }, { label: "클리어휠", name: "페르세우스 클리어휠", quantity: "1개", target: "CLEARWHEEL-PERSEUS" }, { label: "클리어휠", name: "페르세우스 어택 클리어휠", quantity: "1개", target: "CLEARWHEEL-PERSEUS-ATTACK" }, { label: "클리어휠", name: "페르세우스 스테미너 클리어휠", quantity: "1개", target: "CLEARWHEEL-PERSEUS-STAMINA" }, { label: "메탈휠", name: "그라비티 메탈휠", quantity: "2개", target: "METALWHEEL-GRAVITY" }, { label: "트랙", name: "GB145 트랙", quantity: "1개", target: "TRACK-GB145" }, { label: "트랙", name: "AD145 트랙", quantity: "1개", target: "TRACK-AD145" }, { label: "트랙", name: "105 트랙", quantity: "1개", target: "TRACK-105" }, { label: "트랙", name: "130 트랙", quantity: "1개", target: "TRACK-130" }, { label: "버텀", name: "S 버텀", quantity: "1개", target: "BOTTOM-SHARP" }, { label: "버텀", name: "WD 버텀", quantity: "1개", target: "BOTTOM-WIDE-DEFENSE" }, { label: "버텀", name: "F 버텀", quantity: "1개", target: "BOTTOM-FLAT" }, { label: "버텀", name: "RS 버텀", quantity: "1개", target: "BOTTOM-RUBBER-SHARP" }, { label: "기타", name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }, { label: "런처", name: "베이런처LR", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER-LR" }, { label: "그립", name: "3세그 런처그립", quantity: "1개", target: "EQUIPMENT-3SEG-LAUNCHER-GRIP" }] }
+    kr: { no: "BB-97", name: "스페셜 커스텀 세트 페르세우스 Ver.", sale: "일반 판매", kind: "세트", releaseDate: "2011-02-01", price: "39800", composition: [{ label: "페이스", name: "페르세우스 페이스", quantity: "3개", target: "FACE-PERSEUS" }, { label: "페이스", name: "메탈페이스 커스텀 Ver.", quantity: "2개", target: "FACE-METAL-FACE-CUSTOM-VERSION" }, { label: "클리어휠", name: "페르세우스 클리어휠", quantity: "1개", target: "CLEARWHEEL-PERSEUS" }, { label: "클리어휠", name: "페르세우스 어택 클리어휠", quantity: "1개", target: "CLEARWHEEL-PERSEUS-ATTACK" }, { label: "클리어휠", name: "페르세우스 스테미너 클리어휠", quantity: "1개", target: "CLEARWHEEL-PERSEUS-STAMINA" }, { label: "메탈휠", name: "그라비티 메탈휠", quantity: "2개", target: "METALWHEEL-GRAVITY" }, { label: "트랙", name: "GB145 트랙", quantity: "1개", target: "TRACK-GB145" }, { label: "트랙", name: "AD145 트랙", quantity: "1개", target: "TRACK-AD145" }, { label: "트랙", name: "105 트랙", quantity: "1개", target: "TRACK-105" }, { label: "트랙", name: "130 트랙", quantity: "1개", target: "TRACK-130" }, { label: "버텀", name: "S 버텀", quantity: "1개", target: "BOTTOM-SHARP" }, { label: "버텀", name: "WD 버텀", quantity: "1개", target: "BOTTOM-WIDE-DEFENSE" }, { label: "버텀", name: "F 버텀", quantity: "1개", target: "BOTTOM-FLAT" }, { label: "버텀", name: "RS 버텀", quantity: "1개", target: "BOTTOM-RUBBER-SHARP" }, { label: "기타", name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }, { label: "런처", name: "파워런처LR", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER-LR" }, { label: "그립", name: "런처그립", quantity: "1개", target: "EQUIPMENT-LAUNCHER-GRIP" }, { label: "스타디움", name: "스퀘어형 베이스타디움", quantity: "1개", target: "EQUIPMENT-WIDE-SQUARE-BEYSTADIUM" }] },
+    jp: { no: "BB-97", name: "베이블레이드 궁극 개조 세트 페르세우스 Ver.", sale: "일반 판매", kind: "세트", releaseDate: "2010-11-20", price: "3780", composition: [{ label: "페이스", name: "페르세우스 페이스", quantity: "3개", target: "FACE-PERSEUS" }, { label: "페이스", name: "메탈페이스 개조 Ver.", quantity: "2개", target: "FACE-METAL-FACE-CUSTOM-VERSION" }, { label: "클리어휠", name: "페르세우스 클리어휠", quantity: "1개", target: "CLEARWHEEL-PERSEUS" }, { label: "클리어휠", name: "페르세우스 어택 클리어휠", quantity: "1개", target: "CLEARWHEEL-PERSEUS-ATTACK" }, { label: "클리어휠", name: "페르세우스 스테미너 클리어휠", quantity: "1개", target: "CLEARWHEEL-PERSEUS-STAMINA" }, { label: "메탈휠", name: "그라비티 메탈휠", quantity: "2개", target: "METALWHEEL-GRAVITY" }, { label: "트랙", name: "GB145 트랙", quantity: "1개", target: "TRACK-GB145" }, { label: "트랙", name: "AD145 트랙", quantity: "1개", target: "TRACK-AD145" }, { label: "트랙", name: "105 트랙", quantity: "1개", target: "TRACK-105" }, { label: "트랙", name: "130 트랙", quantity: "1개", target: "TRACK-130" }, { label: "버텀", name: "S 버텀", quantity: "1개", target: "BOTTOM-SHARP" }, { label: "버텀", name: "WD 버텀", quantity: "1개", target: "BOTTOM-WIDE-DEFENSE" }, { label: "버텀", name: "F 버텀", quantity: "1개", target: "BOTTOM-FLAT" }, { label: "버텀", name: "RS 버텀", quantity: "1개", target: "BOTTOM-RUBBER-SHARP" }, { label: "기타", name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }, { label: "런처", name: "베이런처LR", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER-LR" }, { label: "그립", name: "3세그 런처그립", quantity: "1개", target: "EQUIPMENT-3SEG-LAUNCHER-GRIP" }] }
   } },
   { id: "PRODUCT-BB-98", series: "metal fight", no: "BB-98", name: "", sale: "일반 판매", kind: "", releases: {
     kr: { no: "BB-98", name: "스페셜 커스텀 세트 엘드라고 Ver.", sale: "일반 판매", kind: "세트", releaseDate: "2011-02-01", price: "39800", composition: [] },
@@ -1782,24 +1784,23 @@ const releaseControls = () => `<div class="release-dropdowns" aria-label="출시
 const equipmentItems = [
   { id: "EQUIPMENT-TOOL", name: "툴", en: "Tool", category: "기타", desc: "" },
   { id: "EQUIPMENT-BEYPOINT-CARD", name: "포인트카드", jpName: "베이포인트카드", en: "BeyPoint Card", category: "기타", desc: "" },
-  { id: "EQUIPMENT-POINTER", name: "포인터", en: "Pointer", category: "기타", desc: "" },
-  { id: "EQUIPMENT-METAL-FACE", name: "메탈페이스", en: "Metal Face", category: "기타", desc: "" },
+  { id: "EQUIPMENT-POINTER", name: "포인터", jpName: "베이포인터", en: "Pointer", category: "기타", desc: "" },
   { id: "EQUIPMENT-HOLDER-TOOL", name: "홀더툴", en: "Holder Tool", category: "기타", desc: "" },
   { id: "EQUIPMENT-3SEG-LAUNCHER-GRIP", name: "베이카드 런처그립", jpName: "3세그 런처그립", en: "3 Segment Launcher Grip", category: "그립", desc: "" },
   { id: "EQUIPMENT-LAUNCHER-GRIP", name: "런처그립", en: "Launcher Grip", category: "그립", desc: "" },
   { id: "EQUIPMENT-GRIP-RUBBER", name: "그립러버", en: "Grip Rubber", category: "그립", desc: "" },
   { id: "EQUIPMENT-LIGHT-LAUNCHER", name: "라이트런처", en: "Light Launcher", category: "런처", desc: "" },
   { id: "EQUIPMENT-LIGHT-LAUNCHER-2", name: "라이트런처2", en: "Light Launcher 2", category: "런처", desc: "" },
-  { id: "EQUIPMENT-POWER-LAUNCHER", name: "파워런처", en: "Power Launcher", category: "런처", desc: "" },
-  { id: "EQUIPMENT-POWER-LAUNCHER-L", name: "파워런처L", en: "Power Launcher L", category: "런처", desc: "" },
+  { id: "EQUIPMENT-POWER-LAUNCHER", name: "파워런처", jpName: "베이런처L", en: "Power Launcher", category: "런처", desc: "" },
+  { id: "EQUIPMENT-POWER-LAUNCHER-L", name: "파워런처L", jpName: "베이런처", en: "Power Launcher L", category: "런처", desc: "" },
   { id: "EQUIPMENT-DIGITAL-POWER-LAUNCHER", name: "디지털파워런처", en: "Digital Power Launcher", category: "런처", desc: "" },
   { id: "EQUIPMENT-LED-SIGHT", name: "LED스코프라이트", jpName: "LED사이트", en: "LED Sight", category: "기타", desc: "" },
-  { id: "EQUIPMENT-POWER-LAUNCHER-SUSPENSION", name: "파워런처 서스펜션", en: "Power Launcher Suspension", category: "기타", desc: "" },
-  { id: "EQUIPMENT-ATTACK-BEYSTADIUM", name: "공격형 베이스타디움", en: "Beystadium Attack Type", category: "스타디움", desc: "공격형의 힘을 끌어내는 베이블레이드 전용 스타디움!" },
-  { id: "EQUIPMENT-WIDE-SQUARE-BEYSTADIUM", name: "스퀘어형 베이스타디움", en: "Beystadium Wide Square Type", category: "스타디움", desc: "" },
-  { id: "EQUIPMENT-SUPER-ATTACK-BEYSTADIUM", name: "초공격형 베이스타디움", en: "Beystadium Super Attack Type", category: "스타디움", desc: "" },
-  { id: "EQUIPMENT-BALANCE-BEYSTADIUM", name: "밸런스형 베이스타디움", en: "Beystadium Balance Type", category: "스타디움", desc: "" },
-  { id: "EQUIPMENT-STAMINA-BEYSTADIUM", name: "스테미너형 베이스타디움", en: "Beystadium Stamina Type", category: "스타디움", desc: "" },
+  { id: "EQUIPMENT-POWER-LAUNCHER-SUSPENSION", name: "파워런처 서스펜션", jpName: "베이런처 서스펜션", en: "Power Launcher Suspension", category: "기타", desc: "" },
+  { id: "EQUIPMENT-ATTACK-BEYSTADIUM", name: "공격형 베이스타디움", jpName: "베이스타디움 어택타입", en: "Beystadium Attack Type", category: "스타디움", desc: "공격형의 힘을 끌어내는 베이블레이드 전용 스타디움!" },
+  { id: "EQUIPMENT-WIDE-SQUARE-BEYSTADIUM", name: "스퀘어형 베이스타디움", jpName: "베이스타디움 어택타입", en: "Beystadium Wide Square Type", category: "스타디움", desc: "" },
+  { id: "EQUIPMENT-SUPER-ATTACK-BEYSTADIUM", name: "초공격형 베이스타디움", jpName: "베이스타디움 슈퍼어택타입", en: "Beystadium Super Attack Type", category: "스타디움", desc: "" },
+  { id: "EQUIPMENT-BALANCE-BEYSTADIUM", name: "밸런스형 베이스타디움", jpName: "베이스타디움 밸런스타입", en: "Beystadium Balance Type", category: "스타디움", desc: "" },
+  { id: "EQUIPMENT-STAMINA-BEYSTADIUM", name: "스테미너형 베이스타디움", jpName: "베이스타디움 스테미너타입", en: "Beystadium Stamina Type", category: "스타디움", desc: "" },
   { id: "EQUIPMENT-STANDARD-BEYSTADIUM", name: "표준형 베이스타디움", jpName: "베이스타디움 스탠다드타입", en: "Beystadium Standard Type", category: "스타디움", desc: "" },
   { id: "EQUIPMENT-EXTREME-BEYSTADIUM", name: "익스트림 베이스타디움", en: "Extreme Beystadium", category: "스타디움", desc: "" },
   { id: "EQUIPMENT-TORNADO-BEYSTADIUM", name: "토네이도 베이스타디움", en: "Tornado Beystadium", category: "스타디움", desc: "" },
@@ -1828,13 +1829,13 @@ const partTrait = item => {
   return traits.map(trait => tagLabels[trait] || trait).join("");
 };
 const partKoName = item => {
-  if (!["track", "bottom", "fourdbottom"].includes(item.type)) return "";
+  if (!["track", "bottom", "4dbottom"].includes(item.type)) return "";
   const detail = item.sub || "";
   return detail.includes("높이") ? "" : detail;
 };
 const wheelTypes = ["wheel", "clearwheel", "lightwheel", "metalwheel", "chromewheel", "crystalwheel"];
 const cardInfo = item => {
-  if (["track", "bottom", "fourdbottom"].includes(item.type)) {
+  if (["track", "bottom", "4dbottom"].includes(item.type)) {
     const fullEn = item.type === "track" && /^\d+$/.test(item.name) ? "&nbsp;" : item.en;
     return `<h3 class="card-name code-name">${item.name}</h3><p class="card-full-en">${fullEn}</p><p class="card-full-ko">${partKoName(item) || "&nbsp;"}</p>`;
   }
@@ -1940,7 +1941,6 @@ const equipmentSortOrder = item => {
     "EQUIPMENT-STAMINA-BEYSTADIUM": 19,
     "EQUIPMENT-POWER-LAUNCHER-L": 23,
     "EQUIPMENT-WIDE-SQUARE-BEYSTADIUM": 33,
-    "EQUIPMENT-METAL-FACE": 36,
     "EQUIPMENT-HOLDER-TOOL": 36,
     "EQUIPMENT-CARABINER-GRIP": 39,
     "EQUIPMENT-SUPER-ATTACK-BEYSTADIUM": 41,
@@ -2227,10 +2227,10 @@ function renderCards() {
 
 const filterGroups = {
   bey: ["bey"],
-  parts: ["face", "stoneface", "wheel", "clearwheel", "lightwheel", "metalwheel", "chromewheel", "crystalwheel", "track", "bottom", "fourdbottom"],
+  parts: ["face", "stoneface", "wheel", "clearwheel", "lightwheel", "metalwheel", "chromewheel", "crystalwheel", "track", "bottom", "4dbottom"],
   face: ["face", "stoneface"],
   wheel: ["wheel", "clearwheel", "lightwheel", "metalwheel", "chromewheel", "crystalwheel"],
-  bottom: ["bottom", "fourdbottom"]
+  bottom: ["bottom", "4dbottom"]
 };
 const productFilterGroups = {
   general: ["일반 판매", "게임"],
@@ -2849,7 +2849,7 @@ function trackHeightModeRow(type, level) {
   return `<div class="track-height-row"><span>높이</span><div class="stat-track"><div class="stat-fill" style="width:${heightFillPercent(level)}%"></div></div><b>${type}</b></div>`;
 }
 function isZeroGStadiumBottom(item) {
-  if (!["bottom", "fourdbottom"].includes(item.type)) return false;
+  if (!["bottom", "4dbottom"].includes(item.type)) return false;
   return items.findIndex(x => x.id === item.id) >= items.findIndex(x => x.id === "BOTTOM-CIRCLE-FLAT");
 }
 function zeroGStadiumNote(item) {
@@ -2893,7 +2893,7 @@ function bindModalStepButtons(options = {}) {
   }));
 }
 function detailHeading(item, options = {}) {
-  if (["track", "bottom", "fourdbottom"].includes(item.type)) {
+  if (["track", "bottom", "4dbottom"].includes(item.type)) {
     const numericTrack = item.type === "track" && /^\d+$/.test(item.name);
     const koName = partKoName(item);
     return numericTrack
