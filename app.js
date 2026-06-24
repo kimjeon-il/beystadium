@@ -258,7 +258,7 @@ const items = [
   { id: "FACE-GIRAFFE", type: "face", name: "기라프", en: "Giraffe", sub: "페이스", tags: ["FACE"], desc: "기라프를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
   { id: "FACE-PERSEUS", type: "face", name: "페르세우스", en: "Perseus", sub: "페이스", tags: ["FACE"], desc: "페르세우스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
   { id: "FACE-KETOS", type: "face", name: "케토스", en: "Ketos", sub: "페이스", tags: ["FACE"], desc: "케토스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-METAL-FACE-CUSTOM-VERSION", type: "face", name: "메탈페이스 커스텀버전", en: "Metal Face Custom Ver.", sub: "페이스", tags: ["FACE"], desc: "무거워진 중량이 공격력과 방어력을 향상시킨다.", modes: [{ name: "헤비", stats: [60, 60, 0] }, { name: "미들", stats: [0, 0, 0] }, { name: "라이트", stats: [0, 0, 0] }, { name: "제로", stats: [0, 0, 0] }] },
+  { id: "FACE-METAL-FACE-CUSTOM-VERSION", type: "face", name: "메탈페이스 커스텀버전", en: "Metal Face Custom Ver.", sub: "페이스", tags: ["FACE"], desc: "무거워진 중량이 공격력과 방어력을 향상시킨다.", modes: [{ name: "헤비", stats: [60, 60, 0] }, { name: "미들", stats: [50, 50, 10] }, { name: "라이트", stats: [40, 40, 20] }, { name: "페더", stats: [30, 30, 30] }] },
   { id: "FACE-BLAZE", type: "face", name: "블레이즈", en: "Blaze", sub: "페이스", tags: ["FACE"], desc: "블레이즈를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
   { id: "FACE-CHIMERA", type: "face", name: "키메라", en: "Chimera", sub: "페이스", tags: ["FACE"], desc: "키메라를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
   { id: "FACE-HORUSEUS", type: "face", name: "호르세우스", en: "Horuseus", sub: "페이스", tags: ["FACE"], desc: "호르세우스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
