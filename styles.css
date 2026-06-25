@@ -1637,6 +1637,9 @@ dialog[open] .modal-close {
 
 
 dialog[open] .modal-name {
+  --modal-title-line-height: 1.15em;
+  --modal-title-lines: 1;
+  --modal-title-gap-overlap: 0em;
   width: var(--modal-body-width) !important;
   display: flex !important;
   align-items: baseline !important;
@@ -1645,9 +1648,20 @@ dialog[open] .modal-name {
   row-gap: 2px !important;
   margin: 0 auto var(--modal-flow-gap) !important;
   font-size: clamp(1.75rem, 2.4vw, 2.25rem) !important;
-  font-weight: 900 !important; line-height: 1.15 !important;
+  font-weight: 900 !important;
+  line-height: 1.15 !important;
   color: var(--ui-text) !important;
   word-break: keep-all !important;
+}
+
+dialog[open] .modal-title-two-line {
+  --modal-title-lines: 2;
+  --modal-title-gap-overlap: var(--modal-title-line-height);
+  height: calc(var(--modal-title-line-height) * var(--modal-title-lines)) !important;
+  max-height: calc(var(--modal-title-line-height) * var(--modal-title-lines)) !important;
+  overflow: hidden !important;
+  align-content: center !important;
+  margin-bottom: calc(var(--modal-flow-gap) - var(--modal-title-gap-overlap)) !important;
 }
 
 
@@ -1786,31 +1800,6 @@ footer p {
   padding-inline: var(--modal-scroll-gutter) 0 !important;
 }
 
-.product-modal-header {
-  display: block !important;
-  min-height: 0 !important;
-  width: var(--modal-body-width) !important;
-  margin: 0 auto var(--modal-flow-gap) !important;
-}
-
-.product-modal-title-group {
-  min-width: 0 !important;
-}
-
-dialog[open] .product-modal-name {
-  display: block !important;
-  margin: 0 !important;
-  color: var(--ui-text) !important;
-}
-
-dialog[open] .bey-modal-info > .modal-name,
-dialog[open] .product-modal-name {
-  height: calc(1.15em * 2) !important;
-  max-height: calc(1.15em * 2) !important;
-  overflow: hidden !important;
-  align-content: center !important;
-}
-
 .product-meta-slot {
   visibility: hidden !important;
   pointer-events: none !important;
@@ -1947,7 +1936,7 @@ dialog[open] .product-modal-name {
   max-width: 100% !important;
   margin: 0 auto var(--modal-flow-gap) !important;
   display: grid !important;
-  grid-template-columns: repeat(2, minmax(0, 10.75rem)) !important;
+  grid-template-columns: repeat(2, minmax(0, 10.75rem)) minmax(16rem, 1fr) !important;
   align-items: flex-start !important;
   gap: 10px !important;
   justify-content: start !important;
@@ -1961,9 +1950,20 @@ dialog[open] .product-modal-name {
   flex: 0 0 auto !important;
 }
 
+.release-search-box {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  flex: 1 1 auto !important;
+}
+
 @media (max-width: 900px) {
   .release-dropdowns {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .release-search-box {
+    grid-column: 1 / -1 !important;
   }
 }
 
@@ -2113,6 +2113,59 @@ dialog[open] .overview-release-info .release-table-section {
   padding-bottom: 10px !important;
 }
 
+.release-sort-button {
+  position: relative !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  height: 28px !important;
+  border: 0 !important;
+  border-radius: var(--ui-radius) !important;
+  padding: 0 20px !important;
+  display: block !important;
+  background: transparent !important;
+  color: inherit !important;
+  font: inherit !important;
+  font-weight: inherit !important;
+  text-align: center !important;
+  cursor: pointer !important;
+}
+
+.release-sort-button:hover,
+.release-sort-button:focus-visible,
+.release-sort-button.active {
+  color: var(--ui-text) !important;
+  background: var(--ui-control) !important;
+  outline: 0 !important;
+}
+
+.release-sort-label {
+  display: block !important;
+  width: 100% !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+.release-sort-mark {
+  position: absolute !important;
+  top: 50% !important;
+  right: 4px !important;
+  width: 14px !important;
+  transform: translateY(-50%) !important;
+  color: var(--ui-control-text) !important;
+  font-size: .82rem !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  text-align: center !important;
+  opacity: .58 !important;
+  pointer-events: none !important;
+}
+
+.release-sort-button.active .release-sort-mark {
+  color: var(--ui-text) !important;
+  opacity: 1 !important;
+}
+
 .release-table td {
   color: var(--ui-text) !important;
   transition: background-color 160ms ease, color 160ms ease !important;
@@ -2147,6 +2200,13 @@ dialog[open] .overview-release-info .release-table-section {
 
 .release-table tbody tr:last-child td {
   border-bottom: 0 !important;
+}
+
+.release-empty-row td {
+  height: 120px !important;
+  color: var(--ui-control-text) !important;
+  text-align: center !important;
+  cursor: default !important;
 }
 
 .release-product-link {

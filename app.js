@@ -590,6 +590,8 @@ let productSeriesFilter = null;
 let productKindFilter = null;
 let activeReleaseRegion = "kr";
 let activeReleaseSeries = "metal fight";
+let activeReleaseSort = { key: "release", direction: "asc" };
+let activeReleaseQuery = "";
 let equipmentSeriesFilter = null;
 let equipmentCategoryFilter = null;
 let gearSeriesFilter = null;
@@ -1272,9 +1274,27 @@ const priceLabel = (value, region = "kr") => {
   const currency = region === "jp" ? "\u00a5" : "\u20a9";
   return `${currency}${amount.toLocaleString("ko-KR")}`;
 };
+const releasePriceSortValue = value => {
+  const digits = String(value || "").replace(/[^\d]/g, "");
+  if (!digits) return Number.MAX_SAFE_INTEGER;
+  const amount = Number(digits);
+  return Number.isFinite(amount) ? amount : Number.MAX_SAFE_INTEGER;
+};
+const releaseKindSortValue = kind => {
+  const value = kind || "";
+  if (value.includes("스타터")) return 0;
+  if (value.includes("부스터")) return 1;
+  if (value.includes("세트")) return 2;
+  return 3;
+};
 const releaseDropdownOptions = (entries, activeValue, dataAttr) => entries
   .map(([value, label]) => `<button type="button" class="${activeValue === value ? "active" : ""}" ${dataAttr}="${value}">${label}</button>`)
   .join("");
+const escapeAttributeValue = value => String(value || "")
+  .replace(/&/g, "&amp;")
+  .replace(/"/g, "&quot;")
+  .replace(/</g, "&lt;")
+  .replace(/>/g, "&gt;");
 const releaseControls = () => `<div class="release-dropdowns" aria-label="출시 정보 필터">
   <details class="catalog-dropdown release-dropdown">
     <summary><b class="catalog-dropdown-value">${releaseSeriesLabels[activeReleaseSeries]}</b></summary>
@@ -1288,6 +1308,10 @@ const releaseControls = () => `<div class="release-dropdowns" aria-label="출시
       ${releaseDropdownOptions(Object.entries(releaseRegionLabels), activeReleaseRegion, "data-release-region")}
     </div>
   </details>
+  <div class="search-box release-search-box" role="search">
+    <span class="search-icon" aria-hidden="true"></span>
+    <input id="releaseSearchInput" type="search" placeholder="표 안에서 검색" value="${escapeAttributeValue(activeReleaseQuery)}" />
+  </div>
 </div>`;
 
 const equipmentItems = [
@@ -1838,10 +1862,11 @@ function bindOverviewStructureTabs(scope = document) {
 const modalContextStorageKey = "beyArchiveModalContext";
 const modalContextOptions = options => {
   const context = {};
-  ["backId", "backProductId", "region"].forEach(key => {
+  ["backId", "backProductId", "region", "series", "releaseQuery"].forEach(key => {
     if (options?.[key]) context[key] = options[key];
   });
   if (options?.backRelease) context.backRelease = true;
+  if (options?.releaseSort?.key && options?.releaseSort?.direction) context.releaseSort = options.releaseSort;
   return context;
 };
 function rememberModalContext(kind, id, options = {}) {
@@ -1965,11 +1990,87 @@ function openOverviewTypeDetail() {
   if (!modal.open) modal.showModal();
 }
 
-const productReleaseTableRows = (region = activeReleaseRegion, series = activeReleaseSeries) => productItems
-  .slice()
-  .filter(item => item.series === series && productReleasedInRegion(item, region))
-  .sort((a, b) => compareProductReleaseOrder(a, b, region))
-  .map(item => {
+const releaseSortableColumns = {
+  no: "번호",
+  kind: "종류",
+  release: "발매",
+  price: "가격"
+};
+const releaseTableSearchText = (item, region = activeReleaseRegion) => {
+  const release = productRelease(item, region);
+  return [
+    release.no || "",
+    release.name || item.name || "",
+    release.kind || "",
+    releaseDateLabel(release.releaseDate || release.release),
+    priceLabel(release.price, region)
+  ].join(" ");
+};
+const releaseSortTieBreak = (a, b, region = activeReleaseRegion) => {
+  const serialDiff = productSerialNumber(a, region) - productSerialNumber(b, region);
+  if (serialDiff) return serialDiff;
+  const releaseA = productRelease(a, region);
+  const releaseB = productRelease(b, region);
+  return (releaseA.no || a.no || "").localeCompare(releaseB.no || b.no || "", "ko", { numeric: true });
+};
+const compareReleaseTableItemsAsc = (a, b, key = activeReleaseSort.key, region = activeReleaseRegion) => {
+  const releaseA = productRelease(a, region);
+  const releaseB = productRelease(b, region);
+  if (key === "no") {
+    const noA = releaseA.no || "";
+    const noB = releaseB.no || "";
+    if (!noA && noB) return 1;
+    if (noA && !noB) return -1;
+    const noDiff = noA.localeCompare(noB, "ko", { numeric: true });
+    if (noDiff) return noDiff;
+    return releaseSortTieBreak(a, b, region);
+  }
+  if (key === "kind") {
+    const kindDiff = releaseKindSortValue(releaseA.kind) - releaseKindSortValue(releaseB.kind);
+    if (kindDiff) return kindDiff;
+    return releaseSortTieBreak(a, b, region);
+  }
+  if (key === "price") {
+    const priceDiff = releasePriceSortValue(releaseA.price) - releasePriceSortValue(releaseB.price);
+    if (priceDiff) return priceDiff;
+    return releaseSortTieBreak(a, b, region);
+  }
+  return compareProductReleaseOrder(a, b, region);
+};
+const visibleReleaseTableItems = (region = activeReleaseRegion, series = activeReleaseSeries) => {
+  const query = activeReleaseQuery.trim();
+  const sortedItems = productItems
+    .slice()
+    .filter(item => item.series === series && productReleasedInRegion(item, region))
+    .filter(item => matchesSearchText(releaseTableSearchText(item, region), query))
+    .sort((a, b) => compareReleaseTableItemsAsc(a, b, activeReleaseSort.key, region));
+  return activeReleaseSort.direction === "desc" ? sortedItems.reverse() : sortedItems;
+};
+const releaseSortSymbol = key => {
+  if (activeReleaseSort.key !== key) return "\u2195";
+  return activeReleaseSort.direction === "asc" ? "\u2191" : "\u2193";
+};
+const releaseSortHeader = (key, label) => {
+  const active = activeReleaseSort.key === key;
+  const direction = active ? activeReleaseSort.direction : "none";
+  const nextDirection = active && activeReleaseSort.direction === "asc" ? "내림차순" : "오름차순";
+  return `<th aria-sort="${direction === "asc" ? "ascending" : direction === "desc" ? "descending" : "none"}">
+    <button class="release-sort-button${active ? " active" : ""}" type="button" data-release-sort="${key}" aria-label="${label} ${nextDirection} 정렬">
+      <span class="release-sort-label">${label}</span><span class="release-sort-mark" aria-hidden="true">${releaseSortSymbol(key)}</span>
+    </button>
+  </th>`;
+};
+const releaseTableHead = () => `<thead>
+  <tr>
+    ${releaseSortHeader("no", releaseSortableColumns.no)}
+    <th>제품명</th>
+    ${releaseSortHeader("kind", releaseSortableColumns.kind)}
+    ${releaseSortHeader("release", releaseSortableColumns.release)}
+    ${releaseSortHeader("price", releaseSortableColumns.price)}
+  </tr>
+</thead>`;
+const productReleaseTableRows = (region = activeReleaseRegion, series = activeReleaseSeries) => {
+  const rows = visibleReleaseTableItems(region, series).map(item => {
     const release = productRelease(item, region);
     return `<tr class="release-product-row" role="button" tabindex="0" data-product-id="${item.id}" data-release-region="${region}">
     <td>${release.no || ""}</td>
@@ -1978,10 +2079,30 @@ const productReleaseTableRows = (region = activeReleaseRegion, series = activeRe
     <td>${releaseDateLabel(release.releaseDate || release.release)}</td>
     <td>${priceLabel(release.price, region)}</td>
   </tr>`;
-  })
-  .join("");
+  }).join("");
+  return rows || `<tr class="release-empty-row"><td colspan="5">검색 결과가 없습니다.</td></tr>`;
+};
+const releaseTableMarkup = (region = activeReleaseRegion, series = activeReleaseSeries) => `<div class="modal-section-scroll release-table-scroll">
+  <table class="release-table">
+    ${releaseTableHead()}
+    <tbody>${productReleaseTableRows(region, series)}</tbody>
+  </table>
+</div>`;
+const rememberReleaseModalContext = () => rememberModalContext("overview-release", "OVERVIEW-RELEASE", {
+  region: activeReleaseRegion,
+  series: activeReleaseSeries,
+  releaseSort: activeReleaseSort,
+  releaseQuery: activeReleaseQuery
+});
 
-function bindProductReleaseTable(root = document) {
+function renderProductReleaseTable(root = document) {
+  const section = root.querySelector(".release-table-section");
+  if (!section) return;
+  section.innerHTML = releaseTableMarkup(activeReleaseRegion, activeReleaseSeries);
+  bindProductReleaseTableRows(section);
+}
+
+function bindProductReleaseTableRows(root = document) {
   const openReleaseRow = row => {
     const region = releaseRegionLabels[row.dataset.releaseRegion] ? row.dataset.releaseRegion : activeReleaseRegion;
     openProductDetail(row.dataset.productId, { backRelease: true, region });
@@ -1997,6 +2118,20 @@ function bindProductReleaseTable(root = document) {
       openReleaseRow(row);
     });
   });
+  root.querySelectorAll("button[data-release-sort]").forEach(button => button.addEventListener("click", event => {
+    event.preventDefault();
+    const key = event.currentTarget.dataset.releaseSort;
+    if (!releaseSortableColumns[key]) return;
+    activeReleaseSort = activeReleaseSort.key === key
+      ? { key, direction: activeReleaseSort.direction === "asc" ? "desc" : "asc" }
+      : { key, direction: "asc" };
+    rememberReleaseModalContext();
+    renderProductReleaseTable(document.querySelector("#modalContent"));
+  }));
+}
+
+function bindProductReleaseTable(root = document) {
+  bindProductReleaseTableRows(root);
   root.querySelectorAll("button[data-release-region]").forEach(button => button.addEventListener("click", event => {
     setDropdownOption(event.currentTarget);
     activeReleaseRegion = event.currentTarget.dataset.releaseRegion;
@@ -2007,11 +2142,31 @@ function bindProductReleaseTable(root = document) {
     activeReleaseSeries = event.currentTarget.dataset.releaseSeries;
     openOverviewReleaseDetail({ region: activeReleaseRegion, series: activeReleaseSeries });
   }));
+  const releaseSearch = root.querySelector("#releaseSearchInput");
+  const syncReleaseSearchState = () => releaseSearch?.classList.toggle("has-value", releaseSearch.value.length > 0);
+  const runReleaseSearch = () => {
+    activeReleaseQuery = releaseSearch?.value.trim() || "";
+    syncReleaseSearchState();
+    rememberReleaseModalContext();
+    renderProductReleaseTable(root);
+  };
+  releaseSearch?.addEventListener("input", runReleaseSearch);
+  releaseSearch?.addEventListener("keydown", event => {
+    if (event.key !== "Enter") return;
+    event.preventDefault();
+    runReleaseSearch();
+  });
+  releaseSearch?.closest(".release-search-box")?.querySelector(".search-icon")?.addEventListener("click", runReleaseSearch);
+  syncReleaseSearchState();
 }
 
 function openOverviewReleaseDetail(options = {}) {
   if (options.region && releaseRegionLabels[options.region]) activeReleaseRegion = options.region;
   if (options.series && releaseSeriesLabels[options.series]) activeReleaseSeries = options.series;
+  if (options.releaseSort?.key && releaseSortableColumns[options.releaseSort.key]) {
+    activeReleaseSort = { key: options.releaseSort.key, direction: options.releaseSort.direction === "desc" ? "desc" : "asc" };
+  }
+  if (typeof options.releaseQuery === "string") activeReleaseQuery = options.releaseQuery;
   if (modelViewerCleanup) {
     modelViewerCleanup();
     modelViewerCleanup = null;
@@ -2025,26 +2180,13 @@ function openOverviewReleaseDetail(options = {}) {
       <div class="modal-body-block">
         ${releaseControls()}
         <section class="modal-section release-table-section">
-          <div class="modal-section-scroll release-table-scroll">
-            <table class="release-table">
-              <thead>
-                <tr>
-                  <th>번호</th>
-                  <th>제품명</th>
-                  <th>종류</th>
-                  <th>발매</th>
-                  <th>가격</th>
-                </tr>
-              </thead>
-              <tbody>${productReleaseTableRows(activeReleaseRegion, activeReleaseSeries)}</tbody>
-            </table>
-          </div>
+          ${releaseTableMarkup(activeReleaseRegion, activeReleaseSeries)}
         </section>
       </div>
     </div>
   </div>`;
   bindProductReleaseTable(content);
-  rememberModalContext("overview-release", "OVERVIEW-RELEASE", { region: activeReleaseRegion, series: activeReleaseSeries });
+  rememberReleaseModalContext();
   window.location.hash = "OVERVIEW-RELEASE";
   if (!modal.open) modal.showModal();
 }
@@ -2404,21 +2546,26 @@ function bindModalStepButtons(options = {}) {
     else openDetail(targetId, options.item || {});
   }));
 }
+function modalTitle(text, options = {}) {
+  const classes = ["modal-name"];
+  if (options.lines === 2) classes.push("modal-title-two-line");
+  return `<h3 class="${classes.join(" ")}">${text}</h3>`;
+}
 function detailHeading(item, options = {}) {
   if (["track", "bottom", "4dbottom"].includes(item.type)) {
     const numericTrack = item.type === "track" && /^\d+$/.test(item.name);
     const koName = partKoName(item);
     const displayName = itemDisplayName(item, options.region);
     return numericTrack
-      ? `<h3 class="modal-name">${displayName}</h3>`
-      : `<h3 class="modal-name">${options.region === "jp" && item.jpName ? displayName : koName}</h3>`;
+      ? modalTitle(displayName)
+      : modalTitle(options.region === "jp" && item.jpName ? displayName : koName);
   }
   if (item.type === "bey") {
     const combo = partCategory(item);
     const name = itemDisplayName(item, options.region);
-    return `<h3 class="modal-name">${combo ? `${name} ${combo}` : name}</h3>`;
+    return modalTitle(combo ? `${name} ${combo}` : name, { lines: 2 });
   }
-  return `<h3 class="modal-name">${itemDisplayName(item, options.region)}</h3>`;
+  return modalTitle(itemDisplayName(item, options.region));
 }
 function openDetail(id, options = {}) {
   const item = itemsById.get(id);
@@ -2465,11 +2612,7 @@ function openDetail(id, options = {}) {
   if (item.model || item.modelKey) requestAnimationFrame(initModelViewer);
 }
 function productHeader(item, region = activeReleaseRegion) {
-  return `<header class="product-modal-header">
-    <div class="product-modal-title-group">
-      <h3 class="modal-name product-modal-name">${productDisplayName(item, region)}</h3>
-    </div>
-  </header>`;
+  return modalTitle(productDisplayName(item, region), { lines: 2 });
 }
 function productMetaSlot() {
   return `<div class="modal-info-slot product-meta-slot single-line-info-slot"></div>`;
@@ -2583,7 +2726,7 @@ function openProductBeyPoolDetail(id, options = {}) {
   document.querySelector("#modalContent").innerHTML = `<div class="modal-inner">
     <div class="modal-art product-modal-art"></div>
     <div class="modal-info lineup-modal-info"><button class="modal-back icon-back-button" type="button" data-back-product-id="${item.id}"${releaseBackAttr}${regionBackAttr} aria-label="제품으로 돌아가기">←</button>
-    ${modalScrollArea(`<h3 class="modal-name">${productDisplayName(item, options.region || activeReleaseRegion)} 등장 베이</h3>
+    ${modalScrollArea(`${modalTitle(`${productDisplayName(item, options.region || activeReleaseRegion)} 등장 베이`, { lines: 2 })}
     <div class="modal-body-block">${productBeyPool(item, options.region || activeReleaseRegion)}</div>`)}</div></div>`;
   document.querySelector(".modal-back")?.addEventListener("click", event => {
     const backOptions = event.currentTarget.dataset.backRelease ? { backRelease: true } : {};
@@ -2650,7 +2793,7 @@ function openEquipmentDetail(id, options = {}) {
   const stepItems = visibleEquipmentItems().some(entry => entry.id === item.id) ? visibleEquipmentItems() : equipmentItems.slice().sort((a, b) => equipmentSortOrder(a) - equipmentSortOrder(b) || a.name.localeCompare(b.name, "ko"));
   document.querySelector("#modalContent").innerHTML = `${modalStepButtons(stepItems, item.id, "equipment")}<div class="modal-inner">
     <div class="modal-art"></div>
-    <div class="modal-info">${modalScrollArea(`<h3 class="modal-name">${itemDisplayName(item, options.region)}</h3>
+    <div class="modal-info">${modalScrollArea(`${modalTitle(itemDisplayName(item, options.region))}
     ${modalInfoSlot(item.desc || "", "")}`)}${backButton}</div></div>`;
   bindModalStepButtons({ equipment: options });
   document.querySelector(".modal-back")?.addEventListener("click", event => {
