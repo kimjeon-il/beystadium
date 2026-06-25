@@ -427,78 +427,7 @@ dialog[open] .modal-scroll-area::-webkit-scrollbar-corner,
   flex: 0 1 420px !important;
 }
 
-.toy-panel[data-toy-panel="product"] .toolbar > .unified-search,
-.toy-panel[data-toy-panel="bey"] .toolbar > .unified-search,
-.toy-panel[data-toy-panel="equipment"] .toolbar > .unified-search {
-  width: auto !important;
-  max-width: none !important;
-  margin: 0 0 0 auto !important;
-  flex: 0 0 auto !important;
-  align-self: flex-start !important;
-}
-
-@media (max-width: 1180px) {
-  .catalog-dropdowns {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  }
-}
-
-@media (max-width: 900px) {
-  .toolbar {
-    flex-direction: column !important;
-    align-items: stretch !important;
-    gap: 12px !important;
-  }
-
-  .catalog-dropdowns {
-    width: 100% !important;
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 10px !important;
-  }
-
-  .catalog-dropdown {
-    width: 100% !important;
-    min-width: 0 !important;
-    max-width: none !important;
-  }
-
-  .catalog-dropdown-menu {
-    width: 100% !important;
-    min-width: 0 !important;
-  }
-
-  .search-box {
-    width: 100% !important;
-    min-width: 0 !important;
-    max-width: none !important;
-    flex-basis: auto !important;
-  }
-
-  .unified-search {
-    align-items: stretch !important;
-    flex-direction: column !important;
-    gap: 10px !important;
-  }
-
-  .global-search-box {
-    width: 100% !important;
-    max-width: none !important;
-    flex: 0 0 auto !important;
-  }
-
-  .toy-panel[data-toy-panel="product"] .toolbar > .unified-search,
-  .toy-panel[data-toy-panel="bey"] .toolbar > .unified-search,
-  .toy-panel[data-toy-panel="equipment"] .toolbar > .unified-search {
-    width: 100% !important;
-    max-width: none !important;
-    margin: 0 !important;
-    flex: 0 0 auto !important;
-  }
-}
-
 @media (max-width: 560px) {
-  .catalog-dropdowns,
   .release-dropdowns {
     grid-template-columns: 1fr !important;
   }
@@ -718,18 +647,6 @@ body {
 .stat-track{
   background: var(--ui-control) !important;
   border-radius: 4px !important;
-}
-
-@media (max-width: 980px) {
-  .toolbar {
-    justify-content: stretch !important;
-  }
-
-  .search-box {
-    width: 100% !important;
-    max-width: none !important;
-    min-width: 0 !important;
-  }
 }
 
 @media (max-width: 850px) {
@@ -2830,55 +2747,112 @@ dialog[open] .modal-art {
   color: var(--ui-muted) !important;
 }
 
-/* Canonical dropdown widths. Search-scope dropdowns stay intentionally compact. */
-@media (min-width: 1181px) {
+/* Search screen responsive rules use one shared breakpoint system: wide 901+, medium 561-900, narrow <=560. */
+.toy-panel[data-toy-panel="product"] .toolbar,
+.toy-panel[data-toy-panel="bey"] .toolbar,
+.toy-panel[data-toy-panel="equipment"] .toolbar {
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
+}
+
+#productDropdownFilters,
+#gearDropdownFilters,
+#equipmentDropdownFilters {
+  width: max-content !important;
+  max-width: 100% !important;
+  grid-template-columns: none !important;
+  grid-auto-flow: column !important;
+  grid-auto-columns: minmax(0, var(--filter-dropdown-width, 12.25rem)) !important;
+  justify-content: start !important;
+  justify-items: stretch !important;
+  gap: var(--filter-dropdown-gap, 10px) !important;
+}
+
+#productDropdownFilters > .catalog-dropdown:not(.search-scope),
+#gearDropdownFilters > .catalog-dropdown:not(.search-scope),
+#equipmentDropdownFilters > .catalog-dropdown:not(.search-scope) {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+
+.toy-panel[data-toy-panel="product"] .toolbar > .unified-search,
+.toy-panel[data-toy-panel="bey"] .toolbar > .unified-search,
+.toy-panel[data-toy-panel="equipment"] .toolbar > .unified-search {
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 0 0 auto !important;
+  flex: 0 0 auto !important;
+  align-self: flex-start !important;
+}
+
+.toy-panel[data-toy-panel="product"] .toolbar > .unified-search .global-search-box,
+.toy-panel[data-toy-panel="bey"] .toolbar > .unified-search .global-search-box,
+.toy-panel[data-toy-panel="equipment"] .toolbar > .unified-search .global-search-box {
+  width: min(420px, 100%) !important;
+  min-width: 280px !important;
+  max-width: 420px !important;
+  height: var(--search-box-height, 48px) !important;
+  padding: 0 16px 0 8px !important;
+  gap: 10px !important;
+  flex: 0 1 420px !important;
+}
+
+.toy-panel[data-toy-panel="product"] .toolbar > .unified-search .search-icon,
+.toy-panel[data-toy-panel="bey"] .toolbar > .unified-search .search-icon,
+.toy-panel[data-toy-panel="equipment"] .toolbar > .unified-search .search-icon {
+  width: 18px !important;
+  height: 18px !important;
+  flex: 0 0 18px !important;
+  margin-left: 0 !important;
+}
+
+@media (max-width: 900px) {
+  .toy-panel[data-toy-panel="product"] .toolbar,
+  .toy-panel[data-toy-panel="bey"] .toolbar,
+  .toy-panel[data-toy-panel="equipment"] .toolbar {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    align-items: stretch !important;
+    justify-content: stretch !important;
+    gap: 12px !important;
+  }
+
   #productDropdownFilters,
   #gearDropdownFilters,
   #equipmentDropdownFilters {
-    width: max-content !important;
-    max-width: 100% !important;
-    grid-template-columns: none !important;
-    grid-auto-flow: column !important;
-    grid-auto-columns: minmax(0, var(--filter-dropdown-width, 12.25rem)) !important;
-    gap: var(--filter-dropdown-gap, 10px) !important;
+    width: 100% !important;
+    grid-auto-flow: row !important;
+    grid-auto-columns: auto !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 
-  #productDropdownFilters > .catalog-dropdown:not([hidden]),
-  #gearDropdownFilters > .catalog-dropdown:not([hidden]),
-  #equipmentDropdownFilters > .catalog-dropdown:not([hidden]) {
-    width: var(--filter-dropdown-width, 12.25rem) !important;
+  .toy-panel[data-toy-panel="product"] .toolbar > .unified-search,
+  .toy-panel[data-toy-panel="bey"] .toolbar > .unified-search,
+  .toy-panel[data-toy-panel="equipment"] .toolbar > .unified-search {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    flex: 0 0 auto !important;
+  }
+
+  .toy-panel[data-toy-panel="product"] .toolbar > .unified-search .global-search-box,
+  .toy-panel[data-toy-panel="bey"] .toolbar > .unified-search .global-search-box,
+  .toy-panel[data-toy-panel="equipment"] .toolbar > .unified-search .global-search-box {
+    width: 100% !important;
     min-width: 0 !important;
-    max-width: var(--filter-dropdown-width, 12.25rem) !important;
+    max-width: none !important;
+    flex: 0 0 auto !important;
   }
 }
 
-@media (min-width: 901px) and (max-width: 1180px) {
+@media (max-width: 560px) {
   #productDropdownFilters,
   #gearDropdownFilters,
   #equipmentDropdownFilters {
-    width: max-content !important;
-    max-width: 100% !important;
-    grid-template-columns: repeat(2, minmax(0, var(--filter-dropdown-width, 12.25rem))) !important;
-    justify-content: start !important;
-    justify-items: stretch !important;
-    gap: var(--filter-dropdown-gap, 10px) !important;
-  }
-
-  #productDropdownFilters > .catalog-dropdown:not([hidden]),
-  #gearDropdownFilters > .catalog-dropdown:not([hidden]),
-  #equipmentDropdownFilters > .catalog-dropdown:not([hidden]) {
-    width: var(--filter-dropdown-width, 12.25rem) !important;
-    min-width: 0 !important;
-    max-width: var(--filter-dropdown-width, 12.25rem) !important;
-  }
-
-  .toy-panel[data-toy-panel="product"] .toolbar > .unified-search .search-box,
-  .toy-panel[data-toy-panel="bey"] .toolbar > .unified-search .search-box,
-  .toy-panel[data-toy-panel="equipment"] .toolbar > .unified-search .search-box {
-    width: min(420px, 100%) !important;
-    min-width: 280px !important;
-    max-width: 420px !important;
-    flex: 0 1 420px !important;
+    grid-template-columns: 1fr !important;
   }
 }
 
@@ -2904,41 +2878,6 @@ dialog[open] .modal-art {
   width: 100% !important;
   min-width: 100% !important;
   max-width: 100% !important;
-}
-
-.unified-search .global-search-box {
-  height: var(--search-box-height, 48px) !important;
-  padding: 0 16px 0 8px !important;
-  gap: 10px !important;
-}
-
-.unified-search .global-search-box .search-icon {
-  width: 18px !important;
-  height: 18px !important;
-  flex: 0 0 18px !important;
-  margin-left: 0 !important;
-}
-
-@media (max-width: 560px) {
-  .catalog-dropdowns,
-  .release-dropdowns {
-    justify-content: center !important;
-    justify-items: center !important;
-  }
-
-  .catalog-dropdowns > .catalog-dropdown:not(.search-scope),
-  .release-dropdowns > .release-dropdown:not(.search-scope) {
-    width: min(100%, var(--filter-dropdown-width, 12.25rem)) !important;
-    min-width: 0 !important;
-    max-width: 100% !important;
-    justify-self: center !important;
-  }
-
-  .release-dropdowns > .release-search-box {
-    width: 100% !important;
-    max-width: none !important;
-    justify-self: stretch !important;
-  }
 }
 
 .overview-visual {
