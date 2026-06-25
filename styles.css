@@ -1198,64 +1198,84 @@ dialog[open] #modalClose.modal-close {
   position: absolute !important;
   top: 50% !important;
   z-index: 260 !important;
-  width: 42px !important;
-  min-width: 42px !important;
-  height: 42px !important;
-  min-height: 42px !important;
+  width: 46px !important;
+  min-width: 46px !important;
+  height: 46px !important;
+  min-height: 46px !important;
   padding: 0 !important;
-  border: 0 !important;
-  border-radius: var(--ui-radius) !important;
+  border: 1px solid color-mix(in srgb, var(--ui-line) 82%, transparent) !important;
+  border-radius: 12px !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  background: var(--ui-surface) !important;
+  background: color-mix(in srgb, var(--ui-surface) 88%, transparent) !important;
   color: var(--ui-control-text) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  backdrop-filter: blur(12px) !important;
   box-shadow: none !important;
-  font-size: 1.375rem !important;
-  font-weight: 700 !important;
+  font-size: 1.9rem !important;
+  font-weight: 500 !important;
   line-height: 1 !important;
   text-indent: 0 !important;
   transform: translateY(-50%) !important;
-  transition: background-color .16s ease, color .16s ease !important;
+  transition: background-color .16s ease, border-color .16s ease, color .16s ease !important;
 }
 
 .modal-step::before {
   display: block !important;
-  transform: translateY(-1px) !important;
+  transform: translateY(-2px) !important;
 }
 
 .modal-step-prev::before {
-  content: "←" !important;
+  content: "‹" !important;
 }
 
 .modal-step-next::before {
-  content: "→" !important;
+  content: "›" !important;
 }
 
 .modal-step-prev {
-  left: max(14px, calc(50dvw - (min(980px, calc(100dvw - 48px)) / 2) - 58px)) !important;
+  left: calc(50dvw - (min(980px, calc(100dvw - 48px)) / 2) - 46px) !important;
 }
 
 .modal-step-next {
-  right: max(14px, calc(50dvw - (min(980px, calc(100dvw - 48px)) / 2) - 58px)) !important;
+  right: calc(50dvw - (min(980px, calc(100dvw - 48px)) / 2) - 46px) !important;
 }
 
 .modal-step:hover,
 .modal-step:focus-visible {
   background: var(--ui-control-hover) !important;
+  border-color: var(--ui-control-hover) !important;
   color: var(--ui-control-text-active) !important;
 }
 
-@media (max-width: 1124px) {
+@media (max-width: 1072px) {
   .modal-step {
+    width: 42px !important;
+    min-width: 42px !important;
+    height: 42px !important;
+    min-height: 42px !important;
     top: auto !important;
     bottom: calc(50dvh - (min(620px, calc(100dvh - 48px)) / 2) + 22px) !important;
+    border: 0 !important;
     background: transparent !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    font-size: 1.375rem !important;
+    font-weight: 700 !important;
     transform: none !important;
   }
 
   .modal-step::before {
     transform: none !important;
+  }
+
+  .modal-step-prev::before {
+    content: "←" !important;
+  }
+
+  .modal-step-next::before {
+    content: "→" !important;
   }
 
   .modal-step-prev {
