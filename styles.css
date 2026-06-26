@@ -1,5 +1,20 @@
 ﻿* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+@font-face {
+  font-family: "Pretendard Variable";
+  font-style: normal;
+  font-weight: 45 920;
+  font-display: block;
+  src: url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/woff2/PretendardVariable.woff2") format("woff2");
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: "Pretendard Variable", "Pretendard", "Noto Sans KR", system-ui, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 body { margin: 0; }
 button, input, select, textarea { font-family:inherit; }
 button, input { font: inherit; }
@@ -2535,6 +2550,7 @@ dialog[open] .modal-art {
   --filter-dropdown-gap: 10px;
   --search-box-height: 48px;
   --catalog-dropdown-width: 12.25rem;
+  --ui-shadow-soft: 0 10px 30px rgba(16, 24, 39, 0.12);
   --bg: var(--ui-bg);
   --panel: var(--ui-surface);
   --panel-solid: var(--ui-surface);
@@ -2570,6 +2586,7 @@ dialog[open] .modal-art {
     --ui-brand-text: #f3f6fa;
     --ui-card-meta: #b6c0cf;
     --ui-tag-text: var(--ui-text);
+    --ui-shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.28);
     --bg: var(--ui-bg);
     --panel: var(--ui-surface);
     --panel-solid: var(--ui-surface);
@@ -3072,13 +3089,15 @@ dialog[open] .modal-art {
   min-width: 0 !important;
 }
 
-.catalog-panel.catalog-filters-compact .catalog-filter-dropdown {
+.catalog-panel.catalog-filters-compact .catalog-filter-dropdown,
+.catalog-filter-dropdown {
   width: 100% !important;
   min-width: 0 !important;
   max-width: 100% !important;
 }
 
-.catalog-panel.catalog-filters-compact .catalog-filter-dropdown > summary {
+.catalog-panel.catalog-filters-compact .catalog-filter-dropdown > summary,
+.catalog-filter-dropdown > summary {
   height: var(--filter-dropdown-height, 48px) !important;
   min-height: var(--filter-dropdown-height, 48px) !important;
   max-height: var(--filter-dropdown-height, 48px) !important;
@@ -3096,11 +3115,13 @@ dialog[open] .modal-art {
   position: relative !important;
 }
 
-.catalog-panel.catalog-filters-compact .catalog-filter-dropdown > summary::-webkit-details-marker {
+.catalog-panel.catalog-filters-compact .catalog-filter-dropdown > summary::-webkit-details-marker,
+.catalog-filter-dropdown > summary::-webkit-details-marker {
   display: none !important;
 }
 
-.catalog-panel.catalog-filters-compact .catalog-filter-dropdown > summary::after {
+.catalog-panel.catalog-filters-compact .catalog-filter-dropdown > summary::after,
+.catalog-filter-dropdown > summary::after {
   content: "" !important;
   position: absolute !important;
   right: 16px !important;
@@ -3113,13 +3134,15 @@ dialog[open] .modal-art {
   opacity: .7 !important;
 }
 
-.catalog-panel.catalog-filters-compact .catalog-filter-dropdown > summary .catalog-filter-label {
+.catalog-panel.catalog-filters-compact .catalog-filter-dropdown > summary .catalog-filter-label,
+.catalog-filter-dropdown > summary .catalog-filter-label {
   color: var(--ui-muted) !important;
   font-size: .8125rem !important;
   white-space: nowrap !important;
 }
 
-.catalog-panel.catalog-filters-compact .catalog-filter-dropdown > summary .catalog-dropdown-value {
+.catalog-panel.catalog-filters-compact .catalog-filter-dropdown > summary .catalog-dropdown-value,
+.catalog-filter-dropdown > summary .catalog-dropdown-value {
   min-width: 0 !important;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
@@ -3143,61 +3166,6 @@ dialog[open] .modal-art {
     grid-template-columns: 1fr !important;
     gap: 10px !important;
     min-width: 0 !important;
-  }
-
-  .catalog-filter-dropdown {
-    width: 100% !important;
-    min-width: 0 !important;
-    max-width: 100% !important;
-  }
-
-  .catalog-filter-dropdown > summary {
-    height: var(--filter-dropdown-height, 48px) !important;
-    min-height: var(--filter-dropdown-height, 48px) !important;
-    max-height: var(--filter-dropdown-height, 48px) !important;
-    padding: 0 42px 0 14px !important;
-    display: grid !important;
-    grid-template-columns: auto minmax(0, 1fr) !important;
-    align-items: center !important;
-    gap: 10px !important;
-    list-style: none !important;
-    border: 1px solid var(--ui-line) !important;
-    border-radius: var(--ui-radius) !important;
-    background: var(--ui-control) !important;
-    color: var(--ui-control-text-active) !important;
-    cursor: pointer !important;
-    position: relative !important;
-  }
-
-  .catalog-filter-dropdown > summary::-webkit-details-marker {
-    display: none !important;
-  }
-
-  .catalog-filter-dropdown > summary::after {
-    content: "" !important;
-    position: absolute !important;
-    right: 16px !important;
-    top: 50% !important;
-    width: 8px !important;
-    height: 8px !important;
-    border-right: 1.7px solid currentColor !important;
-    border-bottom: 1.7px solid currentColor !important;
-    transform: translateY(-65%) rotate(45deg) !important;
-    opacity: .7 !important;
-  }
-
-  .catalog-filter-dropdown > summary .catalog-filter-label {
-    color: var(--ui-muted) !important;
-    font-size: .8125rem !important;
-    white-space: nowrap !important;
-  }
-
-  .catalog-filter-dropdown > summary .catalog-dropdown-value {
-    min-width: 0 !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-    white-space: nowrap !important;
-    text-align: right !important;
   }
 
   .catalog-panel.catalog-filters-compact .catalog-filter-compact {
