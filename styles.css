@@ -3424,13 +3424,6 @@ dialog[open] .modal-art {
   line-height: 1 !important;
 }
 
-.overview-guide-modal .overview-modal-art {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding: 22px !important;
-}
-
 .overview-title-row {
   width: var(--modal-body-width) !important;
   display: flex !important;
@@ -3449,71 +3442,22 @@ dialog[open] .modal-art {
   overflow: visible !important;
 }
 
-.overview-parts {
+.overview-guide-modal .overview-modal-art {
   display: flex !important;
-  flex-wrap: wrap !important;
-  gap: 8px !important;
-  margin: 0 !important;
-}
-
-.overview-parts span {
-  display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  min-height: 34px !important;
-  padding: 0 12px !important;
-  border-radius: var(--ui-radius) !important;
-  background: var(--ui-control) !important;
-  color: var(--ui-text) !important;
-  font-size: 1rem !important;
-  font-weight: 400 !important;
-}
-
-
-.overview-guide-modal .overview-modal-art {
-  align-items: stretch !important;
-}
-
-dialog[open] .modal-inner.overview-guide-modal,
-.overview-guide-modal {
-  grid-template-columns: minmax(0, 1fr) !important;
-  grid-template-rows: minmax(0, 1fr) !important;
-}
-
-.overview-guide-shell {
-  box-sizing: border-box !important;
-  width: 100% !important;
-  height: 100% !important;
-  min-width: 0 !important;
-  min-height: 0 !important;
-  display: grid !important;
-  grid-template-rows: auto minmax(0, 1fr) !important;
-  gap: 18px !important;
-  padding: clamp(34px, 5vw, 52px) clamp(34px, 5vw, 58px) clamp(28px, 4vw, 46px) !important;
+  padding: 22px !important;
 }
 
 .overview-guide-tabs {
-  display: inline-grid !important;
+  width: var(--modal-body-width) !important;
+  display: grid !important;
   grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
   gap: 4px !important;
-  min-width: min(100%, 320px) !important;
+  margin: 0 auto var(--modal-flow-gap) !important;
   padding: 4px !important;
   border-radius: var(--ui-radius) !important;
   background: var(--ui-control) !important;
-}
-
-.overview-guide-header {
-  width: 100% !important;
-  display: grid !important;
-  grid-template-columns: minmax(0, 1fr) !important;
-  justify-items: start !important;
-  gap: 12px !important;
-  margin: 0 !important;
-}
-
-.overview-guide-header [data-overview-guide-tabs-slot] {
-  width: 100% !important;
-  max-width: 360px !important;
 }
 
 .overview-guide-tabs button {
@@ -3538,18 +3482,57 @@ dialog[open] .modal-inner.overview-guide-modal,
 }
 
 .overview-guide-panel {
-  width: 100% !important;
-  margin: 0 !important;
+  width: var(--modal-body-width) !important;
+  margin: 0 auto !important;
 }
 
 .overview-guide-structure {
   display: grid !important;
-  gap: 14px !important;
+  gap: 8px !important;
+}
+
+.overview-modal-desc:empty {
+  display: none !important;
+}
+
+.overview-structure-descriptions:empty {
+  display: none !important;
+}
+
+.overview-structure-descriptions ul {
+  margin: 0 !important;
+  padding: 0 !important;
+  display: grid !important;
+  gap: 10px !important;
+  list-style: none !important;
+}
+
+.overview-structure-descriptions li {
+  min-width: 0 !important;
+  color: var(--ui-text) !important;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  line-height: 1.55 !important;
+}
+
+.overview-structure-descriptions li span {
+  display: inline-flex !important;
+  align-items: center !important;
+  min-height: 30px !important;
+  margin: 0 8px 0 0 !important;
+  padding: 0 10px !important;
+  border-radius: 0.5rem !important;
+  background: var(--ui-control) !important;
+  color: var(--ui-text) !important;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
 }
 
 .overview-guide-subtitle-row {
   width: 100% !important;
-  margin: 0 0 16px !important;
+  margin: 0 !important;
 }
 
 .overview-guide-heading {
@@ -3560,34 +3543,9 @@ dialog[open] .modal-inner.overview-guide-modal,
   line-height: 1.2 !important;
 }
 
-.overview-guide-body {
-  min-width: 0 !important;
-  min-height: 0 !important;
-  display: grid !important;
-  grid-template-columns: minmax(220px, 38%) minmax(0, 1fr) !important;
-  gap: 24px !important;
-  align-items: stretch !important;
-}
-
-.overview-guide-modal .overview-modal-info,
-dialog[open] .overview-guide-modal .overview-modal-info:not(.overview-release-info) {
-  width: 100% !important;
-  height: 100% !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  align-self: stretch !important;
-}
-
-dialog[open] .overview-guide-modal .modal-scroll-area {
-  width: 100% !important;
-  height: 100% !important;
-  margin: 0 !important;
-  padding: 0 4px 18px 0 !important;
-}
-
 .overview-guide-art-stack {
-  width: min(92%, 360px) !important;
-  height: min(82%, 560px) !important;
+  width: min(100%, 360px) !important;
+  height: min(76%, 420px) !important;
   max-width: 100% !important;
   display: grid !important;
   grid-template-rows: minmax(0, 1fr) minmax(0, 1fr) !important;
@@ -3596,7 +3554,7 @@ dialog[open] .overview-guide-modal .modal-scroll-area {
 }
 
 .overview-guide-art-single {
-  height: min(74%, 360px) !important;
+  height: min(100%, 360px) !important;
   grid-template-rows: minmax(0, 1fr) !important;
 }
 
@@ -3747,11 +3705,11 @@ dialog[open] .overview-guide-modal .modal-scroll-area {
 }
 
 .overview-guide-info {
-  width: var(--modal-body-width) !important;
+  width: 100% !important;
   display: block !important;
   grid-template-rows: none !important;
   gap: 0 !important;
-  margin: 0 auto !important;
+  margin: 0 !important;
 }
 
 .overview-guide-copy {
@@ -3798,17 +3756,6 @@ dialog[open] .overview-guide-modal .modal-scroll-area {
   dialog[open] .overview-guide-modal .overview-modal-art {
     padding: 18px 22px !important;
     overflow: hidden !important;
-  }
-
-  .overview-guide-shell {
-    padding: 28px 24px 22px !important;
-    gap: 14px !important;
-  }
-
-  .overview-guide-body {
-    grid-template-columns: minmax(0, 1fr) !important;
-    grid-template-rows: minmax(150px, 34%) minmax(0, 1fr) !important;
-    gap: 14px !important;
   }
 
   .overview-guide-art-stack {
@@ -3873,15 +3820,6 @@ dialog[open] .overview-guide-modal .modal-scroll-area {
 @media (max-width: 460px) {
   dialog[open] .overview-guide-modal .overview-modal-art {
     padding: 14px 18px !important;
-  }
-
-  .overview-guide-shell {
-    padding: 24px 18px 18px !important;
-  }
-
-  .overview-guide-body {
-    grid-template-rows: minmax(138px, 32%) minmax(0, 1fr) !important;
-    gap: 12px !important;
   }
 
   .overview-guide-art-stack {
@@ -4167,14 +4105,6 @@ body.menu-open .menu-button span:nth-child(3) {
   body.menu-open {
     overflow-x: hidden !important;
     overflow-y: hidden !important;
-  }
-
-}
-
-@media (max-width: 900px) {
-  dialog[open] .overview-guide-modal {
-    grid-template-columns: minmax(0, 1fr) !important;
-    grid-template-rows: minmax(0, 1fr) !important;
   }
 
 }

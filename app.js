@@ -1570,49 +1570,49 @@ const toolsCard = item => `
     <p class="card-full-en">${item.en}</p>
     <p class="card-full-ko">&nbsp;</p>
   </button>`;
-const toolsSortOrder = item => {
-  const order = {
-    "TOOLS-TOOL": 1,
-    "TOOLS-POINTER": 2,
-    "TOOLS-LIGHT-LAUNCHER": 3,
-    "TOOLS-ATTACK-BEYSTADIUM": 9,
-    "TOOLS-OVER-FENCE": 10,
-    "TOOLS-BALANCE-BEYSTADIUM": 14,
-    "TOOLS-ZEROG-DEFENSE-BEYSTADIUM": 14.2,
-    "TOOLS-ZEROG-BALANCE-BEYSTADIUM": 14.4,
-    "TOOLS-LAUNCHER-GRIP": 15,
-    "TOOLS-GRIP-SUPPORT": 15.5,
-    "TOOLS-POWER-LAUNCHER": 17,
-    "TOOLS-LIGHT-LAUNCHER-2L": 17.5,
-    "TOOLS-LIGHT-LAUNCHER-LR": 18,
-    "TOOLS-COMPACT-LAUNCHER": 19,
-    "TOOLS-ZEROG-LIGHT-LAUNCHER": 19.1,
-    "TOOLS-ZEROG-LAUNCHER-GRIP": 19.25,
-    "TOOLS-ZEROG-LAUNCHER": 19.5,
-    "TOOLS-STAMINA-BEYSTADIUM": 19,
-    "TOOLS-ZEROG-ATTACK-BEYSTADIUM": 9.5,
-    "TOOLS-POWER-LAUNCHER-L": 23,
-    "TOOLS-WIDE-SQUARE-BEYSTADIUM": 33,
-    "TOOLS-HOLDER-TOOL": 36,
-    "TOOLS-CARABINER-GRIP": 39,
-    "TOOLS-SUPER-ATTACK-BEYSTADIUM": 41,
-    "TOOLS-BEYCARRIER-WAIST": 42,
-    "TOOLS-STANDARD-BEYSTADIUM": 46,
-    "TOOLS-ANGLE-COMPASS": 49,
-    "TOOLS-CARRIER-CASE": 49.5,
-    "TOOLS-EXTREME-BEYSTADIUM": 51,
-    "TOOLS-BEYCARRIER-HARD": 52,
-    "TOOLS-ZEROG-BEYCARRIER": 52.5,
-    "TOOLS-DIGITAL-POWER-LAUNCHER": 53,
-    "TOOLS-SNIPE-LAUNCHER": 103,
-    "TOOLS-CONTROL-LAUNCHER": 115,
-    "TOOLS-RUSH-BEYSTADIUM": 119,
-    "TOOLS-ULTIMATE-BEYSTADIUM": 120,
-    "TOOLS-POWER-LAUNCHER-SUSPENSION": 58,
-    "TOOLS-GRIP-RUBBER": 61,
-    "TOOLS-BATTLE-BLADERS-TOOLBOX": 62,
-  };
-  return order[item.id] ?? 1000;
+function productCompositionItems(item, region = activeReleaseRegion) {
+  const release = productRelease(item, region);
+  const releaseComposition = Array.isArray(release.composition) && release.composition.length ? release.composition : null;
+  const regionComposition = releaseComposition || (region === "jp" ? item.compositionJp || item.compositionJapan : item.compositionKr || item.compositionKorea);
+  const krReleaseComposition = Array.isArray(item.releases?.kr?.composition) && item.releases.kr.composition.length ? item.releases.kr.composition : null;
+  const baseComposition = region === "jp" ? item.composition || krReleaseComposition : region === "kr" ? item.composition : null;
+  return regionComposition || baseComposition || [];
+}
+const compareToolsFirstReleaseMeta = (a, b) =>
+  a.dateSort - b.dateSort ||
+  a.productIndex - b.productIndex ||
+  a.compositionIndex - b.compositionIndex ||
+  a.regionIndex - b.regionIndex;
+let toolsFirstReleaseMetaCache = null;
+const toolsFirstReleaseMetaMap = () => {
+  if (toolsFirstReleaseMetaCache) return toolsFirstReleaseMetaCache;
+  const map = new Map();
+  productItems.forEach((product, productIndex) => {
+    Object.keys(releaseRegionLabels).forEach((region, regionIndex) => {
+      if (!productReleasedInRegion(product, region)) return;
+      const release = productRelease(product, region);
+      const dateSort = releaseDateSortValue(release.releaseDate || release.release);
+      productCompositionItems(product, region).forEach((part, compositionIndex) => {
+        if (!part.target?.startsWith("TOOLS-") || !toolsItemsById.has(part.target)) return;
+        const next = { dateSort, productIndex, compositionIndex, regionIndex };
+        const prev = map.get(part.target);
+        if (!prev || compareToolsFirstReleaseMeta(next, prev) < 0) map.set(part.target, next);
+      });
+    });
+  });
+  toolsFirstReleaseMetaCache = map;
+  return map;
+};
+const compareToolsItemsByFirstRelease = (a, b) => {
+  const metaA = toolsFirstReleaseMetaMap().get(a.id);
+  const metaB = toolsFirstReleaseMetaMap().get(b.id);
+  if (metaA && metaB) {
+    const metaDiff = compareToolsFirstReleaseMeta(metaA, metaB);
+    if (metaDiff) return metaDiff;
+  } else if (metaA || metaB) {
+    return metaA ? -1 : 1;
+  }
+  return a.name.localeCompare(b.name, "ko");
 };
 const hasTag = (item, tag) => Array.isArray(item.tags) && item.tags.includes(tag);
 const matchesGearType = item => !gearTypeFilter || hasTag(item, gearTypeFilter);
@@ -1643,7 +1643,7 @@ const visibleToolsItems = () => {
   if (gearKindFilter && gearKindFilter !== "tools") return [];
   return toolsItems
     .filter(item => (!gearSeriesFilter || itemSeries(item) === gearSeriesFilter) && (!gearSubtypeFilter || item.category === gearSubtypeFilter) && toolsMatchesSearch(item, query))
-    .sort((a, b) => toolsSortOrder(a) - toolsSortOrder(b) || a.name.localeCompare(b.name, "ko"));
+    .sort(compareToolsItemsByFirstRelease);
 };
 const visibleGearItems = () => {
   const query = globalSearchQuery();
@@ -1975,23 +1975,49 @@ const gearTypeGroups = {
 const overviewStructures = [
   {
     title: "4단 구조 시스템",
-    desc: "[설명]",
-    parts: ["페이스", "휠", "트랙", "버텀"]
+    desc: "",
+    parts: ["페이스", "휠", "트랙", "버텀"],
+    descriptions: [
+      { part: "페이스", text: "베이 본체를 고정시킨다." },
+      { part: "휠", text: "베이의 공격력과 방어력을 결정한다." },
+      { part: "트랙", text: "베이의 높이를 결정한다." },
+      { part: "버텀", text: "베이의 움직임을 결정한다." }
+    ]
   },
   {
     title: "하이브리드 시스템",
-    desc: "[설명]",
-    parts: ["페이스", "클리어휠", "메탈휠", "트랙", "버텀"]
+    desc: "",
+    parts: ["페이스", "클리어휠", "메탈휠", "트랙", "버텀"],
+    descriptions: [
+      { part: "페이스", text: "베이 본체를 고정시킨다." },
+      { part: "클리어휠", text: "베이 윗면의 공격력과 방어력을 결정한다." },
+      { part: "메탈휠", text: "베이 측면의 공격력과 방어력을 결정한다." },
+      { part: "트랙", text: "베이의 높이를 결정한다." },
+      { part: "버텀", text: "베이의 움직임을 결정한다." }
+    ]
   },
   {
     title: "4D 시스템",
-    desc: "[설명]",
-    parts: ["페이스", "클리어휠", "메탈휠", "4D버텀"]
+    desc: "",
+    parts: ["페이스", "4D클리어휠", "4D메탈휠", "4D버텀"],
+    descriptions: [
+      { part: "페이스", text: "베이 본체를 고정시킨다." },
+      { part: "4D클리어휠", text: "베이의 윗면 공격력과 방어력을 결정한다. 메탈소재가 융합되어 중량이 높아졌다." },
+      { part: "4D메탈휠", text: "베이의 측면 공격력과 방어력을 결정한다. 메탈휠이 분할되어 모드 전환이 가능하다." },
+      { part: "4D버텀", text: "트랙과 버텀을 융합하여 새로운 움직임을 실현한다." }
+    ]
   },
   {
     title: "싱크롬 시스템",
-    desc: "[설명]",
-    parts: ["스톤페이스", "크롬휠", "크리스탈휠", "트랙", "버텀"]
+    desc: "",
+    parts: ["스톤페이스", "크롬휠", "크리스탈휠", "트랙", "버텀"],
+    descriptions: [
+      { part: "스톤페이스", text: "베이 본체를 고정시킨다." },
+      { part: "크롬휠", text: "" },
+      { part: "크리스탈휠", text: "" },
+      { part: "트랙", text: "베이의 높이를 결정한다." },
+      { part: "버텀", text: "베이의 움직임을 결정한다." }
+    ]
   }
 ];
 
@@ -2024,7 +2050,12 @@ const overviewGuideStructureControlsMarkup = () => `<div class="release-dropdown
   </details>
 </div>`;
 
-const overviewGuideStructurePartsMarkup = parts => parts.map(part => `<span>${part}</span>`).join("");
+const overviewGuideStructureDescriptionsMarkup = descriptions => {
+  const visibleDescriptions = Array.isArray(descriptions) ? descriptions.filter(entry => entry.text) : [];
+  return visibleDescriptions.length
+  ? `<ul>${visibleDescriptions.map(entry => `<li><span>${escapeHtml(entry.part)}</span>${escapeHtml(entry.text)}</li>`).join("")}</ul>`
+  : "";
+};
 
 function renderOverviewGuideStructure(scope = document) {
   const controls = scope.querySelector("[data-overview-controls-slot]");
@@ -2033,11 +2064,11 @@ function renderOverviewGuideStructure(scope = document) {
   const current = overviewStructures[overviewStructureIndex];
   const title = scope.querySelector("[data-overview-structure-title]");
   const desc = scope.querySelector(".overview-modal-desc");
-  const parts = scope.querySelector(".overview-parts");
+  const descriptions = scope.querySelector(".overview-structure-descriptions");
   const art = scope.querySelector("[data-overview-guide-art]");
   if (title) title.textContent = current.title;
   if (desc) desc.textContent = current.desc;
-  if (parts) parts.innerHTML = overviewGuideStructurePartsMarkup(current.parts);
+  if (descriptions) descriptions.innerHTML = overviewGuideStructureDescriptionsMarkup(current.descriptions);
   if (art && activeOverviewGuideTab === "structure") {
     art.innerHTML = `<div class="overview-guide-art-stack overview-guide-art-single" aria-label="구조 도식">${overviewStructureArtMarkup()}</div>`;
   }
@@ -2114,8 +2145,8 @@ const overviewGuidePanelMarkup = () => {
         <h4 class="overview-guide-heading" data-overview-structure-title></h4>
         <div data-overview-controls-slot></div>
       </div>
-      <div class="modal-slot-tags overview-parts"></div>
       <p class="modal-description overview-modal-desc"></p>
+      <div class="overview-guide-copy overview-structure-descriptions"></div>
     </div>`;
 
   if (activeOverviewGuideTab === "type") return `
@@ -2213,19 +2244,13 @@ function openOverviewGuideDetail() {
   }
   const content = document.querySelector("#modalContent");
   content.innerHTML = `<div class="modal-inner overview-guide-modal">
-    <div class="overview-guide-shell">
-      <div class="overview-title-row overview-guide-header">
-        <h3 class="modal-name overview-modal-name">개요</h3>
-        <div data-overview-guide-tabs-slot></div>
-      </div>
-      <div class="overview-guide-body">
-        <div class="modal-art overview-modal-art" data-overview-guide-art></div>
-        <div class="modal-info overview-modal-info">
-          <div class="modal-scroll-area">
-            <div class="modal-info-slot overview-guide-panel" data-overview-guide-panel></div>
-          </div>
-        </div>
-      </div>
+    <div class="modal-art overview-modal-art" data-overview-guide-art></div>
+    <div class="modal-info part-modal-info overview-modal-info">
+      ${modalScrollArea(`${modalTitle("개요")}
+      <div data-overview-guide-tabs-slot></div>
+      <div class="modal-body-block">
+        <div class="overview-guide-panel" data-overview-guide-panel></div>
+      </div>`)}
     </div>
   </div>`;
   renderOverviewGuide(content);
@@ -2257,6 +2282,13 @@ const releaseSortTieBreak = (a, b, region = activeReleaseRegion) => {
   const releaseB = productRelease(b, region);
   return (releaseA.no || a.no || "").localeCompare(releaseB.no || b.no || "", "ko", { numeric: true });
 };
+const releaseDateNameTieBreak = (a, b, releaseA, releaseB) => {
+  const dateDiff = releaseDateSortValue(releaseA.releaseDate || releaseA.release) - releaseDateSortValue(releaseB.releaseDate || releaseB.release);
+  if (dateDiff) return dateDiff;
+  const nameDiff = (releaseA.name || a.name || "").localeCompare(releaseB.name || b.name || "", "ko", { numeric: true });
+  if (nameDiff) return nameDiff;
+  return a.id.localeCompare(b.id, "ko", { numeric: true });
+};
 const compareReleaseTableItemsAsc = (a, b, key = activeReleaseSort.key, region = activeReleaseRegion) => {
   const releaseA = productRelease(a, region);
   const releaseB = productRelease(b, region);
@@ -2265,9 +2297,10 @@ const compareReleaseTableItemsAsc = (a, b, key = activeReleaseSort.key, region =
     const noB = releaseB.no || "";
     if (!noA && noB) return 1;
     if (noA && !noB) return -1;
+    if (!noA && !noB) return releaseDateNameTieBreak(a, b, releaseA, releaseB);
     const noDiff = noA.localeCompare(noB, "ko", { numeric: true });
     if (noDiff) return noDiff;
-    return releaseSortTieBreak(a, b, region);
+    return releaseDateNameTieBreak(a, b, releaseA, releaseB);
   }
   if (key === "kind") {
     const kindDiff = releaseKindSortValue(releaseA.kind) - releaseKindSortValue(releaseB.kind);
@@ -3001,12 +3034,7 @@ function productBeyName(bey, region) {
   return itemDisplayName(bey, region, { withSub: true }).trim();
 }
 function productComposition(item, region = activeReleaseRegion) {
-  const release = productRelease(item, region);
-  const releaseComposition = Array.isArray(release.composition) && release.composition.length ? release.composition : null;
-  const regionComposition = releaseComposition || (region === "jp" ? item.compositionJp || item.compositionJapan : item.compositionKr || item.compositionKorea);
-  const krReleaseComposition = Array.isArray(item.releases?.kr?.composition) && item.releases.kr.composition.length ? item.releases.kr.composition : null;
-  const baseComposition = region === "jp" ? item.composition || krReleaseComposition : region === "kr" ? item.composition : null;
-  const composition = regionComposition || baseComposition || [];
+  const composition = productCompositionItems(item, region);
   if (!composition.length) return "";
   return `<section class="modal-section product-composition"><p class="mounted-title">구성</p><div class="modal-section-scroll product-composition-list">${composition.map(part => {
     const name = part.name || "";
@@ -3149,7 +3177,8 @@ function openSimpleCatalogDetail({ item, options = {}, kind, stepItems, tags = "
 function openToolsDetail(id, options = {}) {
   const item = toolsItemsById.get(id);
   if (!item) return;
-  const stepItems = visibleToolsItems().some(entry => entry.id === item.id) ? visibleToolsItems() : toolsItems.slice().sort((a, b) => toolsSortOrder(a) - toolsSortOrder(b) || a.name.localeCompare(b.name, "ko"));
+  const visibleItems = visibleToolsItems();
+  const stepItems = visibleItems.some(entry => entry.id === item.id) ? visibleItems : toolsItems.slice().sort(compareToolsItemsByFirstRelease);
   openSimpleCatalogDetail({ item, options, kind: "tools", stepItems });
 }
 function openBookDetail(id, options = {}) {
