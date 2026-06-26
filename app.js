@@ -212,9 +212,17 @@ const items = [
   { id: "BEY-BBG-13-WARRIORS-IFRAID-W145CF", type: "bey", structure: "synchrome", name: "워리어스 이프레이드", jpName: "사무라이 이프레이드", en: "Warriors Ifraid", sub: "W145CF", productNo: "BBG-13", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-IFRAID", "CRYSTALWHEEL-WARRIORS", "CHROMEWHEEL-IFRAID", "TRACK-W145", "BOTTOM-CIRCLE-FLAT"] },
   { id: "BEY-BBG-16-DARK-KNIGHT-DRAGOON-LW160BSF", type: "bey", structure: "synchrome", name: "다크나이트 드래곤", jpName: "다크나이트 드라군", en: "Dark Knight Dragooon", sub: "LW160BSF", productNo: "BBG-16", tags: ["ATTACK", "LEFT SPIN"], desc: "", parts: ["STONEFACE-DRAGOON", "CRYSTALWHEEL-DARK-KNIGHT", "CHROMEWHEEL-DRAGOON", "TRACK-LW160", "BOTTOM-BLADE-SEMI-FLAT"] },
   { id: "BEY-BBG-17-ARCHER-GARGOYLE-SA165WSF", type: "bey", structure: "synchrome", name: "아처 가고일", jpName: "아처 가골", en: "Archer Gargole", sub: "SA165WSF", productNo: "BBG-17", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-GARGOYLE", "CRYSTALWHEEL-ARCHER", "CHROMEWHEEL-GARGOYLE", "TRACK-SA165", "BOTTOM-WIDE-SEMI-FLAT"] },
+  { id: "BEY-BBG-17-GUARDIAN-GARGOYLE-M145SB", type: "bey", structure: "synchrome", name: "가디언 가고일", jpName: "가디언 가골", en: "Guardian Gargole", sub: "M145SB", productNo: "BBG-17", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-GARGOYLE", "CRYSTALWHEEL-GUARDIAN", "CHROMEWHEEL-GARGOYLE", "TRACK-M145", "BOTTOM-SHARP-BALL"] },
+  { id: "BEY-BBG-17-SHINOBI-OROJYA-160WSF", type: "bey", structure: "synchrome", name: "시노비 오로자", en: "Shinobi Orojya", sub: "160WSF", productNo: "BBG-17", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-OROJYA", "CRYSTALWHEEL-SHINOBI", "CHROMEWHEEL-OROJYA", "TRACK-160", "BOTTOM-WIDE-SEMI-FLAT"] },
+  { id: "BEY-BBG-17-WARRIORS-REVIZER-SA165Q", type: "bey", structure: "synchrome", name: "워리어스 리바이저", jpName: "사무라이 리바이저", en: "Warriors Revizer", sub: "SA165Q", productNo: "BBG-17", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-REVIZER", "CRYSTALWHEEL-WARRIORS", "CHROMEWHEEL-REVIZER", "TRACK-SA165", "BOTTOM-QUAKE"] },
+  { id: "BEY-BBG-17-PIRATES-GRYPH-160CF", type: "bey", structure: "synchrome", name: "파이레츠 그리프", en: "Pirates Gryph", sub: "160CF", productNo: "BBG-17", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-GRYPH", "CRYSTALWHEEL-PIRATES", "CHROMEWHEEL-GRYPH", "TRACK-160", "BOTTOM-CIRCLE-FLAT"] },
+  { id: "BEY-BBG-17-PIRATES-REVIZER-M145CF", type: "bey", structure: "synchrome", name: "파이레츠 리바이저", en: "Pirates Revizer", sub: "M145CF", productNo: "BBG-17", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-REVIZER", "CRYSTALWHEEL-PIRATES", "CHROMEWHEEL-REVIZER", "TRACK-M145", "BOTTOM-CIRCLE-FLAT"] },
+  { id: "BEY-BBG-17-GUARDIAN-SARAMANDA-W145Q", type: "bey", structure: "synchrome", name: "가디언 사라만다", en: "Guardian Saramanda", sub: "W145Q", productNo: "BBG-17", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-SARAMANDA", "CRYSTALWHEEL-GUARDIAN", "CHROMEWHEEL-SARAMANDA", "TRACK-W145", "BOTTOM-QUAKE"] },
+  { id: "BEY-BBG-17-ARCHER-IFRAID-W145SB", type: "bey", structure: "synchrome", name: "아처 이프레이드", en: "Archer Ifraid", sub: "W145SB", productNo: "BBG-17", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-IFRAID", "CRYSTALWHEEL-ARCHER", "CHROMEWHEEL-IFRAID", "TRACK-W145", "BOTTOM-SHARP-BALL"] },
   { id: "BEY-BBG-20-BANDID-GOREIM-DF145BS", type: "bey", structure: "synchrome", name: "반디드 골렘", jpName: "반디드 고레임", en: "Bandid Goreim", sub: "DF145BS", productNo: "BBG-20", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-GOREIM", "CRYSTALWHEEL-BANDIT", "CHROMEWHEEL-GOREIM", "TRACK-DF145", "BOTTOM-BALL-SHARP"] },
   { id: "BEY-BBG-21-WARRIORS-IFRAID-W145CF", type: "bey", structure: "synchrome", name: "워리어스 이프레이드", jpName: "사무라이 이프레이드", en: "Warriors Ifraid", sub: "W145CF", productNo: "BBG-21", tags: ["ATTACK", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-IFRAID", "CRYSTALWHEEL-WARRIORS", "CHROMEWHEEL-IFRAID", "TRACK-W145", "BOTTOM-CIRCLE-FLAT"] },
   { id: "BEY-BBG-21-GUARDIAN-REVIZER-160SB", type: "bey", structure: "synchrome", name: "가디언 리바이저", en: "Guardian Revizer", sub: "160SB", productNo: "BBG-21", tags: ["DEFENSE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-REVIZER", "CRYSTALWHEEL-GUARDIAN", "CHROMEWHEEL-REVIZER", "TRACK-160", "BOTTOM-SHARP-BALL"] },
+  { id: "BEY-BBG-22-BERSERKER-BEGIRADOS-SR200BWD", type: "bey", structure: "synchrome", name: "버서커 베기라도스", en: "Berserker Begirados", sub: "SR200BWD", productNo: "BBG-22", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-BEGIRADOS", "CRYSTALWHEEL-BERSERKER", "CHROMEWHEEL-BEGIRADOS", "TRACK-SR200", "BOTTOM-BIG-WIDE-DEFENSE"] },
   { id: "BEY-BBG-23-BANDID-GENBULL-F230TB", type: "bey", structure: "synchrome", name: "반디드 겐블", en: "Bandid Genbull", sub: "F230TB", productNo: "BBG-23", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-GENBULL", "CRYSTALWHEEL-BANDIT", "CHROMEWHEEL-GENBULL", "TRACK-F230", "BOTTOM-TWIN-BALL"] },
   { id: "BEY-BBG-23-SHINOBI-GENBULL-130W2D", type: "bey", structure: "synchrome", name: "시노비 겐블", en: "Shinobi Genbull", sub: "130W²D", productNo: "BBG-23", tags: ["STAMINA", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-GENBULL", "CRYSTALWHEEL-SHINOBI", "CHROMEWHEEL-GENBULL", "TRACK-130", "BOTTOM-WAVE-WIDE-DEFENSE"] },
   { id: "BEY-BBG-23-THIEF-SARAMANDA-F230SF", type: "bey", structure: "synchrome", name: "시프 사라만다", en: "Thief Saramanda", sub: "F230SF", productNo: "BBG-23", tags: ["BALANCE", "RIGHT SPIN"], desc: "", parts: ["STONEFACE-SARAMANDA", "CRYSTALWHEEL-THIEF", "CHROMEWHEEL-SARAMANDA", "TRACK-F230", "BOTTOM-SEMI-FLAT"] },
@@ -420,10 +428,12 @@ const items = [
   { id: "STONEFACE-REVIZER", type: "stoneface", name: "리바이저", en: "Revizer", tags: ["STONEFACE"], desc: "리바이저를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
   { id: "STONEFACE-GRYPH", type: "stoneface", name: "그리프", en: "Gryph", tags: ["STONEFACE"], desc: "그리프를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
   { id: "STONEFACE-KRAKEN", type: "stoneface", name: "크라켄", en: "Killerken", tags: ["STONEFACE"], desc: "크라켄을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "STONEFACE-METAL-STONE-FACE-CUSTOM", type: "stoneface", name: "메탈스톤페이스 개조 Ver.", en: "Metal Stone Face Custom Ver.", tags: ["STONEFACE"], desc: "스톤페이스의 강화판. 무거워진 중량이 공격력과 방어력을 향상시킨다.", modes: [{ name: "헤비", stats: [60, 60, 0] }, { name: "미들", stats: [50, 50, 10] }, { name: "라이트", stats: [40, 40, 20] }, { name: "페더", stats: [30, 30, 30] }] },
   { id: "STONEFACE-DRAGOON", type: "stoneface", name: "드래곤", jpName: "드라군", en: "Dragooon", tags: ["STONEFACE"], desc: "드래곤을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
   { id: "STONEFACE-GARGOYLE", type: "stoneface", name: "가고일", jpName: "가골", en: "Gargole", tags: ["STONEFACE"], desc: "가고일을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
   { id: "STONEFACE-GOREIM", type: "stoneface", name: "골렘", jpName: "고레임", en: "Goreim", tags: ["STONEFACE"], desc: "골렘을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
   { id: "STONEFACE-GENBULL", type: "stoneface", name: "겐블", en: "Genbull", tags: ["STONEFACE"], desc: "겐블을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
+  { id: "STONEFACE-BEGIRADOS", type: "stoneface", name: "베기라도스", en: "Begirados", tags: ["STONEFACE"], desc: "베기라도스를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
   { id: "STONEFACE-BALRO", type: "stoneface", name: "발록", jpName: "발로", en: "Balro", tags: ["STONEFACE"], desc: "발록을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
   { id: "STONEFACE-GIRAGO", type: "stoneface", name: "지라고", en: "Girago", tags: ["STONEFACE"], desc: "지라고를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
   { id: "STONEFACE-WYVANG", type: "stoneface", name: "와이번", en: "Wyvang", tags: ["STONEFACE"], desc: "와이번을 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
@@ -573,12 +583,22 @@ const setSearchScope = (dropdown, dataAttr, scope) => {
 const setGlobalSearchScope = scope => setSearchScope(globalSearchScope, "data-global-search-scope", scope);
 const setOverviewSearchScope = scope => setSearchScope(overviewSearchScope, "data-overview-search-scope", scope);
 const overviewSearch = document.querySelector("#overviewSearchInput");
+const syncSearchInputState = input => input?.classList.toggle("has-value", input.value.length > 0);
+const setSearchInputValue = (input, value = "") => {
+  if (!input) return;
+  input.value = value;
+  syncSearchInputState(input);
+};
+const clearSearchInputs = () => {
+  setSearchInputValue(globalSearch, "");
+  setSearchInputValue(overviewSearch, "");
+};
 const activeToyPanel = () => document.querySelector(".toy-panel.active");
 const toTop = document.querySelector("#toTop");
 const menuButton = document.querySelector("#menuButton");
 const mobileDrawer = document.querySelector("#mobileDrawer");
 const mobileDrawerClose = document.querySelector(".mobile-drawer-close");
-const typeLabels = { bey: "베이", face: "페이스", wheel: "휠", clearwheel: "클리어휠", lightwheel: "라이트휠", metalwheel: "메탈휠", track: "트랙", bottom: "버텀", "4dbottom": "4D버텀", stoneface: "스톤페이스", chromewheel: "크롬휠", crystalwheel: "크리스탈휠" };
+const typeLabels = { bey: "베이", parts: "부품", equipment: "장비", face: "페이스", wheel: "휠", clearwheel: "클리어휠", lightwheel: "라이트휠", metalwheel: "메탈휠", track: "트랙", bottom: "버텀", "4dbottom": "4D버텀", stoneface: "스톤페이스", chromewheel: "크롬휠", crystalwheel: "크리스탈휠", bitchip: "비트칩", attackring: "어택링", weightdisk: "웨이트디스크", bladebase: "블레이드베이스", gear: "기어", layer: "레이어", disk: "디스크", driver: "드라이버", blade: "블레이드", ratchet: "래칫", bit: "비트" };
 const tagLabels = { ATTACK: "공격형", DEFENSE: "방어형", STAMINA: "지구형", BALANCE: "균형형", "RIGHT SPIN": "우회전", "LEFT SPIN": "좌회전", "DUAL SPIN": "양회전", FACE: "페이스", STONEFACE: "스톤페이스", WHEEL: "휠", CLEARWHEEL: "클리어휠", LIGHTWHEEL: "라이트휠", METALWHEEL: "메탈휠", CHROMEWHEEL: "크롬휠", CRYSTALWHEEL: "크리스탈휠", TRACK: "트랙", BOTTOM: "버텀", "4DBOTTOM": "4D버텀", LOW: "낮은 높이", HIGH: "높은 높이" };
 const structureLabels = { basic: "4단 구조 시스템", hybrid: "하이브리드 시스템", "4d": "4D 시스템", synchrome: "싱크롬 시스템" };
 const categoryTags = ["FACE", "STONEFACE", "WHEEL", "CLEARWHEEL", "LIGHTWHEEL", "METALWHEEL", "CHROMEWHEEL", "CRYSTALWHEEL", "TRACK", "BOTTOM", "4DBOTTOM"];
@@ -587,15 +607,10 @@ const typeTags = ["ATTACK", "DEFENSE", "STAMINA", "BALANCE"];
 let activeGearTypeFilter = "all";
 let activeGearTypeGroup = null;
 let activeGearStructureFilter = null;
-let productSaleFilter = null;
-let productSeriesFilter = null;
-let productKindFilter = null;
 let activeReleaseRegion = "kr";
 let activeReleaseSeries = "metal fight";
 let activeReleaseSort = { key: "release", direction: "asc" };
 let activeReleaseQuery = "";
-let equipmentSeriesFilter = null;
-let equipmentCategoryFilter = null;
 let gearSeriesFilter = null;
 let gearKindFilter = "";
 let gearSubtypeFilter = null;
@@ -604,6 +619,37 @@ let gearSpinFilter = null;
 let gearSystemFilter = null;
 const METAL_FIGHT_SERIES = "metal fight";
 const isMetalFightSeries = series => series === METAL_FIGHT_SERIES;
+const seriesPartFilters = {
+  topblade: [
+    { value: "bitchip", label: "비트칩" },
+    { value: "attackring", label: "어택링" },
+    { value: "weightdisk", label: "웨이트디스크" },
+    { value: "bladebase", label: "블레이드베이스" },
+    { value: "gear", label: "기어" }
+  ],
+  "metal fight": [
+    { value: "face", label: "페이스" },
+    { value: "wheel", label: "휠" },
+    { value: "track", label: "트랙" },
+    { value: "bottom", label: "버텀" }
+  ],
+  burst: [
+    { value: "layer", label: "레이어" },
+    { value: "disk", label: "디스크" },
+    { value: "driver", label: "드라이버" }
+  ],
+  x: [
+    { value: "blade", label: "블레이드" },
+    { value: "ratchet", label: "래칫" },
+    { value: "bit", label: "비트" }
+  ]
+};
+const equipmentSubtypeOptions = [
+  { value: "런처", label: "런처" },
+  { value: "그립", label: "그립" },
+  { value: "스타디움", label: "스타디움" },
+  { value: "기타", label: "기타" }
+];
 
 const productItems = [
 { id: "PRODUCT-BB-01", series: "metal fight", no: "BB-01", sale: "", releases: {
@@ -704,7 +750,7 @@ const productItems = [
   jp: { no: "BB-31", name: "랜덤부스터 라이트 Vol.1", sale: "일반 판매", kind: "부스터", releaseDate: "2009-03-28", price: "367", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BB-31-MAD-CANCER-CH120FS" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }}, beyPool: ["BEY-BB-31-MAD-CANCER-CH120FS","BEY-BB-31-HEAT-PEGASIS-100WB", "BEY-BB-31-CLAY-WOLF-145FS", "BEY-BB-31-HEAT-WOLF-WD145SF", "BEY-BB-31-MAD-LEONE-145B", "BEY-BB-31-CLAY-LEONE-DF145WB", "BEY-BB-31-WIND-PEGASIS-DF145B", "BEY-BB-31-WIND-LEONE-D125HF"] },
 { id: "PRODUCT-BB-32", series: "metal fight", no: "BB-32", sale: "", releases: {
   kr: { status: "unreleased" },
-  jp: { no: "BB-32", name: "하이브리드휠 대전 세트", sale: "일반 판매", kind: "세트", releaseDate: "2009-03-28", price: "3675", composition: [{ name: "스톰 페가시스 105RF(BB-32)", quantity: "1개", target: "BEY-BB-32-STORM-PEGASIS-105RF" }, { name: "다크 볼프 DF145FS(BB-32)", quantity: "1개", target: "BEY-BB-32-DARK-WOLF-DF145FS" }, { name: "툴", quantity: "2개", target: "EQUIPMENT-TOOL" }, { name: "베이런처", quantity: "2개", target: "EQUIPMENT-POWER-LAUNCHER" }, { name: "베이스타디움 어택타입", quantity: "1개", target: "EQUIPMENT-ATTACK-BEYSTADIUM" }, { name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }] }} },
+  jp: { no: "BB-32", name: "하이브리드휠 대전 세트", sale: "일반 판매", kind: "세트", releaseDate: "2009-03-28", price: "3675", composition: [{ name: "스톰 페가시스 105RF", quantity: "1개", target: "BEY-BB-32-STORM-PEGASIS-105RF" }, { name: "다크 볼프 DF145FS", quantity: "1개", target: "BEY-BB-32-DARK-WOLF-DF145FS" }, { name: "툴", quantity: "2개", target: "EQUIPMENT-TOOL" }, { name: "베이런처", quantity: "2개", target: "EQUIPMENT-POWER-LAUNCHER" }, { name: "베이스타디움 어택타입", quantity: "1개", target: "EQUIPMENT-ATTACK-BEYSTADIUM" }, { name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }] }} },
 { id: "PRODUCT-BB-33", series: "metal fight", no: "BB-33", sale: "", releases: {
   kr: { no: "BB-33", name: "스퀘어형 베이스타디움", sale: "일반 판매", releaseDate: "2011-02", price: "6400", composition: [{ name: "스퀘어형 베이스타디움", quantity: "1개", target: "EQUIPMENT-WIDE-SQUARE-BEYSTADIUM" }, { name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }] },
   jp: { no: "BB-33", name: "베이스타디움 와이드스퀘어타입", sale: "일반 판매", releaseDate: "2009-03-28", price: "1680", composition: [{ name: "베이스타디움 와이드스퀘어타입", quantity: "1개", target: "EQUIPMENT-WIDE-SQUARE-BEYSTADIUM" }, { name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }] }} },
@@ -772,8 +818,8 @@ const productItems = [
     kr: { no: "BB-50", name: "스톰 카프리콘 M145Q", sale: "일반 판매", kind: "스타터세트", releaseDate: "2009-12-06", price: "8000", composition: [{ name: "스톰 카프리콘 M145Q", quantity: "1개", target: "BEY-BB-50-STORM-CAPRICORNE-M145Q" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }] },
     jp: { no: "BB-50", name: "스톰 카프리코네 M145Q", sale: "일반 판매", kind: "부스터", releaseDate: "2009-10-24", price: "787", composition: [{ name: "스톰 카프리코네 M145Q", quantity: "1개", target: "BEY-BB-50-STORM-CAPRICORNE-M145Q" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }} },
   { id: "PRODUCT-BB-51", series: "metal fight", no: "BB-51", sale: "", releases: {
-    kr: { no: "BB-51", name: "익스트림 스타디움 세트", sale: "일반 판매", kind: "세트", releaseDate: "2009-12-06", price: "46400", composition: [{ name: "로크 오르소", quantity: "1개", target: "BEY-BB-51-ROCK-ORSO-D125B" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }, { name: "익스트림 베이스타디움", quantity: "1개", target: "EQUIPMENT-EXTREME-BEYSTADIUM" }, { name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }] },
-    jp: { no: "BB-51", name: "익스트림 베이스타디움", sale: "일반 판매", kind: "세트", releaseDate: "2009-10-24", price: "5775", composition: [{ name: "록 오르소", quantity: "1개", target: "BEY-BB-51-ROCK-ORSO-D125B" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }, { name: "익스트림 베이스타디움", quantity: "1개", target: "EQUIPMENT-EXTREME-BEYSTADIUM" }, { name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }] }} },
+    kr: { no: "BB-51", name: "익스트림 스타디움 세트", sale: "일반 판매", kind: "세트", releaseDate: "2009-12-06", price: "46400", composition: [{ name: "로크 오르소 D125B", quantity: "1개", target: "BEY-BB-51-ROCK-ORSO-D125B" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }, { name: "익스트림 베이스타디움", quantity: "1개", target: "EQUIPMENT-EXTREME-BEYSTADIUM" }, { name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }] },
+    jp: { no: "BB-51", name: "익스트림 베이스타디움", sale: "일반 판매", kind: "세트", releaseDate: "2009-10-24", price: "5775", composition: [{ name: "록 오르소 D125B", quantity: "1개", target: "BEY-BB-51-ROCK-ORSO-D125B" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "라이트런처", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER" }, { name: "익스트림 베이스타디움", quantity: "1개", target: "EQUIPMENT-EXTREME-BEYSTADIUM" }, { name: "오버펜스", quantity: "7장", target: "EQUIPMENT-OVER-FENCE" }] }} },
   { id: "PRODUCT-BB-52", series: "metal fight", no: "BB-52", sale: "", releases: {
     kr: { status: "unreleased" },
     jp: { no: "BB-52", name: "베이캐리어 하드타입", sale: "일반 판매", releaseDate: "2009-10-24", price: "1980", composition: [{ name: "베이캐리어 하드타입", quantity: "1개", target: "EQUIPMENT-BEYCARRIER-HARD" }] }} },
@@ -916,14 +962,14 @@ const productItems = [
     kr: { status: "unreleased" },
     jp: { no: "BB-82", name: "랜덤부스터 Vol.5 그랜드 케토스", sale: "일반 판매", kind: "부스터", releaseDate: "2010-07-24", price: "682", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BB-82-GRAND-KETOS-WD145RS" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }}, beyPool: ["BEY-BB-82-GRAND-KETOS-WD145RS", "BEY-BB-82-GRAND-KETOS-T125RS", "BEY-BB-82-BURN-UNICORNO-SW145JB", "BEY-BB-82-POISON-UNICORNO-130HF", "BEY-BB-82-STORM-PHOENIX-130B", "BEY-BB-82-POISON-PHOENIX-WA130SD", "BEY-BB-82-BURN-SERPENT-WA130ES", "BEY-BB-82-STORM-SERPENT-T125HF"] },
   { id: "PRODUCT-BB-82-1", series: "metal fight", no: "BB-82-1", sale: "일반 판매", releases: {
-    kr: { no: "BB-82-1", name: "그랜드 케토스 WD145RS", sale: "일반 판매", kind: "스타터세트", releaseDate: "2010-10-01", price: "9600" },
+    kr: { no: "BB-82-1", name: "그랜드 케토스 WD145RS", sale: "일반 판매", kind: "스타터세트", releaseDate: "2010-10-01", price: "9600", composition: [{ name: "그랜드 케토스 WD145RS", quantity: "1개", target: "BEY-BB-82-GRAND-KETOS-WD145RS" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "라이트런처2", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER-2" }]},
     jp: { status: "unreleased" }} },
   { id: "PRODUCT-BB-82-2", series: "metal fight", no: "BB-82-2", sale: "일반 판매", releases: {
-    kr: { no: "BB-82-2", name: "그랜드 케토스 T125RS", sale: "일반 판매", kind: "스타터세트", releaseDate: "2010-10-01", price: "9600" },
+    kr: { no: "BB-82-2", name: "그랜드 케토스 T125RS", sale: "일반 판매", kind: "스타터세트", releaseDate: "2010-10-01", price: "9600", composition: [{ name: "그랜드 케토스 T125RS", quantity: "1개", target: "BEY-BB-82-GRAND-KETOS-T125RS" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "라이트런처2", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER-2" }]},
     jp: { status: "unreleased" }} },
   { id: "PRODUCT-BB-83", series: "metal fight", no: "BB-83", sale: "일반 판매", releases: {
-    kr: { no: "BB-83", name: "파이시즈 DF145BS", sale: "일반 판매", kind: "스타터세트", releaseDate: "2010-10-01", price: "9600" },
-    jp: { no: "BB-83", name: "파이시즈 DF145BS", sale: "일반 판매", kind: "부스터", releaseDate: "2010-07-24", price: "682" }} },
+    kr: { no: "BB-83", name: "파이시즈 DF145BS", sale: "일반 판매", kind: "스타터세트", releaseDate: "2010-10-01", price: "9600", composition: [{ name: "파이시즈 DF145BS", quantity: "1개", target: "BEY-BB-83-PISCES-DF145BS" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "라이트런처2", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER-2" }]},
+    jp: { no: "BB-83", name: "파이시즈 DF145BS", sale: "일반 판매", kind: "부스터", releaseDate: "2010-07-24", price: "682", composition: [{ name: "파이시즈 DF145BS", quantity: "1개", target: "BEY-BB-83-PISCES-DF145BS" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }]}} },
   { id: "PRODUCT-BB-84", series: "metal fight", no: "BB-84", sale: "일반 판매", releases: {
     kr: { no: "BB-84", name: "메탈페이스 커스텀 Ver.(클리어)", sale: "일반 판매", releaseDate: "2011-01-13", price: "4000", composition: [{ name: "메탈페이스 커스텀 Ver.", quantity: "2개", target: "FACE-METAL-FACE-CUSTOM-VERSION" }, { name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }] },
     jp: { no: "BB-84", name: "메탈페이스 개조 Ver.(클리어)", sale: "일반 판매", releaseDate: "2010-07-24", price: "367", composition: [{ name: "메탈페이스 개조 Ver.", quantity: "2개", target: "FACE-METAL-FACE-CUSTOM-VERSION" }, { name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }] }} },
@@ -940,20 +986,20 @@ const productItems = [
     kr: { no: "BB-88", name: "메테오 엘드라고 LW105LF", sale: "일반 판매", kind: "스타터세트", releaseDate: "2010-10-01", price: "12000", composition: [{ name: "메테오 엘드라고 LW105LF", quantity: "1개", target: "BEY-BB-88-METEO-LDRAGO-LW105LF" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "파워런처L", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER-L" }] },
     jp: { no: "BB-88", name: "메테오 엘드라고 LW105LF", sale: "일반 판매", kind: "스타터", releaseDate: "2010-09-18", price: "1260", composition: [{ name: "메테오 엘드라고 LW105LF", quantity: "1개", target: "BEY-BB-88-METEO-LDRAGO-LW105LF" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "베이런처L", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER-L" }] }} },
   { id: "PRODUCT-BB-89", series: "metal fight", no: "BB-89", sale: "일반 판매", releases: {
-    kr: { no: "BB-89", name: "아리에스 145D", sale: "일반 판매", kind: "스타터세트", releaseDate: "2010-10-01", price: "9600" },
-    jp: { no: "BB-89", name: "아리에스 145D", sale: "일반 판매", kind: "부스터", releaseDate: "2010-09-18", price: "682" }} },
+    kr: { no: "BB-89", name: "아리에스 145D", sale: "일반 판매", kind: "스타터세트", releaseDate: "2010-10-01", price: "9600", composition: [{ name: "아리에스 145D", quantity: "1개", target: "BEY-BB-89-ARIES-145D" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "라이트런처2", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER-2" }]},
+    jp: { no: "BB-89", name: "아리에스 145D", sale: "일반 판매", kind: "부스터", releaseDate: "2010-09-18", price: "682", composition: [{ name: "아리에스 145D", quantity: "1개", target: "BEY-BB-89-ARIES-145D" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }]}} },
   { id: "PRODUCT-BB-90", series: "metal fight", no: "BB-90", sale: "일반 판매", releases: {
     kr: { no: "BB-90", name: "LED스코프라이트", sale: "일반 판매", releaseDate: "2010-12-07", price: "9600", composition: [{ name: "LED스코프라이트", quantity: "1개", target: "EQUIPMENT-LED-SIGHT" }] },
     jp: { no: "BB-90", name: "LED사이트", sale: "일반 판매", releaseDate: "2010-09-18", price: "1260", composition: [{ name: "LED사이트", quantity: "1개", target: "EQUIPMENT-LED-SIGHT" }] }} },
   { id: "PRODUCT-BB-91", series: "metal fight", no: "BB-91", sale: "일반 판매", releases: {
-    kr: { no: "BB-91", name: "레이 킬 100RSF", sale: "일반 판매", kind: "스타터세트", releaseDate: "2010-10-01", price: "9600" },
-    jp: { no: "BB-91", name: "레이 길 100RSF", sale: "일반 판매", kind: "부스터", releaseDate: "2010-10-23", price: "787" }} },
+    kr: { no: "BB-91", name: "레이 킬 100RSF", sale: "일반 판매", kind: "스타터세트", releaseDate: "2010-10-01", price: "9600", composition: [{ name: "레이 킬 100RSF", quantity: "1개", target: "BEY-BB-91-RAY-KILL-100RSF" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "라이트런처2", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER-2" }]},
+    jp: { no: "BB-91", name: "레이 길 100RSF", sale: "일반 판매", kind: "부스터", releaseDate: "2010-10-23", price: "787", composition: [{ name: "레이 길 100RSF", quantity: "1개", target: "BEY-BB-91-RAY-KILL-100RSF" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }]}} },
   { id: "PRODUCT-BB-92", series: "metal fight", no: "BB-92", sale: "일반 판매", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "BB-92", name: "갤럭시 페가시스 W105R²F", sale: "일반 판매", kind: "부스터", releaseDate: "2010-10-23", price: "787" }} },
+    jp: { no: "BB-92", name: "갤럭시 페가시스 W105R²F", sale: "일반 판매", kind: "부스터", releaseDate: "2010-10-23", price: "787", composition: [{ name: "갤럭시 페가시스 W105R²F", quantity: "1개", target: "BEY-BB-92-GALAXY-PEGASIS-W105R2F" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }]}} },
   { id: "PRODUCT-BB-93", series: "metal fight", no: "BB-93", sale: "일반 판매", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "BB-93", name: "레이 유니코르노 D125CS", sale: "일반 판매", kind: "부스터", releaseDate: "2010-10-23", price: "787" }} },
+    jp: { no: "BB-93", name: "레이 유니코르노 D125CS", sale: "일반 판매", kind: "부스터", releaseDate: "2010-10-23", price: "787", composition: [{ name: "레이 유니코르노 D125CS", quantity: "1개", target: "BEY-BB-93-RAY-UNICORNO-D125CS" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }]}} },
   { id: "PRODUCT-BB-94", series: "metal fight", no: "BB-94", sale: "일반 판매", releases: {
     kr: { no: "BB-94", name: "토네이도 베이스타디움", sale: "일반 판매", kind: "세트", releaseDate: "2010-12-07", price: "49600", composition: [{ name: "토네이도 헤라클레오 105F", quantity: "1개", target: "BEY-BB-94-TORNADO-HERCULEO-105F" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "토네이도 베이스타디움", quantity: "1개", target: "EQUIPMENT-TORNADO-BEYSTADIUM" }] },
     jp: { no: "BB-94", name: "토네이도 베이스타디움", sale: "일반 판매", kind: "세트", releaseDate: "2010-10-23", price: "5775", composition: [{ name: "토네이도 헤라클레오 105F", quantity: "1개", target: "BEY-BB-94-TORNADO-HERCULEO-105F" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "토네이도 베이스타디움", quantity: "1개", target: "EQUIPMENT-TORNADO-BEYSTADIUM" }] }} },
@@ -970,8 +1016,8 @@ const productItems = [
     kr: { no: "", name: "리버스 드래곤 어택 세트", sale: "일반 판매", kind: "세트", releaseDate: "2010-12-07", price: "" },
     jp: { status: "unreleased" }} },
   { id: "PRODUCT-BB-95", series: "metal fight", no: "BB-95", sale: "일반 판매", releases: {
-    kr: { no: "BB-95", name: "플레임 픽시스 230WD", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-02-01", price: "9600" },
-    jp: { no: "BB-95", name: "플레임 빅시스 230WD", sale: "일반 판매", kind: "부스터", releaseDate: "2010-11-20", price: "787" }} },
+    kr: { no: "BB-95", name: "플레임 픽시스 230WD", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-02-01", price: "9600", composition: [{ name: "플레임 픽시스 230WD", quantity: "1개", target: "BEY-BB-95-FLAME-BYXIS-230WD" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "라이트런처2", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER-2" }]},
+    jp: { no: "BB-95", name: "플레임 빅시스 230WD", sale: "일반 판매", kind: "부스터", releaseDate: "2010-11-20", price: "787", composition: [{ name: "플레임 빅시스 230WD", quantity: "1개", target: "BEY-BB-95-FLAME-BYXIS-230WD" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }]}} },
   { id: "PRODUCT-BB-96", series: "metal fight", no: "BB-96", sale: "일반 판매", releases: {
     kr: { no: "BB-96", name: "베이블레이드 슈퍼 덱", sale: "일반 판매", kind: "세트", releaseDate: "2011-02-01", price: "22400", composition: [{ name: "페가시스 85RF", quantity: "1개", target: "BEY-BB-96-PEGASIS-85RF" }, { name: "리브라 100D", quantity: "1개", target: "BEY-BB-96-LIBRA-100D" }, { name: "번 캔서 90WD", quantity: "1개", target: "BEY-BB-96-BURN-CANCER-90WD" }, { name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }] },
     jp: { no: "BB-96", name: "베이블레이드 슈퍼 덱", sale: "일반 판매", kind: "세트", releaseDate: "2010-11-20", price: "2415", composition: [{ name: "페가시스 85RF", quantity: "1개", target: "BEY-BB-96-PEGASIS-85RF" }, { name: "리브라 100D", quantity: "1개", target: "BEY-BB-96-LIBRA-100D" }, { name: "번 캔서 90WD", quantity: "1개", target: "BEY-BB-96-BURN-CANCER-90WD" }, { name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }] }} },
@@ -979,50 +1025,50 @@ const productItems = [
     kr: { no: "BB-97", name: "스페셜 커스텀 세트 페르세우스 Ver.", sale: "일반 판매", kind: "세트", releaseDate: "2011-02-01", price: "39800", composition: [{ name: "페르세우스 페이스", quantity: "3개", target: "FACE-PERSEUS" }, { name: "메탈페이스 커스텀 Ver.", quantity: "2개", target: "FACE-METAL-FACE-CUSTOM-VERSION" }, { name: "페르세우스 클리어휠", quantity: "1개", target: "CLEARWHEEL-PERSEUS" }, { name: "페르세우스 어택 클리어휠", quantity: "1개", target: "CLEARWHEEL-PERSEUS-ATTACK" }, { name: "페르세우스 스테미너 클리어휠", quantity: "1개", target: "CLEARWHEEL-PERSEUS-STAMINA" }, { name: "그라비티 메탈휠", quantity: "2개", target: "METALWHEEL-GRAVITY" }, { name: "GB145 트랙", quantity: "1개", target: "TRACK-GB145" }, { name: "AD145 트랙", quantity: "1개", target: "TRACK-AD145" }, { name: "105 트랙", quantity: "1개", target: "TRACK-105" }, { name: "130 트랙", quantity: "1개", target: "TRACK-130" }, { name: "S 버텀", quantity: "1개", target: "BOTTOM-SHARP" }, { name: "WD 버텀", quantity: "1개", target: "BOTTOM-WIDE-DEFENSE" }, { name: "F 버텀", quantity: "1개", target: "BOTTOM-FLAT" }, { name: "RS 버텀", quantity: "1개", target: "BOTTOM-RUBBER-SHARP" }, { name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }, { name: "파워런처LR", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER-LR" }, { name: "런처그립", quantity: "1개", target: "EQUIPMENT-LAUNCHER-GRIP" }, { name: "스퀘어형 베이스타디움", quantity: "1개", target: "EQUIPMENT-WIDE-SQUARE-BEYSTADIUM" }] },
     jp: { no: "BB-97", name: "베이블레이드 궁극 개조 세트 페르세우스 Ver.", sale: "일반 판매", kind: "세트", releaseDate: "2010-11-20", price: "3780", composition: [{ name: "페르세우스 페이스", quantity: "3개", target: "FACE-PERSEUS" }, { name: "메탈페이스 개조 Ver.", quantity: "2개", target: "FACE-METAL-FACE-CUSTOM-VERSION" }, { name: "페르세우스 클리어휠", quantity: "1개", target: "CLEARWHEEL-PERSEUS" }, { name: "페르세우스 어택 클리어휠", quantity: "1개", target: "CLEARWHEEL-PERSEUS-ATTACK" }, { name: "페르세우스 스테미너 클리어휠", quantity: "1개", target: "CLEARWHEEL-PERSEUS-STAMINA" }, { name: "그라비티 메탈휠", quantity: "2개", target: "METALWHEEL-GRAVITY" }, { name: "GB145 트랙", quantity: "1개", target: "TRACK-GB145" }, { name: "AD145 트랙", quantity: "1개", target: "TRACK-AD145" }, { name: "105 트랙", quantity: "1개", target: "TRACK-105" }, { name: "130 트랙", quantity: "1개", target: "TRACK-130" }, { name: "S 버텀", quantity: "1개", target: "BOTTOM-SHARP" }, { name: "WD 버텀", quantity: "1개", target: "BOTTOM-WIDE-DEFENSE" }, { name: "F 버텀", quantity: "1개", target: "BOTTOM-FLAT" }, { name: "RS 버텀", quantity: "1개", target: "BOTTOM-RUBBER-SHARP" }, { name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }, { name: "베이런처LR", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER-LR" }, { name: "3세그 런처그립", quantity: "1개", target: "EQUIPMENT-3SEG-LAUNCHER-GRIP" }] }} },
   { id: "PRODUCT-BB-98", series: "metal fight", no: "BB-98", sale: "일반 판매", releases: {
-    kr: { no: "BB-98", name: "스페셜 커스텀 세트 엘드라고 Ver.", sale: "일반 판매", kind: "세트", releaseDate: "2011-02-01", price: "39800" },
-    jp: { no: "BB-98", name: "베이블레이드 궁극 개조 세트 엘드라고 Ver.", sale: "일반 판매", kind: "세트", releaseDate: "2010-11-20", price: "3780" }} },
+    kr: { no: "BB-98", name: "스페셜 커스텀 세트 엘드라고 Ver.", sale: "일반 판매", kind: "세트", releaseDate: "2011-02-01", price: "39800", composition: [{ name: "메탈페이스 커스텀 Ver.", quantity: "2개", target: "FACE-METAL-FACE-CUSTOM-VERSION" }, { name: "엘드라고Ⅱ 클리어휠", quantity: "1개", target: "CLEARWHEEL-LDRAGO-II" }, { name: "엘드라고Ⅱ 어썰트 클리어휠", quantity: "1개", target: "CLEARWHEEL-LDRAGO-II-ASSAULT" }, { name: "엘드라고Ⅱ 러시 클리어휠", quantity: "1개", target: "CLEARWHEEL-LDRAGO-II-RUSH" }, { name: "메테오 메탈휠", quantity: "2개", target: "METALWHEEL-METEOR" }, { name: "LW105 트랙", quantity: "1개", target: "TRACK-LW105" }, { name: "DF105 트랙", quantity: "1개", target: "TRACK-DF105" }, { name: "125 트랙", quantity: "1개", target: "TRACK-125" }, { name: "105 트랙", quantity: "1개", target: "TRACK-105" }, { name: "85 트랙", quantity: "1개", target: "TRACK-85" }, { name: "LF 버텀", quantity: "1개", target: "BOTTOM-LEFT-FLAT" }, { name: "LRF 버텀", quantity: "1개", target: "BOTTOM-LEFT-RUBBER-FLAT" }, { name: "SF 버텀", quantity: "1개", target: "BOTTOM-SEMI-FLAT" }, { name: "RF 버텀", quantity: "1개", target: "BOTTOM-RUBBER-FLAT" }, { name: "XF 버텀", quantity: "1개", target: "BOTTOM-EXTREME-FLAT" }, { name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }, { name: "파워런처L", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER-L" }, { name: "런처그립", quantity: "1개", target: "EQUIPMENT-LAUNCHER-GRIP" }, { name: "스퀘어형 베이스타디움", quantity: "1개", target: "EQUIPMENT-WIDE-SQUARE-BEYSTADIUM" }] },
+    jp: { no: "BB-98", name: "베이블레이드 궁극 개조 세트 엘드라고 Ver.", sale: "일반 판매", kind: "세트", releaseDate: "2010-11-20", price: "3780", composition: [{ name: "메탈페이스 개조 Ver.", quantity: "2개", target: "FACE-METAL-FACE-CUSTOM-VERSION" }, { name: "엘드라고Ⅱ 클리어휠", quantity: "1개", target: "CLEARWHEEL-LDRAGO-II" }, { name: "엘드라고Ⅱ 어썰트 클리어휠", quantity: "1개", target: "CLEARWHEEL-LDRAGO-II-ASSAULT" }, { name: "엘드라고Ⅱ 러시 클리어휠", quantity: "1개", target: "CLEARWHEEL-LDRAGO-II-RUSH" }, { name: "메테오 메탈휠", quantity: "2개", target: "METALWHEEL-METEOR" }, { name: "LW105 트랙", quantity: "1개", target: "TRACK-LW105" }, { name: "DF105 트랙", quantity: "1개", target: "TRACK-DF105" }, { name: "125 트랙", quantity: "1개", target: "TRACK-125" }, { name: "105 트랙", quantity: "1개", target: "TRACK-105" }, { name: "85 트랙", quantity: "1개", target: "TRACK-85" }, { name: "LF 버텀", quantity: "1개", target: "BOTTOM-LEFT-FLAT" }, { name: "LRF 버텀", quantity: "1개", target: "BOTTOM-LEFT-RUBBER-FLAT" }, { name: "SF 버텀", quantity: "1개", target: "BOTTOM-SEMI-FLAT" }, { name: "RF 버텀", quantity: "1개", target: "BOTTOM-RUBBER-FLAT" }, { name: "XF 버텀", quantity: "1개", target: "BOTTOM-EXTREME-FLAT" }, { name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }, { name: "베이런처L", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER-L" }, { name: "3세그 런처그립", quantity: "1개", target: "EQUIPMENT-3SEG-LAUNCHER-GRIP" }] }} },
   { id: "PRODUCT-BB-99", series: "metal fight", no: "BB-99", sale: "일반 판매", releases: {
-    kr: { no: "BB-99", name: "헬 켈베로스 BD145DS", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-02-01", price: "12000" },
-    jp: { no: "BB-99", name: "헬 케르벡스 BD145DS", sale: "일반 판매", kind: "스타터", releaseDate: "2010-12-28", price: "997" }} },
+    kr: { no: "BB-99", name: "헬 켈베로스 BD145DS", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-02-01", price: "12000", composition: [{ name: "헬 켈베로스 BD145DS", quantity: "1개", target: "BEY-BB-99-HELL-KERBECS-BD145DS" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "스나이프런처", quantity: "1개", target: "EQUIPMENT-SNIPE-LAUNCHER" }]},
+    jp: { no: "BB-99", name: "헬 케르벡스 BD145DS", sale: "일반 판매", kind: "스타터", releaseDate: "2010-12-28", price: "997", composition: [{ name: "헬 케르벡스 BD145DS", quantity: "1개", target: "BEY-BB-99-HELL-KERBECS-BD145DS" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "라이트런처2", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER-2" }]}} },
   { id: "PRODUCT-BB-99-1", series: "metal fight", no: "BB-99-1", sale: "일반 판매", releases: {
-    kr: { no: "BB-99-1", name: "헬 켈베로스 BD145DS", sale: "일반 판매", kind: "부스터", releaseDate: "2011-06-14", price: "9600" },
+    kr: { no: "BB-99-1", name: "헬 켈베로스 BD145DS", sale: "일반 판매", kind: "부스터", releaseDate: "2011-06-14", price: "9600", composition: [{ name: "헬 켈베로스 BD145DS", quantity: "1개", target: "BEY-BB-99-HELL-KERBECS-BD145DS" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }]},
     jp: { status: "unreleased" }} },
   { id: "PRODUCT-BB-100", series: "metal fight", no: "BB-100", sale: "일반 판매", releases: {
-    kr: { no: "BB-100", name: "키라 비폴 UW145EWD", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-02-01", price: "9600" },
+    kr: { no: "BB-100", name: "키라 비폴 UW145EWD", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-02-01", price: "9600", composition: [{ name: "키라 비폴 UW145EWD", quantity: "1개", target: "BEY-BB-100-KILLER-BEAFOWL-UW145EWD" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "라이트런처2", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER-2" }]},
     jp: { no: "BB-100", name: "랜덤부스터 Vol.6 키라 비폴", sale: "일반 판매", kind: "부스터", releaseDate: "2010-12-28", price: "682", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BB-100-KILLER-BEAFOWL-UW145EWD" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }
   }, beyPool: ["BEY-BB-100-KILLER-BEAFOWL-UW145EWD", "BEY-BB-100-GALAXY-CANCER-D125HF", "BEY-BB-100-BURN-SCORPIO-100RF", "BEY-BB-100-FLAME-GEMIOS-105CS", "BEY-BB-100-KILLER-SCORPIO-100D", "BEY-BB-100-GALAXY-SAGITTARIO-145CS", "BEY-BB-100-FLAME-CANCER-D125RF", "BEY-BB-100-BURN-SAGITTARIO-105HF"] },
   { id: "PRODUCT-BB-101", series: "metal fight", no: "BB-101", sale: "일반 판매", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "BB-101", name: "그립서포트", sale: "일반 판매", releaseDate: "2010-12-28", price: "367" }} },
+    jp: { no: "BB-101", name: "그립서포트", sale: "일반 판매", releaseDate: "2010-12-28", price: "367", composition: [{ name: "그립서포트", quantity: "1개", target: "EQUIPMENT-GRIP-SUPPORT" }] }} },
   { id: "PRODUCT-BB-102", series: "metal fight", no: "BB-102", sale: "일반 판매", releases: {
-    kr: { no: "BB-102", name: "스크류 카프리콘 90MF", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-02-01", price: "9600" },
-    jp: { no: "BB-102", name: "스크류 카프리코네 90MF", sale: "일반 판매", kind: "부스터", releaseDate: "2011-01-22", price: "787" }} },
+    kr: { no: "BB-102", name: "스크류 카프리콘 90MF", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-02-01", price: "9600", composition: [{ name: "스크류 카프리콘 90MF", quantity: "1개", target: "BEY-BB-102-SCREW-CAPRICORNE-90MF" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "라이트런처2", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER-2" }]},
+    jp: { no: "BB-102", name: "스크류 카프리코네 90MF", sale: "일반 판매", kind: "부스터", releaseDate: "2011-01-22", price: "787", composition: [{ name: "스크류 카프리코네 90MF", quantity: "1개", target: "BEY-BB-102-SCREW-CAPRICORNE-90MF" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }]}} },
   { id: "PRODUCT-BB-103", series: "metal fight", no: "BB-103", sale: "일반 판매", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "BB-103", name: "스나이프런처", sale: "일반 판매", releaseDate: "2011-01-22", price: "472" }} },
+    jp: { no: "BB-103", name: "스나이프런처", sale: "일반 판매", releaseDate: "2011-01-22", price: "472", composition: [{ name: "스나이프런처", quantity: "1개", target: "EQUIPMENT-SNIPE-LAUNCHER" }] }} },
   { id: "PRODUCT-BB-104", series: "metal fight", no: "BB-104", sale: "일반 판매", releases: {
-    kr: { no: "BB-104", name: "바셀트 호로지움 145WD", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-02-01", price: "12000" },
-    jp: { no: "BB-104", name: "바살트 호로기움 145WD", sale: "일반 판매", kind: "스타터", releaseDate: "2011-02-26", price: "945" }} },
+    kr: { no: "BB-104", name: "바셀트 호로지움 145WD", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-02-01", price: "12000", composition: [{ name: "바셀트 호로지움 145WD", quantity: "1개", target: "BEY-BB-104-BASALT-HOROGIUM-145WD" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "스나이프런처", quantity: "1개", target: "EQUIPMENT-SNIPE-LAUNCHER" }]},
+    jp: { no: "BB-104", name: "바살트 호로기움 145WD", sale: "일반 판매", kind: "스타터", releaseDate: "2011-02-26", price: "945", composition: [{ name: "바살트 호로기움 145WD", quantity: "1개", target: "BEY-BB-104-BASALT-HOROGIUM-145WD" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "라이트런처2", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER-2" }]}} },
   { id: "PRODUCT-KR-BIGBANG-BLADERS-TOOLBOX", series: "metal fight", no: "", sale: "일반 판매", releases: {
-    kr: { no: "", name: "빅뱅블레이더즈 툴박스", sale: "일반 판매", releaseDate: "2011-02-01", price: "12000" },
+    kr: { no: "", name: "빅뱅블레이더즈 툴박스", sale: "일반 판매", releaseDate: "2011-02-01", price: "12000", composition: [{ name: "빅뱅블레이더즈 툴박스", quantity: "1개", target: "EQUIPMENT-BIGBANG-BLADERS-TOOLBOX" }] },
     jp: { status: "unreleased" }} },
   { id: "PRODUCT-KR-STARBREAKER-DX-SET", series: "metal fight", no: "", sale: "일반 판매", releases: {
     kr: { no: "", name: "스타브레이커 DX 세트", sale: "일반 판매", kind: "세트", releaseDate: "2011-04-11", price: "45000" },
     jp: { status: "unreleased" }} },
   { id: "PRODUCT-BB-105", series: "metal fight", no: "BB-105", sale: "일반 판매", releases: {
-    kr: { no: "BB-105", name: "빅뱅 페가시스 F:D", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-10-28", price: "13600" },
-    jp: { no: "BB-105", name: "빅뱅 페가시스 F:D", sale: "일반 판매", kind: "스타터", releaseDate: "2011-03-26", price: "1260" }} },
+    kr: { no: "BB-105", name: "빅뱅 페가시스 F:D", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-10-28", price: "13600", composition: [{ name: "빅뱅 페가시스 F:D", quantity: "1개", target: "BEY-BB-105-BIG-BANG-PEGASIS-FD" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "라이트런처2", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER-2" }]},
+    jp: { no: "BB-105", name: "빅뱅 페가시스 F:D", sale: "일반 판매", kind: "스타터", releaseDate: "2011-03-26", price: "1260", composition: [{ name: "빅뱅 페가시스 F:D", quantity: "1개", target: "BEY-BB-105-BIG-BANG-PEGASIS-FD" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "라이트런처2", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER-2" }]}} },
   { id: "PRODUCT-BB-106", series: "metal fight", no: "BB-106", sale: "일반 판매", releases: {
-    kr: { no: "BB-106", name: "팡 레온 130W²D", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-10-28", price: "12000" },
-    jp: { no: "BB-106", name: "팡 레오네 130W²D", sale: "일반 판매", kind: "스타터", releaseDate: "2011-03-26", price: "945" }} },
+    kr: { no: "BB-106", name: "팡 레온 130W²D", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-10-28", price: "12000", composition: [{ name: "팡 레온 130W²D", quantity: "1개", target: "BEY-BB-106-FANG-LEONE-130W2D" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "라이트런처2", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER-2" }]},
+    jp: { no: "BB-106", name: "팡 레오네 130W²D", sale: "일반 판매", kind: "스타터", releaseDate: "2011-03-26", price: "945", composition: [{ name: "팡 레오네 130W²D", quantity: "1개", target: "BEY-BB-106-FANG-LEONE-130W2D" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "라이트런처2", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER-2" }]}} },
   { id: "PRODUCT-BB-107", series: "metal fight", no: "BB-107", sale: "일반 판매", releases: {
     kr: { status: "unreleased" },
     jp: { no: "BB-107", name: "빅뱅 페가시스 DX 세트", sale: "일반 판매", kind: "세트", releaseDate: "2011-03-26", price: "3990" }} },
   { id: "PRODUCT-BB-108", series: "metal fight", no: "BB-108", sale: "일반 판매", releases: {
-    kr: { no: "BB-108", name: "엘드라고 디스트로이 F:S", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-10-28", price: "13600" },
-    jp: { no: "BB-108", name: "엘드라고 디스트로이 F:S", sale: "일반 판매", kind: "스타터", releaseDate: "2011-04-23", price: "1260" }} },
+    kr: { no: "BB-108", name: "엘드라고 디스트로이 F:S", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-10-28", price: "13600", composition: [{ name: "엘드라고 디스트로이 F:S", quantity: "1개", target: "BEY-BB-108-LDRAGO-DESTROY-FS" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "파워런처L", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER-L" }]},
+    jp: { no: "BB-108", name: "엘드라고 디스트로이 F:S", sale: "일반 판매", kind: "스타터", releaseDate: "2011-04-23", price: "1260", composition: [{ name: "엘드라고 디스트로이 F:S", quantity: "1개", target: "BEY-BB-108-LDRAGO-DESTROY-FS" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "베이런처L", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER-L" }]}} },
   { id: "PRODUCT-BB-109", series: "metal fight", no: "BB-109", sale: "일반 판매", releases: {
-    kr: { no: "BB-109", name: "비트 링크스 TH170WD", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-10-28", price: "12000" },
+    kr: { no: "BB-109", name: "비트 링크스 TH170WD", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-10-28", price: "12000", composition: [{ name: "비트 링크스 TH170WD", quantity: "1개", target: "BEY-BB-109-BEAT-LYNX-TH170WD" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "라이트런처2", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER-2" }]},
     jp: { no: "BB-109", name: "랜덤부스터 Vol.7 비트 링크스", sale: "일반 판매", kind: "부스터", releaseDate: "2011-04-23", price: "682", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BB-109-BEAT-LYNX-TH170WD" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }}, beyPool: ["BEY-BB-109-BEAT-LYNX-TH170WD", "BEY-BB-109-GRAVITY-PERSEUS-BD145XF", "BEY-BB-109-HELL-HORUSEUS-85RS", "BEY-BB-109-VULCAN-HERCULEO-130DS", "BEY-BB-109-GRAVITY-PERSEUS-85DS", "BEY-BB-109-TORNADO-HORUSEUS-130RSF", "BEY-BB-109-HELL-HERCULEO-100XF", "BEY-BB-109-VULCAN-HOROGIUM-BD145RS"] },
   { id: "PRODUCT-BB-110", series: "metal fight", no: "BB-110", sale: "일반 판매", releases: {
     kr: { status: "unreleased" },
@@ -1031,26 +1077,26 @@ const productItems = [
     kr: { status: "unreleased" },
     jp: { no: "BB-111", name: "베이런처(아미그린)", sale: "일반 판매", releaseDate: "2011-04-23", price: "525", composition: [{ name: "베이런처", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER" }] }} },
   { id: "PRODUCT-BB-112", series: "metal fight", no: "BB-112", sale: "일반 판매", releases: {
-    kr: { no: "BB-112", name: "카라비나그립(레드)", sale: "일반 판매", releaseDate: "2011-10-28", price: "6400" },
-    jp: { no: "BB-112", name: "카라비나그립(마스레드)", sale: "일반 판매", releaseDate: "2011-05-21", price: "630" }} },
+    kr: { no: "BB-112", name: "카라비나그립(레드)", sale: "일반 판매", releaseDate: "2011-10-28", price: "6400", composition: [{ name: "카라비나그립(레드)", quantity: "1개", target: "EQUIPMENT-CARABINER-GRIP" }] },
+    jp: { no: "BB-112", name: "카라비나그립(마스레드)", sale: "일반 판매", releaseDate: "2011-05-21", price: "630", composition: [{ name: "카라비나그립(마스레드)", quantity: "1개", target: "EQUIPMENT-CARABINER-GRIP" }] }} },
   { id: "PRODUCT-BB-113", series: "metal fight", no: "BB-113", sale: "일반 판매", releases: {
-    kr: { no: "BB-113", name: "사이즈 크로노스 T125EDS", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-10-28", price: "12000" },
-    jp: { no: "BB-113", name: "사이즈 크로노스 T125EDS", sale: "일반 판매", kind: "스타터", releaseDate: "2011-06-18", price: "945" }} },
+    kr: { no: "BB-113", name: "사이즈 크로노스 T125EDS", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-10-28", price: "12000", composition: [{ name: "사이즈 크로노스 T125EDS", quantity: "1개", target: "BEY-BB-113-SCYTHE-KRONOS-T125EDS" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "라이트런처2", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER-2" }]},
+    jp: { no: "BB-113", name: "사이즈 크로노스 T125EDS", sale: "일반 판매", kind: "스타터", releaseDate: "2011-06-18", price: "945", composition: [{ name: "사이즈 크로노스 T125EDS", quantity: "1개", target: "BEY-BB-113-SCYTHE-KRONOS-T125EDS" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "라이트런처2", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER-2" }]}} },
   { id: "PRODUCT-BB-114", series: "metal fight", no: "BB-114", sale: "일반 판매", releases: {
-    kr: { no: "BB-114", name: "베리아레스 D:D", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-10-28", price: "13600" },
-    jp: { no: "BB-114", name: "바리아레스 D:D", sale: "일반 판매", kind: "스타터", releaseDate: "2011-07-16", price: "1260" }} },
+    kr: { no: "BB-114", name: "베리아레스 D:D", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-10-28", price: "13600", composition: [{ name: "베리아레스 D:D", quantity: "1개", target: "BEY-BB-114-VARIARES-DD" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "파워런처LR", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER-LR" }]},
+    jp: { no: "BB-114", name: "바리아레스 D:D", sale: "일반 판매", kind: "스타터", releaseDate: "2011-07-16", price: "1260", composition: [{ name: "바리아레스 D:D", quantity: "1개", target: "BEY-BB-114-VARIARES-DD" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "베이런처LR", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER-LR" }]}} },
   { id: "PRODUCT-BB-115", series: "metal fight", no: "BB-115", sale: "일반 판매", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "BB-115", name: "베이런처LR(마스레드)", sale: "일반 판매", kind: "스타터", releaseDate: "2011-07-16", price: "735" }} },
+    jp: { no: "BB-115", name: "베이런처LR(마스레드)", sale: "일반 판매", releaseDate: "2011-07-16", price: "735", composition: [{ name: "베이런처LR(마스레드)", quantity: "1개", target: "EQUIPMENT-POWER-LAUNCHER-LR" }] }} },
   { id: "PRODUCT-BB-116", series: "metal fight", no: "BB-116", sale: "일반 판매", releases: {
-    kr: { no: "BB-116", name: "제이드 쥬피터 S130RB", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-10-28", price: "12000" },
+    kr: { no: "BB-116", name: "제이드 쥬피터 S130RB", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-10-28", price: "12000", composition: [{ name: "제이드 쥬피터 S130RB", quantity: "1개", target: "BEY-BB-116-JADE-JUPITER-S130RB" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "라이트런처2", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER-2" }]},
     jp: { no: "BB-116", name: "랜덤부스터 Vol.8 제이드 쥬피터", sale: "일반 판매", kind: "부스터", releaseDate: "2011-08-06", price: "682", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BB-116-JADE-JUPITER-S130RB" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }}, beyPool: [ "BEY-BB-116-JADE-JUPITER-S130RB", "BEY-BB-116-FORBIDDEN-EONIS-ED145FB", "BEY-BB-116-DIVINE-FOX-90W2D", "BEY-BB-116-SCREW-LYRA-ED145MF", "BEY-BB-116-FORBIDDEN-EONIS-130D", "BEY-BB-116-DIVINE-CROWN-TR145D", "BEY-BB-116-SCREW-FOX-TR145W2D", "BEY-BB-116-HELL-CROWN-130FB"] },
   { id: "PRODUCT-BB-117", series: "metal fight", no: "BB-117", sale: "일반 판매", releases: {
     kr: { no: "BB-117", name: "넘버원 블레이더 세트", sale: "일반 판매", kind: "세트", releaseDate: "2011-10-28", price: "29600" },
     jp: { no: "BB-117", name: "최강 블레이더 세트", sale: "일반 판매", kind: "세트", releaseDate: "2011-08-06", price: "2625" }} },
   { id: "PRODUCT-BB-118", series: "metal fight", no: "BB-118", sale: "일반 판매", releases: {
-    kr: { no: "BB-118", name: "팬텀 오리온 B:D", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-10-28", price: "12000" },
-    jp: { no: "BB-118", name: "팬텀 오리온 B:D", sale: "일반 판매", kind: "스타터", releaseDate: "2011-09-17", price: "1470" }} },
+    kr: { no: "BB-118", name: "팬텀 오리온 B:D", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-10-28", price: "12000", composition: [{ name: "팬텀 오리온 B:D", quantity: "1개", target: "BEY-BB-118-PHANTOM-ORION-BD" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "라이트런처2", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER-2" }]},
+    jp: { no: "BB-118", name: "팬텀 오리온 B:D", sale: "일반 판매", kind: "스타터", releaseDate: "2011-09-17", price: "1470", composition: [{ name: "팬텀 오리온 B:D", quantity: "1개", target: "BEY-BB-118-PHANTOM-ORION-BD" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "라이트런처2", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER-2" }]}} },
   { id: "PRODUCT-KR-PEGASIS-LIMITED-EDITION", series: "metal fight", no: "", sale: "일반 판매", releases: {
     kr: { no: "", name: "페가시스 리미티드 에디션", sale: "일반 판매", kind: "세트", releaseDate: "2011-10-28", price: "32800" },
     jp: { status: "unreleased" }} },
@@ -1064,8 +1110,8 @@ const productItems = [
     kr: { no: "", name: "레전드블레이더 DX 세트", sale: "일반 판매", kind: "세트", releaseDate: "2011-10-28", price: "34800" },
     jp: { status: "unreleased" }} },
   { id: "PRODUCT-BB-119", series: "metal fight", no: "BB-119", sale: "일반 판매", releases: {
-    kr: { no: "BB-119", name: "데쓰 케찰코아틀 125RDF", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-12-04", price: "12000" },
-    jp: { no: "BB-119", name: "데스 케찰코아틀 125RDF", sale: "일반 판매", kind: "스타터", releaseDate: "2011-10-22", price: "997" }} },
+    kr: { no: "BB-119", name: "데쓰 케찰코아틀 125RDF", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-12-04", price: "12000", composition: [{ name: "데쓰 케찰코아틀 125RDF", quantity: "1개", target: "BEY-BB-119-DEATH-QUETZALCOATL-125RDF" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "라이트런처2", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER-2" }]},
+    jp: { no: "BB-119", name: "데스 케찰코아틀 125RDF", sale: "일반 판매", kind: "스타터", releaseDate: "2011-10-22", price: "997", composition: [{ name: "데스 케찰코아틀 125RDF", quantity: "1개", target: "BEY-BB-119-DEATH-QUETZALCOATL-125RDF" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "라이트런처2", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER-2" }]}} },
   { id: "PRODUCT-BB-120", series: "metal fight", no: "BB-120", sale: "일반 판매", releases: {
     kr: { no: "BB-120", name: "얼티메이트 베이스타디움", sale: "일반 판매", kind: "세트", releaseDate: "2011-12-04", price: "56000" },
     jp: { no: "BB-120", name: "얼티메이트 베이스타디움", sale: "일반 판매", kind: "세트", releaseDate: "2011-10-22", price: "6825" }} },
@@ -1073,100 +1119,107 @@ const productItems = [
     kr: { no: "BB-121", name: "베이블레이드 얼티메이트 DX 세트", sale: "일반 판매", kind: "세트", releaseDate: "2012-01-19", price: "39800" },
     jp: { no: "BB-121", name: "베이블레이드 궁극 DX 세트", sale: "일반 판매", kind: "세트", releaseDate: "2011-11-17", price: "3780" }} },
   { id: "PRODUCT-BB-122", series: "metal fight", no: "BB-122", sale: "일반 판매", releases: {
-    kr: { no: "BB-122", name: "디아블로 네메시스 X:D", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-02-01", price: "13600" },
-    jp: { no: "BB-122", name: "디아블로 네메시스 X:D", sale: "일반 판매", kind: "스타터", releaseDate: "2011-12-18", price: "1470" }} },
+    kr: { no: "BB-122", name: "디아블로 네메시스 X:D", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-02-01", price: "13600", composition: [{ name: "디아블로 네메시스 X:D", quantity: "1개", target: "BEY-BB-122-DIABLO-NEMESIS-XD" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "라이트런처2", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER-2" }]},
+    jp: { no: "BB-122", name: "디아블로 네메시스 X:D", sale: "일반 판매", kind: "스타터", releaseDate: "2011-12-18", price: "1470", composition: [{ name: "디아블로 네메시스 X:D", quantity: "1개", target: "BEY-BB-122-DIABLO-NEMESIS-XD" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "라이트런처2", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER-2" }]}} },
   { id: "PRODUCT-BB-123", series: "metal fight", no: "BB-123", sale: "일반 판매", releases: {
-    kr: { no: "BB-123", name: "퓨전 하데스 AD145SWD", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-02-01", price: "12000" },
+    kr: { no: "BB-123", name: "퓨전 하데스 AD145SWD", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-02-01", price: "12000", composition: [{ name: "퓨전 하데스 AD145SWD", quantity: "1개", target: "BEY-BB-123-FUSION-HADES-AD145SWD" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "라이트런처2", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER-2" }]},
     jp: { no: "BB-123", name: "랜덤부스터 Vol.9 퓨전 하데스", sale: "일반 판매", kind: "부스터", releaseDate: "2011-12-18", price: "682", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BB-123-FUSION-HADES-AD145SWD" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }}, beyPool: [ "BEY-BB-123-FUSION-HADES-AD145SWD", "BEY-BB-123-HELL-BEELZEB-125XF", "BEY-BB-123-CLOUD-LYRA-85SF", "BEY-BB-123-CLOUD-GEMIOS-T125SF", "BEY-BB-123-CRASH-ESCOLPIO-125JB", "BEY-BB-123-BAKUSHIN-BEELZEB-T125XF", "BEY-BB-123-METEO-LDRAGO-85LF-RUSH", "BEY-BB-123-METEO-LDRAGO-LW105JB-ASSAULT"] },
   { id: "PRODUCT-BB-124", series: "metal fight", no: "BB-124", sale: "일반 판매", releases: {
-    kr: { no: "BB-124", name: "크라이스 시그너스 145WD", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-03-04", price: "12000" },
-    jp: { no: "BB-124", name: "크라이스 시그너스 145WD", sale: "일반 판매", kind: "스타터", releaseDate: "2012-01-21", price: "997" }} },
+    kr: { no: "BB-124", name: "크라이스 시그너스 145WD", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-03-04", price: "12000", composition: [{ name: "크라이스 시그너스 145WD", quantity: "1개", target: "BEY-BB-124-KREIS-CYGNUS-145WD" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "라이트런처2", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER-2" }]},
+    jp: { no: "BB-124", name: "크라이스 시그너스 145WD", sale: "일반 판매", kind: "스타터", releaseDate: "2012-01-21", price: "997", composition: [{ name: "크라이스 시그너스 145WD", quantity: "1개", target: "BEY-BB-124-KREIS-CYGNUS-145WD" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "라이트런처2", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER-2" }]}} },
   { id: "PRODUCT-BB-125", series: "metal fight", no: "BB-125", sale: "일반 판매", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "BB-125", name: "라이트런처LR(퍼플)", sale: "일반 판매", releaseDate: "2012-01-21", price: "682" }} },
+    jp: { no: "BB-125", name: "라이트런처LR(퍼플)", sale: "일반 판매", releaseDate: "2012-01-21", price: "682", composition: [{ name: "라이트런처LR(퍼플)", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER-LR" }] }} },
   { id: "PRODUCT-BB-126", series: "metal fight", no: "BB-126", sale: "일반 판매", releases: {
-    kr: { no: "BB-126", name: "플래시 사지타리오 230WD", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-03-04", price: "12000" },
-    jp: { no: "BB-126", name: "플래시 사지타리오 230WD", sale: "일반 판매", kind: "스타터", releaseDate: "2012-01-21", price: "997" }} },
+    kr: { no: "BB-126", name: "플래시 사지타리오 230WD", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-03-04", price: "12000", composition: [{ name: "플래시 사지타리오 230WD", quantity: "1개", target: "BEY-BB-126-FLASH-SAGITTARIO-230WD" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "라이트런처2", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER-2" }]},
+    jp: { no: "BB-126", name: "플래시 사지타리오 230WD", sale: "일반 판매", kind: "스타터", releaseDate: "2012-01-21", price: "997", composition: [{ name: "플래시 사지타리오 230WD", quantity: "1개", target: "BEY-BB-126-FLASH-SAGITTARIO-230WD" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }, { name: "라이트런처2", quantity: "1개", target: "EQUIPMENT-LIGHT-LAUNCHER-2" }]}} },
   { id: "PRODUCT-BBG-01", series: "metal fight", no: "BBG-01", sale: "일반 판매", releases: {
-    kr: { no: "BBG-01", name: "워리어스 이프레이드 W145CF", sale: "일반 판매", releaseDate: "2012-09-12", price: "12000" },
-    jp: { no: "BBG-01", name: "워리어스 이프레이드 W145CF", sale: "일반 판매", kind: "스타터", releaseDate: "2012-03-31", price: "997" }} },
+    kr: { no: "BBG-01", name: "워리어스 이프레이드 W145CF", sale: "일반 판매", releaseDate: "2012-09-12", price: "12000", composition: [{ name: "워리어스 이프레이드 W145CF", quantity: "1개", target: "BEY-BBG-01-WARRIORS-IFRAID-W145CF" }, { name: "컴팩트런처", quantity: "1개", target: "EQUIPMENT-COMPACT-LAUNCHER" }] },
+    jp: { no: "BBG-01", name: "워리어스 이프레이드 W145CF", sale: "일반 판매", kind: "스타터", releaseDate: "2012-03-31", price: "997", composition: [{ name: "사무라이 이프레이드 W145CF", quantity: "1개", target: "BEY-BBG-01-WARRIORS-IFRAID-W145CF" }, { name: "컴팩트런처", quantity: "1개", target: "EQUIPMENT-COMPACT-LAUNCHER" }]}} },
   { id: "PRODUCT-BBG-02", series: "metal fight", no: "BBG-02", sale: "일반 판매", releases: {
-    kr: { no: "BBG-02", name: "시노비 사라만다 SW145SD", sale: "일반 판매", kind: "부스터", releaseDate: "2012-09-12", price: "8400" },
-    jp: { no: "BBG-02", name: "시노비 사라만다 SW145SD", sale: "일반 판매", kind: "싱크롬부스터", releaseDate: "2012-03-31", price: "892" }} },
+    kr: { no: "BBG-02", name: "시노비 사라만다 SW145SD", sale: "일반 판매", kind: "부스터", releaseDate: "2012-09-12", price: "8400", composition: [{ name: "시노비 사라만다 SW145SD", quantity: "1개", target: "BEY-BBG-02-SHINOBI-SARAMANDA-SW145SD" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }]},
+    jp: { no: "BBG-02", name: "시노비 사라만다 SW145SD", sale: "일반 판매", kind: "싱크롬부스터", releaseDate: "2012-03-31", price: "892", composition: [{ name: "시노비 사라만다 SW145SD", quantity: "1개", target: "BEY-BBG-02-SHINOBI-SARAMANDA-SW145SD" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }]}} },
   { id: "PRODUCT-BBG-02-KR-STARTER", series: "metal fight", no: "BBG-02", sale: "일반 판매", releases: {
-    kr: { no: "BBG-02", name: "시노비 사라만다 SW145SD", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-09-12", price: "10400" },
+    kr: { no: "BBG-02", name: "시노비 사라만다 SW145SD", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-09-12", price: "10400", composition: [{ name: "시노비 사라만다 SW145SD", quantity: "1개", target: "BEY-BBG-02-SHINOBI-SARAMANDA-SW145SD" }, { name: "컴팩트런처", quantity: "1개", target: "EQUIPMENT-COMPACT-LAUNCHER" }]},
     jp: { status: "unreleased" }} },
   { id: "PRODUCT-BBG-03", series: "metal fight", no: "BBG-03", sale: "일반 판매", releases: {
     kr: { status: "unreleased" },
     jp: { no: "BBG-03", name: "베이블레이드 스타트 대시 세트", sale: "일반 판매", kind: "세트", releaseDate: "2012-03-31", price: "2625" }} },
   { id: "PRODUCT-BBG-04", series: "metal fight", no: "BBG-04", sale: "일반 판매", releases: {
-    kr: { no: "BBG-04", name: "제로G 공격형 스타디움", sale: "일반 판매", releaseDate: "2012-09-12", price: "17600" },
-    jp: { no: "BBG-04", name: "ZEROG 스타디움 어택타입", sale: "일반 판매", releaseDate: "2012-03-31", price: "2100" }} },
+    kr: { no: "BBG-04", name: "제로G 공격형 스타디움", sale: "일반 판매", releaseDate: "2012-09-12", price: "17600", composition: [{ name: "제로G 공격형 스타디움", quantity: "1개", target: "EQUIPMENT-ZEROG-ATTACK-BEYSTADIUM" }] },
+    jp: { no: "BBG-04", name: "ZEROG 스타디움 어택타입", sale: "일반 판매", releaseDate: "2012-03-31", price: "2100", composition: [{ name: "ZEROG 스타디움 어택타입", quantity: "1개", target: "EQUIPMENT-ZEROG-ATTACK-BEYSTADIUM" }] }} },
   { id: "PRODUCT-BBG-05", series: "metal fight", no: "BBG-05", sale: "일반 판매", releases: {
-    kr: { no: "BBG-05", name: "제로G 라이트런처", sale: "일반 판매", releaseDate: "2012-09-12", price: "9600" },
-    jp: { no: "BBG-05", name: "ZEROG 라이트런처", sale: "일반 판매", releaseDate: "2012-03-31", price: "630" }} },
+    kr: { no: "BBG-05", name: "제로G 라이트런처", sale: "일반 판매", releaseDate: "2012-09-12", price: "9600", composition: [{ name: "컴팩트런처", quantity: "1개", target: "EQUIPMENT-COMPACT-LAUNCHER" }] },
+    jp: { no: "BBG-05", name: "ZEROG 라이트런처", sale: "일반 판매", releaseDate: "2012-03-31", price: "630", composition: [{ name: "컴팩트런처", quantity: "1개", target: "EQUIPMENT-COMPACT-LAUNCHER" }] }} },
   { id: "PRODUCT-BBG-06", series: "metal fight", no: "BBG-06", sale: "일반 판매", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "BBG-06", name: "베이캐리어 ZEROG", sale: "일반 판매", releaseDate: "2012-03-31", price: "2100" }} },
+    jp: { no: "BBG-06", name: "베이캐리어 ZEROG", sale: "일반 판매", releaseDate: "2012-03-31", price: "2100", composition: [{ name: "베이캐리어 ZEROG", quantity: "1개", target: "EQUIPMENT-ZEROG-BEYCARRIER" }] }} },
   { id: "PRODUCT-BBG-07", series: "metal fight", no: "BBG-07", sale: "일반 판매", releases: {
-    kr: { no: "BBG-07", name: "제로G 런처그립", sale: "일반 판매", releaseDate: "2012-09-12", price: "9600" },
-    jp: { no: "BBG-07", name: "ZEROG 런처그립", sale: "일반 판매", releaseDate: "2012-03-31", price: "525" }} },
+    kr: { no: "BBG-07", name: "제로G 런처그립", sale: "일반 판매", releaseDate: "2012-09-12", price: "9600", composition: [{ name: "제로G 런처그립", quantity: "1개", target: "EQUIPMENT-ZEROG-LAUNCHER-GRIP" }] },
+    jp: { no: "BBG-07", name: "ZEROG 런처그립", sale: "일반 판매", releaseDate: "2012-03-31", price: "525", composition: [{ name: "ZEROG 런처그립", quantity: "1개", target: "EQUIPMENT-ZEROG-LAUNCHER-GRIP" }] }} },
   { id: "PRODUCT-BBG-08", series: "metal fight", no: "BBG-08", sale: "일반 판매", releases: {
-    kr: { no: "BBG-08", name: "파이레츠 오로자 145D", sale: "일반 판매", kind: "부스터", releaseDate: "2012-09-12", price: "8400" },
-    jp: { no: "BBG-08", name: "파이레츠 오로자 145D", sale: "일반 판매", kind: "싱크롬부스터", releaseDate: "2012-04-21", price: "892" }} },
+    kr: { no: "BBG-08", name: "파이레츠 오로자 145D", sale: "일반 판매", kind: "부스터", releaseDate: "2012-09-12", price: "8400", composition: [{ name: "파이레츠 오로자 145D", quantity: "1개", target: "BEY-BBG-08-PIRATES-OROJYA-145D" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }]},
+    jp: { no: "BBG-08", name: "파이레츠 오로자 145D", sale: "일반 판매", kind: "싱크롬부스터", releaseDate: "2012-04-21", price: "892", composition: [{ name: "파이레츠 오로자 145D", quantity: "1개", target: "BEY-BBG-08-PIRATES-OROJYA-145D" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }]}} },
   { id: "PRODUCT-BBG-08-KR-STARTER", series: "metal fight", no: "BBG-08", sale: "일반 판매", releases: {
-    kr: { no: "BBG-08", name: "파이레츠 오로자 145D", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-09-12", price: "10400" },
+    kr: { no: "BBG-08", name: "파이레츠 오로자 145D", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-09-12", price: "10400", composition: [{ name: "파이레츠 오로자 145D", quantity: "1개", target: "BEY-BBG-08-PIRATES-OROJYA-145D" }, { name: "컴팩트런처", quantity: "1개", target: "EQUIPMENT-COMPACT-LAUNCHER" }]},
     jp: { status: "unreleased" }} },
   { id: "PRODUCT-BBG-09", series: "metal fight", no: "BBG-09", sale: "일반 판매", releases: {
-    kr: { no: "BBG-09", name: "시프 피닉 E230GCF", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-09-12", price: "10400" },
+    kr: { no: "BBG-09", name: "시프 피닉 E230GCF", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-09-12", price: "10400", composition: [{ name: "시프 피닉 E230GCF", quantity: "1개", target: "BEY-BBG-09-THIEF-PHOENIC-E230GCF" }, { name: "컴팩트런처", quantity: "1개", target: "EQUIPMENT-COMPACT-LAUNCHER" }]},
     jp: { no: "BBG-09", name: "ZEROG 랜덤부스터 Vol.1 시프 피닉 E230GCF", sale: "일반 판매", kind: "부스터", releaseDate: "2012-04-21", price: "682", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BBG-09-THIEF-PHOENIC-E230GCF" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }}, beyPool: [ "BEY-BBG-09-THIEF-PHOENIC-E230GCF", "BEY-BBG-09-THIEF-SARAMANDA-230WB", "BEY-BBG-09-WARRIORS-SARAMANDA-E230ES", "BEY-BBG-09-PIRATES-IFRAID-T125GCF", "BEY-BBG-09-SHINOBI-IFRAID-230WD", "BEY-BBG-09-PIRATES-SARAMANDA-T125WB", "BEY-BBG-09-SHINOBI-OROJYA-145ES", "BEY-BBG-09-WARRIORS-OROJYA-145WD"] },
   { id: "PRODUCT-BBG-10", series: "metal fight", no: "BBG-10", sale: "일반 판매", releases: {
-    kr: { no: "BBG-10", name: "가디언 리바이저 160SB", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-09-12", price: "12000" },
-    jp: { no: "BBG-10", name: "가디언 리바이저 160SB", sale: "일반 판매", kind: "스타터", releaseDate: "2012-05-19", price: "997" }} },
+    kr: { no: "BBG-10", name: "가디언 리바이저 160SB", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-09-12", price: "12000", composition: [{ name: "가디언 리바이저 160SB", quantity: "1개", target: "BEY-BBG-10-GUARDIAN-REVIZER-160SB" }, { name: "컴팩트런처", quantity: "1개", target: "EQUIPMENT-COMPACT-LAUNCHER" }]},
+    jp: { no: "BBG-10", name: "가디언 리바이저 160SB", sale: "일반 판매", kind: "스타터", releaseDate: "2012-05-19", price: "997", composition: [{ name: "가디언 리바이저 160SB", quantity: "1개", target: "BEY-BBG-10-GUARDIAN-REVIZER-160SB" }, { name: "컴팩트런처", quantity: "1개", target: "EQUIPMENT-COMPACT-LAUNCHER" }]}} },
   { id: "PRODUCT-BBG-11", series: "metal fight", no: "BBG-11", sale: "일반 판매", releases: {
-    kr: { no: "BBG-11", name: "제로G 방어형 스타디움", sale: "일반 판매", releaseDate: "2012-09-12", price: "17600" },
-    jp: { no: "BBG-11", name: "ZEROG 스타디움 디펜스타입", sale: "일반 판매", releaseDate: "2012-05-19", price: "2100" }} },
+    kr: { no: "BBG-11", name: "제로G 방어형 스타디움", sale: "일반 판매", releaseDate: "2012-09-12", price: "17600", composition: [{ name: "제로G 방어형 스타디움", quantity: "1개", target: "EQUIPMENT-ZEROG-DEFENSE-BEYSTADIUM" }] },
+    jp: { no: "BBG-11", name: "ZEROG 스타디움 디펜스타입", sale: "일반 판매", releaseDate: "2012-05-19", price: "2100", composition: [{ name: "ZEROG 스타디움 디펜스타입", quantity: "1개", target: "EQUIPMENT-ZEROG-DEFENSE-BEYSTADIUM" }] }} },
   { id: "PRODUCT-BBG-12", series: "metal fight", no: "BBG-12", sale: "일반 판매", releases: {
-    kr: { no: "BBG-12", name: "아처 그리프 C145S", sale: "일반 판매", kind: "부스터", releaseDate: "2012-09-12", price: "8400" },
-    jp: { no: "BBG-12", name: "아처 그리프 C145S", sale: "일반 판매", kind: "싱크롬부스터", releaseDate: "2012-06-23", price: "892" }} },
+    kr: { no: "BBG-12", name: "아처 그리프 C145S", sale: "일반 판매", kind: "부스터", releaseDate: "2012-09-12", price: "8400", composition: [{ name: "아처 그리프 C145S", quantity: "1개", target: "BEY-BBG-12-ARCHER-GRYPH-C145S" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }]},
+    jp: { no: "BBG-12", name: "아처 그리프 C145S", sale: "일반 판매", kind: "싱크롬부스터", releaseDate: "2012-06-23", price: "892", composition: [{ name: "아처 그리프 C145S", quantity: "1개", target: "BEY-BBG-12-ARCHER-GRYPH-C145S" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }]}} },
   { id: "PRODUCT-BBG-12-KR-STARTER", series: "metal fight", no: "BBG-12", sale: "일반 판매", releases: {
-    kr: { no: "BBG-12", name: "아처 그리프 C145S", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-09-12", price: "10400" },
+    kr: { no: "BBG-12", name: "아처 그리프 C145S", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-09-12", price: "10400", composition: [{ name: "아처 그리프 C145S", quantity: "1개", target: "BEY-BBG-12-ARCHER-GRYPH-C145S" }, { name: "컴팩트런처", quantity: "1개", target: "EQUIPMENT-COMPACT-LAUNCHER" }]},
     jp: { status: "unreleased" }} },
   { id: "PRODUCT-BBG-13", series: "metal fight", no: "BBG-13", sale: "일반 판매", releases: {
     kr: { no: "BBG-13", name: "베이블레이드 싱크롬 배틀 세트", sale: "일반 판매", kind: "세트", releaseDate: "2012-10-20", price: "24000" },
     jp: { no: "BBG-13", name: "베이블레이드 싱크롬 배틀 세트", sale: "일반 판매", kind: "세트", releaseDate: "2012-06-23", price: "2100" }} },
   { id: "PRODUCT-BBG-14", series: "metal fight", no: "BBG-14", sale: "일반 판매", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "BBG-14", name: "메탈스톤페이스 개조 Ver.(플레임레드)", sale: "일반 판매", releaseDate: "2012-06-23", price: "367" }} },
+    jp: { no: "BBG-14", name: "메탈스톤페이스 개조 Ver.(플레임레드)", sale: "일반 판매", releaseDate: "2012-06-23", price: "367", composition: [{ name: "메탈스톤페이스 개조 Ver.", quantity: "2개", target: "STONEFACE-METAL-STONE-FACE-CUSTOM" }, { name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }] }} },
   { id: "PRODUCT-BBG-15", series: "metal fight", no: "BBG-15", sale: "일반 판매", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "BBG-15", name: "메탈스톤페이스 개조 Ver.(오션블루)", sale: "일반 판매", releaseDate: "2012-06-23", price: "367" }} },
+    jp: { no: "BBG-15", name: "메탈스톤페이스 개조 Ver.(오션블루)", sale: "일반 판매", releaseDate: "2012-06-23", price: "367", composition: [{ name: "메탈스톤페이스 개조 Ver.", quantity: "2개", target: "STONEFACE-METAL-STONE-FACE-CUSTOM" }, { name: "홀더툴", quantity: "1개", target: "EQUIPMENT-HOLDER-TOOL" }] }} },
   { id: "PRODUCT-BBG-16", series: "metal fight", no: "BBG-16", sale: "일반 판매", releases: {
-    kr: { no: "BBG-16", name: "다크나이트 드래곤 LW160BSF", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-10-20", price: "12000" },
-    jp: { no: "BBG-16", name: "다크나이트 드라군 LW160BSF", sale: "일반 판매", kind: "스타터", releaseDate: "2012-07-21", price: "997" }} },
+    kr: { no: "BBG-16", name: "다크나이트 드래곤 LW160BSF", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-10-20", price: "12000", composition: [{ name: "다크나이트 드래곤 LW160BSF", quantity: "1개", target: "BEY-BBG-16-DARK-KNIGHT-DRAGOON-LW160BSF" }, { name: "컴팩트런처", quantity: "1개", target: "EQUIPMENT-COMPACT-LAUNCHER" }]},
+    jp: { no: "BBG-16", name: "다크나이트 드라군 LW160BSF", sale: "일반 판매", kind: "스타터", releaseDate: "2012-07-21", price: "997", composition: [{ name: "다크나이트 드라군 LW160BSF", quantity: "1개", target: "BEY-BBG-16-DARK-KNIGHT-DRAGOON-LW160BSF" }, { name: "컴팩트런처", quantity: "1개", target: "EQUIPMENT-COMPACT-LAUNCHER" }]}} },
   { id: "PRODUCT-BBG-17", series: "metal fight", no: "BBG-17", sale: "일반 판매", releases: {
-    kr: { no: "BBG-17", name: "아처 가고일 SA165WSF", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-10-20", price: "10400" },
+    kr: { no: "BBG-17", name: "아처 가고일 SA165WSF", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-10-20", price: "10400", composition: [{ name: "아처 가고일 SA165WSF", quantity: "1개", target: "BEY-BBG-17-ARCHER-GARGOYLE-SA165WSF" }, { name: "컴팩트런처", quantity: "1개", target: "EQUIPMENT-COMPACT-LAUNCHER" }]},
     jp: { no: "BBG-17", name: "ZEROG 랜덤부스터 Vol.2 아처 가골 SA165WSF", sale: "일반 판매", kind: "부스터", releaseDate: "2012-07-21", price: "682", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BBG-17-ARCHER-GARGOYLE-SA165WSF" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }}, beyPool: [
-    "BEY-BBG-17-ARCHER-GARGOYLE-SA165WSF"
+    "BEY-BBG-17-ARCHER-GARGOYLE-SA165WSF",
+    "BEY-BBG-17-GUARDIAN-GARGOYLE-M145SB",
+    "BEY-BBG-17-SHINOBI-OROJYA-160WSF",
+    "BEY-BBG-17-WARRIORS-REVIZER-SA165Q",
+    "BEY-BBG-17-PIRATES-GRYPH-160CF",
+    "BEY-BBG-17-PIRATES-REVIZER-M145CF",
+    "BEY-BBG-17-GUARDIAN-SARAMANDA-W145Q",
+    "BEY-BBG-17-ARCHER-IFRAID-W145SB"
   ] },
   { id: "PRODUCT-BBG-18", series: "metal fight", no: "BBG-18", sale: "일반 판매", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "BBG-18", name: "ZEROG 스타디움 밸런스타입", sale: "일반 판매", releaseDate: "2012-08-11", price: "2100" }} },
+    jp: { no: "BBG-18", name: "ZEROG 스타디움 밸런스타입", sale: "일반 판매", releaseDate: "2012-08-11", price: "2100", composition: [{ name: "ZEROG 스타디움 밸런스타입", quantity: "1개", target: "EQUIPMENT-ZEROG-BALANCE-BEYSTADIUM" }] }} },
   { id: "PRODUCT-BBG-19", series: "metal fight", no: "BBG-19", sale: "일반 판매", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "BBG-19", name: "ZEROG 런처", sale: "일반 판매", releaseDate: "2012-08-11", price: "892" }} },
+    jp: { no: "BBG-19", name: "ZEROG 런처", sale: "일반 판매", releaseDate: "2012-08-11", price: "892", composition: [{ name: "ZEROG 런처", quantity: "1개", target: "EQUIPMENT-ZEROG-LAUNCHER" }] }} },
   { id: "PRODUCT-BBG-20", series: "metal fight", no: "BBG-20", sale: "일반 판매", releases: {
-    kr: { no: "BBG-20", name: "반디드 골렘 DF145BS", sale: "일반 판매", kind: "부스터", releaseDate: "2012-10-20", price: "8400" },
-    jp: { no: "BBG-20", name: "반디드 골렘 DF145BS", sale: "일반 판매", kind: "싱크롬부스터", releaseDate: "2012-08-11", price: "892" }} },
+    kr: { no: "BBG-20", name: "반디드 골렘 DF145BS", sale: "일반 판매", kind: "부스터", releaseDate: "2012-10-20", price: "8400", composition: [{ name: "반디드 골렘 DF145BS", quantity: "1개", target: "BEY-BBG-20-BANDID-GOREIM-DF145BS" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }]},
+    jp: { no: "BBG-20", name: "반디드 골렘 DF145BS", sale: "일반 판매", kind: "싱크롬부스터", releaseDate: "2012-08-11", price: "892", composition: [{ name: "반디드 고레임 DF145BS", quantity: "1개", target: "BEY-BBG-20-BANDID-GOREIM-DF145BS" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }]}} },
   { id: "PRODUCT-BBG-20-KR-STARTER", series: "metal fight", no: "BBG-20", sale: "일반 판매", releases: {
-    kr: { no: "BBG-20", name: "반디드 골렘 DF145BS", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-10-20", price: "10400" },
+    kr: { no: "BBG-20", name: "반디드 골렘 DF145BS", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-10-20", price: "10400", composition: [{ name: "반디드 골렘 DF145BS", quantity: "1개", target: "BEY-BBG-20-BANDID-GOREIM-DF145BS" }, { name: "컴팩트런처", quantity: "1개", target: "EQUIPMENT-COMPACT-LAUNCHER" }]},
     jp: { status: "unreleased" }} },
   { id: "PRODUCT-BBG-21", series: "metal fight", no: "BBG-21", sale: "일반 판매", releases: {
     kr: { status: "unreleased" },
     jp: { no: "BBG-21", name: "퍼스트 ZEROG 배틀 세트", sale: "일반 판매", kind: "세트", releaseDate: "2012-08-11", price: "4095" }} },
   { id: "PRODUCT-BBG-22", series: "metal fight", no: "BBG-22", sale: "일반 판매", releases: {
-    kr: { no: "BBG-22", name: "버서커 베기라도스 SR200BWD", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-10-20", price: "12000" },
-    jp: { no: "BBG-22", name: "버서커 베기라도스 SR200BWD", sale: "일반 판매", kind: "스타터", releaseDate: "2012-09-15", price: "997" }} },
+    kr: { no: "BBG-22", name: "버서커 베기라도스 SR200BWD", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-10-20", price: "12000", composition: [{ name: "버서커 베기라도스 SR200BWD", quantity: "1개", target: "BEY-BBG-22-BERSERKER-BEGIRADOS-SR200BWD" }, { name: "컴팩트런처", quantity: "1개", target: "EQUIPMENT-COMPACT-LAUNCHER" }]},
+    jp: { no: "BBG-22", name: "버서커 베기라도스 SR200BWD", sale: "일반 판매", kind: "스타터", releaseDate: "2012-09-15", price: "997", composition: [{ name: "버서커 베기라도스 SR200BWD", quantity: "1개", target: "BEY-BBG-22-BERSERKER-BEGIRADOS-SR200BWD" }, { name: "컴팩트런처", quantity: "1개", target: "EQUIPMENT-COMPACT-LAUNCHER" }]}} },
   { id: "PRODUCT-BBG-23", series: "metal fight", no: "BBG-23", sale: "일반 판매", releases: {
     kr: { status: "unreleased" },
     jp: { no: "BBG-23", name: "ZEROG 랜덤부스터 Vol.3 반디드 겐블 F230TB", sale: "일반 판매", kind: "부스터", releaseDate: "2012-10-20", price: "682", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BBG-23-BANDID-GENBULL-F230TB" }, { name: "툴", quantity: "1개", target: "EQUIPMENT-TOOL" }] }}, beyPool: [ "BEY-BBG-23-BANDID-GENBULL-F230TB", "BEY-BBG-23-SHINOBI-GENBULL-130W2D", "BEY-BBG-23-THIEF-SARAMANDA-F230SF", "BEY-BBG-23-SHINOBI-GRYPH-WD145TB", "BEY-BBG-23-ARCHER-PHOENIC-125B", "BEY-BBG-23-PIRATES-PHOENIC-WD145SF", "BEY-BBG-23-ARCHER-KILLERKEN-130B", "BEY-BBG-23-BANDID-KILLERKEN-125W2D"] },
@@ -1178,10 +1231,10 @@ const productItems = [
     jp: { no: "BBG-25", name: "베이블레이드 ZEROG 궁극 싱크롬 DX 세트 디펜스&스테미나타입", sale: "일반 판매", kind: "세트", releaseDate: "2012-11-17", price: "3300" }} },
   { id: "PRODUCT-BBG-26", series: "metal fight", no: "BBG-26", sale: "일반 판매", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "BBG-26", name: "사무라이 페가시스 W105R²F", sale: "일반 판매", kind: "스타터", releaseDate: "2012-12-01", price: "997" }} },
+    jp: { no: "BBG-26", name: "사무라이 페가시스 W105R²F", sale: "일반 판매", kind: "스타터", releaseDate: "2012-12-01", price: "997", composition: [{ name: "사무라이 페가시스 W105R²F", quantity: "1개", target: "BEY-BBG-26-WARRIORS-PEGASIS-W105R2F" }, { name: "컴팩트런처", quantity: "1개", target: "EQUIPMENT-COMPACT-LAUNCHER" }]}} },
   { id: "PRODUCT-BBG-27", series: "metal fight", no: "BBG-27", sale: "일반 판매", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "BBG-27", name: "글레디에이터 바함디아 SP230GF", sale: "일반 판매", kind: "스타터", releaseDate: "2012-12-01", price: "997" }} }
+    jp: { no: "BBG-27", name: "글레디에이터 바함디아 SP230GF", sale: "일반 판매", kind: "스타터", releaseDate: "2012-12-01", price: "997", composition: [{ name: "글레디에이터 바함디아 SP230GF", quantity: "1개", target: "BEY-BBG-27-GLADIATOR-BAHAMDIA-SP230GF" }, { name: "컴팩트런처", quantity: "1개", target: "EQUIPMENT-COMPACT-LAUNCHER" }]}} }
 ];
 
 const releaseRegionLabels = {
@@ -1235,18 +1288,6 @@ const productDisplayRegion = (item, region = "kr") => {
 };
 const productDisplayRelease = (item, region = "kr") => productRelease(item, productDisplayRegion(item, region));
 const productKindTag = (item, region = "kr") => productDisplayRelease(item, region).kind || "기타";
-const productStarterKindValues = new Set(["리미티드스타터세트", "스타터세트", "스타터"]);
-const productKindMatches = (item, kind) => {
-  if (!kind) return true;
-  const itemKind = productKindTag(item);
-  return kind === "스타터세트" ? productStarterKindValues.has(itemKind) : itemKind === kind;
-};
-const productSaleTag = item => productDisplayRelease(item).sale || item.sale || "";
-const productSaleMatches = (item, saleFilter) => {
-  if (!saleFilter) return true;
-  const sale = productSaleTag(item);
-  return Array.isArray(saleFilter) ? saleFilter.includes(sale) : sale === saleFilter;
-};
 const seriesLabels = { topblade: "탑블레이드", "metal fight": "메탈베이블레이드", burst: "베이블레이드 버스트", x: "베이블레이드 X" };
 const itemSeries = item => item.series || "metal fight";
 const itemSeriesLabel = item => seriesLabels[itemSeries(item)] || itemSeries(item);
@@ -1292,22 +1333,21 @@ const releaseKindSortValue = kind => {
 const releaseDropdownOptions = (entries, activeValue, dataAttr) => entries
   .map(([value, label]) => `<button type="button" class="${activeValue === value ? "active" : ""}" ${dataAttr}="${value}">${label}</button>`)
   .join("");
+const releaseRegionTabs = () => `<div class="release-region-tabs" role="tablist" aria-label="출시 지역">
+  ${Object.entries(releaseRegionLabels).map(([value, label]) => `<button type="button" role="tab" class="${activeReleaseRegion === value ? "active" : ""}" data-release-region="${value}" aria-selected="${activeReleaseRegion === value ? "true" : "false"}">${label}</button>`).join("")}
+</div>`;
 const escapeAttributeValue = value => String(value || "")
   .replace(/&/g, "&amp;")
   .replace(/"/g, "&quot;")
   .replace(/</g, "&lt;")
   .replace(/>/g, "&gt;");
+const escapeHtml = escapeAttributeValue;
 const releaseControls = () => `<div class="release-dropdowns" aria-label="출시 정보 필터">
+  ${releaseRegionTabs()}
   <details class="catalog-dropdown release-dropdown">
     <summary><b class="catalog-dropdown-value">${releaseSeriesLabels[activeReleaseSeries]}</b></summary>
     <div class="catalog-dropdown-menu">
       ${releaseDropdownOptions(Object.entries(releaseSeriesLabels), activeReleaseSeries, "data-release-series")}
-    </div>
-  </details>
-  <details class="catalog-dropdown release-dropdown">
-    <summary><b class="catalog-dropdown-value">${releaseRegionLabels[activeReleaseRegion]}</b></summary>
-    <div class="catalog-dropdown-menu">
-      ${releaseDropdownOptions(Object.entries(releaseRegionLabels), activeReleaseRegion, "data-release-region")}
     </div>
   </details>
   <div class="search-box release-search-box" role="search">
@@ -1324,17 +1364,26 @@ const equipmentItems = [
   { id: "EQUIPMENT-3SEG-LAUNCHER-GRIP", name: "베이카드 런처그립", jpName: "3세그 런처그립", en: "3 Segment Launcher Grip", category: "그립", desc: "" },
   { id: "EQUIPMENT-LAUNCHER-GRIP", name: "런처그립", en: "Launcher Grip", category: "그립", desc: "" },
   { id: "EQUIPMENT-GRIP-RUBBER", name: "그립러버", en: "Grip Rubber", category: "그립", desc: "" },
+  { id: "EQUIPMENT-GRIP-SUPPORT", name: "그립서포트", en: "Grip Support", category: "그립", desc: "" },
   { id: "EQUIPMENT-LIGHT-LAUNCHER", name: "라이트런처", en: "Light Launcher", category: "런처", desc: "" },
   { id: "EQUIPMENT-LIGHT-LAUNCHER-2", name: "라이트런처2", en: "Light Launcher 2", category: "런처", desc: "" },
+  { id: "EQUIPMENT-LIGHT-LAUNCHER-LR", name: "라이트런처LR", en: "Light Launcher LR", category: "런처", desc: "" },
+  { id: "EQUIPMENT-COMPACT-LAUNCHER", name: "컴팩트런처", en: "Compact Launcher", category: "런처", desc: "" },
+  { id: "EQUIPMENT-ZEROG-LAUNCHER", name: "제로G런처", jpName: "ZEROG 런처", en: "Zero-G Launcher", category: "런처", desc: "" },
+  { id: "EQUIPMENT-ZEROG-LAUNCHER-GRIP", name: "제로G 런처그립", jpName: "ZEROG 런처그립", en: "Zero-G Launcher Grip", category: "그립", desc: "" },
   { id: "EQUIPMENT-POWER-LAUNCHER", name: "파워런처", jpName: "베이런처", en: "Power Launcher", category: "런처", desc: "" },
   { id: "EQUIPMENT-POWER-LAUNCHER-L", name: "파워런처L", jpName: "베이런처L", en: "Power Launcher L", category: "런처", desc: "" },
+  { id: "EQUIPMENT-SNIPE-LAUNCHER", name: "스나이프런처", en: "Snipe Launcher", category: "런처", desc: "" },
   { id: "EQUIPMENT-DIGITAL-POWER-LAUNCHER", name: "디지털파워런처", en: "Digital Power Launcher", category: "런처", desc: "" },
   { id: "EQUIPMENT-LED-SIGHT", name: "LED스코프라이트", jpName: "LED사이트", en: "LED Sight", category: "기타", desc: "" },
   { id: "EQUIPMENT-POWER-LAUNCHER-SUSPENSION", name: "파워런처 서스펜션", jpName: "베이런처 서스펜션", en: "Power Launcher Suspension", category: "기타", desc: "" },
   { id: "EQUIPMENT-ATTACK-BEYSTADIUM", name: "공격형 베이스타디움", jpName: "베이스타디움 어택타입", en: "Beystadium Attack Type", category: "스타디움", desc: "공격형의 힘을 끌어내는 베이블레이드 전용 스타디움!" },
+  { id: "EQUIPMENT-ZEROG-ATTACK-BEYSTADIUM", name: "제로G 공격형 스타디움", jpName: "ZEROG 스타디움 어택타입", en: "Zero-G Stadium Attack Type", category: "스타디움", desc: "" },
   { id: "EQUIPMENT-WIDE-SQUARE-BEYSTADIUM", name: "스퀘어형 베이스타디움", jpName: "베이스타디움 어택타입", en: "Beystadium Wide Square Type", category: "스타디움", desc: "" },
   { id: "EQUIPMENT-SUPER-ATTACK-BEYSTADIUM", name: "초공격형 베이스타디움", jpName: "베이스타디움 슈퍼어택타입", en: "Beystadium Super Attack Type", category: "스타디움", desc: "" },
   { id: "EQUIPMENT-BALANCE-BEYSTADIUM", name: "밸런스형 베이스타디움", jpName: "베이스타디움 밸런스타입", en: "Beystadium Balance Type", category: "스타디움", desc: "" },
+  { id: "EQUIPMENT-ZEROG-DEFENSE-BEYSTADIUM", name: "제로G 방어형 스타디움", jpName: "ZEROG 스타디움 디펜스타입", en: "Zero-G Stadium Defense Type", category: "스타디움", desc: "" },
+  { id: "EQUIPMENT-ZEROG-BALANCE-BEYSTADIUM", name: "제로G 밸런스형 스타디움", jpName: "ZEROG 스타디움 밸런스타입", en: "Zero-G Stadium Balance Type", category: "스타디움", desc: "" },
   { id: "EQUIPMENT-STAMINA-BEYSTADIUM", name: "스테미너형 베이스타디움", jpName: "베이스타디움 스테미너타입", en: "Beystadium Stamina Type", category: "스타디움", desc: "" },
   { id: "EQUIPMENT-STANDARD-BEYSTADIUM", name: "표준형 베이스타디움", jpName: "베이스타디움 스탠다드타입", en: "Beystadium Standard Type", category: "스타디움", desc: "" },
   { id: "EQUIPMENT-EXTREME-BEYSTADIUM", name: "익스트림 베이스타디움", en: "Extreme Beystadium", category: "스타디움", desc: "" },
@@ -1344,11 +1393,13 @@ const equipmentItems = [
   { id: "EQUIPMENT-ANGLE-COMPASS", name: "앵글컴파스", en: "Angle Compass", category: "기타", desc: "" },
   { id: "EQUIPMENT-BEYCARRIER-WAIST", name: "베이캐리어 웨이스트타입", en: "Bey Carrier Waist Type", category: "기타", desc: "" },
   { id: "EQUIPMENT-BEYCARRIER-HARD", name: "베이캐리어 하드타입", en: "Bey Carrier Hard Type", category: "기타", desc: "" },
+  { id: "EQUIPMENT-ZEROG-BEYCARRIER", name: "베이캐리어 ZEROG", en: "Bey Carrier Zero-G", category: "기타", desc: "" },
   { id: "EQUIPMENT-BEY-DECK-CASE", name: "베이 덱 케이스", en: "Bey Deck Case", category: "기타", desc: "" },
   { id: "EQUIPMENT-METAL-ASSIST", name: "메탈어시스트", en: "Metal Assist", category: "기타", desc: "" },
   { id: "EQUIPMENT-LAUNCHER-RUBBER", name: "런처러버", en: "Launcher Rubber", category: "기타", desc: "" },
   { id: "EQUIPMENT-POWER-LAUNCHER-LR", name: "파워런처LR", jpName: "베이런처LR", en: "Power Launcher LR", category: "런처", desc: "" },
-  { id: "EQUIPMENT-CARRIER-CASE", name: "캐리어케이스", en: "Carrier Case", category: "기타", desc: "" }
+  { id: "EQUIPMENT-CARRIER-CASE", name: "캐리어케이스", en: "Carrier Case", category: "기타", desc: "" },
+  { id: "EQUIPMENT-BIGBANG-BLADERS-TOOLBOX", name: "빅뱅블레이더즈 툴박스", en: "Big Bang Bladers Toolbox", category: "기타", desc: "" }
 ];
 
 const itemsById = new Map(items.map(item => [item.id, item]));
@@ -1421,11 +1472,10 @@ const matchesSearchText = (text, query) => {
 };
 const itemMatchesSearch = (item, query) => matchesSearchText(itemSearchText(item), query);
 
-const productSearchText = item => `${item.no} ${productDisplayName(item, "kr")} ${productDisplayName(item, "jp")} ${itemSeriesLabel(item)} ${productKindTag(item)} ${productKindTag(item, "jp")} ${item.equipment || ""} ${(productDisplayRelease(item, "kr").composition || []).map(part => `${compositionItemLabel(part)} ${part.name}`).join(" ")}`;
-const productMatchesSearch = (item, query) => matchesSearchText(productSearchText(item), query);
 const equipmentSearchText = item => `${item.name} ${item.en} ${itemSeriesLabel(item)} ${item.category} ${item.desc}`;
 const equipmentMatchesSearch = (item, query) => matchesSearchText(equipmentSearchText(item), query);
 const globalSearchQuery = () => globalSearch?.value.trim() || "";
+const searchResultMeta = document.querySelector("#searchResultsMeta");
 const productSerialNumber = (item, region = activeReleaseRegion) => {
   const no = productReleaseValue(item, "no", region) || item.no || "";
   const match = no.match(/BB-(\d+)/);
@@ -1440,14 +1490,6 @@ const compareProductReleaseOrder = (a, b, region = activeReleaseRegion) => {
   if (serialDiff) return serialDiff;
   return (releaseA.no || a.no || "").localeCompare(releaseB.no || b.no || "", "ko", { numeric: true });
 };
-const productCard = (item, mode = "product") => `
-  <button class="gear-card product-card" data-product-id="${item.id}">
-    <div class="card-top"><span class="card-type">${mode === "equipment" ? item.equipment : productKindTag(item)}</span><span>${item.no}</span></div>
-    <div class="gear-visual"></div>
-    <h3 class="card-name">${productDisplayName(item, "kr")}</h3>
-    <p class="card-full-en">&nbsp;</p>
-    <p class="card-full-ko">&nbsp;</p>
-  </button>`;
 const equipmentCard = item => `
   <button class="gear-card product-card" data-equipment-id="${item.id}">
     <div class="card-top"><span class="card-type">${item.category}</span></div>
@@ -1464,9 +1506,17 @@ const equipmentSortOrder = item => {
     "EQUIPMENT-ATTACK-BEYSTADIUM": 9,
     "EQUIPMENT-OVER-FENCE": 10,
     "EQUIPMENT-BALANCE-BEYSTADIUM": 14,
+    "EQUIPMENT-ZEROG-DEFENSE-BEYSTADIUM": 14.2,
+    "EQUIPMENT-ZEROG-BALANCE-BEYSTADIUM": 14.4,
     "EQUIPMENT-LAUNCHER-GRIP": 15,
+    "EQUIPMENT-GRIP-SUPPORT": 15.5,
     "EQUIPMENT-POWER-LAUNCHER": 17,
+    "EQUIPMENT-LIGHT-LAUNCHER-LR": 18,
+    "EQUIPMENT-COMPACT-LAUNCHER": 19,
+    "EQUIPMENT-ZEROG-LAUNCHER-GRIP": 19.25,
+    "EQUIPMENT-ZEROG-LAUNCHER": 19.5,
     "EQUIPMENT-STAMINA-BEYSTADIUM": 19,
+    "EQUIPMENT-ZEROG-ATTACK-BEYSTADIUM": 9.5,
     "EQUIPMENT-POWER-LAUNCHER-L": 23,
     "EQUIPMENT-WIDE-SQUARE-BEYSTADIUM": 33,
     "EQUIPMENT-HOLDER-TOOL": 36,
@@ -1478,9 +1528,12 @@ const equipmentSortOrder = item => {
     "EQUIPMENT-CARRIER-CASE": 49.5,
     "EQUIPMENT-EXTREME-BEYSTADIUM": 51,
     "EQUIPMENT-BEYCARRIER-HARD": 52,
+    "EQUIPMENT-ZEROG-BEYCARRIER": 52.5,
     "EQUIPMENT-DIGITAL-POWER-LAUNCHER": 53,
+    "EQUIPMENT-SNIPE-LAUNCHER": 103,
     "EQUIPMENT-POWER-LAUNCHER-SUSPENSION": 58,
     "EQUIPMENT-GRIP-RUBBER": 61,
+    "EQUIPMENT-BIGBANG-BLADERS-TOOLBOX": 62,
   };
   return order[item.id] ?? 1000;
 };
@@ -1496,40 +1549,39 @@ const syncGearFiltersFromDropdown = () => {
   if (!gearKindFilter) {
     activeGearTypeFilter = "all";
     activeGearTypeGroup = null;
-  } else if (gearKindFilter === "face" || gearKindFilter === "wheel" || gearKindFilter === "bottom") {
-    activeGearTypeFilter = gearSubtypeFilter || gearKindFilter;
-    activeGearTypeGroup = gearSubtypeFilter ? null : gearTypeGroups[gearKindFilter];
+  } else if (gearKindFilter === "equipment") {
+    activeGearTypeFilter = "equipment";
+    activeGearTypeGroup = null;
+  } else if (gearKindFilter === "parts") {
+    activeGearTypeFilter = gearSubtypeFilter || "parts";
+    activeGearTypeGroup = gearSubtypeFilter ? gearTypeGroups[gearSubtypeFilter] || null : gearTypeGroups.parts;
   } else {
     activeGearTypeFilter = gearKindFilter;
     activeGearTypeGroup = null;
   }
   activeGearStructureFilter = gearKindFilter === "bey" ? gearSystemFilter : null;
 };
-const visibleProductItems = () => {
-  const query = globalSearchQuery();
-  const useMetalFilters = isMetalFightSeries(productSeriesFilter);
-  return productItems
-    .filter(item => (!productSeriesFilter || itemSeries(item) === productSeriesFilter) && (!useMetalFilters || productSaleMatches(item, productSaleFilter)) && (!useMetalFilters || productKindMatches(item, productKindFilter)) && productMatchesSearch(item, query))
-    .sort((a, b) => productSerialNumber(a) - productSerialNumber(b));
-};
 const visibleEquipmentItems = () => {
   const query = globalSearchQuery();
-  const useMetalFilters = isMetalFightSeries(equipmentSeriesFilter);
+  if (gearKindFilter && gearKindFilter !== "equipment") return [];
   return equipmentItems
-    .filter(item => (!equipmentSeriesFilter || itemSeries(item) === equipmentSeriesFilter) && (!useMetalFilters || !equipmentCategoryFilter || item.category === equipmentCategoryFilter) && equipmentMatchesSearch(item, query))
+    .filter(item => (!gearSeriesFilter || itemSeries(item) === gearSeriesFilter) && (!gearSubtypeFilter || item.category === gearSubtypeFilter) && equipmentMatchesSearch(item, query))
     .sort((a, b) => equipmentSortOrder(a) - equipmentSortOrder(b) || a.name.localeCompare(b.name, "ko"));
 };
 const visibleGearItems = () => {
   const query = globalSearchQuery();
-  const useMetalFilters = isMetalFightSeries(gearSeriesFilter);
+  if (gearKindFilter === "equipment") return [];
+  const useTypeFilter = activeGearTypeFilter !== "all";
+  const useMetalAttributeFilters = isMetalFightSeries(gearSeriesFilter);
   return items
-    .filter(item => (!gearSeriesFilter || itemSeries(item) === gearSeriesFilter) && (!useMetalFilters || activeGearTypeFilter === "all" || (activeGearTypeGroup ? activeGearTypeGroup.includes(item.type) : item.type === activeGearTypeFilter)) && (!useMetalFilters || !activeGearStructureFilter || item.structure === activeGearStructureFilter) && (!useMetalFilters || matchesGearType(item)) && (!useMetalFilters || matchesGearSpin(item)) && itemMatchesSearch(item, query))
+    .filter(item => (!gearSeriesFilter || itemSeries(item) === gearSeriesFilter) && (!useTypeFilter || (activeGearTypeGroup ? activeGearTypeGroup.includes(item.type) : item.type === activeGearTypeFilter)) && (!useMetalAttributeFilters || !activeGearStructureFilter || item.structure === activeGearStructureFilter) && (!useMetalAttributeFilters || matchesGearType(item)) && (!useMetalAttributeFilters || matchesGearSpin(item)) && itemMatchesSearch(item, query))
     .sort((a, b) => {
-      if (useMetalFilters && a.type === "bey" && b.type === "bey") return beySerialNumber(a) - beySerialNumber(b);
-      if (useMetalFilters && activeGearTypeFilter === "wheel" && activeGearTypeGroup) return (wheelTypeOrder[a.type] ?? 99) - (wheelTypeOrder[b.type] ?? 99);
+      if (useMetalAttributeFilters && a.type === "bey" && b.type === "bey") return beySerialNumber(a) - beySerialNumber(b);
+      if (useMetalAttributeFilters && activeGearTypeFilter === "wheel" && activeGearTypeGroup) return (wheelTypeOrder[a.type] ?? 99) - (wheelTypeOrder[b.type] ?? 99);
       return 0;
     });
 };
+const visibleCatalogItems = () => [...visibleGearItems(), ...visibleEquipmentItems()];
 const bindCatalogCardClicks = root => {
   root.querySelectorAll("[data-product-id]").forEach(card => card.addEventListener("click", () => openProductDetail(card.dataset.productId)));
   root.querySelectorAll("[data-equipment-id]").forEach(card => card.addEventListener("click", () => openEquipmentDetail(card.dataset.equipmentId)));
@@ -1537,48 +1589,104 @@ const bindCatalogCardClicks = root => {
 };
 const renderCatalogCards = ({ gridSelector, countSelector, getItems, cardTemplate }) => {
   const grid = document.querySelector(gridSelector);
-  const count = document.querySelector(countSelector);
-  if (!grid || !count) return;
+  const count = countSelector ? document.querySelector(countSelector) : null;
+  if (!grid) return;
   const visible = getItems();
-  count.textContent = visible.length;
+  if (count) count.textContent = visible.length;
   grid.innerHTML = visible.map(cardTemplate).join("");
   bindCatalogCardClicks(grid);
 };
-const renderProductCards = () => {
-  renderCatalogCards({
-    gridSelector: "#productGrid",
-    countSelector: "#productCount",
-    getItems: visibleProductItems,
-    cardTemplate: productCard
-  });
+const searchScopeLabel = scope => ({ all: "전체", bey: "베이", equipment: "장비" })[scope] || "전체";
+const normalizeSearchScope = scope => ["all", "bey", "equipment"].includes(scope) ? scope : "all";
+const updateCatalogCount = () => {
+  const count = document.querySelector("#catalogCount");
+  if (!count) return;
+  count.textContent = visibleCatalogItems().length;
 };
-const renderEquipmentCards = () => {
-  renderCatalogCards({
-    gridSelector: "#equipmentGrid",
-    countSelector: "#equipmentCount",
-    getItems: visibleEquipmentItems,
-    cardTemplate: equipmentCard
-  });
+const syncCatalogScopeVisibility = () => {
+  const panel = document.querySelector('.toy-panel[data-toy-panel="catalog"]');
+  if (panel) panel.dataset.catalogScope = gearKindFilter || "all";
+  updateCatalogCount();
 };
-const visibleGlobalItems = () => {
-  const query = globalSearchQuery();
-  return [
-    ...productItems.filter(item => productMatchesSearch(item, query)).map(item => ({ kind: "product", item })),
-    ...items.filter(item => itemMatchesSearch(item, query)).map(item => ({ kind: "gear", item })),
-    ...equipmentItems.filter(item => equipmentMatchesSearch(item, query)).map(item => ({ kind: "equipment", item }))
-  ];
+const searchHash = (query = globalSearchQuery(), scope = globalSearchScopeValue()) => {
+  const params = new URLSearchParams();
+  params.set("q", query);
+  params.set("scope", normalizeSearchScope(scope || "all"));
+  return `#search?${params.toString()}`;
+};
+const searchHashParams = hash => {
+  const value = (hash || window.location.hash || "").replace(/^#search\??/, "");
+  return new URLSearchParams(value);
+};
+const isSearchHash = () => window.location.hash.startsWith("#search");
+const visibleSearchResultItems = (scope = globalSearchScopeValue(), query = globalSearchQuery()) => {
+  scope = normalizeSearchScope(scope);
+  const results = [];
+  if (scope === "all" || scope === "bey") {
+    results.push(...items.filter(item => itemMatchesSearch(item, query)).map(item => ({ kind: "gear", item })));
+  }
+  if (scope === "all" || scope === "equipment") {
+    results.push(...equipmentItems.filter(item => equipmentMatchesSearch(item, query)).map(item => ({ kind: "equipment", item })));
+  }
+  return results;
+};
+const searchResultType = entry => {
+  if (entry.kind === "equipment") return "장비";
+  return typeLabels[entry.item.type] || "베이";
+};
+const searchResultTitle = entry => {
+  if (entry.kind === "equipment") return entry.item.name;
+  const suffix = entry.item.type === "bey" && entry.item.sub ? ` ${entry.item.sub}` : "";
+  return `${entry.item.name}${suffix}`;
+};
+const searchResultPath = entry => {
+  if (entry.kind === "equipment") return `archive.local / 장비 / ${entry.item.category || "기타"}`;
+  const type = typeLabels[entry.item.type] || entry.item.type;
+  return `archive.local / 베이 / ${type}`;
+};
+const searchResultSnippet = entry => {
+  if (entry.kind === "equipment") {
+    return [entry.item.en, entry.item.category, entry.item.desc].filter(Boolean).join(" · ") || "장비 정보를 확인할 수 있습니다.";
+  }
+  const labels = orderedTags(entry.item).map(tag => tagLabels[tag] || tag).filter(Boolean).slice(0, 4);
+  const parts = [
+    entry.item.en,
+    entry.item.productNo,
+    itemSeriesLabel(entry.item),
+    entry.item.type === "bey" ? structureLabels[entry.item.structure] : "",
+    labels.join(" · "),
+    entry.item.desc
+  ].filter(Boolean);
+  return parts.join(" · ") || "베이와 부품 정보를 확인할 수 있습니다.";
+};
+const searchResultButton = entry => {
+  const item = entry.item;
+  const attr = entry.kind === "equipment"
+      ? `data-equipment-id="${escapeAttributeValue(item.id)}"`
+      : `data-id="${escapeAttributeValue(item.id)}"`;
+  return `<button class="search-result-item" type="button" ${attr}>
+    <span class="search-result-kind">${escapeHtml(searchResultType(entry))}</span>
+    <strong>${escapeHtml(searchResultTitle(entry))}</strong>
+    <small>${escapeHtml(searchResultPath(entry))}</small>
+    <span class="search-result-snippet">${escapeHtml(searchResultSnippet(entry))}</span>
+  </button>`;
 };
 const renderGlobalCards = () => {
-  renderCatalogCards({
-    gridSelector: "#globalGrid",
-    countSelector: "#globalCount",
-    getItems: visibleGlobalItems,
-    cardTemplate: entry => {
-      if (entry.kind === "product") return productCard(entry.item);
-      if (entry.kind === "equipment") return equipmentCard(entry.item);
-      return gearCard(entry.item);
-    }
-  });
+  const grid = document.querySelector("#globalGrid");
+  const count = document.querySelector("#globalCount");
+  if (!grid || !count) return;
+  const query = globalSearchQuery();
+  const scope = normalizeSearchScope(globalSearchScopeValue());
+  const visible = visibleSearchResultItems(scope, query);
+  count.textContent = visible.length;
+  if (searchResultMeta) {
+    const queryLabel = query ? `"${query}"` : "검색어 없음";
+    searchResultMeta.textContent = `${queryLabel} · ${searchScopeLabel(scope)} 범위`;
+  }
+  grid.innerHTML = visible.length
+    ? visible.map(searchResultButton).join("")
+    : `<div class="search-empty"><strong>검색결과가 없습니다.</strong><p>검색어를 줄이거나 범위를 전체로 바꿔보세요.</p></div>`;
+  bindCatalogCardClicks(grid);
 };
 
 const orderedTags = item => item.tags.slice().sort((a, b) => {
@@ -1757,14 +1865,15 @@ const gearCard = item => `
       <div class="gear-visual">${visual(item)}</div>
       ${cardInfo(item)}
     </button>`;
+const catalogCard = item => item.category ? equipmentCard(item) : gearCard(item);
 
 function renderGearCards() {
   renderCatalogCards({
     gridSelector: "#gearGrid",
-    countSelector: "#resultCount",
-    getItems: visibleGearItems,
-    cardTemplate: gearCard
+    getItems: visibleCatalogItems,
+    cardTemplate: catalogCard
   });
+  updateCatalogCount();
 }
 
 const gearTypeGroups = {
@@ -1772,13 +1881,20 @@ const gearTypeGroups = {
   parts: ["face", "stoneface", "wheel", "clearwheel", "lightwheel", "metalwheel", "chromewheel", "crystalwheel", "track", "bottom", "4dbottom"],
   face: ["face", "stoneface"],
   wheel: ["wheel", "clearwheel", "lightwheel", "metalwheel", "chromewheel", "crystalwheel"],
-  bottom: ["bottom", "4dbottom"]
+  bottom: ["bottom", "4dbottom"],
+  track: ["track"],
+  bitchip: ["bitchip"],
+  attackring: ["attackring"],
+  weightdisk: ["weightdisk"],
+  bladebase: ["bladebase"],
+  gear: ["gear"],
+  layer: ["layer"],
+  disk: ["disk"],
+  driver: ["driver"],
+  blade: ["blade"],
+  ratchet: ["ratchet"],
+  bit: ["bit"]
 };
-const productSaleGroups = {
-  general: ["일반 판매", "게임"],
-  limited: ["한정 판매", "한정 배포"]
-};
-
 const overviewStructures = [
   {
     title: "4단 구조 시스템",
@@ -1804,10 +1920,11 @@ const overviewStructures = [
 
 let overviewStructureIndex = 0;
 let overviewSeriesIndex = 1;
+let activeOverviewGuideTab = "structure";
 
 const overviewSeries = ["탑블레이드", "메탈베이블레이드", "베이블레이드 버스트", "베이블레이드 X"];
 
-const overviewControlsMarkup = () => `<div class="release-dropdowns" data-overview-controls aria-label="구조 정보 필터">
+const overviewGuideStructureControlsMarkup = () => `<div class="release-dropdowns" data-overview-controls aria-label="구조 정보 필터">
   <details class="catalog-dropdown release-dropdown overview-series-dropdown">
     <summary><b class="catalog-dropdown-value">${overviewSeries[overviewSeriesIndex]}</b></summary>
     <div class="catalog-dropdown-menu">
@@ -1818,7 +1935,7 @@ const overviewControlsMarkup = () => `<div class="release-dropdowns" data-overvi
       `).join("")}
     </div>
   </details>
-  <details class="catalog-dropdown release-dropdown overview-structure-dropdown">
+  <details class="catalog-dropdown release-dropdown overview-guide-structure-dropdown">
     <summary><b class="catalog-dropdown-value">${overviewStructures[overviewStructureIndex].title.replace(" 시스템", "")}</b></summary>
     <div class="catalog-dropdown-menu">
       ${overviewStructures.map((structure, index) => `
@@ -1830,34 +1947,152 @@ const overviewControlsMarkup = () => `<div class="release-dropdowns" data-overvi
   </details>
 </div>`;
 
-const overviewStructurePartsMarkup = parts => parts.map(part => `<span>${part}</span>`).join("");
+const overviewGuideStructurePartsMarkup = parts => parts.map(part => `<span>${part}</span>`).join("");
 
-function renderOverviewStructure(scope = document) {
+function renderOverviewGuideStructure(scope = document) {
   const controls = scope.querySelector("[data-overview-controls-slot]");
   if (!controls) return;
 
   const current = overviewStructures[overviewStructureIndex];
-  const title = scope.querySelector(".overview-modal-name");
+  const title = scope.querySelector("[data-overview-structure-title]");
   const desc = scope.querySelector(".overview-modal-desc");
   const parts = scope.querySelector(".overview-parts");
+  const art = scope.querySelector("[data-overview-guide-art]");
   if (title) title.textContent = current.title;
   if (desc) desc.textContent = current.desc;
-  if (parts) parts.innerHTML = overviewStructurePartsMarkup(current.parts);
-  controls.innerHTML = overviewControlsMarkup();
+  if (parts) parts.innerHTML = overviewGuideStructurePartsMarkup(current.parts);
+  if (art && activeOverviewGuideTab === "structure") {
+    art.innerHTML = `<div class="overview-guide-art-stack overview-guide-art-single" aria-label="구조 도식">${overviewStructureArtMarkup()}</div>`;
+  }
+  controls.innerHTML = overviewGuideStructureControlsMarkup();
 }
 
-function bindOverviewStructureTabs(scope = document) {
+function bindOverviewGuideStructureControls(scope = document) {
   scope.querySelectorAll("[data-overview-series]").forEach(button => button.addEventListener("click", event => {
     setDropdownOption(event.currentTarget);
     overviewSeriesIndex = Number(event.currentTarget.dataset.overviewSeries);
-    renderOverviewStructure(scope);
-    bindOverviewStructureTabs(scope);
+    renderOverviewGuideStructure(scope);
+    bindOverviewGuideStructureControls(scope);
   }));
   scope.querySelectorAll("[data-overview-structure]").forEach(button => button.addEventListener("click", event => {
     setDropdownOption(event.currentTarget);
     overviewStructureIndex = Number(event.currentTarget.dataset.overviewStructure);
-    renderOverviewStructure(scope);
-    bindOverviewStructureTabs(scope);
+    renderOverviewGuideStructure(scope);
+    bindOverviewGuideStructureControls(scope);
+  }));
+}
+
+const overviewGuideTabs = [
+  { id: "structure", label: "구조" },
+  { id: "type", label: "타입" },
+  { id: "spin", label: "회전방향" }
+];
+
+const overviewGuideTabsMarkup = () => `<div class="overview-guide-tabs" role="tablist" aria-label="개요 주제">
+  ${overviewGuideTabs.map(tab => `<button type="button" role="tab" aria-selected="${activeOverviewGuideTab === tab.id ? "true" : "false"}" class="${activeOverviewGuideTab === tab.id ? "active" : ""}" data-overview-guide-tab="${tab.id}">${tab.label}</button>`).join("")}
+</div>`;
+
+const overviewGuideTypeArtMarkup = () => `<section class="overview-guide-visual-card">
+  <div class="type-relation-diagram" aria-label="공격형, 지구형, 방어형, 균형형 관계">
+    <img class="type-matchup-image" src="./assets/type-matchup.svg" alt="어택형, 디펜스형, 스태미나형, 밸런스형 타입 상성도" />
+  </div>
+</section>`;
+
+const overviewStructureArtMarkup = () => {
+  const current = overviewStructures[overviewStructureIndex];
+  return `<section class="overview-guide-visual-card overview-guide-structure-visual-card">
+    <div class="structure-layer-diagram" aria-label="${escapeAttributeValue(current.title)} 파츠 구조">
+      ${current.parts.map((part, index) => `<div class="structure-layer-item">
+        <span>${String(index + 1).padStart(2, "0")}</span>
+        <b>${escapeHtml(part)}</b>
+      </div>`).join("")}
+    </div>
+  </section>`;
+};
+
+const overviewSpinArtMarkup = () => `<section class="overview-guide-visual-card">
+  <div class="spin-relation-diagram" aria-label="우회전, 좌회전, 양회전">
+    <div class="spin-direction-item">
+      <span class="spin-arrow clockwise">?</span>
+      <b>우회전</b>
+      <small>시계 방향</small>
+    </div>
+    <div class="spin-direction-item">
+      <span class="spin-arrow counter">?</span>
+      <b>좌회전</b>
+      <small>반시계 방향</small>
+    </div>
+    <div class="spin-direction-item">
+      <span class="spin-arrow dual" aria-hidden="true"><i>?</i><i>?</i></span>
+      <b>양회전</b>
+      <small>양쪽 방향</small>
+    </div>
+  </div>
+</section>`;
+
+const overviewGuidePanelMarkup = () => {
+  if (activeOverviewGuideTab === "structure") return `
+    <div class="overview-guide-structure">
+      <div class="overview-title-row overview-guide-subtitle-row">
+        <h4 class="overview-guide-heading" data-overview-structure-title></h4>
+        <div data-overview-controls-slot></div>
+      </div>
+      <div class="modal-slot-tags overview-parts"></div>
+      <p class="modal-description overview-modal-desc"></p>
+    </div>`;
+
+  if (activeOverviewGuideTab === "type") return `
+    <div class="overview-guide-info">
+      <div class="overview-guide-copy">
+        <section>
+          <h4>타입</h4>
+          <ul>
+            <li><span>어택형</span>공격에 특화되어 스태미나형에 유리하다</li>
+            <li><span>디펜스형</span>방어에 특화되어 어택형에 유리하다</li>
+            <li><span>스태미나형</span>지구력이 높아 디펜스형에 유리하다</li>
+            <li><span>밸런스형</span>공격·방어·지구력을 고르게 갖추고 있다</li>
+          </ul>
+        </section>
+      </div>
+    </div>`;
+
+  return `
+    <div class="overview-guide-info">
+      <div class="overview-guide-copy">
+        <section>
+          <h4>회전방향</h4>
+          <ul>
+            <li><span>우회전</span>시계 방향으로 회전한다</li>
+            <li><span>좌회전</span>반시계 방향으로 회전한다</li>
+            <li><span>양회전</span>좌우회전 모두 가능하다</li>
+          </ul>
+        </section>
+      </div>
+    </div>`;
+};
+
+function renderOverviewGuide(scope = document) {
+  const tabs = scope.querySelector("[data-overview-guide-tabs-slot]");
+  const art = scope.querySelector("[data-overview-guide-art]");
+  const panel = scope.querySelector("[data-overview-guide-panel]");
+  if (!tabs || !art || !panel) return;
+
+  scope.querySelector(".overview-guide-modal")?.setAttribute("data-overview-guide-active-tab", activeOverviewGuideTab);
+  tabs.innerHTML = overviewGuideTabsMarkup();
+  art.innerHTML = activeOverviewGuideTab === "type"
+    ? `<div class="overview-guide-art-stack overview-guide-art-single" aria-label="타입 도식">${overviewGuideTypeArtMarkup()}</div>`
+    : activeOverviewGuideTab === "spin"
+      ? `<div class="overview-guide-art-stack overview-guide-art-single" aria-label="회전 방향 도식">${overviewSpinArtMarkup()}</div>`
+      : `<div class="overview-guide-art-stack overview-guide-art-single" aria-label="구조 도식">${overviewStructureArtMarkup()}</div>`;
+  panel.innerHTML = overviewGuidePanelMarkup();
+  if (activeOverviewGuideTab === "structure") {
+    renderOverviewGuideStructure(scope);
+    bindOverviewGuideStructureControls(scope);
+  }
+
+  scope.querySelectorAll("[data-overview-guide-tab]").forEach(button => button.addEventListener("click", event => {
+    activeOverviewGuideTab = event.currentTarget.dataset.overviewGuideTab || "structure";
+    renderOverviewGuide(scope);
   }));
 }
 
@@ -1894,101 +2129,31 @@ function clearModalContext() {
   }
 }
 
-function openOverviewStructureDetail() {
+function openOverviewGuideDetail() {
   if (modelViewerCleanup) {
     modelViewerCleanup();
     modelViewerCleanup = null;
   }
   const content = document.querySelector("#modalContent");
-  content.innerHTML = `<div class="modal-inner overview-structure-modal">
-    <div class="modal-info overview-modal-info">
-      <div class="modal-scroll-area">
-      <div class="overview-title-row">
-        <h3 class="modal-name overview-modal-name"></h3>
-        <div data-overview-controls-slot></div>
+  content.innerHTML = `<div class="modal-inner overview-guide-modal">
+    <div class="overview-guide-shell">
+      <div class="overview-title-row overview-guide-header">
+        <h3 class="modal-name overview-modal-name">개요</h3>
+        <div data-overview-guide-tabs-slot></div>
       </div>
-      <div class="modal-info-slot">
-        <div class="modal-slot-tags overview-parts"></div>
-        <p class="modal-description overview-modal-desc"></p>
-      </div>
-      </div>
-    </div>
-    <div class="modal-art overview-modal-art">
-    </div>
-  </div>`;
-  renderOverviewStructure(content);
-  bindOverviewStructureTabs(content);
-  rememberModalContext("overview-structure", "OVERVIEW-STRUCTURE");
-  window.location.hash = "OVERVIEW-STRUCTURE";
-  if (!modal.open) modal.showModal();
-}
-
-function openOverviewTypeDetail() {
-  if (modelViewerCleanup) {
-    modelViewerCleanup();
-    modelViewerCleanup = null;
-  }
-  const content = document.querySelector("#modalContent");
-  content.innerHTML = `<div class="modal-inner overview-structure-modal overview-type-modal">
-    <div class="modal-art overview-modal-art">
-      <div class="overview-type-art" aria-label="타입과 회전 방향 도식">
-        <section class="overview-type-visual-card">
-          <div class="type-relation-diagram" aria-label="공격형, 지구형, 방어형, 균형형 관계">
-            <img class="type-matchup-image" src="./assets/type-matchup.svg" alt="어택형, 디펜스형, 스태미나형, 밸런스형 타입 상성도" />
+      <div class="overview-guide-body">
+        <div class="modal-art overview-modal-art" data-overview-guide-art></div>
+        <div class="modal-info overview-modal-info">
+          <div class="modal-scroll-area">
+            <div class="modal-info-slot overview-guide-panel" data-overview-guide-panel></div>
           </div>
-        </section>
-        <section class="overview-type-visual-card">
-          <div class="spin-relation-diagram" aria-label="우회전, 좌회전, 양회전">
-            <div class="spin-direction-item">
-              <span class="spin-arrow clockwise">?</span>
-              <b>우회전</b>
-              <small>시계 방향</small>
-            </div>
-            <div class="spin-direction-item">
-              <span class="spin-arrow counter">?</span>
-              <b>좌회전</b>
-              <small>반시계 방향</small>
-            </div>
-            <div class="spin-direction-item">
-              <span class="spin-arrow dual" aria-hidden="true"><i>?</i><i>?</i></span>
-              <b>양회전</b>
-              <small>양쪽 방향</small>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
-      <div class="modal-info overview-modal-info">
-      <div class="modal-scroll-area">
-      <div class="overview-title-row">
-        <h3 class="modal-name overview-modal-name">타입과 회전 방향</h3>
-      </div>
-      <div class="modal-info-slot overview-type-info">
-        <div class="overview-type-copy">
-          <section>
-            <h4>타입</h4>
-            <ul>
-              <li><span>어택형</span>공격에 특화되어 스태미나형에 유리하다</li>
-              <li><span>디펜스형</span>방어에 특화되어 어택형에 유리하다</li>
-              <li><span>스태미나형</span>지구력이 높아 디펜스형에 유리하다</li>
-              <li><span>밸런스형</span>공격·방어·지구력을 고르게 갖추고 있다</li>
-            </ul>
-          </section>
-          <section>
-            <h4>회전</h4>
-            <ul>
-              <li><span>우회전</span>시계 방향으로 회전한다</li>
-              <li><span>좌회전</span>반시계 방향으로 회전한다</li>
-              <li><span>양회전</span>좌우회전 모두 가능하다</li>
-            </ul>
-          </section>
         </div>
       </div>
-      </div>
     </div>
   </div>`;
-  rememberModalContext("overview-type", "OVERVIEW-TYPE");
-  window.location.hash = "OVERVIEW-TYPE";
+  renderOverviewGuide(content);
+  rememberModalContext("overview-guide", "OVERVIEW-GUIDE");
+  window.location.hash = "OVERVIEW-GUIDE";
   if (!modal.open) modal.showModal();
 }
 
@@ -2135,7 +2300,6 @@ function bindProductReleaseTableRows(root = document) {
 function bindProductReleaseTable(root = document) {
   bindProductReleaseTableRows(root);
   root.querySelectorAll("button[data-release-region]").forEach(button => button.addEventListener("click", event => {
-    setDropdownOption(event.currentTarget);
     activeReleaseRegion = event.currentTarget.dataset.releaseRegion;
     openOverviewReleaseDetail({ region: activeReleaseRegion, series: activeReleaseSeries });
   }));
@@ -2174,10 +2338,10 @@ function openOverviewReleaseDetail(options = {}) {
     modelViewerCleanup = null;
   }
   const content = document.querySelector("#modalContent");
-  content.innerHTML = `<div class="modal-inner overview-structure-modal overview-release-modal">
+  content.innerHTML = `<div class="modal-inner overview-release-modal">
     <div class="modal-info overview-release-info">
       <div class="overview-title-row">
-        <h3 class="modal-name overview-modal-name">출시 정보</h3>
+        <h3 class="overview-release-title">출시 정보</h3>
       </div>
       <div class="modal-body-block">
         ${releaseControls()}
@@ -2193,41 +2357,49 @@ function openOverviewReleaseDetail(options = {}) {
   if (!modal.open) modal.showModal();
 }
 
-document.querySelectorAll("[data-overview-structure-open]").forEach(button => {
-  button.addEventListener("click", openOverviewStructureDetail);
-});
-document.querySelectorAll("[data-overview-type-open]").forEach(button => {
-  button.addEventListener("click", openOverviewTypeDetail);
+document.querySelectorAll("[data-overview-guide-open]").forEach(button => {
+  button.addEventListener("click", openOverviewGuideDetail);
 });
 document.querySelectorAll("[data-overview-release-open]").forEach(button => {
   button.addEventListener("click", openOverviewReleaseDetail);
 });
 const renderSearchResults = () => {
   renderGlobalCards();
-  renderProductCards();
   renderGearCards();
-  renderEquipmentCards();
+  syncCatalogScopeVisibility();
 };
 const activeToyPanelName = () => activeToyPanel()?.dataset.toyPanel || "";
-const showSearchScopePanel = () => {
-  const scope = globalSearchScopeValue();
-  if (scope === "all") {
-    document.querySelectorAll(".nav-link").forEach(link => link.classList.remove("active"));
-    activateToyPanel("all");
-    renderGlobalCards();
-    setMenuOpen(false);
-    return;
+const syncSearchHashToControls = () => {
+  const params = searchHashParams();
+  const query = params.get("q") || "";
+  const scope = normalizeSearchScope(params.get("scope") || "all");
+  setSearchInputValue(globalSearch, query);
+  setSearchInputValue(overviewSearch, query);
+  setGlobalSearchScope(scope);
+  setOverviewSearchScope(scope);
+};
+const refreshActiveSearchResults = () => {
+  renderGlobalCards();
+  const nextHash = searchHash();
+  if (window.location.hash !== nextHash) {
+    history.replaceState(null, "", `${window.location.pathname}${window.location.search}${nextHash}`);
   }
-  if (activeToyPanelName() !== scope) {
-    activatePrimarySection(scope);
-    return;
+};
+const openSearchResults = ({ replace = false } = {}) => {
+  document.querySelectorAll(".nav-link").forEach(link => link.classList.remove("active"));
+  activateToyPanel("all");
+  renderGlobalCards();
+  setMenuOpen(false);
+  const nextHash = searchHash();
+  if (window.location.hash !== nextHash) {
+    history[replace ? "replaceState" : "pushState"](null, "", `${window.location.pathname}${window.location.search}${nextHash}`);
   }
-  renderSearchResults();
 };
 const bindSearchControl = (input, containerSelector, beforeRun = () => {}) => {
   const runSearch = (openPanel = false) => {
     beforeRun();
-    if (openPanel) showSearchScopePanel();
+    if (openPanel) openSearchResults();
+    else if (activeToyPanelName() === "all") refreshActiveSearchResults();
     else renderSearchResults();
   };
   input?.addEventListener("input", () => runSearch(false));
@@ -2239,7 +2411,7 @@ const bindSearchControl = (input, containerSelector, beforeRun = () => {}) => {
   input?.closest(containerSelector)?.querySelector(".search-icon")?.addEventListener("click", () => runSearch(true));
 };
 const syncOverviewSearchToGlobal = () => {
-  if (globalSearch && overviewSearch) globalSearch.value = overviewSearch.value;
+  if (globalSearch && overviewSearch) setSearchInputValue(globalSearch, overviewSearch.value);
   setGlobalSearchScope(overviewSearchScopeValue());
 };
 bindSearchControl(globalSearch, ".search-box");
@@ -2249,79 +2421,122 @@ overviewSearchScope?.addEventListener("click", event => {
   if (!button) return;
   event.preventDefault();
   setOverviewSearchScope(button.dataset.overviewSearchScope || "all");
+  if (activeToyPanelName() === "all") {
+    syncOverviewSearchToGlobal();
+    openSearchResults({ replace: true });
+  }
 });
 globalSearchScope?.addEventListener("click", event => {
   const button = event.target.closest("button[data-global-search-scope]");
   if (!button) return;
   event.preventDefault();
   setGlobalSearchScope(button.dataset.globalSearchScope || "all");
-  showSearchScopePanel();
+  if (activeToyPanelName() === "all") openSearchResults({ replace: true });
+  else renderSearchResults();
 });
-const resetNavFilterActives = root => root.querySelectorAll(".sub-filter.active").forEach(active => active.classList.remove("active"));
 const setDropdownOption = button => {
-  const menu = button.closest(".catalog-dropdown-menu");
-  const dropdown = button.closest(".catalog-dropdown");
-  menu?.querySelectorAll("button").forEach(option => option.classList.toggle("active", option === button));
-  const label = dropdown?.querySelector(".catalog-dropdown-value");
-  if (label) label.textContent = dropdownSummaryText(button);
-  dropdown?.removeAttribute("open");
+  const attr = filterButtonAttr(button);
+  if (!attr) return;
+  const root = button.closest("#gearDropdownFilters");
+  syncFilterButtonsByValue(root, attr, button.getAttribute(attr) || "");
+  button.closest(".catalog-filter-compact .catalog-dropdown")?.removeAttribute("open");
 };
 const resetDropdown = dropdown => {
   const firstOption = dropdown?.querySelector(".catalog-dropdown-menu button");
   if (firstOption) setDropdownOption(firstOption);
 };
-const resetDropdowns = root => root?.querySelectorAll(".catalog-dropdown").forEach(resetDropdown);
+const resetDropdowns = root => {
+  root?.querySelectorAll(".catalog-dropdown").forEach(resetDropdown);
+};
+const filterButtonAttrs = ["data-gear-series", "data-gear-kind", "data-gear-subtype", "data-gear-system", "data-gear-type", "data-gear-spin"];
+const filterButtonAttr = button => filterButtonAttrs.find(attr => button.hasAttribute(attr));
+const updateCompactDropdownLabel = (dropdown, activeButton) => {
+  const label = dropdown?.querySelector(".catalog-dropdown-value");
+  if (label && activeButton) label.textContent = dropdownSummaryText(activeButton);
+};
+const syncFilterButtonsByValue = (root, attr, value) => {
+  if (!root) return;
+  root.querySelectorAll(`button[${attr}]`).forEach(button => {
+    const active = (button.getAttribute(attr) || "") === (value || "");
+    button.classList.toggle("active", active);
+    if (active) updateCompactDropdownLabel(button.closest(".catalog-filter-compact .catalog-dropdown"), button);
+  });
+};
+const syncDropdownByValue = (rootSelector, attr, value) => {
+  syncFilterButtonsByValue(document.querySelector(rootSelector), attr, value || "");
+};
+const syncCatalogDropdownSelectionsFromState = () => {
+  syncDropdownByValue("#gearDropdownFilters", "data-gear-series", gearSeriesFilter || "");
+  syncDropdownByValue("#gearDropdownFilters", "data-gear-kind", gearKindFilter || "");
+  syncDropdownByValue("#gearDropdownFilters", "data-gear-subtype", gearSubtypeFilter || "");
+  syncDropdownByValue("#gearDropdownFilters", "data-gear-system", gearSystemFilter || "");
+  syncDropdownByValue("#gearDropdownFilters", "data-gear-type", gearTypeFilter || "");
+  syncDropdownByValue("#gearDropdownFilters", "data-gear-spin", gearSpinFilter || "");
+};
 const resetGearDependentDropdowns = () => {
-  document.querySelectorAll("#gearDropdownFilters .catalog-dropdown[data-gear-dependent]").forEach(resetDropdown);
+  document.querySelectorAll("#gearDropdownFilters [data-gear-dependent]").forEach(control => {
+    control.querySelectorAll(".catalog-dropdown").forEach(resetDropdown);
+  });
 };
 const setDropdownHidden = (dropdown, hidden) => {
   dropdown.hidden = hidden;
   if (hidden) dropdown.removeAttribute("open");
 };
-const syncSeriesDropdownVisibility = (rootSelector, seriesFilter, seriesAttr) => {
-  const metalSelected = isMetalFightSeries(seriesFilter);
-  document.querySelectorAll(`${rootSelector} .catalog-dropdown`).forEach(dropdown => {
-    const isSeriesDropdown = !!dropdown.querySelector(`button[${seriesAttr}]`);
-    if (!isSeriesDropdown) setDropdownHidden(dropdown, !metalSelected);
+const selectedSeriesPartOptions = () => seriesPartFilters[gearSeriesFilter] || [];
+const selectedSubtypeOptions = () => gearKindFilter === "equipment" ? equipmentSubtypeOptions : selectedSeriesPartOptions();
+const renderGearSubtypeOptions = () => {
+  const options = selectedSubtypeOptions();
+  if (gearSubtypeFilter && !options.some(option => option.value === gearSubtypeFilter)) gearSubtypeFilter = null;
+  const optionMarkup = `
+    <button type="button" class="${gearSubtypeFilter ? "" : "active"}" data-gear-subtype="" data-summary-label="전체">전체</button>
+    ${options.map(option => `<button type="button" class="${gearSubtypeFilter === option.value ? "active" : ""}" data-gear-subtype="${option.value}">${option.label}</button>`).join("")}
+  `;
+  document.querySelectorAll('#gearDropdownFilters [data-gear-dependent="subtype"] .catalog-filter-options, #gearDropdownFilters [data-gear-dependent="subtype"] .catalog-dropdown-menu').forEach(optionsRoot => {
+    optionsRoot.innerHTML = optionMarkup;
   });
+  syncDropdownByValue("#gearDropdownFilters", "data-gear-subtype", gearSubtypeFilter || "");
 };
-const syncProductDropdownVisibility = () => syncSeriesDropdownVisibility("#productDropdownFilters", productSeriesFilter, "data-product-series");
-const syncEquipmentDropdownVisibility = () => syncSeriesDropdownVisibility("#equipmentDropdownFilters", equipmentSeriesFilter, "data-equipment-series");
-const syncGearDropdownVisibility = () => {
+const gearAttributeVisibility = () => {
   const metalSelected = isMetalFightSeries(gearSeriesFilter);
-  const visibility = {
-    kind: metalSelected,
+  const partsSelected = gearKindFilter === "parts";
+  const equipmentSelected = gearKindFilter === "equipment";
+  const selectedPart = partsSelected ? gearSubtypeFilter : null;
+  return {
+    subtype: (partsSelected && !!gearSeriesFilter && selectedSeriesPartOptions().length > 0) || equipmentSelected,
     system: metalSelected && gearKindFilter === "bey",
-    "face-subtype": metalSelected && gearKindFilter === "face",
-    "wheel-subtype": metalSelected && gearKindFilter === "wheel",
-    "bottom-subtype": metalSelected && gearKindFilter === "bottom",
-    type: metalSelected && (gearKindFilter === "bey" || gearKindFilter === "wheel" || gearKindFilter === "bottom"),
-    spin: metalSelected && (gearKindFilter === "bey" || gearKindFilter === "wheel")
+    type: metalSelected && (gearKindFilter === "bey" || selectedPart === "wheel" || selectedPart === "bottom"),
+    spin: metalSelected && (gearKindFilter === "bey" || selectedPart === "wheel")
   };
-  document.querySelectorAll("#gearDropdownFilters .catalog-dropdown").forEach(dropdown => {
-    const isSeriesDropdown = !!dropdown.querySelector("button[data-gear-series]");
-    if (isSeriesDropdown) return;
-    const key = dropdown.dataset.gearDependent || "kind";
-    setDropdownHidden(dropdown, !visibility[key]);
+};
+const sanitizeHiddenGearFilters = visibility => {
+  if (!visibility.subtype) gearSubtypeFilter = null;
+  if (!visibility.system) gearSystemFilter = null;
+  if (!visibility.type) gearTypeFilter = null;
+  if (!visibility.spin) gearSpinFilter = null;
+};
+const syncGearDropdownVisibility = () => {
+  renderGearSubtypeOptions();
+  const visibility = gearAttributeVisibility();
+  sanitizeHiddenGearFilters(visibility);
+  syncCatalogDropdownSelectionsFromState();
+  document.querySelectorAll("#gearDropdownFilters [data-gear-dependent]").forEach(control => {
+    setDropdownHidden(control, !visibility[control.dataset.gearDependent]);
   });
 };
 const syncCatalogDropdownVisibility = () => {
-  syncProductDropdownVisibility();
   syncGearDropdownVisibility();
-  syncEquipmentDropdownVisibility();
+  syncCatalogScopeVisibility();
+  syncCatalogFilterPanels();
+  renderCatalogFilterChips();
 };
-const setActiveNavSection = section => {
-  document.querySelector(".nav-link.active")?.classList.remove("active");
-  document.querySelector(`.nav-link[data-toy-section="${section}"]`)?.classList.add("active");
-};
-const openCatalogSectionFromFilter = section => {
-  setActiveNavSection(section);
-  activateToyPanel(section);
-};
-const resetProductFilters = () => {
-  productSaleFilter = null;
-  productSeriesFilter = null;
-  productKindFilter = null;
+const syncCatalogMenuScope = scope => {
+  const normalized = normalizeSearchScope(scope);
+  document.querySelectorAll("[data-catalog-nav-scope]").forEach(button => {
+    button.classList.toggle("active", button.dataset.catalogNavScope === normalized);
+  });
+  mobileDrawer?.querySelectorAll("[data-mobile-catalog-scope]").forEach(button => {
+    button.classList.toggle("active", button.dataset.mobileCatalogScope === normalized);
+  });
 };
 const resetGearFilters = () => {
   activeGearTypeFilter = "all";
@@ -2334,42 +2549,108 @@ const resetGearFilters = () => {
   gearSpinFilter = null;
   gearSystemFilter = null;
 };
-const resetEquipmentFilters = () => {
-  equipmentSeriesFilter = null;
-  equipmentCategoryFilter = null;
+const setCatalogScope = scope => {
+  if (scope === "bey" || scope === "equipment") {
+    gearKindFilter = scope;
+  } else {
+    gearKindFilter = "";
+  }
+  gearSubtypeFilter = null;
+  gearTypeFilter = null;
+  gearSpinFilter = null;
+  gearSystemFilter = null;
+  syncGearFiltersFromDropdown();
+  syncCatalogDropdownVisibility();
 };
-const bindSimpleDropdownFilters = ({ rootSelector, buttonSelector, handlers, sync, render }) => {
-  document.querySelector(rootSelector)?.addEventListener("click", event => {
-    const button = event.target.closest(buttonSelector);
-    if (!button) return;
-    setDropdownOption(button);
-    handlers.forEach(({ attr, apply }) => {
-      if (button.hasAttribute(attr)) apply(button);
-    });
-    sync();
-    render();
+const syncCatalogFilterPanels = () => {
+  const visibility = gearAttributeVisibility();
+  const hasAdvancedFilters = Object.values(visibility).some(Boolean);
+  document.querySelectorAll("[data-catalog-filter-advanced]").forEach(panel => {
+    panel.hidden = !(panel.dataset.catalogFilterAdvanced === "bey" && hasAdvancedFilters);
+  });
+  scheduleCatalogFilterModeCheck();
+};
+let catalogFilterModeFrame = 0;
+const catalogPanelElement = () => document.querySelector('.catalog-panel[data-toy-panel="catalog"]');
+const activeCatalogPrimaryFilters = panel => panel?.querySelector('[data-catalog-section="catalog"] .catalog-filter-primary');
+const primaryFilterRowsBroken = (panel, primary) => {
+  if (!panel || !primary) return false;
+  const wasCompact = panel.classList.contains("catalog-filters-compact");
+  panel.classList.remove("catalog-filters-compact");
+  const expanded = primary.querySelector(".catalog-filter-expanded");
+  if (!expanded || getComputedStyle(expanded).display === "none") {
+    panel.classList.toggle("catalog-filters-compact", wasCompact);
+    return true;
+  }
+  const panelStyle = getComputedStyle(panel);
+  const rowHeight = parseFloat(panelStyle.getPropertyValue("--catalog-pill-height")) || 36;
+  const targetHeight = parseFloat(panelStyle.getPropertyValue("--catalog-primary-filter-height")) || ((rowHeight * 2) + 10);
+  const rowTolerance = 4;
+  const brokenRow = Array.from(expanded.querySelectorAll(".catalog-filter-group:not([hidden])")).some(group => {
+    const options = group.querySelector(".catalog-filter-options");
+    return (options?.scrollHeight || 0) > rowHeight + rowTolerance || group.scrollHeight > rowHeight + rowTolerance;
+  });
+  const brokenHeight = expanded.scrollHeight > targetHeight + rowTolerance;
+  panel.classList.toggle("catalog-filters-compact", wasCompact);
+  return brokenRow || brokenHeight;
+};
+const updateCatalogFilterMode = () => {
+  catalogFilterModeFrame = 0;
+  const panel = catalogPanelElement();
+  if (!panel || activeToyPanelName() !== "catalog") return;
+  const primary = activeCatalogPrimaryFilters(panel);
+  panel.classList.toggle("catalog-filters-compact", primaryFilterRowsBroken(panel, primary));
+};
+const scheduleCatalogFilterModeCheck = () => {
+  if (catalogFilterModeFrame) return;
+  catalogFilterModeFrame = requestAnimationFrame(updateCatalogFilterMode);
+};
+const resetCatalogFilter = (scope, key) => {
+  if (scope === "catalog") {
+    if (key === "series") gearSeriesFilter = null;
+    if (key === "kind") {
+      gearKindFilter = "";
+      gearSubtypeFilter = null;
+      gearSystemFilter = null;
+      gearTypeFilter = null;
+      gearSpinFilter = null;
+    }
+    if (key === "subtype") gearSubtypeFilter = null;
+    if (key === "system") gearSystemFilter = null;
+    if (key === "type") gearTypeFilter = null;
+    if (key === "spin") gearSpinFilter = null;
+    syncGearDropdownVisibility();
+    syncGearFiltersFromDropdown();
+    renderGearCards();
+  }
+  syncCatalogDropdownVisibility();
+};
+const activeFilterChips = scope => {
+  const chips = [];
+  if (scope === "catalog") {
+    if (gearSeriesFilter) chips.push({ scope, key: "series", label: itemSeriesLabel({ series: gearSeriesFilter }) });
+    if (gearKindFilter) chips.push({ scope, key: "kind", label: typeLabels[gearKindFilter] || gearKindFilter });
+    if (gearSubtypeFilter) chips.push({ scope, key: "subtype", label: typeLabels[gearSubtypeFilter] || gearSubtypeFilter });
+    if (gearSystemFilter) chips.push({ scope, key: "system", label: structureLabels[gearSystemFilter] || gearSystemFilter });
+    if (gearTypeFilter) chips.push({ scope, key: "type", label: tagLabels[gearTypeFilter] || gearTypeFilter });
+    if (gearSpinFilter) chips.push({ scope, key: "spin", label: tagLabels[gearSpinFilter] || gearSpinFilter });
+  }
+  return chips;
+};
+const renderCatalogFilterChips = () => {
+  ["catalog"].forEach(scope => {
+    const root = document.querySelector(`[data-catalog-filter-chips="${scope}"]`);
+    if (!root) return;
+    const chips = activeFilterChips(scope);
+    root.hidden = false;
+    root.classList.toggle("is-empty", chips.length === 0);
+    root.setAttribute("aria-hidden", String(chips.length === 0));
+    root.innerHTML = chips.length ? `
+      ${chips.map(chip => `<button type="button" class="catalog-filter-chip" data-filter-chip-scope="${chip.scope}" data-filter-chip-key="${chip.key}">${escapeHtml(chip.label)}<span aria-hidden="true">×</span></button>`).join("")}
+      <button type="button" class="catalog-filter-reset" data-filter-reset-scope="${scope}">초기화</button>
+    ` : "";
   });
 };
-bindSimpleDropdownFilters({
-  rootSelector: "#productDropdownFilters",
-  buttonSelector: "button[data-product-series],button[data-product-kind]",
-  handlers: [
-    { attr: "data-product-series", apply: button => { productSeriesFilter = button.dataset.productSeries || null; } },
-    { attr: "data-product-kind", apply: button => { productKindFilter = button.dataset.productKind || null; } }
-  ],
-  sync: syncProductDropdownVisibility,
-  render: renderProductCards
-});
-bindSimpleDropdownFilters({
-  rootSelector: "#equipmentDropdownFilters",
-  buttonSelector: "button[data-equipment-series],button[data-equipment-kind]",
-  handlers: [
-    { attr: "data-equipment-series", apply: button => { equipmentSeriesFilter = button.dataset.equipmentSeries || null; } },
-    { attr: "data-equipment-kind", apply: button => { equipmentCategoryFilter = button.dataset.equipmentKind || null; } }
-  ],
-  sync: syncEquipmentDropdownVisibility,
-  render: renderEquipmentCards
-});
 document.querySelector("#gearDropdownFilters")?.addEventListener("click", event => {
   const button = event.target.closest("button[data-gear-series],button[data-gear-kind],button[data-gear-subtype],button[data-gear-system],button[data-gear-type],button[data-gear-spin]");
   if (!button) return;
@@ -2390,7 +2671,25 @@ document.querySelector("#gearDropdownFilters")?.addEventListener("click", event 
   syncGearDropdownVisibility();
   syncGearFiltersFromDropdown();
   renderGearCards();
+  syncCatalogScopeVisibility();
+  syncCatalogFilterPanels();
+  renderCatalogFilterChips();
 });
+document.querySelectorAll(".catalog-filter-chips").forEach(root => root.addEventListener("click", event => {
+  const chip = event.target.closest("[data-filter-chip-scope][data-filter-chip-key]");
+  const reset = event.target.closest("[data-filter-reset-scope]");
+  if (chip) {
+    resetCatalogFilter(chip.dataset.filterChipScope, chip.dataset.filterChipKey);
+    return;
+  }
+  if (reset) {
+    if (reset.dataset.filterResetScope === "catalog") resetGearFilters();
+    resetDropdowns(document.querySelector("#gearDropdownFilters"));
+    syncGearFiltersFromDropdown();
+    renderGearCards();
+    syncCatalogDropdownVisibility();
+  }
+}));
 document.addEventListener("toggle", event => {
   const dropdown = event.target.closest?.(".catalog-dropdown");
   if (!dropdown?.open) return;
@@ -2400,53 +2699,20 @@ document.addEventListener("toggle", event => {
 }, true);
 document.addEventListener("click", event => {
   if (!event.target.closest(".catalog-dropdown")) {
-    document.querySelectorAll(".catalog-dropdown[open]").forEach(dropdown => dropdown.removeAttribute("open"));
+    document.querySelectorAll(".catalog-dropdown[open]").forEach(dropdown => {
+      dropdown.removeAttribute("open");
+    });
   }
 });
-const bindNavFilterMenu = ({ rootSelector, buttonSelector, section, apply, render }) => {
-  const root = document.querySelector(rootSelector);
-  root?.addEventListener("click", event => {
-    const button = event.target.closest(buttonSelector);
-    if (!button) return;
-    event.stopPropagation();
-    openCatalogSectionFromFilter(section);
-    resetNavFilterActives(root);
-    button.classList.add("active");
-    apply(button);
-    render();
-  }, true);
-};
-bindNavFilterMenu({
-  rootSelector: "#filters",
-  buttonSelector: "[data-filter],[data-filter-group]",
-  section: "bey",
-  apply: button => {
-    activeGearTypeFilter = button.dataset.filter || button.dataset.filterGroup;
-    activeGearTypeGroup = button.dataset.filterGroup ? gearTypeGroups[button.dataset.filterGroup] : null;
-    activeGearStructureFilter = button.dataset.structure || null;
-  },
-  render: renderGearCards
-});
-bindNavFilterMenu({
-  rootSelector: "#productFilters",
-  buttonSelector: "[data-product-filter],[data-product-filter-group]",
-  section: "product",
-  apply: button => {
-    productSaleFilter = button.dataset.productFilterGroup ? productSaleGroups[button.dataset.productFilterGroup] : button.dataset.productFilter;
-  },
-  render: renderProductCards
-});
-bindNavFilterMenu({
-  rootSelector: "#equipmentFilters",
-  buttonSelector: "[data-equipment-filter]",
-  section: "equipment",
-  apply: button => {
-    equipmentCategoryFilter = button.dataset.equipmentFilter || null;
-  },
-  render: renderEquipmentCards
-});
+document.querySelector("#catalogNavFilters")?.addEventListener("click", event => {
+  const button = event.target.closest("[data-catalog-nav-scope]");
+  if (!button) return;
+  event.preventDefault();
+  event.stopPropagation();
+  activatePrimarySection(button.dataset.catalogNavScope || "catalog");
+}, true);
 document.querySelectorAll('input[type="search"]').forEach(input => {
-  const syncSearchState = () => input.classList.toggle("has-value", input.value.length > 0);
+  const syncSearchState = () => syncSearchInputState(input);
   input.addEventListener("input", syncSearchState);
   syncSearchState();
 });
@@ -2653,24 +2919,13 @@ const normalizedMatchText = value => String(value || "").replace(/\s+/g, "").toL
 function productBeyName(bey, region) {
   return itemDisplayName(bey, region, { withSub: true }).trim();
 }
-function derivedProductComposition(item, region, release) {
-  if (item.equipment) return [];
-  if (!/(스타터|부스터)/.test(release.kind || item.kind || "")) return [];
-  const releaseNo = release.no || item.no || "";
-  const candidates = items.filter(entry => entry.type === "bey" && entry.productNo === releaseNo);
-  if (!candidates.length) return [];
-  const releaseName = normalizedMatchText(release.name || item.name);
-  const matched = candidates.find(entry => releaseName.includes(normalizedMatchText(productBeyName(entry, region)))) || (candidates.length === 1 ? candidates[0] : null);
-  if (!matched) return [];
-  return [{ name: productBeyName(matched, region), quantity: "1개", target: matched.id }];
-}
 function productComposition(item, region = activeReleaseRegion) {
   const release = productRelease(item, region);
   const releaseComposition = Array.isArray(release.composition) && release.composition.length ? release.composition : null;
   const regionComposition = releaseComposition || (region === "jp" ? item.compositionJp || item.compositionJapan : item.compositionKr || item.compositionKorea);
   const krReleaseComposition = Array.isArray(item.releases?.kr?.composition) && item.releases.kr.composition.length ? item.releases.kr.composition : null;
   const baseComposition = region === "jp" ? item.composition || krReleaseComposition : region === "kr" ? item.composition : null;
-  const composition = regionComposition || baseComposition || derivedProductComposition(item, region, release);
+  const composition = regionComposition || baseComposition || [];
   if (!composition.length) return "";
   return `<section class="modal-section product-composition"><p class="mounted-title">구성</p><div class="modal-section-scroll product-composition-list">${composition.map(part => {
     const name = part.name || "";
@@ -2689,12 +2944,12 @@ function productBeyPool(item, region = activeReleaseRegion) {
     .map(id => itemsById.get(id))
     .filter(Boolean);
   if (!pool.length) return "";
-  return `<section class="modal-section product-lineup"><p class="mounted-title">목록</p><div class="modal-section-scroll product-lineup-scroll"><div class="product-lineup-grid">${pool.map(bey => {
+  return `<section class="modal-section product-composition"><p class="mounted-title">구성</p><div class="modal-section-scroll product-composition-list">${pool.map(bey => {
     const combo = partCategory(bey);
     const beyName = itemDisplayName(bey, region);
     const name = combo ? `${beyName} ${combo}` : beyName;
-    return `<a class="product-lineup-card composition-link" href="#${bey.id}" data-target-id="${bey.id}"><span class="product-lineup-name">${name}</span><b>→</b></a>`;
-  }).join("")}</div></div></section>`;
+    return `<a class="product-composition-item composition-link" href="#${bey.id}" data-target-id="${bey.id}"><span>${name}</span><b>→</b></a>`;
+  }).join("")}</div></section>`;
 }
 function bindProductCompositionLinks(product, root = document, options = {}) {
   root.querySelectorAll(".composition-link").forEach(link => link.addEventListener("click", event => {
@@ -2756,7 +3011,7 @@ function openProductDetail(id, options = {}) {
     : options.backRelease
       ? `<button class="modal-back icon-back-button" type="button" data-back-release="true"${regionBackAttr} aria-label="출시 정보로 돌아가기">←</button>`
       : "";
-  const productStepSource = visibleProductItems().some(entry => entry.id === item.id) ? visibleProductItems() : productItems.slice().sort((a, b) => productSerialNumber(a, stepRegion) - productSerialNumber(b, stepRegion));
+  const productStepSource = productItems.slice().sort((a, b) => productSerialNumber(a, stepRegion) - productSerialNumber(b, stepRegion));
   const stepItems = productStepSource.filter(entry => productReleasedInRegion(entry, stepRegion));
   document.querySelector("#modalContent").innerHTML = `${modalStepButtons(stepItems, item.id, "product")}<div class="modal-inner">
     <div class="modal-art product-modal-art"></div>
@@ -2820,7 +3075,7 @@ modal.addEventListener("click", e => { if (e.target === modal) closeDetail(); })
 
 const syncUnifiedSearchPlacement = section => {
   if (!unifiedSearch || !unifiedSearchHome) return;
-  const targetToolbar = ["product", "bey", "equipment"].includes(section)
+  const targetToolbar = section === "catalog"
     ? document.querySelector(`.toy-panel[data-toy-panel="${section}"] .toolbar`)
     : null;
   const targetParent = targetToolbar || unifiedSearchHome.parentElement;
@@ -2843,57 +3098,42 @@ const setMenuOpen = open => {
   menuButton?.setAttribute("aria-expanded", String(open));
   menuButton?.setAttribute("aria-label", open ? "메뉴 열림" : "메뉴 열기");
   mobileDrawer?.setAttribute("aria-hidden", String(!open));
-  if (open) syncMobileDrawer(activeToyPanel()?.dataset.toyPanel || "overview");
-};
-const catalogSectionActions = {
-  product: {
-    reset: resetProductFilters,
-    filterRoot: "#productFilters",
-    dropdownRoot: "#productDropdownFilters",
-    sync: syncProductDropdownVisibility,
-    render: renderProductCards
-  },
-  bey: {
-    reset: resetGearFilters,
-    filterRoot: "#filters",
-    dropdownRoot: "#gearDropdownFilters",
-    sync: syncGearDropdownVisibility,
-    render: renderGearCards
-  },
-  equipment: {
-    reset: resetEquipmentFilters,
-    filterRoot: "#equipmentFilters",
-    dropdownRoot: "#equipmentDropdownFilters",
-    sync: syncEquipmentDropdownVisibility,
-    render: renderEquipmentCards
+  if (open) {
+    const panel = activeToyPanel()?.dataset.toyPanel || "overview";
+    syncMobileDrawer(panel === "catalog" ? "catalog" : panel);
+    syncCatalogMenuScope(panel === "catalog" ? gearKindFilter || "all" : "all");
   }
 };
 const activatePrimarySection = section => {
-  document.querySelectorAll(".nav-link").forEach(link => link.classList.toggle("active", link.dataset.toySection === section));
-  syncMobileDrawer(section);
-  activateToyPanel(section);
-  document.querySelectorAll(".nav-group.open").forEach(group => group.classList.remove("open"));
+  if (section === "product") section = "overview";
+  const isCatalogSection = ["catalog", "bey", "equipment"].includes(section);
+  const catalogScope = section === "catalog" ? "all" : section;
+  clearSearchInputs();
+  if (isSearchHash()) history.replaceState(null, "", window.location.pathname + window.location.search);
+  document.querySelectorAll(".nav-link").forEach(link => link.classList.toggle("active", link.dataset.toySection === (isCatalogSection ? "catalog" : section)));
+  syncMobileDrawer(isCatalogSection ? "catalog" : section);
+  syncCatalogMenuScope(isCatalogSection ? catalogScope : "all");
+  const panelSection = isCatalogSection ? "catalog" : section;
+  activateToyPanel(panelSection);
   if (section === "overview") setGlobalSearchScope("all");
-  if (["product", "bey", "equipment"].includes(section)) setGlobalSearchScope(section);
-
-  const sectionAction = catalogSectionActions[section];
-  if (sectionAction) {
-    sectionAction.reset();
-    resetNavFilterActives(document.querySelector(sectionAction.filterRoot));
-    resetDropdowns(document.querySelector(sectionAction.dropdownRoot));
-    sectionAction.sync();
-    sectionAction.render();
+  if (isCatalogSection) {
+    resetGearFilters();
+    resetDropdowns(document.querySelector("#gearDropdownFilters"));
+    setCatalogScope(catalogScope);
+    setGlobalSearchScope(catalogScope === "all" ? "all" : catalogScope);
+    renderGearCards();
   }
+  if (panelSection === "catalog") syncCatalogScopeVisibility();
 
   setMenuOpen(false);
 };
 document.querySelectorAll(".nav-link").forEach(button => button.addEventListener("click", event => {
   event.preventDefault();
-  activatePrimarySection(button.dataset.toySection || "product");
+  activatePrimarySection(button.dataset.toySection || "catalog");
 }));
 document.querySelectorAll(".overview-panel [data-toy-section]").forEach(button => button.addEventListener("click", event => {
   event.preventDefault();
-  activatePrimarySection(button.dataset.toySection || "product");
+  activatePrimarySection(button.dataset.toySection || "catalog");
 }));
 document.querySelector(".topbar > .brand")?.addEventListener("click", event => {
   event.preventDefault();
@@ -2911,23 +3151,22 @@ mobileDrawerClose?.addEventListener("click", event => {
 });
 mobileDrawer?.addEventListener("click", event => {
   const sectionButton = event.target.closest("[data-mobile-section]");
-  const proxyButton = event.target.closest("[data-mobile-click]");
+  const catalogScopeButton = event.target.closest("[data-mobile-catalog-scope]");
 
   if (sectionButton) {
     event.preventDefault();
-    activatePrimarySection(sectionButton.dataset.mobileSection || "product");
+    activatePrimarySection(sectionButton.dataset.mobileSection || "catalog");
     return;
   }
 
-  if (proxyButton) {
+  if (catalogScopeButton) {
     event.preventDefault();
-    const target = document.querySelector(proxyButton.dataset.mobileClick);
-    target?.click();
-    setMenuOpen(false);
+    activatePrimarySection(catalogScopeButton.dataset.mobileCatalogScope || "catalog");
   }
 });
 window.addEventListener("resize", () => {
   if (window.innerWidth > 980) setMenuOpen(false);
+  scheduleCatalogFilterModeCheck();
 });
 document.addEventListener("keydown", event => {
   if (event.key === "Escape" && document.body.classList.contains("menu-open")) setMenuOpen(false);
@@ -2936,6 +3175,13 @@ document.addEventListener("click", event => {
   if (!event.target.closest(".topbar") && !event.target.closest(".mobile-drawer")) setMenuOpen(false);
 });
 
+const catalogFilterResizeObserver = "ResizeObserver" in window ? new ResizeObserver(scheduleCatalogFilterModeCheck) : null;
+if (catalogFilterResizeObserver) {
+  const catalogPanel = catalogPanelElement();
+  if (catalogPanel) catalogFilterResizeObserver.observe(catalogPanel);
+  document.querySelectorAll("#gearDropdownFilters").forEach(root => catalogFilterResizeObserver.observe(root));
+}
+
 syncCatalogDropdownVisibility();
 renderSearchResults();
 activateToyPanel(activeToyPanelName() || "overview");
@@ -2943,11 +3189,19 @@ if (window.location.hash) {
   const hashId = window.location.hash.slice(1);
   const restoredContext = restoredModalContext(hashId);
   const restoredOptions = restoredContext?.options || {};
-  if (hashId === "OVERVIEW-STRUCTURE") openOverviewStructureDetail();
-  else if (hashId === "OVERVIEW-TYPE") openOverviewTypeDetail();
+  if (hashId.startsWith("search")) {
+    syncSearchHashToControls();
+    openSearchResults({ replace: true });
+  }
+  else if (hashId === "OVERVIEW-GUIDE") openOverviewGuideDetail();
   else if (hashId === "OVERVIEW-RELEASE") openOverviewReleaseDetail(restoredOptions);
   else if (restoredContext?.kind === "product-lineup") openProductBeyPoolDetail(hashId, restoredOptions);
   else if (hashId.startsWith("PRODUCT-")) openProductDetail(hashId, restoredOptions);
   else if (hashId.startsWith("EQUIPMENT-")) openEquipmentDetail(hashId, restoredOptions);
   else openDetail(hashId, restoredOptions);
 }
+window.addEventListener("hashchange", () => {
+  if (!isSearchHash()) return;
+  syncSearchHashToControls();
+  openSearchResults({ replace: true });
+});
