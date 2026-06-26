@@ -2978,24 +2978,29 @@ function bindProductLineupTriggers(product, options = {}) {
 function openProductBeyPoolDetail(id, options = {}) {
   const item = productItemsById.get(id);
   if (!item) return;
+  const requestedRegion = releaseRegionLabels[options.region] ? options.region : (releaseRegionLabels[activeReleaseRegion] ? activeReleaseRegion : "kr");
+  const region = productDisplayRegion(item, requestedRegion);
+  activeReleaseRegion = region;
   if (modelViewerCleanup) {
     modelViewerCleanup();
     modelViewerCleanup = null;
   }
   const releaseBackAttr = options.backRelease ? ` data-back-release="true"` : "";
-  const regionBackAttr = options.region ? ` data-back-region="${options.region}"` : "";
+  const regionBackAttr = ` data-back-region="${region}"`;
   document.querySelector("#modalContent").innerHTML = `<div class="modal-inner">
     <div class="modal-art product-modal-art"></div>
-    <div class="modal-info lineup-modal-info"><button class="modal-back icon-back-button" type="button" data-back-product-id="${item.id}"${releaseBackAttr}${regionBackAttr} aria-label="제품으로 돌아가기">←</button>
-    ${modalScrollArea(`${modalTitle(`${productDisplayName(item, options.region || activeReleaseRegion)} 등장 베이`)}
-    <div class="modal-body-block">${productBeyPool(item, options.region || activeReleaseRegion)}</div>`)}</div></div>`;
+    <div class="modal-info product-modal-info">
+    ${modalScrollArea(`${modalTitle(`${productDisplayName(item, region)} 등장 베이`)}
+    ${productMetaSlot()}
+    <div class="modal-body-block">${productBeyPool(item, region)}</div>`)}
+    <button class="modal-back icon-back-button" type="button" data-back-product-id="${item.id}"${releaseBackAttr}${regionBackAttr} aria-label="제품으로 돌아가기">←</button></div></div>`;
   document.querySelector(".modal-back")?.addEventListener("click", event => {
     const backOptions = event.currentTarget.dataset.backRelease ? { backRelease: true } : {};
-    if (options.region) backOptions.region = options.region;
+    backOptions.region = region;
     openProductDetail(event.currentTarget.dataset.backProductId, backOptions);
   });
-  bindProductCompositionLinks(item, document.querySelector("#modalContent"), options);
-  rememberModalContext("product-lineup", item.id, options);
+  bindProductCompositionLinks(item, document.querySelector("#modalContent"), { ...options, region });
+  rememberModalContext("product-lineup", item.id, { ...options, region });
   window.location.hash = item.id;
   if (!modal.open) modal.showModal();
 }
