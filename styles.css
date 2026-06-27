@@ -28,19 +28,6 @@ textarea,
 [tabindex] {
   -webkit-tap-highlight-color: transparent;
 }
-.nav {
-  position: static !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 10px !important;
-  height: 100% !important;
-  min-width: 0 !important;
-  overflow: visible !important;
-  transform: none !important;
-}
-
-
 .nav-link.active::after {
   display: none !important;
 }
@@ -485,6 +472,7 @@ body {
   justify-content: center !important;
   gap: 10px !important;
   height: 100% !important;
+  min-width: 0 !important;
   overflow: visible !important;
   transform: none !important;
 }
@@ -508,39 +496,6 @@ body {
   height: calc(var(--ui-gap) + 10px) !important;
   transform: translateX(-50%) !important;
   pointer-events: auto !important;
-}
-
-.nav-link {
-  width: 90px !important;
-  min-width: 90px !important;
-  height: 44px !important;
-  padding: 0 !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  border: 0 !important;
-  outline: 0 !important;
-  border-radius: var(--ui-radius) !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  color: var(--ui-muted) !important;
-  font-size: 1rem !important;
-  font-weight: 700 !important;
-  line-height: 1 !important; text-align: center !important;
-  white-space: nowrap !important;
-  transform: none !important;
-  transition: background 0.18s ease, color 0.18s ease !important;
-}
-
-.nav-link:hover,
-.nav-link:focus-visible,
-.nav-link.active {
-  background: var(--ui-control-active) !important;
-  color: var(--ui-control-text-active) !important;
-  border: 0 !important;
-  outline: 0 !important;
-  box-shadow: none !important;
-  transform: none !important;
 }
 
 .nav-filter-menu {
@@ -596,7 +551,6 @@ body {
   font-weight: 900 !important; line-height: 1.02 !important;
 }
 
-.section-copy,
 .result-count {
   color: var(--ui-muted) !important;
 }
@@ -622,8 +576,7 @@ body {
   transform: none !important;
 }
 
-.gear-grid,
-.product-grid{
+.gear-grid{
   display: grid !important;
   grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
   gap: 14px !important;
@@ -825,8 +778,7 @@ dialog[open] #modalClose.modal-close:hover{
   transform: translateY(0) !important;
 }
 /* Canonical card system - latest UI source of truth. */
-.gear-grid,
-.product-grid{
+.gear-grid{
   display: grid !important;
   grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
   gap: 14px !important;
@@ -914,22 +866,19 @@ dialog[open] #modalClose.modal-close:hover{
 
 
 @media (max-width: 1180px) {
-  .gear-grid,
-  .product-grid{
+  .gear-grid{
     grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
   }
 }
 
 @media (max-width: 850px) {
-  .gear-grid,
-  .product-grid{
+  .gear-grid{
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 }
 
 @media (max-width: 560px) {
-  .gear-grid,
-  .product-grid{
+  .gear-grid{
     grid-template-columns: 1fr !important;
   }
 }
@@ -992,41 +941,11 @@ dialog[open] #modalClose.modal-close:hover{
 
 .nav-link:hover,
 .nav-link:focus-visible {
-  width: 90px !important;
-  min-width: 90px !important;
-  max-width: 90px !important;
-  height: 44px !important;
-  min-height: 44px !important;
-  max-height: 44px !important;
-  padding: 0 !important;
-  border: 0 !important;
-  outline: 0 !important;
-  font-size: 1rem !important;
-  font-weight: 700 !important;
-  line-height: 1 !important;
-  text-align: center !important;
-  white-space: nowrap !important;
-  transform: none !important;
   background: var(--ui-control-hover) !important;
   color: var(--ui-control-text-active) !important;
 }
 
 .nav-link.active {
-  width: 90px !important;
-  min-width: 90px !important;
-  max-width: 90px !important;
-  height: 44px !important;
-  min-height: 44px !important;
-  max-height: 44px !important;
-  padding: 0 !important;
-  border: 0 !important;
-  outline: 0 !important;
-  font-size: 1rem !important;
-  font-weight: 700 !important;
-  line-height: 1 !important;
-  text-align: center !important;
-  white-space: nowrap !important;
-  transform: none !important;
   background: var(--ui-control-active) !important;
   color: var(--ui-control-text-active) !important;
 }
@@ -1135,8 +1054,7 @@ dialog[open] #modalClose.modal-close:hover{
 
 .section-heading,
 .toolbar,
-.gear-grid,
-.product-grid{
+.gear-grid{
   max-width: var(--page-max) !important;
   margin-left: auto !important;
   margin-right: auto !important;
@@ -1330,12 +1248,6 @@ dialog[open] #modalClose.modal-close {
   margin: 0 !important;
 }
 
-.toy-panel[data-toy-panel="catalog"] .section-heading .eyebrow,
-.toy-panel[data-toy-panel="catalog"] .section-heading .section-copy {
-  display: none !important;
-  margin: 0 !important;
-  height: 0 !important;
-}
 /* Unified catalog page header placement. */
 .toy-panel[data-toy-panel] {
   padding-top: 0 !important;
@@ -1359,19 +1271,19 @@ dialog[open] #modalClose.modal-close {
   justify-self: start !important;
 }
 
-.toy-panel[data-toy-panel] .section-heading h2 {
-  margin: 0 !important;
-  font-size: clamp(2.625rem, 4.2vw, 3.625rem) !important;
-  line-height: 1 !important;
+.toy-panel[data-toy-panel] .section-heading h2,
+.overview-hero h2 {
   color: var(--ui-text) !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
   white-space: nowrap !important;
   word-break: keep-all !important;
   overflow-wrap: normal !important;
 }
 
-.toy-panel[data-toy-panel] .section-heading .eyebrow,
-.toy-panel[data-toy-panel] .section-heading .section-copy {
-  display: none !important;
+.toy-panel[data-toy-panel] .section-heading h2 {
+  margin: 0 !important;
+  font-size: clamp(2.625rem, 4.2vw, 3.625rem) !important;
 }
 
 .toy-panel[data-toy-panel] .result-count {
@@ -1513,7 +1425,7 @@ dialog[open] .modal-info {
   max-height: 100% !important;
 }
 
-dialog[open] .modal-info:not(.overview-release-info) {
+dialog[open] .modal-info:not(.overview-release-info):not(.overview-anime-info) {
   --modal-body-width: min(100%, 520px);
   --modal-flow-gap: 16px;
   overflow-x: hidden !important;
@@ -1538,7 +1450,7 @@ dialog[open] .modal-scroll-area {
 }
 
 @media (min-width: 901px) {
-  dialog[open] .modal-info:not(.overview-release-info) {
+  dialog[open] .modal-info:not(.overview-release-info):not(.overview-anime-info) {
     align-self: stretch !important;
     height: 100% !important;
     margin-inline: var(--modal-scrollbar-inset) !important;
@@ -1581,7 +1493,7 @@ dialog[open] .modal-close {
     border-bottom: 0 !important;
   }
 
-  dialog[open] .modal-info:not(.overview-release-info) {
+  dialog[open] .modal-info:not(.overview-release-info):not(.overview-anime-info) {
     height: 100% !important;
     overflow-x: hidden !important;
     overflow-y: hidden !important;
@@ -1606,7 +1518,7 @@ dialog[open] .modal-close {
     max-height: var(--modal-h) !important;
   }
 
-  dialog[open] .modal-info:not(.overview-release-info) {
+  dialog[open] .modal-info:not(.overview-release-info):not(.overview-anime-info) {
     padding: 0 var(--modal-gutter) !important;
   }
 }
@@ -1814,27 +1726,7 @@ footer p {
 }
 
 .product-composition-item {
-  width: 100% !important;
-  display: grid !important;
   grid-template-columns: minmax(0, 1fr) var(--modal-row-arrow-column) !important;
-  align-items: center !important;
-  gap: var(--modal-row-gap) !important;
-  min-height: 38px !important;
-  padding: 0 var(--modal-row-x-padding) !important;
-  margin: 0 !important;
-  border: 0 !important;
-  border-radius: 12px !important;
-  background: transparent !important;
-  background-image: none !important;
-  color: var(--ui-text) !important;
-  font-size: 1rem !important;
-  font-weight: 400 !important;
-  line-height: 1.2 !important;
-  text-decoration: none !important;
-  box-shadow: none !important;
-  filter: none !important;
-  transform: none !important;
-  transition: background-color .16s ease, color .16s ease !important;
 }
 
 .product-composition-item > span {
@@ -1855,14 +1747,6 @@ footer p {
   text-align: right !important;
 }
 
-.product-composition-item:hover {
-  background: var(--ui-control-hover) !important;
-  color: var(--ui-text) !important;
-  box-shadow: none !important;
-  filter: none !important;
-  transform: none !important;
-}
-
 .release-dropdowns {
   --release-region-tabs-width: 10.5rem;
   --release-series-dropdown-width: 14.5rem;
@@ -1879,36 +1763,40 @@ footer p {
   z-index: 5 !important;
 }
 
-.release-dropdowns[data-overview-controls] {
-  grid-template-columns: repeat(2, minmax(0, var(--filter-dropdown-width, var(--catalog-dropdown-width, 12.25rem)))) !important;
-}
-
 .release-dropdown {
   width: 100% !important;
   min-width: 0 !important;
   flex: 0 0 auto !important;
 }
 
-.release-dropdowns:not([data-overview-controls]) {
+.release-dropdowns:not([data-overview-controls]),
+.release-dropdowns[data-anime-controls] {
   grid-template-areas: "region series search" !important;
 }
 
-.release-dropdowns:not([data-overview-controls]) > .release-region-tabs {
+.release-dropdowns:not([data-overview-controls]) > .release-region-tabs,
+.release-dropdowns[data-anime-controls] > .release-region-tabs {
   grid-area: region !important;
 }
 
-.release-dropdowns:not([data-overview-controls]) > .release-dropdown {
+.release-dropdowns:not([data-overview-controls]) > .release-dropdown,
+.release-dropdowns[data-anime-controls] > .release-dropdown {
   grid-area: series !important;
 }
 
-.release-dropdowns:not([data-overview-controls]) > .release-search-box {
+.release-dropdowns:not([data-overview-controls]) > .release-search-box,
+.release-dropdowns[data-anime-controls] > .release-search-box {
   grid-area: search !important;
 }
 
-.release-search-box {
+.release-search-box,
+.toy-panel[data-toy-panel="catalog"] .toolbar > .unified-search .global-search-box {
   width: 100% !important;
   min-width: 0 !important;
   max-width: none !important;
+}
+
+.release-search-box {
   flex: 1 1 auto !important;
 }
 
@@ -1963,14 +1851,16 @@ footer p {
 }
 
 @media (max-width: 764px) {
-  .release-dropdowns:not([data-overview-controls]) {
+  .release-dropdowns:not([data-overview-controls]),
+  .release-dropdowns[data-anime-controls] {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
     grid-template-areas:
       "region series"
       "search search" !important;
   }
 
-  .release-dropdowns:not([data-overview-controls]) .release-search-box {
+  .release-dropdowns:not([data-overview-controls]) .release-search-box,
+  .release-dropdowns[data-anime-controls] .release-search-box {
     width: 100% !important;
     min-width: 0 !important;
     max-width: none !important;
@@ -1978,7 +1868,8 @@ footer p {
 }
 
 @media (max-width: 559px) {
-  .release-dropdowns:not([data-overview-controls]) {
+  .release-dropdowns:not([data-overview-controls]),
+  .release-dropdowns[data-anime-controls] {
     grid-template-columns: 1fr !important;
     grid-template-areas:
       "region"
@@ -1988,7 +1879,10 @@ footer p {
 
   .release-dropdowns:not([data-overview-controls]) .release-dropdown,
   .release-dropdowns:not([data-overview-controls]) .release-region-tabs,
-  .release-dropdowns:not([data-overview-controls]) .release-search-box {
+  .release-dropdowns:not([data-overview-controls]) .release-search-box,
+  .release-dropdowns[data-anime-controls] .release-dropdown,
+  .release-dropdowns[data-anime-controls] .release-region-tabs,
+  .release-dropdowns[data-anime-controls] .release-search-box {
     width: 100% !important;
   }
 
@@ -2021,7 +1915,13 @@ dialog[open] .modal-inner.overview-release-modal {
   grid-template-rows: minmax(0, 1fr) !important;
 }
 
-dialog[open] .overview-release-info {
+dialog[open] .modal-inner.overview-anime-modal {
+  grid-template-columns: minmax(0, 1fr) !important;
+  grid-template-rows: minmax(0, 1fr) !important;
+}
+
+dialog[open] .overview-release-info,
+dialog[open] .overview-anime-info {
   --modal-body-width: 100% !important;
   --modal-flow-gap: 16px !important;
   --release-content-inset: 40px !important;
@@ -2034,7 +1934,8 @@ dialog[open] .overview-release-info {
   padding: 40px 0 !important;
 }
 
-dialog[open] .overview-release-info .overview-title-row {
+dialog[open] .overview-release-info .overview-title-row,
+dialog[open] .overview-anime-info .overview-title-row {
   width: calc(100% - (var(--release-content-inset) * 2)) !important;
   margin: 0 auto var(--modal-flow-gap) !important;
   display: flex !important;
@@ -2052,9 +1953,202 @@ dialog[open] .overview-release-info .overview-title-row {
   word-break: keep-all !important;
 }
 
-dialog[open] .overview-release-info .modal-body-block {
+dialog[open] .overview-release-info .modal-body-block,
+dialog[open] .overview-anime-info .modal-body-block {
   min-height: 0 !important;
   height: 100% !important;
+}
+
+dialog[open] .overview-anime-info .modal-body-block {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: var(--modal-flow-gap) !important;
+}
+
+.overview-anime-tabs {
+  width: calc(100% - (var(--release-content-inset) * 2)) !important;
+  margin: 0 auto !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+}
+
+.overview-anime-tabs button {
+  min-width: 0 !important;
+  min-height: 38px !important;
+  font-size: .9375rem !important;
+}
+
+.overview-anime-tabs button:hover,
+.overview-anime-tabs button:focus-visible,
+.overview-anime-tabs button.active,
+.overview-anime-tabs button[aria-selected="true"] {
+  background: var(--ui-surface) !important;
+  color: var(--ui-text) !important;
+  box-shadow: none !important;
+}
+
+.overview-anime-panel {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  min-height: 0 !important;
+  flex: 1 1 auto !important;
+  padding: 0 var(--release-content-inset, 0px) !important;
+  overflow: auto !important;
+}
+
+.overview-anime-panel[data-overview-anime-panel="episodes"] {
+  overflow: hidden !important;
+}
+
+.overview-anime-empty {
+  margin: 0 !important;
+  min-height: 120px !important;
+  display: grid !important;
+  place-items: center !important;
+  color: var(--ui-control-text) !important;
+  font-size: 1rem !important;
+}
+
+.overview-anime-facts,
+.overview-anime-character-list {
+  width: min(100%, 640px) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: grid !important;
+  gap: 10px !important;
+  list-style: none !important;
+}
+
+.overview-anime-facts li,
+.overview-anime-character-list li {
+  min-width: 0 !important;
+  display: grid !important;
+  gap: 6px !important;
+  padding: 12px 0 !important;
+  border-bottom: 1px solid var(--ui-line) !important;
+}
+
+.overview-anime-facts li span,
+.overview-anime-character-list li small {
+  color: var(--ui-control-text) !important;
+  font-size: .9375rem !important;
+  font-weight: 500 !important;
+}
+
+.overview-anime-facts li b,
+.overview-anime-character-list li b {
+  min-width: 0 !important;
+  color: var(--ui-text) !important;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+}
+
+.overview-anime-episodes {
+  min-height: 0 !important;
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 14px !important;
+}
+
+.overview-anime-episodes .release-dropdowns {
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+.anime-episode-table-scroll {
+  container-type: inline-size !important;
+  box-sizing: border-box !important;
+  flex: 1 1 auto !important;
+  width: calc(100% + var(--release-scrollbar-x-shift, 0px)) !important;
+  margin-left: 0 !important;
+  margin-right: calc(var(--release-scrollbar-x-shift, 0px) * -1) !important;
+  padding-left: 0 !important;
+  padding-right: var(--release-scrollbar-x-shift, 0px) !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow-x: auto !important;
+  overflow-y: auto !important;
+}
+
+.overview-anime-episodes[data-anime-table-mode="fit"] .anime-episode-table-scroll {
+  flex: 0 1 auto !important;
+}
+
+.anime-episode-table {
+  min-width: 560px !important;
+}
+
+.anime-episode-table th:nth-child(1),
+.anime-episode-table td:nth-child(1) {
+  width: 88px !important;
+}
+
+.anime-episode-table th:nth-child(2),
+.anime-episode-table td:nth-child(2) {
+  width: auto !important;
+}
+
+.anime-episode-table th:nth-child(3),
+.anime-episode-table td:nth-child(3) {
+  width: 168px !important;
+}
+
+.anime-episode-table th,
+.anime-episode-table td {
+  text-align: center !important;
+}
+
+.anime-episode-table tbody td:nth-child(2) {
+  text-align: left !important;
+}
+
+.anime-episode-row {
+  cursor: pointer !important;
+  outline: 0 !important;
+}
+
+.anime-episode-table tbody .anime-episode-row:hover td,
+.anime-episode-table tbody .anime-episode-row:focus-visible td {
+  background: var(--ui-control) !important;
+  color: var(--ui-text) !important;
+}
+
+.anime-episode-table tbody td:first-child {
+  border-radius: var(--ui-radius) 0 0 var(--ui-radius) !important;
+}
+
+.anime-episode-table tbody td:last-child {
+  border-radius: 0 var(--ui-radius) var(--ui-radius) 0 !important;
+}
+
+.anime-episode-table .release-empty-row td {
+  border-radius: 0 !important;
+  background: transparent !important;
+  cursor: default !important;
+}
+
+.overview-anime-episode-detail {
+  padding: 14px !important;
+  border-radius: var(--ui-radius) !important;
+  background: var(--ui-control) !important;
+}
+
+.overview-anime-episode-detail h4,
+.overview-anime-episode-detail p {
+  margin: 0 !important;
+}
+
+.overview-anime-episode-detail h4 {
+  color: var(--ui-text) !important;
+  font-size: 1rem !important;
+  font-weight: 800 !important;
+}
+
+.overview-anime-episode-detail p {
+  margin-top: 8px !important;
+  color: var(--ui-text) !important;
+  line-height: 1.55 !important;
 }
 
 dialog[open] .overview-release-info .release-table-section {
@@ -2070,29 +2164,15 @@ dialog[open] .overview-release-info .release-table-section {
 }
 
 .release-table-scroll {
-  container-type: inline-size !important;
-  box-sizing: border-box !important;
-  flex: 1 1 auto !important;
   width: calc(100% + var(--release-scrollbar-x-shift, 0px)) !important;
   margin-left: 0 !important;
   margin-right: calc(var(--release-scrollbar-x-shift, 0px) * -1) !important;
   padding-left: 0 !important;
   padding-right: var(--release-scrollbar-x-shift, 0px) !important;
-  min-height: 0 !important;
-  max-height: none !important;
-  overflow-x: auto !important;
-  overflow-y: auto !important;
 }
 
 .release-table {
-  width: 100% !important;
   min-width: 640px !important;
-  table-layout: fixed !important;
-  border-collapse: separate !important;
-  border-spacing: 0 !important;
-  color: var(--ui-text) !important;
-  font-size: 1rem !important;
-  line-height: 1.45 !important;
 }
 
 .release-table th:nth-child(1),
@@ -2122,39 +2202,13 @@ dialog[open] .overview-release-info .release-table-section {
 
 .release-table th,
 .release-table td {
-  padding: 11px 12px !important;
   border-bottom: 0 !important;
   text-align: left !important;
-  vertical-align: middle !important;
-  white-space: nowrap !important;
-}
-
-.release-table th:first-child,
-.release-table td:first-child {
-  padding-left: 0 !important;
-}
-
-.release-table th:last-child,
-.release-table td:last-child {
-  padding-right: 0 !important;
-}
-
-.release-table thead {
-  position: sticky !important;
-  top: 0 !important;
-  z-index: 3 !important;
 }
 
 .release-table th {
   position: sticky !important;
-  top: 0 !important;
-  z-index: 3 !important;
-  background: var(--ui-surface) !important;
-  color: var(--ui-control-text) !important;
-  font-weight: 600 !important;
   text-align: center !important;
-  padding-top: 0 !important;
-  padding-bottom: 10px !important;
 }
 
 .release-sort-button {
@@ -2236,8 +2290,8 @@ dialog[open] .overview-release-info .release-table-section {
   border-radius: 0 var(--ui-radius) var(--ui-radius) 0 !important;
 }
 
-.release-table tbody tr:hover td,
-.release-table tbody tr:focus-visible td {
+.release-table tbody .release-product-row:hover td,
+.release-table tbody .release-product-row:focus-visible td {
   background: var(--ui-control) !important;
   color: var(--ui-text) !important;
 }
@@ -2304,6 +2358,26 @@ dialog[open] .overview-release-info .release-table-section {
   }
 }
 
+@container (max-width: 639px) {
+  .anime-episode-table {
+    min-width: 0 !important;
+  }
+
+  .anime-episode-table th:nth-child(1),
+  .anime-episode-table td:nth-child(1) {
+    width: 72px !important;
+  }
+
+  .anime-episode-table th:nth-child(3),
+  .anime-episode-table td:nth-child(3) {
+    width: 132px !important;
+  }
+
+  .anime-episode-table tbody td:nth-child(3) {
+    border-radius: 0 var(--ui-radius) var(--ui-radius) 0 !important;
+  }
+}
+
 @media (max-width: 900px) {
   .modal-section-scroll:not(.release-table-scroll) {
     max-height: min(248px, 34dvh) !important;
@@ -2314,29 +2388,14 @@ dialog[open] .overview-release-info .release-table-section {
   .modal-section-scroll:not(.release-table-scroll) {
     max-height: min(220px, 30dvh) !important;
   }
+
+  .overview-anime-episodes {
+    height: auto !important;
+  }
 }
 
 .mounted-link {
-  width: 100% !important;
-  display: grid !important;
   grid-template-columns: 84px minmax(0, 1fr) var(--modal-row-arrow-column) !important;
-  align-items: center !important;
-  gap: var(--modal-row-gap) !important;
-  min-height: 38px !important;
-  padding: 0 var(--modal-row-x-padding) !important;
-  margin: 0 !important;
-  border: 0 !important;
-  border-radius: 12px !important;
-  background: transparent !important;
-  background-image: none !important;
-  color: var(--ui-text) !important;
-  font-size: 1rem !important;
-  line-height: 1.2 !important;
-  box-shadow: none !important;
-  filter: none !important;
-  text-decoration: none !important;
-  transform: none !important;
-  transition: background-color .16s ease, color .16s ease !important;
 }
 
 .mounted-link > * {
@@ -2351,20 +2410,14 @@ dialog[open] .overview-release-info .release-table-section {
   text-align: right !important;
 }
 
-.mounted-link:hover {
-  width: 100% !important;
-  background: var(--ui-control-hover) !important;
-  background-image: none !important;
-  color: var(--ui-text) !important;
-  box-shadow: none !important;
-  filter: none !important;
-  transform: none !important;
-}
-
-dialog[open] .modal-art {
+dialog[open] .modal-art,
+.overview-guide-modal .overview-modal-art {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+}
+
+dialog[open] .modal-art {
   padding: 24px !important;
 }
 
@@ -2636,6 +2689,319 @@ dialog[open] .modal-art {
   }
 }
 
+/* Reusable control templates. Attach these classes to new controls, while legacy classes below opt in as aliases. */
+.ui-button,
+.nav-link,
+.nav-filter-menu .sub-filter,
+.mobile-secondary button {
+  min-height: 38px !important;
+  padding: 0 14px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  border: 0 !important;
+  border-radius: var(--ui-radius) !important;
+  background: transparent !important;
+  color: var(--ui-muted) !important;
+  font: inherit !important;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+  cursor: pointer !important;
+  transition: background-color .16s ease, color .16s ease, border-color .16s ease, transform .16s ease !important;
+}
+
+.ui-button:hover,
+.ui-button:focus-visible,
+.ui-button--ghost:hover,
+.ui-button--ghost:focus-visible,
+.nav-link:hover,
+.nav-link:focus-visible,
+.nav-filter-menu .sub-filter:hover,
+.nav-filter-menu .sub-filter:focus-visible,
+.mobile-secondary button:hover,
+.mobile-secondary button:focus-visible {
+  background: var(--ui-control-hover) !important;
+  color: var(--ui-control-text-active) !important;
+}
+
+.ui-button.active,
+.ui-button[aria-selected="true"],
+.ui-button--active,
+.nav-link.active,
+.nav-filter-menu .sub-filter.active,
+.nav-filter-menu .sub-filter[aria-selected="true"] {
+  background: var(--ui-control-active) !important;
+  color: var(--ui-control-text-active) !important;
+}
+
+.ui-button--surface {
+  border: 1px solid var(--ui-line) !important;
+  background: var(--ui-control) !important;
+  color: var(--ui-text) !important;
+}
+
+.ui-icon-button,
+.modal-back,
+.icon-back-button,
+#modalClose,
+.to-top,
+.modal-step,
+.menu-button {
+  width: 42px !important;
+  min-width: 42px !important;
+  height: 42px !important;
+  min-height: 42px !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 0 !important;
+  border-radius: var(--ui-radius) !important;
+  background: transparent !important;
+  color: var(--ui-control-text) !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+  line-height: 1 !important;
+  cursor: pointer !important;
+  transition: background-color .16s ease, color .16s ease, border-color .16s ease, transform .16s ease !important;
+}
+
+.ui-icon-button:hover,
+.ui-icon-button:focus-visible,
+.modal-back:hover,
+.icon-back-button:hover,
+#modalClose:hover,
+#modalClose:focus-visible,
+.to-top:hover,
+.to-top:focus-visible,
+.modal-step:hover,
+.modal-step:focus-visible,
+.menu-button:hover,
+.menu-button:focus-visible {
+  background: var(--ui-control-hover) !important;
+  color: var(--ui-control-text-active) !important;
+}
+
+.ui-chip-button,
+.catalog-filter-chip,
+.catalog-filter-reset {
+  min-height: 32px !important;
+  padding: 0 12px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  border: 1px solid var(--ui-line) !important;
+  border-radius: 999px !important;
+  background: var(--ui-control) !important;
+  color: var(--ui-text) !important;
+  font: inherit !important;
+  font-size: .92rem !important;
+  font-weight: 700 !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+}
+
+.ui-tab-button,
+.release-region-tabs button,
+.overview-anime-tabs button,
+.overview-guide-tabs button,
+.overview-series-segment,
+.overview-system-chip {
+  min-height: 34px !important;
+  padding: 0 12px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 0 !important;
+  border-radius: calc(var(--ui-radius) - 4px) !important;
+  background: transparent !important;
+  color: var(--ui-muted) !important;
+  font: inherit !important;
+  font-size: .95rem !important;
+  font-weight: 700 !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+}
+
+.ui-tab-button:hover,
+.ui-tab-button:focus-visible,
+.ui-tab-button.active,
+.ui-tab-button[aria-selected="true"],
+.release-region-tabs button:hover,
+.release-region-tabs button:focus-visible,
+.release-region-tabs button.active,
+.release-region-tabs button[aria-selected="true"],
+.overview-anime-tabs button:hover,
+.overview-anime-tabs button:focus-visible,
+.overview-anime-tabs button.active,
+.overview-anime-tabs button[aria-selected="true"],
+.overview-guide-tabs button.active,
+.overview-guide-tabs button[aria-selected="true"],
+.overview-series-segment:hover,
+.overview-series-segment:focus-visible,
+.overview-series-segment.active,
+.overview-system-chip:hover,
+.overview-system-chip:focus-visible,
+.overview-system-chip.active {
+  background: var(--ui-control) !important;
+  color: var(--ui-text) !important;
+}
+
+.ui-dropdown-item,
+.catalog-dropdown-menu button {
+  width: 100% !important;
+  min-height: 38px !important;
+  padding: 0 12px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 0 !important;
+  border-radius: calc(var(--ui-radius) - 2px) !important;
+  background: transparent !important;
+  color: var(--ui-control-text) !important;
+  font: inherit !important;
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  cursor: pointer !important;
+}
+
+.ui-dropdown-item:hover,
+.ui-dropdown-item:focus-visible,
+.ui-dropdown-item.active,
+.catalog-dropdown-menu button:hover,
+.catalog-dropdown-menu button:focus-visible,
+.catalog-dropdown-menu button.active {
+  background: var(--ui-control-active) !important;
+  color: var(--ui-control-text-active) !important;
+}
+
+.ui-tabs,
+.overview-anime-tabs,
+.overview-guide-tabs {
+  padding: 4px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  border-radius: var(--ui-radius) !important;
+  background: var(--ui-control) !important;
+}
+
+.ui-table-scroll,
+.anime-episode-table-scroll,
+.release-table-scroll {
+  container-type: inline-size !important;
+  box-sizing: border-box !important;
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow-x: auto !important;
+  overflow-y: auto !important;
+}
+
+.ui-data-table,
+.anime-episode-table,
+.release-table {
+  width: 100% !important;
+  table-layout: fixed !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  color: var(--ui-text) !important;
+  font-size: 1rem !important;
+  line-height: 1.45 !important;
+}
+
+.ui-data-table thead,
+.anime-episode-table thead,
+.release-table thead {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 3 !important;
+}
+
+.ui-data-table th,
+.anime-episode-table th,
+.release-table th {
+  background: var(--ui-surface) !important;
+  color: var(--ui-control-text) !important;
+  font-weight: 600 !important;
+  padding-top: 0 !important;
+  padding-bottom: 10px !important;
+}
+
+.ui-data-table th,
+.ui-data-table td,
+.anime-episode-table th,
+.anime-episode-table td,
+.release-table th,
+.release-table td {
+  padding: 11px 12px !important;
+  vertical-align: middle !important;
+  white-space: nowrap !important;
+}
+
+.ui-data-table th:first-child,
+.ui-data-table td:first-child,
+.anime-episode-table th:first-child,
+.anime-episode-table td:first-child,
+.release-table th:first-child,
+.release-table td:first-child {
+  padding-left: 0 !important;
+}
+
+.ui-data-table th:last-child,
+.ui-data-table td:last-child,
+.anime-episode-table th:last-child,
+.anime-episode-table td:last-child,
+.release-table th:last-child,
+.release-table td:last-child {
+  padding-right: 0 !important;
+}
+
+.ui-list-link,
+.product-composition-item,
+.mounted-link {
+  width: 100% !important;
+  display: grid !important;
+  align-items: center !important;
+  gap: var(--modal-row-gap) !important;
+  min-height: 38px !important;
+  padding: 0 var(--modal-row-x-padding) !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 12px !important;
+  background: transparent !important;
+  background-image: none !important;
+  color: var(--ui-text) !important;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  line-height: 1.2 !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+  transform: none !important;
+  transition: background-color .16s ease, color .16s ease !important;
+}
+
+.ui-list-link:hover,
+.product-composition-item:hover,
+.mounted-link:hover {
+  background: var(--ui-control-hover) !important;
+  color: var(--ui-text) !important;
+  box-shadow: none !important;
+  filter: none !important;
+  transform: none !important;
+}
+
 /* Canonical brand style. */
 .brand:not(.topbar > .brand) {
   display: none !important;
@@ -2723,13 +3089,7 @@ dialog[open] .modal-art {
 
 .overview-hero h2 {
   margin: 0 !important;
-  color: var(--ui-text) !important;
   font-size: clamp(2.75rem, 5vw, 4.5rem) !important;
-  font-weight: 900 !important;
-  line-height: 1 !important;
-  white-space: nowrap !important;
-  word-break: keep-all !important;
-  overflow-wrap: normal !important;
 }
 
 .overview-intro {
@@ -2876,19 +3236,16 @@ dialog[open] .modal-art {
   display: none !important;
 }
 
-.catalog-filter-group::before {
-  content: attr(data-filter-label) !important;
+.catalog-filter-group::before,
+.catalog-filter-label {
   color: var(--ui-muted) !important;
   font-size: .875rem !important;
   font-weight: 850 !important;
   line-height: 1.2 !important;
 }
 
-.catalog-filter-label {
-  color: var(--ui-muted) !important;
-  font-size: .875rem !important;
-  font-weight: 850 !important;
-  line-height: 1.2 !important;
+.catalog-filter-group::before {
+  content: attr(data-filter-label) !important;
 }
 
 .catalog-filter-options {
@@ -3052,18 +3409,19 @@ dialog[open] .modal-art {
     width: 100% !important;
   }
 
-  .toy-panel[data-toy-panel="catalog"] .toolbar > .unified-search {
+  .toy-panel[data-toy-panel="catalog"] .toolbar > .unified-search,
+  .toy-panel[data-toy-panel="catalog"] .toolbar > .unified-search .global-search-box {
     width: 100% !important;
     max-width: none !important;
-    margin: 0 !important;
     flex: 0 0 auto !important;
   }
 
+  .toy-panel[data-toy-panel="catalog"] .toolbar > .unified-search {
+    margin: 0 !important;
+  }
+
   .toy-panel[data-toy-panel="catalog"] .toolbar > .unified-search .global-search-box {
-    width: 100% !important;
     min-width: 0 !important;
-    max-width: none !important;
-    flex: 0 0 auto !important;
   }
 }
 
@@ -3082,11 +3440,14 @@ dialog[open] .modal-art {
   display: none !important;
 }
 
+.catalog-filter-compact {
+  gap: 10px !important;
+  min-width: 0 !important;
+}
+
 .catalog-panel.catalog-filters-compact .catalog-filter-compact {
   display: grid !important;
   grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  gap: 10px !important;
-  min-width: 0 !important;
 }
 
 .catalog-panel.catalog-filters-compact .catalog-filter-dropdown,
@@ -3161,11 +3522,9 @@ dialog[open] .modal-art {
     display: none !important;
   }
 
-  .catalog-filter-compact {
+.catalog-filter-compact {
     display: grid !important;
     grid-template-columns: 1fr !important;
-    gap: 10px !important;
-    min-width: 0 !important;
   }
 
   .catalog-panel.catalog-filters-compact .catalog-filter-compact {
@@ -3177,12 +3536,6 @@ dialog[open] .modal-art {
   .release-dropdowns:not([data-overview-controls]) {
     grid-template-columns: minmax(9.5rem, var(--release-region-tabs-width, 10.5rem)) minmax(13.5rem, var(--release-series-dropdown-width, 14.5rem)) minmax(0, 1fr) !important;
     grid-template-areas: "region series search" !important;
-  }
-
-  .release-dropdowns[data-overview-controls] {
-    width: max-content !important;
-    max-width: 100% !important;
-    grid-template-columns: repeat(2, minmax(0, var(--filter-dropdown-width, 12.25rem))) !important;
   }
 
   .release-dropdown {
@@ -3263,7 +3616,7 @@ dialog[open] .modal-art {
 
 .search-results-list {
   display: grid !important;
-  gap: 0 !important;
+  gap: 2px !important;
 }
 
 .search-result-item {
@@ -3275,11 +3628,12 @@ dialog[open] .modal-art {
     "path path"
     "snippet snippet" !important;
   gap: 5px 10px !important;
-  padding: 18px 0 !important;
+  padding: 18px 14px !important;
   border: 0 !important;
   border-top: 1px solid var(--ui-line) !important;
-  border-radius: 0 !important;
+  border-radius: var(--ui-radius) !important;
   background: transparent !important;
+  background-clip: padding-box !important;
   color: var(--ui-text) !important;
   text-align: left !important;
 }
@@ -3443,9 +3797,6 @@ dialog[open] .modal-art {
 }
 
 .overview-guide-modal .overview-modal-art {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
   padding: 22px !important;
 }
 
@@ -3453,32 +3804,20 @@ dialog[open] .modal-art {
   width: var(--modal-body-width) !important;
   display: grid !important;
   grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-  gap: 4px !important;
   margin: 0 auto var(--modal-flow-gap) !important;
-  padding: 4px !important;
-  border-radius: var(--ui-radius) !important;
-  background: var(--ui-control) !important;
 }
 
 .overview-guide-tabs button {
   min-width: 0 !important;
   min-height: 36px !important;
-  padding: 0 12px !important;
-  border: 0 !important;
-  border-radius: calc(var(--ui-radius) - 4px) !important;
-  background: transparent !important;
-  color: var(--ui-muted) !important;
-  font: inherit !important;
   font-size: .9375rem !important;
-  font-weight: 700 !important;
-  cursor: pointer !important;
 }
 
 .overview-guide-tabs button.active,
 .overview-guide-tabs button[aria-selected="true"] {
   background: var(--ui-surface) !important;
   color: var(--ui-text) !important;
-  box-shadow: var(--ui-shadow-soft) !important;
+  box-shadow: none !important;
 }
 
 .overview-guide-panel {
@@ -3499,7 +3838,8 @@ dialog[open] .modal-art {
   display: none !important;
 }
 
-.overview-structure-descriptions ul {
+.overview-structure-descriptions ul,
+.overview-guide-copy ul {
   margin: 0 !important;
   padding: 0 !important;
   display: grid !important;
@@ -3507,7 +3847,8 @@ dialog[open] .modal-art {
   list-style: none !important;
 }
 
-.overview-structure-descriptions li {
+.overview-structure-descriptions li,
+.overview-guide-copy li {
   min-width: 0 !important;
   color: var(--ui-text) !important;
   font-size: 1rem !important;
@@ -3515,7 +3856,8 @@ dialog[open] .modal-art {
   line-height: 1.55 !important;
 }
 
-.overview-structure-descriptions li span {
+.overview-structure-descriptions li span,
+.overview-guide-copy li span {
   display: inline-flex !important;
   align-items: center !important;
   min-height: 30px !important;
@@ -3533,6 +3875,86 @@ dialog[open] .modal-art {
 .overview-guide-subtitle-row {
   width: 100% !important;
   margin: 0 !important;
+}
+
+.overview-title-row.overview-guide-subtitle-row {
+  margin: 0 auto !important;
+}
+
+.overview-structure-controls {
+  width: var(--modal-body-width) !important;
+  min-width: 0 !important;
+  margin: 0 auto !important;
+  display: grid !important;
+  gap: 8px !important;
+}
+
+.overview-series-segments {
+  min-width: 0 !important;
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 4px !important;
+  padding: 4px !important;
+  border-radius: var(--ui-radius) !important;
+  background: var(--ui-control) !important;
+}
+
+.overview-series-segment {
+  min-width: 0 !important;
+  min-height: 36px !important;
+  padding: 0 10px !important;
+  border: 0 !important;
+  border-radius: calc(var(--ui-radius) - 4px) !important;
+  background: transparent !important;
+  color: var(--ui-muted) !important;
+  font: inherit !important;
+  font-size: .875rem !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  cursor: pointer !important;
+}
+
+.overview-series-segment:hover,
+.overview-series-segment:focus-visible,
+.overview-series-segment.active {
+  background: var(--ui-surface) !important;
+  color: var(--ui-text) !important;
+  box-shadow: none !important;
+}
+
+.overview-system-chips {
+  min-width: 0 !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 6px !important;
+}
+
+.overview-system-chip {
+  min-width: 0 !important;
+  min-height: 34px !important;
+  padding: 0 12px !important;
+  border: 1px solid var(--ui-line) !important;
+  border-radius: 0.65rem !important;
+  background: var(--ui-surface) !important;
+  color: var(--ui-muted) !important;
+  font: inherit !important;
+  font-size: .9375rem !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  cursor: pointer !important;
+}
+
+.overview-system-chip:hover,
+.overview-system-chip:focus-visible,
+.overview-system-chip.active {
+  background: var(--ui-control) !important;
+  color: var(--ui-text) !important;
 }
 
 .overview-guide-heading {
@@ -3613,12 +4035,17 @@ dialog[open] .modal-art {
   line-height: 1.2 !important;
 }
 
-.overview-guide-copy h4 {
-  margin: 0 0 12px !important;
+.overview-guide-copy h4,
+.spin-direction-item b {
+  min-width: 0 !important;
   color: var(--ui-text) !important;
   font-size: 1rem !important;
   font-weight: 700 !important;
   line-height: 1.2 !important;
+}
+
+.overview-guide-copy h4 {
+  margin: 0 0 12px !important;
 }
 
 .type-relation-diagram {
@@ -3688,14 +4115,6 @@ dialog[open] .modal-art {
   font-weight: 400 !important;
   line-height: 1 !important;
 }
-.spin-direction-item b {
-  min-width: 0 !important;
-  color: var(--ui-text) !important;
-  font-size: 1rem !important;
-  font-weight: 700 !important;
-  line-height: 1.2 !important;
-}
-
 .spin-direction-item small {
   min-width: 0 !important;
   color: var(--ui-muted) !important;
@@ -3721,35 +4140,14 @@ dialog[open] .modal-art {
   min-width: 0 !important;
 }
 
-.overview-guide-copy ul {
-  margin: 0 !important;
-  padding: 0 !important;
-  display: grid !important;
-  gap: 10px !important;
-  list-style: none !important;
-}
+@media (max-width: 560px) {
+  .overview-series-segments {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
 
-.overview-guide-copy li {
-  min-width: 0 !important;
-  color: var(--ui-text) !important;
-  font-size: 1rem !important;
-  font-weight: 400 !important;
-  line-height: 1.55 !important;
-}
-
-.overview-guide-copy li span {
-  display: inline-flex !important;
-  align-items: center !important;
-  min-height: 30px !important;
-  margin: 0 8px 0 0 !important;
-  padding: 0 10px !important;
-  border-radius: 0.5rem !important;
-  background: var(--ui-control) !important;
-  color: var(--ui-text) !important;
-  font-size: 1rem !important;
-  font-weight: 400 !important;
-  line-height: 1 !important;
-  white-space: nowrap !important;
+  .overview-system-chip {
+    flex: 1 1 calc(50% - 6px) !important;
+  }
 }
 
 @media (max-width: 900px) {
@@ -3948,7 +4346,7 @@ dialog[open] .modal-art {
       "title"
       "path"
       "snippet" !important;
-    padding: 16px 0 !important;
+    padding: 16px 14px !important;
   }
 
   .search-result-kind {

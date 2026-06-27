@@ -36,14 +36,14 @@
     <aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
       <div class="mobile-drawer-header">
         <strong>메뉴</strong>
-        <button class="mobile-drawer-close" type="button" aria-label="메뉴 닫기">×</button>
+        <button class="ui-icon-button mobile-drawer-close" type="button" aria-label="메뉴 닫기">×</button>
       </div>
       <nav class="mobile-drawer-nav" aria-label="모바일 메뉴">
         <section class="mobile-drawer-section">
-          <button class="mobile-primary" type="button" data-mobile-section="catalog">도감</button>
+          <button class="ui-button mobile-primary" type="button" data-mobile-section="catalog">도감</button>
           <div class="mobile-secondary" aria-label="도감 분류">
-            <button type="button" data-mobile-catalog-scope="bey">베이</button>
-            <button type="button" data-mobile-catalog-scope="tools">장비</button>
+            <button class="ui-tab-button" type="button" data-mobile-catalog-scope="bey">베이</button>
+            <button class="ui-tab-button" type="button" data-mobile-catalog-scope="tools">장비</button>
           </div>
         </section>
       </nav>
@@ -57,9 +57,9 @@
             <details class="search-scope catalog-dropdown" id="globalSearchScope" data-scope="all" aria-label="검색 범위">
               <summary><b class="catalog-dropdown-value">전체</b></summary>
               <div class="catalog-dropdown-menu">
-                <button type="button" class="active" data-global-search-scope="all">전체</button>
-                <button type="button" data-global-search-scope="bey">베이</button>
-                <button type="button" data-global-search-scope="tools">장비</button>
+                <button type="button" class="ui-dropdown-item active" data-global-search-scope="all">전체</button>
+                <button type="button" class="ui-dropdown-item" data-global-search-scope="bey">베이</button>
+                <button type="button" class="ui-dropdown-item" data-global-search-scope="tools">장비</button>
               </div>
             </details>
             <span class="search-icon" aria-hidden="true"></span>
@@ -78,9 +78,9 @@
                   <details class="search-scope catalog-dropdown" id="overviewSearchScope" data-scope="all" aria-label="검색 범위">
                     <summary><b class="catalog-dropdown-value">전체</b></summary>
                     <div class="catalog-dropdown-menu">
-                      <button type="button" class="active" data-overview-search-scope="all">전체</button>
-                      <button type="button" data-overview-search-scope="bey">베이</button>
-                      <button type="button" data-overview-search-scope="tools">장비</button>
+                      <button type="button" class="ui-dropdown-item active" data-overview-search-scope="all">전체</button>
+                      <button type="button" class="ui-dropdown-item" data-overview-search-scope="bey">베이</button>
+                      <button type="button" class="ui-dropdown-item" data-overview-search-scope="tools">장비</button>
                     </div>
                   </details>
                   <span class="search-icon" aria-hidden="true"></span>
@@ -117,7 +117,7 @@
                 <small>만화판 자료</small>
                 <b aria-hidden="true">→</b>
               </button>
-              <button class="overview-open-card is-pending" type="button">
+              <button class="overview-open-card" type="button" data-overview-anime-open>
                 <span>미디어</span>
                 <strong>애니메이션</strong>
                 <small>애니메이션 자료</small>
@@ -158,42 +158,20 @@
                   <div class="catalog-filter-primary">
                     <div class="catalog-filter-expanded">
                       <div class="catalog-filter-group" data-filter-group="series" data-filter-label="시리즈">
-                        <div class="catalog-filter-options">
-                          <button type="button" class="active" data-gear-series="" data-summary-label="전체">전체</button>
-                          <button type="button" data-gear-series="topblade">탑블레이드</button>
-                          <button type="button" data-gear-series="metal fight">메탈베이블레이드</button>
-                          <button type="button" data-gear-series="burst">베이블레이드 버스트</button>
-                          <button type="button" data-gear-series="x">베이블레이드 X</button>
-                        </div>
+                        <div class="catalog-filter-options"></div>
                       </div>
                       <div class="catalog-filter-group" data-filter-group="kind" data-filter-label="종류">
-                        <div class="catalog-filter-options">
-                          <button type="button" class="active" data-gear-kind="" data-summary-label="전체">전체</button>
-                          <button type="button" data-gear-kind="bey">베이</button>
-                          <button type="button" data-gear-kind="parts">부품</button>
-                          <button type="button" data-gear-kind="tools">장비</button>
-                        </div>
+                        <div class="catalog-filter-options"></div>
                       </div>
                     </div>
                     <div class="catalog-filter-compact">
                       <details class="catalog-filter-dropdown catalog-dropdown" data-filter-group="series" data-filter-label="시리즈">
                         <summary><span class="catalog-filter-label">시리즈</span><b class="catalog-dropdown-value">전체</b></summary>
-                        <div class="catalog-dropdown-menu">
-                        <button type="button" class="active" data-gear-series="" data-summary-label="전체">전체</button>
-                        <button type="button" data-gear-series="topblade">탑블레이드</button>
-                        <button type="button" data-gear-series="metal fight">메탈베이블레이드</button>
-                        <button type="button" data-gear-series="burst">베이블레이드 버스트</button>
-                        <button type="button" data-gear-series="x">베이블레이드 X</button>
-                        </div>
+                        <div class="catalog-dropdown-menu"></div>
                       </details>
                       <details class="catalog-filter-dropdown catalog-dropdown" data-filter-group="kind" data-filter-label="종류">
                         <summary><span class="catalog-filter-label">종류</span><b class="catalog-dropdown-value">전체</b></summary>
-                        <div class="catalog-dropdown-menu">
-                        <button type="button" class="active" data-gear-kind="" data-summary-label="전체">전체</button>
-                        <button type="button" data-gear-kind="bey">베이</button>
-                        <button type="button" data-gear-kind="parts">부품</button>
-                        <button type="button" data-gear-kind="tools">장비</button>
-                        </div>
+                        <div class="catalog-dropdown-menu"></div>
                       </details>
                     </div>
                   </div>
@@ -203,30 +181,13 @@
                         <div class="catalog-filter-options"></div>
                       </div>
                       <div class="catalog-filter-group" data-gear-dependent="system" data-filter-label="시스템" hidden>
-                        <div class="catalog-filter-options">
-                          <button type="button" class="active" data-gear-system="" data-summary-label="전체">전체</button>
-                          <button type="button" data-gear-system="basic">4단 구조</button>
-                          <button type="button" data-gear-system="hybrid">하이브리드</button>
-                          <button type="button" data-gear-system="4d">4D</button>
-                          <button type="button" data-gear-system="synchrome">싱크롬</button>
-                        </div>
+                        <div class="catalog-filter-options"></div>
                       </div>
                       <div class="catalog-filter-group" data-gear-dependent="type" data-filter-label="타입" hidden>
-                        <div class="catalog-filter-options">
-                          <button type="button" class="active" data-gear-type="" data-summary-label="전체">전체</button>
-                          <button type="button" data-gear-type="ATTACK">공격형</button>
-                          <button type="button" data-gear-type="DEFENSE">방어형</button>
-                          <button type="button" data-gear-type="STAMINA">지구형</button>
-                          <button type="button" data-gear-type="BALANCE">균형형</button>
-                        </div>
+                        <div class="catalog-filter-options"></div>
                       </div>
                       <div class="catalog-filter-group" data-gear-dependent="spin" data-filter-label="회전" hidden>
-                        <div class="catalog-filter-options">
-                          <button type="button" class="active" data-gear-spin="" data-summary-label="전체">전체</button>
-                          <button type="button" data-gear-spin="RIGHT SPIN">우회전</button>
-                          <button type="button" data-gear-spin="LEFT SPIN">좌회전</button>
-                          <button type="button" data-gear-spin="DUAL SPIN">양회전</button>
-                        </div>
+                        <div class="catalog-filter-options"></div>
                       </div>
                     </div>
                     <div class="catalog-filter-compact">
@@ -236,32 +197,15 @@
                       </details>
                       <details class="catalog-filter-dropdown catalog-dropdown" data-gear-dependent="system" data-filter-label="시스템" hidden>
                         <summary><span class="catalog-filter-label">시스템</span><b class="catalog-dropdown-value">전체</b></summary>
-                        <div class="catalog-dropdown-menu">
-                          <button type="button" class="active" data-gear-system="" data-summary-label="전체">전체</button>
-                          <button type="button" data-gear-system="basic">4단 구조</button>
-                          <button type="button" data-gear-system="hybrid">하이브리드</button>
-                          <button type="button" data-gear-system="4d">4D</button>
-                          <button type="button" data-gear-system="synchrome">싱크롬</button>
-                        </div>
+                        <div class="catalog-dropdown-menu"></div>
                       </details>
                       <details class="catalog-filter-dropdown catalog-dropdown" data-gear-dependent="type" data-filter-label="타입" hidden>
                         <summary><span class="catalog-filter-label">타입</span><b class="catalog-dropdown-value">전체</b></summary>
-                        <div class="catalog-dropdown-menu">
-                          <button type="button" class="active" data-gear-type="" data-summary-label="전체">전체</button>
-                          <button type="button" data-gear-type="ATTACK">공격형</button>
-                          <button type="button" data-gear-type="DEFENSE">방어형</button>
-                          <button type="button" data-gear-type="STAMINA">지구형</button>
-                          <button type="button" data-gear-type="BALANCE">균형형</button>
-                        </div>
+                        <div class="catalog-dropdown-menu"></div>
                       </details>
                       <details class="catalog-filter-dropdown catalog-dropdown" data-gear-dependent="spin" data-filter-label="회전" hidden>
                         <summary><span class="catalog-filter-label">회전</span><b class="catalog-dropdown-value">전체</b></summary>
-                        <div class="catalog-dropdown-menu">
-                          <button type="button" class="active" data-gear-spin="" data-summary-label="전체">전체</button>
-                          <button type="button" data-gear-spin="RIGHT SPIN">우회전</button>
-                          <button type="button" data-gear-spin="LEFT SPIN">좌회전</button>
-                          <button type="button" data-gear-spin="DUAL SPIN">양회전</button>
-                        </div>
+                        <div class="catalog-dropdown-menu"></div>
                       </details>
                       </div>
                   </div>
