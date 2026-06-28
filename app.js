@@ -1449,29 +1449,31 @@ const productDisplayName = (item, region = activeReleaseRegion) => {
   const baseName = item.name || "";
   return baseName || item.no || "";
 };
+const isoDateParts = value => value ? String(value).match(/^(\d{4})-(\d{2})(?:-(\d{2}))?$/) : null;
+const dotDateLabel = (value, fallbackLabel, includeDay = false) => {
+  const match = isoDateParts(value);
+  if (!match || (includeDay && !match[3])) return fallbackLabel(value);
+  const parts = [match[1], Number(match[2])];
+  if (includeDay) parts.push(Number(match[3]));
+  return `${parts.join(".")}.`;
+};
+const responsiveDateSpans = (fullClass, compactClass, fullLabel, compactLabel) =>
+  `<span class="${fullClass}">${fullLabel}</span><span class="${compactClass}">${compactLabel}</span>`;
 const releaseDateLabel = value => {
   if (!value) return "";
-  const match = String(value).match(/^(\d{4})-(\d{2})(?:-\d{2})?$/);
+  const match = isoDateParts(value);
   return match ? `${match[1]}년 ${Number(match[2])}월` : value;
 };
-const releaseDateCompactLabel = value => {
-  if (!value) return "";
-  const match = String(value).match(/^(\d{4})-(\d{2})(?:-\d{2})?$/);
-  return match ? `${match[1]}.${Number(match[2])}.` : releaseDateLabel(value);
-};
+const releaseDateCompactLabel = value => dotDateLabel(value, releaseDateLabel);
 const animeAirDateLabel = value => {
   if (!value) return "";
-  const match = String(value).match(/^(\d{4})-(\d{2})-(\d{2})$/);
-  return match ? `${match[1]}년 ${Number(match[2])}월 ${Number(match[3])}일` : value;
+  const match = isoDateParts(value);
+  return match?.[3] ? `${match[1]}년 ${Number(match[2])}월 ${Number(match[3])}일` : value;
 };
-const animeAirDateCompactLabel = value => {
-  if (!value) return "";
-  const match = String(value).match(/^(\d{4})-(\d{2})-(\d{2})$/);
-  return match ? `${match[1]}.${Number(match[2])}.${Number(match[3])}.` : animeAirDateLabel(value);
-};
+const animeAirDateCompactLabel = value => dotDateLabel(value, animeAirDateLabel, true);
 const releaseDateSortValue = value => {
   if (!value) return Number.MAX_SAFE_INTEGER;
-  const match = String(value).match(/^(\d{4})-(\d{2})(?:-(\d{2}))?$/);
+  const match = isoDateParts(value);
   if (!match) return Number.MAX_SAFE_INTEGER;
   return Number(`${match[1]}${match[2]}${match[3] || "15"}`);
 };
@@ -2443,7 +2445,7 @@ const productReleaseTableRows = (region = activeReleaseRegion, series = activeRe
     <td>${release.no || ""}</td>
     <td><span class="release-product-link">${release.name || item.name}</span></td>
     <td>${release.kind || ""}</td>
-    <td><span class="release-date-full">${releaseDateLabel(releaseDate)}</span><span class="release-date-compact">${releaseDateCompactLabel(releaseDate)}</span></td>
+    <td>${responsiveDateSpans("release-date-full", "release-date-compact", releaseDateLabel(releaseDate), releaseDateCompactLabel(releaseDate))}</td>
     <td>${priceLabel(release.price, region)}</td>
   </tr>`;
   }).join("");
@@ -2703,7 +2705,7 @@ const animeEpisodeRowsMarkup = visibleRows => {
     return `<tr class="anime-episode-row" role="button" tabindex="0" data-anime-episode-index="${index}">
     <td>${escapeHtml(episode.no || "")}</td>
     <td><span class="release-product-link">${escapeHtml(episode.titles?.[activeAnimeRegion] || "")}</span></td>
-    <td><span class="anime-air-date-full">${animeAirDateLabel(airDate)}</span><span class="anime-air-date-compact">${animeAirDateCompactLabel(airDate)}</span></td>
+    <td>${responsiveDateSpans("anime-air-date-full", "anime-air-date-compact", animeAirDateLabel(airDate), animeAirDateCompactLabel(airDate))}</td>
   </tr>`;
   }).join("");
   return rows || `<tr class="release-empty-row"><td colspan="3">등록된 방영목록이 없습니다.</td></tr>`;

@@ -430,11 +430,6 @@ dialog[open] .modal-scroll-area::-webkit-scrollbar-corner,
   flex: 0 1 420px !important;
 }
 
-.stat-track{
-  background: var(--ui-surface) !important;
-  border-radius: 4px !important;
-}
-
 html,
 body,
 main,
@@ -588,51 +583,6 @@ body.has-topbar .nav {
   transform: none !important;
 }
 
-.catalog-grid{
-  display: grid !important;
-  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
-  gap: 12px !important;
-  background: transparent !important;
-  border: 0 !important;
-  box-shadow: none !important;
-}
-
-.catalog-card,
-.product-card{
-  min-height: 176px !important;
-  padding: 16px !important;
-  border-radius: 16px !important;
-  background: var(--ui-surface) !important;
-  background-image: none !important;
-  color: var(--ui-control-text-active) !important;
-  box-shadow: none !important;
-  transform: none !important;
-  transition: transform 0.2s ease, background 0.2s ease !important;
-}
-
-.card-top,
-.card-en,
-.card-full-en,
-.card-full-ko,
-.product-card .card-top{
-  color: var(--ui-muted) !important;
-}
-
-.card-name,
-.product-card h3{
-  color: var(--ui-control-text-active) !important;
-}
-
-
-.stat-fill{
-  background: var(--ui-accent) !important;
-}
-
-.stat-track{
-  background: var(--ui-control) !important;
-  border-radius: 4px !important;
-}
-
 @media (max-width: 850px) {
   
 
@@ -669,22 +619,6 @@ body.has-topbar .nav {
   justify-content: space-between !important;
 }
 
-.catalog-card,
-.product-card{
-  position: relative !important;
-  isolation: isolate !important;
-  overflow: hidden !important;
-}
-
-
-.catalog-card .card-top,
-.product-card .card-top,
-.catalog-card .card-name,
-.product-card .card-name{
-  position: relative !important;
-  z-index: 2 !important;
-  opacity: 1 !important;
-}
 .icon-back-button,
 button.icon-back-button,
 .modal-back{
@@ -830,23 +764,6 @@ dialog[open] #modalClose.modal-close:hover{
   display: none !important;
 }
 
-.card-top,
-.catalog-card .card-top,
-.product-card .card-top{
-  position: relative !important;
-  z-index: 3 !important;
-  min-height: 22px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  gap: 12px !important;
-  margin: 0 !important;
-  color: var(--ui-muted) !important;
-  font-size: var(--font-md) !important;
-  font-weight: 700 !important;
-  line-height: 1.2 !important; opacity: 1 !important;
-}
-
 .card-name,
 .catalog-card .card-name,
 .product-card .card-name{
@@ -934,8 +851,6 @@ dialog[open] #modalClose.modal-close:hover{
     padding: 12px !important;
   }
 
-  .catalog-card .card-top,
-  .product-card .card-top,
   .catalog-card .card-name,
   .product-card .card-name,
   .catalog-card .card-en,
@@ -1171,18 +1086,7 @@ body.has-topbar .topbar {
   background: var(--ui-surface) !important;
   background-image: none !important;
 }
-/* Match top-right card text color with top-left label. */
-.card-top,
-.card-top span,
-.card-top span:last-child,
-.catalog-card .card-top,
-.catalog-card .card-top span,
-.catalog-card .card-top span:last-child,
-.product-card .card-top,
-.product-card .card-top span,
-.product-card .card-top span:last-child{
-  color: var(--ui-muted) !important;
-}
+
 /* Match modal close button with back button style. */
 #modalClose,
 dialog[open] #modalClose.modal-close {
@@ -2895,8 +2799,6 @@ dialog[open] .modal-art {
 
 .ui-button:hover,
 .ui-button:focus-visible,
-.ui-button--ghost:hover,
-.ui-button--ghost:focus-visible,
 .nav-link:hover,
 .nav-link:focus-visible,
 .nav-filter-menu .sub-filter:hover,
@@ -2909,7 +2811,6 @@ dialog[open] .modal-art {
 
 .ui-button.active,
 .ui-button[aria-selected="true"],
-.ui-button--active,
 .nav-link.active,
 .nav-filter-menu .sub-filter.active,
 .nav-filter-menu .sub-filter[aria-selected="true"] {
@@ -2923,12 +2824,6 @@ dialog[open] .modal-art {
   text-align: left !important;
   text-decoration: none !important;
   cursor: pointer !important;
-}
-
-.ui-button--surface {
-  border: 1px solid var(--ui-line) !important;
-  background: var(--ui-control) !important;
-  color: var(--ui-text) !important;
 }
 
 .ui-icon-button,
