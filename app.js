@@ -1454,6 +1454,11 @@ const releaseDateLabel = value => {
   const match = String(value).match(/^(\d{4})-(\d{2})(?:-\d{2})?$/);
   return match ? `${match[1]}년 ${Number(match[2])}월` : value;
 };
+const releaseDateCompactLabel = value => {
+  if (!value) return "";
+  const match = String(value).match(/^(\d{4})-(\d{2})(?:-\d{2})?$/);
+  return match ? `${match[1]}.${Number(match[2])}.` : releaseDateLabel(value);
+};
 const animeAirDateLabel = value => {
   if (!value) return "";
   const match = String(value).match(/^(\d{4})-(\d{2})-(\d{2})$/);
@@ -2428,11 +2433,12 @@ const releaseTableHead = () => `<thead>
 const productReleaseTableRows = (region = activeReleaseRegion, series = activeReleaseSeries) => {
   const rows = visibleReleaseTableItems(region, series).map(item => {
     const release = productRelease(item, region);
+    const releaseDate = release.releaseDate || release.release;
     return `<tr class="release-product-row" role="button" tabindex="0" data-product-id="${item.id}" data-release-region="${region}">
     <td>${release.no || ""}</td>
     <td><span class="release-product-link">${release.name || item.name}</span></td>
     <td>${release.kind || ""}</td>
-    <td>${releaseDateLabel(release.releaseDate || release.release)}</td>
+    <td><span class="release-date-full">${releaseDateLabel(releaseDate)}</span><span class="release-date-compact">${releaseDateCompactLabel(releaseDate)}</span></td>
     <td>${priceLabel(release.price, region)}</td>
   </tr>`;
   }).join("");

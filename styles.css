@@ -2426,6 +2426,10 @@ dialog[open] .category-release-info .release-table-section {
   color: var(--ui-text) !important;
 }
 
+.release-date-compact {
+  display: none !important;
+}
+
 @container (max-width: 639px) {
   .release-table {
     min-width: 0 !important;
@@ -2470,6 +2474,14 @@ dialog[open] .category-release-info .release-table-section {
 
   .release-table tbody td:nth-child(4) {
     border-radius: 0 var(--ui-radius) var(--ui-radius) 0 !important;
+  }
+
+  .release-date-full {
+    display: none !important;
+  }
+
+  .release-date-compact {
+    display: inline !important;
   }
 }
 
