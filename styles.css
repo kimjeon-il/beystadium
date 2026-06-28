@@ -1203,8 +1203,8 @@ dialog[open] #modalClose.modal-close {
 
 .modal-step {
   position: fixed !important;
-  top: calc((var(--modal-vh, 100vh) - var(--modal-h, min(620px, calc(100vh - 48px)))) / 2 + (var(--modal-h, min(620px, calc(100vh - 48px))) / 2)) !important;
-  bottom: auto !important;
+  top: auto !important;
+  bottom: calc((var(--modal-vh, 100vh) - var(--modal-h, min(620px, calc(100vh - 48px)))) / 2 + var(--modal-close-offset, 18px)) !important;
   z-index: 260 !important;
   width: 42px !important;
   min-width: 42px !important;
@@ -1222,7 +1222,7 @@ dialog[open] #modalClose.modal-close {
   backdrop-filter: none !important;
   box-shadow: none !important;
   line-height: 1 !important;
-  transform: translateY(-50%) !important;
+  transform: none !important;
   transition: background-color .16s ease, color .16s ease, border-color .16s ease, transform .16s ease !important;
 }
 
@@ -1258,13 +1258,13 @@ dialog[open] #modalClose.modal-close {
 }
 
 .modal-step-prev {
-  left: calc((var(--modal-vw, 100vw) - var(--modal-w, min(980px, calc(100vw - 48px)))) / 2 + 16px) !important;
+  left: calc((var(--modal-vw, 100vw) - var(--modal-w, min(980px, calc(100vw - 48px)))) / 2 + var(--modal-close-offset, 18px)) !important;
   right: auto !important;
 }
 
 .modal-step-next {
-  left: calc((var(--modal-vw, 100vw) + var(--modal-w, min(980px, calc(100vw - 48px)))) / 2 - 58px) !important;
-  right: auto !important;
+  left: auto !important;
+  right: calc((var(--modal-vw, 100vw) - var(--modal-w, min(980px, calc(100vw - 48px)))) / 2 + var(--modal-close-offset, 18px)) !important;
 }
 
 .modal-step:hover,
@@ -1548,10 +1548,10 @@ dialog[open] .modal-info:not(.category-release-info):not(.category-anime-info) {
 dialog[open] .modal-scroll-area {
   box-sizing: border-box !important;
   width: calc(100% + var(--modal-scrollbar-x-shift, 0px)) !important;
-  height: calc(100% - var(--modal-scroll-start)) !important;
+  height: calc(100% - (var(--modal-scroll-start) * 2)) !important;
   min-height: 0 !important;
   margin: var(--modal-scroll-start) calc(var(--modal-scrollbar-x-shift, 0px) * -1) 0 0 !important;
-  padding: 0 var(--modal-scrollbar-x-shift, 0px) 40px 0 !important;
+  padding: 0 var(--modal-scrollbar-x-shift, 0px) 0 0 !important;
   overflow-x: hidden !important;
   overflow-y: auto !important;
   overscroll-behavior: contain !important;
@@ -2890,8 +2890,8 @@ dialog[open] .modal-art {
 
 dialog[open] .modal-step {
   position: fixed !important;
-  top: calc((var(--modal-vh, 100vh) - var(--modal-h, min(620px, calc(100vh - 48px)))) / 2 + (var(--modal-h, min(620px, calc(100vh - 48px))) / 2)) !important;
-  bottom: auto !important;
+  top: auto !important;
+  bottom: calc((var(--modal-vh, 100vh) - var(--modal-h, min(620px, calc(100vh - 48px)))) / 2 + var(--modal-close-offset, 18px)) !important;
   width: 42px !important;
   min-width: 42px !important;
   height: 42px !important;
@@ -2908,17 +2908,17 @@ dialog[open] .modal-step {
   backdrop-filter: none !important;
   box-shadow: none !important;
   line-height: 1 !important;
-  transform: translateY(-50%) !important;
+  transform: none !important;
 }
 
 dialog[open] .modal-step-prev {
-  left: calc((var(--modal-vw, 100vw) - var(--modal-w, min(980px, calc(100vw - 48px)))) / 2 + 16px) !important;
+  left: calc((var(--modal-vw, 100vw) - var(--modal-w, min(980px, calc(100vw - 48px)))) / 2 + var(--modal-close-offset, 18px)) !important;
   right: auto !important;
 }
 
 dialog[open] .modal-step-next {
-  left: calc((var(--modal-vw, 100vw) + var(--modal-w, min(980px, calc(100vw - 48px)))) / 2 - 58px) !important;
-  right: auto !important;
+  left: auto !important;
+  right: calc((var(--modal-vw, 100vw) - var(--modal-w, min(980px, calc(100vw - 48px)))) / 2 + var(--modal-close-offset, 18px)) !important;
 }
 
 dialog[open] .modal-step::before,
