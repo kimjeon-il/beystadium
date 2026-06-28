@@ -1754,7 +1754,7 @@ footer {
 .modal-section {
   width: var(--modal-body-width) !important;
   margin: 0 auto !important;
-  padding: 24px !important;
+  padding: 20px !important;
   min-height: 0 !important;
   overflow: hidden !important;
   border: 0 !important;
@@ -1774,9 +1774,9 @@ footer {
 
 .product-composition,
 .mounted-parts {
-  --modal-row-arrow-column: 24px;
-  --modal-row-x-padding: 10px;
-  --modal-row-gap: 12px;
+  --modal-row-arrow-column: 22px;
+  --modal-row-x-padding: 8px;
+  --modal-row-gap: 10px;
   --modal-scroll-gutter: 5px;
 }
 
@@ -1786,7 +1786,7 @@ footer {
   margin-right: calc(var(--modal-scroll-gutter) * -1) !important;
   min-height: 0 !important;
   flex: 0 1 auto !important;
-  max-height: 248px !important;
+  max-height: 224px !important;
   overflow-x: hidden !important;
   overflow-y: auto !important;
   overscroll-behavior: contain !important;
@@ -1816,8 +1816,8 @@ footer {
   display: block !important;
   width: auto !important;
   max-width: none !important;
-  margin: 0 var(--modal-scroll-gutter) 12px !important;
-  padding: 0 var(--modal-row-x-padding) 12px !important;
+  margin: 0 var(--modal-scroll-gutter) 10px !important;
+  padding: 0 var(--modal-row-x-padding) 10px !important;
   border-bottom: 1px solid var(--ui-line) !important;
 }
 
@@ -2477,7 +2477,7 @@ dialog[open] .category-release-info .release-table-section {
 
 @media (max-width: 900px) {
   .modal-section-scroll:not(.release-table-scroll):not(.anime-episode-table-scroll) {
-    max-height: min(248px, 34dvh) !important;
+    max-height: min(224px, 34dvh) !important;
   }
 }
 
@@ -2487,7 +2487,7 @@ dialog[open] .category-release-info .release-table-section {
   }
 
   .modal-section-scroll:not(.release-table-scroll):not(.anime-episode-table-scroll) {
-    max-height: min(220px, 30dvh) !important;
+    max-height: min(204px, 30dvh) !important;
   }
 }
 
@@ -3136,7 +3136,7 @@ dialog[open] .modal-step:focus-visible {
   display: grid !important;
   align-items: center !important;
   gap: var(--modal-row-gap) !important;
-  min-height: 38px !important;
+  min-height: 36px !important;
   padding: 0 var(--modal-row-x-padding) !important;
   margin: 0 !important;
   border: 0 !important;
