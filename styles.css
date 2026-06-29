@@ -1681,7 +1681,7 @@ dialog[open] .modal-name {
 .product-composition-item > b {
   justify-self: end !important;
   font-weight: 400 !important;
-  text-align: right !important;
+  text-align: left !important;
 }
 
 .release-dropdowns {
@@ -2670,7 +2670,7 @@ dialog[open] .modal-art {
 .part-modal-info .track-height-row b {
   width: var(--stat-value-column) !important;
   min-width: var(--stat-value-column) !important;
-  text-align: right !important;
+  text-align: left !important;
   white-space: nowrap !important;
   font-variant-numeric: tabular-nums !important;
 }
