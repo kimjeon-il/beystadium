@@ -1495,6 +1495,7 @@ dialog[open] .modal-close {
 dialog[open] .modal-name {
   --modal-title-line-height: 1.15em;
   --modal-title-lines: 2;
+  --modal-title-size: var(--font-title);
   width: var(--modal-body-width) !important;
   display: flex !important;
   align-items: baseline !important;
@@ -1504,8 +1505,8 @@ dialog[open] .modal-name {
   row-gap: 2px !important;
   height: calc(var(--modal-title-line-height) * var(--modal-title-lines)) !important;
   max-height: calc(var(--modal-title-line-height) * var(--modal-title-lines)) !important;
-  margin: 0 auto calc(var(--modal-flow-gap) - var(--modal-title-line-height)) !important;
-  font-size: var(--font-title) !important;
+  margin: 0 auto max(8px, calc(var(--modal-flow-gap) - var(--modal-title-line-height))) !important;
+  font-size: var(--modal-title-size) !important;
   font-weight: 800 !important;
   line-height: 1.15 !important;
   color: var(--ui-text) !important;
@@ -1515,13 +1516,13 @@ dialog[open] .modal-name {
 
 @media (max-width: 560px) {
   dialog[open] .modal-name {
-    font-size: clamp(1.45rem, 6vw, 1.75rem) !important;
+    --modal-title-size: 1.35rem;
   }
 }
 
 @media (max-width: 390px) {
   dialog[open] .modal-name {
-    font-size: clamp(1.3rem, 5.6vw, 1.55rem) !important;
+    --modal-title-size: 1.18rem;
   }
 }
 
@@ -2646,11 +2647,12 @@ dialog[open] .modal-art {
 
 .part-modal-info .stat-row,
 .part-modal-info .track-height-row {
+  --stat-value-column: 4em;
   box-sizing: border-box !important;
   width: 100% !important;
   max-width: 100% !important;
   min-width: 0 !important;
-  grid-template-columns: 48px minmax(32px, 1fr) max-content !important;
+  grid-template-columns: 48px minmax(32px, 1fr) var(--stat-value-column) !important;
   gap: 8px !important;
 }
 
@@ -2666,9 +2668,11 @@ dialog[open] .modal-art {
 
 .part-modal-info .stat-row b,
 .part-modal-info .track-height-row b {
-  min-width: max-content !important;
+  width: var(--stat-value-column) !important;
+  min-width: var(--stat-value-column) !important;
   text-align: right !important;
   white-space: nowrap !important;
+  font-variant-numeric: tabular-nums !important;
 }
 
 /* Reusable control templates. */
