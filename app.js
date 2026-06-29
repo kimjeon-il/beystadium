@@ -2342,17 +2342,9 @@ async function initModelViewer() {
   resetButton.textContent = "기본 위치";
   container.appendChild(resetButton);
 
-  scene.add(new THREE.HemisphereLight(0xffffff, 0x263241, 2.2));
-  const keyLight = new THREE.DirectionalLight(0xffffff, 2.6);
-  keyLight.position.set(3, 4, 5);
-  scene.add(keyLight);
-  const rimLight = new THREE.DirectionalLight(0x8fe8ff, 1.5);
-  rimLight.position.set(-4, 2, -2);
-  scene.add(rimLight);
-
   const defaultCameraPosition = new THREE.Vector3(0, 0, 5.35);
   const defaultControlsTarget = new THREE.Vector3(0, 0, 0);
-  const defaultModelRotation = new THREE.Euler(-1.5, 0, 0);
+  const defaultModelRotation = new THREE.Euler(-Math.PI / 2, 0, 0);
   const modelRoot = new THREE.Group();
   scene.add(modelRoot);
   const controls = new OrbitControls(camera, renderer.domElement);
@@ -2424,11 +2416,7 @@ async function initModelViewer() {
     if (!active) return;
     object.traverse(child => {
       if (child.isMesh) {
-        child.material = new THREE.MeshStandardMaterial({
-          color: 0xb8c3c8,
-          metalness: 0.72,
-          roughness: 0.34
-        });
+        child.material = new THREE.MeshBasicMaterial({ color: 0xb8c3c8 });
       }
     });
     const box = new THREE.Box3().setFromObject(object);
@@ -4049,21 +4037,52 @@ function closeModal() {
   document.body.style.removeProperty("--modal-scroll-lock-top");
   window.scrollTo(0, modalScrollY);
 }
-function normalizedStat(value) {
+const statProfiles = {
+  "metal fight": {
+    stats: [
+      { key: "attack", label: "공격력" },
+      { key: "defense", label: "방어력" },
+      { key: "stamina", label: "지구력" }
+    ],
+    normalize: value => normalizedMetalFightStat(value),
+    fillPercent: value => Math.min(100, value * 20)
+  }
+};
+function statProfileFor(item) {
+  return statProfiles[item.statProfile] || statProfiles[item.series] || null;
+}
+function normalizedMetalFightStat(value) {
   if (value <= 0) return 0;
   return Math.min(7, Math.max(0.5, Math.round(value / 5) / 2));
 }
-function statFillPercent(value) {
-  return Math.min(100, value * 20);
+function statValue(stats, entry, index) {
+  if (Array.isArray(stats)) return stats[index];
+  return stats?.[entry.key];
 }
-function statRow(name, rawValue) {
-  const value = normalizedStat(rawValue);
+function normalizedStat(rawValue, profile) {
+  const value = Number(rawValue);
+  if (!Number.isFinite(value)) return 0;
+  return profile.normalize ? profile.normalize(value) : value;
+}
+function statFillPercent(value, profile) {
+  if (profile.fillPercent) return profile.fillPercent(value);
+  return Math.max(0, Math.min(100, value));
+}
+function statRow(name, rawValue, profile) {
+  const value = normalizedStat(rawValue, profile);
   return `
-    <div class="stat-row"><span>${name}</span><div class="stat-track"><div class="stat-fill" style="width:${statFillPercent(value)}%"></div></div><b>${value}</b></div>`;
+    <div class="stat-row"><span>${name}</span><div class="stat-track"><div class="stat-fill" style="width:${statFillPercent(value, profile)}%"></div></div><b>${value}</b></div>`;
 }
-function statRows(stats, extraStats = []) {
-  const baseStats = ["공격력", "방어력", "지구력"].map((name, i) => statRow(name, stats[i]));
-  const additionalStats = extraStats.map(stat => statRow(stat.name, stat.value));
+function statRows(item, stats, extraStats = []) {
+  const profile = statProfileFor(item);
+  if (!profile) return "";
+  const baseStats = (profile.stats || [])
+    .map((entry, index) => {
+      const value = statValue(stats, entry, index);
+      return value == null ? "" : statRow(entry.label, value, profile);
+    })
+    .filter(Boolean);
+  const additionalStats = (extraStats || []).map(stat => statRow(stat.name, stat.value, profile));
   return [...baseStats, ...additionalStats].join("");
 }
 function trackHeightType(item) {
@@ -4107,8 +4126,19 @@ function partStats(item) {
     const level = trackHeightLevel(item);
     return `<div class="stat-block">${trackHeightModeRow(trackHeightType(item), level)}</div>`;
   }
-  if (!item.modes) return `<div class="stat-block">${statRows(item.stats, item.extraStats)}${zeroGStadiumNote(item)}</div>`;
-  return `<div class="stat-block"><div class="mode-stats">${item.modes.map(mode => `<section><p class="mode-title">${mode.name}</p>${statRows(mode.stats, mode.extraStats)}</section>`).join("")}</div>${zeroGStadiumNote(item)}</div>`;
+  const note = zeroGStadiumNote(item);
+  if (!item.modes) {
+    const rows = statRows(item, item.stats, item.extraStats);
+    return rows ? `<div class="stat-block">${rows}${note}</div>` : "";
+  }
+  const modeStats = item.modes
+    .map(mode => {
+      const rows = statRows(item, mode.stats, mode.extraStats);
+      return rows ? `<section><p class="mode-title">${mode.name}</p>${rows}</section>` : "";
+    })
+    .filter(Boolean)
+    .join("");
+  return modeStats ? `<div class="stat-block"><div class="mode-stats">${modeStats}</div>${note}</div>` : "";
 }
 const modalBackButtonMarkup = ({ backId = "", backProductId = "", backRelease = false, region = "", label = "돌아가기" } = {}) => {
   const releaseBackAttr = backRelease ? ` data-back-release="true"` : "";
