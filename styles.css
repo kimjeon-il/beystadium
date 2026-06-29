@@ -567,8 +567,8 @@ body.has-topbar .nav {
 
 .catalog-section {
   --section-heading-align: flex-end;
-  --catalog-card-min-width: clamp(154px, 18vw, 240px);
-  --catalog-grid-columns: repeat(auto-fit, minmax(min(100%, var(--catalog-card-min-width)), 1fr));
+  --catalog-grid-column-count: 5;
+  --catalog-grid-columns: repeat(var(--catalog-grid-column-count), minmax(0, 1fr));
   --catalog-grid-max-width: min(var(--page-max), 1320px);
   --catalog-grid-gap: clamp(10px, 1.1vw, 12px);
   --catalog-card-min-height: clamp(154px, 10vw, 176px);
@@ -742,6 +742,24 @@ dialog[open] #modalClose.modal-close:hover{
   border: 0 !important;
   background: transparent !important;
   box-shadow: none !important;
+}
+
+@media (max-width: 79.999rem) {
+  .catalog-section {
+    --catalog-grid-column-count: 4;
+  }
+}
+
+@media (max-width: 47.999rem) {
+  .catalog-section {
+    --catalog-grid-column-count: 3;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) and (max-device-width: 30rem) {
+  .catalog-section {
+    --catalog-grid-column-count: 2;
+  }
 }
 
 .catalog-card,
@@ -3795,6 +3813,15 @@ body.menu-open .menu-button span:nth-child(3) {
 }
 
 @media (max-width: 39.999rem) {
+  .catalog-section {
+    --catalog-grid-column-count: 2;
+    --catalog-grid-gap: 8px;
+    --catalog-card-min-height: 132px;
+    --catalog-card-padding: 10px;
+    --catalog-card-badge-padding: 2px 6px;
+    --catalog-card-badge-font-size: var(--font-xs);
+  }
+
   dialog[open] {
     --modal-edge-gap: clamp(10px, 3vw, 16px);
     --modal-title-size-default: clamp(0.94rem, 4.2vw, 1.32rem);
