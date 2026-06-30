@@ -595,6 +595,8 @@ const globalSearchScope = document.querySelector("#globalSearchScope");
 const overviewSearchScope = document.querySelector("#overviewSearchScope");
 const unifiedSearch = document.querySelector(".unified-search");
 const unifiedSearchHome = document.querySelector("#unifiedSearchHome");
+const catalogFilterToggle = document.querySelector("#catalogFilterToggle");
+let catalogFiltersExpanded = false;
 const globalSearchScopeValue = () => globalSearchScope?.dataset.scope || "all";
 const overviewSearchScopeValue = () => overviewSearchScope?.dataset.scope || "all";
 const dropdownSummaryText = button => button?.dataset.summaryLabel || button?.textContent.trim() || "";
@@ -4346,16 +4348,39 @@ const setCatalogScope = scope => {
   selectedCatalogStructure = null;
   refreshCatalogControls();
 };
+const catalogPanelElement = () => document.querySelector('.catalog-panel[data-toy-panel="catalog"]');
+const hasActiveCatalogFilterState = () => Boolean(
+  selectedCatalogSeries ||
+  selectedCatalogKind ||
+  selectedCatalogSubtype ||
+  selectedCatalogStructure ||
+  selectedCatalogBattleType ||
+  selectedCatalogSpin
+);
+const syncCatalogFilterDisclosureState = () => {
+  const panel = catalogPanelElement();
+  const hasFilters = hasActiveCatalogFilterState();
+  panel?.classList.toggle("catalog-filters-expanded", catalogFiltersExpanded);
+  panel?.classList.toggle("catalog-filters-active", hasFilters);
+  catalogFilterToggle?.classList.toggle("active", catalogFiltersExpanded || hasFilters);
+  catalogFilterToggle?.setAttribute("aria-expanded", String(catalogFiltersExpanded));
+  catalogFilterToggle?.setAttribute("aria-pressed", String(catalogFiltersExpanded));
+};
+const setCatalogFiltersExpanded = expanded => {
+  catalogFiltersExpanded = Boolean(expanded);
+  syncCatalogFilterDisclosureState();
+  scheduleCatalogFilterModeCheck();
+};
 const syncCatalogFilterPanels = () => {
   const visibility = catalogDependentFilterVisibility();
   const hasAdvancedFilters = Object.values(visibility).some(Boolean);
   document.querySelectorAll("[data-catalog-filter-advanced]").forEach(panel => {
     panel.hidden = !(panel.dataset.catalogFilterAdvanced === "bey" && hasAdvancedFilters);
   });
+  syncCatalogFilterDisclosureState();
   scheduleCatalogFilterModeCheck();
 };
 let catalogFilterModeFrame = 0;
-const catalogPanelElement = () => document.querySelector('.catalog-panel[data-toy-panel="catalog"]');
 const activeCatalogPrimaryFilters = panel => panel?.querySelector('[data-catalog-section="catalog"] .catalog-filter-primary');
 const primaryFilterRowsBroken = (panel, primary) => {
   if (!panel || !primary) return false;
@@ -4437,7 +4462,12 @@ const renderCatalogFilterChips = () => {
       ${catalogFilterResetMarkup(scope)}
     ` : "";
   });
+  syncCatalogFilterDisclosureState();
 };
+catalogFilterToggle?.addEventListener("click", event => {
+  event.preventDefault();
+  setCatalogFiltersExpanded(!catalogFiltersExpanded);
+});
 document.querySelector("#catalogDropdownFilters")?.addEventListener("click", event => {
   const button = event.target.closest("button[data-catalog-series],button[data-catalog-kind],button[data-catalog-subtype],button[data-catalog-system],button[data-catalog-type],button[data-catalog-spin]");
   if (!button) return;
@@ -4465,7 +4495,10 @@ document.querySelectorAll(".catalog-filter-chips").forEach(root => root.addEvent
     return;
   }
   if (reset) {
-    if (reset.dataset.filterResetScope === "catalog") resetCatalogFilters();
+    if (reset.dataset.filterResetScope === "catalog") {
+      resetCatalogFilters();
+      catalogFiltersExpanded = false;
+    }
     resetDropdowns(document.querySelector("#catalogDropdownFilters"));
     refreshCatalogState();
   }
@@ -5004,7 +5037,7 @@ const syncUnifiedSearchPlacement = section => {
     : null;
   const targetParent = targetToolbar || unifiedSearchHome.parentElement;
   if (!targetParent) return;
-  if (targetToolbar) targetToolbar.appendChild(unifiedSearch);
+  if (targetToolbar) targetToolbar.insertBefore(unifiedSearch, catalogFilterToggle || null);
   else unifiedSearchHome.after(unifiedSearch);
 };
 const activateToyPanel = section => {
@@ -5051,6 +5084,7 @@ const activatePrimarySection = section => {
   activateToyPanel(panelSection);
   if (section === "overview") setGlobalSearchScope("all");
   if (isCatalogSection) {
+    catalogFiltersExpanded = false;
     resetCatalogFilters();
     resetDropdowns(document.querySelector("#catalogDropdownFilters"));
     setCatalogScope(catalogScope);

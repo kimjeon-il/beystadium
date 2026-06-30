@@ -11,7 +11,7 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="./styles.css?v=20260630-overview-card-padding-balance" />
+    <link rel="stylesheet" href="./styles.css?v=20260630-catalog-detail-filter-toggle" />
   </head>
   <body class="is-overview">
     <header class="topbar">
@@ -162,7 +162,9 @@
           </div>
 
           <div class="catalog-control-bar">
-            <div class="toolbar catalog-toolbar"></div>
+            <div class="toolbar catalog-toolbar">
+              <button type="button" class="catalog-filter-toggle" id="catalogFilterToggle" aria-expanded="false" aria-controls="catalogDropdownFilters">상세</button>
+            </div>
           </div>
 
           <div class="catalog-combined">
@@ -241,6 +243,6 @@
     </dialog>
 
     <button class="to-top" id="toTop" type="button" aria-label="맨 위로 이동">↑</button>
-    <script src="./app.js?v=20260630-search-code-cleanup"></script>
+    <script src="./app.js?v=20260630-catalog-detail-filter-toggle"></script>
   </body>
 </html>

@@ -2954,17 +2954,17 @@ body.is-overview .catalog-section {
 
 .toy-panel[data-toy-panel="catalog"] {
   --section-heading-max-width: var(--catalog-content-max);
-  --catalog-toolbar-display: flex;
-  --catalog-toolbar-columns: none;
-  --catalog-toolbar-align: flex-start;
-  --catalog-toolbar-justify: space-between;
-  --catalog-toolbar-gap: 16px;
-  --catalog-control-columns: minmax(0, min(var(--primary-search-width), 100%));
+  --catalog-toolbar-display: grid;
+  --catalog-toolbar-columns: minmax(0, min(var(--primary-search-width), 100%)) auto;
+  --catalog-toolbar-align: stretch;
+  --catalog-toolbar-justify: end;
+  --catalog-toolbar-gap: 10px;
+  --catalog-control-columns: minmax(0, min(calc(var(--primary-search-width) + 74px), 100%));
   --catalog-control-justify: end;
   --catalog-control-gap: 16px;
   --catalog-search-wrap-width: min(var(--primary-search-width), 100%);
   --catalog-search-wrap-max: var(--primary-search-width);
-  --catalog-search-wrap-margin: 0 0 0 auto;
+  --catalog-search-wrap-margin: 0;
   --catalog-search-wrap-flex: 0 1 var(--primary-search-width);
   --catalog-search-wrap-align: flex-start;
   --catalog-search-box-width: 100%;
@@ -2980,6 +2980,42 @@ body.is-overview .catalog-section {
   --catalog-filter-label-width: 96px;
   --catalog-primary-filter-height: calc((var(--catalog-pill-height) * 2) + var(--catalog-filter-row-gap));
   --catalog-chip-row-height: 36px;
+}
+
+.catalog-filter-toggle {
+  width: auto !important;
+  min-width: 64px !important;
+  height: var(--search-box-height, 48px) !important;
+  min-height: var(--search-box-height, 48px) !important;
+  padding: 0 16px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 1px solid var(--ui-line) !important;
+  border-radius: var(--ui-radius) !important;
+  background: var(--ui-surface) !important;
+  color: var(--ui-muted) !important;
+  font-size: var(--font-md) !important;
+  font-weight: 500 !important;
+  white-space: nowrap !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+}
+
+.catalog-filter-toggle:hover,
+.catalog-filter-toggle:focus-visible,
+.catalog-filter-toggle.active {
+  background: var(--ui-control) !important;
+  color: var(--ui-text) !important;
+}
+
+.catalog-panel:not(.catalog-filters-expanded):not(.catalog-filters-active) .catalog-filter-row {
+  display: none !important;
+}
+
+.catalog-panel:not(.catalog-filters-expanded) .catalog-filter-primary,
+.catalog-panel:not(.catalog-filters-expanded) .catalog-filter-advanced {
+  display: none !important;
 }
 
 #catalogDropdownFilters {
@@ -3180,6 +3216,7 @@ body.is-overview .catalog-section {
   margin: var(--catalog-search-wrap-margin) !important;
   flex: var(--catalog-search-wrap-flex) !important;
   align-self: var(--catalog-search-wrap-align) !important;
+  min-width: 0 !important;
 }
 
 .toy-panel[data-toy-panel="catalog"] .toolbar > .unified-search .global-search-box {
@@ -3825,7 +3862,7 @@ body.menu-open .menu-button span:nth-child(3) {
     --catalog-control-justify: stretch;
     --catalog-control-gap: 12px;
     --catalog-toolbar-display: grid;
-    --catalog-toolbar-columns: 1fr;
+    --catalog-toolbar-columns: minmax(0, 1fr) auto;
     --catalog-toolbar-align: stretch;
     --catalog-toolbar-justify: stretch;
     --catalog-toolbar-gap: 12px;
