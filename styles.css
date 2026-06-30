@@ -2744,16 +2744,16 @@ body.is-overview .catalog-section {
     "title arrow"
     "desc arrow";
   --overview-card-justify-items: stretch;
-  --overview-card-padding: clamp(10px, 3vw, 22px) clamp(8px, 3.2vw, 24px);
+  --overview-card-padding: clamp(10px, 3vw, 22px) clamp(7px, 2.8vw, 24px);
   --overview-card-row-gap: 8px;
-  --overview-card-column-gap: clamp(4px, calc(-4px + 3.4vw), 18px);
+  --overview-card-column-gap: clamp(4px, calc(-5px + 3.6vw), 18px);
   --overview-card-radius: 24px;
   --overview-card-text-align: left;
   --overview-card-detail-display: inline;
-  --overview-card-label-size: clamp(.45rem, 2.5vw, var(--font-md));
-  --overview-card-title-size: clamp(.625rem, 3.45vw, var(--font-xl));
-  --overview-card-desc-size: clamp(.45rem, 2.5vw, var(--font-md));
-  --overview-card-arrow-size: clamp(.625rem, 3.45vw, var(--font-xl));
+  --overview-card-label-size: clamp(.64rem, 3.2vw, var(--font-md));
+  --overview-card-title-size: clamp(.8125rem, 4vw, var(--font-xl));
+  --overview-card-desc-size: clamp(.64rem, 3.2vw, var(--font-md));
+  --overview-card-arrow-size: clamp(.8125rem, 4vw, var(--font-xl));
   --overview-card-title-line-height: 1.2;
   --overview-card-title-white-space: nowrap;
   --overview-card-title-word-break: normal;
@@ -3327,8 +3327,8 @@ body.is-overview .catalog-section {
   grid-area: title !important;
   margin: 0 !important;
   color: var(--ui-text) !important;
-  font-size: var(--font-title) !important;
-  font-weight: 700 !important;
+  font-size: var(--font-xl) !important;
+  font-weight: 600 !important;
   line-height: 1.08 !important;
 }
 
@@ -3340,7 +3340,7 @@ body.is-overview .catalog-section {
   background: var(--ui-control) !important;
   color: var(--ui-muted) !important;
   font-size: var(--font-sm) !important;
-  font-weight: 500 !important;
+  font-weight: 400 !important;
   white-space: nowrap !important;
 }
 
@@ -3355,7 +3355,7 @@ body.is-overview .catalog-section {
 
 .search-results-list {
   display: grid !important;
-  gap: 8px !important;
+  gap: 6px !important;
 }
 
 .search-result-item {
@@ -3366,7 +3366,7 @@ body.is-overview .catalog-section {
     "kind title"
     "snippet snippet" !important;
   gap: 5px 10px !important;
-  padding: 18px 14px !important;
+  padding: 14px 12px !important;
   border: 0 !important;
   border-radius: var(--ui-radius) !important;
   background: transparent !important;
@@ -3402,15 +3402,15 @@ body.is-overview .catalog-section {
   grid-area: title !important;
   min-width: 0 !important;
   color: var(--ui-text) !important;
-  font-size: var(--font-lg) !important;
-  font-weight: 600 !important;
+  font-size: var(--font-md) !important;
+  font-weight: 500 !important;
   line-height: 1.25 !important;
 }
 
 .search-result-snippet {
   grid-area: snippet !important;
   color: var(--ui-muted) !important;
-  font-size: var(--font-md) !important;
+  font-size: var(--font-sm) !important;
   font-weight: 400 !important;
   line-height: 1.55 !important;
   word-break: keep-all !important;
@@ -4125,14 +4125,11 @@ body.menu-open .menu-button span:nth-child(3) {
       "kind"
       "title"
       "snippet" !important;
-    padding: 16px 14px !important;
+    padding: 13px 12px !important;
   }
 
   .search-result-kind {
     width: max-content !important;
   }
 
-  .search-result-item strong {
-    font-size: var(--font-lg) !important;
-  }
 }
