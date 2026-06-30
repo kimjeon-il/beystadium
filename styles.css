@@ -573,7 +573,6 @@ dialog[open] .modal-scroll-area::-webkit-scrollbar-corner,
 }
 
 main {
-  --search-scope-font-size: clamp(var(--font-sm), 2.6vw, var(--font-md));
   background: var(--ui-bg);
   background-image: none;
   color: var(--ui-text);
@@ -1072,7 +1071,6 @@ dialog[open] #modalClose.modal-close {
   --result-count-align-self: end;
   --result-count-margin: 0 0 8px;
   --result-count-white-space: nowrap;
-  --catalog-toolbar-margin: 0 0 24px;
   padding-top: 0;
 }
 
@@ -2723,7 +2721,7 @@ body.is-overview .catalog-section {
   --overview-scope-min-width: var(--primary-search-scope-min-width);
   --overview-scope-max-width: var(--primary-search-scope-max-width);
   --overview-scope-summary-padding: var(--primary-search-scope-padding);
-  --overview-card-grid-gap: clamp(6px, 2.2vw, 14px);
+  --overview-card-grid-gap: 14px;
   --overview-card-min-height: 140px;
   --overview-card-columns: minmax(0, 1fr) auto;
   --overview-card-areas:
@@ -2731,9 +2729,9 @@ body.is-overview .catalog-section {
     "title arrow"
     "desc arrow";
   --overview-card-justify-items: stretch;
-  --overview-card-padding: clamp(12px, 3.4vw, 22px) clamp(10px, 3.4vw, 24px);
-  --overview-card-row-gap: clamp(8px, 2.2vw, 10px);
-  --overview-card-column-gap: clamp(6px, calc(-4px + 3.6vw), 18px);
+  --overview-card-padding: 22px 24px;
+  --overview-card-row-gap: 10px;
+  --overview-card-column-gap: 18px;
   --overview-card-radius: 24px;
   --overview-card-text-align: left;
   --overview-card-detail-display: inline;
@@ -2830,21 +2828,27 @@ body.is-overview .catalog-section {
 }
 
 .toy-panel[data-toy-panel="catalog"] {
+  --section-heading-width: 100%;
   --section-heading-max-width: var(--catalog-content-max);
   --section-heading-min-height: 0;
-  --section-heading-margin: 0 auto 18px;
+  --section-heading-columns: minmax(0, 1fr) auto;
   --section-heading-align: end;
+  --section-heading-gap: clamp(12px, 1.8vw, 24px);
+  --section-heading-margin: 0 auto clamp(14px, 1.8vw, 18px);
+  --result-count-margin: 0 0 4px;
+  --catalog-control-columns: minmax(0, min(calc(var(--primary-search-width) + 74px), 100%));
+  --catalog-control-justify: end;
+  --catalog-control-gap: 0;
   --catalog-toolbar-display: grid;
-  --catalog-toolbar-columns: minmax(0, min(var(--primary-search-width), 100%)) auto;
+  --catalog-toolbar-columns: minmax(0, 1fr) auto;
   --catalog-toolbar-align: stretch;
-  --catalog-toolbar-justify: end;
+  --catalog-toolbar-justify: stretch;
   --catalog-toolbar-gap: 10px;
   --catalog-toolbar-margin: 0;
   --catalog-toolbar-margin-left: 0;
   --catalog-toolbar-margin-right: 0;
-  --catalog-control-columns: minmax(0, min(calc(var(--primary-search-width) + 74px), 100%));
-  --catalog-control-justify: end;
-  --catalog-control-gap: 16px;
+  --catalog-toolbar-width: 100%;
+  --catalog-toolbar-max-width: none;
   --unified-search-width: var(--catalog-search-wrap-width);
   --unified-search-max-width: var(--catalog-search-wrap-max);
   --unified-search-margin: var(--catalog-search-wrap-margin);
@@ -2857,11 +2861,11 @@ body.is-overview .catalog-section {
   --search-box-padding: 0 16px 0 8px;
   --search-box-gap: 10px;
   --global-search-box-flex: var(--catalog-search-box-flex);
-  --catalog-search-wrap-width: min(var(--primary-search-width), 100%);
-  --catalog-search-wrap-max: var(--primary-search-width);
+  --catalog-search-wrap-width: 100%;
+  --catalog-search-wrap-max: none;
   --catalog-search-wrap-margin: 0;
-  --catalog-search-wrap-flex: 0 1 var(--primary-search-width);
-  --catalog-search-wrap-align: flex-start;
+  --catalog-search-wrap-flex: 0 1 auto;
+  --catalog-search-wrap-align: stretch;
   --catalog-search-box-width: 100%;
   --catalog-search-box-min-width: 0;
   --catalog-search-box-max-width: 100%;
@@ -3713,22 +3717,10 @@ body.menu-open .menu-button span:nth-child(3) {
   }
 
   .toy-panel[data-toy-panel="catalog"] {
-    --catalog-control-columns: 1fr;
-    --catalog-control-justify: stretch;
-    --catalog-control-gap: 12px;
-    --catalog-toolbar-display: grid;
-    --catalog-toolbar-columns: minmax(0, 1fr) auto;
-    --catalog-toolbar-align: stretch;
-    --catalog-toolbar-justify: stretch;
-    --catalog-toolbar-gap: 12px;
-    --catalog-search-wrap-width: 100%;
-    --catalog-search-wrap-margin: 0;
-    --catalog-search-wrap-flex: 0 0 auto;
-    --catalog-search-wrap-align: stretch;
-    --catalog-search-box-width: 100%;
-    --catalog-search-box-min-width: 0;
-    --catalog-search-box-max-width: none;
-    --catalog-search-box-flex: 0 0 auto;
+    --section-heading-gap: clamp(10px, 2vw, 18px);
+    --section-heading-margin: 0 auto clamp(12px, 1.8vw, 16px);
+    --result-count-margin: 0 0 3px;
+    --catalog-toolbar-gap: clamp(10px, 1.4vw, 12px);
   }
 
   .topbar > .brand {
@@ -3765,7 +3757,7 @@ body.menu-open .menu-button span:nth-child(3) {
     inset: 0 auto 0 0;
     width: min(calc(100vw - 18px), 420px);
     height: 100vh;
-    display: grid;
+    display: grid !important;
     grid-template-rows: auto minmax(0, 1fr);
     gap: 14px;
     padding: 14px 14px max(18px, env(safe-area-inset-bottom));
@@ -3972,10 +3964,13 @@ body.menu-open .menu-button span:nth-child(3) {
   }
 
   .toy-panel[data-toy-panel="catalog"] {
+    --section-heading-gap: 8px;
+    --section-heading-margin: 0 auto 12px;
+    --result-count-margin: 0 0 2px;
     --catalog-control-gap: 10px;
     --catalog-control-stack-gap: 10px;
     --catalog-filter-card-gap: 10px;
-    --catalog-toolbar-gap: 10px;
+    --catalog-toolbar-gap: 8px;
     --catalog-filter-primary-min-height: 0;
     --catalog-filter-expanded-display: none;
     --catalog-filter-compact-display: grid;
