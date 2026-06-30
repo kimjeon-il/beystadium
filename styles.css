@@ -2711,7 +2711,8 @@ body.has-topbar .topbar > .brand {
   padding-bottom: 64px !important;
 }
 
-.catalog-section:has(.overview-panel.active) > .unified-search {
+.catalog-section:has(.overview-panel.active) > .unified-search,
+.catalog-section:has(.catalog-panel.active) > .unified-search {
   display: none !important;
 }
 

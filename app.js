@@ -593,8 +593,7 @@ const catalogCoreItems = [...beyItems, ...partItems];
 const globalSearch = document.querySelector("#globalSearchInput");
 const globalSearchScope = document.querySelector("#globalSearchScope");
 const overviewSearchScope = document.querySelector("#overviewSearchScope");
-const unifiedSearch = document.querySelector(".unified-search");
-const unifiedSearchHome = document.querySelector("#unifiedSearchHome");
+const catalogSearch = document.querySelector("#catalogSearchInput");
 const catalogFilterToggle = document.querySelector("#catalogFilterToggle");
 let catalogFiltersExpanded = false;
 const globalSearchScopeValue = () => globalSearchScope?.dataset.scope || "all";
@@ -632,6 +631,7 @@ const setSearchInputValue = (input, value = "") => {
 const clearSearchInputs = () => {
   setSearchInputValue(globalSearch, "");
   setSearchInputValue(overviewSearch, "");
+  setSearchInputValue(catalogSearch, "");
 };
 const activeToyPanel = () => document.querySelector(".toy-panel.active");
 const toTop = document.querySelector("#toTop");
@@ -1984,6 +1984,7 @@ const directItemSearchIndex = item => {
 const directItemMatchesSearch = (item, query) => searchMatchRank(directItemSearchIndex(item), query) > 0;
 
 const globalSearchQuery = () => globalSearch?.value.trim() || "";
+const catalogSearchQuery = () => catalogSearch?.value.trim() || "";
 const searchResultTitleElement = document.querySelector("#searchResultsTitle");
 const searchResultMeta = document.querySelector("#searchResultsMeta");
 const productSerialNumber = (item, region = activeReleaseRegion) => {
@@ -2074,14 +2075,14 @@ const deriveCatalogItemFilters = () => {
   resolvedCatalogStructure = selectedCatalogKind === "bey" ? selectedCatalogStructure : null;
 };
 const visibleToolsItems = () => {
-  const query = prepareSearchQuery(globalSearchQuery());
+  const query = prepareSearchQuery(catalogSearchQuery());
   if (selectedCatalogKind && selectedCatalogKind !== "tools") return [];
   return toolsItems
     .filter(item => (!selectedCatalogSeries || item.series === selectedCatalogSeries) && (!selectedCatalogSubtype || item.category === selectedCatalogSubtype) && (query.isEmpty || directItemMatchesSearch(item, query)))
     .sort(compareToolsItemsByFirstRelease);
 };
 const visibleCatalogCoreItems = () => {
-  const query = prepareSearchQuery(globalSearchQuery());
+  const query = prepareSearchQuery(catalogSearchQuery());
   if (selectedCatalogKind === "tools") return [];
   const useTypeFilter = resolvedCatalogItemType !== "all";
   const useMetalAttributeFilters = isMetalFightSeries(selectedCatalogSeries);
@@ -4177,6 +4178,10 @@ bindSearchInput(globalSearch, ".search-box", {
   onSubmit: openSearchResults
 });
 bindSearchPreview(globalSearch, ".search-box");
+bindSearchInput(catalogSearch, ".catalog-search-box", {
+  onInput: scheduleCatalogSearchResultsRefresh,
+  onSubmit: scheduleCatalogSearchResultsRefresh
+});
 bindSearchInput(overviewSearch, ".overview-search", {
   onInput: () => {
     syncOverviewSearchToGlobal();
@@ -5030,21 +5035,11 @@ modal.addEventListener("close", () => {
   document.body.style.removeProperty("--modal-scroll-lock-top");
 });
 
-const syncUnifiedSearchPlacement = section => {
-  if (!unifiedSearch || !unifiedSearchHome) return;
-  const targetToolbar = section === "catalog"
-    ? document.querySelector(`.toy-panel[data-toy-panel="${section}"] .toolbar`)
-    : null;
-  const targetParent = targetToolbar || unifiedSearchHome.parentElement;
-  if (!targetParent) return;
-  if (targetToolbar) targetToolbar.insertBefore(unifiedSearch, catalogFilterToggle || null);
-  else unifiedSearchHome.after(unifiedSearch);
-};
 const activateToyPanel = section => {
   document.querySelectorAll(".toy-panel").forEach(panel => panel.classList.toggle("active", panel.dataset.toyPanel === section));
   document.body.classList.toggle("is-overview", section === "overview");
   document.body.classList.toggle("has-topbar", section !== "overview");
-  syncUnifiedSearchPlacement(section);
+  if (section === "catalog") closeAllSearchPreviews();
 };
 const syncMobileDrawer = section => {
   mobileDrawer?.querySelectorAll("[data-category-catalog-open], [data-category-release-open], [data-category-anime-open]").forEach(button => {
@@ -5198,10 +5193,8 @@ if (catalogFilterResizeObserver) {
 
 renderCatalogStaticFilterOptions();
 refreshCatalogControls();
-renderSearchResults();
-activateToyPanel(activeToyPanelName() || "overview");
 const routeCurrentHash = () => {
-  if (!window.location.hash) return;
+  if (!window.location.hash) return false;
   const hashId = window.location.hash.slice(1);
   const restoredContext = restoredModalContext(hashId);
   const restoredOptions = restoredContext?.options || {};
@@ -5219,6 +5212,7 @@ const routeCurrentHash = () => {
   else if (hashId.startsWith("BOOK-")) openBookDetail(hashId, restoredOptions);
   else if (hashId.startsWith("GAME-")) openGameDetail(hashId, restoredOptions);
   else openDetail(hashId, restoredOptions);
+  return true;
 };
-routeCurrentHash();
+if (!routeCurrentHash()) activateToyPanel("overview");
 window.addEventListener("hashchange", routeCurrentHash);
