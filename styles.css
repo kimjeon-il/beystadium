@@ -719,6 +719,16 @@ body.has-topbar .nav {
   justify-self: var(--section-heading-content-justify-self, auto);
 }
 
+.section-heading > .section-title-group {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  gap: 4px;
+  min-width: 0;
+  justify-self: start;
+}
+
 .section-heading h2 {
   margin: 0;
   color: var(--ui-text);
@@ -954,8 +964,8 @@ dialog[open] #modalClose.modal-close:hover{
   max-width: 100%;
   padding: var(--catalog-card-badge-padding);
   border-radius: 8px;
-  background: var(--ui-control-hover);
-  color: var(--ui-control-text-active);
+  background: var(--ui-text);
+  color: var(--ui-surface);
   font-size: var(--catalog-card-badge-font-size);
   font-weight: 600;
   line-height: 1.1;
@@ -970,6 +980,56 @@ dialog[open] #modalClose.modal-close:hover{
   white-space: nowrap;
   color: var(--ui-control-text-active);
   font-weight: 500;
+}
+
+.anime-character-card {
+  min-height: var(--catalog-card-min-height);
+  padding: var(--catalog-card-padding);
+  border: 1px solid var(--ui-line);
+  border-radius: 16px;
+  background: var(--ui-surface);
+  color: var(--ui-control-text-active);
+  box-shadow: none;
+}
+
+.anime-character-card {
+  display: grid;
+  align-content: end;
+  gap: 6px;
+}
+
+.anime-character-card strong {
+  color: var(--ui-control-text-active);
+  font-size: var(--font-md);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.anime-character-card small,
+.anime-character-card p {
+  margin: 0;
+  color: var(--ui-muted);
+  font-size: var(--font-sm);
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.panel-empty-state {
+  grid-column: 1 / -1;
+  min-height: 180px;
+  margin: 0;
+  padding: var(--catalog-card-padding);
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--ui-line);
+  border-radius: 16px;
+  background: var(--ui-surface);
+  text-align: center;
+  color: var(--ui-muted);
+  font-size: var(--font-md);
+  font-weight: 400;
+  line-height: 1.5;
+  box-shadow: none;
 }
 
 *:hover,
@@ -1790,6 +1850,43 @@ dialog[open] .category-anime-info .modal-body-block {
   margin: 0;
 }
 
+.release-page-shell {
+  --modal-body-width: 100%;
+  --modal-flow-gap: 12px;
+  --release-content-inset: 0px;
+  --release-scrollbar-x-shift: 0px;
+  width: 100%;
+  max-width: var(--catalog-content-max, var(--catalog-grid-max-width, var(--page-max)));
+  min-height: 0;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--modal-flow-gap);
+}
+
+.release-page-shell .release-dropdowns {
+  width: 100%;
+  margin: 0;
+}
+
+.release-page-shell .release-table-section {
+  width: 100%;
+  min-height: 0;
+  margin: 0;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  background: var(--ui-surface);
+  border: 1px solid var(--ui-line);
+  border-radius: var(--ui-radius-lg, 18px);
+}
+
+.release-page-shell .category-anime-episodes {
+  height: auto;
+  min-height: 0;
+  gap: var(--modal-flow-gap);
+}
+
 .anime-episode-table-scroll,
 .release-table-scroll {
   container-type: inline-size;
@@ -1806,6 +1903,42 @@ dialog[open] .category-anime-info .modal-body-block {
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: var(--ui-line) transparent;
+}
+
+.page-table-scroll {
+  container-type: inline-size;
+  box-sizing: border-box;
+  flex: 1 1 auto;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 0;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  overflow-y: visible;
+  scrollbar-gutter: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--ui-line) transparent;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.release-page-shell .ui-data-table th {
+  padding-top: 8px;
+}
+
+.release-page-shell .ui-data-table th:first-child,
+.release-page-shell .ui-data-table td:first-child {
+  padding-left: 12px;
+}
+
+.release-page-shell .ui-data-table th:last-child,
+.release-page-shell .ui-data-table td:last-child {
+  padding-right: 12px;
 }
 
 .category-anime-episodes[data-anime-table-mode="fit"] .anime-episode-table-scroll {
@@ -2060,6 +2193,20 @@ dialog[open] .category-release-info .release-table-section {
   .release-table th:last-child,
   .release-table td:last-child {
     padding-right: 0;
+  }
+
+  .release-page-shell .release-table th:first-child,
+  .release-page-shell .release-table td:first-child,
+  .release-page-shell .anime-episode-table th:first-child,
+  .release-page-shell .anime-episode-table td:first-child {
+    padding-left: 12px;
+  }
+
+  .release-page-shell .release-table th:last-child,
+  .release-page-shell .release-table td:last-child,
+  .release-page-shell .anime-episode-table th:last-child,
+  .release-page-shell .anime-episode-table td:last-child {
+    padding-right: 12px;
   }
 
   .release-table tbody td:nth-child(4) {
@@ -2363,8 +2510,9 @@ dialog[open] .modal-info.part-modal-info .modal-name {
 .nav-link-pending,
 .nav-link:disabled,
 .nav-link[aria-disabled="true"] {
-  color: color-mix(in srgb, var(--ui-muted) 58%, transparent) !important;
+  color: color-mix(in srgb, var(--ui-muted) 42%, transparent) !important;
   cursor: default !important;
+  opacity: .68 !important;
   pointer-events: none !important;
 }
 
@@ -2712,7 +2860,10 @@ body.has-topbar .topbar > .brand {
 }
 
 .catalog-section:has(.overview-panel.active) > .unified-search,
-.catalog-section:has(.catalog-panel.active) > .unified-search {
+.catalog-section:has(.catalog-panel.active) > .unified-search,
+.catalog-section:has(.release-panel.active) > .unified-search,
+.catalog-section:has(.anime-panel.active) > .unified-search,
+.catalog-section:has(.anime-episodes-panel.active) > .unified-search {
   display: none !important;
 }
 
@@ -2843,7 +2994,11 @@ body.is-overview .catalog-section {
   overflow: visible;
 }
 
-.toy-panel[data-toy-panel="catalog"] {
+.toy-panel[data-toy-panel="catalog"],
+.toy-panel[data-toy-panel="release"],
+.toy-panel[data-toy-panel="anime"],
+.toy-panel[data-toy-panel="anime-episodes"] {
+  --toolbar-icon-button-size: var(--search-box-height, 48px);
   --section-heading-width: 100%;
   --section-heading-max-width: var(--catalog-content-max);
   --section-heading-min-height: 0;
@@ -2852,11 +3007,11 @@ body.is-overview .catalog-section {
   --section-heading-gap: clamp(12px, 1.8vw, 24px);
   --section-heading-margin: 0 auto clamp(14px, 1.8vw, 18px);
   --result-count-margin: 0 0 4px;
-  --catalog-control-columns: minmax(0, min(calc(var(--primary-search-width) + 74px), 100%));
+  --catalog-control-columns: minmax(0, min(calc(var(--primary-search-width) + 128px), 100%));
   --catalog-control-justify: end;
   --catalog-control-gap: 0;
   --catalog-toolbar-display: grid;
-  --catalog-toolbar-columns: minmax(0, 1fr) auto;
+  --catalog-toolbar-columns: auto minmax(0, 1fr);
   --catalog-toolbar-align: stretch;
   --catalog-toolbar-justify: stretch;
   --catalog-toolbar-gap: 10px;
@@ -2903,12 +3058,19 @@ body.is-overview .catalog-section {
   --catalog-chip-row-height: 36px;
 }
 
-.catalog-filter-toggle {
-  width: auto;
-  min-width: 64px;
-  height: var(--search-box-height, 48px);
-  min-height: var(--search-box-height, 48px);
-  padding: 0 16px;
+.catalog-toolbar-actions {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  min-width: 0;
+}
+
+.catalog-search-help-button {
+  width: var(--toolbar-icon-button-size);
+  min-width: var(--toolbar-icon-button-size);
+  height: var(--toolbar-icon-button-size);
+  min-height: var(--toolbar-icon-button-size);
+  padding: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -2917,17 +3079,99 @@ body.is-overview .catalog-section {
   background: var(--ui-surface);
   color: var(--ui-muted);
   font-size: var(--font-md);
-  font-weight: 500;
+  font-weight: 700;
+  line-height: 1;
   white-space: nowrap;
   box-shadow: none;
   cursor: pointer;
 }
 
-.catalog-filter-toggle:hover,
-.catalog-filter-toggle:focus-visible,
-.catalog-filter-toggle.active {
+.catalog-release-open {
+  width: var(--toolbar-icon-button-size);
+  min-width: var(--toolbar-icon-button-size);
+  height: var(--toolbar-icon-button-size);
+  min-height: var(--toolbar-icon-button-size);
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--ui-line);
+  border-radius: var(--ui-radius);
+  background: var(--ui-surface);
+  color: var(--ui-muted);
+  font-size: var(--font-lg);
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.catalog-search-help-button:hover,
+.catalog-search-help-button:focus-visible,
+.catalog-search-help-button[aria-expanded="true"],
+.catalog-release-open:hover,
+.catalog-release-open:focus-visible {
   background: var(--ui-control) !important;
   color: var(--ui-text) !important;
+}
+
+.catalog-search-help-popover {
+  position: fixed;
+  z-index: 160;
+  width: min(260px, calc(100vw - 32px));
+  max-height: min(72vh, 520px);
+  overflow-y: auto;
+  padding: 12px 12px 13px;
+  border: 1px solid var(--ui-line);
+  border-radius: 14px;
+  background: var(--ui-surface);
+  color: var(--ui-text);
+  box-shadow: 0 18px 44px rgba(15, 23, 42, .16);
+}
+
+.catalog-search-help-popover[hidden] {
+  display: none !important;
+}
+
+.catalog-search-help-popover strong {
+  display: block;
+  margin: 0 0 6px;
+  font-size: var(--font-sm);
+  font-weight: 650;
+  line-height: 1.25;
+}
+
+.catalog-search-help-popover p {
+  margin: 0 0 10px;
+  color: var(--ui-muted);
+  font-size: var(--font-xs);
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.catalog-search-help-popover dl {
+  margin: 0;
+  display: grid;
+  gap: 7px;
+}
+
+.catalog-search-help-popover dt {
+  margin: 0;
+  color: var(--ui-text);
+  font-size: var(--font-xs);
+  font-weight: 650;
+  line-height: 1.2;
+}
+
+.catalog-search-help-popover dd {
+  margin: -4px 0 2px;
+  color: var(--ui-muted);
+  font-size: var(--font-xs);
+  font-weight: 400;
+  line-height: 1.45;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
 }
 
 .catalog-panel:not(.catalog-filters-expanded):not(.catalog-filters-active) .catalog-filter-row {
@@ -3110,7 +3354,7 @@ body.is-overview .catalog-section {
   gap: var(--catalog-control-gap);
   width: 100%;
   max-width: var(--catalog-content-max, var(--catalog-grid-max-width, var(--page-max)));
-  padding: 8px 0;
+  padding: 8px 0 0;
   margin: 0 auto var(--catalog-control-stack-gap);
   background: var(--ui-bg);
   background-image: none;
@@ -3133,8 +3377,29 @@ body.is-overview .catalog-section {
   display: none !important;
 }
 
+.catalog-query-row,
 .catalog-filter-row {
   min-width: 0;
+}
+
+.catalog-query-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  min-height: var(--catalog-chip-row-height);
+  gap: 8px 12px;
+}
+
+.catalog-query-row .catalog-filter-chips {
+  width: auto;
+  min-width: 0;
+}
+
+.catalog-query-count {
+  --result-count-margin: 0;
+  min-width: max-content;
+  justify-self: end;
+  align-self: center;
 }
 
 .catalog-panel.catalog-filters-compact #catalogDropdownFilters,
@@ -3233,7 +3498,7 @@ body.is-overview .catalog-section {
 .search-results-page {
   width: min(100%, 960px);
   margin: 0 auto;
-  padding: 28px 0 64px;
+  padding: 18px 0 56px;
 }
 
 .search-results-heading {
@@ -3242,8 +3507,8 @@ body.is-overview .catalog-section {
   grid-template-areas:
     "title count";
   align-items: end;
-  gap: 10px 18px;
-  margin-bottom: 10px;
+  gap: 6px 14px;
+  margin-bottom: 6px;
 }
 
 .search-results-heading h2 {
@@ -3258,7 +3523,7 @@ body.is-overview .catalog-section {
 .search-results-summary {
   grid-area: count;
   margin: 0;
-  padding: 8px 12px;
+  padding: 7px 11px;
   border-radius: var(--ui-radius);
   background: var(--ui-control);
   color: var(--ui-muted);
@@ -3268,17 +3533,17 @@ body.is-overview .catalog-section {
 }
 
 .search-results-meta {
-  min-height: 22px;
-  margin: 0 0 22px;
+  min-height: 18px;
+  margin: 0 0 14px;
   color: var(--ui-muted);
   font-size: var(--font-sm);
   font-weight: 400;
-  line-height: 1.45;
+  line-height: 1.35;
 }
 
 .search-results-list {
   display: grid;
-  gap: 6px;
+  gap: 4px;
 }
 
 .search-result-item {
@@ -3287,8 +3552,8 @@ body.is-overview .catalog-section {
   display: grid;
   grid-template-columns: var(--search-result-columns, auto minmax(0, 1fr));
   grid-template-areas: var(--search-result-areas, "kind title" "snippet snippet");
-  gap: var(--search-result-gap, 5px 10px);
-  padding: var(--search-result-padding, 14px 12px);
+  gap: var(--search-result-gap, 4px 8px);
+  padding: var(--search-result-padding, 11px 10px);
   border: 0;
   border-radius: var(--search-result-radius, var(--ui-radius));
   background: transparent;
@@ -3313,8 +3578,8 @@ body.is-overview .catalog-section {
   justify-content: center;
   padding: var(--search-kind-padding, 0 9px);
   border-radius: 999px;
-  background: var(--ui-control);
-  color: var(--ui-muted);
+  background: var(--ui-text);
+  color: var(--ui-surface);
   font-size: var(--search-kind-font-size, var(--font-xs));
   font-weight: 500;
   line-height: 1;
@@ -3494,26 +3759,26 @@ body.is-overview .catalog-section {
 }
 
 .search-empty {
+  justify-self: center;
+  margin: 0;
   padding: 34px 0;
   color: var(--ui-muted);
+  font-size: var(--font-md);
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
 }
 
-.search-empty strong {
-  display: block;
-  margin-bottom: 8px;
-  color: var(--ui-text);
-  font-size: var(--font-lg);
-}
-
-.search-empty p {
-  margin: 0;
+.catalog-empty {
+  grid-column: 1 / -1;
+  text-align: center;
 }
 
 .overview-card-grid {
   display: grid;
   width: min(100%, 760px);
   margin: 0 auto;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--overview-card-grid-gap);
 }
 
@@ -3542,8 +3807,26 @@ body.is-overview .catalog-section {
   transform: translateY(-1px) !important;
 }
 
+.overview-card-icon {
+  display: none;
+}
+
 .overview-open-card.is-pending {
-  opacity: .72 !important;
+  border-color: color-mix(in srgb, var(--ui-line) 48%, transparent) !important;
+  background: color-mix(in srgb, var(--ui-surface) 70%, transparent) !important;
+  color: color-mix(in srgb, var(--ui-muted) 42%, transparent) !important;
+  cursor: default !important;
+  opacity: .78 !important;
+  pointer-events: none !important;
+  transform: none !important;
+}
+
+.overview-open-card.is-pending span,
+.overview-open-card.is-pending strong,
+.overview-open-card.is-pending small,
+.overview-open-card.is-pending b,
+.overview-open-card.is-pending .overview-card-icon {
+  color: color-mix(in srgb, var(--ui-muted) 42%, transparent) !important;
 }
 
 .overview-open-card span {
@@ -3743,7 +4026,7 @@ body.menu-open .menu-button span:nth-child(3) {
   }
 
   .release-dropdowns {
-    --release-grid-columns: minmax(0, 1fr) minmax(0, 1fr);
+    --release-grid-columns: minmax(0, 10.5fr) minmax(0, 14.5fr);
     --release-grid-areas:
       "region series"
       "search search";
@@ -3754,7 +4037,10 @@ body.menu-open .menu-button span:nth-child(3) {
     --release-grid-areas: "series search";
   }
 
-  .toy-panel[data-toy-panel="catalog"] {
+  .toy-panel[data-toy-panel="catalog"],
+  .toy-panel[data-toy-panel="release"],
+  .toy-panel[data-toy-panel="anime"],
+  .toy-panel[data-toy-panel="anime-episodes"] {
     --section-heading-gap: clamp(10px, 2vw, 18px);
     --section-heading-margin: 0 auto clamp(12px, 1.8vw, 16px);
     --result-count-margin: 0 0 3px;
@@ -4009,7 +4295,8 @@ body.menu-open .menu-button span:nth-child(3) {
     transition: transform .16s ease, color .14s ease;
   }
 
-  .mobile-drawer .mobile-primary[data-category-catalog-open] .mobile-nav-chevron {
+  .mobile-drawer .mobile-primary[data-category-catalog-open] .mobile-nav-chevron,
+  .mobile-drawer .mobile-primary[data-category-anime-open] .mobile-nav-chevron {
     transform: rotate(90deg);
   }
 
@@ -4021,11 +4308,22 @@ body.menu-open .menu-button span:nth-child(3) {
   .mobile-primary-pending,
   .mobile-drawer .mobile-primary:disabled,
   .mobile-drawer .mobile-primary[aria-disabled="true"] {
-    background: transparent !important;
-    color: color-mix(in srgb, var(--ui-muted) 58%, transparent) !important;
+    background: color-mix(in srgb, var(--ui-surface) 18%, transparent) !important;
+    color: color-mix(in srgb, var(--ui-muted) 42%, transparent) !important;
     cursor: default !important;
+    opacity: .72 !important;
     pointer-events: none !important;
     box-shadow: none !important;
+  }
+
+  .mobile-primary-pending .mobile-nav-icon,
+  .mobile-primary-pending .mobile-nav-chevron,
+  .mobile-drawer .mobile-primary:disabled .mobile-nav-icon,
+  .mobile-drawer .mobile-primary:disabled .mobile-nav-chevron,
+  .mobile-drawer .mobile-primary[aria-disabled="true"] .mobile-nav-icon,
+  .mobile-drawer .mobile-primary[aria-disabled="true"] .mobile-nav-chevron {
+    color: color-mix(in srgb, var(--ui-muted) 34%, transparent) !important;
+    opacity: .7 !important;
   }
 
   .mobile-secondary {
@@ -4084,11 +4382,18 @@ body.menu-open .menu-button span:nth-child(3) {
   }
 
   .release-dropdowns {
-    --release-grid-columns: 1fr;
+    --release-grid-columns: minmax(0, 10.5fr) minmax(0, 14.5fr);
     --release-grid-areas:
-      "region"
-      "series"
-      "search";
+      "region series"
+      "search search";
+  }
+
+  dialog[open] .category-release-info {
+    --release-content-inset: 30px !important;
+  }
+
+  .category-release-info .release-region-tabs button {
+    font-size: var(--font-sm);
   }
 
   .release-dropdowns[data-anime-controls] {
@@ -4107,7 +4412,10 @@ body.menu-open .menu-button span:nth-child(3) {
     margin-top: 34px !important;
   }
 
-  .toy-panel[data-toy-panel="catalog"] {
+  .toy-panel[data-toy-panel="catalog"],
+  .toy-panel[data-toy-panel="release"],
+  .toy-panel[data-toy-panel="anime"],
+  .toy-panel[data-toy-panel="anime-episodes"] {
     --section-heading-gap: 8px;
     --section-heading-margin: 0 auto 12px;
     --result-count-margin: 0 0 2px;
@@ -4123,6 +4431,71 @@ body.menu-open .menu-button span:nth-child(3) {
 
   .catalog-panel.catalog-filters-compact {
     --catalog-filter-compact-columns: 1fr;
+  }
+
+  .overview-card-grid {
+    width: min(100%, 430px);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .overview-open-card {
+    --overview-card-min-height: 76px;
+    --overview-card-columns: minmax(0, 1fr);
+    --overview-card-areas:
+      "icon"
+      "title";
+    --overview-card-justify-items: center;
+    --overview-card-padding: 10px 6px;
+    --overview-card-row-gap: 7px;
+    --overview-card-column-gap: 0;
+    --overview-card-radius: 16px;
+    --overview-card-text-align: center;
+    --overview-card-title-size: .8125rem;
+    --overview-card-title-line-height: 1.1;
+  }
+
+  .overview-card-icon {
+    width: 22px;
+    height: 22px;
+    display: inline-grid;
+    grid-area: icon;
+    place-items: center;
+    color: var(--ui-muted);
+  }
+
+  .overview-card-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    stroke: currentColor;
+  }
+
+  .overview-open-card span,
+  .overview-open-card small,
+  .overview-open-card b {
+    display: none !important;
+  }
+
+  .overview-open-card strong {
+    width: 100%;
+    min-width: 0;
+    font-size: 0;
+    line-height: var(--overview-card-title-line-height);
+    text-align: center;
+  }
+
+  .overview-open-card strong::after {
+    content: attr(data-mobile-label);
+    display: block;
+    min-width: 0;
+    color: inherit;
+    font-size: var(--overview-card-title-size);
+    font-weight: 700;
+    line-height: var(--overview-card-title-line-height);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
 }

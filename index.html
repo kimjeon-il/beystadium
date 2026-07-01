@@ -11,7 +11,7 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="./styles.css?v=20260701-product-empty-row" />
+    <link rel="stylesheet" href="./styles.css?v=20260702-release-table-equal-padding" />
   </head>
   <body class="is-overview">
     <header class="topbar">
@@ -25,16 +25,17 @@
           <div class="nav-submenu nav-filter-menu" id="catalogNavFilters">
             <button class="sub-filter" type="button" data-catalog-nav-scope="bey">베이</button>
             <button class="sub-filter" type="button" data-catalog-nav-scope="tools">장비</button>
+            <button class="sub-filter" type="button" data-category-release-open>발매목록</button>
           </div>
-        </div>
-        <div class="nav-group">
-          <button class="nav-link" type="button" data-category-release-open>출시 정보</button>
         </div>
         <div class="nav-group">
           <button class="nav-link nav-link-pending" type="button" disabled aria-disabled="true">만화</button>
         </div>
         <div class="nav-group">
           <button class="nav-link" type="button" data-category-anime-open>애니메이션</button>
+          <div class="nav-submenu nav-filter-menu" id="animeNavFilters">
+            <button class="sub-filter" type="button" data-category-anime-episodes-open>방영목록</button>
+          </div>
         </div>
       </nav>
       <button class="menu-button" id="menuButton" type="button" aria-label="메뉴 열기" aria-controls="mobileDrawer" aria-expanded="false">
@@ -98,24 +99,22 @@
                 </svg>
               </span>
             </button>
+            <button class="ui-tab-button" type="button" data-category-release-open>
+              <span class="mobile-nav-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 3.8v3M17 3.8v3" />
+                  <path d="M5.7 6h12.6c1 0 1.7.8 1.7 1.7v10.6c0 1-.8 1.7-1.7 1.7H5.7c-1 0-1.7-.8-1.7-1.7V7.7C4 6.8 4.8 6 5.7 6Z" />
+                  <path d="M4 10h16M8 14h3M8 17h5" />
+                </svg>
+              </span>
+              <span class="mobile-nav-label">발매목록</span>
+              <span class="mobile-nav-chevron" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="m9 6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+            </button>
           </div>
-        </section>
-        <section class="mobile-drawer-section">
-          <button class="ui-button mobile-primary" type="button" data-category-release-open>
-            <span class="mobile-nav-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M7 3.8v3M17 3.8v3" />
-                <path d="M5.7 6h12.6c1 0 1.7.8 1.7 1.7v10.6c0 1-.8 1.7-1.7 1.7H5.7c-1 0-1.7-.8-1.7-1.7V7.7C4 6.8 4.8 6 5.7 6Z" />
-                <path d="M4 10h16M8 14h3M8 17h5" />
-              </svg>
-            </span>
-            <span class="mobile-nav-label">출시 정보</span>
-            <span class="mobile-nav-chevron" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path d="m9 6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </span>
-          </button>
         </section>
         <section class="mobile-drawer-section">
           <button class="ui-button mobile-primary mobile-primary-pending" type="button" disabled aria-disabled="true">
@@ -149,6 +148,23 @@
               </svg>
             </span>
           </button>
+          <div class="mobile-secondary" aria-label="애니메이션 분류">
+            <button class="ui-tab-button" type="button" data-category-anime-episodes-open>
+              <span class="mobile-nav-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 3.8v3M17 3.8v3" />
+                  <path d="M5.7 6h12.6c1 0 1.7.8 1.7 1.7v10.6c0 1-.8 1.7-1.7 1.7H5.7c-1 0-1.7-.8-1.7-1.7V7.7C4 6.8 4.8 6 5.7 6Z" />
+                  <path d="M4 10h16M8 14h3M8 17h5" />
+                </svg>
+              </span>
+              <span class="mobile-nav-label">방영목록</span>
+              <span class="mobile-nav-chevron" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="m9 6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+            </button>
+          </div>
         </section>
       </nav>
     </aside>
@@ -200,26 +216,39 @@
 
             <div class="overview-card-grid" aria-label="도감 탐색">
               <button class="ui-card-button overview-open-card" type="button" data-category-catalog-open>
+                <i class="overview-card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 5.7c0-1 .8-1.7 1.8-1.7h10.4c1 0 1.8.8 1.8 1.7v12.6c0 1-.8 1.7-1.8 1.7H6.8c-1 0-1.8-.8-1.8-1.7V5.7Z" />
+                    <path d="M9 8h6M9 12h6M9 16h3.2" />
+                  </svg>
+                </i>
                 <span>완구</span>
-                <strong>도감</strong>
+                <strong data-mobile-label="도감">도감</strong>
                 <small>베이와 장비 목록</small>
                 <b aria-hidden="true">→</b>
               </button>
-              <button class="ui-card-button overview-open-card" type="button" data-category-release-open>
-                <span>완구</span>
-                <strong>출시 정보</strong>
-                <small>제품 발매 정보</small>
-                <b aria-hidden="true">→</b>
-              </button>
-              <button class="ui-card-button overview-open-card is-pending" type="button">
+              <button class="ui-card-button overview-open-card is-pending" type="button" disabled aria-disabled="true">
+                <i class="overview-card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 6.2c0-1 .8-1.8 1.8-1.8h10.4c1 0 1.8.8 1.8 1.8v11.6c0 1-.8 1.8-1.8 1.8H6.8c-1 0-1.8-.8-1.8-1.8V6.2Z" />
+                    <path d="M8 8.2h8M8 11.7h8M8 15.2h5" />
+                    <path d="M16.2 19.6 19 22v-4.2" />
+                  </svg>
+                </i>
                 <span>미디어</span>
-                <strong>만화</strong>
+                <strong data-mobile-label="만화">만화</strong>
                 <small>만화 연재 정보</small>
                 <b aria-hidden="true">→</b>
               </button>
               <button class="ui-card-button overview-open-card" type="button" data-category-anime-open>
+                <i class="overview-card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="4" y="5" width="16" height="14" rx="2.2" />
+                    <path d="m10 9 5 3-5 3V9Z" />
+                  </svg>
+                </i>
                 <span>미디어</span>
-                <strong>애니메이션</strong>
+                <strong data-mobile-label="애니">애니메이션</strong>
                 <small>애니메이션 방영 정보</small>
                 <b aria-hidden="true">→</b>
               </button>
@@ -240,89 +269,108 @@
 
         <div class="toy-panel catalog-panel" data-toy-panel="catalog" data-catalog-scope="all">
           <div class="section-heading">
-            <div>
+            <div class="section-title-group">
               <h2>도감</h2>
             </div>
-            <p class="result-count"><b id="catalogCount">0</b>개 항목</p>
           </div>
 
           <div class="catalog-control-bar">
             <div class="toolbar catalog-toolbar">
+              <button type="button" class="catalog-search-help-button" id="catalogSearchHelpButton" aria-label="도감 검색 도움말" aria-expanded="false" aria-controls="catalogSearchHelpPopover">i</button>
               <div class="unified-search catalog-local-search">
                 <div class="search-box global-search-box catalog-search-box">
                   <span class="search-icon" aria-hidden="true"></span>
-                  <input id="catalogSearchInput" type="search" placeholder="도감 안에서 검색" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none" />
+                  <input id="catalogSearchInput" type="search" placeholder="이름, 번호, 속성으로 검색" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none" />
                 </div>
               </div>
-              <button type="button" class="catalog-filter-toggle" id="catalogFilterToggle" aria-expanded="false" aria-controls="catalogDropdownFilters">상세</button>
+            </div>
+            <div class="catalog-search-help-popover" id="catalogSearchHelpPopover" role="tooltip" hidden>
+              <strong>도감 검색</strong>
+              <p>띄어쓰기로 여러 조건을 함께 검색할 수 있습니다.</p>
+              <dl>
+                <dt>종류</dt>
+                <dd>베이 · 부품 · 장비</dd>
+                <dt>시리즈</dt>
+                <dd>탑블레이드 · 메탈베이블레이드 · 베이블레이드 버스트 · 베이블레이드 X</dd>
+                <dt>부품</dt>
+                <dd>페이스 · 휠 · 트랙 · 버텀 · 레이어 · 디스크 · 드라이버 · 블레이드 · 래칫 · 비트</dd>
+                <dt>타입</dt>
+                <dd>공격형 · 방어형 · 지구형 · 균형형</dd>
+                <dt>회전</dt>
+                <dd>우회전 · 좌회전 · 양회전</dd>
+                <dt>장비</dt>
+                <dd>런처 · 그립 · 스타디움 · 기타</dd>
+                <dt>예시</dt>
+                <dd>메탈베이블레이드 공격형 · 부품 휠 좌회전 · 장비 런처</dd>
+              </dl>
             </div>
           </div>
 
           <div class="catalog-combined">
             <section class="catalog-subsection" data-catalog-section="catalog">
-              <div class="catalog-filter-row">
-                <div class="catalog-dropdowns" id="catalogDropdownFilters" aria-label="도감 필터">
-                  <div class="catalog-filter-primary">
-                    <div class="catalog-filter-expanded">
-                      <div class="catalog-filter-group" data-filter-group="series" data-filter-label="시리즈">
-                        <div class="catalog-filter-options"></div>
-                      </div>
-                      <div class="catalog-filter-group" data-filter-group="kind" data-filter-label="종류">
-                        <div class="catalog-filter-options"></div>
-                      </div>
-                    </div>
-                    <div class="catalog-filter-compact">
-                      <details class="catalog-filter-dropdown catalog-dropdown" data-filter-group="series" data-filter-label="시리즈">
-                        <summary><span class="catalog-filter-label">시리즈</span><b class="catalog-dropdown-value">전체</b></summary>
-                        <div class="catalog-dropdown-menu"></div>
-                      </details>
-                      <details class="catalog-filter-dropdown catalog-dropdown" data-filter-group="kind" data-filter-label="종류">
-                        <summary><span class="catalog-filter-label">종류</span><b class="catalog-dropdown-value">전체</b></summary>
-                        <div class="catalog-dropdown-menu"></div>
-                      </details>
-                    </div>
-                  </div>
-                  <div class="catalog-filter-advanced" data-catalog-filter-advanced="bey" hidden>
-                    <div class="catalog-filter-expanded">
-                      <div class="catalog-filter-group" data-catalog-dependent="subtype" data-filter-label="세부" hidden>
-                        <div class="catalog-filter-options"></div>
-                      </div>
-                      <div class="catalog-filter-group" data-catalog-dependent="system" data-filter-label="시스템" hidden>
-                        <div class="catalog-filter-options"></div>
-                      </div>
-                      <div class="catalog-filter-group" data-catalog-dependent="type" data-filter-label="타입" hidden>
-                        <div class="catalog-filter-options"></div>
-                      </div>
-                      <div class="catalog-filter-group" data-catalog-dependent="spin" data-filter-label="회전" hidden>
-                        <div class="catalog-filter-options"></div>
-                      </div>
-                    </div>
-                    <div class="catalog-filter-compact">
-                      <details class="catalog-filter-dropdown catalog-dropdown" data-catalog-dependent="subtype" data-filter-label="세부" hidden>
-                        <summary><span class="catalog-filter-label">세부</span><b class="catalog-dropdown-value">전체</b></summary>
-                        <div class="catalog-dropdown-menu"></div>
-                      </details>
-                      <details class="catalog-filter-dropdown catalog-dropdown" data-catalog-dependent="system" data-filter-label="시스템" hidden>
-                        <summary><span class="catalog-filter-label">시스템</span><b class="catalog-dropdown-value">전체</b></summary>
-                        <div class="catalog-dropdown-menu"></div>
-                      </details>
-                      <details class="catalog-filter-dropdown catalog-dropdown" data-catalog-dependent="type" data-filter-label="타입" hidden>
-                        <summary><span class="catalog-filter-label">타입</span><b class="catalog-dropdown-value">전체</b></summary>
-                        <div class="catalog-dropdown-menu"></div>
-                      </details>
-                      <details class="catalog-filter-dropdown catalog-dropdown" data-catalog-dependent="spin" data-filter-label="회전" hidden>
-                        <summary><span class="catalog-filter-label">회전</span><b class="catalog-dropdown-value">전체</b></summary>
-                        <div class="catalog-dropdown-menu"></div>
-                      </details>
-                    </div>
-                  </div>
-                  <div class="catalog-filter-chips is-empty" data-catalog-filter-chips="catalog" aria-hidden="true"></div>
-                </div>
+              <div class="catalog-query-row">
+                <div class="catalog-filter-chips catalog-query-chips is-empty" data-catalog-filter-chips="catalog" aria-hidden="true"></div>
+                <p class="result-count catalog-query-count is-hidden" aria-hidden="true"><b id="catalogCount">0</b>개 항목</p>
               </div>
               <div class="catalog-grid" id="catalogGrid"></div>
               <div class="catalog-pagination" id="catalogPagination" aria-live="polite"></div>
             </section>
           </div>
+        </div>
+
+        <div class="toy-panel release-panel" data-toy-panel="release">
+          <div class="section-heading">
+            <div class="section-title-group">
+              <h2>발매목록</h2>
+            </div>
+          </div>
+
+          <div class="release-page-shell" data-release-page-content></div>
+        </div>
+
+        <div class="toy-panel anime-panel" data-toy-panel="anime">
+          <div class="section-heading">
+            <div class="section-title-group">
+              <h2>애니메이션</h2>
+            </div>
+          </div>
+
+          <div class="catalog-control-bar anime-control-bar">
+            <div class="toolbar catalog-toolbar anime-toolbar">
+              <button type="button" class="catalog-search-help-button anime-search-help-button" id="animeSearchHelpButton" aria-label="애니메이션 검색 도움말" aria-expanded="false" aria-controls="animeSearchHelpPopover">i</button>
+              <div class="unified-search catalog-local-search anime-local-search">
+                <div class="search-box global-search-box catalog-search-box anime-search-box">
+                  <span class="search-icon" aria-hidden="true"></span>
+                  <input id="animeSearchInput" type="search" placeholder="애니 안에서 검색" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none" />
+                </div>
+              </div>
+            </div>
+            <div class="catalog-search-help-popover anime-search-help-popover" id="animeSearchHelpPopover" role="tooltip" hidden>
+              <strong>등장인물 및 베이 검색</strong>
+              <p>이름이나 관련 베이로 검색할 수 있습니다.</p>
+            </div>
+          </div>
+
+          <div class="catalog-combined anime-combined">
+            <section class="catalog-subsection anime-subsection" data-anime-section="characters">
+              <div class="catalog-query-row anime-query-row">
+                <div class="catalog-filter-chips catalog-query-chips anime-query-chips is-empty" data-catalog-filter-chips="anime" aria-hidden="true"></div>
+                <p class="result-count catalog-query-count anime-query-count"><b id="animeCount">0</b>개 항목</p>
+              </div>
+              <div class="catalog-grid anime-character-grid" id="animeCharacterGrid" aria-live="polite"></div>
+              <div class="catalog-pagination anime-pagination" id="animePagination" aria-live="polite"></div>
+            </section>
+          </div>
+        </div>
+
+        <div class="toy-panel anime-episodes-panel" data-toy-panel="anime-episodes">
+          <div class="section-heading">
+            <div class="section-title-group">
+              <h2>방영목록</h2>
+            </div>
+          </div>
+
+          <div class="release-page-shell anime-episodes-page-shell" data-anime-episodes-page-content></div>
         </div>
       </section>
 
@@ -335,6 +383,6 @@
     </dialog>
 
     <button class="to-top" id="toTop" type="button" aria-label="맨 위로 이동">↑</button>
-    <script src="./app.js?v=20260701-product-empty-slot"></script>
+    <script src="./app.js?v=20260702-burst-bey-battle-tags"></script>
   </body>
 </html>
