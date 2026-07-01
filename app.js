@@ -12083,7 +12083,7 @@ function productHeader(item, region = activeReleaseRegion) {
   return modalTitle(productDisplayName(item, region), "product-modal-name");
 }
 function productMetaSlot() {
-  return `<div class="modal-info-slot product-meta-slot single-line-info-slot"></div>`;
+  return `<div class="product-empty-info-slot"></div>`;
 }
 const randomBoosterNamePattern = /(랜덤부스터|라이트블레이드|러이트블레이드)/;
 const productReleaseNos = product => [...new Set([

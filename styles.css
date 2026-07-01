@@ -2237,7 +2237,7 @@ dialog[open] .modal-art {
 .product-modal-info .modal-scroll-area {
   display: grid;
   grid-template-columns: var(--modal-body-width);
-  grid-template-rows: calc(var(--modal-title-size-default, var(--font-title)) * 1.15) var(--modal-flow-gap) auto var(--modal-flow-gap) auto;
+  grid-template-rows: calc(var(--modal-title-size-default, var(--font-title)) * 1.15) var(--modal-flow-gap) 34px var(--modal-flow-gap) auto;
   align-content: start;
   justify-content: center;
 }
