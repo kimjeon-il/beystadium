@@ -258,6 +258,22 @@ const beyItems = [
   { id: "BEY-OROJYA-REVIZER-T125JB", series: "metal fight", type: "bey", structure: "synchrome", name: "오로자 리바이저", en: "Orojya Revizer", sub: "T125JB", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["STONEFACE-REVIZER", "CHROMEWHEEL-OROJYA", "CHROMEWHEEL-REVIZER", "TRACK-TORNADO-125", "BOTTOM-JOG-BALL"] },
   { id: "BEY-BBG-26-WARRIORS-PEGASIS-W105R2F", series: "metal fight", type: "bey", structure: "synchrome", name: "워리어스 페가시스", jpName: "사무라이 페가시스", en: "Warriors Pegasis", sub: "W105R²F", productNo: "BBG-26", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["STONEFACE-PEGASIS", "CRYSTALWHEEL-WARRIORS", "CHROMEWHEEL-PEGASIS", "TRACK-WING-105", "BOTTOM-RIGHT-RUBBER-FLAT"] },
   { id: "BEY-BBG-27-GLADIATOR-BAHAMDIA-SP230GF", series: "metal fight", type: "bey", structure: "synchrome", name: "글레디에이터 바함디아", en: "Gladiator Bahamdia", sub: "SP230GF", productNo: "BBG-27", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["STONEFACE-BAHAMDIA", "CRYSTALWHEEL-GLADIATOR", "CHROMEWHEEL-BAHAMDIA", "TRACK-SPIKE-230", "BOTTOM-GIGA-FLAT"] },
+  { id: "BEY-BURST-B-01-VALKYRIE-W-A", series: "burst", type: "bey", name: "발키리.W.A", en: "Valkyrie.W.A", productNo: "B-01", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["LAYER-VALKYRIE", "DISK-WING", "DRIVER-ACCEL"] },
+  { id: "BEY-BURST-B-02-SPRIGGAN-S-F", series: "burst", type: "bey", name: "스프리건.S.F", en: "Spriggan.S.F", productNo: "B-02", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["LAYER-SPRIGGAN", "DISK-SPREAD", "DRIVER-FUSION"] },
+  { id: "BEY-BURST-B-03-RAGNARUK-H-S", series: "burst", type: "bey", name: "라그나로크.H.S", en: "Ragnaruk.H.S", productNo: "B-03", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["LAYER-RAGNARUK", "DISK-HEAVY", "DRIVER-SURVIVE"] },
+  { id: "BEY-BURST-B-04-KERBEUS-C-D", series: "burst", type: "bey", name: "케르베우스.C.D", en: "Kerbeus.C.D", productNo: "B-04", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["LAYER-KERBEUS", "DISK-CENTRAL", "DRIVER-DEFENSE"] },
+  { id: "BEY-BURST-B-05-SPRIGGAN-H-D", series: "burst", type: "bey", name: "스프리건.H.D", en: "Spriggan.H.D", productNo: "B-05", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["LAYER-SPRIGGAN", "DISK-HEAVY", "DRIVER-DEFENSE"] },
+  { id: "BEY-BURST-B-06-RAGNARUK-C-A", series: "burst", type: "bey", name: "라그나로크.C.A", en: "Ragnaruk.C.A", productNo: "B-06", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["LAYER-RAGNARUK", "DISK-CENTRAL", "DRIVER-ACCEL"] },
+  { id: "BEY-BURST-B-07-KERBEUS-W-F", series: "burst", type: "bey", name: "케르베우스.W.F", en: "Kerbeus.W.F", productNo: "B-07", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["LAYER-KERBEUS", "DISK-WING", "DRIVER-FUSION"] },
+  { id: "BEY-BURST-B-12-DEATHSCYTHER-O-V", series: "burst", type: "bey", name: "데스사이저.O.V", en: "Deathscyther.O.V", productNo: "B-12", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["LAYER-DEATHSCYTHER", "DISK-OVAL", "DRIVER-VARIABLE"] },
+  { id: "BEY-BURST-B-13-VALKYRIE-S-S", series: "burst", type: "bey", name: "발키리.S.S", en: "Valkyrie.S.S", productNo: "B-13", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["LAYER-VALKYRIE", "DISK-SPREAD", "DRIVER-SURVIVE"] },
+  { id: "BEY-BURST-B-00-ALPHA-AMATERIOS-AERO-ASSAULT", series: "burst", type: "bey", name: "아마테리오스.α.α", en: "Amaterios.α.α", productNo: "B-00α", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["LAYER-AMATERIOS", "DISK-AERO", "DRIVER-ASSAULT"] },
+  { id: "BEY-BURST-B-14-WYVERN-A-M", series: "burst", type: "bey", name: "와이번.A.M", en: "Wyvern.A.M", productNo: "B-14", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["LAYER-WYVERN", "DISK-ARMED", "DRIVER-MASSIVE"] },
+  { id: "BEY-BURST-B-17-ODIN-C-B", series: "burst", type: "bey", name: "오딘.C.B", en: "Odin.C.B", productNo: "B-17", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["LAYER-ODIN", "DISK-CENTRAL", "DRIVER-BLOW"] },
+  { id: "BEY-BURST-B-20-HORUSOOD-S-E", series: "burst", type: "bey", name: "호루스드.S.E", en: "Horusood.S.E", productNo: "B-20", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["LAYER-HORUSOOD", "DISK-SPREAD", "DRIVER-EDGE"] },
+  { id: "BEY-BURST-B-23-XCALIBUR-F-X", series: "burst", type: "bey", name: "엑스칼리버.F.X", en: "Xcalibur.F.X", productNo: "B-23", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["LAYER-XCALIBUR", "DISK-FORCE", "DRIVER-XTREME"] },
+  { id: "BEY-BURST-B-28-NEPTUNE-A-Z", series: "burst", type: "bey", name: "넵튠.A.Z", en: "Neptune.A.Z", productNo: "B-28", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["LAYER-NEPTUNE", "DISK-ARMED", "DRIVER-ZEPHYR"] },
+  { id: "BEY-BURST-B-31-YGGDRASIL-R-G", series: "burst", type: "bey", name: "이그드라실.R.G", en: "Yggdrasil.R.G", productNo: "B-31", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["LAYER-YGGDRASIL", "DISK-RING", "DRIVER-GYRO"] },
 ];
 
 const partItems = [
@@ -1105,6 +1121,11 @@ const globalSearch = document.querySelector("#globalSearchInput");
 const globalSearchScope = document.querySelector("#globalSearchScope");
 const overviewSearchScope = document.querySelector("#overviewSearchScope");
 const catalogSearch = document.querySelector("#catalogSearchInput");
+const catalogSearchHelpButton = document.querySelector("#catalogSearchHelpButton");
+const catalogSearchHelpPopover = document.querySelector("#catalogSearchHelpPopover");
+const animeSearch = document.querySelector("#animeSearchInput");
+const animeSearchHelpButton = document.querySelector("#animeSearchHelpButton");
+const animeSearchHelpPopover = document.querySelector("#animeSearchHelpPopover");
 const catalogFilterToggle = document.querySelector("#catalogFilterToggle");
 let catalogFiltersExpanded = false;
 const globalSearchScopeValue = () => globalSearchScope?.dataset.scope || "all";
@@ -1143,12 +1164,15 @@ const clearSearchInputs = () => {
   setSearchInputValue(globalSearch, "");
   setSearchInputValue(overviewSearch, "");
   setSearchInputValue(catalogSearch, "");
+  setSearchInputValue(animeSearch, "");
 };
 const activeToyPanel = () => document.querySelector(".toy-panel.active");
 const toTop = document.querySelector("#toTop");
 const menuButton = document.querySelector("#menuButton");
 const mobileDrawer = document.querySelector("#mobileDrawer");
 const mobileDrawerClose = document.querySelector(".mobile-drawer-close");
+const animeCharacterGrid = document.querySelector("#animeCharacterGrid");
+const animeCount = document.querySelector("#animeCount");
 const typeLabels = { bey: "베이", parts: "부품", tools: "장비", face: "페이스", wheel: "휠", clearwheel: "클리어휠", lightwheel: "라이트휠", metalwheel: "메탈휠", "4dclearwheel": "4D클리어휠", "4dmetalwheel": "4D메탈휠", track: "트랙", bottom: "버텀", "4dbottom": "4D버텀", stoneface: "스톤페이스", chromewheel: "크롬휠", crystalwheel: "크리스탈휠", bitchip: "비트칩", attackring: "어택링", weightdisk: "웨이트디스크", bladebase: "블레이드베이스", gear: "기어", layer: "레이어", duallayer: "듀얼레이어", godlayer: "갓레이어", chozlayer: "초제트레이어", gachichip: "진검칩", gachiweight: "웨이트", gachibase: "베이스", gachilayer: "진검레이어", gachiupgrade: "강화파츠", sparkingchip: "슈퍼킹칩", sparkingring: "링", sparkingchassis: "섀시", sparkingupgrade: "강화파츠", dblayer: "DB레이어", dbcore: "DB코어", dbblade: "블레이드", dbarmor: "아머", evolutiongear: "진화기어", disk: "디스크", coredisk: "코어디스크", frame: "프레임", dbdisk: "DB디스크", driver: "드라이버", driverupgrade: "강화파츠", blade: "블레이드", ratchet: "래칫", bit: "비트" };
 const tagLabels = {};
 const structureLabels = { basic: "4단 구조 시스템", hybrid: "하이브리드 시스템", "4d": "4D 시스템", synchrome: "싱크롬 시스템" };
@@ -1186,6 +1210,12 @@ const battleTypeDescriptions = {
   },
   modern: { attack: "", defense: "", stamina: "", balance: "" }
 };
+const burstBeyBattleTypeDescriptions = {
+  attack: "공격에 특화되어 스태미나형에 유리하다",
+  defense: "방어에 특화되어 어택형에 유리하다",
+  stamina: "지구력이 높아 디펜스형에 유리하다",
+  balance: "공격·방어·지구력을 고르게 갖추고 있다"
+};
 const spinLabels = { right: "우회전", left: "좌회전", dual: "양회전" };
 const spinDescriptions = {
   right: "시계 방향으로 회전한다",
@@ -1195,7 +1225,10 @@ const spinDescriptions = {
 const heightClassLabels = { low: "낮은 높이", high: "높은 높이" };
 const battleTypeLabelGroup = item => ["burst", "x"].includes(typeof item === "string" ? item : item.series) ? "modern" : "classic";
 const battleTypeLabel = (value, item) => battleTypeLabels[battleTypeLabelGroup(item)]?.[value] || value || "";
-const battleTypeDescription = (value, item) => battleTypeDescriptions[battleTypeLabelGroup(item)]?.[value] || "";
+const battleTypeDescription = (value, item) => {
+  if (item?.series === "burst" && item?.type === "bey") return burstBeyBattleTypeDescriptions[value] || "";
+  return battleTypeDescriptions[battleTypeLabelGroup(item)]?.[value] || "";
+};
 const spinLabel = value => spinLabels[value] || value || "";
 const spinDescription = value => spinDescriptions[value] || "";
 const heightClassLabel = value => heightClassLabels[value] || value || "";
@@ -2089,10 +2122,14 @@ const productItems = [
       jp: {
         no: "B-01",
         name: "발키리.W.A",
-        kind: "디럭스스타터",
+        kind: "DX스타터",
         releaseDate: "2015-07-18",
         price: "2376",
-        composition: []
+        composition: [
+          { name: "발키리.W.A", quantity: "1개", target: "BEY-BURST-B-01-VALKYRIE-W-A" },
+          { name: "라이트런처", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER" },
+          { name: "베이로거", quantity: "1개", target: "TOOLS-BURST-BEYLOGGER" }
+        ]
       }
     }
   },
@@ -2111,10 +2148,14 @@ const productItems = [
       jp: {
         no: "B-02",
         name: "스프리건.S.F",
-        kind: "디럭스스타터",
+        kind: "DX스타터",
         releaseDate: "2015-07-18",
         price: "2376",
-        composition: []
+        composition: [
+          { name: "스프리건.S.F", quantity: "1개", target: "BEY-BURST-B-02-SPRIGGAN-S-F" },
+          { name: "라이트런처", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER" },
+          { name: "베이로거", quantity: "1개", target: "TOOLS-BURST-BEYLOGGER" }
+        ]
       }
     }
   },
@@ -2136,7 +2177,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2015-07-18",
         price: "1296",
-        composition: []
+        composition: [
+          { name: "라그나로크.H.S", quantity: "1개", target: "BEY-BURST-B-03-RAGNARUK-H-S" },
+          { name: "라이트런처", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER" }
+        ]
       }
     }
   },
@@ -2158,7 +2202,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2015-07-18",
         price: "1296",
-        composition: []
+        composition: [
+          { name: "케르베우스.C.D", quantity: "1개", target: "BEY-BURST-B-04-KERBEUS-C-D" },
+          { name: "라이트런처", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER" }
+        ]
       }
     }
   },
@@ -2180,7 +2227,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2015-07-18",
         price: "864",
-        composition: []
+        composition: [
+          { name: "스프리건.H.D", quantity: "1개", target: "BEY-BURST-B-05-SPRIGGAN-H-D" }
+        ]
       }
     }
   },
@@ -2202,7 +2251,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2015-07-18",
         price: "864",
-        composition: []
+        composition: [
+          { name: "라그나로크.C.A", quantity: "1개", target: "BEY-BURST-B-06-RAGNARUK-C-A" }
+        ]
       }
     }
   },
@@ -2224,7 +2275,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2015-07-18",
         price: "864",
-        composition: []
+        composition: [
+          { name: "케르베우스.W.F", quantity: "1개", target: "BEY-BURST-B-07-KERBEUS-W-F" }
+        ]
       }
     }
   },
@@ -2257,7 +2310,7 @@ const productItems = [
       kr: {
         no: "B-09",
         name: "베이스타디움 스탠다드타입",
-        kind: "스타디움",
+        kind: "툴",
         releaseDate: "2016-03-24",
         price: "14800",
         composition: []
@@ -2265,10 +2318,12 @@ const productItems = [
       jp: {
         no: "B-09",
         name: "베이스타디움 스탠다드타입",
-        kind: "스타디움",
+        kind: "툴",
         releaseDate: "2015-07-18",
         price: "1620",
-        composition: []
+        composition: [
+          { name: "베이스타디움 스탠다드타입", quantity: "1개", target: "TOOLS-BURST-STANDARD-BEYSTADIUM" }
+        ]
       }
     }
   },
@@ -2282,10 +2337,12 @@ const productItems = [
       jp: {
         no: "B-10",
         name: "베이로거",
-        kind: "",
+        kind: "툴",
         releaseDate: "2015-07-18",
         price: "1620",
-        composition: []
+        composition: [
+          { name: "베이로거", quantity: "1개", target: "TOOLS-BURST-BEYLOGGER" }
+        ]
       }
     }
   },
@@ -2296,7 +2353,7 @@ const productItems = [
       kr: {
         no: "B-11",
         name: "런처그립",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2016-03-24",
         price: "5700",
         composition: []
@@ -2304,10 +2361,12 @@ const productItems = [
       jp: {
         no: "B-11",
         name: "런처그립",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2015-07-18",
         price: "648",
-        composition: []
+        composition: [
+          { name: "런처그립", quantity: "1개", target: "TOOLS-BURST-LAUNCHER-GRIP" }
+        ]
       }
     }
   },
@@ -2329,7 +2388,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2015-08-08",
         price: "1296",
-        composition: []
+        composition: [
+          { name: "데스사이저.O.V", quantity: "1개", target: "BEY-BURST-B-12-DEATHSCYTHER-O-V" },
+          { name: "라이트런처", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER" }
+        ]
       }
     }
   },
@@ -2351,7 +2413,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2015-08-08",
         price: "864",
-        composition: []
+        composition: [
+          { name: "발키리.S.S", quantity: "1개", target: "BEY-BURST-B-13-VALKYRIE-S-S" }
+        ]
       }
     }
   },
@@ -2368,7 +2432,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2015-08-21",
         price: "",
-        composition: []
+        composition: [
+          { name: "아마테리오스.α.α", quantity: "1개", target: "BEY-BURST-B-00-ALPHA-AMATERIOS-AERO-ASSAULT" }
+        ]
       }
     }
   },
@@ -2390,7 +2456,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2015-09-19",
         price: "1512",
-        composition: []
+        composition: [
+          { name: "와이번.A.M", quantity: "1개", target: "BEY-BURST-B-14-WYVERN-A-M" },
+          { name: "라이트런처", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER" }
+        ]
       }
     }
   },
@@ -2418,7 +2487,7 @@ const productItems = [
       kr: {
         no: "B-16",
         name: "베이런처(레드)",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2016-03-24",
         price: "5700",
         composition: []
@@ -2426,10 +2495,12 @@ const productItems = [
       jp: {
         no: "B-16",
         name: "베이런처",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2015-09-19",
         price: "756",
-        composition: []
+        composition: [
+          { name: "베이런처", quantity: "1개", target: "TOOLS-BURST-BEYLAUNCHER" }
+        ]
       }
     }
   },
@@ -2451,7 +2522,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2015-10-17",
         price: "864",
-        composition: []
+        composition: [
+          { name: "오딘.C.B", quantity: "1개", target: "BEY-BURST-B-17-ODIN-C-B" }
+        ]
       }
     }
   },
@@ -2484,7 +2557,7 @@ const productItems = [
       kr: {
         no: "B-19",
         name: "버스트 베이스타디움",
-        kind: "스타디움",
+        kind: "툴",
         releaseDate: "2016-03-24",
         price: "18900",
         composition: []
@@ -2492,10 +2565,12 @@ const productItems = [
       jp: {
         no: "B-19",
         name: "버스트 베이스타디움",
-        kind: "스타디움",
+        kind: "툴",
         releaseDate: "2015-10-17",
         price: "2160",
-        composition: []
+        composition: [
+          { name: "버스트 베이스타디움", quantity: "1개", target: "TOOLS-BURST-BURST-BEYSTADIUM" }
+        ]
       }
     }
   },
@@ -2517,7 +2592,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2015-11-14",
         price: "864",
-        composition: []
+        composition: [
+          { name: "호루스드.S.E", quantity: "1개", target: "BEY-BURST-B-20-HORUSOOD-S-E" }
+        ]
       }
     }
   },
@@ -2578,7 +2655,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2015-12-05",
         price: "993",
-        composition: []
+        composition: [
+          { name: "발키리.W.A", quantity: "1개", target: "BEY-BURST-B-01-VALKYRIE-W-A" },
+          { name: "프로토런처", quantity: "1개", target: "TOOLS-BURST-PROTO-LAUNCHER" }
+        ]
       }
     }
   },
@@ -2595,7 +2675,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2015-12-05",
         price: "993",
-        composition: []
+        composition: [
+          { name: "스프리건.S.F", quantity: "1개", target: "BEY-BURST-B-02-SPRIGGAN-S-F" },
+          { name: "프로토런처", quantity: "1개", target: "TOOLS-BURST-PROTO-LAUNCHER" }
+        ]
       }
     }
   },
@@ -2617,7 +2700,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2015-12-26",
         price: "1512",
-        composition: []
+        composition: [
+          { name: "엑스칼리버.F.X", quantity: "1개", target: "BEY-BURST-B-23-XCALIBUR-F-X" },
+          { name: "라이트런처", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER" }
+        ]
       }
     }
   },
@@ -2645,7 +2731,7 @@ const productItems = [
       kr: {
         no: "B-25",
         name: "앵글그립",
-        kind: "그립",
+        kind: "툴",
         releaseDate: "2016-03-24",
         price: "5700",
         composition: []
@@ -2653,10 +2739,12 @@ const productItems = [
       jp: {
         no: "B-25",
         name: "앵글그립",
-        kind: "그립",
+        kind: "툴",
         releaseDate: "2015-12-26",
         price: "540",
-        composition: []
+        composition: [
+          { name: "앵글그립", quantity: "1개", target: "TOOLS-BURST-ANGLE-GRIP" }
+        ]
       }
     }
   },
@@ -2667,7 +2755,7 @@ const productItems = [
       kr: {
         no: "B-26",
         name: "러버어시스트",
-        kind: "",
+        kind: "툴",
         releaseDate: "2016-03-24",
         price: "5700",
         composition: []
@@ -2675,10 +2763,12 @@ const productItems = [
       jp: {
         no: "B-26",
         name: "러버어시스트",
-        kind: "",
+        kind: "툴",
         releaseDate: "2015-12-26",
         price: "540",
-        composition: []
+        composition: [
+          { name: "러버어시스트", quantity: "1개", target: "TOOLS-BURST-RUBBER-ASSIST" }
+        ]
       }
     }
   },
@@ -2689,7 +2779,7 @@ const productItems = [
       kr: {
         no: "B-27",
         name: "베이블레이드 블레이더박스",
-        kind: "",
+        kind: "툴",
         releaseDate: "2016-03-24",
         price: "22100",
         composition: []
@@ -2697,10 +2787,12 @@ const productItems = [
       jp: {
         no: "B-27",
         name: "wbba. 오피셜 블레이더박스",
-        kind: "",
+        kind: "툴",
         releaseDate: "2015-12-26",
         price: "2484",
-        composition: []
+        composition: [
+          { name: "wbba. 오피셜 블레이더박스", quantity: "1개", target: "TOOLS-BURST-WBBA-OFFICIAL-BLADER-BOX" }
+        ]
       }
     }
   },
@@ -2722,7 +2814,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2016-01-23",
         price: "864",
-        composition: []
+        composition: [
+          { name: "넵튠.A.Z", quantity: "1개", target: "BEY-BURST-B-28-NEPTUNE-A-Z" }
+        ]
       }
     }
   },
@@ -2739,7 +2833,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2016-02-20",
         price: "1296",
-        composition: []
+        composition: [
+          { name: "이그드라실.R.G", quantity: "1개", target: "BEY-BURST-B-31-YGGDRASIL-R-G" },
+          { name: "라이트런처", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER" }
+        ]
       }
     }
   },
@@ -2753,10 +2850,12 @@ const productItems = [
       jp: {
         no: "B-32",
         name: "슛서포트러버",
-        kind: "",
+        kind: "툴",
         releaseDate: "2016-02-20",
         price: "540",
-        composition: []
+        composition: [
+          { name: "슛서포트러버", quantity: "1개", target: "TOOLS-BURST-SHOOT-SUPPORT-RUBBER" }
+        ]
       }
     }
   },
@@ -2770,10 +2869,12 @@ const productItems = [
       jp: {
         no: "B-33",
         name: "베이스타디움 스탠다드타입(블랙)",
-        kind: "스타디움",
+        kind: "툴",
         releaseDate: "2016-02-20",
         price: "1620",
-        composition: []
+        composition: [
+          { name: "베이스타디움 스탠다드타입(블랙)", quantity: "1개", target: "TOOLS-BURST-STANDARD-BEYSTADIUM-BLACK" }
+        ]
       }
     }
   },
@@ -2894,7 +2995,7 @@ const productItems = [
       kr: {
         no: "B-39",
         name: "베이런처(화이트)",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2016-05-11",
         price: "5700",
         composition: []
@@ -2902,7 +3003,7 @@ const productItems = [
       jp: {
         no: "B-39",
         name: "베이런처(화이트)",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2016-04-02",
         price: "756",
         composition: []
@@ -2916,7 +3017,7 @@ const productItems = [
       kr: {
         no: "B-40",
         name: "런처그립(블랙)",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2016-05-11",
         price: "5700",
         composition: []
@@ -2924,7 +3025,7 @@ const productItems = [
       jp: {
         no: "B-40",
         name: "런처그립(블랙)",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2016-04-02",
         price: "648",
         composition: []
@@ -2982,7 +3083,7 @@ const productItems = [
       kr: {
         no: "B-43",
         name: "그립러버",
-        kind: "그립",
+        kind: "툴",
         releaseDate: "2016-06-18",
         price: "5700",
         composition: []
@@ -2990,7 +3091,7 @@ const productItems = [
       jp: {
         no: "B-43",
         name: "그립러버",
-        kind: "그립",
+        kind: "툴",
         releaseDate: "2016-04-29",
         price: "540",
         composition: []
@@ -3029,7 +3130,7 @@ const productItems = [
       jp: {
         no: "B-45",
         name: "베이블레이드 라이트런처&롱와인더",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2016-05-28",
         price: "648",
         composition: []
@@ -3068,7 +3169,7 @@ const productItems = [
       jp: {
         no: "B-47",
         name: "웨이트댐퍼",
-        kind: "",
+        kind: "툴",
         releaseDate: "2016-06-18",
         price: "540",
         composition: []
@@ -3138,7 +3239,7 @@ const productItems = [
       kr: {
         no: "B-50",
         name: "베이스타디움 와이드타입",
-        kind: "스타디움",
+        kind: "툴",
         releaseDate: "2016-08-10",
         price: "21300",
         composition: []
@@ -3146,7 +3247,7 @@ const productItems = [
       jp: {
         no: "B-50",
         name: "버스트 베이스타디움 와이드타입",
-        kind: "스타디움",
+        kind: "툴",
         releaseDate: "2016-07-16",
         price: "2700",
         composition: []
@@ -3163,7 +3264,7 @@ const productItems = [
       jp: {
         no: "B-51",
         name: "wbba. 핑거밴드",
-        kind: "",
+        kind: "툴",
         releaseDate: "2016-07-16",
         price: "648",
         composition: []
@@ -3180,7 +3281,7 @@ const productItems = [
       jp: {
         no: "B-52",
         name: "베이미상가 메이커",
-        kind: "",
+        kind: "툴",
         releaseDate: "2016-07-16",
         price: "1944",
         composition: []
@@ -3197,7 +3298,7 @@ const productItems = [
       jp: {
         no: "B-53",
         name: "베이미상가 빅토리 발키리 Ver.",
-        kind: "",
+        kind: "툴",
         releaseDate: "2016-07-16",
         price: "410",
         composition: []
@@ -3214,7 +3315,7 @@ const productItems = [
       jp: {
         no: "B-54",
         name: "베이미상가 스톰 스프리건 Ver.",
-        kind: "",
+        kind: "툴",
         releaseDate: "2016-07-16",
         price: "410",
         composition: []
@@ -3292,7 +3393,7 @@ const productItems = [
       jp: {
         no: "B-58",
         name: "카라비나그립",
-        kind: "그립",
+        kind: "툴",
         releaseDate: "2016-08-06",
         price: "648",
         composition: []
@@ -3331,7 +3432,7 @@ const productItems = [
       jp: {
         no: "B-60",
         name: "그립웨이트",
-        kind: "그립",
+        kind: "툴",
         releaseDate: "2016-09-17",
         price: "648",
         composition: []
@@ -3494,7 +3595,7 @@ const productItems = [
       kr: {
         no: "B-68",
         name: "블레이더즈 소프트케이스",
-        kind: "",
+        kind: "툴",
         releaseDate: "2017-10-13",
         price: "32800",
         composition: []
@@ -3502,7 +3603,7 @@ const productItems = [
       jp: {
         no: "B-68",
         name: "블레이더즈 소프트케이스",
-        kind: "",
+        kind: "툴",
         releaseDate: "2016-12-28",
         price: "3240",
         composition: []
@@ -3538,7 +3639,7 @@ const productItems = [
       kr: {
         no: "B-70",
         name: "소드런처(블루)",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2017-05-11",
         price: "6000",
         composition: []
@@ -3546,7 +3647,7 @@ const productItems = [
       jp: {
         no: "B-70",
         name: "소드런처(블루)",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2017-01-21",
         price: "702",
         composition: []
@@ -3585,7 +3686,7 @@ const productItems = [
       jp: {
         no: "B-72",
         name: "파워트리거",
-        kind: "",
+        kind: "툴",
         releaseDate: "2017-02-25",
         price: "540",
         composition: []
@@ -3690,7 +3791,7 @@ const productItems = [
       jp: {
         no: "B-77",
         name: "베이로거 플러스",
-        kind: "",
+        kind: "툴",
         releaseDate: "2017-03-18",
         price: "1944",
         composition: []
@@ -3704,7 +3805,7 @@ const productItems = [
       kr: {
         no: "B-78",
         name: "베이런처(블랙)",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2018-03-14",
         price: "6600",
         composition: []
@@ -3712,7 +3813,7 @@ const productItems = [
       jp: {
         no: "B-78",
         name: "베이런처(블랙)",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2017-03-18",
         price: "756",
         composition: []
@@ -3770,7 +3871,7 @@ const productItems = [
       kr: {
         no: "B-81",
         name: "라이트런처L",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2017-09-11",
         price: "6600",
         composition: []
@@ -3778,7 +3879,7 @@ const productItems = [
       jp: {
         no: "B-81",
         name: "라이트런처 L",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2017-04-29",
         price: "540",
         composition: []
@@ -3814,7 +3915,7 @@ const productItems = [
       kr: {
         no: "B-83",
         name: "너클그립",
-        kind: "그립",
+        kind: "툴",
         releaseDate: "2017-08-01",
         price: "6600",
         composition: []
@@ -3822,7 +3923,7 @@ const productItems = [
       jp: {
         no: "B-83",
         name: "너클그립",
-        kind: "그립",
+        kind: "툴",
         releaseDate: "2017-05-27",
         price: "648",
         composition: []
@@ -3836,7 +3937,7 @@ const productItems = [
       kr: {
         no: "B-84",
         name: "3on3 배틀케이스",
-        kind: "",
+        kind: "툴",
         releaseDate: "2017-08-01",
         price: "6600",
         composition: []
@@ -3844,7 +3945,7 @@ const productItems = [
       jp: {
         no: "B-84",
         name: "3on3 배틀케이스",
-        kind: "",
+        kind: "툴",
         releaseDate: "2017-05-27",
         price: "540",
         composition: []
@@ -3924,7 +4025,7 @@ const productItems = [
       kr: {
         no: "B-88",
         name: "베이런처LR",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2017-01-03",
         price: "8200",
         composition: []
@@ -3932,7 +4033,7 @@ const productItems = [
       jp: {
         no: "B-88",
         name: "베이런처 LR",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2017-08-11",
         price: "864",
         composition: []
@@ -3990,7 +4091,7 @@ const productItems = [
       kr: {
         no: "B-91",
         name: "메탈갓칩",
-        kind: "",
+        kind: "툴",
         releaseDate: "2017-11-07",
         price: "4900",
         composition: []
@@ -3998,7 +4099,7 @@ const productItems = [
       jp: {
         no: "B-91",
         name: "메탈갓칩",
-        kind: "",
+        kind: "툴",
         releaseDate: "2017-08-11",
         price: "540",
         composition: []
@@ -4034,7 +4135,7 @@ const productItems = [
       kr: {
         no: "B-93",
         name: "디지털소드런처 (블루 Ver.)",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2017-10-31",
         price: "39400",
         composition: []
@@ -4042,7 +4143,7 @@ const productItems = [
       jp: {
         no: "B-93",
         name: "디지털소드런처(블루 Ver.)",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2017-09-16",
         price: "3240",
         composition: []
@@ -4056,7 +4157,7 @@ const productItems = [
       kr: {
         no: "B-94",
         name: "디지털소드런처 (레드 Ver.)",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2017-10-31",
         price: "39400",
         composition: []
@@ -4064,7 +4165,7 @@ const productItems = [
       jp: {
         no: "B-94",
         name: "디지털소드런처(레드 Ver.)",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2017-09-16",
         price: "3240",
         composition: []
@@ -4166,7 +4267,7 @@ const productItems = [
       kr: {
         no: "B-99",
         name: "베이런처L",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2018-03-14",
         price: "8200",
         composition: []
@@ -4174,7 +4275,7 @@ const productItems = [
       jp: {
         no: "B-99",
         name: "베이런처L",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2017-11-11",
         price: "756",
         composition: []
@@ -4364,7 +4465,7 @@ const productItems = [
       kr: {
         no: "B-108",
         name: "베이런처(레드)",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2018-05-23",
         price: "6600",
         composition: []
@@ -4372,7 +4473,7 @@ const productItems = [
       jp: {
         no: "B-108",
         name: "베이런처(레드)",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2018-03-17",
         price: "756",
         composition: []
@@ -4386,7 +4487,7 @@ const productItems = [
       kr: {
         no: "B-109",
         name: "런처그립(건메탈)",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2018-05-23",
         price: "6600",
         composition: []
@@ -4394,7 +4495,7 @@ const productItems = [
       jp: {
         no: "B-109",
         name: "런처그립(건메탈)",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2018-03-17",
         price: "648",
         composition: []
@@ -4452,7 +4553,7 @@ const productItems = [
       kr: {
         no: "B-112",
         name: "롱라이트런처LR",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2018-07-03",
         price: "6600",
         composition: []
@@ -4460,7 +4561,7 @@ const productItems = [
       jp: {
         no: "B-112",
         name: "롱라이트런처LR",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2018-04-28",
         price: "756",
         composition: []
@@ -4496,7 +4597,7 @@ const productItems = [
       kr: {
         no: "B-114",
         name: "그립웨이트(블랙)",
-        kind: "그립",
+        kind: "툴",
         releaseDate: "2018-08-01",
         price: "8200",
         composition: []
@@ -4504,7 +4605,7 @@ const productItems = [
       jp: {
         no: "B-114",
         name: "그립웨이트(블랙)",
-        kind: "그립",
+        kind: "툴",
         releaseDate: "2018-05-26",
         price: "648",
         composition: []
@@ -4540,7 +4641,7 @@ const productItems = [
       kr: {
         no: "B-116",
         name: "그립러버(바이올렛)",
-        kind: "그립",
+        kind: "툴",
         releaseDate: "2018-08-09",
         price: "6600",
         composition: []
@@ -4548,7 +4649,7 @@ const productItems = [
       jp: {
         no: "B-116",
         name: "그립러버(바이올렛)",
-        kind: "그립",
+        kind: "툴",
         releaseDate: "2018-06-23",
         price: "540",
         composition: []
@@ -4609,7 +4710,7 @@ const productItems = [
       jp: {
         no: "B-119",
         name: "베이런처LR(블루)",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2018-07-14",
         price: "864",
         composition: []
@@ -4753,7 +4854,7 @@ const productItems = [
       jp: {
         no: "B-126",
         name: "초Z 무쌍 베이스타디움",
-        kind: "스타디움",
+        kind: "툴",
         releaseDate: "2018-10-20",
         price: "8100",
         composition: []
@@ -4990,7 +5091,7 @@ const productItems = [
       jp: {
         no: "B-137",
         name: "롱베이런처(클리어블루)",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2019-03-16",
         price: "810",
         composition: []
@@ -5007,7 +5108,7 @@ const productItems = [
       jp: {
         no: "B-138",
         name: "롱라이트런처(화이트)",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2019-03-16",
         price: "648",
         composition: []
@@ -5068,7 +5169,7 @@ const productItems = [
       jp: {
         no: "B-141",
         name: "롱베이런처L(클리어블랙)",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2019-04-27",
         price: "810",
         composition: []
@@ -5573,7 +5674,7 @@ const productItems = [
       kr: {
         no: "B-165",
         name: "슈퍼킹 베이런처",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2020-07-16",
         price: "9900",
         composition: []
@@ -5581,7 +5682,7 @@ const productItems = [
       jp: {
         no: "B-165",
         name: "슈퍼킹 베이런처",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2020-03-28",
         price: "990",
         composition: []
@@ -5595,7 +5696,7 @@ const productItems = [
       kr: {
         no: "B-166",
         name: "슈퍼킹 베이런처L",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2020-07-16",
         price: "9900",
         composition: []
@@ -5603,7 +5704,7 @@ const productItems = [
       jp: {
         no: "B-166",
         name: "슈퍼킹 베이런처L",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2020-04-25",
         price: "990",
         composition: []
@@ -5964,7 +6065,7 @@ const productItems = [
       kr: {
         no: "B-183",
         name: "베이스타디움 DB 스탠다드타입",
-        kind: "스타디움",
+        kind: "툴",
         releaseDate: "2021-04-30",
         price: "21900",
         composition: []
@@ -5972,7 +6073,7 @@ const productItems = [
       jp: {
         no: "B-183",
         name: "베이스타디움 DB 스탠다드타입",
-        kind: "스타디움",
+        kind: "툴",
         releaseDate: "2021-04-24",
         price: "1980",
         composition: []
@@ -5986,7 +6087,7 @@ const productItems = [
       kr: {
         no: "B-184",
         name: "커스텀베이런처LR",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2021-04-30",
         price: "10900",
         composition: []
@@ -5994,7 +6095,7 @@ const productItems = [
       jp: {
         no: "B-184",
         name: "커스텀베이런처LR",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2021-04-24",
         price: "990",
         composition: []
@@ -6543,7 +6644,7 @@ const productItems = [
       kr: {
         no: "B-00",
         name: "커스텀베이런처LR 블레이더즈에디션",
-        kind: "런처",
+        kind: "툴",
         releaseDate: "2021-10-07",
         price: "32900",
         composition: []
@@ -8599,18 +8700,22 @@ const defaultReleaseSeries = (region = activeReleaseRegion) => [...releaseSeries
 ) || releaseSeriesOrder()[0] || "metal fight";
 const releaseSeriesForRegion = (series, region = activeReleaseRegion) =>
   releaseSeriesHasProducts(series, region) ? series : defaultReleaseSeries(region);
-const productDisplayRegion = (item, region = "kr") => {
-  if (productReleasedInRegion(item, region)) return region;
-  return productReleasedInRegion(item, "jp") ? "jp" : region;
-};
+const productDisplayFallbackRegions = (region = "kr") =>
+  [region, "kr", "jp"].filter((value, index, values) => releaseRegionLabels[value] && values.indexOf(value) === index);
+const productDisplayRegion = (item, region = "kr") =>
+  productDisplayFallbackRegions(region).find(candidate => productReleasedInRegion(item, candidate)) || region;
 const productDisplayRelease = (item, region = "kr") => productRelease(item, productDisplayRegion(item, region));
 const seriesLabels = { topblade: "탑블레이드", "metal fight": "메탈베이블레이드", burst: "베이블레이드 버스트", x: "베이블레이드 X" };
 const itemSeriesLabel = item => seriesLabels[item.series] || item.series || "";
 const productDisplayName = (item, region = activeReleaseRegion) => {
   const release = productDisplayRelease(item, region);
   if (release.name) return release.name;
+  const fallbackReleases = productDisplayFallbackRegions(region).map(candidate => productRelease(item, candidate));
+  const fallbackName = fallbackReleases.map(candidateRelease => candidateRelease.name).find(Boolean);
+  if (fallbackName) return fallbackName;
   const baseName = item.name || "";
-  return baseName || item.no || "";
+  const fallbackNo = fallbackReleases.map(candidateRelease => candidateRelease.no).find(Boolean);
+  return baseName || release.no || fallbackNo || item.no || "";
 };
 const isoDateParts = value => value ? String(value).match(/^(\d{4})-(\d{2})(?:-(\d{2}))?$/) : null;
 const dotDateLabel = (value, fallbackLabel, includeDay = false) => {
@@ -8675,7 +8780,7 @@ const escapeAttributeValue = value => String(value || "")
   .replace(/</g, "&lt;")
   .replace(/>/g, "&gt;");
 const escapeHtml = escapeAttributeValue;
-const releaseControls = () => `<div class="release-dropdowns" aria-label="출시 정보 필터">
+const releaseControls = () => `<div class="release-dropdowns" aria-label="발매목록 필터">
   ${releaseRegionTabs()}
   <details class="catalog-dropdown release-dropdown">
     <summary><b class="catalog-dropdown-value">${releaseSeriesLabels[activeReleaseSeries]}</b></summary>
@@ -8685,7 +8790,7 @@ const releaseControls = () => `<div class="release-dropdowns" aria-label="출시
   </details>
   <div class="search-box release-search-box" role="search">
     <span class="search-icon" aria-hidden="true"></span>
-    <input id="releaseSearchInput" type="search" placeholder="표 안에서 검색" value="${escapeAttributeValue(activeReleaseQuery)}" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none" />
+    <input id="releaseSearchInput" type="search" placeholder="목록에서 검색" value="${escapeAttributeValue(activeReleaseQuery)}" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none" />
   </div>
 </div>`;
 
@@ -8746,7 +8851,19 @@ const toolsItems = [
   { id: "TOOLS-LAUNCHER-RUBBER", series: "metal fight", name: "런처러버", en: "Launcher Rubber", category: "기타", desc: "" },
   { id: "TOOLS-POWER-LAUNCHER-LR", series: "metal fight", name: "파워런처LR", jpName: "베이런처LR", en: "Power Launcher LR", category: "런처", desc: "" },
   { id: "TOOLS-CARRIER-CASE", series: "metal fight", name: "캐리어케이스", en: "Carrier Case", category: "기타", desc: "" },
-  { id: "TOOLS-BATTLE-BLADERS-TOOLBOX", series: "metal fight", name: "배틀블레이더즈 툴박스", en: "Battle Bladers Toolbox", category: "기타", desc: "" }
+  { id: "TOOLS-BATTLE-BLADERS-TOOLBOX", series: "metal fight", name: "배틀블레이더즈 툴박스", en: "Battle Bladers Toolbox", category: "기타", desc: "" },
+  { id: "TOOLS-BURST-LIGHT-LAUNCHER", series: "burst", name: "라이트런처", en: "Light Launcher", category: "런처", desc: "" },
+  { id: "TOOLS-BURST-BEYLOGGER", series: "burst", name: "베이로거", en: "BeyLogger", category: "기타", desc: "" },
+  { id: "TOOLS-BURST-PROTO-LAUNCHER", series: "burst", name: "프로토런처", en: "Proto Launcher", category: "런처", desc: "" },
+  { id: "TOOLS-BURST-STANDARD-BEYSTADIUM", series: "burst", name: "베이스타디움 스탠다드타입", en: "Beystadium Standard Type", category: "스타디움", desc: "" },
+  { id: "TOOLS-BURST-LAUNCHER-GRIP", series: "burst", name: "런처그립", en: "Launcher Grip", category: "그립", desc: "" },
+  { id: "TOOLS-BURST-BEYLAUNCHER", series: "burst", name: "베이런처", en: "BeyLauncher", category: "런처", desc: "" },
+  { id: "TOOLS-BURST-BURST-BEYSTADIUM", series: "burst", name: "버스트 베이스타디움", en: "Burst Beystadium", category: "스타디움", desc: "" },
+  { id: "TOOLS-BURST-ANGLE-GRIP", series: "burst", name: "앵글그립", en: "Angle Grip", category: "그립", desc: "" },
+  { id: "TOOLS-BURST-RUBBER-ASSIST", series: "burst", name: "러버어시스트", en: "Rubber Assist", category: "기타", desc: "" },
+  { id: "TOOLS-BURST-WBBA-OFFICIAL-BLADER-BOX", series: "burst", name: "wbba. 오피셜 블레이더박스", en: "wbba. Official Blader Box", category: "기타", desc: "" },
+  { id: "TOOLS-BURST-SHOOT-SUPPORT-RUBBER", series: "burst", name: "슛서포트러버", en: "Shoot Support Rubber", category: "기타", desc: "" },
+  { id: "TOOLS-BURST-STANDARD-BEYSTADIUM-BLACK", series: "burst", name: "베이스타디움 스탠다드타입(블랙)", en: "Beystadium Standard Type Black", category: "스타디움", desc: "" }
 ];
 
 const bookItems = [
@@ -8830,13 +8947,28 @@ const wheelTypeOrder = { wheel: 0, clearwheel: 1, "4dclearwheel": 2, lightwheel:
 const mainSearchItemText = item => item
   ? [item.name, item.jpName, item.en, item.sub, item.no, item.productNo].filter(Boolean).join(" ")
   : "";
-const compactSearchSpacing = value => String(value || "").replace(/\s+/g, "");
+const compactSearchSpacing = value => String(value || "").replace(/[\s·,.;:!?()[\]{}"“”'‘’/\\\-]+/g, "");
 const lowerSearchText = value => String(value || "").toLocaleLowerCase("ko");
 const HANGUL_SYLLABLE_START = 0xac00;
 const HANGUL_SYLLABLE_END = 0xd7a3;
 const HANGUL_MEDIAL_COUNT = 21;
 const HANGUL_FINAL_COUNT = 28;
 const HANGUL_INITIALS = ["ㄱ", "ㄲ", "ㄴ", "ㄷ", "ㄸ", "ㄹ", "ㅁ", "ㅂ", "ㅃ", "ㅅ", "ㅆ", "ㅇ", "ㅈ", "ㅉ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ"];
+const HANGUL_MEDIALS = ["ㅏ", "ㅐ", "ㅑ", "ㅒ", "ㅓ", "ㅔ", "ㅕ", "ㅖ", "ㅗ", "ㅘ", "ㅙ", "ㅚ", "ㅛ", "ㅜ", "ㅝ", "ㅞ", "ㅟ", "ㅠ", "ㅡ", "ㅢ", "ㅣ"];
+const HANGUL_FINALS = ["", "ㄱ", "ㄲ", "ㄳ", "ㄴ", "ㄵ", "ㄶ", "ㄷ", "ㄹ", "ㄺ", "ㄻ", "ㄼ", "ㄽ", "ㄾ", "ㄿ", "ㅀ", "ㅁ", "ㅂ", "ㅄ", "ㅅ", "ㅆ", "ㅇ", "ㅈ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ"];
+const HANGUL_FINAL_DECOMPOSED = {
+  "ㄳ": "ㄱㅅ",
+  "ㄵ": "ㄴㅈ",
+  "ㄶ": "ㄴㅎ",
+  "ㄺ": "ㄹㄱ",
+  "ㄻ": "ㄹㅁ",
+  "ㄼ": "ㄹㅂ",
+  "ㄽ": "ㄹㅅ",
+  "ㄾ": "ㄹㅌ",
+  "ㄿ": "ㄹㅍ",
+  "ㅀ": "ㄹㅎ",
+  "ㅄ": "ㅂㅅ"
+};
 const HANGUL_INITIAL_INDEX = new Map(HANGUL_INITIALS.map((char, index) => [char, index]));
 const hangulSyllableParts = char => {
   const code = char.codePointAt(0);
@@ -8869,6 +9001,7 @@ const searchCharPrefixMatches = (textChar, termChar) => {
 const searchCharMatches = (textChar, termChar, { allowPrefix = false } = {}) =>
   allowPrefix ? searchCharPrefixMatches(textChar, termChar) : searchCharExactMatches(textChar, termChar);
 const searchQueryTerms = query => String(query || "").split(",").map(term => term.trim()).filter(Boolean);
+const catalogSearchQueryTerms = query => String(query || "").split(/[\s,]+/).map(term => term.trim()).filter(Boolean);
 const createHangulInitialWordStartSet = text => {
   const starts = new Set();
   String(text || "")
@@ -8880,6 +9013,30 @@ const createHangulInitialWordStartSet = text => {
     });
   return starts;
 };
+const searchWords = text => String(text || "")
+  .split(/[\s·,.;:!?()[\]{}"“”'‘’/\\\-]+/)
+  .filter(Boolean);
+const hangulInitialSequence = text => [...String(text || "")]
+  .map(hangulInitialForChar)
+  .join("");
+const hangulWordInitialSequence = text => searchWords(text)
+  .map(word => hangulInitialForChar([...word][0] || ""))
+  .filter(Boolean)
+  .join("");
+const searchDelimiterPattern = /[\s·,.;:!?()[\]{}"“”'‘’/\\\-]/;
+const hangulFinalJamo = finalIndex => HANGUL_FINAL_DECOMPOSED[HANGUL_FINALS[finalIndex]] || HANGUL_FINALS[finalIndex] || "";
+const hangulImeJamoKey = text => [...String(text || "").toLocaleLowerCase("ko")]
+  .map(char => {
+    if (searchDelimiterPattern.test(char)) return "";
+    const parts = hangulSyllableParts(char);
+    if (!parts) return char;
+    const [initial, medial, final = 0] = parts;
+    return `${HANGUL_INITIALS[initial]}${HANGUL_MEDIALS[medial]}${hangulFinalJamo(final)}`;
+  })
+  .join("");
+const hangulImeWordKeys = text => searchWords(text)
+  .map(hangulImeJamoKey)
+  .filter(Boolean);
 const createSearchTextIndex = (text = "", initialText = "") => {
   const raw = String(text || "");
   const initial = String(initialText || "");
@@ -8893,11 +9050,31 @@ const createSearchTextIndex = (text = "", initialText = "") => {
     compactLower: compactSearchSpacing(lower),
     compactChars: [...compact],
     initialText: initial,
-    initialWordStarts: createHangulInitialWordStartSet(initial)
+    initialWordStarts: createHangulInitialWordStartSet(initial),
+    initials: hangulInitialSequence(raw),
+    wordInitials: hangulWordInitialSequence(initial || raw),
+    imeJamoKey: hangulImeJamoKey(raw),
+    initialImeJamoKey: hangulImeJamoKey(initial || raw),
+    imeWordKeys: hangulImeWordKeys(raw),
+    initialImeWordKeys: hangulImeWordKeys(initial || raw)
   };
 };
-const searchTextIndexFrom = (text, initialText = "") =>
-  text && typeof text === "object" && text.isSearchTextIndex ? text : createSearchTextIndex(text, initialText);
+const SEARCH_TEXT_INDEX_CACHE_LIMIT = 768;
+const searchTextIndexCache = new Map();
+const searchTextIndexFrom = (text, initialText = "") => {
+  if (text && typeof text === "object" && text.isSearchTextIndex) return text;
+  const raw = String(text || "");
+  const initial = String(initialText || "");
+  const key = `${raw}\u0000${initial}`;
+  const cached = searchTextIndexCache.get(key);
+  if (cached) return cached;
+  if (searchTextIndexCache.size >= SEARCH_TEXT_INDEX_CACHE_LIMIT) {
+    searchTextIndexCache.delete(searchTextIndexCache.keys().next().value);
+  }
+  const index = createSearchTextIndex(raw, initial);
+  searchTextIndexCache.set(key, index);
+  return index;
+};
 const prepareSearchTerm = term => {
   const raw = String(term || "");
   const compact = compactSearchSpacing(raw);
@@ -8908,8 +9085,11 @@ const prepareSearchTerm = term => {
     lower: lowerSearchText(raw),
     compact,
     compactLower: compactSearchSpacing(lowerSearchText(raw)),
+    imeJamoKey: hangulImeJamoKey(raw),
     compactChars,
     hasHangulTerm: compactChars.some(char => hangulSyllableParts(char) || hangulInitialIndex(char) >= 0),
+    hasHangulSyllableTerm: compactChars.some(char => hangulSyllableParts(char)),
+    isOnlyHangulInitials: compactChars.length > 0 && compactChars.every(char => hangulInitialIndex(char) >= 0),
     isSingleHangulInitial: compactChars.length === 1 && hangulInitialIndex(compactChars[0]) >= 0
   };
 };
@@ -8918,6 +9098,16 @@ const searchTermFrom = term =>
 const prepareSearchQuery = query => {
   const raw = String(query || "").trim();
   const termTexts = searchQueryTerms(raw);
+  return {
+    isPreparedSearchQuery: true,
+    raw,
+    isEmpty: !raw,
+    terms: raw ? (termTexts.length ? termTexts : [raw]).map(prepareSearchTerm) : []
+  };
+};
+const prepareCatalogSearchQuery = query => {
+  const raw = String(query || "").trim();
+  const termTexts = catalogSearchQueryTerms(raw);
   return {
     isPreparedSearchQuery: true,
     raw,
@@ -8943,12 +9133,19 @@ const hangulJamoPrefixIncludesPrepared = (textIndex, term) => {
   }
   return false;
 };
+const imeJamoPrefixMatchesPrepared = (textIndex, term) => {
+  if (!term.hasHangulSyllableTerm || term.imeJamoKey.length < 3) return false;
+  const searchKeys = [textIndex.initialImeJamoKey, textIndex.imeJamoKey].filter(Boolean);
+  const wordKeys = [...(textIndex.initialImeWordKeys || []), ...(textIndex.imeWordKeys || [])];
+  return searchKeys.some(key => key.startsWith(term.imeJamoKey)) || wordKeys.some(key => key.startsWith(term.imeJamoKey));
+};
 const searchTermMatchRank = (text, term, { initialText = "" } = {}) => {
   const textIndex = searchTextIndexFrom(text, initialText);
   const preparedTerm = searchTermFrom(term);
   if (preparedTerm.lower && textIndex.lower.includes(preparedTerm.lower)) return 2;
   if (preparedTerm.compactLower && textIndex.compactLower.includes(preparedTerm.compactLower)) return 2;
   if (preparedTerm.isSingleHangulInitial && textIndex.initialWordStarts.has(preparedTerm.compact)) return 1;
+  if (imeJamoPrefixMatchesPrepared(textIndex, preparedTerm)) return 1;
   return hangulJamoPrefixIncludesPrepared(textIndex, preparedTerm) ? 1 : 0;
 };
 const searchMatchRank = (text, query, { initialText = "" } = {}) => {
@@ -8991,26 +9188,192 @@ const catalogListSearchText = item => {
 const catalogListInitialSearchText = item => item
   ? [item.name, item.sub, item.en].filter(Boolean).join(" ")
   : "";
-const catalogListSearchEntryCache = new WeakMap();
-const catalogListSearchEntry = item => {
-  if (!item || typeof item !== "object") {
-    const text = "";
-    const initialText = "";
-    return { text, initialText, index: createSearchTextIndex(text, initialText) };
-  }
-  const cached = catalogListSearchEntryCache.get(item);
-  if (cached) return cached;
-  const text = catalogListSearchText(item);
-  const initialText = catalogListInitialSearchText(item);
-  const entry = { text, initialText, index: createSearchTextIndex(text, initialText) };
-  catalogListSearchEntryCache.set(item, entry);
-  return entry;
+const SEARCH_FIELD_WEIGHTS = {
+  primaryName: 120,
+  code: 108,
+  alias: 88,
+  category: 58,
+  attributes: 42,
+  composition: 24,
+  description: 18
 };
-const catalogListMatchesSearch = (item, query) =>
-  searchMatchRank(catalogListSearchEntry(item).index, query) > 0;
+const SEARCH_FIELD_DEFAULTS = {
+  primaryName: { initial: true, jamo: true, ime: true },
+  code: { initial: false, jamo: false, ime: false },
+  alias: { initial: true, jamo: true, ime: true },
+  category: { initial: true, jamo: false, ime: false },
+  attributes: { initial: false, jamo: false, ime: false },
+  composition: { initial: false, jamo: false, ime: false },
+  description: { initial: false, jamo: false, ime: false }
+};
+const uniqueSearchValues = values => {
+  const seen = new Set();
+  return values
+    .flat(Infinity)
+    .map(value => String(value || "").trim())
+    .filter(value => {
+      if (!value || seen.has(value)) return false;
+      seen.add(value);
+      return true;
+    });
+};
+const createSearchField = (role, text, options = {}) => {
+  const raw = String(text || "").trim();
+  if (!raw) return null;
+  const defaults = SEARCH_FIELD_DEFAULTS[role] || {};
+  return {
+    role,
+    weight: options.weight || SEARCH_FIELD_WEIGHTS[role] || 24,
+    initial: options.initial ?? defaults.initial ?? false,
+    jamo: options.jamo ?? defaults.jamo ?? false,
+    ime: options.ime ?? defaults.ime ?? false,
+    index: createSearchTextIndex(raw, options.initialText ?? raw)
+  };
+};
+const searchFieldsFromValues = (role, values, options = {}) =>
+  uniqueSearchValues(values).map(value => createSearchField(role, value, options)).filter(Boolean);
+const createSearchRecord = (kind, item, fields, order = 0, extra = {}) => {
+  const record = {
+    kind,
+    item,
+    order,
+    ...extra,
+    fields: fields.filter(Boolean)
+  };
+  record.entry = kind === "anime" ? { kind, item, index: record.index } : { kind, item };
+  return record;
+};
+const searchFieldTermScore = (field, term) => {
+  const preparedTerm = searchTermFrom(term);
+  if (!field || !preparedTerm.compactLower) return 0;
+  const index = field.index;
+  const weight = field.weight;
+  if (preparedTerm.lower && index.lower === preparedTerm.lower) return weight + 90;
+  if (preparedTerm.compactLower && index.compactLower === preparedTerm.compactLower) return weight + 84;
+  if (preparedTerm.lower && index.lower.startsWith(preparedTerm.lower)) return weight + 70;
+  if (preparedTerm.compactLower && index.compactLower.startsWith(preparedTerm.compactLower)) return weight + 64;
+  if (preparedTerm.lower && index.lower.includes(preparedTerm.lower)) return weight + 48;
+  if (preparedTerm.compactLower && index.compactLower.includes(preparedTerm.compactLower)) return weight + 44;
+  if (field.initial && preparedTerm.isSingleHangulInitial && index.initialWordStarts.has(preparedTerm.compact)) return weight + 22;
+  if (field.initial && preparedTerm.isOnlyHangulInitials && preparedTerm.compact.length > 1) {
+    if (index.wordInitials.includes(preparedTerm.compact)) return weight + 26;
+    if (index.initials.includes(preparedTerm.compact)) return weight + 16;
+  }
+  if (field.ime && imeJamoPrefixMatchesPrepared(index, preparedTerm)) return weight + 56;
+  if (field.jamo && hangulJamoPrefixIncludesPrepared(index, preparedTerm)) return Math.max(1, Math.round(weight * 0.45));
+  return 0;
+};
+const matchSearchRecord = (record, query) => {
+  const preparedQuery = searchQueryFrom(query);
+  if (preparedQuery.isEmpty) return { matched: true, score: 0 };
+  let score = 0;
+  for (const term of preparedQuery.terms) {
+    let termScore = 0;
+    for (const field of record.fields) termScore = Math.max(termScore, searchFieldTermScore(field, term));
+    if (!termScore) return { matched: false, score: 0 };
+    score += termScore;
+  }
+  return { matched: true, score };
+};
+const compareScoredSearchResults = (a, b) => b.score - a.score || a.record.order - b.record.order;
+const itemNameWithSub = item => [item?.name, item?.sub].filter(Boolean).join(" ");
+const catalogItemKindSearchValues = item => item?.type === "bey" ? ["bey", "베이"] : ["parts", "부품"];
+const catalogItemSearchFields = item => [
+  ...searchFieldsFromValues("primaryName", [itemNameWithSub(item), item.name]),
+  ...searchFieldsFromValues("alias", [item.jpName, item.en]),
+  ...searchFieldsFromValues("code", [item.no, item.productNo]),
+  ...searchFieldsFromValues("category", [
+    ...catalogItemKindSearchValues(item),
+    item.series,
+    itemSeriesLabel(item),
+    item.type,
+    item.type ? typeLabels[item.type] : "",
+    item.category,
+    item.category ? typeLabels[item.category] : "",
+    item.structure,
+    item.structure ? structureLabels[item.structure] : ""
+  ]),
+  ...searchFieldsFromValues("attributes", [
+    item.battleType,
+    item.battleType ? battleTypeLabel(item.battleType, item) : "",
+    ...catalogListSpinSearchTerms(item),
+    item.heightClass,
+    item.heightClass ? heightClassLabel(item.heightClass) : "",
+    ...(Array.isArray(item.tags) ? item.tags : []),
+    ...(Array.isArray(item.tags) ? item.tags.map(tag => tagLabels[tag] || "") : [])
+  ])
+];
+const toolsSearchFields = item => [
+  ...searchFieldsFromValues("primaryName", [item.name]),
+  ...searchFieldsFromValues("alias", [item.en]),
+  ...searchFieldsFromValues("code", [item.no, item.productNo]),
+  ...searchFieldsFromValues("category", ["tools", "장비", item.series, itemSeriesLabel(item), item.category, item.category ? typeLabels[item.category] : ""]),
+  ...searchFieldsFromValues("description", [item.desc])
+];
+const catalogAttributeChipAliasKey = value => compactSearchSpacing(lowerSearchText(value));
+const catalogAttributeChipCandidates = (() => {
+  const candidates = [];
+  const seenKeys = new Set();
+  const add = (key, label, aliases = []) => {
+    const aliasKeys = uniqueSearchValues([label, key, aliases]).map(catalogAttributeChipAliasKey).filter(Boolean);
+    if (!label || !aliasKeys.length || seenKeys.has(key)) return;
+    seenKeys.add(key);
+    candidates.push({ key, label, aliasKeys: new Set(aliasKeys) });
+  };
+  Object.entries(seriesLabels).forEach(([value, label]) => {
+    const aliases = value === "metal fight"
+      ? ["metal fight", "메탈파이트", "메탈 베이블레이드"]
+      : value === "burst"
+        ? ["burst", "버스트"]
+        : value === "x"
+          ? ["x", "X", "엑스", "베이블레이드 엑스"]
+          : [value];
+    add(`series:${value}`, label, aliases);
+  });
+  add("kind:bey", "베이", ["bey"]);
+  add("kind:parts", "부품", ["parts", "파츠"]);
+  add("kind:tools", "장비", ["tools"]);
+  Object.entries(typeLabels).forEach(([value, label]) => add(`type:${value}`, label, [value]));
+  Object.entries(structureLabels).forEach(([value, label]) => {
+    const aliases = value === "basic"
+      ? ["4단 구조", "4단", "basic"]
+      : value === "hybrid"
+        ? ["하이브리드", "hybrid"]
+        : value === "4d"
+          ? ["4D", "4d"]
+          : [value];
+    add(`system:${value}`, label, aliases);
+  });
+  Object.keys(battleTypeLabels.classic).forEach(value => {
+    add(`battle:${value}`, battleTypeLabels.classic[value], [value, battleTypeLabels.modern[value]]);
+  });
+  Object.entries(spinLabels).forEach(([value, label]) => add(`spin:${value}`, label, [value]));
+  Object.entries(heightClassLabels).forEach(([value, label]) => add(`height:${value}`, label, [value]));
+  toolsSubtypeOptions.forEach(option => add(`tools:${option.value}`, option.label, [option.value]));
+  Object.entries(tagLabels).forEach(([value, label]) => add(`tag:${value}`, label, [value]));
+  return candidates;
+})();
+const catalogAttributeChipForTerm = term => {
+  const key = catalogAttributeChipAliasKey(term);
+  return catalogAttributeChipCandidates.find(candidate => candidate.aliasKeys.has(key)) || null;
+};
+const catalogSearchRecordCache = new WeakMap();
+const catalogListSearchRecord = item => {
+  if (!item || typeof item !== "object") return createSearchRecord("catalog-item", item, [], 0);
+  const cached = catalogSearchRecordCache.get(item);
+  if (cached) return cached;
+  const isToolsItem = toolsItemsById.has(item.id);
+  const order = isToolsItem ? 100000 + toolsItems.findIndex(entry => entry === item) : catalogCoreItems.findIndex(entry => entry === item);
+  const record = createSearchRecord(isToolsItem ? "tools" : "catalog-item", item, isToolsItem ? toolsSearchFields(item) : catalogItemSearchFields(item), order);
+  catalogSearchRecordCache.set(item, record);
+  return record;
+};
+const catalogListSearchScore = (item, query) => matchSearchRecord(catalogListSearchRecord(item), query).score;
+const catalogListMatchesSearch = (item, query) => catalogListSearchScore(item, query) > 0;
 
 const globalSearchQuery = () => globalSearch?.value.trim() || "";
 const catalogSearchQuery = () => catalogSearch?.value.trim() || "";
+const animeSearchQuery = () => animeSearch?.value.trim() || "";
 const searchResultTitleElement = document.querySelector("#searchResultsTitle");
 const searchResultMeta = document.querySelector("#searchResultsMeta");
 const productSerialNumber = (item, region = activeReleaseRegion) => {
@@ -9112,30 +9475,75 @@ const deriveCatalogItemFilters = () => {
   }
   resolvedCatalogStructure = selectedCatalogKind === "bey" ? selectedCatalogStructure : null;
 };
+const CATALOG_VISIBLE_ITEMS_CACHE_LIMIT = 48;
+const catalogVisibleItemsCache = new Map();
+const cacheCatalogVisibleItems = (key, factory) => {
+  const cached = catalogVisibleItemsCache.get(key);
+  if (cached) return cached;
+  if (catalogVisibleItemsCache.size >= CATALOG_VISIBLE_ITEMS_CACHE_LIMIT) {
+    catalogVisibleItemsCache.delete(catalogVisibleItemsCache.keys().next().value);
+  }
+  const items = factory();
+  catalogVisibleItemsCache.set(key, items);
+  return items;
+};
+const catalogVisibleCacheKey = bucket => `${bucket}|${catalogRenderKey()}`;
+const compareCatalogCoreBrowseItems = (a, b, { useMetalAttributeFilters, effectiveCatalogItemType, effectiveCatalogItemTypeGroup }) => {
+  if (useMetalAttributeFilters && a.type === "bey" && b.type === "bey") return beySerialNumber(a) - beySerialNumber(b);
+  if (useMetalAttributeFilters && effectiveCatalogItemType === "wheel" && effectiveCatalogItemTypeGroup) return (wheelTypeOrder[a.type] ?? 99) - (wheelTypeOrder[b.type] ?? 99);
+  return 0;
+};
 const visibleToolsItems = () => {
-  const query = prepareSearchQuery(catalogSearchQuery());
+  const cacheKey = catalogVisibleCacheKey("tools");
+  return cacheCatalogVisibleItems(cacheKey, () => {
+  const query = prepareCatalogSearchQuery(catalogSearchQuery());
   if (selectedCatalogKind && selectedCatalogKind !== "tools") return [];
   return toolsItems
-    .filter(item => (!selectedCatalogSeries || item.series === selectedCatalogSeries) && (!selectedCatalogSubtype || item.category === selectedCatalogSubtype) && (query.isEmpty || catalogListMatchesSearch(item, query)))
-    .sort(compareToolsItemsByFirstRelease);
+    .map(item => {
+      if (selectedCatalogSeries && item.series !== selectedCatalogSeries) return null;
+      if (selectedCatalogSubtype && item.category !== selectedCatalogSubtype) return null;
+      const score = query.isEmpty ? 0 : catalogListSearchScore(item, query);
+      return query.isEmpty || score > 0 ? { item, score } : null;
+    })
+    .filter(Boolean)
+    .sort((a, b) => query.isEmpty
+      ? compareToolsItemsByFirstRelease(a.item, b.item)
+      : b.score - a.score || compareToolsItemsByFirstRelease(a.item, b.item))
+    .map(entry => entry.item);
+  });
 };
 const visibleCatalogCoreItems = () => {
-  const query = prepareSearchQuery(catalogSearchQuery());
+  const cacheKey = catalogVisibleCacheKey("core");
+  return cacheCatalogVisibleItems(cacheKey, () => {
+  const query = prepareCatalogSearchQuery(catalogSearchQuery());
   if (selectedCatalogKind === "tools") return [];
   const useDefaultBrowseSet = catalogUsesDefaultBrowseSet(query);
   const effectiveCatalogItemType = useDefaultBrowseSet ? "bey" : resolvedCatalogItemType;
   const effectiveCatalogItemTypeGroup = useDefaultBrowseSet ? null : catalogItemTypeGroup;
   const useTypeFilter = effectiveCatalogItemType !== "all";
   const useMetalAttributeFilters = isMetalFightSeries(selectedCatalogSeries);
+  const browseSortOptions = { useMetalAttributeFilters, effectiveCatalogItemType, effectiveCatalogItemTypeGroup };
   return catalogCoreItems
-    .filter(item => (!selectedCatalogSeries || item.series === selectedCatalogSeries) && (!useTypeFilter || (effectiveCatalogItemTypeGroup ? effectiveCatalogItemTypeGroup.includes(item.type) : item.type === effectiveCatalogItemType)) && (!useMetalAttributeFilters || !resolvedCatalogStructure || item.structure === resolvedCatalogStructure) && (!useMetalAttributeFilters || matchesCatalogBattleType(item)) && (!useMetalAttributeFilters || matchesCatalogSpin(item)) && (query.isEmpty || catalogListMatchesSearch(item, query)))
-    .sort((a, b) => {
-      if (useMetalAttributeFilters && a.type === "bey" && b.type === "bey") return beySerialNumber(a) - beySerialNumber(b);
-      if (useMetalAttributeFilters && effectiveCatalogItemType === "wheel" && effectiveCatalogItemTypeGroup) return (wheelTypeOrder[a.type] ?? 99) - (wheelTypeOrder[b.type] ?? 99);
-      return 0;
-    });
+    .map(item => {
+      if (selectedCatalogSeries && item.series !== selectedCatalogSeries) return null;
+      if (useTypeFilter && !(effectiveCatalogItemTypeGroup ? effectiveCatalogItemTypeGroup.includes(item.type) : item.type === effectiveCatalogItemType)) return null;
+      if (useMetalAttributeFilters && resolvedCatalogStructure && item.structure !== resolvedCatalogStructure) return null;
+      if (useMetalAttributeFilters && !matchesCatalogBattleType(item)) return null;
+      if (useMetalAttributeFilters && !matchesCatalogSpin(item)) return null;
+      const score = query.isEmpty ? 0 : catalogListSearchScore(item, query);
+      return query.isEmpty || score > 0 ? { item, score } : null;
+    })
+    .filter(Boolean)
+    .sort((a, b) => query.isEmpty
+      ? compareCatalogCoreBrowseItems(a.item, b.item, browseSortOptions)
+      : b.score - a.score || compareCatalogCoreBrowseItems(a.item, b.item, browseSortOptions))
+    .map(entry => entry.item);
+  });
 };
-const visibleCatalogItems = () => [...visibleCatalogCoreItems(), ...visibleToolsItems()];
+const visibleCatalogItems = () => {
+  const cacheKey = catalogVisibleCacheKey("all");
+  return cacheCatalogVisibleItems(cacheKey, () => [...visibleCatalogCoreItems(), ...visibleToolsItems()]);
+};
 const openCatalogCard = card => {
   if (card.dataset.productId) openProductEntry(card.dataset.productId);
   else if (card.dataset.toolsId) openToolsDetail(card.dataset.toolsId);
@@ -9169,9 +9577,12 @@ const renderCatalogCards = ({ gridSelector, countSelector, getItems, cardTemplat
   bindCatalogCardClicks(grid);
   return visible;
 };
-const CATALOG_PAGE_SIZE = 60;
+const CATALOG_PAGE_SIZE = 40;
+const ANIME_PAGE_SIZE = CATALOG_PAGE_SIZE;
 let currentCatalogPage = 1;
 let currentCatalogRenderKey = "";
+let currentAnimePage = 1;
+let currentAnimeRenderKey = "";
 const catalogRenderKey = () => [
   selectedCatalogSeries || "",
   selectedCatalogKind || "",
@@ -9185,6 +9596,13 @@ const syncCatalogRenderPage = renderKey => {
   if (renderKey !== currentCatalogRenderKey) {
     currentCatalogRenderKey = renderKey;
     currentCatalogPage = 1;
+  }
+};
+const animeRenderKey = () => animeSearchQuery();
+const syncAnimeRenderPage = renderKey => {
+  if (renderKey !== currentAnimeRenderKey) {
+    currentAnimeRenderKey = renderKey;
+    currentAnimePage = 1;
   }
 };
 const catalogPageButtons = (currentPage, totalPages) => {
@@ -9203,10 +9621,32 @@ const catalogPageButtons = (currentPage, totalPages) => {
     <button class="ui-button catalog-page-step" type="button" data-catalog-page="${currentPage + 1}" ${currentPage >= totalPages ? "disabled aria-disabled=\"true\"" : ""}>다음</button>
   </nav>`;
 };
+const animePageButtons = (currentPage, totalPages) => {
+  if (totalPages <= 1) return "";
+  const pages = [];
+  const start = Math.max(1, currentPage - 2);
+  const end = Math.min(totalPages, currentPage + 2);
+  for (let page = start; page <= end; page += 1) pages.push(page);
+  const pageButtons = pages.map(page => `
+    <button class="ui-button anime-page-button${page === currentPage ? " active" : ""}" type="button" data-anime-page="${page}"${page === currentPage ? " aria-current=\"page\"" : ""}>${page}</button>`).join("");
+  return `<nav class="catalog-pagination-nav anime-pagination-nav" aria-label="애니메이션 페이지">
+    <button class="ui-button anime-page-step" type="button" data-anime-page="${currentPage - 1}" ${currentPage <= 1 ? "disabled aria-disabled=\"true\"" : ""}>이전</button>
+    ${start > 1 ? `<button class="ui-button anime-page-button" type="button" data-anime-page="1">1</button>${start > 2 ? `<span class="catalog-page-gap">…</span>` : ""}` : ""}
+    ${pageButtons}
+    ${end < totalPages ? `${end < totalPages - 1 ? `<span class="catalog-page-gap">…</span>` : ""}<button class="ui-button anime-page-button" type="button" data-anime-page="${totalPages}">${totalPages}</button>` : ""}
+    <button class="ui-button anime-page-step" type="button" data-anime-page="${currentPage + 1}" ${currentPage >= totalPages ? "disabled aria-disabled=\"true\"" : ""}>다음</button>
+  </nav>`;
+};
 const renderCatalogPagination = totalPages => {
   const root = document.querySelector("#catalogPagination");
   if (!root) return;
   root.innerHTML = catalogPageButtons(currentCatalogPage, totalPages);
+  root.hidden = totalPages <= 1;
+};
+const renderAnimePagination = totalPages => {
+  const root = document.querySelector("#animePagination");
+  if (!root) return;
+  root.innerHTML = animePageButtons(currentAnimePage, totalPages);
   root.hidden = totalPages <= 1;
 };
 const scrollCatalogGridIntoView = () => {
@@ -9214,6 +9654,14 @@ const scrollCatalogGridIntoView = () => {
   if (!grid) return;
   const topbarHeight = document.querySelector(".topbar")?.getBoundingClientRect().height || 0;
   const controlHeight = document.querySelector(".catalog-control-bar")?.getBoundingClientRect().height || 0;
+  const targetTop = grid.getBoundingClientRect().top + window.scrollY - topbarHeight - controlHeight - 18;
+  window.scrollTo({ top: Math.max(0, targetTop), behavior: "smooth" });
+};
+const scrollAnimeGridIntoView = () => {
+  const grid = document.querySelector("#animeCharacterGrid");
+  if (!grid) return;
+  const topbarHeight = document.querySelector(".topbar")?.getBoundingClientRect().height || 0;
+  const controlHeight = document.querySelector(".anime-control-bar")?.getBoundingClientRect().height || 0;
   const targetTop = grid.getBoundingClientRect().top + window.scrollY - topbarHeight - controlHeight - 18;
   window.scrollTo({ top: Math.max(0, targetTop), behavior: "smooth" });
 };
@@ -9277,7 +9725,10 @@ function normalizeRoute(route = {}) {
     options: { ...(route.options || {}) }
   };
   if (route.type === "category-anime") return {
-    type: "category-anime",
+    type: "category-anime"
+  };
+  if (route.type === "category-anime-episodes") return {
+    type: "category-anime-episodes",
     options: { ...(route.options || {}) }
   };
   if (route.type === "detail" || route.id) {
@@ -9304,6 +9755,7 @@ function parseRouteFromHash(hash = window.location.hash) {
   };
   if (id === "CATEGORY-RELEASE") return { type: "category-release" };
   if (id === "CATEGORY-ANIME") return { type: "category-anime" };
+  if (id === "CATEGORY-ANIME-EPISODES") return { type: "category-anime-episodes" };
   return normalizeRoute({ type: "detail", id });
 }
 function serializeRoute(route = {}) {
@@ -9317,14 +9769,15 @@ function serializeRoute(route = {}) {
   }
   if (normalizedRoute.type === "category-release") return "#CATEGORY-RELEASE";
   if (normalizedRoute.type === "category-anime") return "#CATEGORY-ANIME";
+  if (normalizedRoute.type === "category-anime-episodes") return "#CATEGORY-ANIME-EPISODES";
   if (normalizedRoute.id) return `#${normalizedRoute.id}`;
   return "";
 }
 function routeIsPrimary(route = {}) {
-  return route.type === "overview" || route.type === "catalog" || route.type === "search";
+  return route.type === "overview" || route.type === "catalog" || route.type === "search" || route.type === "category-release" || route.type === "category-anime" || route.type === "category-anime-episodes";
 }
 function routeOpensModal(route = {}) {
-  return route.type === "detail" || route.type === "category-release" || route.type === "category-anime";
+  return route.type === "detail";
 }
 const routeSnapshot = route => route ? normalizeRoute(route) : null;
 let modalOriginRoute = null;
@@ -9375,32 +9828,51 @@ const mainSearchProductCompositionText = (item, region) => productCompositionIte
   .map(part => [part.name, mainSearchItemText(findCatalogItemById(part.target))].filter(Boolean).join(" "))
   .filter(Boolean)
   .join(" ");
-const mainSearchReleasePrimaryText = (item, region) => {
-  const release = productRelease(item, region);
-  if (release.status === "unreleased") return "";
+const productSearchFields = item => {
+  const krRelease = productRelease(item, "kr");
+  const jpRelease = productRelease(item, "jp");
   return [
-    release.no,
-    release.name,
-    mainSearchProductCompositionText(item, region)
-  ].filter(Boolean).join(" ");
+    ...searchFieldsFromValues("primaryName", [item.name, krRelease.name, jpRelease.name]),
+    ...searchFieldsFromValues("code", [item.no, krRelease.no, jpRelease.no]),
+    ...searchFieldsFromValues("category", [
+      item.series,
+      seriesLabels[item.series],
+      krRelease.kind,
+      jpRelease.kind,
+      krRelease.sale,
+      jpRelease.sale
+    ]),
+    ...searchFieldsFromValues("composition", [
+      mainSearchProductCompositionText(item, "kr"),
+      mainSearchProductCompositionText(item, "jp")
+    ])
+  ];
 };
-const mainSearchProductText = item => [
-  item.no,
-  item.name,
-  mainSearchReleasePrimaryText(item, "kr"),
-  mainSearchReleasePrimaryText(item, "jp")
-].filter(Boolean).join(" ");
-const mainSearchAnimeEpisodeText = episode => [
-  episode.no || "",
-  episode.titles?.kr || "",
-  episode.titles?.jp || ""
-].filter(Boolean).join(" ");
+const bookSearchFields = item => [
+  ...searchFieldsFromValues("primaryName", [item.name]),
+  ...searchFieldsFromValues("alias", [item.en]),
+  ...searchFieldsFromValues("category", [item.category]),
+  ...searchFieldsFromValues("description", [item.desc])
+];
+const gameSearchFields = item => [
+  ...searchFieldsFromValues("primaryName", [item.name]),
+  ...searchFieldsFromValues("alias", [item.en]),
+  ...searchFieldsFromValues("category", [item.category]),
+  ...searchFieldsFromValues("description", [item.desc])
+];
+const animeSearchFields = episode => [
+  ...searchFieldsFromValues("primaryName", [episode.titles?.kr, episode.titles?.jp]),
+  ...searchFieldsFromValues("code", [episode.no]),
+  ...searchFieldsFromValues("category", [animeSeasonLabels[episode.season], episode.season]),
+  ...searchFieldsFromValues("description", [episode.note])
+];
 let searchResultRecordCache = null;
 let searchResultRecordListCache = null;
 const SEARCH_RESULT_ITEMS_CACHE_LIMIT = 64;
 const SEARCH_RESULT_MARKUP_CACHE_LIMIT = 32;
 const SEARCH_RESULTS_PAGE_SIZE = 10;
 const SEARCH_HASH_UPDATE_DELAY = 180;
+const SEARCH_RENDER_DELAY = 100;
 const searchResultItemsCache = new Map();
 const searchResultMarkupCache = new Map();
 const cacheSearchResultItems = (key, result) => {
@@ -9417,30 +9889,20 @@ const cacheSearchResultMarkup = (key, result) => {
   searchResultMarkupCache.set(key, result);
   return result;
 };
-const mainSearchRecord = (kind, item, searchText, extra = {}) => {
-  const searchIndex = createSearchTextIndex(searchText, searchText);
-  const record = {
-    kind,
-    item,
-    ...extra,
-    searchIndex
-  };
-  record.entry = kind === "anime" ? { kind, item, index: record.index } : { kind, item };
-  return record;
-};
-const createMainSearchRecords = ({ items, kind, searchText = mainSearchItemText, extra = () => ({}) }) =>
-  items.map((item, index) => mainSearchRecord(kind, item, searchText(item, index), extra(item, index)));
+const mainSearchRecord = (kind, item, fields, order, extra = {}) => createSearchRecord(kind, item, fields, order, extra);
+const createMainSearchRecords = ({ items, kind, fields = catalogItemSearchFields, extra = () => ({}) }, sourceIndex = 0) =>
+  items.map((item, index) => mainSearchRecord(kind, item, fields(item, index), (sourceIndex * 100000) + index, extra(item, index)));
 const mainSearchRecordSources = () => [
-  { key: "catalog", kind: "catalog-item", items: catalogCoreItems },
-  { key: "tools", kind: "tools", items: toolsItems },
-  { key: "product", kind: "product", items: productItems.filter(item => !item.lineupOnly), searchText: mainSearchProductText },
-  { key: "manga", kind: "book", items: bookItems },
-  { key: "game", kind: "game", items: gameItems },
-  { key: "anime", kind: "anime", items: animeInfo.episodes, searchText: mainSearchAnimeEpisodeText, extra: (episode, index) => ({ index }) }
+  { key: "catalog", kind: "catalog-item", items: catalogCoreItems, fields: catalogItemSearchFields },
+  { key: "tools", kind: "tools", items: toolsItems, fields: toolsSearchFields },
+  { key: "product", kind: "product", items: productItems.filter(item => !item.lineupOnly), fields: productSearchFields },
+  { key: "manga", kind: "book", items: bookItems, fields: bookSearchFields },
+  { key: "game", kind: "game", items: gameItems, fields: gameSearchFields },
+  { key: "anime", kind: "anime", items: animeInfo.episodes, fields: animeSearchFields, extra: (episode, index) => ({ index }) }
 ];
 const searchResultRecords = () => {
   if (searchResultRecordCache) return searchResultRecordCache;
-  searchResultRecordCache = Object.fromEntries(mainSearchRecordSources().map(source => [source.key, createMainSearchRecords(source)]));
+  searchResultRecordCache = Object.fromEntries(mainSearchRecordSources().map((source, sourceIndex) => [source.key, createMainSearchRecords(source, sourceIndex)]));
   return searchResultRecordCache;
 };
 const searchResultCacheKey = (scope, query) => `${scope}\u0000${searchQueryFrom(query).raw}`;
@@ -9464,21 +9926,35 @@ const searchResultRecordLists = () => {
   return searchResultRecordListCache;
 };
 const searchResultRecordList = scope => searchResultRecordLists()[normalizeSearchScope(scope)] || searchResultRecordLists().all;
-const searchResultRecordRank = (record, query) => searchMatchRank(record.searchIndex, query);
+const searchResultRecordRank = (record, query) => matchSearchRecord(record, query).score;
+const scoredSearchResult = (record, preparedQuery) => {
+  const match = matchSearchRecord(record, preparedQuery);
+  if (match.matched && searchQueryFrom(preparedQuery).isEmpty) return { record, score: 0, entry: record.entry };
+  return match.matched && match.score > 0 ? { record, score: match.score, entry: record.entry } : null;
+};
+const insertLimitedSearchResult = (results, result, limit) => {
+  let index = results.findIndex(entry => compareScoredSearchResults(result, entry) < 0);
+  if (index < 0) index = results.length;
+  if (index < limit) {
+    results.splice(index, 0, result);
+    if (results.length > limit) results.pop();
+  } else if (results.length < limit) {
+    results.push(result);
+  }
+};
 const collectSearchResultItems = (scope = globalSearchScopeValue(), query = globalSearchQuery()) => {
   scope = normalizeSearchScope(scope);
   const preparedQuery = searchQueryFrom(query);
   const cacheKey = searchResultCacheKey(scope, preparedQuery);
   const cached = searchResultItemsCache.get(cacheKey);
   if (cached) return cached;
-  const exact = [];
-  const fallback = [];
+  const scored = [];
   for (const record of searchResultRecordList(scope)) {
-    const rank = searchResultRecordRank(record, preparedQuery);
-    if (rank === 2) exact.push(record.entry);
-    else if (rank === 1) fallback.push(record.entry);
+    const result = scoredSearchResult(record, preparedQuery);
+    if (result) scored.push(result);
   }
-  const items = exact.concat(fallback);
+  scored.sort(compareScoredSearchResults);
+  const items = scored.map(result => result.entry);
   const result = { total: items.length, items };
   return cacheSearchResultItems(cacheKey, result);
 };
@@ -9487,18 +9963,12 @@ const collectSearchPreviewItems = (scope = globalSearchScopeValue(), query = glo
   const preparedQuery = searchQueryFrom(query);
   const cached = searchResultItemsCache.get(searchResultCacheKey(scope, preparedQuery));
   if (cached) return cached.items.slice(0, limit);
-  const exact = [];
-  const fallback = [];
+  const topResults = [];
   for (const record of searchResultRecordList(scope)) {
-    const rank = searchResultRecordRank(record, preparedQuery);
-    if (rank === 2) {
-      exact.push(record.entry);
-      if (exact.length >= limit) return exact;
-    } else if (rank === 1 && fallback.length < limit) {
-      fallback.push(record.entry);
-    }
+    const result = scoredSearchResult(record, preparedQuery);
+    if (result) insertLimitedSearchResult(topResults, result, limit);
   }
-  return exact.concat(fallback).slice(0, limit);
+  return topResults.map(result => result.entry);
 };
 const searchResultType = entry => {
   if (entry.kind === "tools") return "장비";
@@ -9617,6 +10087,7 @@ const bindSearchResultControls = gridRoot => {
   });
 };
 const SEARCH_PREVIEW_LIMIT = 6;
+const SEARCH_PREVIEW_RENDER_DELAY = 100;
 const searchPreviewControls = new Map();
 let activeSearchPreview = null;
 const searchPreviewScopeValue = input => input === overviewSearch ? overviewSearchScopeValue() : globalSearchScopeValue();
@@ -9637,6 +10108,10 @@ const searchPreviewItemButton = (entry, control, index) => {
 };
 const closeSearchPreview = control => {
   if (!control) return;
+  if (control.renderTimer) {
+    clearTimeout(control.renderTimer);
+    control.renderTimer = 0;
+  }
   control.preview.hidden = true;
   control.highlightedIndex = -1;
   control.entries = [];
@@ -9677,7 +10152,16 @@ const refreshSearchPreview = (input, { resetActive = false } = {}) => {
   const control = searchPreviewControls.get(input);
   if (!control) return;
   if (resetActive) control.highlightedIndex = -1;
-  renderSearchPreview(control);
+  if (control.renderTimer) clearTimeout(control.renderTimer);
+  if (!input.value.trim()) {
+    control.renderTimer = 0;
+    renderSearchPreview(control);
+    return;
+  }
+  control.renderTimer = setTimeout(() => {
+    control.renderTimer = 0;
+    renderSearchPreview(control);
+  }, SEARCH_PREVIEW_RENDER_DELAY);
 };
 const openSearchPreviewItem = (control, button) => {
   if (!control || !button) return;
@@ -9740,7 +10224,7 @@ const bindSearchPreview = (input, containerSelector) => {
   input.setAttribute("aria-haspopup", "listbox");
   input.setAttribute("aria-controls", preview.id);
   input.setAttribute("aria-expanded", "false");
-  const control = { input, root, preview, entries: [], highlightedIndex: -1 };
+  const control = { input, root, preview, entries: [], highlightedIndex: -1, renderTimer: 0 };
   searchPreviewControls.set(input, control);
   input.addEventListener("focus", () => refreshSearchPreview(input, { resetActive: true }));
   root.addEventListener("focusout", () => {
@@ -9786,7 +10270,7 @@ const renderGlobalCards = () => {
   const itemMarkup = visible.length ? searchResultButtonMarkupSlice(renderKey, visible, pageStart, pageEnd) : [];
   grid.innerHTML = visible.length
     ? `${itemMarkup.join("")}${searchResultPageButtons(currentSearchResultPage, totalPages)}`
-    : `<div class="search-empty"><strong>검색결과가 없습니다.</strong><p>검색어를 줄이거나 범위를 전체로 바꿔보세요.</p></div>`;
+    : `<p class="search-empty">검색결과가 없습니다.</p>`;
   bindCatalogCardClicks(grid);
   bindSearchResultControls(grid);
 };
@@ -10109,11 +10593,19 @@ function renderCatalogItems() {
   const pageStart = (currentCatalogPage - 1) * CATALOG_PAGE_SIZE;
   const pageEnd = pageStart + CATALOG_PAGE_SIZE;
   const pageItems = visible.slice(pageStart, pageEnd);
-  renderCatalogCards({
-    gridSelector: "#catalogGrid",
-    getItems: () => pageItems,
-    cardTemplate: catalogCard
-  });
+  if (visible.length) {
+    renderCatalogCards({
+      gridSelector: "#catalogGrid",
+      getItems: () => pageItems,
+      cardTemplate: catalogCard
+    });
+  } else {
+    const grid = document.querySelector("#catalogGrid");
+    if (grid) {
+      grid.innerHTML = `<p class="catalog-empty search-empty">검색결과가 없습니다.</p>`;
+      catalogRenderedItemsKey = "__catalog-empty__";
+    }
+  }
   updateCatalogCount(visible);
   renderCatalogPagination(totalPages);
 }
@@ -10301,23 +10793,30 @@ const productReleaseTableRows = (region = activeReleaseRegion, series = activeRe
   }).join("");
   return rows || `<tr class="release-empty-row"><td colspan="5">검색 결과가 없습니다.</td></tr>`;
 };
-const releaseTableMarkup = (region = activeReleaseRegion, series = activeReleaseSeries) => `<div class="ui-table-scroll modal-section-scroll release-table-scroll">
+const releaseTableMarkup = (region = activeReleaseRegion, series = activeReleaseSeries, { page = false } = {}) => {
+  const scrollClass = page ? "page-table-scroll release-table-scroll" : "ui-table-scroll modal-section-scroll release-table-scroll";
+  return `<div class="${scrollClass}">
   <table class="ui-data-table release-table">
     ${releaseTableHead()}
     <tbody>${productReleaseTableRows(region, series)}</tbody>
   </table>
 </div>`;
+};
 const rememberReleaseModalContext = () => rememberModalContext("category-release", "CATEGORY-RELEASE", {
   region: activeReleaseRegion,
   series: activeReleaseSeries,
   releaseSort: activeReleaseSort,
   releaseQuery: activeReleaseQuery
 });
+const releasePageRoot = () => document.querySelector("[data-release-page-content]");
+const releaseRenderRoot = element => element?.closest?.("[data-release-page-content], #modalContent") || releasePageRoot() || document.querySelector("#modalContent") || document;
+const isReleasePageContext = root => !!root?.closest?.("[data-release-page-content], .release-page-shell")
+  || !!root?.querySelector?.("[data-release-page-content], .release-page-shell");
 
-function renderProductReleaseTable(modalContentRoot = document) {
-  const releaseTableSection = modalContentRoot.querySelector(".release-table-section");
+function renderProductReleaseTable(contentRoot = document) {
+  const releaseTableSection = contentRoot.querySelector(".release-table-section");
   if (!releaseTableSection) return;
-  releaseTableSection.innerHTML = releaseTableMarkup(activeReleaseRegion, activeReleaseSeries);
+  releaseTableSection.innerHTML = releaseTableMarkup(activeReleaseRegion, activeReleaseSeries, { page: isReleasePageContext(releaseTableSection) });
   bindProductReleaseTableRows(releaseTableSection);
 }
 
@@ -10345,27 +10844,38 @@ function bindProductReleaseTableRows(tableRoot = document) {
       ? { key, direction: activeReleaseSort.direction === "asc" ? "desc" : "asc" }
       : { key, direction: "asc" };
     rememberReleaseModalContext();
-    renderProductReleaseTable(document.querySelector("#modalContent"));
+    renderProductReleaseTable(releaseRenderRoot(event.currentTarget));
   }));
 }
 
-function bindProductReleaseTable(modalContentRoot = document) {
-  bindProductReleaseTableRows(modalContentRoot);
-  modalContentRoot.querySelectorAll("button[data-release-region]").forEach(button => button.addEventListener("click", event => {
+function renderReleasePage() {
+  const root = releasePageRoot();
+  if (!root) return;
+  root.innerHTML = `
+    ${releaseControls()}
+    <section class="release-table-section release-page-table-section">
+      ${releaseTableMarkup(activeReleaseRegion, activeReleaseSeries, { page: true })}
+    </section>`;
+  bindProductReleaseTable(root);
+}
+
+function bindProductReleaseTable(contentRoot = document) {
+  bindProductReleaseTableRows(contentRoot);
+  contentRoot.querySelectorAll("button[data-release-region]").forEach(button => button.addEventListener("click", event => {
     activeReleaseRegion = event.currentTarget.dataset.releaseRegion;
     activeReleaseSeries = releaseSeriesForRegion(activeReleaseSeries, activeReleaseRegion);
     openCategoryReleaseDetail({ region: activeReleaseRegion, series: activeReleaseSeries });
   }));
-  modalContentRoot.querySelectorAll("button[data-release-series]").forEach(button => button.addEventListener("click", event => {
+  contentRoot.querySelectorAll("button[data-release-series]").forEach(button => button.addEventListener("click", event => {
     setDropdownOption(event.currentTarget);
     activeReleaseSeries = event.currentTarget.dataset.releaseSeries;
     openCategoryReleaseDetail({ region: activeReleaseRegion, series: activeReleaseSeries });
   }));
-  const releaseSearch = modalContentRoot.querySelector("#releaseSearchInput");
+  const releaseSearch = contentRoot.querySelector("#releaseSearchInput");
   bindSearchInput(releaseSearch, ".release-search-box", { onInput: searchInput => {
     activeReleaseQuery = searchInput.value.trim();
     rememberReleaseModalContext();
-    renderProductReleaseTable(modalContentRoot);
+    renderProductReleaseTable(contentRoot);
   } });
 }
 
@@ -10382,23 +10892,9 @@ function openCategoryReleaseDetail(options = {}) {
   }
   if (typeof options.releaseQuery === "string") activeReleaseQuery = options.releaseQuery;
   cleanupModelViewer();
-  const content = document.querySelector("#modalContent");
-  content.innerHTML = `<div class="modal-inner category-release-modal">
-    <div class="modal-info category-release-info">
-      <div class="overview-title-row">
-        <h3 class="category-title">출시 정보</h3>
-      </div>
-      <div class="modal-body-block">
-        ${releaseControls()}
-        <section class="modal-section release-table-section">
-          ${releaseTableMarkup(activeReleaseRegion, activeReleaseSeries)}
-        </section>
-      </div>
-    </div>
-  </div>`;
-  bindProductReleaseTable(content);
+  activatePrimarySection("release");
+  renderReleasePage();
   rememberReleaseModalContext();
-  openModal();
 }
 
 const animeInfo = {
@@ -10973,37 +11469,10 @@ const defaultAnimeSeason = () => [...animeSeasonOrder].reverse().find(season =>
   animeInfo.episodes.some(episode => episode.season === season)
 ) || latestAnimeSeason();
 const normalizeAnimeSeason = season => animeSeasonLabels[season] ? season : defaultAnimeSeason();
-const categoryAnimeTabs = [
-  { id: "overview", label: "개요" },
-  { id: "characters", label: "등장인물 및 베이" },
-  { id: "episodes", label: "방영목록" }
-];
 const animeDisplayRegion = "kr";
-let activeCategoryAnimeTab = "episodes";
 let activeAnimeRegion = "kr";
 let activeAnimeSeason = defaultAnimeSeason();
 let activeAnimeEpisodeQuery = "";
-
-const animeHasOverview = () => Array.isArray(animeInfo.overview) && animeInfo.overview.length > 0;
-const animeHasCharacters = () => Array.isArray(animeInfo.characters) && animeInfo.characters.length > 0;
-const visibleCategoryAnimeTabs = () => categoryAnimeTabs.filter(tab => (
-  tab.id === "episodes" ||
-  (tab.id === "overview" && animeHasOverview()) ||
-  (tab.id === "characters" && animeHasCharacters())
-));
-const normalizeCategoryAnimeTab = tab => visibleCategoryAnimeTabs().some(entry => entry.id === tab) ? tab : "episodes";
-const categoryAnimeTabsMarkup = () => {
-  const tabs = visibleCategoryAnimeTabs();
-  if (tabs.length <= 1) return "";
-  return `<div class="ui-tabs category-anime-tabs" role="tablist" aria-label="애니메이션 정보">
-  ${tabs.map(tab => tabButtonMarkup({ value: tab.id, label: tab.label, active: activeCategoryAnimeTab === tab.id, dataAttr: "data-category-anime-tab" })).join("")}
-</div>`;
-};
-const animeTitleActionsMarkup = () => animeHasCharacters() && activeCategoryAnimeTab !== "characters"
-  ? `<button type="button" class="category-anime-jump-button" data-category-anime-tab="characters">등장인물 및 베이</button>`
-  : "";
-
-const animeEmptyMarkup = message => `<p class="category-anime-empty">${message}</p>`;
 const animeEpisodeControls = () => `<div class="release-dropdowns anime-episode-controls" data-anime-controls aria-label="방영목록 필터">
   <details class="catalog-dropdown release-dropdown">
     <summary><b class="catalog-dropdown-value">${animeSeasonLabels[activeAnimeSeason] || ""}</b></summary>
@@ -11013,24 +11482,58 @@ const animeEpisodeControls = () => `<div class="release-dropdowns anime-episode-
   </details>
   <div class="search-box release-search-box" role="search">
     <span class="search-icon" aria-hidden="true"></span>
-    <input id="animeEpisodeSearchInput" type="search" placeholder="방영목록 안에서 검색" value="${escapeAttributeValue(activeAnimeEpisodeQuery)}" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none" />
+    <input id="animeEpisodeSearchInput" type="search" placeholder="목록에서 검색" value="${escapeAttributeValue(activeAnimeEpisodeQuery)}" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none" />
   </div>
 </div>`;
 
-const animeOverviewMarkup = () => {
-  const rows = animeInfo.overview.map(row => `<li><span>${escapeHtml(row.label || "")}</span><b>${escapeHtml(row.value || "")}</b></li>`).join("");
-  return rows ? `<ul class="category-anime-facts">${rows}</ul>` : animeEmptyMarkup("등록된 개요 정보가 없습니다.");
+const animeCharacterCardMarkup = character => {
+  const name = character?.name || character?.title || "";
+  const beys = Array.isArray(character?.beys) ? character.beys.filter(Boolean).join(" / ") : "";
+  const detail = character?.desc || character?.role || character?.season || "";
+  return `<article class="anime-character-card">
+    <strong>${escapeHtml(name)}</strong>
+    ${beys ? `<small>${escapeHtml(beys)}</small>` : ""}
+    ${detail ? `<p>${escapeHtml(detail)}</p>` : ""}
+  </article>`;
+};
+const animeCharacterSearchFields = character => [
+  ...searchFieldsFromValues("primaryName", [character?.name, character?.title]),
+  ...searchFieldsFromValues("alias", [character?.jpName, character?.en]),
+  ...searchFieldsFromValues("category", [character?.season]),
+  ...searchFieldsFromValues("composition", [Array.isArray(character?.beys) ? character.beys.join(" ") : ""]),
+  ...searchFieldsFromValues("description", [character?.desc, character?.role])
+];
+const animeCharacterSearchRecord = (character, index) =>
+  createSearchRecord("anime-character", character, animeCharacterSearchFields(character), index);
+const visibleAnimeCharacters = () => {
+  const characters = Array.isArray(animeInfo.characters) ? animeInfo.characters : [];
+  const query = prepareCatalogSearchQuery(animeSearchQuery());
+  return characters
+    .map((character, index) => {
+      const record = animeCharacterSearchRecord(character, index);
+      const match = matchSearchRecord(record, query);
+      return match.matched ? { character, index, score: match.score } : null;
+    })
+    .filter(Boolean)
+    .sort((a, b) => query.isEmpty ? a.index - b.index : b.score - a.score || a.index - b.index)
+    .map(entry => entry.character);
 };
 
-const animeCharactersMarkup = () => {
-  const rows = animeInfo.characters.map(character => {
-    const beys = Array.isArray(character.beys) && character.beys.length
-      ? `<small>${character.beys.map(bey => escapeHtml(bey)).join(" / ")}</small>`
-      : "";
-    return `<li><b>${escapeHtml(character.name || "")}</b>${beys}</li>`;
-  }).join("");
-  return rows ? `<ul class="category-anime-character-list">${rows}</ul>` : animeEmptyMarkup("등록된 등장인물 정보가 없습니다.");
-};
+function renderAnimePage() {
+  if (!animeCharacterGrid) return;
+  const visible = visibleAnimeCharacters();
+  syncAnimeRenderPage(animeRenderKey());
+  const totalPages = Math.max(1, Math.ceil(visible.length / ANIME_PAGE_SIZE));
+  currentAnimePage = Math.min(Math.max(1, currentAnimePage), totalPages);
+  const pageStart = (currentAnimePage - 1) * ANIME_PAGE_SIZE;
+  const pageEnd = pageStart + ANIME_PAGE_SIZE;
+  const pageItems = visible.slice(pageStart, pageEnd);
+  if (animeCount) animeCount.textContent = visible.length;
+  animeCharacterGrid.innerHTML = pageItems.length
+    ? pageItems.map(animeCharacterCardMarkup).join("")
+    : `<p class="anime-page-empty panel-empty-state">${animeSearchQuery() ? "검색결과가 없습니다." : "등록된 등장인물 및 베이 정보가 없습니다."}</p>`;
+  renderAnimePagination(totalPages);
+}
 
 const animeEpisodeHashPrefixes = {
   topblade: "TOPBLADE-EPISODE",
@@ -11106,12 +11609,11 @@ const animeEpisodeRowsMarkup = visibleRows => {
   return rows || `<tr class="release-empty-row"><td colspan="3">등록된 방영목록이 없습니다.</td></tr>`;
 };
 
-const animeEpisodesMarkup = () => {
+const animeEpisodesMarkup = ({ page = false } = {}) => {
   const visibleRows = visibleAnimeEpisodes();
   const tableMode = visibleRows.length > 8 ? "scroll" : "fit";
-  return `<section class="category-anime-episodes" data-anime-table-mode="${tableMode}">
-    ${animeEpisodeControls()}
-    <div class="ui-table-scroll modal-section-scroll anime-episode-table-scroll">
+  const scrollClass = page ? "page-table-scroll anime-episode-table-scroll" : "ui-table-scroll modal-section-scroll anime-episode-table-scroll";
+  const tableMarkup = `<div class="${scrollClass}">
       <table class="ui-data-table anime-episode-table">
         <thead>
           <tr>
@@ -11122,52 +11624,39 @@ const animeEpisodesMarkup = () => {
         </thead>
         <tbody>${animeEpisodeRowsMarkup(visibleRows)}</tbody>
       </table>
-    </div>
+    </div>`;
+  return `<section class="category-anime-episodes" data-anime-table-mode="${tableMode}">
+    ${animeEpisodeControls()}
+    ${page ? `<section class="release-table-section release-page-table-section">${tableMarkup}</section>` : tableMarkup}
   </section>`;
 };
-
-const categoryAnimePanelMarkup = () => {
-  if (activeCategoryAnimeTab === "characters") return animeCharactersMarkup();
-  if (activeCategoryAnimeTab === "episodes") return animeEpisodesMarkup();
-  return animeOverviewMarkup();
-};
+const animeEpisodesPageRoot = () => document.querySelector("[data-anime-episodes-page-content]");
 
 function rememberAnimeModalContext() {
-  rememberModalContext("category-anime", "CATEGORY-ANIME", {
-    animeTab: activeCategoryAnimeTab,
+  rememberModalContext("category-anime-episodes", "CATEGORY-ANIME-EPISODES", {
+    animeTab: "episodes",
     animeRegion: activeAnimeRegion,
     animeSeason: activeAnimeSeason,
     animeQuery: activeAnimeEpisodeQuery
   });
 }
 
-function renderCategoryAnime(modalContentRoot = document) {
-  const animeTabs = modalContentRoot.querySelector("[data-category-anime-tabs-slot]");
-  const animePanel = modalContentRoot.querySelector("[data-category-anime-panel]");
-  const animeTitleActions = modalContentRoot.querySelector("[data-category-anime-title-actions]");
-  if (!animeTabs || !animePanel) return;
-  activeCategoryAnimeTab = normalizeCategoryAnimeTab(activeCategoryAnimeTab);
-  if (animeTitleActions) animeTitleActions.innerHTML = animeTitleActionsMarkup();
-  animeTabs.innerHTML = categoryAnimeTabsMarkup();
-  animePanel.dataset.categoryAnimePanel = activeCategoryAnimeTab;
-  animePanel.innerHTML = categoryAnimePanelMarkup();
-  modalContentRoot.querySelectorAll("[data-category-anime-tab]").forEach(button => button.addEventListener("click", event => {
-    activeCategoryAnimeTab = normalizeCategoryAnimeTab(event.currentTarget.dataset.categoryAnimeTab);
-    rememberAnimeModalContext();
-    renderCategoryAnime(modalContentRoot);
-  }));
+function bindAnimeEpisodesContent(root = document) {
+  const animePanel = root.querySelector(".category-anime-episodes");
+  if (!animePanel) return;
+  animePanel.dataset.categoryAnimePanel = "episodes";
   animePanel.querySelectorAll("[data-anime-season]").forEach(button => button.addEventListener("click", event => {
     activeAnimeSeason = normalizeAnimeSeason(event.currentTarget.dataset.animeSeason);
     event.currentTarget.closest(".catalog-dropdown")?.removeAttribute("open");
     rememberAnimeModalContext();
-    renderCategoryAnime(modalContentRoot);
+    renderAnimeEpisodesPage();
   }));
   const animeSearch = animePanel.querySelector("#animeEpisodeSearchInput");
   bindSearchInput(animeSearch, ".release-search-box", { onInput: searchInput => {
     activeAnimeEpisodeQuery = searchInput.value.trim();
     rememberAnimeModalContext();
-    renderCategoryAnime(modalContentRoot);
-    const nextInput = modalContentRoot.querySelector("#animeEpisodeSearchInput");
+    renderAnimeEpisodesPage();
+    const nextInput = animeEpisodesPageRoot()?.querySelector("#animeEpisodeSearchInput");
     nextInput?.focus();
     nextInput?.setSelectionRange(nextInput.value.length, nextInput.value.length);
   } });
@@ -11188,6 +11677,25 @@ function renderCategoryAnime(modalContentRoot = document) {
       openEpisode();
     });
   });
+}
+
+function renderAnimeEpisodesPage() {
+  const root = animeEpisodesPageRoot();
+  if (!root) return;
+  root.innerHTML = animeEpisodesMarkup({ page: true });
+  bindAnimeEpisodesContent(root);
+}
+
+function renderCategoryAnime(modalContentRoot = document) {
+  const animeTabs = modalContentRoot.querySelector("[data-category-anime-tabs-slot]");
+  const animePanel = modalContentRoot.querySelector("[data-category-anime-panel]");
+  const animeTitleActions = modalContentRoot.querySelector("[data-category-anime-title-actions]");
+  if (!animeTabs || !animePanel) return;
+  if (animeTitleActions) animeTitleActions.innerHTML = "";
+  animeTabs.innerHTML = "";
+  animePanel.dataset.categoryAnimePanel = "episodes";
+  animePanel.innerHTML = animeEpisodesMarkup();
+  bindAnimeEpisodesContent(animePanel);
 }
 
 function openAnimeEpisodeDetail(indexOrId, options = {}) {
@@ -11218,7 +11726,7 @@ function openAnimeEpisodeDetail(indexOrId, options = {}) {
     </div>
   </div>`;
   content.querySelector("[data-back-anime-episodes]")?.addEventListener("click", () => {
-    openCategoryAnimeDetail({
+    openCategoryAnimeEpisodesDetail({
       animeTab: "episodes",
       animeRegion: backAnimeRegion,
       animeSeason: backAnimeSeason,
@@ -11235,33 +11743,18 @@ function openAnimeEpisodeDetail(indexOrId, options = {}) {
   openModal();
 }
 
-function openCategoryAnimeDetail(options = {}) {
+function openCategoryAnimeEpisodesDetail(options = {}) {
   if (options.updateHash !== false && !applyingRoute) {
-    navigateToRoute({ type: "category-anime", options });
+    navigateToRoute({ type: "category-anime-episodes", options });
     return;
   }
-  activeCategoryAnimeTab = normalizeCategoryAnimeTab(options.animeTab || "episodes");
   activeAnimeRegion = animeDisplayRegion;
   activeAnimeSeason = normalizeAnimeSeason(options.animeSeason);
   activeAnimeEpisodeQuery = typeof options.animeQuery === "string" ? options.animeQuery : "";
   cleanupModelViewer();
-  const content = document.querySelector("#modalContent");
-  if (!content || !modal) return;
-  content.innerHTML = `<div class="modal-inner category-anime-modal">
-    <div class="modal-info category-anime-info">
-      <div class="overview-title-row">
-        <h3 class="category-title">애니메이션</h3>
-        <div class="category-anime-title-actions" data-category-anime-title-actions></div>
-      </div>
-      <div class="modal-body-block">
-        <div data-category-anime-tabs-slot></div>
-        <section class="category-anime-panel" data-category-anime-panel></section>
-      </div>
-    </div>
-  </div>`;
-  renderCategoryAnime(content);
+  activatePrimarySection("anime-episodes");
+  renderAnimeEpisodesPage();
   rememberAnimeModalContext();
-  openModal();
 }
 
 const openCategoryReleaseFromMenu = () => {
@@ -11281,8 +11774,20 @@ const openCategoryCatalogFromMenu = () => {
   navigateToRoute({ type: "catalog", scope: "all" });
   setMenuOpen(false);
 };
+const openCategoryAnimePage = ({ updateHash = true, replace = false } = {}) => {
+  if (updateHash && !applyingRoute) {
+    navigateToRoute({ type: "category-anime" }, { replace });
+    return;
+  }
+  activatePrimarySection("anime");
+  renderAnimePage();
+};
 const openCategoryAnimeFromMenu = () => {
   navigateToRoute({ type: "category-anime" });
+  setMenuOpen(false);
+};
+const openCategoryAnimeEpisodesFromMenu = () => {
+  navigateToRoute({ type: "category-anime-episodes" });
   setMenuOpen(false);
 };
 
@@ -11291,6 +11796,13 @@ document.querySelector(".overview-panel")?.addEventListener("click", event => {
   if (categoryReleaseButton) {
     event.preventDefault();
     openCategoryReleaseFromMenu();
+    return;
+  }
+
+  const categoryAnimeEpisodesButton = event.target.closest("[data-category-anime-episodes-open]");
+  if (categoryAnimeEpisodesButton) {
+    event.preventDefault();
+    openCategoryAnimeEpisodesFromMenu();
     return;
   }
 
@@ -11337,28 +11849,60 @@ const refreshActiveSearchResults = ({ deferHash = true } = {}) => {
 };
 let activeSearchResultsFrame = 0;
 let catalogSearchResultsFrame = 0;
+let animeSearchResultsFrame = 0;
+let activeSearchResultsTimer = 0;
+let catalogSearchResultsTimer = 0;
+let animeSearchResultsTimer = 0;
 const cancelScheduledSearchRenders = () => {
+  if (activeSearchResultsTimer) clearTimeout(activeSearchResultsTimer);
+  if (catalogSearchResultsTimer) clearTimeout(catalogSearchResultsTimer);
+  if (animeSearchResultsTimer) clearTimeout(animeSearchResultsTimer);
   if (activeSearchResultsFrame) cancelAnimationFrame(activeSearchResultsFrame);
   if (catalogSearchResultsFrame) cancelAnimationFrame(catalogSearchResultsFrame);
+  if (animeSearchResultsFrame) cancelAnimationFrame(animeSearchResultsFrame);
   if (searchHashUpdateTimer) clearTimeout(searchHashUpdateTimer);
+  activeSearchResultsTimer = 0;
+  catalogSearchResultsTimer = 0;
+  animeSearchResultsTimer = 0;
   activeSearchResultsFrame = 0;
   catalogSearchResultsFrame = 0;
+  animeSearchResultsFrame = 0;
   searchHashUpdateTimer = 0;
 };
 const scheduleActiveSearchResultsRefresh = () => {
+  if (activeSearchResultsTimer) clearTimeout(activeSearchResultsTimer);
   if (activeSearchResultsFrame) cancelAnimationFrame(activeSearchResultsFrame);
-  activeSearchResultsFrame = requestAnimationFrame(() => {
-    activeSearchResultsFrame = 0;
-    refreshActiveSearchResults();
-  });
+  activeSearchResultsTimer = setTimeout(() => {
+    activeSearchResultsTimer = 0;
+    activeSearchResultsFrame = requestAnimationFrame(() => {
+      activeSearchResultsFrame = 0;
+      refreshActiveSearchResults();
+    });
+  }, SEARCH_RENDER_DELAY);
 };
 const scheduleCatalogSearchResultsRefresh = () => {
+  if (catalogSearchResultsTimer) clearTimeout(catalogSearchResultsTimer);
   if (catalogSearchResultsFrame) cancelAnimationFrame(catalogSearchResultsFrame);
-  catalogSearchResultsFrame = requestAnimationFrame(() => {
-    catalogSearchResultsFrame = 0;
-    renderCatalogItems();
-    syncCatalogScopeState({ updateCount: false });
-  });
+  catalogSearchResultsTimer = setTimeout(() => {
+    catalogSearchResultsTimer = 0;
+    catalogSearchResultsFrame = requestAnimationFrame(() => {
+      catalogSearchResultsFrame = 0;
+      renderCatalogItems();
+      syncCatalogScopeState({ updateCount: false });
+      renderCatalogFilterChips();
+    });
+  }, SEARCH_RENDER_DELAY);
+};
+const scheduleAnimeSearchResultsRefresh = () => {
+  if (animeSearchResultsTimer) clearTimeout(animeSearchResultsTimer);
+  if (animeSearchResultsFrame) cancelAnimationFrame(animeSearchResultsFrame);
+  animeSearchResultsTimer = setTimeout(() => {
+    animeSearchResultsTimer = 0;
+    animeSearchResultsFrame = requestAnimationFrame(() => {
+      animeSearchResultsFrame = 0;
+      renderAnimePage();
+    });
+  }, SEARCH_RENDER_DELAY);
 };
 const openSearchResults = ({ replace = false, updateHash = true } = {}) => {
   if (updateHash && !applyingRoute) {
@@ -11420,6 +11964,10 @@ const refreshSearchPanel = () => {
   }
   if (panel === "catalog") {
     scheduleCatalogSearchResultsRefresh();
+    return;
+  }
+  if (panel === "anime") {
+    scheduleAnimeSearchResultsRefresh();
   }
 };
 bindSearchInput(globalSearch, ".search-box", {
@@ -11430,6 +11978,10 @@ bindSearchPreview(globalSearch, ".search-box");
 bindSearchInput(catalogSearch, ".catalog-search-box", {
   onInput: scheduleCatalogSearchResultsRefresh,
   onSubmit: scheduleCatalogSearchResultsRefresh
+});
+bindSearchInput(animeSearch, ".anime-search-box", {
+  onInput: scheduleAnimeSearchResultsRefresh,
+  onSubmit: scheduleAnimeSearchResultsRefresh
 });
 bindSearchInput(overviewSearch, ".overview-search", {
   onInput: () => {
@@ -11571,9 +12123,15 @@ const refreshCatalogState = () => {
   renderCatalogFilterChips();
 };
 const syncCatalogMenuScope = scope => {
-  const normalized = normalizeSearchScope(scope);
+  const normalized = scope === "release" || scope === "anime-episodes" ? scope : normalizeSearchScope(scope);
   document.querySelectorAll("[data-catalog-nav-scope]").forEach(button => {
     button.classList.toggle("active", button.dataset.catalogNavScope === normalized);
+  });
+  document.querySelectorAll("[data-category-release-open]").forEach(button => {
+    button.classList.toggle("active", normalized === "release");
+  });
+  document.querySelectorAll("[data-category-anime-episodes-open]").forEach(button => {
+    button.classList.toggle("active", normalized === "anime-episodes");
   });
   mobileDrawer?.querySelectorAll("[data-mobile-catalog-scope]").forEach(button => {
     button.classList.toggle("active", button.dataset.mobileCatalogScope === normalized);
@@ -11670,35 +12228,29 @@ const scheduleCatalogFilterModeCheck = () => {
   catalogFilterModeFrame = requestAnimationFrame(updateCatalogFilterMode);
 };
 const resetCatalogFilter = (scope, key) => {
-  if (scope === "catalog") {
-    if (key === "series") selectedCatalogSeries = null;
-    if (key === "kind") {
-      selectedCatalogKind = "";
-      selectedCatalogSubtype = null;
-      selectedCatalogStructure = null;
-      selectedCatalogBattleType = null;
-      selectedCatalogSpin = null;
+  if (scope !== "catalog" || !catalogSearch) return;
+  let removed = false;
+  const nextTerms = catalogSearchQueryTerms(catalogSearchQuery()).filter(term => {
+    if (!removed && term === key) {
+      removed = true;
+      return false;
     }
-    if (key === "subtype") selectedCatalogSubtype = null;
-    if (key === "system") selectedCatalogStructure = null;
-    if (key === "type") selectedCatalogBattleType = null;
-    if (key === "spin") selectedCatalogSpin = null;
-    refreshCatalogState();
-    return;
-  }
-  refreshCatalogControls();
+    return true;
+  });
+  setSearchInputValue(catalogSearch, nextTerms.join(" "));
+  refreshCatalogState();
 };
 const activeFilterChips = scope => {
-  const chips = [];
-  if (scope === "catalog") {
-    if (selectedCatalogSeries) chips.push({ scope, key: "series", label: itemSeriesLabel({ series: selectedCatalogSeries }) });
-    if (selectedCatalogKind) chips.push({ scope, key: "kind", label: typeLabels[selectedCatalogKind] || selectedCatalogKind });
-    if (selectedCatalogSubtype) chips.push({ scope, key: "subtype", label: typeLabels[selectedCatalogSubtype] || selectedCatalogSubtype });
-    if (selectedCatalogStructure) chips.push({ scope, key: "system", label: structureLabels[selectedCatalogStructure] || selectedCatalogStructure });
-    if (selectedCatalogBattleType) chips.push({ scope, key: "type", label: battleTypeLabel(selectedCatalogBattleType, selectedCatalogSeries || METAL_FIGHT_SERIES) });
-    if (selectedCatalogSpin) chips.push({ scope, key: "spin", label: spinLabel(selectedCatalogSpin) });
-  }
-  return chips;
+  if (scope !== "catalog") return [];
+  const seen = new Set();
+  return catalogSearchQueryTerms(catalogSearchQuery())
+    .map(term => {
+      const candidate = catalogAttributeChipForTerm(term);
+      if (!candidate || seen.has(candidate.key)) return null;
+      seen.add(candidate.key);
+      return { scope, key: term, label: candidate.label };
+    })
+    .filter(Boolean);
 };
 const catalogFilterChipMarkup = chip =>
   `<button type="button" class="ui-chip-button catalog-filter-chip" data-filter-chip-scope="${escapeAttributeValue(chip.scope)}" data-filter-chip-key="${escapeAttributeValue(chip.key)}">${escapeHtml(chip.label)}<span aria-hidden="true">×</span></button>`;
@@ -11719,28 +12271,102 @@ const renderCatalogFilterChips = () => {
   });
   syncCatalogFilterDisclosureState();
 };
-catalogFilterToggle?.addEventListener("click", event => {
+const catalogSearchHelpIsOpen = () => Boolean(catalogSearchHelpPopover && !catalogSearchHelpPopover.hidden);
+const positionCatalogSearchHelpPopover = () => {
+  if (!catalogSearchHelpButton || !catalogSearchHelpIsOpen()) return;
+  const margin = 12;
+  const gap = 8;
+  const buttonRect = catalogSearchHelpButton.getBoundingClientRect();
+  const popoverRect = catalogSearchHelpPopover.getBoundingClientRect();
+  let left = buttonRect.left;
+  let top = buttonRect.bottom + gap;
+  if (left + popoverRect.width > window.innerWidth - margin) left = window.innerWidth - margin - popoverRect.width;
+  if (top + popoverRect.height > window.innerHeight - margin) top = buttonRect.top - popoverRect.height - gap;
+  catalogSearchHelpPopover.style.left = `${Math.max(margin, left)}px`;
+  catalogSearchHelpPopover.style.top = `${Math.max(margin, top)}px`;
+};
+const animeSearchHelpIsOpen = () => Boolean(animeSearchHelpPopover && !animeSearchHelpPopover.hidden);
+const positionAnimeSearchHelpPopover = () => {
+  if (!animeSearchHelpButton || !animeSearchHelpIsOpen()) return;
+  const margin = 12;
+  const gap = 8;
+  const buttonRect = animeSearchHelpButton.getBoundingClientRect();
+  const popoverRect = animeSearchHelpPopover.getBoundingClientRect();
+  let left = buttonRect.left;
+  let top = buttonRect.bottom + gap;
+  if (left + popoverRect.width > window.innerWidth - margin) left = window.innerWidth - margin - popoverRect.width;
+  if (top + popoverRect.height > window.innerHeight - margin) top = buttonRect.top - popoverRect.height - gap;
+  animeSearchHelpPopover.style.left = `${Math.max(margin, left)}px`;
+  animeSearchHelpPopover.style.top = `${Math.max(margin, top)}px`;
+};
+const closeCatalogSearchHelpPopover = () => {
+  if (!catalogSearchHelpPopover) return;
+  catalogSearchHelpPopover.hidden = true;
+  catalogSearchHelpButton?.setAttribute("aria-expanded", "false");
+};
+const closeAnimeSearchHelpPopover = () => {
+  if (!animeSearchHelpPopover) return;
+  animeSearchHelpPopover.hidden = true;
+  animeSearchHelpButton?.setAttribute("aria-expanded", "false");
+};
+const openCatalogSearchHelpPopover = () => {
+  if (!catalogSearchHelpPopover) return;
+  catalogSearchHelpPopover.hidden = false;
+  catalogSearchHelpButton?.setAttribute("aria-expanded", "true");
+  positionCatalogSearchHelpPopover();
+};
+const openAnimeSearchHelpPopover = () => {
+  if (!animeSearchHelpPopover) return;
+  animeSearchHelpPopover.hidden = false;
+  animeSearchHelpButton?.setAttribute("aria-expanded", "true");
+  positionAnimeSearchHelpPopover();
+};
+const toggleCatalogSearchHelpPopover = () => {
+  if (catalogSearchHelpIsOpen()) closeCatalogSearchHelpPopover();
+  else openCatalogSearchHelpPopover();
+};
+const toggleAnimeSearchHelpPopover = () => {
+  if (animeSearchHelpIsOpen()) closeAnimeSearchHelpPopover();
+  else openAnimeSearchHelpPopover();
+};
+const anySearchHelpPopoverIsOpen = () => catalogSearchHelpIsOpen() || animeSearchHelpIsOpen();
+const closeSearchHelpPopovers = () => {
+  closeCatalogSearchHelpPopover();
+  closeAnimeSearchHelpPopover();
+};
+const positionSearchHelpPopovers = () => {
+  positionCatalogSearchHelpPopover();
+  positionAnimeSearchHelpPopover();
+};
+catalogSearchHelpButton?.addEventListener("click", event => {
   event.preventDefault();
-  setCatalogFiltersExpanded(!catalogFiltersExpanded);
+  event.stopPropagation();
+  toggleCatalogSearchHelpPopover();
 });
-document.querySelector("#catalogDropdownFilters")?.addEventListener("click", event => {
-  const button = event.target.closest("button[data-catalog-series],button[data-catalog-kind],button[data-catalog-subtype],button[data-catalog-system],button[data-catalog-type],button[data-catalog-spin]");
-  if (!button) return;
-  setDropdownOption(button);
-  if (button.hasAttribute("data-catalog-series")) selectedCatalogSeries = button.dataset.catalogSeries || null;
-  if (button.hasAttribute("data-catalog-kind")) {
-    selectedCatalogKind = button.dataset.catalogKind || "";
-    selectedCatalogSubtype = null;
-    selectedCatalogBattleType = null;
-    selectedCatalogSpin = null;
-    selectedCatalogStructure = null;
-    resetCatalogDependentDropdowns();
-  }
-  if (button.hasAttribute("data-catalog-subtype")) selectedCatalogSubtype = button.dataset.catalogSubtype || null;
-  if (button.hasAttribute("data-catalog-system")) selectedCatalogStructure = button.dataset.catalogSystem || null;
-  if (button.hasAttribute("data-catalog-type")) selectedCatalogBattleType = button.dataset.catalogType || null;
-  if (button.hasAttribute("data-catalog-spin")) selectedCatalogSpin = button.dataset.catalogSpin || null;
-  refreshCatalogState();
+catalogSearchHelpPopover?.addEventListener("click", event => {
+  event.stopPropagation();
+});
+animeSearchHelpButton?.addEventListener("click", event => {
+  event.preventDefault();
+  event.stopPropagation();
+  toggleAnimeSearchHelpPopover();
+});
+animeSearchHelpPopover?.addEventListener("click", event => {
+  event.stopPropagation();
+});
+document.querySelector(".catalog-panel")?.addEventListener("click", event => {
+  const categoryReleaseButton = event.target.closest("[data-category-release-open]");
+  if (!categoryReleaseButton) return;
+  event.preventDefault();
+  closeCatalogSearchHelpPopover();
+  openCategoryReleaseFromMenu();
+});
+document.querySelector(".anime-panel")?.addEventListener("click", event => {
+  const categoryAnimeEpisodesButton = event.target.closest("[data-category-anime-episodes-open]");
+  if (!categoryAnimeEpisodesButton) return;
+  event.preventDefault();
+  closeAnimeSearchHelpPopover();
+  openCategoryAnimeEpisodesFromMenu();
 });
 document.querySelectorAll(".catalog-filter-chips").forEach(root => root.addEventListener("click", event => {
   const chip = event.target.closest("[data-filter-chip-scope][data-filter-chip-key]");
@@ -11751,10 +12377,8 @@ document.querySelectorAll(".catalog-filter-chips").forEach(root => root.addEvent
   }
   if (reset) {
     if (reset.dataset.filterResetScope === "catalog") {
-      resetCatalogFilters();
-      catalogFiltersExpanded = false;
+      setSearchInputValue(catalogSearch, "");
     }
-    resetDropdowns(document.querySelector("#catalogDropdownFilters"));
     refreshCatalogState();
   }
 }));
@@ -11765,6 +12389,14 @@ document.querySelector("#catalogPagination")?.addEventListener("click", event =>
   currentCatalogPage = Number(pageButton.dataset.catalogPage) || 1;
   renderCatalogItems();
   scrollCatalogGridIntoView();
+});
+document.querySelector("#animePagination")?.addEventListener("click", event => {
+  const pageButton = event.target.closest("[data-anime-page]");
+  if (!pageButton || pageButton.disabled) return;
+  event.preventDefault();
+  currentAnimePage = Number(pageButton.dataset.animePage) || 1;
+  renderAnimePage();
+  scrollAnimeGridIntoView();
 });
 document.addEventListener("toggle", event => {
   const dropdown = event.target.closest?.(".catalog-dropdown");
@@ -11794,6 +12426,7 @@ const updateToTop = () => {
 };
 window.addEventListener("scroll", () => {
   updateToTop();
+  positionSearchHelpPopovers();
 }, { passive: true });
 toTop?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 updateToTop();
@@ -12189,7 +12822,7 @@ function openProductLineupDetail(id, options = {}) {
   const backButton = options.backProductId
     ? productBackButton({ backProductId: options.backProductId, backRelease: options.backRelease, region })
     : options.backRelease
-      ? modalBackButtonMarkup({ backRelease: true, region, label: "출시 정보로 돌아가기" })
+      ? modalBackButtonMarkup({ backRelease: true, region, label: "발매목록으로 돌아가기" })
       : "";
   const modalContentRoot = document.querySelector("#modalContent");
   modalContentRoot.innerHTML = `<div class="modal-inner">
@@ -12225,7 +12858,7 @@ function openProductDetail(id, options = {}) {
   const backButton = options.backProductId
     ? productBackButton({ backProductId: options.backProductId, backRelease: options.backRelease, region })
     : options.backRelease
-      ? modalBackButtonMarkup({ backRelease: true, region, label: "출시 정보로 돌아가기" })
+      ? modalBackButtonMarkup({ backRelease: true, region, label: "발매목록으로 돌아가기" })
       : "";
   const productStepSource = productItems.filter(entry => !entry.lineupOnly).sort((a, b) => productSerialNumber(a, stepRegion) - productSerialNumber(b, stepRegion));
   const stepItems = productStepSource.filter(entry => productReleasedInRegion(entry, stepRegion));
@@ -12312,16 +12945,18 @@ const activateToyPanel = section => {
   document.querySelectorAll(".toy-panel").forEach(panel => panel.classList.toggle("active", panel.dataset.toyPanel === section));
   document.body.classList.toggle("is-overview", section === "overview");
   document.body.classList.toggle("has-topbar", section !== "overview");
-  if (section === "catalog") closeAllSearchPreviews();
+  if (section !== "search") closeAllSearchPreviews();
 };
 const syncMobileDrawer = section => {
-  mobileDrawer?.querySelectorAll("[data-category-catalog-open], [data-category-release-open], [data-category-anime-open]").forEach(button => {
+  mobileDrawer?.querySelectorAll("[data-category-catalog-open], [data-category-release-open], [data-category-anime-open], [data-category-anime-episodes-open]").forEach(button => {
     const buttonSection = button.hasAttribute("data-category-catalog-open")
       ? "catalog"
       : button.hasAttribute("data-category-release-open")
         ? "release"
-        : "anime";
-    button.classList.toggle("active", buttonSection === section);
+        : button.hasAttribute("data-category-anime-episodes-open")
+          ? "anime-episodes"
+          : "anime";
+    button.classList.toggle("active", buttonSection === section || (buttonSection === "anime-episodes" && section === "anime-episodes"));
   });
 };
 const setMenuOpen = open => {
@@ -12332,28 +12967,47 @@ const setMenuOpen = open => {
   if (open) {
     const panel = activeToyPanel()?.dataset.toyPanel || "overview";
     syncMobileDrawer(panel === "catalog" ? "catalog" : panel);
-    syncCatalogMenuScope(panel === "catalog" ? selectedCatalogKind || "all" : "all");
+    syncCatalogMenuScope(panel === "catalog" ? selectedCatalogKind || "all" : panel === "release" || panel === "anime-episodes" ? panel : "all");
   }
+};
+const clearPrimaryScrollLocks = () => {
+  if (document.body.classList.contains("menu-open")) setMenuOpen(false);
+  if (modal?.open) return;
+  cancelModalViewportSync();
+  document.documentElement.classList.remove("is-modal-open");
+  document.body.classList.remove("is-modal-open");
+  document.body.style.removeProperty("--modal-lock-left");
+  document.body.style.removeProperty("--modal-lock-width");
+  document.body.style.removeProperty("--modal-viewport-width");
+  document.body.style.removeProperty("--modal-viewport-height");
+  document.body.style.removeProperty("--modal-scroll-lock-top");
 };
 const activatePrimarySection = section => {
   cancelScheduledSearchRenders();
+  clearPrimaryScrollLocks();
   if (section === "product") section = "overview";
   const isCatalogSection = ["catalog", "bey", "tools"].includes(section);
+  const navActiveSection = section === "release" ? "catalog" : section === "anime-episodes" ? "anime" : section;
   const catalogScope = section === "catalog" ? "all" : section;
+  const panelSection = isCatalogSection ? "catalog" : section;
   clearSearchInputs();
   document.querySelectorAll(".nav-link").forEach(link => {
-    const linkSection = link.hasAttribute("data-category-catalog-open") ? "catalog" : link.dataset.toySection;
-    link.classList.toggle("active", linkSection === (isCatalogSection ? "catalog" : section));
+    const linkSection = link.hasAttribute("data-category-catalog-open")
+      ? "catalog"
+      : link.hasAttribute("data-category-anime-open")
+        ? "anime"
+      : link.hasAttribute("data-category-release-open")
+        ? "release"
+        : link.dataset.toySection;
+    link.classList.toggle("active", linkSection === (isCatalogSection ? "catalog" : navActiveSection));
   });
   syncMobileDrawer(isCatalogSection ? "catalog" : section);
-  syncCatalogMenuScope(isCatalogSection ? catalogScope : "all");
-  const panelSection = isCatalogSection ? "catalog" : section;
+  syncCatalogMenuScope(panelSection === "release" || panelSection === "anime-episodes" ? panelSection : isCatalogSection ? catalogScope : "all");
   activateToyPanel(panelSection);
   if (section === "overview") setGlobalSearchScope("all");
   if (isCatalogSection) {
     catalogFiltersExpanded = false;
     resetCatalogFilters();
-    resetDropdowns(document.querySelector("#catalogDropdownFilters"));
     setCatalogScope(catalogScope);
     setGlobalSearchScope(catalogScope === "all" ? "all" : catalogScope);
   }
@@ -12361,6 +13015,7 @@ const activatePrimarySection = section => {
     renderCatalogItems();
     syncCatalogScopeState({ updateCount: false });
   }
+  if (panelSection === "anime") renderAnimePage();
 
   setMenuOpen(false);
 };
@@ -12395,11 +13050,11 @@ function applyRoute(route = parseRouteFromHash()) {
     } else if (normalizedRoute.type === "catalog") {
       openCategoryCatalog({ scope: normalizedRoute.scope || "all", updateHash: false });
     } else if (normalizedRoute.type === "category-release") {
-      const restoredOptions = restoredModalContext("CATEGORY-RELEASE")?.options || {};
-      openCategoryReleaseDetail({ ...restoredOptions, ...routeOptions(normalizedRoute) });
+      openCategoryReleaseDetail(routeOptions(normalizedRoute));
     } else if (normalizedRoute.type === "category-anime") {
-      const restoredOptions = restoredModalContext("CATEGORY-ANIME")?.options || {};
-      openCategoryAnimeDetail({ ...restoredOptions, ...routeOptions(normalizedRoute) });
+      openCategoryAnimePage({ updateHash: false });
+    } else if (normalizedRoute.type === "category-anime-episodes") {
+      openCategoryAnimeEpisodesDetail(routeOptions(normalizedRoute));
     } else if (normalizedRoute.type === "detail" && normalizedRoute.id) {
       const hashId = normalizedRoute.id;
       const restoredContext = restoredModalContext(hashId);
@@ -12435,6 +13090,16 @@ document.querySelectorAll(".nav-link").forEach(button => button.addEventListener
     return;
   }
 }));
+document.querySelectorAll(".topbar .nav-filter-menu [data-category-release-open]").forEach(button => button.addEventListener("click", event => {
+  event.preventDefault();
+  event.stopPropagation();
+  openCategoryReleaseFromMenu();
+}));
+document.querySelectorAll(".topbar [data-category-anime-episodes-open]").forEach(button => button.addEventListener("click", event => {
+  event.preventDefault();
+  event.stopPropagation();
+  openCategoryAnimeEpisodesFromMenu();
+}));
 document.querySelector(".topbar > .brand")?.addEventListener("click", event => {
   event.preventDefault();
   navigateToRoute({ type: "overview" }, { replace: true });
@@ -12450,6 +13115,7 @@ mobileDrawerClose?.addEventListener("click", event => {
 });
 mobileDrawer?.addEventListener("click", event => {
   const categoryReleaseButton = event.target.closest("[data-category-release-open]");
+  const categoryAnimeEpisodesButton = event.target.closest("[data-category-anime-episodes-open]");
   const categoryAnimeButton = event.target.closest("[data-category-anime-open]");
   const categoryCatalogButton = event.target.closest("[data-category-catalog-open]");
   const catalogScopeButton = event.target.closest("[data-mobile-catalog-scope]");
@@ -12457,6 +13123,12 @@ mobileDrawer?.addEventListener("click", event => {
   if (categoryReleaseButton) {
     event.preventDefault();
     openCategoryReleaseFromMenu();
+    return;
+  }
+
+  if (categoryAnimeEpisodesButton) {
+    event.preventDefault();
+    openCategoryAnimeEpisodesFromMenu();
     return;
   }
 
@@ -12480,6 +13152,7 @@ mobileDrawer?.addEventListener("click", event => {
 window.addEventListener("resize", () => {
   if (window.matchMedia("(min-width: 64rem)").matches) setMenuOpen(false);
   scheduleCatalogFilterModeCheck();
+  positionSearchHelpPopovers();
   if (modal?.open) scheduleModalViewportSync();
   if (!activeModalTagButton) return;
   if (!modal?.open || !document.body.contains(activeModalTagButton)) {
@@ -12490,9 +13163,16 @@ window.addEventListener("resize", () => {
 });
 window.visualViewport?.addEventListener("resize", scheduleModalViewportSync);
 window.visualViewport?.addEventListener("scroll", scheduleModalViewportSync);
+window.visualViewport?.addEventListener("resize", positionSearchHelpPopovers);
+window.visualViewport?.addEventListener("scroll", positionSearchHelpPopovers);
 document.addEventListener("keydown", event => {
   if (event.key === "Escape" && activeSearchPreview) {
     closeAllSearchPreviews();
+    event.preventDefault();
+    return;
+  }
+  if (event.key === "Escape" && anySearchHelpPopoverIsOpen()) {
+    closeSearchHelpPopovers();
     event.preventDefault();
     return;
   }
@@ -12504,6 +13184,8 @@ document.addEventListener("keydown", event => {
   if (event.key === "Escape" && document.body.classList.contains("menu-open")) setMenuOpen(false);
 });
 document.addEventListener("click", event => {
+  if (catalogSearchHelpIsOpen() && !event.target.closest("#catalogSearchHelpButton") && !event.target.closest("#catalogSearchHelpPopover")) closeCatalogSearchHelpPopover();
+  if (animeSearchHelpIsOpen() && !event.target.closest("#animeSearchHelpButton") && !event.target.closest("#animeSearchHelpPopover")) closeAnimeSearchHelpPopover();
   if (activeModalTagButton && !event.target.closest(".modal-tag-info") && !event.target.closest(".modal-tag-popover")) closeModalTagPopover();
   if (!event.target.closest(".topbar") && !event.target.closest(".mobile-drawer")) setMenuOpen(false);
 });
@@ -12512,7 +13194,6 @@ const catalogFilterResizeObserver = "ResizeObserver" in window ? new ResizeObser
 if (catalogFilterResizeObserver) {
   const catalogPanel = catalogPanelElement();
   if (catalogPanel) catalogFilterResizeObserver.observe(catalogPanel);
-  document.querySelectorAll("#catalogDropdownFilters").forEach(root => catalogFilterResizeObserver.observe(root));
 }
 
 renderCatalogStaticFilterOptions();
