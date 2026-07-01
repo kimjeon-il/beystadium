@@ -2247,12 +2247,13 @@ dialog[open] .modal-art {
   align-self: start;
 }
 
-.product-modal-info .product-meta-slot {
+.product-modal-info .product-empty-info-slot {
   grid-row: 3;
-  display: grid;
+  width: var(--modal-body-width);
+  height: 34px;
   margin: 0 auto;
-  visibility: hidden !important;
-  pointer-events: none !important;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 dialog[open] .modal-info.bey-modal-info .modal-name,
