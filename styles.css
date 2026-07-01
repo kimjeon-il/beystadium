@@ -2064,7 +2064,7 @@ dialog[open] .category-release-info .release-table-section {
 
   .release-date-compact,
   .anime-air-date-compact {
-    display: inline;
+    display: inline !important;
   }
 
   .anime-episode-table {

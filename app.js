@@ -615,7 +615,7 @@ const partItems = [
   { id: "DUALLAYER-XENO-XCALIBUR", series: "burst", type: "duallayer", name: "제노 엑스칼리버", en: "Xeno Xcalibur", battleType: "attack", tags: [], desc: "" },
   { id: "DUALLAYER-YAGER-YGGDRASIL", series: "burst", type: "duallayer", name: "예거 위그드라실", en: "Yager Yggdrasil", battleType: "stamina", tags: [], desc: "" },
   { id: "DUALLAYER-JAIL-JORMUNGAND", series: "burst", type: "duallayer", name: "제일 요르문간드", en: "Jail Jormungand", battleType: "stamina", tags: [], desc: "" },
-  { id: "DUALLAYER-UNLOCK-UNICORN", series: "burst", type: "duallayer", name: "언록 유니콘", en: "Unlock Unicorn", battleType: "defense", tags: [], desc: "" },
+  { id: "DUALLAYER-UNLOCK-UNICORN", series: "burst", type: "duallayer", name: "언락 유니콘", en: "Unlock Unicorn", battleType: "defense", tags: [], desc: "" },
   { id: "DUALLAYER-NOVA-NEPTUNE", series: "burst", type: "duallayer", name: "노바 넵튠", en: "Nova Neptune", battleType: "balance", tags: [], desc: "" },
   { id: "DUALLAYER-ZILLION-ZEUS", series: "burst", type: "duallayer", name: "질리언 제우스", en: "Zillion Zeus", battleType: "stamina", tags: [], desc: "" },
   { id: "DUALLAYER-QUAD-QUETZALCOATL", series: "burst", type: "duallayer", name: "쿼드 케찰콰틀", en: "Quad Quetzalcoatl", battleType: "defense", tags: [], desc: "" },
@@ -638,7 +638,7 @@ const partItems = [
   { id: "GODLAYER-GALAXY-ZEUS", series: "burst", type: "godlayer", name: "갤럭시 제우스", en: "Galaxy Zeus", battleType: "stamina", tags: [], desc: "" },
   { id: "GODLAYER-LEGEND-SPRIGGAN", series: "burst", type: "godlayer", name: "레전드 스프리건", en: "Legend Spriggan", battleType: "balance", tags: [], desc: "" },
   { id: "GODLAYER-MAXIMUM-GARUDA", series: "burst", type: "godlayer", name: "맥시멈 가루다", en: "Maximum Garuda", battleType: "stamina", tags: [], desc: "" },
-  { id: "GODLAYER-BLAST-JINNIUS", series: "burst", type: "godlayer", name: "블래스트 지니우스", en: "Blast Jinnius", battleType: "defense", tags: [], desc: "" },
+  { id: "GODLAYER-BLAST-JINNIUS", series: "burst", type: "godlayer", name: "블라스트 지니어스", en: "Blast Jinnius", battleType: "defense", tags: [], desc: "" },
   { id: "GODLAYER-SIEG-XCALIBUR", series: "burst", type: "godlayer", name: "지크 엑스칼리버", en: "Sieg Xcalibur", battleType: "attack", tags: [], desc: "" },
   { id: "GODLAYER-SHELTER-REGULUS", series: "burst", type: "godlayer", name: "쉘터 레굴루스", en: "Shelter Regulus", battleType: "balance", tags: [], desc: "" },
   { id: "GODLAYER-STRIKE-GOD-VALKYRIE", series: "burst", type: "godlayer", name: "스트라이크 갓 발키리", en: "Strike God Valkyrie", battleType: "attack", tags: [], desc: "" },
@@ -659,7 +659,7 @@ const partItems = [
   { id: "CHOZLAYER-EMPEROR-FORNEUS", series: "burst", type: "chozlayer", name: "엠퍼러 포르네우스", en: "Emperor Forneus", battleType: "defense", tags: [], desc: "" },
   { id: "CHOZLAYER-BLOODY-LONGINUS", series: "burst", type: "chozlayer", name: "블러디 롱기누스", en: "Bloody Longinus", battleType: "attack", tags: [], desc: "" },
   { id: "CHOZLAYER-CRASH-RAGNARUK", series: "burst", type: "chozlayer", name: "크래시 라그나로크", en: "Crash Ragnaruk", battleType: "stamina", tags: [], desc: "" },
-  { id: "CHOZLAYER-HELL-SALAMANDER", series: "burst", type: "chozlayer", name: "헬 샐러맨더", en: "Hell Salamander", battleType: "balance", tags: [], desc: "" },
+  { id: "CHOZLAYER-HELL-SALAMANDER", series: "burst", type: "chozlayer", name: "헬 살라맨더", en: "Hell Salamander", battleType: "balance", tags: [], desc: "" },
   { id: "CHOZLAYER-ARCHER-HERCULES", series: "burst", type: "chozlayer", name: "아처 헤라클레스", en: "Archer Hercules", battleType: "stamina", tags: [], desc: "" },
   { id: "CHOZLAYER-REVIVE-PHOENIX", series: "burst", type: "chozlayer", name: "리바이브 피닉스", en: "Revive Phoenix", battleType: "defense", tags: [], desc: "" },
   { id: "CHOZLAYER-VICE-LEOPARD", series: "burst", type: "chozlayer", name: "바이스 레오파드", en: "Vice Leopard", battleType: "attack", tags: [], desc: "" },
@@ -759,7 +759,7 @@ const partItems = [
   { id: "SPARKINGRING-MIRAGE", series: "burst", type: "sparkingring", name: "미라지", en: "Mirage", battleType: "stamina", tags: [], desc: "" },
   { id: "SPARKINGRING-RAGE", series: "burst", type: "sparkingring", name: "레이지", en: "Rage", battleType: "attack", tags: [], desc: "" },
   { id: "SPARKINGRING-FIRST", series: "burst", type: "sparkingring", name: "퍼스트", en: "First", battleType: "defense", tags: [], desc: "" },
-  { id: "SPARKINGRING-VARIANT", series: "burst", type: "sparkingring", name: "바리언트", en: "Variant", battleType: "defense", tags: [], desc: "" },
+  { id: "SPARKINGRING-VARIANT", series: "burst", type: "sparkingring", name: "베어리언트", en: "Variant", battleType: "defense", tags: [], desc: "" },
   { id: "SPARKINGRING-DEATH", series: "burst", type: "sparkingring", name: "데스", en: "Death", battleType: "balance", tags: [], desc: "" },
   { id: "SPARKINGRING-ABYSS", series: "burst", type: "sparkingring", name: "어비스", en: "Abyss", battleType: "balance", tags: [], desc: "" },
   { id: "SPARKINGRING-TEMPEST", series: "burst", type: "sparkingring", name: "템페스트", en: "Tempest", battleType: "attack", tags: [], desc: "" },
@@ -815,7 +815,7 @@ const partItems = [
   { id: "DBBLADE-MAGMA", series: "burst", type: "dbblade", name: "마그마", en: "Magma", battleType: "balance", tags: [], desc: "" },
   { id: "DBBLADE-PROMINENCE", series: "burst", type: "dbblade", name: "프로미넌스", en: "Prominence", battleType: "defense", tags: [], desc: "" },
   { id: "DBBLADE-DANGEROUS", series: "burst", type: "dbblade", name: "데인저러스", en: "Dangerous", battleType: "attack", tags: [], desc: "" },
-  { id: "DBBLADE-ULTIMATE", series: "burst", type: "dbblade", name: "얼티메이트", en: "Ultimate", battleType: "attack", tags: [], desc: "" },
+  { id: "DBBLADE-ULTIMATE", series: "burst", type: "dbblade", name: "얼티밋", en: "Ultimate", battleType: "attack", tags: [], desc: "" },
   { id: "DBBLADE-DIVINE", series: "burst", type: "dbblade", name: "디바인", en: "Divine", battleType: "attack", tags: [], desc: "" },
   { id: "DBBLADE-CHAIN", series: "burst", type: "dbblade", name: "체인", en: "Chain", battleType: "defense", tags: [], desc: "" },
   { id: "DBBLADE-GATLING", series: "burst", type: "dbblade", name: "개틀링", en: "Gatling", battleType: "attack", tags: [], desc: "" },
@@ -1203,7 +1203,7 @@ let resolvedCatalogItemType = "all";
 let catalogItemTypeGroup = null;
 let resolvedCatalogStructure = null;
 let activeReleaseRegion = "kr";
-let activeReleaseSeries = "metal fight";
+let activeReleaseSeries = "";
 let activeReleaseSort = { key: "release", direction: "asc" };
 let activeReleaseQuery = "";
 let selectedCatalogSeries = null;
@@ -1316,6 +1316,647 @@ const renderCatalogStaticFilterOptions = () => {
     });
   });
 };
+
+const burstJapanProductSource = `
+B-01	디럭스스타터 발키리.W.A	2015-07-18	 ¥2,376 
+B-02	디럭스스타터 스프리건.S.F	2015-07-18	 ¥2,376 
+B-03	스타터 라그나로크.H.S	2015-07-18	 ¥1,296 
+B-04	스타터 케르베우스.C.D	2015-07-18	 ¥1,296 
+B-05	부스터 스프리건.H.D	2015-07-18	 ¥864 
+B-06	부스터 라그나로크.C.A	2015-07-18	 ¥864 
+B-07	부스터 케르베우스.W.F	2015-07-18	 ¥864 
+B-08	베이블레이드 스타트 대시 세트	2015-07-18	 ¥4,320 
+B-09	베이스타디움 스탠다드타입	2015-07-18	 ¥1,620 
+B-10	베이로거	2015-07-18	 ¥1,620 
+B-11	런처그립	2015-07-18	 ¥648 
+B-12	스타터 데스사이저.O.V	2015-08-08	 ¥1,296 
+B-13	부스터 발키리.S.S	2015-08-08	 ¥864 
+B-00α	부스터 아마테리오스.α.α	2015-08-21	 ¥- 
+B-14	스타터 와이번.A.M	2015-09-19	 ¥1,512 
+B-15	랜덤부스터 Vol.1 트라이던트.H.C	2015-09-19	 ¥864 
+B-16	베이런처	2015-09-19	 ¥756 
+B-17	부스터 오딘.C.B	2015-10-17	 ¥864 
+B-18	베이블레이드 VS 대전 세트	2015-10-17	 ¥5,400 
+B-19	버스트 베이스타디움	2015-10-17	 ¥2,160 
+B-20	부스터 호루스드.S.E	2015-11-14	 ¥864 
+B-21	베이블레이드 개조 세트 어택&밸런스	2015-11-14	 ¥3,240 
+B-22	베이블레이드 개조 세트 디펜스&스태미나	2015-11-14	 ¥3,240 
+B-29	스타터 발키리.W.A 엔트리패키지	2015-12-05	 ¥993 
+B-30	스타터 스프리건.S.F 엔트리패키지	2015-12-05	 ¥993 
+B-23	스타터 엑스칼리버.F.X	2015-12-26	 ¥1,512 
+B-24	랜덤부스터 Vol.2 이빌아이.W.N	2015-12-26	 ¥864 
+B-25	앵글그립	2015-12-26	 ¥540 
+B-26	러버어시스트	2015-12-26	 ¥540 
+B-27	wbba. 오피셜 블레이더박스	2015-12-26	 ¥2,484 
+B-28	부스터 넵튠.A.Z	2016-01-23	 ¥864 
+B-31	스타터 이그드라실.R.G	2016-02-20	 ¥1,296 
+B-32	슛서포트러버	2016-02-20	 ¥540 
+B-33	베이스타디움 스탠다드타입(블랙)	2016-02-20	 ¥1,620 
+B-34	스타터 빅토리 발키리.B.V	2016-04-02	 ¥1,404 
+B-35	스타터 스톰 스프리건.K.U	2016-04-02	 ¥1,404 
+B-36	부스터 라이징 라그나로크.G.R	2016-04-02	 ¥972 
+B-37	부스터 카이저 케르베우스.L.P	2016-04-02	 ¥972 
+B-38	베이블레이드 버스트 엔트리 세트	2016-04-02	 ¥4,428 
+B-39	베이런처(화이트)	2016-04-02	 ¥756 
+B-40	런처그립(블랙)	2016-04-02	 ¥648 
+B-41	스타터 와일드 와이번.V.O	2016-04-29	 ¥1,404 
+B-42	부스터 다크 데스사이저.F.J	2016-04-29	 ¥972 
+B-43	그립러버	2016-04-29	 ¥540 
+B-44	부스터 홀리 호루스드.U.C	2016-05-28	 ¥972 
+B-45	베이블레이드 라이트런처&롱와인더	2016-05-28	 ¥648 
+B-46	부스터 오벨리스크 오딘.T.X	2016-06-18	 ¥594 
+B-47	웨이트댐퍼	2016-06-18	 ¥540 
+B-00β	부스터 발뒤르.β.β	2016-06-25	 ¥- 
+B-48	스타터 제노 엑스칼리버.M.I	2016-07-02	 ¥1,620  
+B-49	랜덤부스터 Vol.3 예거 이그드라실.G.Y	2016-07-16	 ¥972 
+B-50	버스트 베이스타디움 와이드타입	2016-07-16	 ¥2,700 
+B-51	wbba. 핑거밴드	2016-07-16	 ¥648 
+B-52	베이미상가 메이커	2016-07-16	 ¥1,944 
+B-53	베이미상가 빅토리 발키리 Ver.	2016-07-16	 ¥410 
+B-54	베이미상가 스톰 스프리건 Ver.	2016-07-16	 ¥410 
+B-55	베이미상가 스트링 세트	2016-07-16	 ¥972 
+B-56	부스터 언락 유니콘.D.N	2016-08-06	 ¥972 
+B-57	트리플 부스터 세트	2016-08-06	 ¥2,700 
+B-58	카라비나그립	2016-08-06	 ¥648 
+B-59	스타터 질리언 제우스.I.W	2016-09-17	 ¥1,404 
+B-60	그립웨이트	2016-09-17	 ¥648 
+B-61	랜덤부스터 Vol.4 쿼드 케찰콰틀.J.P	2016-10-22	 ¥972 
+B-62	듀얼사이클론 베이스타디움 DX 세트	2016-10-22	 ¥6,480 
+B-63	부스터 비스트 베히모스.H.H	2016-11-12	 ¥972 
+B-64	베이블레이드 초개조 세트 헤비 Ver.	2016-11-12	 ¥3,780 
+B-65	베이블레이드 초개조 세트 스피드 Ver.	2016-11-12	 ¥3,780 
+B-66	스타터 로스트 롱기누스.N.Sp	2016-12-28	 ¥1,620 
+B-67	랜덤부스터 Vol.5 기간트 가이아.Q.F	2016-12-28	 ¥972 
+B-68	블레이더즈 소프트케이스	2016-12-28	 ¥3,240 
+B-69	부스터 제일 요르문간드.I.Cy	2017-01-21	 ¥972 
+B-70	소드런처(블루)	2017-01-21	 ¥702 
+B-71	부스터 애시드 아누비스.Y.O	2017-02-25	 ¥972 
+B-72	파워트리거	2017-02-25	 ¥540 
+B-73	스타터 갓 발키리.6V.Rb	2017-03-18	 ¥1,512 
+B-74	스타터 크라이스 사탄.2G.Lp	2017-03-18	 ¥1,404 
+B-75	부스터 블레이즈 라그나로크.4C.Fl	2017-03-18	 ¥972 
+B-76	베이블레이드 갓 엔트리 세트	2017-03-18	 ¥4,428 
+B-77	베이로거 플러스	2017-03-18	 ¥1,944 
+B-78	베이런처(블랙)	2017-03-18	 ¥756 
+B-79	스타터 드레인 파브닐.8.Nt	2017-04-29	 ¥1,404 
+B-80	랜덤부스터 Vol.6 토네이도 와이번.4G.At	2017-04-29	 ¥972 
+B-81	라이트런처 L	2017-04-29	 ¥540 
+B-82	부스터 알터 크로노스.6M.T	2017-05-27	 ¥972 
+B-83	너클그립	2017-05-27	 ¥648 
+B-84	3on3 배틀케이스	2017-05-27	 ¥540 
+B-85	부스터 킬러 데스사이저.2V.Hn	2017-07-01	 ¥972 
+B-86	스타터 레전드 스프리건.7.Mr	2017-07-01	 ¥1,620 
+B-87	랜덤부스터 Vol.7 맥시멈 가루다.8F.Fl	2017-07-15	 ¥972 
+B-88	베이런처 LR	2017-08-11	 ¥864 
+B-89	부스터 블라스트 지니어스.5G.Gr	2017-08-11	 ¥972 
+B-90	3on3 배틀 부스터 세트	2017-08-11	 ¥2,700 
+B-91	메탈갓칩	2017-08-11	 ¥540 
+B-92	스타터 지크 엑스칼리버.1.Ir	2017-09-16	 ¥1,512 
+B-93	디지털소드런처(블루 Ver.)	2017-09-16	 ¥3,240 
+B-94	디지털소드런처(레드 Ver.)	2017-09-16	 ¥3,240 
+B-95	랜덤부스터 Vol.8 셸터 레굴루스.5S.Tw	2017-10-21	 ¥972 
+B-96	무한 베이스타디움 DX 세트	2017-10-21	 ¥6,912 
+B-97	스타터 나이트메어 롱기누스.Ds	2017-11-11	 ¥1,512 
+B-98	갓 개조 세트	2017-11-11	 ¥4,968 
+B-99	베이런처L	2017-11-11	 ¥756 
+B-100	스타터 스프리건 레퀴엠.0.Zt	2017-12-28	 ¥1,728 
+B-101	랜덤부스터 Vol.9 비트 쿠쿨칸.7U.Hn	2017-12-28	 ¥972 
+B-102	부스터 트윈 네메시스.3H.Ul	2018-01-27	 ¥972 
+B-103	부스터 스크류 트라이던트.8B.Wd	2018-02-17	 ¥972 
+B-104	스타터 위닝 발키리.12.Vl	2018-03-17	 ¥1,512 
+B-105	스타터 제트 아킬레스.11.Xt	2018-03-17	 ¥1,512 
+B-106	부스터 엠퍼러 포르네우스.0.Yr	2018-03-17	 ¥993 
+B-107	베이블레이드 초Z 대전 세트	2018-03-17	 ¥4,536 
+B-108	베이런처(레드)	2018-03-17	 ¥756 
+B-109	런처그립(건메탈)	2018-03-17	 ¥648 
+B-110	스타터 블러디 롱기누스.13.Jl	2018-04-28	 ¥1,512 
+B-111	랜덤부스터 Vol.10 크래시 라그나로크.11R.Wd	2018-04-28	 ¥993 
+B-112	롱라이트런처LR	2018-04-28	 ¥756 
+B-113	부스터 헬 샐러맨더.12.Op	2018-05-26	 ¥993 
+B-114	그립웨이트(블랙)	2018-05-26	 ¥648 
+B-115	부스터 아처 헤라클레스.13.Et	2018-06-23	 ¥993 
+B-116	그립러버(바이올렛)	2018-06-23	 ¥540 
+B-117	스타터 리바이브 피닉스.10.Fr	2018-07-07	 ¥1,782 
+B-118	랜덤부스터 Vol.11 바이스 레오파드.12L.Ds	2018-07-14	 ¥993 
+B-119	베이런처LR(블루)	2018-07-14	 ¥864 
+B-120	스타터 버스터 엑스칼리버.1'.Sw	2018-08-11	 ¥1,512 
+B-121	초Z 트리플 부스터 세트	2018-08-11	 ¥2,808 
+B-122	스타터 가이스트 파브닐.8'.Ab	2018-09-22	 ¥1,566 
+B-123	롱베이런처 세트	2018-09-22	 ¥2,160 
+B-124	롱베이런처L 세트	2018-09-22	 ¥2,160 
+B-125	랜덤부스터 Vol.12 데드 하데스.11T.Z'	2018-10-20	 ¥993 
+B-126	초Z 무쌍 베이스타디움	2018-10-20	 ¥8,100 
+B-127	스타터 초Z 발키리.Z.Ev	2018-11-17	 ¥1,782 
+B-128	초Z 개조 세트	2018-11-17	 ¥5,184 
+B-129	스타터 초Z 아킬레스.00.Dm	2018-12-27	 ¥2,160 
+B-130	랜덤부스터 Vol.13 에어 나이트.12E.Et	2018-12-27	 ¥993 
+B-131	부스터 데드 피닉스.0.At	2019-01-26	 ¥1,080 
+B-132	랜덤부스터 Vol.14 드래이거 팽.0.Xt	2019-02-16	 ¥993 
+B-133	DX스타터 에이스 드래곤.St.Ch 斬	2019-03-16	 ¥2,700 
+B-134	부스터 슬래시 발키리.Bl.Pw 烈	2019-03-16	 ¥1,296 
+B-135	부스터 무신 아수라.Hr.Kp 天	2019-03-16	 ¥1,296 
+B-136	베이블레이드 진검 대전 세트	2019-03-16	 ¥4,968 
+B-137	롱베이런처(클리어블루)	2019-03-16	 ¥810 
+B-138	롱라이트런처(화이트)	2019-03-16	 ¥648 
+B-139	스타터 위저드 파브닐.Rt.Rs 閃	2019-04-27	 ¥1,728 
+B-140	랜덤부스터 Vol.15	2019-04-27	 ¥1,080 
+B-141	롱베이런처L(클리어블랙)	2019-04-27	 ¥810 
+B-142	부스터 저지먼트 조커.00T.Tr 斬	2019-05-25	 ¥1,296 
+B-143	랜덤레이어 Vol.1 드레드 바하무트 天	2019-05-25	 ¥540 
+B-144	부스터 츠바이 롱기누스.Dr.Sp' 滅	2019-06-22	 ¥1,296 
+B-145	DX스타터 베놈 디아볼로스.Vn.Bl	2019-07-06	 ¥2,700 
+B-146	랜덤부스터 Vol.16	2019-07-20	 ¥1,080 
+B-147	랜덤레이어 Vol.2 포이즌 히드라 斬	2019-07-20	 ¥540 
+B-148	부스터 헤븐 페가수스.10P.Lw 閃	2019-08-10	 ¥1,296 
+B-149	진검 트리플 부스터 세트	2019-08-10	 ¥3,456 
+B-150	부스터 유니온 아킬레스.Cn.Xt+ 烈	2019-09-21	 ¥1,296 
+B-151	랜덤부스터 Vol.17	2019-10-19	 ¥1,080 
+B-152	랜덤레이어 Vol.3 넉아웃 오딘 幻	2019-10-19	 ¥540 
+B-153	진검 개조 세트	2019-10-19	 ¥6,458 
+B-154	DX부스터 임페리얼 드래곤.Ig'	2019-11-16	 ¥3,080 
+B-155	스타터 마스터 디아볼로스.Gn	2019-12-26	 ¥2,200 
+B-156	랜덤부스터 Vol.18	2019-12-26	 ¥1,100 
+B-157	부스터 빅뱅 제네시스.0.Ym	2020-01-25	 ¥1,320 
+B-158	랜덤부스터 Vol.19	2020-02-22	 ¥660 
+B-159	부스터 슈퍼 하이페리온.Xc 1A	2020-03-28	 ¥1,397 
+B-160	부스터 킹 헬리오스.Zn 1B	2020-03-28	 ¥1,397 
+B-161	부스터 글라이드 라그나로크.Wh.R 1S	2020-03-28	 ¥1,397 
+B-162	베이블레이드 슈퍼킹 대전 세트	2020-03-28	 ¥5,170 
+B-163	부스터 브레이브 발키리.Ev' 2A	2020-04-25	 ¥1,397 
+B-164	랜덤부스터 Vol.20	2020-04-25	 ¥1,100 
+B-165	슈퍼킹 베이런처	2020-03-28	 ¥990 
+B-166	슈퍼킹 베이런처L	2020-04-25	 ¥990 
+B-167	부스터 미라지 파브닐.Nt 2S	2020-05-30	 ¥1,397 
+B-168	부스터 레이지 롱기누스.Ds' 3A	2020-06-27	 ¥1,397 
+B-169	스타터 베리언트 루시퍼.Mb 2D	2020-07-18	 ¥2,420 
+B-170	랜덤부스터 Vol.21	2020-07-23	 ¥1,100 
+B-171	슈퍼킹 트리플 부스터 세트	2020-08-08	 ¥4,180 
+B-172	부스터 월드 스프리건.U' 2B	2020-09-19	 ¥1,507 
+B-173	랜덤부스터 Vol.22	2020-10-24	 ¥1,188 
+B-174	베이블레이드 한계돌파 DX 세트	2020-11-14	 ¥7,480 
+B-175	부스터 루시퍼 디엔드.皇.Dr	2020-11-28	 ¥1,727 
+B-176	랜덤부스터 Vol.23	2020-12-26	 ¥1,188 
+B-177	부스터 제트 와이번.Ar.Js 1D	2021-01-23	 ¥1,397 
+B-178	랜덤부스터 Vol.24	2021-02-27	 ¥1,188 
+B-179	부스터 데스 솔로몬.MF 2B	2021-03-20	 ¥1,507 
+B-180	부스터 다이너마이트 벨리알.Nx.Vn-2	2021-04-24	 ¥1,507 
+B-181	랜덤부스터 Vol.25	2021-04-24	 ¥1,232 
+B-182	베이블레이드 다이너마이트배틀 엔트리 세트	2021-04-24	 ¥4,950 
+B-183	베이스타디움 DB 스탠다드타입	2021-04-24	 ¥1,980 
+B-184	커스텀베이런처LR	2021-04-24	 ¥990 
+B-185	부스터 배니시 파브닐.Tp.Kc-3	2021-05-29	 ¥1,507 
+B-186	랜덤부스터 Vol.26	2021-06-26	 ¥1,232 
+B-187	스타터 세이비어 발키리.Sh-7	2021-07-17	 ¥2,640 
+B-188	아스트랄 스프리건 개조 세트	2021-08-07	 ¥3,960 
+B-189	부스터 길티 롱기누스.Kr.MDs-2	2021-09-11	 ¥1,650 
+B-190	베이블레이드 다이너마이트배틀 올인원 세트	2021-10-02	 ¥6,050 
+B-191	오버드라이브 스페셜 스타터 세트	2021-10-09	 ¥5,940 
+B-192	부스터 그레이티스트 라파엘.Ov.HXt+'	2021-11-13	 ¥1,760 
+B-193	부스터 얼티밋 발키리.Lg.V'-9	2021-12-11	 ¥1,760 
+B-194	랜덤부스터 Vol.27	2021-12-29	 ¥1,232 
+B-195	부스터 프로미넌스 발키리.Ov.At'-0	2022-02-05	 ¥1,650 
+B-196	랜덤부스터 Vol.28	2022-03-19	 ¥1,540 
+B-197	부스터 디바인 벨리알.Nx.Ad-3	2022-04-23	 ¥1,760 
+B-198	랜덤부스터 Vol.29	2022-05-28	 ¥1,400 
+B-199	부스터 개틀링 드래곤.Kr.Cm'-10	2022-06-25	 ¥1,870 
+B-200	스타터 지포이드 엑스칼리버.Xn.Sw'-1	2022-07-16	 ¥2,640 
+B-201	제스트 아킬레스 개조 세트	2022-08-06	 ¥4,200 
+B-202	랜덤부스터 Vol.30	2022-09-10	 ¥1,400 
+B-203	궁극합체 DX 세트	2022-10-08	 ¥7,250 
+B-204	버스트얼티밋 올인원 대전 세트	2022-10-22	 ¥6,600 
+B-205	버스트얼티밋 VS 세트	2022-11-12	 ¥4,150 
+B-206	부스터 바리케이드 루시퍼.Il.BMb-10	2022-12-10	 ¥1,760 
+`;
+
+const burstKoreaProductSource = `
+B-01	스타터 발키리.W.A	2016-03-24	 ₩13,900 
+B-02	스타터 스프리건.S.F	2016-03-24	 ₩13,900 
+B-03	스타터 라그나로크.H.S	2016-03-24	 ₩13,900 
+B-04	스타터 케르베우스.C.D	2016-03-24	 ₩13,900 
+B-05	부스터 스프리건.H.D	2016-03-24	 ₩9,800 
+B-06	부스터 라그나로크.C.A	2016-03-24	 ₩9,800 
+B-07	부스터 케르베우스.W.F	2016-03-24	 ₩9,800 
+B-08	베이블레이드 스타트 대시 세트	2016-03-24	 ₩42,600 
+B-09	베이스타디움 스탠다드타입	2016-03-24	 ₩14,800 
+B-11	런처그립	2016-03-24	 ₩5,700 
+B-12	스타터 데스사이저.O.V	2016-03-24	 ₩13,900 
+B-13	부스터 발키리.S.S	2016-03-24	 ₩9,800 
+B-14	스타터 와이번.A.M	2016-03-24	 ₩15,600 
+B-16	베이런처(레드)	2016-03-24	 ₩5,700 
+B-17	부스터 오딘.C.B	2016-03-24	 ₩9,800 
+B-18	베이블레이드 VS 배틀 세트	2016-03-24	 ₩53,300 
+B-19	버스트 베이스타디움	2016-03-24	 ₩18,900 
+B-20	부스터 호루스.S.E	2016-03-24	 ₩9,800 
+B-21	베이블레이드 개조 세트 어택&밸런스	2016-03-24	 ₩31,200 
+B-22	베이블레이드 개조 세트 디펜스&스태미너	2016-03-24	 ₩31,200 
+B-23	스타터 엑스칼리버.F.X	2016-03-24	 ₩15,600 
+B-25	앵글그립	2016-03-24	 ₩5,700 
+B-26	러버어시스트	2016-03-24	 ₩5,700 
+B-27	베이블레이드 블레이더박스	2016-03-24	 ₩22,100 
+B-28	부스터 넵튠.A.Z	2016-03-24	 ₩9,800 
+B-34	스타터 빅토리 발키리.B.V	2016-05-11	 ₩14,800 
+B-35	스타터 스톰 스프리건.K.U	2016-05-11	 ₩14,800 
+B-36	스타터 라이징 라그나로크.G.R	2016-05-11	 ₩14,800 
+B-37	스타터 카이저 케르베우스.L.P	2016-05-11	 ₩14,800 
+B-38	베이블레이드 버스트 스타트 세트	2016-05-11	 ₩43,500 
+B-39	베이런처(화이트)	2016-05-11	 ₩5,700 
+B-40	런처그립(블랙)	2016-05-11	 ₩5,700 
+B-41	스타터 와일드 와이번.V.O	2016-06-18	 ₩14,800 
+B-42	부스터 다크 데스사이저.F.J	2016-06-18	 ₩10,700 
+B-43	그립러버	2016-06-18	 ₩5,700 
+B-44	부스터 홀리 호루스드.U.C	2016-07-20	 ₩10,700 
+B-46	부스터 오벨리스크 오딘.T.X	2016-08-10	 ₩10,700 
+B-48	스타터 제노 엑스칼리버.M.I	2016-08-10	 ₩17,200 
+B-50	베이스타디움 와이드타입	2016-08-10	 ₩21,300 
+B-56	부스터 언락 유니콘.D.N	2016-09-23	 ₩10,700 
+B-57	트리플 부스터 세트	2016-09-23	 ₩26,200 
+B-59	스타터 질리언 제우스.I.W	2016-10-14	 ₩17,200 
+B-61	랜덤부스터 Vol.4 쿼드 케찰콰틀.J.P	2018-04-19	 ₩12,300 
+B-62	듀얼 스핀 베이스타디움 DX 세트	2016-10-14	 ₩59,900 
+B-63	부스터 비스트 베히모스.H.H	2017-01-03	 ₩10,700 
+B-64	베이블레이드 슈퍼 개조 세트 헤비 Ver.	2017-01-03	 ₩35,300 
+B-65	베이블레이드 슈퍼 개조 세트 스피드 Ver.	2017-01-03	 ₩35,300 
+B-66	스타터 로스트 롱기누스.N.Sp	2017-01-03	 ₩17,200 
+B-68	블레이더즈 소프트케이스	2017-10-13	 ₩32,800 
+B-69	부스터 제일 요르문간드.I.Cy	2017-02-04	 ₩12,300 
+B-70	소드런처(블루)	2017-05-11	 ₩6,000 
+B-71	부스터 애시드 아누비스.Y.O	2017-03-01	 ₩12,300 
+BK-01	베이블레이드 VS 듀얼 배틀 세트	2017-03-31	 ₩59,900 
+B-73	스타터 갓 발키리.6V.Rb	2017-05-11	 ₩17,200 
+B-74	스타터 크라이스 사탄.2G.Lp	2017-05-11	 ₩17,200 
+B-75	부스터 블레이즈 라그나로크.4C.Fl	2017-05-11	 ₩12,300 
+B-76	베이블레이드 갓 엔트리 세트	2017-05-11	 ₩49,200 
+B-78	베이런처(블랙)	2018-03-14	 ₩6,600 
+B-79	스타터 드레인 파브닐.8.Nt	2017-07-01	 ₩17,200 
+B-80	랜덤부스터 Vol.6	2017-07-01	 ₩12,300 
+B-81	라이트런처L	2017-09-11	 ₩6,600 
+B-82	부스터 알타 크로노스.6M.T	2017-08-01	 ₩12,300 
+B-83	너클그립	2017-08-01	 ₩6,600 
+B-84	3on3 배틀케이스	2017-08-01	 ₩6,600 
+B-85	부스터 킬러 데스사이저.2V.Hn	2017-08-17	 ₩12,300 
+B-86	스타터 레전드 스프리건.7.Mr	2017-09-01	 ₩19,700 
+B-87	랜덤부스터 Vol.7	2017-10-10	 ₩12,300 
+B-88	베이런처LR	2017-01-03	 ₩8,200 
+B-89	부스터 블라스트 지니어스.5G.Gr	2017-11-07	 ₩12,300 
+B-90	3on3 배틀 부스터 세트	2017-11-07	 ₩32,800 
+B-91	메탈갓칩	2017-11-07	 ₩4,900 
+B-92	스타터 지크 엑스칼리버.1.Ir	2017-11-07	 ₩18,000 
+B-93	디지털소드런처 (블루 Ver.)	2017-10-31	 ₩39,400 
+B-94	디지털소드런처 (레드 Ver.)	2017-10-31	 ₩39,400 
+B-95	랜덤부스터 Vol.8	2017-11-07	 ₩12,300 
+BA-01	베이블레이드 갓 배틀 세트	2017-11-07	 ₩64,800 
+B-96	무한 스핀 베이스타디움 DX 세트	2017-11-28	 ₩69,700 
+B-97	스타터 나이트메어 롱기누스.Ds	2017-01-03	 ₩18,000 
+B-98	갓 커스터마이즈 세트	2017-01-03	 ₩49,200 
+B-99	베이런처L	2018-03-14	 ₩8,200 
+B-100	스타터 스프리건 레퀴엠.0.Zt	2017-03-01	 ₩21,300 
+B-101	랜덤부스터 Vol.9	2017-03-01	 ₩12,300 
+B-102	부스터 트윈 네메시스.3H.Ul	2017-04-03	 ₩12,300 
+B-103	부스터 스크류 트라이던트.8B.Wd	2017-04-03	 ₩12,300 
+B-104	스타터 위닝 발키리.12.Vl	2018-05-23	 ₩18,000 
+B-105	스타터 제트 아킬레스.11.Xt	2018-05-23	 ₩18,000 
+B-106	부스터 엠퍼러 포르네우스.0.Yr	2018-05-23	 ₩12,300 
+B-107	베이블레이드 초Z 배틀 세트	2018-05-23	 ₩51,700 
+B-108	베이런처(레드)	2018-05-23	 ₩6,600 
+B-109	런처그립(건메탈)	2018-05-23	 ₩6,600 
+B-110	스타터 블러디 롱기누스.13.Jl	2018-07-03	 ₩18,000 
+B-111	랜덤부스터 Vol.10	2018-07-03	 ₩12,300 
+B-112	롱라이트런처LR	2018-07-03	 ₩6,600 
+B-113	부스터 헬 살라맨더.12.Op	2018-08-01	 ₩12,300 
+B-114	그립웨이트(블랙)	2018-08-01	 ₩8,200 
+B-115	부스터 아처 헤라클레스.13.Et	2018-08-09	 ₩12,300 
+B-116	그립러버(바이올렛)	2018-08-09	 ₩6,600 
+B-117	스타터 리바이브 피닉스.10.Fr	2018-09-05	 ₩21,300 
+B-118	랜덤부스터 Vol.11	2018-09-12	 ₩12,300 
+B-120	스타터 버스터 엑스칼리버.1'.Sw	2018-10-05	 ₩18,000 
+B-121	초Z 트리플 부스터 세트	2018-11-07	 ₩34,400 
+B-122	스타터 가이스트 파브닐.8'.Ab	2018-11-07	 ₩19,700 
+B-125	랜덤부스터 Vol.12	2018-11-07	 ₩12,300 
+BK-03	초Z 올인원 배틀 세트	2018-11-07	 ₩51,700 
+B-126	초Z 무적 베이스타디움 DX 세트	2018-12-05	 ₩77,100 
+B-127	스타터 초Z 발키리.Z.Ev	2018-01-03	 ₩18,000 
+B-128	초Z 커스터마이즈 세트	2018-01-03	 ₩49,200 
+B-129	스타터 초Z 아킬레스.00.Dm	2018-02-08	 ₩22,100 
+B-130	랜덤부스터 Vol.13	2018-02-08	 ₩12,300 
+B-131	부스터 데드 피닉스.0.At	2018-03-05	 ₩12,300 
+B-132	랜덤부스터 Vol.14	2018-03-21	 ₩12,300 
+B-133	DX스타터 에이스 드래곤.St.Ch 참	2019-04-17	 ₩27,100 
+B-134	부스터 슬래시 발키리.Bl.Pw 열	2019-04-17	 ₩13,900 
+B-135	부스터 무신 아수라.Hr.Kp 천	2019-04-17	 ₩13,900 
+B-136	베이블레이드 진검 배틀 세트	2019-04-17	 ₩53,300 
+B-139	스타터 위저드 파브닐.Rt.Rs 섬	2019-06-15	 ₩21,300 
+B-140	랜덤부스터 Vol.15	2019-06-20	 ₩13,900 
+B-142	부스터 저지먼트 조커.00T.Tr 참	2019-07-26	 ₩13,900 
+B-143	랜덤레이어 Vol.1 드레드 바하무트 천	2019-07-31	 ₩4,900 
+B-144	부스터 츠바이 롱기누스.Dr.Sp' 멸	2019-08-22	 ₩13,900 
+B-145	DX스타터 베놈 디아볼로스.Vn.Bl	2019-08-22	 ₩27,100 
+B-146	랜덤부스터 Vol.16	2019-09-20	 ₩13,900 
+B-147	랜덤레이어 Vol.2 포이즌 히드라 참	2019-09-20	 ₩4,900 
+B-148	부스터 헤븐 페가수스.10P.Lw 섬	2019-10-17	 ₩13,900 
+B-149	진검 트리플 부스터 세트	2019-10-17	 ₩34,900 
+B-150	부스터 유니온 아킬레스.Cn.Xt+ 열	2019-11-11	 ₩13,900 
+B-151	랜덤부스터 Vol.17	2019-11-11	 ₩13,900 
+B-152	랜덤레이어 Vol.3 넉아웃 오딘 환	2019-11-11	 ₩4,900 
+B-153	진검 커스터마이즈 세트	2019-11-11	 ₩54,100 
+B-154	DX부스터 임페리얼 드래곤.Ig'	2020-01-15	 ₩27,100 
+B-155	스타터 마스터 디아볼로스.Gn	2020-01-15	 ₩21,300 
+B-157	부스터 빅뱅 제네시스.0.Ym	2020-03-14	 ₩13,900 
+B-159	부스터 슈퍼 하이페리온.Xc 1A	2020-04-10	 ₩13,900 
+B-160	부스터 킹 헬리오스.Zn 1B	2020-04-10	 ₩13,900 
+B-161	부스터 글라이드 라그나로크.Wh.R 1S	2020-04-10	 ₩13,900 
+B-162	베이블레이드 슈퍼킹 배틀 세트	2020-04-10	 ₩52,900 
+B-163	부스터 브레이브 발키리.Ev' 2A	2020-06-10	 ₩13,900 
+B-165	슈퍼킹 베이런처	2020-07-16	 ₩9,900 
+B-166	슈퍼킹 베이런처L	2020-07-16	 ₩9,900 
+B-167	부스터 미라지 파브닐.Nt 2S	2020-07-16	 ₩14,900 
+B-168	부스터 레이지 롱기누스.Ds' 3A	2020-08-20	 ₩14,900 
+B-169	스타터 베어리언트 루시퍼.Mb 2D	2020-09-17	 ₩27,900 
+B-171	슈퍼킹 트리플 부스터 세트	2020-10-15	 ₩37,900 
+B-172	부스터 월드 스프리건.U' 2B	2020-10-15	 ₩14,900 
+B-173	랜덤부스터 Vol.22	2020-12-10	 ₩14,900 
+B-174	베이블레이드 리미트 브레이크 DX 세트	2020-12-10	 ₩64,900 
+B-175	부스터 루시퍼 디엔드.황.Dr	2021-01-14	 ₩14,900 
+B-176	랜덤부스터 Vol.23	2021-02-08	 ₩14,900 
+B-177	부스터 제트 와이번.Ar.Js 1D	2021-04-14	 ₩14,900 
+B-178	랜덤부스터 Vol.24	2021-04-14	 ₩14,900 
+B-179	부스터 데스 솔로몬.MF 2B	2021-04-14	 ₩14,900 
+B-180	부스터 다이너마이트 벨리알.Nx.Vn-2	2021-04-30	 ₩15,900 
+B-181	랜덤부스터 Vol.25	2021-04-30	 ₩15,900 
+B-182	베이블레이드 다이너마이트배틀 엔트리 세트	2021-04-30	 ₩52,900 
+B-183	베이스타디움 DB 스탠다드타입	2021-04-30	 ₩21,900 
+B-184	커스텀베이런처LR	2021-04-30	 ₩10,900 
+B-185	부스터 배니시 파브닐.Tp.Kc-3	2021-06-23	 ₩15,900 
+B-186	랜덤부스터 Vol.26	2021-09-08	 ₩15,900 
+B-187	스타터 세이비어 발키리.Sh-7	2021-09-08	 ₩29,900 
+B-00	커스텀베이런처LR 블레이더즈에디션	2021-10-07	 ₩32,900 
+B-188	아스트랄 스프리건 개조 세트	2021-10-15	 ₩45,900 
+B-189	부스터 길티 롱기누스.Kr.MDs-2	2021-10-27	 ₩15,900 
+B-190	베이블레이드 다이너마이트배틀 올인원 세트	2021-11-21	 ₩69,900 
+B-191	오버드라이브 스페셜 스타터 세트	2021-11-21	 ₩49,900 
+B-192	부스터 그레이티스트 라파엘.Ov.HXt+'	2022-02-15	 ₩17,900 
+B-193	부스터 얼티밋 발키리.Lg.V'-9	2022-03-18	 ₩17,900 
+B-194	랜덤부스터 Vol.27	2022-03-30	 ₩17,900 
+B-195	부스터 프로미넌스 발키리.Ov.At'-0	2022-04-15	 ₩17,900 
+B-196	랜덤부스터 Vol.28	2022-04-24	 ₩17,900 
+B-197	부스터 디바인 벨리알.Nx.Ad-3	2022-07-09	 ₩19,900 
+B-198	랜덤부스터 Vol.29	2022-09-17	 ₩17,900 
+B-199	부스터 개틀링 드래곤.Kr.Cm'-10	2022-10-01	 ₩19,900 
+B-200	스타터 지포이드 엑스칼리버.Xn.Sw'-1	2022-10-15	 ₩29,900 
+B-201	제스트 아킬레스 개조 세트	2022-11-22	 ₩45,900 
+B-202	랜덤부스터 Vol.30	2022-11-22	 ₩17,900 
+B-203	얼티밋 합체 DX 세트	2022-11-22	 ₩69,900 
+B-204	버스트얼티밋 올인원 배틀 세트	2022-11-22	 ₩74,900 
+B-205	버스트얼티밋 VS 세트	2023-01-14	 ₩36,900 
+B-206	부스터 바리케이드 루시퍼.Il.BMb-10	2023-01-14	 ₩19,900 
+B-00	커스텀베이런처 세트 사이버에디션(블랙)	2023-03-04	 ₩19,900 
+B-00	커스텀베이런처 세트 사이버에디션(화이트)	2023-03-04	 ₩19,900 
+`;
+const burstProductKind = name => {
+  const value = name.trim();
+  if (value.startsWith("디럭스스타터")) return "디럭스스타터";
+  if (value.startsWith("DX스타터")) return "DX스타터";
+  if (value.startsWith("DX부스터")) return "DX부스터";
+  if (value.startsWith("랜덤부스터")) return "랜덤부스터";
+  if (value.startsWith("랜덤레이어")) return "랜덤레이어";
+  if (value.startsWith("스타터")) return "스타터";
+  if (value.startsWith("부스터")) return "부스터";
+  if (value.includes("세트")) return "세트";
+  if (value.includes("스타디움")) return "스타디움";
+  if (value.includes("런처")) return "런처";
+  if (value.includes("그립")) return "그립";
+  return "";
+};
+const burstProductIdSlug = no => no
+  .trim()
+  .replace(/α/g, "-ALPHA")
+  .replace(/β/g, "-BETA")
+  .replace(/[^A-Za-z0-9]+/g, "-")
+  .replace(/^-+|-+$/g, "")
+  .toUpperCase();
+const burstProductPrice = value => value.replace(/[^\d]/g, "");
+const parseBurstProductSource = source => source
+  .trim()
+  .split(/\n/)
+  .filter(Boolean)
+  .map(line => {
+    const [no, name, releaseDate, rawPrice] = line.split(/\t+/).map(value => value.trim());
+    return { no, name, releaseDate, rawPrice };
+  });
+const burstProductDuplicateCounts = rows => rows.reduce((counts, row) => {
+  counts[row.no] = (counts[row.no] || 0) + 1;
+  return counts;
+}, {});
+const burstProductRelease = row => ({
+  no: row.no,
+  name: row.name,
+  kind: burstProductKind(row.name),
+  releaseDate: row.releaseDate,
+  price: burstProductPrice(row.rawPrice),
+  composition: []
+});
+const burstProductRowSlug = (row, region, ordinal, duplicateCounts) => {
+  const slug = burstProductIdSlug(row.no);
+  return duplicateCounts[row.no] > 1 ? `${slug}-${region.toUpperCase()}-${ordinal}` : slug;
+};
+const burstProductItems = (() => {
+  const productMap = new Map();
+  Object.entries({
+    jp: parseBurstProductSource(burstJapanProductSource),
+    kr: parseBurstProductSource(burstKoreaProductSource)
+  }).forEach(([region, rows]) => {
+    const duplicateCounts = burstProductDuplicateCounts(rows);
+    const seenCounts = {};
+    rows.forEach(row => {
+      seenCounts[row.no] = (seenCounts[row.no] || 0) + 1;
+      const id = `PRODUCT-BURST-${burstProductRowSlug(row, region, seenCounts[row.no], duplicateCounts)}`;
+      const item = productMap.get(id) || {
+        id,
+        series: "burst",
+        releases: { kr: { status: "unreleased" }, jp: { status: "unreleased" } }
+      };
+      item.releases[region] = burstProductRelease(row);
+      productMap.set(id, item);
+    });
+  });
+  return [...productMap.values()];
+})();
+
+const xJapanProductSource = `
+BX-01	스타터 드란소드 3-60F	2023-07-15	 ¥1,980 
+BX-02	스타터 헬즈사이즈 4-60T	2023-07-15	 ¥1,980 
+BX-03	스타터 위저드애로우 4-80B	2023-07-15	 ¥1,980 
+BX-04	스타터 나이트실드 3-80N	2023-07-15	 ¥1,980 
+BX-05	부스터 위저드애로우 4-80B	2023-07-15	 ¥1,400 
+BX-06	부스터 나이트실드 3-80N	2023-07-15	 ¥1,400 
+BX-07	스타트 대시 세트	2023-07-15	 ¥5,720 
+BX-08	3on3 덱 세트	2023-07-15	 ¥3,960 
+BX-09	배이 배틀 패스	2023-07-15	 ¥3,300 
+BX-10	익스트림스타디움	2023-07-15	 ¥2,750 
+BX-11	런처그립	2023-07-15	 ¥700 
+BX-12	배틀 덱 케이스	2023-07-15	 ¥990 
+BX-00	익스트림스타디움 라이트패키지	2023-07-15	 ¥1,980 
+BX-00	부스터 드랜져스파이럴 3-80T	2023-07-15	 ¥1,600 
+BX-13	부스터 나이트랜스 4-80HN	2023-08-10	 ¥1,400 
+BX-14	랜덤부스터 Vol.1	2023-09-09	 ¥1,400 
+BX-00	코발트드레이크 4-60F	2023-09-11	 ¥- 
+BX-00	부스터 헬즈사이드 4-60T골드 Ver.	2023-09-11	 ¥1,600 
+BX-15	스타터 레온클로 5-60P	2023-10-07	 ¥1,980 
+BX-16	랜덤부스터 바이퍼테일 셀렉트	2023-10-07	 ¥1,400 
+BX-17	배틀 엔트리 세트	2023-10-07	 ¥6,050 
+BX-18	스트링런처	2023-10-07	 ¥990 
+BX-19	부스터 라이노혼 3-80S	2023-11-02	 ¥1,400 
+BX-20	드란대거 덱 세트	2023-11-02	 ¥3,960 
+BX-21	헬즈체인 덱 세트	2023-11-02	 ¥3,960 
+BX-22	스타터 드란소드 3-60F 엔트리패키지	2023-12-02	 ¥1,400 
+BX-00	피닉스페더 블레이드	2023-12-15	 ¥- 
+BX-23	스타터 피닉스윙 9-60GF	2023-12-27	 ¥2,420 
+BX-24	랜덤부스터 Vol.2	2023-12-27	 ¥1,400 
+BX-25	기어케이스	2023-12-27	 ¥4,000 
+BX-00	부스터 레온클로 5-60P 골드 Ver.	2024-01-22	 ¥1,600 
+BX-26	부스터 유니콘스팅 5-60GF	2024-01-27	 ¥1,400 
+BX-00	스페셜크로스베이 헬즈사이즈 3-80F	2024-01-27	 ¥1,740 
+BX-27	랜덤부스터 스핑크스카울 셀렉트	2024-02-22	 ¥1,400 
+BX-00	부스터 샤크엣지 5-60GF 블루 Ver.	2024-03-23	 ¥1,600 
+BX-28	스트링런처 화이트 Ver.	2024-03-30	 ¥990 
+BX-29	커스텀그립 레드 Ver.	2024-03-30	 ¥1,100 
+BX-30	커스텀그립 화이트 Ver.	2024-03-30	 ¥1,100 
+UX-01	스타터 드란버스터 1-60A	2024-03-30	 ¥1,980 
+UX-02	스타터 헬즈해머 3-70H	2024-03-30	 ¥1,980 
+UX-03	부스터 위저드로드 5-70DB	2024-03-30	 ¥1,400 
+UX-00	스타터 드란버스터 1-60A 레드 Ver.	2024-04-15	 ¥- 
+BX-31	랜덤부스터 Vol.3	2024-04-27	 ¥1,400 
+UX-04	배틀 엔트리 세트 유니크	2024-04-27	 ¥6,050 
+BX-00	부스터 드래이거슬래시 4-80P	2024-04-27	 ¥1,600 
+BX-00	부스터 헬즈체인 5-60HT 블랙 Ver.	2024-05-16	 ¥1,600 
+UX-05	랜덤부스터 시노비섀도우 셀렉트	2024-05-18	 ¥1,400 
+BX-00	커스텀그립 클리어블랙 Ver.	2024-06-01	 ¥1,200 
+BX-00	드란소드 블레이드 블루 Ver.	2024-06-14	 ¥- 
+BX-33	부스터 바이스타이거 3-60U	2024-06-15	 ¥1,400 
+BX-00	코발트드라군 2-60C 블랙 Ver.	2024-07-12	-
+BX-32	와이드익스트림스타디움	2024-07-13	 ¥4,400 
+BX-34	코발트드라군 2-60C	2024-07-13	 ¥2,321 
+-	F/T/B/N 비트 골드×블랙 Ver.	2024-07-30	 ¥990 
+-	베이블레이드 스티커(3종)	2024-07-30	 ¥500 
+BX-35	랜덤부스터 Vol.4	2024-07-13	 ¥1,400 
+UX-00	에어로페가서스 3-70A	2024-07-30	-
+BX-00	드란대거 2-80GP 블랙자이언츠 Ver.	2024-08-03	 ¥1,600 
+BX-00	부스터 드랜져스파이럴 3-80T 블랙 Ver.	2024-08-10	 ¥1,600 
+UX-06	레온크레스트 7-60GN	2024-08-10	 ¥1,400 
+UX-07	피닉스러더 덱 세트	2024-08-10	 ¥4,100 
+BX-36	랜덤부스터 웨일웨이브 셀렉트	2024-09-14	 ¥1,400 
+BX-00	라이트닝엘드라고 1-60F	2024-09-14	 ¥1,600 
+BX-00	피닉스윙 9-80DB 네이비 Ver.	2024-09-15	 ¥1,950 
+BX-37	더블 익스트림 무빙 세트	2024-10-12	 ¥8,200 
+UX-08	스타터 실버울프 3-80FB	2024-10-12	 ¥2,080 
+BX-38	부스터 크림슨가루다 4-70TP	2024-11-02	 ¥1,400 
+UX-09	스타터 사무라이세이버 2-70L	2024-11-02	 ¥3,300 
+UX-10	커스터마이즈 세트 유니크	2024-11-02	 ¥5,700 
+BX-00	시노비나이프 4-60LF 블루 Ver.	2024-11-14	 ¥8,228 
+UX-00	드란 덱 스타터	2024-11-16	 ¥4,950 
+BX-00	부스터 코발트드레이크 4-60F 클리어 Ver.	2024-11-28	 ¥1,600 
+BX-00	부스터 맘모스터스크 2-80E 블랙 Ver.	2024-12-27	 ¥1,600 
+UX-00	컬러초이스부스터 드란버스터 1-60A	2024-12-27	 ¥1,600 
+UX-11	스타터 임팩트드레이크 9-60LR	2024-12-28	 ¥2,420 
+UX-12	랜덤부스터 Vol.5	2024-12-28	 ¥1,400 
+BX-00	부스터 드래셀실드 7-60D	2024-12-28	 ¥1,600 
+BX-00	크로코크런치 2-60Q	2025-01-15	 ¥2,050 
+UX-00	스타터 드란버스터 1-60A FC 바르셀로나 Ver.	2025-01-25	 ¥2,500 
+UX-00	베이 킥오프 세트 FC 바르셀로나 Ver.	2025-01-25	 ¥6,501 
+UX-13	부스터 골렘락 1-60UN	2025-01-25	 ¥1,400 
+BX-39	랜덤부스터 셸터드레이크 셀렉트	2025-02-15	 ¥1,400 
+UX-00	사무라이세이버 2-70L 오렌지 Ver.	2025-02-15	 ¥- 
+BX-00	피닉스페더 블레이드 오렌지 Ver.	2025-02-28	 ¥2,500 
+BX-00	피닉스윙 9-60GF 키타니타츠야 Ver.	2025-03-15	 ¥2,400 
+BX-00	베이블레이드 25주년 기념 세트	2025-03-21	 ¥11,000 
+BX-40	와인더런처 L	2025-03-29	 ¥880 
+BX-41	러버커스텀그립 블루 Ver.	2025-03-29	 ¥1,320 
+BX-42	러버커스텀그립 레드 Ver.	2025-03-29	 ¥1,320 
+BX-43	기어케이스 화이트 Ver.	2025-03-29	 ¥4,000 
+CX-01	스타터 드란 브레이브S 6-60V	2025-03-29	 ¥2,200 
+CX-02	스타터 위저드 아크R 4-55LO	2025-03-29	 ¥2,200 
+CX-03	부스터 페르세우스 다크B 6-80W	2025-03-29	 ¥1,600 
+CX-04	배틀 엔트리 세트 커스텀	2025-03-29	 ¥6,501 
+BX-00	스타터 제노엑스칼리버 3-60GF	2025-03-29	 ¥3,000 
+CX-05	랜덤부스터 Vol.6	2025-04-26	 ¥1,600 
+BX-00	더블스타터 아이언맨 4-80B/타노스 4-60P	2025-04-26	 ¥4,180 
+BX-00	더블스타터 스파이더맨 3-30F/베놈 3-80N	2025-04-26	 ¥4,180 
+BX-00	더블스타터 루크스카이워커 4-80B/다스베이더 4-60P	2025-04-26	 ¥4,180 
+BX-00	더블스타터 만달로리안 3-60F / 모프기디언 3-80N	2025-04-26	 ¥4,180 
+UX-14	스타터 스콜피오스피어 0-70Z	2025-04-26	
+BX-00	더블스타터 옵티머스프라임 4-60P/메가트론 4-80B	2025-05-17	 ¥4,180 
+BX-00	더블스타터 옵티머스프라이멀 3-60F/스타스크림 3-80N	2025-05-17	 ¥4,180 
+CX-06	랜덤부스터 폭스 브러시 셀렉트	2025-05-17	 ¥1,600 
+BX-44	부스터 트리케라프레스 M-85BS	2025-06-28	 ¥1,500 
+CX-00	왈큐레 볼트S 4-70V	2025-07-17	 ¥- 
+UX-00	부스터 나이트메일 3-85BS 네이비 Ver.	2025-07-17	 ¥1,800 
+CX-07	스타터 페가서스 블래스트A Tr	2025-07-19	 ¥2,600 
+CX-08	랜덤부스터 Vol.7	2025-07-19	 ¥1,600 
+BX-00	더블스타터 티렉스/모사사우루스	2025-07-19	 ¥4,180 
+BX-00	더블스타터 스피노사우루스/케찰코아틀루스	2025-07-19	 ¥4,180 
+BX-00	부스터 록레오네 6-80GN	2025-07-19	 ¥1,600 
+CX-00	스타터 페가서스 블래스트A Tr 레드 Ver.	2025-08-03	 ¥2,700 
+CX-00	부스터 위저드 아크R 4-55LO 블랙 Ver.	2025-08-09	 ¥1,800 
+BX-45	부스터 사무라이칼리버 6-70M	2025-08-09	 ¥1,500
+`;
+const xProductKind = name => {
+  const value = name.trim();
+  if (value.startsWith("랜덤부스터")) return "랜덤부스터";
+  if (value.startsWith("컬러초이스부스터")) return "컬러초이스부스터";
+  if (value.startsWith("더블스타터")) return "더블스타터";
+  if (value.startsWith("스타터")) return "스타터";
+  if (value.startsWith("부스터")) return "부스터";
+  if (value.includes("세트")) return "세트";
+  if (value.includes("스타디움")) return "스타디움";
+  if (value.includes("런처")) return "런처";
+  if (value.includes("그립")) return "그립";
+  if (value.includes("케이스")) return "케이스";
+  if (value.includes("패스")) return "패스";
+  if (value.includes("블레이드")) return "블레이드";
+  if (value.includes("스티커")) return "스티커";
+  if (value.includes("비트")) return "비트";
+  return "";
+};
+const xProductIdSlug = no => {
+  const value = no.trim();
+  if (!value || value === "-") return "NO-NUMBER";
+  return burstProductIdSlug(value);
+};
+const parseXProductSource = source => source
+  .trim()
+  .split(/\n/)
+  .filter(Boolean)
+  .map(line => {
+    const [no = "", name = "", releaseDate = "", rawPrice = ""] = line.split(/\t+/).map(value => value.trim());
+    return { no, name, releaseDate, rawPrice };
+  });
+const xProductRelease = row => ({
+  no: row.no === "-" ? "" : row.no,
+  name: row.name,
+  kind: xProductKind(row.name),
+  releaseDate: row.releaseDate,
+  price: burstProductPrice(row.rawPrice || ""),
+  composition: []
+});
+const xProductRowSlug = (row, region, ordinal, duplicateCounts) => {
+  const slug = xProductIdSlug(row.no);
+  return duplicateCounts[row.no] > 1 ? `${slug}-${region.toUpperCase()}-${ordinal}` : slug;
+};
+const xProductItems = (() => {
+  const rows = parseXProductSource(xJapanProductSource);
+  const duplicateCounts = burstProductDuplicateCounts(rows);
+  const seenCounts = {};
+  return rows.map(row => {
+    seenCounts[row.no] = (seenCounts[row.no] || 0) + 1;
+    return {
+      id: `PRODUCT-X-${xProductRowSlug(row, "jp", seenCounts[row.no], duplicateCounts)}`,
+      series: "x",
+      releases: {
+        kr: { status: "unreleased" },
+        jp: xProductRelease(row)
+      }
+    };
+  });
+})();
 
 const productItems = [
 { id: "PRODUCT-BB-01", series: "metal fight", releases: {
@@ -2072,7 +2713,9 @@ const productItems = [
     jp: { no: "", name: "메탈파이트 베이블레이드: 정상결전! 빅뱅블레이더즈", sale: "일반 판매", kind: "게임", releaseDate: "2010-12-02", price: "5229", composition: [{ name: "게임 카드", quantity: "1개", target: "GAME-CHOUJOU-KESSEN-BIG-BANG-BLADERS-CARD" }, { name: "나이트메어 렉스 SW145SD", quantity: "1개", target: "BEY-NIGHTMARE-REX-SW145SD" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] }} },
   { id: "PRODUCT-GAME-4D-ZEROG-ULTIMATE-TOURNAMENT", series: "metal fight", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "", name: "메탈파이트 베이블레이드: 4DxZEROG 얼티밋 토너먼트", sale: "일반 판매", kind: "게임", releaseDate: "2013-12-19", price: "5800", composition: [{ name: "게임 카드", quantity: "1개", target: "GAME-4D-ZEROG-ULTIMATE-TOURNAMENT-CARD" }, { name: "사무라이 페가시스 W105R²F", quantity: "1개", target: "BEY-BBG-26-WARRIORS-PEGASIS-W105R2F" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] }} }
+    jp: { no: "", name: "메탈파이트 베이블레이드: 4DxZEROG 얼티밋 토너먼트", sale: "일반 판매", kind: "게임", releaseDate: "2013-12-19", price: "5800", composition: [{ name: "게임 카드", quantity: "1개", target: "GAME-4D-ZEROG-ULTIMATE-TOURNAMENT-CARD" }, { name: "사무라이 페가시스 W105R²F", quantity: "1개", target: "BEY-BBG-26-WARRIORS-PEGASIS-W105R2F" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] }} },
+  ...burstProductItems,
+  ...xProductItems
 ];
 
 const releaseRegionLabels = {
@@ -2120,6 +2763,15 @@ const productRelease = (item, region = activeReleaseRegion) => {
 };
 const productReleaseValue = (item, key, region = activeReleaseRegion) => productRelease(item, region)[key] || "";
 const productReleasedInRegion = (item, region = activeReleaseRegion) => productRelease(item, region).status !== "unreleased";
+const releaseSeriesOrder = () => Object.keys(releaseSeriesLabels);
+const releaseSeriesHasProducts = (series, region = activeReleaseRegion) => releaseSeriesLabels[series] && productItems.some(item =>
+  !item.lineupOnly && item.series === series && productReleasedInRegion(item, region)
+);
+const defaultReleaseSeries = (region = activeReleaseRegion) => [...releaseSeriesOrder()].reverse().find(series =>
+  releaseSeriesHasProducts(series, region)
+) || releaseSeriesOrder()[0] || "metal fight";
+const releaseSeriesForRegion = (series, region = activeReleaseRegion) =>
+  releaseSeriesHasProducts(series, region) ? series : defaultReleaseSeries(region);
 const productDisplayRegion = (item, region = "kr") => {
   if (productReleasedInRegion(item, region)) return region;
   return productReleasedInRegion(item, "jp") ? "jp" : region;
@@ -3874,6 +4526,7 @@ function bindProductReleaseTable(modalContentRoot = document) {
   bindProductReleaseTableRows(modalContentRoot);
   modalContentRoot.querySelectorAll("button[data-release-region]").forEach(button => button.addEventListener("click", event => {
     activeReleaseRegion = event.currentTarget.dataset.releaseRegion;
+    activeReleaseSeries = releaseSeriesForRegion(activeReleaseSeries, activeReleaseRegion);
     openCategoryReleaseDetail({ region: activeReleaseRegion, series: activeReleaseSeries });
   }));
   modalContentRoot.querySelectorAll("button[data-release-series]").forEach(button => button.addEventListener("click", event => {
@@ -3896,6 +4549,7 @@ function openCategoryReleaseDetail(options = {}) {
   }
   if (options.region && releaseRegionLabels[options.region]) activeReleaseRegion = options.region;
   if (options.series && releaseSeriesLabels[options.series]) activeReleaseSeries = options.series;
+  if (!releaseSeriesLabels[activeReleaseSeries]) activeReleaseSeries = defaultReleaseSeries(activeReleaseRegion);
   if (options.releaseSort?.key && releaseSortableColumns[options.releaseSort.key]) {
     activeReleaseSort = { key: options.releaseSort.key, direction: options.releaseSort.direction === "desc" ? "desc" : "asc" };
   }
@@ -4784,7 +5438,8 @@ function openCategoryAnimeDetail(options = {}) {
 }
 
 const openCategoryReleaseFromMenu = () => {
-  navigateToRoute({ type: "category-release" });
+  const region = "kr";
+  navigateToRoute({ type: "category-release", options: { region, series: defaultReleaseSeries(region) } });
   setMenuOpen(false);
 };
 const openCategoryCatalog = ({ scope = "all", updateHash = true, replace = false } = {}) => {
