@@ -1120,6 +1120,7 @@ const catalogCoreItems = [...beyItems, ...partItems];
 const globalSearch = document.querySelector("#globalSearchInput");
 const globalSearchScope = document.querySelector("#globalSearchScope");
 const overviewSearchScope = document.querySelector("#overviewSearchScope");
+const catalogSearchScope = document.querySelector("#catalogSearchScope");
 const catalogSearch = document.querySelector("#catalogSearchInput");
 const catalogSearchHelpButton = document.querySelector("#catalogSearchHelpButton");
 const catalogSearchHelpPopover = document.querySelector("#catalogSearchHelpPopover");
@@ -1143,6 +1144,7 @@ const setSearchScope = (dropdown, dataAttr, scope) => {
 };
 const setGlobalSearchScope = scope => setSearchScope(globalSearchScope, "data-global-search-scope", scope);
 const setOverviewSearchScope = scope => setSearchScope(overviewSearchScope, "data-overview-search-scope", scope);
+const setCatalogSearchScope = scope => setSearchScope(catalogSearchScope, "data-catalog-search-scope", scope || "all");
 const overviewSearch = document.querySelector("#overviewSearchInput");
 const searchInputRoot = input => input?.closest(".overview-search, .search-box");
 const searchClearButton = input => searchInputRoot(input)?.querySelector(".search-clear");
@@ -8792,7 +8794,6 @@ const cardVisualMarkup = item => item.image
 const modalArtMarkup = item => item.model
   ? `<div class="model-viewer" data-model="${item.model}"><p>3D 모델 로딩 중</p></div>`
   : cardVisualMarkup(item);
-const beyProductNo = item => item.type === "bey" ? item.productNo || "" : item.en;
 const partCategory = item => item.sub || "";
 const catalogCardTypeLabel = item => typeLabels[item.type] || item.type || "";
 const catalogCardTitle = (label, title, className = "") => {
@@ -8827,21 +8828,6 @@ const cardInfo = item => {
   }
   return `${catalogCardTitle(catalogCardTypeLabel(item), item.name)}<p class="card-en">${item.en}</p>`;
 };
-const beySerialNumber = item => {
-  if (item.id === "BEY-QUETZALCOATL-90WF") return 10.5;
-  if (item.id === "BEY-CYBER-PEGASIS-100HF") return 57.5;
-  if (item.id === "BEY-MERCURY-ANUBIUS-85XF") return 69.5;
-  if (item.id === "BEY-SOL-BLAZE-V145AS") return 87.5;
-  if (item.id === "BEY-DIVINE-CHIMERA-TR145FB") return 90.5;
-  if (item.id === "BEY-BB-P01-VULCAN-HORUSEUS-145D") return 90.5;
-  if (item.id === "BEY-NIGHTMARE-REX-SW145SD") return 98.5;
-  if (item.id === "BEY-OMEGA-DRAGONIS-85XF") return 123.5;
-  const match = beyProductNo(item).match(/BB-(\d+)/);
-  if (match) return Number(match[1]);
-  const zeroGMatch = beyProductNo(item).match(/BBG-(\d+)/);
-  return zeroGMatch ? 200 + Number(zeroGMatch[1]) : Number.MAX_SAFE_INTEGER;
-};
-const wheelTypeOrder = { wheel: 0, clearwheel: 1, "4dclearwheel": 2, lightwheel: 3, metalwheel: 4, "4dmetalwheel": 5, chromewheel: 6, crystalwheel: 7 };
 const mainSearchItemText = item => item
   ? [item.name, item.jpName, item.en, item.sub, item.no, item.productNo].filter(Boolean).join(" ")
   : "";
@@ -9061,31 +9047,6 @@ const catalogListSpinSearchTerms = item => {
   if (item.spin === "dual") return ["dual", spinLabel("dual"), "left", spinLabel("left"), "right", spinLabel("right")];
   return [item.spin, spinLabel(item.spin)];
 };
-const catalogListSearchText = item => {
-  if (!item) return "";
-  const tags = Array.isArray(item.tags) ? item.tags : [];
-  return [
-    mainSearchItemText(item),
-    item.series,
-    itemSeriesLabel(item),
-    item.type,
-    item.type ? typeLabels[item.type] : "",
-    item.category,
-    item.category ? typeLabels[item.category] : "",
-    item.structure,
-    item.structure ? structureLabels[item.structure] : "",
-    item.battleType,
-    item.battleType ? battleTypeLabel(item.battleType, item) : "",
-    ...catalogListSpinSearchTerms(item),
-    item.heightClass,
-    item.heightClass ? heightClassLabel(item.heightClass) : "",
-    ...tags,
-    ...tags.map(tag => tagLabels[tag] || "")
-  ].filter(Boolean).join(" ");
-};
-const catalogListInitialSearchText = item => item
-  ? [item.name, item.sub, item.en].filter(Boolean).join(" ")
-  : "";
 const SEARCH_FIELD_WEIGHTS = {
   primaryName: 120,
   code: 108,
@@ -9267,8 +9228,6 @@ const catalogListSearchRecord = item => {
   return record;
 };
 const catalogListSearchScore = (item, query) => matchSearchRecord(catalogListSearchRecord(item), query).score;
-const catalogListMatchesSearch = (item, query) => catalogListSearchScore(item, query) > 0;
-
 const globalSearchQuery = () => globalSearch?.value.trim() || "";
 const catalogSearchQuery = () => catalogSearch?.value.trim() || "";
 const animeSearchQuery = () => animeSearch?.value.trim() || "";
@@ -9544,10 +9503,6 @@ const searchHash = (query = globalSearchQuery(), scope = globalSearchScopeValue(
   params.set("scope", normalizeSearchScope(scope || "all"));
   return `#search?${params.toString()}`;
 };
-const searchHashParams = hash => {
-  const value = (hash || window.location.hash || "").replace(/^#search\??/, "");
-  return new URLSearchParams(value);
-};
 const normalizeCatalogRouteScope = scope => scope === "bey" || scope === "tools" ? scope : "all";
 const currentPathWithSearch = () => `${window.location.pathname}${window.location.search}`;
 const routeHashParts = (hash = window.location.hash) => {
@@ -9775,7 +9730,6 @@ const searchResultRecordLists = () => {
   return searchResultRecordListCache;
 };
 const searchResultRecordList = scope => searchResultRecordLists()[normalizeSearchScope(scope)] || searchResultRecordLists().all;
-const searchResultRecordRank = (record, query) => matchSearchRecord(record, query).score;
 const scoredSearchResult = (record, preparedQuery) => {
   const match = matchSearchRecord(record, preparedQuery);
   if (match.matched && searchQueryFrom(preparedQuery).isEmpty) return { record, score: 0, entry: record.entry };
@@ -11601,15 +11555,6 @@ document.querySelector(".overview-panel")?.addEventListener("click", event => {
 
 });
 const activeToyPanelName = () => activeToyPanel()?.dataset.toyPanel || "";
-const syncSearchHashToControls = () => {
-  const params = searchHashParams();
-  const query = params.get("q") || "";
-  const scope = normalizeSearchScope(params.get("scope") || "all");
-  setSearchInputValue(globalSearch, query);
-  setSearchInputValue(overviewSearch, query);
-  setGlobalSearchScope(scope);
-  setOverviewSearchScope(scope);
-};
 let searchHashUpdateTimer = 0;
 const updateActiveSearchHash = () => {
   if (searchHashUpdateTimer) clearTimeout(searchHashUpdateTimer);
@@ -11793,6 +11738,13 @@ globalSearchScope?.addEventListener("click", event => {
   else refreshSearchPanel();
   refreshSearchPreview(globalSearch, { resetActive: true });
 });
+catalogSearchScope?.addEventListener("click", event => {
+  const button = event.target.closest("button[data-catalog-search-scope]");
+  if (!button) return;
+  event.preventDefault();
+  closeCatalogSearchHelpPopover();
+  navigateToRoute({ type: "catalog", scope: button.dataset.catalogSearchScope || "all" });
+});
 const setDropdownOption = button => {
   const attr = filterButtonAttr(button);
   if (!attr) return;
@@ -11817,14 +11769,15 @@ const refreshCatalogState = () => {
 };
 const syncCatalogMenuScope = scope => {
   const normalized = ["release", "anime", "anime-episodes"].includes(scope) ? scope : normalizeSearchScope(scope);
+  const isCatalogScope = ["all", "bey", "tools"].includes(normalized);
   const setSubnavActive = (button, active) => {
     button.classList.toggle("active", active);
     if (!button.closest(".section-subnav")) return;
     if (active) button.setAttribute("aria-current", "page");
     else button.removeAttribute("aria-current");
   };
-  document.querySelectorAll("[data-catalog-nav-scope]").forEach(button => {
-    setSubnavActive(button, button.dataset.catalogNavScope === normalized);
+  document.querySelectorAll(".section-subnav [data-category-catalog-open]").forEach(button => {
+    setSubnavActive(button, isCatalogScope);
   });
   document.querySelectorAll("[data-category-release-open]").forEach(button => {
     setSubnavActive(button, normalized === "release");
@@ -11848,6 +11801,7 @@ const setCatalogScope = scope => {
   } else {
     selectedCatalogKind = "";
   }
+  setCatalogSearchScope(selectedCatalogKind || "all");
   refreshCatalogState();
 };
 const resetCatalogFilter = (scope, key) => {
@@ -11977,15 +11931,15 @@ animeSearchHelpPopover?.addEventListener("click", event => {
   event.stopPropagation();
 });
 document.querySelectorAll(".section-subnav").forEach(nav => nav.addEventListener("click", event => {
-  const catalogScopeButton = event.target.closest("[data-catalog-nav-scope]");
+  const categoryCatalogButton = event.target.closest("[data-category-catalog-open]");
   const categoryReleaseButton = event.target.closest("[data-category-release-open]");
   const categoryAnimeButton = event.target.closest("[data-category-anime-open]");
   const categoryAnimeEpisodesButton = event.target.closest("[data-category-anime-episodes-open]");
 
-  if (catalogScopeButton) {
+  if (categoryCatalogButton) {
     event.preventDefault();
     closeSearchHelpPopovers();
-    navigateToRoute({ type: "catalog", scope: catalogScopeButton.dataset.catalogNavScope || "all" });
+    navigateToRoute({ type: "catalog", scope: "all" });
     return;
   }
 

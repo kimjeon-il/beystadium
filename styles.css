@@ -21,23 +21,17 @@
   --ui-line: light-dark(#cfd6df, #303a48);
   --ui-text: light-dark(#101827, #f3f6fa);
   --ui-muted: light-dark(#667386, #a8b3c2);
-  --ui-modal-subtext: light-dark(#5f6d80, #b7c2d0);
   --ui-accent: light-dark(#334155, #d7dee8);
   --ui-brand-bg: light-dark(#475569, #2f3b4d);
   --ui-brand-text: #f3f6fa;
   --font-xs: .8125rem;
   --font-sm: .875rem;
   --font-md: 1rem;
-  --font-lg: 1.25rem;
   --font-xl: 1.375rem;
   --font-title: clamp(1.75rem, 2.4vw, 2.25rem);
   --font-hero: clamp(3rem, 7vw, 5rem);
   --ui-radius: 12px;
   --ui-panel-radius: 14px;
-  --ui-menu-width: 112px;
-  --ui-item-width: 96px;
-  --ui-gap: 12px;
-  --filter-dropdown-width: 12.25rem;
   --filter-dropdown-height: 48px;
   --filter-dropdown-gap: 10px;
   --search-box-height: 48px;
@@ -49,7 +43,6 @@
   --primary-search-scope-padding: 0 24px 0 12px;
   --primary-search-scope-bg: var(--ui-control);
   --primary-search-scope-bg-hover: var(--ui-control-hover);
-  --catalog-dropdown-width: 12.25rem;
   --ui-shadow-color: light-dark(rgba(16, 24, 39, 0.12), color-mix(in srgb, var(--ui-bg) 72%, transparent));
   --ui-shadow-soft: 0 10px 30px var(--ui-shadow-color);
 }
@@ -1541,7 +1534,6 @@ dialog[open] .product-modal-name {
 .release-dropdowns {
   --release-region-tabs-width: 10.5rem;
   --release-series-dropdown-width: 14.5rem;
-  --release-filter-stack-width: 30rem;
   --release-grid-columns: minmax(9.5rem, var(--release-region-tabs-width)) minmax(13.5rem, var(--release-series-dropdown-width)) minmax(0, 1fr);
   --release-grid-areas: "region series search";
   width: 100%;
@@ -2749,6 +2741,14 @@ body.is-overview .catalog-section {
   --search-box-block-height: var(--search-box-height, 48px);
   --search-box-padding: 0 16px 0 8px;
   --search-box-gap: 10px;
+  --search-scope-min-width: var(--primary-search-scope-min-width);
+  --search-scope-max-width: var(--primary-search-scope-max-width);
+  --search-scope-height: var(--primary-search-scope-height);
+  --search-scope-summary-height: var(--primary-search-scope-height);
+  --search-scope-summary-padding: var(--primary-search-scope-padding);
+  --search-scope-summary-bg: var(--primary-search-scope-bg);
+  --search-scope-summary-hover-bg: var(--primary-search-scope-bg-hover);
+  --search-scope-arrow-right: 12px;
   --global-search-box-flex: var(--catalog-search-box-flex);
   --catalog-search-wrap-width: 100%;
   --catalog-search-wrap-max: none;
@@ -2761,7 +2761,6 @@ body.is-overview .catalog-section {
   --catalog-search-box-flex: 1 1 auto;
   --catalog-control-stack-gap: 12px;
   --catalog-filter-card-gap: 12px;
-  --catalog-control-radius: 10px;
   --catalog-pill-radius: 12px;
   --catalog-chip-row-height: 36px;
 }

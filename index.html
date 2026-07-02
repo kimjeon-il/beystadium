@@ -11,7 +11,7 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="./styles.css?v=20260702-base-cleanup" />
+    <link rel="stylesheet" href="./styles.css?v=20260702-catalog-search-scope" />
   </head>
   <body class="is-overview" data-active-panel="overview">
     <header class="topbar">
@@ -251,9 +251,7 @@
             </div>
           </div>
           <nav class="section-subnav catalog-section-subnav" aria-label="완구 하위 카테고리">
-            <button class="section-subnav-button" type="button" data-catalog-nav-scope="all">전체</button>
-            <button class="section-subnav-button" type="button" data-catalog-nav-scope="bey">베이</button>
-            <button class="section-subnav-button" type="button" data-catalog-nav-scope="tools">장비</button>
+            <button class="section-subnav-button" type="button" data-category-catalog-open>도감</button>
             <button class="section-subnav-button" type="button" data-category-release-open>발매목록</button>
           </nav>
 
@@ -262,6 +260,14 @@
               <button type="button" class="catalog-search-help-button" id="catalogSearchHelpButton" aria-label="완구 검색 도움말" aria-expanded="false" aria-controls="catalogSearchHelpPopover">i</button>
               <div class="unified-search catalog-local-search">
                 <div class="search-box global-search-box catalog-search-box">
+                  <details class="search-scope catalog-dropdown" id="catalogSearchScope" data-scope="all" aria-label="완구 검색 범위">
+                    <summary><b class="catalog-dropdown-value">전체</b></summary>
+                    <div class="catalog-dropdown-menu">
+                      <button type="button" class="ui-dropdown-item active" data-catalog-search-scope="all">전체</button>
+                      <button type="button" class="ui-dropdown-item" data-catalog-search-scope="bey">베이</button>
+                      <button type="button" class="ui-dropdown-item" data-catalog-search-scope="tools">장비</button>
+                    </div>
+                  </details>
                   <span class="search-icon" aria-hidden="true"></span>
                   <input id="catalogSearchInput" type="search" placeholder="검색어를 입력해주세요." autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none" />
                 </div>
@@ -308,9 +314,7 @@
             </div>
           </div>
           <nav class="section-subnav catalog-section-subnav" aria-label="완구 하위 카테고리">
-            <button class="section-subnav-button" type="button" data-catalog-nav-scope="all">전체</button>
-            <button class="section-subnav-button" type="button" data-catalog-nav-scope="bey">베이</button>
-            <button class="section-subnav-button" type="button" data-catalog-nav-scope="tools">장비</button>
+            <button class="section-subnav-button" type="button" data-category-catalog-open>도감</button>
             <button class="section-subnav-button" type="button" data-category-release-open>발매목록</button>
           </nav>
 
@@ -380,6 +384,6 @@
     </dialog>
 
     <button class="to-top" id="toTop" type="button" aria-label="맨 위로 이동">↑</button>
-    <script src="./app.js?v=20260702-catalog-label-to-toy"></script>
+    <script src="./app.js?v=20260702-catalog-search-scope"></script>
   </body>
 </html>
