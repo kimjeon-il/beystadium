@@ -2372,7 +2372,7 @@ const productItems = [
       },
       jp: {
         no: "B-15",
-        name: "Vol.1 트라이던트.H.C",
+        name: "랜덤부스터 Vol.1 트라이던트.H.C",
         kind: "랜덤부스터",
         releaseDate: "2015-09-19",
         price: "864",
@@ -2616,7 +2616,7 @@ const productItems = [
       },
       jp: {
         no: "B-24",
-        name: "Vol.2 이빌아이.W.N",
+        name: "랜덤부스터 Vol.2 이빌아이.W.N",
         kind: "랜덤부스터",
         releaseDate: "2015-12-26",
         price: "864",
@@ -3124,7 +3124,7 @@ const productItems = [
       },
       jp: {
         no: "B-49",
-        name: "Vol.3 예거 이그드라실.G.Y",
+        name: "랜덤부스터 Vol.3 예거 이그드라실.G.Y",
         kind: "랜덤부스터",
         releaseDate: "2016-07-16",
         price: "972",
@@ -3345,7 +3345,7 @@ const productItems = [
     releases: {
       kr: {
         no: "B-61",
-        name: "Vol.4 쿼드 케찰콰틀.J.P",
+        name: "랜덤부스터 Vol.4 쿼드 케찰콰틀.J.P",
         kind: "랜덤부스터",
         releaseDate: "2018-04-19",
         price: "12300",
@@ -3353,7 +3353,7 @@ const productItems = [
       },
       jp: {
         no: "B-61",
-        name: "Vol.4 쿼드 케찰콰틀.J.P",
+        name: "랜덤부스터 Vol.4 쿼드 케찰콰틀.J.P",
         kind: "랜덤부스터",
         releaseDate: "2016-10-22",
         price: "972",
@@ -3480,7 +3480,7 @@ const productItems = [
       },
       jp: {
         no: "B-67",
-        name: "Vol.5 기간트 가이아.Q.F",
+        name: "랜덤부스터 Vol.5 기간트 가이아.Q.F",
         kind: "랜덤부스터",
         releaseDate: "2016-12-28",
         price: "972",
@@ -3748,7 +3748,7 @@ const productItems = [
     releases: {
       kr: {
         no: "B-80",
-        name: "Vol.6",
+        name: "랜덤부스터 Vol.6",
         kind: "랜덤부스터",
         releaseDate: "2017-07-01",
         price: "12300",
@@ -3756,7 +3756,7 @@ const productItems = [
       },
       jp: {
         no: "B-80",
-        name: "Vol.6 토네이도 와이번.4G.At",
+        name: "랜덤부스터 Vol.6 토네이도 와이번.4G.At",
         kind: "랜덤부스터",
         releaseDate: "2017-04-29",
         price: "972",
@@ -3902,7 +3902,7 @@ const productItems = [
     releases: {
       kr: {
         no: "B-87",
-        name: "Vol.7",
+        name: "랜덤부스터 Vol.7",
         kind: "랜덤부스터",
         releaseDate: "2017-10-10",
         price: "12300",
@@ -3910,7 +3910,7 @@ const productItems = [
       },
       jp: {
         no: "B-87",
-        name: "Vol.7 맥시멈 가루다.8F.Fl",
+        name: "랜덤부스터 Vol.7 맥시멈 가루다.8F.Fl",
         kind: "랜덤부스터",
         releaseDate: "2017-07-15",
         price: "972",
@@ -4078,7 +4078,7 @@ const productItems = [
     releases: {
       kr: {
         no: "B-95",
-        name: "Vol.8",
+        name: "랜덤부스터 Vol.8",
         kind: "랜덤부스터",
         releaseDate: "2017-11-07",
         price: "12300",
@@ -4086,7 +4086,7 @@ const productItems = [
       },
       jp: {
         no: "B-95",
-        name: "Vol.8 셸터 레굴루스.5S.Tw",
+        name: "랜덤부스터 Vol.8 셸터 레굴루스.5S.Tw",
         kind: "랜덤부스터",
         releaseDate: "2017-10-21",
         price: "972",
@@ -4210,7 +4210,7 @@ const productItems = [
     releases: {
       kr: {
         no: "B-101",
-        name: "Vol.9",
+        name: "랜덤부스터 Vol.9",
         kind: "랜덤부스터",
         releaseDate: "2017-03-01",
         price: "12300",
@@ -4218,7 +4218,7 @@ const productItems = [
       },
       jp: {
         no: "B-101",
-        name: "Vol.9 비트 쿠쿨칸.7U.Hn",
+        name: "랜덤부스터 Vol.9 비트 쿠쿨칸.7U.Hn",
         kind: "랜덤부스터",
         releaseDate: "2017-12-28",
         price: "972",
@@ -4430,7 +4430,7 @@ const productItems = [
     releases: {
       kr: {
         no: "B-111",
-        name: "Vol.10",
+        name: "랜덤부스터 Vol.10",
         kind: "랜덤부스터",
         releaseDate: "2018-07-03",
         price: "12300",
@@ -4438,7 +4438,7 @@ const productItems = [
       },
       jp: {
         no: "B-111",
-        name: "Vol.10 크래시 라그나로크.11R.Wd",
+        name: "랜덤부스터 Vol.10 크래시 라그나로크.11R.Wd",
         kind: "랜덤부스터",
         releaseDate: "2018-04-28",
         price: "993",
@@ -4584,7 +4584,7 @@ const productItems = [
     releases: {
       kr: {
         no: "B-118",
-        name: "Vol.11",
+        name: "랜덤부스터 Vol.11",
         kind: "랜덤부스터",
         releaseDate: "2018-09-12",
         price: "12300",
@@ -4592,7 +4592,7 @@ const productItems = [
       },
       jp: {
         no: "B-118",
-        name: "Vol.11 바이스 레오파드.12L.Ds",
+        name: "랜덤부스터 Vol.11 바이스 레오파드.12L.Ds",
         kind: "랜덤부스터",
         releaseDate: "2018-07-14",
         price: "993",
@@ -4723,7 +4723,7 @@ const productItems = [
     releases: {
       kr: {
         no: "B-125",
-        name: "Vol.12",
+        name: "랜덤부스터 Vol.12",
         kind: "랜덤부스터",
         releaseDate: "2018-11-07",
         price: "12300",
@@ -4731,7 +4731,7 @@ const productItems = [
       },
       jp: {
         no: "B-125",
-        name: "Vol.12 데드 하데스.11T.Z'",
+        name: "랜덤부스터 Vol.12 데드 하데스.11T.Z'",
         kind: "랜덤부스터",
         releaseDate: "2018-10-20",
         price: "993",
@@ -4833,7 +4833,7 @@ const productItems = [
     releases: {
       kr: {
         no: "B-130",
-        name: "Vol.13",
+        name: "랜덤부스터 Vol.13",
         kind: "랜덤부스터",
         releaseDate: "2018-02-08",
         price: "12300",
@@ -4841,7 +4841,7 @@ const productItems = [
       },
       jp: {
         no: "B-130",
-        name: "Vol.13 에어 나이트.12E.Et",
+        name: "랜덤부스터 Vol.13 에어 나이트.12E.Et",
         kind: "랜덤부스터",
         releaseDate: "2018-12-27",
         price: "993",
@@ -4877,7 +4877,7 @@ const productItems = [
     releases: {
       kr: {
         no: "B-132",
-        name: "Vol.14",
+        name: "랜덤부스터 Vol.14",
         kind: "랜덤부스터",
         releaseDate: "2018-03-21",
         price: "12300",
@@ -4885,7 +4885,7 @@ const productItems = [
       },
       jp: {
         no: "B-132",
-        name: "Vol.14 드래이거 팽.0.Xt",
+        name: "랜덤부스터 Vol.14 드래이거 팽.0.Xt",
         kind: "랜덤부스터",
         releaseDate: "2019-02-16",
         price: "993",
@@ -5043,7 +5043,7 @@ const productItems = [
     releases: {
       kr: {
         no: "B-140",
-        name: "Vol.15",
+        name: "랜덤부스터 Vol.15",
         kind: "랜덤부스터",
         releaseDate: "2019-06-20",
         price: "13900",
@@ -5051,7 +5051,7 @@ const productItems = [
       },
       jp: {
         no: "B-140",
-        name: "Vol.15",
+        name: "랜덤부스터 Vol.15",
         kind: "랜덤부스터",
         releaseDate: "2019-04-27",
         price: "1080",
@@ -5104,7 +5104,7 @@ const productItems = [
     releases: {
       kr: {
         no: "B-143",
-        name: "Vol.1 드레드 바하무트 천",
+        name: "랜덤레이어 Vol.1 드레드 바하무트 천",
         kind: "랜덤레이어",
         releaseDate: "2019-07-31",
         price: "4900",
@@ -5112,7 +5112,7 @@ const productItems = [
       },
       jp: {
         no: "B-143",
-        name: "Vol.1 드레드 바하무트 天",
+        name: "랜덤레이어 Vol.1 드레드 바하무트 天",
         kind: "랜덤레이어",
         releaseDate: "2019-05-25",
         price: "540",
@@ -5170,7 +5170,7 @@ const productItems = [
     releases: {
       kr: {
         no: "B-146",
-        name: "Vol.16",
+        name: "랜덤부스터 Vol.16",
         kind: "랜덤부스터",
         releaseDate: "2019-09-20",
         price: "13900",
@@ -5178,7 +5178,7 @@ const productItems = [
       },
       jp: {
         no: "B-146",
-        name: "Vol.16",
+        name: "랜덤부스터 Vol.16",
         kind: "랜덤부스터",
         releaseDate: "2019-07-20",
         price: "1080",
@@ -5192,7 +5192,7 @@ const productItems = [
     releases: {
       kr: {
         no: "B-147",
-        name: "Vol.2 포이즌 히드라 참",
+        name: "랜덤레이어 Vol.2 포이즌 히드라 참",
         kind: "랜덤레이어",
         releaseDate: "2019-09-20",
         price: "4900",
@@ -5200,7 +5200,7 @@ const productItems = [
       },
       jp: {
         no: "B-147",
-        name: "Vol.2 포이즌 히드라 斬",
+        name: "랜덤레이어 Vol.2 포이즌 히드라 斬",
         kind: "랜덤레이어",
         releaseDate: "2019-07-20",
         price: "540",
@@ -5280,7 +5280,7 @@ const productItems = [
     releases: {
       kr: {
         no: "B-151",
-        name: "Vol.17",
+        name: "랜덤부스터 Vol.17",
         kind: "랜덤부스터",
         releaseDate: "2019-11-11",
         price: "13900",
@@ -5288,7 +5288,7 @@ const productItems = [
       },
       jp: {
         no: "B-151",
-        name: "Vol.17",
+        name: "랜덤부스터 Vol.17",
         kind: "랜덤부스터",
         releaseDate: "2019-10-19",
         price: "1080",
@@ -5302,7 +5302,7 @@ const productItems = [
     releases: {
       kr: {
         no: "B-152",
-        name: "Vol.3 넉아웃 오딘 환",
+        name: "랜덤레이어 Vol.3 넉아웃 오딘 환",
         kind: "랜덤레이어",
         releaseDate: "2019-11-11",
         price: "4900",
@@ -5310,7 +5310,7 @@ const productItems = [
       },
       jp: {
         no: "B-152",
-        name: "Vol.3 넉아웃 오딘 幻",
+        name: "랜덤레이어 Vol.3 넉아웃 오딘 幻",
         kind: "랜덤레이어",
         releaseDate: "2019-10-19",
         price: "540",
@@ -5393,7 +5393,7 @@ const productItems = [
       },
       jp: {
         no: "B-156",
-        name: "Vol.18",
+        name: "랜덤부스터 Vol.18",
         kind: "랜덤부스터",
         releaseDate: "2019-12-26",
         price: "1100",
@@ -5432,7 +5432,7 @@ const productItems = [
       },
       jp: {
         no: "B-158",
-        name: "Vol.19",
+        name: "랜덤부스터 Vol.19",
         kind: "랜덤부스터",
         releaseDate: "2020-02-22",
         price: "660",
@@ -5559,7 +5559,7 @@ const productItems = [
       },
       jp: {
         no: "B-164",
-        name: "Vol.20",
+        name: "랜덤부스터 Vol.20",
         kind: "랜덤부스터",
         releaseDate: "2020-04-25",
         price: "1100",
@@ -5686,7 +5686,7 @@ const productItems = [
       },
       jp: {
         no: "B-170",
-        name: "Vol.21",
+        name: "랜덤부스터 Vol.21",
         kind: "랜덤부스터",
         releaseDate: "2020-07-23",
         price: "1100",
@@ -5744,7 +5744,7 @@ const productItems = [
     releases: {
       kr: {
         no: "B-173",
-        name: "Vol.22",
+        name: "랜덤부스터 Vol.22",
         kind: "랜덤부스터",
         releaseDate: "2020-12-10",
         price: "14900",
@@ -5752,7 +5752,7 @@ const productItems = [
       },
       jp: {
         no: "B-173",
-        name: "Vol.22",
+        name: "랜덤부스터 Vol.22",
         kind: "랜덤부스터",
         releaseDate: "2020-10-24",
         price: "1188",
@@ -5810,7 +5810,7 @@ const productItems = [
     releases: {
       kr: {
         no: "B-176",
-        name: "Vol.23",
+        name: "랜덤부스터 Vol.23",
         kind: "랜덤부스터",
         releaseDate: "2021-02-08",
         price: "14900",
@@ -5818,7 +5818,7 @@ const productItems = [
       },
       jp: {
         no: "B-176",
-        name: "Vol.23",
+        name: "랜덤부스터 Vol.23",
         kind: "랜덤부스터",
         releaseDate: "2020-12-26",
         price: "1188",
@@ -5854,7 +5854,7 @@ const productItems = [
     releases: {
       kr: {
         no: "B-178",
-        name: "Vol.24",
+        name: "랜덤부스터 Vol.24",
         kind: "랜덤부스터",
         releaseDate: "2021-04-14",
         price: "14900",
@@ -5862,7 +5862,7 @@ const productItems = [
       },
       jp: {
         no: "B-178",
-        name: "Vol.24",
+        name: "랜덤부스터 Vol.24",
         kind: "랜덤부스터",
         releaseDate: "2021-02-27",
         price: "1188",
@@ -5920,7 +5920,7 @@ const productItems = [
     releases: {
       kr: {
         no: "B-181",
-        name: "Vol.25",
+        name: "랜덤부스터 Vol.25",
         kind: "랜덤부스터",
         releaseDate: "2021-04-30",
         price: "15900",
@@ -5928,7 +5928,7 @@ const productItems = [
       },
       jp: {
         no: "B-181",
-        name: "Vol.25",
+        name: "랜덤부스터 Vol.25",
         kind: "랜덤부스터",
         releaseDate: "2021-04-24",
         price: "1232",
@@ -6030,7 +6030,7 @@ const productItems = [
     releases: {
       kr: {
         no: "B-186",
-        name: "Vol.26",
+        name: "랜덤부스터 Vol.26",
         kind: "랜덤부스터",
         releaseDate: "2021-09-08",
         price: "15900",
@@ -6038,7 +6038,7 @@ const productItems = [
       },
       jp: {
         no: "B-186",
-        name: "Vol.26",
+        name: "랜덤부스터 Vol.26",
         kind: "랜덤부스터",
         releaseDate: "2021-06-26",
         price: "1232",
@@ -6206,7 +6206,7 @@ const productItems = [
     releases: {
       kr: {
         no: "B-194",
-        name: "Vol.27",
+        name: "랜덤부스터 Vol.27",
         kind: "랜덤부스터",
         releaseDate: "2022-03-30",
         price: "17900",
@@ -6214,7 +6214,7 @@ const productItems = [
       },
       jp: {
         no: "B-194",
-        name: "Vol.27",
+        name: "랜덤부스터 Vol.27",
         kind: "랜덤부스터",
         releaseDate: "2021-12-29",
         price: "1232",
@@ -6250,7 +6250,7 @@ const productItems = [
     releases: {
       kr: {
         no: "B-196",
-        name: "Vol.28",
+        name: "랜덤부스터 Vol.28",
         kind: "랜덤부스터",
         releaseDate: "2022-04-24",
         price: "17900",
@@ -6258,7 +6258,7 @@ const productItems = [
       },
       jp: {
         no: "B-196",
-        name: "Vol.28",
+        name: "랜덤부스터 Vol.28",
         kind: "랜덤부스터",
         releaseDate: "2022-03-19",
         price: "1540",
@@ -6294,7 +6294,7 @@ const productItems = [
     releases: {
       kr: {
         no: "B-198",
-        name: "Vol.29",
+        name: "랜덤부스터 Vol.29",
         kind: "랜덤부스터",
         releaseDate: "2022-09-17",
         price: "17900",
@@ -6302,7 +6302,7 @@ const productItems = [
       },
       jp: {
         no: "B-198",
-        name: "Vol.29",
+        name: "랜덤부스터 Vol.29",
         kind: "랜덤부스터",
         releaseDate: "2022-05-28",
         price: "1400",
@@ -6382,7 +6382,7 @@ const productItems = [
     releases: {
       kr: {
         no: "B-202",
-        name: "Vol.30",
+        name: "랜덤부스터 Vol.30",
         kind: "랜덤부스터",
         releaseDate: "2022-11-22",
         price: "17900",
@@ -6390,7 +6390,7 @@ const productItems = [
       },
       jp: {
         no: "B-202",
-        name: "Vol.30",
+        name: "랜덤부스터 Vol.30",
         kind: "랜덤부스터",
         releaseDate: "2022-09-10",
         price: "1400",
@@ -6853,7 +6853,7 @@ const productItems = [
       },
       jp: {
         no: "BX-14",
-        name: "Vol.1",
+        name: "랜덤부스터 Vol.1",
         kind: "랜덤부스터",
         releaseDate: "2023-09-09",
         price: "1400",
@@ -6921,7 +6921,7 @@ const productItems = [
       },
       jp: {
         no: "BX-16",
-        name: "바이퍼테일 셀렉트",
+        name: "랜덤부스터 바이퍼테일 셀렉트",
         kind: "랜덤부스터",
         releaseDate: "2023-10-07",
         price: "1400",
@@ -7074,7 +7074,7 @@ const productItems = [
       },
       jp: {
         no: "BX-24",
-        name: "Vol.2",
+        name: "랜덤부스터 Vol.2",
         kind: "랜덤부스터",
         releaseDate: "2023-12-27",
         price: "1400",
@@ -7159,7 +7159,7 @@ const productItems = [
       },
       jp: {
         no: "BX-27",
-        name: "스핑크스카울 셀렉트",
+        name: "랜덤부스터 스핑크스카울 셀렉트",
         kind: "랜덤부스터",
         releaseDate: "2024-02-22",
         price: "1400",
@@ -7312,7 +7312,7 @@ const productItems = [
       },
       jp: {
         no: "BX-31",
-        name: "Vol.3",
+        name: "랜덤부스터 Vol.3",
         kind: "랜덤부스터",
         releaseDate: "2024-04-27",
         price: "1400",
@@ -7380,7 +7380,7 @@ const productItems = [
       },
       jp: {
         no: "UX-05",
-        name: "시노비섀도우 셀렉트",
+        name: "랜덤부스터 시노비섀도우 셀렉트",
         kind: "랜덤부스터",
         releaseDate: "2024-05-18",
         price: "1400",
@@ -7533,7 +7533,7 @@ const productItems = [
       },
       jp: {
         no: "BX-35",
-        name: "Vol.4",
+        name: "랜덤부스터 Vol.4",
         kind: "랜덤부스터",
         releaseDate: "2024-07-13",
         price: "1400",
@@ -7635,7 +7635,7 @@ const productItems = [
       },
       jp: {
         no: "BX-36",
-        name: "웨일웨이브 셀렉트",
+        name: "랜덤부스터 웨일웨이브 셀렉트",
         kind: "랜덤부스터",
         releaseDate: "2024-09-14",
         price: "1400",
@@ -7873,7 +7873,7 @@ const productItems = [
       },
       jp: {
         no: "UX-12",
-        name: "Vol.5",
+        name: "랜덤부스터 Vol.5",
         kind: "랜덤부스터",
         releaseDate: "2024-12-28",
         price: "1400",
@@ -7975,7 +7975,7 @@ const productItems = [
       },
       jp: {
         no: "BX-39",
-        name: "셸터드레이크 셀렉트",
+        name: "랜덤부스터 셸터드레이크 셀렉트",
         kind: "랜덤부스터",
         releaseDate: "2025-02-15",
         price: "1400",
@@ -8213,7 +8213,7 @@ const productItems = [
       },
       jp: {
         no: "CX-05",
-        name: "Vol.6",
+        name: "랜덤부스터 Vol.6",
         kind: "랜덤부스터",
         releaseDate: "2025-04-26",
         price: "1600",
@@ -8349,7 +8349,7 @@ const productItems = [
       },
       jp: {
         no: "CX-06",
-        name: "폭스 브러시 셀렉트",
+        name: "랜덤부스터 폭스 브러시 셀렉트",
         kind: "랜덤부스터",
         releaseDate: "2025-05-17",
         price: "1600",
@@ -8434,7 +8434,7 @@ const productItems = [
       },
       jp: {
         no: "CX-08",
-        name: "Vol.7",
+        name: "랜덤부스터 Vol.7",
         kind: "랜덤부스터",
         releaseDate: "2025-07-19",
         price: "1600",
@@ -11848,32 +11848,42 @@ const renderCatalogFilterChips = () => {
   });
 };
 const catalogSearchHelpIsOpen = () => Boolean(catalogSearchHelpPopover && !catalogSearchHelpPopover.hidden);
-const positionCatalogSearchHelpPopover = () => {
-  if (!catalogSearchHelpButton || !catalogSearchHelpIsOpen()) return;
+const positionSearchHelpPopover = (button, popover) => {
+  if (!button || !popover || popover.hidden) return;
   const margin = 12;
   const gap = 8;
-  const buttonRect = catalogSearchHelpButton.getBoundingClientRect();
-  const popoverRect = catalogSearchHelpPopover.getBoundingClientRect();
+  const viewport = window.visualViewport;
+  const viewportLeft = viewport?.offsetLeft || 0;
+  const viewportTop = viewport?.offsetTop || 0;
+  const viewportWidth = viewport?.width || window.innerWidth;
+  const viewportHeight = viewport?.height || window.innerHeight;
+  const topbarRect = document.querySelector(".topbar")?.getBoundingClientRect();
+  const topbarBottom = topbarRect && topbarRect.height > 0 ? topbarRect.bottom : viewportTop;
+  const minLeft = viewportLeft + margin;
+  const maxLeft = viewportLeft + viewportWidth - margin;
+  const minTop = Math.max(viewportTop + margin, topbarBottom + margin);
+  const maxTop = viewportTop + viewportHeight - margin;
+  const buttonRect = button.getBoundingClientRect();
+  const popoverRect = popover.getBoundingClientRect();
   let left = buttonRect.left;
   let top = buttonRect.bottom + gap;
-  if (left + popoverRect.width > window.innerWidth - margin) left = window.innerWidth - margin - popoverRect.width;
-  if (top + popoverRect.height > window.innerHeight - margin) top = buttonRect.top - popoverRect.height - gap;
-  catalogSearchHelpPopover.style.left = `${Math.max(margin, left)}px`;
-  catalogSearchHelpPopover.style.top = `${Math.max(margin, top)}px`;
+  const rightmostLeft = Math.max(minLeft, maxLeft - popoverRect.width);
+  const lowestTop = Math.max(minTop, maxTop - popoverRect.height);
+  if (top + popoverRect.height > maxTop) {
+    const flippedTop = buttonRect.top - popoverRect.height - gap;
+    top = flippedTop >= minTop ? flippedTop : minTop;
+  }
+  left = Math.min(Math.max(left, minLeft), rightmostLeft);
+  top = Math.min(Math.max(top, minTop), lowestTop);
+  popover.style.left = `${left}px`;
+  popover.style.top = `${top}px`;
+};
+const positionCatalogSearchHelpPopover = () => {
+  positionSearchHelpPopover(catalogSearchHelpButton, catalogSearchHelpPopover);
 };
 const animeSearchHelpIsOpen = () => Boolean(animeSearchHelpPopover && !animeSearchHelpPopover.hidden);
 const positionAnimeSearchHelpPopover = () => {
-  if (!animeSearchHelpButton || !animeSearchHelpIsOpen()) return;
-  const margin = 12;
-  const gap = 8;
-  const buttonRect = animeSearchHelpButton.getBoundingClientRect();
-  const popoverRect = animeSearchHelpPopover.getBoundingClientRect();
-  let left = buttonRect.left;
-  let top = buttonRect.bottom + gap;
-  if (left + popoverRect.width > window.innerWidth - margin) left = window.innerWidth - margin - popoverRect.width;
-  if (top + popoverRect.height > window.innerHeight - margin) top = buttonRect.top - popoverRect.height - gap;
-  animeSearchHelpPopover.style.left = `${Math.max(margin, left)}px`;
-  animeSearchHelpPopover.style.top = `${Math.max(margin, top)}px`;
+  positionSearchHelpPopover(animeSearchHelpButton, animeSearchHelpPopover);
 };
 const closeCatalogSearchHelpPopover = () => {
   if (!catalogSearchHelpPopover) return;

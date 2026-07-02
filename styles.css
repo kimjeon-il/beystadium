@@ -2803,6 +2803,7 @@ body.is-overview .catalog-section {
   z-index: 160;
   width: min(260px, calc(100vw - 32px));
   max-height: min(72vh, 520px);
+  max-height: min(72vh, calc(100dvh - 96px), 520px);
   overflow-y: auto;
   padding: 12px 12px 13px;
   border: 1px solid var(--ui-line);
