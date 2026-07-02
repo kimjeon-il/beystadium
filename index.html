@@ -11,7 +11,7 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="./styles.css?v=20260702-card-badge-padding" />
+    <link rel="stylesheet" href="./styles.css?v=20260702-anime-card-airing-copy" />
   </head>
   <body class="is-overview" data-active-panel="overview">
     <header class="topbar">
@@ -209,7 +209,7 @@
                     </div>
                   </details>
                   <span class="search-icon" aria-hidden="true"></span>
-                  <input id="overviewSearchInput" type="search" placeholder="찾고 싶은 정보를 검색해보세요." autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none" />
+                  <input id="overviewSearchInput" type="search" placeholder="검색어를 입력해주세요." autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none" />
                 </div>
               </div>
             </div>
@@ -222,9 +222,8 @@
                     <path d="M9 8h6M9 12h6M9 16h3.2" />
                   </svg>
                 </i>
-                <span>완구</span>
                 <strong data-mobile-label="도감">도감</strong>
-                <small>베이와 장비 목록</small>
+                <small>베이와 장비</small>
                 <b aria-hidden="true">→</b>
               </button>
               <button class="ui-card-button overview-open-card is-pending" type="button" disabled aria-disabled="true">
@@ -235,9 +234,8 @@
                     <path d="M16.2 19.6 19 22v-4.2" />
                   </svg>
                 </i>
-                <span>미디어</span>
                 <strong data-mobile-label="만화">만화</strong>
-                <small>만화 연재 정보</small>
+                <small>연재 정보</small>
                 <b aria-hidden="true">→</b>
               </button>
               <button class="ui-card-button overview-open-card" type="button" data-category-anime-open>
@@ -247,9 +245,8 @@
                     <path d="m10 9 5 3-5 3V9Z" />
                   </svg>
                 </i>
-                <span>미디어</span>
                 <strong data-mobile-label="애니">애니메이션</strong>
-                <small>애니메이션 방영 정보</small>
+                <small>방영 정보</small>
                 <b aria-hidden="true">→</b>
               </button>
             </div>
@@ -280,7 +277,7 @@
               <div class="unified-search catalog-local-search">
                 <div class="search-box global-search-box catalog-search-box">
                   <span class="search-icon" aria-hidden="true"></span>
-                  <input id="catalogSearchInput" type="search" placeholder="이름, 번호, 속성으로 검색" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none" />
+                  <input id="catalogSearchInput" type="search" placeholder="검색어를 입력해주세요." autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none" />
                 </div>
               </div>
             </div>
@@ -341,7 +338,7 @@
               <div class="unified-search catalog-local-search anime-local-search">
                 <div class="search-box global-search-box catalog-search-box anime-search-box">
                   <span class="search-icon" aria-hidden="true"></span>
-                  <input id="animeSearchInput" type="search" placeholder="애니 안에서 검색" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none" />
+                  <input id="animeSearchInput" type="search" placeholder="검색어를 입력해주세요." autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none" />
                 </div>
               </div>
             </div>
@@ -383,6 +380,6 @@
     </dialog>
 
     <button class="to-top" id="toTop" type="button" aria-label="맨 위로 이동">↑</button>
-    <script src="./app.js?v=20260702-global-search-panel-visibility"></script>
+    <script src="./app.js?v=20260702-search-placeholder-unified"></script>
   </body>
 </html>

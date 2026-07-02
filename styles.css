@@ -2684,7 +2684,6 @@ body.is-overview .catalog-section {
   --overview-card-min-height: 140px;
   --overview-card-columns: minmax(0, 1fr) auto;
   --overview-card-areas:
-    "eyebrow arrow"
     "title arrow"
     "desc arrow";
   --overview-card-justify-items: stretch;
@@ -2694,7 +2693,6 @@ body.is-overview .catalog-section {
   --overview-card-radius: 24px;
   --overview-card-text-align: left;
   --overview-card-detail-display: inline;
-  --overview-card-label-size: clamp(.625rem, 3.1vw, var(--font-md));
   --overview-card-title-size: clamp(calc(var(--font-xl) * .625), 3.9vw, var(--font-xl));
   --overview-card-desc-size: clamp(.625rem, 3.1vw, var(--font-md));
   --overview-card-arrow-size: clamp(calc(var(--font-xl) * .625), 3.9vw, var(--font-xl));
@@ -2702,6 +2700,7 @@ body.is-overview .catalog-section {
   --overview-card-title-white-space: nowrap;
   --overview-card-title-word-break: normal;
   --overview-card-title-overflow-wrap: normal;
+  --overview-card-mobile-title-size: clamp(.8125rem, 2.48vw, var(--font-xl));
   width: min(100%, 960px);
   margin: 0 auto;
   display: grid;
@@ -3613,20 +3612,11 @@ body.is-overview .catalog-section {
   transform: none !important;
 }
 
-.overview-open-card.is-pending span,
 .overview-open-card.is-pending strong,
 .overview-open-card.is-pending small,
 .overview-open-card.is-pending b,
 .overview-open-card.is-pending .overview-card-icon {
   color: color-mix(in srgb, var(--ui-muted) 42%, transparent) !important;
-}
-
-.overview-open-card span {
-  --overview-card-child-display: var(--overview-card-detail-display);
-  --overview-card-child-area: eyebrow;
-  --overview-card-child-color: var(--ui-muted);
-  --overview-card-child-size: var(--overview-card-label-size);
-  --overview-card-child-weight: 500;
 }
 
 .overview-open-card strong {
@@ -3647,9 +3637,9 @@ body.is-overview .catalog-section {
   --overview-card-child-size: var(--overview-card-desc-size);
   --overview-card-child-weight: 400;
   --overview-card-child-line-height: 1.45;
+  --overview-card-child-white-space: nowrap;
 }
 
-.overview-open-card span,
 .overview-open-card strong,
 .overview-open-card small,
 .overview-open-card b {
@@ -3661,6 +3651,11 @@ body.is-overview .catalog-section {
   font-weight: var(--overview-card-child-weight, 400);
   line-height: var(--overview-card-child-line-height, normal);
   white-space: var(--overview-card-child-white-space, nowrap);
+}
+
+.overview-open-card small {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .overview-open-card b {
@@ -3779,6 +3774,71 @@ body.menu-open .menu-button span:nth-child(3) {
 
 .mobile-drawer {
   display: none !important;
+}
+
+@media (max-width: 48rem) {
+  .overview-home {
+    --overview-card-grid-gap: clamp(8px, 1.8vw, 14px);
+    --overview-card-min-height: clamp(76px, 19vw, 140px);
+    --overview-card-columns: minmax(0, 1fr);
+    --overview-card-areas:
+      "icon"
+      "title";
+    --overview-card-justify-items: center;
+    --overview-card-padding: clamp(10px, 3vw, 22px) clamp(6px, 3.1vw, 24px);
+    --overview-card-row-gap: clamp(7px, 1.8vw, 10px);
+    --overview-card-column-gap: 0;
+    --overview-card-radius: clamp(16px, 3.1vw, 24px);
+    --overview-card-text-align: center;
+    --overview-card-title-size: var(--overview-card-mobile-title-size);
+    --overview-card-title-line-height: 1.1;
+  }
+
+  .overview-card-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .overview-card-icon {
+    width: clamp(22px, 4vw, 30px);
+    height: clamp(22px, 4vw, 30px);
+    display: inline-grid;
+    grid-area: icon;
+    place-items: center;
+    color: var(--ui-muted);
+  }
+
+  .overview-card-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    stroke: currentColor;
+  }
+
+  .overview-open-card small,
+  .overview-open-card b {
+    display: none !important;
+  }
+
+  .overview-open-card strong {
+    width: 100%;
+    min-width: 0;
+    font-size: 0;
+    line-height: var(--overview-card-title-line-height);
+    text-align: center;
+  }
+
+  .overview-open-card strong::after {
+    content: attr(data-mobile-label);
+    display: block;
+    min-width: 0;
+    color: inherit;
+    font-size: var(--overview-card-title-size);
+    font-weight: 700;
+    line-height: var(--overview-card-title-line-height);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 @media (max-width: 63.999rem) {
@@ -4210,71 +4270,6 @@ body.menu-open .menu-button span:nth-child(3) {
 
   .catalog-panel.catalog-filters-compact {
     --catalog-filter-compact-columns: 1fr;
-  }
-
-  .overview-card-grid {
-    width: min(100%, 430px);
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 8px;
-  }
-
-  .overview-open-card {
-    --overview-card-min-height: 76px;
-    --overview-card-columns: minmax(0, 1fr);
-    --overview-card-areas:
-      "icon"
-      "title";
-    --overview-card-justify-items: center;
-    --overview-card-padding: 10px 6px;
-    --overview-card-row-gap: 7px;
-    --overview-card-column-gap: 0;
-    --overview-card-radius: 16px;
-    --overview-card-text-align: center;
-    --overview-card-title-size: .8125rem;
-    --overview-card-title-line-height: 1.1;
-  }
-
-  .overview-card-icon {
-    width: 22px;
-    height: 22px;
-    display: inline-grid;
-    grid-area: icon;
-    place-items: center;
-    color: var(--ui-muted);
-  }
-
-  .overview-card-icon svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-    stroke: currentColor;
-  }
-
-  .overview-open-card span,
-  .overview-open-card small,
-  .overview-open-card b {
-    display: none !important;
-  }
-
-  .overview-open-card strong {
-    width: 100%;
-    min-width: 0;
-    font-size: 0;
-    line-height: var(--overview-card-title-line-height);
-    text-align: center;
-  }
-
-  .overview-open-card strong::after {
-    content: attr(data-mobile-label);
-    display: block;
-    min-width: 0;
-    color: inherit;
-    font-size: var(--overview-card-title-size);
-    font-weight: 700;
-    line-height: var(--overview-card-title-line-height);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 
 }

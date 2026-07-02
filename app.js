@@ -8790,7 +8790,7 @@ const releaseControls = () => `<div class="release-dropdowns" aria-label="발매
   </details>
   <div class="search-box release-search-box" role="search">
     <span class="search-icon" aria-hidden="true"></span>
-    <input id="releaseSearchInput" type="search" placeholder="목록에서 검색" value="${escapeAttributeValue(activeReleaseQuery)}" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none" />
+    <input id="releaseSearchInput" type="search" placeholder="검색어를 입력해주세요." value="${escapeAttributeValue(activeReleaseQuery)}" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none" />
   </div>
 </div>`;
 
@@ -11475,7 +11475,7 @@ const animeEpisodeControls = () => `<div class="release-dropdowns anime-episode-
   </details>
   <div class="search-box release-search-box" role="search">
     <span class="search-icon" aria-hidden="true"></span>
-    <input id="animeEpisodeSearchInput" type="search" placeholder="목록에서 검색" value="${escapeAttributeValue(activeAnimeEpisodeQuery)}" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none" />
+    <input id="animeEpisodeSearchInput" type="search" placeholder="검색어를 입력해주세요." value="${escapeAttributeValue(activeAnimeEpisodeQuery)}" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none" />
   </div>
 </div>`;
 
