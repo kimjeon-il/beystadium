@@ -11,7 +11,7 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="./styles.css?v=20260702-overview-card-button-cleanup" />
+    <link rel="stylesheet" href="./styles.css?v=20260702-page-subnav" />
   </head>
   <body class="is-overview" data-active-panel="overview">
     <header class="topbar">
@@ -20,23 +20,9 @@
         <span><b>베이</b> 아카이브</span>
       </a>
       <nav class="nav">
-        <div class="nav-group">
-          <button class="nav-link" type="button" data-category-catalog-open>도감</button>
-          <div class="nav-submenu nav-filter-menu" id="catalogNavFilters">
-            <button class="sub-filter" type="button" data-catalog-nav-scope="bey">베이</button>
-            <button class="sub-filter" type="button" data-catalog-nav-scope="tools">장비</button>
-            <button class="sub-filter" type="button" data-category-release-open>발매목록</button>
-          </div>
-        </div>
-        <div class="nav-group">
-          <button class="nav-link nav-link-pending" type="button" disabled aria-disabled="true">만화</button>
-        </div>
-        <div class="nav-group">
-          <button class="nav-link" type="button" data-category-anime-open>애니메이션</button>
-          <div class="nav-submenu nav-filter-menu" id="animeNavFilters">
-            <button class="sub-filter" type="button" data-category-anime-episodes-open>방영목록</button>
-          </div>
-        </div>
+        <button class="nav-link" type="button" data-category-catalog-open>도감</button>
+        <button class="nav-link nav-link-pending" type="button" disabled aria-disabled="true">만화</button>
+        <button class="nav-link" type="button" data-category-anime-open>애니메이션</button>
       </nav>
       <button class="menu-button" id="menuButton" type="button" aria-label="메뉴 열기" aria-controls="mobileDrawer" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -264,6 +250,12 @@
               <h2>도감</h2>
             </div>
           </div>
+          <nav class="section-subnav catalog-section-subnav" aria-label="도감 하위 카테고리">
+            <button class="section-subnav-button" type="button" data-catalog-nav-scope="all">전체</button>
+            <button class="section-subnav-button" type="button" data-catalog-nav-scope="bey">베이</button>
+            <button class="section-subnav-button" type="button" data-catalog-nav-scope="tools">장비</button>
+            <button class="section-subnav-button" type="button" data-category-release-open>발매목록</button>
+          </nav>
 
           <div class="catalog-control-bar">
             <div class="toolbar catalog-toolbar">
@@ -315,6 +307,12 @@
               <h2>발매목록</h2>
             </div>
           </div>
+          <nav class="section-subnav catalog-section-subnav" aria-label="도감 하위 카테고리">
+            <button class="section-subnav-button" type="button" data-catalog-nav-scope="all">전체</button>
+            <button class="section-subnav-button" type="button" data-catalog-nav-scope="bey">베이</button>
+            <button class="section-subnav-button" type="button" data-catalog-nav-scope="tools">장비</button>
+            <button class="section-subnav-button" type="button" data-category-release-open>발매목록</button>
+          </nav>
 
           <div class="release-page-shell" data-release-page-content></div>
         </div>
@@ -325,6 +323,10 @@
               <h2>애니메이션</h2>
             </div>
           </div>
+          <nav class="section-subnav anime-section-subnav" aria-label="애니메이션 하위 카테고리">
+            <button class="section-subnav-button" type="button" data-category-anime-open>등장인물 및 베이</button>
+            <button class="section-subnav-button" type="button" data-category-anime-episodes-open>방영목록</button>
+          </nav>
 
           <div class="catalog-control-bar anime-control-bar">
             <div class="toolbar catalog-toolbar anime-toolbar">
@@ -360,6 +362,10 @@
               <h2>방영목록</h2>
             </div>
           </div>
+          <nav class="section-subnav anime-section-subnav" aria-label="애니메이션 하위 카테고리">
+            <button class="section-subnav-button" type="button" data-category-anime-open>등장인물 및 베이</button>
+            <button class="section-subnav-button" type="button" data-category-anime-episodes-open>방영목록</button>
+          </nav>
 
           <div class="release-page-shell anime-episodes-page-shell" data-anime-episodes-page-content></div>
         </div>
@@ -374,6 +380,6 @@
     </dialog>
 
     <button class="to-top" id="toTop" type="button" aria-label="맨 위로 이동">↑</button>
-    <script src="./app.js?v=20260702-modal-close-preserve-scroll"></script>
+    <script src="./app.js?v=20260702-page-subnav"></script>
   </body>
 </html>

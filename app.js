@@ -9810,7 +9810,7 @@ function stabilizePrimaryRouteScroll() {
   });
 }
 let applyingRoute = false;
-function navigateToRoute(route, { replace = false, apply = true } = {}) {
+function navigateToRoute(route, { replace = false, apply = true, preserveScroll = false } = {}) {
   const normalizedRoute = normalizeRoute(route);
   syncModalOriginRoute(normalizedRoute);
   const nextHash = serializeRoute(normalizedRoute);
@@ -9822,7 +9822,7 @@ function navigateToRoute(route, { replace = false, apply = true } = {}) {
       // URL writes can be denied in embedded browsers; still apply the route state.
     }
   }
-  if (apply) applyRoute(normalizedRoute);
+  if (apply) applyRoute(normalizedRoute, { preserveScroll });
 }
 const mainSearchProductCompositionText = (item, region) => productCompositionItems(item, region)
   .map(part => [part.name, mainSearchItemText(findCatalogItemById(part.target))].filter(Boolean).join(" "))
@@ -12093,15 +12093,24 @@ const refreshCatalogState = () => {
   renderCatalogFilterChips();
 };
 const syncCatalogMenuScope = scope => {
-  const normalized = scope === "release" || scope === "anime-episodes" ? scope : normalizeSearchScope(scope);
+  const normalized = ["release", "anime", "anime-episodes"].includes(scope) ? scope : normalizeSearchScope(scope);
+  const setSubnavActive = (button, active) => {
+    button.classList.toggle("active", active);
+    if (!button.closest(".section-subnav")) return;
+    if (active) button.setAttribute("aria-current", "page");
+    else button.removeAttribute("aria-current");
+  };
   document.querySelectorAll("[data-catalog-nav-scope]").forEach(button => {
-    button.classList.toggle("active", button.dataset.catalogNavScope === normalized);
+    setSubnavActive(button, button.dataset.catalogNavScope === normalized);
   });
   document.querySelectorAll("[data-category-release-open]").forEach(button => {
-    button.classList.toggle("active", normalized === "release");
+    setSubnavActive(button, normalized === "release");
+  });
+  document.querySelectorAll(".section-subnav [data-category-anime-open]").forEach(button => {
+    setSubnavActive(button, normalized === "anime");
   });
   document.querySelectorAll("[data-category-anime-episodes-open]").forEach(button => {
-    button.classList.toggle("active", normalized === "anime-episodes");
+    setSubnavActive(button, normalized === "anime-episodes");
   });
   mobileDrawer?.querySelectorAll("[data-mobile-catalog-scope]").forEach(button => {
     button.classList.toggle("active", button.dataset.mobileCatalogScope === normalized);
@@ -12324,20 +12333,39 @@ animeSearchHelpButton?.addEventListener("click", event => {
 animeSearchHelpPopover?.addEventListener("click", event => {
   event.stopPropagation();
 });
-document.querySelector(".catalog-panel")?.addEventListener("click", event => {
+document.querySelectorAll(".section-subnav").forEach(nav => nav.addEventListener("click", event => {
+  const catalogScopeButton = event.target.closest("[data-catalog-nav-scope]");
   const categoryReleaseButton = event.target.closest("[data-category-release-open]");
-  if (!categoryReleaseButton) return;
-  event.preventDefault();
-  closeCatalogSearchHelpPopover();
-  openCategoryReleaseFromMenu();
-});
-document.querySelector(".anime-panel")?.addEventListener("click", event => {
+  const categoryAnimeButton = event.target.closest("[data-category-anime-open]");
   const categoryAnimeEpisodesButton = event.target.closest("[data-category-anime-episodes-open]");
-  if (!categoryAnimeEpisodesButton) return;
-  event.preventDefault();
-  closeAnimeSearchHelpPopover();
-  openCategoryAnimeEpisodesFromMenu();
-});
+
+  if (catalogScopeButton) {
+    event.preventDefault();
+    closeSearchHelpPopovers();
+    navigateToRoute({ type: "catalog", scope: catalogScopeButton.dataset.catalogNavScope || "all" });
+    return;
+  }
+
+  if (categoryReleaseButton) {
+    event.preventDefault();
+    closeSearchHelpPopovers();
+    openCategoryReleaseFromMenu();
+    return;
+  }
+
+  if (categoryAnimeButton) {
+    event.preventDefault();
+    closeSearchHelpPopovers();
+    openCategoryAnimeFromMenu();
+    return;
+  }
+
+  if (categoryAnimeEpisodesButton) {
+    event.preventDefault();
+    closeSearchHelpPopovers();
+    openCategoryAnimeEpisodesFromMenu();
+  }
+}));
 document.querySelectorAll(".catalog-filter-chips").forEach(root => root.addEventListener("click", event => {
   const chip = event.target.closest("[data-filter-chip-scope][data-filter-chip-key]");
   const reset = event.target.closest("[data-filter-reset-scope]");
@@ -12383,13 +12411,6 @@ document.addEventListener("click", event => {
     });
   }
 });
-document.querySelector("#catalogNavFilters")?.addEventListener("click", event => {
-  const button = event.target.closest("[data-catalog-nav-scope]");
-  if (!button) return;
-  event.preventDefault();
-  event.stopPropagation();
-  navigateToRoute({ type: "catalog", scope: button.dataset.catalogNavScope || "all" });
-}, true);
 const updateToTop = () => {
   if (!toTop) return;
   toTop.classList.toggle("show", window.scrollY > 420);
@@ -12888,7 +12909,7 @@ function closeDetail() {
   const targetRoute = modalCloseRoute();
   clearModalOriginRoute();
   closeModal();
-  navigateToRoute(targetRoute, { replace: true });
+  navigateToRoute(targetRoute, { replace: true, preserveScroll: true });
 }
 document.querySelector("#modalClose").addEventListener("click", closeDetail);
 document.querySelector("[data-modal-overlay]")?.addEventListener("click", closeDetail);
@@ -12967,13 +12988,17 @@ const activatePrimarySection = section => {
       ? "catalog"
       : link.hasAttribute("data-category-anime-open")
         ? "anime"
-      : link.hasAttribute("data-category-release-open")
-        ? "release"
         : link.dataset.toySection;
     link.classList.toggle("active", linkSection === (isCatalogSection ? "catalog" : navActiveSection));
   });
   syncMobileDrawer(isCatalogSection ? "catalog" : section);
-  syncCatalogMenuScope(panelSection === "release" || panelSection === "anime-episodes" ? panelSection : isCatalogSection ? catalogScope : "all");
+  syncCatalogMenuScope(
+    ["release", "anime", "anime-episodes"].includes(panelSection)
+      ? panelSection
+      : isCatalogSection
+        ? catalogScope
+        : "all"
+  );
   activateToyPanel(panelSection);
   if (section === "overview") setGlobalSearchScope("all");
   if (isCatalogSection) {
@@ -13000,7 +13025,7 @@ function closeModalForPrimaryRoute() {
 function routeOptions(route = {}) {
   return { ...(route.options || {}), updateHash: false };
 }
-function applyRoute(route = parseRouteFromHash()) {
+function applyRoute(route = parseRouteFromHash(), { preserveScroll = false } = {}) {
   const normalizedRoute = normalizeRoute(route || { type: "overview" });
   applyingRoute = true;
   try {
@@ -13041,15 +13066,10 @@ function applyRoute(route = parseRouteFromHash()) {
   } finally {
     applyingRoute = false;
   }
-  if (routeIsPrimary(normalizedRoute)) stabilizePrimaryRouteScroll();
+  if (routeIsPrimary(normalizedRoute) && !preserveScroll) stabilizePrimaryRouteScroll();
 }
 document.querySelectorAll(".nav-link").forEach(button => button.addEventListener("click", event => {
   event.preventDefault();
-  const categoryReleaseButton = event.currentTarget.closest("[data-category-release-open]");
-  if (categoryReleaseButton) {
-    openCategoryReleaseFromMenu();
-    return;
-  }
   const categoryAnimeButton = event.currentTarget.closest("[data-category-anime-open]");
   if (categoryAnimeButton) {
     openCategoryAnimeFromMenu();
@@ -13060,16 +13080,6 @@ document.querySelectorAll(".nav-link").forEach(button => button.addEventListener
     openCategoryCatalogFromMenu();
     return;
   }
-}));
-document.querySelectorAll(".topbar .nav-filter-menu [data-category-release-open]").forEach(button => button.addEventListener("click", event => {
-  event.preventDefault();
-  event.stopPropagation();
-  openCategoryReleaseFromMenu();
-}));
-document.querySelectorAll(".topbar [data-category-anime-episodes-open]").forEach(button => button.addEventListener("click", event => {
-  event.preventDefault();
-  event.stopPropagation();
-  openCategoryAnimeEpisodesFromMenu();
 }));
 document.querySelector(".topbar > .brand")?.addEventListener("click", event => {
   event.preventDefault();
