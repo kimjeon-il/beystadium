@@ -1532,9 +1532,9 @@ dialog[open] .product-modal-name {
 }
 
 .release-dropdowns {
-  --release-region-tabs-width: 10.5rem;
+  --release-region-tabs-width: 8rem;
   --release-series-dropdown-width: 14.5rem;
-  --release-grid-columns: minmax(9.5rem, var(--release-region-tabs-width)) minmax(13.5rem, var(--release-series-dropdown-width)) minmax(0, 1fr);
+  --release-grid-columns: minmax(7.5rem, var(--release-region-tabs-width)) minmax(13.5rem, var(--release-series-dropdown-width)) minmax(0, 1fr);
   --release-grid-areas: "region series search";
   width: 100%;
   max-width: 100%;
@@ -3476,7 +3476,7 @@ body.menu-open .menu-button span:nth-child(3) {
   }
 
   .release-dropdowns {
-    --release-grid-columns: minmax(0, 10.5fr) minmax(0, 14.5fr);
+    --release-grid-columns: minmax(0, 8fr) minmax(0, 14.5fr);
     --release-grid-areas:
       "region series"
       "search search";
@@ -3836,7 +3836,7 @@ body.menu-open .menu-button span:nth-child(3) {
   }
 
   .release-dropdowns {
-    --release-grid-columns: minmax(0, 10.5fr) minmax(0, 14.5fr);
+    --release-grid-columns: minmax(0, 8fr) minmax(0, 14.5fr);
     --release-grid-areas:
       "region series"
       "search search";
