@@ -2793,6 +2793,11 @@ body.is-overview .catalog-section {
   color: var(--ui-text);
 }
 
+.catalog-search-box #catalogSearchScope {
+  --search-scope-height: 40px;
+  --search-scope-summary-height: 40px;
+}
+
 .catalog-search-help-popover {
   position: fixed;
   z-index: 160;

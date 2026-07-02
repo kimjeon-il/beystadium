@@ -9553,13 +9553,13 @@ function parseRouteFromHash(hash = window.location.hash) {
     query: params.get("q") || "",
     scope: normalizeSearchScope(params.get("scope") || "all")
   };
-  if (id === "CATEGORY-CATALOG") return {
+  if (id === "toy-catalog") return {
     type: "catalog",
     scope: normalizeCatalogRouteScope(params.get("scope"))
   };
-  if (id === "CATEGORY-RELEASE") return { type: "category-release" };
-  if (id === "CATEGORY-ANIME") return { type: "category-anime" };
-  if (id === "CATEGORY-ANIME-EPISODES") return { type: "category-anime-episodes" };
+  if (id === "toy-release") return { type: "category-release" };
+  if (id === "anime-character") return { type: "category-anime" };
+  if (id === "anime-episode") return { type: "category-anime-episodes" };
   return normalizeRoute({ type: "detail", id });
 }
 function serializeRoute(route = {}) {
@@ -9569,11 +9569,11 @@ function serializeRoute(route = {}) {
   if (normalizedRoute.type === "catalog") {
     const params = new URLSearchParams();
     params.set("scope", normalizeCatalogRouteScope(normalizedRoute.scope));
-    return `#CATEGORY-CATALOG?${params.toString()}`;
+    return `#toy-catalog?${params.toString()}`;
   }
-  if (normalizedRoute.type === "category-release") return "#CATEGORY-RELEASE";
-  if (normalizedRoute.type === "category-anime") return "#CATEGORY-ANIME";
-  if (normalizedRoute.type === "category-anime-episodes") return "#CATEGORY-ANIME-EPISODES";
+  if (normalizedRoute.type === "category-release") return "#toy-release";
+  if (normalizedRoute.type === "category-anime") return "#anime-character";
+  if (normalizedRoute.type === "category-anime-episodes") return "#anime-episode";
   if (normalizedRoute.id) return `#${normalizedRoute.id}`;
   return "";
 }
@@ -10562,7 +10562,7 @@ const releaseTableMarkup = (region = activeReleaseRegion, series = activeRelease
     <tbody>${productReleaseTableRows(region, series)}</tbody>
   </table>
 </div>`;
-const rememberReleaseModalContext = () => rememberModalContext("category-release", "CATEGORY-RELEASE", {
+const rememberReleaseModalContext = () => rememberModalContext("category-release", "toy-release", {
   region: activeReleaseRegion,
   series: activeReleaseSeries,
   releaseSort: activeReleaseSort,
@@ -11388,7 +11388,7 @@ const animeEpisodesMarkup = () => {
 const animeEpisodesPageRoot = () => document.querySelector("[data-anime-episodes-page-content]");
 
 function rememberAnimeModalContext() {
-  rememberModalContext("category-anime-episodes", "CATEGORY-ANIME-EPISODES", {
+  rememberModalContext("category-anime-episodes", "anime-episode", {
     animeSeason: activeAnimeSeason,
     animeQuery: activeAnimeEpisodeQuery
   });
