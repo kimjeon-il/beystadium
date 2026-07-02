@@ -265,15 +265,75 @@ const beyItems = [
   { id: "BEY-BURST-B-05-SPRIGGAN-H-D", series: "burst", type: "bey", name: "스프리건.H.D", en: "Spriggan.H.D", productNo: "B-05", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["LAYER-SPRIGGAN", "DISK-HEAVY", "DRIVER-DEFENSE"] },
   { id: "BEY-BURST-B-06-RAGNARUK-C-A", series: "burst", type: "bey", name: "라그나로크.C.A", en: "Ragnaruk.C.A", productNo: "B-06", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["LAYER-RAGNARUK", "DISK-CENTRAL", "DRIVER-ACCEL"] },
   { id: "BEY-BURST-B-07-KERBEUS-W-F", series: "burst", type: "bey", name: "케르베우스.W.F", en: "Kerbeus.W.F", productNo: "B-07", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["LAYER-KERBEUS", "DISK-WING", "DRIVER-FUSION"] },
-  { id: "BEY-BURST-B-12-DEATHSCYTHER-O-V", series: "burst", type: "bey", name: "데스사이저.O.V", en: "Deathscyther.O.V", productNo: "B-12", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["LAYER-DEATHSCYTHER", "DISK-OVAL", "DRIVER-VARIABLE"] },
+  { id: "BEY-BURST-B-08-VALKYRIE-W-A", series: "burst", type: "bey", name: "발키리.W.A", en: "Valkyrie.W.A", productNo: "B-08", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["LAYER-VALKYRIE", "DISK-WING", "DRIVER-ACCEL"] },
+  { id: "BEY-BURST-B-12-DEATHSCYTHER-O-A", series: "burst", type: "bey", name: "데스사이저.O.A", en: "Deathscyther.O.A", productNo: "B-12", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["LAYER-DEATHSCYTHER", "DISK-OVAL", "DRIVER-ACCEL"] },
   { id: "BEY-BURST-B-13-VALKYRIE-S-S", series: "burst", type: "bey", name: "발키리.S.S", en: "Valkyrie.S.S", productNo: "B-13", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["LAYER-VALKYRIE", "DISK-SPREAD", "DRIVER-SURVIVE"] },
   { id: "BEY-BURST-B-00-ALPHA-AMATERIOS-AERO-ASSAULT", series: "burst", type: "bey", name: "아마테리오스.α.α", en: "Amaterios.α.α", productNo: "B-00α", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["LAYER-AMATERIOS", "DISK-AERO", "DRIVER-ASSAULT"] },
   { id: "BEY-BURST-B-14-WYVERN-A-M", series: "burst", type: "bey", name: "와이번.A.M", en: "Wyvern.A.M", productNo: "B-14", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["LAYER-WYVERN", "DISK-ARMED", "DRIVER-MASSIVE"] },
   { id: "BEY-BURST-B-17-ODIN-C-B", series: "burst", type: "bey", name: "오딘.C.B", en: "Odin.C.B", productNo: "B-17", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["LAYER-ODIN", "DISK-CENTRAL", "DRIVER-BLOW"] },
+  { id: "BEY-BURST-B-18-VALKYRIE-W-A", series: "burst", type: "bey", name: "발키리.W.A", en: "Valkyrie.W.A", productNo: "B-18", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["LAYER-VALKYRIE", "DISK-WING", "DRIVER-ACCEL"] },
+  { id: "BEY-BURST-B-18-SPRIGGAN-S-F", series: "burst", type: "bey", name: "스프리건.S.F", en: "Spriggan.S.F", productNo: "B-18", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["LAYER-SPRIGGAN", "DISK-SPREAD", "DRIVER-FUSION"] },
   { id: "BEY-BURST-B-20-HORUSOOD-S-E", series: "burst", type: "bey", name: "호루스드.S.E", en: "Horusood.S.E", productNo: "B-20", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["LAYER-HORUSOOD", "DISK-SPREAD", "DRIVER-EDGE"] },
+  { id: "BEY-BURST-B-21-MINOBOROS-O-Q", series: "burst", type: "bey", name: "미노보로스.O.Q", en: "Minoboros.O.Q", productNo: "B-21", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["LAYER-MINOBOROS", "DISK-OVAL", "DRIVER-QUAKE"] },
+  { id: "BEY-BURST-B-21-DEATHSCYTHER-W-F", series: "burst", type: "bey", name: "데스사이저.W.F", en: "Deathscyther.W.F", productNo: "B-21", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["LAYER-DEATHSCYTHER", "DISK-WING", "DRIVER-FUSION"] },
+  { id: "BEY-BURST-B-21-SPRIGGAN-S-B", series: "burst", type: "bey", name: "스프리건.S.B", en: "Spriggan.S.B", productNo: "B-21", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["LAYER-SPRIGGAN", "DISK-SPREAD", "DRIVER-BLOW"] },
+  { id: "BEY-BURST-B-22-UNICORN-R-D", series: "burst", type: "bey", name: "유니콘.R.D", en: "Unicorn.R.D", productNo: "B-22", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["LAYER-UNICORN", "DISK-RING", "DRIVER-DEFENSE"] },
+  { id: "BEY-BURST-B-22-WYVERN-H-S", series: "burst", type: "bey", name: "와이번.H.S", en: "Wyvern.H.S", productNo: "B-22", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["LAYER-WYVERN", "DISK-HEAVY", "DRIVER-SURVIVE"] },
+  { id: "BEY-BURST-B-22-RAGNARUK-C-M", series: "burst", type: "bey", name: "라그나로크.C.M", en: "Ragnaruk.C.M", productNo: "B-22", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["LAYER-RAGNARUK", "DISK-CENTRAL", "DRIVER-MASSIVE"] },
   { id: "BEY-BURST-B-23-XCALIBUR-F-X", series: "burst", type: "bey", name: "엑스칼리버.F.X", en: "Xcalibur.F.X", productNo: "B-23", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["LAYER-XCALIBUR", "DISK-FORCE", "DRIVER-XTREME"] },
   { id: "BEY-BURST-B-28-NEPTUNE-A-Z", series: "burst", type: "bey", name: "넵튠.A.Z", en: "Neptune.A.Z", productNo: "B-28", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["LAYER-NEPTUNE", "DISK-ARMED", "DRIVER-ZEPHYR"] },
+  { id: "BEY-BURST-B-29-VALKYRIE-W-A", series: "burst", type: "bey", name: "발키리.W.A", en: "Valkyrie.W.A", productNo: "B-29", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["LAYER-VALKYRIE", "DISK-WING", "DRIVER-ACCEL"] },
+  { id: "BEY-BURST-B-30-SPRIGGAN-S-F", series: "burst", type: "bey", name: "스프리건.S.F", en: "Spriggan.S.F", productNo: "B-30", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["LAYER-SPRIGGAN", "DISK-SPREAD", "DRIVER-FUSION"] },
   { id: "BEY-BURST-B-31-YGGDRASIL-R-G", series: "burst", type: "bey", name: "이그드라실.R.G", en: "Yggdrasil.R.G", productNo: "B-31", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["LAYER-YGGDRASIL", "DISK-RING", "DRIVER-GYRO"] },
+  { id: "BEY-BURST-B-34-VICTORY-VALKYRIE-B-V", series: "burst", type: "bey", name: "빅토리 발키리.B.V", en: "Victory Valkyrie.B.V", productNo: "B-34", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-VICTORY-VALKYRIE", "DISK-BOOST", "DRIVER-VARIABLE"] },
+  { id: "BEY-BURST-B-35-STORM-SPRIGGAN-K-U", series: "burst", type: "bey", name: "스톰 스프리건.K.U", en: "Storm Spriggan.K.U", productNo: "B-35", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-STORM-SPRIGGAN", "DISK-KNUCKLE", "DRIVER-UNITE"] },
+  { id: "BEY-BURST-B-36-RISING-RAGNARUK-G-R", series: "burst", type: "bey", name: "라이징 라그나로크.G.R", en: "Rising Ragnaruk.G.R", productNo: "B-36", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-RISING-RAGNARUK", "DISK-GRAVITY", "DRIVER-REVOLVE"] },
+  { id: "BEY-BURST-B-37-KAISER-KERBEUS-L-P", series: "burst", type: "bey", name: "카이저 케르베우스.L.P", en: "Kaiser Kerbeus.L.P", productNo: "B-37", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-KAISER-KERBEUS", "DISK-LIMITED", "DRIVER-PRESS"] },
+  { id: "BEY-BURST-B-38-VICTORY-VALKYRIE-B-V", series: "burst", type: "bey", name: "빅토리 발키리.B.V", en: "Victory Valkyrie.B.V", productNo: "B-38", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-VICTORY-VALKYRIE", "DISK-BOOST", "DRIVER-VARIABLE"] },
+  { id: "BEY-BURST-B-41-WILD-WYVERN-V-O", series: "burst", type: "bey", name: "와일드 와이번.V.O", en: "Wild Wyvern.V.O", productNo: "B-41", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-WILD-WYVERN", "DISK-VERTICAL", "DRIVER-ORBIT"] },
+  { id: "BEY-BURST-B-42-DARK-DEATHSCYTHER-F-J", series: "burst", type: "bey", name: "다크 데스사이저.F.J", en: "Dark Deathscyther.F.J", productNo: "B-42", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-DARK-DEATHSCYTHER", "DISK-FORCE", "DRIVER-JAGGY"] },
+  { id: "BEY-BURST-B-44-HOLY-HORUSOOD-U-C", series: "burst", type: "bey", name: "홀리 호루스드.U.C", en: "Holy Horusood.U.C", productNo: "B-44", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-HOLY-HORUSOOD", "DISK-UPPER", "DRIVER-CLAW"] },
+  { id: "BEY-BURST-B-46-OBELISK-ODIN-T-X", series: "burst", type: "bey", name: "오벨리스크 오딘.T.X", en: "Obelisk Odin.T.X", productNo: "B-46", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-OBELISK-ODIN", "DISK-TRIPLE", "DRIVER-XTREME"] },
+  { id: "BEY-BURST-B-00-BALDUR-BETA-BETA", series: "burst", type: "bey", name: "발뒤르.β.β", en: "Baldur.β.β", productNo: "B-00β", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-BALDUR", "DISK-BUMPER", "DRIVER-BITE"] },
+  { id: "BEY-BURST-B-48-XENO-XCALIBUR-M-I", series: "burst", type: "bey", name: "제노 엑스칼리버.M.I", en: "Xeno Xcalibur.M.I", productNo: "B-48", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-XENO-XCALIBUR", "DISK-MAGNUM", "DRIVER-IMPACT"] },
+  { id: "BEY-BURST-B-56-UNLOCK-UNICORN-D-N", series: "burst", type: "bey", name: "언락 유니콘.D.N", en: "Unlock Unicorn.D.N", productNo: "B-56", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-UNLOCK-UNICORN", "DISK-DOWN", "DRIVER-NEEDLE"] },
+  { id: "BEY-BURST-B-57-VICTORY-VALKYRIE-U-Q", series: "burst", type: "bey", name: "빅토리 발키리.U.Q", en: "Victory Valkyrie.U.Q", productNo: "B-57", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-VICTORY-VALKYRIE", "DISK-UPPER", "DRIVER-QUAKE"] },
+  { id: "BEY-BURST-B-57-NOVA-NEPTUNE-V-T", series: "burst", type: "bey", name: "노바 넵튠.V.T", en: "Nova Neptune.V.T", productNo: "B-57", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-NOVA-NEPTUNE", "DISK-VERTICAL", "DRIVER-TRANS"] },
+  { id: "BEY-BURST-B-57-CHAOS-O-G", series: "burst", type: "bey", name: "카오스.O.G", en: "Chaos.O.G", productNo: "B-57", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["LAYER-CHAOS", "DISK-OVAL", "DRIVER-GYRO"] },
+  { id: "BEY-BURST-B-59-ZILLION-ZEUS-I-W", series: "burst", type: "bey", name: "질리언 제우스.I.W", en: "Zillion Zeus.I.W", productNo: "B-59", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-ZILLION-ZEUS", "DISK-INFINITY", "DRIVER-WEIGHT"] },
+  { id: "BEY-BURST-B-62-FANG-FENRIR-B-J", series: "burst", type: "bey", name: "팽 펜리르.B.J", en: "Fang Fenrir.B.J", productNo: "B-62", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-FANG-FENRIR", "DISK-BOOST", "DRIVER-JAGGY"] },
+  { id: "BEY-BURST-B-63-BEAST-BEHEMOTH-H-H", series: "burst", type: "bey", name: "비스트 베히모스.H.H", en: "Beast Behemoth.H.H", productNo: "B-63", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-BEAST-BEHEMOTH", "DISK-HEAVY", "DRIVER-HOLD"] },
+  { id: "BEY-BURST-B-64-VICTORY-VALKYRIE-T-U", series: "burst", type: "bey", name: "빅토리 발키리.T.U", en: "Victory Valkyrie.T.U", productNo: "B-64", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-VICTORY-VALKYRIE", "DISK-TRIPLE", "DRIVER-UNITE"] },
+  { id: "BEY-BURST-B-64-INFERNO-IFRIT-M-L", series: "burst", type: "bey", name: "인페르노 이프리트.M.L", en: "Inferno Ifrit.M.L", productNo: "B-64", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-INFERNO-IFRIT", "DISK-MAGNUM", "DRIVER-LINER"] },
+  { id: "BEY-BURST-B-64-STORM-SPRIGGAN-B-I", series: "burst", type: "bey", name: "스톰 스프리건.B.I", en: "Storm Spriggan.B.I", productNo: "B-64", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-STORM-SPRIGGAN", "DISK-BOOST", "DRIVER-IMPACT"] },
+  { id: "BEY-BURST-B-65-WILD-WYVERN-I-Y", series: "burst", type: "bey", name: "와일드 와이번.I.Y", en: "Wild Wyvern.I.Y", productNo: "B-65", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-WILD-WYVERN", "DISK-INFINITY", "DRIVER-YIELDING"] },
+  { id: "BEY-BURST-B-65-PSYCHIC-PHANTOM-P-W", series: "burst", type: "bey", name: "사이킥 팬텀.P.W", en: "Psychic Phantom.P.W", productNo: "B-65", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-PSYCHIC-PHANTOM", "DISK-POLISH", "DRIVER-WEIGHT"] },
+  { id: "BEY-BURST-B-65-KAISER-KERBEUS-D-O", series: "burst", type: "bey", name: "카이저 케르베우스.D.O", en: "Kaiser Kerbeus.D.O", productNo: "B-65", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-KAISER-KERBEUS", "DISK-DOWN", "DRIVER-ORBIT"] },
+  { id: "BEY-BURST-B-66-LOST-LONGINUS-N-SP", series: "burst", type: "bey", name: "로스트 롱기누스.N.Sp", en: "Lost Longinus.N.Sp", productNo: "B-66", battleType: "attack", spin: "left", tags: [], desc: "", parts: ["DUALLAYER-LOST-LONGINUS", "DISK-NINE", "DRIVER-SPIRAL"] },
+  { id: "BEY-BURST-B-69-JAIL-JORMUNGAND-I-CY", series: "burst", type: "bey", name: "제일 요르문간드.I.Cy", en: "Jail Jormungand.I.Cy", productNo: "B-69", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-JAIL-JORMUNGAND", "DISK-INFINITY", "DRIVER-CYCLE"] },
+  { id: "BEY-BURST-B-71-ACID-ANUBIS-Y-O", series: "burst", type: "bey", name: "애시드 아누비스.Y.O", en: "Acid Anubis.Y.O", productNo: "B-71", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-ACID-ANUBIS", "DISK-YELL", "DRIVER-ORBIT"] },
+  { id: "BEY-BURST-B-73-GOD-VALKYRIE-6V-RB", series: "burst", type: "bey", name: "갓 발키리.6V.Rb", en: "God Valkyrie.6V.Rb", productNo: "B-73", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["GODLAYER-GOD-VALKYRIE", "COREDISK-6", "FRAME-VORTEX", "DRIVER-REBOOT"] },
+  { id: "BEY-BURST-B-74-KREIS-SATAN-2G-LP", series: "burst", type: "bey", name: "크라이스 사탄.2G.Lp", en: "Kreis Satan.2G.Lp", productNo: "B-74", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["GODLAYER-KREIS-SATAN", "COREDISK-2", "FRAME-GLAIVE", "DRIVER-LOOP"] },
+  { id: "BEY-BURST-B-75-BLAZE-RAGNARUK-4C-FL", series: "burst", type: "bey", name: "블레이즈 라그나로크.4C.Fl", en: "Blaze Ragnaruk.4C.Fl", productNo: "B-75", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["GODLAYER-BLAZE-RAGNARUK", "COREDISK-4", "FRAME-CROSS", "DRIVER-FLUGEL"] },
+  { id: "BEY-BURST-B-76-VALKYRIE-6V-RB", series: "burst", type: "bey", name: "발키리.6V.Rb", en: "Valkyrie.6V.Rb", productNo: "B-76", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["GODLAYER-GOD-VALKYRIE", "COREDISK-6", "FRAME-VORTEX", "DRIVER-REBOOT"] },
+  { id: "BEY-BURST-B-79-DRAIN-FAFNIR-8-NT", series: "burst", type: "bey", name: "드레인 파브닐.8.Nt", en: "Drain Fafnir.8.Nt", productNo: "B-79", battleType: "stamina", spin: "left", tags: [], desc: "", parts: ["GODLAYER-DRAIN-FAFNIR", "COREDISK-8", "DRIVER-NOTHING"] },
+  { id: "BEY-BURST-B-82-ALTER-CHRONOS-6M-T", series: "burst", type: "bey", name: "알타 크로노스.6M.T", en: "Alter Chronos.6M.T", productNo: "B-82", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["GODLAYER-ALTER-CHRONOS", "COREDISK-6", "FRAME-METEOR", "DRIVER-TRANS"] },
+  { id: "BEY-BURST-B-85-KILLER-DEATHSCYTHER-2V-HN", series: "burst", type: "bey", name: "킬러 데스사이저.2V.Hn", en: "Killer Deathscyther.2V.Hn", productNo: "B-85", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["GODLAYER-KILLER-DEATHSCYTHER", "COREDISK-2", "FRAME-VORTEX", "DRIVER-HUNTER"] },
+  { id: "BEY-BURST-B-86-LEGEND-SPRIGGAN-7-MR", series: "burst", type: "bey", name: "레전드 스프리건.7.Mr", en: "Legend Spriggan.7.Mr", productNo: "B-86", battleType: "balance", spin: "dual", tags: [], desc: "", parts: ["GODLAYER-LEGEND-SPRIGGAN", "COREDISK-7", "DRIVER-MERGE"] },
+  { id: "BEY-BURST-B-89-BLAST-JINNIUS-5G-GR", series: "burst", type: "bey", name: "블라스트 지니어스.5G.Gr", en: "Blast Jinnius.5G.Gr", productNo: "B-89", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["GODLAYER-BLAST-JINNIUS", "COREDISK-5", "FRAME-GLAIVE", "DRIVER-GUARD"] },
+  { id: "BEY-BURST-B-90-GALAXY-ZEUS-4M-PL", series: "burst", type: "bey", name: "갤럭시 제우스.4M.Pl", en: "Galaxy Zeus.4M.Pl", productNo: "B-90", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["GODLAYER-GALAXY-ZEUS", "COREDISK-4", "FRAME-METEOR", "DRIVER-PLANET"] },
+  { id: "BEY-BURST-B-90-GUARDIAN-KERBEUS-H-R", series: "burst", type: "bey", name: "가디언 케르베우스.H.R", en: "Guardian Kerbeus.H.R", productNo: "B-90", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["GODLAYER-GUARDIAN-KERBEUS", "DISK-HEAVY", "DRIVER-REVOLVE"] },
+  { id: "BEY-BURST-B-90-MAD-MINOBOROS-Q-Q", series: "burst", type: "bey", name: "매드 미노보로스.Q.Q", en: "Mad Minoboros.Q.Q", productNo: "B-90", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-MAD-MINOBOROS", "DISK-QUARTER", "DRIVER-QUAKE"] },
+  { id: "BEY-BURST-B-92-SIEG-XCALIBUR-1-IR", series: "burst", type: "bey", name: "지크 엑스칼리버.1.Ir", en: "Sieg Xcalibur.1.Ir", productNo: "B-92", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["GODLAYER-SIEG-XCALIBUR", "COREDISK-1", "DRIVER-IRON"] },
+  { id: "BEY-BURST-B-96-STRIKE-GOD-VALKYRIE-MUGEN", series: "burst", type: "bey", name: "스트라이크 갓 발키리.∞", en: "Strike God Valkyrie.∞", productNo: "B-96", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["GODLAYER-STRIKE-GOD-VALKYRIE", "DRIVER-MUGEN"] },
+  { id: "BEY-BURST-B-97-NIGHTMARE-LONGINUS-DS", series: "burst", type: "bey", name: "나이트메어 롱기누스.Ds", en: "Nightmare Longinus.Ds", productNo: "B-97", battleType: "attack", spin: "left", tags: [], desc: "", parts: ["GODLAYER-NIGHTMARE-LONGINUS", "DRIVER-DESTROY"] },
+  { id: "BEY-BURST-B-98-ARC-BAHAMUT-2B-AT", series: "burst", type: "bey", name: "아크 바하무트.2B.At", en: "Arc Bahamut.2B.At", productNo: "B-98", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["GODLAYER-ARC-BAHAMUT", "COREDISK-2", "FRAME-BUMP", "DRIVER-ATOMIC"] },
+  { id: "BEY-BURST-B-98-DEEP-CHAOS-4F-BR", series: "burst", type: "bey", name: "딥 카오스.4F.Br", en: "Deep Chaos.4F.Br", productNo: "B-98", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["GODLAYER-DEEP-CHAOS", "COREDISK-4", "FRAME-FLOW", "DRIVER-BEARING"] },
+  { id: "BEY-BURST-B-98-DRAIN-FAFNIR-7S-Z", series: "burst", type: "bey", name: "드레인 파브닐.7S.Z", en: "Drain Fafnir.7S.Z", productNo: "B-98", battleType: "stamina", spin: "left", tags: [], desc: "", parts: ["GODLAYER-DRAIN-FAFNIR", "COREDISK-7", "FRAME-STAR", "DRIVER-ZEPHYR"] },
+  { id: "BEY-BURST-B-98-TORNADO-WYVERN-1M-S", series: "burst", type: "bey", name: "토네이도 와이번.1M.S", en: "Tornado Wyvern.1M.S", productNo: "B-98", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["GODLAYER-TORNADO-WYVERN", "COREDISK-1", "FRAME-METEOR", "DRIVER-SURVIVE"] },
+  { id: "BEY-BURST-B-100-SPRIGGAN-REQUIEM-0-ZT", series: "burst", type: "bey", name: "스프리건 레퀴엠.0.Zt", en: "Spriggan Requiem.0.Zt", productNo: "B-100", battleType: "balance", spin: "dual", tags: [], desc: "", parts: ["GODLAYER-SPRIGGAN-REQUIEM", "COREDISK-0", "DRIVER-ZETA"] },
+  { id: "BEY-BURST-B-102-TWIN-NEMESIS-3H-UL", series: "burst", type: "bey", name: "트윈 네메시스.3H.Ul", en: "Twin Nemesis.3H.Ul", productNo: "B-102", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["GODLAYER-TWIN-NEMESIS", "COREDISK-3", "FRAME-HIT", "DRIVER-ULTIMATE-REBOOT"] },
+  { id: "BEY-BURST-B-103-SCREW-TRIDENT-8B-WD", series: "burst", type: "bey", name: "스크류 트라이던트.8B.Wd", en: "Screw Trident.8B.Wd", productNo: "B-103", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["GODLAYER-SCREW-TRIDENT", "COREDISK-8", "FRAME-BUMP", "DRIVER-WEDGE"] },
 ];
 
 const partItems = [
@@ -643,6 +703,7 @@ const partItems = [
   { id: "DUALLAYER-LOST-LONGINUS", series: "burst", type: "duallayer", name: "로스트 롱기누스", en: "Lost Longinus", battleType: "attack", tags: [], desc: "" },
   { id: "DUALLAYER-GIGANT-GAIA", series: "burst", type: "duallayer", name: "기간트 가이아", en: "Gigant Gaia", battleType: "balance", tags: [], desc: "" },
   { id: "DUALLAYER-MAD-MINOBOROS", series: "burst", type: "duallayer", name: "매드 미노보로스", en: "Mad Minoboros", battleType: "attack", tags: [], desc: "" },
+  { id: "DUALLAYER-ACID-ANUBIS", series: "burst", type: "duallayer", name: "애시드 아누비스", en: "Acid Anubis", battleType: "defense", tags: [], desc: "" },
   { id: "GODLAYER-GOD-VALKYRIE", series: "burst", type: "godlayer", name: "갓 발키리", en: "God Valkyrie", battleType: "attack", tags: [], desc: "" },
   { id: "GODLAYER-KREIS-SATAN", series: "burst", type: "godlayer", name: "크라이스 사탄", en: "Kreis Satan", battleType: "defense", tags: [], desc: "" },
   { id: "GODLAYER-BLAZE-RAGNARUK", series: "burst", type: "godlayer", name: "블레이즈 라그나로크", en: "Blaze Ragnaruk", battleType: "stamina", tags: [], desc: "" },
@@ -868,7 +929,7 @@ const partItems = [
   { id: "DISK-AERO", series: "burst", type: "disk", name: "α", en: "Aero", sub: "에어로", tags: [], desc: "" },
   { id: "DISK-AERO-DASH", series: "burst", type: "disk", name: "α'", en: "Aero'", sub: "에어로 대시", tags: [], desc: "" },
   { id: "DISK-OVAL", series: "burst", type: "disk", name: "O", en: "Oval", sub: "오벌", tags: [], desc: "" },
-  { id: "DISK-ARMED", series: "burst", type: "disk", name: "A", en: "Armed", sub: "아머", tags: [], desc: "" },
+  { id: "DISK-ARMED", series: "burst", type: "disk", name: "A", jpName: "암드", en: "Armed", sub: "아머", tags: [], desc: "" },
   { id: "DISK-RING", series: "burst", type: "disk", name: "R", en: "Ring", sub: "링", tags: [], desc: "" },
   { id: "DISK-FORCE", series: "burst", type: "disk", name: "F", en: "Force", sub: "포스", tags: [], desc: "" },
   { id: "DISK-BOOST", series: "burst", type: "disk", name: "B", en: "Boost", sub: "부스트", tags: [], desc: "" },
@@ -2017,7 +2078,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2016-03-24",
         price: "13900",
-        composition: []
+        composition: [
+          { name: "발키리.W.A", quantity: "1개", target: "BEY-BURST-B-01-VALKYRIE-W-A" },
+          { name: "라이트런처", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER" }
+        ]
       },
       jp: {
         no: "B-01",
@@ -2043,7 +2107,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2016-03-24",
         price: "13900",
-        composition: []
+        composition: [
+          { name: "스프리건.S.F", quantity: "1개", target: "BEY-BURST-B-02-SPRIGGAN-S-F" },
+          { name: "라이트런처", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER" }
+        ]
       },
       jp: {
         no: "B-02",
@@ -2069,7 +2136,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2016-03-24",
         price: "13900",
-        composition: []
+        composition: [
+          { name: "라그나로크.H.S", quantity: "1개", target: "BEY-BURST-B-03-RAGNARUK-H-S" },
+          { name: "라이트런처", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER" }
+        ]
       },
       jp: {
         no: "B-03",
@@ -2094,7 +2164,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2016-03-24",
         price: "13900",
-        composition: []
+        composition: [
+          { name: "케르베우스.C.D", quantity: "1개", target: "BEY-BURST-B-04-KERBEUS-C-D" },
+          { name: "라이트런처", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER" }
+        ]
       },
       jp: {
         no: "B-04",
@@ -2119,7 +2192,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2016-03-24",
         price: "9800",
-        composition: []
+        composition: [
+          { name: "스프리건.H.D", quantity: "1개", target: "BEY-BURST-B-05-SPRIGGAN-H-D" }
+        ]
       },
       jp: {
         no: "B-05",
@@ -2143,7 +2218,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2016-03-24",
         price: "9800",
-        composition: []
+        composition: [
+          { name: "라그나로크.C.A", quantity: "1개", target: "BEY-BURST-B-06-RAGNARUK-C-A" }
+        ]
       },
       jp: {
         no: "B-06",
@@ -2167,7 +2244,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2016-03-24",
         price: "9800",
-        composition: []
+        composition: [
+          { name: "케르베우스.W.F", quantity: "1개", target: "BEY-BURST-B-07-KERBEUS-W-F" }
+        ]
       },
       jp: {
         no: "B-07",
@@ -2191,7 +2270,12 @@ const productItems = [
         kind: "세트",
         releaseDate: "2016-03-24",
         price: "42600",
-        composition: []
+        composition: [
+          { name: "발키리.W.A", quantity: "1개", target: "BEY-BURST-B-08-VALKYRIE-W-A" },
+          { name: "베이런처", quantity: "1개", target: "TOOLS-BURST-BEYLAUNCHER" },
+          { name: "런처그립", quantity: "1개", target: "TOOLS-BURST-LAUNCHER-GRIP" },
+          { name: "베이스타디움 스탠다드타입", quantity: "1개", target: "TOOLS-BURST-STANDARD-BEYSTADIUM" }
+        ]
       },
       jp: {
         no: "B-08",
@@ -2199,7 +2283,12 @@ const productItems = [
         kind: "세트",
         releaseDate: "2015-07-18",
         price: "4320",
-        composition: []
+        composition: [
+          { name: "발키리.W.A", quantity: "1개", target: "BEY-BURST-B-08-VALKYRIE-W-A" },
+          { name: "베이런처", quantity: "1개", target: "TOOLS-BURST-BEYLAUNCHER" },
+          { name: "베이로거", quantity: "1개", target: "TOOLS-BURST-BEYLOGGER" },
+          { name: "베이스타디움 스탠다드타입", quantity: "1개", target: "TOOLS-BURST-STANDARD-BEYSTADIUM" }
+        ]
       }
     }
   },
@@ -2213,7 +2302,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2016-03-24",
         price: "14800",
-        composition: []
+        composition: [
+          { name: "베이스타디움 스탠다드타입", quantity: "1개", target: "TOOLS-BURST-STANDARD-BEYSTADIUM" }
+        ]
       },
       jp: {
         no: "B-09",
@@ -2256,7 +2347,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2016-03-24",
         price: "5700",
-        composition: []
+        composition: [
+          { name: "런처그립", quantity: "1개", target: "TOOLS-BURST-LAUNCHER-GRIP" }
+        ]
       },
       jp: {
         no: "B-11",
@@ -2276,20 +2369,23 @@ const productItems = [
     releases: {
       kr: {
         no: "B-12",
-        name: "데스사이저.O.V",
+        name: "데스사이저.O.A",
         kind: "스타터",
         releaseDate: "2016-03-24",
         price: "13900",
-        composition: []
+        composition: [
+          { name: "데스사이저.O.A", quantity: "1개", target: "BEY-BURST-B-12-DEATHSCYTHER-O-A" },
+          { name: "라이트런처", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER" }
+        ]
       },
       jp: {
         no: "B-12",
-        name: "데스사이저.O.V",
+        name: "데스사이저.O.A",
         kind: "스타터",
         releaseDate: "2015-08-08",
         price: "1296",
         composition: [
-          { name: "데스사이저.O.V", quantity: "1개", target: "BEY-BURST-B-12-DEATHSCYTHER-O-V" },
+          { name: "데스사이저.O.A", quantity: "1개", target: "BEY-BURST-B-12-DEATHSCYTHER-O-A" },
           { name: "라이트런처", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER" }
         ]
       }
@@ -2305,7 +2401,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2016-03-24",
         price: "9800",
-        composition: []
+        composition: [
+          { name: "발키리.S.S", quantity: "1개", target: "BEY-BURST-B-13-VALKYRIE-S-S" }
+        ]
       },
       jp: {
         no: "B-13",
@@ -2348,7 +2446,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2016-03-24",
         price: "15600",
-        composition: []
+        composition: [
+          { name: "와이번.A.M", quantity: "1개", target: "BEY-BURST-B-14-WYVERN-A-M" },
+          { name: "라이트런처", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER" }
+        ]
       },
       jp: {
         no: "B-14",
@@ -2390,7 +2491,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2016-03-24",
         price: "5700",
-        composition: []
+        composition: [
+          { name: "베이런처(레드)", quantity: "1개", target: "TOOLS-BURST-BEYLAUNCHER" }
+        ]
       },
       jp: {
         no: "B-16",
@@ -2414,7 +2517,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2016-03-24",
         price: "9800",
-        composition: []
+        composition: [
+          { name: "오딘.C.B", quantity: "1개", target: "BEY-BURST-B-17-ODIN-C-B" }
+        ]
       },
       jp: {
         no: "B-17",
@@ -2438,7 +2543,13 @@ const productItems = [
         kind: "세트",
         releaseDate: "2016-03-24",
         price: "53300",
-        composition: []
+        composition: [
+          { name: "발키리.W.A", quantity: "1개", target: "BEY-BURST-B-18-VALKYRIE-W-A" },
+          { name: "스프리건.S.F", quantity: "1개", target: "BEY-BURST-B-18-SPRIGGAN-S-F" },
+          { name: "라이트런처", quantity: "2개", target: "TOOLS-BURST-LIGHT-LAUNCHER" },
+          { name: "런처그립", quantity: "2개", target: "TOOLS-BURST-LAUNCHER-GRIP" },
+          { name: "베이스타디움 스탠다드타입", quantity: "1개", target: "TOOLS-BURST-STANDARD-BEYSTADIUM" }
+        ]
       },
       jp: {
         no: "B-18",
@@ -2446,7 +2557,13 @@ const productItems = [
         kind: "세트",
         releaseDate: "2015-10-17",
         price: "5400",
-        composition: []
+        composition: [
+          { name: "발키리.W.A", quantity: "1개", target: "BEY-BURST-B-18-VALKYRIE-W-A" },
+          { name: "스프리건.S.F", quantity: "1개", target: "BEY-BURST-B-18-SPRIGGAN-S-F" },
+          { name: "라이트런처", quantity: "2개", target: "TOOLS-BURST-LIGHT-LAUNCHER" },
+          { name: "런처그립", quantity: "2개", target: "TOOLS-BURST-LAUNCHER-GRIP" },
+          { name: "베이스타디움 스탠다드타입", quantity: "1개", target: "TOOLS-BURST-STANDARD-BEYSTADIUM" }
+        ]
       }
     }
   },
@@ -2460,7 +2577,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2016-03-24",
         price: "18900",
-        composition: []
+        composition: [
+          { name: "버스트 베이스타디움", quantity: "1개", target: "TOOLS-BURST-BURST-BEYSTADIUM" }
+        ]
       },
       jp: {
         no: "B-19",
@@ -2484,7 +2603,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2016-03-24",
         price: "9800",
-        composition: []
+        composition: [
+          { name: "호루스.S.E", quantity: "1개", target: "BEY-BURST-B-20-HORUSOOD-S-E" }
+        ]
       },
       jp: {
         no: "B-20",
@@ -2508,7 +2629,12 @@ const productItems = [
         kind: "세트",
         releaseDate: "2016-03-24",
         price: "31200",
-        composition: []
+        composition: [
+          { name: "미노보로스.O.Q", quantity: "1개", target: "BEY-BURST-B-21-MINOBOROS-O-Q" },
+          { name: "데스사이저.W.F", quantity: "1개", target: "BEY-BURST-B-21-DEATHSCYTHER-W-F" },
+          { name: "스프리건.S.B", quantity: "1개", target: "BEY-BURST-B-21-SPRIGGAN-S-B" },
+          { name: "런처그립", quantity: "1개", target: "TOOLS-BURST-LAUNCHER-GRIP" }
+        ]
       },
       jp: {
         no: "B-21",
@@ -2516,7 +2642,12 @@ const productItems = [
         kind: "세트",
         releaseDate: "2015-11-14",
         price: "3240",
-        composition: []
+        composition: [
+          { name: "미노보로스.O.Q", quantity: "1개", target: "BEY-BURST-B-21-MINOBOROS-O-Q" },
+          { name: "데스사이저.W.F", quantity: "1개", target: "BEY-BURST-B-21-DEATHSCYTHER-W-F" },
+          { name: "스프리건.S.B", quantity: "1개", target: "BEY-BURST-B-21-SPRIGGAN-S-B" },
+          { name: "런처그립", quantity: "1개", target: "TOOLS-BURST-LAUNCHER-GRIP" }
+        ]
       }
     }
   },
@@ -2530,7 +2661,12 @@ const productItems = [
         kind: "세트",
         releaseDate: "2016-03-24",
         price: "31200",
-        composition: []
+        composition: [
+          { name: "유니콘.R.D", quantity: "1개", target: "BEY-BURST-B-22-UNICORN-R-D" },
+          { name: "와이번.H.S", quantity: "1개", target: "BEY-BURST-B-22-WYVERN-H-S" },
+          { name: "라그나로크.C.M", quantity: "1개", target: "BEY-BURST-B-22-RAGNARUK-C-M" },
+          { name: "라이트런처", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER" }
+        ]
       },
       jp: {
         no: "B-22",
@@ -2538,7 +2674,12 @@ const productItems = [
         kind: "세트",
         releaseDate: "2015-11-14",
         price: "3240",
-        composition: []
+        composition: [
+          { name: "유니콘.R.D", quantity: "1개", target: "BEY-BURST-B-22-UNICORN-R-D" },
+          { name: "와이번.H.S", quantity: "1개", target: "BEY-BURST-B-22-WYVERN-H-S" },
+          { name: "라그나로크.C.M", quantity: "1개", target: "BEY-BURST-B-22-RAGNARUK-C-M" },
+          { name: "라이트런처", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER" }
+        ]
       }
     }
   },
@@ -2556,7 +2697,7 @@ const productItems = [
         releaseDate: "2015-12-05",
         price: "993",
         composition: [
-          { name: "발키리.W.A", quantity: "1개", target: "BEY-BURST-B-01-VALKYRIE-W-A" },
+          { name: "발키리.W.A", quantity: "1개", target: "BEY-BURST-B-29-VALKYRIE-W-A" },
           { name: "프로토런처", quantity: "1개", target: "TOOLS-BURST-PROTO-LAUNCHER" }
         ]
       }
@@ -2576,7 +2717,7 @@ const productItems = [
         releaseDate: "2015-12-05",
         price: "993",
         composition: [
-          { name: "스프리건.S.F", quantity: "1개", target: "BEY-BURST-B-02-SPRIGGAN-S-F" },
+          { name: "스프리건.S.F", quantity: "1개", target: "BEY-BURST-B-30-SPRIGGAN-S-F" },
           { name: "프로토런처", quantity: "1개", target: "TOOLS-BURST-PROTO-LAUNCHER" }
         ]
       }
@@ -2592,7 +2733,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2016-03-24",
         price: "15600",
-        composition: []
+        composition: [
+          { name: "엑스칼리버.F.X", quantity: "1개", target: "BEY-BURST-B-23-XCALIBUR-F-X" },
+          { name: "라이트런처", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER" }
+        ]
       },
       jp: {
         no: "B-23",
@@ -2634,7 +2778,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2016-03-24",
         price: "5700",
-        composition: []
+        composition: [
+          { name: "앵글그립", quantity: "1개", target: "TOOLS-BURST-ANGLE-GRIP" }
+        ]
       },
       jp: {
         no: "B-25",
@@ -2658,7 +2804,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2016-03-24",
         price: "5700",
-        composition: []
+        composition: [
+          { name: "러버어시스트", quantity: "1개", target: "TOOLS-BURST-RUBBER-ASSIST" }
+        ]
       },
       jp: {
         no: "B-26",
@@ -2682,16 +2830,18 @@ const productItems = [
         kind: "툴",
         releaseDate: "2016-03-24",
         price: "22100",
-        composition: []
+        composition: [
+          { name: "베이블레이드 블레이더박스", quantity: "1개", target: "TOOLS-BURST-WBBA-OFFICIAL-BLADER-BOX" }
+        ]
       },
       jp: {
         no: "B-27",
-        name: "wbba. 오피셜 블레이더박스",
+        name: "wbba. 오피셜 블레이더즈 박스",
         kind: "툴",
         releaseDate: "2015-12-26",
         price: "2484",
         composition: [
-          { name: "wbba. 오피셜 블레이더박스", quantity: "1개", target: "TOOLS-BURST-WBBA-OFFICIAL-BLADER-BOX" }
+          { name: "wbba. 오피셜 블레이더즈 박스", quantity: "1개", target: "TOOLS-BURST-WBBA-OFFICIAL-BLADER-BOX" }
         ]
       }
     }
@@ -2706,7 +2856,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2016-03-24",
         price: "9800",
-        composition: []
+        composition: [
+          { name: "넵튠.A.Z", quantity: "1개", target: "BEY-BURST-B-28-NEPTUNE-A-Z" }
+        ]
       },
       jp: {
         no: "B-28",
@@ -2788,7 +2940,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2016-05-11",
         price: "14800",
-        composition: []
+        composition: [
+          { name: "빅토리 발키리.B.V", quantity: "1개", target: "BEY-BURST-B-34-VICTORY-VALKYRIE-B-V" },
+          { name: "라이트런처", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER" }
+        ]
       },
       jp: {
         no: "B-34",
@@ -2796,7 +2951,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2016-04-02",
         price: "1404",
-        composition: []
+        composition: [
+          { name: "빅토리 발키리.B.V", quantity: "1개", target: "BEY-BURST-B-34-VICTORY-VALKYRIE-B-V" },
+          { name: "라이트런처", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER" }
+        ]
       }
     }
   },
@@ -2810,7 +2968,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2016-05-11",
         price: "14800",
-        composition: []
+        composition: [
+          { name: "스톰 스프리건.K.U", quantity: "1개", target: "BEY-BURST-B-35-STORM-SPRIGGAN-K-U" },
+          { name: "라이트런처", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER" }
+        ]
       },
       jp: {
         no: "B-35",
@@ -2818,7 +2979,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2016-04-02",
         price: "1404",
-        composition: []
+        composition: [
+          { name: "스톰 스프리건.K.U", quantity: "1개", target: "BEY-BURST-B-35-STORM-SPRIGGAN-K-U" },
+          { name: "라이트런처", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER" }
+        ]
       }
     }
   },
@@ -2832,7 +2996,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2016-05-11",
         price: "14800",
-        composition: []
+        composition: [
+          { name: "라이징 라그나로크.G.R", quantity: "1개", target: "BEY-BURST-B-36-RISING-RAGNARUK-G-R" },
+          { name: "라이트런처", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER" }
+        ]
       },
       jp: {
         no: "B-36",
@@ -2840,7 +3007,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2016-04-02",
         price: "972",
-        composition: []
+        composition: [
+          { name: "라이징 라그나로크.G.R", quantity: "1개", target: "BEY-BURST-B-36-RISING-RAGNARUK-G-R" }
+        ]
       }
     }
   },
@@ -2854,7 +3023,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2016-05-11",
         price: "14800",
-        composition: []
+        composition: [
+          { name: "카이저 케르베우스.L.P", quantity: "1개", target: "BEY-BURST-B-37-KAISER-KERBEUS-L-P" },
+          { name: "라이트런처", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER" }
+        ]
       },
       jp: {
         no: "B-37",
@@ -2862,7 +3034,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2016-04-02",
         price: "972",
-        composition: []
+        composition: [
+          { name: "카이저 케르베우스.L.P", quantity: "1개", target: "BEY-BURST-B-37-KAISER-KERBEUS-L-P" }
+        ]
       }
     }
   },
@@ -2876,7 +3050,12 @@ const productItems = [
         kind: "세트",
         releaseDate: "2016-05-11",
         price: "43500",
-        composition: []
+        composition: [
+          { name: "빅토리 발키리.B.V", quantity: "1개", target: "BEY-BURST-B-38-VICTORY-VALKYRIE-B-V" },
+          { name: "베이런처", quantity: "1개", target: "TOOLS-BURST-BEYLAUNCHER" },
+          { name: "런처그립", quantity: "1개", target: "TOOLS-BURST-LAUNCHER-GRIP" },
+          { name: "베이스타디움 스탠다드타입", quantity: "1개", target: "TOOLS-BURST-STANDARD-BEYSTADIUM" }
+        ]
       },
       jp: {
         no: "B-38",
@@ -2884,7 +3063,12 @@ const productItems = [
         kind: "세트",
         releaseDate: "2016-04-02",
         price: "4428",
-        composition: []
+        composition: [
+          { name: "빅토리 발키리.B.V", quantity: "1개", target: "BEY-BURST-B-38-VICTORY-VALKYRIE-B-V" },
+          { name: "베이런처", quantity: "1개", target: "TOOLS-BURST-BEYLAUNCHER" },
+          { name: "베이로거", quantity: "1개", target: "TOOLS-BURST-BEYLOGGER" },
+          { name: "베이스타디움 스탠다드타입", quantity: "1개", target: "TOOLS-BURST-STANDARD-BEYSTADIUM" }
+        ]
       }
     }
   },
@@ -2898,7 +3082,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2016-05-11",
         price: "5700",
-        composition: []
+        composition: [
+          { name: "베이런처(화이트)", quantity: "1개", target: "TOOLS-BURST-BEYLAUNCHER" }
+        ]
       },
       jp: {
         no: "B-39",
@@ -2906,7 +3092,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2016-04-02",
         price: "756",
-        composition: []
+        composition: [
+          { name: "베이런처", quantity: "1개", target: "TOOLS-BURST-BEYLAUNCHER" }
+        ]
       }
     }
   },
@@ -2920,7 +3108,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2016-05-11",
         price: "5700",
-        composition: []
+        composition: [
+          { name: "런처그립(블랙)", quantity: "1개", target: "TOOLS-BURST-LAUNCHER-GRIP" }
+        ]
       },
       jp: {
         no: "B-40",
@@ -2928,7 +3118,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2016-04-02",
         price: "648",
-        composition: []
+        composition: [
+          { name: "런처그립", quantity: "1개", target: "TOOLS-BURST-LAUNCHER-GRIP" }
+        ]
       }
     }
   },
@@ -2942,7 +3134,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2016-06-18",
         price: "14800",
-        composition: []
+        composition: [
+          { name: "와일드 와이번.V.O", quantity: "1개", target: "BEY-BURST-B-41-WILD-WYVERN-V-O" },
+          { name: "라이트런처", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER" }
+        ]
       },
       jp: {
         no: "B-41",
@@ -2950,7 +3145,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2016-04-29",
         price: "1404",
-        composition: []
+        composition: [
+          { name: "와일드 와이번.V.O", quantity: "1개", target: "BEY-BURST-B-41-WILD-WYVERN-V-O" },
+          { name: "라이트런처", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER" }
+        ]
       }
     }
   },
@@ -2964,7 +3162,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2016-06-18",
         price: "10700",
-        composition: []
+        composition: [
+          { name: "다크 데스사이저.F.J", quantity: "1개", target: "BEY-BURST-B-42-DARK-DEATHSCYTHER-F-J" }
+        ]
       },
       jp: {
         no: "B-42",
@@ -2972,7 +3172,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2016-04-29",
         price: "972",
-        composition: []
+        composition: [
+          { name: "다크 데스사이저.F.J", quantity: "1개", target: "BEY-BURST-B-42-DARK-DEATHSCYTHER-F-J" }
+        ]
       }
     }
   },
@@ -2986,7 +3188,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2016-06-18",
         price: "5700",
-        composition: []
+        composition: [
+          { name: "그립러버", quantity: "1개", target: "TOOLS-BURST-GRIP-RUBBER" }
+        ]
       },
       jp: {
         no: "B-43",
@@ -2994,7 +3198,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2016-04-29",
         price: "540",
-        composition: []
+        composition: [
+          { name: "그립러버", quantity: "1개", target: "TOOLS-BURST-GRIP-RUBBER" }
+        ]
       }
     }
   },
@@ -3008,7 +3214,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2016-07-20",
         price: "10700",
-        composition: []
+        composition: [
+          { name: "홀리 호루스드.U.C", quantity: "1개", target: "BEY-BURST-B-44-HOLY-HORUSOOD-U-C" }
+        ]
       },
       jp: {
         no: "B-44",
@@ -3016,7 +3224,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2016-05-28",
         price: "972",
-        composition: []
+        composition: [
+          { name: "홀리 호루스드.U.C", quantity: "1개", target: "BEY-BURST-B-44-HOLY-HORUSOOD-U-C" }
+        ]
       }
     }
   },
@@ -3033,7 +3243,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2016-05-28",
         price: "648",
-        composition: []
+        composition: [
+          { name: "라이트런처", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER" }
+        ]
       }
     }
   },
@@ -3047,7 +3259,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2016-08-10",
         price: "10700",
-        composition: []
+        composition: [
+          { name: "오벨리스크 오딘.T.X", quantity: "1개", target: "BEY-BURST-B-46-OBELISK-ODIN-T-X" }
+        ]
       },
       jp: {
         no: "B-46",
@@ -3055,7 +3269,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2016-06-18",
         price: "594",
-        composition: []
+        composition: [
+          { name: "오벨리스크 오딘.T.X", quantity: "1개", target: "BEY-BURST-B-46-OBELISK-ODIN-T-X" }
+        ]
       }
     }
   },
@@ -3072,7 +3288,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2016-06-18",
         price: "540",
-        composition: []
+        composition: [
+          { name: "웨이트댐퍼", quantity: "1개", target: "TOOLS-BURST-WEIGHT-DAMPER" }
+        ]
       }
     }
   },
@@ -3089,7 +3307,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2016-06-25",
         price: "",
-        composition: []
+        composition: [
+          { name: "발뒤르.β.β", quantity: "1개", target: "BEY-BURST-B-00-BALDUR-BETA-BETA" }
+        ]
       }
     }
   },
@@ -3103,7 +3323,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2016-08-10",
         price: "17200",
-        composition: []
+        composition: [
+          { name: "제노 엑스칼리버.M.I", quantity: "1개", target: "BEY-BURST-B-48-XENO-XCALIBUR-M-I" },
+          { name: "소드런처", quantity: "1개", target: "TOOLS-BURST-SWORD-LAUNCHER" }
+        ]
       },
       jp: {
         no: "B-48",
@@ -3111,7 +3334,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2016-07-02",
         price: "1620",
-        composition: []
+        composition: [
+          { name: "제노 엑스칼리버.M.I", quantity: "1개", target: "BEY-BURST-B-48-XENO-XCALIBUR-M-I" },
+          { name: "소드런처", quantity: "1개", target: "TOOLS-BURST-SWORD-LAUNCHER" }
+        ]
       }
     }
   },
@@ -3142,7 +3368,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2016-08-10",
         price: "21300",
-        composition: []
+        composition: [
+          { name: "베이스타디움 와이드타입", quantity: "1개", target: "TOOLS-BURST-BURST-BEYSTADIUM-WIDE" }
+        ]
       },
       jp: {
         no: "B-50",
@@ -3150,7 +3378,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2016-07-16",
         price: "2700",
-        composition: []
+        composition: [
+          { name: "버스트 베이스타디움 와이드타입", quantity: "1개", target: "TOOLS-BURST-BURST-BEYSTADIUM-WIDE" }
+        ]
       }
     }
   },
@@ -3167,7 +3397,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2016-07-16",
         price: "648",
-        composition: []
+        composition: [
+          { name: "wbba. 핑거밴드", quantity: "2개", target: "TOOLS-BURST-WBBA-FINGER-BAND" }
+        ]
       }
     }
   },
@@ -3184,7 +3416,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2016-07-16",
         price: "1944",
-        composition: []
+        composition: [
+          { name: "베이미상가 메이커", quantity: "1개", target: "TOOLS-BURST-BEY-MISANGA-MAKER" }
+        ]
       }
     }
   },
@@ -3201,7 +3435,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2016-07-16",
         price: "410",
-        composition: []
+        composition: [
+          { name: "베이미상가", quantity: "1개", target: "TOOLS-BURST-BEY-MISANGA" }
+        ]
       }
     }
   },
@@ -3218,7 +3454,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2016-07-16",
         price: "410",
-        composition: []
+        composition: [
+          { name: "베이미상가", quantity: "1개", target: "TOOLS-BURST-BEY-MISANGA" }
+        ]
       }
     }
   },
@@ -3235,7 +3473,10 @@ const productItems = [
         kind: "세트",
         releaseDate: "2016-07-16",
         price: "972",
-        composition: []
+        composition: [
+          { name: "베이미상가용 실타래", quantity: "8종", target: "TOOLS-BURST-BEY-MISANGA-THREAD" },
+          { name: "wbba. 배지", quantity: "4개", target: "TOOLS-BURST-WBBA-BADGE" }
+        ]
       }
     }
   },
@@ -3249,7 +3490,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2016-09-23",
         price: "10700",
-        composition: []
+        composition: [
+          { name: "언락 유니콘.D.N", quantity: "1개", target: "BEY-BURST-B-56-UNLOCK-UNICORN-D-N" }
+        ]
       },
       jp: {
         no: "B-56",
@@ -3257,7 +3500,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2016-08-06",
         price: "972",
-        composition: []
+        composition: [
+          { name: "언락 유니콘.D.N", quantity: "1개", target: "BEY-BURST-B-56-UNLOCK-UNICORN-D-N" }
+        ]
       }
     }
   },
@@ -3271,7 +3516,11 @@ const productItems = [
         kind: "세트",
         releaseDate: "2016-09-23",
         price: "26200",
-        composition: []
+        composition: [
+          { name: "빅토리 발키리.U.Q", quantity: "1개", target: "BEY-BURST-B-57-VICTORY-VALKYRIE-U-Q" },
+          { name: "노바 넵튠.V.T", quantity: "1개", target: "BEY-BURST-B-57-NOVA-NEPTUNE-V-T" },
+          { name: "카오스.O.G", quantity: "1개", target: "BEY-BURST-B-57-CHAOS-O-G" }
+        ]
       },
       jp: {
         no: "B-57",
@@ -3279,7 +3528,11 @@ const productItems = [
         kind: "세트",
         releaseDate: "2016-08-06",
         price: "2700",
-        composition: []
+        composition: [
+          { name: "빅토리 발키리.U.Q", quantity: "1개", target: "BEY-BURST-B-57-VICTORY-VALKYRIE-U-Q" },
+          { name: "노바 넵튠.V.T", quantity: "1개", target: "BEY-BURST-B-57-NOVA-NEPTUNE-V-T" },
+          { name: "카오스.O.G", quantity: "1개", target: "BEY-BURST-B-57-CHAOS-O-G" }
+        ]
       }
     }
   },
@@ -3296,7 +3549,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2016-08-06",
         price: "648",
-        composition: []
+        composition: [
+          { name: "카라비나그립", quantity: "1개", target: "TOOLS-BURST-CARABINER-GRIP" }
+        ]
       }
     }
   },
@@ -3310,7 +3565,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2016-10-14",
         price: "17200",
-        composition: []
+        composition: [
+          { name: "질리언 제우스.I.W", quantity: "1개", target: "BEY-BURST-B-59-ZILLION-ZEUS-I-W" },
+          { name: "라이트런처", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER" }
+        ]
       },
       jp: {
         no: "B-59",
@@ -3318,7 +3576,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2016-09-17",
         price: "1404",
-        composition: []
+        composition: [
+          { name: "질리언 제우스.I.W", quantity: "1개", target: "BEY-BURST-B-59-ZILLION-ZEUS-I-W" },
+          { name: "라이트런처", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER" }
+        ]
       }
     }
   },
@@ -3335,7 +3596,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2016-09-17",
         price: "648",
-        composition: []
+        composition: [
+          { name: "그립웨이트", quantity: "1개", target: "TOOLS-BURST-GRIP-WEIGHT" }
+        ]
       }
     }
   },
@@ -3371,7 +3634,11 @@ const productItems = [
         kind: "세트",
         releaseDate: "2016-10-14",
         price: "59900",
-        composition: []
+        composition: [
+          { name: "팽 펜리르.B.J", quantity: "1개", target: "BEY-BURST-B-62-FANG-FENRIR-B-J" },
+          { name: "프로토런처", quantity: "1개", target: "TOOLS-BURST-PROTO-LAUNCHER" },
+          { name: "듀얼 싸이클론 베이스타디움", quantity: "1개", target: "TOOLS-BURST-DUAL-CYCLONE-BEYSTADIUM" }
+        ]
       },
       jp: {
         no: "B-62",
@@ -3379,7 +3646,11 @@ const productItems = [
         kind: "세트",
         releaseDate: "2016-10-22",
         price: "6480",
-        composition: []
+        composition: [
+          { name: "팽 펜리르.B.J", quantity: "1개", target: "BEY-BURST-B-62-FANG-FENRIR-B-J" },
+          { name: "프로토런처", quantity: "1개", target: "TOOLS-BURST-PROTO-LAUNCHER" },
+          { name: "듀얼 싸이클론 베이스타디움", quantity: "1개", target: "TOOLS-BURST-DUAL-CYCLONE-BEYSTADIUM" }
+        ]
       }
     }
   },
@@ -3393,7 +3664,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2017-01-03",
         price: "10700",
-        composition: []
+        composition: [
+          { name: "비스트 베히모스.H.H", quantity: "1개", target: "BEY-BURST-B-63-BEAST-BEHEMOTH-H-H" }
+        ]
       },
       jp: {
         no: "B-63",
@@ -3401,7 +3674,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2016-11-12",
         price: "972",
-        composition: []
+        composition: [
+          { name: "비스트 베히모스.H.H", quantity: "1개", target: "BEY-BURST-B-63-BEAST-BEHEMOTH-H-H" }
+        ]
       }
     }
   },
@@ -3415,7 +3690,12 @@ const productItems = [
         kind: "세트",
         releaseDate: "2017-01-03",
         price: "35300",
-        composition: []
+        composition: [
+          { name: "빅토리 발키리.T.U", quantity: "1개", target: "BEY-BURST-B-64-VICTORY-VALKYRIE-T-U" },
+          { name: "인페르노 이프리트.M.L", quantity: "1개", target: "BEY-BURST-B-64-INFERNO-IFRIT-M-L" },
+          { name: "스톰 스프리건.B.I", quantity: "1개", target: "BEY-BURST-B-64-STORM-SPRIGGAN-B-I" },
+          { name: "베이런처", quantity: "1개", target: "TOOLS-BURST-BEYLAUNCHER" }
+        ]
       },
       jp: {
         no: "B-64",
@@ -3423,7 +3703,12 @@ const productItems = [
         kind: "세트",
         releaseDate: "2016-11-12",
         price: "3780",
-        composition: []
+        composition: [
+          { name: "빅토리 발키리.T.U", quantity: "1개", target: "BEY-BURST-B-64-VICTORY-VALKYRIE-T-U" },
+          { name: "인페르노 이프리트.M.L", quantity: "1개", target: "BEY-BURST-B-64-INFERNO-IFRIT-M-L" },
+          { name: "스톰 스프리건.B.I", quantity: "1개", target: "BEY-BURST-B-64-STORM-SPRIGGAN-B-I" },
+          { name: "베이런처", quantity: "1개", target: "TOOLS-BURST-BEYLAUNCHER" }
+        ]
       }
     }
   },
@@ -3437,7 +3722,12 @@ const productItems = [
         kind: "세트",
         releaseDate: "2017-01-03",
         price: "35300",
-        composition: []
+        composition: [
+          { name: "와일드 와이번.I.Y", quantity: "1개", target: "BEY-BURST-B-65-WILD-WYVERN-I-Y" },
+          { name: "사이킥 팬텀.P.W", quantity: "1개", target: "BEY-BURST-B-65-PSYCHIC-PHANTOM-P-W" },
+          { name: "카이저 케르베우스.D.O", quantity: "1개", target: "BEY-BURST-B-65-KAISER-KERBEUS-D-O" },
+          { name: "베이런처", quantity: "1개", target: "TOOLS-BURST-BEYLAUNCHER" }
+        ]
       },
       jp: {
         no: "B-65",
@@ -3445,7 +3735,12 @@ const productItems = [
         kind: "세트",
         releaseDate: "2016-11-12",
         price: "3780",
-        composition: []
+        composition: [
+          { name: "와일드 와이번.I.Y", quantity: "1개", target: "BEY-BURST-B-65-WILD-WYVERN-I-Y" },
+          { name: "사이킥 팬텀.P.W", quantity: "1개", target: "BEY-BURST-B-65-PSYCHIC-PHANTOM-P-W" },
+          { name: "카이저 케르베우스.D.O", quantity: "1개", target: "BEY-BURST-B-65-KAISER-KERBEUS-D-O" },
+          { name: "베이런처", quantity: "1개", target: "TOOLS-BURST-BEYLAUNCHER" }
+        ]
       }
     }
   },
@@ -3459,7 +3754,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2017-01-03",
         price: "17200",
-        composition: []
+        composition: [
+          { name: "로스트 롱기누스.N.Sp", quantity: "1개", target: "BEY-BURST-B-66-LOST-LONGINUS-N-SP" },
+          { name: "베이런처L", quantity: "1개", target: "TOOLS-BURST-BEYLAUNCHER-L" }
+        ]
       },
       jp: {
         no: "B-66",
@@ -3467,7 +3765,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2016-12-28",
         price: "1620",
-        composition: []
+        composition: [
+          { name: "로스트 롱기누스.N.Sp", quantity: "1개", target: "BEY-BURST-B-66-LOST-LONGINUS-N-SP" },
+          { name: "베이런처L", quantity: "1개", target: "TOOLS-BURST-BEYLAUNCHER-L" }
+        ]
       }
     }
   },
@@ -3498,7 +3799,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2017-10-13",
         price: "32800",
-        composition: []
+        composition: [
+          { name: "블레이더즈 소프트케이스", quantity: "1개", target: "TOOLS-BURST-BLADERS-SOFT-CASE" }
+        ]
       },
       jp: {
         no: "B-68",
@@ -3506,7 +3809,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2016-12-28",
         price: "3240",
-        composition: []
+        composition: [
+          { name: "블레이더즈 소프트케이스", quantity: "1개", target: "TOOLS-BURST-BLADERS-SOFT-CASE" }
+        ]
       }
     }
   },
@@ -3520,7 +3825,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2017-02-04",
         price: "12300",
-        composition: []
+        composition: [
+          { name: "제일 요르문간드.I.Cy", quantity: "1개", target: "BEY-BURST-B-69-JAIL-JORMUNGAND-I-CY" }
+        ]
       },
       jp: {
         no: "B-69",
@@ -3528,7 +3835,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2017-01-21",
         price: "972",
-        composition: []
+        composition: [
+          { name: "제일 요르문간드.I.Cy", quantity: "1개", target: "BEY-BURST-B-69-JAIL-JORMUNGAND-I-CY" }
+        ]
       }
     }
   },
@@ -3542,7 +3851,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2017-05-11",
         price: "6000",
-        composition: []
+        composition: [
+          { name: "소드런처(블루)", quantity: "1개", target: "TOOLS-BURST-SWORD-LAUNCHER-BLUE" }
+        ]
       },
       jp: {
         no: "B-70",
@@ -3550,7 +3861,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2017-01-21",
         price: "702",
-        composition: []
+        composition: [
+          { name: "소드런처", quantity: "1개", target: "TOOLS-BURST-SWORD-LAUNCHER-BLUE" }
+        ]
       }
     }
   },
@@ -3564,7 +3877,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2017-03-01",
         price: "12300",
-        composition: []
+        composition: [
+          { name: "애시드 아누비스.Y.O", quantity: "1개", target: "BEY-BURST-B-71-ACID-ANUBIS-Y-O" }
+        ]
       },
       jp: {
         no: "B-71",
@@ -3572,7 +3887,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2017-02-25",
         price: "972",
-        composition: []
+        composition: [
+          { name: "애시드 아누비스.Y.O", quantity: "1개", target: "BEY-BURST-B-71-ACID-ANUBIS-Y-O" }
+        ]
       }
     }
   },
@@ -3589,7 +3906,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2017-02-25",
         price: "540",
-        composition: []
+        composition: [
+          { name: "파워트리거", quantity: "1개", target: "TOOLS-BURST-POWER-TRIGGER" }
+        ]
       }
     }
   },
@@ -3603,7 +3922,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2017-05-11",
         price: "17200",
-        composition: []
+        composition: [
+          { name: "갓 발키리.6V.Rb", quantity: "1개", target: "BEY-BURST-B-73-GOD-VALKYRIE-6V-RB" },
+          { name: "엔트리런처", quantity: "1개", target: "TOOLS-BURST-ENTRY-LAUNCHER" }
+        ]
       },
       jp: {
         no: "B-73",
@@ -3611,7 +3933,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2017-03-18",
         price: "1512",
-        composition: []
+        composition: [
+          { name: "갓 발키리.6V.Rb", quantity: "1개", target: "BEY-BURST-B-73-GOD-VALKYRIE-6V-RB" },
+          { name: "엔트리런처", quantity: "1개", target: "TOOLS-BURST-ENTRY-LAUNCHER" }
+        ]
       }
     }
   },
@@ -3625,7 +3950,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2017-05-11",
         price: "17200",
-        composition: []
+        composition: [
+          { name: "크라이스 사탄.2G.Lp", quantity: "1개", target: "BEY-BURST-B-74-KREIS-SATAN-2G-LP" },
+          { name: "엔트리런처", quantity: "1개", target: "TOOLS-BURST-ENTRY-LAUNCHER" }
+        ]
       },
       jp: {
         no: "B-74",
@@ -3633,7 +3961,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2017-03-18",
         price: "1404",
-        composition: []
+        composition: [
+          { name: "크라이스 사탄.2G.Lp", quantity: "1개", target: "BEY-BURST-B-74-KREIS-SATAN-2G-LP" },
+          { name: "엔트리런처", quantity: "1개", target: "TOOLS-BURST-ENTRY-LAUNCHER" }
+        ]
       }
     }
   },
@@ -3647,7 +3978,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2017-05-11",
         price: "12300",
-        composition: []
+        composition: [
+          { name: "블레이즈 라그나로크.4C.Fl", quantity: "1개", target: "BEY-BURST-B-75-BLAZE-RAGNARUK-4C-FL" }
+        ]
       },
       jp: {
         no: "B-75",
@@ -3655,7 +3988,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2017-03-18",
         price: "972",
-        composition: []
+        composition: [
+          { name: "블레이즈 라그나로크.4C.Fl", quantity: "1개", target: "BEY-BURST-B-75-BLAZE-RAGNARUK-4C-FL" }
+        ]
       }
     }
   },
@@ -3669,7 +4004,12 @@ const productItems = [
         kind: "세트",
         releaseDate: "2017-05-11",
         price: "49200",
-        composition: []
+        composition: [
+          { name: "발키리.6V.Rb", quantity: "1개", target: "BEY-BURST-B-76-VALKYRIE-6V-RB" },
+          { name: "베이런처", quantity: "1개", target: "TOOLS-BURST-BEYLAUNCHER" },
+          { name: "런처그립", quantity: "1개", target: "TOOLS-BURST-LAUNCHER-GRIP" },
+          { name: "베이스타디움 스탠다드타입", quantity: "1개", target: "TOOLS-BURST-STANDARD-BEYSTADIUM" }
+        ]
       },
       jp: {
         no: "B-76",
@@ -3677,7 +4017,12 @@ const productItems = [
         kind: "세트",
         releaseDate: "2017-03-18",
         price: "4428",
-        composition: []
+        composition: [
+          { name: "발키리.6V.Rb", quantity: "1개", target: "BEY-BURST-B-76-VALKYRIE-6V-RB" },
+          { name: "베이런처", quantity: "1개", target: "TOOLS-BURST-BEYLAUNCHER" },
+          { name: "런처그립", quantity: "1개", target: "TOOLS-BURST-LAUNCHER-GRIP" },
+          { name: "베이스타디움 스탠다드타입", quantity: "1개", target: "TOOLS-BURST-STANDARD-BEYSTADIUM" }
+        ]
       }
     }
   },
@@ -3694,7 +4039,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2017-03-18",
         price: "1944",
-        composition: []
+        composition: [
+          { name: "베이로거 플러스", quantity: "1개", target: "TOOLS-BURST-BEYLOGGER-PLUS" }
+        ]
       }
     }
   },
@@ -3708,7 +4055,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2018-03-14",
         price: "6600",
-        composition: []
+        composition: [
+          { name: "베이런처(블랙)", quantity: "1개", target: "TOOLS-BURST-BEYLAUNCHER" }
+        ]
       },
       jp: {
         no: "B-78",
@@ -3716,7 +4065,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2017-03-18",
         price: "756",
-        composition: []
+        composition: [
+          { name: "베이런처", quantity: "1개", target: "TOOLS-BURST-BEYLAUNCHER" }
+        ]
       }
     }
   },
@@ -3730,7 +4081,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2017-07-01",
         price: "17200",
-        composition: []
+        composition: [
+          { name: "드레인 파브닐.8.Nt", quantity: "1개", target: "BEY-BURST-B-79-DRAIN-FAFNIR-8-NT" },
+          { name: "엔트리런처L", quantity: "1개", target: "TOOLS-BURST-ENTRY-LAUNCHER-L" }
+        ]
       },
       jp: {
         no: "B-79",
@@ -3738,7 +4092,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2017-04-29",
         price: "1404",
-        composition: []
+        composition: [
+          { name: "드레인 파브닐.8.Nt", quantity: "1개", target: "BEY-BURST-B-79-DRAIN-FAFNIR-8-NT" },
+          { name: "엔트리런처L", quantity: "1개", target: "TOOLS-BURST-ENTRY-LAUNCHER-L" }
+        ]
       }
     }
   },
@@ -3774,15 +4131,19 @@ const productItems = [
         kind: "툴",
         releaseDate: "2017-09-11",
         price: "6600",
-        composition: []
+        composition: [
+          { name: "라이트런처L", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER-L" }
+        ]
       },
       jp: {
         no: "B-81",
-        name: "라이트런처 L",
+        name: "라이트런처L",
         kind: "툴",
         releaseDate: "2017-04-29",
         price: "540",
-        composition: []
+        composition: [
+          { name: "라이트런처L", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER-L" }
+        ]
       }
     }
   },
@@ -3796,15 +4157,19 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2017-08-01",
         price: "12300",
-        composition: []
+        composition: [
+          { name: "알타 크로노스.6M.T", quantity: "1개", target: "BEY-BURST-B-82-ALTER-CHRONOS-6M-T" }
+        ]
       },
       jp: {
         no: "B-82",
-        name: "알터 크로노스.6M.T",
+        name: "알타 크로노스.6M.T",
         kind: "부스터",
         releaseDate: "2017-05-27",
         price: "972",
-        composition: []
+        composition: [
+          { name: "알타 크로노스.6M.T", quantity: "1개", target: "BEY-BURST-B-82-ALTER-CHRONOS-6M-T" }
+        ]
       }
     }
   },
@@ -3818,7 +4183,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2017-08-01",
         price: "6600",
-        composition: []
+        composition: [
+          { name: "너클그립", quantity: "1개", target: "TOOLS-BURST-KNUCKLE-GRIP" }
+        ]
       },
       jp: {
         no: "B-83",
@@ -3826,7 +4193,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2017-05-27",
         price: "648",
-        composition: []
+        composition: [
+          { name: "너클그립", quantity: "1개", target: "TOOLS-BURST-KNUCKLE-GRIP" }
+        ]
       }
     }
   },
@@ -3840,7 +4209,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2017-08-01",
         price: "6600",
-        composition: []
+        composition: [
+          { name: "3on3 배틀케이스", quantity: "1개", target: "TOOLS-BURST-BATTLE-CASE-3ON3" }
+        ]
       },
       jp: {
         no: "B-84",
@@ -3848,7 +4219,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2017-05-27",
         price: "540",
-        composition: []
+        composition: [
+          { name: "3on3 배틀케이스", quantity: "1개", target: "TOOLS-BURST-BATTLE-CASE-3ON3" }
+        ]
       }
     }
   },
@@ -3862,7 +4235,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2017-08-17",
         price: "12300",
-        composition: []
+        composition: [
+          { name: "킬러 데스사이저.2V.Hn", quantity: "1개", target: "BEY-BURST-B-85-KILLER-DEATHSCYTHER-2V-HN" }
+        ]
       },
       jp: {
         no: "B-85",
@@ -3870,7 +4245,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2017-07-01",
         price: "972",
-        composition: []
+        composition: [
+          { name: "킬러 데스사이저.2V.Hn", quantity: "1개", target: "BEY-BURST-B-85-KILLER-DEATHSCYTHER-2V-HN" }
+        ]
       }
     }
   },
@@ -3884,7 +4261,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2017-09-01",
         price: "19700",
-        composition: []
+        composition: [
+          { name: "레전드 스프리건.7.Mr", quantity: "1개", target: "BEY-BURST-B-86-LEGEND-SPRIGGAN-7-MR" },
+          { name: "라이트런처LR", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER-LR" }
+        ]
       },
       jp: {
         no: "B-86",
@@ -3892,7 +4272,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2017-07-01",
         price: "1620",
-        composition: []
+        composition: [
+          { name: "레전드 스프리건.7.Mr", quantity: "1개", target: "BEY-BURST-B-86-LEGEND-SPRIGGAN-7-MR" },
+          { name: "라이트런처LR", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER-LR" }
+        ]
       }
     }
   },
@@ -3928,15 +4311,19 @@ const productItems = [
         kind: "툴",
         releaseDate: "2017-01-03",
         price: "8200",
-        composition: []
+        composition: [
+          { name: "베이런처LR", quantity: "1개", target: "TOOLS-BURST-BEYLAUNCHER-LR" }
+        ]
       },
       jp: {
         no: "B-88",
-        name: "베이런처 LR",
+        name: "베이런처LR",
         kind: "툴",
         releaseDate: "2017-08-11",
         price: "864",
-        composition: []
+        composition: [
+          { name: "베이런처LR", quantity: "1개", target: "TOOLS-BURST-BEYLAUNCHER-LR" }
+        ]
       }
     }
   },
@@ -3950,7 +4337,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2017-11-07",
         price: "12300",
-        composition: []
+        composition: [
+          { name: "블라스트 지니어스.5G.Gr", quantity: "1개", target: "BEY-BURST-B-89-BLAST-JINNIUS-5G-GR" }
+        ]
       },
       jp: {
         no: "B-89",
@@ -3958,7 +4347,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2017-08-11",
         price: "972",
-        composition: []
+        composition: [
+          { name: "블라스트 지니어스.5G.Gr", quantity: "1개", target: "BEY-BURST-B-89-BLAST-JINNIUS-5G-GR" }
+        ]
       }
     }
   },
@@ -3972,7 +4363,11 @@ const productItems = [
         kind: "세트",
         releaseDate: "2017-11-07",
         price: "32800",
-        composition: []
+        composition: [
+          { name: "갤럭시 제우스.4M.Pl", quantity: "1개", target: "BEY-BURST-B-90-GALAXY-ZEUS-4M-PL" },
+          { name: "가디언 케르베우스.H.R", quantity: "1개", target: "BEY-BURST-B-90-GUARDIAN-KERBEUS-H-R" },
+          { name: "매드 미노보로스.Q.Q", quantity: "1개", target: "BEY-BURST-B-90-MAD-MINOBOROS-Q-Q" }
+        ]
       },
       jp: {
         no: "B-90",
@@ -3980,7 +4375,11 @@ const productItems = [
         kind: "세트",
         releaseDate: "2017-08-11",
         price: "2700",
-        composition: []
+        composition: [
+          { name: "갤럭시 제우스.4M.Pl", quantity: "1개", target: "BEY-BURST-B-90-GALAXY-ZEUS-4M-PL" },
+          { name: "가디언 케르베우스.H.R", quantity: "1개", target: "BEY-BURST-B-90-GUARDIAN-KERBEUS-H-R" },
+          { name: "매드 미노보로스.Q.Q", quantity: "1개", target: "BEY-BURST-B-90-MAD-MINOBOROS-Q-Q" }
+        ]
       }
     }
   },
@@ -3994,7 +4393,10 @@ const productItems = [
         kind: "툴",
         releaseDate: "2017-11-07",
         price: "4900",
-        composition: []
+        composition: [
+          { name: "메탈갓칩", quantity: "2개", target: "TOOLS-BURST-METAL-GOD-CHIP" },
+          { name: "갓칩 툴", quantity: "1개", target: "TOOLS-BURST-GOD-CHIP-TOOL" }
+        ]
       },
       jp: {
         no: "B-91",
@@ -4002,7 +4404,10 @@ const productItems = [
         kind: "툴",
         releaseDate: "2017-08-11",
         price: "540",
-        composition: []
+        composition: [
+          { name: "메탈갓칩", quantity: "2개", target: "TOOLS-BURST-METAL-GOD-CHIP" },
+          { name: "갓칩 툴", quantity: "1개", target: "TOOLS-BURST-GOD-CHIP-TOOL" }
+        ]
       }
     }
   },
@@ -4016,7 +4421,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2017-11-07",
         price: "18000",
-        composition: []
+        composition: [
+          { name: "지크 엑스칼리버.1.Ir", quantity: "1개", target: "BEY-BURST-B-92-SIEG-XCALIBUR-1-IR" },
+          { name: "엔트리런처", quantity: "1개", target: "TOOLS-BURST-ENTRY-LAUNCHER" }
+        ]
       },
       jp: {
         no: "B-92",
@@ -4024,7 +4432,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2017-09-16",
         price: "1512",
-        composition: []
+        composition: [
+          { name: "지크 엑스칼리버.1.Ir", quantity: "1개", target: "BEY-BURST-B-92-SIEG-XCALIBUR-1-IR" },
+          { name: "엔트리런처", quantity: "1개", target: "TOOLS-BURST-ENTRY-LAUNCHER" }
+        ]
       }
     }
   },
@@ -4038,7 +4449,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2017-10-31",
         price: "39400",
-        composition: []
+        composition: [
+          { name: "디지털소드런처 (블루 Ver.)", quantity: "1개", target: "TOOLS-BURST-DIGITAL-SWORD-LAUNCHER" }
+        ]
       },
       jp: {
         no: "B-93",
@@ -4046,7 +4459,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2017-09-16",
         price: "3240",
-        composition: []
+        composition: [
+          { name: "디지털소드런처", quantity: "1개", target: "TOOLS-BURST-DIGITAL-SWORD-LAUNCHER" }
+        ]
       }
     }
   },
@@ -4060,7 +4475,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2017-10-31",
         price: "39400",
-        composition: []
+        composition: [
+          { name: "디지털소드런처 (레드 Ver.)", quantity: "1개", target: "TOOLS-BURST-DIGITAL-SWORD-LAUNCHER" }
+        ]
       },
       jp: {
         no: "B-94",
@@ -4068,7 +4485,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2017-09-16",
         price: "3240",
-        composition: []
+        composition: [
+          { name: "디지털소드런처", quantity: "1개", target: "TOOLS-BURST-DIGITAL-SWORD-LAUNCHER" }
+        ]
       }
     }
   },
@@ -4104,7 +4523,11 @@ const productItems = [
         kind: "세트",
         releaseDate: "2017-11-28",
         price: "69700",
-        composition: []
+        composition: [
+          { name: "스트라이크 갓 발키리.∞", quantity: "1개", target: "BEY-BURST-B-96-STRIKE-GOD-VALKYRIE-MUGEN" },
+          { name: "스트라이크갓칩 툴", quantity: "1개", target: "TOOLS-BURST-STRIKE-GOD-CHIP-TOOL" },
+          { name: "무한 베이스타디움", quantity: "1개", target: "TOOLS-BURST-MUGEN-BEYSTADIUM" }
+        ]
       },
       jp: {
         no: "B-96",
@@ -4112,7 +4535,11 @@ const productItems = [
         kind: "세트",
         releaseDate: "2017-10-21",
         price: "6912",
-        composition: []
+        composition: [
+          { name: "스트라이크 갓 발키리.∞", quantity: "1개", target: "BEY-BURST-B-96-STRIKE-GOD-VALKYRIE-MUGEN" },
+          { name: "스트라이크갓칩 툴", quantity: "1개", target: "TOOLS-BURST-STRIKE-GOD-CHIP-TOOL" },
+          { name: "무한 베이스타디움", quantity: "1개", target: "TOOLS-BURST-MUGEN-BEYSTADIUM" }
+        ]
       }
     }
   },
@@ -4126,7 +4553,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2017-01-03",
         price: "18000",
-        composition: []
+        composition: [
+          { name: "나이트메어 롱기누스.Ds", quantity: "1개", target: "BEY-BURST-B-97-NIGHTMARE-LONGINUS-DS" },
+          { name: "엔트리런처L", quantity: "1개", target: "TOOLS-BURST-ENTRY-LAUNCHER-L" }
+        ]
       },
       jp: {
         no: "B-97",
@@ -4134,7 +4564,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2017-11-11",
         price: "1512",
-        composition: []
+        composition: [
+          { name: "나이트메어 롱기누스.Ds", quantity: "1개", target: "BEY-BURST-B-97-NIGHTMARE-LONGINUS-DS" },
+          { name: "엔트리런처L", quantity: "1개", target: "TOOLS-BURST-ENTRY-LAUNCHER-L" }
+        ]
       }
     }
   },
@@ -4148,7 +4581,13 @@ const productItems = [
         kind: "세트",
         releaseDate: "2017-01-03",
         price: "49200",
-        composition: []
+        composition: [
+          { name: "아크 바하무트.2B.At", quantity: "1개", target: "BEY-BURST-B-98-ARC-BAHAMUT-2B-AT" },
+          { name: "딥 카오스.4F.Br", quantity: "1개", target: "BEY-BURST-B-98-DEEP-CHAOS-4F-BR" },
+          { name: "드레인 파브닐.7S.Z", quantity: "1개", target: "BEY-BURST-B-98-DRAIN-FAFNIR-7S-Z" },
+          { name: "토네이도 와이번.1M.S", quantity: "1개", target: "BEY-BURST-B-98-TORNADO-WYVERN-1M-S" },
+          { name: "갓칩 툴", quantity: "1개", target: "TOOLS-BURST-GOD-CHIP-TOOL" }
+        ]
       },
       jp: {
         no: "B-98",
@@ -4156,7 +4595,13 @@ const productItems = [
         kind: "세트",
         releaseDate: "2017-11-11",
         price: "4968",
-        composition: []
+        composition: [
+          { name: "아크 바하무트.2B.At", quantity: "1개", target: "BEY-BURST-B-98-ARC-BAHAMUT-2B-AT" },
+          { name: "딥 카오스.4F.Br", quantity: "1개", target: "BEY-BURST-B-98-DEEP-CHAOS-4F-BR" },
+          { name: "드레인 파브닐.7S.Z", quantity: "1개", target: "BEY-BURST-B-98-DRAIN-FAFNIR-7S-Z" },
+          { name: "토네이도 와이번.1M.S", quantity: "1개", target: "BEY-BURST-B-98-TORNADO-WYVERN-1M-S" },
+          { name: "갓칩 툴", quantity: "1개", target: "TOOLS-BURST-GOD-CHIP-TOOL" }
+        ]
       }
     }
   },
@@ -4170,7 +4615,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2018-03-14",
         price: "8200",
-        composition: []
+        composition: [
+          { name: "베이런처L", quantity: "1개", target: "TOOLS-BURST-BEYLAUNCHER-L" }
+        ]
       },
       jp: {
         no: "B-99",
@@ -4178,7 +4625,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2017-11-11",
         price: "756",
-        composition: []
+        composition: [
+          { name: "베이런처L", quantity: "1개", target: "TOOLS-BURST-BEYLAUNCHER-L" }
+        ]
       }
     }
   },
@@ -4192,7 +4641,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2017-03-01",
         price: "21300",
-        composition: []
+        composition: [
+          { name: "스프리건 레퀴엠.0.Zt", quantity: "1개", target: "BEY-BURST-B-100-SPRIGGAN-REQUIEM-0-ZT" },
+          { name: "라이트런처LR", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER-LR" }
+        ]
       },
       jp: {
         no: "B-100",
@@ -4200,7 +4652,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2017-12-28",
         price: "1728",
-        composition: []
+        composition: [
+          { name: "스프리건 레퀴엠.0.Zt", quantity: "1개", target: "BEY-BURST-B-100-SPRIGGAN-REQUIEM-0-ZT" },
+          { name: "라이트런처LR", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER-LR" }
+        ]
       }
     }
   },
@@ -4236,7 +4691,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2017-04-03",
         price: "12300",
-        composition: []
+        composition: [
+          { name: "트윈 네메시스.3H.Ul", quantity: "1개", target: "BEY-BURST-B-102-TWIN-NEMESIS-3H-UL" }
+        ]
       },
       jp: {
         no: "B-102",
@@ -4244,7 +4701,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2018-01-27",
         price: "972",
-        composition: []
+        composition: [
+          { name: "트윈 네메시스.3H.Ul", quantity: "1개", target: "BEY-BURST-B-102-TWIN-NEMESIS-3H-UL" }
+        ]
       }
     }
   },
@@ -4258,7 +4717,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2017-04-03",
         price: "12300",
-        composition: []
+        composition: [
+          { name: "스크류 트라이던트.8B.Wd", quantity: "1개", target: "BEY-BURST-B-103-SCREW-TRIDENT-8B-WD" }
+        ]
       },
       jp: {
         no: "B-103",
@@ -4266,7 +4727,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2018-02-17",
         price: "972",
-        composition: []
+        composition: [
+          { name: "스크류 트라이던트.8B.Wd", quantity: "1개", target: "BEY-BURST-B-103-SCREW-TRIDENT-8B-WD" }
+        ]
       }
     }
   },
@@ -8060,7 +8523,7 @@ const productItems = [
       },
       jp: {
         no: "BX-40",
-        name: "와인더런처 L",
+        name: "와인더런처L",
         kind: "런처",
         releaseDate: "2025-03-29",
         price: "880",
@@ -8761,9 +9224,38 @@ const toolsItems = [
   { id: "TOOLS-BURST-BURST-BEYSTADIUM", series: "burst", name: "버스트 베이스타디움", en: "Burst Beystadium", category: "스타디움", desc: "" },
   { id: "TOOLS-BURST-ANGLE-GRIP", series: "burst", name: "앵글그립", en: "Angle Grip", category: "그립", desc: "" },
   { id: "TOOLS-BURST-RUBBER-ASSIST", series: "burst", name: "러버어시스트", en: "Rubber Assist", category: "기타", desc: "" },
-  { id: "TOOLS-BURST-WBBA-OFFICIAL-BLADER-BOX", series: "burst", name: "wbba. 오피셜 블레이더박스", en: "wbba. Official Blader Box", category: "기타", desc: "" },
+  { id: "TOOLS-BURST-WBBA-OFFICIAL-BLADER-BOX", series: "burst", name: "wbba. 오피셜 블레이더즈 박스", en: "wbba. Official Blader Box", category: "기타", desc: "" },
   { id: "TOOLS-BURST-SHOOT-SUPPORT-RUBBER", series: "burst", name: "슛서포트러버", en: "Shoot Support Rubber", category: "기타", desc: "" },
-  { id: "TOOLS-BURST-STANDARD-BEYSTADIUM-BLACK", series: "burst", name: "베이스타디움 스탠다드타입(블랙)", en: "Beystadium Standard Type Black", category: "스타디움", desc: "" }
+  { id: "TOOLS-BURST-STANDARD-BEYSTADIUM-BLACK", series: "burst", name: "베이스타디움 스탠다드타입(블랙)", en: "Beystadium Standard Type Black", category: "스타디움", desc: "" },
+  { id: "TOOLS-BURST-GRIP-RUBBER", series: "burst", name: "그립러버", en: "Grip Rubber", category: "그립", desc: "" },
+  { id: "TOOLS-BURST-WEIGHT-DAMPER", series: "burst", name: "웨이트댐퍼", en: "Weight Damper", category: "기타", desc: "" },
+  { id: "TOOLS-BURST-SWORD-LAUNCHER", series: "burst", name: "소드런처", en: "Sword Launcher", category: "런처", desc: "" },
+  { id: "TOOLS-BURST-SWORD-LAUNCHER-BLUE", series: "burst", name: "소드런처(블루)", en: "Sword Launcher Blue", category: "런처", desc: "" },
+  { id: "TOOLS-BURST-BURST-BEYSTADIUM-WIDE", series: "burst", name: "버스트 베이스타디움 와이드타입", en: "Burst Beystadium Wide Type", category: "스타디움", desc: "" },
+  { id: "TOOLS-BURST-WBBA-FINGER-BAND", series: "burst", name: "wbba. 핑거밴드", en: "wbba. Finger Band", category: "기타", desc: "" },
+  { id: "TOOLS-BURST-BEY-MISANGA-MAKER", series: "burst", name: "베이미상가 메이커", en: "Bey Misanga Maker", category: "기타", desc: "" },
+  { id: "TOOLS-BURST-BEY-MISANGA", series: "burst", name: "베이미상가", en: "Bey Misanga", category: "기타", desc: "" },
+  { id: "TOOLS-BURST-BEY-MISANGA-THREAD", series: "burst", name: "베이미상가용 실타래", en: "Bey Misanga Thread", category: "기타", desc: "" },
+  { id: "TOOLS-BURST-WBBA-BADGE", series: "burst", name: "wbba. 배지", en: "wbba. Badge", category: "기타", desc: "" },
+  { id: "TOOLS-BURST-CARABINER-GRIP", series: "burst", name: "카라비나그립", en: "Carabiner Grip", category: "그립", desc: "" },
+  { id: "TOOLS-BURST-GRIP-WEIGHT", series: "burst", name: "그립웨이트", en: "Grip Weight", category: "그립", desc: "" },
+  { id: "TOOLS-BURST-DUAL-CYCLONE-BEYSTADIUM", series: "burst", name: "듀얼 싸이클론 베이스타디움", en: "Dual Cyclone Beystadium", category: "스타디움", desc: "" },
+  { id: "TOOLS-BURST-BEYLAUNCHER-L", series: "burst", name: "베이런처L", en: "BeyLauncher L", category: "런처", desc: "" },
+  { id: "TOOLS-BURST-BLADERS-SOFT-CASE", series: "burst", name: "블레이더즈 소프트케이스", en: "Blader's Soft Case", category: "기타", desc: "" },
+  { id: "TOOLS-BURST-POWER-TRIGGER", series: "burst", name: "파워트리거", en: "Power Trigger", category: "기타", desc: "" },
+  { id: "TOOLS-BURST-ENTRY-LAUNCHER", series: "burst", name: "엔트리런처", en: "Entry Launcher", category: "런처", desc: "" },
+  { id: "TOOLS-BURST-ENTRY-LAUNCHER-L", series: "burst", name: "엔트리런처L", en: "Entry Launcher L", category: "런처", desc: "" },
+  { id: "TOOLS-BURST-BEYLOGGER-PLUS", series: "burst", name: "베이로거 플러스", en: "BeyLogger Plus", category: "기타", desc: "" },
+  { id: "TOOLS-BURST-LIGHT-LAUNCHER-L", series: "burst", name: "라이트런처L", en: "Light Launcher L", category: "런처", desc: "" },
+  { id: "TOOLS-BURST-LIGHT-LAUNCHER-LR", series: "burst", name: "라이트런처LR", en: "Light Launcher LR", category: "런처", desc: "" },
+  { id: "TOOLS-BURST-KNUCKLE-GRIP", series: "burst", name: "너클그립", en: "Knuckle Grip", category: "그립", desc: "" },
+  { id: "TOOLS-BURST-BATTLE-CASE-3ON3", series: "burst", name: "3on3 배틀케이스", en: "3on3 Battle Case", category: "기타", desc: "" },
+  { id: "TOOLS-BURST-BEYLAUNCHER-LR", series: "burst", name: "베이런처LR", en: "BeyLauncher LR", category: "런처", desc: "" },
+  { id: "TOOLS-BURST-METAL-GOD-CHIP", series: "burst", name: "메탈갓칩", en: "Metal God Chip", category: "기타", desc: "" },
+  { id: "TOOLS-BURST-GOD-CHIP-TOOL", series: "burst", name: "갓칩 툴", en: "God Chip Tool", category: "기타", desc: "" },
+  { id: "TOOLS-BURST-DIGITAL-SWORD-LAUNCHER", series: "burst", name: "디지털소드런처", en: "Digital Sword Launcher", category: "런처", desc: "" },
+  { id: "TOOLS-BURST-STRIKE-GOD-CHIP-TOOL", series: "burst", name: "스트라이크갓칩 툴", en: "Strike God Chip Tool", category: "기타", desc: "" },
+  { id: "TOOLS-BURST-MUGEN-BEYSTADIUM", series: "burst", name: "무한 베이스타디움", en: "Mugen Beystadium", category: "스타디움", desc: "" }
 ];
 
 const bookItems = [
@@ -9578,9 +10070,11 @@ function serializeRoute(route = {}) {
   return "";
 }
 function routeIsPrimary(route = {}) {
+  if (!route) return false;
   return route.type === "overview" || route.type === "catalog" || route.type === "search" || route.type === "category-release" || route.type === "category-anime" || route.type === "category-anime-episodes";
 }
 function routeOpensModal(route = {}) {
+  if (!route) return false;
   return route.type === "detail";
 }
 const routeSnapshot = route => route ? normalizeRoute(route) : null;
@@ -9614,7 +10108,9 @@ function stabilizePrimaryRouteScroll() {
   });
 }
 let applyingRoute = false;
-function navigateToRoute(route, { replace = false, apply = true, preserveScroll = false } = {}) {
+let lastAppliedRouteKey = "";
+const appliedRouteKey = route => `${currentPathWithSearch()}${serializeRoute(route)}`;
+function navigateToRoute(route, { replace = false, apply = true, preserveScroll = false, preserveSearch = false } = {}) {
   const normalizedRoute = normalizeRoute(route);
   syncModalOriginRoute(normalizedRoute);
   const nextHash = serializeRoute(normalizedRoute);
@@ -9626,7 +10122,7 @@ function navigateToRoute(route, { replace = false, apply = true, preserveScroll 
       // URL writes can be denied in embedded browsers; still apply the route state.
     }
   }
-  if (apply) applyRoute(normalizedRoute, { preserveScroll });
+  if (apply) applyRoute(normalizedRoute, { preserveScroll, preserveSearch });
 }
 const mainSearchProductCompositionText = (item, region) => productCompositionItems(item, region)
   .map(part => [part.name, mainSearchItemText(findCatalogItemById(part.target))].filter(Boolean).join(" "))
@@ -10414,6 +10910,49 @@ function renderCatalogItems() {
 }
 
 const modalContextStorageKey = "beyArchiveModalContext";
+const currentPageScrollY = () => window.scrollY || document.documentElement.scrollTop || 0;
+const validScrollY = value => {
+  const numeric = Number(value);
+  return Number.isFinite(numeric) && numeric > 0 ? Math.round(numeric) : 0;
+};
+const restorePageScroll = value => {
+  const targetY = validScrollY(value);
+  const rootStyle = document.documentElement.style;
+  const previousScrollBehavior = rootStyle.scrollBehavior;
+  rootStyle.scrollBehavior = "auto";
+  window.scrollTo(0, targetY);
+  requestAnimationFrame(() => {
+    window.scrollTo(0, targetY);
+    if (previousScrollBehavior) rootStyle.scrollBehavior = previousScrollBehavior;
+    else rootStyle.removeProperty("scroll-behavior");
+  });
+};
+const modalOriginRouteSnapshot = () => {
+  const origin = routeSnapshot(modalOriginRoute) || routeSnapshot(lastPrimaryRoute);
+  return origin && routeIsPrimary(origin) ? origin : null;
+};
+const modalOriginState = originRoute => {
+  const state = { scrollY: currentPageScrollY() };
+  if (originRoute?.type === "catalog") {
+    state.catalogQuery = catalogSearchQuery();
+    state.catalogPage = currentCatalogPage;
+  } else if (originRoute?.type === "search") {
+    state.globalQuery = globalSearchQuery();
+    state.globalScope = globalSearchScopeValue();
+  } else if (originRoute?.type === "category-release") {
+    state.releaseQuery = activeReleaseQuery;
+    state.releaseRegion = activeReleaseRegion;
+    state.releaseSeries = activeReleaseSeries;
+    state.releaseSort = { ...activeReleaseSort };
+  } else if (originRoute?.type === "category-anime") {
+    state.animeQuery = animeSearchQuery();
+    state.animePage = currentAnimePage;
+  } else if (originRoute?.type === "category-anime-episodes") {
+    state.animeSeason = activeAnimeSeason;
+    state.animeQuery = activeAnimeEpisodeQuery;
+  }
+  return state;
+};
 const modalContextOptions = options => {
   const context = {};
   ["backId", "backProductId", "region", "series", "releaseQuery", "animeSeason", "animeQuery"].forEach(key => {
@@ -10426,7 +10965,13 @@ const modalContextOptions = options => {
 };
 function rememberModalContext(kind, id, options = {}) {
   try {
-    sessionStorage.setItem(modalContextStorageKey, JSON.stringify({ kind, id, options: modalContextOptions(options) }));
+    const originRoute = modalOriginRouteSnapshot();
+    const context = { kind, id, options: modalContextOptions(options) };
+    if (originRoute) {
+      context.originRoute = originRoute;
+      context.originState = modalOriginState(originRoute);
+    }
+    sessionStorage.setItem(modalContextStorageKey, JSON.stringify(context));
   } catch {
     // Browsers can disable sessionStorage; the modal still works without refresh restoration.
   }
@@ -10641,6 +11186,7 @@ function openCategoryReleaseDetail(options = {}) {
     navigateToRoute({ type: "category-release", options });
     return;
   }
+  const preserveSearch = options.preserveSearch === true;
   if (options.region && releaseRegionLabels[options.region]) activeReleaseRegion = options.region;
   if (options.series && releaseSeriesLabels[options.series]) activeReleaseSeries = options.series;
   if (!releaseSeriesLabels[activeReleaseSeries]) activeReleaseSeries = defaultReleaseSeries(activeReleaseRegion);
@@ -10649,7 +11195,7 @@ function openCategoryReleaseDetail(options = {}) {
   }
   if (typeof options.releaseQuery === "string") activeReleaseQuery = options.releaseQuery;
   cleanupModelViewer();
-  activatePrimarySection("release");
+  activatePrimarySection("release", { preserveSearch });
   renderReleasePage();
   rememberReleaseModalContext();
 }
@@ -11482,10 +12028,12 @@ function openCategoryAnimeEpisodesDetail(options = {}) {
     navigateToRoute({ type: "category-anime-episodes", options });
     return;
   }
-  activeAnimeSeason = normalizeAnimeSeason(options.animeSeason);
-  activeAnimeEpisodeQuery = typeof options.animeQuery === "string" ? options.animeQuery : "";
+  const preserveSearch = options.preserveSearch === true;
+  if (options.animeSeason || !preserveSearch) activeAnimeSeason = normalizeAnimeSeason(options.animeSeason || activeAnimeSeason);
+  if (typeof options.animeQuery === "string") activeAnimeEpisodeQuery = options.animeQuery;
+  else if (!preserveSearch) activeAnimeEpisodeQuery = "";
   cleanupModelViewer();
-  activatePrimarySection("anime-episodes");
+  activatePrimarySection("anime-episodes", { preserveSearch });
   renderAnimeEpisodesPage();
   rememberAnimeModalContext();
 }
@@ -11495,24 +12043,24 @@ const openCategoryReleaseFromMenu = () => {
   navigateToRoute({ type: "category-release", options: { region, series: defaultReleaseSeries(region) } });
   setMenuOpen(false);
 };
-const openCategoryCatalog = ({ scope = "all", updateHash = true, replace = false } = {}) => {
+const openCategoryCatalog = ({ scope = "all", updateHash = true, replace = false, preserveSearch = false } = {}) => {
   const normalizedScope = normalizeCatalogRouteScope(scope);
   if (updateHash && !applyingRoute) {
     navigateToRoute({ type: "catalog", scope: normalizedScope }, { replace });
     return;
   }
-  activatePrimarySection(normalizedScope === "all" ? "catalog" : normalizedScope);
+  activatePrimarySection(normalizedScope === "all" ? "catalog" : normalizedScope, { preserveSearch });
 };
 const openCategoryCatalogFromMenu = () => {
   navigateToRoute({ type: "catalog", scope: "all" });
   setMenuOpen(false);
 };
-const openCategoryAnimePage = ({ updateHash = true, replace = false } = {}) => {
+const openCategoryAnimePage = ({ updateHash = true, replace = false, preserveSearch = false } = {}) => {
   if (updateHash && !applyingRoute) {
     navigateToRoute({ type: "category-anime" }, { replace });
     return;
   }
-  activatePrimarySection("anime");
+  activatePrimarySection("anime", { preserveSearch });
   renderAnimePage();
 };
 const openCategoryAnimeFromMenu = () => {
@@ -12022,15 +12570,29 @@ const updateToTop = () => {
   if (!toTop) return;
   toTop.classList.toggle("show", window.scrollY > 420);
 };
+const updateCatalogStickySearchState = () => {
+  const activeCatalogControl = document.querySelector(".catalog-panel.active .catalog-control-bar");
+  document.querySelectorAll(".catalog-control-bar.is-stuck").forEach(control => {
+    if (control !== activeCatalogControl) control.classList.remove("is-stuck");
+  });
+  if (!activeCatalogControl) return;
+  const topbarRect = document.querySelector(".topbar")?.getBoundingClientRect();
+  const stickyTop = topbarRect && topbarRect.height > 0 ? topbarRect.bottom : 0;
+  const controlTop = activeCatalogControl.getBoundingClientRect().top;
+  activeCatalogControl.classList.toggle("is-stuck", controlTop <= stickyTop + 1 && window.scrollY > 0);
+};
 window.addEventListener("scroll", () => {
   updateToTop();
+  updateCatalogStickySearchState();
   positionSearchHelpPopovers();
 }, { passive: true });
 toTop?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 updateToTop();
+updateCatalogStickySearchState();
 
 const modal = document.querySelector("#detailModal");
 let modalScrollY = 0;
+let pendingModalScrollY = null;
 let modalViewportSyncFrame = 0;
 const modalViewportSize = () => {
   const visualViewport = window.visualViewport;
@@ -12066,7 +12628,12 @@ function scheduleModalViewportSync() {
 }
 function openModal() {
   if (!modal || modal.open) return;
-  modalScrollY = window.scrollY || document.documentElement.scrollTop || 0;
+  if (pendingModalScrollY !== null) {
+    modalScrollY = validScrollY(pendingModalScrollY);
+    pendingModalScrollY = null;
+  } else {
+    modalScrollY = currentPageScrollY();
+  }
   const bodyRect = document.body.getBoundingClientRect();
   document.body.style.setProperty("--modal-lock-left", `${bodyRect.left}px`);
   document.body.style.setProperty("--modal-lock-width", `${modalLockWidth()}px`);
@@ -12077,8 +12644,10 @@ function openModal() {
   syncModalViewportMetrics();
 }
 function closeModal() {
+  const targetScrollY = validScrollY(modalScrollY);
   if (modal?.open) modal.close();
   cancelModalViewportSync();
+  restorePageScroll(targetScrollY);
   document.documentElement.classList.remove("is-modal-open");
   document.body.classList.remove("is-modal-open");
   document.body.style.removeProperty("--modal-lock-left");
@@ -12086,7 +12655,7 @@ function closeModal() {
   document.body.style.removeProperty("--modal-viewport-width");
   document.body.style.removeProperty("--modal-viewport-height");
   document.body.style.removeProperty("--modal-scroll-lock-top");
-  window.scrollTo(0, modalScrollY);
+  restorePageScroll(targetScrollY);
 }
 const statProfiles = {
   "metal fight": {
@@ -12514,9 +13083,11 @@ function closeDetail() {
   cleanupModelViewer();
   clearModalContext();
   const targetRoute = modalCloseRoute();
+  const targetScrollY = validScrollY(modalScrollY);
   clearModalOriginRoute();
   closeModal();
-  navigateToRoute(targetRoute, { replace: true, preserveScroll: true });
+  navigateToRoute(targetRoute, { replace: true, preserveScroll: true, preserveSearch: true });
+  restorePageScroll(targetScrollY);
 }
 document.querySelector("#modalClose").addEventListener("click", closeDetail);
 document.querySelector("[data-modal-overlay]")?.addEventListener("click", closeDetail);
@@ -12544,6 +13115,7 @@ const activateToyPanel = section => {
   document.body.dataset.activePanel = section;
   document.body.classList.toggle("is-overview", section === "overview");
   closeAllSearchPreviews();
+  updateCatalogStickySearchState();
 };
 const syncMobileDrawer = section => {
   mobileDrawer?.querySelectorAll("[data-category-catalog-open], [data-category-release-open], [data-category-anime-open], [data-category-anime-episodes-open]").forEach(button => {
@@ -12580,7 +13152,7 @@ const clearPrimaryScrollLocks = () => {
   document.body.style.removeProperty("--modal-viewport-height");
   document.body.style.removeProperty("--modal-scroll-lock-top");
 };
-const activatePrimarySection = section => {
+const activatePrimarySection = (section, { preserveSearch = false } = {}) => {
   cancelScheduledSearchRenders();
   clearPrimaryScrollLocks();
   if (section === "product") section = "overview";
@@ -12588,7 +13160,7 @@ const activatePrimarySection = section => {
   const navActiveSection = section === "release" ? "catalog" : section === "anime-episodes" ? "anime" : section;
   const catalogScope = section === "catalog" ? "all" : section;
   const panelSection = isCatalogSection ? "catalog" : section;
-  clearSearchInputs();
+  if (!preserveSearch) clearSearchInputs();
   document.querySelectorAll(".nav-link").forEach(link => {
     const linkSection = link.hasAttribute("data-category-catalog-open")
       ? "catalog"
@@ -12620,14 +13192,84 @@ function closeModalForPrimaryRoute() {
   closeModalTagPopover();
   cleanupModelViewer();
   clearModalContext();
+  const shouldRestoreModalScroll = Boolean(modalOriginRoute);
   clearModalOriginRoute();
   if (modal?.open) closeModal();
+  else if (shouldRestoreModalScroll) restorePageScroll(modalScrollY);
 }
 function routeOptions(route = {}) {
   return { ...(route.options || {}), updateHash: false };
 }
-function applyRoute(route = parseRouteFromHash(), { preserveScroll = false } = {}) {
+const restoreStoredCatalogOrigin = originState => {
+  if (typeof originState?.catalogQuery === "string") setSearchInputValue(catalogSearch, originState.catalogQuery);
+  refreshCatalogState();
+  const page = Number(originState?.catalogPage);
+  if (Number.isFinite(page) && page > 1) {
+    currentCatalogPage = Math.floor(page);
+    renderCatalogItems();
+  }
+};
+const restoreStoredAnimeOrigin = originState => {
+  if (typeof originState?.animeQuery === "string") setSearchInputValue(animeSearch, originState.animeQuery);
+  renderAnimePage();
+  const page = Number(originState?.animePage);
+  if (Number.isFinite(page) && page > 1) {
+    currentAnimePage = Math.floor(page);
+    renderAnimePage();
+  }
+};
+function restoreModalOriginBackground(context) {
+  const originRoute = routeSnapshot(context?.originRoute);
+  if (!originRoute || !routeIsPrimary(originRoute)) return false;
+  const originState = context?.originState || {};
+  modalOriginRoute = routeSnapshot(originRoute);
+  rememberPrimaryRoute(originRoute);
+  if (originRoute.type === "catalog") {
+    openCategoryCatalog({ scope: originRoute.scope || "all", updateHash: false, preserveSearch: true });
+    restoreStoredCatalogOrigin(originState);
+  } else if (originRoute.type === "search") {
+    const scope = originState.globalScope || originRoute.scope || "all";
+    const query = typeof originState.globalQuery === "string" ? originState.globalQuery : originRoute.query || "";
+    setSearchInputValue(globalSearch, query);
+    setSearchInputValue(overviewSearch, query);
+    setGlobalSearchScope(scope);
+    setOverviewSearchScope(scope);
+    openSearchResults({ replace: true, updateHash: false });
+  } else if (originRoute.type === "category-release") {
+    openCategoryReleaseDetail({
+      ...(originRoute.options || {}),
+      region: originState.releaseRegion || originRoute.options?.region,
+      series: originState.releaseSeries || originRoute.options?.series,
+      releaseQuery: typeof originState.releaseQuery === "string" ? originState.releaseQuery : originRoute.options?.releaseQuery,
+      releaseSort: originState.releaseSort || originRoute.options?.releaseSort,
+      updateHash: false,
+      preserveSearch: true
+    });
+  } else if (originRoute.type === "category-anime") {
+    openCategoryAnimePage({ updateHash: false, preserveSearch: true });
+    restoreStoredAnimeOrigin(originState);
+  } else if (originRoute.type === "category-anime-episodes") {
+    openCategoryAnimeEpisodesDetail({
+      ...(originRoute.options || {}),
+      animeSeason: originState.animeSeason || originRoute.options?.animeSeason,
+      animeQuery: typeof originState.animeQuery === "string" ? originState.animeQuery : originRoute.options?.animeQuery,
+      updateHash: false,
+      preserveSearch: true
+    });
+  } else {
+    activatePrimarySection("overview", { preserveSearch: true });
+  }
+  modalScrollY = validScrollY(originState.scrollY);
+  pendingModalScrollY = modalScrollY;
+  restorePageScroll(modalScrollY);
+  return true;
+}
+function applyRoute(route = parseRouteFromHash(), { preserveScroll = false, preserveSearch = false } = {}) {
   const normalizedRoute = normalizeRoute(route || { type: "overview" });
+  const normalizedRouteKey = appliedRouteKey(normalizedRoute);
+  const preservePrimaryReturn = Boolean(routeIsPrimary(normalizedRoute) && (modal?.open || modalOriginRoute));
+  const shouldPreserveScroll = preserveScroll || preservePrimaryReturn;
+  const shouldPreserveSearch = preserveSearch || preservePrimaryReturn;
   applyingRoute = true;
   try {
     if (routeIsPrimary(normalizedRoute)) {
@@ -12637,7 +13279,7 @@ function applyRoute(route = parseRouteFromHash(), { preserveScroll = false } = {
       syncModalOriginRoute(normalizedRoute);
     }
     if (normalizedRoute.type === "overview") {
-      activatePrimarySection("overview");
+      activatePrimarySection("overview", { preserveSearch: shouldPreserveSearch });
     } else if (normalizedRoute.type === "search") {
       setSearchInputValue(globalSearch, normalizedRoute.query || "");
       setSearchInputValue(overviewSearch, normalizedRoute.query || "");
@@ -12645,16 +13287,20 @@ function applyRoute(route = parseRouteFromHash(), { preserveScroll = false } = {
       setOverviewSearchScope(normalizedRoute.scope || "all");
       openSearchResults({ replace: true, updateHash: false });
     } else if (normalizedRoute.type === "catalog") {
-      openCategoryCatalog({ scope: normalizedRoute.scope || "all", updateHash: false });
+      openCategoryCatalog({ scope: normalizedRoute.scope || "all", updateHash: false, preserveSearch: shouldPreserveSearch });
     } else if (normalizedRoute.type === "category-release") {
-      openCategoryReleaseDetail(routeOptions(normalizedRoute));
+      openCategoryReleaseDetail({ ...routeOptions(normalizedRoute), preserveSearch: shouldPreserveSearch });
     } else if (normalizedRoute.type === "category-anime") {
-      openCategoryAnimePage({ updateHash: false });
+      openCategoryAnimePage({ updateHash: false, preserveSearch: shouldPreserveSearch });
     } else if (normalizedRoute.type === "category-anime-episodes") {
-      openCategoryAnimeEpisodesDetail(routeOptions(normalizedRoute));
+      openCategoryAnimeEpisodesDetail({ ...routeOptions(normalizedRoute), preserveSearch: shouldPreserveSearch });
     } else if (normalizedRoute.type === "detail" && normalizedRoute.id) {
       const hashId = normalizedRoute.id;
       const restoredContext = restoredModalContext(hashId);
+      const restoredOriginRoute = routeSnapshot(restoredContext?.originRoute);
+      if (restoredOriginRoute && routeIsPrimary(restoredOriginRoute) && (!modalOriginRoute || (modalOriginRoute.type === "overview" && restoredOriginRoute.type !== "overview"))) {
+        restoreModalOriginBackground(restoredContext);
+      }
       const restoredOptions = { ...(restoredContext?.options || {}), ...routeOptions(normalizedRoute) };
       if (isAnimeEpisodeHash(hashId)) openAnimeEpisodeDetail(hashId, restoredOptions);
       else if (restoredContext?.kind === "product-lineup") openProductLineupDetail(hashId, restoredOptions);
@@ -12666,8 +13312,12 @@ function applyRoute(route = parseRouteFromHash(), { preserveScroll = false } = {
     }
   } finally {
     applyingRoute = false;
+    lastAppliedRouteKey = normalizedRouteKey;
   }
-  if (routeIsPrimary(normalizedRoute) && !preserveScroll) stabilizePrimaryRouteScroll();
+  if (routeIsPrimary(normalizedRoute)) {
+    if (shouldPreserveScroll) restorePageScroll(modalScrollY);
+    else stabilizePrimaryRouteScroll();
+  }
 }
 document.querySelectorAll(".nav-link").forEach(button => button.addEventListener("click", event => {
   event.preventDefault();
@@ -12733,6 +13383,7 @@ mobileDrawer?.addEventListener("click", event => {
 });
 window.addEventListener("resize", () => {
   if (window.matchMedia("(min-width: 64rem)").matches) setMenuOpen(false);
+  updateCatalogStickySearchState();
   positionSearchHelpPopovers();
   if (modal?.open) scheduleModalViewportSync();
   if (!activeModalTagButton) return;
@@ -12776,9 +13427,11 @@ renderCatalogFilterChips();
 const routeCurrentHash = () => {
   const route = parseRouteFromHash();
   const canonicalHash = serializeRoute(route);
+  const canonicalRouteKey = `${currentPathWithSearch()}${canonicalHash}`;
+  if (canonicalRouteKey === lastAppliedRouteKey) return;
   if (window.location.hash !== canonicalHash) {
     try {
-      history.replaceState(null, "", `${currentPathWithSearch()}${canonicalHash}`);
+      history.replaceState(null, "", canonicalRouteKey);
     } catch {
       // URL canonicalization is best-effort; route application is the source of truth here.
     }
@@ -12791,5 +13444,6 @@ try {
   // Some embedded browsers can deny history mutations; routing still works.
 }
 routeCurrentHash();
+updateCatalogStickySearchState();
 window.addEventListener("hashchange", routeCurrentHash);
 window.addEventListener("popstate", routeCurrentHash);

@@ -1251,6 +1251,10 @@ body.is-modal-open {
   overflow: hidden !important;
 }
 
+body.is-modal-open:not(.is-overview) .topbar {
+  transform: translateY(calc(var(--modal-scroll-lock-top, 0px) * -1));
+}
+
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -1690,6 +1694,7 @@ dialog[open] .category-anime-info .anime-episode-title-row .category-title {
   max-width: var(--catalog-content-max, var(--catalog-grid-max-width, var(--page-max)));
   min-height: 0;
   margin: 0 auto;
+  padding: var(--panel-control-top-padding, 8px) 0 0;
   display: flex;
   flex-direction: column;
   gap: var(--modal-flow-gap);
@@ -2717,6 +2722,7 @@ body.is-overview .catalog-section {
   --section-heading-gap: clamp(12px, 1.8vw, 24px);
   --section-heading-margin: 0 auto clamp(14px, 1.8vw, 18px);
   --result-count-margin: 0 0 4px;
+  --panel-control-top-padding: 8px;
   --catalog-control-columns: minmax(0, min(calc(var(--primary-search-width) + 128px), 100%));
   --catalog-control-justify: end;
   --catalog-control-gap: 0;
@@ -2906,10 +2912,16 @@ body.is-overview .catalog-section {
   gap: var(--catalog-control-gap);
   width: 100%;
   max-width: var(--catalog-content-max, var(--catalog-grid-max-width, var(--page-max)));
-  padding: 8px 0 0;
+  padding: var(--panel-control-top-padding, 8px) 0 0;
   margin: 0 auto var(--catalog-control-stack-gap);
   background: var(--ui-bg);
   background-image: none;
+}
+
+.catalog-panel.active .catalog-control-bar.is-stuck {
+  box-sizing: border-box;
+  padding: clamp(12px, 1.4vw, 16px) clamp(16px, 2vw, 24px);
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--ui-line) 54%, transparent);
 }
 
 .catalog-combined {
@@ -3869,6 +3881,10 @@ body.menu-open .menu-button span:nth-child(3) {
     --catalog-filter-expanded-display: none;
     --catalog-filter-compact-display: grid;
     --catalog-filter-compact-columns: 1fr;
+  }
+
+  .catalog-panel.active .catalog-control-bar.is-stuck {
+    padding: 10px clamp(12px, 4vw, 18px) 12px;
   }
 
   .catalog-panel.catalog-filters-compact {
