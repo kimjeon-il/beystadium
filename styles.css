@@ -2706,6 +2706,7 @@ body.is-overview .catalog-section {
   display: grid;
   gap: var(--overview-home-gap);
   align-content: start;
+  container: overview-home / inline-size;
 }
 
 .overview-hero {
@@ -3776,7 +3777,7 @@ body.menu-open .menu-button span:nth-child(3) {
   display: none !important;
 }
 
-@media (max-width: 48rem) {
+@container overview-home (max-width: 640px) {
   .overview-home {
     --overview-card-grid-gap: clamp(8px, 1.8vw, 14px);
     --overview-card-min-height: clamp(76px, 19vw, 140px);
