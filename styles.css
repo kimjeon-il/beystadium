@@ -2920,7 +2920,7 @@ body.is-overview .catalog-section {
 
 .catalog-panel.active .catalog-control-bar.is-stuck {
   box-sizing: border-box;
-  padding: clamp(12px, 1.4vw, 16px) clamp(16px, 2vw, 24px);
+  padding: clamp(12px, 1.4vw, 16px) 0;
   box-shadow: 0 1px 0 color-mix(in srgb, var(--ui-line) 54%, transparent);
 }
 
@@ -3884,7 +3884,7 @@ body.menu-open .menu-button span:nth-child(3) {
   }
 
   .catalog-panel.active .catalog-control-bar.is-stuck {
-    padding: 10px clamp(12px, 4vw, 18px) 12px;
+    padding: 10px 0 12px;
   }
 
   .catalog-panel.catalog-filters-compact {
