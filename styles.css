@@ -2905,6 +2905,7 @@ body.is-overview .catalog-section {
   position: sticky;
   top: 72px;
   z-index: 70;
+  isolation: isolate;
   display: grid;
   grid-template-columns: var(--catalog-control-columns);
   align-items: start;
@@ -2916,11 +2917,25 @@ body.is-overview .catalog-section {
   margin: 0 auto var(--catalog-control-stack-gap);
   background: var(--ui-bg);
   background-image: none;
+  overflow: visible;
 }
 
 .catalog-panel.active .catalog-control-bar.is-stuck {
   box-sizing: border-box;
   padding: clamp(12px, 1.4vw, 16px) 0;
+}
+
+.catalog-panel.active .catalog-control-bar.is-stuck::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  pointer-events: none;
+  background: var(--ui-bg);
   box-shadow: 0 1px 0 color-mix(in srgb, var(--ui-line) 54%, transparent);
 }
 
