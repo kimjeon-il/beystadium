@@ -273,7 +273,7 @@ const beyItems = [
   { id: "BEY-BURST-B-17-ODIN-C-B", series: "burst", type: "bey", name: "오딘.C.B", en: "Odin.C.B", productNo: "B-17", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["LAYER-ODIN", "DISK-CENTRAL", "DRIVER-BLOW"] },
   { id: "BEY-BURST-B-18-VALKYRIE-W-A", series: "burst", type: "bey", name: "발키리.W.A", en: "Valkyrie.W.A", productNo: "B-18", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["LAYER-VALKYRIE", "DISK-WING", "DRIVER-ACCEL"] },
   { id: "BEY-BURST-B-18-SPRIGGAN-S-F", series: "burst", type: "bey", name: "스프리건.S.F", en: "Spriggan.S.F", productNo: "B-18", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["LAYER-SPRIGGAN", "DISK-SPREAD", "DRIVER-FUSION"] },
-  { id: "BEY-BURST-B-20-HORUSOOD-S-E", series: "burst", type: "bey", name: "호루스드.S.E", en: "Horusood.S.E", productNo: "B-20", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["LAYER-HORUSOOD", "DISK-SPREAD", "DRIVER-EDGE"] },
+  { id: "BEY-BURST-B-20-HORUSOOD-S-E", series: "burst", type: "bey", name: "호루스.S.E", jpName: "호루스드.S.E", en: "Horusood.S.E", productNo: "B-20", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["LAYER-HORUSOOD", "DISK-SPREAD", "DRIVER-EDGE"] },
   { id: "BEY-BURST-B-21-MINOBOROS-O-Q", series: "burst", type: "bey", name: "미노보로스.O.Q", en: "Minoboros.O.Q", productNo: "B-21", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["LAYER-MINOBOROS", "DISK-OVAL", "DRIVER-QUAKE"] },
   { id: "BEY-BURST-B-21-DEATHSCYTHER-W-F", series: "burst", type: "bey", name: "데스사이저.W.F", en: "Deathscyther.W.F", productNo: "B-21", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["LAYER-DEATHSCYTHER", "DISK-WING", "DRIVER-FUSION"] },
   { id: "BEY-BURST-B-21-SPRIGGAN-S-B", series: "burst", type: "bey", name: "스프리건.S.B", en: "Spriggan.S.B", productNo: "B-21", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["LAYER-SPRIGGAN", "DISK-SPREAD", "DRIVER-BLOW"] },
@@ -315,7 +315,7 @@ const beyItems = [
   { id: "BEY-BURST-B-73-GOD-VALKYRIE-6V-RB", series: "burst", type: "bey", name: "갓 발키리.6V.Rb", en: "God Valkyrie.6V.Rb", productNo: "B-73", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["GODLAYER-GOD-VALKYRIE", "COREDISK-6", "FRAME-VORTEX", "DRIVER-REBOOT"] },
   { id: "BEY-BURST-B-74-KREIS-SATAN-2G-LP", series: "burst", type: "bey", name: "크라이스 사탄.2G.Lp", en: "Kreis Satan.2G.Lp", productNo: "B-74", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["GODLAYER-KREIS-SATAN", "COREDISK-2", "FRAME-GLAIVE", "DRIVER-LOOP"] },
   { id: "BEY-BURST-B-75-BLAZE-RAGNARUK-4C-FL", series: "burst", type: "bey", name: "블레이즈 라그나로크.4C.Fl", en: "Blaze Ragnaruk.4C.Fl", productNo: "B-75", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["GODLAYER-BLAZE-RAGNARUK", "COREDISK-4", "FRAME-CROSS", "DRIVER-FLUGEL"] },
-  { id: "BEY-BURST-B-76-VALKYRIE-6V-RB", series: "burst", type: "bey", name: "발키리.6V.Rb", en: "Valkyrie.6V.Rb", productNo: "B-76", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["GODLAYER-GOD-VALKYRIE", "COREDISK-6", "FRAME-VORTEX", "DRIVER-REBOOT"] },
+  { id: "BEY-BURST-B-76-VALKYRIE-6V-RB", series: "burst", type: "bey", name: "갓 발키리.6V.Rb", en: "God Valkyrie.6V.Rb", productNo: "B-76", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["GODLAYER-GOD-VALKYRIE", "COREDISK-6", "FRAME-VORTEX", "DRIVER-REBOOT"] },
   { id: "BEY-BURST-B-79-DRAIN-FAFNIR-8-NT", series: "burst", type: "bey", name: "드레인 파브닐.8.Nt", en: "Drain Fafnir.8.Nt", productNo: "B-79", battleType: "stamina", spin: "left", tags: [], desc: "", parts: ["GODLAYER-DRAIN-FAFNIR", "COREDISK-8", "DRIVER-NOTHING"] },
   { id: "BEY-BURST-B-82-ALTER-CHRONOS-6M-T", series: "burst", type: "bey", name: "알타 크로노스.6M.T", en: "Alter Chronos.6M.T", productNo: "B-82", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["GODLAYER-ALTER-CHRONOS", "COREDISK-6", "FRAME-METEOR", "DRIVER-TRANS"] },
   { id: "BEY-BURST-B-85-KILLER-DEATHSCYTHER-2V-HN", series: "burst", type: "bey", name: "킬러 데스사이저.2V.Hn", en: "Killer Deathscyther.2V.Hn", productNo: "B-85", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["GODLAYER-KILLER-DEATHSCYTHER", "COREDISK-2", "FRAME-VORTEX", "DRIVER-HUNTER"] },
@@ -334,6 +334,93 @@ const beyItems = [
   { id: "BEY-BURST-B-100-SPRIGGAN-REQUIEM-0-ZT", series: "burst", type: "bey", name: "스프리건 레퀴엠.0.Zt", en: "Spriggan Requiem.0.Zt", productNo: "B-100", battleType: "balance", spin: "dual", tags: [], desc: "", parts: ["GODLAYER-SPRIGGAN-REQUIEM", "COREDISK-0", "DRIVER-ZETA"] },
   { id: "BEY-BURST-B-102-TWIN-NEMESIS-3H-UL", series: "burst", type: "bey", name: "트윈 네메시스.3H.Ul", en: "Twin Nemesis.3H.Ul", productNo: "B-102", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["GODLAYER-TWIN-NEMESIS", "COREDISK-3", "FRAME-HIT", "DRIVER-ULTIMATE-REBOOT"] },
   { id: "BEY-BURST-B-103-SCREW-TRIDENT-8B-WD", series: "burst", type: "bey", name: "스크류 트라이던트.8B.Wd", en: "Screw Trident.8B.Wd", productNo: "B-103", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["GODLAYER-SCREW-TRIDENT", "COREDISK-8", "FRAME-BUMP", "DRIVER-WEDGE"] },
+  { id: "BEY-BURST-B-104-WINNING-VALKYRIE-12-VL", series: "burst", type: "bey", name: "위닝 발키리.12.Vl", en: "Winning Valkyrie.12.Vl", productNo: "B-104", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["CHOZLAYER-WINNING-VALKYRIE", "COREDISK-12", "DRIVER-VOLCANIC"] },
+  { id: "BEY-BURST-B-105-Z-ACHILLES-11-XT", series: "burst", type: "bey", name: "제트 아킬레스.11.Xt", en: "Z Achilles.11.Xt", productNo: "B-105", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["CHOZLAYER-Z-ACHILLES", "COREDISK-11", "DRIVER-XTEND"] },
+  { id: "BEY-BURST-B-106-EMPEROR-FORNEUS-0-YR", series: "burst", type: "bey", name: "엠퍼러 포르네우스.0.Yr", en: "Emperor Forneus.0.Yr", productNo: "B-106", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["CHOZLAYER-EMPEROR-FORNEUS", "COREDISK-0", "DRIVER-YARD"] },
+  { id: "BEY-BURST-B-107-WINNING-VALKYRIE-12-VL", series: "burst", type: "bey", name: "위닝 발키리.12.Vl", en: "Winning Valkyrie.12.Vl", productNo: "B-107", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["CHOZLAYER-WINNING-VALKYRIE", "COREDISK-12", "DRIVER-VOLCANIC"] },
+  { id: "BEY-BURST-B-107-Z-ACHILLES-11-XT", series: "burst", type: "bey", name: "제트 아킬레스.11.Xt", en: "Z Achilles.11.Xt", productNo: "B-107", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["CHOZLAYER-Z-ACHILLES", "COREDISK-11", "DRIVER-XTEND"] },
+  { id: "BEY-BURST-B-110-BLOODY-LONGINUS-13-JL", series: "burst", type: "bey", name: "블러디 롱기누스.13.Jl", en: "Bloody Longinus.13.Jl", productNo: "B-110", battleType: "attack", spin: "left", tags: [], desc: "", parts: ["CHOZLAYER-BLOODY-LONGINUS", "COREDISK-13", "DRIVER-JOLT"] },
+  { id: "BEY-BURST-B-113-HELL-SALAMANDER-12-OP", series: "burst", type: "bey", name: "헬 살라맨더.12.Op", jpName: "헬 샐러맨더.12.Op", en: "Hell Salamander.12.Op", productNo: "B-113", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["CHOZLAYER-HELL-SALAMANDER", "COREDISK-12", "DRIVER-OPERATE"] },
+  { id: "BEY-BURST-B-115-ARCHER-HERCULES-13-ET", series: "burst", type: "bey", name: "아처 헤라클레스.13.Et", en: "Archer Hercules.13.Et", productNo: "B-115", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["CHOZLAYER-ARCHER-HERCULES", "COREDISK-13", "DRIVER-ETERNAL"] },
+  { id: "BEY-BURST-B-117-REVIVE-PHOENIX-10-FR", series: "burst", type: "bey", name: "리바이브 피닉스.10.Fr", en: "Revive Phoenix.10.Fr", productNo: "B-117", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["CHOZLAYER-REVIVE-PHOENIX", "COREDISK-10", "DRIVER-FRICTION"] },
+  { id: "BEY-BURST-B-120-BUSTER-XCALIBUR-1DASH-SW", series: "burst", type: "bey", name: "버스터 엑스칼리버.1'.Sw", en: "Buster Xcalibur.1'.Sw", productNo: "B-120", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["CHOZLAYER-BUSTER-XCALIBUR", "COREDISK-1-DASH", "DRIVER-SWORD"] },
+  { id: "BEY-BURST-B-121-HAZARD-KERBEUS-7-AT", series: "burst", type: "bey", name: "해저드 케르베우스.7.At", en: "Hazard Kerbeus.7.At", productNo: "B-121", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["CHOZLAYER-HAZARD-KERBEUS", "COREDISK-7", "DRIVER-ATOMIC"] },
+  { id: "BEY-BURST-B-121-Z-ACHILLES-3D-DS", series: "burst", type: "bey", name: "제트 아킬레스.3D.Ds", en: "Z Achilles.3D.Ds", productNo: "B-121", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["CHOZLAYER-Z-ACHILLES", "COREDISK-3", "FRAME-DAGGER", "DRIVER-DESTROY"] },
+  { id: "BEY-BURST-B-121-WOLBORG-8-BR", series: "burst", type: "bey", name: "하운드 도그.8.Br", jpName: "울버그.8.Br", en: "Wolborg.8.Br", productNo: "B-121", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["LAYER-WOLBORG", "COREDISK-8", "DRIVER-BEARING"] },
+  { id: "BEY-BURST-B-122-GEIST-FAFNIR-8DASH-AB", series: "burst", type: "bey", name: "가이스트 파브닐.8'.Ab", en: "Geist Fafnir.8'.Ab", productNo: "B-122", battleType: "stamina", spin: "left", tags: [], desc: "", parts: ["CHOZLAYER-GEIST-FAFNIR", "COREDISK-8-DASH", "DRIVER-ABSORB"] },
+  { id: "BEY-BURST-B-126-LEFT-APOLLOS-MUGEN", series: "burst", type: "bey", name: "레프트 아폴로스.∞", en: "Left Apollos.∞", productNo: "B-126", battleType: "defense", spin: "left", tags: [], desc: "", parts: ["CHOZLAYER-LEFT-APOLLOS", "DRIVER-MUGEN"] },
+  { id: "BEY-BURST-B-126-RIGHT-ARTEMIS-MUGEN", series: "burst", type: "bey", name: "라이트 아르테미스.∞", en: "Right Artemis.∞", productNo: "B-126", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["CHOZLAYER-RIGHT-ARTEMIS", "DRIVER-MUGEN"] },
+  { id: "BEY-BURST-B-127-CHO-Z-VALKYRIE-Z-EV", series: "burst", type: "bey", name: "초Z 발키리.Z.Ev", en: "Cho-Z Valkyrie.Z.Ev", productNo: "B-127", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["CHOZLAYER-CHO-Z-VALKYRIE", "DISK-ZENITH", "DRIVER-EVOLUTION"] },
+  { id: "BEY-BURST-B-128-CHO-Z-SPRIGGAN-0W-ZT-DASH", series: "burst", type: "bey", name: "초Z 스프리건.0W.Zt'", en: "Cho-Z Spriggan.0W.Zt'", productNo: "B-128", battleType: "balance", spin: "dual", tags: [], desc: "", parts: ["CHOZLAYER-CHO-Z-SPRIGGAN", "COREDISK-0", "FRAME-WALL", "DRIVER-ZETA-DASH"] },
+  { id: "BEY-BURST-B-128-ORB-EGIS-OUTER-QS", series: "burst", type: "bey", name: "얼브 이지스.Ω.Qs", en: "Orb Egis.Ω.Qs", productNo: "B-128", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["CHOZLAYER-ORB-EGIS", "DISK-OUTER", "DRIVER-QUEST"] },
+  { id: "BEY-BURST-B-128-CRASH-RAGNARUK-5C-VL-DASH", series: "burst", type: "bey", name: "크래시 라그나로크.5C.Vl'", en: "Crash Ragnaruk.5C.Vl'", productNo: "B-128", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["CHOZLAYER-CRASH-RAGNARUK", "COREDISK-5", "FRAME-CROSS", "DRIVER-VOLCANIC-DASH"] },
+  { id: "BEY-BURST-B-128-BLOODY-LONGINUS-1D-CY", series: "burst", type: "bey", name: "블러디 롱기누스.1D.Cy", en: "Bloody Longinus.1D.Cy", productNo: "B-128", battleType: "attack", spin: "left", tags: [], desc: "", parts: ["CHOZLAYER-BLOODY-LONGINUS", "COREDISK-1", "FRAME-DAGGER", "DRIVER-CYCLE"] },
+  { id: "BEY-BURST-B-129-CHO-Z-ACHILLES-00-DM", series: "burst", type: "bey", name: "초Z 아킬레스.00.Dm", en: "Cho-Z Achilles.00.Dm", productNo: "B-129", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["CHOZLAYER-CHO-Z-ACHILLES", "COREDISK-00", "DRIVER-DIMENSION"] },
+  { id: "BEY-BURST-B-131-DEAD-PHOENIX-0-AT", series: "burst", type: "bey", name: "데드 피닉스.0.At", en: "Dead Phoenix.0.At", productNo: "B-131", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["CHOZLAYER-DEAD-PHOENIX", "COREDISK-0", "DRIVER-ATOMIC"] },
+  { id: "BEY-BURST-B-133-ACE-DRAGON-ST-CH-ZAN", series: "burst", type: "bey", name: "에이스 드래곤.St.Ch 참", jpName: "에이스 드래곤.St.Ch 斬", en: "Ace Dragon.St.Ch Zan", productNo: "B-133", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["GACHIBASE-ACE", "GACHICHIP-DRAGON", "GACHIWEIGHT-ZAN", "DISK-STING", "DRIVER-CHARGE"] },
+  { id: "BEY-BURST-B-134-SLASH-VALKYRIE-BL-PW-RETSU", series: "burst", type: "bey", name: "슬래시 발키리.Bl.Pw 열", jpName: "슬래시 발키리.Bl.Pw 烈", en: "Slash Valkyrie.Bl.Pw Retsu", productNo: "B-134", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["GACHIBASE-SLASH", "GACHICHIP-VALKYRIE", "GACHIWEIGHT-RETSU", "DISK-BLITZ", "DRIVER-POWER"] },
+  { id: "BEY-BURST-B-135-BUSHIN-ASHURA-HR-KP-TEN", series: "burst", type: "bey", name: "무신 아수라.Hr.Kp 천", jpName: "무신 아수라.Hr.Kp 天", en: "Bushin Ashura.Hr.Kp Ten", productNo: "B-135", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["GACHIBASE-BUSHIN", "GACHICHIP-ASHURA", "GACHIWEIGHT-TEN", "DISK-HURRICANE", "DRIVER-KEEP"] },
+  { id: "BEY-BURST-B-136-ACE-DRAGON-ST-CH-ZAN", series: "burst", type: "bey", name: "에이스 드래곤.St.Ch 참", jpName: "에이스 드래곤.St.Ch 斬", en: "Ace Dragon.St.Ch Zan", productNo: "B-136", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["GACHIBASE-ACE", "GACHICHIP-DRAGON", "GACHIWEIGHT-ZAN", "DISK-STING", "DRIVER-CHARGE"] },
+  { id: "BEY-BURST-B-136-SLASH-VALKYRIE-BL-PW-RETSU", series: "burst", type: "bey", name: "슬래시 발키리.Bl.Pw 열", jpName: "슬래시 발키리.Bl.Pw 烈", en: "Slash Valkyrie.Bl.Pw Retsu", productNo: "B-136", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["GACHIBASE-SLASH", "GACHICHIP-VALKYRIE", "GACHIWEIGHT-RETSU", "DISK-BLITZ", "DRIVER-POWER"] },
+  { id: "BEY-BURST-B-139-WIZARD-FAFNIR-RT-RS-SEN", series: "burst", type: "bey", name: "위저드 파브닐.Rt.Rs 섬", jpName: "위저드 파브닐.Rt.Rs 閃", en: "Wizard Fafnir.Rt.Rs Sen", productNo: "B-139", battleType: "stamina", spin: "left", tags: [], desc: "", parts: ["GACHIBASE-WIZARD", "GACHICHIP-FAFNIR", "GACHIWEIGHT-SEN", "DISK-RATCHET", "DRIVER-RISE"] },
+  { id: "BEY-BURST-B-142-JUDGMENT-JOKER-00T-TR-ZAN", series: "burst", type: "bey", name: "저지먼트 조커.00T.Tr 참", jpName: "저지먼트 조커.00T.Tr 斬", en: "Judgment Joker.00T.Tr Zan", productNo: "B-142", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["GACHIBASE-JUDGMENT", "GACHICHIP-JOKER", "GACHIWEIGHT-ZAN", "COREDISK-00", "FRAME-TURN", "DRIVER-TRICK"] },
+  { id: "BEY-BURST-B-144-ZWEI-LONGINUS-DR-SP-DASH-METSU", series: "burst", type: "bey", name: "츠바이 롱기누스.Dr.Sp' 멸", jpName: "츠바이 롱기누스.Dr.Sp' 滅", en: "Zwei Longinus.Dr.Sp' Metsu", productNo: "B-144", battleType: "attack", spin: "left", tags: [], desc: "", parts: ["GACHIBASE-ZWEI", "GACHICHIP-LONGINUS", "GACHIWEIGHT-METSU", "DISK-DRAKE", "DRIVER-SPIRAL-DASH"] },
+  { id: "BEY-BURST-B-145-VENOM-DIABOLOS-VN-BL", series: "burst", type: "bey", name: "베놈 디아볼로스.Vn.Bl", en: "Venom Diabolos.Vn.Bl", productNo: "B-145", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["GACHIBASE-VENOM", "GACHICHIP-DIABOLOS", "DISK-VANGUARD", "DRIVER-BULLET"] },
+  { id: "BEY-BURST-B-148-HEAVEN-PEGASUS-10P-LW-SEN", series: "burst", type: "bey", name: "헤븐 페가수스.10P.Lw 섬", jpName: "헤븐 페가수스.10P.Lw 閃", en: "Heaven Pegasus.10P.Lw Sen", productNo: "B-148", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["GACHIBASE-HEAVEN", "GACHICHIP-PEGASUS", "GACHIWEIGHT-SEN", "COREDISK-10", "FRAME-PROOF", "DRIVER-LOW"] },
+  { id: "BEY-BURST-B-149-LORD-SPRIGGAN-BL-DM-DASH", series: "burst", type: "bey", name: "로드 스프리건.Bl.Dm'", en: "Lord Spriggan.Bl.Dm'", productNo: "B-149", battleType: "balance", spin: "dual", tags: [], desc: "", parts: ["GACHIBASE-LORD", "GACHICHIP-SPRIGGAN", "DISK-BLITZ", "DRIVER-DIMENSION-DASH"] },
+  { id: "BEY-BURST-B-149-DREAD-BAHAMUT-7W-OM-GEN", series: "burst", type: "bey", name: "드레드 바하무트.7W.Om 환", jpName: "드레드 바하무트.7W.Om 幻", en: "Dread Bahamut.7W.Om Gen", productNo: "B-149", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["GACHIBASE-DREAD", "GACHICHIP-BAHAMUT", "GACHIWEIGHT-GEN", "COREDISK-7", "FRAME-WALL", "DRIVER-ORBIT-METAL"] },
+  { id: "BEY-BURST-B-149-SLASH-DRAGON-00-OCTA-METSU", series: "burst", type: "bey", name: "슬래시 드래곤.00.Ω 멸", jpName: "슬래시 드래곤.00.Ω 滅", en: "Slash Dragon.00.Ω Metsu", productNo: "B-149", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["GACHIBASE-SLASH", "GACHICHIP-DRAGON", "GACHIWEIGHT-METSU", "COREDISK-00", "DRIVER-OCTA"] },
+  { id: "BEY-BURST-B-150-UNION-ACHILLES-CN-XT-PLUS-RETSU", series: "burst", type: "bey", name: "유니온 아킬레스.Cn.Xt+ 열", jpName: "유니온 아킬레스.Cn.Xt+ 烈", en: "Union Achilles.Cn.Xt+ Retsu", productNo: "B-150", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["GACHIBASE-UNION", "GACHICHIP-ACHILLES", "GACHIWEIGHT-RETSU", "DISK-CONVERT", "DRIVER-XTEND-PLUS"] },
+  { id: "BEY-BURST-B-153-REGALIA-GENESIS-HY", series: "burst", type: "bey", name: "리겔리아 제네시스.Hy", en: "Regalia Genesis.Hy", productNo: "B-153", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["GACHILAYER-REGALIA-GENESIS", "DRIVER-HYBRID"] },
+  { id: "BEY-BURST-B-153-PRIME-APOCALYPSE-0D-UL-DASH", series: "burst", type: "bey", name: "프라임 아포칼립스.0D.Ul'", en: "Prime Apocalypse.0D.Ul'", productNo: "B-153", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["GACHILAYER-PRIME-APOCALYPSE", "COREDISK-0", "FRAME-DAGGER", "DRIVER-ULTIMATE-REBOOT-DASH"] },
+  { id: "BEY-BURST-B-153-ERASE-FAFNIR-ST-TR-TEN", series: "burst", type: "bey", name: "이레이즈 파브닐.St.Tr 천", jpName: "이레이즈 파브닐.St.Tr 天", en: "Erase Fafnir.St.Tr Ten", productNo: "B-153", battleType: "balance", spin: "left", tags: [], desc: "", parts: ["GACHIBASE-ERASE", "GACHICHIP-FAFNIR", "GACHIWEIGHT-TEN", "DISK-STING", "DRIVER-TRICK"] },
+  { id: "BEY-BURST-B-153-COSMO-DRAGON-VN-R-RETSU", series: "burst", type: "bey", name: "코스모 드래곤.Vn.R 열", jpName: "코스모 드래곤.Vn.R 烈", en: "Cosmo Dragon.Vn.R Retsu", productNo: "B-153", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["GACHIBASE-COSMO", "GACHICHIP-DRAGON", "GACHIWEIGHT-RETSU", "DISK-VANGUARD", "DRIVER-REVOLVE"] },
+  { id: "BEY-BURST-B-154-IMPERIAL-DRAGON-IG-DASH", series: "burst", type: "bey", name: "임페리얼 드래곤.Ig'", en: "Imperial Dragon.Ig'", productNo: "B-154", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["GACHIBASE-IMPERIAL", "GACHICHIP-DRAGON-II", "DRIVER-IGNITION-DASH"] },
+  { id: "BEY-BURST-B-155-MASTER-DIABOLOS-GN", series: "burst", type: "bey", name: "마스터 디아볼로스.Gn", en: "Master Diabolos.Gn", productNo: "B-155", battleType: "balance", spin: "dual", tags: [], desc: "", parts: ["GACHIBASE-MASTER", "GACHICHIP-DIABOLOS-II", "DRIVER-GENERATE"] },
+  { id: "BEY-BURST-B-157-BIGBANG-GENESIS-0-YM", series: "burst", type: "bey", name: "빅뱅 제네시스.0.Ym", en: "Bigbang Genesis.0.Ym", productNo: "B-157", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["GACHILAYER-BIGBANG-GENESIS", "COREDISK-0", "DRIVER-YARD-METAL"] },
+  { id: "BEY-BURST-B-159-SUPER-HYPERION-XC-1A", series: "burst", type: "bey", name: "슈퍼 하이페리온.Xc 1A", en: "Super Hyperion.Xc 1A", productNo: "B-159", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["SUPERKINGRING-SUPER", "SUPERKINGCHIP-HYPERION", "DRIVER-XCEED", "SUPERKINGCHASSIS-1A"] },
+  { id: "BEY-BURST-B-160-KING-HELIOS-ZN-1B", series: "burst", type: "bey", name: "킹 헬리오스.Zn 1B", en: "King Helios.Zn 1B", productNo: "B-160", battleType: "balance", spin: "left", tags: [], desc: "", parts: ["SUPERKINGRING-KING", "SUPERKINGCHIP-HELIOS", "DRIVER-ZONE", "SUPERKINGCHASSIS-1B"] },
+  { id: "BEY-BURST-B-161-GLIDE-RAGNARUK-WH-R-1S", series: "burst", type: "bey", name: "글라이드 라그나로크.Wh.R 1S", en: "Glide Ragnaruk.Wh.R 1S", productNo: "B-161", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["SUPERKINGRING-GLIDE", "SUPERKINGCHIP-RAGNARUK", "DISK-WHEEL", "DRIVER-REVOLVE", "SUPERKINGCHASSIS-1S"] },
+  { id: "BEY-BURST-B-162-SUPER-HYPERION-XC-1A", series: "burst", type: "bey", name: "슈퍼 하이페리온.Xc 1A", en: "Super Hyperion.Xc 1A", productNo: "B-162", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["SUPERKINGRING-SUPER", "SUPERKINGCHIP-HYPERION", "DRIVER-XCEED", "SUPERKINGCHASSIS-1A"] },
+  { id: "BEY-BURST-B-162-KING-HELIOS-ZN-1B", series: "burst", type: "bey", name: "킹 헬리오스.Zn 1B", en: "King Helios.Zn 1B", productNo: "B-162", battleType: "balance", spin: "left", tags: [], desc: "", parts: ["SUPERKINGRING-KING", "SUPERKINGCHIP-HELIOS", "DRIVER-ZONE", "SUPERKINGCHASSIS-1B"] },
+  { id: "BEY-BURST-B-163-BRAVE-VALKYRIE-EV-DASH-2A", series: "burst", type: "bey", name: "브레이브 발키리.Ev' 2A", en: "Brave Valkyrie.Ev' 2A", productNo: "B-163", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["SUPERKINGRING-BRAVE", "SUPERKINGCHIP-VALKYRIE", "DRIVER-EVOLUTION-DASH", "SUPERKINGCHASSIS-2A"] },
+  { id: "BEY-BURST-B-167-MIRAGE-FAFNIR-NT-2S", series: "burst", type: "bey", name: "미라지 파브닐.Nt 2S", en: "Mirage Fafnir.Nt 2S", productNo: "B-167", battleType: "stamina", spin: "left", tags: [], desc: "", parts: ["SUPERKINGRING-MIRAGE", "SUPERKINGCHIP-FAFNIR", "DRIVER-NOTHING", "SUPERKINGCHASSIS-2S"] },
+  { id: "BEY-BURST-B-168-RAGE-LONGINUS-DS-DASH-3A", series: "burst", type: "bey", name: "레이지 롱기누스.Ds' 3A", en: "Rage Longinus.Ds' 3A", productNo: "B-168", battleType: "attack", spin: "left", tags: [], desc: "", parts: ["SUPERKINGRING-RAGE", "SUPERKINGCHIP-LONGINUS", "DRIVER-DESTROY-DASH", "SUPERKINGCHASSIS-3A"] },
+  { id: "BEY-BURST-B-169-VARIANT-LUCIFER-MB-2D", series: "burst", type: "bey", name: "베어리언트 루시퍼.Mb 2D", jpName: "베리언트 루시퍼.Mb 2D", en: "Variant Lucifer.Mb 2D", productNo: "B-169", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["SUPERKINGRING-VARIANT", "SUPERKINGCHIP-LUCIFER", "DRIVER-MOBIUS", "SUPERKINGCHASSIS-2D"] },
+  { id: "BEY-BURST-B-171-TEMPEST-DRAGON-CM-1A", series: "burst", type: "bey", name: "템페스트 드래곤.Cm 1A", en: "Tempest Dragon.Cm 1A", productNo: "B-171", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["SUPERKINGRING-TEMPEST", "SUPERKINGCHIP-DRAGON", "DRIVER-CHARGE-METAL", "SUPERKINGCHASSIS-1A"] },
+  { id: "BEY-BURST-B-171-CURSE-SATAN-AERO-DASH-HOLD-DASH-1D", series: "burst", type: "bey", name: "커스 사탄.α'.H' 1D", en: "Curse Satan.α'.H' 1D", productNo: "B-171", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["SUPERKINGRING-CURSE", "SUPERKINGCHIP-SATAN", "DISK-AERO-DASH", "DRIVER-HOLD-DASH", "SUPERKINGCHASSIS-1D"] },
+  { id: "BEY-BURST-B-171-NAKED-DIABOLOS-NDB-GOKU-11-WV", series: "burst", type: "bey", name: "네이키드 디아볼로스(NDb극).11.Wv 극", jpName: "네이키드 디아볼로스(NDb極).11.Wv 極", en: "Naked Diabolos(NDb Goku).11.Wv Goku", productNo: "B-171", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["GACHIBASE-NAKED", "GACHICHIP-DIABOLOS", "GACHIWEIGHT-GOKU", "COREDISK-11", "DRIVER-WAVE"] },
+  { id: "BEY-BURST-B-172-WORLD-SPRIGGAN-U-DASH-2B", series: "burst", type: "bey", name: "월드 스프리건.U' 2B", en: "World Spriggan.U' 2B", productNo: "B-172", battleType: "balance", spin: "dual", tags: [], desc: "", parts: ["SUPERKINGRING-WORLD", "SUPERKINGCHIP-SPRIGGAN", "DRIVER-UNITE-DASH", "SUPERKINGCHASSIS-2B"] },
+  { id: "BEY-BURST-B-174-HYPERION-BURN-CHO-XC-DASH-X", series: "burst", type: "bey", name: "하이페리온 번.초.Xc'+X", jpName: "하이페리온 번.超.Xc'+X", en: "Hyperion Burn.Cho.Xc'+X", productNo: "B-174", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["SUPERKINGRING-BURN", "SUPERKINGCHIP-HYPERION-II", "DISK-CHO", "DRIVER-XCEED-DASH", "DRIVERUPGRADE-XCEED"] },
+  { id: "BEY-BURST-B-174-HELIOS-VOLCANO-OU-ZN-DASH-Z", series: "burst", type: "bey", name: "헬리오스 볼케이노.왕.Zn'+Z", jpName: "헬리오스 볼케이노.王.Zn'+Z", en: "Helios Volcano.Ou.Zn'+Z", productNo: "B-174", battleType: "balance", spin: "left", tags: [], desc: "", parts: ["SUPERKINGRING-VOLCANO", "SUPERKINGCHIP-HELIOS-II", "DISK-OU", "DRIVER-ZONE-DASH", "DRIVERUPGRADE-ZONE"] },
+  { id: "BEY-BURST-B-175-LUCIFER-THE-END-KOU-DR", series: "burst", type: "bey", name: "루시퍼 디엔드.황.Dr", jpName: "루시퍼 디엔드.皇.Dr", en: "Lucifer The End.Kou.Dr", productNo: "B-175", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["SUPERKINGRING-THE-END", "SUPERKINGCHIP-LUCIFER-II", "DISK-KOU", "DRIVER-DRIFT"] },
+  { id: "BEY-BURST-B-177-JET-WYVERN-AR-JS-1D", series: "burst", type: "bey", name: "제트 와이번.Ar.Js 1D", en: "Jet Wyvern.Ar.Js 1D", productNo: "B-177", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["SUPERKINGRING-JET", "SUPERKINGCHIP-WYVERN", "DISK-AROUND", "DRIVER-JUST", "SUPERKINGCHASSIS-1D"] },
+  { id: "BEY-BURST-B-179-DEATH-SOLOMON-MF-2B", series: "burst", type: "bey", name: "데스 솔로몬.MF 2B", en: "Death Solomon.MF 2B", productNo: "B-179", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["SUPERKINGRING-DEATH", "SUPERKINGCHIP-SOLOMON", "DRIVER-METAL-FUSION", "SUPERKINGCHASSIS-2B"] },
+  { id: "BEY-BURST-B-180-DYNAMITE-BELIAL-NX-VN-2", series: "burst", type: "bey", name: "다이너마이트 벨리알.Nx.Vn-2", en: "Dynamite Belial.Nx.Vn-2", productNo: "B-180", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["DBBLADE-DYNAMITE", "DBCORE-BELIAL", "DBDISK-NEXUS", "DRIVER-VENTURE", "DBARMOR-2"] },
+  { id: "BEY-BURST-B-182-DYNAMITE-BELIAL-NX-VN-2", series: "burst", type: "bey", name: "다이너마이트 벨리알.Nx.Vn-2", en: "Dynamite Belial.Nx.Vn-2", productNo: "B-182", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["DBBLADE-DYNAMITE", "DBCORE-BELIAL", "DBDISK-NEXUS", "DRIVER-VENTURE", "DBARMOR-2"] },
+  { id: "BEY-BURST-B-185-VANISH-FAFNIR-TP-KC-3", series: "burst", type: "bey", name: "배니시 파브닐.Tp.Kc-3", en: "Vanish Fafnir.Tp.Kc-3", productNo: "B-185", battleType: "stamina", spin: "left", tags: [], desc: "", parts: ["DBBLADE-VANISH", "DBCORE-FAFNIR", "DBDISK-TAPERED", "DRIVER-KICK", "DBARMOR-3"] },
+  { id: "BEY-BURST-B-187-SAVIOR-VALKYRIE-SH-7", series: "burst", type: "bey", name: "세이비어 발키리.Sh-7", en: "Savior Valkyrie.Sh-7", productNo: "B-187", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["DBBLADE-SAVIOR", "DBCORE-VALKYRIE", "DRIVER-SHOT", "DBARMOR-7"] },
+  { id: "BEY-BURST-B-188-ASTRAL-SPRIGGAN-OV-QT-0", series: "burst", type: "bey", name: "아스트랄 스프리건.Ov.Qt-0", en: "Astral Spriggan.Ov.Qt-0", productNo: "B-188", battleType: "balance", spin: "dual", tags: [], desc: "", parts: ["DBBLADE-ASTRAL", "DBCORE-SPRIGGAN", "DBDISK-OVER", "DRIVER-QUATTRO", "DBARMOR-0"] },
+  { id: "BEY-BURST-B-189-GUILTY-LONGINUS-KR-MDS-2", series: "burst", type: "bey", name: "길티 롱기누스.Kr.MDs-2", en: "Guilty Longinus.Kr.MDs-2", productNo: "B-189", battleType: "attack", spin: "left", tags: [], desc: "", parts: ["DBBLADE-GUILTY", "DBCORE-LONGINUS", "DBDISK-KARMA", "DRIVER-METAL-DESTROY", "DBARMOR-2"] },
+  { id: "BEY-BURST-B-190-DYNAMITE-BELIAL-NX-VN-3", series: "burst", type: "bey", name: "다이너마이트 벨리알.Nx.Vn-3", en: "Dynamite Belial.Nx.Vn-3", productNo: "B-190", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["DBBLADE-DYNAMITE", "DBCORE-BELIAL", "DBDISK-NEXUS", "DRIVER-VENTURE", "DBARMOR-3"] },
+  { id: "BEY-BURST-B-190-ROAR-BAHAMUT-KR-MDR-6", series: "burst", type: "bey", name: "로어 바하무트.Kr.MDr-6", en: "Roar Bahamut.Kr.MDr-6", productNo: "B-190", battleType: "defense", spin: "left", tags: [], desc: "", parts: ["DBBLADE-ROAR", "DBCORE-BAHAMUT", "DBDISK-KARMA", "DRIVER-METAL-DRIFT", "DBARMOR-6"] },
+  { id: "BEY-BURST-B-191-DANGEROUS-BELIAL-AL-2", series: "burst", type: "bey", name: "데인저러스 벨리알.Al-2", en: "Dangerous Belial.Al-2", productNo: "B-191", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["DBBLADE-DANGEROUS", "DBCORE-BELIAL-II", "DRIVER-ALMIGHT", "DBARMOR-2"] },
+  { id: "BEY-BURST-B-191-PROMINENCE-PHOENIX-TP-MUN-10", series: "burst", type: "bey", name: "프로미넌스 피닉스.Tp.MUn-10", en: "Prominence Phoenix.Tp.MUn-10", productNo: "B-191", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["DBBLADE-PROMINENCE", "DBCORE-PHOENIX", "DBDISK-TAPERED", "DRIVER-METAL-UNIVERSE", "DBARMOR-10"] },
+  { id: "BEY-BURST-B-191-SAVIOR-PERSEUS-GG-BR-DASH-3", series: "burst", type: "bey", name: "세이비어 페르세우스.Gg.Br'-3", en: "Savior Perseus.Gg.Br'-3", productNo: "B-191", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["DBBLADE-SAVIOR", "DBCORE-PERSEUS", "DBDISK-GIGA", "DRIVER-BEARING-DASH", "DBARMOR-3"] },
+  { id: "BEY-BURST-B-192-GREATEST-RAPHAEL-OV-HXT-PLUS-DASH", series: "burst", type: "bey", name: "그레이티스트 라파엘.Ov.HXt+'", en: "Greatest Raphael.Ov.HXt+'", productNo: "B-192", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["DBLAYER-GREATEST-RAPHAEL", "DBDISK-OVER", "DRIVER-HIGH-XTEND-PLUS-DASH"] },
+  { id: "BEY-BURST-B-193-ULTIMATE-VALKYRIE-LG-V-DASH-9", series: "burst", type: "bey", name: "얼티밋 발키리.Lg.V'-9", en: "Ultimate Valkyrie.Lg.V'-9", productNo: "B-193", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["DBBLADE-ULTIMATE", "DBCORE-VALKYRIE-II", "DBDISK-LEGACY", "DRIVER-VARIABLE-DASH", "DBARMOR-9"] },
+  { id: "BEY-BURST-B-195-PROMINENCE-VALKYRIE-OV-AT-DASH-0", series: "burst", type: "bey", name: "프로미넌스 발키리.Ov.At'-0", en: "Prominence Valkyrie.Ov.At'-0", productNo: "B-195", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["DBBLADE-PROMINENCE", "DBCORE-VALKYRIE", "DBDISK-OVER", "DRIVER-ATOMIC-DASH", "DBARMOR-0"] },
+  { id: "BEY-BURST-B-199-GATLING-DRAGON-KR-CM-DASH-10", series: "burst", type: "bey", name: "개틀링 드래곤.Kr.Cm'-10", en: "Gatling Dragon.Kr.Cm'-10", productNo: "B-199", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["DBBLADE-GATLING", "DBCORE-DRAGON", "DBDISK-KARMA", "DRIVER-CHARGE-METAL-DASH", "DBARMOR-10"] },
+  { id: "BEY-BURST-B-200-XIPHOID-XCALIBUR-XN-SW-DASH-1", series: "burst", type: "bey", name: "지포이드 엑스칼리버.Xn.Sw'-1", en: "Xiphoid Xcalibur.Xn.Sw'-1", productNo: "B-200", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["DBBLADE-XIPHOID", "DBCORE-XCALIBUR", "DBDISK-XANTHUS", "DRIVER-SWORD-DASH", "DBARMOR-1"] },
+  { id: "BEY-BURST-B-201-ZEST-ACHILLES-IL-QT-DASH-4", series: "burst", type: "bey", name: "제스트 아킬레스.Il.Qt'-4", en: "Zest Achilles.Il.Qt'-4", productNo: "B-201", battleType: "balance", spin: "dual", tags: [], desc: "", parts: ["DBBLADE-ZEST", "DBCORE-ACHILLES", "DBDISK-ILLEGAL", "DRIVER-QUATTRO-DASH", "DBARMOR-4"] },
+  { id: "BEY-BURST-B-203-SUPER-HYPERION-MR-TP-XP-2", series: "burst", type: "bey", name: "슈퍼 하이페리온 MR.Tp.Xp-2", en: "Super Hyperion MR.Tp.Xp-2", productNo: "B-203", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["DBBLADE-SUPER-MR", "DBCORE-HYPERION", "DBDISK-TAPERED", "DRIVER-XPLOSION", "DBARMOR-2"] },
+  { id: "BEY-BURST-B-203-KING-HELIOS-MR-GG-ZL-10", series: "burst", type: "bey", name: "킹 헬리오스 MR.Gg.Zl-10", en: "King Helios MR.Gg.Zl-10", productNo: "B-203", battleType: "balance", spin: "left", tags: [], desc: "", parts: ["DBBLADE-KING-MR", "DBCORE-HELIOS", "DBDISK-GIGA", "DRIVER-ZEAL", "DBARMOR-10"] },
+  { id: "BEY-BURST-B-203-DIVINE-BELIAL-NX-BDR", series: "burst", type: "bey", name: "디바인 벨리알.Nx.BDr", en: "Divine Belial.Nx.BDr", productNo: "B-203", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["DBBLADE-DIVINE", "DBCORE-BELIAL-III", "DBDISK-NEXUS", "DRIVER-BEARING-DRIFT"] },
+  { id: "BEY-BURST-B-204-DIVINE-BELIAL-NX-AD-6", series: "burst", type: "bey", name: "디바인 벨리알.Nx.Ad-6", en: "Divine Belial.Nx.Ad-6", productNo: "B-204", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["DBBLADE-DIVINE", "DBCORE-BELIAL-II", "DBDISK-NEXUS", "DRIVER-ADVENTURE", "DBARMOR-6"] },
+  { id: "BEY-BURST-B-204-CHAIN-KERBEUS-KR-MM-DASH-3", series: "burst", type: "bey", name: "체인 케르베우스.Kr.Mm'-3", en: "Chain Kerbeus.Kr.Mm'-3", productNo: "B-204", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["DBBLADE-CHAIN", "DBCORE-KERBEUS", "DBDISK-KARMA", "DRIVER-MOMENT-DASH", "DBARMOR-3"] },
+  { id: "BEY-BURST-B-205-BURST-SPRIGGAN-S-DASH-F-DASH-8", series: "burst", type: "bey", name: "버스트 스프리건.S'.F'-8", en: "Burst Spriggan.S'.F'-8", productNo: "B-205", battleType: "balance", spin: "dual", tags: [], desc: "", parts: ["DBBLADE-BURST", "DBCORE-SPRIGGAN-II", "DBDISK-SPREAD-DASH", "DRIVER-FUSION-DASH", "DBARMOR-8"] },
+  { id: "BEY-BURST-B-205-ULTIMATE-VALKYRIE-W-DASH-A-DASH-9", series: "burst", type: "bey", name: "얼티밋 발키리.W'.A'-9", en: "Ultimate Valkyrie.W'.A'-9", productNo: "B-205", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["DBBLADE-ULTIMATE", "DBCORE-VALKYRIE-II", "DBDISK-WING-DASH", "DRIVER-ACCEL-DASH", "DBARMOR-9"] },
+  { id: "BEY-BURST-B-206-BARRICADE-LUCIFER-IL-BMB-10", series: "burst", type: "bey", name: "바리케이드 루시퍼.Il.BMb-10", en: "Barricade Lucifer.Il.BMb-10", productNo: "B-206", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["DBBLADE-BARRICADE", "DBCORE-LUCIFER", "DBDISK-ILLEGAL", "DRIVER-BEARING-MOBIUS", "DBARMOR-10"] },
 ];
 
 const partItems = [
@@ -679,6 +766,7 @@ const partItems = [
   { id: "LAYER-CHAOS", series: "burst", type: "layer", name: "카오스", en: "Chaos", battleType: "stamina", tags: [], desc: "" },
   { id: "LAYER-NEPTUNE", series: "burst", type: "layer", name: "넵튠", en: "Neptune", battleType: "balance", tags: [], desc: "" },
   { id: "LAYER-YGGDRASIL", series: "burst", type: "layer", name: "위그드라실", en: "Yggdrasil", battleType: "stamina", tags: [], desc: "" },
+  { id: "LAYER-WOLBORG", series: "burst", type: "layer", name: "하운드 도그", jpName: "울버그", en: "Wolborg", battleType: "stamina", tags: [], desc: "" },
   { id: "DUALLAYER-VICTORY-VALKYRIE", series: "burst", type: "duallayer", name: "빅토리 발키리", en: "Victory Valkyrie", battleType: "attack", tags: [], desc: "" },
   { id: "DUALLAYER-STORM-SPRIGGAN", series: "burst", type: "duallayer", name: "스톰 스프리건", en: "Storm Spriggan", battleType: "balance", tags: [], desc: "" },
   { id: "DUALLAYER-RISING-RAGNARUK", series: "burst", type: "duallayer", name: "라이징 라그나로크", en: "Rising Ragnaruk", battleType: "stamina", tags: [], desc: "" },
@@ -809,54 +897,55 @@ const partItems = [
   { id: "GACHILAYER-BIGBANG-GENESIS", series: "burst", type: "gachilayer", name: "빅뱅 제네시스", en: "Bigbang Genesis", battleType: "defense", tags: [], desc: "" },
   { id: "GACHIUPGRADE-UNION-SWORD", series: "burst", type: "gachiupgrade", name: "유니온 소드", en: "Union Sword", tags: [], desc: "" },
   { id: "GACHIUPGRADE-BIGBANG-ARMOR", series: "burst", type: "gachiupgrade", name: "빅뱅 아머", en: "Bigbang Armor", tags: [], desc: "" },
-  { id: "SPARKINGCHIP-HELIOS", series: "burst", type: "sparkingchip", name: "헬리오스", en: "Helios", tags: [], desc: "" },
-  { id: "SPARKINGCHIP-HYPERION", series: "burst", type: "sparkingchip", name: "하이페리온", en: "Hyperion", tags: [], desc: "" },
-  { id: "SPARKINGCHIP-RAGNARUK", series: "burst", type: "sparkingchip", name: "라그나로크", en: "Ragnaruk", tags: [], desc: "" },
-  { id: "SPARKINGCHIP-VALKYRIE", series: "burst", type: "sparkingchip", name: "발키리", en: "Valkyrie", tags: [], desc: "" },
-  { id: "SPARKINGCHIP-SATAN", series: "burst", type: "sparkingchip", name: "사탄", en: "Satan", tags: [], desc: "" },
-  { id: "SPARKINGCHIP-FAFNIR", series: "burst", type: "sparkingchip", name: "파브닐", en: "Fafnir", tags: [], desc: "" },
-  { id: "SPARKINGCHIP-LONGINUS", series: "burst", type: "sparkingchip", name: "롱기누스", en: "Longinus", tags: [], desc: "" },
-  { id: "SPARKINGCHIP-SOLOMON", series: "burst", type: "sparkingchip", name: "솔로몬", en: "Solomon", tags: [], desc: "" },
-  { id: "SPARKINGCHIP-URANUS", series: "burst", type: "sparkingchip", name: "우라노스", en: "Uranus", tags: [], desc: "" },
-  { id: "SPARKINGCHIP-LUCIFER", series: "burst", type: "sparkingchip", name: "루시퍼", en: "Lucifer", tags: [], desc: "" },
-  { id: "SPARKINGCHIP-DIABOLOS", series: "burst", type: "sparkingchip", name: "디아볼로스", en: "Diabolos", tags: [], desc: "" },
-  { id: "SPARKINGCHIP-DRAGON", series: "burst", type: "sparkingchip", name: "드래곤", en: "Dragon", tags: [], desc: "" },
-  { id: "SPARKINGCHIP-SPRIGGAN", series: "burst", type: "sparkingchip", name: "스프리건", en: "Spriggan", tags: [], desc: "" },
-  { id: "SPARKINGCHIP-ACHILLES", series: "burst", type: "sparkingchip", name: "아킬레스", en: "Achilles", tags: [], desc: "" },
-  { id: "SPARKINGCHIP-HELIOS-II", series: "burst", type: "sparkingchip", name: "헬리오스2", en: "Helios II", tags: [], desc: "" },
-  { id: "SPARKINGCHIP-HYPERION-II", series: "burst", type: "sparkingchip", name: "하이페리온2", en: "Hyperion II", tags: [], desc: "" },
-  { id: "SPARKINGCHIP-LUCIFER-II", series: "burst", type: "sparkingchip", name: "루시퍼2", en: "Lucifer II", tags: [], desc: "" },
-  { id: "SPARKINGCHIP-DEATHSCYTHER", series: "burst", type: "sparkingchip", name: "데스사이저", en: "Deathscyther", tags: [], desc: "" },
-  { id: "SPARKINGCHIP-WYVERN", series: "burst", type: "sparkingchip", name: "와이번", en: "Wyvern", tags: [], desc: "" },
-  { id: "SPARKINGRING-KING", series: "burst", type: "sparkingring", name: "킹", en: "King", battleType: "balance", tags: [], desc: "" },
-  { id: "SPARKINGRING-SUPER", series: "burst", type: "sparkingring", name: "슈퍼", en: "Super", battleType: "attack", tags: [], desc: "" },
-  { id: "SPARKINGRING-GLIDE", series: "burst", type: "sparkingring", name: "글라이드", en: "Glide", battleType: "stamina", tags: [], desc: "" },
-  { id: "SPARKINGRING-BRAVE", series: "burst", type: "sparkingring", name: "브레이브", en: "Brave", battleType: "attack", tags: [], desc: "" },
-  { id: "SPARKINGRING-CURSE", series: "burst", type: "sparkingring", name: "커스", en: "Curse", battleType: "defense", tags: [], desc: "" },
-  { id: "SPARKINGRING-MIRAGE", series: "burst", type: "sparkingring", name: "미라지", en: "Mirage", battleType: "stamina", tags: [], desc: "" },
-  { id: "SPARKINGRING-RAGE", series: "burst", type: "sparkingring", name: "레이지", en: "Rage", battleType: "attack", tags: [], desc: "" },
-  { id: "SPARKINGRING-FIRST", series: "burst", type: "sparkingring", name: "퍼스트", en: "First", battleType: "defense", tags: [], desc: "" },
-  { id: "SPARKINGRING-VARIANT", series: "burst", type: "sparkingring", name: "베어리언트", en: "Variant", battleType: "defense", tags: [], desc: "" },
-  { id: "SPARKINGRING-DEATH", series: "burst", type: "sparkingring", name: "데스", en: "Death", battleType: "balance", tags: [], desc: "" },
-  { id: "SPARKINGRING-ABYSS", series: "burst", type: "sparkingring", name: "어비스", en: "Abyss", battleType: "balance", tags: [], desc: "" },
-  { id: "SPARKINGRING-TEMPEST", series: "burst", type: "sparkingring", name: "템페스트", en: "Tempest", battleType: "attack", tags: [], desc: "" },
-  { id: "SPARKINGRING-WORLD", series: "burst", type: "sparkingring", name: "월드", en: "World", battleType: "balance", tags: [], desc: "" },
-  { id: "SPARKINGRING-INFINITE", series: "burst", type: "sparkingring", name: "인피니트", en: "Infinite", battleType: "balance", tags: [], desc: "" },
-  { id: "SPARKINGRING-BURN", series: "burst", type: "sparkingring", name: "번", en: "Burn", battleType: "attack", tags: [], desc: "" },
-  { id: "SPARKINGRING-VOLCANO", series: "burst", type: "sparkingring", name: "볼케이노", en: "Volcano", battleType: "balance", tags: [], desc: "" },
-  { id: "SPARKINGRING-THE-END", series: "burst", type: "sparkingring", name: "디 엔드", en: "The End", battleType: "defense", tags: [], desc: "" },
-  { id: "SPARKINGRING-HOLLOW", series: "burst", type: "sparkingring", name: "할로우", en: "Hollow", battleType: "attack", tags: [], desc: "" },
-  { id: "SPARKINGRING-JET", series: "burst", type: "sparkingring", name: "제트", en: "Jet", battleType: "defense", tags: [], desc: "" },
-  { id: "SPARKINGCHASSIS-1A", series: "burst", type: "sparkingchassis", name: "원 어택", en: "1 Attack", battleType: "attack", tags: ["더블 섀시"], desc: "" },
-  { id: "SPARKINGCHASSIS-1B", series: "burst", type: "sparkingchassis", name: "원 밸런스", en: "1 Balance", battleType: "balance", tags: ["더블 섀시"], desc: "" },
-  { id: "SPARKINGCHASSIS-1S", series: "burst", type: "sparkingchassis", name: "원 스테미나", en: "1 Stamina", battleType: "stamina", tags: ["싱글 섀시"], desc: "" },
-  { id: "SPARKINGCHASSIS-1D", series: "burst", type: "sparkingchassis", name: "원 디펜스", en: "1 Defense", battleType: "defense", tags: ["싱글 섀시"], desc: "" },
-  { id: "SPARKINGCHASSIS-2A", series: "burst", type: "sparkingchassis", name: "투 어택", en: "2 Attack", battleType: "attack", tags: ["더블 섀시"], desc: "" },
-  { id: "SPARKINGCHASSIS-2B", series: "burst", type: "sparkingchassis", name: "투 밸런스", en: "2 Balance", battleType: "balance", tags: ["더블 섀시"], desc: "" },
-  { id: "SPARKINGCHASSIS-2S", series: "burst", type: "sparkingchassis", name: "투 스테미나", en: "2 Stamina", battleType: "stamina", tags: ["더블 섀시"], desc: "" },
-  { id: "SPARKINGCHASSIS-2D", series: "burst", type: "sparkingchassis", name: "투 디펜스", en: "2 Defense", battleType: "defense", tags: ["더블 섀시"], desc: "" },
-  { id: "SPARKINGUPGRADE-INFINITE-SWORD", series: "burst", type: "sparkingupgrade", name: "인피니트 소드", en: "Infinite Sword", tags: [], desc: "" },
-  { id: "SPARKINGUPGRADE-INFINITE-SHIELD", series: "burst", type: "sparkingupgrade", name: "인피니트 실드", en: "Infinite Shield", tags: [], desc: "" },
+  { id: "SUPERKINGCHIP-HELIOS", series: "burst", type: "superkingchip", name: "헬리오스", en: "Helios", tags: [], desc: "" },
+  { id: "SUPERKINGCHIP-HYPERION", series: "burst", type: "superkingchip", name: "하이페리온", en: "Hyperion", tags: [], desc: "" },
+  { id: "SUPERKINGCHIP-RAGNARUK", series: "burst", type: "superkingchip", name: "라그나로크", en: "Ragnaruk", tags: [], desc: "" },
+  { id: "SUPERKINGCHIP-VALKYRIE", series: "burst", type: "superkingchip", name: "발키리", en: "Valkyrie", tags: [], desc: "" },
+  { id: "SUPERKINGCHIP-SATAN", series: "burst", type: "superkingchip", name: "사탄", en: "Satan", tags: [], desc: "" },
+  { id: "SUPERKINGCHIP-FAFNIR", series: "burst", type: "superkingchip", name: "파브닐", en: "Fafnir", tags: [], desc: "" },
+  { id: "SUPERKINGCHIP-LONGINUS", series: "burst", type: "superkingchip", name: "롱기누스", en: "Longinus", tags: [], desc: "" },
+  { id: "SUPERKINGCHIP-SOLOMON", series: "burst", type: "superkingchip", name: "솔로몬", en: "Solomon", tags: [], desc: "" },
+  { id: "SUPERKINGCHIP-URANUS", series: "burst", type: "superkingchip", name: "우라노스", en: "Uranus", tags: [], desc: "" },
+  { id: "SUPERKINGCHIP-LUCIFER", series: "burst", type: "superkingchip", name: "루시퍼", en: "Lucifer", tags: [], desc: "" },
+  { id: "SUPERKINGCHIP-DIABOLOS", series: "burst", type: "superkingchip", name: "디아볼로스", en: "Diabolos", tags: [], desc: "" },
+  { id: "SUPERKINGCHIP-DRAGON", series: "burst", type: "superkingchip", name: "드래곤", en: "Dragon", tags: [], desc: "" },
+  { id: "SUPERKINGCHIP-SPRIGGAN", series: "burst", type: "superkingchip", name: "스프리건", en: "Spriggan", tags: [], desc: "" },
+  { id: "SUPERKINGCHIP-ACHILLES", series: "burst", type: "superkingchip", name: "아킬레스", en: "Achilles", tags: [], desc: "" },
+  { id: "SUPERKINGCHIP-HELIOS-II", series: "burst", type: "superkingchip", name: "헬리오스2", en: "Helios II", tags: [], desc: "" },
+  { id: "SUPERKINGCHIP-HYPERION-II", series: "burst", type: "superkingchip", name: "하이페리온2", en: "Hyperion II", tags: [], desc: "" },
+  { id: "SUPERKINGCHIP-LUCIFER-II", series: "burst", type: "superkingchip", name: "루시퍼2", en: "Lucifer II", tags: [], desc: "" },
+  { id: "SUPERKINGCHIP-DEATHSCYTHER", series: "burst", type: "superkingchip", name: "데스사이저", en: "Deathscyther", tags: [], desc: "" },
+  { id: "SUPERKINGCHIP-WYVERN", series: "burst", type: "superkingchip", name: "와이번", en: "Wyvern", tags: [], desc: "" },
+  { id: "SUPERKINGRING-KING", series: "burst", type: "superkingring", name: "킹", en: "King", battleType: "balance", tags: [], desc: "" },
+  { id: "SUPERKINGRING-SUPER", series: "burst", type: "superkingring", name: "슈퍼", en: "Super", battleType: "attack", tags: [], desc: "" },
+  { id: "SUPERKINGRING-GLIDE", series: "burst", type: "superkingring", name: "글라이드", en: "Glide", battleType: "stamina", tags: [], desc: "" },
+  { id: "SUPERKINGRING-BRAVE", series: "burst", type: "superkingring", name: "브레이브", en: "Brave", battleType: "attack", tags: [], desc: "" },
+  { id: "SUPERKINGRING-CURSE", series: "burst", type: "superkingring", name: "커스", en: "Curse", battleType: "defense", tags: [], desc: "" },
+  { id: "SUPERKINGRING-MIRAGE", series: "burst", type: "superkingring", name: "미라지", en: "Mirage", battleType: "stamina", tags: [], desc: "" },
+  { id: "SUPERKINGRING-RAGE", series: "burst", type: "superkingring", name: "레이지", en: "Rage", battleType: "attack", tags: [], desc: "" },
+  { id: "SUPERKINGRING-FIRST", series: "burst", type: "superkingring", name: "퍼스트", en: "First", battleType: "defense", tags: [], desc: "" },
+  { id: "SUPERKINGRING-VARIANT", series: "burst", type: "superkingring", name: "베어리언트", en: "Variant", battleType: "defense", tags: [], desc: "" },
+  { id: "SUPERKINGRING-DEATH", series: "burst", type: "superkingring", name: "데스", en: "Death", battleType: "balance", tags: [], desc: "" },
+  { id: "SUPERKINGRING-ABYSS", series: "burst", type: "superkingring", name: "어비스", en: "Abyss", battleType: "balance", tags: [], desc: "" },
+  { id: "SUPERKINGRING-TEMPEST", series: "burst", type: "superkingring", name: "템페스트", en: "Tempest", battleType: "attack", tags: [], desc: "" },
+  { id: "SUPERKINGRING-WORLD", series: "burst", type: "superkingring", name: "월드", en: "World", battleType: "balance", tags: [], desc: "" },
+  { id: "SUPERKINGRING-INFINITE", series: "burst", type: "superkingring", name: "인피니트", en: "Infinite", battleType: "balance", tags: [], desc: "" },
+  { id: "SUPERKINGRING-BURN", series: "burst", type: "superkingring", name: "번", en: "Burn", battleType: "attack", tags: [], desc: "" },
+  { id: "SUPERKINGRING-VOLCANO", series: "burst", type: "superkingring", name: "볼케이노", en: "Volcano", battleType: "balance", tags: [], desc: "" },
+  { id: "SUPERKINGRING-THE-END", series: "burst", type: "superkingring", name: "디 엔드", en: "The End", battleType: "defense", tags: [], desc: "" },
+  { id: "SUPERKINGRING-HOLLOW", series: "burst", type: "superkingring", name: "할로우", en: "Hollow", battleType: "attack", tags: [], desc: "" },
+  { id: "SUPERKINGRING-JET", series: "burst", type: "superkingring", name: "제트", en: "Jet", battleType: "defense", tags: [], desc: "" },
+  { id: "SUPERKINGCHASSIS-1A", series: "burst", type: "superkingchassis", name: "원 어택", en: "1 Attack", battleType: "attack", tags: ["더블 섀시"], desc: "" },
+  { id: "SUPERKINGCHASSIS-1B", series: "burst", type: "superkingchassis", name: "원 밸런스", en: "1 Balance", battleType: "balance", tags: ["더블 섀시"], desc: "" },
+  { id: "SUPERKINGCHASSIS-1S", series: "burst", type: "superkingchassis", name: "원 스테미나", en: "1 Stamina", battleType: "stamina", tags: ["싱글 섀시"], desc: "" },
+  { id: "SUPERKINGCHASSIS-1D", series: "burst", type: "superkingchassis", name: "원 디펜스", en: "1 Defense", battleType: "defense", tags: ["싱글 섀시"], desc: "" },
+  { id: "SUPERKINGCHASSIS-2A", series: "burst", type: "superkingchassis", name: "투 어택", en: "2 Attack", battleType: "attack", tags: ["더블 섀시"], desc: "" },
+  { id: "SUPERKINGCHASSIS-2B", series: "burst", type: "superkingchassis", name: "투 밸런스", en: "2 Balance", battleType: "balance", tags: ["더블 섀시"], desc: "" },
+  { id: "SUPERKINGCHASSIS-2S", series: "burst", type: "superkingchassis", name: "투 스테미나", en: "2 Stamina", battleType: "stamina", tags: ["더블 섀시"], desc: "" },
+  { id: "SUPERKINGCHASSIS-2D", series: "burst", type: "superkingchassis", name: "투 디펜스", en: "2 Defense", battleType: "defense", tags: ["더블 섀시"], desc: "" },
+  { id: "SUPERKINGCHASSIS-3A", series: "burst", type: "superkingchassis", name: "쓰리 어택", en: "3 Attack", battleType: "attack", tags: ["더블 섀시"], desc: "" },
+  { id: "SUPERKINGUPGRADE-INFINITE-SWORD", series: "burst", type: "superkingupgrade", name: "인피니트 소드", en: "Infinite Sword", tags: [], desc: "" },
+  { id: "SUPERKINGUPGRADE-INFINITE-SHIELD", series: "burst", type: "superkingupgrade", name: "인피니트 실드", en: "Infinite Shield", tags: [], desc: "" },
   { id: "DBLAYER-GREATEST-RAPHAEL", series: "burst", type: "dblayer", name: "그레이티스트 라파엘", en: "Greatest Raphael", battleType: "balance", tags: [], desc: "" },
   { id: "DBCORE-BELIAL", series: "burst", type: "dbcore", name: "벨리알", en: "Belial", tags: [], desc: "" },
   { id: "DBCORE-RAGNARUK", series: "burst", type: "dbcore", name: "라그나로크", en: "Ragnaruk", tags: [], desc: "" },
@@ -1227,14 +1316,12 @@ const clearSearchInputs = () => {
   setSearchInputValue(catalogSearch, "");
   setSearchInputValue(animeSearch, "");
 };
-const activeToyPanel = () => document.querySelector(".toy-panel.active");
+const activeAppPanel = () => document.querySelector(".app-panel.active");
 const toTop = document.querySelector("#toTop");
 const menuButton = document.querySelector("#menuButton");
 const mobileDrawer = document.querySelector("#mobileDrawer");
 const mobileDrawerClose = document.querySelector(".mobile-drawer-close");
-const animeCharacterGrid = document.querySelector("#animeCharacterGrid");
-const animeCount = document.querySelector("#animeCount");
-const typeLabels = { bey: "베이", parts: "부품", tools: "장비", face: "페이스", wheel: "휠", clearwheel: "클리어휠", lightwheel: "라이트휠", metalwheel: "메탈휠", "4dclearwheel": "4D클리어휠", "4dmetalwheel": "4D메탈휠", track: "트랙", bottom: "버텀", "4dbottom": "4D버텀", stoneface: "스톤페이스", chromewheel: "크롬휠", crystalwheel: "크리스탈휠", bitchip: "비트칩", attackring: "어택링", weightdisk: "웨이트디스크", bladebase: "블레이드베이스", gear: "기어", layer: "레이어", duallayer: "듀얼레이어", godlayer: "갓레이어", chozlayer: "초제트레이어", gachichip: "진검칩", gachiweight: "웨이트", gachibase: "베이스", gachilayer: "진검레이어", gachiupgrade: "강화파츠", sparkingchip: "슈퍼킹칩", sparkingring: "링", sparkingchassis: "섀시", sparkingupgrade: "강화파츠", dblayer: "DB레이어", dbcore: "DB코어", dbblade: "블레이드", dbarmor: "아머", evolutiongear: "진화기어", disk: "디스크", coredisk: "코어디스크", frame: "프레임", dbdisk: "DB디스크", driver: "드라이버", driverupgrade: "강화파츠", blade: "블레이드", ratchet: "래칫", bit: "비트" };
+const typeLabels = { bey: "베이", parts: "부품", tools: "장비", face: "페이스", wheel: "휠", clearwheel: "클리어휠", lightwheel: "라이트휠", metalwheel: "메탈휠", "4dclearwheel": "4D클리어휠", "4dmetalwheel": "4D메탈휠", track: "트랙", bottom: "버텀", "4dbottom": "4D버텀", stoneface: "스톤페이스", chromewheel: "크롬휠", crystalwheel: "크리스탈휠", bitchip: "비트칩", attackring: "어택링", weightdisk: "웨이트디스크", bladebase: "블레이드베이스", gear: "기어", layer: "레이어", duallayer: "듀얼레이어", godlayer: "갓레이어", chozlayer: "초제트레이어", gachichip: "진검칩", gachiweight: "웨이트", gachibase: "베이스", gachilayer: "진검레이어", gachiupgrade: "강화파츠", superkingchip: "슈퍼킹칩", superkingring: "링", superkingchassis: "섀시", superkingupgrade: "강화파츠", dblayer: "DB레이어", dbcore: "DB코어", dbblade: "블레이드", dbarmor: "아머", evolutiongear: "진화기어", disk: "디스크", coredisk: "코어디스크", frame: "프레임", dbdisk: "DB디스크", driver: "드라이버", driverupgrade: "강화파츠", blade: "블레이드", ratchet: "래칫", bit: "비트" };
 const tagLabels = {};
 const structureLabels = { basic: "4단 구조 시스템", hybrid: "하이브리드 시스템", "4d": "4D 시스템", synchrome: "싱크롬 시스템" };
 const structureTagDescriptions = {
@@ -4005,7 +4092,7 @@ const productItems = [
         releaseDate: "2017-05-11",
         price: "49200",
         composition: [
-          { name: "발키리.6V.Rb", quantity: "1개", target: "BEY-BURST-B-76-VALKYRIE-6V-RB" },
+          { name: "갓 발키리.6V.Rb", quantity: "1개", target: "BEY-BURST-B-76-VALKYRIE-6V-RB" },
           { name: "베이런처", quantity: "1개", target: "TOOLS-BURST-BEYLAUNCHER" },
           { name: "런처그립", quantity: "1개", target: "TOOLS-BURST-LAUNCHER-GRIP" },
           { name: "베이스타디움 스탠다드타입", quantity: "1개", target: "TOOLS-BURST-STANDARD-BEYSTADIUM" }
@@ -4018,7 +4105,7 @@ const productItems = [
         releaseDate: "2017-03-18",
         price: "4428",
         composition: [
-          { name: "발키리.6V.Rb", quantity: "1개", target: "BEY-BURST-B-76-VALKYRIE-6V-RB" },
+          { name: "갓 발키리.6V.Rb", quantity: "1개", target: "BEY-BURST-B-76-VALKYRIE-6V-RB" },
           { name: "베이런처", quantity: "1개", target: "TOOLS-BURST-BEYLAUNCHER" },
           { name: "런처그립", quantity: "1개", target: "TOOLS-BURST-LAUNCHER-GRIP" },
           { name: "베이스타디움 스탠다드타입", quantity: "1개", target: "TOOLS-BURST-STANDARD-BEYSTADIUM" }
@@ -4743,7 +4830,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2018-05-23",
         price: "18000",
-        composition: []
+        composition: [
+          { name: "위닝 발키리.12.Vl", quantity: "1개", target: "BEY-BURST-B-104-WINNING-VALKYRIE-12-VL" },
+          { name: "엔트리런처", quantity: "1개", target: "TOOLS-BURST-ENTRY-LAUNCHER" }
+        ]
       },
       jp: {
         no: "B-104",
@@ -4751,7 +4841,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2018-03-17",
         price: "1512",
-        composition: []
+        composition: [
+          { name: "위닝 발키리.12.Vl", quantity: "1개", target: "BEY-BURST-B-104-WINNING-VALKYRIE-12-VL" },
+          { name: "엔트리런처", quantity: "1개", target: "TOOLS-BURST-ENTRY-LAUNCHER" }
+        ]
       }
     }
   },
@@ -4765,7 +4858,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2018-05-23",
         price: "18000",
-        composition: []
+        composition: [
+          { name: "제트 아킬레스.11.Xt", quantity: "1개", target: "BEY-BURST-B-105-Z-ACHILLES-11-XT" },
+          { name: "엔트리런처", quantity: "1개", target: "TOOLS-BURST-ENTRY-LAUNCHER" }
+        ]
       },
       jp: {
         no: "B-105",
@@ -4773,7 +4869,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2018-03-17",
         price: "1512",
-        composition: []
+        composition: [
+          { name: "제트 아킬레스.11.Xt", quantity: "1개", target: "BEY-BURST-B-105-Z-ACHILLES-11-XT" },
+          { name: "엔트리런처", quantity: "1개", target: "TOOLS-BURST-ENTRY-LAUNCHER" }
+        ]
       }
     }
   },
@@ -4787,7 +4886,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2018-05-23",
         price: "12300",
-        composition: []
+        composition: [
+          { name: "엠퍼러 포르네우스.0.Yr", quantity: "1개", target: "BEY-BURST-B-106-EMPEROR-FORNEUS-0-YR" }
+        ]
       },
       jp: {
         no: "B-106",
@@ -4795,7 +4896,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2018-03-17",
         price: "993",
-        composition: []
+        composition: [
+          { name: "엠퍼러 포르네우스.0.Yr", quantity: "1개", target: "BEY-BURST-B-106-EMPEROR-FORNEUS-0-YR" }
+        ]
       }
     }
   },
@@ -4809,7 +4912,12 @@ const productItems = [
         kind: "세트",
         releaseDate: "2018-05-23",
         price: "51700",
-        composition: []
+        composition: [
+          { name: "위닝 발키리.12.Vl", quantity: "1개", target: "BEY-BURST-B-107-WINNING-VALKYRIE-12-VL" },
+          { name: "제트 아킬레스.11.Xt", quantity: "1개", target: "BEY-BURST-B-107-Z-ACHILLES-11-XT" },
+          { name: "라이트런처", quantity: "2개", target: "TOOLS-BURST-LIGHT-LAUNCHER" },
+          { name: "베이스타디움 스탠다드타입", quantity: "1개", target: "TOOLS-BURST-STANDARD-BEYSTADIUM" }
+        ]
       },
       jp: {
         no: "B-107",
@@ -4817,7 +4925,12 @@ const productItems = [
         kind: "세트",
         releaseDate: "2018-03-17",
         price: "4536",
-        composition: []
+        composition: [
+          { name: "위닝 발키리.12.Vl", quantity: "1개", target: "BEY-BURST-B-107-WINNING-VALKYRIE-12-VL" },
+          { name: "제트 아킬레스.11.Xt", quantity: "1개", target: "BEY-BURST-B-107-Z-ACHILLES-11-XT" },
+          { name: "라이트런처", quantity: "2개", target: "TOOLS-BURST-LIGHT-LAUNCHER" },
+          { name: "베이스타디움 스탠다드타입", quantity: "1개", target: "TOOLS-BURST-STANDARD-BEYSTADIUM" }
+        ]
       }
     }
   },
@@ -4831,7 +4944,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2018-05-23",
         price: "6600",
-        composition: []
+        composition: [
+          { name: "베이런처", quantity: "1개", target: "TOOLS-BURST-BEYLAUNCHER" }
+        ]
       },
       jp: {
         no: "B-108",
@@ -4839,7 +4954,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2018-03-17",
         price: "756",
-        composition: []
+        composition: [
+          { name: "베이런처", quantity: "1개", target: "TOOLS-BURST-BEYLAUNCHER" }
+        ]
       }
     }
   },
@@ -4853,7 +4970,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2018-05-23",
         price: "6600",
-        composition: []
+        composition: [
+          { name: "런처그립", quantity: "1개", target: "TOOLS-BURST-LAUNCHER-GRIP" }
+        ]
       },
       jp: {
         no: "B-109",
@@ -4861,7 +4980,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2018-03-17",
         price: "648",
-        composition: []
+        composition: [
+          { name: "런처그립", quantity: "1개", target: "TOOLS-BURST-LAUNCHER-GRIP" }
+        ]
       }
     }
   },
@@ -4875,7 +4996,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2018-07-03",
         price: "18000",
-        composition: []
+        composition: [
+          { name: "블러디 롱기누스.13.Jl", quantity: "1개", target: "BEY-BURST-B-110-BLOODY-LONGINUS-13-JL" },
+          { name: "엔트리런처L", quantity: "1개", target: "TOOLS-BURST-ENTRY-LAUNCHER-L" }
+        ]
       },
       jp: {
         no: "B-110",
@@ -4883,7 +5007,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2018-04-28",
         price: "1512",
-        composition: []
+        composition: [
+          { name: "블러디 롱기누스.13.Jl", quantity: "1개", target: "BEY-BURST-B-110-BLOODY-LONGINUS-13-JL" },
+          { name: "엔트리런처L", quantity: "1개", target: "TOOLS-BURST-ENTRY-LAUNCHER-L" }
+        ]
       }
     }
   },
@@ -4919,7 +5046,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2018-07-03",
         price: "6600",
-        composition: []
+        composition: [
+          { name: "롱라이트런처LR", quantity: "1개", target: "TOOLS-BURST-LONG-LIGHT-LAUNCHER-LR" }
+        ]
       },
       jp: {
         no: "B-112",
@@ -4927,7 +5056,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2018-04-28",
         price: "756",
-        composition: []
+        composition: [
+          { name: "롱라이트런처LR", quantity: "1개", target: "TOOLS-BURST-LONG-LIGHT-LAUNCHER-LR" }
+        ]
       }
     }
   },
@@ -4941,7 +5072,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2018-08-01",
         price: "12300",
-        composition: []
+        composition: [
+          { name: "헬 살라맨더.12.Op", quantity: "1개", target: "BEY-BURST-B-113-HELL-SALAMANDER-12-OP" }
+        ]
       },
       jp: {
         no: "B-113",
@@ -4949,7 +5082,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2018-05-26",
         price: "993",
-        composition: []
+        composition: [
+          { name: "헬 샐러맨더.12.Op", quantity: "1개", target: "BEY-BURST-B-113-HELL-SALAMANDER-12-OP" }
+        ]
       }
     }
   },
@@ -4963,7 +5098,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2018-08-01",
         price: "8200",
-        composition: []
+        composition: [
+          { name: "그립웨이트", quantity: "1개", target: "TOOLS-BURST-GRIP-WEIGHT" }
+        ]
       },
       jp: {
         no: "B-114",
@@ -4971,7 +5108,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2018-05-26",
         price: "648",
-        composition: []
+        composition: [
+          { name: "그립웨이트", quantity: "1개", target: "TOOLS-BURST-GRIP-WEIGHT" }
+        ]
       }
     }
   },
@@ -4985,7 +5124,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2018-08-09",
         price: "12300",
-        composition: []
+        composition: [
+          { name: "아처 헤라클레스.13.Et", quantity: "1개", target: "BEY-BURST-B-115-ARCHER-HERCULES-13-ET" }
+        ]
       },
       jp: {
         no: "B-115",
@@ -4993,7 +5134,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2018-06-23",
         price: "993",
-        composition: []
+        composition: [
+          { name: "아처 헤라클레스.13.Et", quantity: "1개", target: "BEY-BURST-B-115-ARCHER-HERCULES-13-ET" }
+        ]
       }
     }
   },
@@ -5007,7 +5150,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2018-08-09",
         price: "6600",
-        composition: []
+        composition: [
+          { name: "그립러버", quantity: "1개", target: "TOOLS-BURST-GRIP-RUBBER" }
+        ]
       },
       jp: {
         no: "B-116",
@@ -5015,7 +5160,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2018-06-23",
         price: "540",
-        composition: []
+        composition: [
+          { name: "그립러버", quantity: "1개", target: "TOOLS-BURST-GRIP-RUBBER" }
+        ]
       }
     }
   },
@@ -5029,7 +5176,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2018-09-05",
         price: "21300",
-        composition: []
+        composition: [
+          { name: "리바이브 피닉스.10.Fr", quantity: "1개", target: "BEY-BURST-B-117-REVIVE-PHOENIX-10-FR" },
+          { name: "라이트런처", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER" }
+        ]
       },
       jp: {
         no: "B-117",
@@ -5037,7 +5187,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2018-07-07",
         price: "1782",
-        composition: []
+        composition: [
+          { name: "리바이브 피닉스.10.Fr", quantity: "1개", target: "BEY-BURST-B-117-REVIVE-PHOENIX-10-FR" },
+          { name: "라이트런처", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER" }
+        ]
       }
     }
   },
@@ -5076,7 +5229,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2018-07-14",
         price: "864",
-        composition: []
+        composition: [
+          { name: "베이런처LR", quantity: "1개", target: "TOOLS-BURST-BEYLAUNCHER-LR" }
+        ]
       }
     }
   },
@@ -5090,7 +5245,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2018-10-05",
         price: "18000",
-        composition: []
+        composition: [
+          { name: "버스터 엑스칼리버.1'.Sw", quantity: "1개", target: "BEY-BURST-B-120-BUSTER-XCALIBUR-1DASH-SW" },
+          { name: "엔트리런처", quantity: "1개", target: "TOOLS-BURST-ENTRY-LAUNCHER" }
+        ]
       },
       jp: {
         no: "B-120",
@@ -5098,7 +5256,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2018-08-11",
         price: "1512",
-        composition: []
+        composition: [
+          { name: "버스터 엑스칼리버.1'.Sw", quantity: "1개", target: "BEY-BURST-B-120-BUSTER-XCALIBUR-1DASH-SW" },
+          { name: "엔트리런처", quantity: "1개", target: "TOOLS-BURST-ENTRY-LAUNCHER" }
+        ]
       }
     }
   },
@@ -5112,7 +5273,11 @@ const productItems = [
         kind: "세트",
         releaseDate: "2018-11-07",
         price: "34400",
-        composition: []
+        composition: [
+          { name: "해저드 케르베우스.7.At", quantity: "1개", target: "BEY-BURST-B-121-HAZARD-KERBEUS-7-AT" },
+          { name: "제트 아킬레스.3D.Ds", quantity: "1개", target: "BEY-BURST-B-121-Z-ACHILLES-3D-DS" },
+          { name: "하운드 도그.8.Br", quantity: "1개", target: "BEY-BURST-B-121-WOLBORG-8-BR" }
+        ]
       },
       jp: {
         no: "B-121",
@@ -5120,7 +5285,11 @@ const productItems = [
         kind: "세트",
         releaseDate: "2018-08-11",
         price: "2808",
-        composition: []
+        composition: [
+          { name: "해저드 케르베우스.7.At", quantity: "1개", target: "BEY-BURST-B-121-HAZARD-KERBEUS-7-AT" },
+          { name: "제트 아킬레스.3D.Ds", quantity: "1개", target: "BEY-BURST-B-121-Z-ACHILLES-3D-DS" },
+          { name: "울버그.8.Br", quantity: "1개", target: "BEY-BURST-B-121-WOLBORG-8-BR" }
+        ]
       }
     }
   },
@@ -5134,7 +5303,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2018-11-07",
         price: "19700",
-        composition: []
+        composition: [
+          { name: "가이스트 파브닐.8'.Ab", quantity: "1개", target: "BEY-BURST-B-122-GEIST-FAFNIR-8DASH-AB" },
+          { name: "엔트리런처L", quantity: "1개", target: "TOOLS-BURST-ENTRY-LAUNCHER-L" }
+        ]
       },
       jp: {
         no: "B-122",
@@ -5142,7 +5314,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2018-09-22",
         price: "1566",
-        composition: []
+        composition: [
+          { name: "가이스트 파브닐.8'.Ab", quantity: "1개", target: "BEY-BURST-B-122-GEIST-FAFNIR-8DASH-AB" },
+          { name: "엔트리런처L", quantity: "1개", target: "TOOLS-BURST-ENTRY-LAUNCHER-L" }
+        ]
       }
     }
   },
@@ -5159,7 +5334,13 @@ const productItems = [
         kind: "세트",
         releaseDate: "2018-09-22",
         price: "2160",
-        composition: []
+        composition: [
+          { name: "롱베이런처", quantity: "1개", target: "TOOLS-BURST-LONG-BEYLAUNCHER" },
+          { name: "파워런처그립", quantity: "1개", target: "TOOLS-BURST-POWER-LAUNCHER-GRIP" },
+          { name: "파워트리거", quantity: "1개", target: "TOOLS-BURST-POWER-TRIGGER" },
+          { name: "익스텐드 칩", quantity: "1개", target: "TOOLS-BURST-XTEND-CHIP" },
+          { name: "칩 툴", quantity: "1개", target: "TOOLS-BURST-CHIP-TOOL" }
+        ]
       }
     }
   },
@@ -5176,7 +5357,12 @@ const productItems = [
         kind: "세트",
         releaseDate: "2018-09-22",
         price: "2160",
-        composition: []
+        composition: [
+          { name: "롱베이런처L", quantity: "1개", target: "TOOLS-BURST-LONG-BEYLAUNCHER-L" },
+          { name: "카라비나그립", quantity: "1개", target: "TOOLS-BURST-CARABINER-GRIP" },
+          { name: "웨이트댐퍼", quantity: "1개", target: "TOOLS-BURST-WEIGHT-DAMPER" },
+          { name: "프루프 프레임", quantity: "1개", target: "FRAME-PROOF" }
+        ]
       }
     }
   },
@@ -5212,7 +5398,11 @@ const productItems = [
         kind: "세트",
         releaseDate: "2018-12-05",
         price: "77100",
-        composition: []
+        composition: [
+          { name: "레프트 아폴로스.∞", quantity: "1개", target: "BEY-BURST-B-126-LEFT-APOLLOS-MUGEN" },
+          { name: "라이트 아르테미스.∞", quantity: "1개", target: "BEY-BURST-B-126-RIGHT-ARTEMIS-MUGEN" },
+          { name: "무적 베이스타디움", quantity: "1개", target: "TOOLS-BURST-MUSOU-BEYSTADIUM" }
+        ]
       },
       jp: {
         no: "B-126",
@@ -5220,7 +5410,11 @@ const productItems = [
         kind: "툴",
         releaseDate: "2018-10-20",
         price: "8100",
-        composition: []
+        composition: [
+          { name: "레프트 아폴로스.∞", quantity: "1개", target: "BEY-BURST-B-126-LEFT-APOLLOS-MUGEN" },
+          { name: "라이트 아르테미스.∞", quantity: "1개", target: "BEY-BURST-B-126-RIGHT-ARTEMIS-MUGEN" },
+          { name: "무쌍 베이스타디움", quantity: "1개", target: "TOOLS-BURST-MUSOU-BEYSTADIUM" }
+        ]
       }
     }
   },
@@ -5234,7 +5428,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2018-01-03",
         price: "18000",
-        composition: []
+        composition: [
+          { name: "초Z 발키리.Z.Ev", quantity: "1개", target: "BEY-BURST-B-127-CHO-Z-VALKYRIE-Z-EV" },
+          { name: "엔트리런처", quantity: "1개", target: "TOOLS-BURST-ENTRY-LAUNCHER" }
+        ]
       },
       jp: {
         no: "B-127",
@@ -5242,7 +5439,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2018-11-17",
         price: "1782",
-        composition: []
+        composition: [
+          { name: "초Z 발키리.Z.Ev", quantity: "1개", target: "BEY-BURST-B-127-CHO-Z-VALKYRIE-Z-EV" },
+          { name: "엔트리런처", quantity: "1개", target: "TOOLS-BURST-ENTRY-LAUNCHER" }
+        ]
       }
     }
   },
@@ -5256,7 +5456,13 @@ const productItems = [
         kind: "세트",
         releaseDate: "2018-01-03",
         price: "49200",
-        composition: []
+        composition: [
+          { name: "초Z 스프리건.0W.Zt'", quantity: "1개", target: "BEY-BURST-B-128-CHO-Z-SPRIGGAN-0W-ZT-DASH" },
+          { name: "얼브 이지스.Ω.Qs", quantity: "1개", target: "BEY-BURST-B-128-ORB-EGIS-OUTER-QS" },
+          { name: "크래시 라그나로크.5C.Vl'", quantity: "1개", target: "BEY-BURST-B-128-CRASH-RAGNARUK-5C-VL-DASH" },
+          { name: "블러디 롱기누스.1D.Cy", quantity: "1개", target: "BEY-BURST-B-128-BLOODY-LONGINUS-1D-CY" },
+          { name: "회전방향 전환 툴", quantity: "1개", target: "TOOLS-BURST-SPIN-DIRECTION-CHANGE-TOOL" }
+        ]
       },
       jp: {
         no: "B-128",
@@ -5264,7 +5470,13 @@ const productItems = [
         kind: "세트",
         releaseDate: "2018-11-17",
         price: "5184",
-        composition: []
+        composition: [
+          { name: "초Z 스프리건.0W.Zt'", quantity: "1개", target: "BEY-BURST-B-128-CHO-Z-SPRIGGAN-0W-ZT-DASH" },
+          { name: "얼브 이지스.Ω.Qs", quantity: "1개", target: "BEY-BURST-B-128-ORB-EGIS-OUTER-QS" },
+          { name: "크래시 라그나로크.5C.Vl'", quantity: "1개", target: "BEY-BURST-B-128-CRASH-RAGNARUK-5C-VL-DASH" },
+          { name: "블러디 롱기누스.1D.Cy", quantity: "1개", target: "BEY-BURST-B-128-BLOODY-LONGINUS-1D-CY" },
+          { name: "회전방향 전환 툴", quantity: "1개", target: "TOOLS-BURST-SPIN-DIRECTION-CHANGE-TOOL" }
+        ]
       }
     }
   },
@@ -5278,7 +5490,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2018-02-08",
         price: "22100",
-        composition: []
+        composition: [
+          { name: "초Z 아킬레스.00.Dm", quantity: "1개", target: "BEY-BURST-B-129-CHO-Z-ACHILLES-00-DM" },
+          { name: "롱베이런처LR", quantity: "1개", target: "TOOLS-BURST-LONG-BEYLAUNCHER-LR" }
+        ]
       },
       jp: {
         no: "B-129",
@@ -5286,7 +5501,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2018-12-27",
         price: "2160",
-        composition: []
+        composition: [
+          { name: "초Z 아킬레스.00.Dm", quantity: "1개", target: "BEY-BURST-B-129-CHO-Z-ACHILLES-00-DM" },
+          { name: "롱베이런처LR", quantity: "1개", target: "TOOLS-BURST-LONG-BEYLAUNCHER-LR" }
+        ]
       }
     }
   },
@@ -5322,7 +5540,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2018-03-05",
         price: "12300",
-        composition: []
+        composition: [
+          { name: "데드 피닉스.0.At", quantity: "1개", target: "BEY-BURST-B-131-DEAD-PHOENIX-0-AT" }
+        ]
       },
       jp: {
         no: "B-131",
@@ -5330,7 +5550,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2019-01-26",
         price: "1080",
-        composition: []
+        composition: [
+          { name: "데드 피닉스.0.At", quantity: "1개", target: "BEY-BURST-B-131-DEAD-PHOENIX-0-AT" }
+        ]
       }
     }
   },
@@ -5366,7 +5588,12 @@ const productItems = [
         kind: "DX스타터",
         releaseDate: "2019-04-17",
         price: "27100",
-        composition: []
+        composition: [
+          { name: "에이스 드래곤.St.Ch 참", quantity: "1개", target: "BEY-BURST-B-133-ACE-DRAGON-ST-CH-ZAN" },
+          { name: "그랜드 베이스", quantity: "1개", target: "GACHIBASE-GRAND" },
+          { name: "록 베이스", quantity: "1개", target: "GACHIBASE-ROCK" },
+          { name: "라이트런처", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER" }
+        ]
       },
       jp: {
         no: "B-133",
@@ -5374,7 +5601,12 @@ const productItems = [
         kind: "DX스타터",
         releaseDate: "2019-03-16",
         price: "2700",
-        composition: []
+        composition: [
+          { name: "에이스 드래곤.St.Ch 斬", quantity: "1개", target: "BEY-BURST-B-133-ACE-DRAGON-ST-CH-ZAN" },
+          { name: "그랜드 베이스", quantity: "1개", target: "GACHIBASE-GRAND" },
+          { name: "록 베이스", quantity: "1개", target: "GACHIBASE-ROCK" },
+          { name: "라이트런처", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER" }
+        ]
       }
     }
   },
@@ -5388,7 +5620,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2019-04-17",
         price: "13900",
-        composition: []
+        composition: [
+          { name: "슬래시 발키리.Bl.Pw 열", quantity: "1개", target: "BEY-BURST-B-134-SLASH-VALKYRIE-BL-PW-RETSU" }
+        ]
       },
       jp: {
         no: "B-134",
@@ -5396,7 +5630,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2019-03-16",
         price: "1296",
-        composition: []
+        composition: [
+          { name: "슬래시 발키리.Bl.Pw 烈", quantity: "1개", target: "BEY-BURST-B-134-SLASH-VALKYRIE-BL-PW-RETSU" }
+        ]
       }
     }
   },
@@ -5410,7 +5646,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2019-04-17",
         price: "13900",
-        composition: []
+        composition: [
+          { name: "무신 아수라.Hr.Kp 천", quantity: "1개", target: "BEY-BURST-B-135-BUSHIN-ASHURA-HR-KP-TEN" }
+        ]
       },
       jp: {
         no: "B-135",
@@ -5418,7 +5656,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2019-03-16",
         price: "1296",
-        composition: []
+        composition: [
+          { name: "무신 아수라.Hr.Kp 天", quantity: "1개", target: "BEY-BURST-B-135-BUSHIN-ASHURA-HR-KP-TEN" }
+        ]
       }
     }
   },
@@ -5432,15 +5672,29 @@ const productItems = [
         kind: "세트",
         releaseDate: "2019-04-17",
         price: "53300",
-        composition: []
+        composition: [
+          { name: "에이스 드래곤.St.Ch 참", quantity: "1개", target: "BEY-BURST-B-136-ACE-DRAGON-ST-CH-ZAN" },
+          { name: "슬래시 발키리.Bl.Pw 열", quantity: "1개", target: "BEY-BURST-B-136-SLASH-VALKYRIE-BL-PW-RETSU" },
+          { name: "그랜드 베이스", quantity: "1개", target: "GACHIBASE-GRAND" },
+          { name: "록 베이스", quantity: "1개", target: "GACHIBASE-ROCK" },
+          { name: "라이트런처", quantity: "2개", target: "TOOLS-BURST-LIGHT-LAUNCHER" },
+          { name: "베이스타디움 스탠다드타입", quantity: "1개", target: "TOOLS-BURST-STANDARD-BEYSTADIUM" }
+        ]
       },
       jp: {
         no: "B-136",
-        name: "베이블레이드 진검 대전 세트",
+        name: "베이블레이드 GT 대전 세트",
         kind: "세트",
         releaseDate: "2019-03-16",
         price: "4968",
-        composition: []
+        composition: [
+          { name: "에이스 드래곤.St.Ch 斬", quantity: "1개", target: "BEY-BURST-B-136-ACE-DRAGON-ST-CH-ZAN" },
+          { name: "슬래시 발키리.Bl.Pw 烈", quantity: "1개", target: "BEY-BURST-B-136-SLASH-VALKYRIE-BL-PW-RETSU" },
+          { name: "그랜드 베이스", quantity: "1개", target: "GACHIBASE-GRAND" },
+          { name: "록 베이스", quantity: "1개", target: "GACHIBASE-ROCK" },
+          { name: "라이트런처", quantity: "2개", target: "TOOLS-BURST-LIGHT-LAUNCHER" },
+          { name: "베이스타디움 스탠다드타입", quantity: "1개", target: "TOOLS-BURST-STANDARD-BEYSTADIUM" }
+        ]
       }
     }
   },
@@ -5457,7 +5711,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2019-03-16",
         price: "810",
-        composition: []
+        composition: [
+          { name: "롱베이런처", quantity: "1개", target: "TOOLS-BURST-LONG-BEYLAUNCHER" }
+        ]
       }
     }
   },
@@ -5474,7 +5730,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2019-03-16",
         price: "648",
-        composition: []
+        composition: [
+          { name: "롱라이트런처", quantity: "1개", target: "TOOLS-BURST-LONG-LIGHT-LAUNCHER" }
+        ]
       }
     }
   },
@@ -5488,7 +5746,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2019-06-15",
         price: "21300",
-        composition: []
+        composition: [
+          { name: "위저드 파브닐.Rt.Rs 섬", quantity: "1개", target: "BEY-BURST-B-139-WIZARD-FAFNIR-RT-RS-SEN" },
+          { name: "라이트런처L", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER-L" }
+        ]
       },
       jp: {
         no: "B-139",
@@ -5496,7 +5757,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2019-04-27",
         price: "1728",
-        composition: []
+        composition: [
+          { name: "위저드 파브닐.Rt.Rs 閃", quantity: "1개", target: "BEY-BURST-B-139-WIZARD-FAFNIR-RT-RS-SEN" },
+          { name: "라이트런처L", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER-L" }
+        ]
       }
     }
   },
@@ -5535,7 +5799,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2019-04-27",
         price: "810",
-        composition: []
+        composition: [
+          { name: "롱베이런처L", quantity: "1개", target: "TOOLS-BURST-LONG-BEYLAUNCHER-L" }
+        ]
       }
     }
   },
@@ -5549,7 +5815,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2019-07-26",
         price: "13900",
-        composition: []
+        composition: [
+          { name: "저지먼트 조커.00T.Tr 참", quantity: "1개", target: "BEY-BURST-B-142-JUDGMENT-JOKER-00T-TR-ZAN" }
+        ]
       },
       jp: {
         no: "B-142",
@@ -5557,7 +5825,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2019-05-25",
         price: "1296",
-        composition: []
+        composition: [
+          { name: "저지먼트 조커.00T.Tr 斬", quantity: "1개", target: "BEY-BURST-B-142-JUDGMENT-JOKER-00T-TR-ZAN" }
+        ]
       }
     }
   },
@@ -5593,7 +5863,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2019-08-22",
         price: "13900",
-        composition: []
+        composition: [
+          { name: "츠바이 롱기누스.Dr.Sp' 멸", quantity: "1개", target: "BEY-BURST-B-144-ZWEI-LONGINUS-DR-SP-DASH-METSU" }
+        ]
       },
       jp: {
         no: "B-144",
@@ -5601,7 +5873,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2019-06-22",
         price: "1296",
-        composition: []
+        composition: [
+          { name: "츠바이 롱기누스.Dr.Sp' 滅", quantity: "1개", target: "BEY-BURST-B-144-ZWEI-LONGINUS-DR-SP-DASH-METSU" }
+        ]
       }
     }
   },
@@ -5615,7 +5889,11 @@ const productItems = [
         kind: "DX스타터",
         releaseDate: "2019-08-22",
         price: "27100",
-        composition: []
+        composition: [
+          { name: "베놈 디아볼로스.Vn.Bl", quantity: "1개", target: "BEY-BURST-B-145-VENOM-DIABOLOS-VN-BL" },
+          { name: "이레이즈 베이스", quantity: "1개", target: "GACHIBASE-ERASE" },
+          { name: "라이트런처", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER" }
+        ]
       },
       jp: {
         no: "B-145",
@@ -5623,7 +5901,11 @@ const productItems = [
         kind: "DX스타터",
         releaseDate: "2019-07-06",
         price: "2700",
-        composition: []
+        composition: [
+          { name: "베놈 디아볼로스.Vn.Bl", quantity: "1개", target: "BEY-BURST-B-145-VENOM-DIABOLOS-VN-BL" },
+          { name: "이레이즈 베이스", quantity: "1개", target: "GACHIBASE-ERASE" },
+          { name: "라이트런처", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER" }
+        ]
       }
     }
   },
@@ -5681,7 +5963,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2019-10-17",
         price: "13900",
-        composition: []
+        composition: [
+          { name: "헤븐 페가수스.10P.Lw 섬", quantity: "1개", target: "BEY-BURST-B-148-HEAVEN-PEGASUS-10P-LW-SEN" }
+        ]
       },
       jp: {
         no: "B-148",
@@ -5689,7 +5973,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2019-08-10",
         price: "1296",
-        composition: []
+        composition: [
+          { name: "헤븐 페가수스.10P.Lw 閃", quantity: "1개", target: "BEY-BURST-B-148-HEAVEN-PEGASUS-10P-LW-SEN" }
+        ]
       }
     }
   },
@@ -5703,15 +5989,23 @@ const productItems = [
         kind: "세트",
         releaseDate: "2019-10-17",
         price: "34900",
-        composition: []
+        composition: [
+          { name: "로드 스프리건.Bl.Dm'", quantity: "1개", target: "BEY-BURST-B-149-LORD-SPRIGGAN-BL-DM-DASH" },
+          { name: "드레드 바하무트.7W.Om 환", quantity: "1개", target: "BEY-BURST-B-149-DREAD-BAHAMUT-7W-OM-GEN" },
+          { name: "슬래시 드래곤.00.Ω 멸", quantity: "1개", target: "BEY-BURST-B-149-SLASH-DRAGON-00-OCTA-METSU" }
+        ]
       },
       jp: {
         no: "B-149",
-        name: "진검 트리플 부스터 세트",
+        name: "GT 트리플 부스터 세트",
         kind: "세트",
         releaseDate: "2019-08-10",
         price: "3456",
-        composition: []
+        composition: [
+          { name: "로드 스프리건.Bl.Dm'", quantity: "1개", target: "BEY-BURST-B-149-LORD-SPRIGGAN-BL-DM-DASH" },
+          { name: "드레드 바하무트.7W.Om 幻", quantity: "1개", target: "BEY-BURST-B-149-DREAD-BAHAMUT-7W-OM-GEN" },
+          { name: "슬래시 드래곤.00.Ω 滅", quantity: "1개", target: "BEY-BURST-B-149-SLASH-DRAGON-00-OCTA-METSU" }
+        ]
       }
     }
   },
@@ -5725,7 +6019,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2019-11-11",
         price: "13900",
-        composition: []
+        composition: [
+          { name: "유니온 아킬레스.Cn.Xt+ 열", quantity: "1개", target: "BEY-BURST-B-150-UNION-ACHILLES-CN-XT-PLUS-RETSU" }
+        ]
       },
       jp: {
         no: "B-150",
@@ -5733,7 +6029,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2019-09-21",
         price: "1296",
-        composition: []
+        composition: [
+          { name: "유니온 아킬레스.Cn.Xt+ 烈", quantity: "1개", target: "BEY-BURST-B-150-UNION-ACHILLES-CN-XT-PLUS-RETSU" }
+        ]
       }
     }
   },
@@ -5791,15 +6089,25 @@ const productItems = [
         kind: "세트",
         releaseDate: "2019-11-11",
         price: "54100",
-        composition: []
+        composition: [
+          { name: "리겔리아 제네시스.Hy", quantity: "1개", target: "BEY-BURST-B-153-REGALIA-GENESIS-HY" },
+          { name: "프라임 아포칼립스.0D.Ul'", quantity: "1개", target: "BEY-BURST-B-153-PRIME-APOCALYPSE-0D-UL-DASH" },
+          { name: "이레이즈 파브닐.St.Tr 천", quantity: "1개", target: "BEY-BURST-B-153-ERASE-FAFNIR-ST-TR-TEN" },
+          { name: "코스모 드래곤.Vn.R 열", quantity: "1개", target: "BEY-BURST-B-153-COSMO-DRAGON-VN-R-RETSU" }
+        ]
       },
       jp: {
         no: "B-153",
-        name: "진검 개조 세트",
+        name: "GT 개조 세트",
         kind: "세트",
         releaseDate: "2019-10-19",
         price: "6458",
-        composition: []
+        composition: [
+          { name: "리겔리아 제네시스.Hy", quantity: "1개", target: "BEY-BURST-B-153-REGALIA-GENESIS-HY" },
+          { name: "프라임 아포칼립스.0D.Ul'", quantity: "1개", target: "BEY-BURST-B-153-PRIME-APOCALYPSE-0D-UL-DASH" },
+          { name: "이레이즈 파브닐.St.Tr 天", quantity: "1개", target: "BEY-BURST-B-153-ERASE-FAFNIR-ST-TR-TEN" },
+          { name: "코스모 드래곤.Vn.R 烈", quantity: "1개", target: "BEY-BURST-B-153-COSMO-DRAGON-VN-R-RETSU" }
+        ]
       }
     }
   },
@@ -5813,7 +6121,9 @@ const productItems = [
         kind: "DX부스터",
         releaseDate: "2020-01-15",
         price: "27100",
-        composition: []
+        composition: [
+          { name: "임페리얼 드래곤.Ig'", quantity: "1개", target: "BEY-BURST-B-154-IMPERIAL-DRAGON-IG-DASH" }
+        ]
       },
       jp: {
         no: "B-154",
@@ -5821,7 +6131,9 @@ const productItems = [
         kind: "DX부스터",
         releaseDate: "2019-11-16",
         price: "3080",
-        composition: []
+        composition: [
+          { name: "임페리얼 드래곤.Ig'", quantity: "1개", target: "BEY-BURST-B-154-IMPERIAL-DRAGON-IG-DASH" }
+        ]
       }
     }
   },
@@ -5835,7 +6147,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2020-01-15",
         price: "21300",
-        composition: []
+        composition: [
+          { name: "마스터 디아볼로스.Gn", quantity: "1개", target: "BEY-BURST-B-155-MASTER-DIABOLOS-GN" },
+          { name: "베이런처LR", quantity: "1개", target: "TOOLS-BURST-BEYLAUNCHER-LR" }
+        ]
       },
       jp: {
         no: "B-155",
@@ -5843,7 +6158,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2019-12-26",
         price: "2200",
-        composition: []
+        composition: [
+          { name: "마스터 디아볼로스.Gn", quantity: "1개", target: "BEY-BURST-B-155-MASTER-DIABOLOS-GN" },
+          { name: "베이런처LR", quantity: "1개", target: "TOOLS-BURST-BEYLAUNCHER-LR" }
+        ]
       }
     }
   },
@@ -5874,7 +6192,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2020-03-14",
         price: "13900",
-        composition: []
+        composition: [
+          { name: "빅뱅 제네시스.0.Ym", quantity: "1개", target: "BEY-BURST-B-157-BIGBANG-GENESIS-0-YM" }
+        ]
       },
       jp: {
         no: "B-157",
@@ -5882,7 +6202,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2020-01-25",
         price: "1320",
-        composition: []
+        composition: [
+          { name: "빅뱅 제네시스.0.Ym", quantity: "1개", target: "BEY-BURST-B-157-BIGBANG-GENESIS-0-YM" }
+        ]
       }
     }
   },
@@ -5913,7 +6235,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2020-04-10",
         price: "13900",
-        composition: []
+        composition: [
+          { name: "슈퍼 하이페리온.Xc 1A", quantity: "1개", target: "BEY-BURST-B-159-SUPER-HYPERION-XC-1A" }
+        ]
       },
       jp: {
         no: "B-159",
@@ -5921,7 +6245,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2020-03-28",
         price: "1397",
-        composition: []
+        composition: [
+          { name: "슈퍼 하이페리온.Xc 1A", quantity: "1개", target: "BEY-BURST-B-159-SUPER-HYPERION-XC-1A" }
+        ]
       }
     }
   },
@@ -5935,7 +6261,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2020-04-10",
         price: "13900",
-        composition: []
+        composition: [
+          { name: "킹 헬리오스.Zn 1B", quantity: "1개", target: "BEY-BURST-B-160-KING-HELIOS-ZN-1B" }
+        ]
       },
       jp: {
         no: "B-160",
@@ -5943,7 +6271,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2020-03-28",
         price: "1397",
-        composition: []
+        composition: [
+          { name: "킹 헬리오스.Zn 1B", quantity: "1개", target: "BEY-BURST-B-160-KING-HELIOS-ZN-1B" }
+        ]
       }
     }
   },
@@ -5957,7 +6287,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2020-04-10",
         price: "13900",
-        composition: []
+        composition: [
+          { name: "글라이드 라그나로크.Wh.R 1S", quantity: "1개", target: "BEY-BURST-B-161-GLIDE-RAGNARUK-WH-R-1S" }
+        ]
       },
       jp: {
         no: "B-161",
@@ -5965,7 +6297,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2020-03-28",
         price: "1397",
-        composition: []
+        composition: [
+          { name: "글라이드 라그나로크.Wh.R 1S", quantity: "1개", target: "BEY-BURST-B-161-GLIDE-RAGNARUK-WH-R-1S" }
+        ]
       }
     }
   },
@@ -5979,7 +6313,12 @@ const productItems = [
         kind: "세트",
         releaseDate: "2020-04-10",
         price: "52900",
-        composition: []
+        composition: [
+          { name: "슈퍼 하이페리온.Xc 1A", quantity: "1개", target: "BEY-BURST-B-162-SUPER-HYPERION-XC-1A" },
+          { name: "킹 헬리오스.Zn 1B", quantity: "1개", target: "BEY-BURST-B-162-KING-HELIOS-ZN-1B" },
+          { name: "라이트런처", quantity: "2개", target: "TOOLS-BURST-LIGHT-LAUNCHER" },
+          { name: "베이스타디움 스탠다드타입", quantity: "1개", target: "TOOLS-BURST-STANDARD-BEYSTADIUM" }
+        ]
       },
       jp: {
         no: "B-162",
@@ -5987,7 +6326,12 @@ const productItems = [
         kind: "세트",
         releaseDate: "2020-03-28",
         price: "5170",
-        composition: []
+        composition: [
+          { name: "슈퍼 하이페리온.Xc 1A", quantity: "1개", target: "BEY-BURST-B-162-SUPER-HYPERION-XC-1A" },
+          { name: "킹 헬리오스.Zn 1B", quantity: "1개", target: "BEY-BURST-B-162-KING-HELIOS-ZN-1B" },
+          { name: "라이트런처", quantity: "2개", target: "TOOLS-BURST-LIGHT-LAUNCHER" },
+          { name: "베이스타디움 스탠다드타입", quantity: "1개", target: "TOOLS-BURST-STANDARD-BEYSTADIUM" }
+        ]
       }
     }
   },
@@ -6001,7 +6345,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2020-06-10",
         price: "13900",
-        composition: []
+        composition: [
+          { name: "브레이브 발키리.Ev' 2A", quantity: "1개", target: "BEY-BURST-B-163-BRAVE-VALKYRIE-EV-DASH-2A" }
+        ]
       },
       jp: {
         no: "B-163",
@@ -6009,7 +6355,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2020-04-25",
         price: "1397",
-        composition: []
+        composition: [
+          { name: "브레이브 발키리.Ev' 2A", quantity: "1개", target: "BEY-BURST-B-163-BRAVE-VALKYRIE-EV-DASH-2A" }
+        ]
       }
     }
   },
@@ -6036,19 +6384,23 @@ const productItems = [
     releases: {
       kr: {
         no: "B-165",
-        name: "슈퍼킹 베이런처",
+        name: "슈퍼킹베이런처",
         kind: "툴",
         releaseDate: "2020-07-16",
         price: "9900",
-        composition: []
+        composition: [
+          { name: "슈퍼킹베이런처", quantity: "1개", target: "TOOLS-BURST-SUPERKING-BEYLAUNCHER" }
+        ]
       },
       jp: {
         no: "B-165",
-        name: "슈퍼킹 베이런처",
+        name: "슈퍼킹베이런처",
         kind: "툴",
         releaseDate: "2020-03-28",
         price: "990",
-        composition: []
+        composition: [
+          { name: "슈퍼킹베이런처", quantity: "1개", target: "TOOLS-BURST-SUPERKING-BEYLAUNCHER" }
+        ]
       }
     }
   },
@@ -6058,19 +6410,23 @@ const productItems = [
     releases: {
       kr: {
         no: "B-166",
-        name: "슈퍼킹 베이런처L",
+        name: "슈퍼킹베이런처L",
         kind: "툴",
         releaseDate: "2020-07-16",
         price: "9900",
-        composition: []
+        composition: [
+          { name: "슈퍼킹베이런처L", quantity: "1개", target: "TOOLS-BURST-SUPERKING-BEYLAUNCHER-L" }
+        ]
       },
       jp: {
         no: "B-166",
-        name: "슈퍼킹 베이런처L",
+        name: "슈퍼킹베이런처L",
         kind: "툴",
         releaseDate: "2020-04-25",
         price: "990",
-        composition: []
+        composition: [
+          { name: "슈퍼킹베이런처L", quantity: "1개", target: "TOOLS-BURST-SUPERKING-BEYLAUNCHER-L" }
+        ]
       }
     }
   },
@@ -6084,7 +6440,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2020-07-16",
         price: "14900",
-        composition: []
+        composition: [
+          { name: "미라지 파브닐.Nt 2S", quantity: "1개", target: "BEY-BURST-B-167-MIRAGE-FAFNIR-NT-2S" }
+        ]
       },
       jp: {
         no: "B-167",
@@ -6092,7 +6450,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2020-05-30",
         price: "1397",
-        composition: []
+        composition: [
+          { name: "미라지 파브닐.Nt 2S", quantity: "1개", target: "BEY-BURST-B-167-MIRAGE-FAFNIR-NT-2S" }
+        ]
       }
     }
   },
@@ -6106,7 +6466,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2020-08-20",
         price: "14900",
-        composition: []
+        composition: [
+          { name: "레이지 롱기누스.Ds' 3A", quantity: "1개", target: "BEY-BURST-B-168-RAGE-LONGINUS-DS-DASH-3A" }
+        ]
       },
       jp: {
         no: "B-168",
@@ -6114,7 +6476,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2020-06-27",
         price: "1397",
-        composition: []
+        composition: [
+          { name: "레이지 롱기누스.Ds' 3A", quantity: "1개", target: "BEY-BURST-B-168-RAGE-LONGINUS-DS-DASH-3A" }
+        ]
       }
     }
   },
@@ -6128,7 +6492,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2020-09-17",
         price: "27900",
-        composition: []
+        composition: [
+          { name: "베어리언트 루시퍼.Mb 2D", quantity: "1개", target: "BEY-BURST-B-169-VARIANT-LUCIFER-MB-2D" },
+          { name: "슈퍼킹베이런처", quantity: "1개", target: "TOOLS-BURST-SUPERKING-BEYLAUNCHER" }
+        ]
       },
       jp: {
         no: "B-169",
@@ -6136,7 +6503,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2020-07-18",
         price: "2420",
-        composition: []
+        composition: [
+          { name: "베리언트 루시퍼.Mb 2D", quantity: "1개", target: "BEY-BURST-B-169-VARIANT-LUCIFER-MB-2D" },
+          { name: "슈퍼킹베이런처", quantity: "1개", target: "TOOLS-BURST-SUPERKING-BEYLAUNCHER" }
+        ]
       }
     }
   },
@@ -6167,7 +6537,11 @@ const productItems = [
         kind: "세트",
         releaseDate: "2020-10-15",
         price: "37900",
-        composition: []
+        composition: [
+          { name: "템페스트 드래곤.Cm 1A", quantity: "1개", target: "BEY-BURST-B-171-TEMPEST-DRAGON-CM-1A" },
+          { name: "커스 사탄.α'.H' 1D", quantity: "1개", target: "BEY-BURST-B-171-CURSE-SATAN-AERO-DASH-HOLD-DASH-1D" },
+          { name: "네이키드 디아볼로스(NDb극).11.Wv 극", quantity: "1개", target: "BEY-BURST-B-171-NAKED-DIABOLOS-NDB-GOKU-11-WV" }
+        ]
       },
       jp: {
         no: "B-171",
@@ -6175,7 +6549,11 @@ const productItems = [
         kind: "세트",
         releaseDate: "2020-08-08",
         price: "4180",
-        composition: []
+        composition: [
+          { name: "템페스트 드래곤.Cm 1A", quantity: "1개", target: "BEY-BURST-B-171-TEMPEST-DRAGON-CM-1A" },
+          { name: "커스 사탄.α'.H' 1D", quantity: "1개", target: "BEY-BURST-B-171-CURSE-SATAN-AERO-DASH-HOLD-DASH-1D" },
+          { name: "네이키드 디아볼로스(NDb極).11.Wv 極", quantity: "1개", target: "BEY-BURST-B-171-NAKED-DIABOLOS-NDB-GOKU-11-WV" }
+        ]
       }
     }
   },
@@ -6189,7 +6567,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2020-10-15",
         price: "14900",
-        composition: []
+        composition: [
+          { name: "월드 스프리건.U' 2B", quantity: "1개", target: "BEY-BURST-B-172-WORLD-SPRIGGAN-U-DASH-2B" }
+        ]
       },
       jp: {
         no: "B-172",
@@ -6197,7 +6577,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2020-09-19",
         price: "1507",
-        composition: []
+        composition: [
+          { name: "월드 스프리건.U' 2B", quantity: "1개", target: "BEY-BURST-B-172-WORLD-SPRIGGAN-U-DASH-2B" }
+        ]
       }
     }
   },
@@ -6233,7 +6615,12 @@ const productItems = [
         kind: "세트",
         releaseDate: "2020-12-10",
         price: "64900",
-        composition: []
+        composition: [
+          { name: "하이페리온 번.초.Xc'+X", quantity: "1개", target: "BEY-BURST-B-174-HYPERION-BURN-CHO-XC-DASH-X" },
+          { name: "헬리오스 볼케이노.왕.Zn'+Z", quantity: "1개", target: "BEY-BURST-B-174-HELIOS-VOLCANO-OU-ZN-DASH-Z" },
+          { name: "롱슈퍼킹베이런처", quantity: "2개", target: "TOOLS-BURST-LONG-SUPERKING-BEYLAUNCHER" },
+          { name: "대시 베이스타디움", quantity: "1개", target: "TOOLS-BURST-DASH-BEYSTADIUM" }
+        ]
       },
       jp: {
         no: "B-174",
@@ -6241,7 +6628,12 @@ const productItems = [
         kind: "세트",
         releaseDate: "2020-11-14",
         price: "7480",
-        composition: []
+        composition: [
+          { name: "하이페리온 번.超.Xc'+X", quantity: "1개", target: "BEY-BURST-B-174-HYPERION-BURN-CHO-XC-DASH-X" },
+          { name: "헬리오스 볼케이노.王.Zn'+Z", quantity: "1개", target: "BEY-BURST-B-174-HELIOS-VOLCANO-OU-ZN-DASH-Z" },
+          { name: "롱슈퍼킹베이런처", quantity: "2개", target: "TOOLS-BURST-LONG-SUPERKING-BEYLAUNCHER" },
+          { name: "대시 베이스타디움", quantity: "1개", target: "TOOLS-BURST-DASH-BEYSTADIUM" }
+        ]
       }
     }
   },
@@ -6255,7 +6647,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2021-01-14",
         price: "14900",
-        composition: []
+        composition: [
+          { name: "루시퍼 디엔드.황.Dr", quantity: "1개", target: "BEY-BURST-B-175-LUCIFER-THE-END-KOU-DR" }
+        ]
       },
       jp: {
         no: "B-175",
@@ -6263,7 +6657,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2020-11-28",
         price: "1727",
-        composition: []
+        composition: [
+          { name: "루시퍼 디엔드.皇.Dr", quantity: "1개", target: "BEY-BURST-B-175-LUCIFER-THE-END-KOU-DR" }
+        ]
       }
     }
   },
@@ -6299,7 +6695,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2021-04-14",
         price: "14900",
-        composition: []
+        composition: [
+          { name: "제트 와이번.Ar.Js 1D", quantity: "1개", target: "BEY-BURST-B-177-JET-WYVERN-AR-JS-1D" }
+        ]
       },
       jp: {
         no: "B-177",
@@ -6307,7 +6705,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2021-01-23",
         price: "1397",
-        composition: []
+        composition: [
+          { name: "제트 와이번.Ar.Js 1D", quantity: "1개", target: "BEY-BURST-B-177-JET-WYVERN-AR-JS-1D" }
+        ]
       }
     }
   },
@@ -6343,7 +6743,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2021-04-14",
         price: "14900",
-        composition: []
+        composition: [
+          { name: "데스 솔로몬.MF 2B", quantity: "1개", target: "BEY-BURST-B-179-DEATH-SOLOMON-MF-2B" }
+        ]
       },
       jp: {
         no: "B-179",
@@ -6351,7 +6753,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2021-03-20",
         price: "1507",
-        composition: []
+        composition: [
+          { name: "데스 솔로몬.MF 2B", quantity: "1개", target: "BEY-BURST-B-179-DEATH-SOLOMON-MF-2B" }
+        ]
       }
     }
   },
@@ -6365,7 +6769,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2021-04-30",
         price: "15900",
-        composition: []
+        composition: [
+          { name: "다이너마이트 벨리알.Nx.Vn-2", quantity: "1개", target: "BEY-BURST-B-180-DYNAMITE-BELIAL-NX-VN-2" }
+        ]
       },
       jp: {
         no: "B-180",
@@ -6373,7 +6779,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2021-04-24",
         price: "1507",
-        composition: []
+        composition: [
+          { name: "다이너마이트 벨리알.Nx.Vn-2", quantity: "1개", target: "BEY-BURST-B-180-DYNAMITE-BELIAL-NX-VN-2" }
+        ]
       }
     }
   },
@@ -6409,7 +6817,12 @@ const productItems = [
         kind: "세트",
         releaseDate: "2021-04-30",
         price: "52900",
-        composition: []
+        composition: [
+          { name: "다이너마이트 벨리알.Nx.Vn-2", quantity: "1개", target: "BEY-BURST-B-182-DYNAMITE-BELIAL-NX-VN-2" },
+          { name: "커스텀베이런처LR", quantity: "1개", target: "TOOLS-BURST-CUSTOM-BEYLAUNCHER-LR" },
+          { name: "런처그립", quantity: "1개", target: "TOOLS-BURST-LAUNCHER-GRIP" },
+          { name: "베이스타디움 DB 스탠다드타입", quantity: "1개", target: "TOOLS-BURST-DB-STANDARD-BEYSTADIUM" }
+        ]
       },
       jp: {
         no: "B-182",
@@ -6417,7 +6830,12 @@ const productItems = [
         kind: "세트",
         releaseDate: "2021-04-24",
         price: "4950",
-        composition: []
+        composition: [
+          { name: "다이너마이트 벨리알.Nx.Vn-2", quantity: "1개", target: "BEY-BURST-B-182-DYNAMITE-BELIAL-NX-VN-2" },
+          { name: "커스텀베이런처LR", quantity: "1개", target: "TOOLS-BURST-CUSTOM-BEYLAUNCHER-LR" },
+          { name: "런처그립", quantity: "1개", target: "TOOLS-BURST-LAUNCHER-GRIP" },
+          { name: "베이스타디움 DB 스탠다드타입", quantity: "1개", target: "TOOLS-BURST-DB-STANDARD-BEYSTADIUM" }
+        ]
       }
     }
   },
@@ -6431,7 +6849,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2021-04-30",
         price: "21900",
-        composition: []
+        composition: [
+          { name: "베이스타디움 DB 스탠다드타입", quantity: "1개", target: "TOOLS-BURST-DB-STANDARD-BEYSTADIUM" }
+        ]
       },
       jp: {
         no: "B-183",
@@ -6439,7 +6859,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2021-04-24",
         price: "1980",
-        composition: []
+        composition: [
+          { name: "베이스타디움 DB 스탠다드타입", quantity: "1개", target: "TOOLS-BURST-DB-STANDARD-BEYSTADIUM" }
+        ]
       }
     }
   },
@@ -6453,7 +6875,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2021-04-30",
         price: "10900",
-        composition: []
+        composition: [
+          { name: "커스텀베이런처LR", quantity: "1개", target: "TOOLS-BURST-CUSTOM-BEYLAUNCHER-LR" }
+        ]
       },
       jp: {
         no: "B-184",
@@ -6461,7 +6885,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2021-04-24",
         price: "990",
-        composition: []
+        composition: [
+          { name: "커스텀베이런처LR", quantity: "1개", target: "TOOLS-BURST-CUSTOM-BEYLAUNCHER-LR" }
+        ]
       }
     }
   },
@@ -6475,7 +6901,10 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2021-06-23",
         price: "15900",
-        composition: []
+        composition: [
+          { name: "배니시 파브닐.Tp.Kc-3", quantity: "1개", target: "BEY-BURST-B-185-VANISH-FAFNIR-TP-KC-3" },
+          { name: "F 기어", quantity: "1개", target: "EVOLUTIONGEAR-F" }
+        ]
       },
       jp: {
         no: "B-185",
@@ -6483,7 +6912,10 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2021-05-29",
         price: "1507",
-        composition: []
+        composition: [
+          { name: "배니시 파브닐.Tp.Kc-3", quantity: "1개", target: "BEY-BURST-B-185-VANISH-FAFNIR-TP-KC-3" },
+          { name: "F 기어", quantity: "1개", target: "EVOLUTIONGEAR-F" }
+        ]
       }
     }
   },
@@ -6519,7 +6951,11 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2021-09-08",
         price: "29900",
-        composition: []
+        composition: [
+          { name: "세이비어 발키리.Sh-7", quantity: "1개", target: "BEY-BURST-B-187-SAVIOR-VALKYRIE-SH-7" },
+          { name: "V 기어", quantity: "1개", target: "EVOLUTIONGEAR-V" },
+          { name: "파워커스텀베이런처LR", quantity: "1개", target: "TOOLS-BURST-POWER-CUSTOM-BEYLAUNCHER-LR" }
+        ]
       },
       jp: {
         no: "B-187",
@@ -6527,7 +6963,11 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2021-07-17",
         price: "2640",
-        composition: []
+        composition: [
+          { name: "세이비어 발키리.Sh-7", quantity: "1개", target: "BEY-BURST-B-187-SAVIOR-VALKYRIE-SH-7" },
+          { name: "V 기어", quantity: "1개", target: "EVOLUTIONGEAR-V" },
+          { name: "파워커스텀베이런처LR", quantity: "1개", target: "TOOLS-BURST-POWER-CUSTOM-BEYLAUNCHER-LR" }
+        ]
       }
     }
   },
@@ -6541,7 +6981,19 @@ const productItems = [
         kind: "세트",
         releaseDate: "2021-10-15",
         price: "45900",
-        composition: []
+        composition: [
+          { name: "아스트랄 스프리건.Ov.Qt-0", quantity: "1개", target: "BEY-BURST-B-188-ASTRAL-SPRIGGAN-OV-QT-0" },
+          { name: "사이클론", quantity: "1개", target: "DBBLADE-CYCLONE" },
+          { name: "벨리알2", quantity: "1개", target: "DBCORE-BELIAL-II" },
+          { name: "Ov 디스크", quantity: "1개", target: "DBDISK-OVER" },
+          { name: "Bl 디스크", quantity: "1개", target: "DISK-BLITZ" },
+          { name: "Nx 디스크", quantity: "1개", target: "DBDISK-NEXUS" },
+          { name: "S 기어", quantity: "1개", target: "EVOLUTIONGEAR-S" },
+          { name: "Qt 드라이버", quantity: "1개", target: "DRIVER-QUATTRO" },
+          { name: "Mx 드라이버", quantity: "1개", target: "DRIVER-METAL-XTREME" },
+          { name: "Wv' 드라이버", quantity: "1개", target: "DRIVER-WAVE-DASH" },
+          { name: "Ms 드라이버", quantity: "1개", target: "DRIVER-METAL-SURVIVE" }
+        ]
       },
       jp: {
         no: "B-188",
@@ -6549,7 +7001,19 @@ const productItems = [
         kind: "세트",
         releaseDate: "2021-08-07",
         price: "3960",
-        composition: []
+        composition: [
+          { name: "아스트랄 스프리건.Ov.Qt-0", quantity: "1개", target: "BEY-BURST-B-188-ASTRAL-SPRIGGAN-OV-QT-0" },
+          { name: "사이클론", quantity: "1개", target: "DBBLADE-CYCLONE" },
+          { name: "벨리알2", quantity: "1개", target: "DBCORE-BELIAL-II" },
+          { name: "Ov 디스크", quantity: "1개", target: "DBDISK-OVER" },
+          { name: "Bl 디스크", quantity: "1개", target: "DISK-BLITZ" },
+          { name: "Nx 디스크", quantity: "1개", target: "DBDISK-NEXUS" },
+          { name: "S 기어", quantity: "1개", target: "EVOLUTIONGEAR-S" },
+          { name: "Qt 드라이버", quantity: "1개", target: "DRIVER-QUATTRO" },
+          { name: "Mx 드라이버", quantity: "1개", target: "DRIVER-METAL-XTREME" },
+          { name: "Wv' 드라이버", quantity: "1개", target: "DRIVER-WAVE-DASH" },
+          { name: "Ms 드라이버", quantity: "1개", target: "DRIVER-METAL-SURVIVE" }
+        ]
       }
     }
   },
@@ -6563,7 +7027,10 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2021-10-27",
         price: "15900",
-        composition: []
+        composition: [
+          { name: "길티 롱기누스.Kr.MDs-2", quantity: "1개", target: "BEY-BURST-B-189-GUILTY-LONGINUS-KR-MDS-2" },
+          { name: "L 기어", quantity: "1개", target: "EVOLUTIONGEAR-L" }
+        ]
       },
       jp: {
         no: "B-189",
@@ -6571,7 +7038,10 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2021-09-11",
         price: "1650",
-        composition: []
+        composition: [
+          { name: "길티 롱기누스.Kr.MDs-2", quantity: "1개", target: "BEY-BURST-B-189-GUILTY-LONGINUS-KR-MDS-2" },
+          { name: "L 기어", quantity: "1개", target: "EVOLUTIONGEAR-L" }
+        ]
       }
     }
   },
@@ -6585,7 +7055,12 @@ const productItems = [
         kind: "세트",
         releaseDate: "2021-11-21",
         price: "69900",
-        composition: []
+        composition: [
+          { name: "다이너마이트 벨리알.Nx.Vn-3", quantity: "1개", target: "BEY-BURST-B-190-DYNAMITE-BELIAL-NX-VN-3" },
+          { name: "로어 바하무트.Kr.MDr-6", quantity: "1개", target: "BEY-BURST-B-190-ROAR-BAHAMUT-KR-MDR-6" },
+          { name: "라이트런처", quantity: "2개", target: "TOOLS-BURST-LIGHT-LAUNCHER" },
+          { name: "베이스타디움 DB 스탠다드타입", quantity: "1개", target: "TOOLS-BURST-DB-STANDARD-BEYSTADIUM" }
+        ]
       },
       jp: {
         no: "B-190",
@@ -6593,7 +7068,12 @@ const productItems = [
         kind: "세트",
         releaseDate: "2021-10-02",
         price: "6050",
-        composition: []
+        composition: [
+          { name: "다이너마이트 벨리알.Nx.Vn-3", quantity: "1개", target: "BEY-BURST-B-190-DYNAMITE-BELIAL-NX-VN-3" },
+          { name: "로어 바하무트.Kr.MDr-6", quantity: "1개", target: "BEY-BURST-B-190-ROAR-BAHAMUT-KR-MDR-6" },
+          { name: "라이트런처", quantity: "2개", target: "TOOLS-BURST-LIGHT-LAUNCHER" },
+          { name: "베이스타디움 DB 스탠다드타입", quantity: "1개", target: "TOOLS-BURST-DB-STANDARD-BEYSTADIUM" }
+        ]
       }
     }
   },
@@ -6607,7 +7087,12 @@ const productItems = [
         kind: "세트",
         releaseDate: "2021-11-21",
         price: "49900",
-        composition: []
+        composition: [
+          { name: "데인저러스 벨리알.Al-2", quantity: "1개", target: "BEY-BURST-B-191-DANGEROUS-BELIAL-AL-2" },
+          { name: "프로미넌스 피닉스.Tp.MUn-10", quantity: "1개", target: "BEY-BURST-B-191-PROMINENCE-PHOENIX-TP-MUN-10" },
+          { name: "세이비어 페르세우스.Gg.Br'-3", quantity: "1개", target: "BEY-BURST-B-191-SAVIOR-PERSEUS-GG-BR-DASH-3" },
+          { name: "풀커스텀베이런처LR", quantity: "1개", target: "TOOLS-BURST-FULL-CUSTOM-BEYLAUNCHER-LR" }
+        ]
       },
       jp: {
         no: "B-191",
@@ -6615,7 +7100,12 @@ const productItems = [
         kind: "세트",
         releaseDate: "2021-10-09",
         price: "5940",
-        composition: []
+        composition: [
+          { name: "데인저러스 벨리알.Al-2", quantity: "1개", target: "BEY-BURST-B-191-DANGEROUS-BELIAL-AL-2" },
+          { name: "프로미넌스 피닉스.Tp.MUn-10", quantity: "1개", target: "BEY-BURST-B-191-PROMINENCE-PHOENIX-TP-MUN-10" },
+          { name: "세이비어 페르세우스.Gg.Br'-3", quantity: "1개", target: "BEY-BURST-B-191-SAVIOR-PERSEUS-GG-BR-DASH-3" },
+          { name: "풀커스텀베이런처LR", quantity: "1개", target: "TOOLS-BURST-FULL-CUSTOM-BEYLAUNCHER-LR" }
+        ]
       }
     }
   },
@@ -6629,7 +7119,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2022-02-15",
         price: "17900",
-        composition: []
+        composition: [
+          { name: "그레이티스트 라파엘.Ov.HXt+'", quantity: "1개", target: "BEY-BURST-B-192-GREATEST-RAPHAEL-OV-HXT-PLUS-DASH" }
+        ]
       },
       jp: {
         no: "B-192",
@@ -6637,7 +7129,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2021-11-13",
         price: "1760",
-        composition: []
+        composition: [
+          { name: "그레이티스트 라파엘.Ov.HXt+'", quantity: "1개", target: "BEY-BURST-B-192-GREATEST-RAPHAEL-OV-HXT-PLUS-DASH" }
+        ]
       }
     }
   },
@@ -6651,7 +7145,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2022-03-18",
         price: "17900",
-        composition: []
+        composition: [
+          { name: "얼티밋 발키리.Lg.V'-9", quantity: "1개", target: "BEY-BURST-B-193-ULTIMATE-VALKYRIE-LG-V-DASH-9" }
+        ]
       },
       jp: {
         no: "B-193",
@@ -6659,7 +7155,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2021-12-11",
         price: "1760",
-        composition: []
+        composition: [
+          { name: "얼티밋 발키리.Lg.V'-9", quantity: "1개", target: "BEY-BURST-B-193-ULTIMATE-VALKYRIE-LG-V-DASH-9" }
+        ]
       }
     }
   },
@@ -6695,7 +7193,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2022-04-15",
         price: "17900",
-        composition: []
+        composition: [
+          { name: "프로미넌스 발키리.Ov.At'-0", quantity: "1개", target: "BEY-BURST-B-195-PROMINENCE-VALKYRIE-OV-AT-DASH-0" }
+        ]
       },
       jp: {
         no: "B-195",
@@ -6703,7 +7203,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2022-02-05",
         price: "1650",
-        composition: []
+        composition: [
+          { name: "프로미넌스 발키리.Ov.At'-0", quantity: "1개", target: "BEY-BURST-B-195-PROMINENCE-VALKYRIE-OV-AT-DASH-0" }
+        ]
       }
     }
   },
@@ -6783,7 +7285,10 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2022-10-01",
         price: "19900",
-        composition: []
+        composition: [
+          { name: "개틀링 드래곤.Kr.Cm'-10", quantity: "1개", target: "BEY-BURST-B-199-GATLING-DRAGON-KR-CM-DASH-10" },
+          { name: "D 기어", quantity: "1개", target: "EVOLUTIONGEAR-D" }
+        ]
       },
       jp: {
         no: "B-199",
@@ -6791,7 +7296,10 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2022-06-25",
         price: "1870",
-        composition: []
+        composition: [
+          { name: "개틀링 드래곤.Kr.Cm'-10", quantity: "1개", target: "BEY-BURST-B-199-GATLING-DRAGON-KR-CM-DASH-10" },
+          { name: "D 기어", quantity: "1개", target: "EVOLUTIONGEAR-D" }
+        ]
       }
     }
   },
@@ -6805,7 +7313,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2022-10-15",
         price: "29900",
-        composition: []
+        composition: [
+          { name: "지포이드 엑스칼리버.Xn.Sw'-1", quantity: "1개", target: "BEY-BURST-B-200-XIPHOID-XCALIBUR-XN-SW-DASH-1" },
+          { name: "파워커스텀소드런처LR", quantity: "1개", target: "TOOLS-BURST-POWER-CUSTOM-SWORD-LAUNCHER-LR" }
+        ]
       },
       jp: {
         no: "B-200",
@@ -6813,7 +7324,10 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2022-07-16",
         price: "2640",
-        composition: []
+        composition: [
+          { name: "지포이드 엑스칼리버.Xn.Sw'-1", quantity: "1개", target: "BEY-BURST-B-200-XIPHOID-XCALIBUR-XN-SW-DASH-1" },
+          { name: "파워커스텀소드런처LR", quantity: "1개", target: "TOOLS-BURST-POWER-CUSTOM-SWORD-LAUNCHER-LR" }
+        ]
       }
     }
   },
@@ -6827,7 +7341,19 @@ const productItems = [
         kind: "세트",
         releaseDate: "2022-11-22",
         price: "45900",
-        composition: []
+        composition: [
+          { name: "제스트 아킬레스.Il.Qt'-4", quantity: "1개", target: "BEY-BURST-B-201-ZEST-ACHILLES-IL-QT-DASH-4" },
+          { name: "체인", quantity: "1개", target: "DBBLADE-CHAIN" },
+          { name: "할로우", quantity: "1개", target: "SUPERKINGRING-HOLLOW" },
+          { name: "피닉스", quantity: "1개", target: "DBCORE-PHOENIX" },
+          { name: "라그나로크", quantity: "1개", target: "DBCORE-RAGNARUK" },
+          { name: "1D", quantity: "1개", target: "SUPERKINGCHASSIS-1D" },
+          { name: "B 디스크", quantity: "1개", target: "DISK-BOOST" },
+          { name: "Fr 디스크", quantity: "1개", target: "DBDISK-FORTRESS" },
+          { name: "A 기어", quantity: "1개", target: "EVOLUTIONGEAR-A" },
+          { name: "Qt' 드라이버", quantity: "1개", target: "DRIVER-QUATTRO-DASH" },
+          { name: "MNv 드라이버", quantity: "1개", target: "DRIVER-METAL-NEVER" }
+        ]
       },
       jp: {
         no: "B-201",
@@ -6835,7 +7361,19 @@ const productItems = [
         kind: "세트",
         releaseDate: "2022-08-06",
         price: "4200",
-        composition: []
+        composition: [
+          { name: "제스트 아킬레스.Il.Qt'-4", quantity: "1개", target: "BEY-BURST-B-201-ZEST-ACHILLES-IL-QT-DASH-4" },
+          { name: "체인", quantity: "1개", target: "DBBLADE-CHAIN" },
+          { name: "할로우", quantity: "1개", target: "SUPERKINGRING-HOLLOW" },
+          { name: "피닉스", quantity: "1개", target: "DBCORE-PHOENIX" },
+          { name: "라그나로크", quantity: "1개", target: "DBCORE-RAGNARUK" },
+          { name: "1D", quantity: "1개", target: "SUPERKINGCHASSIS-1D" },
+          { name: "B 디스크", quantity: "1개", target: "DISK-BOOST" },
+          { name: "Fr 디스크", quantity: "1개", target: "DBDISK-FORTRESS" },
+          { name: "A 기어", quantity: "1개", target: "EVOLUTIONGEAR-A" },
+          { name: "Qt' 드라이버", quantity: "1개", target: "DRIVER-QUATTRO-DASH" },
+          { name: "MNv 드라이버", quantity: "1개", target: "DRIVER-METAL-NEVER" }
+        ]
       }
     }
   },
@@ -6871,7 +7409,13 @@ const productItems = [
         kind: "세트",
         releaseDate: "2022-11-22",
         price: "69900",
-        composition: []
+        composition: [
+          { name: "슈퍼 하이페리온 MR.Tp.Xp-2", quantity: "1개", target: "BEY-BURST-B-203-SUPER-HYPERION-MR-TP-XP-2" },
+          { name: "킹 헬리오스 MR.Gg.Zl-10", quantity: "1개", target: "BEY-BURST-B-203-KING-HELIOS-MR-GG-ZL-10" },
+          { name: "디바인 벨리알.Nx.BDr", quantity: "1개", target: "BEY-BURST-B-203-DIVINE-BELIAL-NX-BDR" },
+          { name: "H 기어", quantity: "1개", target: "EVOLUTIONGEAR-H" },
+          { name: "풀커스텀베이런처LR", quantity: "1개", target: "TOOLS-BURST-FULL-CUSTOM-BEYLAUNCHER-LR" }
+        ]
       },
       jp: {
         no: "B-203",
@@ -6879,7 +7423,13 @@ const productItems = [
         kind: "세트",
         releaseDate: "2022-10-08",
         price: "7250",
-        composition: []
+        composition: [
+          { name: "슈퍼 하이페리온 MR.Tp.Xp-2", quantity: "1개", target: "BEY-BURST-B-203-SUPER-HYPERION-MR-TP-XP-2" },
+          { name: "킹 헬리오스 MR.Gg.Zl-10", quantity: "1개", target: "BEY-BURST-B-203-KING-HELIOS-MR-GG-ZL-10" },
+          { name: "디바인 벨리알.Nx.BDr", quantity: "1개", target: "BEY-BURST-B-203-DIVINE-BELIAL-NX-BDR" },
+          { name: "H 기어", quantity: "1개", target: "EVOLUTIONGEAR-H" },
+          { name: "풀커스텀베이런처LR", quantity: "1개", target: "TOOLS-BURST-FULL-CUSTOM-BEYLAUNCHER-LR" }
+        ]
       }
     }
   },
@@ -6893,7 +7443,12 @@ const productItems = [
         kind: "세트",
         releaseDate: "2022-11-22",
         price: "74900",
-        composition: []
+        composition: [
+          { name: "디바인 벨리알.Nx.Ad-6", quantity: "1개", target: "BEY-BURST-B-204-DIVINE-BELIAL-NX-AD-6" },
+          { name: "체인 케르베우스.Kr.Mm'-3", quantity: "1개", target: "BEY-BURST-B-204-CHAIN-KERBEUS-KR-MM-DASH-3" },
+          { name: "라이트런처", quantity: "2개", target: "TOOLS-BURST-LIGHT-LAUNCHER" },
+          { name: "베이스타디움 DB 스탠다드타입", quantity: "1개", target: "TOOLS-BURST-DB-STANDARD-BEYSTADIUM" }
+        ]
       },
       jp: {
         no: "B-204",
@@ -6901,7 +7456,12 @@ const productItems = [
         kind: "세트",
         releaseDate: "2022-10-22",
         price: "6600",
-        composition: []
+        composition: [
+          { name: "디바인 벨리알.Nx.Ad-6", quantity: "1개", target: "BEY-BURST-B-204-DIVINE-BELIAL-NX-AD-6" },
+          { name: "체인 케르베우스.Kr.Mm'-3", quantity: "1개", target: "BEY-BURST-B-204-CHAIN-KERBEUS-KR-MM-DASH-3" },
+          { name: "라이트런처", quantity: "2개", target: "TOOLS-BURST-LIGHT-LAUNCHER" },
+          { name: "베이스타디움 DB 스탠다드타입", quantity: "1개", target: "TOOLS-BURST-DB-STANDARD-BEYSTADIUM" }
+        ]
       }
     }
   },
@@ -6915,7 +7475,11 @@ const productItems = [
         kind: "세트",
         releaseDate: "2023-01-14",
         price: "36900",
-        composition: []
+        composition: [
+          { name: "버스트 스프리건.S'.F'-8", quantity: "1개", target: "BEY-BURST-B-205-BURST-SPRIGGAN-S-DASH-F-DASH-8" },
+          { name: "얼티밋 발키리.W'.A'-9", quantity: "1개", target: "BEY-BURST-B-205-ULTIMATE-VALKYRIE-W-DASH-A-DASH-9" },
+          { name: "VS 기어", quantity: "1개", target: "EVOLUTIONGEAR-VS" }
+        ]
       },
       jp: {
         no: "B-205",
@@ -6923,7 +7487,11 @@ const productItems = [
         kind: "세트",
         releaseDate: "2022-11-12",
         price: "4150",
-        composition: []
+        composition: [
+          { name: "버스트 스프리건.S'.F'-8", quantity: "1개", target: "BEY-BURST-B-205-BURST-SPRIGGAN-S-DASH-F-DASH-8" },
+          { name: "얼티밋 발키리.W'.A'-9", quantity: "1개", target: "BEY-BURST-B-205-ULTIMATE-VALKYRIE-W-DASH-A-DASH-9" },
+          { name: "VS 기어", quantity: "1개", target: "EVOLUTIONGEAR-VS" }
+        ]
       }
     }
   },
@@ -6937,7 +7505,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2023-01-14",
         price: "19900",
-        composition: []
+        composition: [
+          { name: "바리케이드 루시퍼.Il.BMb-10", quantity: "1개", target: "BEY-BURST-B-206-BARRICADE-LUCIFER-IL-BMB-10" }
+        ]
       },
       jp: {
         no: "B-206",
@@ -6945,7 +7515,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2022-12-10",
         price: "1760",
-        composition: []
+        composition: [
+          { name: "바리케이드 루시퍼.Il.BMb-10", quantity: "1개", target: "BEY-BURST-B-206-BARRICADE-LUCIFER-IL-BMB-10" }
+        ]
       }
     }
   },
@@ -9143,7 +9715,20 @@ const escapeAttributeValue = value => String(value || "")
   .replace(/</g, "&lt;")
   .replace(/>/g, "&gt;");
 const escapeHtml = escapeAttributeValue;
-const releaseControls = () => `<div class="release-dropdowns" aria-label="발매목록 필터">
+const tableListClassName = (...classes) => classes.filter(Boolean).join(" ");
+const tableListTableMarkup = ({ scrollClass = "", tableClass = "", head = "", body = "" } = {}) => `<div class="${tableListClassName("table-list-scroll", "page-table-scroll", scrollClass)}">
+  <table class="${tableListClassName("table-list-table", "ui-data-table", tableClass)}">
+    ${head}
+    <tbody>${body}</tbody>
+  </table>
+</div>`;
+const tableListSectionMarkup = tableMarkup => `<section class="table-list-section release-table-section">${tableMarkup}</section>`;
+const tableListPageMarkup = ({ className = "", attrs = "", controlsMarkup = "", tableMarkup = "" } = {}) =>
+  `<section class="${tableListClassName("table-list-page", className)}"${attrs ? ` ${attrs}` : ""}>
+    ${controlsMarkup}
+    ${tableListSectionMarkup(tableMarkup)}
+  </section>`;
+const releaseControls = () => `<div class="table-list-controls release-dropdowns" aria-label="발매목록 필터">
   ${releaseRegionTabs()}
   <details class="catalog-dropdown release-dropdown">
     <summary><b class="catalog-dropdown-value">${releaseSeriesLabels[activeReleaseSeries]}</b></summary>
@@ -9255,7 +9840,26 @@ const toolsItems = [
   { id: "TOOLS-BURST-GOD-CHIP-TOOL", series: "burst", name: "갓칩 툴", en: "God Chip Tool", category: "기타", desc: "" },
   { id: "TOOLS-BURST-DIGITAL-SWORD-LAUNCHER", series: "burst", name: "디지털소드런처", en: "Digital Sword Launcher", category: "런처", desc: "" },
   { id: "TOOLS-BURST-STRIKE-GOD-CHIP-TOOL", series: "burst", name: "스트라이크갓칩 툴", en: "Strike God Chip Tool", category: "기타", desc: "" },
-  { id: "TOOLS-BURST-MUGEN-BEYSTADIUM", series: "burst", name: "무한 베이스타디움", en: "Mugen Beystadium", category: "스타디움", desc: "" }
+  { id: "TOOLS-BURST-MUGEN-BEYSTADIUM", series: "burst", name: "무한 베이스타디움", en: "Mugen Beystadium", category: "스타디움", desc: "" },
+  { id: "TOOLS-BURST-LONG-LIGHT-LAUNCHER", series: "burst", name: "롱라이트런처", en: "Long Light Launcher", category: "런처", desc: "" },
+  { id: "TOOLS-BURST-LONG-LIGHT-LAUNCHER-LR", series: "burst", name: "롱라이트런처LR", en: "Long Light Launcher LR", category: "런처", desc: "" },
+  { id: "TOOLS-BURST-LONG-BEYLAUNCHER", series: "burst", name: "롱베이런처", en: "Long BeyLauncher", category: "런처", desc: "" },
+  { id: "TOOLS-BURST-POWER-LAUNCHER-GRIP", series: "burst", name: "파워런처그립", en: "Power Launcher Grip", category: "그립", desc: "" },
+  { id: "TOOLS-BURST-XTEND-CHIP", series: "burst", name: "익스텐드 칩", en: "Xtend Chip", category: "기타", desc: "" },
+  { id: "TOOLS-BURST-CHIP-TOOL", series: "burst", name: "칩 툴", en: "Chip Tool", category: "기타", desc: "" },
+  { id: "TOOLS-BURST-LONG-BEYLAUNCHER-L", series: "burst", name: "롱베이런처L", en: "Long BeyLauncher L", category: "런처", desc: "" },
+  { id: "TOOLS-BURST-MUSOU-BEYSTADIUM", series: "burst", name: "무적 베이스타디움", jpName: "무쌍 베이스타디움", en: "Musou Beystadium", category: "스타디움", desc: "" },
+  { id: "TOOLS-BURST-SPIN-DIRECTION-CHANGE-TOOL", series: "burst", name: "회전방향 전환 툴", en: "Spin Direction Change Tool", category: "기타", desc: "" },
+  { id: "TOOLS-BURST-LONG-BEYLAUNCHER-LR", series: "burst", name: "롱베이런처LR", en: "Long BeyLauncher LR", category: "런처", desc: "" },
+  { id: "TOOLS-BURST-SUPERKING-BEYLAUNCHER", series: "burst", name: "슈퍼킹베이런처", en: "Superking BeyLauncher", category: "런처", desc: "" },
+  { id: "TOOLS-BURST-SUPERKING-BEYLAUNCHER-L", series: "burst", name: "슈퍼킹베이런처L", en: "Superking BeyLauncher L", category: "런처", desc: "" },
+  { id: "TOOLS-BURST-LONG-SUPERKING-BEYLAUNCHER", series: "burst", name: "롱슈퍼킹베이런처", en: "Long Superking BeyLauncher", category: "런처", desc: "" },
+  { id: "TOOLS-BURST-DASH-BEYSTADIUM", series: "burst", name: "대시 베이스타디움", en: "Dash Beystadium", category: "스타디움", desc: "" },
+  { id: "TOOLS-BURST-DB-STANDARD-BEYSTADIUM", series: "burst", name: "베이스타디움 DB 스탠다드타입", en: "DB Standard Beystadium", category: "스타디움", desc: "" },
+  { id: "TOOLS-BURST-CUSTOM-BEYLAUNCHER-LR", series: "burst", name: "커스텀베이런처LR", en: "Custom BeyLauncher LR", category: "런처", desc: "" },
+  { id: "TOOLS-BURST-POWER-CUSTOM-BEYLAUNCHER-LR", series: "burst", name: "파워커스텀베이런처LR", en: "Power Custom BeyLauncher LR", category: "런처", desc: "" },
+  { id: "TOOLS-BURST-FULL-CUSTOM-BEYLAUNCHER-LR", series: "burst", name: "풀커스텀베이런처LR", en: "Full Custom BeyLauncher LR", category: "런처", desc: "" },
+  { id: "TOOLS-BURST-POWER-CUSTOM-SWORD-LAUNCHER-LR", series: "burst", name: "파워커스텀소드런처LR", en: "Power Custom Sword Launcher LR", category: "런처", desc: "" }
 ];
 
 const bookItems = [
@@ -9740,7 +10344,7 @@ const compareProductReleaseOrder = (a, b, region = activeReleaseRegion) => {
   return (releaseA.no || a.no || "").localeCompare(releaseB.no || b.no || "", "ko", { numeric: true });
 };
 const toolsCard = item => `
-  <button class="ui-card-button catalog-card product-card" data-tools-id="${item.id}">
+  <button class="ui-card-button category-card catalog-card product-card" data-tools-id="${item.id}">
     <div class="catalog-card-visual"></div>
     ${catalogCardTitle(item.category, item.name)}
     <p class="card-full-en">${item.en}</p>
@@ -9867,27 +10471,47 @@ const bindCatalogCardClicks = gridRoot => {
     openCatalogCard(card);
   });
 };
-let catalogRenderedItemsKey = null;
-const renderCatalogCards = ({ gridSelector, countSelector, getItems, cardTemplate }) => {
-  const grid = document.querySelector(gridSelector);
-  const count = countSelector ? document.querySelector(countSelector) : null;
-  if (!grid) return;
-  const visible = getItems();
-  if (count) count.textContent = visible.length;
-  const nextKey = visible.map(item => item.id).join("|");
-  if (catalogRenderedItemsKey !== nextKey) {
-    grid.innerHTML = visible.map(cardTemplate).join("");
-    catalogRenderedItemsKey = nextKey;
-  }
-  bindCatalogCardClicks(grid);
-  return visible;
-};
 const CATALOG_PAGE_SIZE = 40;
 const ANIME_PAGE_SIZE = CATALOG_PAGE_SIZE;
 let currentCatalogPage = 1;
 let currentCatalogRenderKey = "";
 let currentAnimePage = 1;
 let currentAnimeRenderKey = "";
+const categoryCollectionRenderKeys = new Map();
+const categoryCollectionItemKey = (item, index) => item?.id || item?.name || item?.title || String(index);
+const renderCategoryCollectionGrid = ({ cacheKey, grid, items, cardTemplate, emptyMarkup, itemKey = categoryCollectionItemKey }) => {
+  const nextKey = items.length
+    ? items.map((item, index) => itemKey(item, index)).join("|")
+    : `__empty__:${emptyMarkup}`;
+  if (categoryCollectionRenderKeys.get(cacheKey) !== nextKey) {
+    grid.innerHTML = items.length ? items.map(cardTemplate).join("") : emptyMarkup;
+    categoryCollectionRenderKeys.set(cacheKey, nextKey);
+  }
+  bindCatalogCardClicks(grid);
+};
+const renderCategoryCollection = config => {
+  const grid = document.querySelector(config.gridSelector);
+  if (!grid) return [];
+  const visible = config.getVisibleItems();
+  config.syncRenderPage(config.renderKey());
+  const totalPages = Math.max(1, Math.ceil(visible.length / config.pageSize));
+  const currentPage = Math.min(Math.max(1, config.getCurrentPage()), totalPages);
+  config.setCurrentPage(currentPage);
+  const pageStart = (currentPage - 1) * config.pageSize;
+  const pageItems = visible.slice(pageStart, pageStart + config.pageSize);
+  const count = config.countSelector ? document.querySelector(config.countSelector) : null;
+  if (count) count.textContent = visible.length;
+  renderCategoryCollectionGrid({
+    cacheKey: config.key,
+    grid,
+    items: pageItems,
+    cardTemplate: config.cardTemplate,
+    emptyMarkup: config.emptyMarkup(visible)
+  });
+  config.afterRender?.(visible);
+  config.renderPagination(totalPages);
+  return visible;
+};
 const catalogRenderKey = () => [
   selectedCatalogKind || "",
   catalogSearchQuery()
@@ -9905,66 +10529,64 @@ const syncAnimeRenderPage = renderKey => {
     currentAnimePage = 1;
   }
 };
-const catalogPageButtons = (currentPage, totalPages) => {
+const paginationButtons = ({ currentPage, totalPages, dataAttr, buttonClass, stepClass, navClass = "", label }) => {
   if (totalPages <= 1) return "";
   const pages = [];
   const start = Math.max(1, currentPage - 2);
   const end = Math.min(totalPages, currentPage + 2);
   for (let page = start; page <= end; page += 1) pages.push(page);
+  const navClassName = `catalog-pagination-nav${navClass ? ` ${navClass}` : ""}`;
   const pageButtons = pages.map(page => `
-    <button class="ui-button catalog-page-button${page === currentPage ? " active" : ""}" type="button" data-catalog-page="${page}"${page === currentPage ? " aria-current=\"page\"" : ""}>${page}</button>`).join("");
-  return `<nav class="catalog-pagination-nav" aria-label="완구 페이지">
-    <button class="ui-button catalog-page-step" type="button" data-catalog-page="${currentPage - 1}" ${currentPage <= 1 ? "disabled aria-disabled=\"true\"" : ""}>이전</button>
-    ${start > 1 ? `<button class="ui-button catalog-page-button" type="button" data-catalog-page="1">1</button>${start > 2 ? `<span class="catalog-page-gap">…</span>` : ""}` : ""}
+    <button class="ui-button ${buttonClass}${page === currentPage ? " active" : ""}" type="button" ${dataAttr}="${page}"${page === currentPage ? " aria-current=\"page\"" : ""}>${page}</button>`).join("");
+  return `<nav class="${navClassName}" aria-label="${label}">
+    <button class="ui-button ${stepClass}" type="button" ${dataAttr}="${currentPage - 1}" ${currentPage <= 1 ? "disabled aria-disabled=\"true\"" : ""}>이전</button>
+    ${start > 1 ? `<button class="ui-button ${buttonClass}" type="button" ${dataAttr}="1">1</button>${start > 2 ? `<span class="catalog-page-gap">…</span>` : ""}` : ""}
     ${pageButtons}
-    ${end < totalPages ? `${end < totalPages - 1 ? `<span class="catalog-page-gap">…</span>` : ""}<button class="ui-button catalog-page-button" type="button" data-catalog-page="${totalPages}">${totalPages}</button>` : ""}
-    <button class="ui-button catalog-page-step" type="button" data-catalog-page="${currentPage + 1}" ${currentPage >= totalPages ? "disabled aria-disabled=\"true\"" : ""}>다음</button>
+    ${end < totalPages ? `${end < totalPages - 1 ? `<span class="catalog-page-gap">…</span>` : ""}<button class="ui-button ${buttonClass}" type="button" ${dataAttr}="${totalPages}">${totalPages}</button>` : ""}
+    <button class="ui-button ${stepClass}" type="button" ${dataAttr}="${currentPage + 1}" ${currentPage >= totalPages ? "disabled aria-disabled=\"true\"" : ""}>다음</button>
   </nav>`;
 };
-const animePageButtons = (currentPage, totalPages) => {
-  if (totalPages <= 1) return "";
-  const pages = [];
-  const start = Math.max(1, currentPage - 2);
-  const end = Math.min(totalPages, currentPage + 2);
-  for (let page = start; page <= end; page += 1) pages.push(page);
-  const pageButtons = pages.map(page => `
-    <button class="ui-button anime-page-button${page === currentPage ? " active" : ""}" type="button" data-anime-page="${page}"${page === currentPage ? " aria-current=\"page\"" : ""}>${page}</button>`).join("");
-  return `<nav class="catalog-pagination-nav anime-pagination-nav" aria-label="애니메이션 페이지">
-    <button class="ui-button anime-page-step" type="button" data-anime-page="${currentPage - 1}" ${currentPage <= 1 ? "disabled aria-disabled=\"true\"" : ""}>이전</button>
-    ${start > 1 ? `<button class="ui-button anime-page-button" type="button" data-anime-page="1">1</button>${start > 2 ? `<span class="catalog-page-gap">…</span>` : ""}` : ""}
-    ${pageButtons}
-    ${end < totalPages ? `${end < totalPages - 1 ? `<span class="catalog-page-gap">…</span>` : ""}<button class="ui-button anime-page-button" type="button" data-anime-page="${totalPages}">${totalPages}</button>` : ""}
-    <button class="ui-button anime-page-step" type="button" data-anime-page="${currentPage + 1}" ${currentPage >= totalPages ? "disabled aria-disabled=\"true\"" : ""}>다음</button>
-  </nav>`;
-};
-const renderCatalogPagination = totalPages => {
-  const root = document.querySelector("#catalogPagination");
+const renderPagination = ({ rootSelector, totalPages, currentPage, ...buttonOptions }) => {
+  const root = document.querySelector(rootSelector);
   if (!root) return;
-  root.innerHTML = catalogPageButtons(currentCatalogPage, totalPages);
+  root.innerHTML = paginationButtons({ currentPage, totalPages, ...buttonOptions });
   root.hidden = totalPages <= 1;
 };
-const renderAnimePagination = totalPages => {
-  const root = document.querySelector("#animePagination");
-  if (!root) return;
-  root.innerHTML = animePageButtons(currentAnimePage, totalPages);
-  root.hidden = totalPages <= 1;
-};
-const scrollCatalogGridIntoView = () => {
-  const grid = document.querySelector("#catalogGrid");
+const renderCatalogPagination = totalPages => renderPagination({
+  rootSelector: "#catalogPagination",
+  totalPages,
+  currentPage: currentCatalogPage,
+  dataAttr: "data-catalog-page",
+  buttonClass: "catalog-page-button",
+  stepClass: "catalog-page-step",
+  label: "완구 페이지"
+});
+const renderAnimePagination = totalPages => renderPagination({
+  rootSelector: "#animePagination",
+  totalPages,
+  currentPage: currentAnimePage,
+  dataAttr: "data-anime-page",
+  buttonClass: "anime-page-button",
+  stepClass: "anime-page-step",
+  navClass: "anime-pagination-nav",
+  label: "애니메이션 페이지"
+});
+const scrollGridIntoView = ({ gridSelector, controlSelector }) => {
+  const grid = document.querySelector(gridSelector);
   if (!grid) return;
   const topbarHeight = document.querySelector(".topbar")?.getBoundingClientRect().height || 0;
-  const controlHeight = document.querySelector(".catalog-control-bar")?.getBoundingClientRect().height || 0;
+  const controlHeight = document.querySelector(controlSelector)?.getBoundingClientRect().height || 0;
   const targetTop = grid.getBoundingClientRect().top + window.scrollY - topbarHeight - controlHeight - 18;
   window.scrollTo({ top: Math.max(0, targetTop), behavior: "smooth" });
 };
-const scrollAnimeGridIntoView = () => {
-  const grid = document.querySelector("#animeCharacterGrid");
-  if (!grid) return;
-  const topbarHeight = document.querySelector(".topbar")?.getBoundingClientRect().height || 0;
-  const controlHeight = document.querySelector(".anime-control-bar")?.getBoundingClientRect().height || 0;
-  const targetTop = grid.getBoundingClientRect().top + window.scrollY - topbarHeight - controlHeight - 18;
-  window.scrollTo({ top: Math.max(0, targetTop), behavior: "smooth" });
-};
+const scrollCatalogGridIntoView = () => scrollGridIntoView({
+  gridSelector: "#catalogGrid",
+  controlSelector: ".catalog-control-bar"
+});
+const scrollAnimeGridIntoView = () => scrollGridIntoView({
+  gridSelector: "#animeCharacterGrid",
+  controlSelector: ".anime-control-bar"
+});
 const searchScopeLabel = scope => ({
   all: "전체",
   bey: "베이",
@@ -9985,7 +10607,7 @@ const updateCatalogCount = visibleItems => {
   count.textContent = Array.isArray(visibleItems) ? visibleItems.length : visibleCatalogItems().length;
 };
 const syncCatalogScopeState = ({ updateCount = true } = {}) => {
-  const panel = document.querySelector('.toy-panel[data-toy-panel="catalog"]');
+  const panel = document.querySelector('.app-panel[data-app-panel="catalog"]');
   if (panel) panel.dataset.catalogScope = selectedCatalogKind || "all";
   if (updateCount) updateCatalogCount();
 };
@@ -10069,11 +10691,11 @@ function serializeRoute(route = {}) {
   if (normalizedRoute.id) return `#${normalizedRoute.id}`;
   return "";
 }
-function routeIsPrimary(route = {}) {
+function isPrimaryRoute(route = {}) {
   if (!route) return false;
   return route.type === "overview" || route.type === "catalog" || route.type === "search" || route.type === "category-release" || route.type === "category-anime" || route.type === "category-anime-episodes";
 }
-function routeOpensModal(route = {}) {
+function isDetailRoute(route = {}) {
   if (!route) return false;
   return route.type === "detail";
 }
@@ -10081,22 +10703,22 @@ const routeSnapshot = route => route ? normalizeRoute(route) : null;
 let modalOriginRoute = null;
 let lastPrimaryRoute = { type: "overview" };
 function rememberPrimaryRoute(route = {}) {
-  if (routeIsPrimary(route)) lastPrimaryRoute = routeSnapshot(route) || { type: "overview" };
+  if (isPrimaryRoute(route)) lastPrimaryRoute = routeSnapshot(route) || { type: "overview" };
 }
 function syncModalOriginRoute(route = {}) {
-  if (routeOpensModal(route)) {
+  if (isDetailRoute(route)) {
     if (!modalOriginRoute) {
       const currentRoute = parseRouteFromHash();
-      modalOriginRoute = routeIsPrimary(currentRoute) ? routeSnapshot(currentRoute) : routeSnapshot(lastPrimaryRoute);
+      modalOriginRoute = isPrimaryRoute(currentRoute) ? routeSnapshot(currentRoute) : routeSnapshot(lastPrimaryRoute);
     }
     return;
   }
-  if (routeIsPrimary(route)) {
+  if (isPrimaryRoute(route)) {
     rememberPrimaryRoute(route);
     modalOriginRoute = null;
   }
 }
-function modalCloseRoute() {
+function getModalCloseRoute() {
   return routeSnapshot(modalOriginRoute) || { type: "overview" };
 }
 function clearModalOriginRoute() {
@@ -10878,35 +11500,14 @@ async function initModelViewer() {
 }
 
 const catalogItemCard = item => `
-    <button class="ui-card-button catalog-card${item.type === "bey" ? " bey-card" : ""}" data-id="${item.id}">
+    <button class="ui-card-button category-card catalog-card${item.type === "bey" ? " bey-card" : ""}" data-id="${item.id}">
       <div class="catalog-card-visual">${cardVisualMarkup(item)}</div>
       ${cardInfo(item)}
     </button>`;
 const catalogCard = item => item.category ? toolsCard(item) : catalogItemCard(item);
 
 function renderCatalogItems() {
-  const visible = visibleCatalogItems();
-  syncCatalogRenderPage(catalogRenderKey());
-  const totalPages = Math.max(1, Math.ceil(visible.length / CATALOG_PAGE_SIZE));
-  currentCatalogPage = Math.min(Math.max(1, currentCatalogPage), totalPages);
-  const pageStart = (currentCatalogPage - 1) * CATALOG_PAGE_SIZE;
-  const pageEnd = pageStart + CATALOG_PAGE_SIZE;
-  const pageItems = visible.slice(pageStart, pageEnd);
-  if (visible.length) {
-    renderCatalogCards({
-      gridSelector: "#catalogGrid",
-      getItems: () => pageItems,
-      cardTemplate: catalogCard
-    });
-  } else {
-    const grid = document.querySelector("#catalogGrid");
-    if (grid) {
-      grid.innerHTML = `<p class="catalog-empty search-empty">검색결과가 없습니다.</p>`;
-      catalogRenderedItemsKey = "__catalog-empty__";
-    }
-  }
-  updateCatalogCount(visible);
-  renderCatalogPagination(totalPages);
+  renderCategoryCollection(categoryCollectionConfigs.catalog);
 }
 
 const modalContextStorageKey = "beyArchiveModalContext";
@@ -10929,7 +11530,7 @@ const restorePageScroll = value => {
 };
 const modalOriginRouteSnapshot = () => {
   const origin = routeSnapshot(modalOriginRoute) || routeSnapshot(lastPrimaryRoute);
-  return origin && routeIsPrimary(origin) ? origin : null;
+  return origin && isPrimaryRoute(origin) ? origin : null;
 };
 const modalOriginState = originRoute => {
   const state = { scrollY: currentPageScrollY() };
@@ -11091,7 +11692,7 @@ const productReleaseTableRows = (region = activeReleaseRegion, series = activeRe
   const rows = visibleReleaseTableItems(region, series).map(item => {
     const release = productRelease(item, region);
     const releaseDate = release.releaseDate || release.release;
-    return `<tr class="release-product-row" role="button" tabindex="0" data-product-id="${item.id}" data-release-region="${region}">
+    return `<tr class="table-list-row release-product-row" role="button" tabindex="0" data-product-id="${item.id}" data-release-region="${region}">
     <td>${release.no || ""}</td>
     <td><span class="release-product-link">${release.name || item.name}</span></td>
     <td>${release.kind || ""}</td>
@@ -11099,14 +11700,14 @@ const productReleaseTableRows = (region = activeReleaseRegion, series = activeRe
     <td>${priceLabel(release.price, region)}</td>
   </tr>`;
   }).join("");
-  return rows || `<tr class="release-empty-row"><td colspan="5">검색 결과가 없습니다.</td></tr>`;
+  return rows || `<tr class="table-list-empty-row release-empty-row"><td colspan="5">검색 결과가 없습니다.</td></tr>`;
 };
-const releaseTableMarkup = (region = activeReleaseRegion, series = activeReleaseSeries) => `<div class="page-table-scroll release-table-scroll">
-  <table class="ui-data-table release-table">
-    ${releaseTableHead()}
-    <tbody>${productReleaseTableRows(region, series)}</tbody>
-  </table>
-</div>`;
+const releaseTableMarkup = (region = activeReleaseRegion, series = activeReleaseSeries) => tableListTableMarkup({
+  scrollClass: "release-table-scroll",
+  tableClass: "release-table",
+  head: releaseTableHead(),
+  body: productReleaseTableRows(region, series)
+});
 const rememberReleaseModalContext = () => rememberModalContext("category-release", "toy-release", {
   region: activeReleaseRegion,
   series: activeReleaseSeries,
@@ -11116,7 +11717,7 @@ const rememberReleaseModalContext = () => rememberModalContext("category-release
 const releasePageRoot = () => document.querySelector("[data-release-page-content]");
 
 function renderProductReleaseTable(contentRoot = document) {
-  const releaseTableSection = contentRoot.querySelector(".release-table-section");
+  const releaseTableSection = contentRoot.querySelector(".table-list-section") || contentRoot.querySelector(".release-table-section");
   if (!releaseTableSection) return;
   releaseTableSection.innerHTML = releaseTableMarkup(activeReleaseRegion, activeReleaseSeries);
   bindProductReleaseTableRows(releaseTableSection);
@@ -11153,11 +11754,11 @@ function bindProductReleaseTableRows(tableRoot = document) {
 function renderReleasePage() {
   const root = releasePageRoot();
   if (!root) return;
-  root.innerHTML = `
-    ${releaseControls()}
-    <section class="release-table-section">
-      ${releaseTableMarkup(activeReleaseRegion, activeReleaseSeries)}
-    </section>`;
+  root.innerHTML = tableListPageMarkup({
+    className: "release-list-page",
+    controlsMarkup: releaseControls(),
+    tableMarkup: releaseTableMarkup(activeReleaseRegion, activeReleaseSeries)
+  });
   bindProductReleaseTable(root);
 }
 
@@ -11775,7 +12376,7 @@ const normalizeAnimeSeason = season => animeSeasonLabels[season] ? season : defa
 const animeDisplayRegion = "kr";
 let activeAnimeSeason = defaultAnimeSeason();
 let activeAnimeEpisodeQuery = "";
-const animeEpisodeControls = () => `<div class="release-dropdowns anime-episode-controls" data-anime-controls aria-label="방영목록 필터">
+const animeEpisodeControls = () => `<div class="table-list-controls release-dropdowns anime-episode-controls" data-anime-controls aria-label="방영목록 필터">
   <details class="catalog-dropdown release-dropdown">
     <summary><b class="catalog-dropdown-value">${animeSeasonLabels[activeAnimeSeason] || ""}</b></summary>
     <div class="catalog-dropdown-menu">
@@ -11792,7 +12393,7 @@ const animeCharacterCardMarkup = character => {
   const name = character?.name || character?.title || "";
   const beys = Array.isArray(character?.beys) ? character.beys.filter(Boolean).join(" / ") : "";
   const detail = character?.desc || character?.role || character?.season || "";
-  return `<article class="anime-character-card">
+  return `<article class="category-card anime-character-card">
     <strong>${escapeHtml(name)}</strong>
     ${beys ? `<small>${escapeHtml(beys)}</small>` : ""}
     ${detail ? `<p>${escapeHtml(detail)}</p>` : ""}
@@ -11820,21 +12421,39 @@ const visibleAnimeCharacters = () => {
     .sort((a, b) => query.isEmpty ? a.index - b.index : b.score - a.score || a.index - b.index)
     .map(entry => entry.character);
 };
+const categoryCollectionConfigs = {
+  catalog: {
+    key: "catalog",
+    gridSelector: "#catalogGrid",
+    pageSize: CATALOG_PAGE_SIZE,
+    getVisibleItems: visibleCatalogItems,
+    renderKey: catalogRenderKey,
+    syncRenderPage: syncCatalogRenderPage,
+    getCurrentPage: () => currentCatalogPage,
+    setCurrentPage: page => { currentCatalogPage = page; },
+    cardTemplate: catalogCard,
+    emptyMarkup: () => `<p class="catalog-empty search-empty">검색결과가 없습니다.</p>`,
+    afterRender: updateCatalogCount,
+    renderPagination: renderCatalogPagination
+  },
+  animeCharacters: {
+    key: "animeCharacters",
+    gridSelector: "#animeCharacterGrid",
+    countSelector: "#animeCount",
+    pageSize: ANIME_PAGE_SIZE,
+    getVisibleItems: visibleAnimeCharacters,
+    renderKey: animeRenderKey,
+    syncRenderPage: syncAnimeRenderPage,
+    getCurrentPage: () => currentAnimePage,
+    setCurrentPage: page => { currentAnimePage = page; },
+    cardTemplate: animeCharacterCardMarkup,
+    emptyMarkup: () => `<p class="anime-page-empty panel-empty-state">${animeSearchQuery() ? "검색결과가 없습니다." : "등록된 등장인물 및 베이 정보가 없습니다."}</p>`,
+    renderPagination: renderAnimePagination
+  }
+};
 
 function renderAnimePage() {
-  if (!animeCharacterGrid) return;
-  const visible = visibleAnimeCharacters();
-  syncAnimeRenderPage(animeRenderKey());
-  const totalPages = Math.max(1, Math.ceil(visible.length / ANIME_PAGE_SIZE));
-  currentAnimePage = Math.min(Math.max(1, currentAnimePage), totalPages);
-  const pageStart = (currentAnimePage - 1) * ANIME_PAGE_SIZE;
-  const pageEnd = pageStart + ANIME_PAGE_SIZE;
-  const pageItems = visible.slice(pageStart, pageEnd);
-  if (animeCount) animeCount.textContent = visible.length;
-  animeCharacterGrid.innerHTML = pageItems.length
-    ? pageItems.map(animeCharacterCardMarkup).join("")
-    : `<p class="anime-page-empty panel-empty-state">${animeSearchQuery() ? "검색결과가 없습니다." : "등록된 등장인물 및 베이 정보가 없습니다."}</p>`;
-  renderAnimePagination(totalPages);
+  renderCategoryCollection(categoryCollectionConfigs.animeCharacters);
 }
 
 const animeEpisodeHashPrefixes = {
@@ -11902,34 +12521,36 @@ const visibleAnimeEpisodes = () => {
 const animeEpisodeRowsMarkup = visibleRows => {
   const rows = visibleRows.map(({ episode, index }) => {
     const airDate = episode.airDates?.[animeDisplayRegion] || "";
-    return `<tr class="anime-episode-row" role="button" tabindex="0" data-anime-episode-index="${index}">
+    return `<tr class="table-list-row anime-episode-row" role="button" tabindex="0" data-anime-episode-index="${index}">
     <td>${escapeHtml(episode.no || "")}</td>
     <td><span class="release-product-link">${escapeHtml(episode.titles?.[animeDisplayRegion] || "")}</span></td>
     <td>${responsiveDateSpans("anime-air-date-full", "anime-air-date-compact", animeAirDateLabel(airDate), animeAirDateCompactLabel(airDate))}</td>
   </tr>`;
   }).join("");
-  return rows || `<tr class="release-empty-row"><td colspan="3">등록된 방영목록이 없습니다.</td></tr>`;
+  return rows || `<tr class="table-list-empty-row release-empty-row"><td colspan="3">등록된 방영목록이 없습니다.</td></tr>`;
 };
 
 const animeEpisodesMarkup = () => {
   const visibleRows = visibleAnimeEpisodes();
   const tableMode = visibleRows.length > 8 ? "scroll" : "fit";
-  const tableMarkup = `<div class="page-table-scroll anime-episode-table-scroll">
-      <table class="ui-data-table anime-episode-table">
-        <thead>
-          <tr>
-            <th>회차</th>
-            <th>제목</th>
-            <th>방영일</th>
-          </tr>
-        </thead>
-        <tbody>${animeEpisodeRowsMarkup(visibleRows)}</tbody>
-      </table>
-    </div>`;
-  return `<section class="category-anime-episodes" data-anime-table-mode="${tableMode}">
-    ${animeEpisodeControls()}
-    <section class="release-table-section">${tableMarkup}</section>
-  </section>`;
+  const tableMarkup = tableListTableMarkup({
+    scrollClass: "anime-episode-table-scroll",
+    tableClass: "anime-episode-table",
+    head: `<thead>
+      <tr>
+        <th>회차</th>
+        <th>제목</th>
+        <th>방영일</th>
+      </tr>
+    </thead>`,
+    body: animeEpisodeRowsMarkup(visibleRows)
+  });
+  return tableListPageMarkup({
+    className: "category-anime-episodes anime-episode-list-page",
+    attrs: `data-anime-table-mode="${tableMode}"`,
+    controlsMarkup: animeEpisodeControls(),
+    tableMarkup
+  });
 };
 const animeEpisodesPageRoot = () => document.querySelector("[data-anime-episodes-page-content]");
 
@@ -12038,10 +12659,9 @@ function openCategoryAnimeEpisodesDetail(options = {}) {
   rememberAnimeModalContext();
 }
 
-const openCategoryReleaseFromMenu = () => {
+const categoryReleaseMenuRoute = () => {
   const region = "kr";
-  navigateToRoute({ type: "category-release", options: { region, series: defaultReleaseSeries(region) } });
-  setMenuOpen(false);
+  return { type: "category-release", options: { region, series: defaultReleaseSeries(region) } };
 };
 const openCategoryCatalog = ({ scope = "all", updateHash = true, replace = false, preserveSearch = false } = {}) => {
   const normalizedScope = normalizeCatalogRouteScope(scope);
@@ -12051,10 +12671,6 @@ const openCategoryCatalog = ({ scope = "all", updateHash = true, replace = false
   }
   activatePrimarySection(normalizedScope === "all" ? "catalog" : normalizedScope, { preserveSearch });
 };
-const openCategoryCatalogFromMenu = () => {
-  navigateToRoute({ type: "catalog", scope: "all" });
-  setMenuOpen(false);
-};
 const openCategoryAnimePage = ({ updateHash = true, replace = false, preserveSearch = false } = {}) => {
   if (updateHash && !applyingRoute) {
     navigateToRoute({ type: "category-anime" }, { replace });
@@ -12063,130 +12679,135 @@ const openCategoryAnimePage = ({ updateHash = true, replace = false, preserveSea
   activatePrimarySection("anime", { preserveSearch });
   renderAnimePage();
 };
-const openCategoryAnimeFromMenu = () => {
-  navigateToRoute({ type: "category-anime" });
-  setMenuOpen(false);
+const secondaryCategoryNavGroups = {
+  catalog: {
+    label: "완구 하위 카테고리",
+    className: "catalog-section-subnav",
+    items: [
+      { label: "도감", attrs: ["data-category-catalog-open"] },
+      { label: "발매목록", attrs: ["data-category-release-open"] }
+    ]
+  },
+  anime: {
+    label: "애니메이션 하위 카테고리",
+    className: "anime-section-subnav",
+    items: [
+      { label: "등장인물 및 베이", attrs: ["data-category-anime-open"] },
+      { label: "방영목록", attrs: ["data-category-anime-episodes-open"] }
+    ]
+  }
 };
-const openCategoryAnimeEpisodesFromMenu = () => {
-  navigateToRoute({ type: "category-anime-episodes" });
-  setMenuOpen(false);
+const secondaryCategoryNavButtonAttrs = attrs => attrs.map(attr => ` ${attr}`).join("");
+const secondaryCategoryNavMarkup = group => `<nav class="secondary-category-nav secondary-category-nav--panel section-subnav ${group.className}" aria-label="${escapeAttributeValue(group.label)}">
+  ${group.items.map(item => `<button class="secondary-category-nav__button section-subnav-button" type="button"${secondaryCategoryNavButtonAttrs(item.attrs)}>${escapeHtml(item.label)}</button>`).join("")}
+</nav>`;
+const renderSecondaryCategoryNavs = (root = document) => {
+  root.querySelectorAll("[data-secondary-category-nav]").forEach(target => {
+    const group = secondaryCategoryNavGroups[target.dataset.secondaryCategoryNav];
+    if (group) target.innerHTML = secondaryCategoryNavMarkup(group);
+  });
+};
+const categoryRouteTriggers = [
+  { selector: "[data-category-release-open]", route: categoryReleaseMenuRoute },
+  { selector: "[data-category-anime-episodes-open]", route: { type: "category-anime-episodes" } },
+  { selector: "[data-category-anime-open]", route: { type: "category-anime" } },
+  { selector: "[data-category-catalog-open]", route: { type: "catalog", scope: "all" } }
+];
+const categoryRouteFromTrigger = (target, { includeMobileScope = false } = {}) => {
+  if (!target?.closest) return null;
+  const mobileScopeButton = includeMobileScope ? target.closest("[data-mobile-catalog-scope]") : null;
+  if (mobileScopeButton) {
+    return {
+      trigger: mobileScopeButton,
+      route: { type: "catalog", scope: mobileScopeButton.dataset.mobileCatalogScope || "all" }
+    };
+  }
+  for (const { selector, route } of categoryRouteTriggers) {
+    const trigger = target.closest(selector);
+    if (!trigger) continue;
+    return {
+      trigger,
+      route: typeof route === "function" ? route(trigger) : route
+    };
+  }
+  return null;
+};
+const handleCategoryRouteClick = (event, { includeMobileScope = false, closeSearchHelp = false, closeMobileMenu = true } = {}) => {
+  const match = categoryRouteFromTrigger(event.target, { includeMobileScope });
+  if (!match) return false;
+  if (event.currentTarget?.contains && !event.currentTarget.contains(match.trigger)) return false;
+  event.preventDefault();
+  if (closeSearchHelp) closeSearchHelpPopovers();
+  navigateToRoute(match.route);
+  if (closeMobileMenu) setMobileMenuOpen(false);
+  return true;
 };
 
 document.querySelector(".overview-panel")?.addEventListener("click", event => {
-  const categoryReleaseButton = event.target.closest("[data-category-release-open]");
-  if (categoryReleaseButton) {
-    event.preventDefault();
-    openCategoryReleaseFromMenu();
-    return;
-  }
-
-  const categoryAnimeEpisodesButton = event.target.closest("[data-category-anime-episodes-open]");
-  if (categoryAnimeEpisodesButton) {
-    event.preventDefault();
-    openCategoryAnimeEpisodesFromMenu();
-    return;
-  }
-
-  const categoryAnimeButton = event.target.closest("[data-category-anime-open]");
-  if (categoryAnimeButton) {
-    event.preventDefault();
-    openCategoryAnimeFromMenu();
-    return;
-  }
-
-  const categoryCatalogButton = event.target.closest("[data-category-catalog-open]");
-  if (categoryCatalogButton) {
-    event.preventDefault();
-    openCategoryCatalogFromMenu();
-    return;
-  }
-
+  handleCategoryRouteClick(event);
 });
-const activeToyPanelName = () => activeToyPanel()?.dataset.toyPanel || "";
+const activeAppPanelName = () => activeAppPanel()?.dataset.appPanel || "";
 let searchHashUpdateTimer = 0;
-const updateActiveSearchHash = () => {
+const updateGlobalSearchHash = () => {
   if (searchHashUpdateTimer) clearTimeout(searchHashUpdateTimer);
   searchHashUpdateTimer = 0;
-  if (activeToyPanelName() !== "all") return;
+  if (activeAppPanelName() !== "all") return;
   navigateToRoute({ type: "search", query: globalSearchQuery(), scope: globalSearchScopeValue() }, { replace: true, apply: false });
 };
-const scheduleActiveSearchHashUpdate = () => {
+const scheduleGlobalSearchHashUpdate = () => {
   if (searchHashUpdateTimer) clearTimeout(searchHashUpdateTimer);
-  searchHashUpdateTimer = setTimeout(updateActiveSearchHash, SEARCH_HASH_UPDATE_DELAY);
+  searchHashUpdateTimer = setTimeout(updateGlobalSearchHash, SEARCH_HASH_UPDATE_DELAY);
 };
-const refreshActiveSearchResults = ({ deferHash = true } = {}) => {
+const refreshGlobalSearchResults = ({ deferHash = true } = {}) => {
   renderGlobalCards();
-  if (deferHash) scheduleActiveSearchHashUpdate();
-  else updateActiveSearchHash();
+  if (deferHash) scheduleGlobalSearchHashUpdate();
+  else updateGlobalSearchHash();
 };
-let activeSearchResultsFrame = 0;
-let catalogSearchResultsFrame = 0;
-let animeSearchResultsFrame = 0;
-let activeSearchResultsTimer = 0;
-let catalogSearchResultsTimer = 0;
-let animeSearchResultsTimer = 0;
-const cancelScheduledSearchRenders = () => {
-  if (activeSearchResultsTimer) clearTimeout(activeSearchResultsTimer);
-  if (catalogSearchResultsTimer) clearTimeout(catalogSearchResultsTimer);
-  if (animeSearchResultsTimer) clearTimeout(animeSearchResultsTimer);
-  if (activeSearchResultsFrame) cancelAnimationFrame(activeSearchResultsFrame);
-  if (catalogSearchResultsFrame) cancelAnimationFrame(catalogSearchResultsFrame);
-  if (animeSearchResultsFrame) cancelAnimationFrame(animeSearchResultsFrame);
+const createSearchRenderTask = render => ({ render, timer: 0, frame: 0 });
+const searchRenderTasks = {
+  global: createSearchRenderTask(() => refreshGlobalSearchResults()),
+  catalog: createSearchRenderTask(() => {
+    renderCatalogItems();
+    syncCatalogScopeState({ updateCount: false });
+    renderCatalogFilterChips();
+  }),
+  anime: createSearchRenderTask(() => renderAnimePage())
+};
+const cancelSearchRenderTask = task => {
+  if (task.timer) clearTimeout(task.timer);
+  if (task.frame) cancelAnimationFrame(task.frame);
+  task.timer = 0;
+  task.frame = 0;
+};
+const cancelPendingSearchRenderTasks = () => {
+  Object.values(searchRenderTasks).forEach(cancelSearchRenderTask);
   if (searchHashUpdateTimer) clearTimeout(searchHashUpdateTimer);
-  activeSearchResultsTimer = 0;
-  catalogSearchResultsTimer = 0;
-  animeSearchResultsTimer = 0;
-  activeSearchResultsFrame = 0;
-  catalogSearchResultsFrame = 0;
-  animeSearchResultsFrame = 0;
   searchHashUpdateTimer = 0;
 };
-const scheduleActiveSearchResultsRefresh = () => {
-  if (activeSearchResultsTimer) clearTimeout(activeSearchResultsTimer);
-  if (activeSearchResultsFrame) cancelAnimationFrame(activeSearchResultsFrame);
-  activeSearchResultsTimer = setTimeout(() => {
-    activeSearchResultsTimer = 0;
-    activeSearchResultsFrame = requestAnimationFrame(() => {
-      activeSearchResultsFrame = 0;
-      refreshActiveSearchResults();
+const scheduleSearchRender = task => {
+  cancelSearchRenderTask(task);
+  task.timer = setTimeout(() => {
+    task.timer = 0;
+    task.frame = requestAnimationFrame(() => {
+      task.frame = 0;
+      task.render();
     });
   }, SEARCH_RENDER_DELAY);
 };
-const scheduleCatalogSearchResultsRefresh = () => {
-  if (catalogSearchResultsTimer) clearTimeout(catalogSearchResultsTimer);
-  if (catalogSearchResultsFrame) cancelAnimationFrame(catalogSearchResultsFrame);
-  catalogSearchResultsTimer = setTimeout(() => {
-    catalogSearchResultsTimer = 0;
-    catalogSearchResultsFrame = requestAnimationFrame(() => {
-      catalogSearchResultsFrame = 0;
-      renderCatalogItems();
-      syncCatalogScopeState({ updateCount: false });
-      renderCatalogFilterChips();
-    });
-  }, SEARCH_RENDER_DELAY);
-};
-const scheduleAnimeSearchResultsRefresh = () => {
-  if (animeSearchResultsTimer) clearTimeout(animeSearchResultsTimer);
-  if (animeSearchResultsFrame) cancelAnimationFrame(animeSearchResultsFrame);
-  animeSearchResultsTimer = setTimeout(() => {
-    animeSearchResultsTimer = 0;
-    animeSearchResultsFrame = requestAnimationFrame(() => {
-      animeSearchResultsFrame = 0;
-      renderAnimePage();
-    });
-  }, SEARCH_RENDER_DELAY);
-};
+const scheduleGlobalSearchResultsRefresh = () => scheduleSearchRender(searchRenderTasks.global);
+const scheduleCatalogSearchResultsRefresh = () => scheduleSearchRender(searchRenderTasks.catalog);
+const scheduleAnimeSearchResultsRefresh = () => scheduleSearchRender(searchRenderTasks.anime);
 const openSearchResults = ({ replace = false, updateHash = true } = {}) => {
   if (updateHash && !applyingRoute) {
     navigateToRoute({ type: "search", query: globalSearchQuery(), scope: globalSearchScopeValue() }, { replace });
     return;
   }
-  cancelScheduledSearchRenders();
+  cancelPendingSearchRenderTasks();
   closeAllSearchPreviews();
   document.querySelectorAll(".nav-link").forEach(link => link.classList.remove("active"));
-  activateToyPanel("all");
+  activateAppPanel("all");
   renderGlobalCards();
-  setMenuOpen(false);
+  setMobileMenuOpen(false);
 };
 const bindSearchInput = (input, containerSelector, { onInput, onSubmit = onInput } = {}) => {
   if (!input) return;
@@ -12229,9 +12850,9 @@ const syncOverviewSearchToGlobal = () => {
   setGlobalSearchScope(overviewSearchScopeValue());
 };
 const refreshSearchPanel = () => {
-  const panel = activeToyPanelName();
+  const panel = activeAppPanelName();
   if (panel === "all") {
-    scheduleActiveSearchResultsRefresh();
+    scheduleGlobalSearchResultsRefresh();
     return;
   }
   if (panel === "catalog") {
@@ -12266,32 +12887,44 @@ bindSearchInput(overviewSearch, ".overview-search", {
   }
 });
 bindSearchPreview(overviewSearch, ".overview-search");
-overviewSearchScope?.addEventListener("click", event => {
-  const button = event.target.closest("button[data-overview-search-scope]");
-  if (!button) return;
-  event.preventDefault();
-  setOverviewSearchScope(button.dataset.overviewSearchScope || "all");
-  if (activeToyPanelName() === "all") {
-    syncOverviewSearchToGlobal();
-    openSearchResults({ replace: true });
+const bindSearchScopeControls = ({ dropdown, dataAttr, setScope = () => {}, afterChange }) => {
+  dropdown?.addEventListener("click", event => {
+    const button = event.target.closest(`button[${dataAttr}]`);
+    if (!button || !dropdown.contains(button)) return;
+    event.preventDefault();
+    setScope(button.getAttribute(dataAttr) || "all");
+    afterChange?.(button);
+  });
+};
+bindSearchScopeControls({
+  dropdown: overviewSearchScope,
+  dataAttr: "data-overview-search-scope",
+  setScope: setOverviewSearchScope,
+  afterChange: () => {
+    if (activeAppPanelName() === "all") {
+      syncOverviewSearchToGlobal();
+      openSearchResults({ replace: true });
+    }
+    refreshSearchPreview(overviewSearch, { resetActive: true });
   }
-  refreshSearchPreview(overviewSearch, { resetActive: true });
 });
-globalSearchScope?.addEventListener("click", event => {
-  const button = event.target.closest("button[data-global-search-scope]");
-  if (!button) return;
-  event.preventDefault();
-  setGlobalSearchScope(button.dataset.globalSearchScope || "all");
-  if (activeToyPanelName() === "all") openSearchResults({ replace: true });
-  else refreshSearchPanel();
-  refreshSearchPreview(globalSearch, { resetActive: true });
+bindSearchScopeControls({
+  dropdown: globalSearchScope,
+  dataAttr: "data-global-search-scope",
+  setScope: setGlobalSearchScope,
+  afterChange: () => {
+    if (activeAppPanelName() === "all") openSearchResults({ replace: true });
+    else refreshSearchPanel();
+    refreshSearchPreview(globalSearch, { resetActive: true });
+  }
 });
-catalogSearchScope?.addEventListener("click", event => {
-  const button = event.target.closest("button[data-catalog-search-scope]");
-  if (!button) return;
-  event.preventDefault();
-  closeCatalogSearchHelpPopover();
-  navigateToRoute({ type: "catalog", scope: button.dataset.catalogSearchScope || "all" });
+bindSearchScopeControls({
+  dropdown: catalogSearchScope,
+  dataAttr: "data-catalog-search-scope",
+  afterChange: button => {
+    closeSearchHelpPopovers();
+    navigateToRoute({ type: "catalog", scope: button.getAttribute("data-catalog-search-scope") || "all" });
+  }
 });
 const setDropdownOption = button => {
   const attr = filterButtonAttr(button);
@@ -12395,7 +13028,6 @@ const renderCatalogFilterChips = () => {
     ` : "";
   });
 };
-const catalogSearchHelpIsOpen = () => Boolean(catalogSearchHelpPopover && !catalogSearchHelpPopover.hidden);
 const positionSearchHelpPopover = (button, popover) => {
   if (!button || !popover || popover.hidden) return;
   const margin = 12;
@@ -12426,100 +13058,52 @@ const positionSearchHelpPopover = (button, popover) => {
   popover.style.left = `${left}px`;
   popover.style.top = `${top}px`;
 };
-const positionCatalogSearchHelpPopover = () => {
-  positionSearchHelpPopover(catalogSearchHelpButton, catalogSearchHelpPopover);
+const createSearchHelpPopoverController = ({ button, popover }) => {
+  const controller = {
+    button,
+    popover,
+    isOpen: () => Boolean(popover && !popover.hidden),
+    position: () => positionSearchHelpPopover(button, popover),
+    close: () => {
+      if (!popover) return;
+      popover.hidden = true;
+      button?.setAttribute("aria-expanded", "false");
+    },
+    open: () => {
+      if (!popover) return;
+      popover.hidden = false;
+      button?.setAttribute("aria-expanded", "true");
+      controller.position();
+    },
+    toggle: () => {
+      if (controller.isOpen()) controller.close();
+      else controller.open();
+    },
+    containsEventTarget: event => Boolean(
+      button && event.target.closest(`#${button.id}`)
+      || popover && event.target.closest(`#${popover.id}`)
+    )
+  };
+  button?.addEventListener("click", event => {
+    event.preventDefault();
+    event.stopPropagation();
+    controller.toggle();
+  });
+  popover?.addEventListener("click", event => {
+    event.stopPropagation();
+  });
+  return controller;
 };
-const animeSearchHelpIsOpen = () => Boolean(animeSearchHelpPopover && !animeSearchHelpPopover.hidden);
-const positionAnimeSearchHelpPopover = () => {
-  positionSearchHelpPopover(animeSearchHelpButton, animeSearchHelpPopover);
-};
-const closeCatalogSearchHelpPopover = () => {
-  if (!catalogSearchHelpPopover) return;
-  catalogSearchHelpPopover.hidden = true;
-  catalogSearchHelpButton?.setAttribute("aria-expanded", "false");
-};
-const closeAnimeSearchHelpPopover = () => {
-  if (!animeSearchHelpPopover) return;
-  animeSearchHelpPopover.hidden = true;
-  animeSearchHelpButton?.setAttribute("aria-expanded", "false");
-};
-const openCatalogSearchHelpPopover = () => {
-  if (!catalogSearchHelpPopover) return;
-  catalogSearchHelpPopover.hidden = false;
-  catalogSearchHelpButton?.setAttribute("aria-expanded", "true");
-  positionCatalogSearchHelpPopover();
-};
-const openAnimeSearchHelpPopover = () => {
-  if (!animeSearchHelpPopover) return;
-  animeSearchHelpPopover.hidden = false;
-  animeSearchHelpButton?.setAttribute("aria-expanded", "true");
-  positionAnimeSearchHelpPopover();
-};
-const toggleCatalogSearchHelpPopover = () => {
-  if (catalogSearchHelpIsOpen()) closeCatalogSearchHelpPopover();
-  else openCatalogSearchHelpPopover();
-};
-const toggleAnimeSearchHelpPopover = () => {
-  if (animeSearchHelpIsOpen()) closeAnimeSearchHelpPopover();
-  else openAnimeSearchHelpPopover();
-};
-const anySearchHelpPopoverIsOpen = () => catalogSearchHelpIsOpen() || animeSearchHelpIsOpen();
-const closeSearchHelpPopovers = () => {
-  closeCatalogSearchHelpPopover();
-  closeAnimeSearchHelpPopover();
-};
-const positionSearchHelpPopovers = () => {
-  positionCatalogSearchHelpPopover();
-  positionAnimeSearchHelpPopover();
-};
-catalogSearchHelpButton?.addEventListener("click", event => {
-  event.preventDefault();
-  event.stopPropagation();
-  toggleCatalogSearchHelpPopover();
-});
-catalogSearchHelpPopover?.addEventListener("click", event => {
-  event.stopPropagation();
-});
-animeSearchHelpButton?.addEventListener("click", event => {
-  event.preventDefault();
-  event.stopPropagation();
-  toggleAnimeSearchHelpPopover();
-});
-animeSearchHelpPopover?.addEventListener("click", event => {
-  event.stopPropagation();
-});
+const searchHelpPopovers = [
+  createSearchHelpPopoverController({ button: catalogSearchHelpButton, popover: catalogSearchHelpPopover }),
+  createSearchHelpPopoverController({ button: animeSearchHelpButton, popover: animeSearchHelpPopover })
+];
+const anySearchHelpPopoverIsOpen = () => searchHelpPopovers.some(controller => controller.isOpen());
+const closeSearchHelpPopovers = () => searchHelpPopovers.forEach(controller => controller.close());
+const positionSearchHelpPopovers = () => searchHelpPopovers.forEach(controller => controller.position());
+renderSecondaryCategoryNavs();
 document.querySelectorAll(".section-subnav").forEach(nav => nav.addEventListener("click", event => {
-  const categoryCatalogButton = event.target.closest("[data-category-catalog-open]");
-  const categoryReleaseButton = event.target.closest("[data-category-release-open]");
-  const categoryAnimeButton = event.target.closest("[data-category-anime-open]");
-  const categoryAnimeEpisodesButton = event.target.closest("[data-category-anime-episodes-open]");
-
-  if (categoryCatalogButton) {
-    event.preventDefault();
-    closeSearchHelpPopovers();
-    navigateToRoute({ type: "catalog", scope: "all" });
-    return;
-  }
-
-  if (categoryReleaseButton) {
-    event.preventDefault();
-    closeSearchHelpPopovers();
-    openCategoryReleaseFromMenu();
-    return;
-  }
-
-  if (categoryAnimeButton) {
-    event.preventDefault();
-    closeSearchHelpPopovers();
-    openCategoryAnimeFromMenu();
-    return;
-  }
-
-  if (categoryAnimeEpisodesButton) {
-    event.preventDefault();
-    closeSearchHelpPopovers();
-    openCategoryAnimeEpisodesFromMenu();
-  }
+  handleCategoryRouteClick(event, { closeSearchHelp: true });
 }));
 document.querySelectorAll(".catalog-filter-chips").forEach(root => root.addEventListener("click", event => {
   const chip = event.target.closest("[data-filter-chip-scope][data-filter-chip-key]");
@@ -12535,21 +13119,29 @@ document.querySelectorAll(".catalog-filter-chips").forEach(root => root.addEvent
     refreshCatalogState();
   }
 }));
-document.querySelector("#catalogPagination")?.addEventListener("click", event => {
-  const pageButton = event.target.closest("[data-catalog-page]");
-  if (!pageButton || pageButton.disabled) return;
-  event.preventDefault();
-  currentCatalogPage = Number(pageButton.dataset.catalogPage) || 1;
-  renderCatalogItems();
-  scrollCatalogGridIntoView();
+const bindPaginationControls = ({ rootSelector, dataAttr, setPage, render, scroll }) => {
+  document.querySelector(rootSelector)?.addEventListener("click", event => {
+    const pageButton = event.target.closest(`[${dataAttr}]`);
+    if (!pageButton || pageButton.disabled) return;
+    event.preventDefault();
+    setPage(Number(pageButton.getAttribute(dataAttr)) || 1);
+    render();
+    scroll();
+  });
+};
+bindPaginationControls({
+  rootSelector: "#catalogPagination",
+  dataAttr: "data-catalog-page",
+  setPage: page => { currentCatalogPage = page; },
+  render: renderCatalogItems,
+  scroll: scrollCatalogGridIntoView
 });
-document.querySelector("#animePagination")?.addEventListener("click", event => {
-  const pageButton = event.target.closest("[data-anime-page]");
-  if (!pageButton || pageButton.disabled) return;
-  event.preventDefault();
-  currentAnimePage = Number(pageButton.dataset.animePage) || 1;
-  renderAnimePage();
-  scrollAnimeGridIntoView();
+bindPaginationControls({
+  rootSelector: "#animePagination",
+  dataAttr: "data-anime-page",
+  setPage: page => { currentAnimePage = page; },
+  render: renderAnimePage,
+  scroll: scrollAnimeGridIntoView
 });
 document.addEventListener("toggle", event => {
   const dropdown = event.target.closest?.(".catalog-dropdown");
@@ -12570,7 +13162,7 @@ const updateToTop = () => {
   if (!toTop) return;
   toTop.classList.toggle("show", window.scrollY > 420);
 };
-const updateCatalogStickySearchState = () => {
+const syncCatalogStickySearchState = () => {
   const activeCatalogControl = document.querySelector(".catalog-panel.active .catalog-control-bar");
   document.querySelectorAll(".catalog-control-bar.is-stuck").forEach(control => {
     if (control !== activeCatalogControl) control.classList.remove("is-stuck");
@@ -12583,39 +13175,48 @@ const updateCatalogStickySearchState = () => {
 };
 window.addEventListener("scroll", () => {
   updateToTop();
-  updateCatalogStickySearchState();
+  syncCatalogStickySearchState();
   positionSearchHelpPopovers();
 }, { passive: true });
 toTop?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 updateToTop();
-updateCatalogStickySearchState();
+syncCatalogStickySearchState();
 
 const modal = document.querySelector("#detailModal");
 let modalScrollY = 0;
 let pendingModalScrollY = null;
 let modalViewportSyncFrame = 0;
-const modalViewportSize = () => {
+const getModalViewportSize = () => {
   const visualViewport = window.visualViewport;
   const width = Math.round(visualViewport?.width || window.innerWidth || document.documentElement.clientWidth || 0);
   const height = Math.round(visualViewport?.height || window.innerHeight || document.documentElement.clientHeight || 0);
   return { width, height };
 };
-const modalLockWidth = () => {
+const getModalLockWidth = () => {
   const clientWidth = document.documentElement.clientWidth || 0;
   const innerWidth = window.innerWidth || 0;
-  return Math.round(clientWidth || innerWidth || modalViewportSize().width || 0);
+  return Math.round(clientWidth || innerWidth || getModalViewportSize().width || 0);
 };
 const cancelModalViewportSync = () => {
   if (!modalViewportSyncFrame) return;
   cancelAnimationFrame(modalViewportSyncFrame);
   modalViewportSyncFrame = 0;
 };
+const clearModalLockStyles = () => {
+  document.documentElement.classList.remove("is-modal-open");
+  document.body.classList.remove("is-modal-open");
+  document.body.style.removeProperty("--modal-lock-left");
+  document.body.style.removeProperty("--modal-lock-width");
+  document.body.style.removeProperty("--modal-viewport-width");
+  document.body.style.removeProperty("--modal-viewport-height");
+  document.body.style.removeProperty("--modal-scroll-lock-top");
+};
 function syncModalViewportMetrics() {
   if (!modal?.open) return;
-  const { width, height } = modalViewportSize();
+  const { width, height } = getModalViewportSize();
   document.body.style.setProperty("--modal-viewport-width", `${width}px`);
   document.body.style.setProperty("--modal-viewport-height", `${height}px`);
-  document.body.style.setProperty("--modal-lock-width", `${modalLockWidth()}px`);
+  document.body.style.setProperty("--modal-lock-width", `${getModalLockWidth()}px`);
 }
 function scheduleModalViewportSync() {
   if (!modal?.open) return;
@@ -12636,7 +13237,7 @@ function openModal() {
   }
   const bodyRect = document.body.getBoundingClientRect();
   document.body.style.setProperty("--modal-lock-left", `${bodyRect.left}px`);
-  document.body.style.setProperty("--modal-lock-width", `${modalLockWidth()}px`);
+  document.body.style.setProperty("--modal-lock-width", `${getModalLockWidth()}px`);
   document.body.style.setProperty("--modal-scroll-lock-top", `${modalScrollY * -1}px`);
   document.documentElement.classList.add("is-modal-open");
   document.body.classList.add("is-modal-open");
@@ -12648,13 +13249,7 @@ function closeModal() {
   if (modal?.open) modal.close();
   cancelModalViewportSync();
   restorePageScroll(targetScrollY);
-  document.documentElement.classList.remove("is-modal-open");
-  document.body.classList.remove("is-modal-open");
-  document.body.style.removeProperty("--modal-lock-left");
-  document.body.style.removeProperty("--modal-lock-width");
-  document.body.style.removeProperty("--modal-viewport-width");
-  document.body.style.removeProperty("--modal-viewport-height");
-  document.body.style.removeProperty("--modal-scroll-lock-top");
+  clearModalLockStyles();
   restorePageScroll(targetScrollY);
 }
 const statProfiles = {
@@ -12816,12 +13411,19 @@ function bindModalStepButtons(options = {}) {
     event.preventDefault();
     event.stopPropagation();
     const targetId = button.dataset.modalTarget;
-    if (button.dataset.modalKind === "product") openProductEntry(targetId, options.product || {});
-    else if (button.dataset.modalKind === "tools") openToolsDetail(targetId, options.tools || {});
-    else if (button.dataset.modalKind === "book") openBookDetail(targetId, options.book || {});
-    else if (button.dataset.modalKind === "game") openGameDetail(targetId, options.game || {});
-    else openDetail(targetId, options.item || {});
+    const kind = button.dataset.modalKind || "item";
+    openDetailByKind(kind, targetId, options[kind] || (kind === "item" ? options.item : {}) || {});
   }));
+}
+function openDetailByKind(kind, targetId, options = {}) {
+  if (!targetId) return;
+  if (isAnimeEpisodeHash(targetId)) openAnimeEpisodeDetail(targetId, options);
+  else if (kind === "product-lineup") openProductLineupDetail(targetId, options);
+  else if (kind === "product" || targetId.startsWith("PRODUCT-")) openProductEntry(targetId, options);
+  else if (kind === "tools" || targetId.startsWith("TOOLS-")) openToolsDetail(targetId, options);
+  else if (kind === "book" || targetId.startsWith("BOOK-")) openBookDetail(targetId, options);
+  else if (kind === "game" || targetId.startsWith("GAME-")) openGameDetail(targetId, options);
+  else openDetail(targetId, options);
 }
 function modalTitle(text, extraClass = "") {
   const className = extraClass ? `modal-name ${extraClass}` : "modal-name";
@@ -12968,11 +13570,7 @@ function bindProductCompositionLinks(product, root = document, options = {}) {
     const backOptions = { backProductId: product.id };
     if (options.backRelease) backOptions.backRelease = true;
     if (options.region) backOptions.region = options.region;
-    if (targetId.startsWith("PRODUCT-")) openProductEntry(targetId, backOptions);
-    else if (targetId.startsWith("TOOLS-")) openToolsDetail(targetId, backOptions);
-    else if (targetId.startsWith("BOOK-")) openBookDetail(targetId, backOptions);
-    else if (targetId.startsWith("GAME-")) openGameDetail(targetId, backOptions);
-    else openDetail(targetId, backOptions);
+    openDetailByKind("", targetId, backOptions);
   }));
 }
 function openProductLineupDetail(id, options = {}) {
@@ -13059,30 +13657,51 @@ function openSimpleCatalogDetail({ item, options = {}, kind, stepItems, tags = "
   rememberModalContext(kind, item.id, options);
   openModal();
 }
-function openToolsDetail(id, options = {}) {
-  const item = toolsItemsById.get(id);
+const compareItemsByKoreanName = (a, b) => a.name.localeCompare(b.name, "ko");
+const simpleCatalogDetailConfigs = {
+  tools: {
+    itemsById: toolsItemsById,
+    stepItems: item => {
+      const visibleItems = visibleToolsItems();
+      return visibleItems.some(entry => entry.id === item.id) ? visibleItems : toolsItems.slice().sort(compareToolsItemsByFirstRelease);
+    }
+  },
+  book: {
+    itemsById: bookItemsById,
+    stepItems: () => bookItems.slice().sort(compareItemsByKoreanName),
+    tags: item => modalTagGroup(`<span>${item.category || "도서"}</span>`)
+  },
+  game: {
+    itemsById: gameItemsById,
+    stepItems: () => gameItems.slice().sort(compareItemsByKoreanName)
+  }
+};
+function openConfiguredSimpleCatalogDetail(kind, id, options = {}) {
+  const config = simpleCatalogDetailConfigs[kind];
+  const item = config?.itemsById.get(id);
   if (!item) return;
-  const visibleItems = visibleToolsItems();
-  const stepItems = visibleItems.some(entry => entry.id === item.id) ? visibleItems : toolsItems.slice().sort(compareToolsItemsByFirstRelease);
-  openSimpleCatalogDetail({ item, options, kind: "tools", stepItems });
+  openSimpleCatalogDetail({
+    item,
+    options,
+    kind,
+    stepItems: config.stepItems(item),
+    tags: config.tags?.(item) || ""
+  });
+}
+function openToolsDetail(id, options = {}) {
+  openConfiguredSimpleCatalogDetail("tools", id, options);
 }
 function openBookDetail(id, options = {}) {
-  const item = bookItemsById.get(id);
-  if (!item) return;
-  const stepItems = bookItems.slice().sort((a, b) => a.name.localeCompare(b.name, "ko"));
-  openSimpleCatalogDetail({ item, options, kind: "book", stepItems, tags: modalTagGroup(`<span>${item.category || "도서"}</span>`) });
+  openConfiguredSimpleCatalogDetail("book", id, options);
 }
 function openGameDetail(id, options = {}) {
-  const item = gameItemsById.get(id);
-  if (!item) return;
-  const stepItems = gameItems.slice().sort((a, b) => a.name.localeCompare(b.name, "ko"));
-  openSimpleCatalogDetail({ item, options, kind: "game", stepItems });
+  openConfiguredSimpleCatalogDetail("game", id, options);
 }
 function closeDetail() {
   closeModalTagPopover();
   cleanupModelViewer();
   clearModalContext();
-  const targetRoute = modalCloseRoute();
+  const targetRoute = getModalCloseRoute();
   const targetScrollY = validScrollY(modalScrollY);
   clearModalOriginRoute();
   closeModal();
@@ -13101,23 +13720,17 @@ modal.addEventListener("cancel", event => {
 });
 modal.addEventListener("close", () => {
   cancelModalViewportSync();
-  document.documentElement.classList.remove("is-modal-open");
-  document.body.classList.remove("is-modal-open");
-  document.body.style.removeProperty("--modal-lock-left");
-  document.body.style.removeProperty("--modal-lock-width");
-  document.body.style.removeProperty("--modal-viewport-width");
-  document.body.style.removeProperty("--modal-viewport-height");
-  document.body.style.removeProperty("--modal-scroll-lock-top");
+  clearModalLockStyles();
 });
 
-const activateToyPanel = section => {
-  document.querySelectorAll(".toy-panel").forEach(panel => panel.classList.toggle("active", panel.dataset.toyPanel === section));
+const activateAppPanel = section => {
+  document.querySelectorAll(".app-panel").forEach(panel => panel.classList.toggle("active", panel.dataset.appPanel === section));
   document.body.dataset.activePanel = section;
   document.body.classList.toggle("is-overview", section === "overview");
   closeAllSearchPreviews();
-  updateCatalogStickySearchState();
+  syncCatalogStickySearchState();
 };
-const syncMobileDrawer = section => {
+const syncMobileDrawerActiveState = section => {
   mobileDrawer?.querySelectorAll("[data-category-catalog-open], [data-category-release-open], [data-category-anime-open], [data-category-anime-episodes-open]").forEach(button => {
     const buttonSection = button.hasAttribute("data-category-catalog-open")
       ? "catalog"
@@ -13129,32 +13742,26 @@ const syncMobileDrawer = section => {
     button.classList.toggle("active", buttonSection === section || (buttonSection === "anime-episodes" && section === "anime-episodes"));
   });
 };
-const setMenuOpen = open => {
+const setMobileMenuOpen = open => {
   document.body.classList.toggle("menu-open", open);
   menuButton?.setAttribute("aria-expanded", String(open));
   menuButton?.setAttribute("aria-label", open ? "메뉴 열림" : "메뉴 열기");
   mobileDrawer?.setAttribute("aria-hidden", String(!open));
   if (open) {
-    const panel = activeToyPanel()?.dataset.toyPanel || "overview";
-    syncMobileDrawer(panel === "catalog" ? "catalog" : panel);
+    const panel = activeAppPanel()?.dataset.appPanel || "overview";
+    syncMobileDrawerActiveState(panel === "catalog" ? "catalog" : panel);
     syncCatalogMenuScope(panel === "catalog" ? selectedCatalogKind || "all" : panel === "release" || panel === "anime-episodes" ? panel : "all");
   }
 };
-const clearPrimaryScrollLocks = () => {
-  if (document.body.classList.contains("menu-open")) setMenuOpen(false);
+const clearPrimaryViewLocks = () => {
+  if (document.body.classList.contains("menu-open")) setMobileMenuOpen(false);
   if (modal?.open) return;
   cancelModalViewportSync();
-  document.documentElement.classList.remove("is-modal-open");
-  document.body.classList.remove("is-modal-open");
-  document.body.style.removeProperty("--modal-lock-left");
-  document.body.style.removeProperty("--modal-lock-width");
-  document.body.style.removeProperty("--modal-viewport-width");
-  document.body.style.removeProperty("--modal-viewport-height");
-  document.body.style.removeProperty("--modal-scroll-lock-top");
+  clearModalLockStyles();
 };
 const activatePrimarySection = (section, { preserveSearch = false } = {}) => {
-  cancelScheduledSearchRenders();
-  clearPrimaryScrollLocks();
+  cancelPendingSearchRenderTasks();
+  clearPrimaryViewLocks();
   if (section === "product") section = "overview";
   const isCatalogSection = ["catalog", "bey", "tools"].includes(section);
   const navActiveSection = section === "release" ? "catalog" : section === "anime-episodes" ? "anime" : section;
@@ -13166,10 +13773,10 @@ const activatePrimarySection = (section, { preserveSearch = false } = {}) => {
       ? "catalog"
       : link.hasAttribute("data-category-anime-open")
         ? "anime"
-        : link.dataset.toySection;
+        : link.dataset.appSection;
     link.classList.toggle("active", linkSection === (isCatalogSection ? "catalog" : navActiveSection));
   });
-  syncMobileDrawer(isCatalogSection ? "catalog" : section);
+  syncMobileDrawerActiveState(isCatalogSection ? "catalog" : section);
   syncCatalogMenuScope(
     ["release", "anime", "anime-episodes"].includes(panelSection)
       ? panelSection
@@ -13177,7 +13784,7 @@ const activatePrimarySection = (section, { preserveSearch = false } = {}) => {
         ? catalogScope
         : "all"
   );
-  activateToyPanel(panelSection);
+  activateAppPanel(panelSection);
   if (section === "overview") setGlobalSearchScope("all");
   if (isCatalogSection) {
     resetCatalogFilters();
@@ -13186,9 +13793,9 @@ const activatePrimarySection = (section, { preserveSearch = false } = {}) => {
   }
   if (panelSection === "anime") renderAnimePage();
 
-  setMenuOpen(false);
+  setMobileMenuOpen(false);
 };
-function closeModalForPrimaryRoute() {
+function closeDetailModalForPrimaryRoute() {
   closeModalTagPopover();
   cleanupModelViewer();
   clearModalContext();
@@ -13197,30 +13804,38 @@ function closeModalForPrimaryRoute() {
   if (modal?.open) closeModal();
   else if (shouldRestoreModalScroll) restorePageScroll(modalScrollY);
 }
-function routeOptions(route = {}) {
+function routeApplyOptions(route = {}) {
   return { ...(route.options || {}), updateHash: false };
 }
-const restoreStoredCatalogOrigin = originState => {
-  if (typeof originState?.catalogQuery === "string") setSearchInputValue(catalogSearch, originState.catalogQuery);
-  refreshCatalogState();
-  const page = Number(originState?.catalogPage);
+const restorePagedSearchOrigin = ({ originState, queryKey, pageKey, input, setPage, render, refresh = render }) => {
+  if (typeof originState?.[queryKey] === "string") setSearchInputValue(input, originState[queryKey]);
+  refresh();
+  const page = Number(originState?.[pageKey]);
   if (Number.isFinite(page) && page > 1) {
-    currentCatalogPage = Math.floor(page);
-    renderCatalogItems();
+    setPage(Math.floor(page));
+    render();
   }
 };
-const restoreStoredAnimeOrigin = originState => {
-  if (typeof originState?.animeQuery === "string") setSearchInputValue(animeSearch, originState.animeQuery);
-  renderAnimePage();
-  const page = Number(originState?.animePage);
-  if (Number.isFinite(page) && page > 1) {
-    currentAnimePage = Math.floor(page);
-    renderAnimePage();
-  }
-};
-function restoreModalOriginBackground(context) {
+const restoreStoredCatalogOrigin = originState => restorePagedSearchOrigin({
+  originState,
+  queryKey: "catalogQuery",
+  pageKey: "catalogPage",
+  input: catalogSearch,
+  setPage: page => { currentCatalogPage = page; },
+  render: renderCatalogItems,
+  refresh: refreshCatalogState
+});
+const restoreStoredAnimeOrigin = originState => restorePagedSearchOrigin({
+  originState,
+  queryKey: "animeQuery",
+  pageKey: "animePage",
+  input: animeSearch,
+  setPage: page => { currentAnimePage = page; },
+  render: renderAnimePage
+});
+function restoreDetailOriginPanel(context) {
   const originRoute = routeSnapshot(context?.originRoute);
-  if (!originRoute || !routeIsPrimary(originRoute)) return false;
+  if (!originRoute || !isPrimaryRoute(originRoute)) return false;
   const originState = context?.originState || {};
   modalOriginRoute = routeSnapshot(originRoute);
   rememberPrimaryRoute(originRoute);
@@ -13267,15 +13882,15 @@ function restoreModalOriginBackground(context) {
 function applyRoute(route = parseRouteFromHash(), { preserveScroll = false, preserveSearch = false } = {}) {
   const normalizedRoute = normalizeRoute(route || { type: "overview" });
   const normalizedRouteKey = appliedRouteKey(normalizedRoute);
-  const preservePrimaryReturn = Boolean(routeIsPrimary(normalizedRoute) && (modal?.open || modalOriginRoute));
+  const preservePrimaryReturn = Boolean(isPrimaryRoute(normalizedRoute) && (modal?.open || modalOriginRoute));
   const shouldPreserveScroll = preserveScroll || preservePrimaryReturn;
   const shouldPreserveSearch = preserveSearch || preservePrimaryReturn;
   applyingRoute = true;
   try {
-    if (routeIsPrimary(normalizedRoute)) {
+    if (isPrimaryRoute(normalizedRoute)) {
       rememberPrimaryRoute(normalizedRoute);
-      closeModalForPrimaryRoute();
-    } else if (routeOpensModal(normalizedRoute)) {
+      closeDetailModalForPrimaryRoute();
+    } else if (isDetailRoute(normalizedRoute)) {
       syncModalOriginRoute(normalizedRoute);
     }
     if (normalizedRoute.type === "overview") {
@@ -13289,48 +13904,32 @@ function applyRoute(route = parseRouteFromHash(), { preserveScroll = false, pres
     } else if (normalizedRoute.type === "catalog") {
       openCategoryCatalog({ scope: normalizedRoute.scope || "all", updateHash: false, preserveSearch: shouldPreserveSearch });
     } else if (normalizedRoute.type === "category-release") {
-      openCategoryReleaseDetail({ ...routeOptions(normalizedRoute), preserveSearch: shouldPreserveSearch });
+      openCategoryReleaseDetail({ ...routeApplyOptions(normalizedRoute), preserveSearch: shouldPreserveSearch });
     } else if (normalizedRoute.type === "category-anime") {
       openCategoryAnimePage({ updateHash: false, preserveSearch: shouldPreserveSearch });
     } else if (normalizedRoute.type === "category-anime-episodes") {
-      openCategoryAnimeEpisodesDetail({ ...routeOptions(normalizedRoute), preserveSearch: shouldPreserveSearch });
+      openCategoryAnimeEpisodesDetail({ ...routeApplyOptions(normalizedRoute), preserveSearch: shouldPreserveSearch });
     } else if (normalizedRoute.type === "detail" && normalizedRoute.id) {
       const hashId = normalizedRoute.id;
       const restoredContext = restoredModalContext(hashId);
       const restoredOriginRoute = routeSnapshot(restoredContext?.originRoute);
-      if (restoredOriginRoute && routeIsPrimary(restoredOriginRoute) && (!modalOriginRoute || (modalOriginRoute.type === "overview" && restoredOriginRoute.type !== "overview"))) {
-        restoreModalOriginBackground(restoredContext);
+      if (restoredOriginRoute && isPrimaryRoute(restoredOriginRoute) && (!modalOriginRoute || (modalOriginRoute.type === "overview" && restoredOriginRoute.type !== "overview"))) {
+        restoreDetailOriginPanel(restoredContext);
       }
-      const restoredOptions = { ...(restoredContext?.options || {}), ...routeOptions(normalizedRoute) };
-      if (isAnimeEpisodeHash(hashId)) openAnimeEpisodeDetail(hashId, restoredOptions);
-      else if (restoredContext?.kind === "product-lineup") openProductLineupDetail(hashId, restoredOptions);
-      else if (hashId.startsWith("PRODUCT-")) openProductEntry(hashId, restoredOptions);
-      else if (hashId.startsWith("TOOLS-")) openToolsDetail(hashId, restoredOptions);
-      else if (hashId.startsWith("BOOK-")) openBookDetail(hashId, restoredOptions);
-      else if (hashId.startsWith("GAME-")) openGameDetail(hashId, restoredOptions);
-      else openDetail(hashId, restoredOptions);
+      const restoredOptions = { ...(restoredContext?.options || {}), ...routeApplyOptions(normalizedRoute) };
+      openDetailByKind(restoredContext?.kind || "", hashId, restoredOptions);
     }
   } finally {
     applyingRoute = false;
     lastAppliedRouteKey = normalizedRouteKey;
   }
-  if (routeIsPrimary(normalizedRoute)) {
+  if (isPrimaryRoute(normalizedRoute)) {
     if (shouldPreserveScroll) restorePageScroll(modalScrollY);
     else stabilizePrimaryRouteScroll();
   }
 }
 document.querySelectorAll(".nav-link").forEach(button => button.addEventListener("click", event => {
-  event.preventDefault();
-  const categoryAnimeButton = event.currentTarget.closest("[data-category-anime-open]");
-  if (categoryAnimeButton) {
-    openCategoryAnimeFromMenu();
-    return;
-  }
-  const categoryCatalogButton = event.currentTarget.closest("[data-category-catalog-open]");
-  if (categoryCatalogButton) {
-    openCategoryCatalogFromMenu();
-    return;
-  }
+  handleCategoryRouteClick(event);
 }));
 document.querySelector(".topbar > .brand")?.addEventListener("click", event => {
   event.preventDefault();
@@ -13338,52 +13937,19 @@ document.querySelector(".topbar > .brand")?.addEventListener("click", event => {
 });
 menuButton?.addEventListener("click", event => {
   event.stopPropagation();
-  setMenuOpen(!document.body.classList.contains("menu-open"));
+  setMobileMenuOpen(!document.body.classList.contains("menu-open"));
 });
 mobileDrawerClose?.addEventListener("click", event => {
   event.preventDefault();
-  setMenuOpen(false);
+  setMobileMenuOpen(false);
   menuButton?.focus();
 });
 mobileDrawer?.addEventListener("click", event => {
-  const categoryReleaseButton = event.target.closest("[data-category-release-open]");
-  const categoryAnimeEpisodesButton = event.target.closest("[data-category-anime-episodes-open]");
-  const categoryAnimeButton = event.target.closest("[data-category-anime-open]");
-  const categoryCatalogButton = event.target.closest("[data-category-catalog-open]");
-  const catalogScopeButton = event.target.closest("[data-mobile-catalog-scope]");
-
-  if (categoryReleaseButton) {
-    event.preventDefault();
-    openCategoryReleaseFromMenu();
-    return;
-  }
-
-  if (categoryAnimeEpisodesButton) {
-    event.preventDefault();
-    openCategoryAnimeEpisodesFromMenu();
-    return;
-  }
-
-  if (categoryAnimeButton) {
-    event.preventDefault();
-    openCategoryAnimeFromMenu();
-    return;
-  }
-
-  if (categoryCatalogButton) {
-    event.preventDefault();
-    openCategoryCatalogFromMenu();
-    return;
-  }
-
-  if (catalogScopeButton) {
-    event.preventDefault();
-    navigateToRoute({ type: "catalog", scope: catalogScopeButton.dataset.mobileCatalogScope || "all" });
-  }
+  handleCategoryRouteClick(event, { includeMobileScope: true });
 });
 window.addEventListener("resize", () => {
-  if (window.matchMedia("(min-width: 64rem)").matches) setMenuOpen(false);
-  updateCatalogStickySearchState();
+  if (window.matchMedia("(min-width: 64rem)").matches) setMobileMenuOpen(false);
+  syncCatalogStickySearchState();
   positionSearchHelpPopovers();
   if (modal?.open) scheduleModalViewportSync();
   if (!activeModalTagButton) return;
@@ -13413,18 +13979,19 @@ document.addEventListener("keydown", event => {
     event.preventDefault();
     return;
   }
-  if (event.key === "Escape" && document.body.classList.contains("menu-open")) setMenuOpen(false);
+  if (event.key === "Escape" && document.body.classList.contains("menu-open")) setMobileMenuOpen(false);
 });
 document.addEventListener("click", event => {
-  if (catalogSearchHelpIsOpen() && !event.target.closest("#catalogSearchHelpButton") && !event.target.closest("#catalogSearchHelpPopover")) closeCatalogSearchHelpPopover();
-  if (animeSearchHelpIsOpen() && !event.target.closest("#animeSearchHelpButton") && !event.target.closest("#animeSearchHelpPopover")) closeAnimeSearchHelpPopover();
+  searchHelpPopovers.forEach(controller => {
+    if (controller.isOpen() && !controller.containsEventTarget(event)) controller.close();
+  });
   if (activeModalTagButton && !event.target.closest(".modal-tag-info") && !event.target.closest(".modal-tag-popover")) closeModalTagPopover();
-  if (!event.target.closest(".topbar") && !event.target.closest(".mobile-drawer")) setMenuOpen(false);
+  if (!event.target.closest(".topbar") && !event.target.closest(".mobile-drawer")) setMobileMenuOpen(false);
 });
 
 syncCatalogScopeState();
 renderCatalogFilterChips();
-const routeCurrentHash = () => {
+const applyCurrentHashRoute = () => {
   const route = parseRouteFromHash();
   const canonicalHash = serializeRoute(route);
   const canonicalRouteKey = `${currentPathWithSearch()}${canonicalHash}`;
@@ -13443,7 +14010,7 @@ try {
 } catch {
   // Some embedded browsers can deny history mutations; routing still works.
 }
-routeCurrentHash();
-updateCatalogStickySearchState();
-window.addEventListener("hashchange", routeCurrentHash);
-window.addEventListener("popstate", routeCurrentHash);
+applyCurrentHashRoute();
+syncCatalogStickySearchState();
+window.addEventListener("hashchange", applyCurrentHashRoute);
+window.addEventListener("popstate", applyCurrentHashRoute);
