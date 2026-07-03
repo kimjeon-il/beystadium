@@ -218,6 +218,7 @@ a,
 
 .catalog-dropdown-menu::-webkit-scrollbar,
 .modal-section-scroll::-webkit-scrollbar,
+.table-list-scroll::-webkit-scrollbar,
 .release-table-scroll::-webkit-scrollbar,
 dialog[open] .modal-scroll-area::-webkit-scrollbar,
 .mobile-drawer-nav::-webkit-scrollbar {
@@ -227,6 +228,7 @@ dialog[open] .modal-scroll-area::-webkit-scrollbar,
 
 .catalog-dropdown-menu::-webkit-scrollbar-button,
 .modal-section-scroll::-webkit-scrollbar-button,
+.table-list-scroll::-webkit-scrollbar-button,
 .release-table-scroll::-webkit-scrollbar-button,
 dialog[open] .modal-scroll-area::-webkit-scrollbar-button,
 .mobile-drawer-nav::-webkit-scrollbar-button {
@@ -238,6 +240,7 @@ dialog[open] .modal-scroll-area::-webkit-scrollbar-button,
 
 .catalog-dropdown-menu::-webkit-scrollbar-track,
 .modal-section-scroll::-webkit-scrollbar-track,
+.table-list-scroll::-webkit-scrollbar-track,
 .release-table-scroll::-webkit-scrollbar-track,
 dialog[open] .modal-scroll-area::-webkit-scrollbar-track,
 .mobile-drawer-nav::-webkit-scrollbar-track {
@@ -246,6 +249,7 @@ dialog[open] .modal-scroll-area::-webkit-scrollbar-track,
 
 .catalog-dropdown-menu::-webkit-scrollbar-thumb,
 .modal-section-scroll::-webkit-scrollbar-thumb,
+.table-list-scroll::-webkit-scrollbar-thumb,
 .release-table-scroll::-webkit-scrollbar-thumb,
 dialog[open] .modal-scroll-area::-webkit-scrollbar-thumb,
 .mobile-drawer-nav::-webkit-scrollbar-thumb {
@@ -258,6 +262,7 @@ dialog[open] .modal-scroll-area::-webkit-scrollbar-thumb,
 
 .catalog-dropdown-menu::-webkit-scrollbar-thumb:hover,
 .modal-section-scroll::-webkit-scrollbar-thumb:hover,
+.table-list-scroll::-webkit-scrollbar-thumb:hover,
 .release-table-scroll::-webkit-scrollbar-thumb:hover,
 dialog[open] .modal-scroll-area::-webkit-scrollbar-thumb:hover,
 .mobile-drawer-nav::-webkit-scrollbar-thumb:hover {
@@ -267,6 +272,7 @@ dialog[open] .modal-scroll-area::-webkit-scrollbar-thumb:hover,
 
 .catalog-dropdown-menu::-webkit-scrollbar-corner,
 .modal-section-scroll::-webkit-scrollbar-corner,
+.table-list-scroll::-webkit-scrollbar-corner,
 .release-table-scroll::-webkit-scrollbar-corner,
 dialog[open] .modal-scroll-area::-webkit-scrollbar-corner,
 .mobile-drawer-nav::-webkit-scrollbar-corner {
@@ -530,18 +536,18 @@ dialog[open] .modal-scroll-area::-webkit-scrollbar-corner,
   flex: var(--global-search-box-flex, var(--search-box-flex, 0 1 420px));
 }
 
-.catalog-section > .unified-search {
+.app-shell > .unified-search {
   --unified-search-width: min(var(--primary-search-width), calc(100vw - (var(--page-gutter, 24px) * 2)));
   --unified-search-max-width: calc(100vw - (var(--page-gutter, 24px) * 2));
   --unified-search-justify: center;
   display: none;
 }
 
-body[data-active-panel="all"] .catalog-section > .unified-search {
+body[data-active-panel="all"] .app-shell > .unified-search {
   display: flex;
 }
 
-.catalog-section > .unified-search > .global-search-box {
+.app-shell > .unified-search > .global-search-box {
   --global-search-box-flex: 1 1 auto;
   --search-box-width: 100%;
   --search-box-min-width: 0;
@@ -604,7 +610,7 @@ body.is-overview .nav {
   display: none;
 }
 
-.catalog-section {
+.app-shell {
   --section-heading-align: flex-end;
   --catalog-grid-column-count: 5;
   --catalog-grid-columns: repeat(var(--catalog-grid-column-count), minmax(0, 1fr));
@@ -669,10 +675,12 @@ body.is-overview .nav {
   overflow-wrap: var(--section-title-overflow-wrap, normal);
 }
 
-.section-heading:has(+ .section-subnav) {
+.section-heading:has(+ .section-subnav),
+.section-heading:has(+ [data-secondary-category-nav]) {
   margin-bottom: 8px;
 }
 
+.secondary-category-nav--panel,
 .section-subnav {
   width: 100%;
   max-width: var(--catalog-content-max, var(--page-max));
@@ -684,29 +692,37 @@ body.is-overview .nav {
   margin: 0 auto clamp(14px, 1.8vw, 18px);
 }
 
+.secondary-category-nav__button {
+  border: 0;
+  background: transparent;
+  color: var(--ui-muted);
+  font: inherit;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  box-shadow: none;
+  outline: 0;
+  cursor: pointer;
+}
+
+.secondary-category-nav--panel .secondary-category-nav__button,
 .section-subnav-button {
   min-height: 36px;
   padding: 0 14px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 0;
   border-radius: var(--ui-radius);
-  background: transparent;
-  color: var(--ui-muted);
-  font: inherit;
   font-size: var(--font-md);
-  font-weight: 600;
-  line-height: 1;
   text-align: center;
-  text-decoration: none;
   white-space: nowrap;
-  box-shadow: none;
-  outline: 0;
-  cursor: pointer;
   transition: background-color .16s ease, color .16s ease, transform .16s ease;
 }
 
+.secondary-category-nav__button:hover,
+.secondary-category-nav__button:focus-visible,
+.secondary-category-nav__button.active,
+.secondary-category-nav__button[aria-selected="true"],
 .section-subnav-button:hover,
 .section-subnav-button:focus-visible,
 .section-subnav-button.active,
@@ -846,6 +862,7 @@ dialog[open] #modalClose.modal-close:hover{
 }
 
 /* Canonical card system - latest UI source of truth. */
+.category-collection__grid,
 .catalog-grid{
   display: grid;
   grid-template-columns: var(--catalog-grid-columns);
@@ -862,23 +879,24 @@ dialog[open] #modalClose.modal-close:hover{
 }
 
 @media (max-width: 79.999rem) {
-  .catalog-section {
+  .app-shell {
     --catalog-grid-column-count: 4;
   }
 }
 
 @media (max-width: 47.999rem) {
-  .catalog-section {
+  .app-shell {
     --catalog-grid-column-count: 3;
   }
 }
 
 @media (hover: none) and (pointer: coarse) and (max-device-width: 30rem) {
-  .catalog-section {
+  .app-shell {
     --catalog-grid-column-count: 2;
   }
 }
 
+.category-card,
 .catalog-card,
 .product-card{
   position: relative;
@@ -905,6 +923,8 @@ dialog[open] #modalClose.modal-close:hover{
     transform 0.18s ease;
 }
 
+.category-card::before,
+.category-card::after,
 .catalog-card::before,
 .catalog-card::after,
 .product-card::before,
@@ -963,16 +983,9 @@ dialog[open] #modalClose.modal-close:hover{
 }
 
 .anime-character-card {
-  min-height: var(--catalog-card-min-height);
-  padding: var(--catalog-card-padding);
   display: grid;
   align-content: end;
   gap: 6px;
-  border: 1px solid var(--ui-line);
-  border-radius: 16px;
-  background: var(--ui-surface);
-  color: var(--ui-control-text-active);
-  box-shadow: none;
 }
 
 .anime-character-card strong {
@@ -1022,7 +1035,7 @@ dialog[open] #modalClose.modal-close:hover{
   filter: none !important;
 }
 
-.toy-panel {
+.app-panel {
   width: 100%;
   max-width: var(--page-max);
   margin-left: auto;
@@ -1030,7 +1043,7 @@ dialog[open] #modalClose.modal-close:hover{
   display: none !important;
 }
 
-.toy-panel.active {
+.app-panel.active {
   display: block !important;
 }
 
@@ -1096,7 +1109,7 @@ dialog[open] #modalClose.modal-close {
 }
 
 /* Unified catalog page header placement. */
-.toy-panel[data-toy-panel] {
+.app-panel[data-app-panel] {
   --section-heading-width: 100%;
   --section-heading-min-height: 82px;
   --section-heading-display: grid;
@@ -1535,6 +1548,7 @@ dialog[open] .product-modal-name {
   text-align: left;
 }
 
+.table-list-controls,
 .release-dropdowns {
   --release-region-tabs-width: 8rem;
   --release-series-dropdown-width: 14.5rem;
@@ -1564,19 +1578,23 @@ dialog[open] .product-modal-name {
   flex: 0 0 auto;
 }
 
+.table-list-controls[data-anime-controls],
 .release-dropdowns[data-anime-controls] {
   --release-grid-columns: minmax(13.5rem, var(--release-series-dropdown-width)) minmax(0, 1fr);
   --release-grid-areas: "series search";
 }
 
+.table-list-controls > .release-region-tabs,
 .release-dropdowns > .release-region-tabs {
   grid-area: region;
 }
 
+.table-list-controls > .release-dropdown,
 .release-dropdowns > .release-dropdown {
   grid-area: series;
 }
 
+.table-list-controls > .release-search-box,
 .release-dropdowns > .release-search-box {
   grid-area: search;
 }
@@ -1622,6 +1640,7 @@ dialog[open] .product-modal-name {
   --dropdown-item-white-space: nowrap;
 }
 
+.table-list-section,
 .release-table-section {
   width: 100%;
   min-height: 0;
@@ -1677,6 +1696,7 @@ dialog[open] .category-anime-info .anime-episode-title-row .category-title {
   word-break: keep-all;
 }
 
+.table-list-page,
 .category-anime-episodes {
   min-height: 0;
   height: auto;
@@ -1685,6 +1705,7 @@ dialog[open] .category-anime-info .anime-episode-title-row .category-title {
   gap: var(--modal-flow-gap);
 }
 
+.table-list-shell,
 .release-page-shell {
   --modal-body-width: 100%;
   --modal-flow-gap: 12px;
@@ -1700,6 +1721,7 @@ dialog[open] .category-anime-info .anime-episode-title-row .category-title {
   gap: var(--modal-flow-gap);
 }
 
+.table-list-scroll,
 .anime-episode-table-scroll,
 .release-table-scroll {
   container-type: inline-size;
@@ -1731,20 +1753,26 @@ dialog[open] .category-anime-info .anime-episode-title-row .category-title {
   -webkit-overflow-scrolling: touch;
 }
 
+.table-list-section .ui-data-table th,
 .release-table-section .ui-data-table th {
   padding-top: 8px;
 }
 
+.table-list-section .ui-data-table th:first-child,
+.table-list-section .ui-data-table td:first-child,
 .release-table-section .ui-data-table th:first-child,
 .release-table-section .ui-data-table td:first-child {
   padding-left: 12px;
 }
 
+.table-list-section .ui-data-table th:last-child,
+.table-list-section .ui-data-table td:last-child,
 .release-table-section .ui-data-table th:last-child,
 .release-table-section .ui-data-table td:last-child {
   padding-right: 12px;
 }
 
+.category-anime-episodes[data-anime-table-mode="fit"] .table-list-scroll,
 .category-anime-episodes[data-anime-table-mode="fit"] .anime-episode-table-scroll {
   flex: 0 1 auto;
 }
@@ -1785,12 +1813,15 @@ dialog[open] .category-anime-info .anime-episode-title-row .category-title {
   display: none;
 }
 
+.table-list-row,
 .anime-episode-row,
 .release-product-row {
   cursor: pointer;
   outline: 0;
 }
 
+.table-list-table tbody .table-list-row:hover td,
+.table-list-table tbody .table-list-row:focus-visible td,
 .anime-episode-table tbody .anime-episode-row:hover td,
 .anime-episode-table tbody .anime-episode-row:focus-visible td,
 .release-table tbody .release-product-row:hover td,
@@ -1799,20 +1830,16 @@ dialog[open] .category-anime-info .anime-episode-title-row .category-title {
   color: var(--ui-text);
 }
 
+.table-list-table tbody td:first-child,
 .anime-episode-table tbody td:first-child,
 .release-table tbody td:first-child {
   border-radius: var(--ui-radius) 0 0 var(--ui-radius);
 }
 
+.table-list-table tbody td:last-child,
 .anime-episode-table tbody td:last-child,
 .release-table tbody td:last-child {
   border-radius: 0 var(--ui-radius) var(--ui-radius) 0;
-}
-
-.anime-episode-table .release-empty-row td {
-  border-radius: 0;
-  background: transparent;
-  cursor: default;
 }
 
 .release-table {
@@ -1930,6 +1957,7 @@ dialog[open] .category-anime-info .anime-episode-title-row .category-title {
   border-bottom: 0;
 }
 
+.table-list-empty-row td,
 .release-empty-row td {
   height: 120px;
   padding: 11px 12px;
@@ -2590,7 +2618,7 @@ body.is-overview .topbar > .brand {
   padding-bottom: 64px;
 }
 
-body.is-overview .catalog-section {
+body.is-overview .app-shell {
   min-height: calc(100svh - 88px) !important;
   padding-top: clamp(42px, 8vh, 86px) !important;
 }
@@ -2709,10 +2737,10 @@ body.is-overview .catalog-section {
   overflow: visible;
 }
 
-.toy-panel[data-toy-panel="catalog"],
-.toy-panel[data-toy-panel="release"],
-.toy-panel[data-toy-panel="anime"],
-.toy-panel[data-toy-panel="anime-episodes"] {
+.app-panel[data-app-panel="catalog"],
+.app-panel[data-app-panel="release"],
+.app-panel[data-app-panel="anime"],
+.app-panel[data-app-panel="anime-episodes"] {
   --toolbar-icon-button-size: var(--search-box-height, 48px);
   --section-heading-width: 100%;
   --section-heading-max-width: var(--catalog-content-max);
@@ -2920,11 +2948,6 @@ body.is-overview .catalog-section {
   overflow: visible;
 }
 
-.catalog-panel.active .catalog-control-bar.is-stuck {
-  box-sizing: border-box;
-  padding: clamp(12px, 1.4vw, 16px) 0;
-}
-
 .catalog-panel.active .catalog-control-bar.is-stuck::before {
   content: "";
   position: absolute;
@@ -2936,9 +2959,9 @@ body.is-overview .catalog-section {
   transform: translateX(-50%);
   pointer-events: none;
   background: var(--ui-bg);
-  box-shadow: 0 1px 0 color-mix(in srgb, var(--ui-line) 54%, transparent);
 }
 
+.category-collection,
 .catalog-combined {
   display: grid;
   gap: var(--catalog-filter-card-gap);
@@ -2947,15 +2970,18 @@ body.is-overview .catalog-section {
   margin: 0 auto;
 }
 
+.category-collection__section,
 .catalog-subsection {
   display: grid;
   gap: var(--catalog-filter-card-gap);
 }
 
+.category-collection__section[hidden],
 .catalog-subsection[hidden] {
   display: none !important;
 }
 
+.category-collection__meta-row,
 .catalog-query-row {
   min-width: 0;
   display: grid;
@@ -2965,6 +2991,7 @@ body.is-overview .catalog-section {
   gap: 8px 12px;
 }
 
+.category-collection__meta-row .catalog-filter-chips,
 .catalog-query-row .catalog-filter-chips {
   width: auto;
   min-width: 0;
@@ -3103,11 +3130,13 @@ body.is-overview .catalog-section {
   word-break: keep-all;
 }
 
+.category-collection__pagination,
 .catalog-pagination {
   justify-self: center;
   width: 100%;
 }
 
+.category-collection__pagination[hidden],
 .catalog-pagination[hidden] {
   display: none !important;
 }
@@ -3468,7 +3497,7 @@ body.menu-open .menu-button span:nth-child(3) {
 }
 
 @media (max-width: 63.999rem) {
-  .toy-panel[data-toy-panel] {
+  .app-panel[data-app-panel] {
     --section-heading-min-height: 0;
     --section-heading-columns: minmax(0, 1fr) auto;
     --section-heading-gap: 12px;
@@ -3515,10 +3544,10 @@ body.menu-open .menu-button span:nth-child(3) {
     --release-grid-areas: "series search";
   }
 
-  .toy-panel[data-toy-panel="catalog"],
-  .toy-panel[data-toy-panel="release"],
-  .toy-panel[data-toy-panel="anime"],
-  .toy-panel[data-toy-panel="anime-episodes"] {
+  .app-panel[data-app-panel="catalog"],
+  .app-panel[data-app-panel="release"],
+  .app-panel[data-app-panel="anime"],
+  .app-panel[data-app-panel="anime-episodes"] {
     --section-heading-gap: clamp(10px, 2vw, 18px);
     --section-heading-margin: 0 auto clamp(12px, 1.8vw, 16px);
     --result-count-margin: 0 0 3px;
@@ -3670,25 +3699,21 @@ body.menu-open .menu-button span:nth-child(3) {
   }
 
   .mobile-drawer .mobile-primary,
-  .mobile-secondary button {
+  .secondary-category-nav--drawer .secondary-category-nav__button {
     position: relative;
     appearance: none;
     width: 100%;
     min-width: 0;
-    min-height: 48px;
     display: grid;
-    grid-template-columns: 26px minmax(0, 1fr) 22px;
     align-items: center;
     gap: 11px;
     padding: 0 12px;
     border: 0;
-    border-radius: 14px;
     background: transparent;
     color: var(--ui-muted);
     box-shadow: none;
     font-family: inherit;
     font-size: var(--mobile-drawer-font-size, var(--font-md));
-    font-weight: 680;
     line-height: 1;
     text-align: left;
     text-decoration: none;
@@ -3698,43 +3723,63 @@ body.menu-open .menu-button span:nth-child(3) {
     transition: background-color .14s ease, color .14s ease, transform .14s ease;
   }
 
+  .mobile-drawer .mobile-primary {
+    --mobile-drawer-active-marker-left: 5px;
+    --mobile-drawer-active-marker-height: 22px;
+    min-height: 48px;
+    grid-template-columns: 26px minmax(0, 1fr) 22px;
+    border-radius: 14px;
+    font-weight: 680;
+  }
+
+  .secondary-category-nav--drawer .secondary-category-nav__button {
+    --mobile-drawer-active-marker-left: 4px;
+    --mobile-drawer-active-marker-height: 18px;
+    min-height: 42px;
+    grid-template-columns: 24px minmax(0, 1fr) 20px;
+    border-radius: 11px;
+    font-weight: 560;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+
   .mobile-drawer .mobile-primary:hover,
   .mobile-drawer .mobile-primary:focus-visible,
-  .mobile-secondary button:hover,
-  .mobile-secondary button:focus-visible {
+  .secondary-category-nav--drawer .secondary-category-nav__button:hover,
+  .secondary-category-nav--drawer .secondary-category-nav__button:focus-visible {
     background: var(--mobile-drawer-surface-hover) !important;
     color: var(--ui-text) !important;
     box-shadow: none !important;
   }
 
   .mobile-drawer .mobile-primary:focus-visible,
-  .mobile-secondary button:focus-visible,
+  .secondary-category-nav--drawer .secondary-category-nav__button:focus-visible,
   .mobile-drawer-close:focus-visible {
     outline: 3px solid color-mix(in srgb, var(--mobile-drawer-accent) 26%, transparent);
     outline-offset: 2px;
   }
 
   .mobile-drawer .mobile-primary:active,
-  .mobile-secondary button:active {
+  .secondary-category-nav--drawer .secondary-category-nav__button:active {
     transform: scale(.99);
     background: var(--mobile-drawer-surface-pressed) !important;
   }
 
   .mobile-drawer .mobile-primary.active,
-  .mobile-secondary button.active {
+  .secondary-category-nav--drawer .secondary-category-nav__button.active {
     background: var(--mobile-drawer-surface-selected) !important;
     color: var(--ui-text) !important;
     box-shadow: none !important;
   }
 
   .mobile-drawer .mobile-primary.active::before,
-  .mobile-secondary button.active::before {
+  .secondary-category-nav--drawer .secondary-category-nav__button.active::before {
     content: "";
     position: absolute;
-    left: 5px;
+    left: var(--mobile-drawer-active-marker-left);
     top: 50%;
     width: 3px;
-    height: 22px;
+    height: var(--mobile-drawer-active-marker-height);
     border-radius: 999px;
     background: var(--mobile-drawer-accent);
     transform: translateY(-50%);
@@ -3779,7 +3824,7 @@ body.menu-open .menu-button span:nth-child(3) {
   }
 
   .mobile-drawer .mobile-primary.active .mobile-nav-icon,
-  .mobile-secondary button.active .mobile-nav-icon {
+  .secondary-category-nav--drawer .secondary-category-nav__button.active .mobile-nav-icon {
     color: var(--mobile-drawer-accent);
   }
 
@@ -3804,7 +3849,7 @@ body.menu-open .menu-button span:nth-child(3) {
     opacity: .7 !important;
   }
 
-  .mobile-secondary {
+  .secondary-category-nav--drawer {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     gap: 3px;
@@ -3814,21 +3859,6 @@ body.menu-open .menu-button span:nth-child(3) {
     border-radius: 0;
     background: transparent;
   }
-
-  .mobile-secondary button {
-    min-height: 42px;
-    grid-template-columns: 24px minmax(0, 1fr) 20px;
-    padding-left: 12px;
-    border-radius: 11px;
-    font-weight: 560;
-    word-break: keep-all;
-    overflow-wrap: anywhere;
-  }
-
-  .mobile-secondary button.active::before {
-    height: 18px;
-    left: 4px;
-  }
 }
 
 @media (max-width: 39.999rem) {
@@ -3836,7 +3866,7 @@ body.menu-open .menu-button span:nth-child(3) {
     --overview-card-title-size: clamp(.875rem, 3.6vw, .9375rem);
   }
 
-  .catalog-section {
+  .app-shell {
     --catalog-grid-column-count: 2;
     --catalog-grid-gap: 8px;
     --catalog-card-min-height: 132px;
@@ -3881,10 +3911,10 @@ body.menu-open .menu-button span:nth-child(3) {
     margin-top: 34px;
   }
 
-  .toy-panel[data-toy-panel="catalog"],
-  .toy-panel[data-toy-panel="release"],
-  .toy-panel[data-toy-panel="anime"],
-  .toy-panel[data-toy-panel="anime-episodes"] {
+  .app-panel[data-app-panel="catalog"],
+  .app-panel[data-app-panel="release"],
+  .app-panel[data-app-panel="anime"],
+  .app-panel[data-app-panel="anime-episodes"] {
     --section-heading-gap: 8px;
     --section-heading-margin: 0 auto 12px;
     --result-count-margin: 0 0 2px;
@@ -3895,14 +3925,6 @@ body.menu-open .menu-button span:nth-child(3) {
     --catalog-filter-primary-min-height: 0;
     --catalog-filter-expanded-display: none;
     --catalog-filter-compact-display: grid;
-    --catalog-filter-compact-columns: 1fr;
-  }
-
-  .catalog-panel.active .catalog-control-bar.is-stuck {
-    padding: 10px 0 12px;
-  }
-
-  .catalog-panel.catalog-filters-compact {
     --catalog-filter-compact-columns: 1fr;
   }
 
