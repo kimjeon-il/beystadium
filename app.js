@@ -10959,6 +10959,7 @@ function isDetailRoute(route = {}) {
 }
 const routeSnapshot = route => route ? normalizeRoute(route) : null;
 let modalOriginRoute = null;
+let activeDetailModalContext = null;
 let lastPrimaryRoute = { type: "overview" };
 function rememberPrimaryRoute(route = {}) {
   if (isPrimaryRoute(route)) lastPrimaryRoute = routeSnapshot(route) || { type: "overview" };
@@ -10977,7 +10978,7 @@ function syncModalOriginRoute(route = {}) {
   }
 }
 function getModalCloseRoute() {
-  return routeSnapshot(modalOriginRoute) || { type: "overview" };
+  return routeSnapshot(modalOriginRoute) || detailModalFallbackCloseRoute(activeDetailModalContext);
 }
 function clearModalOriginRoute() {
   modalOriginRoute = null;
@@ -11829,14 +11830,39 @@ const modalContextOptions = options => {
   if (options?.releaseSort?.key && options?.releaseSort?.direction) context.releaseSort = options.releaseSort;
   return context;
 };
+const detailModalRouteOptions = (options = {}, keys = []) => Object.fromEntries(keys
+  .map(key => [key, options[key]])
+  .filter(([, value]) => value));
+const detailModalFallbackCloseRoute = (context = activeDetailModalContext) => {
+  const options = context?.options || {};
+  if (options.backRelease) return {
+    type: "category-release",
+    options: detailModalRouteOptions(options, ["region", "series", "releaseQuery", "releaseSort"])
+  };
+  if (options.fromAnimeList) return {
+    type: "category-anime-episodes",
+    options: detailModalRouteOptions(options, ["animeSeason", "animeQuery"])
+  };
+  const id = context?.id || "";
+  if (catalogCoreItemsById.has(id) || toolsItemsById.has(id)) return { type: "catalog", scope: "all" };
+  return { type: "overview" };
+};
+const rememberActiveDetailModalContext = context => {
+  if (context?.kind === "category-release" || context?.kind === "category-anime-episodes") return;
+  activeDetailModalContext = context;
+};
+const clearActiveDetailModalContext = () => {
+  activeDetailModalContext = null;
+};
 function rememberModalContext(kind, id, options = {}) {
+  const originRoute = modalOriginRouteSnapshot();
+  const context = { kind, id, options: modalContextOptions(options) };
+  if (originRoute) {
+    context.originRoute = originRoute;
+    context.originState = modalOriginState(originRoute);
+  }
+  rememberActiveDetailModalContext(context);
   try {
-    const originRoute = modalOriginRouteSnapshot();
-    const context = { kind, id, options: modalContextOptions(options) };
-    if (originRoute) {
-      context.originRoute = originRoute;
-      context.originState = modalOriginState(originRoute);
-    }
     sessionStorage.setItem(modalContextStorageKey, JSON.stringify(context));
   } catch {
     // Browsers can disable sessionStorage; the modal still works without refresh restoration.
@@ -13476,7 +13502,10 @@ function closeModal() {
 function closeModalSession({ clearContext = true, clearOrigin = true } = {}) {
   closeModalTagPopover();
   cleanupModelViewer();
-  if (clearContext) clearModalContext();
+  if (clearContext) {
+    clearModalContext();
+    clearActiveDetailModalContext();
+  }
   const shouldRestoreModalScroll = Boolean(modalOriginRoute);
   if (clearOrigin) clearModalOriginRoute();
   if (modal?.open) closeModal();
