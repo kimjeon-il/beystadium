@@ -1904,8 +1904,12 @@ dialog[open] .category-anime-info .anime-episode-title-row .category-title {
 
   .release-table th:nth-child(3),
   .release-table td:nth-child(3),
+  .release-table th:nth-child(4),
+  .release-table td:nth-child(4),
   .release-table th:nth-child(5),
-  .release-table td:nth-child(5) {
+  .release-table td:nth-child(5),
+  .anime-episode-table th:nth-child(3),
+  .anime-episode-table td:nth-child(3) {
     display: none;
   }
 
@@ -1916,7 +1920,8 @@ dialog[open] .category-anime-info .anime-episode-title-row .category-title {
     padding-inline: 8px;
   }
 
-  .release-table tbody td:nth-child(4) {
+  .release-table tbody td:nth-child(2),
+  .anime-episode-table tbody td:nth-child(2) {
     border-radius: 0 var(--ui-radius) var(--ui-radius) 0;
   }
 
@@ -1943,10 +1948,6 @@ dialog[open] .category-anime-info .anime-episode-title-row .category-title {
     --anime-table-min-width: 0;
     --anime-col-episode-width: var(--mobile-table-leading-col-width);
     --anime-col-date-width: var(--mobile-table-date-col-width);
-  }
-
-  .anime-episode-table tbody td:nth-child(3) {
-    border-radius: 0 var(--ui-radius) var(--ui-radius) 0;
   }
 
 }
