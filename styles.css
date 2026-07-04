@@ -1892,7 +1892,7 @@ dialog[open] .category-anime-info .anime-episode-title-row .category-title {
 @container (max-width: 39.999rem) {
   .release-table,
   .anime-episode-table {
-    --mobile-table-leading-col-width: clamp(64px, 25%, 76px);
+    --mobile-table-leading-col-width: clamp(52px, 18%, 64px);
     --mobile-table-date-col-width: clamp(92px, 27%, 96px);
   }
 
