@@ -11587,8 +11587,22 @@ function bindModalTagPopovers(scope = document) {
   });
 }
 
+const burstDetailPartOrder = part => {
+  if (part?.type === "dbarmor") return 40;
+  if (part?.type === "driver" || part?.type === "driverupgrade") return 50;
+  return 0;
+};
+const beyDetailPartIds = item => {
+  if (item?.series !== "burst") return item.parts;
+  return item.parts
+    .map((partId, index) => ({ partId, index, order: burstDetailPartOrder(catalogCoreItemsById.get(partId)) }))
+    .sort((a, b) => a.order - b.order || a.index - b.index)
+    .map(entry => entry.partId);
+};
+
 function beyDetailSections(item, region) {
-  const info = item.parts.length ? `<section class="modal-section mounted-parts"><p class="mounted-title">구성</p><div class="modal-section-scroll mounted-parts-list">${item.parts.map(partId => {
+  const detailPartIds = beyDetailPartIds(item);
+  const info = detailPartIds.length ? `<section class="modal-section mounted-parts"><p class="mounted-title">구성</p><div class="modal-section-scroll mounted-parts-list">${detailPartIds.map(partId => {
     const part = catalogCoreItemsById.get(partId);
     return `<a class="ui-list-link mounted-link" href="#${part.id}" data-part-id="${part.id}"><span>${typeLabels[part.type]}</span><strong>${itemDisplayName(part, region)}</strong><b>→</b></a>`;
   }).join("")}</div></section>` : "";
