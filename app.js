@@ -286,6 +286,7 @@ const beyItems = [
   { id: "BEY-BURST-B-30-SPRIGGAN-S-F", series: "burst", type: "bey", name: "스프리건.S.F", en: "Spriggan.S.F", productNo: "B-30", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["LAYER-SPRIGGAN", "DISK-SPREAD", "DRIVER-FUSION"] },
   { id: "BEY-BURST-B-31-YGGDRASIL-R-G", series: "burst", type: "bey", name: "이그드라실.R.G", en: "Yggdrasil.R.G", productNo: "B-31", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["LAYER-YGGDRASIL", "DISK-RING", "DRIVER-GYRO"] },
   { id: "BEY-BURST-B-34-VICTORY-VALKYRIE-B-V", series: "burst", type: "bey", name: "빅토리 발키리.B.V", en: "Victory Valkyrie.B.V", productNo: "B-34", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-VICTORY-VALKYRIE", "DISK-BOOST", "DRIVER-VARIABLE"] },
+  { id: "BEY-BURST-BK-01-VICTORY-VALKYRIE-B-V", series: "burst", type: "bey", name: "빅토리 발키리.B.V", en: "Victory Valkyrie.B.V", productNo: "BK-01", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-VICTORY-VALKYRIE", "DISK-BOOST", "DRIVER-VARIABLE"] },
   { id: "BEY-BURST-B-35-STORM-SPRIGGAN-K-U", series: "burst", type: "bey", name: "스톰 스프리건.K.U", en: "Storm Spriggan.K.U", productNo: "B-35", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-STORM-SPRIGGAN", "DISK-KNUCKLE", "DRIVER-UNITE"] },
   { id: "BEY-BURST-B-36-RISING-RAGNARUK-G-R", series: "burst", type: "bey", name: "라이징 라그나로크.G.R", en: "Rising Ragnaruk.G.R", productNo: "B-36", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-RISING-RAGNARUK", "DISK-GRAVITY", "DRIVER-REVOLVE"] },
   { id: "BEY-BURST-B-37-KAISER-KERBEUS-L-P", series: "burst", type: "bey", name: "카이저 케르베우스.L.P", en: "Kaiser Kerbeus.L.P", productNo: "B-37", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-KAISER-KERBEUS", "DISK-LIMITED", "DRIVER-PRESS"] },
@@ -296,6 +297,7 @@ const beyItems = [
   { id: "BEY-BURST-B-46-OBELISK-ODIN-T-X", series: "burst", type: "bey", name: "오벨리스크 오딘.T.X", en: "Obelisk Odin.T.X", productNo: "B-46", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-OBELISK-ODIN", "DISK-TRIPLE", "DRIVER-XTREME"] },
   { id: "BEY-BURST-B-00-BALDUR-BETA-BETA", series: "burst", type: "bey", name: "발뒤르.β.β", en: "Baldur.β.β", productNo: "B-00β", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-BALDUR", "DISK-BUMPER", "DRIVER-BITE"] },
   { id: "BEY-BURST-B-48-XENO-XCALIBUR-M-I", series: "burst", type: "bey", name: "제노 엑스칼리버.M.I", en: "Xeno Xcalibur.M.I", productNo: "B-48", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-XENO-XCALIBUR", "DISK-MAGNUM", "DRIVER-IMPACT"] },
+  { id: "BEY-BURST-BK-01-XENO-XCALIBUR-M-I", series: "burst", type: "bey", name: "제노 엑스칼리버.M.I", en: "Xeno Xcalibur.M.I", productNo: "BK-01", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-XENO-XCALIBUR", "DISK-MAGNUM", "DRIVER-IMPACT"] },
   { id: "BEY-BURST-B-56-UNLOCK-UNICORN-D-N", series: "burst", type: "bey", name: "언락 유니콘.D.N", en: "Unlock Unicorn.D.N", productNo: "B-56", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-UNLOCK-UNICORN", "DISK-DOWN", "DRIVER-NEEDLE"] },
   { id: "BEY-BURST-B-57-VICTORY-VALKYRIE-U-Q", series: "burst", type: "bey", name: "빅토리 발키리.U.Q", en: "Victory Valkyrie.U.Q", productNo: "B-57", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-VICTORY-VALKYRIE", "DISK-UPPER", "DRIVER-QUAKE"] },
   { id: "BEY-BURST-B-57-NOVA-NEPTUNE-V-T", series: "burst", type: "bey", name: "노바 넵튠.V.T", en: "Nova Neptune.V.T", productNo: "B-57", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-NOVA-NEPTUNE", "DISK-VERTICAL", "DRIVER-TRANS"] },
@@ -314,7 +316,10 @@ const beyItems = [
   { id: "BEY-BURST-B-71-ACID-ANUBIS-Y-O", series: "burst", type: "bey", name: "애시드 아누비스.Y.O", en: "Acid Anubis.Y.O", productNo: "B-71", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-ACID-ANUBIS", "DISK-YELL", "DRIVER-ORBIT"] },
   { id: "BEY-BURST-B-73-GOD-VALKYRIE-6V-RB", series: "burst", type: "bey", name: "갓 발키리.6V.Rb", en: "God Valkyrie.6V.Rb", productNo: "B-73", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["GODLAYER-GOD-VALKYRIE", "COREDISK-6", "FRAME-VORTEX", "DRIVER-REBOOT"] },
   { id: "BEY-BURST-B-74-KREIS-SATAN-2G-LP", series: "burst", type: "bey", name: "크라이스 사탄.2G.Lp", en: "Kreis Satan.2G.Lp", productNo: "B-74", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["GODLAYER-KREIS-SATAN", "COREDISK-2", "FRAME-GLAIVE", "DRIVER-LOOP"] },
+  { id: "BEY-BURST-BA-01-GOD-VALKYRIE-6V-RB", series: "burst", type: "bey", name: "갓 발키리.6V.Rb", en: "God Valkyrie.6V.Rb", productNo: "BA-01", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["GODLAYER-GOD-VALKYRIE", "COREDISK-6", "FRAME-VORTEX", "DRIVER-REBOOT"] },
+  { id: "BEY-BURST-BA-01-KREIS-SATAN-2G-LP", series: "burst", type: "bey", name: "크라이스 사탄.2G.Lp", en: "Kreis Satan.2G.Lp", productNo: "BA-01", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["GODLAYER-KREIS-SATAN", "COREDISK-2", "FRAME-GLAIVE", "DRIVER-LOOP"] },
   { id: "BEY-BURST-B-75-BLAZE-RAGNARUK-4C-FL", series: "burst", type: "bey", name: "블레이즈 라그나로크.4C.Fl", en: "Blaze Ragnaruk.4C.Fl", productNo: "B-75", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["GODLAYER-BLAZE-RAGNARUK", "COREDISK-4", "FRAME-CROSS", "DRIVER-FLUGEL"] },
+  { id: "BEY-BURST-B-00-KR-BLAZE-RAGNARUK-4S-B", series: "burst", type: "bey", name: "블레이즈 라그나로크.4S.B", en: "Blaze Ragnaruk.4S.B", productNo: "B-00", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["GODLAYER-BLAZE-RAGNARUK", "COREDISK-4", "FRAME-STAR", "DRIVER-BLOW"] },
   { id: "BEY-BURST-B-76-VALKYRIE-6V-RB", series: "burst", type: "bey", name: "갓 발키리.6V.Rb", en: "God Valkyrie.6V.Rb", productNo: "B-76", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["GODLAYER-GOD-VALKYRIE", "COREDISK-6", "FRAME-VORTEX", "DRIVER-REBOOT"] },
   { id: "BEY-BURST-B-79-DRAIN-FAFNIR-8-NT", series: "burst", type: "bey", name: "드레인 파브닐.8.Nt", en: "Drain Fafnir.8.Nt", productNo: "B-79", battleType: "stamina", spin: "left", tags: [], desc: "", parts: ["GODLAYER-DRAIN-FAFNIR", "COREDISK-8", "DRIVER-NOTHING"] },
   { id: "BEY-BURST-B-82-ALTER-CHRONOS-6M-T", series: "burst", type: "bey", name: "알타 크로노스.6M.T", en: "Alter Chronos.6M.T", productNo: "B-82", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["GODLAYER-ALTER-CHRONOS", "COREDISK-6", "FRAME-METEOR", "DRIVER-TRANS"] },
@@ -323,6 +328,7 @@ const beyItems = [
   { id: "BEY-BURST-B-89-BLAST-JINNIUS-5G-GR", series: "burst", type: "bey", name: "블라스트 지니어스.5G.Gr", en: "Blast Jinnius.5G.Gr", productNo: "B-89", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["GODLAYER-BLAST-JINNIUS", "COREDISK-5", "FRAME-GLAIVE", "DRIVER-GUARD"] },
   { id: "BEY-BURST-B-90-GALAXY-ZEUS-4M-PL", series: "burst", type: "bey", name: "갤럭시 제우스.4M.Pl", en: "Galaxy Zeus.4M.Pl", productNo: "B-90", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["GODLAYER-GALAXY-ZEUS", "COREDISK-4", "FRAME-METEOR", "DRIVER-PLANET"] },
   { id: "BEY-BURST-B-90-GUARDIAN-KERBEUS-H-R", series: "burst", type: "bey", name: "가디언 케르베우스.H.R", en: "Guardian Kerbeus.H.R", productNo: "B-90", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["GODLAYER-GUARDIAN-KERBEUS", "DISK-HEAVY", "DRIVER-REVOLVE"] },
+  { id: "BEY-BURST-BA-02-GUARDIAN-KERBEUS-H-R", series: "burst", type: "bey", name: "가디언 케르베우스.H.R", en: "Guardian Kerbeus.H.R", productNo: "BA-02", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["GODLAYER-GUARDIAN-KERBEUS", "DISK-HEAVY", "DRIVER-REVOLVE"] },
   { id: "BEY-BURST-B-90-MAD-MINOBOROS-Q-Q", series: "burst", type: "bey", name: "매드 미노보로스.Q.Q", en: "Mad Minoboros.Q.Q", productNo: "B-90", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["DUALLAYER-MAD-MINOBOROS", "DISK-QUARTER", "DRIVER-QUAKE"] },
   { id: "BEY-BURST-B-92-SIEG-XCALIBUR-1-IR", series: "burst", type: "bey", name: "지크 엑스칼리버.1.Ir", en: "Sieg Xcalibur.1.Ir", productNo: "B-92", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["GODLAYER-SIEG-XCALIBUR", "COREDISK-1", "DRIVER-IRON"] },
   { id: "BEY-BURST-B-96-STRIKE-GOD-VALKYRIE-MUGEN", series: "burst", type: "bey", name: "스트라이크 갓 발키리.∞", en: "Strike God Valkyrie.∞", productNo: "B-96", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["GODLAYER-STRIKE-GOD-VALKYRIE", "DRIVER-MUGEN"] },
@@ -340,6 +346,8 @@ const beyItems = [
   { id: "BEY-BURST-B-107-WINNING-VALKYRIE-12-VL", series: "burst", type: "bey", name: "위닝 발키리.12.Vl", en: "Winning Valkyrie.12.Vl", productNo: "B-107", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["CHOZLAYER-WINNING-VALKYRIE", "COREDISK-12", "DRIVER-VOLCANIC"] },
   { id: "BEY-BURST-B-107-Z-ACHILLES-11-XT", series: "burst", type: "bey", name: "제트 아킬레스.11.Xt", en: "Z Achilles.11.Xt", productNo: "B-107", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["CHOZLAYER-Z-ACHILLES", "COREDISK-11", "DRIVER-XTEND"] },
   { id: "BEY-BURST-B-110-BLOODY-LONGINUS-13-JL", series: "burst", type: "bey", name: "블러디 롱기누스.13.Jl", en: "Bloody Longinus.13.Jl", productNo: "B-110", battleType: "attack", spin: "left", tags: [], desc: "", parts: ["CHOZLAYER-BLOODY-LONGINUS", "COREDISK-13", "DRIVER-JOLT"] },
+  { id: "BEY-BURST-BA-03-Z-ACHILLES-11-XT", series: "burst", type: "bey", name: "제트 아킬레스.11.Xt", en: "Z Achilles.11.Xt", productNo: "BA-03", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["CHOZLAYER-Z-ACHILLES", "COREDISK-11", "DRIVER-XTEND"] },
+  { id: "BEY-BURST-BA-03-BLOODY-LONGINUS-13-JL", series: "burst", type: "bey", name: "블러디 롱기누스.13.Jl", en: "Bloody Longinus.13.Jl", productNo: "BA-03", battleType: "attack", spin: "left", tags: [], desc: "", parts: ["CHOZLAYER-BLOODY-LONGINUS", "COREDISK-13", "DRIVER-JOLT"] },
   { id: "BEY-BURST-B-113-HELL-SALAMANDER-12-OP", series: "burst", type: "bey", name: "헬 살라맨더.12.Op", jpName: "헬 샐러맨더.12.Op", en: "Hell Salamander.12.Op", productNo: "B-113", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["CHOZLAYER-HELL-SALAMANDER", "COREDISK-12", "DRIVER-OPERATE"] },
   { id: "BEY-BURST-B-115-ARCHER-HERCULES-13-ET", series: "burst", type: "bey", name: "아처 헤라클레스.13.Et", en: "Archer Hercules.13.Et", productNo: "B-115", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["CHOZLAYER-ARCHER-HERCULES", "COREDISK-13", "DRIVER-ETERNAL"] },
   { id: "BEY-BURST-B-117-REVIVE-PHOENIX-10-FR", series: "burst", type: "bey", name: "리바이브 피닉스.10.Fr", en: "Revive Phoenix.10.Fr", productNo: "B-117", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["CHOZLAYER-REVIVE-PHOENIX", "COREDISK-10", "DRIVER-FRICTION"] },
@@ -1272,6 +1280,7 @@ const globalSearch = document.querySelector("#globalSearchInput");
 const globalSearchScope = document.querySelector("#globalSearchScope");
 const overviewSearchScope = document.querySelector("#overviewSearchScope");
 const catalogSearchScope = document.querySelector("#catalogSearchScope");
+const catalogSeriesFilter = document.querySelector("#catalogSeriesFilter");
 const catalogSearch = document.querySelector("#catalogSearchInput");
 const catalogSearchHelpButton = document.querySelector("#catalogSearchHelpButton");
 const catalogSearchHelpPopover = document.querySelector("#catalogSearchHelpPopover");
@@ -1296,6 +1305,7 @@ const setSearchScope = (dropdown, dataAttr, scope) => {
 const setGlobalSearchScope = scope => setSearchScope(globalSearchScope, "data-global-search-scope", scope);
 const setOverviewSearchScope = scope => setSearchScope(overviewSearchScope, "data-overview-search-scope", scope);
 const setCatalogSearchScope = scope => setSearchScope(catalogSearchScope, "data-catalog-search-scope", scope || "all");
+const setCatalogSeriesFilter = series => setSearchScope(catalogSeriesFilter, "data-catalog-series", series || "all");
 const overviewSearch = document.querySelector("#overviewSearchInput");
 const searchInputRoot = input => input?.closest(".overview-search, .search-box");
 const searchClearButton = input => searchInputRoot(input)?.querySelector(".search-clear");
@@ -1422,6 +1432,7 @@ let activeReleaseSeries = "";
 let activeReleaseSort = { key: "release", direction: "asc" };
 let activeReleaseQuery = "";
 let selectedCatalogKind = "";
+let selectedCatalogSeries = "all";
 const toolsSubtypeOptions = [
   { value: "런처", label: "런처" },
   { value: "그립", label: "그립" },
@@ -1712,10 +1723,10 @@ const productItems = [
     jp: { no: "", name: "갤럭시 페가시스 GB145MS", sale: "한정 배포", kind: "", releaseDate: "2010-04-01", price: "", composition: [{ name: "갤럭시 페가시스 GB145MS", quantity: "1개", target: "BEY-GALAXY-PEGASIS-GB145MS" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] }} },
   { id: "PRODUCT-ROCK-ARIES-ED145D", series: "metal fight", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "", name: "록 아리에스 ED145D", sale: "한정 배포", kind: "", releaseDate: "2010-04-01", price: "" }} },
+    jp: { no: "", name: "록 아리에스 ED145D", sale: "한정 배포", kind: "", releaseDate: "2010-04-01", price: "", composition: [{ name: "록 아리에스 ED145D", quantity: "1개", target: "BEY-ROCK-ARIES-ED145D" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] }} },
   { id: "PRODUCT-BEYPOINT-LEVELS", series: "metal fight", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "", name: "베이포인트 레벨1~7", sale: "한정 배포", kind: "", releaseDate: "2010-04-01", price: "" }}, lineupTitle: "교환 상품", lineupPool: ["PRODUCT-BEYPOINT-LEVEL-1", "PRODUCT-BEYPOINT-LEVEL-2", "PRODUCT-BEYPOINT-LEVEL-3", "PRODUCT-BEYPOINT-LEVEL-4", "PRODUCT-BEYPOINT-LEVEL-5", "PRODUCT-BEYPOINT-LEVEL-6", "PRODUCT-BEYPOINT-LEVEL-7"] },
+    jp: { no: "", name: "베이포인트 레벨1~7", sale: "한정 배포", kind: "", releaseDate: "2010-04-01", price: "", composition: [{ name: "레벨별 교환 상품", quantity: "1개", target: "PRODUCT-BEYPOINT-LEVEL-1" }] }}, lineupTitle: "교환 상품", lineupPool: ["PRODUCT-BEYPOINT-LEVEL-1", "PRODUCT-BEYPOINT-LEVEL-2", "PRODUCT-BEYPOINT-LEVEL-3", "PRODUCT-BEYPOINT-LEVEL-4", "PRODUCT-BEYPOINT-LEVEL-5", "PRODUCT-BEYPOINT-LEVEL-6", "PRODUCT-BEYPOINT-LEVEL-7"] },
   { id: "PRODUCT-BEYPOINT-LEVEL-1", series: "metal fight", lineupOnly: true, releases: {
     kr: { status: "unreleased" },
     jp: { no: "", name: "베이포인트 레벨1", sale: "한정 배포", kind: "", releaseDate: "2010-04-01", price: "", composition: [{ name: "베이포인트 레벨 스티커", quantity: "1장", target: "TOOLS-BEYPOINT-LEVEL-STICKER" }] }} },
@@ -1856,7 +1867,7 @@ const productItems = [
     jp: { no: "BB-94", name: "토네이도 베이스타디움", sale: "일반 판매", kind: "세트", releaseDate: "2010-10-23", price: "5775", composition: [{ name: "토네이도 헤라클레오 105F", quantity: "1개", target: "BEY-BB-94-TORNADO-HERCULEO-105F" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }, { name: "토네이도 베이스타디움", quantity: "1개", target: "TOOLS-TORNADO-BEYSTADIUM" }, { name: "오버펜스", quantity: "7장", target: "TOOLS-OVER-FENCE" }] }} },
   { id: "PRODUCT-DIVINE-CHIMERA-TR145FB", series: "metal fight", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "", name: "디바인 키메라 TR145FB", sale: "한정 배포", kind: "", releaseDate: "2010-11-02", price: "" }} },
+    jp: { no: "", name: "디바인 키메라 TR145FB", sale: "한정 배포", kind: "", releaseDate: "2010-11-02", price: "", composition: [{ name: "디바인 키메라 TR145FB", quantity: "1개", target: "BEY-DIVINE-CHIMERA-TR145FB" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] }} },
   { id: "PRODUCT-KR-GALAXY-STARGAZER-SET", series: "metal fight", releases: {
     kr: { no: "", name: "갤럭시 스타게이저 세트", sale: "일반 판매", kind: "세트", releaseDate: "2010-12-07", price: "", composition: [{ name: "갤럭시 페가시스 W105R²F", quantity: "1개", target: "BEY-BB-70-GALAXY-PEGASIS-W105R2F" }, { name: "아쿠아리오 105F", quantity: "1개", target: "BEY-BB-72-AQUARIO-105F" }, { name: "툴", quantity: "2개", target: "TOOLS-TOOL" }, { name: "라이트런처", quantity: "1개", target: "TOOLS-LIGHT-LAUNCHER" }, { name: "파워런처", quantity: "1개", target: "TOOLS-POWER-LAUNCHER" }, { name: "배틀블레이더즈 툴박스", quantity: "1개", target: "TOOLS-BATTLE-BLADERS-TOOLBOX" }, { name: "스퀘어형 베이스타디움", quantity: "1개", target: "TOOLS-WIDE-SQUARE-BEYSTADIUM" }, { name: "오버펜스", quantity: "7장", target: "TOOLS-OVER-FENCE" }] },
     jp: { status: "unreleased" }} },
@@ -1923,7 +1934,7 @@ const productItems = [
     jp: { no: "BB-107", name: "빅뱅 페가시스 DX 세트", sale: "일반 판매", kind: "세트", releaseDate: "2011-03-26", price: "3990", composition: [{ name: "빅뱅 페가시스 F:D", quantity: "1개", target: "BEY-BB-107-BIG-BANG-PEGASIS-FD" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }, { name: "85 트랙", quantity: "1개", target: "TRACK-85" }, { name: "105 트랙", quantity: "1개", target: "TRACK-105" }, { name: "XF 버텀", quantity: "1개", target: "BOTTOM-EXTREME-FLAT" }, { name: "RF 버텀", quantity: "1개", target: "BOTTOM-RUBBER-FLAT" }, { name: "베이런처", quantity: "1개", target: "TOOLS-POWER-LAUNCHER" }, { name: "3세그 런처그립", quantity: "1개", target: "TOOLS-3SEG-LAUNCHER-GRIP" }, { name: "베이포인트카드", quantity: "1개", target: "TOOLS-BEYPOINT-CARD" }, { name: "베이스타디움 어택타입", quantity: "1개", target: "TOOLS-ATTACK-BEYSTADIUM" }, { name: "오버펜스", quantity: "7장", target: "TOOLS-OVER-FENCE" }] }} },
   { id: "PRODUCT-BEYPOINT-LEVELS-2011", series: "metal fight", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "", name: "베이포인트 레벨1~10", sale: "한정 배포", kind: "", releaseDate: "2011-04-01", price: "" }}, lineupTitle: "교환 상품", lineupPool: ["PRODUCT-BEYPOINT-LEVEL-2011-1", "PRODUCT-BEYPOINT-LEVEL-2011-2", "PRODUCT-BEYPOINT-LEVEL-2011-3", "PRODUCT-BEYPOINT-LEVEL-2011-4", "PRODUCT-BEYPOINT-LEVEL-2011-5", "PRODUCT-BEYPOINT-LEVEL-2011-6", "PRODUCT-BEYPOINT-LEVEL-2011-7", "PRODUCT-BEYPOINT-LEVEL-2011-8", "PRODUCT-BEYPOINT-LEVEL-2011-9", "PRODUCT-BEYPOINT-LEVEL-2011-10"] },
+    jp: { no: "", name: "베이포인트 레벨1~10", sale: "한정 배포", kind: "", releaseDate: "2011-04-01", price: "", composition: [{ name: "레벨별 교환 상품", quantity: "1개", target: "PRODUCT-BEYPOINT-LEVEL-2011-1" }] }}, lineupTitle: "교환 상품", lineupPool: ["PRODUCT-BEYPOINT-LEVEL-2011-1", "PRODUCT-BEYPOINT-LEVEL-2011-2", "PRODUCT-BEYPOINT-LEVEL-2011-3", "PRODUCT-BEYPOINT-LEVEL-2011-4", "PRODUCT-BEYPOINT-LEVEL-2011-5", "PRODUCT-BEYPOINT-LEVEL-2011-6", "PRODUCT-BEYPOINT-LEVEL-2011-7", "PRODUCT-BEYPOINT-LEVEL-2011-8", "PRODUCT-BEYPOINT-LEVEL-2011-9", "PRODUCT-BEYPOINT-LEVEL-2011-10"] },
   { id: "PRODUCT-BEYPOINT-LEVEL-2011-1", series: "metal fight", lineupOnly: true, releases: {
     kr: { status: "unreleased" },
     jp: { no: "", name: "베이포인트 레벨1", sale: "한정 배포", kind: "", releaseDate: "2011-04-01", price: "", composition: [{ name: "베이포인트 레벨 스티커", quantity: "1장", target: "TOOLS-BEYPOINT-LEVEL-STICKER" }] }} },
@@ -4433,7 +4444,7 @@ const productItems = [
         no: "B-88",
         name: "베이런처LR",
         kind: "툴",
-        releaseDate: "2017-01-03",
+        releaseDate: "2018-01-03",
         price: "8200",
         composition: [
           { name: "베이런처LR", quantity: "1개", target: "TOOLS-BURST-BEYLAUNCHER-LR" }
@@ -4675,7 +4686,7 @@ const productItems = [
         no: "B-97",
         name: "나이트메어 롱기누스.Ds",
         kind: "스타터",
-        releaseDate: "2017-01-03",
+        releaseDate: "2018-01-03",
         price: "18000",
         composition: [
           { name: "나이트메어 롱기누스.Ds", quantity: "1개", target: "BEY-BURST-B-97-NIGHTMARE-LONGINUS-DS" },
@@ -4703,7 +4714,7 @@ const productItems = [
         no: "B-98",
         name: "갓 커스터마이즈 세트",
         kind: "세트",
-        releaseDate: "2017-01-03",
+        releaseDate: "2018-01-03",
         price: "49200",
         composition: [
           { name: "아크 바하무트.2B.At", quantity: "1개", target: "BEY-BURST-B-98-ARC-BAHAMUT-2B-AT" },
@@ -4763,7 +4774,7 @@ const productItems = [
         no: "B-100",
         name: "스프리건 레퀴엠.0.Zt",
         kind: "스타터",
-        releaseDate: "2017-03-01",
+        releaseDate: "2018-03-01",
         price: "21300",
         composition: [
           { name: "스프리건 레퀴엠.0.Zt", quantity: "1개", target: "BEY-BURST-B-100-SPRIGGAN-REQUIEM-0-ZT" },
@@ -4791,7 +4802,7 @@ const productItems = [
         no: "B-101",
         name: "랜덤부스터 Vol.9",
         kind: "랜덤부스터",
-        releaseDate: "2017-03-01",
+        releaseDate: "2018-03-01",
         price: "12300",
         composition: []
       },
@@ -4813,7 +4824,7 @@ const productItems = [
         no: "B-102",
         name: "트윈 네메시스.3H.Ul",
         kind: "부스터",
-        releaseDate: "2017-04-03",
+        releaseDate: "2018-04-03",
         price: "12300",
         composition: [
           { name: "트윈 네메시스.3H.Ul", quantity: "1개", target: "BEY-BURST-B-102-TWIN-NEMESIS-3H-UL" }
@@ -4839,7 +4850,7 @@ const productItems = [
         no: "B-103",
         name: "스크류 트라이던트.8B.Wd",
         kind: "부스터",
-        releaseDate: "2017-04-03",
+        releaseDate: "2018-04-03",
         price: "12300",
         composition: [
           { name: "스크류 트라이던트.8B.Wd", quantity: "1개", target: "BEY-BURST-B-103-SCREW-TRIDENT-8B-WD" }
@@ -5211,7 +5222,7 @@ const productItems = [
         no: "B-117",
         name: "리바이브 피닉스.10.Fr",
         kind: "스타터",
-        releaseDate: "2018-09-05",
+        releaseDate: "2018-09-03",
         price: "21300",
         composition: [
           { name: "리바이브 피닉스.10.Fr", quantity: "1개", target: "BEY-BURST-B-117-REVIVE-PHOENIX-10-FR" },
@@ -5269,6 +5280,44 @@ const productItems = [
         composition: [
           { name: "베이런처LR", quantity: "1개", target: "TOOLS-BURST-BEYLAUNCHER-LR" }
         ]
+      }
+    }
+  },
+{
+    id: "PRODUCT-BURST-B-00-KR-BLAZE-RAGNARUK-4S-B-RED",
+    series: "burst",
+    releases: {
+      kr: {
+        no: "B-00",
+        name: "부스터 블레이즈 라그나로크.4S.B 레드 ver.",
+        kind: "부스터",
+        releaseDate: "2018-09-22",
+        price: "12300",
+        composition: [
+          { name: "블레이즈 라그나로크.4S.B", quantity: "1개", target: "BEY-BURST-B-00-KR-BLAZE-RAGNARUK-4S-B" }
+        ]
+      },
+      jp: {
+        status: "unreleased"
+      }
+    }
+  },
+{
+    id: "PRODUCT-BURST-BA-02-GUARDIAN-KERBEUS-H-R-RED",
+    series: "burst",
+    releases: {
+      kr: {
+        no: "BA-02",
+        name: "부스터 가디언 케르베우스.H.R 레드 ver.",
+        kind: "부스터",
+        releaseDate: "2018-09-22",
+        price: "12300",
+        composition: [
+          { name: "가디언 케르베우스.H.R", quantity: "1개", target: "BEY-BURST-BA-02-GUARDIAN-KERBEUS-H-R" }
+        ]
+      },
+      jp: {
+        status: "unreleased"
       }
     }
   },
@@ -7568,11 +7617,17 @@ const productItems = [
     releases: {
       kr: {
         no: "BK-01",
-        name: "베이블레이드 VS 듀얼 배틀 세트",
+        name: "베이블레이드 버스트 VS 듀얼 배틀 세트",
         kind: "세트",
         releaseDate: "2017-03-31",
         price: "59900",
-        composition: []
+        composition: [
+          { name: "빅토리 발키리.B.V", quantity: "1개", target: "BEY-BURST-BK-01-VICTORY-VALKYRIE-B-V" },
+          { name: "제노 엑스칼리버.M.I", quantity: "1개", target: "BEY-BURST-BK-01-XENO-XCALIBUR-M-I" },
+          { name: "베이런처", quantity: "2개", target: "TOOLS-BURST-BEYLAUNCHER" },
+          { name: "런처그립", quantity: "2개", target: "TOOLS-BURST-LAUNCHER-GRIP" },
+          { name: "베이스타디움 스탠다드타입", quantity: "1개", target: "TOOLS-BURST-STANDARD-BEYSTADIUM" }
+        ]
       },
       jp: {
         status: "unreleased"
@@ -7587,9 +7642,15 @@ const productItems = [
         no: "BA-01",
         name: "베이블레이드 갓 배틀 세트",
         kind: "세트",
-        releaseDate: "2017-11-07",
+        releaseDate: "2017-10-14",
         price: "64800",
-        composition: []
+        composition: [
+          { name: "갓 발키리.6V.Rb", quantity: "1개", target: "BEY-BURST-BA-01-GOD-VALKYRIE-6V-RB" },
+          { name: "크라이스 사탄.2G.Lp", quantity: "1개", target: "BEY-BURST-BA-01-KREIS-SATAN-2G-LP" },
+          { name: "베이런처", quantity: "2개", target: "TOOLS-BURST-BEYLAUNCHER" },
+          { name: "런처그립", quantity: "2개", target: "TOOLS-BURST-LAUNCHER-GRIP" },
+          { name: "베이스타디움 스탠다드타입", quantity: "1개", target: "TOOLS-BURST-STANDARD-BEYSTADIUM" }
+        ]
       },
       jp: {
         status: "unreleased"
@@ -7601,12 +7662,18 @@ const productItems = [
     series: "burst",
     releases: {
       kr: {
-        no: "BK-03",
+        no: "BA-03",
         name: "초Z 올인원 배틀 세트",
         kind: "세트",
-        releaseDate: "2018-11-07",
+        releaseDate: "2018-09-03",
         price: "51700",
-        composition: []
+        composition: [
+          { name: "제트 아킬레스.11.Xt", quantity: "1개", target: "BEY-BURST-BA-03-Z-ACHILLES-11-XT" },
+          { name: "블러디 롱기누스.13.Jl", quantity: "1개", target: "BEY-BURST-BA-03-BLOODY-LONGINUS-13-JL" },
+          { name: "라이트런처", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER" },
+          { name: "라이트런처L", quantity: "1개", target: "TOOLS-BURST-LIGHT-LAUNCHER-L" },
+          { name: "베이스타디움 스탠다드타입", quantity: "1개", target: "TOOLS-BURST-STANDARD-BEYSTADIUM" }
+        ]
       },
       jp: {
         status: "unreleased"
@@ -7623,7 +7690,9 @@ const productItems = [
         kind: "툴",
         releaseDate: "2021-10-07",
         price: "32900",
-        composition: []
+        composition: [
+          { name: "커스텀베이런처LR", quantity: "3개", target: "TOOLS-BURST-CUSTOM-BEYLAUNCHER-LR" }
+        ]
       },
       jp: {
         status: "unreleased"
@@ -7640,7 +7709,10 @@ const productItems = [
         kind: "세트",
         releaseDate: "2023-03-04",
         price: "19900",
-        composition: []
+        composition: [
+          { name: "파워커스텀베이런처LR", quantity: "1개", target: "TOOLS-BURST-POWER-CUSTOM-BEYLAUNCHER-LR" },
+          { name: "카라비너그립", quantity: "1개", target: "TOOLS-BURST-CARABINER-GRIP" }
+        ]
       },
       jp: {
         status: "unreleased"
@@ -7657,7 +7729,10 @@ const productItems = [
         kind: "세트",
         releaseDate: "2023-03-04",
         price: "19900",
-        composition: []
+        composition: [
+          { name: "파워커스텀베이런처LR", quantity: "1개", target: "TOOLS-BURST-POWER-CUSTOM-BEYLAUNCHER-LR" },
+          { name: "카라비너그립", quantity: "1개", target: "TOOLS-BURST-CARABINER-GRIP" }
+        ]
       },
       jp: {
         status: "unreleased"
@@ -9682,6 +9757,8 @@ const productDisplayRegion = (item, region = "kr") =>
   productDisplayFallbackRegions(region).find(candidate => productReleasedInRegion(item, candidate)) || region;
 const productDisplayRelease = (item, region = "kr") => productRelease(item, productDisplayRegion(item, region));
 const seriesLabels = { topblade: "탑블레이드", "metal fight": "메탈베이블레이드", burst: "베이블레이드 버스트", x: "베이블레이드 X" };
+const defaultCatalogSeries = () => "all";
+const normalizeCatalogSeries = series => seriesLabels[series] ? series : "all";
 const itemSeriesLabel = item => seriesLabels[item.series] || item.series || "";
 const productDisplayName = (item, region = activeReleaseRegion) => {
   const release = productDisplayRelease(item, region);
@@ -9863,7 +9940,7 @@ const toolsItems = [
   { id: "TOOLS-BURST-BEY-MISANGA", series: "burst", name: "베이미상가", en: "Bey Misanga", category: "기타", desc: "" },
   { id: "TOOLS-BURST-BEY-MISANGA-THREAD", series: "burst", name: "베이미상가용 실타래", en: "Bey Misanga Thread", category: "기타", desc: "" },
   { id: "TOOLS-BURST-WBBA-BADGE", series: "burst", name: "wbba. 배지", en: "wbba. Badge", category: "기타", desc: "" },
-  { id: "TOOLS-BURST-CARABINER-GRIP", series: "burst", name: "카라비나그립", en: "Carabiner Grip", category: "그립", desc: "" },
+  { id: "TOOLS-BURST-CARABINER-GRIP", series: "burst", name: "카라비너그립", jpName: "카라비나그립", en: "Carabiner Grip", category: "그립", desc: "" },
   { id: "TOOLS-BURST-GRIP-WEIGHT", series: "burst", name: "그립웨이트", en: "Grip Weight", category: "그립", desc: "" },
   { id: "TOOLS-BURST-DUAL-CYCLONE-BEYSTADIUM", series: "burst", name: "듀얼 싸이클론 베이스타디움", en: "Dual Cyclone Beystadium", category: "스타디움", desc: "" },
   { id: "TOOLS-BURST-BEYLAUNCHER-L", series: "burst", name: "베이런처L", en: "BeyLauncher L", category: "런처", desc: "" },
@@ -10283,38 +10360,44 @@ const matchSearchRecord = (record, query) => {
 const compareScoredSearchResults = (a, b) => b.score - a.score || a.record.order - b.record.order;
 const itemNameWithSub = item => [item?.name, item?.sub].filter(Boolean).join(" ");
 const catalogItemKindSearchValues = item => item?.type === "bey" ? ["bey", "베이"] : ["parts", "부품"];
-const catalogItemSearchFields = item => [
-  ...searchFieldsFromValues("primaryName", [itemNameWithSub(item), item.name]),
-  ...searchFieldsFromValues("alias", [item.jpName, item.en]),
-  ...searchFieldsFromValues("code", [item.no, item.productNo]),
-  ...searchFieldsFromValues("category", [
-    ...catalogItemKindSearchValues(item),
-    item.series,
-    itemSeriesLabel(item),
-    item.type,
-    item.type ? typeLabels[item.type] : "",
-    item.category,
-    item.category ? typeLabels[item.category] : "",
-    item.structure,
-    item.structure ? structureLabels[item.structure] : ""
-  ]),
-  ...searchFieldsFromValues("attributes", [
-    item.battleType,
-    item.battleType ? battleTypeLabel(item.battleType, item) : "",
-    ...catalogListSpinSearchTerms(item),
-    item.heightClass,
-    item.heightClass ? heightClassLabel(item.heightClass) : "",
-    ...(Array.isArray(item.tags) ? item.tags : []),
-    ...(Array.isArray(item.tags) ? item.tags.map(tag => tagLabels[tag] || "") : [])
-  ])
-];
-const toolsSearchFields = item => [
-  ...searchFieldsFromValues("primaryName", [item.name]),
-  ...searchFieldsFromValues("alias", [item.en]),
-  ...searchFieldsFromValues("code", [item.no, item.productNo]),
-  ...searchFieldsFromValues("category", ["tools", "장비", item.series, itemSeriesLabel(item), item.category, item.category ? typeLabels[item.category] : ""]),
-  ...searchFieldsFromValues("description", [item.desc])
-];
+const shouldIncludeSeriesSearchField = options => options?.includeSeries !== false;
+const catalogItemSearchFields = (item, options = {}) => {
+  const includeSeries = shouldIncludeSeriesSearchField(options);
+  return [
+    ...searchFieldsFromValues("primaryName", [itemNameWithSub(item), item.name]),
+    ...searchFieldsFromValues("alias", [item.jpName, item.en]),
+    ...searchFieldsFromValues("code", [item.no, item.productNo]),
+    ...searchFieldsFromValues("category", [
+      ...catalogItemKindSearchValues(item),
+      ...(includeSeries ? [item.series, itemSeriesLabel(item)] : []),
+      item.type,
+      item.type ? typeLabels[item.type] : "",
+      item.category,
+      item.category ? typeLabels[item.category] : "",
+      item.structure,
+      item.structure ? structureLabels[item.structure] : ""
+    ]),
+    ...searchFieldsFromValues("attributes", [
+      item.battleType,
+      item.battleType ? battleTypeLabel(item.battleType, item) : "",
+      ...catalogListSpinSearchTerms(item),
+      item.heightClass,
+      item.heightClass ? heightClassLabel(item.heightClass) : "",
+      ...(Array.isArray(item.tags) ? item.tags : []),
+      ...(Array.isArray(item.tags) ? item.tags.map(tag => tagLabels[tag] || "") : [])
+    ])
+  ];
+};
+const toolsSearchFields = (item, options = {}) => {
+  const includeSeries = shouldIncludeSeriesSearchField(options);
+  return [
+    ...searchFieldsFromValues("primaryName", [item.name]),
+    ...searchFieldsFromValues("alias", [item.en]),
+    ...searchFieldsFromValues("code", [item.no, item.productNo]),
+    ...searchFieldsFromValues("category", ["tools", "장비", ...(includeSeries ? [item.series, itemSeriesLabel(item)] : []), item.category, item.category ? typeLabels[item.category] : ""]),
+    ...searchFieldsFromValues("description", [item.desc])
+  ];
+};
 const catalogAttributeChipAliasKey = value => compactSearchSpacing(lowerSearchText(value));
 const catalogAttributeChipCandidates = (() => {
   const candidates = [];
@@ -10325,16 +10408,6 @@ const catalogAttributeChipCandidates = (() => {
     seenKeys.add(key);
     candidates.push({ key, label, aliasKeys: new Set(aliasKeys) });
   };
-  Object.entries(seriesLabels).forEach(([value, label]) => {
-    const aliases = value === "metal fight"
-      ? ["metal fight", "메탈파이트", "메탈 베이블레이드"]
-      : value === "burst"
-        ? ["burst", "버스트"]
-        : value === "x"
-          ? ["x", "X", "엑스", "베이블레이드 엑스"]
-          : [value];
-    add(`series:${value}`, label, aliases);
-  });
   add("kind:bey", "베이", ["bey"]);
   add("kind:parts", "부품", ["parts", "파츠"]);
   add("kind:tools", "장비", ["tools"]);
@@ -10362,6 +10435,30 @@ const catalogAttributeChipForTerm = term => {
   const key = catalogAttributeChipAliasKey(term);
   return catalogAttributeChipCandidates.find(candidate => candidate.aliasKeys.has(key)) || null;
 };
+const catalogExclusiveFilterGroups = new Set(["kind", "type", "system", "battle", "spin", "height", "tools"]);
+const catalogFilterGroupForTerm = term => {
+  const candidate = catalogAttributeChipForTerm(term);
+  const group = String(candidate?.key || "").split(":")[0];
+  return catalogExclusiveFilterGroups.has(group) ? group : "";
+};
+const normalizeCatalogFilterTerms = query => {
+  const terms = catalogSearchQueryTerms(query);
+  if (!terms.length) return String(query || "").trim();
+  const entries = terms.map((term, index) => ({ term, index, group: catalogFilterGroupForTerm(term) }));
+  const lastGroupIndexes = new Map();
+  entries.forEach(entry => {
+    if (entry.group) lastGroupIndexes.set(entry.group, entry.index);
+  });
+  return entries
+    .filter(entry => !entry.group || lastGroupIndexes.get(entry.group) === entry.index)
+    .map(entry => entry.term)
+    .join(" ");
+};
+const normalizeCatalogSearchInput = input => {
+  if (!input) return;
+  const normalized = normalizeCatalogFilterTerms(input.value);
+  if (normalized !== input.value.trim()) setSearchInputValue(input, normalized);
+};
 const catalogSearchRecordCache = new WeakMap();
 const catalogListSearchRecord = item => {
   if (!item || typeof item !== "object") return createSearchRecord("catalog-item", item, [], 0);
@@ -10369,7 +10466,7 @@ const catalogListSearchRecord = item => {
   if (cached) return cached;
   const isToolsItem = toolsItemsById.has(item.id);
   const order = catalogSourceOrder(item);
-  const record = createSearchRecord(isToolsItem ? "tools" : "catalog-item", item, isToolsItem ? toolsSearchFields(item) : catalogItemSearchFields(item), order);
+  const record = createSearchRecord(isToolsItem ? "tools" : "catalog-item", item, isToolsItem ? toolsSearchFields(item, { includeSeries: false }) : catalogItemSearchFields(item, { includeSeries: false }), order);
   catalogSearchRecordCache.set(item, record);
   return record;
 };
@@ -10428,43 +10525,13 @@ const compareCatalogFirstReleaseMeta = (a, b) =>
   a.productIndex - b.productIndex ||
   a.compositionIndex - b.compositionIndex ||
   a.regionIndex - b.regionIndex;
-let toolsFirstReleaseMetaCache = null;
-const toolsFirstReleaseMetaMap = () => {
-  if (toolsFirstReleaseMetaCache) return toolsFirstReleaseMetaCache;
-  const map = new Map();
-  productItems.forEach((product, productIndex) => {
-    Object.keys(releaseRegionLabels).forEach((region, regionIndex) => {
-      if (!productReleasedInRegion(product, region)) return;
-      const release = productRelease(product, region);
-      const dateSort = releaseDateSortValue(release.releaseDate || release.release);
-      productCompositionItems(product, region).forEach((part, compositionIndex) => {
-        if (!part.target?.startsWith("TOOLS-") || !toolsItemsById.has(part.target)) return;
-        const next = { dateSort, productIndex, compositionIndex, regionIndex };
-        const prev = map.get(part.target);
-        if (!prev || compareCatalogFirstReleaseMeta(next, prev) < 0) map.set(part.target, next);
-      });
-    });
-  });
-  toolsFirstReleaseMetaCache = map;
-  return map;
-};
-const compareToolsItemsByFirstRelease = (a, b) => {
-  const metaA = toolsFirstReleaseMetaMap().get(a.id);
-  const metaB = toolsFirstReleaseMetaMap().get(b.id);
-  if (metaA && metaB) {
-    const metaDiff = compareCatalogFirstReleaseMeta(metaA, metaB);
-    if (metaDiff) return metaDiff;
-  } else if (metaA || metaB) {
-    return metaA ? -1 : 1;
-  }
-  return a.name.localeCompare(b.name, "ko");
-};
-let catalogCoreFirstReleaseMetaCache = null;
-const catalogCoreFirstReleaseMetaMap = () => {
-  if (catalogCoreFirstReleaseMetaCache) return catalogCoreFirstReleaseMetaCache;
+const firstReleaseMetaMapCache = new Map();
+const firstReleaseMetaMap = (cacheKey, { matchesTarget, includeLineupTargets = false }) => {
+  const cached = firstReleaseMetaMapCache.get(cacheKey);
+  if (cached) return cached;
   const map = new Map();
   const rememberReleaseMeta = (target, meta) => {
-    if (!catalogCoreItemsById.has(target)) return;
+    if (!matchesTarget(target)) return;
     const prev = map.get(target);
     if (!prev || compareCatalogFirstReleaseMeta(meta, prev) < 0) map.set(target, meta);
   };
@@ -10477,14 +10544,33 @@ const catalogCoreFirstReleaseMetaMap = () => {
       productCompositionItems(product, region).forEach((part, compositionIndex) => {
         rememberReleaseMeta(part.target, { dateSort, productIndex, compositionIndex, regionIndex });
       });
+      if (!includeLineupTargets) return;
       productLineupIds(product).forEach((target, lineupIndex) => {
         rememberReleaseMeta(target, { dateSort, productIndex, compositionIndex: 1000 + lineupIndex, regionIndex });
       });
     });
   });
-  catalogCoreFirstReleaseMetaCache = map;
+  firstReleaseMetaMapCache.set(cacheKey, map);
   return map;
 };
+const toolsFirstReleaseMetaMap = () => firstReleaseMetaMap("tools", {
+  matchesTarget: target => target?.startsWith("TOOLS-") && toolsItemsById.has(target)
+});
+const compareToolsItemsByFirstRelease = (a, b) => {
+  const metaA = toolsFirstReleaseMetaMap().get(a.id);
+  const metaB = toolsFirstReleaseMetaMap().get(b.id);
+  if (metaA && metaB) {
+    const metaDiff = compareCatalogFirstReleaseMeta(metaA, metaB);
+    if (metaDiff) return metaDiff;
+  } else if (metaA || metaB) {
+    return metaA ? -1 : 1;
+  }
+  return a.name.localeCompare(b.name, "ko");
+};
+const catalogCoreFirstReleaseMetaMap = () => firstReleaseMetaMap("catalog-core", {
+  matchesTarget: target => catalogCoreItemsById.has(target),
+  includeLineupTargets: true
+});
 const catalogFirstReleaseMeta = item => {
   if (!item?.id) return null;
   const meta = toolsItemsById.has(item.id)
@@ -10562,6 +10648,8 @@ const compareCatalogItemsByLatest = (a, b) => {
 const compareCatalogSearchEntriesByLatest = (a, b) =>
   b.score - a.score || compareCatalogItemsByLatest(a.item, b.item);
 const catalogHasSearchQuery = () => Boolean(catalogSearchQuery());
+const catalogHasSeriesFilter = () => selectedCatalogSeries !== "all";
+const catalogItemMatchesSeries = item => !catalogHasSeriesFilter() || item?.series === selectedCatalogSeries;
 const catalogUsesDefaultBrowseSet = query => !selectedCatalogKind && (query ? query.isEmpty : !catalogHasSearchQuery());
 const shouldShowCatalogCount = () => Boolean(
   catalogHasSearchQuery() ||
@@ -10580,50 +10668,52 @@ const cacheCatalogVisibleItems = (key, factory) => {
   return items;
 };
 const catalogVisibleCacheKey = bucket => `${bucket}|${catalogRenderKey()}`;
-const visibleToolsItems = () => {
-  const cacheKey = catalogVisibleCacheKey("tools");
-  return cacheCatalogVisibleItems(cacheKey, () => {
-  const query = prepareCatalogSearchQuery(catalogSearchQuery());
-  if (selectedCatalogKind && selectedCatalogKind !== "tools") return [];
-  return toolsItems
-    .map(item => {
-      const score = query.isEmpty ? 0 : catalogListSearchScore(item, query);
-      return query.isEmpty || score > 0 ? { item, score } : null;
-    })
-    .filter(Boolean)
-    .sort((a, b) => query.isEmpty
-      ? compareCatalogItemsByLatest(a.item, b.item)
-      : compareCatalogSearchEntriesByLatest(a, b))
-    .map(entry => entry.item);
+const sortCatalogEntries = (entries, query) => entries
+  .sort((a, b) => query.isEmpty
+    ? compareCatalogItemsByLatest(a.item, b.item)
+    : compareCatalogSearchEntriesByLatest(a, b))
+  .map(entry => entry.item);
+const visibleCatalogSubsetItems = ({ bucket, items, includeItem }) =>
+  cacheCatalogVisibleItems(catalogVisibleCacheKey(bucket), () => {
+    const query = prepareCatalogSearchQuery(catalogSearchQuery());
+    return sortCatalogEntries(items
+      .map(item => {
+        if (!includeItem(item, query)) return null;
+        const score = query.isEmpty ? 0 : catalogListSearchScore(item, query);
+        return query.isEmpty || score > 0 ? { item, score } : null;
+      })
+      .filter(Boolean), query);
   });
-};
-const visibleCatalogCoreItems = () => {
-  const cacheKey = catalogVisibleCacheKey("core");
-  return cacheCatalogVisibleItems(cacheKey, () => {
-  const query = prepareCatalogSearchQuery(catalogSearchQuery());
-  if (selectedCatalogKind === "tools") return [];
-  const useDefaultBrowseSet = catalogUsesDefaultBrowseSet(query);
-  const effectiveCatalogItemType = useDefaultBrowseSet ? "bey" : selectedCatalogKind || "all";
-  return catalogCoreItems
-    .map(item => {
-      if (effectiveCatalogItemType === "bey" && item.type !== "bey") return null;
-      if (effectiveCatalogItemType === "parts" && item.type === "bey") return null;
-      const score = query.isEmpty ? 0 : catalogListSearchScore(item, query);
-      return query.isEmpty || score > 0 ? { item, score } : null;
-    })
-    .filter(Boolean)
-    .sort((a, b) => query.isEmpty ? compareCatalogItemsByLatest(a.item, b.item) : compareCatalogSearchEntriesByLatest(a, b))
-    .map(entry => entry.item);
-  });
-};
+const visibleToolsItems = () => visibleCatalogSubsetItems({
+  bucket: "tools",
+  items: toolsItems,
+  includeItem: (item, query) => catalogItemMatchesSeries(item) && (
+    selectedCatalogKind === "tools" ||
+    (!selectedCatalogKind && !query.isEmpty)
+  )
+});
+const visibleCatalogCoreItems = () => visibleCatalogSubsetItems({
+  bucket: "core",
+  items: catalogCoreItems,
+  includeItem: (item, query) => {
+    if (selectedCatalogKind === "tools" || !catalogItemMatchesSeries(item)) return false;
+    const useDefaultBrowseSet = catalogUsesDefaultBrowseSet(query);
+    const effectiveCatalogItemType = useDefaultBrowseSet ? "bey" : selectedCatalogKind || "all";
+    if (effectiveCatalogItemType === "bey" && item.type !== "bey") return false;
+    if (effectiveCatalogItemType === "parts" && item.type === "bey") return false;
+    return true;
+  }
+});
 const visibleCatalogItems = () => {
   const cacheKey = catalogVisibleCacheKey("all");
   return cacheCatalogVisibleItems(cacheKey, () => {
     const query = prepareCatalogSearchQuery(catalogSearchQuery());
-    const items = [...visibleCatalogCoreItems(), ...visibleToolsItems()];
-    return items.slice().sort((a, b) => query.isEmpty
-      ? compareCatalogItemsByLatest(a, b)
-      : catalogListSearchScore(b, query) - catalogListSearchScore(a, query) || compareCatalogItemsByLatest(a, b));
+    return sortCatalogEntries([...visibleCatalogCoreItems(), ...visibleToolsItems()]
+    .map(item => {
+      const score = query.isEmpty ? 0 : catalogListSearchScore(item, query);
+      return query.isEmpty || score > 0 ? { item, score } : null;
+    })
+    .filter(Boolean), query);
   });
 };
 const openCatalogCard = card => {
@@ -10665,8 +10755,8 @@ const renderCategoryCollectionGrid = ({ cacheKey, grid, items, cardTemplate, emp
 const renderCategoryCollection = config => {
   const grid = document.querySelector(config.gridSelector);
   if (!grid) return [];
-  const visible = config.getVisibleItems();
   config.syncRenderPage(config.renderKey());
+  const visible = config.getVisibleItems();
   const totalPages = Math.max(1, Math.ceil(visible.length / config.pageSize));
   const currentPage = Math.min(Math.max(1, config.getCurrentPage()), totalPages);
   config.setCurrentPage(currentPage);
@@ -10687,6 +10777,7 @@ const renderCategoryCollection = config => {
 };
 const catalogRenderKey = () => [
   selectedCatalogKind || "",
+  selectedCatalogSeries || "all",
   catalogSearchQuery()
 ].join("|");
 const syncCatalogRenderPage = renderKey => {
@@ -11706,33 +11797,40 @@ const modalOriginRouteSnapshot = () => {
   const origin = routeSnapshot(modalOriginRoute) || routeSnapshot(lastPrimaryRoute);
   return origin && isPrimaryRoute(origin) ? origin : null;
 };
-const modalOriginState = originRoute => {
-  const state = { scrollY: currentPageScrollY() };
-  if (originRoute?.type === "catalog") {
-    state.catalogQuery = catalogSearchQuery();
-    state.catalogPage = currentCatalogPage;
-  } else if (originRoute?.type === "search") {
-    state.globalQuery = globalSearchQuery();
-    state.globalScope = globalSearchScopeValue();
-  } else if (originRoute?.type === "category-release") {
-    state.releaseQuery = activeReleaseQuery;
-    state.releaseRegion = activeReleaseRegion;
-    state.releaseSeries = activeReleaseSeries;
-    state.releaseSort = { ...activeReleaseSort };
-  } else if (originRoute?.type === "category-anime") {
-    state.animeQuery = animeSearchQuery();
-    state.animePage = currentAnimePage;
-  } else if (originRoute?.type === "category-anime-episodes") {
-    state.animeSeason = activeAnimeSeason;
-    state.animeQuery = activeAnimeEpisodeQuery;
-  }
-  return state;
+const modalOriginStateGetters = {
+  catalog: () => ({
+    catalogQuery: catalogSearchQuery(),
+    catalogSeries: selectedCatalogSeries,
+    catalogPage: currentCatalogPage
+  }),
+  search: () => ({
+    globalQuery: globalSearchQuery(),
+    globalScope: globalSearchScopeValue()
+  }),
+  "category-release": () => ({
+    releaseQuery: activeReleaseQuery,
+    releaseRegion: activeReleaseRegion,
+    releaseSeries: activeReleaseSeries,
+    releaseSort: { ...activeReleaseSort }
+  }),
+  "category-anime": () => ({
+    animeQuery: animeSearchQuery(),
+    animePage: currentAnimePage
+  }),
+  "category-anime-episodes": () => ({
+    animeSeason: activeAnimeSeason,
+    animeQuery: activeAnimeEpisodeQuery
+  })
 };
+const modalOriginState = originRoute => ({
+  scrollY: currentPageScrollY(),
+  ...(modalOriginStateGetters[originRoute?.type]?.() || {})
+});
+const modalContextOptionKeys = ["backId", "backProductId", "region", "series", "releaseQuery", "animeSeason", "animeQuery"];
 const modalContextOptions = options => {
-  const context = {};
-  ["backId", "backProductId", "region", "series", "releaseQuery", "animeSeason", "animeQuery"].forEach(key => {
-    if (options?.[key]) context[key] = options[key];
-  });
+  const context = Object.fromEntries(modalContextOptionKeys
+    .map(key => [key, options?.[key]])
+    .filter(([, value]) => value));
   if (options?.backRelease) context.backRelease = true;
   if (options?.fromAnimeList) context.fromAnimeList = true;
   if (options?.releaseSort?.key && options?.releaseSort?.direction) context.releaseSort = options.releaseSort;
@@ -11848,7 +11946,7 @@ const releaseSortHeader = (key, label) => {
   const direction = active ? activeReleaseSort.direction : "none";
   const nextDirection = active && activeReleaseSort.direction === "asc" ? "내림차순" : "오름차순";
   return `<th aria-sort="${direction === "asc" ? "ascending" : direction === "desc" ? "descending" : "none"}">
-    <button class="ui-button release-sort-button${active ? " active" : ""}" type="button" data-release-sort="${key}" aria-label="${label} ${nextDirection} 정렬">
+    <button class="release-sort-button" type="button" data-release-sort="${key}" aria-label="${label} ${nextDirection} 정렬">
       <span class="release-sort-label">${label}</span><span class="release-sort-mark" aria-hidden="true">${releaseSortSymbol(key)}</span>
     </button>
   </th>`;
@@ -13008,8 +13106,14 @@ bindSearchInput(globalSearch, ".search-box", {
 });
 bindSearchPreview(globalSearch, ".search-box");
 bindSearchInput(catalogSearch, ".catalog-search-box", {
-  onInput: scheduleCatalogSearchResultsRefresh,
-  onSubmit: scheduleCatalogSearchResultsRefresh
+  onInput: input => {
+    normalizeCatalogSearchInput(input);
+    scheduleCatalogSearchResultsRefresh();
+  },
+  onSubmit: input => {
+    normalizeCatalogSearchInput(input);
+    scheduleCatalogSearchResultsRefresh();
+  }
 });
 bindSearchInput(animeSearch, ".anime-search-box", {
   onInput: scheduleAnimeSearchResultsRefresh,
@@ -13058,6 +13162,12 @@ bindSearchScopeControls({
   }
 });
 bindSearchScopeControls({
+  dropdown: catalogSeriesFilter,
+  dataAttr: "data-catalog-series",
+  setScope: series => setCatalogSeries(series),
+  afterChange: () => closeSearchHelpPopovers()
+});
+bindSearchScopeControls({
   dropdown: catalogSearchScope,
   dataAttr: "data-catalog-search-scope",
   afterChange: button => {
@@ -13092,6 +13202,11 @@ const refreshCatalogState = () => {
 };
 const resetCatalogFilters = () => {
   selectedCatalogKind = "";
+};
+const setCatalogSeries = (series, { refresh = true } = {}) => {
+  selectedCatalogSeries = normalizeCatalogSeries(series);
+  setCatalogSeriesFilter(selectedCatalogSeries);
+  if (refresh) refreshCatalogState();
 };
 const setCatalogScope = scope => {
   if (scope === "bey" || scope === "parts" || scope === "tools") {
@@ -13364,6 +13479,15 @@ function closeModal() {
   restorePageScroll(targetScrollY);
   clearModalLockStyles();
   restorePageScroll(targetScrollY);
+}
+function closeModalSession({ clearContext = true, clearOrigin = true } = {}) {
+  closeModalTagPopover();
+  cleanupModelViewer();
+  if (clearContext) clearModalContext();
+  const shouldRestoreModalScroll = Boolean(modalOriginRoute);
+  if (clearOrigin) clearModalOriginRoute();
+  if (modal?.open) closeModal();
+  else if (shouldRestoreModalScroll) restorePageScroll(modalScrollY);
 }
 const statProfiles = {
   "metal fight": {
@@ -13796,13 +13920,9 @@ function openGameDetail(id, options = {}) {
   openConfiguredSimpleCatalogDetail("game", id, options);
 }
 function closeDetail() {
-  closeModalTagPopover();
-  cleanupModelViewer();
-  clearModalContext();
   const targetRoute = getModalCloseRoute();
   const targetScrollY = validScrollY(modalScrollY);
-  clearModalOriginRoute();
-  closeModal();
+  closeModalSession();
   navigateToRoute(targetRoute, { replace: true, preserveScroll: true, preserveSearch: true });
   restorePageScroll(targetScrollY);
 }
@@ -13865,6 +13985,7 @@ const activatePrimarySection = (section, { preserveSearch = false } = {}) => {
   if (section === "overview") setGlobalSearchScope("all");
   if (isCatalogSection) {
     resetCatalogFilters();
+    if (!preserveSearch) setCatalogSeries(defaultCatalogSeries(), { refresh: false });
     setCatalogScope(catalogScope);
     setGlobalSearchScope(catalogScope === "bey" || catalogScope === "tools" ? catalogScope : "all");
   }
@@ -13873,13 +13994,7 @@ const activatePrimarySection = (section, { preserveSearch = false } = {}) => {
   setMobileMenuOpen(false);
 };
 function closeDetailModalForPrimaryRoute() {
-  closeModalTagPopover();
-  cleanupModelViewer();
-  clearModalContext();
-  const shouldRestoreModalScroll = Boolean(modalOriginRoute);
-  clearModalOriginRoute();
-  if (modal?.open) closeModal();
-  else if (shouldRestoreModalScroll) restorePageScroll(modalScrollY);
+  closeModalSession();
 }
 function routeApplyOptions(route = {}) {
   return { ...(route.options || {}), updateHash: false };
@@ -13893,15 +14008,18 @@ const restorePagedSearchOrigin = ({ originState, queryKey, pageKey, input, setPa
     render();
   }
 };
-const restoreStoredCatalogOrigin = originState => restorePagedSearchOrigin({
-  originState,
-  queryKey: "catalogQuery",
-  pageKey: "catalogPage",
-  input: catalogSearch,
-  setPage: page => { currentCatalogPage = page; },
-  render: renderCatalogItems,
-  refresh: refreshCatalogState
-});
+const restoreStoredCatalogOrigin = originState => {
+  setCatalogSeries(originState?.catalogSeries || "all", { refresh: false });
+  restorePagedSearchOrigin({
+    originState,
+    queryKey: "catalogQuery",
+    pageKey: "catalogPage",
+    input: catalogSearch,
+    setPage: page => { currentCatalogPage = page; },
+    render: renderCatalogItems,
+    refresh: refreshCatalogState
+  });
+};
 const restoreStoredAnimeOrigin = originState => restorePagedSearchOrigin({
   originState,
   queryKey: "animeQuery",

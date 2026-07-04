@@ -19,7 +19,7 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="./styles.css?v=20260704-route-boot-guard" />
+    <link rel="stylesheet" href="./styles.css?v=20260704-release-sort-no-active-visual" />
   </head>
   <body class="is-overview" data-active-panel="overview">
     <header class="topbar">
@@ -232,20 +232,32 @@
 
           <div class="catalog-control-bar">
             <div class="toolbar catalog-toolbar">
-              <button type="button" class="catalog-search-help-button" id="catalogSearchHelpButton" aria-label="상세검색 도움말" aria-expanded="false" aria-controls="catalogSearchHelpPopover">i</button>
-              <div class="unified-search catalog-local-search">
-                <div class="search-box global-search-box catalog-search-box">
-                  <details class="search-scope catalog-dropdown" id="catalogSearchScope" data-scope="all" aria-label="완구 검색 범위">
-                    <summary><b class="catalog-dropdown-value">전체</b></summary>
-                    <div class="catalog-dropdown-menu">
-                      <button type="button" class="ui-dropdown-item active" data-catalog-search-scope="all">전체</button>
-                      <button type="button" class="ui-dropdown-item" data-catalog-search-scope="bey">베이</button>
-                      <button type="button" class="ui-dropdown-item" data-catalog-search-scope="parts">부품</button>
-                      <button type="button" class="ui-dropdown-item" data-catalog-search-scope="tools">장비</button>
-                    </div>
-                  </details>
-                  <span class="search-icon" aria-hidden="true"></span>
-                  <input id="catalogSearchInput" type="search" placeholder="검색어를 입력해주세요." autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none" />
+            <details class="catalog-dropdown release-dropdown catalog-series-dropdown" id="catalogSeriesFilter" data-scope="all" aria-label="완구 시리즈">
+                <summary><b class="catalog-dropdown-value">베이블레이드 X</b></summary>
+                <div class="catalog-dropdown-menu">
+                  <button type="button" class="ui-dropdown-item active" data-catalog-series="all" data-summary-label="전체 시리즈">전체</button>
+                  <button type="button" class="ui-dropdown-item" data-catalog-series="topblade">탑블레이드</button>
+                  <button type="button" class="ui-dropdown-item" data-catalog-series="metal fight">메탈베이블레이드</button>
+                  <button type="button" class="ui-dropdown-item" data-catalog-series="burst">베이블레이드 버스트</button>
+                  <button type="button" class="ui-dropdown-item" data-catalog-series="x">베이블레이드 X</button>
+                </div>
+              </details>
+              <div class="catalog-search-controls">
+                <button type="button" class="catalog-search-help-button" id="catalogSearchHelpButton" aria-label="상세검색 도움말" aria-expanded="false" aria-controls="catalogSearchHelpPopover">i</button>
+                <div class="unified-search catalog-local-search">
+                  <div class="search-box global-search-box catalog-search-box">
+                    <details class="search-scope catalog-dropdown" id="catalogSearchScope" data-scope="all" aria-label="완구 검색 범위">
+                      <summary><b class="catalog-dropdown-value">전체</b></summary>
+                      <div class="catalog-dropdown-menu">
+                        <button type="button" class="ui-dropdown-item active" data-catalog-search-scope="all">전체</button>
+                        <button type="button" class="ui-dropdown-item" data-catalog-search-scope="bey">베이</button>
+                        <button type="button" class="ui-dropdown-item" data-catalog-search-scope="parts">부품</button>
+                        <button type="button" class="ui-dropdown-item" data-catalog-search-scope="tools">장비</button>
+                      </div>
+                    </details>
+                    <span class="search-icon" aria-hidden="true"></span>
+                    <input id="catalogSearchInput" type="search" placeholder="검색어를 입력해주세요." autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -253,8 +265,6 @@
               <strong>상세검색</strong>
               <p>띄어쓰기로 여러 조건을 함께 검색할 수 있습니다.</p>
               <dl>
-                <dt>시리즈</dt>
-                <dd>탑블레이드 · 메탈베이블레이드 · 베이블레이드 버스트 · 베이블레이드 X</dd>
                 <dt>부품</dt>
                 <dd>메탈: 페이스 · 휠 · 트랙 · 버텀<br>버스트: 레이어 · 디스크 · 드라이버<br>X: 블레이드 · 래칫 · 비트</dd>
                 <dt>타입</dt>
@@ -344,6 +354,6 @@
     </dialog>
 
     <button class="to-top" id="toTop" type="button" aria-label="맨 위로 이동">↑</button>
-    <script src="./app.js?v=20260704-catalog-lineup-release-sort"></script>
+    <script src="./app.js?v=20260704-release-sort-no-active-visual"></script>
   </body>
 </html>

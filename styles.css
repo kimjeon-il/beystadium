@@ -1197,10 +1197,6 @@ body.is-modal-open:not(.is-overview) .topbar {
   pointer-events: auto;
 }
 
-#detailModal[open] {
-  overflow: hidden !important;
-}
-
 #modalContent {
   --modal-vw: var(--modal-viewport-width, 100vw);
   --modal-vh: var(--modal-viewport-height, 100vh);
@@ -1561,6 +1557,7 @@ dialog[open] .product-modal-name {
 
 .table-list-section,
 .release-table-section {
+  --table-header-control-height: 28px;
   width: 100%;
   min-height: 0;
   margin: 0;
@@ -1675,6 +1672,7 @@ dialog[open] .category-anime-info .anime-episode-title-row .category-title {
 .table-list-section .ui-data-table th,
 .release-table-section .ui-data-table th {
   padding-top: 8px;
+  line-height: var(--table-header-control-height);
 }
 
 .table-list-section .ui-data-table th:first-child,
@@ -1697,9 +1695,9 @@ dialog[open] .category-anime-info .anime-episode-title-row .category-title {
 }
 
 .anime-episode-table {
-  --anime-table-min-width: 560px;
-  --anime-col-episode-width: 88px;
-  --anime-col-date-width: 168px;
+  --anime-table-min-width: 640px;
+  --anime-col-episode-width: 96px;
+  --anime-col-date-width: 210px;
   min-width: var(--anime-table-min-width);
 }
 
@@ -1813,7 +1811,7 @@ dialog[open] .category-anime-info .anime-episode-title-row .category-title {
   position: relative;
   width: 100%;
   min-width: 0;
-  height: 28px;
+  height: var(--table-header-control-height);
   border: 0;
   border-radius: var(--ui-radius);
   padding: 0 20px;
@@ -1828,10 +1826,9 @@ dialog[open] .category-anime-info .anime-episode-title-row .category-title {
 }
 
 .release-sort-button:hover,
-.release-sort-button:focus-visible,
-.release-sort-button.active {
+.release-sort-button:focus-visible {
   color: var(--ui-text);
-  background: var(--ui-control);
+  background: transparent;
   outline: 0;
 }
 
@@ -1839,6 +1836,7 @@ dialog[open] .category-anime-info .anime-episode-title-row .category-title {
   display: block;
   width: 100%;
   font-size: var(--font-md);
+  line-height: inherit;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -1859,7 +1857,8 @@ dialog[open] .category-anime-info .anime-episode-title-row .category-title {
   pointer-events: none;
 }
 
-.release-sort-button.active .release-sort-mark {
+.release-sort-button:hover .release-sort-mark,
+.release-sort-button:focus-visible .release-sort-mark {
   color: var(--ui-text);
   opacity: 1;
 }
@@ -1940,8 +1939,8 @@ dialog[open] .category-anime-info .anime-episode-title-row .category-title {
 
   .anime-episode-table {
     --anime-table-min-width: 0;
-    --anime-col-episode-width: 56px;
-    --anime-col-date-width: 104px;
+    --anime-col-episode-width: 72px;
+    --anime-col-date-width: 88px;
   }
 
   .anime-episode-table tbody td:nth-child(3) {
@@ -2189,13 +2188,11 @@ dialog[open] .modal-info.part-modal-info .modal-name {
 }
 
 .ui-button:hover,
-.ui-button:focus-visible {
-  background: var(--ui-control-hover) !important;
-  color: var(--ui-control-text-active) !important;
-}
-
+.ui-button:focus-visible,
 .ui-button.active,
-.ui-button[aria-selected="true"] {
+.ui-button[aria-selected="true"],
+.ui-icon-button:hover,
+.ui-icon-button:focus-visible {
   background: var(--ui-control-hover) !important;
   color: var(--ui-control-text-active) !important;
 }
@@ -2225,12 +2222,6 @@ dialog[open] .modal-info.part-modal-info .modal-name {
   line-height: 1;
   cursor: pointer;
   transition: background-color .16s ease, color .16s ease, border-color .16s ease, transform .16s ease;
-}
-
-.ui-icon-button:hover,
-.ui-icon-button:focus-visible {
-  background: var(--ui-control-hover) !important;
-  color: var(--ui-control-text-active) !important;
 }
 
 dialog[open] .modal-step {
@@ -2692,6 +2683,33 @@ body.is-overview .app-shell {
   --catalog-chip-row-height: 36px;
 }
 
+.app-panel[data-app-panel="catalog"] {
+  --catalog-series-dropdown-width: 14.5rem;
+  --catalog-control-columns: minmax(0, 1fr);
+  --catalog-toolbar-columns: minmax(13.5rem, var(--catalog-series-dropdown-width)) minmax(0, 1fr);
+}
+
+.catalog-panel .catalog-toolbar {
+  grid-template-areas: "series search";
+}
+
+.catalog-series-dropdown {
+  grid-area: series;
+}
+
+.catalog-search-controls {
+  grid-area: search;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: stretch;
+  gap: var(--catalog-toolbar-gap);
+}
+
+.catalog-search-controls .catalog-local-search {
+  min-width: 0;
+}
+
 .catalog-search-help-button {
   width: var(--toolbar-icon-button-size);
   min-width: var(--toolbar-icon-button-size);
@@ -2884,8 +2902,17 @@ body.is-overview .app-shell {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  min-height: var(--catalog-chip-row-height);
+  min-height: var(--search-box-height, 48px);
   gap: 8px 12px;
+  padding: 0 12px;
+  border: 1px solid var(--ui-line);
+  border-radius: var(--ui-radius);
+  background: var(--ui-surface);
+  box-shadow: none;
+}
+
+.catalog-panel .catalog-query-row {
+  padding-left: calc((var(--search-box-height, 48px) - var(--catalog-chip-row-height)) / 2);
 }
 
 .category-collection__meta-row .catalog-filter-chips,
@@ -3407,10 +3434,10 @@ body.menu-open .menu-button span:nth-child(3) {
   --sidebar-button-grid: 26px minmax(0, 1fr);
   --sidebar-button-padding-inline: 12px;
   --sidebar-button-radius: 14px;
-  --sidebar-hover-bg: color-mix(in srgb, var(--ui-control-hover) 56%, transparent);
-  --sidebar-pressed-bg: color-mix(in srgb, var(--ui-control-hover) 74%, transparent);
-  --sidebar-current-bg: color-mix(in srgb, var(--ui-control-hover) 78%, transparent);
-  --sidebar-current-color: var(--ui-text);
+  --sidebar-hover-bg: var(--ui-control-hover);
+  --sidebar-pressed-bg: var(--ui-control-hover);
+  --sidebar-current-bg: var(--ui-control-hover);
+  --sidebar-current-color: var(--ui-control-text-active);
   --sidebar-current-marker-left: 5px;
   --sidebar-current-marker-height: 22px;
   --sidebar-stroke: color-mix(in srgb, var(--ui-line) 58%, transparent);
@@ -3573,7 +3600,12 @@ body.menu-open .menu-button span:nth-child(3) {
     --desktop-sidebar-expanded-width: min(calc(100vw - 18px), 256px);
     --desktop-sidebar-button-size: var(--sidebar-icon-slot-size);
     --desktop-sidebar-button-offset: max(0px, calc((var(--desktop-sidebar-rail-width) - var(--desktop-sidebar-button-size)) / 2));
-    --desktop-sidebar-button-grid: 24px minmax(0, 1fr);
+    --desktop-sidebar-button-width: var(--desktop-sidebar-button-size);
+    --desktop-sidebar-button-height: var(--desktop-sidebar-button-size);
+    --desktop-sidebar-button-min-height: var(--desktop-sidebar-button-size);
+    --desktop-sidebar-button-gap: 0;
+    --desktop-sidebar-button-margin: 0 0 0 var(--desktop-sidebar-button-offset);
+    --sidebar-button-grid: 24px minmax(0, 1fr);
     position: fixed;
     inset: 0 auto 0 0;
     width: var(--desktop-sidebar-rail-width);
@@ -3602,22 +3634,24 @@ body.menu-open .menu-button span:nth-child(3) {
   }
 
   .desktop-sidebar.is-expanded {
+    --desktop-sidebar-button-width: calc(100% - var(--desktop-sidebar-button-offset) - 6px);
+    --desktop-sidebar-button-height: auto;
+    --desktop-sidebar-button-min-height: var(--sidebar-button-height);
+    --desktop-sidebar-button-gap: var(--sidebar-button-gap);
+    --desktop-sidebar-button-margin: 0 6px 0 var(--desktop-sidebar-button-offset);
     width: var(--desktop-sidebar-expanded-width);
   }
 
   .desktop-sidebar .sidebar-button {
     transform: none;
-    grid-template-columns: var(--desktop-sidebar-button-grid);
     justify-items: stretch;
     justify-content: flex-start;
-    gap: 0;
-    width: var(--desktop-sidebar-button-size);
-    height: var(--desktop-sidebar-button-size);
-    min-height: var(--desktop-sidebar-button-size);
+    gap: var(--desktop-sidebar-button-gap);
+    width: var(--desktop-sidebar-button-width);
+    height: var(--desktop-sidebar-button-height);
+    min-height: var(--desktop-sidebar-button-min-height);
     justify-self: start;
-    margin: 0 0 0 var(--desktop-sidebar-button-offset);
-    padding: 0 var(--sidebar-button-padding-inline);
-    border-radius: var(--sidebar-button-radius);
+    margin: var(--desktop-sidebar-button-margin);
     font-size: var(--font-md);
     white-space: nowrap;
     overflow: hidden;
@@ -3662,16 +3696,6 @@ body.menu-open .menu-button span:nth-child(3) {
   }
 
   .desktop-sidebar.is-expanded .sidebar-button {
-    width: calc(100% - var(--desktop-sidebar-button-offset) - 6px);
-    height: auto;
-    min-height: var(--sidebar-button-height);
-    grid-template-columns: var(--desktop-sidebar-button-grid);
-    justify-items: stretch;
-    justify-self: start;
-    gap: var(--sidebar-button-gap);
-    padding: 0 var(--sidebar-button-padding-inline);
-    margin: 0 6px 0 var(--desktop-sidebar-button-offset);
-    border-radius: var(--sidebar-button-radius);
     text-align: left;
   }
 
@@ -3749,6 +3773,10 @@ body.menu-open .menu-button span:nth-child(3) {
   .release-dropdowns[data-anime-controls] {
     --release-grid-columns: minmax(0, 1fr) minmax(0, 1fr);
     --release-grid-areas: "series search";
+  }
+
+  .app-panel[data-app-panel="catalog"] {
+    --catalog-toolbar-columns: minmax(0, 1fr) minmax(0, 1fr);
   }
 
   .app-panel[data-app-panel="catalog"],
@@ -3909,6 +3937,16 @@ body.menu-open .menu-button span:nth-child(3) {
   .release-dropdowns[data-anime-controls] {
     --release-grid-columns: 1fr;
     --release-grid-areas:
+      "series"
+      "search";
+  }
+
+  .app-panel[data-app-panel="catalog"] {
+    --catalog-toolbar-columns: 1fr;
+  }
+
+  .catalog-panel .catalog-toolbar {
+    grid-template-areas:
       "series"
       "search";
   }
