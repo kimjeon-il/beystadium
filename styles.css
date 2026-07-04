@@ -3401,9 +3401,7 @@ body.menu-open .mobile-drawer {
 }
 
 .mobile-drawer .sidebar-nav {
-  padding-right: 4px;
-  margin-right: -2px;
-  scrollbar-gutter: stable;
+  scrollbar-gutter: auto;
 }
 
 .desktop-sidebar {
