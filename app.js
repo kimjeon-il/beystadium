@@ -1361,13 +1361,6 @@ const renderDesktopSidebarNavFromDrawer = () => {
   if (desktopSidebarNav && sourceNav) desktopSidebarNav.innerHTML = sourceNav.innerHTML;
 };
 renderDesktopSidebarNavFromDrawer();
-const setDesktopSidebarExpanded = open => {
-  if (!desktopSidebar) return;
-  desktopSidebarToggle?.setAttribute("aria-expanded", String(open));
-  desktopSidebarToggle?.setAttribute("aria-label", open ? "사이드바 접기" : "사이드바 펼치기");
-  desktopSidebarToggle?.setAttribute("title", open ? "사이드바 접기" : "사이드바 펼치기");
-  desktopSidebar.classList.toggle("is-expanded", Boolean(open));
-};
 const typeLabels = { bey: "베이", parts: "부품", tools: "장비", face: "페이스", wheel: "휠", clearwheel: "클리어휠", lightwheel: "라이트휠", metalwheel: "메탈휠", "4dclearwheel": "4D클리어휠", "4dmetalwheel": "4D메탈휠", track: "트랙", bottom: "버텀", "4dbottom": "4D버텀", stoneface: "스톤페이스", chromewheel: "크롬휠", crystalwheel: "크리스탈휠", bitchip: "비트칩", attackring: "어택링", weightdisk: "웨이트디스크", bladebase: "블레이드베이스", gear: "기어", layer: "레이어", duallayer: "듀얼레이어", godlayer: "갓레이어", chozlayer: "초제트레이어", gachichip: "진검칩", gachiweight: "웨이트", gachibase: "베이스", gachilayer: "진검레이어", gachiupgrade: "강화파츠", superkingchip: "슈퍼킹칩", superkingring: "링", superkingchassis: "섀시", superkingupgrade: "강화파츠", dblayer: "DB레이어", dbcore: "DB코어", dbblade: "블레이드", dbarmor: "아머", evolutiongear: "진화기어", disk: "디스크", coredisk: "코어디스크", frame: "프레임", dbdisk: "DB디스크", driver: "드라이버", driverupgrade: "강화파츠", blade: "블레이드", ratchet: "래칫", bit: "비트" };
 const tagLabels = {};
 const structureLabels = { basic: "4단 구조 시스템", hybrid: "하이브리드 시스템", "4d": "4D 시스템", synchrome: "싱크롬 시스템" };
@@ -13958,14 +13951,18 @@ const syncSidebarActiveState = section => {
 };
 const setMobileMenuOpen = open => {
   document.body.classList.toggle("menu-open", open);
-  menuButton?.setAttribute("aria-expanded", String(open));
-  menuButton?.setAttribute("aria-label", open ? "메뉴 열림" : "메뉴 열기");
+  [menuButton, desktopSidebarToggle].forEach(button => {
+    button?.setAttribute("aria-expanded", String(open));
+    button?.setAttribute("aria-label", open ? "메뉴 열림" : "메뉴 열기");
+    button?.setAttribute("title", open ? "메뉴 열림" : "메뉴 열기");
+  });
   mobileDrawer?.setAttribute("aria-hidden", String(!open));
   if (open) {
     const panel = activeAppPanel()?.dataset.appPanel || "overview";
     syncSidebarActiveState(panel);
   }
 };
+const currentMenuTrigger = () => window.matchMedia("(min-width: 100rem)").matches ? desktopSidebarToggle || menuButton : menuButton || desktopSidebarToggle;
 const clearPrimaryViewLocks = () => {
   if (document.body.classList.contains("menu-open")) setMobileMenuOpen(false);
   if (modal?.open) return;
@@ -14126,13 +14123,12 @@ function applyRoute(route = parseRouteFromHash(), { preserveScroll = false, pres
 document.querySelectorAll(".topbar > .brand, [data-sidebar-home]").forEach(brand => brand.addEventListener("click", event => {
   event.preventDefault();
   navigateToRoute({ type: "overview" }, { replace: true });
-  if (event.currentTarget.closest(".mobile-drawer")) setMobileMenuOpen(false);
-  setDesktopSidebarExpanded(false);
+  setMobileMenuOpen(false);
 }));
 desktopSidebarToggle?.addEventListener("click", event => {
   event.preventDefault();
   event.stopPropagation();
-  setDesktopSidebarExpanded(desktopSidebarToggle.getAttribute("aria-expanded") !== "true");
+  setMobileMenuOpen(!document.body.classList.contains("menu-open"));
 });
 menuButton?.addEventListener("click", event => {
   event.stopPropagation();
@@ -14141,18 +14137,15 @@ menuButton?.addEventListener("click", event => {
 mobileDrawerClose?.addEventListener("click", event => {
   event.preventDefault();
   setMobileMenuOpen(false);
-  menuButton?.focus();
+  currentMenuTrigger()?.focus();
 });
 mobileDrawer?.addEventListener("click", event => {
   handleCategoryRouteClick(event);
 });
 desktopSidebar?.addEventListener("click", event => {
-  if (handleCategoryRouteClick(event, { closeMobileMenu: false })) setDesktopSidebarExpanded(false);
+  if (handleCategoryRouteClick(event, { closeMobileMenu: false })) setMobileMenuOpen(false);
 });
 window.addEventListener("resize", () => {
-  const isDesktopLayout = window.matchMedia("(min-width: 64rem)").matches;
-  if (isDesktopLayout) setMobileMenuOpen(false);
-  else setDesktopSidebarExpanded(false);
   syncCatalogStickySearchState();
   positionSearchHelpPopovers();
   if (modal?.open) scheduleModalViewportSync();
@@ -14183,11 +14176,6 @@ document.addEventListener("keydown", event => {
     event.preventDefault();
     return;
   }
-  if (event.key === "Escape" && desktopSidebar?.classList.contains("is-expanded")) {
-    setDesktopSidebarExpanded(false);
-    event.preventDefault();
-    return;
-  }
   if (event.key === "Escape" && document.body.classList.contains("menu-open")) setMobileMenuOpen(false);
 });
 document.addEventListener("click", event => {
@@ -14195,7 +14183,6 @@ document.addEventListener("click", event => {
     if (controller.isOpen() && !controller.containsEventTarget(event)) controller.close();
   });
   if (activeModalTagButton && !event.target.closest(".modal-tag-info") && !event.target.closest(".modal-tag-popover")) closeModalTagPopover();
-  if (!event.target.closest(".desktop-sidebar")) setDesktopSidebarExpanded(false);
   if (!event.target.closest(".topbar") && !event.target.closest(".mobile-drawer") && !event.target.closest(".desktop-sidebar")) setMobileMenuOpen(false);
 });
 
