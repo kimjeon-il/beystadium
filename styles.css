@@ -1940,12 +1940,14 @@ dialog[open] .category-anime-info .anime-episode-title-row .category-title {
   }
 
   .release-table .release-sort-button {
-    padding: 0 16px 0 2px;
+    padding: 0;
+    color: inherit;
+    cursor: default;
+    pointer-events: none;
   }
 
   .release-table .release-sort-mark {
-    right: 1px;
-    width: 12px;
+    display: none;
   }
 
   .release-date-full,
