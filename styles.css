@@ -3597,7 +3597,7 @@ body.menu-open .menu-button span:nth-child(3) {
 
   .desktop-sidebar {
     --desktop-sidebar-rail-width: max(var(--sidebar-icon-slot-size), min(var(--page-gutter), 64px));
-    --desktop-sidebar-expanded-width: min(calc(100vw - 18px), 256px);
+    --desktop-sidebar-expanded-width: min(calc(100vw - 18px), 248px);
     --desktop-sidebar-button-size: var(--sidebar-icon-slot-size);
     --desktop-sidebar-button-offset: max(0px, calc((var(--desktop-sidebar-rail-width) - var(--desktop-sidebar-button-size)) / 2));
     --desktop-sidebar-button-width: var(--desktop-sidebar-button-size);
