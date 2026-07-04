@@ -1363,6 +1363,65 @@ const renderDesktopSidebarNavFromDrawer = () => {
 renderDesktopSidebarNavFromDrawer();
 const typeLabels = { bey: "베이", parts: "부품", tools: "장비", face: "페이스", wheel: "휠", clearwheel: "클리어휠", lightwheel: "라이트휠", metalwheel: "메탈휠", "4dclearwheel": "4D클리어휠", "4dmetalwheel": "4D메탈휠", track: "트랙", bottom: "버텀", "4dbottom": "4D버텀", stoneface: "스톤페이스", chromewheel: "크롬휠", crystalwheel: "크리스탈휠", bitchip: "비트칩", attackring: "어택링", weightdisk: "웨이트디스크", bladebase: "블레이드베이스", gear: "기어", layer: "레이어", duallayer: "듀얼레이어", godlayer: "갓레이어", chozlayer: "초제트레이어", gachichip: "진검칩", gachiweight: "웨이트", gachibase: "베이스", gachilayer: "진검레이어", gachiupgrade: "강화파츠", superkingchip: "슈퍼킹칩", superkingring: "링", superkingchassis: "섀시", superkingupgrade: "강화파츠", dblayer: "DB레이어", dbcore: "DB코어", dbblade: "블레이드", dbarmor: "아머", evolutiongear: "진화기어", disk: "디스크", coredisk: "코어디스크", frame: "프레임", dbdisk: "DB디스크", driver: "드라이버", driverupgrade: "강화파츠", blade: "블레이드", ratchet: "래칫", bit: "비트" };
 const tagLabels = {};
+const partTypeHierarchy = {
+  "4dclearwheel": { groupType: "clearwheel", displayType: "clearwheel", detailType: "4dclearwheel" },
+  "4dmetalwheel": { groupType: "metalwheel", displayType: "metalwheel", detailType: "4dmetalwheel" },
+  "4dbottom": { groupType: "bottom", displayType: "bottom", detailType: "4dbottom" },
+  duallayer: { groupType: "layer", displayType: "layer", detailType: "duallayer" },
+  godlayer: { groupType: "layer", displayType: "layer", detailType: "godlayer" },
+  chozlayer: { groupType: "layer", displayType: "layer", detailType: "chozlayer" },
+  gachichip: { groupType: "layer", displayType: "gachichip", systemLabel: "진검레이어" },
+  gachiweight: { groupType: "layer", displayType: "gachiweight", systemLabel: "진검레이어" },
+  gachibase: { groupType: "layer", displayType: "gachibase", systemLabel: "진검레이어" },
+  gachilayer: { groupType: "layer", displayType: "layer", detailType: "gachilayer" },
+  gachiupgrade: { groupType: "layer", displayType: "gachiupgrade", detailLabel: "진검레이어 강화파츠" },
+  superkingchip: { groupType: "layer", displayType: "superkingchip", systemLabel: "슈퍼킹레이어" },
+  superkingring: { groupType: "layer", displayType: "superkingring", systemLabel: "슈퍼킹레이어" },
+  superkingchassis: { groupType: "layer", displayType: "superkingchassis", systemLabel: "슈퍼킹레이어" },
+  superkingupgrade: { groupType: "layer", displayType: "superkingupgrade", detailLabel: "슈퍼킹레이어 강화파츠" },
+  dblayer: { groupType: "layer", displayType: "layer", detailType: "dblayer" },
+  dbcore: { groupType: "layer", displayType: "dbcore", systemLabel: "DB레이어" },
+  dbblade: { groupType: "layer", displayType: "dbblade", systemLabel: "DB레이어" },
+  dbarmor: { groupType: "layer", displayType: "dbarmor", systemLabel: "DB레이어" },
+  coredisk: { groupType: "disk", displayType: "disk", detailType: "coredisk" },
+  frame: { groupType: "disk", displayType: "frame", systemLabel: "코어디스크 대응" },
+  dbdisk: { groupType: "disk", displayType: "disk", detailType: "dbdisk" },
+  driverupgrade: { groupType: "driver", displayType: "driverupgrade", detailLabel: "드라이버 강화파츠" }
+};
+const partTypeOf = item => typeof item === "string" ? item : item?.type;
+const partTypeMeta = item => partTypeHierarchy[partTypeOf(item)] || {};
+const partTypeLabel = type => typeLabels[type] || type || "";
+const partGroupType = item => partTypeMeta(item).groupType || partTypeOf(item) || "";
+const partDisplayType = item => partTypeMeta(item).displayType || partTypeOf(item) || "";
+const partDetailType = item => partTypeMeta(item).detailType || "";
+const partGroupTypeLabel = item => partTypeMeta(item).groupLabel || partTypeLabel(partGroupType(item));
+const partDisplayTypeLabel = item => partTypeMeta(item).displayLabel || partTypeLabel(partDisplayType(item));
+const partDetailTypeLabel = item => {
+  const meta = partTypeMeta(item);
+  return meta.detailLabel || partTypeLabel(meta.detailType || "") || partDisplayTypeLabel(item);
+};
+const partSystemLabel = item => {
+  const label = partTypeMeta(item).systemLabel || "";
+  return label && label !== partDetailTypeLabel(item) ? label : "";
+};
+const shouldShowPartSystemTag = item => {
+  return partGroupType(item) !== "layer" || partDisplayType(item) === "layer";
+};
+const partTypeDescriptionType = item => partDetailType(item) || partDisplayType(item);
+const partTypeSearchValues = item => {
+  const type = typeof item === "string" ? item : item?.type;
+  return [...new Set([
+    type,
+    partTypeLabel(type),
+    partGroupType(item),
+    partGroupTypeLabel(item),
+    partDisplayType(item),
+    partDisplayTypeLabel(item),
+    partDetailType(item),
+    partDetailTypeLabel(item),
+    partSystemLabel(item)
+  ].filter(Boolean))];
+};
 const structureLabels = { basic: "4단 구조 시스템", hybrid: "하이브리드 시스템", "4d": "4D 시스템", synchrome: "싱크롬 시스템" };
 const structureTagDescriptions = {
   basic: "페이스, 휠, 트랙, 버텀으로 구성된다",
@@ -10011,7 +10070,7 @@ const modalArtMarkup = item => item.model
   ? `<div class="model-viewer" data-model="${item.model}"><p>3D 모델 로딩 중</p></div>`
   : cardVisualMarkup(item);
 const partCategory = item => item.sub || "";
-const catalogCardTypeLabel = item => typeLabels[item.type] || item.type || "";
+const catalogCardTypeLabel = item => partDisplayTypeLabel(item);
 const catalogCardTitle = (label, title, className = "") => {
   const titleClass = ["card-name", className].filter(Boolean).join(" ");
   return `
@@ -10363,8 +10422,7 @@ const catalogItemSearchFields = (item, options = {}) => {
     ...searchFieldsFromValues("category", [
       ...catalogItemKindSearchValues(item),
       ...(includeSeries ? [item.series, itemSeriesLabel(item)] : []),
-      item.type,
-      item.type ? typeLabels[item.type] : "",
+      ...partTypeSearchValues(item),
       item.category,
       item.category ? typeLabels[item.category] : "",
       item.structure,
@@ -10405,6 +10463,8 @@ const catalogAttributeChipCandidates = (() => {
   add("kind:parts", "부품", ["parts", "파츠"]);
   add("kind:tools", "장비", ["tools"]);
   Object.entries(typeLabels).forEach(([value, label]) => add(`type:${value}`, label, [value]));
+  [...new Set(Object.values(partTypeHierarchy).map(meta => meta.systemLabel).filter(Boolean))]
+    .forEach(label => add(`part-system:${catalogAttributeChipAliasKey(label)}`, label));
   Object.entries(structureLabels).forEach(([value, label]) => {
     const aliases = value === "basic"
       ? ["4단 구조", "4단", "basic"]
@@ -11156,7 +11216,7 @@ const searchResultType = entry => {
   if (entry.kind === "book") return "도서";
   if (entry.kind === "game") return "게임";
   if (entry.kind === "anime") return "애니";
-  return typeLabels[entry.item.type] || "베이";
+  return partDetailTypeLabel(entry.item) || "베이";
 };
 const searchResultTitle = entry => {
   if (entry.kind === "tools") return entry.item.name;
@@ -11455,7 +11515,7 @@ const renderGlobalCards = () => {
   bindSearchResultControls(grid);
 };
 
-const orderedTags = item => item.tags.slice();
+const orderedTags = item => Array.isArray(item.tags) ? item.tags.slice() : [];
 const itemAttributeLabels = item => [
   item.battleType ? battleTypeLabel(item.battleType, item) : "",
   item.spin ? spinLabel(item.spin) : "",
@@ -11487,9 +11547,13 @@ const beySystemTag = item => {
   return label && description ? modalTagInfoMarkup(label, description) : "";
 };
 const partTypeTag = item => {
-  const label = typeLabels[item.type] || item.type || "";
+  const label = partDetailTypeLabel(item);
   if (!label) return "";
-  return modalTagInfoMarkup(label, partTypeTagDescriptions[item.type] || "");
+  return modalTagInfoMarkup(label, partTypeTagDescriptions[partTypeDescriptionType(item)] || "");
+};
+const partSystemTag = item => {
+  const label = partSystemLabel(item);
+  return label && shouldShowPartSystemTag(item) ? modalTagInfoMarkup(label, "") : "";
 };
 const modalTagGroup = (tags, className = "") => tags ? `<div class="${["modal-tags", className].filter(Boolean).join(" ")}">${tags}</div>` : "";
 const modalInfoSlot = (description = "", tags = "", className = "") => `<div class="${["modal-info-slot", className].filter(Boolean).join(" ")}"><div class="modal-slot-tags">${tags || ""}</div><p class="modal-description">${description || ""}</p></div>`;
@@ -11498,7 +11562,7 @@ function beyModalTags(item) {
   return modalTagGroup(`${beySystemTag(item)}${battleTypeTag(item)}${spinTag(item)}${modalTags(item)}`, "bey-modal-tags");
 }
 function partModalTags(item) {
-  return modalTagGroup(`${partTypeTag(item)}${battleTypeTag(item)}${spinTag(item)}${heightClassTag(item)}${modalTags(item)}`);
+  return modalTagGroup(`${partTypeTag(item)}${partSystemTag(item)}${battleTypeTag(item)}${spinTag(item)}${heightClassTag(item)}${modalTags(item)}`);
 }
 
 let activeModalTagButton = null;
@@ -11604,7 +11668,7 @@ function beyDetailSections(item, region) {
   const detailPartIds = beyDetailPartIds(item);
   const info = detailPartIds.length ? `<section class="modal-section mounted-parts"><p class="mounted-title">구성</p><div class="modal-section-scroll mounted-parts-list">${detailPartIds.map(partId => {
     const part = catalogCoreItemsById.get(partId);
-    return `<a class="ui-list-link mounted-link" href="#${part.id}" data-part-id="${part.id}"><span>${typeLabels[part.type]}</span><strong>${itemDisplayName(part, region)}</strong><b>→</b></a>`;
+    return `<a class="ui-list-link mounted-link" href="#${part.id}" data-part-id="${part.id}"><span>${partDisplayTypeLabel(part)}</span><strong>${itemDisplayName(part, region)}</strong><b>→</b></a>`;
   }).join("")}</div></section>` : "";
   return info;
 }
@@ -13771,7 +13835,7 @@ const compositionItemLabel = part => {
   const target = part.target ? findCatalogItemById(part.target) : null;
   if (!target) return "";
   if (target.type === "bey") return "베이";
-  if (target.type && typeLabels[target.type]) return typeLabels[target.type];
+  if (target.type && typeLabels[target.type]) return partDisplayTypeLabel(target);
   if (target.category) return target.category;
   return "";
 };
