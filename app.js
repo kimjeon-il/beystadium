@@ -1473,7 +1473,7 @@ const heightClassLabels = { low: "낮은 높이", high: "높은 높이" };
 const battleTypeLabelGroup = item => ["burst", "x"].includes(typeof item === "string" ? item : item.series) ? "modern" : "classic";
 const battleTypeLabel = (value, item) => battleTypeLabels[battleTypeLabelGroup(item)]?.[value] || value || "";
 const battleTypeDescription = (value, item) => {
-  if (item?.series === "burst" && item?.type === "bey") return burstBeyBattleTypeDescriptions[value] || "";
+  if (item?.series === "burst") return burstBeyBattleTypeDescriptions[value] || "";
   return battleTypeDescriptions[battleTypeLabelGroup(item)]?.[value] || "";
 };
 const spinLabel = value => spinLabels[value] || value || "";
@@ -10412,6 +10412,42 @@ const matchSearchRecord = (record, query) => {
 const compareScoredSearchResults = (a, b) => b.score - a.score || a.record.order - b.record.order;
 const itemNameWithSub = item => [item?.name, item?.sub].filter(Boolean).join(" ");
 const catalogItemKindSearchValues = item => item?.type === "bey" ? ["bey", "베이"] : ["parts", "부품"];
+const layerSystemFilterGroups = {
+  gachi: {
+    label: "진검레이어",
+    types: ["gachichip", "gachiweight", "gachibase", "gachilayer", "gachiupgrade"]
+  },
+  superking: {
+    label: "슈퍼킹레이어",
+    types: ["superkingchip", "superkingring", "superkingchassis", "superkingupgrade"]
+  },
+  db: {
+    label: "DB레이어",
+    types: ["dbcore", "dbblade", "dbarmor", "dblayer"]
+  }
+};
+const burstBeySystemFilterGroups = {
+  single: { label: "싱글레이어 시스템", aliases: ["싱글레이어"], partPrefixes: ["LAYER-"] },
+  dual: { label: "듀얼레이어 시스템", aliases: ["듀얼레이어"], partPrefixes: ["DUALLAYER-"] },
+  god: { label: "갓레이어 시스템", aliases: ["갓레이어"], partPrefixes: ["GODLAYER-"] },
+  choz: { label: "초제트레이어 시스템", aliases: ["초제트레이어"], partPrefixes: ["CHOZLAYER-"] },
+  gachi: { label: "진검레이어 시스템", aliases: ["진검레이어"], partPrefixes: ["GACHIBASE-", "GACHILAYER-"] },
+  superking: { label: "슈퍼킹레이어 시스템", aliases: ["슈퍼킹레이어"], partPrefixes: ["SUPERKINGRING-"] },
+  db: { label: "DB레이어 시스템", aliases: ["DB레이어"], partPrefixes: ["DBBLADE-", "DBLAYER-"] }
+};
+const burstBeySystemFilterGroupForItem = item => {
+  if (item?.series !== "burst" || item?.type !== "bey") return null;
+  const firstPartId = String(Array.isArray(item.parts) ? item.parts[0] || "" : "");
+  return Object.values(burstBeySystemFilterGroups)
+    .find(group => group.partPrefixes.some(prefix => firstPartId.startsWith(prefix))) || null;
+};
+const burstBeySystemSearchValues = item => {
+  const group = burstBeySystemFilterGroupForItem(item);
+  return group ? [group.label, ...(group.aliases || [])] : [];
+};
+const layerSystemSearchValues = item => Object.values(layerSystemFilterGroups)
+  .filter(group => group.types.includes(item?.type))
+  .map(group => group.label);
 const shouldIncludeSeriesSearchField = options => options?.includeSeries !== false;
 const catalogItemSearchFields = (item, options = {}) => {
   const includeSeries = shouldIncludeSeriesSearchField(options);
@@ -10422,7 +10458,14 @@ const catalogItemSearchFields = (item, options = {}) => {
     ...searchFieldsFromValues("category", [
       ...catalogItemKindSearchValues(item),
       ...(includeSeries ? [item.series, itemSeriesLabel(item)] : []),
+<<<<<<< Updated upstream
       ...partTypeSearchValues(item),
+=======
+      item.type,
+      item.type ? typeLabels[item.type] : "",
+      ...layerSystemSearchValues(item),
+      ...burstBeySystemSearchValues(item),
+>>>>>>> Stashed changes
       item.category,
       item.category ? typeLabels[item.category] : "",
       item.structure,
@@ -10450,6 +10493,27 @@ const toolsSearchFields = (item, options = {}) => {
   ];
 };
 const catalogAttributeChipAliasKey = value => compactSearchSpacing(lowerSearchText(value));
+const burstBeySystemBaseTermLabels = new Map(
+  Object.values(burstBeySystemFilterGroups)
+    .flatMap(group => (group.aliases || []).map(alias => [catalogAttributeChipAliasKey(alias), group.label]))
+);
+const catalogSystemTermKey = catalogAttributeChipAliasKey("시스템");
+const catalogFilterQueryTerms = query => {
+  const terms = catalogSearchQueryTerms(query);
+  const mergedTerms = [];
+  for (let index = 0; index < terms.length; index += 1) {
+    const term = terms[index];
+    const nextTermKey = catalogAttributeChipAliasKey(terms[index + 1] || "");
+    const burstSystemLabel = burstBeySystemBaseTermLabels.get(catalogAttributeChipAliasKey(term));
+    if (burstSystemLabel && nextTermKey === catalogSystemTermKey) {
+      mergedTerms.push(burstSystemLabel);
+      index += 1;
+      continue;
+    }
+    mergedTerms.push(term);
+  }
+  return mergedTerms;
+};
 const catalogAttributeChipCandidates = (() => {
   const candidates = [];
   const seenKeys = new Set();
@@ -10459,9 +10523,8 @@ const catalogAttributeChipCandidates = (() => {
     seenKeys.add(key);
     candidates.push({ key, label, aliasKeys: new Set(aliasKeys) });
   };
-  add("kind:bey", "베이", ["bey"]);
-  add("kind:parts", "부품", ["parts", "파츠"]);
-  add("kind:tools", "장비", ["tools"]);
+  Object.values(layerSystemFilterGroups)
+    .forEach(group => add(`part-system:${catalogAttributeChipAliasKey(group.label)}`, group.label));
   Object.entries(typeLabels).forEach(([value, label]) => add(`type:${value}`, label, [value]));
   [...new Set(Object.values(partTypeHierarchy).map(meta => meta.systemLabel).filter(Boolean))]
     .forEach(label => add(`part-system:${catalogAttributeChipAliasKey(label)}`, label));
@@ -10472,14 +10535,17 @@ const catalogAttributeChipCandidates = (() => {
         ? ["하이브리드", "hybrid"]
         : value === "4d"
           ? ["4D", "4d"]
-          : [value];
+          : value === "synchrome"
+            ? ["싱크롬", "synchrome"]
+            : [value];
     add(`system:${value}`, label, aliases);
   });
+  Object.values(burstBeySystemFilterGroups)
+    .forEach(group => add(`bey-system:${catalogAttributeChipAliasKey(group.label)}`, group.label, group.aliases));
   Object.keys(battleTypeLabels.classic).forEach(value => {
     add(`battle:${value}`, battleTypeLabels.classic[value], [value, battleTypeLabels.modern[value]]);
   });
   Object.entries(spinLabels).forEach(([value, label]) => add(`spin:${value}`, label, [value]));
-  Object.entries(heightClassLabels).forEach(([value, label]) => add(`height:${value}`, label, [value]));
   toolsSubtypeOptions.forEach(option => add(`tools:${option.value}`, option.label, [option.value]));
   Object.entries(tagLabels).forEach(([value, label]) => add(`tag:${value}`, label, [value]));
   return candidates;
@@ -10488,14 +10554,25 @@ const catalogAttributeChipForTerm = term => {
   const key = catalogAttributeChipAliasKey(term);
   return catalogAttributeChipCandidates.find(candidate => candidate.aliasKeys.has(key)) || null;
 };
-const catalogExclusiveFilterGroups = new Set(["kind", "type", "system", "battle", "spin", "height", "tools"]);
+const catalogExclusiveFilterGroups = new Set(["type", "part-system", "bey-system", "system", "battle", "spin", "tools"]);
 const catalogFilterGroupForTerm = term => {
   const candidate = catalogAttributeChipForTerm(term);
   const group = String(candidate?.key || "").split(":")[0];
   return catalogExclusiveFilterGroups.has(group) ? group : "";
 };
+const catalogFilterChipLabelForTerm = (candidate, term) => {
+  if (!candidate) return "";
+  const [group, value] = String(candidate.key || "").split(":");
+  if (group !== "battle") return candidate.label;
+  const termKey = catalogAttributeChipAliasKey(term);
+  const classicLabel = battleTypeLabels.classic[value] || "";
+  const modernLabel = battleTypeLabels.modern[value] || "";
+  if (classicLabel && termKey === catalogAttributeChipAliasKey(classicLabel)) return classicLabel;
+  if (modernLabel && termKey === catalogAttributeChipAliasKey(modernLabel)) return modernLabel;
+  return candidate.label;
+};
 const normalizeCatalogFilterTerms = query => {
-  const terms = catalogSearchQueryTerms(query);
+  const terms = catalogFilterQueryTerms(query);
   if (!terms.length) return String(query || "").trim();
   const entries = terms.map((term, index) => ({ term, index, group: catalogFilterGroupForTerm(term) }));
   const lastGroupIndexes = new Map();
@@ -13317,7 +13394,7 @@ const setCatalogScope = scope => {
 const resetCatalogFilter = (scope, key) => {
   if (scope !== "catalog" || !catalogSearch) return;
   let removed = false;
-  const nextTerms = catalogSearchQueryTerms(catalogSearchQuery()).filter(term => {
+  const nextTerms = catalogFilterQueryTerms(catalogSearchQuery()).filter(term => {
     if (!removed && term === key) {
       removed = true;
       return false;
@@ -13330,12 +13407,12 @@ const resetCatalogFilter = (scope, key) => {
 const activeFilterChips = scope => {
   if (scope !== "catalog") return [];
   const seen = new Set();
-  return catalogSearchQueryTerms(catalogSearchQuery())
+  return catalogFilterQueryTerms(catalogSearchQuery())
     .map(term => {
       const candidate = catalogAttributeChipForTerm(term);
       if (!candidate || seen.has(candidate.key)) return null;
       seen.add(candidate.key);
-      return { scope, key: term, label: candidate.label };
+      return { scope, key: term, label: catalogFilterChipLabelForTerm(candidate, term) };
     })
     .filter(Boolean);
 };
