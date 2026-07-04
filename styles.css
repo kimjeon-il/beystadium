@@ -3428,7 +3428,7 @@ body.menu-open {
 .mobile-drawer {
   position: fixed;
   inset: 0 auto 0 0;
-  width: min(calc(100vw - 18px), 420px);
+  width: min(calc(100vw - 32px), 320px);
   height: 100vh;
   display: grid;
   grid-template-rows: auto auto minmax(0, 1fr);
