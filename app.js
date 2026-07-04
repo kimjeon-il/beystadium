@@ -410,6 +410,7 @@ const beyItems = [
   { id: "BEY-BURST-B-192-GREATEST-RAPHAEL-OV-HXT-PLUS-DASH", series: "burst", type: "bey", name: "그레이티스트 라파엘.Ov.HXt+'", en: "Greatest Raphael.Ov.HXt+'", productNo: "B-192", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["DBLAYER-GREATEST-RAPHAEL", "DBDISK-OVER", "DRIVER-HIGH-XTEND-PLUS-DASH"] },
   { id: "BEY-BURST-B-193-ULTIMATE-VALKYRIE-LG-V-DASH-9", series: "burst", type: "bey", name: "얼티밋 발키리.Lg.V'-9", en: "Ultimate Valkyrie.Lg.V'-9", productNo: "B-193", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["DBBLADE-ULTIMATE", "DBCORE-VALKYRIE-II", "DBDISK-LEGACY", "DRIVER-VARIABLE-DASH", "DBARMOR-9"] },
   { id: "BEY-BURST-B-195-PROMINENCE-VALKYRIE-OV-AT-DASH-0", series: "burst", type: "bey", name: "프로미넌스 발키리.Ov.At'-0", en: "Prominence Valkyrie.Ov.At'-0", productNo: "B-195", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["DBBLADE-PROMINENCE", "DBCORE-VALKYRIE", "DBDISK-OVER", "DRIVER-ATOMIC-DASH", "DBARMOR-0"] },
+  { id: "BEY-BURST-B-197-DIVINE-BELIAL-NX-AD-3", series: "burst", type: "bey", name: "디바인 벨리알.Nx.Ad-3", en: "Divine Belial.Nx.Ad-3", productNo: "B-197", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["DBBLADE-DIVINE", "DBCORE-BELIAL-II", "DBDISK-NEXUS", "DRIVER-ADVENTURE", "DBARMOR-3"] },
   { id: "BEY-BURST-B-199-GATLING-DRAGON-KR-CM-DASH-10", series: "burst", type: "bey", name: "개틀링 드래곤.Kr.Cm'-10", en: "Gatling Dragon.Kr.Cm'-10", productNo: "B-199", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["DBBLADE-GATLING", "DBCORE-DRAGON", "DBDISK-KARMA", "DRIVER-CHARGE-METAL-DASH", "DBARMOR-10"] },
   { id: "BEY-BURST-B-200-XIPHOID-XCALIBUR-XN-SW-DASH-1", series: "burst", type: "bey", name: "지포이드 엑스칼리버.Xn.Sw'-1", en: "Xiphoid Xcalibur.Xn.Sw'-1", productNo: "B-200", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["DBBLADE-XIPHOID", "DBCORE-XCALIBUR", "DBDISK-XANTHUS", "DRIVER-SWORD-DASH", "DBARMOR-1"] },
   { id: "BEY-BURST-B-201-ZEST-ACHILLES-IL-QT-DASH-4", series: "burst", type: "bey", name: "제스트 아킬레스.Il.Qt'-4", en: "Zest Achilles.Il.Qt'-4", productNo: "B-201", battleType: "balance", spin: "dual", tags: [], desc: "", parts: ["DBBLADE-ZEST", "DBCORE-ACHILLES", "DBDISK-ILLEGAL", "DRIVER-QUATTRO-DASH", "DBARMOR-4"] },
@@ -992,16 +993,16 @@ const partItems = [
   { id: "DBBLADE-SUPER-MR", series: "burst", type: "dbblade", name: "슈퍼 MR", en: "Super MR", battleType: "attack", tags: [], desc: "" },
   { id: "DBBLADE-BURST", series: "burst", type: "dbblade", name: "버스트", en: "Burst", battleType: "balance", tags: [], desc: "" },
   { id: "DBBLADE-BARRICADE", series: "burst", type: "dbblade", name: "바리케이드", en: "Barricade", battleType: "defense", tags: [], desc: "" },
-  { id: "DBARMOR-2", series: "burst", type: "dbarmor", name: "투", en: "2", tags: [], desc: "" },
-  { id: "DBARMOR-6", series: "burst", type: "dbarmor", name: "식스", en: "6", tags: [], desc: "" },
-  { id: "DBARMOR-3", series: "burst", type: "dbarmor", name: "쓰리", en: "3", tags: [], desc: "" },
-  { id: "DBARMOR-10", series: "burst", type: "dbarmor", name: "텐", en: "10", tags: [], desc: "" },
-  { id: "DBARMOR-7", series: "burst", type: "dbarmor", name: "세븐", en: "7", tags: [], desc: "" },
-  { id: "DBARMOR-0", series: "burst", type: "dbarmor", name: "제로", en: "0", tags: [], desc: "" },
-  { id: "DBARMOR-9", series: "burst", type: "dbarmor", name: "나인", en: "9", tags: [], desc: "" },
-  { id: "DBARMOR-1", series: "burst", type: "dbarmor", name: "원", en: "1", tags: [], desc: "" },
-  { id: "DBARMOR-4", series: "burst", type: "dbarmor", name: "포", en: "4", tags: [], desc: "" },
-  { id: "DBARMOR-8", series: "burst", type: "dbarmor", name: "에이트", en: "8", tags: [], desc: "" },
+  { id: "DBARMOR-2", series: "burst", type: "dbarmor", name: "2", en: "2", sub: "투", tags: [], desc: "" },
+  { id: "DBARMOR-6", series: "burst", type: "dbarmor", name: "6", en: "6", sub: "식스", tags: [], desc: "" },
+  { id: "DBARMOR-3", series: "burst", type: "dbarmor", name: "3", en: "3", sub: "쓰리", tags: [], desc: "" },
+  { id: "DBARMOR-10", series: "burst", type: "dbarmor", name: "10", en: "10", sub: "텐", tags: [], desc: "" },
+  { id: "DBARMOR-7", series: "burst", type: "dbarmor", name: "7", en: "7", sub: "세븐", tags: [], desc: "" },
+  { id: "DBARMOR-0", series: "burst", type: "dbarmor", name: "0", en: "0", sub: "제로", tags: [], desc: "" },
+  { id: "DBARMOR-9", series: "burst", type: "dbarmor", name: "9", en: "9", sub: "나인", tags: [], desc: "" },
+  { id: "DBARMOR-1", series: "burst", type: "dbarmor", name: "1", en: "1", sub: "원", tags: [], desc: "" },
+  { id: "DBARMOR-4", series: "burst", type: "dbarmor", name: "4", en: "4", sub: "포", tags: [], desc: "" },
+  { id: "DBARMOR-8", series: "burst", type: "dbarmor", name: "8", en: "8", sub: "에이트", tags: [], desc: "" },
   { id: "EVOLUTIONGEAR-F", series: "burst", type: "evolutiongear", name: "F", en: "F", tags: [], desc: "" },
   { id: "EVOLUTIONGEAR-S", series: "burst", type: "evolutiongear", name: "S", en: "S", tags: [], desc: "" },
   { id: "EVOLUTIONGEAR-L", series: "burst", type: "evolutiongear", name: "L", en: "L", tags: [], desc: "" },
@@ -1321,6 +1322,42 @@ const toTop = document.querySelector("#toTop");
 const menuButton = document.querySelector("#menuButton");
 const mobileDrawer = document.querySelector("#mobileDrawer");
 const mobileDrawerClose = document.querySelector(".mobile-drawer-close");
+const desktopSidebar = document.querySelector(".desktop-sidebar");
+const desktopSidebarToggle = desktopSidebar?.querySelector(".desktop-sidebar-toggle");
+const desktopSidebarNav = desktopSidebar?.querySelector(".desktop-sidebar-nav");
+const sidebarButtonSectionAttributes = [
+  ["data-sidebar-home", "overview"],
+  ["data-category-catalog-open", "catalog"],
+  ["data-category-release-open", "release"],
+  ["data-category-anime-episodes-open", "anime-episodes"],
+  ["data-category-anime-open", "anime"]
+];
+const sidebarCurrentButtonSelector = sidebarButtonSectionAttributes.map(([attribute]) => `[${attribute}]`).join(", ");
+const getSidebarRoots = () => Array.from(document.querySelectorAll("[data-sidebar-root]"));
+const sidebarSectionForButton = button => sidebarButtonSectionAttributes.find(([attribute]) => button.hasAttribute(attribute))?.[1] || "";
+const normalizedSidebarSection = section => {
+  if (["catalog", "bey", "tools"].includes(section)) return "catalog";
+  return ["overview", "release", "anime", "anime-episodes"].includes(section) ? section : "";
+};
+const setSidebarButtonCurrent = (button, active) => {
+  const disabled = button.disabled || button.getAttribute("aria-disabled") === "true";
+  const current = Boolean(active && !disabled);
+  button.classList.toggle("active", current);
+  if (current) button.setAttribute("aria-current", "page");
+  else button.removeAttribute("aria-current");
+};
+const renderDesktopSidebarNavFromDrawer = () => {
+  const sourceNav = mobileDrawer?.querySelector(".mobile-drawer-nav");
+  if (desktopSidebarNav && sourceNav) desktopSidebarNav.innerHTML = sourceNav.innerHTML;
+};
+renderDesktopSidebarNavFromDrawer();
+const setDesktopSidebarExpanded = open => {
+  if (!desktopSidebar) return;
+  desktopSidebarToggle?.setAttribute("aria-expanded", String(open));
+  desktopSidebarToggle?.setAttribute("aria-label", open ? "사이드바 접기" : "사이드바 펼치기");
+  desktopSidebarToggle?.setAttribute("title", open ? "사이드바 접기" : "사이드바 펼치기");
+  desktopSidebar.classList.toggle("is-expanded", Boolean(open));
+};
 const typeLabels = { bey: "베이", parts: "부품", tools: "장비", face: "페이스", wheel: "휠", clearwheel: "클리어휠", lightwheel: "라이트휠", metalwheel: "메탈휠", "4dclearwheel": "4D클리어휠", "4dmetalwheel": "4D메탈휠", track: "트랙", bottom: "버텀", "4dbottom": "4D버텀", stoneface: "스톤페이스", chromewheel: "크롬휠", crystalwheel: "크리스탈휠", bitchip: "비트칩", attackring: "어택링", weightdisk: "웨이트디스크", bladebase: "블레이드베이스", gear: "기어", layer: "레이어", duallayer: "듀얼레이어", godlayer: "갓레이어", chozlayer: "초제트레이어", gachichip: "진검칩", gachiweight: "웨이트", gachibase: "베이스", gachilayer: "진검레이어", gachiupgrade: "강화파츠", superkingchip: "슈퍼킹칩", superkingring: "링", superkingchassis: "섀시", superkingupgrade: "강화파츠", dblayer: "DB레이어", dbcore: "DB코어", dbblade: "블레이드", dbarmor: "아머", evolutiongear: "진화기어", disk: "디스크", coredisk: "코어디스크", frame: "프레임", dbdisk: "DB디스크", driver: "드라이버", driverupgrade: "강화파츠", blade: "블레이드", ratchet: "래칫", bit: "비트" };
 const tagLabels = {};
 const structureLabels = { basic: "4단 구조 시스템", hybrid: "하이브리드 시스템", "4d": "4D 시스템", synchrome: "싱크롬 시스템" };
@@ -7241,7 +7278,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2022-07-09",
         price: "19900",
-        composition: []
+        composition: [
+          { name: "디바인 벨리알.Nx.Ad-3", quantity: "1개", target: "BEY-BURST-B-197-DIVINE-BELIAL-NX-AD-3" }
+        ]
       },
       jp: {
         no: "B-197",
@@ -7249,7 +7288,9 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2022-04-23",
         price: "1760",
-        composition: []
+        composition: [
+          { name: "디바인 벨리알.Nx.Ad-3", quantity: "1개", target: "BEY-BURST-B-197-DIVINE-BELIAL-NX-AD-3" }
+        ]
       }
     }
   },
@@ -9881,6 +9922,15 @@ const productItemsById = new Map(productItems.map(item => [item.id, item]));
 const toolsItemsById = new Map(toolsItems.map(item => [item.id, item]));
 const bookItemsById = new Map(bookItems.map(item => [item.id, item]));
 const gameItemsById = new Map(gameItems.map(item => [item.id, item]));
+const catalogCoreItemOrder = new Map(catalogCoreItems.map((item, index) => [item, index]));
+const toolsItemOrder = new Map(toolsItems.map((item, index) => [item, index]));
+const catalogSourceOrder = item => {
+  if (!item || typeof item !== "object") return Number.MAX_SAFE_INTEGER;
+  const toolsOrder = toolsItemOrder.get(item);
+  if (toolsOrder !== undefined) return 100000 + toolsOrder;
+  const coreOrder = catalogCoreItemOrder.get(item);
+  return coreOrder !== undefined ? coreOrder : Number.MAX_SAFE_INTEGER;
+};
 const zeroGBottomStartIndex = partItems.findIndex(item => item.id === "BOTTOM-CIRCLE-FLAT");
 const findCatalogItemById = id => catalogCoreItemsById.get(id) || toolsItemsById.get(id) || bookItemsById.get(id) || gameItemsById.get(id) || productItemsById.get(id) || null;
 
@@ -9901,13 +9951,13 @@ const catalogCardTitle = (label, title, className = "") => {
     </h3>`;
 };
 const partKoName = item => {
-  if (!["track", "bottom", "4dbottom", "disk", "coredisk", "frame", "dbdisk", "driver"].includes(item.type)) return "";
+  if (!["track", "bottom", "4dbottom", "disk", "coredisk", "frame", "dbdisk", "dbarmor", "driver"].includes(item.type)) return "";
   const detail = item.sub || "";
   return detail.includes("높이") ? "" : detail;
 };
 const wheelTypes = ["wheel", "clearwheel", "4dclearwheel", "lightwheel", "metalwheel", "4dmetalwheel", "chromewheel", "crystalwheel"];
 const cardInfo = item => {
-  if (["track", "bottom", "4dbottom", "disk", "coredisk", "frame", "dbdisk", "driver"].includes(item.type)) {
+  if (["track", "bottom", "4dbottom", "disk", "coredisk", "frame", "dbdisk", "dbarmor", "driver"].includes(item.type)) {
     const fullEn = item.type === "track" && /^\d+$/.test(item.name) ? "&nbsp;" : item.en;
     return `${catalogCardTitle(catalogCardTypeLabel(item), item.name, "code-name")}<p class="card-full-en">${fullEn}</p><p class="card-full-ko">${partKoName(item) || "&nbsp;"}</p>`;
   }
@@ -10318,7 +10368,7 @@ const catalogListSearchRecord = item => {
   const cached = catalogSearchRecordCache.get(item);
   if (cached) return cached;
   const isToolsItem = toolsItemsById.has(item.id);
-  const order = isToolsItem ? 100000 + toolsItems.findIndex(entry => entry === item) : catalogCoreItems.findIndex(entry => entry === item);
+  const order = catalogSourceOrder(item);
   const record = createSearchRecord(isToolsItem ? "tools" : "catalog-item", item, isToolsItem ? toolsSearchFields(item) : catalogItemSearchFields(item), order);
   catalogSearchRecordCache.set(item, record);
   return record;
@@ -10358,7 +10408,22 @@ function productCompositionItems(item, region = activeReleaseRegion) {
   const baseComposition = region === "jp" ? item.composition || krReleaseComposition : region === "kr" ? item.composition : null;
   return regionComposition || baseComposition || [];
 }
-const compareToolsFirstReleaseMeta = (a, b) =>
+const randomBoosterNamePattern = /(랜덤부스터|라이트블레이드|러이트블레이드)/;
+const productReleaseNos = product => [...new Set([
+  product.no,
+  ...Object.values(product.releases || {}).map(release => release.no)
+].filter(Boolean))];
+const productLineupIds = product => {
+  if (product.lineupPool?.length) return product.lineupPool;
+  if (product.beyPool?.length) return product.beyPool;
+  const isRandomBooster = Object.values(product.releases || {}).some(release => randomBoosterNamePattern.test(release.name || ""));
+  if (!isRandomBooster) return [];
+  const releaseNos = productReleaseNos(product);
+  return catalogCoreItems
+    .filter(entry => entry.type === "bey" && releaseNos.includes(entry.productNo))
+    .map(entry => entry.id);
+};
+const compareCatalogFirstReleaseMeta = (a, b) =>
   a.dateSort - b.dateSort ||
   a.productIndex - b.productIndex ||
   a.compositionIndex - b.compositionIndex ||
@@ -10376,7 +10441,7 @@ const toolsFirstReleaseMetaMap = () => {
         if (!part.target?.startsWith("TOOLS-") || !toolsItemsById.has(part.target)) return;
         const next = { dateSort, productIndex, compositionIndex, regionIndex };
         const prev = map.get(part.target);
-        if (!prev || compareToolsFirstReleaseMeta(next, prev) < 0) map.set(part.target, next);
+        if (!prev || compareCatalogFirstReleaseMeta(next, prev) < 0) map.set(part.target, next);
       });
     });
   });
@@ -10387,13 +10452,115 @@ const compareToolsItemsByFirstRelease = (a, b) => {
   const metaA = toolsFirstReleaseMetaMap().get(a.id);
   const metaB = toolsFirstReleaseMetaMap().get(b.id);
   if (metaA && metaB) {
-    const metaDiff = compareToolsFirstReleaseMeta(metaA, metaB);
+    const metaDiff = compareCatalogFirstReleaseMeta(metaA, metaB);
     if (metaDiff) return metaDiff;
   } else if (metaA || metaB) {
     return metaA ? -1 : 1;
   }
   return a.name.localeCompare(b.name, "ko");
 };
+let catalogCoreFirstReleaseMetaCache = null;
+const catalogCoreFirstReleaseMetaMap = () => {
+  if (catalogCoreFirstReleaseMetaCache) return catalogCoreFirstReleaseMetaCache;
+  const map = new Map();
+  const rememberReleaseMeta = (target, meta) => {
+    if (!catalogCoreItemsById.has(target)) return;
+    const prev = map.get(target);
+    if (!prev || compareCatalogFirstReleaseMeta(meta, prev) < 0) map.set(target, meta);
+  };
+  productItems.forEach((product, productIndex) => {
+    Object.keys(releaseRegionLabels).forEach((region, regionIndex) => {
+      if (!productReleasedInRegion(product, region)) return;
+      const release = productRelease(product, region);
+      const dateSort = releaseDateSortValue(release.releaseDate || release.release);
+      if (dateSort === Number.MAX_SAFE_INTEGER) return;
+      productCompositionItems(product, region).forEach((part, compositionIndex) => {
+        rememberReleaseMeta(part.target, { dateSort, productIndex, compositionIndex, regionIndex });
+      });
+      productLineupIds(product).forEach((target, lineupIndex) => {
+        rememberReleaseMeta(target, { dateSort, productIndex, compositionIndex: 1000 + lineupIndex, regionIndex });
+      });
+    });
+  });
+  catalogCoreFirstReleaseMetaCache = map;
+  return map;
+};
+const catalogFirstReleaseMeta = item => {
+  if (!item?.id) return null;
+  const meta = toolsItemsById.has(item.id)
+    ? toolsFirstReleaseMetaMap().get(item.id)
+    : catalogCoreFirstReleaseMetaMap().get(item.id);
+  return meta?.dateSort === Number.MAX_SAFE_INTEGER ? null : meta || null;
+};
+const compareCatalogItemsByLatestRelease = (a, b) => {
+  const metaA = catalogFirstReleaseMeta(a);
+  const metaB = catalogFirstReleaseMeta(b);
+  if (metaA && metaB) {
+    const dateDiff = metaB.dateSort - metaA.dateSort;
+    if (dateDiff) return dateDiff;
+    return 0;
+  }
+  if (metaA || metaB) return metaA ? -1 : 1;
+  return 0;
+};
+const catalogProductPrefixRank = {
+  B: 1,
+  BB: 1,
+  BBG: 2,
+  BX: 1,
+  UX: 2,
+  CX: 3
+};
+const catalogLatestSeriesRank = item => {
+  const order = [...releaseSeriesOrder()].reverse();
+  const index = order.indexOf(item?.series);
+  return index >= 0 ? index : order.length;
+};
+const catalogToolFirstReleaseProductNo = item => {
+  const meta = toolsFirstReleaseMetaMap().get(item?.id);
+  const product = Number.isInteger(meta?.productIndex) ? productItems[meta.productIndex] : null;
+  if (!product) return "";
+  const region = Object.keys(releaseRegionLabels)[meta.regionIndex] || activeReleaseRegion;
+  const release = productRelease(product, region);
+  return release.no || product.no || "";
+};
+const catalogProductNumberKey = item => {
+  const source = [
+    item?.productNo,
+    item?.no,
+    toolsItemsById.has(item?.id) ? catalogToolFirstReleaseProductNo(item) : "",
+    item?.id
+  ].filter(Boolean).join(" ");
+  const match = source.match(/\b(BBG|BX|UX|CX|BB|B)[-_\s]?(\d+)/i);
+  if (!match) return null;
+  const prefix = match[1].toUpperCase();
+  return {
+    prefixRank: catalogProductPrefixRank[prefix] || 0,
+    number: Number(match[2]) || 0
+  };
+};
+const compareCatalogProductNumberKeys = (a, b) => {
+  if (a && b) {
+    const prefixDiff = b.prefixRank - a.prefixRank;
+    if (prefixDiff) return prefixDiff;
+    return b.number - a.number;
+  }
+  if (a || b) return a ? -1 : 1;
+  return 0;
+};
+const compareCatalogItemsByLatest = (a, b) => {
+  const seriesDiff = catalogLatestSeriesRank(a) - catalogLatestSeriesRank(b);
+  if (seriesDiff) return seriesDiff;
+  const releaseDiff = compareCatalogItemsByLatestRelease(a, b);
+  if (releaseDiff) return releaseDiff;
+  const numberDiff = compareCatalogProductNumberKeys(catalogProductNumberKey(a), catalogProductNumberKey(b));
+  if (numberDiff) return numberDiff;
+  const orderDiff = catalogSourceOrder(b) - catalogSourceOrder(a);
+  if (orderDiff) return orderDiff;
+  return (a?.name || "").localeCompare(b?.name || "", "ko", { numeric: true });
+};
+const compareCatalogSearchEntriesByLatest = (a, b) =>
+  b.score - a.score || compareCatalogItemsByLatest(a.item, b.item);
 const catalogHasSearchQuery = () => Boolean(catalogSearchQuery());
 const catalogUsesDefaultBrowseSet = query => !selectedCatalogKind && (query ? query.isEmpty : !catalogHasSearchQuery());
 const shouldShowCatalogCount = () => Boolean(
@@ -10425,8 +10592,8 @@ const visibleToolsItems = () => {
     })
     .filter(Boolean)
     .sort((a, b) => query.isEmpty
-      ? compareToolsItemsByFirstRelease(a.item, b.item)
-      : b.score - a.score || compareToolsItemsByFirstRelease(a.item, b.item))
+      ? compareCatalogItemsByLatest(a.item, b.item)
+      : compareCatalogSearchEntriesByLatest(a, b))
     .map(entry => entry.item);
   });
 };
@@ -10437,21 +10604,27 @@ const visibleCatalogCoreItems = () => {
   if (selectedCatalogKind === "tools") return [];
   const useDefaultBrowseSet = catalogUsesDefaultBrowseSet(query);
   const effectiveCatalogItemType = useDefaultBrowseSet ? "bey" : selectedCatalogKind || "all";
-  const useTypeFilter = effectiveCatalogItemType !== "all";
   return catalogCoreItems
     .map(item => {
-      if (useTypeFilter && item.type !== effectiveCatalogItemType) return null;
+      if (effectiveCatalogItemType === "bey" && item.type !== "bey") return null;
+      if (effectiveCatalogItemType === "parts" && item.type === "bey") return null;
       const score = query.isEmpty ? 0 : catalogListSearchScore(item, query);
       return query.isEmpty || score > 0 ? { item, score } : null;
     })
     .filter(Boolean)
-    .sort((a, b) => query.isEmpty ? 0 : b.score - a.score)
+    .sort((a, b) => query.isEmpty ? compareCatalogItemsByLatest(a.item, b.item) : compareCatalogSearchEntriesByLatest(a, b))
     .map(entry => entry.item);
   });
 };
 const visibleCatalogItems = () => {
   const cacheKey = catalogVisibleCacheKey("all");
-  return cacheCatalogVisibleItems(cacheKey, () => [...visibleCatalogCoreItems(), ...visibleToolsItems()]);
+  return cacheCatalogVisibleItems(cacheKey, () => {
+    const query = prepareCatalogSearchQuery(catalogSearchQuery());
+    const items = [...visibleCatalogCoreItems(), ...visibleToolsItems()];
+    return items.slice().sort((a, b) => query.isEmpty
+      ? compareCatalogItemsByLatest(a, b)
+      : catalogListSearchScore(b, query) - catalogListSearchScore(a, query) || compareCatalogItemsByLatest(a, b));
+  });
 };
 const openCatalogCard = card => {
   if (card.dataset.productId) openProductEntry(card.dataset.productId);
@@ -10617,7 +10790,8 @@ const searchHash = (query = globalSearchQuery(), scope = globalSearchScopeValue(
   params.set("scope", normalizeSearchScope(scope || "all"));
   return `#search?${params.toString()}`;
 };
-const normalizeCatalogRouteScope = scope => scope === "bey" || scope === "tools" ? scope : "all";
+const catalogRouteScopes = new Set(["all", "bey", "parts", "tools"]);
+const normalizeCatalogRouteScope = scope => catalogRouteScopes.has(scope) ? scope : "all";
 const currentPathWithSearch = () => `${window.location.pathname}${window.location.search}`;
 const routeHashParts = (hash = window.location.hash) => {
   const raw = (hash || "").replace(/^#/, "");
@@ -12679,49 +12853,14 @@ const openCategoryAnimePage = ({ updateHash = true, replace = false, preserveSea
   activatePrimarySection("anime", { preserveSearch });
   renderAnimePage();
 };
-const secondaryCategoryNavGroups = {
-  catalog: {
-    label: "완구 하위 카테고리",
-    className: "catalog-section-subnav",
-    items: [
-      { label: "도감", attrs: ["data-category-catalog-open"] },
-      { label: "발매목록", attrs: ["data-category-release-open"] }
-    ]
-  },
-  anime: {
-    label: "애니메이션 하위 카테고리",
-    className: "anime-section-subnav",
-    items: [
-      { label: "등장인물 및 베이", attrs: ["data-category-anime-open"] },
-      { label: "방영목록", attrs: ["data-category-anime-episodes-open"] }
-    ]
-  }
-};
-const secondaryCategoryNavButtonAttrs = attrs => attrs.map(attr => ` ${attr}`).join("");
-const secondaryCategoryNavMarkup = group => `<nav class="secondary-category-nav secondary-category-nav--panel section-subnav ${group.className}" aria-label="${escapeAttributeValue(group.label)}">
-  ${group.items.map(item => `<button class="secondary-category-nav__button section-subnav-button" type="button"${secondaryCategoryNavButtonAttrs(item.attrs)}>${escapeHtml(item.label)}</button>`).join("")}
-</nav>`;
-const renderSecondaryCategoryNavs = (root = document) => {
-  root.querySelectorAll("[data-secondary-category-nav]").forEach(target => {
-    const group = secondaryCategoryNavGroups[target.dataset.secondaryCategoryNav];
-    if (group) target.innerHTML = secondaryCategoryNavMarkup(group);
-  });
-};
 const categoryRouteTriggers = [
   { selector: "[data-category-release-open]", route: categoryReleaseMenuRoute },
   { selector: "[data-category-anime-episodes-open]", route: { type: "category-anime-episodes" } },
   { selector: "[data-category-anime-open]", route: { type: "category-anime" } },
   { selector: "[data-category-catalog-open]", route: { type: "catalog", scope: "all" } }
 ];
-const categoryRouteFromTrigger = (target, { includeMobileScope = false } = {}) => {
+const categoryRouteFromTrigger = target => {
   if (!target?.closest) return null;
-  const mobileScopeButton = includeMobileScope ? target.closest("[data-mobile-catalog-scope]") : null;
-  if (mobileScopeButton) {
-    return {
-      trigger: mobileScopeButton,
-      route: { type: "catalog", scope: mobileScopeButton.dataset.mobileCatalogScope || "all" }
-    };
-  }
   for (const { selector, route } of categoryRouteTriggers) {
     const trigger = target.closest(selector);
     if (!trigger) continue;
@@ -12732,8 +12871,8 @@ const categoryRouteFromTrigger = (target, { includeMobileScope = false } = {}) =
   }
   return null;
 };
-const handleCategoryRouteClick = (event, { includeMobileScope = false, closeSearchHelp = false, closeMobileMenu = true } = {}) => {
-  const match = categoryRouteFromTrigger(event.target, { includeMobileScope });
+const handleCategoryRouteClick = (event, { closeSearchHelp = false, closeMobileMenu = true } = {}) => {
+  const match = categoryRouteFromTrigger(event.target);
   if (!match) return false;
   if (event.currentTarget?.contains && !event.currentTarget.contains(match.trigger)) return false;
   event.preventDefault();
@@ -12804,8 +12943,8 @@ const openSearchResults = ({ replace = false, updateHash = true } = {}) => {
   }
   cancelPendingSearchRenderTasks();
   closeAllSearchPreviews();
-  document.querySelectorAll(".nav-link").forEach(link => link.classList.remove("active"));
   activateAppPanel("all");
+  syncSidebarActiveState("all");
   renderGlobalCards();
   setMobileMenuOpen(false);
 };
@@ -12923,7 +13062,10 @@ bindSearchScopeControls({
   dataAttr: "data-catalog-search-scope",
   afterChange: button => {
     closeSearchHelpPopovers();
-    navigateToRoute({ type: "catalog", scope: button.getAttribute("data-catalog-search-scope") || "all" });
+    navigateToRoute(
+      { type: "catalog", scope: button.getAttribute("data-catalog-search-scope") || "all" },
+      { preserveSearch: true, preserveScroll: true }
+    );
   }
 });
 const setDropdownOption = button => {
@@ -12948,36 +13090,11 @@ const refreshCatalogState = () => {
   refreshCatalogResults();
   renderCatalogFilterChips();
 };
-const syncCatalogMenuScope = scope => {
-  const normalized = ["release", "anime", "anime-episodes"].includes(scope) ? scope : normalizeSearchScope(scope);
-  const isCatalogScope = ["all", "bey", "tools"].includes(normalized);
-  const setSubnavActive = (button, active) => {
-    button.classList.toggle("active", active);
-    if (!button.closest(".section-subnav")) return;
-    if (active) button.setAttribute("aria-current", "page");
-    else button.removeAttribute("aria-current");
-  };
-  document.querySelectorAll(".section-subnav [data-category-catalog-open]").forEach(button => {
-    setSubnavActive(button, isCatalogScope);
-  });
-  document.querySelectorAll("[data-category-release-open]").forEach(button => {
-    setSubnavActive(button, normalized === "release");
-  });
-  document.querySelectorAll(".section-subnav [data-category-anime-open]").forEach(button => {
-    setSubnavActive(button, normalized === "anime");
-  });
-  document.querySelectorAll("[data-category-anime-episodes-open]").forEach(button => {
-    setSubnavActive(button, normalized === "anime-episodes");
-  });
-  mobileDrawer?.querySelectorAll("[data-mobile-catalog-scope]").forEach(button => {
-    button.classList.toggle("active", button.dataset.mobileCatalogScope === normalized);
-  });
-};
 const resetCatalogFilters = () => {
   selectedCatalogKind = "";
 };
 const setCatalogScope = scope => {
-  if (scope === "bey" || scope === "tools") {
+  if (scope === "bey" || scope === "parts" || scope === "tools") {
     selectedCatalogKind = scope;
   } else {
     selectedCatalogKind = "";
@@ -13101,10 +13218,6 @@ const searchHelpPopovers = [
 const anySearchHelpPopoverIsOpen = () => searchHelpPopovers.some(controller => controller.isOpen());
 const closeSearchHelpPopovers = () => searchHelpPopovers.forEach(controller => controller.close());
 const positionSearchHelpPopovers = () => searchHelpPopovers.forEach(controller => controller.position());
-renderSecondaryCategoryNavs();
-document.querySelectorAll(".section-subnav").forEach(nav => nav.addEventListener("click", event => {
-  handleCategoryRouteClick(event, { closeSearchHelp: true });
-}));
 document.querySelectorAll(".catalog-filter-chips").forEach(root => root.addEventListener("click", event => {
   const chip = event.target.closest("[data-filter-chip-scope][data-filter-chip-key]");
   const reset = event.target.closest("[data-filter-reset-scope]");
@@ -13430,7 +13543,7 @@ function modalTitle(text, extraClass = "") {
   return `<h3 class="${className}">${text}</h3>`;
 }
 function detailHeading(item, options = {}) {
-  if (["track", "bottom", "4dbottom", "disk", "coredisk", "frame", "dbdisk", "driver"].includes(item.type)) {
+  if (["track", "bottom", "4dbottom", "disk", "coredisk", "frame", "dbdisk", "dbarmor", "driver"].includes(item.type)) {
     const numericTrack = item.type === "track" && /^\d+$/.test(item.name);
     const koName = partKoName(item);
     const displayName = itemDisplayName(item, options.region);
@@ -13487,21 +13600,6 @@ function productHeader(item, region = activeReleaseRegion) {
 function productMetaSlot() {
   return `<div class="product-empty-info-slot"></div>`;
 }
-const randomBoosterNamePattern = /(랜덤부스터|라이트블레이드|러이트블레이드)/;
-const productReleaseNos = product => [...new Set([
-  product.no,
-  ...Object.values(product.releases || {}).map(release => release.no)
-].filter(Boolean))];
-const productLineupIds = product => {
-  if (product.lineupPool?.length) return product.lineupPool;
-  if (product.beyPool?.length) return product.beyPool;
-  const isRandomBooster = Object.values(product.releases || {}).some(release => randomBoosterNamePattern.test(release.name || ""));
-  if (!isRandomBooster) return [];
-  const releaseNos = productReleaseNos(product);
-  return catalogCoreItems
-    .filter(entry => entry.type === "bey" && releaseNos.includes(entry.productNo))
-    .map(entry => entry.id);
-};
 const productLineupTitle = product => product.lineupTitle || "등장 베이";
 const productLineupComposition = (product, part) => {
   const lineupIds = productLineupIds(product);
@@ -13730,16 +13828,12 @@ const activateAppPanel = section => {
   closeAllSearchPreviews();
   syncCatalogStickySearchState();
 };
-const syncMobileDrawerActiveState = section => {
-  mobileDrawer?.querySelectorAll("[data-category-catalog-open], [data-category-release-open], [data-category-anime-open], [data-category-anime-episodes-open]").forEach(button => {
-    const buttonSection = button.hasAttribute("data-category-catalog-open")
-      ? "catalog"
-      : button.hasAttribute("data-category-release-open")
-        ? "release"
-        : button.hasAttribute("data-category-anime-episodes-open")
-          ? "anime-episodes"
-          : "anime";
-    button.classList.toggle("active", buttonSection === section || (buttonSection === "anime-episodes" && section === "anime-episodes"));
+const syncSidebarActiveState = section => {
+  const currentSection = normalizedSidebarSection(section);
+  getSidebarRoots().forEach(root => {
+    root.querySelectorAll(sidebarCurrentButtonSelector).forEach(button => {
+      setSidebarButtonCurrent(button, sidebarSectionForButton(button) === currentSection);
+    });
   });
 };
 const setMobileMenuOpen = open => {
@@ -13749,8 +13843,7 @@ const setMobileMenuOpen = open => {
   mobileDrawer?.setAttribute("aria-hidden", String(!open));
   if (open) {
     const panel = activeAppPanel()?.dataset.appPanel || "overview";
-    syncMobileDrawerActiveState(panel === "catalog" ? "catalog" : panel);
-    syncCatalogMenuScope(panel === "catalog" ? selectedCatalogKind || "all" : panel === "release" || panel === "anime-episodes" ? panel : "all");
+    syncSidebarActiveState(panel);
   }
 };
 const clearPrimaryViewLocks = () => {
@@ -13763,33 +13856,17 @@ const activatePrimarySection = (section, { preserveSearch = false } = {}) => {
   cancelPendingSearchRenderTasks();
   clearPrimaryViewLocks();
   if (section === "product") section = "overview";
-  const isCatalogSection = ["catalog", "bey", "tools"].includes(section);
-  const navActiveSection = section === "release" ? "catalog" : section === "anime-episodes" ? "anime" : section;
+  const isCatalogSection = ["catalog", "bey", "parts", "tools"].includes(section);
   const catalogScope = section === "catalog" ? "all" : section;
   const panelSection = isCatalogSection ? "catalog" : section;
   if (!preserveSearch) clearSearchInputs();
-  document.querySelectorAll(".nav-link").forEach(link => {
-    const linkSection = link.hasAttribute("data-category-catalog-open")
-      ? "catalog"
-      : link.hasAttribute("data-category-anime-open")
-        ? "anime"
-        : link.dataset.appSection;
-    link.classList.toggle("active", linkSection === (isCatalogSection ? "catalog" : navActiveSection));
-  });
-  syncMobileDrawerActiveState(isCatalogSection ? "catalog" : section);
-  syncCatalogMenuScope(
-    ["release", "anime", "anime-episodes"].includes(panelSection)
-      ? panelSection
-      : isCatalogSection
-        ? catalogScope
-        : "all"
-  );
+  syncSidebarActiveState(panelSection);
   activateAppPanel(panelSection);
   if (section === "overview") setGlobalSearchScope("all");
   if (isCatalogSection) {
     resetCatalogFilters();
     setCatalogScope(catalogScope);
-    setGlobalSearchScope(catalogScope === "all" ? "all" : catalogScope);
+    setGlobalSearchScope(catalogScope === "bey" || catalogScope === "tools" ? catalogScope : "all");
   }
   if (panelSection === "anime") renderAnimePage();
 
@@ -13928,12 +14005,16 @@ function applyRoute(route = parseRouteFromHash(), { preserveScroll = false, pres
     else stabilizePrimaryRouteScroll();
   }
 }
-document.querySelectorAll(".nav-link").forEach(button => button.addEventListener("click", event => {
-  handleCategoryRouteClick(event);
-}));
-document.querySelector(".topbar > .brand")?.addEventListener("click", event => {
+document.querySelectorAll(".topbar > .brand, [data-sidebar-home]").forEach(brand => brand.addEventListener("click", event => {
   event.preventDefault();
   navigateToRoute({ type: "overview" }, { replace: true });
+  if (event.currentTarget.closest(".mobile-drawer")) setMobileMenuOpen(false);
+  setDesktopSidebarExpanded(false);
+}));
+desktopSidebarToggle?.addEventListener("click", event => {
+  event.preventDefault();
+  event.stopPropagation();
+  setDesktopSidebarExpanded(desktopSidebarToggle.getAttribute("aria-expanded") !== "true");
 });
 menuButton?.addEventListener("click", event => {
   event.stopPropagation();
@@ -13945,10 +14026,15 @@ mobileDrawerClose?.addEventListener("click", event => {
   menuButton?.focus();
 });
 mobileDrawer?.addEventListener("click", event => {
-  handleCategoryRouteClick(event, { includeMobileScope: true });
+  handleCategoryRouteClick(event);
+});
+desktopSidebar?.addEventListener("click", event => {
+  if (handleCategoryRouteClick(event, { closeMobileMenu: false })) setDesktopSidebarExpanded(false);
 });
 window.addEventListener("resize", () => {
-  if (window.matchMedia("(min-width: 64rem)").matches) setMobileMenuOpen(false);
+  const isDesktopLayout = window.matchMedia("(min-width: 64rem)").matches;
+  if (isDesktopLayout) setMobileMenuOpen(false);
+  else setDesktopSidebarExpanded(false);
   syncCatalogStickySearchState();
   positionSearchHelpPopovers();
   if (modal?.open) scheduleModalViewportSync();
@@ -13979,6 +14065,11 @@ document.addEventListener("keydown", event => {
     event.preventDefault();
     return;
   }
+  if (event.key === "Escape" && desktopSidebar?.classList.contains("is-expanded")) {
+    setDesktopSidebarExpanded(false);
+    event.preventDefault();
+    return;
+  }
   if (event.key === "Escape" && document.body.classList.contains("menu-open")) setMobileMenuOpen(false);
 });
 document.addEventListener("click", event => {
@@ -13986,7 +14077,8 @@ document.addEventListener("click", event => {
     if (controller.isOpen() && !controller.containsEventTarget(event)) controller.close();
   });
   if (activeModalTagButton && !event.target.closest(".modal-tag-info") && !event.target.closest(".modal-tag-popover")) closeModalTagPopover();
-  if (!event.target.closest(".topbar") && !event.target.closest(".mobile-drawer")) setMobileMenuOpen(false);
+  if (!event.target.closest(".desktop-sidebar")) setDesktopSidebarExpanded(false);
+  if (!event.target.closest(".topbar") && !event.target.closest(".mobile-drawer") && !event.target.closest(".desktop-sidebar")) setMobileMenuOpen(false);
 });
 
 syncCatalogScopeState();
@@ -13995,15 +14087,19 @@ const applyCurrentHashRoute = () => {
   const route = parseRouteFromHash();
   const canonicalHash = serializeRoute(route);
   const canonicalRouteKey = `${currentPathWithSearch()}${canonicalHash}`;
-  if (canonicalRouteKey === lastAppliedRouteKey) return;
-  if (window.location.hash !== canonicalHash) {
-    try {
-      history.replaceState(null, "", canonicalRouteKey);
-    } catch {
-      // URL canonicalization is best-effort; route application is the source of truth here.
+  try {
+    if (canonicalRouteKey === lastAppliedRouteKey) return;
+    if (window.location.hash !== canonicalHash) {
+      try {
+        history.replaceState(null, "", canonicalRouteKey);
+      } catch {
+        // URL canonicalization is best-effort; route application is the source of truth here.
+      }
     }
+    applyRoute(route);
+  } finally {
+    document.documentElement.classList.remove("route-booting");
   }
-  applyRoute(route);
 };
 try {
   if ("scrollRestoration" in history) history.scrollRestoration = "manual";
