@@ -47,7 +47,7 @@
   --ui-shadow-soft: 0 10px 30px var(--ui-shadow-color);
 }
 
-/* Responsive tiers: desktop sidebar >= 100rem, compact < 64rem, narrow < 40rem. */
+/* Responsive tiers: desktop sidebar >= 100rem, compact < 64rem, narrow < 40rem; catalog grid has intermediate density steps. */
 
 html {
   overflow-y: scroll;
@@ -587,13 +587,6 @@ main {
   overflow: visible;
 }
 
-body.is-overview .topbar {
-  position: static;
-  height: 0;
-  min-height: 0;
-  padding: 0;
-}
-
 .app-shell {
   --section-heading-align: flex-end;
   --catalog-grid-column-count: 5;
@@ -815,12 +808,6 @@ dialog[open] #modalClose.modal-close:hover{
 @media (max-width: 47.999rem) {
   .app-shell {
     --catalog-grid-column-count: 3;
-  }
-}
-
-@media (hover: none) and (pointer: coarse) and (max-device-width: 30rem) {
-  .app-shell {
-    --catalog-grid-column-count: 2;
   }
 }
 
@@ -2499,49 +2486,23 @@ body.is-overview .topbar > .brand {
 
 /* Overview page. */
 .overview-panel {
-  padding-bottom: 64px;
+  padding-bottom: 0;
 }
 
 body.is-overview .app-shell {
-  min-height: calc(100svh - 88px) !important;
-  padding-top: clamp(42px, 8vh, 86px) !important;
+  min-height: calc(100svh - 72px) !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  display: grid;
+  align-items: center;
 }
 
 .overview-home {
-  --overview-home-gap: clamp(22px, 4vh, 38px);
-  --overview-hero-padding: 0;
-  --overview-title-size: var(--font-hero);
-  --overview-title-white-space: nowrap;
-  --overview-intro-max-width: 100%;
-  --overview-intro-margin: 12px auto 0;
-  --overview-intro-size: var(--font-md);
-  --overview-search-min-height: var(--primary-search-height);
-  --overview-search-margin: 30px auto 0;
-  --overview-search-gap: 10px;
-  --overview-search-padding: 0 14px 0 8px;
-  --overview-search-radius: var(--ui-radius);
-  --overview-scope-min-width: var(--primary-search-scope-min-width);
-  --overview-scope-max-width: var(--primary-search-scope-max-width);
-  --overview-scope-summary-padding: var(--primary-search-scope-padding);
-  --overview-card-grid-gap: 12px;
-  --overview-card-min-height: 96px;
-  --overview-card-columns: minmax(0, 1fr);
-  --overview-card-areas:
-    "icon"
-    "title";
-  --overview-card-justify-items: center;
-  --overview-card-padding: 14px 10px;
-  --overview-card-row-gap: 8px;
-  --overview-card-column-gap: 0;
-  --overview-card-radius: 18px;
-  --overview-card-title-size: .9375rem;
-  --overview-card-title-line-height: 1.1;
-  --overview-card-title-white-space: nowrap;
   width: min(100%, 960px);
   margin: 0 auto;
   display: grid;
-  gap: var(--overview-home-gap);
-  align-content: start;
+  gap: 0;
+  align-content: center;
 }
 
 .overview-hero {
@@ -2552,7 +2513,7 @@ body.is-overview .app-shell {
   justify-content: center;
   align-items: center;
   overflow: visible;
-  padding: var(--overview-hero-padding);
+  padding: 0;
   border-radius: 0;
   background: transparent;
 }
@@ -2571,19 +2532,19 @@ body.is-overview .app-shell {
 .overview-hero h2 {
   color: var(--ui-text);
   font-weight: 800;
-  white-space: var(--overview-title-white-space);
+  white-space: nowrap;
   word-break: keep-all;
   overflow-wrap: normal;
   margin: 0;
-  font-size: var(--overview-title-size);
+  font-size: var(--font-hero);
   line-height: 1.02;
 }
 
 .overview-intro {
-  max-width: var(--overview-intro-max-width);
-  margin: var(--overview-intro-margin);
+  max-width: 100%;
+  margin: 12px auto 0;
   color: var(--ui-text);
-  font-size: var(--overview-intro-size);
+  font-size: var(--font-md);
   font-weight: 600;
   line-height: 1.55;
   word-break: keep-all;
@@ -2592,11 +2553,11 @@ body.is-overview .app-shell {
 .overview-search {
   --search-input-width: 100%;
   --search-input-color: var(--ui-text);
-  --search-scope-min-width: var(--overview-scope-min-width);
-  --search-scope-max-width: var(--overview-scope-max-width);
+  --search-scope-min-width: var(--primary-search-scope-min-width);
+  --search-scope-max-width: var(--primary-search-scope-max-width);
   --search-scope-height: var(--primary-search-scope-height);
   --search-scope-summary-height: var(--primary-search-scope-height);
-  --search-scope-summary-padding: var(--overview-scope-summary-padding);
+  --search-scope-summary-padding: var(--primary-search-scope-padding);
   --search-scope-summary-bg: var(--primary-search-scope-bg);
   --search-scope-summary-hover-bg: var(--primary-search-scope-bg-hover);
   --search-scope-arrow-right: 12px;
@@ -2605,17 +2566,17 @@ body.is-overview .app-shell {
   width: min(var(--primary-search-width), 100%);
   max-width: calc(100vw - (var(--page-gutter, 24px) * 2));
   height: var(--primary-search-height);
-  min-height: var(--overview-search-min-height);
+  min-height: var(--primary-search-height);
   max-height: var(--primary-search-height);
   display: grid;
   grid-template-columns: auto auto minmax(0, 1fr) auto;
   align-items: center;
-  gap: var(--overview-search-gap);
+  gap: 10px;
   justify-self: center;
-  margin: var(--overview-search-margin);
-  padding: var(--overview-search-padding);
+  margin: 30px auto 0;
+  padding: 0 14px 0 8px;
   border: 1px solid var(--ui-line);
-  border-radius: var(--overview-search-radius);
+  border-radius: var(--ui-radius);
   background: var(--ui-surface);
   color: var(--ui-muted);
   overflow: visible;
@@ -3219,98 +3180,6 @@ body.is-overview .app-shell {
   text-align: center;
 }
 
-.overview-card-grid {
-  display: grid;
-  width: min(100%, 760px);
-  margin: 0 auto;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--overview-card-grid-gap);
-}
-
-.overview-open-card {
-  width: 100%;
-  min-height: var(--overview-card-min-height);
-  display: grid;
-  grid-template-columns: var(--overview-card-columns);
-  grid-template-areas: var(--overview-card-areas);
-  gap: var(--overview-card-row-gap) var(--overview-card-column-gap);
-  align-items: center;
-  justify-items: var(--overview-card-justify-items);
-  padding: var(--overview-card-padding);
-  border: 1px solid var(--ui-line);
-  border-radius: var(--overview-card-radius);
-  background: var(--ui-surface);
-  color: var(--ui-text);
-  text-align: center;
-  box-shadow: none;
-  cursor: pointer;
-  transition: background-color .16s ease, transform .16s ease;
-}
-
-.overview-open-card:hover {
-  background: var(--ui-control) !important;
-  transform: translateY(-1px) !important;
-}
-
-.overview-card-icon {
-  width: 26px;
-  height: 26px;
-  display: inline-grid;
-  grid-area: icon;
-  place-items: center;
-  color: var(--ui-muted);
-}
-
-.overview-card-icon svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-  stroke: currentColor;
-}
-
-.overview-open-card.is-pending {
-  border-color: color-mix(in srgb, var(--ui-line) 48%, transparent) !important;
-  background: color-mix(in srgb, var(--ui-surface) 70%, transparent) !important;
-  color: color-mix(in srgb, var(--ui-muted) 42%, transparent) !important;
-  cursor: default !important;
-  opacity: .78 !important;
-  pointer-events: none !important;
-  transform: none !important;
-}
-
-.overview-open-card.is-pending strong,
-.overview-open-card.is-pending .overview-card-icon {
-  color: color-mix(in srgb, var(--ui-muted) 42%, transparent) !important;
-}
-
-.overview-open-card strong {
-  min-width: 0;
-  width: 100%;
-  display: block;
-  grid-area: title;
-  color: var(--ui-text);
-  font-size: 0;
-  font-weight: 700;
-  line-height: var(--overview-card-title-line-height);
-  white-space: var(--overview-card-title-white-space);
-  text-align: center;
-  word-break: normal;
-  overflow-wrap: normal;
-}
-
-.overview-open-card strong::after {
-  content: attr(data-mobile-label);
-  display: block;
-  min-width: 0;
-  color: inherit;
-  font-size: var(--overview-card-title-size);
-  font-weight: inherit;
-  line-height: var(--overview-card-title-line-height);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 .overview-title-row {
   width: var(--modal-body-width);
   display: flex;
@@ -3670,6 +3539,7 @@ body.menu-open .mobile-drawer {
   white-space: nowrap;
 }
 
+/* Desktop rail starts at 100rem; below that, the topbar menu opens the drawer. */
 @media (min-width: 100rem) {
   .topbar {
     display: none !important;
@@ -3678,6 +3548,10 @@ body.menu-open .mobile-drawer {
   .app-shell {
     --catalog-sticky-top: 0px;
     min-height: 100vh;
+  }
+
+  body.is-overview .app-shell {
+    min-height: 100svh !important;
   }
 
   .desktop-sidebar {
@@ -3786,12 +3660,13 @@ body.menu-open .mobile-drawer {
   }
 }
 
+/* Complementary side of the desktop rail breakpoint. */
 @media (max-width: 99.999rem) {
   .topbar > .brand {
     display: none !important;
   }
 
-  body:not(.is-overview) .menu-button {
+  .menu-button {
     display: inline-flex;
     left: clamp(18px, 4vw, 24px);
     right: auto;
@@ -3799,14 +3674,6 @@ body.menu-open .mobile-drawer {
 }
 
 @media (max-width: 63.999rem) {
-  .app-panel[data-app-panel] {
-    --section-heading-min-height: 0;
-    --section-heading-columns: minmax(0, 1fr) auto;
-    --section-heading-gap: 12px;
-    --section-heading-margin: 0 auto 18px;
-    --result-count-margin: 0 0 6px;
-  }
-
   dialog[open] {
     --modal-edge-gap: clamp(18px, 3.2vw, 28px);
     --modal-h: calc(var(--modal-vh) - var(--modal-edge-gap));
@@ -3863,10 +3730,6 @@ body.menu-open .mobile-drawer {
 }
 
 @media (max-width: 39.999rem) {
-  .overview-home {
-    --overview-card-title-size: clamp(.875rem, 3.6vw, .9375rem);
-  }
-
   .app-shell {
     --catalog-grid-column-count: 2;
     --catalog-grid-gap: 8px;
@@ -3892,13 +3755,6 @@ body.menu-open .mobile-drawer {
     white-space: nowrap !important;
     overflow-wrap: normal !important;
     text-overflow: ellipsis !important;
-  }
-
-  .release-dropdowns {
-    --release-grid-columns: minmax(0, 8fr) minmax(0, 14.5fr);
-    --release-grid-areas:
-      "region series"
-      "search search";
   }
 
   .release-dropdowns[data-anime-controls] {
