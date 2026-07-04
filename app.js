@@ -10458,14 +10458,7 @@ const catalogItemSearchFields = (item, options = {}) => {
     ...searchFieldsFromValues("category", [
       ...catalogItemKindSearchValues(item),
       ...(includeSeries ? [item.series, itemSeriesLabel(item)] : []),
-<<<<<<< Updated upstream
       ...partTypeSearchValues(item),
-=======
-      item.type,
-      item.type ? typeLabels[item.type] : "",
-      ...layerSystemSearchValues(item),
-      ...burstBeySystemSearchValues(item),
->>>>>>> Stashed changes
       item.category,
       item.category ? typeLabels[item.category] : "",
       item.structure,
