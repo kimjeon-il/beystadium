@@ -1890,10 +1890,16 @@ dialog[open] .category-anime-info .anime-episode-title-row .category-title {
 }
 
 @container (max-width: 39.999rem) {
+  .release-table,
+  .anime-episode-table {
+    --mobile-table-leading-col-width: clamp(78px, 24%, 84px);
+    --mobile-table-date-col-width: clamp(92px, 27%, 96px);
+  }
+
   .release-table {
     --release-table-min-width: 0;
-    --release-col-date-width: 72px;
-    --release-col-region-width: 88px;
+    --release-col-date-width: var(--mobile-table-leading-col-width);
+    --release-col-region-width: var(--mobile-table-date-col-width);
   }
 
   .release-table th:nth-child(3),
@@ -1914,6 +1920,15 @@ dialog[open] .category-anime-info .anime-episode-title-row .category-title {
     border-radius: 0 var(--ui-radius) var(--ui-radius) 0;
   }
 
+  .release-table .release-sort-button {
+    padding: 0 16px 0 2px;
+  }
+
+  .release-table .release-sort-mark {
+    right: 1px;
+    width: 12px;
+  }
+
   .release-date-full,
   .anime-air-date-full {
     display: none;
@@ -1926,8 +1941,8 @@ dialog[open] .category-anime-info .anime-episode-title-row .category-title {
 
   .anime-episode-table {
     --anime-table-min-width: 0;
-    --anime-col-episode-width: 72px;
-    --anime-col-date-width: 88px;
+    --anime-col-episode-width: var(--mobile-table-leading-col-width);
+    --anime-col-date-width: var(--mobile-table-date-col-width);
   }
 
   .anime-episode-table tbody td:nth-child(3) {
