@@ -2138,9 +2138,11 @@ dialog[open] .modal-art {
 
 dialog[open] .modal-info.bey-modal-info .modal-name,
 dialog[open] .modal-info.part-modal-info .modal-name {
+  --modal-title-clip-relief: 0.14em;
   --modal-title-row-height: var(--modal-title-line-height);
   --modal-title-lines: 1;
-  margin: 0 auto var(--modal-flow-gap) !important;
+  padding-bottom: var(--modal-title-clip-relief) !important;
+  margin: 0 auto max(0px, calc(var(--modal-flow-gap) - var(--modal-title-clip-relief))) !important;
 }
 
 .modal-body-block > .modal-section,
