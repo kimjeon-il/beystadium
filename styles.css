@@ -1892,7 +1892,7 @@ dialog[open] .category-anime-info .anime-episode-title-row .category-title {
 @container (max-width: 39.999rem) {
   .release-table,
   .anime-episode-table {
-    --mobile-table-leading-col-width: clamp(52px, 18%, 64px);
+    --mobile-table-leading-col-width: 56px;
     --mobile-table-date-col-width: clamp(92px, 27%, 96px);
   }
 
@@ -1911,6 +1911,20 @@ dialog[open] .category-anime-info .anime-episode-title-row .category-title {
   .anime-episode-table th:nth-child(3),
   .anime-episode-table td:nth-child(3) {
     display: none;
+  }
+
+  .release-table th:nth-child(1),
+  .release-table td:nth-child(1),
+  .anime-episode-table th:nth-child(1),
+  .anime-episode-table td:nth-child(1) {
+    width: var(--mobile-table-leading-col-width);
+  }
+
+  .release-table th:nth-child(2),
+  .release-table td:nth-child(2),
+  .anime-episode-table th:nth-child(2),
+  .anime-episode-table td:nth-child(2) {
+    width: calc(100% - var(--mobile-table-leading-col-width));
   }
 
   .release-table th,
