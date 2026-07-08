@@ -1339,17 +1339,17 @@ const mobileDrawerClose = document.querySelector(".mobile-drawer-close");
 const desktopSidebar = document.querySelector(".desktop-sidebar");
 const desktopSidebarToggle = desktopSidebar?.querySelector(".desktop-sidebar-toggle");
 const desktopSidebarNav = desktopSidebar?.querySelector(".desktop-sidebar-nav");
-const sidebarButtonSectionAttributes = [
-  ["data-sidebar-home", "overview"],
-  ["data-category-catalog-open", "catalog"],
-  ["data-category-release-open", "release"],
-  ["data-category-anime-episodes-open", "anime-episodes"],
-  ["data-category-anime-open", "anime"]
+const sidebarRouteTargets = [
+  { attribute: "data-sidebar-home", section: "overview" },
+  { attribute: "data-category-catalog-open", section: "catalog" },
+  { attribute: "data-category-release-open", section: "release" },
+  { attribute: "data-category-anime-episodes-open", section: "anime-episodes" },
+  { attribute: "data-category-anime-open", section: "anime" }
 ];
-const sidebarCurrentButtonSelector = sidebarButtonSectionAttributes.map(([attribute]) => `[${attribute}]`).join(", ");
+const sidebarCurrentButtonSelector = sidebarRouteTargets.map(({ attribute }) => `[${attribute}]`).join(", ");
 const getSidebarRoots = () => Array.from(document.querySelectorAll("[data-sidebar-root]"));
-const sidebarSectionForButton = button => sidebarButtonSectionAttributes.find(([attribute]) => button.hasAttribute(attribute))?.[1] || "";
-const normalizedSidebarSection = section => {
+const getSidebarButtonSection = button => sidebarRouteTargets.find(({ attribute }) => button.hasAttribute(attribute))?.section || "";
+const normalizeSidebarSection = section => {
   if (["catalog", "bey", "tools"].includes(section)) return "catalog";
   return ["overview", "release", "anime", "anime-episodes"].includes(section) ? section : "";
 };
@@ -10826,8 +10826,8 @@ const compareCatalogItemsByNumberDesc = (a, b) => {
   return compareCatalogItemsByLatest(a, b);
 };
 const catalogSortOptions = [
-  { value: "no-asc", label: "번호 ↑", compare: compareCatalogItemsByNumberAsc },
-  { value: "no-desc", label: "번호 ↓", compare: compareCatalogItemsByNumberDesc },
+  { value: "no-asc", label: "번호순 ↑", compare: compareCatalogItemsByNumberAsc },
+  { value: "no-desc", label: "번호순 ↓", compare: compareCatalogItemsByNumberDesc },
   { value: "latest", label: "최신순", compare: compareCatalogItemsByLatest },
   { value: "oldest", label: "오래된순", compare: compareCatalogItemsByOldest }
 ];
@@ -12096,13 +12096,13 @@ const releaseSortableColumns = {
   price: "가격"
 };
 const releaseMobileSortOptions = [
-  { value: "no:asc", label: "번호 ↑", key: "no", direction: "asc" },
-  { value: "no:desc", label: "번호 ↓", key: "no", direction: "desc" },
+  { value: "no:asc", label: "번호순 ↑", key: "no", direction: "asc" },
+  { value: "no:desc", label: "번호순 ↓", key: "no", direction: "desc" },
   { value: "kind:asc", label: "종류순", key: "kind", direction: "asc" },
-  { value: "release:desc", label: "발매 ↓", key: "release", direction: "desc" },
-  { value: "release:asc", label: "발매 ↑", key: "release", direction: "asc" },
-  { value: "price:asc", label: "가격 ↑", key: "price", direction: "asc" },
-  { value: "price:desc", label: "가격 ↓", key: "price", direction: "desc" }
+  { value: "release:desc", label: "발매순 ↓", key: "release", direction: "desc" },
+  { value: "release:asc", label: "발매순 ↑", key: "release", direction: "asc" },
+  { value: "price:asc", label: "가격순 ↑", key: "price", direction: "asc" },
+  { value: "price:desc", label: "가격순 ↓", key: "price", direction: "desc" }
 ];
 const releaseMobileSortOptionValue = sort => sort?.key === "kind" ? "kind:asc" : `${sort?.key || "no"}:${sort?.direction === "desc" ? "desc" : "asc"}`;
 const activeReleaseMobileSortOption = () =>
@@ -14265,10 +14265,10 @@ const activateAppPanel = section => {
   syncCatalogStickySearchState();
 };
 const syncSidebarActiveState = section => {
-  const currentSection = normalizedSidebarSection(section);
+  const currentSection = normalizeSidebarSection(section);
   getSidebarRoots().forEach(root => {
     root.querySelectorAll(sidebarCurrentButtonSelector).forEach(button => {
-      setSidebarButtonCurrent(button, sidebarSectionForButton(button) === currentSection);
+      setSidebarButtonCurrent(button, getSidebarButtonSection(button) === currentSection);
     });
   });
 };
