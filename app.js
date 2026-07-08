@@ -10826,8 +10826,8 @@ const compareCatalogItemsByNumberDesc = (a, b) => {
   return compareCatalogItemsByLatest(a, b);
 };
 const catalogSortOptions = [
-  { value: "no-asc", label: "번호 오름차순", compare: compareCatalogItemsByNumberAsc },
-  { value: "no-desc", label: "번호 내림차순", compare: compareCatalogItemsByNumberDesc },
+  { value: "no-asc", label: "번호 ↑", compare: compareCatalogItemsByNumberAsc },
+  { value: "no-desc", label: "번호 ↓", compare: compareCatalogItemsByNumberDesc },
   { value: "latest", label: "최신순", compare: compareCatalogItemsByLatest },
   { value: "oldest", label: "오래된순", compare: compareCatalogItemsByOldest }
 ];
@@ -12096,13 +12096,13 @@ const releaseSortableColumns = {
   price: "가격"
 };
 const releaseMobileSortOptions = [
-  { value: "no:asc", label: "번호 오름차순", key: "no", direction: "asc" },
-  { value: "no:desc", label: "번호 내림차순", key: "no", direction: "desc" },
+  { value: "no:asc", label: "번호 ↑", key: "no", direction: "asc" },
+  { value: "no:desc", label: "번호 ↓", key: "no", direction: "desc" },
   { value: "kind:asc", label: "종류순", key: "kind", direction: "asc" },
-  { value: "release:desc", label: "발매 최신순", key: "release", direction: "desc" },
-  { value: "release:asc", label: "발매 오래된순", key: "release", direction: "asc" },
-  { value: "price:asc", label: "가격 낮은순", key: "price", direction: "asc" },
-  { value: "price:desc", label: "가격 높은순", key: "price", direction: "desc" }
+  { value: "release:desc", label: "발매 ↓", key: "release", direction: "desc" },
+  { value: "release:asc", label: "발매 ↑", key: "release", direction: "asc" },
+  { value: "price:asc", label: "가격 ↑", key: "price", direction: "asc" },
+  { value: "price:desc", label: "가격 ↓", key: "price", direction: "desc" }
 ];
 const releaseMobileSortOptionValue = sort => sort?.key === "kind" ? "kind:asc" : `${sort?.key || "no"}:${sort?.direction === "desc" ? "desc" : "asc"}`;
 const activeReleaseMobileSortOption = () =>
