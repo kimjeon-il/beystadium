@@ -1608,6 +1608,10 @@ dialog[open] .category-anime-info .anime-episode-title-row .category-title {
   gap: var(--modal-flow-gap);
 }
 
+.table-list-page {
+  container-type: inline-size;
+}
+
 .table-list-shell,
 .release-page-shell {
   --modal-body-width: 100%;
@@ -2826,6 +2830,23 @@ body.is-overview .app-shell {
   color: var(--ui-muted);
 }
 
+.catalog-state-chip {
+  min-width: 0;
+  min-height: var(--catalog-chip-row-height);
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--ui-line);
+  border-radius: var(--catalog-pill-radius);
+  background: var(--ui-control);
+  color: var(--ui-text);
+  font-size: var(--font-md);
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+}
+
 .catalog-filter-reset {
   min-width: 0;
   min-height: var(--catalog-chip-row-height);
@@ -2917,11 +2938,85 @@ body.is-overview .app-shell {
   min-width: 0;
 }
 
+.catalog-query-row .catalog-filter-chips:not(.is-empty) {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.catalog-query-row .catalog-filter-chips:not(.is-empty)::-webkit-scrollbar {
+  display: none;
+}
+
+.catalog-query-actions {
+  min-width: max-content;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  justify-self: end;
+  align-self: center;
+}
+
 .catalog-query-count {
   --result-count-margin: 0;
   min-width: max-content;
-  justify-self: end;
+  justify-self: auto;
   align-self: center;
+}
+
+.list-sort-control {
+  display: inline-flex;
+  align-items: center;
+}
+
+.list-sort-dropdown.search-scope.catalog-dropdown {
+  --list-sort-width: 96px;
+  --list-sort-menu-width: 136px;
+  --search-scope-height: var(--catalog-chip-row-height);
+  --search-scope-summary-height: var(--catalog-chip-row-height);
+  --search-scope-summary-padding: 0 28px 0 12px;
+  --search-scope-font-size: var(--font-md);
+  --search-scope-arrow-right: 13px;
+  width: var(--list-sort-width);
+  min-width: var(--list-sort-width);
+  max-width: var(--list-sort-width);
+}
+
+.list-sort-dropdown.search-scope.catalog-dropdown summary,
+.list-sort-dropdown.search-scope.catalog-dropdown summary:hover,
+.list-sort-dropdown.search-scope.catalog-dropdown summary:focus-visible,
+.list-sort-dropdown.search-scope.catalog-dropdown[open] summary {
+  border-radius: var(--catalog-pill-radius) !important;
+}
+
+.list-sort-dropdown.search-scope.catalog-dropdown summary b {
+  font-size: var(--font-md);
+  font-weight: 600;
+}
+
+.list-sort-dropdown.search-scope.catalog-dropdown .catalog-dropdown-menu {
+  left: auto;
+  right: -6px;
+  width: var(--list-sort-menu-width);
+  min-width: var(--list-sort-menu-width);
+  max-width: var(--list-sort-menu-width);
+  transform: none;
+}
+
+.release-mobile-sort-dropdown {
+  --list-sort-width: 132px;
+  --list-sort-menu-width: 156px;
+}
+
+.table-list-meta-row {
+  display: none;
+}
+
+@container (max-width: 39.999rem) {
+  .release-mobile-sort-row {
+    display: grid;
+  }
 }
 
 .catalog-dropdown:not(.search-scope) > .catalog-dropdown-menu {

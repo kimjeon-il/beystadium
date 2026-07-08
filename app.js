@@ -434,10 +434,10 @@ const beyItems = [
 
 const partItems = [
   { id: "FACE-PEGASIS", series: "metal fight", type: "face", name: "페가시스", en: "Pegasis", tags: [], desc: "페가시스의 별자리를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
-  { id: "FACE-PEGASIS-ENGRAVED", series: "metal fight", type: "face", name: "페가시스 음각 페이스", en: "Pegasis Engraved Face", tags: [], desc: "", stats: [30, 30, 30] },
-  { id: "FACE-BRONZE-RANK", series: "metal fight", type: "face", name: "브론즈 랭크 페이스", en: "Bronze Rank Face", tags: [], desc: "", stats: [30, 30, 30] },
-  { id: "FACE-SILVER-RANK", series: "metal fight", type: "face", name: "실버 랭크 페이스", en: "Silver Rank Face", tags: [], desc: "", stats: [30, 30, 30] },
-  { id: "FACE-GOLD-RANK", series: "metal fight", type: "face", name: "골드 랭크 페이스", en: "Gold Rank Face", tags: [], desc: "", stats: [30, 30, 30] },
+  { id: "FACE-PEGASIS-ENGRAVED", series: "metal fight", type: "face", name: "페가시스 음각 페이스", en: "Pegasis Engraved Face", tags: [], desc: "공식 설명이 없습니다.", stats: [30, 30, 30] },
+  { id: "FACE-BRONZE-RANK", series: "metal fight", type: "face", name: "브론즈 랭크 페이스", en: "Bronze Rank Face", tags: [], desc: "공식 설명이 없습니다.", stats: [30, 30, 30] },
+  { id: "FACE-SILVER-RANK", series: "metal fight", type: "face", name: "실버 랭크 페이스", en: "Silver Rank Face", tags: [], desc: "공식 설명이 없습니다.", stats: [30, 30, 30] },
+  { id: "FACE-GOLD-RANK", series: "metal fight", type: "face", name: "골드 랭크 페이스", en: "Gold Rank Face", tags: [], desc: "공식 설명이 없습니다.", stats: [30, 30, 30] },
   { id: "FACE-LEONE", series: "metal fight", type: "face", name: "레온", jpName: "레오네", en: "Leone", tags: [], desc: "레온의 별자리를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", jpDesc: "레오네의 별자리를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
   { id: "FACE-SAGITTARIO", series: "metal fight", type: "face", name: "사지타리오", en: "Sagittario", tags: [], desc: "사지타리오의 별자리를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
   { id: "FACE-METAL-FACE", series: "metal fight", type: "face", name: "메탈페이스", en: "Metal Face", tags: [], desc: "무거워진 중량이 공격력과 방어력을 향상시킨다.", stats: [60, 60, 0] },
@@ -511,7 +511,7 @@ const partItems = [
   { id: "CLEARWHEEL-VIRGO", series: "metal fight", type: "clearwheel", name: "비르고", en: "Virgo", battleType: "stamina", spin: "right", tags: [], desc: "원심력을 극대화한 형태로 지구력을 강화하며 스매시공격을 한다.", stats: [10, 20, 40] },
   { id: "CLEARWHEEL-ESCOLPIO", series: "metal fight", type: "clearwheel", name: "에스콜피오", en: "Escolpio", battleType: "defense", spin: "right", tags: [], desc: "커다란 가위 모양의 꼬리가 적의 공격을 받아넘기고 아래에서 위로 밀어붙인다.", stats: [20, 40, 10] },
   { id: "CLEARWHEEL-SERPENT", series: "metal fight", type: "clearwheel", name: "서펜트", en: "Serpent", battleType: "balance", spin: "right", tags: [], desc: "적의 공격을 가볍게 받아넘기면서 연타공격을 한다.", stats: [30, 30, 10] },
-  { id: "CLEARWHEEL-ANUBIUS", series: "metal fight", type: "clearwheel", name: "아누비우스", en: "Anubius", battleType: "attack", spin: "right", tags: [], desc: "", stats: [50, 10, 10] },
+  { id: "CLEARWHEEL-ANUBIUS", series: "metal fight", type: "clearwheel", name: "아누비우스", en: "Anubius", battleType: "attack", spin: "right", tags: [], desc: "공식 설명이 없습니다.", stats: [50, 10, 10] },
   { id: "CLEARWHEEL-PEGASIS-II", series: "metal fight", type: "clearwheel", name: "페가시스Ⅱ", en: "Pegasis II", battleType: "attack", spin: "right", tags: [], desc: "갈기와 날개가 아래에서 위로 올려치는 어퍼공격을 가한다.", stats: [50, 10, 10] },
   { id: "CLEARWHEEL-UNICORNO", series: "metal fight", type: "clearwheel", name: "유니콘", en: "Unicorno", battleType: "attack", spin: "right", tags: [], desc: "3개의 커다란 뿔로 상대를 찌르는 듯이 강한 공격을 한다.", stats: [40, 20, 10] },
   { id: "CLEARWHEEL-LACERTA", series: "metal fight", type: "clearwheel", name: "라체르타", en: "Lacerta", battleType: "balance", spin: "right", tags: [], desc: "도마뱀 모양의 몸체가 적의 공격을 받아넘기고 팔꿈치로 어퍼공격을 가한다.", stats: [30, 20, 20] },
@@ -521,7 +521,7 @@ const partItems = [
   { id: "CLEARWHEEL-KETOS", series: "metal fight", type: "clearwheel", name: "케토스", en: "Ketos", battleType: "defense", spin: "right", tags: [], desc: "두 개의 꼬리 지느러미가 적의 공격을 받아넘기며 충격을 흡수한다.", stats: [20, 40, 10] },
   { id: "CLEARWHEEL-BLAZE", series: "metal fight", type: "clearwheel", name: "블레이즈", en: "Blaze", battleType: "balance", spin: "right", tags: [], desc: "흔들거리는 불꽃의 형상이 적의 공격을 받아 흘리면서도 예측할 수 없는 불규칙한 연타 공격을 가한다.", stats: [30, 40, 0] },
   { id: "CLEARWHEEL-L-DRAGO-II", series: "metal fight", type: "clearwheel", name: "엘드라고Ⅱ", en: "L-Drago II", battleType: "attack", spin: "left", tags: [], desc: "유일하게 메테오 휠에 결합 가능한 좌회전 클리어휠. 위와 옆 방향에 위치한 고무가 적의 회전력을 흡수한다.", stats: [40, 10, 20], extraStats: [{ name: "흡수력", value: 40 }] },
-  { id: "CLEARWHEEL-CHIMERA", series: "metal fight", type: "clearwheel", name: "키메라", en: "Chimera", battleType: "attack", spin: "right", tags: [], desc: "", stats: [50, 10, 10] },
+  { id: "CLEARWHEEL-CHIMERA", series: "metal fight", type: "clearwheel", name: "키메라", en: "Chimera", battleType: "attack", spin: "right", tags: [], desc: "공식 설명이 없습니다.", stats: [50, 10, 10] },
   { id: "CLEARWHEEL-HORUSEUS", series: "metal fight", type: "clearwheel", name: "호르세우스", en: "Horuseus", battleType: "defense", spin: "right", tags: [], desc: "부드러운 곡선으로 이루어진 큰 날개가 적의 공격을 받아넘긴다.", stats: [20, 40, 10] },
   { id: "CLEARWHEEL-KEEL", series: "metal fight", type: "clearwheel", name: "킬", en: "Keel", battleType: "attack", spin: "right", tags: [], desc: "용골 모양의 휠이 적에게 섬세한 연타공격을 가한다.", stats: [40, 10, 20] },
   { id: "CLEARWHEEL-HERCULEO", series: "metal fight", type: "clearwheel", name: "헤라클레오", en: "Herculeo", battleType: "attack", spin: "right", tags: [], desc: "사자의 갈기가 거침없이 어퍼공격을 가한다.", stats: [30, 20, 20] },
@@ -539,18 +539,18 @@ const partItems = [
   { id: "CLEARWHEEL-LYNX", series: "metal fight", type: "4dclearwheel", name: "링크스", en: "Lynx", battleType: "balance", spin: "right", tags: [], desc: "살쾡이의 발톱이 상대를 공격하고 두 개의 커다란 날개가 상대의 공격을 방어한다.", stats: [25, 25, 20] },
   { id: "CLEARWHEEL-KRONOS", series: "metal fight", type: "4dclearwheel", name: "크로노스", en: "Kronos", battleType: "stamina", spin: "right", tags: [], desc: "토성의 고리를 모티브로 한 링과 크로노스가 소유한 큰 낫 모양의 휠이 지구력을 높인다.", stats: [10, 0, 60] },
   { id: "CLEARWHEEL-JUPITER", series: "metal fight", type: "4dclearwheel", name: "쥬피터", en: "Jupiter", battleType: "defense", spin: "right", tags: [], desc: "수많은 깃털 모양의 요철부분이 적의 공격을 흡수하여 방어한다.", stats: [0, 50, 20] },
-  { id: "CLEARWHEEL-CROWN", series: "metal fight", type: "4dclearwheel", name: "크라운", en: "Crown", battleType: "stamina", spin: "right", tags: [], desc: "", stats: [20, 0, 50] },
-  { id: "CLEARWHEEL-FOX", series: "metal fight", type: "4dclearwheel", name: "폭스", en: "Fox", battleType: "balance", spin: "right", tags: [], desc: "", stats: [40, 10, 20] },
-  { id: "CLEARWHEEL-LYRA", series: "metal fight", type: "4dclearwheel", name: "레이라", en: "Lyra", battleType: "defense", spin: "right", tags: [], desc: "", stats: [20, 50, 0] },
-  { id: "CLEARWHEEL-IONIS", series: "metal fight", type: "4dclearwheel", name: "이오니스", en: "Ionis", battleType: "balance", spin: "right", tags: [], desc: "", stats: [20, 30, 20] },
+  { id: "CLEARWHEEL-CROWN", series: "metal fight", type: "4dclearwheel", name: "크라운", en: "Crown", battleType: "stamina", spin: "right", tags: [], desc: "공식 설명이 없습니다.", stats: [20, 0, 50] },
+  { id: "CLEARWHEEL-FOX", series: "metal fight", type: "4dclearwheel", name: "폭스", en: "Fox", battleType: "balance", spin: "right", tags: [], desc: "공식 설명이 없습니다.", stats: [40, 10, 20] },
+  { id: "CLEARWHEEL-LYRA", series: "metal fight", type: "4dclearwheel", name: "레이라", en: "Lyra", battleType: "defense", spin: "right", tags: [], desc: "공식 설명이 없습니다.", stats: [20, 50, 0] },
+  { id: "CLEARWHEEL-IONIS", series: "metal fight", type: "4dclearwheel", name: "이오니스", en: "Ionis", battleType: "balance", spin: "right", tags: [], desc: "공식 설명이 없습니다.", stats: [20, 30, 20] },
   { id: "CLEARWHEEL-UNICORNO-II", series: "metal fight", type: "4dclearwheel", name: "유니콘Ⅱ", jpName: "유니코르노Ⅱ", en: "Unicorno II", battleType: "attack", spin: "right", tags: [], desc: "3개의 커다란 뿔로 상대에게 피해를 입힌다.", stats: [60, 0, 10] },
   { id: "CLEARWHEEL-ORION", series: "metal fight", type: "4dclearwheel", name: "오리온", en: "Orion", battleType: "stamina", spin: "right", tags: [], desc: "강한 원심력을 발휘하면서 돌기를 이용하여 상대를 공격한다.", stats: [10, 0, 60] },
   { id: "CLEARWHEEL-QUETZALCOATL", series: "metal fight", type: "4dclearwheel", name: "케찰코아틀", en: "Quetzalcoatl", battleType: "balance", spin: "right", tags: [], desc: "외부에 크게 펼쳐진 날개와 같은 모양으로 공격력과 지구력을 겸비하고 있다.", stats: [50, 0, 20] },
   { id: "CLEARWHEEL-URANUS", series: "metal fight", type: "4dclearwheel", name: "우라누스", en: "Uranus", battleType: "stamina", spin: "right", tags: [], desc: "외부에 중심을 둔 소용돌이 모양으로 원심력과 함께 외부 공격력도 겸비하고 있다.", stats: [40, 0, 40] },
   { id: "CLEARWHEEL-NEMESIS", series: "metal fight", type: "4dclearwheel", name: "네메시스", en: "Nemesis", battleType: "balance", spin: "right", tags: [], desc: "물이 흐르는 듯한 날개 모양으로 강한 원심력을 만들어 내면서 상대의 공격을 받아넘긴다.", stats: [10, 20, 40] },
   { id: "CLEARWHEEL-HADES", series: "metal fight", type: "4dclearwheel", name: "하데스", en: "Hades", battleType: "balance", spin: "right", tags: [], desc: "2개의 방패 모양 돌출부가 연타공격을 가하고 동시에 효과적인 방어를 수행한다.", stats: [30, 20, 20] },
-  { id: "CLEARWHEEL-BEELZEB", series: "metal fight", type: "4dclearwheel", name: "베르제브", en: "Beelzeb", battleType: "attack", spin: "right", tags: [], desc: "", stats: [30, 30, 10] },
-  { id: "CLEARWHEEL-DRAGONIS", series: "metal fight", type: "4dclearwheel", name: "드라고니스", en: "Dragonis", battleType: "attack", spin: "right", tags: [], desc: "", stats: [50, 10, 10] },
+  { id: "CLEARWHEEL-BEELZEB", series: "metal fight", type: "4dclearwheel", name: "베르제브", en: "Beelzeb", battleType: "attack", spin: "right", tags: [], desc: "공식 설명이 없습니다.", stats: [30, 30, 10] },
+  { id: "CLEARWHEEL-DRAGONIS", series: "metal fight", type: "4dclearwheel", name: "드라고니스", en: "Dragonis", battleType: "attack", spin: "right", tags: [], desc: "공식 설명이 없습니다.", stats: [50, 10, 10] },
   { id: "CLEARWHEEL-CYGNUS", series: "metal fight", type: "4dclearwheel", name: "시그너스", en: "Cygnus", battleType: "balance", spin: "right", tags: [], desc: "백조의 양 날개가 부드러운 곡선을 그리며 방어력을 강화한다.", stats: [10, 40, 20] },
   { id: "CLEARWHEEL-SAGITTARIO-II", series: "metal fight", type: "4dclearwheel", name: "사지타리오Ⅱ", en: "Sagittario II", battleType: "stamina", spin: "right", tags: [], desc: "4개의 화살촉이 균형있게 배치되어 최적의 지구력을 유지한다.", stats: [20, 10, 40] },
   { id: "WHEEL-PEGASIS", series: "metal fight", type: "wheel", name: "페가시스", en: "Pegasis", battleType: "attack", spin: "right", tags: [], desc: "3개의 날개가 강력한 공격력을 발휘한다.", stats: [50, 10, 10] },
@@ -584,8 +584,8 @@ const partItems = [
   { id: "METALWHEEL-THERMAL", series: "metal fight", type: "metalwheel", name: "써멀", en: "Thermal", battleType: "stamina", spin: "right", tags: [], desc: "공기의 저항을 최대한 줄여 거침없이 오랜 시간 동안 회전한다.", stats: [20, 10, 40] },
   { id: "METALWHEEL-BURN", series: "metal fight", type: "metalwheel", name: "번", en: "Burn", battleType: "stamina", spin: "right", tags: [], desc: "중심부의 무게를 최대한 바깥쪽으로 이동시켜 원심력을 강화하였다.", stats: [10, 20, 40] },
   { id: "METALWHEEL-POISON", series: "metal fight", type: "metalwheel", name: "포이즌", en: "Poison", battleType: "balance", spin: "right", tags: [], desc: "방패 모양의 블록으로 적의 공격을 방어하면서 15개의 날개로 빈틈없는 연타공격을 한다.", stats: [30, 30, 10] },
-  { id: "METALWHEEL-MERCURY", series: "metal fight", type: "metalwheel", name: "머큐리", en: "Mercury", battleType: "attack", spin: "right", tags: [], desc: "", stats: [60, 10, 0] },
-  { id: "METALWHEEL-INFINITY", series: "metal fight", type: "metalwheel", name: "인피니티", en: "Infinity", battleType: "stamina", spin: "right", tags: [], desc: "", stats: [10, 10, 40] },
+  { id: "METALWHEEL-MERCURY", series: "metal fight", type: "metalwheel", name: "머큐리", en: "Mercury", battleType: "attack", spin: "right", tags: [], desc: "공식 설명이 없습니다.", stats: [60, 10, 0] },
+  { id: "METALWHEEL-INFINITY", series: "metal fight", type: "metalwheel", name: "인피니티", en: "Infinity", battleType: "stamina", spin: "right", tags: [], desc: "원에 가까운 형태로 발군의 안정성과 지구력을 자랑하고 기존 리브라의 힘을 이어받았다.", stats: [10, 10, 40] },
   { id: "METALWHEEL-GALAXY", series: "metal fight", type: "metalwheel", name: "갤럭시", en: "Galaxy", battleType: "attack", spin: "right", tags: [], desc: "굴곡이 있는 3개의 커다란 날개가 강력한 연타공격을 발휘한다.", stats: [60, 10, 0] },
   { id: "METALWHEEL-RAY", series: "metal fight", type: "metalwheel", name: "레이", en: "Ray", battleType: "attack", spin: "right", tags: [], desc: "9개의 돌출된 형태의 휠이 상대에게 강력한 연타공격을 한다.", stats: [40, 10, 20] },
   { id: "METALWHEEL-GRAVITY", series: "metal fight", type: "metalwheel", name: "그라비티", en: "Gravity", battleType: "defense", spin: "dual", tags: [], desc: "양방향회전에 대응하는 휠. 두꺼운 등껍질로 상대의 공격을 방어하고 카운터공격을 한다.", stats: [20, 50, 0] },
@@ -593,7 +593,7 @@ const partItems = [
   { id: "METALWHEEL-GRAND", series: "metal fight", type: "metalwheel", name: "그랜드", en: "Grand", battleType: "defense", spin: "right", tags: [], desc: "묵직한 중량의 휠로 상대의 공격에도 끄떡없이 흔들리지 않는 방어력을 보여준다.", stats: [20, 40, 10] },
   { id: "METALWHEEL-SOL", series: "metal fight", type: "metalwheel", name: "솔", en: "Sol", battleType: "balance", spin: "right", tags: [], desc: "측면은 벽처럼 적의 공격을 막지만 조금이라도 각도가 기울면 연타공격을 가한다.", stats: [40, 30, 0] },
   { id: "METALWHEEL-METEO", series: "metal fight", type: "metalwheel", name: "메테오", en: "Meteo", battleType: "attack", spin: "left", tags: [], desc: "용의 아랫턱은 일격필살의 공격을, 발톱은 연타공격을 가한다.", stats: [50, 10, 10] },
-  { id: "METALWHEEL-DIVINE", series: "metal fight", type: "metalwheel", name: "디바인", en: "Divine", battleType: "balance", spin: "right", tags: [], desc: "", stats: [30, 30, 10] },
+  { id: "METALWHEEL-DIVINE", series: "metal fight", type: "metalwheel", name: "디바인", en: "Divine", battleType: "balance", spin: "right", tags: [], desc: "공식 설명이 없습니다.", stats: [30, 30, 10] },
   { id: "METALWHEEL-VULCAN", series: "metal fight", type: "metalwheel", name: "발칸", en: "Vulcan", battleType: "defense", spin: "right", tags: [], desc: "역사다리꼴로 솟아오른 두 개의 큰 날개가 적의 공격으로부터 몸체를 보호한다.", stats: [20, 40, 10] },
   { id: "METALWHEEL-TORNADO", series: "metal fight", type: "metalwheel", name: "토네이도", en: "Tornado", battleType: "attack", spin: "right", tags: [], desc: "톱날 모양의 5개의 날개가 적에게 강한 피해를 입힌다.", stats: [50, 10, 10] },
   { id: "METALWHEEL-NIGHTMARE", series: "metal fight", type: "metalwheel", name: "나이트메어", en: "Nightmare", battleType: "balance", spin: "right", tags: [], desc: "티라노사우루스의 강인한 꼬리를 형상화한 위협적인 24연타 메탈휠.", stats: [40, 40, 0] },
@@ -607,7 +607,7 @@ const partItems = [
   { id: "METALWHEEL-SCYTHE", series: "metal fight", type: "4dmetalwheel", name: "사이즈", en: "Scythe", battleType: "stamina", spin: "right", tags: [], desc: "PC프레임을 잠글 때는 공격모드, 자유회전시킬 때는 스테미너모드의 2가지 모드로 전환된다.", stats: [20, 0, 50] },
   { id: "METALWHEEL-VARIARES", series: "metal fight", type: "4dmetalwheel", name: "베리아레스", jpName: "바리아레스", en: "Variares", battleType: "defense", spin: "dual", tags: [], desc: "고속회전시에는 공격모드, 저회전시에는 방어모드의 2개 모드로 자동전환한다.", stats: [10, 60, 0] },
   { id: "METALWHEEL-JADE", series: "metal fight", type: "4dmetalwheel", name: "제이드", en: "Jade", battleType: "defense", spin: "right", tags: [], desc: "쇠구슬이 내장된 메탈프레임을 회전시켜 방어모드와 스테미너모드의 2가지 모드로 전환한다.", stats: [0, 50, 20] },
-  { id: "METALWHEEL-FORBIDDEN", series: "metal fight", type: "4dmetalwheel", name: "포비든", en: "Forbidden", battleType: "balance", spin: "right", tags: [], desc: "", stats: [30, 0, 40] },
+  { id: "METALWHEEL-FORBIDDEN", series: "metal fight", type: "4dmetalwheel", name: "포비든", en: "Forbidden", battleType: "balance", spin: "right", tags: [], desc: "공식 설명이 없습니다.", stats: [30, 0, 40] },
   { id: "METALWHEEL-BLITZ", series: "metal fight", type: "4dmetalwheel", name: "브릿츠", en: "Blitz", battleType: "attack", spin: "right", tags: [], desc: "메탈프레임과 코어의 각도를 바꿔줌에 따라 3개의 날개 강습모드와 6개의 날개 연타모드로 전환된다.", stats: [60, 10, 0] },
   { id: "METALWHEEL-PHANTOM", series: "metal fight", type: "4dmetalwheel", name: "팬텀", en: "Phantom", battleType: "stamina", spin: "right", tags: [], desc: "PC프레임을 뒤집어 장착하면 지구모드와 공격모드로 전환이 가능하다.", stats: [20, 0, 50] },
   { id: "METALWHEEL-DEATH", series: "metal fight", type: "4dmetalwheel", name: "데쓰", jpName: "데스", en: "Death", battleType: "balance", spin: "right", tags: [], desc: "거대한 벽과 같은 중압감으로 뒤집으면 공격모드와 방어모드로 전환된다.", stats: [40, 30, 0] },
@@ -616,9 +616,9 @@ const partItems = [
   { id: "METALWHEEL-L-DRAGO-GUARDIAN", series: "metal fight", type: "4dmetalwheel", name: "엘드라고 가디언", en: "L-Drago Guardian", battleType: "defense", spin: "left", tags: [], desc: "갑옷을 씌운 메탈프레임과 코어의 조립으로 방어력이 높은 공격모드와 흡수모드의 전환이 가능하다.", stats: [30, 40, 0] },
   { id: "METALWHEEL-DIABLO", series: "metal fight", type: "4dmetalwheel", name: "디아블로", en: "Diablo", battleType: "balance", spin: "right", tags: [], desc: "메탈프레임과 코어의 재조합으로 메탈프레임이 고정되는 공격모드와 자유회전하는 극한의밸런스모드의 2가지 패턴으로 모드 전환이 가능하다.", stats: [40, 20, 10] },
   { id: "METALWHEEL-FUSION", series: "metal fight", type: "4dmetalwheel", name: "퓨전", en: "Fusion", battleType: "balance", spin: "right", tags: [], desc: "메탈휠과 러버휠을 반전하여 전환하면 방어모드와 밸런스모드로 전환된다.", stats: [20, 30, 20] },
-  { id: "METALWHEEL-CRASH", series: "metal fight", type: "metalwheel", name: "크래시", en: "Crash", battleType: "balance", spin: "right", tags: [], desc: "", stats: [30, 20, 10] },
-  { id: "METALWHEEL-CLOUD", series: "metal fight", type: "metalwheel", name: "클라우드", en: "Cloud", battleType: "defense", spin: "right", tags: [], desc: "", stats: [10, 30, 20] },
-  { id: "METALWHEEL-OMEGA", series: "metal fight", type: "4dmetalwheel", name: "오메가", en: "Omega", battleType: "attack", spin: "right", tags: [], desc: "", stats: [50, 10, 10] },
+  { id: "METALWHEEL-CRASH", series: "metal fight", type: "metalwheel", name: "크래시", en: "Crash", battleType: "balance", spin: "right", tags: [], desc: "양쪽의 뿔과 큰 경사로 어퍼공격을 노리고 기존 불의 힘을 이어받았다.", stats: [30, 20, 10] },
+  { id: "METALWHEEL-CLOUD", series: "metal fight", type: "metalwheel", name: "클라우드", en: "Cloud", battleType: "defense", spin: "right", tags: [], desc: "6개의 강력한 뿔로 상대의 공격을 되받아치고 기존 아리에스의 힘을 이어받았다.", stats: [10, 30, 20] },
+  { id: "METALWHEEL-OMEGA", series: "metal fight", type: "4dmetalwheel", name: "오메가", en: "Omega", battleType: "attack", spin: "right", tags: [], desc: "공식 설명이 없습니다.", stats: [50, 10, 10] },
   { id: "METALWHEEL-KREIS", series: "metal fight", type: "4dmetalwheel", name: "크라이스", en: "Kreis", battleType: "defense", spin: "right", tags: [], desc: "백조가 날개짓하듯 방어하는 방어모드와 날개를 고정한 채 공격하는 공격모드로 전환한다.", stats: [10, 50, 10] },
   { id: "METALWHEEL-FLASH", series: "metal fight", type: "4dmetalwheel", name: "플래시", en: "Flash", battleType: "stamina", spin: "right", tags: [], desc: "2개의 활과 화살이 중심과 균형을 잡아 원형 상태에서는 지구력을 발휘하고, 타원형 상태에서는 강력한 타격을 적에게 가한다.", stats: [20, 10, 40] },
   { id: "STONEFACE-IFRAID", series: "metal fight", type: "stoneface", name: "이프레이드", en: "Ifraid", tags: [], desc: "이프레이드를 상징하는 그림이 그려져 있으며 본체를 고정시킨다.", stats: [30, 30, 30] },
@@ -691,7 +691,7 @@ const partItems = [
   { id: "TRACK-SHIELD-130", series: "metal fight", type: "track", name: "S130", en: "Shield 130", sub: "실드130", tags: [], desc: "저중심인 동시에 옆으로 뻗은 방패로 적의 공격을 효과적으로 방어한다.", stats: [5, 13, 7] },
   { id: "TRACK-VARIABLE-145", series: "metal fight", type: "track", name: "V145", en: "Variable 145", sub: "베리어블145", tags: [], desc: "날개의 각도를 전환하여 공격과 방어를 전환할 수 있다.", stats: [8, 8, 8] },
   { id: "TRACK-LEFT-WING-105", series: "metal fight", type: "track", name: "LW105", en: "Left Wing 105", sub: "레프트윙105", tags: [], desc: "3개의 날개를 갖고 있는 낮은 중심의 트랙으로 좌회전시 다운포스를 발휘한다.", stats: [7, 7, 8] },
-  { id: "TRACK-TRIPLE-ROLLER-145", series: "metal fight", type: "track", name: "TR145", en: "Triple Roller 145", sub: "트리플롤러145", tags: [], desc: "", stats: [8, 8, 8] },
+  { id: "TRACK-TRIPLE-ROLLER-145", series: "metal fight", type: "track", name: "TR145", en: "Triple Roller 145", sub: "트리플롤러145", tags: [], desc: "공식 설명이 없습니다.", stats: [8, 8, 8] },
   { id: "TRACK-230", series: "metal fight", type: "track", name: "230", en: "230", tags: [], desc: "23mm 높이의 트랙. 휠이 직접적인 공격을 받지 않을 정도의 높이를 자랑한다.", stats: [3, 12, 10] },
   { id: "TRACK-130", series: "metal fight", type: "track", name: "130", en: "130", tags: [], desc: "13mm 높이의 트랙. 위에서 아래로 공격하는 스매시공격을 가한다.", stats: [8, 7, 7] },
   { id: "TRACK-DOWN-FORCE-105", series: "metal fight", type: "track", name: "DF105", en: "Down Force 105", sub: "다운포스105", tags: [], desc: "4개의 날개가 좌회전시 강력한 다운포스를 발생시킨다.", stats: [6, 7, 9] },
@@ -733,7 +733,7 @@ const partItems = [
   { id: "BOTTOM-AROUND-SHARP", series: "metal fight", type: "bottom", name: "AS", en: "Around Sharp", sub: "어라운드샤프", battleType: "balance", tags: [], desc: "디펜스버텀의 경사 부분이 자유롭게 회전하여 넘어질 것 같아도 끈기있게 회전을 계속한다.", stats: [0, 30, 40] },
   { id: "BOTTOM-LEFT-FLAT", series: "metal fight", type: "bottom", name: "LF", en: "Left Flat", sub: "레프트플랫", battleType: "attack", tags: [], desc: "돌기가 스타디움을 박차면서 좌회전시 초기동력과 공격력을 발휘한다.", stats: [60, 10, 0] },
   { id: "BOTTOM-POLISH-DEFENSE", series: "metal fight", type: "bottom", name: "PD", en: "Polish Defense", sub: "포릿슈디펜스", battleType: "defense", tags: [], desc: "디펜스와 와이드디펜스 버텀의 중간 두께로, 윤활성이 높은 POM수지로 만들어져 지구력을 자랑하는 방어형 버텀.", stats: [0, 50, 20] },
-  { id: "BOTTOM-FLAT-BALL", series: "metal fight", type: "bottom", name: "FB", en: "Flat Ball", sub: "플랫볼", battleType: "balance", tags: [], desc: "", stats: [30, 30, 10] },
+  { id: "BOTTOM-FLAT-BALL", series: "metal fight", type: "bottom", name: "FB", en: "Flat Ball", sub: "플랫볼", battleType: "balance", tags: [], desc: "공식 설명이 없습니다.", stats: [30, 30, 10] },
   { id: "BOTTOM-RUBBER-SEMI-FLAT", series: "metal fight", type: "bottom", name: "RSF", en: "Rubber Semi Flat", sub: "러버세미플랫", battleType: "attack", tags: [], desc: "고무의 마찰력과 공격력을 유지하면서도 섬세한 회전으로 연타공격이 가능하다.", stats: [40, 20, 10] },
   { id: "BOTTOM-LEFT-RUBBER-FLAT", series: "metal fight", type: "bottom", name: "LRF", en: "Left Rubber Flat", sub: "레프트러버플랫", battleType: "attack", tags: [], desc: "회전방향과 반대로 돌출된 고무 돌기가 스타디움을 박차면서 좌회전시 초기동력과 공격력을 발휘한다.", stats: [60, 10, 0] },
   { id: "BOTTOM-DEFENSE-SHARP", series: "metal fight", type: "bottom", name: "DS", en: "Defense Sharp", sub: "디펜스샤프", battleType: "stamina", tags: [], desc: "디펜스 축의 모양을 한 샤프 축으로 지구력이 뛰어나고 방어력이 우수하다.", stats: [5, 25, 40] },
@@ -1485,10 +1485,11 @@ const spinDescription = value => spinDescriptions[value] || "";
 const heightClassLabel = value => heightClassLabels[value] || value || "";
 let activeReleaseRegion = "kr";
 let activeReleaseSeries = "";
-let activeReleaseSort = { key: "release", direction: "asc" };
+let activeReleaseSort = { key: "no", direction: "asc" };
 let activeReleaseQuery = "";
 let selectedCatalogKind = "";
 let selectedCatalogSeries = "all";
+let activeCatalogSort = "latest";
 const toolsSubtypeOptions = [
   { value: "런처", label: "런처" },
   { value: "그립", label: "그립" },
@@ -9897,9 +9898,10 @@ const tableListTableMarkup = ({ scrollClass = "", tableClass = "", head = "", bo
   </table>
 </div>`;
 const tableListSectionMarkup = tableMarkup => `<section class="table-list-section release-table-section">${tableMarkup}</section>`;
-const tableListPageMarkup = ({ className = "", attrs = "", controlsMarkup = "", tableMarkup = "" } = {}) =>
+const tableListPageMarkup = ({ className = "", attrs = "", controlsMarkup = "", metaMarkup = "", tableMarkup = "" } = {}) =>
   `<section class="${tableListClassName("table-list-page", className)}"${attrs ? ` ${attrs}` : ""}>
     ${controlsMarkup}
+    ${metaMarkup}
     ${tableListSectionMarkup(tableMarkup)}
   </section>`;
 const releaseControls = () => `<div class="table-list-controls release-dropdowns" aria-label="발매목록 필터">
@@ -9915,6 +9917,16 @@ const releaseControls = () => `<div class="table-list-controls release-dropdowns
     <input id="releaseSearchInput" type="search" placeholder="검색어를 입력해주세요." value="${escapeAttributeValue(activeReleaseQuery)}" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none" />
   </div>
 </div>`;
+const sortDropdownOptionsMarkup = (options, activeValue, dataAttr) => options.map(option =>
+  `<button type="button" class="${option.value === activeValue ? "active" : ""}" ${dataAttr}="${escapeAttributeValue(option.value)}" data-summary-label="${escapeAttributeValue(option.label)}">${escapeHtml(option.label)}</button>`
+).join("");
+const sortDropdownMarkup = ({ className = "", label = "정렬", value = "", options = [], dataAttr = "" } = {}) =>
+  `<details class="${tableListClassName("catalog-dropdown", "search-scope", "list-sort-dropdown", className)}" aria-label="${escapeAttributeValue(label)}">
+    <summary><b class="catalog-dropdown-value">${escapeHtml(options.find(option => option.value === value)?.label || label)}</b></summary>
+    <div class="catalog-dropdown-menu">
+      ${sortDropdownOptionsMarkup(options, value, dataAttr)}
+    </div>
+  </details>`;
 
 const toolsItems = [
   { id: "TOOLS-TOOL", series: "metal fight", name: "툴", en: "Tool", category: "기타", desc: "" },
@@ -10761,6 +10773,26 @@ const compareCatalogProductNumberKeys = (a, b) => {
   if (a || b) return a ? -1 : 1;
   return 0;
 };
+const compareCatalogProductNumberKeysAsc = (a, b) => {
+  if (a && b) {
+    const prefixDiff = a.prefixRank - b.prefixRank;
+    if (prefixDiff) return prefixDiff;
+    return a.number - b.number;
+  }
+  if (a || b) return a ? -1 : 1;
+  return 0;
+};
+const compareCatalogItemsByOldestRelease = (a, b) => {
+  const metaA = catalogFirstReleaseMeta(a);
+  const metaB = catalogFirstReleaseMeta(b);
+  if (metaA && metaB) {
+    const dateDiff = metaA.dateSort - metaB.dateSort;
+    if (dateDiff) return dateDiff;
+    return 0;
+  }
+  if (metaA || metaB) return metaA ? -1 : 1;
+  return 0;
+};
 const compareCatalogItemsByLatest = (a, b) => {
   const seriesDiff = catalogLatestSeriesRank(a) - catalogLatestSeriesRank(b);
   if (seriesDiff) return seriesDiff;
@@ -10772,16 +10804,39 @@ const compareCatalogItemsByLatest = (a, b) => {
   if (orderDiff) return orderDiff;
   return (a?.name || "").localeCompare(b?.name || "", "ko", { numeric: true });
 };
-const compareCatalogSearchEntriesByLatest = (a, b) =>
-  b.score - a.score || compareCatalogItemsByLatest(a.item, b.item);
+const compareCatalogItemsByOldest = (a, b) => {
+  const seriesDiff = catalogLatestSeriesRank(b) - catalogLatestSeriesRank(a);
+  if (seriesDiff) return seriesDiff;
+  const releaseDiff = compareCatalogItemsByOldestRelease(a, b);
+  if (releaseDiff) return releaseDiff;
+  const numberDiff = compareCatalogProductNumberKeysAsc(catalogProductNumberKey(a), catalogProductNumberKey(b));
+  if (numberDiff) return numberDiff;
+  const orderDiff = catalogSourceOrder(a) - catalogSourceOrder(b);
+  if (orderDiff) return orderDiff;
+  return (a?.name || "").localeCompare(b?.name || "", "ko", { numeric: true });
+};
+const compareCatalogItemsByNumberAsc = (a, b) => {
+  const numberDiff = compareCatalogProductNumberKeysAsc(catalogProductNumberKey(a), catalogProductNumberKey(b));
+  if (numberDiff) return numberDiff;
+  return compareCatalogItemsByLatest(a, b);
+};
+const compareCatalogItemsByNumberDesc = (a, b) => {
+  const numberDiff = compareCatalogProductNumberKeys(catalogProductNumberKey(a), catalogProductNumberKey(b));
+  if (numberDiff) return numberDiff;
+  return compareCatalogItemsByLatest(a, b);
+};
+const catalogSortOptions = [
+  { value: "no-asc", label: "번호 오름차순", compare: compareCatalogItemsByNumberAsc },
+  { value: "no-desc", label: "번호 내림차순", compare: compareCatalogItemsByNumberDesc },
+  { value: "latest", label: "최신순", compare: compareCatalogItemsByLatest },
+  { value: "oldest", label: "오래된순", compare: compareCatalogItemsByOldest }
+];
+const activeCatalogSortOption = () => catalogSortOptions.find(option => option.value === activeCatalogSort) || catalogSortOptions[2];
+const compareCatalogItemsByActiveSort = (a, b) => activeCatalogSortOption().compare(a, b);
 const catalogHasSearchQuery = () => Boolean(catalogSearchQuery());
 const catalogHasSeriesFilter = () => selectedCatalogSeries !== "all";
 const catalogItemMatchesSeries = item => !catalogHasSeriesFilter() || item?.series === selectedCatalogSeries;
 const catalogUsesDefaultBrowseSet = query => !selectedCatalogKind && (query ? query.isEmpty : !catalogHasSearchQuery());
-const shouldShowCatalogCount = () => Boolean(
-  catalogHasSearchQuery() ||
-  selectedCatalogKind
-);
 const CATALOG_VISIBLE_ITEMS_CACHE_LIMIT = 48;
 const catalogVisibleItemsCache = new Map();
 const cacheCatalogVisibleItems = (key, factory) => {
@@ -10796,9 +10851,7 @@ const cacheCatalogVisibleItems = (key, factory) => {
 };
 const catalogVisibleCacheKey = bucket => `${bucket}|${catalogRenderKey()}`;
 const sortCatalogEntries = (entries, query) => entries
-  .sort((a, b) => query.isEmpty
-    ? compareCatalogItemsByLatest(a.item, b.item)
-    : compareCatalogSearchEntriesByLatest(a, b))
+  .sort((a, b) => compareCatalogItemsByActiveSort(a.item, b.item))
   .map(entry => entry.item);
 const visibleCatalogSubsetItems = ({ bucket, items, includeItem }) =>
   cacheCatalogVisibleItems(catalogVisibleCacheKey(bucket), () => {
@@ -10905,6 +10958,7 @@ const renderCategoryCollection = config => {
 const catalogRenderKey = () => [
   selectedCatalogKind || "",
   selectedCatalogSeries || "all",
+  activeCatalogSort,
   catalogSearchQuery()
 ].join("|");
 const syncCatalogRenderPage = renderKey => {
@@ -10992,9 +11046,8 @@ const updateCatalogCount = visibleItems => {
   const count = document.querySelector("#catalogCount");
   if (!count) return;
   const countRoot = count.closest(".result-count");
-  const showCount = shouldShowCatalogCount();
-  countRoot?.classList.toggle("is-hidden", !showCount);
-  countRoot?.setAttribute("aria-hidden", String(!showCount));
+  countRoot?.classList.remove("is-hidden");
+  countRoot?.removeAttribute("aria-hidden");
   count.textContent = Array.isArray(visibleItems) ? visibleItems.length : visibleCatalogItems().length;
 };
 const syncCatalogScopeState = ({ updateCount = true } = {}) => {
@@ -12042,6 +12095,20 @@ const releaseSortableColumns = {
   release: "발매",
   price: "가격"
 };
+const releaseMobileSortOptions = [
+  { value: "no:asc", label: "번호 오름차순", key: "no", direction: "asc" },
+  { value: "no:desc", label: "번호 내림차순", key: "no", direction: "desc" },
+  { value: "kind:asc", label: "종류순", key: "kind", direction: "asc" },
+  { value: "release:desc", label: "발매 최신순", key: "release", direction: "desc" },
+  { value: "release:asc", label: "발매 오래된순", key: "release", direction: "asc" },
+  { value: "price:asc", label: "가격 낮은순", key: "price", direction: "asc" },
+  { value: "price:desc", label: "가격 높은순", key: "price", direction: "desc" }
+];
+const releaseMobileSortOptionValue = sort => sort?.key === "kind" ? "kind:asc" : `${sort?.key || "no"}:${sort?.direction === "desc" ? "desc" : "asc"}`;
+const activeReleaseMobileSortOption = () =>
+  releaseMobileSortOptions.find(option => option.value === releaseMobileSortOptionValue(activeReleaseSort)) || releaseMobileSortOptions[0];
+const releaseSortFromOptionValue = value =>
+  releaseMobileSortOptions.find(option => option.value === value) || releaseMobileSortOptions[0];
 const releaseTableSearchText = (item, region = activeReleaseRegion) => {
   const release = productRelease(item, region);
   const releaseDate = release.releaseDate || release.release;
@@ -12151,6 +12218,27 @@ const releaseTableMarkup = (region = activeReleaseRegion, series = activeRelease
   head: releaseTableHead(),
   body: productReleaseTableRows(region, series)
 });
+const releaseMobileSortDropdownMarkup = () => {
+  const activeOption = activeReleaseMobileSortOption();
+  return sortDropdownMarkup({
+    className: "release-mobile-sort-dropdown",
+    label: "발매목록 정렬",
+    value: activeOption.value,
+    options: releaseMobileSortOptions,
+    dataAttr: "data-release-sort-option"
+  });
+};
+const releaseMetaRowMarkup = (region = activeReleaseRegion, series = activeReleaseSeries) => {
+  const visibleCount = visibleReleaseTableItems(region, series).length;
+  return `<div class="table-list-meta-row catalog-query-row release-mobile-sort-row" data-release-meta-row>
+    <div class="table-list-meta-primary">
+      <p class="result-count release-query-count"><b>${visibleCount}</b>개 항목</p>
+    </div>
+    <div class="catalog-query-actions">
+      ${releaseMobileSortDropdownMarkup()}
+    </div>
+  </div>`;
+};
 const rememberReleaseModalContext = () => rememberModalContext("category-release", "toy-release", {
   region: activeReleaseRegion,
   series: activeReleaseSeries,
@@ -12158,12 +12246,18 @@ const rememberReleaseModalContext = () => rememberModalContext("category-release
   releaseQuery: activeReleaseQuery
 });
 const releasePageRoot = () => document.querySelector("[data-release-page-content]");
+const releasePageContentRoot = root =>
+  root?.matches?.("[data-release-page-content]") ? root : root?.closest?.("[data-release-page-content]") || releasePageRoot() || document;
 
 function renderProductReleaseTable(contentRoot = document) {
-  const releaseTableSection = contentRoot.querySelector(".table-list-section") || contentRoot.querySelector(".release-table-section");
+  const root = releasePageContentRoot(contentRoot);
+  const releaseMetaRow = root.querySelector("[data-release-meta-row]");
+  if (releaseMetaRow) releaseMetaRow.outerHTML = releaseMetaRowMarkup(activeReleaseRegion, activeReleaseSeries);
+  const releaseTableSection = root.querySelector(".table-list-section") || root.querySelector(".release-table-section");
   if (!releaseTableSection) return;
   releaseTableSection.innerHTML = releaseTableMarkup(activeReleaseRegion, activeReleaseSeries);
   bindProductReleaseTableRows(releaseTableSection);
+  bindReleaseSortControls(root);
 }
 
 function bindProductReleaseTableRows(tableRoot = document) {
@@ -12193,6 +12287,16 @@ function bindProductReleaseTableRows(tableRoot = document) {
     renderProductReleaseTable(tableRoot.closest?.("[data-release-page-content]") || releasePageRoot() || document);
   }));
 }
+function bindReleaseSortControls(root = document) {
+  root.querySelectorAll("button[data-release-sort-option]").forEach(button => button.addEventListener("click", event => {
+    event.preventDefault();
+    const option = releaseSortFromOptionValue(event.currentTarget.dataset.releaseSortOption);
+    activeReleaseSort = { key: option.key, direction: option.direction };
+    setDropdownOption(event.currentTarget);
+    rememberReleaseModalContext();
+    renderProductReleaseTable(root);
+  }));
+}
 
 function renderReleasePage() {
   const root = releasePageRoot();
@@ -12200,6 +12304,7 @@ function renderReleasePage() {
   root.innerHTML = tableListPageMarkup({
     className: "release-list-page",
     controlsMarkup: releaseControls(),
+    metaMarkup: releaseMetaRowMarkup(activeReleaseRegion, activeReleaseSeries),
     tableMarkup: releaseTableMarkup(activeReleaseRegion, activeReleaseSeries)
   });
   bindProductReleaseTable(root);
@@ -12207,6 +12312,7 @@ function renderReleasePage() {
 
 function bindProductReleaseTable(contentRoot = document) {
   bindProductReleaseTableRows(contentRoot);
+  bindReleaseSortControls(contentRoot);
   contentRoot.querySelectorAll("button[data-release-region]").forEach(button => button.addEventListener("click", event => {
     activeReleaseRegion = event.currentTarget.dataset.releaseRegion;
     activeReleaseSeries = releaseSeriesForRegion(activeReleaseSeries, activeReleaseRegion);
@@ -13361,7 +13467,7 @@ const setDropdownOption = button => {
   if (label) label.textContent = dropdownSummaryText(button);
   dropdown.removeAttribute("open");
 };
-const filterButtonAttrs = ["data-release-series", "data-anime-season"];
+const filterButtonAttrs = ["data-release-series", "data-anime-season", "data-catalog-sort", "data-release-sort-option"];
 const filterButtonAttr = button => filterButtonAttrs.find(attr => button.hasAttribute(attr));
 const refreshCatalogResults = () => {
   renderCatalogItems();
@@ -13417,19 +13523,39 @@ const catalogFilterChipMarkup = chip =>
   `<button type="button" class="ui-chip-button catalog-filter-chip" data-filter-chip-scope="${escapeAttributeValue(chip.scope)}" data-filter-chip-key="${escapeAttributeValue(chip.key)}">${escapeHtml(chip.label)}<span aria-hidden="true">×</span></button>`;
 const catalogFilterResetMarkup = scope =>
   `<button type="button" class="ui-chip-button catalog-filter-reset" data-filter-reset-scope="${escapeAttributeValue(scope)}">초기화</button>`;
+const catalogScopeStateLabel = () => ({
+  bey: "베이",
+  parts: "부품",
+  tools: "장비"
+})[selectedCatalogKind] || "전체";
+const catalogFilterStateMarkup = () =>
+  `<span class="catalog-state-chip">${escapeHtml(catalogScopeStateLabel())}</span>`;
+const catalogSortDropdownMarkup = () => sortDropdownMarkup({
+  className: "catalog-sort-dropdown",
+  label: "도감 정렬",
+  value: activeCatalogSortOption().value,
+  options: catalogSortOptions,
+  dataAttr: "data-catalog-sort"
+});
+const renderCatalogSortControl = () => {
+  document.querySelectorAll("[data-catalog-sort-control]").forEach(root => {
+    root.innerHTML = catalogSortDropdownMarkup();
+  });
+};
 const renderCatalogFilterChips = () => {
   ["catalog"].forEach(scope => {
     const root = document.querySelector(`[data-catalog-filter-chips="${scope}"]`);
     if (!root) return;
     const chips = activeFilterChips(scope);
     root.hidden = false;
-    root.classList.toggle("is-empty", chips.length === 0);
-    root.setAttribute("aria-hidden", String(chips.length === 0));
+    root.classList.remove("is-empty");
+    root.removeAttribute("aria-hidden");
     root.innerHTML = chips.length ? `
       ${chips.map(catalogFilterChipMarkup).join("")}
       ${catalogFilterResetMarkup(scope)}
-    ` : "";
+    ` : catalogFilterStateMarkup();
   });
+  renderCatalogSortControl();
 };
 const positionSearchHelpPopover = (button, popover) => {
   if (!button || !popover || popover.hidden) return;
@@ -13518,6 +13644,18 @@ document.querySelectorAll(".catalog-filter-chips").forEach(root => root.addEvent
     refreshCatalogState();
   }
 }));
+document.addEventListener("click", event => {
+  const catalogSortButton = event.target.closest("button[data-catalog-sort]");
+  if (!catalogSortButton) return;
+  event.preventDefault();
+  const sortValue = catalogSortButton.dataset.catalogSort;
+  if (!catalogSortOptions.some(option => option.value === sortValue)) return;
+  activeCatalogSort = sortValue;
+  setDropdownOption(catalogSortButton);
+  catalogVisibleItemsCache.clear();
+  refreshCatalogResults();
+  renderCatalogFilterChips();
+});
 const bindPaginationControls = ({ rootSelector, dataAttr, setPage, render, scroll }) => {
   document.querySelector(rootSelector)?.addEventListener("click", event => {
     const pageButton = event.target.closest(`[${dataAttr}]`);

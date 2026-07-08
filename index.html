@@ -19,7 +19,7 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="./styles.css?v=20260704-modal-title-overflow-visible" />
+    <link rel="stylesheet" href="./styles.css?v=20260708-sort-row-chip-fit" />
   </head>
   <body class="is-overview" data-active-panel="overview">
     <header class="topbar">
@@ -247,7 +247,10 @@
             <section class="category-collection__section catalog-subsection" data-catalog-section="catalog">
               <div class="category-collection__meta-row catalog-query-row">
                 <div class="catalog-filter-chips catalog-query-chips is-empty" data-catalog-filter-chips="catalog" aria-hidden="true"></div>
-                <p class="result-count catalog-query-count is-hidden" aria-hidden="true"><b id="catalogCount">0</b>개 항목</p>
+                <div class="catalog-query-actions">
+                  <p class="result-count catalog-query-count"><b id="catalogCount">0</b>개 항목</p>
+                  <div class="list-sort-control catalog-sort-control" data-catalog-sort-control></div>
+                </div>
               </div>
               <div class="category-collection__grid catalog-grid" id="catalogGrid"></div>
               <div class="category-collection__pagination catalog-pagination" id="catalogPagination" aria-live="polite"></div>
@@ -320,6 +323,6 @@
     </dialog>
 
     <button class="to-top" id="toTop" type="button" aria-label="맨 위로 이동">↑</button>
-    <script src="./app.js?v=20260706-lightwheel-desc"></script>
+    <script src="./app.js?v=20260708-sort-row-status-match"></script>
   </body>
 </html>
