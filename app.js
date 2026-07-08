@@ -1348,10 +1348,17 @@ const sidebarRouteTargets = [
 ];
 const sidebarCurrentButtonSelector = sidebarRouteTargets.map(({ attribute }) => `[${attribute}]`).join(", ");
 const getSidebarRoots = () => Array.from(document.querySelectorAll("[data-sidebar-root]"));
+const getNavigationRoots = () => [
+  ...getSidebarRoots(),
+  ...[document.querySelector(".topbar")].filter(Boolean)
+];
 const getSidebarButtonSection = button => sidebarRouteTargets.find(({ attribute }) => button.hasAttribute(attribute))?.section || "";
 const normalizeSidebarSection = section => {
   if (["catalog", "bey", "tools"].includes(section)) return "catalog";
   return ["overview", "release", "anime", "anime-episodes"].includes(section) ? section : "";
+};
+const isNavigationButtonCurrent = (button, currentSection) => {
+  return getSidebarButtonSection(button) === currentSection;
 };
 const setSidebarButtonCurrent = (button, active) => {
   const disabled = button.disabled || button.getAttribute("aria-disabled") === "true";
@@ -9917,12 +9924,24 @@ const releaseControls = () => `<div class="table-list-controls release-dropdowns
     <input id="releaseSearchInput" type="search" placeholder="검색어를 입력해주세요." value="${escapeAttributeValue(activeReleaseQuery)}" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none" />
   </div>
 </div>`;
+const sortDropdownLabelParts = label => {
+  const rawLabel = String(label || "").trim();
+  const match = rawLabel.match(/^(.+?)\s*([↑↓])$/u);
+  return match ? { text: match[1].trim(), direction: match[2] } : { text: rawLabel, direction: "" };
+};
+const sortDropdownLabelMarkup = label => {
+  const { text, direction } = sortDropdownLabelParts(label);
+  return `<span class="sort-dropdown-label"><span class="sort-dropdown-label-spacer" aria-hidden="true"></span><span class="sort-dropdown-label-text">${escapeHtml(text)}</span><span class="sort-dropdown-label-direction"${direction ? "" : " aria-hidden=\"true\""}>${escapeHtml(direction)}</span></span>`;
+};
+const setSortDropdownLabel = (element, label) => {
+  if (element) element.innerHTML = sortDropdownLabelMarkup(label);
+};
 const sortDropdownOptionsMarkup = (options, activeValue, dataAttr) => options.map(option =>
-  `<button type="button" class="${option.value === activeValue ? "active" : ""}" ${dataAttr}="${escapeAttributeValue(option.value)}" data-summary-label="${escapeAttributeValue(option.label)}">${escapeHtml(option.label)}</button>`
+  `<button type="button" class="${option.value === activeValue ? "active" : ""}" ${dataAttr}="${escapeAttributeValue(option.value)}" data-summary-label="${escapeAttributeValue(option.label)}">${sortDropdownLabelMarkup(option.label)}</button>`
 ).join("");
 const sortDropdownMarkup = ({ className = "", label = "정렬", value = "", options = [], dataAttr = "" } = {}) =>
   `<details class="${tableListClassName("catalog-dropdown", "search-scope", "list-sort-dropdown", className)}" aria-label="${escapeAttributeValue(label)}">
-    <summary><b class="catalog-dropdown-value">${escapeHtml(options.find(option => option.value === value)?.label || label)}</b></summary>
+    <summary><b class="catalog-dropdown-value">${sortDropdownLabelMarkup(options.find(option => option.value === value)?.label || label)}</b></summary>
     <div class="catalog-dropdown-menu">
       ${sortDropdownOptionsMarkup(options, value, dataAttr)}
     </div>
@@ -13253,7 +13272,7 @@ const handleCategoryRouteClick = (event, { closeSearchHelp = false, closeMobileM
   event.preventDefault();
   if (closeSearchHelp) closeSearchHelpPopovers();
   navigateToRoute(match.route);
-  if (closeMobileMenu) setMobileMenuOpen(false);
+  if (closeMobileMenu) setMobileDrawerOpen(false);
   return true;
 };
 
@@ -13321,7 +13340,7 @@ const openSearchResults = ({ replace = false, updateHash = true } = {}) => {
   activateAppPanel("all");
   syncSidebarActiveState("all");
   renderGlobalCards();
-  setMobileMenuOpen(false);
+  setMobileDrawerOpen(false);
 };
 const bindSearchInput = (input, containerSelector, { onInput, onSubmit = onInput } = {}) => {
   if (!input) return;
@@ -13464,7 +13483,14 @@ const setDropdownOption = button => {
     option.classList.toggle("active", option === button);
   });
   const label = dropdown.querySelector(".catalog-dropdown-value");
-  if (label) label.textContent = dropdownSummaryText(button);
+  if (label) {
+    const summaryText = dropdownSummaryText(button);
+    if (dropdown.classList.contains("list-sort-dropdown")) {
+      setSortDropdownLabel(label, summaryText);
+    } else {
+      label.textContent = summaryText;
+    }
+  }
   dropdown.removeAttribute("open");
 };
 const filterButtonAttrs = ["data-release-series", "data-anime-season", "data-catalog-sort", "data-release-sort-option"];
@@ -14266,28 +14292,41 @@ const activateAppPanel = section => {
 };
 const syncSidebarActiveState = section => {
   const currentSection = normalizeSidebarSection(section);
-  getSidebarRoots().forEach(root => {
+  getNavigationRoots().forEach(root => {
     root.querySelectorAll(sidebarCurrentButtonSelector).forEach(button => {
-      setSidebarButtonCurrent(button, getSidebarButtonSection(button) === currentSection);
+      setSidebarButtonCurrent(button, isNavigationButtonCurrent(button, currentSection));
     });
   });
 };
-const setMobileMenuOpen = open => {
-  document.body.classList.toggle("menu-open", open);
-  [menuButton, desktopSidebarToggle].forEach(button => {
-    button?.setAttribute("aria-expanded", String(open));
-    button?.setAttribute("aria-label", open ? "메뉴 열림" : "메뉴 열기");
-    button?.setAttribute("title", open ? "메뉴 열림" : "메뉴 열기");
+const mobileDrawerMediaQuery = window.matchMedia("(max-width: 63.999rem)");
+const mobileDrawerIsOpen = () => document.body.classList.contains("menu-open");
+const isMobileDrawerMode = () => mobileDrawerMediaQuery.matches;
+const syncMenuButtonMode = () => {
+  if (!menuButton) return;
+  const open = mobileDrawerIsOpen();
+  menuButton.setAttribute("aria-expanded", String(open));
+  menuButton.setAttribute("aria-controls", "mobileDrawer");
+  menuButton.setAttribute("aria-label", open ? "메뉴 닫기" : "메뉴 열기");
+  menuButton.setAttribute("title", open ? "메뉴 닫기" : "메뉴 열기");
+};
+const setMobileDrawerOpen = open => {
+  const nextOpen = Boolean(open && isMobileDrawerMode());
+  document.body.classList.toggle("menu-open", nextOpen);
+  [desktopSidebarToggle].forEach(button => {
+    button?.setAttribute("aria-expanded", String(nextOpen));
+    button?.setAttribute("aria-label", nextOpen ? "메뉴 닫기" : "메뉴 열기");
+    button?.setAttribute("title", nextOpen ? "메뉴 닫기" : "메뉴 열기");
   });
-  mobileDrawer?.setAttribute("aria-hidden", String(!open));
-  if (open) {
+  mobileDrawer?.setAttribute("aria-hidden", String(!nextOpen));
+  if (nextOpen) {
     const panel = activeAppPanel()?.dataset.appPanel || "overview";
     syncSidebarActiveState(panel);
   }
+  syncMenuButtonMode();
 };
-const currentMenuTrigger = () => window.matchMedia("(min-width: 100rem)").matches ? desktopSidebarToggle || menuButton : menuButton || desktopSidebarToggle;
+const currentMenuTrigger = () => menuButton || desktopSidebarToggle;
 const clearPrimaryViewLocks = () => {
-  if (document.body.classList.contains("menu-open")) setMobileMenuOpen(false);
+  if (document.body.classList.contains("menu-open")) setMobileDrawerOpen(false);
   if (modal?.open) return;
   cancelModalViewportSync();
   clearModalLockStyles();
@@ -14311,7 +14350,7 @@ const activatePrimarySection = (section, { preserveSearch = false } = {}) => {
   }
   if (panelSection === "anime") renderAnimePage();
 
-  setMobileMenuOpen(false);
+  setMobileDrawerOpen(false);
 };
 function closeDetailModalForPrimaryRoute() {
   closeModalSession();
@@ -14446,29 +14485,38 @@ function applyRoute(route = parseRouteFromHash(), { preserveScroll = false, pres
 document.querySelectorAll(".topbar > .brand, [data-sidebar-home]").forEach(brand => brand.addEventListener("click", event => {
   event.preventDefault();
   navigateToRoute({ type: "overview" }, { replace: true });
-  setMobileMenuOpen(false);
+  setMobileDrawerOpen(false);
 }));
+document.querySelector(".topbar")?.addEventListener("click", event => {
+  handleCategoryRouteClick(event);
+});
 desktopSidebarToggle?.addEventListener("click", event => {
   event.preventDefault();
   event.stopPropagation();
-  setMobileMenuOpen(!document.body.classList.contains("menu-open"));
+  setMobileDrawerOpen(!mobileDrawerIsOpen());
 });
 menuButton?.addEventListener("click", event => {
+  event.preventDefault();
   event.stopPropagation();
-  setMobileMenuOpen(!document.body.classList.contains("menu-open"));
+  if (isMobileDrawerMode()) setMobileDrawerOpen(!mobileDrawerIsOpen());
 });
 mobileDrawerClose?.addEventListener("click", event => {
   event.preventDefault();
-  setMobileMenuOpen(false);
+  setMobileDrawerOpen(false);
   currentMenuTrigger()?.focus();
 });
 mobileDrawer?.addEventListener("click", event => {
   handleCategoryRouteClick(event);
 });
 desktopSidebar?.addEventListener("click", event => {
-  if (handleCategoryRouteClick(event, { closeMobileMenu: false })) setMobileMenuOpen(false);
+  if (handleCategoryRouteClick(event, { closeMobileMenu: false })) setMobileDrawerOpen(false);
 });
+const syncNavigationMode = () => {
+  if (!isMobileDrawerMode()) setMobileDrawerOpen(false);
+  syncMenuButtonMode();
+};
 window.addEventListener("resize", () => {
+  syncNavigationMode();
   syncCatalogStickySearchState();
   positionSearchHelpPopovers();
   if (modal?.open) scheduleModalViewportSync();
@@ -14499,16 +14547,17 @@ document.addEventListener("keydown", event => {
     event.preventDefault();
     return;
   }
-  if (event.key === "Escape" && document.body.classList.contains("menu-open")) setMobileMenuOpen(false);
+  if (event.key === "Escape" && document.body.classList.contains("menu-open")) setMobileDrawerOpen(false);
 });
 document.addEventListener("click", event => {
   searchHelpPopovers.forEach(controller => {
     if (controller.isOpen() && !controller.containsEventTarget(event)) controller.close();
   });
   if (activeModalTagButton && !event.target.closest(".modal-tag-info") && !event.target.closest(".modal-tag-popover")) closeModalTagPopover();
-  if (!event.target.closest(".topbar") && !event.target.closest(".mobile-drawer") && !event.target.closest(".desktop-sidebar")) setMobileMenuOpen(false);
+  if (!event.target.closest(".topbar") && !event.target.closest(".mobile-drawer") && !event.target.closest(".desktop-sidebar")) setMobileDrawerOpen(false);
 });
 
+syncNavigationMode();
 syncCatalogScopeState();
 renderCatalogFilterChips();
 const applyCurrentHashRoute = () => {

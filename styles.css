@@ -568,18 +568,182 @@ main {
 .topbar {
   position: sticky;
   top: 0;
-  z-index: 80;
+  z-index: 110;
+  --topbar-side-size: 44px;
+  --topbar-nav-width: max-content;
+  --topbar-shell-y: 8px;
+  box-sizing: border-box;
+  width: max-content;
+  max-width: calc(100vw - var(--page-gutter) - var(--page-gutter));
   height: 72px;
   min-height: 72px;
-  padding: 0 var(--page-gutter);
+  padding: 0 8px;
+  display: grid;
+  grid-template-columns: var(--topbar-side-size) auto minmax(0, var(--topbar-nav-width));
+  align-items: center;
+  gap: 0;
+  justify-content: center;
+  margin: 0 auto;
+  background: transparent;
+  background-image: none;
+  color: var(--ui-text);
+  border-bottom: 0;
+  box-shadow: none;
+  isolation: isolate;
+  overflow: visible;
+}
+
+.topbar::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  right: 0;
+  top: var(--topbar-shell-y);
+  bottom: var(--topbar-shell-y);
+  border: 1px solid var(--ui-line);
+  border-radius: var(--ui-panel-radius, 18px);
+  background: color-mix(in srgb, var(--ui-surface) 88%, var(--ui-bg) 12%);
+  pointer-events: none;
+}
+
+.topbar-home,
+.topbar-menu-button {
+  position: relative;
+  z-index: 1;
+  width: var(--topbar-side-size);
+  height: var(--topbar-side-size);
+  display: inline-grid;
+  place-items: center;
+  border: 0;
+  border-radius: var(--ui-radius);
+  background: transparent;
+  color: var(--ui-muted);
+  box-shadow: none;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color .16s ease, color .16s ease;
+}
+
+.topbar-home:hover,
+.topbar-home:focus-visible,
+.topbar-menu-button:hover,
+.topbar-menu-button:focus-visible {
+  background: var(--ui-control-hover);
+  color: var(--ui-text);
+}
+
+.topbar-home.active,
+.topbar-home[aria-current="page"] {
+  background: var(--ui-control-hover);
+  color: var(--ui-control-text-active);
+}
+
+.topbar-home svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.topbar-home-divider {
+  position: relative;
+  z-index: 1;
+  width: 1px;
+  height: 20px;
+  margin: 0 10px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--ui-line) 78%, transparent);
+}
+
+.topbar-primary-nav {
+  position: relative;
+  z-index: 1;
+  width: var(--topbar-nav-width);
+  max-width: 100%;
+  justify-self: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--ui-bg);
-  background-image: none;
-  color: var(--ui-text);
+  gap: 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.topbar-primary-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.topbar-primary-button {
+  appearance: none;
+  flex: 0 0 auto;
+  min-width: 0;
+  border: 0;
+  border-radius: var(--ui-radius);
+  background: transparent;
+  color: var(--ui-muted);
   box-shadow: none;
-  overflow: visible;
+  font-family: inherit;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color .16s ease, color .16s ease;
+}
+
+.topbar-primary-button {
+  width: max-content;
+  min-height: var(--topbar-side-size);
+  justify-self: center;
+  padding: 0 14px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.topbar-nav-divider {
+  flex: 0 0 auto;
+  width: 1px;
+  height: 20px;
+  margin: 0 10px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--ui-line) 78%, transparent);
+}
+
+.topbar-primary-button:not(:disabled):hover,
+.topbar-primary-button:not(:disabled):focus-visible {
+  background: var(--ui-control-hover);
+  color: var(--ui-text);
+}
+
+.topbar-primary-button.active,
+.topbar-primary-button[aria-current="page"] {
+  background: var(--ui-control-hover);
+  color: var(--ui-control-text-active);
+}
+
+.topbar-primary-button.disabled,
+.topbar-primary-button:disabled {
+  color: color-mix(in srgb, var(--ui-muted) 48%, transparent);
+  cursor: default;
+  pointer-events: none;
+}
+
+.topbar .menu-button {
+  position: relative;
+  inset: auto;
+  width: var(--topbar-side-size);
+  min-width: var(--topbar-side-size);
+  max-width: var(--topbar-side-size);
+  height: var(--topbar-side-size);
+  min-height: var(--topbar-side-size);
+  max-height: var(--topbar-side-size);
+  display: inline-flex;
+  transform: none;
 }
 
 .app-shell {
@@ -589,7 +753,7 @@ main {
   --catalog-grid-max-width: min(var(--page-max), 1320px);
   --catalog-content-max: var(--catalog-grid-max-width);
   --catalog-grid-gap: clamp(8px, 1.1vw, 12px);
-  --catalog-card-min-height: clamp(132px, calc(118px + 2.8vw), 176px);
+  --catalog-card-min-height: clamp(104px, calc(92px + 2vw), 132px);
   --catalog-card-padding: clamp(10px, 1.1vw, 16px);
   --catalog-card-badge-padding: 0 clamp(6px, .6vw, 8px);
   --catalog-card-badge-font-size: clamp(var(--font-xs), calc(.65rem + .2vw), var(--font-sm));
@@ -846,7 +1010,7 @@ dialog[open] #modalClose.modal-close:hover{
   position: relative;
   z-index: 3;
   width: 100%;
-  margin: auto 0 4px;
+  margin: auto 0 0;
   align-self: stretch;
   color: var(--ui-control-text-active);
   font-size: var(--font-md);
@@ -858,7 +1022,7 @@ dialog[open] #modalClose.modal-close:hover{
   gap: 6px;
   min-width: 0;
   max-width: 100%;
-  overflow: hidden;
+  overflow: visible;
   text-align: left;
   white-space: nowrap;
   opacity: 1;
@@ -890,6 +1054,9 @@ dialog[open] #modalClose.modal-close:hover{
   white-space: nowrap;
   color: var(--ui-control-text-active);
   font-weight: 500;
+  line-height: 1.22;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
 }
 
 .anime-character-card {
@@ -1458,7 +1625,7 @@ dialog[open] .product-modal-name {
   grid-template-columns: var(--release-grid-columns);
   grid-template-areas: var(--release-grid-areas);
   align-items: flex-start;
-  gap: var(--filter-dropdown-gap, 10px);
+  gap: var(--catalog-control-row-gap, var(--filter-dropdown-gap, 12px));
   justify-content: start;
   position: relative;
   z-index: 5;
@@ -2536,11 +2703,13 @@ body.is-overview .app-shell {
 }
 
 .overview-home {
+  --overview-home-lift: clamp(-96px, -9svh, -64px);
   width: min(100%, 960px);
   margin: 0 auto;
   display: grid;
   gap: 0;
   align-content: center;
+  transform: translateY(var(--overview-home-lift));
 }
 
 .overview-hero {
@@ -2634,8 +2803,8 @@ body.is-overview .app-shell {
   --section-heading-margin: 0 auto clamp(14px, 1.8vw, 18px);
   --result-count-margin: 0 0 4px;
   --panel-control-top-padding: 8px;
-  --catalog-control-columns: minmax(0, min(calc(var(--primary-search-width) + 128px), 100%));
-  --catalog-control-justify: end;
+  --catalog-control-columns: minmax(0, 1fr);
+  --catalog-control-justify: stretch;
   --catalog-control-gap: 0;
   --catalog-toolbar-display: grid;
   --catalog-toolbar-columns: auto minmax(0, 1fr);
@@ -2643,6 +2812,7 @@ body.is-overview .app-shell {
   --catalog-toolbar-justify: stretch;
   --catalog-control-row-gap: 12px;
   --catalog-toolbar-gap: var(--catalog-control-row-gap);
+  --catalog-search-control-gap: var(--catalog-control-row-gap);
   --catalog-toolbar-margin: 0;
   --catalog-toolbar-margin-left: 0;
   --catalog-toolbar-margin-right: 0;
@@ -2703,7 +2873,7 @@ body.is-overview .app-shell {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
   align-items: stretch;
-  gap: var(--catalog-toolbar-gap);
+  gap: var(--catalog-search-control-gap);
 }
 
 .catalog-search-controls .catalog-local-search {
@@ -2885,7 +3055,8 @@ body.is-overview .app-shell {
   left: calc((100vw - 100%) / -2);
   right: calc((100vw - 100%) / -2);
   pointer-events: none;
-  background: var(--ui-bg);
+  background: color-mix(in srgb, var(--ui-surface) 88%, var(--ui-bg) 12%);
+  box-shadow: inset 0 -1px 0 var(--ui-line);
 }
 
 .catalog-control-bar > .catalog-toolbar {
@@ -2949,6 +3120,7 @@ body.is-overview .app-shell {
 }
 
 .catalog-query-actions {
+  --query-action-edge-offset: calc((var(--search-box-height, 48px) - var(--catalog-chip-row-height)) / 2);
   min-width: max-content;
   display: inline-flex;
   align-items: center;
@@ -2956,6 +3128,7 @@ body.is-overview .app-shell {
   gap: 8px;
   justify-self: end;
   align-self: center;
+  margin-right: calc(var(--query-action-edge-offset) * -1);
 }
 
 .catalog-query-count {
@@ -2971,7 +3144,7 @@ body.is-overview .app-shell {
 }
 
 .list-sort-dropdown.search-scope.catalog-dropdown {
-  --list-sort-width: 96px;
+  --list-sort-width: 112px;
   --list-sort-menu-width: 136px;
   --search-scope-height: var(--catalog-chip-row-height);
   --search-scope-summary-height: var(--catalog-chip-row-height);
@@ -2995,13 +3168,47 @@ body.is-overview .app-shell {
   font-weight: 600;
 }
 
+.list-sort-dropdown.search-scope.catalog-dropdown .catalog-dropdown-menu button {
+  justify-content: stretch;
+}
+
+.sort-dropdown-label {
+  width: 100%;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  column-gap: 4px;
+}
+
+.sort-dropdown-label-spacer {
+  min-width: 0;
+}
+
+.sort-dropdown-label-text {
+  grid-column: 2;
+  min-width: 0;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sort-dropdown-label-direction {
+  grid-column: 3;
+  justify-self: start;
+  min-width: 1em;
+  color: inherit;
+  text-align: left;
+}
+
 .list-sort-dropdown.search-scope.catalog-dropdown .catalog-dropdown-menu {
-  left: auto;
-  right: -6px;
+  left: 50%;
+  right: auto;
   width: var(--list-sort-menu-width);
   min-width: var(--list-sort-menu-width);
   max-width: var(--list-sort-menu-width);
-  transform: none;
+  transform: translateX(-50%);
 }
 
 .release-mobile-sort-dropdown {
@@ -3447,17 +3654,8 @@ body.menu-open .mobile-drawer {
   min-height: 46px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 0 2px 0 8px;
-}
-
-.mobile-drawer-header strong {
-  flex: 1;
-  color: var(--ui-text);
-  font-size: var(--font-md);
-  font-weight: 600;
-  line-height: 1;
+  justify-content: flex-end;
+  padding: 0 2px;
 }
 
 .mobile-drawer-close {
@@ -3701,15 +3899,15 @@ body.menu-open .mobile-drawer {
   white-space: nowrap;
 }
 
-/* Desktop rail starts at 100rem; below that, the topbar menu opens the drawer. */
+/* The restored topbar is the primary navigation at every width. */
 @media (min-width: 100rem) {
   .topbar {
-    display: none !important;
+    display: grid !important;
   }
 
   .app-shell {
-    --catalog-sticky-top: 0px;
-    min-height: 100vh;
+    --catalog-sticky-top: 72px;
+    min-height: calc(100vh - 72px);
   }
 
   body.is-overview .app-shell {
@@ -3807,6 +4005,10 @@ body.menu-open .mobile-drawer {
     visibility: hidden;
   }
 
+  .desktop-sidebar {
+    display: none !important;
+  }
+
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -3816,20 +4018,61 @@ body.menu-open .mobile-drawer {
   }
 }
 
-/* Complementary side of the desktop rail breakpoint. */
+/* Topbar button placement stays consistent below the old rail breakpoint. */
 @media (max-width: 99.999rem) {
   .topbar > .brand {
     display: none !important;
   }
 
-  .menu-button {
+  .topbar .menu-button {
     display: inline-flex;
-    left: clamp(18px, 4vw, 24px);
+    left: auto;
     right: auto;
   }
 }
 
+@media (min-width: 64rem) {
+  .topbar .menu-button {
+    display: none !important;
+  }
+}
+
 @media (max-width: 63.999rem) {
+  .topbar {
+    width: auto;
+    max-width: none;
+    padding: 0 var(--page-gutter);
+    display: grid;
+    grid-template-columns: var(--topbar-side-size) minmax(0, 1fr);
+    justify-content: stretch;
+    margin: 0;
+    background: var(--ui-bg);
+  }
+
+  .topbar-home,
+  .topbar-home-divider,
+  .topbar-primary-nav {
+    display: none !important;
+  }
+
+  .topbar::before {
+    content: none;
+  }
+
+  .topbar .menu-button {
+    position: relative;
+    inset: auto;
+    justify-self: start;
+    right: auto;
+    width: var(--menu-button-size);
+    min-width: var(--menu-button-size);
+    max-width: var(--menu-button-size);
+    height: var(--menu-button-size);
+    min-height: var(--menu-button-size);
+    max-height: var(--menu-button-size);
+    transform: none;
+  }
+
   dialog[open] {
     --modal-edge-gap: clamp(18px, 3.2vw, 28px);
     --modal-h: calc(var(--modal-vh) - var(--modal-edge-gap));
@@ -3855,22 +4098,6 @@ body.menu-open .mobile-drawer {
     --stat-label-column: 64px;
     --stat-value-column: 32px;
     --stat-row-gap: 6px;
-  }
-
-  .release-dropdowns {
-    --release-grid-columns: minmax(0, 8fr) minmax(0, 14.5fr);
-    --release-grid-areas:
-      "region series"
-      "search search";
-  }
-
-  .release-dropdowns[data-anime-controls] {
-    --release-grid-columns: minmax(0, 1fr) minmax(0, 1fr);
-    --release-grid-areas: "series search";
-  }
-
-  .app-panel[data-app-panel="catalog"] {
-    --catalog-toolbar-columns: minmax(0, 1fr) minmax(0, 1fr);
   }
 
   .app-panel[data-app-panel="catalog"],
@@ -3905,6 +4132,17 @@ body.menu-open .mobile-drawer {
     text-overflow: ellipsis !important;
   }
 
+  dialog[open] .category-anime-info .anime-episode-title-row {
+    margin-top: 34px;
+  }
+
+  .release-dropdowns {
+    --release-grid-columns: minmax(0, 8fr) minmax(0, 14.5fr);
+    --release-grid-areas:
+      "region series"
+      "search search";
+  }
+
   .release-dropdowns[data-anime-controls] {
     --release-grid-columns: 1fr;
     --release-grid-areas:
@@ -3920,10 +4158,6 @@ body.menu-open .mobile-drawer {
     grid-template-areas:
       "series"
       "search";
-  }
-
-  dialog[open] .category-anime-info .anime-episode-title-row {
-    margin-top: 34px;
   }
 
   .app-panel[data-app-panel="catalog"],
