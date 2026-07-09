@@ -14049,7 +14049,7 @@ const statProfiles = {
       { key: "speed", label: "기동력" },
       { key: "burst", label: "버스트력" }
     ],
-    fillPercent: value => Math.min(100, value * 12.5)
+    fillPercent: value => Math.min(100, value * (100 / 6))
   },
   x: {
     stats: [

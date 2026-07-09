@@ -748,8 +748,8 @@ main {
 
 .app-shell {
   --section-heading-align: flex-end;
-  --catalog-grid-column-count: 5;
-  --catalog-grid-columns: repeat(var(--catalog-grid-column-count), minmax(0, 1fr));
+  --catalog-grid-min-card-width: clamp(148px, 19vw, 244px);
+  --catalog-grid-columns: repeat(auto-fit, minmax(min(100%, var(--catalog-grid-min-card-width)), 1fr));
   --catalog-grid-max-width: min(var(--page-max), 1320px);
   --catalog-content-max: var(--catalog-grid-max-width);
   --catalog-grid-gap: clamp(8px, 1.1vw, 12px);
@@ -947,8 +947,9 @@ dialog[open] #modalClose.modal-close:hover{
   display: grid;
   grid-template-columns: var(--catalog-grid-columns);
   gap: var(--catalog-grid-gap);
+  min-width: 0;
   width: 100%;
-  max-width: var(--catalog-content-max, var(--catalog-grid-max-width, var(--page-max)));
+  max-width: min(100%, var(--catalog-content-max, var(--catalog-grid-max-width, var(--page-max))));
   margin: 0;
   margin-left: auto;
   margin-right: auto;
@@ -956,18 +957,6 @@ dialog[open] #modalClose.modal-close:hover{
   border: 0;
   background: transparent;
   box-shadow: none;
-}
-
-@media (max-width: 79.999rem) {
-  .app-shell {
-    --catalog-grid-column-count: 4;
-  }
-}
-
-@media (max-width: 47.999rem) {
-  .app-shell {
-    --catalog-grid-column-count: 3;
-  }
 }
 
 .category-card,
@@ -3128,6 +3117,9 @@ body.is-overview .app-shell {
 .catalog-subsection {
   display: grid;
   gap: var(--catalog-filter-card-gap);
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
 }
 
 .category-collection__section[hidden],
@@ -4169,10 +4161,6 @@ body.menu-open .mobile-drawer {
 }
 
 @media (max-width: 39.999rem) {
-  .app-shell {
-    --catalog-grid-column-count: 2;
-  }
-
   dialog[open] {
     --modal-title-size-default: clamp(1.14rem, calc(0.385rem + 3.41vw), 1.75rem);
     --composition-visible-rows-default: 5;
