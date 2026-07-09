@@ -753,7 +753,7 @@ main {
   --catalog-grid-max-width: min(var(--page-max), 1320px);
   --catalog-content-max: var(--catalog-grid-max-width);
   --catalog-grid-gap: clamp(8px, 1.1vw, 12px);
-  --catalog-card-min-height: clamp(104px, calc(92px + 2vw), 132px);
+  --catalog-card-min-height: clamp(132px, calc(118px + 2.8vw), 176px);
   --catalog-card-padding: clamp(10px, 1.1vw, 16px);
   --catalog-card-badge-padding: 0 clamp(6px, .6vw, 8px);
   --catalog-card-badge-font-size: clamp(var(--font-xs), calc(.65rem + .2vw), var(--font-sm));
@@ -1010,7 +1010,7 @@ dialog[open] #modalClose.modal-close:hover{
   position: relative;
   z-index: 3;
   width: 100%;
-  margin: auto 0 0;
+  margin: auto 0 var(--catalog-card-title-bottom-inset, 2px);
   align-self: stretch;
   color: var(--ui-control-text-active);
   font-size: var(--font-md);
@@ -1054,9 +1054,9 @@ dialog[open] #modalClose.modal-close:hover{
   white-space: nowrap;
   color: var(--ui-control-text-active);
   font-weight: 500;
-  line-height: 1.22;
-  padding-bottom: 0.08em;
-  margin-bottom: -0.08em;
+  line-height: 1.2;
+  padding-bottom: 0.06em;
+  margin-bottom: -0.06em;
 }
 
 .anime-character-card {
@@ -1462,7 +1462,7 @@ dialog[open] .product-modal-name {
   --modal-info-lines: var(--modal-info-lines-default, 2);
   width: var(--modal-body-width);
   display: grid;
-  grid-template-rows: 34px calc(1.5rem * var(--modal-info-lines));
+  grid-template-rows: 34px auto;
   gap: 10px;
   margin: 0 auto var(--modal-flow-gap);
 }
@@ -1484,6 +1484,18 @@ dialog[open] .product-modal-name {
   display: none !important;
 }
 
+.modal-info-slot.single-line-info-slot .modal-description-region {
+  display: none !important;
+}
+
+.modal-description-region {
+  min-height: calc(1.5rem * var(--modal-info-lines));
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
 .modal-description {
   min-height: 0;
   margin: 0;
@@ -1495,6 +1507,45 @@ dialog[open] .product-modal-name {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: var(--modal-info-lines);
+}
+
+.modal-info-slot.is-expanded .modal-description-region,
+.modal-info-slot.is-measuring-description .modal-description-region {
+  min-height: 0;
+}
+
+.modal-info-slot.is-expanded .modal-description,
+.modal-info-slot.is-measuring-description .modal-description {
+  display: block;
+  overflow: visible;
+  -webkit-line-clamp: unset;
+}
+
+.modal-description-toggle {
+  display: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ui-muted);
+  font: inherit;
+  font-size: var(--font-sm);
+  font-weight: 600;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.modal-info-slot.is-expandable .modal-description-toggle {
+  display: inline-flex;
+}
+
+.modal-description-toggle[hidden] {
+  display: none !important;
+}
+
+.modal-description-toggle:hover,
+.modal-description-toggle:focus-visible {
+  color: var(--ui-text);
 }
 
 .modal-slot-tags {
