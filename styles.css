@@ -2392,7 +2392,7 @@ dialog[open] .modal-info.part-modal-info .modal-name {
   --stat-row-width: 100%;
   --stat-row-max-width: 100%;
   --stat-row-min-width: 0;
-  --stat-label-column: 48px;
+  --stat-label-column: 4em;
   --stat-track-column: minmax(32px, 1fr);
   --stat-value-column: 4em;
   --stat-row-gap: 8px;
@@ -4159,6 +4159,11 @@ body.menu-open .mobile-drawer {
     --section-heading-margin: 0 auto clamp(12px, 1.8vw, 16px);
     --result-count-margin: 0 0 3px;
     --catalog-toolbar-gap: var(--catalog-control-row-gap);
+  }
+
+  dialog[open] .part-modal-info {
+    --stat-label-column: 4em;
+    --stat-value-column: 4em;
   }
 
 }
