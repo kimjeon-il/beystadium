@@ -46,6 +46,15 @@
   --filter-dropdown-height: 48px;
   --filter-dropdown-gap: 10px;
   --search-box-height: 48px;
+  --compact-search-height: 44px;
+  --compact-search-padding: 0 12px 0 8px;
+  --compact-search-gap: 8px;
+  --compact-search-scope-height: 34px;
+  --compact-search-scope-min-width: 58px;
+  --compact-search-scope-max-width: 70px;
+  --compact-search-scope-padding: 0 20px 0 9px;
+  --compact-search-scope-font-size: var(--font-sm);
+  --compact-search-scope-arrow-right: 9px;
   --primary-search-width: 640px;
   --primary-search-height: 62px;
   --primary-search-scope-height: 44px;
@@ -144,6 +153,72 @@ a,
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fluent-modal-list-enter {
+  from {
+    opacity: .001;
+    transform: translateY(10px) scale(.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fluent-modal-route-enter {
+  from {
+    opacity: .001;
+    transform: scale(.985);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fluent-modal-drill-enter {
+  from {
+    opacity: .001;
+    transform: translateX(14px) scale(.992);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes fluent-modal-back-enter {
+  from {
+    opacity: .001;
+    transform: translateX(-14px) scale(.992);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes fluent-modal-step-prev {
+  from {
+    opacity: .001;
+    transform: translateX(-18px) scale(.992);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes fluent-modal-step-next {
+  from {
+    opacity: .001;
+    transform: translateX(18px) scale(.992);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
   }
 }
 
@@ -735,16 +810,6 @@ body.is-overview .topbar-search {
   --search-box-width: 100%;
   --search-box-min-width: 0;
   --search-box-max-width: 100%;
-  --search-box-block-height: 44px;
-  --search-box-padding: 0 12px 0 8px;
-  --search-box-gap: 8px;
-  --search-scope-min-width: 58px;
-  --search-scope-max-width: 70px;
-  --search-scope-height: 34px;
-  --search-scope-summary-height: 34px;
-  --search-scope-summary-padding: 0 20px 0 9px;
-  --search-scope-font-size: var(--font-sm);
-  --search-scope-arrow-right: 9px;
   --search-scope-menu-z: 130;
 }
 
@@ -1449,6 +1514,30 @@ dialog[open] .modal-inner {
   animation: fluent-modal-enter var(--motion-enter) var(--ease-emphasized) both;
 }
 
+dialog[open] .modal-inner.modal-inner--enter-list {
+  animation: fluent-modal-list-enter var(--motion-enter) var(--ease-emphasized) both;
+}
+
+dialog[open] .modal-inner.modal-inner--enter-drill {
+  animation: fluent-modal-drill-enter var(--motion-enter) var(--ease-emphasized) both;
+}
+
+dialog[open] .modal-inner.modal-inner--enter-back {
+  animation: fluent-modal-back-enter var(--motion-enter) var(--ease-emphasized) both;
+}
+
+dialog[open] .modal-inner.modal-inner--enter-route {
+  animation: fluent-modal-route-enter var(--motion-enter) var(--ease-emphasized) both;
+}
+
+dialog[open] .modal-inner.modal-inner--step-prev {
+  animation: fluent-modal-step-prev var(--motion-enter) var(--ease-emphasized) both;
+}
+
+dialog[open] .modal-inner.modal-inner--step-next {
+  animation: fluent-modal-step-next var(--motion-enter) var(--ease-emphasized) both;
+}
+
 dialog[open] .modal-info {
   min-width: 0 !important;
   min-height: 0 !important;
@@ -1494,7 +1583,7 @@ dialog[open] .modal-name {
   --modal-title-line-height: 1.15em;
   --modal-title-row-height: max(34px, var(--modal-title-line-height));
   --modal-title-lines: 1;
-  --modal-title-size: var(--modal-title-size-default, var(--font-title));
+  --modal-title-size: var(--font-title);
   width: var(--modal-body-width) !important;
   display: flex !important;
   align-items: baseline !important;
@@ -2404,7 +2493,7 @@ dialog[open] .modal-art {
 .product-modal-info .modal-scroll-area {
   display: grid;
   grid-template-columns: var(--modal-body-width);
-  grid-template-rows: calc(var(--modal-title-size-default, var(--font-title)) * 1.15) var(--modal-flow-gap) 34px var(--modal-flow-gap) auto;
+  grid-template-rows: calc(var(--font-title) * 1.15) var(--modal-flow-gap) 34px var(--modal-flow-gap) auto;
   align-content: start;
   justify-content: center;
 }
@@ -2886,7 +2975,7 @@ body.is-overview .app-shell {
   max-width: 100%;
   margin: 12px auto 0;
   color: var(--ui-text);
-  font-size: var(--font-md);
+  font-size: 1rem;
   font-weight: 600;
   line-height: 1.55;
   word-break: keep-all;
@@ -3045,9 +3134,19 @@ body.is-overview .app-shell {
   color: var(--ui-text);
 }
 
-.catalog-search-box #catalogSearchScope {
-  --search-scope-height: 32px;
-  --search-scope-summary-height: 32px;
+.topbar-search-box,
+.catalog-search-box,
+.mobile-drawer-search {
+  --search-box-block-height: var(--compact-search-height);
+  --search-box-padding: var(--compact-search-padding);
+  --search-box-gap: var(--compact-search-gap);
+  --search-scope-min-width: var(--compact-search-scope-min-width);
+  --search-scope-max-width: var(--compact-search-scope-max-width);
+  --search-scope-height: var(--compact-search-scope-height);
+  --search-scope-summary-height: var(--compact-search-scope-height);
+  --search-scope-summary-padding: var(--compact-search-scope-padding);
+  --search-scope-font-size: var(--compact-search-scope-font-size);
+  --search-scope-arrow-right: var(--compact-search-scope-arrow-right);
 }
 
 .catalog-search-help-popover {
@@ -3838,16 +3937,6 @@ body.menu-open .mobile-drawer {
   --search-box-width: 100%;
   --search-box-min-width: 0;
   --search-box-max-width: 100%;
-  --search-box-block-height: 46px;
-  --search-box-padding: 0 12px 0 8px;
-  --search-box-gap: 8px;
-  --search-scope-min-width: 58px;
-  --search-scope-max-width: 70px;
-  --search-scope-height: 34px;
-  --search-scope-summary-height: 34px;
-  --search-scope-summary-padding: 0 20px 0 9px;
-  --search-scope-font-size: var(--font-sm);
-  --search-scope-arrow-right: 9px;
   --search-scope-menu-z: 170;
   width: 100%;
   min-width: 0;
@@ -4213,7 +4302,6 @@ body.menu-open .mobile-drawer {
   }
 
   dialog[open] {
-    --modal-title-size-default: clamp(1.14rem, calc(0.385rem + 3.41vw), 1.75rem);
     --composition-visible-rows-default: 5;
     --composition-list-max-height-default: min(calc(var(--composition-row-height) * var(--composition-visible-rows)), 30dvh);
   }
