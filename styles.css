@@ -24,6 +24,17 @@
   --ui-accent: light-dark(#334155, #d7dee8);
   --ui-brand-bg: light-dark(#475569, #2f3b4d);
   --ui-brand-text: #f3f6fa;
+  --ui-surface-raised: light-dark(#ffffff, #1a222d);
+  --ui-surface-glass: light-dark(color-mix(in srgb, #f7f9fc 86%, transparent), color-mix(in srgb, #151b23 88%, transparent));
+  --ui-stroke-subtle: light-dark(color-mix(in srgb, #cfd6df 72%, transparent), color-mix(in srgb, #3a4656 76%, transparent));
+  --ui-elevation-1: 0 1px 2px light-dark(rgba(16, 24, 39, 0.08), rgba(0, 0, 0, 0.22)), 0 8px 20px light-dark(rgba(16, 24, 39, 0.07), rgba(0, 0, 0, 0.18));
+  --ui-elevation-2: 0 2px 5px light-dark(rgba(16, 24, 39, 0.10), rgba(0, 0, 0, 0.28)), 0 18px 42px light-dark(rgba(16, 24, 39, 0.10), rgba(0, 0, 0, 0.24));
+  --ui-focus-ring: 0 0 0 3px color-mix(in srgb, var(--ui-accent) 24%, transparent);
+  --motion-fast: 120ms;
+  --motion-standard: 180ms;
+  --motion-enter: 220ms;
+  --ease-standard: cubic-bezier(.2, 0, 0, 1);
+  --ease-emphasized: cubic-bezier(.16, 1, .3, 1);
   --font-xs: .75rem;
   --font-sm: .8125rem;
   --font-md: .9375rem;
@@ -102,6 +113,48 @@ a,
 [tabindex] {
   -webkit-tap-highlight-color: transparent;
 }
+
+@keyframes fluent-panel-enter {
+  from {
+    opacity: .001;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fluent-popover-enter {
+  from {
+    opacity: .001;
+    transform: translateY(-4px) scale(.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fluent-modal-enter {
+  from {
+    opacity: .001;
+    transform: translateY(10px) scale(.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fluent-fade-in {
+  from {
+    opacity: .001;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .catalog-dropdown {
   position: relative;
   width: 100%;
@@ -125,9 +178,9 @@ a,
   gap: 0;
   position: relative;
   list-style: none;
-  border: 1px solid var(--ui-line);
+  border: 1px solid var(--ui-stroke-subtle);
   border-radius: var(--ui-radius);
-  background: var(--ui-surface);
+  background: var(--ui-surface-raised);
   color: var(--ui-control-text-active);
   background-clip: padding-box;
   outline: 0;
@@ -137,6 +190,7 @@ a,
   appearance: none;
   -webkit-appearance: none;
   -webkit-tap-highlight-color: transparent;
+  transition: background-color var(--motion-standard) var(--ease-standard), border-color var(--motion-standard) var(--ease-standard), box-shadow var(--motion-standard) var(--ease-standard);
 }
 
 .catalog-dropdown summary::-webkit-details-marker {
@@ -184,10 +238,14 @@ a,
 .catalog-dropdown summary:active,
 .catalog-dropdown[open] summary {
   border-radius: var(--ui-radius) !important;
-  background: var(--ui-surface) !important;
+  background: var(--ui-surface-raised) !important;
   background-clip: padding-box !important;
   outline: 0 !important;
-  box-shadow: none !important;
+  box-shadow: var(--ui-elevation-1) !important;
+}
+
+.catalog-dropdown summary:focus-visible {
+  box-shadow: var(--ui-focus-ring), var(--ui-elevation-1) !important;
 }
 
 .catalog-dropdown-menu {
@@ -203,12 +261,17 @@ a,
   gap: 4px;
   overflow-x: hidden !important;
   overflow-y: auto;
-  border: 1px solid var(--ui-line);
+  border: 1px solid var(--ui-stroke-subtle);
   border-radius: var(--ui-radius);
-  background: var(--ui-surface);
-  box-shadow: none;
+  background: var(--ui-surface-raised);
+  box-shadow: var(--ui-elevation-2);
   scrollbar-width: thin;
   scrollbar-color: var(--ui-line) transparent;
+  transform-origin: top center;
+}
+
+.catalog-dropdown[open] > .catalog-dropdown-menu {
+  animation: fluent-popover-enter var(--motion-enter) var(--ease-emphasized) both;
 }
 
 .catalog-dropdown-menu::-webkit-scrollbar,
@@ -285,12 +348,19 @@ dialog[open] .modal-scroll-area::-webkit-scrollbar-corner,
   display: flex;
   align-items: center;
   gap: var(--search-box-gap, 8px);
-  border: 1px solid var(--ui-line);
+  border: 1px solid var(--ui-stroke-subtle);
   border-radius: var(--ui-radius);
-  background: var(--ui-surface);
-  box-shadow: none;
+  background: var(--ui-surface-raised);
+  box-shadow: 0 1px 1px color-mix(in srgb, var(--ui-text) 4%, transparent);
   color: var(--ui-control-text-active);
   overflow: visible;
+  transition: background-color var(--motion-standard) var(--ease-standard), border-color var(--motion-standard) var(--ease-standard), box-shadow var(--motion-standard) var(--ease-standard);
+}
+
+.search-box:focus-within,
+.overview-search:focus-within {
+  border-color: color-mix(in srgb, var(--ui-accent) 42%, var(--ui-stroke-subtle));
+  box-shadow: var(--ui-focus-ring), var(--ui-elevation-1);
 }
 
 .search-box input,
@@ -583,11 +653,13 @@ main {
   gap: clamp(18px, 3vw, 36px);
   justify-content: stretch;
   margin: 0;
-  background: color-mix(in srgb, var(--ui-bg) 94%, var(--ui-surface) 6%);
+  background: var(--ui-surface-glass);
   background-image: none;
   color: var(--ui-text);
-  border-bottom: 1px solid color-mix(in srgb, var(--ui-line) 76%, transparent);
-  box-shadow: 0 1px 0 color-mix(in srgb, white 45%, transparent);
+  border-bottom: 1px solid var(--ui-stroke-subtle);
+  box-shadow: var(--ui-elevation-1);
+  backdrop-filter: blur(18px) saturate(145%);
+  -webkit-backdrop-filter: blur(18px) saturate(145%);
   isolation: isolate;
   overflow: visible;
 }
@@ -610,13 +682,18 @@ main {
   box-shadow: none;
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
-  transition: background-color .16s ease, color .16s ease;
+  transition: background-color var(--motion-standard) var(--ease-standard), color var(--motion-standard) var(--ease-standard), box-shadow var(--motion-standard) var(--ease-standard), transform var(--motion-fast) var(--ease-standard);
 }
 
 .topbar-menu-button:hover,
 .topbar-menu-button:focus-visible {
   background: var(--ui-control-hover);
   color: var(--ui-text);
+  box-shadow: var(--ui-elevation-1);
+}
+
+.topbar-menu-button:active {
+  transform: scale(.98);
 }
 
 .topbar-primary-nav {
@@ -692,13 +769,23 @@ body.is-overview .topbar-search {
   white-space: nowrap;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-  transition: background-color .16s ease, color .16s ease;
+  transition: background-color var(--motion-standard) var(--ease-standard), color var(--motion-standard) var(--ease-standard), box-shadow var(--motion-standard) var(--ease-standard), transform var(--motion-fast) var(--ease-standard);
 }
 
 .topbar-primary-button:not(:disabled):hover,
 .topbar-primary-button:not(:disabled):focus-visible {
   background: var(--ui-control-hover);
   color: var(--ui-text);
+  box-shadow: var(--ui-elevation-1);
+}
+
+.topbar-primary-button:focus-visible {
+  outline: 0;
+  box-shadow: var(--ui-focus-ring), var(--ui-elevation-1);
+}
+
+.topbar-primary-button:not(:disabled):active {
+  transform: scale(.98);
 }
 
 .topbar-primary-button.active,
@@ -877,7 +964,7 @@ dialog[open] #modalClose.modal-close:hover{
   background-image: none !important;
   border-radius: 12px !important;
   color: var(--ui-control-text-active) !important;
-  box-shadow: none !important;
+  box-shadow: var(--ui-elevation-1) !important;
   transform: none !important;
 }
 /* Scroll-to-top button */
@@ -951,21 +1038,22 @@ dialog[open] #modalClose.modal-close:hover{
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  border: 1px solid var(--ui-line);
+  border: 1px solid var(--ui-stroke-subtle);
   border-radius: 16px;
-  background: var(--ui-surface);
+  background: var(--ui-surface-raised);
   background-image: none;
   color: var(--ui-control-text-active);
   text-align: left;
-  box-shadow: none;
+  box-shadow: 0 1px 1px color-mix(in srgb, var(--ui-text) 3%, transparent);
   overflow: hidden;
   content-visibility: auto;
   contain-intrinsic-size: auto var(--catalog-card-min-height);
   transform: none;
   transition:
-    background 0.18s ease,
-    border-color 0.18s ease,
-    transform 0.18s ease;
+    background-color var(--motion-standard) var(--ease-standard),
+    border-color var(--motion-standard) var(--ease-standard),
+    box-shadow var(--motion-standard) var(--ease-standard),
+    transform var(--motion-standard) var(--ease-emphasized);
 }
 
 .category-card::before,
@@ -1080,18 +1168,20 @@ dialog[open] #modalClose.modal-close:hover{
 
 .app-panel.active {
   display: block !important;
+  animation: fluent-panel-enter var(--motion-enter) var(--ease-standard) both;
 }
 
 html.route-booting .app-shell {
   visibility: hidden;
 }
 
-/* Gentle interactions for cards and popover links, without shadows. */
+/* Gentle interactions for cards and popover links. */
 .catalog-card:hover,
 .product-card:hover{
   transform: translateY(-2px) !important;
-  background: var(--ui-control) !important;
-  border: 1px solid var(--ui-line) !important;
+  background: var(--ui-surface-raised) !important;
+  border: 1px solid color-mix(in srgb, var(--ui-accent) 22%, var(--ui-stroke-subtle)) !important;
+  box-shadow: var(--ui-elevation-1) !important;
 }
 
 .catalog-card:active,
@@ -1100,7 +1190,7 @@ html.route-booting .app-shell {
 }
 
 .modal-art {
-  background: var(--ui-section-bg);
+  background: color-mix(in srgb, var(--ui-section-bg) 82%, var(--ui-surface-raised) 18%);
   background-image: none;
   position: relative;
 }
@@ -1127,7 +1217,7 @@ html.route-booting .app-shell {
 }
 
 .modal-info {
-  background: var(--ui-surface);
+  background: var(--ui-surface-raised);
   background-image: none;
 }
 
@@ -1233,12 +1323,13 @@ dialog[open] #modalClose.modal-close {
   z-index: 2000;
   width: min(280px, calc(100vw - 28px));
   padding: 12px 14px;
-  border: 1px solid var(--ui-line);
+  border: 1px solid var(--ui-stroke-subtle);
   border-radius: var(--ui-radius);
-  background: var(--ui-surface);
+  background: var(--ui-surface-raised);
   color: var(--ui-text);
-  box-shadow: none;
+  box-shadow: var(--ui-elevation-2);
   pointer-events: none;
+  animation: fluent-popover-enter var(--motion-enter) var(--ease-emphasized) both;
 }
 
 .modal-tag-popover strong {
@@ -1315,6 +1406,7 @@ body.is-modal-open:not(.is-overview) .topbar {
   z-index: 0;
   background: rgba(17, 24, 39, 0.58);
   pointer-events: auto;
+  animation: fluent-fade-in var(--motion-standard) var(--ease-standard) both;
 }
 
 #modalContent {
@@ -1349,11 +1441,12 @@ dialog[open] .modal-inner {
   grid-template-rows: var(--modal-inner-rows) !important;
   overflow: hidden !important;
   margin: 0 !important;
-  border: 0 !important;
+  border: 1px solid var(--ui-stroke-subtle) !important;
   outline: 0 !important;
   border-radius: 26px !important;
-  background: var(--ui-surface) !important;
-  box-shadow: none !important;
+  background: var(--ui-surface-raised) !important;
+  box-shadow: var(--ui-elevation-2) !important;
+  animation: fluent-modal-enter var(--motion-enter) var(--ease-emphasized) both;
 }
 
 dialog[open] .modal-info {
@@ -1704,11 +1797,12 @@ dialog[open] .product-modal-name {
   min-height: var(--filter-dropdown-height, 48px);
   max-height: var(--filter-dropdown-height, 48px);
   padding: 4px;
-  border: 1px solid var(--ui-line);
+  border: 1px solid var(--ui-stroke-subtle);
   border-radius: var(--ui-radius);
-  background: var(--ui-surface);
+  background: var(--ui-surface-raised);
   background-clip: padding-box;
   color: var(--ui-control-text-active);
+  box-shadow: 0 1px 1px color-mix(in srgb, var(--ui-text) 3%, transparent);
 }
 
 .release-region-tabs button {
@@ -1735,9 +1829,10 @@ dialog[open] .product-modal-name {
   padding: 12px;
   display: flex;
   flex-direction: column;
-  background: var(--ui-surface);
-  border: 1px solid var(--ui-line);
+  background: var(--ui-surface-raised);
+  border: 1px solid var(--ui-stroke-subtle);
   border-radius: 18px;
+  box-shadow: 0 1px 1px color-mix(in srgb, var(--ui-text) 3%, transparent);
 }
 
 dialog[open] .modal-inner.category-anime-modal {
@@ -1918,7 +2013,7 @@ dialog[open] .category-anime-info .anime-episode-title-row .category-title {
 .anime-episode-table tbody .anime-episode-row:focus-visible td,
 .release-table tbody .release-product-row:hover td,
 .release-table tbody .release-product-row:focus-visible td {
-  background: var(--ui-control);
+  background: var(--ui-control-hover);
   color: var(--ui-text);
 }
 
@@ -2398,7 +2493,7 @@ dialog[open] .modal-info.part-modal-info .modal-name {
   box-shadow: none;
   outline: 0;
   cursor: pointer;
-  transition: background-color .16s ease, color .16s ease, border-color .16s ease, transform .16s ease;
+  transition: background-color var(--motion-standard) var(--ease-standard), color var(--motion-standard) var(--ease-standard), box-shadow var(--motion-standard) var(--ease-standard), transform var(--motion-fast) var(--ease-standard);
 }
 
 .ui-button:hover,
@@ -2409,6 +2504,16 @@ dialog[open] .modal-info.part-modal-info .modal-name {
 .ui-icon-button:focus-visible {
   background: var(--ui-control-hover) !important;
   color: var(--ui-control-text-active) !important;
+}
+
+.ui-button:focus-visible,
+.ui-icon-button:focus-visible {
+  box-shadow: var(--ui-focus-ring) !important;
+}
+
+.ui-button:active,
+.ui-icon-button:active {
+  transform: scale(.98);
 }
 
 .ui-card-button {
@@ -2435,7 +2540,7 @@ dialog[open] .modal-info.part-modal-info .modal-name {
   outline: 0;
   line-height: 1;
   cursor: pointer;
-  transition: background-color .16s ease, color .16s ease, border-color .16s ease, transform .16s ease;
+  transition: background-color var(--motion-standard) var(--ease-standard), color var(--motion-standard) var(--ease-standard), box-shadow var(--motion-standard) var(--ease-standard), transform var(--motion-fast) var(--ease-standard);
 }
 
 dialog[open] .modal-step {
@@ -2560,6 +2665,7 @@ dialog[open] .modal-step-next::after {
   text-overflow: var(--dropdown-item-text-overflow, clip);
   white-space: var(--dropdown-item-white-space, nowrap);
   cursor: pointer;
+  transition: background-color var(--motion-standard) var(--ease-standard), color var(--motion-standard) var(--ease-standard), transform var(--motion-fast) var(--ease-standard);
 }
 
 .ui-dropdown-item:hover,
@@ -2570,6 +2676,11 @@ dialog[open] .modal-step-next::after {
 .catalog-dropdown-menu button.active {
   background: var(--ui-control-hover) !important;
   color: var(--ui-control-text-active) !important;
+}
+
+.ui-dropdown-item:active,
+.catalog-dropdown-menu button:active {
+  transform: scale(.99);
 }
 
 .ui-data-table {
@@ -2589,7 +2700,7 @@ dialog[open] .modal-step-next::after {
 }
 
 .ui-data-table th {
-  background: var(--ui-surface);
+  background: var(--ui-surface-raised);
   color: var(--ui-muted);
   font-size: var(--font-md);
   font-weight: 600;
@@ -2604,6 +2715,7 @@ dialog[open] .modal-step-next::after {
   padding: 11px 12px;
   vertical-align: middle;
   white-space: nowrap;
+  transition: background-color var(--motion-standard) var(--ease-standard), color var(--motion-standard) var(--ease-standard);
 }
 
 .ui-data-table th:first-child,
@@ -2638,7 +2750,7 @@ dialog[open] .modal-step-next::after {
   box-shadow: none;
   filter: none;
   transform: none;
-  transition: background-color .16s ease, color .16s ease;
+  transition: background-color var(--motion-standard) var(--ease-standard), color var(--motion-standard) var(--ease-standard), box-shadow var(--motion-standard) var(--ease-standard);
 }
 
 .ui-list-link:hover,
@@ -3323,12 +3435,17 @@ body.is-overview .app-shell {
   background-clip: padding-box;
   color: var(--ui-text);
   text-align: left;
+  transition: background-color var(--motion-standard) var(--ease-standard), color var(--motion-standard) var(--ease-standard), transform var(--motion-fast) var(--ease-standard);
 }
 
 .search-result-item:hover,
 .search-result-item:focus-visible {
-  background: var(--ui-control) !important;
+  background: var(--ui-control-hover) !important;
   outline: 0 !important;
+}
+
+.search-result-item:active {
+  transform: scale(.995);
 }
 
 .search-result-kind {
@@ -3405,6 +3522,7 @@ body.is-overview .app-shell {
   color: var(--ui-muted);
   font-size: var(--font-sm);
   font-weight: 500;
+  transition: background-color var(--motion-standard) var(--ease-standard), color var(--motion-standard) var(--ease-standard), box-shadow var(--motion-standard) var(--ease-standard), transform var(--motion-fast) var(--ease-standard);
 }
 
 .search-results-pagination .ui-button:hover,
@@ -3415,6 +3533,7 @@ body.is-overview .app-shell {
 .catalog-pagination-nav .ui-button.active {
   background: var(--ui-control-hover) !important;
   color: var(--ui-control-text-active) !important;
+  box-shadow: var(--ui-elevation-1) !important;
 }
 
 .search-results-pagination .ui-button:disabled,
@@ -3460,13 +3579,15 @@ body.is-overview .app-shell {
   gap: 6px;
   overflow-x: hidden !important;
   overflow-y: visible;
-  border: 1px solid var(--ui-line);
+  border: 1px solid var(--ui-stroke-subtle);
   border-radius: var(--ui-panel-radius);
-  background: var(--ui-surface);
+  background: var(--ui-surface-raised);
   color: var(--ui-text);
-  box-shadow: var(--ui-shadow-soft);
+  box-shadow: var(--ui-elevation-2);
   scrollbar-width: thin;
   scrollbar-color: var(--ui-line) transparent;
+  transform-origin: top center;
+  animation: fluent-popover-enter var(--motion-enter) var(--ease-emphasized) both;
 }
 
 .search-preview[hidden] {
@@ -3482,7 +3603,7 @@ body.is-overview .app-shell {
 .search-preview .search-result-item:focus-visible,
 .search-preview .search-result-item[aria-selected="true"],
 .search-preview .search-result-item.is-active {
-  background: var(--ui-control) !important;
+  background: var(--ui-control-hover) !important;
   outline: 0 !important;
 }
 
@@ -3501,11 +3622,12 @@ body.is-overview .app-shell {
   font-size: var(--font-sm);
   font-weight: 500;
   text-align: left;
+  transition: background-color var(--motion-standard) var(--ease-standard), color var(--motion-standard) var(--ease-standard);
 }
 
 .search-preview-all:hover,
 .search-preview-all:focus-visible {
-  background: var(--ui-control) !important;
+  background: var(--ui-control-hover) !important;
   outline: 0 !important;
 }
 
@@ -3617,6 +3739,7 @@ body.is-overview .app-shell {
 .menu-button:hover,
 .menu-button:focus-visible {
   background: var(--ui-control-hover);
+  box-shadow: var(--ui-elevation-1);
 }
 
 body.menu-open .menu-button {
@@ -3652,15 +3775,13 @@ body.menu-open {
   grid-template-rows: auto auto auto minmax(0, 1fr);
   gap: var(--sidebar-button-y-gap);
   padding: 22px 18px max(18px, env(safe-area-inset-bottom));
-  border: 1px solid var(--sidebar-stroke-strong);
+  border: 1px solid var(--ui-stroke-subtle);
   border-left: 0;
   border-radius: 0 22px 22px 0;
-  background:
-    linear-gradient(180deg, color-mix(in srgb, var(--ui-surface) 48%, transparent), color-mix(in srgb, var(--ui-surface) 12%, transparent)),
-    color-mix(in srgb, var(--ui-bg) 88%, var(--ui-surface) 12%);
-  box-shadow: 12px 0 40px color-mix(in srgb, var(--ui-text) 8%, transparent);
-  backdrop-filter: blur(28px) saturate(150%);
-  -webkit-backdrop-filter: blur(28px) saturate(150%);
+  background: var(--ui-surface-glass);
+  box-shadow: var(--ui-elevation-2);
+  backdrop-filter: blur(18px) saturate(145%);
+  -webkit-backdrop-filter: blur(18px) saturate(145%);
   overflow-x: hidden;
   overflow-y: hidden;
   opacity: 0;
@@ -3668,7 +3789,7 @@ body.menu-open {
   transform: translateX(calc(-100% - 10px));
   visibility: hidden;
   z-index: 140;
-  transition: transform .2s ease, opacity .2s ease, visibility .2s ease;
+  transition: transform var(--motion-enter) var(--ease-emphasized), opacity var(--motion-enter) var(--ease-standard), visibility var(--motion-enter) var(--ease-standard);
 }
 
 body.menu-open .mobile-drawer {
@@ -3699,7 +3820,7 @@ body.menu-open .mobile-drawer {
   box-shadow: none;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-  transition: background-color .14s ease, color .14s ease, transform .14s ease;
+  transition: background-color var(--motion-standard) var(--ease-standard), color var(--motion-standard) var(--ease-standard), box-shadow var(--motion-standard) var(--ease-standard), transform var(--motion-fast) var(--ease-standard);
 }
 
 .mobile-drawer-close svg {
@@ -3847,7 +3968,7 @@ body.menu-open .mobile-drawer {
   user-select: none;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-  transition: background-color .14s ease, color .14s ease, transform .14s ease;
+  transition: background-color var(--motion-standard) var(--ease-standard), color var(--motion-standard) var(--ease-standard), box-shadow var(--motion-standard) var(--ease-standard), transform var(--motion-fast) var(--ease-standard);
 }
 
 .sidebar-root .sidebar-button--child {
@@ -3864,12 +3985,13 @@ body.menu-open .mobile-drawer {
 .mobile-drawer-close:focus-visible {
   background: var(--sidebar-hover-bg);
   color: var(--ui-text);
-  box-shadow: none;
+  box-shadow: var(--ui-elevation-1);
 }
 
 .sidebar-root .sidebar-button:focus-visible,
 .mobile-drawer-close:focus-visible {
-  outline: 3px solid color-mix(in srgb, var(--sidebar-accent) 26%, transparent);
+  outline: 0;
+  box-shadow: var(--ui-focus-ring), var(--ui-elevation-1);
   outline-offset: 2px;
 }
 
@@ -3968,8 +4090,22 @@ body.menu-open .mobile-drawer {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .mobile-drawer {
-    transition: none !important;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+  }
+
+  .app-panel.active,
+  .catalog-dropdown[open] > .catalog-dropdown-menu,
+  .search-preview,
+  .modal-tag-popover,
+  .modal-overlay,
+  dialog[open] .modal-inner {
+    animation: none !important;
   }
 }
 
