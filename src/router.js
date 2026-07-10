@@ -440,6 +440,7 @@ const positionSearchHelpPopover = (button, popover) => {
   if (!button || !popover || popover.hidden) return;
   const margin = rootPixelValue("--floating-layer-edge", 12);
   const gap = rootPixelValue("--floating-layer-gap", 8);
+  const isCompact = window.matchMedia?.("(max-width: 63.999rem)")?.matches;
   const viewport = window.visualViewport;
   const viewportLeft = viewport?.offsetLeft || 0;
   const viewportTop = viewport?.offsetTop || 0;
@@ -452,6 +453,32 @@ const positionSearchHelpPopover = (button, popover) => {
   const minTop = Math.max(viewportTop + margin, topbarBottom + margin);
   const maxTop = viewportTop + viewportHeight - margin;
   const buttonRect = button.getBoundingClientRect();
+  popover.style.width = "";
+  popover.style.maxHeight = "";
+  if (isCompact) {
+    const controlBar = button.closest(".catalog-control-bar");
+    const anchorRow = button.closest(".catalog-search-controls, .catalog-toolbar") || button;
+    const contentRect = (controlBar || anchorRow).getBoundingClientRect();
+    const anchorRect = anchorRow.getBoundingClientRect();
+    const availableLeft = Math.max(minLeft, contentRect.left);
+    const availableRight = Math.min(maxLeft, contentRect.right || maxLeft);
+    const availableWidth = Math.max(0, availableRight - availableLeft);
+    const width = Math.min(360, Math.max(160, availableWidth), Math.max(0, maxLeft - minLeft));
+    let left = Math.min(Math.max(availableLeft, minLeft), maxLeft - width);
+    let top = Math.max(anchorRect.bottom + gap, minTop);
+    let availableHeight = maxTop - top;
+    const viewportAvailableHeight = Math.max(0, maxTop - minTop);
+    const minReadableHeight = Math.min(140, viewportAvailableHeight);
+    if (availableHeight < minReadableHeight) {
+      top = Math.max(minTop, maxTop - minReadableHeight);
+      availableHeight = maxTop - top;
+    }
+    popover.style.width = `${Math.floor(Math.min(width, maxLeft - left))}px`;
+    popover.style.maxHeight = `${Math.floor(Math.max(80, Math.min(availableHeight, viewportAvailableHeight)))}px`;
+    popover.style.left = `${Math.floor(left)}px`;
+    popover.style.top = `${Math.floor(top)}px`;
+    return;
+  }
   const popoverRect = popover.getBoundingClientRect();
   let left = buttonRect.left;
   let top = buttonRect.bottom + gap;
@@ -491,6 +518,8 @@ class FloatingPopoverController {
   close() {
     if (!this.popover) return;
     this.popover.hidden = true;
+    this.popover.style.width = "";
+    this.popover.style.maxHeight = "";
     this.button?.setAttribute("aria-expanded", "false");
   }
 
@@ -499,6 +528,9 @@ class FloatingPopoverController {
     closeAllSearchPreviews();
     closeOpenCatalogDropdowns();
     closeSearchHelpPopovers(this);
+    if (this.popover.parentNode !== document.body) {
+      document.body.appendChild(this.popover);
+    }
     this.popover.hidden = false;
     this.button?.setAttribute("aria-expanded", "true");
     this.position();
