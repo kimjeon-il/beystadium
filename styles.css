@@ -191,7 +191,7 @@ a,
 @keyframes fluent-modal-drill-enter {
   from {
     opacity: .001;
-    transform: translateX(14px) scale(.992);
+    transform: translateX(8px) scale(.992);
   }
   to {
     opacity: 1;
@@ -213,7 +213,7 @@ a,
 @keyframes fluent-modal-back-enter {
   from {
     opacity: .001;
-    transform: translateX(-14px) scale(.992);
+    transform: translateX(-8px) scale(.992);
   }
   to {
     opacity: 1;
@@ -224,7 +224,7 @@ a,
 @keyframes fluent-modal-step-prev {
   from {
     opacity: .001;
-    transform: translateX(-18px) scale(.992);
+    transform: translateX(-11px) scale(.992);
   }
   to {
     opacity: 1;
@@ -235,7 +235,7 @@ a,
 @keyframes fluent-modal-step-next {
   from {
     opacity: .001;
-    transform: translateX(18px) scale(.992);
+    transform: translateX(11px) scale(.992);
   }
   to {
     opacity: 1;
@@ -447,7 +447,7 @@ dialog[open] .modal-scroll-area::-webkit-scrollbar-corner,
   border: 1px solid var(--ui-stroke-subtle);
   border-radius: var(--ui-radius);
   background: var(--ui-surface-raised);
-  box-shadow: 0 1px 1px color-mix(in srgb, var(--ui-text) 4%, transparent);
+  box-shadow: none;
   color: var(--ui-control-text-active);
   overflow: visible;
   transition: background-color var(--motion-standard) var(--ease-standard), border-color var(--motion-standard) var(--ease-standard), box-shadow var(--motion-standard) var(--ease-standard);
@@ -909,7 +909,7 @@ body.is-overview .topbar-search {
 .topbar-primary-button[aria-current="page"] {
   background: var(--ui-control-hover);
   color: var(--ui-control-text-active);
-  box-shadow: var(--ui-elevation-1);
+  box-shadow: none;
 }
 
 .topbar-primary-button.disabled,
@@ -936,7 +936,6 @@ body.is-overview .topbar-search {
 .app-shell {
   --section-heading-align: flex-end;
   --catalog-grid-min-card-width: clamp(148px, 19vw, 244px);
-  --catalog-grid-single-card-width: var(--catalog-grid-min-card-width);
   --catalog-grid-columns: repeat(auto-fit, minmax(min(100%, var(--catalog-grid-min-card-width)), 1fr));
   --catalog-grid-max-width: min(var(--page-max), 1320px);
   --catalog-content-max: var(--catalog-grid-max-width);
@@ -1147,7 +1146,7 @@ dialog[open] #modalClose.modal-close:hover{
 
 .category-collection__grid.is-single-result,
 .catalog-grid.is-single-result{
-  grid-template-columns: minmax(0, min(100%, var(--catalog-grid-single-card-width)));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--catalog-grid-min-card-width)), 1fr));
   justify-content: start;
 }
 
@@ -1294,8 +1293,16 @@ dialog[open] #modalClose.modal-close:hover{
   animation: fluent-panel-enter var(--motion-enter) var(--ease-standard) both;
 }
 
-html.route-booting .app-shell {
-  visibility: hidden;
+html.route-booting body {
+  background: var(--ui-bg);
+}
+
+html.route-booting .topbar,
+html.route-booting main,
+html.route-booting .mobile-drawer,
+html.route-booting #detailModal,
+html.route-booting .to-top {
+  visibility: hidden !important;
 }
 
 /* Gentle interactions for cards and popover links. */
@@ -1982,7 +1989,7 @@ dialog[open] .product-modal-name {
   background: var(--ui-surface-raised);
   background-clip: padding-box;
   color: var(--ui-control-text-active);
-  box-shadow: 0 1px 1px color-mix(in srgb, var(--ui-text) 3%, transparent);
+  box-shadow: none;
 }
 
 .release-region-tabs button {
@@ -2012,7 +2019,7 @@ dialog[open] .product-modal-name {
   background: var(--ui-surface-raised);
   border: 1px solid var(--ui-stroke-subtle);
   border-radius: 18px;
-  box-shadow: 0 1px 1px color-mix(in srgb, var(--ui-text) 3%, transparent);
+  box-shadow: none;
 }
 
 dialog[open] .modal-inner.category-anime-modal {
@@ -2838,6 +2845,8 @@ dialog[open] .modal-step-next::after {
 
 .ui-dropdown-item,
 .catalog-dropdown-menu button {
+  position: relative;
+  isolation: isolate;
   width: 100%;
   min-width: var(--dropdown-item-min-width, auto);
   min-height: 38px;
@@ -2857,7 +2866,22 @@ dialog[open] .modal-step-next::after {
   text-overflow: var(--dropdown-item-text-overflow, clip);
   white-space: var(--dropdown-item-white-space, nowrap);
   cursor: pointer;
-  transition: background-color var(--motion-standard) var(--ease-standard), color var(--motion-standard) var(--ease-standard), transform var(--motion-fast) var(--ease-standard);
+  transition: color var(--motion-standard) var(--ease-standard), transform var(--motion-fast) var(--ease-standard);
+}
+
+.ui-dropdown-item::before,
+.catalog-dropdown-menu button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: var(--ui-control-hover);
+  opacity: 0;
+  transform: scale(.96);
+  transform-origin: center;
+  transition: opacity var(--motion-standard) var(--ease-emphasized), transform var(--motion-standard) var(--ease-emphasized);
+  pointer-events: none;
 }
 
 .ui-dropdown-item:hover,
@@ -2866,15 +2890,18 @@ dialog[open] .modal-step-next::after {
 .catalog-dropdown-menu button:hover,
 .catalog-dropdown-menu button:focus-visible,
 .catalog-dropdown-menu button.active {
-  background: var(--ui-control-hover) !important;
+  background: transparent !important;
   color: var(--ui-control-text-active) !important;
 }
 
-.ui-dropdown-item:hover,
-.ui-dropdown-item:focus-visible,
-.catalog-dropdown-menu button:hover,
-.catalog-dropdown-menu button:focus-visible {
-  transform: translateY(var(--hover-lift-y));
+.ui-dropdown-item:hover::before,
+.ui-dropdown-item:focus-visible::before,
+.ui-dropdown-item.active::before,
+.catalog-dropdown-menu button:hover::before,
+.catalog-dropdown-menu button:focus-visible::before,
+.catalog-dropdown-menu button.active::before {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .ui-dropdown-item:active,
@@ -2930,6 +2957,8 @@ dialog[open] .modal-step-next::after {
 .ui-list-link,
 .product-composition-item,
 .mounted-link {
+  position: relative;
+  isolation: isolate;
   width: 100%;
   display: grid;
   align-items: center;
@@ -2948,8 +2977,24 @@ dialog[open] .modal-step-next::after {
   text-decoration: none;
   box-shadow: none;
   filter: none;
+  overflow: hidden;
   transform: none;
   transition: background-color var(--motion-standard) var(--ease-standard), color var(--motion-standard) var(--ease-standard), box-shadow var(--motion-standard) var(--ease-standard);
+}
+
+.product-composition-item::before,
+.mounted-link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: var(--ui-control-hover);
+  opacity: 0;
+  transform: scale(.96);
+  transform-origin: center;
+  transition: opacity var(--motion-standard) var(--ease-emphasized), transform var(--motion-standard) var(--ease-emphasized);
+  pointer-events: none;
 }
 
 .ui-list-link:hover,
@@ -2966,8 +3011,16 @@ dialog[open] .modal-step-next::after {
 .product-composition .product-composition-item:focus-visible,
 .mounted-parts .mounted-link:hover,
 .mounted-parts .mounted-link:focus-visible {
-  background: var(--ui-control-hover) !important;
+  background: transparent !important;
   color: var(--ui-text) !important;
+}
+
+.product-composition .product-composition-item:hover::before,
+.product-composition .product-composition-item:focus-visible::before,
+.mounted-parts .mounted-link:hover::before,
+.mounted-parts .mounted-link:focus-visible::before {
+  opacity: 1;
+  transform: scale(1);
 }
 
 /* Canonical brand style. */
@@ -3698,13 +3751,18 @@ body.is-overview .app-shell {
 
 .search-results-pagination .ui-button:hover,
 .search-results-pagination .ui-button:focus-visible,
-.search-results-pagination .ui-button.active,
 .catalog-pagination-nav .ui-button:hover,
-.catalog-pagination-nav .ui-button:focus-visible,
-.catalog-pagination-nav .ui-button.active {
+.catalog-pagination-nav .ui-button:focus-visible {
   background: var(--ui-control-hover) !important;
   color: var(--ui-control-text-active) !important;
   box-shadow: var(--ui-elevation-1) !important;
+}
+
+.search-results-pagination .ui-button.active,
+.catalog-pagination-nav .ui-button.active {
+  background: var(--ui-control-hover) !important;
+  color: var(--ui-control-text-active) !important;
+  box-shadow: none !important;
 }
 
 .search-results-pagination .ui-button:disabled,
@@ -4293,10 +4351,6 @@ body.menu-open .mobile-drawer {
   .ui-icon-button:not(:disabled):not([aria-disabled="true"]):focus-visible,
   .ui-tab-button:not(.sidebar-button):hover,
   .ui-tab-button:not(.sidebar-button):focus-visible,
-  .ui-dropdown-item:hover,
-  .ui-dropdown-item:focus-visible,
-  .catalog-dropdown-menu button:hover,
-  .catalog-dropdown-menu button:focus-visible,
   .search-result-item:hover,
   .search-result-item:focus-visible,
   .search-preview-all:hover,
@@ -4306,6 +4360,14 @@ body.menu-open .mobile-drawer {
   .mobile-drawer-close:hover,
   .mobile-drawer-close:focus-visible {
     transform: none !important;
+  }
+
+  .ui-dropdown-item::before,
+  .catalog-dropdown-menu button::before,
+  .product-composition-item::before,
+  .mounted-link::before {
+    transform: none !important;
+    transition: opacity 1ms linear !important;
   }
 }
 
