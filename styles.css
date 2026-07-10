@@ -24,11 +24,11 @@
   --ui-accent: light-dark(#334155, #d7dee8);
   --ui-brand-bg: light-dark(#475569, #2f3b4d);
   --ui-brand-text: #f3f6fa;
-  --font-xs: .8125rem;
-  --font-sm: .875rem;
-  --font-md: 1rem;
-  --font-xl: 1.375rem;
-  --font-title: clamp(1.75rem, 2.4vw, 2.25rem);
+  --font-xs: .75rem;
+  --font-sm: .8125rem;
+  --font-md: .9375rem;
+  --font-xl: 1.25rem;
+  --font-title: 1.625rem;
   --font-hero: clamp(3rem, 7vw, 5rem);
   --ui-radius: 12px;
   --ui-panel-radius: 14px;
@@ -570,44 +570,32 @@ main {
   top: 0;
   z-index: 110;
   --topbar-side-size: 44px;
-  --topbar-nav-width: max-content;
-  --topbar-shell-y: 8px;
+  --topbar-content-inset: max(var(--page-gutter), calc((100% - var(--catalog-content-max, min(var(--page-max), 1320px))) / 2));
   box-sizing: border-box;
-  width: max-content;
-  max-width: calc(100vw - var(--page-gutter) - var(--page-gutter));
+  width: 100%;
+  max-width: none;
   height: 72px;
   min-height: 72px;
-  padding: 0 8px;
+  padding: 0 var(--topbar-content-inset);
   display: grid;
-  grid-template-columns: var(--topbar-side-size) auto minmax(0, var(--topbar-nav-width));
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
-  gap: 0;
-  justify-content: center;
-  margin: 0 auto;
-  background: transparent;
+  gap: clamp(18px, 3vw, 36px);
+  justify-content: stretch;
+  margin: 0;
+  background: color-mix(in srgb, var(--ui-bg) 94%, var(--ui-surface) 6%);
   background-image: none;
   color: var(--ui-text);
-  border-bottom: 0;
-  box-shadow: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--ui-line) 76%, transparent);
+  box-shadow: 0 1px 0 color-mix(in srgb, white 45%, transparent);
   isolation: isolate;
   overflow: visible;
 }
 
 .topbar::before {
-  content: "";
-  position: absolute;
-  z-index: 0;
-  left: 0;
-  right: 0;
-  top: var(--topbar-shell-y);
-  bottom: var(--topbar-shell-y);
-  border: 1px solid var(--ui-line);
-  border-radius: var(--ui-panel-radius, 18px);
-  background: color-mix(in srgb, var(--ui-surface) 88%, var(--ui-bg) 12%);
-  pointer-events: none;
+  content: none;
 }
 
-.topbar-home,
 .topbar-menu-button {
   position: relative;
   z-index: 1;
@@ -625,51 +613,23 @@ main {
   transition: background-color .16s ease, color .16s ease;
 }
 
-.topbar-home:hover,
-.topbar-home:focus-visible,
 .topbar-menu-button:hover,
 .topbar-menu-button:focus-visible {
   background: var(--ui-control-hover);
   color: var(--ui-text);
 }
 
-.topbar-home.active,
-.topbar-home[aria-current="page"] {
-  background: var(--ui-control-hover);
-  color: var(--ui-control-text-active);
-}
-
-.topbar-home svg {
-  width: 22px;
-  height: 22px;
-  display: block;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.9;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.topbar-home-divider {
-  position: relative;
-  z-index: 1;
-  width: 1px;
-  height: 20px;
-  margin: 0 10px;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--ui-line) 78%, transparent);
-}
-
 .topbar-primary-nav {
   position: relative;
   z-index: 1;
-  width: var(--topbar-nav-width);
+  width: auto;
   max-width: 100%;
+  grid-column: 2;
   justify-self: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 8px;
   overflow-x: auto;
   scrollbar-width: none;
 }
@@ -678,40 +638,61 @@ main {
   display: none;
 }
 
+.topbar-search {
+  --unified-search-width: min(340px, 100%);
+  --unified-search-max-width: 340px;
+  --unified-search-margin: 0;
+  --unified-search-justify: flex-end;
+  grid-column: 3;
+  justify-self: end;
+  width: min(340px, 100%);
+  min-width: min(220px, 100%);
+}
+
+body.is-overview .topbar-search {
+  display: none;
+}
+
+.topbar-search-box {
+  --global-search-box-flex: 1 1 auto;
+  --search-box-width: 100%;
+  --search-box-min-width: 0;
+  --search-box-max-width: 100%;
+  --search-box-block-height: 44px;
+  --search-box-padding: 0 12px 0 8px;
+  --search-box-gap: 8px;
+  --search-scope-min-width: 58px;
+  --search-scope-max-width: 70px;
+  --search-scope-height: 34px;
+  --search-scope-summary-height: 34px;
+  --search-scope-summary-padding: 0 20px 0 9px;
+  --search-scope-font-size: var(--font-sm);
+  --search-scope-arrow-right: 9px;
+  --search-scope-menu-z: 130;
+}
+
 .topbar-primary-button {
   appearance: none;
   flex: 0 0 auto;
+  width: max-content;
   min-width: 0;
+  min-height: var(--topbar-side-size);
+  justify-self: center;
+  padding: 0 14px;
   border: 0;
   border-radius: var(--ui-radius);
   background: transparent;
   color: var(--ui-muted);
   box-shadow: none;
   font-family: inherit;
+  font-size: var(--font-md);
+  font-weight: 600;
   line-height: 1;
+  text-align: center;
   white-space: nowrap;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   transition: background-color .16s ease, color .16s ease;
-}
-
-.topbar-primary-button {
-  width: max-content;
-  min-height: var(--topbar-side-size);
-  justify-self: center;
-  padding: 0 14px;
-  font-size: 1.125rem;
-  font-weight: 600;
-  text-align: center;
-}
-
-.topbar-nav-divider {
-  flex: 0 0 auto;
-  width: 1px;
-  height: 20px;
-  margin: 0 10px;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--ui-line) 78%, transparent);
 }
 
 .topbar-primary-button:not(:disabled):hover,
@@ -728,8 +709,9 @@ main {
 
 .topbar-primary-button.disabled,
 .topbar-primary-button:disabled {
-  color: color-mix(in srgb, var(--ui-muted) 48%, transparent);
-  cursor: default;
+  color: color-mix(in srgb, var(--ui-muted) 58%, transparent);
+  cursor: not-allowed;
+  opacity: .72;
   pointer-events: none;
 }
 
@@ -756,7 +738,7 @@ main {
   --catalog-card-min-height: clamp(132px, calc(118px + 2.8vw), 176px);
   --catalog-card-padding: clamp(10px, 1.1vw, 16px);
   --catalog-card-badge-padding: 0 clamp(6px, .6vw, 8px);
-  --catalog-card-badge-font-size: clamp(var(--font-xs), calc(.65rem + .2vw), var(--font-sm));
+  --catalog-card-badge-font-size: var(--font-xs);
   min-height: calc(100vh - 72px);
   padding: 56px 7vw 100px;
   padding-left: var(--page-gutter);
@@ -2678,32 +2660,33 @@ dialog[open] .modal-step-next::after {
 }
 
 /* Canonical brand style. */
-.brand:not(.topbar > .brand):not(.desktop-sidebar-brand) {
+.brand:not(.topbar > .brand) {
   display: none !important;
 }
 
 .topbar > .brand {
-  position: absolute;
-  left: var(--page-gutter);
-  top: 50%;
-  transform: translateY(-50%);
+  position: relative;
+  z-index: 1;
+  justify-self: start;
+  min-width: 0;
+  max-width: 100%;
+  transform: none;
   display: inline-flex;
   align-items: center;
   gap: 12px;
+  padding: 6px 8px 6px 0;
+  border-radius: var(--ui-radius);
   color: var(--ui-control-text-active);
   font-size: var(--font-md);
   font-weight: 800;
   line-height: 1;
   white-space: nowrap;
   text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
-body.is-overview .topbar > .brand {
-  display: none;
-}
-
-.brand:not(.desktop-sidebar-brand) span:not(.brand-mark),
-.brand:not(.desktop-sidebar-brand) span:not(.brand-mark) b {
+.brand span:not(.brand-mark),
+.brand span:not(.brand-mark) b {
   color: var(--ui-control-text-active);
   font-size: var(--font-md);
   font-weight: 800;
@@ -2743,7 +2726,7 @@ body.is-overview .app-shell {
 }
 
 .overview-home {
-  --overview-home-lift: clamp(-96px, -9svh, -64px);
+  --overview-home-lift: calc(clamp(52px, 8svh, 92px) * -1);
   width: min(100%, 960px);
   margin: 0 auto;
   display: grid;
@@ -2829,10 +2812,12 @@ body.is-overview .app-shell {
   overflow: visible;
 }
 
-.app-panel[data-app-panel="catalog"],
-.app-panel[data-app-panel="release"],
-.app-panel[data-app-panel="anime"],
-.app-panel[data-app-panel="anime-episodes"] {
+.app-panel:is(
+  [data-app-panel="catalog"],
+  [data-app-panel="release"],
+  [data-app-panel="anime"],
+  [data-app-panel="anime-episodes"]
+) {
   --toolbar-icon-button-size: var(--search-box-height, 48px);
   --section-heading-width: 100%;
   --section-heading-max-width: var(--catalog-content-max);
@@ -3664,7 +3649,7 @@ body.menu-open {
   width: min(calc(100vw - 32px), 320px);
   height: 100vh;
   display: grid;
-  grid-template-rows: auto auto minmax(0, 1fr);
+  grid-template-rows: auto auto auto minmax(0, 1fr);
   gap: var(--sidebar-button-y-gap);
   padding: 22px 18px max(18px, env(safe-area-inset-bottom));
   border: 1px solid var(--sidebar-stroke-strong);
@@ -3727,9 +3712,31 @@ body.menu-open .mobile-drawer {
   scrollbar-gutter: auto;
 }
 
-.desktop-sidebar {
-  display: none;
+.mobile-drawer-search {
+  --global-search-box-flex: 1 1 auto;
+  --search-box-width: 100%;
+  --search-box-min-width: 0;
+  --search-box-max-width: 100%;
+  --search-box-block-height: 46px;
+  --search-box-padding: 0 12px 0 8px;
+  --search-box-gap: 8px;
+  --search-scope-min-width: 58px;
+  --search-scope-max-width: 70px;
+  --search-scope-height: 34px;
+  --search-scope-summary-height: 34px;
+  --search-scope-summary-padding: 0 20px 0 9px;
+  --search-scope-font-size: var(--font-sm);
+  --search-scope-arrow-right: 9px;
+  --search-scope-menu-z: 170;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
 }
+
+.mobile-drawer-search .search-preview {
+  z-index: 150;
+}
+
 
 .sidebar-root {
   --sidebar-primary-font-size: var(--font-md);
@@ -3954,123 +3961,15 @@ body.menu-open .mobile-drawer {
   }
 
   body.is-overview .app-shell {
-    min-height: 100svh !important;
+    min-height: calc(100svh - 72px) !important;
   }
 
-  .desktop-sidebar {
-    --desktop-sidebar-rail-width: max(var(--sidebar-icon-slot-size), min(var(--page-gutter), 64px));
-    --desktop-sidebar-button-offset: max(0px, calc((var(--desktop-sidebar-rail-width) - var(--sidebar-icon-slot-size)) / 2));
-    --sidebar-button-width: var(--sidebar-icon-slot-size);
-    --sidebar-button-height: var(--sidebar-icon-slot-size);
-    --sidebar-button-min-height: var(--sidebar-icon-slot-size);
-    --sidebar-button-gap: 0;
-    --sidebar-button-margin: 0 0 0 var(--desktop-sidebar-button-offset);
-    --sidebar-button-grid: 24px minmax(0, 1fr);
-    --sidebar-button-font-size: var(--font-md);
-    --sidebar-button-font-weight: var(--sidebar-primary-font-weight);
-    --sidebar-button-overflow: hidden;
-    --sidebar-button-white-space: nowrap;
-    --sidebar-child-button-width: var(--sidebar-icon-slot-size);
-    --sidebar-child-button-min-height: var(--sidebar-icon-slot-size);
-    --sidebar-child-button-margin: 0 0 0 var(--desktop-sidebar-button-offset);
-    --sidebar-child-button-font-size: var(--font-md);
-    --sidebar-child-button-font-weight: var(--sidebar-primary-font-weight);
-    --sidebar-current-marker-width: 0;
-    --sidebar-current-marker-opacity: 0;
-    position: fixed;
-    inset: 0 auto 0 0;
-    width: var(--desktop-sidebar-rail-width);
-    height: 100vh;
-    display: grid;
-    grid-template-rows: auto auto minmax(0, 1fr);
-    gap: var(--sidebar-button-y-gap);
-    padding: 12px 0 max(12px, env(safe-area-inset-bottom));
-    border: 0;
-    border-right: 1px solid var(--sidebar-stroke-strong);
-    border-radius: 0;
-    background:
-      linear-gradient(180deg, color-mix(in srgb, var(--ui-surface) 48%, transparent), color-mix(in srgb, var(--ui-surface) 12%, transparent)),
-      color-mix(in srgb, var(--ui-bg) 88%, var(--ui-surface) 12%);
-    box-shadow: none;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    opacity: 1;
-    pointer-events: auto;
-    transform: none;
-    visibility: visible;
-    z-index: 120;
-  }
-
-  .desktop-sidebar .sidebar-button {
-    transform: none;
-    justify-self: start;
-  }
-
-  .desktop-sidebar .sidebar-button__icon {
-    justify-self: center;
-  }
-
-  .desktop-sidebar .sidebar-nav {
-    justify-items: center;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    scrollbar-width: none;
-  }
-
-  .desktop-sidebar .sidebar-nav::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-  }
-
-  .desktop-sidebar .sidebar-section {
-    justify-items: center;
-    width: 100%;
-  }
-
-  .desktop-sidebar .sidebar-group-label {
-    display: none;
-  }
-
-  .desktop-sidebar .sidebar-button__label {
-    width: auto;
-    min-width: 0;
-    height: auto;
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    border: 0;
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  .desktop-sidebar {
-    display: none !important;
-  }
 
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .mobile-drawer,
-  .desktop-sidebar {
+  .mobile-drawer {
     transition: none !important;
-  }
-}
-
-/* Topbar button placement stays consistent below the old rail breakpoint. */
-@media (max-width: 99.999rem) {
-  .topbar > .brand {
-    display: none !important;
-  }
-
-  .topbar .menu-button {
-    display: inline-flex;
-    left: auto;
-    right: auto;
   }
 }
 
@@ -4092,10 +3991,20 @@ body.menu-open .mobile-drawer {
     background: var(--ui-bg);
   }
 
-  .topbar-home,
-  .topbar-home-divider,
   .topbar-primary-nav {
     display: none !important;
+  }
+
+  .topbar > .brand {
+    display: none !important;
+  }
+
+  .topbar-search {
+    display: none !important;
+  }
+
+  .overview-home {
+    --overview-home-lift: calc(clamp(28px, 6svh, 56px) * -1);
   }
 
   .topbar::before {
@@ -4143,10 +4052,12 @@ body.menu-open .mobile-drawer {
     --stat-row-gap: 6px;
   }
 
-  .app-panel[data-app-panel="catalog"],
-  .app-panel[data-app-panel="release"],
-  .app-panel[data-app-panel="anime"],
-  .app-panel[data-app-panel="anime-episodes"] {
+  .app-panel:is(
+    [data-app-panel="catalog"],
+    [data-app-panel="release"],
+    [data-app-panel="anime"],
+    [data-app-panel="anime-episodes"]
+  ) {
     --section-heading-gap: clamp(10px, 2vw, 18px);
     --section-heading-margin: 0 auto clamp(12px, 1.8vw, 16px);
     --result-count-margin: 0 0 3px;
@@ -4161,6 +4072,10 @@ body.menu-open .mobile-drawer {
 }
 
 @media (max-width: 39.999rem) {
+  .overview-home {
+    --overview-home-lift: calc(clamp(20px, 5svh, 40px) * -1);
+  }
+
   dialog[open] {
     --modal-title-size-default: clamp(1.14rem, calc(0.385rem + 3.41vw), 1.75rem);
     --composition-visible-rows-default: 5;
@@ -4204,10 +4119,12 @@ body.menu-open .mobile-drawer {
       "search";
   }
 
-  .app-panel[data-app-panel="catalog"],
-  .app-panel[data-app-panel="release"],
-  .app-panel[data-app-panel="anime"],
-  .app-panel[data-app-panel="anime-episodes"] {
+  .app-panel:is(
+    [data-app-panel="catalog"],
+    [data-app-panel="release"],
+    [data-app-panel="anime"],
+    [data-app-panel="anime-episodes"]
+  ) {
     --section-heading-gap: 8px;
     --section-heading-margin: 0 auto 12px;
     --result-count-margin: 0 0 2px;
