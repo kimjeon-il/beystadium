@@ -427,10 +427,19 @@ const renderCatalogFilterChips = () => {
   });
   renderCatalogSortControl();
 };
+const rootPixelValue = (name, fallback) => {
+  const value = Number.parseFloat(getComputedStyle(document.documentElement).getPropertyValue(name));
+  return Number.isFinite(value) ? value : fallback;
+};
+function closeOpenCatalogDropdowns(exceptDropdown = null) {
+  document.querySelectorAll(".catalog-dropdown[open]").forEach(dropdown => {
+    if (dropdown !== exceptDropdown) dropdown.removeAttribute("open");
+  });
+}
 const positionSearchHelpPopover = (button, popover) => {
   if (!button || !popover || popover.hidden) return;
-  const margin = 12;
-  const gap = 8;
+  const margin = rootPixelValue("--floating-layer-edge", 12);
+  const gap = rootPixelValue("--floating-layer-gap", 8);
   const viewport = window.visualViewport;
   const viewportLeft = viewport?.offsetLeft || 0;
   const viewportTop = viewport?.offsetTop || 0;
@@ -487,6 +496,9 @@ class FloatingPopoverController {
 
   open() {
     if (!this.popover) return;
+    closeAllSearchPreviews();
+    closeOpenCatalogDropdowns();
+    closeSearchHelpPopovers(this);
     this.popover.hidden = false;
     this.button?.setAttribute("aria-expanded", "true");
     this.position();
@@ -510,7 +522,9 @@ const searchHelpPopovers = [
   new FloatingPopoverController({ button: animeSearchHelpButton, popover: animeSearchHelpPopover })
 ];
 const anySearchHelpPopoverIsOpen = () => searchHelpPopovers.some(controller => controller.isOpen());
-const closeSearchHelpPopovers = () => searchHelpPopovers.forEach(controller => controller.close());
+const closeSearchHelpPopovers = exceptController => searchHelpPopovers.forEach(controller => {
+  if (controller !== exceptController) controller.close();
+});
 const positionSearchHelpPopovers = () => searchHelpPopovers.forEach(controller => controller.position());
 const closeSearchHelpPopoversOnScroll = () => {
   if (anySearchHelpPopoverIsOpen()) closeSearchHelpPopovers();
@@ -568,17 +582,13 @@ bindPaginationControls({
 document.addEventListener("toggle", event => {
   const dropdown = event.target.closest?.(".catalog-dropdown");
   if (!dropdown?.open) return;
-  document.querySelectorAll(".catalog-dropdown[open]").forEach(openDropdown => {
-    if (openDropdown !== dropdown) openDropdown.removeAttribute("open");
-  });
+  closeOpenCatalogDropdowns(dropdown);
+  closeAllSearchPreviews();
+  closeSearchHelpPopovers();
 }, true);
 document.addEventListener("click", event => {
   if (!event.target.closest(".search-box") && !event.target.closest(".overview-search")) closeAllSearchPreviews();
-  if (!event.target.closest(".catalog-dropdown")) {
-    document.querySelectorAll(".catalog-dropdown[open]").forEach(dropdown => {
-      dropdown.removeAttribute("open");
-    });
-  }
+  if (!event.target.closest(".catalog-dropdown")) closeOpenCatalogDropdowns();
 });
 const updateToTop = () => {
   if (!toTop) return;

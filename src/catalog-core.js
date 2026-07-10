@@ -1419,6 +1419,10 @@ const searchPreviewItemButton = (entry, control, index) => {
     <span class="search-result-snippet">${escapeHtml(searchResultSnippet(entry))}</span>
   </button>`;
 };
+const closeSearchPreviewCompetingLayers = () => {
+  if (typeof closeOpenCatalogDropdowns === "function") closeOpenCatalogDropdowns();
+  if (typeof closeSearchHelpPopovers === "function") closeSearchHelpPopovers();
+};
 class SearchPreviewController {
   constructor(input, root) {
     this.input = input;
@@ -1480,6 +1484,7 @@ class SearchPreviewController {
       this.close();
       return;
     }
+    closeSearchPreviewCompetingLayers();
     closeAllSearchPreviews(this);
     this.entries = collectSearchPreviewItems(searchPreviewScopeValue(this.input), query);
     if (this.highlightedIndex >= this.entries.length) this.highlightedIndex = -1;
