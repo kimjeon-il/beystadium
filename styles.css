@@ -46,10 +46,12 @@
   --filter-dropdown-height: 48px;
   --filter-dropdown-gap: 10px;
   --search-box-height: 48px;
-  --compact-search-height: 44px;
+  --floating-layer-gap: 8px;
+  --floating-layer-edge: 12px;
+  --compact-search-height: 48px;
   --compact-search-padding: 0 12px 0 8px;
   --compact-search-gap: 8px;
-  --compact-search-scope-height: 34px;
+  --compact-search-scope-height: 32px;
   --compact-search-scope-min-width: 58px;
   --compact-search-scope-max-width: 70px;
   --compact-search-scope-padding: 0 20px 0 9px;
@@ -137,11 +139,11 @@ a,
 @keyframes fluent-popover-enter {
   from {
     opacity: .001;
-    transform: translateY(-4px) scale(.985);
+    transform: translate(var(--popover-enter-x, 0), -4px) scale(.985);
   }
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translate(var(--popover-enter-x, 0), 0) scale(1);
   }
 }
 
@@ -326,7 +328,7 @@ a,
 .catalog-dropdown-menu {
   position: absolute;
   left: 0;
-  top: calc(100% + 8px);
+  top: calc(100% + var(--floating-layer-gap));
   z-index: var(--catalog-dropdown-menu-z, 35);
   width: 100%;
   min-width: 100%;
@@ -654,7 +656,8 @@ dialog[open] .modal-scroll-area::-webkit-scrollbar-corner,
 }
 
 .search-scope.catalog-dropdown .catalog-dropdown-menu {
-  top: calc(100% + 8px);
+  --popover-enter-x: -50%;
+  top: calc(100% + var(--search-scope-menu-offset, var(--floating-layer-gap)));
   left: 50%;
   width: 96px;
   min-width: 96px;
@@ -2992,6 +2995,7 @@ body.is-overview .app-shell {
   --search-scope-summary-bg: var(--primary-search-scope-bg);
   --search-scope-summary-hover-bg: var(--primary-search-scope-bg-hover);
   --search-scope-arrow-right: 12px;
+  --search-scope-menu-offset: calc((var(--primary-search-height) - var(--primary-search-scope-height)) / 2);
   --search-scope-menu-z: 80;
   position: relative;
   width: min(var(--primary-search-width), 100%);
@@ -3147,6 +3151,7 @@ body.is-overview .app-shell {
   --search-scope-summary-padding: var(--compact-search-scope-padding);
   --search-scope-font-size: var(--compact-search-scope-font-size);
   --search-scope-arrow-right: var(--compact-search-scope-arrow-right);
+  --search-scope-menu-offset: calc((var(--compact-search-height) - var(--compact-search-scope-height)) / 2);
 }
 
 .catalog-search-help-popover {
@@ -3668,7 +3673,7 @@ body.is-overview .app-shell {
   --search-snippet-font-size: var(--font-sm);
   --search-snippet-line-height: 1.35;
   position: absolute;
-  top: calc(100% + 8px);
+  top: calc(100% + var(--search-preview-offset, var(--floating-layer-gap)));
   left: 0;
   right: 0;
   z-index: 65;
