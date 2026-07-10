@@ -243,6 +243,7 @@ const animeEpisodeTableController = new TableListController({
     } });
     bindActionRows(animePanel, "[data-anime-episode-index]", animeRow => {
       const index = Number(animeRow.dataset.animeEpisodeIndex);
+      queueModalTransition("list");
       openAnimeEpisodeDetail(index, {
         fromAnimeList: true,
         animeSeason: activeAnimeSeason,

@@ -512,6 +512,9 @@ const searchHelpPopovers = [
 const anySearchHelpPopoverIsOpen = () => searchHelpPopovers.some(controller => controller.isOpen());
 const closeSearchHelpPopovers = () => searchHelpPopovers.forEach(controller => controller.close());
 const positionSearchHelpPopovers = () => searchHelpPopovers.forEach(controller => controller.position());
+const closeSearchHelpPopoversOnScroll = () => {
+  if (anySearchHelpPopoverIsOpen()) closeSearchHelpPopovers();
+};
 document.querySelectorAll(".catalog-filter-chips").forEach(root => root.addEventListener("click", event => {
   const chip = event.target.closest("[data-filter-chip-scope][data-filter-chip-key]");
   const reset = event.target.closest("[data-filter-reset-scope]");
@@ -595,13 +598,29 @@ const syncCatalogStickySearchState = () => {
 window.addEventListener("scroll", () => {
   updateToTop();
   syncCatalogStickySearchState();
-  positionSearchHelpPopovers();
+  closeSearchHelpPopoversOnScroll();
 }, { passive: true });
 toTop?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 updateToTop();
 syncCatalogStickySearchState();
 
 const modal = document.querySelector("#detailModal");
+const modalTransitionKinds = new Set(["list", "drill", "back", "route", "step-prev", "step-next"]);
+let pendingModalTransition = "";
+function queueModalTransition(kind) {
+  pendingModalTransition = modalTransitionKinds.has(kind) ? kind : "";
+}
+function queueModalStepDirection(direction) {
+  queueModalTransition(direction === "prev" || direction === "next" ? `step-${direction}` : "");
+}
+function takeModalTransition() {
+  const transition = pendingModalTransition || "route";
+  pendingModalTransition = "";
+  return transition;
+}
+function modalTransitionClass(transition) {
+  return transition.startsWith("step-") ? `modal-inner--${transition}` : `modal-inner--enter-${transition}`;
+}
 class ModalController {
   constructor(modalElement) {
     this.modal = modalElement;
@@ -749,7 +768,13 @@ class ModalController {
 
   setContent(html) {
     const root = this.contentRoot;
-    if (root) root.innerHTML = html;
+    if (!root) {
+      takeModalTransition();
+      return root;
+    }
+    root.innerHTML = html;
+    const transition = takeModalTransition();
+    root.querySelector(".modal-inner")?.classList.add(modalTransitionClass(transition));
     return root;
   }
 
@@ -959,10 +984,12 @@ function bindCatalogModalBack(scope = document, { fallbackRegion = "" } = {}) {
     const backOptions = modalBackOptions(backButton, fallbackRegion);
     if (backButton.dataset.backId) {
       if (backButton.dataset.backProductId) backOptions.backProductId = backButton.dataset.backProductId;
+      queueModalTransition("back");
       openDetail(backButton.dataset.backId, backOptions);
       return;
     }
     if (backButton.dataset.backProductId) {
+      queueModalTransition("back");
       openProductEntry(backButton.dataset.backProductId, backOptions);
       return;
     }
@@ -986,7 +1013,9 @@ function bindModalStepButtons(options = {}) {
     event.preventDefault();
     event.stopPropagation();
     const targetId = button.dataset.modalTarget;
+    if (!targetId) return;
     const kind = button.dataset.modalKind || "item";
+    queueModalStepDirection(button.classList.contains("modal-step-prev") ? "prev" : "next");
     openDetailByKind(kind, targetId, options[kind] || (kind === "item" ? options.item : {}) || {});
   }));
 }
@@ -1043,10 +1072,12 @@ function openDetail(id, options = {}) {
   bindCatalogModalBack(modalContentRoot);
   modalContentRoot.querySelectorAll(".mounted-link").forEach(link => link.addEventListener("click", event => {
     event.preventDefault();
+    if (!link.dataset.partId) return;
     const linkOptions = { backId: item.id };
     if (options.backProductId) linkOptions.backProductId = options.backProductId;
     if (options.backRelease) linkOptions.backRelease = true;
     if (options.region) linkOptions.region = options.region;
+    queueModalTransition("drill");
     openDetail(link.dataset.partId, linkOptions);
   }));
   bindModalTagPopovers(modalContentRoot);
@@ -1122,6 +1153,8 @@ function bindProductCompositionLinks(product, root = document, options = {}) {
     const lineupButton = event.target.closest(".product-lineup-trigger");
     if (lineupButton && compositionList.contains(lineupButton)) {
       event.preventDefault();
+      if (!lineupButton.dataset.productId) return;
+      queueModalTransition("drill");
       openProductLineupDetail(lineupButton.dataset.productId, options);
       return;
     }
@@ -1129,9 +1162,11 @@ function bindProductCompositionLinks(product, root = document, options = {}) {
     if (!link || !compositionList.contains(link)) return;
     event.preventDefault();
     const targetId = link.dataset.targetId;
+    if (!targetId) return;
     const backOptions = { backProductId: product.id };
     if (options.backRelease) backOptions.backRelease = true;
     if (options.region) backOptions.region = options.region;
+    queueModalTransition("drill");
     openDetailByKind("", targetId, backOptions);
   }));
 }
@@ -1497,7 +1532,7 @@ window.addEventListener("resize", () => {
 window.visualViewport?.addEventListener("resize", scheduleModalViewportSync);
 window.visualViewport?.addEventListener("scroll", scheduleModalViewportSync);
 window.visualViewport?.addEventListener("resize", positionSearchHelpPopovers);
-window.visualViewport?.addEventListener("scroll", positionSearchHelpPopovers);
+window.visualViewport?.addEventListener("scroll", closeSearchHelpPopoversOnScroll, { passive: true });
 document.addEventListener("keydown", event => {
   if (event.key === "Escape" && activeSearchPreview) {
     closeAllSearchPreviews();

@@ -204,6 +204,7 @@ function renderProductReleaseTable(contentRoot = document) {
 function bindProductReleaseTableRows(tableRoot = document) {
   bindActionRows(tableRoot, ".release-product-row[data-product-id]", releaseRow => {
     const region = releaseRegionLabels[releaseRow.dataset.releaseRegion] ? releaseRow.dataset.releaseRegion : activeReleaseRegion;
+    queueModalTransition("list");
     openProductEntry(releaseRow.dataset.productId, { backRelease: true, region });
   });
   tableRoot.querySelectorAll("button[data-release-sort]").forEach(button => button.addEventListener("click", event => {

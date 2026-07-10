@@ -821,6 +821,7 @@ const visibleCatalogItems = () => {
   });
 };
 const openCatalogCard = card => {
+  queueModalTransition("list");
   if (card.dataset.productId) openProductEntry(card.dataset.productId);
   else if (card.dataset.toolsId) openToolsDetail(card.dataset.toolsId);
   else if (card.dataset.bookId) openBookDetail(card.dataset.bookId);
