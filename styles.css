@@ -41,6 +41,11 @@
   --font-xl: 1.25rem;
   --font-title: 1.625rem;
   --font-hero: clamp(3rem, 7vw, 5rem);
+  --font-weight-regular: 400;
+  --font-weight-medium: 450;
+  --font-weight-strong: 560;
+  --font-weight-title: 700;
+  --font-weight-brand: 760;
   --ui-radius: 12px;
   --ui-panel-radius: 14px;
   --filter-dropdown-height: 48px;
@@ -285,7 +290,7 @@ a,
   text-overflow: ellipsis;
   color: var(--ui-text);
   font-size: var(--font-md);
-  font-weight: 600;
+  font-weight: var(--font-weight-strong);
   white-space: nowrap;
 }
 
@@ -452,7 +457,7 @@ dialog[open] .modal-scroll-area::-webkit-scrollbar-corner,
   color: var(--search-input-color, var(--ui-control-text-active));
   font: inherit;
   font-size: var(--font-md);
-  font-weight: 400;
+  font-weight: var(--font-weight-regular);
 }
 
 .search-box input::placeholder,
@@ -629,7 +634,7 @@ dialog[open] .modal-scroll-area::-webkit-scrollbar-corner,
   text-overflow: clip;
   color: var(--ui-text);
   font-size: var(--search-scope-font-size, var(--font-md));
-  font-weight: 400;
+  font-weight: var(--font-weight-regular);
   white-space: nowrap;
 }
 
@@ -673,7 +678,7 @@ dialog[open] .modal-scroll-area::-webkit-scrollbar-corner,
   min-height: 32px;
   padding: 0 10px;
   font-size: var(--search-scope-font-size, var(--font-md));
-  font-weight: 400;
+  font-weight: var(--font-weight-regular);
 }
 .global-search-box {
   flex: var(--global-search-box-flex, var(--search-box-flex, 0 1 420px));
@@ -831,7 +836,7 @@ body.is-overview .topbar-search {
   box-shadow: none;
   font-family: inherit;
   font-size: var(--font-md);
-  font-weight: 600;
+  font-weight: var(--font-weight-strong);
   line-height: 1;
   text-align: center;
   white-space: nowrap;
@@ -941,7 +946,7 @@ body.is-overview .topbar-search {
   margin: 0;
   color: var(--ui-text);
   font-size: var(--font-title);
-  font-weight: 800;
+  font-weight: var(--font-weight-title);
   line-height: var(--section-title-line-height, 1.02);
   white-space: var(--section-title-white-space, normal);
   word-break: var(--section-title-word-break, normal);
@@ -987,7 +992,7 @@ body.is-overview .topbar-search {
 
 button.icon-back-button {
   font-size: var(--font-xl);
-  font-weight: 600;
+  font-weight: var(--font-weight-strong);
   text-indent: 0;
   white-space: nowrap;
 }
@@ -1056,7 +1061,7 @@ dialog[open] #modalClose.modal-close:hover{
   box-shadow: none;
   outline: 0;
   font-size: var(--font-xl);
-  font-weight: 600;
+  font-weight: var(--font-weight-strong);
   line-height: 1;
   text-indent: 0;
   opacity: 0 !important;
@@ -1141,7 +1146,7 @@ dialog[open] #modalClose.modal-close:hover{
   align-self: stretch;
   color: var(--ui-control-text-active);
   font-size: var(--font-md);
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   line-height: 1.18;
   display: flex;
   align-items: baseline;
@@ -1168,7 +1173,7 @@ dialog[open] #modalClose.modal-close:hover{
   background: var(--ui-text);
   color: var(--ui-surface);
   font-size: var(--catalog-card-badge-font-size);
-  font-weight: 600;
+  font-weight: var(--font-weight-strong);
   line-height: 1;
   white-space: nowrap;
 }
@@ -1180,7 +1185,7 @@ dialog[open] #modalClose.modal-close:hover{
   text-overflow: ellipsis;
   white-space: nowrap;
   color: var(--ui-control-text-active);
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   line-height: 1.2;
   padding-bottom: 0.06em;
   margin-bottom: -0.06em;
@@ -1195,7 +1200,7 @@ dialog[open] #modalClose.modal-close:hover{
 .anime-character-card strong {
   color: var(--ui-control-text-active);
   font-size: var(--font-md);
-  font-weight: 600;
+  font-weight: var(--font-weight-strong);
   line-height: 1.25;
 }
 
@@ -1204,7 +1209,7 @@ dialog[open] #modalClose.modal-close:hover{
   margin: 0;
   color: var(--ui-muted);
   font-size: var(--font-sm);
-  font-weight: 400;
+  font-weight: var(--font-weight-regular);
   line-height: 1.45;
 }
 
@@ -1221,7 +1226,7 @@ dialog[open] #modalClose.modal-close:hover{
   text-align: center;
   color: var(--ui-muted);
   font-size: var(--font-md);
-  font-weight: 400;
+  font-weight: var(--font-weight-regular);
   line-height: 1.5;
   box-shadow: none;
 }
@@ -1300,7 +1305,7 @@ dialog[open] #modalClose.modal-close {
   background-image: none !important;
   filter: none !important;
   font-size: var(--font-xl) !important;
-  font-weight: 600 !important;
+  font-weight: var(--font-weight-strong) !important;
   text-indent: 0 !important;
   transform: none !important;
 }
@@ -1361,7 +1366,7 @@ dialog[open] #modalClose.modal-close {
   color: var(--ui-text);
   font: inherit;
   font-size: var(--font-md);
-  font-weight: 400;
+  font-weight: var(--font-weight-regular);
   line-height: 1;
   white-space: nowrap;
   box-shadow: none;
@@ -1404,7 +1409,7 @@ dialog[open] #modalClose.modal-close {
   display: block;
   margin: 0 0 6px;
   font-size: var(--font-sm);
-  font-weight: 600;
+  font-weight: var(--font-weight-strong);
   line-height: 1.2;
 }
 
@@ -1598,7 +1603,7 @@ dialog[open] .modal-name {
   max-height: calc(var(--modal-title-row-height) * var(--modal-title-lines)) !important;
   margin: 0 auto 0 !important;
   font-size: var(--modal-title-size) !important;
-  font-weight: 800 !important;
+  font-weight: var(--font-weight-title) !important;
   line-height: 1.15 !important;
   color: var(--ui-text) !important;
   word-break: keep-all !important;
@@ -1657,7 +1662,7 @@ dialog[open] .product-modal-name {
   margin: 0;
   color: var(--ui-text);
   font-size: var(--font-md);
-  font-weight: 400;
+  font-weight: var(--font-weight-regular);
   line-height: 1.5;
   overflow: hidden;
   display: -webkit-box;
@@ -1686,7 +1691,7 @@ dialog[open] .product-modal-name {
   color: var(--ui-muted);
   font: inherit;
   font-size: var(--font-sm);
-  font-weight: 600;
+  font-weight: var(--font-weight-strong);
   line-height: 1.4;
   cursor: pointer;
 }
@@ -1781,7 +1786,7 @@ dialog[open] .product-modal-name {
   margin: 0 0 8px;
   color: var(--ui-text);
   font-size: var(--font-md);
-  font-weight: 600;
+  font-weight: var(--font-weight-strong);
   line-height: 1.2;
   padding: 0 10px;
 }
@@ -1804,7 +1809,7 @@ dialog[open] .product-modal-name {
 .product-composition-item > span {
   min-width: 0;
   justify-self: start;
-  font-weight: 400;
+  font-weight: var(--font-weight-regular);
   text-align: left;
 }
 
@@ -1815,7 +1820,7 @@ dialog[open] .product-modal-name {
 
 .product-composition-item > b {
   justify-self: end;
-  font-weight: 400;
+  font-weight: var(--font-weight-regular);
   text-align: left;
 }
 
@@ -1965,7 +1970,7 @@ dialog[open] .category-anime-info .anime-episode-title-row .category-title {
   margin: 0;
   color: var(--ui-text);
   font-size: var(--font-title);
-  font-weight: 800;
+  font-weight: var(--font-weight-title);
   line-height: 1;
   word-break: keep-all;
 }
@@ -2212,7 +2217,7 @@ dialog[open] .category-anime-info .anime-episode-title-row .category-title {
   transform: translateY(-50%);
   color: var(--ui-muted);
   font-size: var(--font-xs);
-  font-weight: 600;
+  font-weight: var(--font-weight-strong);
   line-height: 1;
   text-align: center;
   opacity: .58;
@@ -2250,7 +2255,7 @@ dialog[open] .category-anime-info .anime-episode-title-row .category-title {
 
 .release-product-link {
   color: var(--ui-text);
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   text-align: left;
   display: block;
   width: 100%;
@@ -2353,13 +2358,13 @@ dialog[open] .category-anime-info .anime-episode-title-row .category-title {
 
 .mounted-link > * {
   justify-self: start;
-  font-weight: 400;
+  font-weight: var(--font-weight-regular);
   text-align: left;
 }
 
 .mounted-link > :last-child {
   justify-self: end;
-  font-weight: 400;
+  font-weight: var(--font-weight-regular);
   text-align: right;
 }
 
@@ -2411,7 +2416,7 @@ dialog[open] .modal-art {
 .track-height-row span {
   min-width: var(--stat-label-min-width, auto);
   font-size: var(--font-md);
-  font-weight: 400;
+  font-weight: var(--font-weight-regular);
   text-align: left;
   white-space: var(--stat-label-white-space, normal);
 }
@@ -2421,7 +2426,7 @@ dialog[open] .modal-art {
   width: var(--stat-value-width, auto);
   min-width: var(--stat-value-min-width, auto);
   font-size: var(--font-md);
-  font-weight: 400;
+  font-weight: var(--font-weight-regular);
   text-align: var(--stat-value-align, right);
   white-space: nowrap;
   color: var(--ui-text);
@@ -2463,7 +2468,7 @@ dialog[open] .modal-art {
   margin: 0 0 8px;
   color: var(--ui-text);
   font-size: var(--font-md);
-  font-weight: 600;
+  font-weight: var(--font-weight-strong);
   line-height: 1.35;
 }
 
@@ -2577,7 +2582,7 @@ dialog[open] .modal-info.part-modal-info .modal-name {
   color: var(--ui-muted);
   font: inherit;
   font-size: var(--font-md);
-  font-weight: 600;
+  font-weight: var(--font-weight-strong);
   line-height: 1;
   text-align: center;
   text-decoration: none;
@@ -2702,7 +2707,7 @@ dialog[open] .modal-step-next::after {
   color: var(--ui-text);
   font: inherit;
   font-size: var(--font-sm);
-  font-weight: 600;
+  font-weight: var(--font-weight-strong);
   box-shadow: none;
   cursor: pointer;
 }
@@ -2721,7 +2726,7 @@ dialog[open] .modal-step-next::after {
   color: var(--ui-muted);
   font: inherit;
   font-size: var(--font-sm);
-  font-weight: 600;
+  font-weight: var(--font-weight-strong);
   overflow: hidden;
   text-overflow: ellipsis;
   box-shadow: none;
@@ -2751,7 +2756,7 @@ dialog[open] .modal-step-next::after {
   color: var(--ui-muted);
   font: inherit;
   font-size: var(--font-md);
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   text-align: var(--dropdown-item-text-align, center);
   overflow: var(--dropdown-item-overflow, visible);
   text-overflow: var(--dropdown-item-text-overflow, clip);
@@ -2795,7 +2800,7 @@ dialog[open] .modal-step-next::after {
   background: var(--ui-surface-raised);
   color: var(--ui-muted);
   font-size: var(--font-md);
-  font-weight: 600;
+  font-weight: var(--font-weight-strong);
   padding: 11px 12px;
   padding-top: 0;
   padding-bottom: 10px;
@@ -2836,7 +2841,7 @@ dialog[open] .modal-step-next::after {
   background-image: none;
   color: var(--ui-text);
   font-size: var(--font-md);
-  font-weight: 400;
+  font-weight: var(--font-weight-regular);
   line-height: 1.2;
   text-decoration: none;
   box-shadow: none;
@@ -2882,7 +2887,7 @@ dialog[open] .modal-step-next::after {
   border-radius: var(--ui-radius);
   color: var(--ui-control-text-active);
   font-size: var(--font-md);
-  font-weight: 800;
+  font-weight: var(--font-weight-brand);
   line-height: 1;
   white-space: nowrap;
   text-decoration: none;
@@ -2893,7 +2898,7 @@ dialog[open] .modal-step-next::after {
 .brand span:not(.brand-mark) b {
   color: var(--ui-control-text-active);
   font-size: var(--font-md);
-  font-weight: 800;
+  font-weight: var(--font-weight-brand);
   line-height: 1;
 }
 
@@ -2909,7 +2914,7 @@ dialog[open] .modal-step-next::after {
   align-items: center;
   justify-content: center;
   font-size: var(--font-md);
-  font-weight: 900;
+  font-weight: var(--font-weight-brand);
   font-style: normal;
   line-height: 1;
   transform: none;
@@ -2965,7 +2970,7 @@ body.is-overview .app-shell {
 
 .overview-hero h2 {
   color: var(--ui-text);
-  font-weight: 800;
+  font-weight: var(--font-weight-title);
   white-space: nowrap;
   word-break: keep-all;
   overflow-wrap: normal;
@@ -2979,7 +2984,7 @@ body.is-overview .app-shell {
   margin: 12px auto 0;
   color: var(--ui-text);
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: var(--font-weight-strong);
   line-height: 1.55;
   word-break: keep-all;
 }
@@ -3124,7 +3129,7 @@ body.is-overview .app-shell {
   background: var(--ui-surface);
   color: var(--ui-muted);
   font-size: var(--font-md);
-  font-weight: 700;
+  font-weight: var(--font-weight-strong);
   line-height: 1;
   white-space: nowrap;
   box-shadow: none;
@@ -3177,7 +3182,7 @@ body.is-overview .app-shell {
   display: block;
   margin: 0 0 6px;
   font-size: var(--font-sm);
-  font-weight: 650;
+  font-weight: var(--font-weight-strong);
   line-height: 1.25;
 }
 
@@ -3185,7 +3190,7 @@ body.is-overview .app-shell {
   margin: 0 0 10px;
   color: var(--ui-muted);
   font-size: var(--font-xs);
-  font-weight: 400;
+  font-weight: var(--font-weight-regular);
   line-height: 1.45;
 }
 
@@ -3199,7 +3204,7 @@ body.is-overview .app-shell {
   margin: 0;
   color: var(--ui-text);
   font-size: var(--font-xs);
-  font-weight: 650;
+  font-weight: var(--font-weight-strong);
   line-height: 1.2;
 }
 
@@ -3207,7 +3212,7 @@ body.is-overview .app-shell {
   margin: -4px 0 2px;
   color: var(--ui-muted);
   font-size: var(--font-xs);
-  font-weight: 400;
+  font-weight: var(--font-weight-regular);
   line-height: 1.45;
   word-break: keep-all;
   overflow-wrap: anywhere;
@@ -3234,7 +3239,7 @@ body.is-overview .app-shell {
   min-height: var(--catalog-chip-row-height);
   border-radius: var(--catalog-pill-radius);
   font-size: var(--font-md);
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
 }
 
 .catalog-filter-chip span {
@@ -3253,7 +3258,7 @@ body.is-overview .app-shell {
   background: var(--ui-control);
   color: var(--ui-text);
   font-size: var(--font-md);
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   line-height: 1;
   white-space: nowrap;
 }
@@ -3265,7 +3270,7 @@ body.is-overview .app-shell {
   background: transparent;
   color: var(--ui-muted);
   font-size: var(--font-md);
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
 }
 
 .catalog-control-bar {
@@ -3409,7 +3414,7 @@ body.is-overview .app-shell {
 
 .list-sort-dropdown.search-scope.catalog-dropdown summary b {
   font-size: var(--font-md);
-  font-weight: 600;
+  font-weight: var(--font-weight-strong);
 }
 
 .list-sort-dropdown.search-scope.catalog-dropdown .catalog-dropdown-menu button {
@@ -3495,7 +3500,7 @@ body.is-overview .app-shell {
   margin: 0;
   color: var(--ui-text);
   font-size: var(--font-xl);
-  font-weight: 600;
+  font-weight: var(--font-weight-strong);
   line-height: 1.08;
 }
 
@@ -3507,7 +3512,7 @@ body.is-overview .app-shell {
   background: var(--ui-control);
   color: var(--ui-muted);
   font-size: var(--font-sm);
-  font-weight: 400;
+  font-weight: var(--font-weight-regular);
   white-space: nowrap;
 }
 
@@ -3516,7 +3521,7 @@ body.is-overview .app-shell {
   margin: 0 0 14px;
   color: var(--ui-muted);
   font-size: var(--font-sm);
-  font-weight: 400;
+  font-weight: var(--font-weight-regular);
   line-height: 1.35;
 }
 
@@ -3565,7 +3570,7 @@ body.is-overview .app-shell {
   background: var(--ui-text);
   color: var(--ui-surface);
   font-size: var(--search-kind-font-size, var(--font-xs));
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   line-height: 1;
   white-space: nowrap;
 }
@@ -3575,7 +3580,7 @@ body.is-overview .app-shell {
   min-width: 0;
   color: var(--ui-text);
   font-size: var(--search-title-font-size, var(--font-md));
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   line-height: var(--search-title-line-height, 1.25);
   white-space: var(--search-title-white-space, normal);
   overflow: var(--search-title-overflow, visible);
@@ -3590,7 +3595,7 @@ body.is-overview .app-shell {
   overflow: var(--search-snippet-overflow, visible);
   color: var(--ui-muted);
   font-size: var(--search-snippet-font-size, var(--font-sm));
-  font-weight: 400;
+  font-weight: var(--font-weight-regular);
   line-height: var(--search-snippet-line-height, 1.55);
   word-break: keep-all;
 }
@@ -3625,7 +3630,7 @@ body.is-overview .app-shell {
   background: var(--ui-control);
   color: var(--ui-muted);
   font-size: var(--font-sm);
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   transition: background-color var(--motion-standard) var(--ease-standard), color var(--motion-standard) var(--ease-standard), box-shadow var(--motion-standard) var(--ease-standard), transform var(--motion-fast) var(--ease-standard);
 }
 
@@ -3724,7 +3729,7 @@ body.is-overview .app-shell {
   color: var(--ui-text);
   font: inherit;
   font-size: var(--font-sm);
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   text-align: left;
   transition: background-color var(--motion-standard) var(--ease-standard), color var(--motion-standard) var(--ease-standard);
 }
@@ -3738,7 +3743,7 @@ body.is-overview .app-shell {
 .search-preview-all span {
   color: var(--ui-muted);
   font-size: var(--font-xs);
-  font-weight: 400;
+  font-weight: var(--font-weight-regular);
   white-space: nowrap;
 }
 
@@ -3746,7 +3751,7 @@ body.is-overview .app-shell {
   padding: 14px 12px;
   color: var(--ui-muted);
   font-size: var(--font-sm);
-  font-weight: 400;
+  font-weight: var(--font-weight-regular);
 }
 
 .search-empty {
@@ -3755,7 +3760,7 @@ body.is-overview .app-shell {
   padding: 34px 0;
   color: var(--ui-muted);
   font-size: var(--font-md);
-  font-weight: 400;
+  font-weight: var(--font-weight-regular);
   line-height: 1.5;
   text-align: center;
 }
@@ -3819,25 +3824,26 @@ body.is-overview .app-shell {
   position: absolute;
   left: 50%;
   right: auto;
+  top: calc(var(--menu-button-line-top) + var(--menu-button-line-gap));
   width: var(--menu-button-line-width);
   height: var(--menu-button-line-height);
   border-radius: 999px;
   background: var(--ui-text);
   transform: translateX(-50%);
+  transform-origin: center;
   opacity: 1;
-  transition: transform .18s ease, opacity .18s ease, background-color .16s ease;
+  transition: transform .18s ease, opacity .18s ease, background-color .16s ease, box-shadow .18s ease;
 }
 
-.menu-button span:nth-child(1) {
-  top: var(--menu-button-line-top);
+.menu-button span:nth-child(1),
+.menu-button span:nth-child(3) {
+  opacity: 0;
 }
 
 .menu-button span:nth-child(2) {
-  top: calc(var(--menu-button-line-top) + var(--menu-button-line-gap));
-}
-
-.menu-button span:nth-child(3) {
-  top: calc(var(--menu-button-line-top) + (var(--menu-button-line-gap) * 2));
+  box-shadow:
+    0 calc(var(--menu-button-line-gap) * -1) 0 0 var(--ui-text),
+    0 var(--menu-button-line-gap) 0 0 var(--ui-text);
 }
 
 .menu-button:hover,
@@ -3851,17 +3857,18 @@ body.menu-open .menu-button {
 }
 
 body.menu-open .menu-button span:nth-child(1) {
-  top: calc(var(--menu-button-line-top) + var(--menu-button-line-gap));
+  opacity: 1;
   transform: translateX(-50%) rotate(45deg);
 }
 
 body.menu-open .menu-button span:nth-child(2) {
+  box-shadow: none;
   opacity: 0;
-  transform: translateX(-50%) scaleX(.45);
+  transform: translateX(-50%);
 }
 
 body.menu-open .menu-button span:nth-child(3) {
-  top: calc(var(--menu-button-line-top) + var(--menu-button-line-gap));
+  opacity: 1;
   transform: translateX(-50%) rotate(-45deg);
 }
 
@@ -3956,10 +3963,10 @@ body.menu-open .mobile-drawer {
 .sidebar-root {
   --sidebar-primary-font-size: var(--font-md);
   --sidebar-secondary-font-size: var(--font-sm);
-  --sidebar-primary-font-weight: 600;
-  --sidebar-secondary-font-weight: 500;
-  --sidebar-current-font-weight: 600;
-  --sidebar-pending-font-weight: 500;
+  --sidebar-primary-font-weight: var(--font-weight-strong);
+  --sidebar-secondary-font-weight: var(--font-weight-medium);
+  --sidebar-current-font-weight: var(--font-weight-strong);
+  --sidebar-pending-font-weight: var(--font-weight-medium);
   --sidebar-icon-slot-size: 48px;
   --sidebar-icon-y-gap: 6px;
   --sidebar-button-width: 100%;
