@@ -5,15 +5,15 @@ const releaseSortableColumns = {
   price: "가격"
 };
 const releaseMobileSortOptions = [
+  { value: "release:asc", label: "발매순 ↑", key: "release", direction: "asc" },
+  { value: "release:desc", label: "발매순 ↓", key: "release", direction: "desc" },
   { value: "no:asc", label: "번호순 ↑", key: "no", direction: "asc" },
   { value: "no:desc", label: "번호순 ↓", key: "no", direction: "desc" },
   { value: "kind:asc", label: "종류순", key: "kind", direction: "asc" },
-  { value: "release:desc", label: "발매순 ↓", key: "release", direction: "desc" },
-  { value: "release:asc", label: "발매순 ↑", key: "release", direction: "asc" },
   { value: "price:asc", label: "가격순 ↑", key: "price", direction: "asc" },
   { value: "price:desc", label: "가격순 ↓", key: "price", direction: "desc" }
 ];
-const releaseMobileSortOptionValue = sort => sort?.key === "kind" ? "kind:asc" : `${sort?.key || "no"}:${sort?.direction === "desc" ? "desc" : "asc"}`;
+const releaseMobileSortOptionValue = sort => sort?.key === "kind" ? "kind:asc" : `${sort?.key || "release"}:${sort?.direction === "desc" ? "desc" : "asc"}`;
 const activeReleaseMobileSortOption = () =>
   releaseMobileSortOptions.find(option => option.value === releaseMobileSortOptionValue(activeReleaseSort)) || releaseMobileSortOptions[0];
 const releaseSortFromOptionValue = value =>

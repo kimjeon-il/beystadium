@@ -335,7 +335,7 @@ const setDropdownOption = button => {
       label.textContent = summaryText;
     }
   }
-  dropdown.removeAttribute("open");
+  closeCatalogDropdown(dropdown);
 };
 const filterButtonAttrs = ["data-release-series", "data-anime-season", "data-catalog-sort", "data-release-sort-option"];
 const filterButtonAttr = button => filterButtonAttrs.find(attr => button.hasAttribute(attr));
@@ -431,10 +431,34 @@ const rootPixelValue = (name, fallback) => {
   const value = Number.parseFloat(getComputedStyle(document.documentElement).getPropertyValue(name));
   return Number.isFinite(value) ? value : fallback;
 };
+function closeCatalogDropdown(dropdown) {
+  if (!dropdown) return;
+  dropdown.classList.remove("is-dropdown-entering");
+  dropdown.removeAttribute("open");
+}
 function closeOpenCatalogDropdowns(exceptDropdown = null) {
   document.querySelectorAll(".catalog-dropdown[open]").forEach(dropdown => {
-    if (dropdown !== exceptDropdown) dropdown.removeAttribute("open");
+    if (dropdown === exceptDropdown) return;
+    closeCatalogDropdown(dropdown);
   });
+}
+function openCatalogDropdown(dropdown) {
+  if (!dropdown || dropdown.open) return;
+  closeOpenCatalogDropdowns(dropdown);
+  closeAllSearchPreviews();
+  closeSearchHelpPopovers();
+  playEnterAnimation(dropdown, "is-dropdown-entering");
+  dropdown.setAttribute("open", "");
+}
+function toggleCatalogDropdown(dropdown) {
+  if (!dropdown) return;
+  if (dropdown.open) closeCatalogDropdown(dropdown);
+  else openCatalogDropdown(dropdown);
+}
+function catalogDropdownFromSummaryEvent(event) {
+  const summary = event.target?.closest?.("summary");
+  const dropdown = summary?.parentElement;
+  return dropdown?.classList?.contains("catalog-dropdown") ? dropdown : null;
 }
 const positionSearchHelpPopover = (button, popover) => {
   if (!button || !popover || popover.hidden) return;
@@ -611,9 +635,27 @@ bindPaginationControls({
   render: renderAnimePage,
   scroll: scrollAnimeGridIntoView
 });
+document.addEventListener("click", event => {
+  if (event.defaultPrevented || event.button !== 0) return;
+  const dropdown = catalogDropdownFromSummaryEvent(event);
+  if (!dropdown) return;
+  event.preventDefault();
+  toggleCatalogDropdown(dropdown);
+});
+document.addEventListener("keydown", event => {
+  if (event.key !== "Enter" && event.key !== " " && event.key !== "Spacebar") return;
+  const dropdown = catalogDropdownFromSummaryEvent(event);
+  if (!dropdown) return;
+  event.preventDefault();
+  toggleCatalogDropdown(dropdown);
+});
 document.addEventListener("toggle", event => {
   const dropdown = event.target.closest?.(".catalog-dropdown");
-  if (!dropdown?.open) return;
+  if (!dropdown) return;
+  if (!dropdown.open) {
+    dropdown.classList.remove("is-dropdown-entering");
+    return;
+  }
   closeOpenCatalogDropdowns(dropdown);
   closeAllSearchPreviews();
   closeSearchHelpPopovers();
@@ -626,39 +668,38 @@ const updateToTop = () => {
   if (!toTop) return;
   toTop.classList.toggle("show", window.scrollY > 420);
 };
-const syncCatalogStickySearchState = () => {
-  const activeCatalogControl = document.querySelector(".catalog-panel.active .catalog-control-bar");
-  document.querySelectorAll(".catalog-control-bar.is-stuck").forEach(control => {
-    if (control !== activeCatalogControl) control.classList.remove("is-stuck");
-  });
-  if (!activeCatalogControl) return;
-  const topbarRect = document.querySelector(".topbar")?.getBoundingClientRect();
-  const stickyTop = topbarRect && topbarRect.height > 0 ? topbarRect.bottom : 0;
-  const controlTop = activeCatalogControl.getBoundingClientRect().top;
-  activeCatalogControl.classList.toggle("is-stuck", controlTop <= stickyTop + 1 && window.scrollY > 0);
-};
 window.addEventListener("scroll", () => {
   updateToTop();
-  syncCatalogStickySearchState();
   closeSearchHelpPopoversOnScroll();
 }, { passive: true });
 toTop?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 updateToTop();
-syncCatalogStickySearchState();
 
 const modal = document.querySelector("#detailModal");
-const modalTransitionKinds = new Set(["list", "drill", "back", "route", "step-prev", "step-next"]);
+const modalTransitionKinds = new Set(["list", "drill", "composition", "back", "route", "step-prev", "step-next"]);
 let pendingModalTransition = "";
-function queueModalTransition(kind) {
+let pendingModalTransitionOrigin = null;
+const modalTransitionOrigin = element => {
+  const rect = element?.getBoundingClientRect?.();
+  if (!rect || (!rect.width && !rect.height)) return null;
+  return {
+    x: rect.left + rect.width / 2,
+    y: rect.top + rect.height / 2
+  };
+};
+function queueModalTransition(kind, { sourceElement = null } = {}) {
   pendingModalTransition = modalTransitionKinds.has(kind) ? kind : "";
+  pendingModalTransitionOrigin = pendingModalTransition && sourceElement ? modalTransitionOrigin(sourceElement) : null;
 }
 function queueModalStepDirection(direction) {
   queueModalTransition(direction === "prev" || direction === "next" ? `step-${direction}` : "");
 }
 function takeModalTransition() {
   const transition = pendingModalTransition || "route";
+  const origin = pendingModalTransitionOrigin;
   pendingModalTransition = "";
-  return transition;
+  pendingModalTransitionOrigin = null;
+  return { transition, origin };
 }
 function modalTransitionClass(transition) {
   return transition.startsWith("step-") ? `modal-inner--${transition}` : `modal-inner--enter-${transition}`;
@@ -803,9 +844,35 @@ class ModalController {
     this.cancelDescriptionMeasure();
     if (this.modal?.open) this.modal.close();
     this.cancelViewportSync();
+    this.modal?.removeAttribute("data-modal-transition");
     restorePageScroll(targetScrollY);
     this.clearLockStyles();
     restorePageScroll(targetScrollY);
+  }
+
+  setTransitionOrigin(origin, modalInner) {
+    if (!this.modal) return;
+    if (!origin) {
+      this.modal.style.setProperty("--modal-origin-shift-x", "0px");
+      this.modal.style.setProperty("--modal-origin-shift-y", "0px");
+      return;
+    }
+    const viewport = this.getViewportSize();
+    const rect = modalInner?.getBoundingClientRect?.();
+    const centerX = rect?.width ? rect.left + rect.width / 2 : viewport.width / 2;
+    const centerY = rect?.height ? rect.top + rect.height / 2 : viewport.height / 2;
+    const clamp = (value, max) => Math.max(max * -1, Math.min(max, value));
+    const shiftX = clamp((origin.x - centerX) * 0.035, 14);
+    const shiftY = clamp((origin.y - centerY) * 0.035, 10);
+    this.modal.style.setProperty("--modal-origin-shift-x", `${shiftX.toFixed(1)}px`);
+    this.modal.style.setProperty("--modal-origin-shift-y", `${shiftY.toFixed(1)}px`);
+  }
+
+  playExternalControlMotion(root = document) {
+    [
+      this.modal?.querySelector(".modal-close"),
+      ...Array.from(root.querySelectorAll?.(".modal-step") || [])
+    ].filter(Boolean).forEach(button => playEnterAnimation(button, "is-modal-control-moving"));
   }
 
   setContent(html) {
@@ -815,8 +882,12 @@ class ModalController {
       return root;
     }
     root.innerHTML = html;
-    const transition = takeModalTransition();
-    root.querySelector(".modal-inner")?.classList.add(modalTransitionClass(transition));
+    const { transition, origin } = takeModalTransition();
+    const modalInner = root.querySelector(".modal-inner");
+    if (this.modal) this.modal.dataset.modalTransition = transition;
+    this.setTransitionOrigin(origin, modalInner);
+    modalInner?.classList.add(modalTransitionClass(transition));
+    this.playExternalControlMotion(root);
     return root;
   }
 
@@ -1119,7 +1190,7 @@ function openDetail(id, options = {}) {
     if (options.backProductId) linkOptions.backProductId = options.backProductId;
     if (options.backRelease) linkOptions.backRelease = true;
     if (options.region) linkOptions.region = options.region;
-    queueModalTransition("drill");
+    queueModalTransition("composition", { sourceElement: link });
     openDetail(link.dataset.partId, linkOptions);
   }));
   bindModalTagPopovers(modalContentRoot);
@@ -1168,7 +1239,8 @@ function productComposition(item, region = activeReleaseRegion) {
     if (productLineupComposition(item, part)) return `<button class="ui-list-link product-composition-item product-lineup-trigger" type="button" data-product-id="${item.id}" data-target-id="${part.target || ""}"><span>${name} ${quantity}</span><b>→</b></button>`;
     if (!part.target) return `<div class="ui-list-link product-composition-item"><span>${name} ${quantity}</span><b>→</b></div>`;
     const target = findCatalogItemById(part.target);
-    const displayName = name || compositionDisplayName(target?.name || "");
+    const targetDisplayName = region === "jp" && target ? itemDisplayName(target, region) : "";
+    const displayName = targetDisplayName || name || compositionDisplayName(target?.name || "");
     return `<a class="ui-list-link product-composition-item composition-link" href="#${part.target}" data-target-id="${part.target}"><span>${displayName} ${quantity}</span><b>→</b></a>`;
   }).join("")}</div></section>`;
 }
@@ -1196,7 +1268,7 @@ function bindProductCompositionLinks(product, root = document, options = {}) {
     if (lineupButton && compositionList.contains(lineupButton)) {
       event.preventDefault();
       if (!lineupButton.dataset.productId) return;
-      queueModalTransition("drill");
+      queueModalTransition("composition", { sourceElement: lineupButton });
       openProductLineupDetail(lineupButton.dataset.productId, options);
       return;
     }
@@ -1208,7 +1280,7 @@ function bindProductCompositionLinks(product, root = document, options = {}) {
     const backOptions = { backProductId: product.id };
     if (options.backRelease) backOptions.backRelease = true;
     if (options.region) backOptions.region = options.region;
-    queueModalTransition("drill");
+    queueModalTransition("composition", { sourceElement: link });
     openDetailByKind("", targetId, backOptions);
   }));
 }
@@ -1351,7 +1423,6 @@ const activateAppPanel = section => {
   document.body.dataset.activePanel = section;
   document.body.classList.toggle("is-overview", section === "overview");
   closeAllSearchPreviews();
-  syncCatalogStickySearchState();
 };
 const syncSidebarActiveState = section => {
   const currentSection = normalizeSidebarSection(section);
@@ -1561,7 +1632,6 @@ const syncNavigationMode = () => {
 };
 window.addEventListener("resize", () => {
   syncNavigationMode();
-  syncCatalogStickySearchState();
   positionSearchHelpPopovers();
   if (modal?.open) scheduleModalViewportSync();
   if (!activeModalTagButton) return;
@@ -1628,6 +1698,5 @@ try {
   // Some embedded browsers can deny history mutations; routing still works.
 }
 applyCurrentHashRoute();
-syncCatalogStickySearchState();
 window.addEventListener("hashchange", applyCurrentHashRoute);
 window.addEventListener("popstate", applyCurrentHashRoute);

@@ -15,6 +15,15 @@ const globalSearchScopeValue = () => globalSearchScope?.dataset.scope || "all";
 const mobileDrawerSearchScopeValue = () => mobileDrawerSearchScope?.dataset.scope || "all";
 const overviewSearchScopeValue = () => overviewSearchScope?.dataset.scope || "all";
 const dropdownSummaryText = button => button?.dataset.summaryLabel || button?.textContent.trim() || "";
+function playEnterAnimation(element, className) {
+  if (!element || !className || window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches) return;
+  element.classList.remove(className);
+  void element.offsetHeight;
+  element.classList.add(className);
+  const clearClass = () => element.classList.remove(className);
+  element.addEventListener("animationend", clearClass, { once: true });
+  element.addEventListener("animationcancel", clearClass, { once: true });
+}
 const setSearchScope = (dropdown, dataAttr, scope) => {
   if (!dropdown) return;
   const value = scope || "all";
@@ -35,12 +44,41 @@ const setCatalogSeriesFilter = series => setSearchScope(catalogSeriesFilter, "da
 const overviewSearch = document.querySelector("#overviewSearchInput");
 const searchInputRoot = input => input?.closest(".overview-search, .search-box");
 const searchClearButton = input => searchInputRoot(input)?.querySelector(".search-clear");
+const searchPlaceholderInputs = () => [globalSearch, mobileDrawerSearch, overviewSearch, catalogSearch, animeSearch].filter(Boolean);
+const searchPlaceholderText = width => {
+  if (width >= 156) return "검색어를 입력해주세요.";
+  return "검색어 입력";
+};
+function syncSearchInputPlaceholder(input) {
+  if (!input) return;
+  const width = input.clientWidth || input.getBoundingClientRect?.().width || 0;
+  input.placeholder = searchPlaceholderText(width);
+}
+function syncSearchPlaceholders() {
+  searchPlaceholderInputs().forEach(syncSearchInputPlaceholder);
+}
+function bindResponsiveSearchPlaceholders() {
+  const inputs = searchPlaceholderInputs();
+  if (!inputs.length) return;
+  syncSearchPlaceholders();
+  requestAnimationFrame(syncSearchPlaceholders);
+  window.addEventListener("load", syncSearchPlaceholders, { once: true });
+  if (typeof ResizeObserver === "function") {
+    const observer = new ResizeObserver(entries => {
+      entries.forEach(entry => syncSearchInputPlaceholder(entry.target));
+    });
+    inputs.forEach(input => observer.observe(input));
+    return;
+  }
+  window.addEventListener("resize", syncSearchPlaceholders, { passive: true });
+}
 const syncSearchInputState = input => {
   if (!input) return;
   const hasValue = input.value.length > 0;
   input.classList.toggle("has-value", hasValue);
   const clearButton = searchClearButton(input);
   if (clearButton) clearButton.hidden = !hasValue;
+  syncSearchInputPlaceholder(input);
 };
 const setSearchInputValue = (input, value = "") => {
   if (!input) return;
@@ -54,6 +92,7 @@ const clearSearchInputs = () => {
   setSearchInputValue(catalogSearch, "");
   setSearchInputValue(animeSearch, "");
 };
+bindResponsiveSearchPlaceholders();
 const bindActionRows = (root = document, selector, handler) => {
   root.querySelectorAll(selector).forEach(row => {
     const activate = event => {
@@ -220,7 +259,7 @@ const spinDescription = value => spinDescriptions[value] || "";
 const heightClassLabel = value => heightClassLabels[value] || value || "";
 let activeReleaseRegion = "kr";
 let activeReleaseSeries = "";
-let activeReleaseSort = { key: "no", direction: "asc" };
+let activeReleaseSort = { key: "release", direction: "asc" };
 let activeReleaseQuery = "";
 let selectedCatalogKind = "";
 let selectedCatalogSeries = "all";

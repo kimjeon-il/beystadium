@@ -419,7 +419,7 @@ const toolsSearchFields = (item, options = {}) => {
   const includeSeries = shouldIncludeSeriesSearchField(options);
   return [
     ...searchFieldsFromValues("primaryName", [item.name]),
-    ...searchFieldsFromValues("alias", [item.en]),
+    ...searchFieldsFromValues("alias", [item.jpName, item.en]),
     ...searchFieldsFromValues("code", [item.no, item.productNo]),
     ...searchFieldsFromValues("category", ["tools", "장비", ...(includeSeries ? [item.series, itemSeriesLabel(item)] : []), item.category, item.category ? typeLabels[item.category] : ""]),
     ...searchFieldsFromValues("description", [item.desc])
@@ -848,6 +848,7 @@ let currentAnimeRenderKey = "";
 const categoryCollectionRenderKeys = new Map();
 const categoryCollectionItemKey = (item, index) => item?.id || item?.name || item?.title || String(index);
 const renderCategoryCollectionGrid = ({ cacheKey, grid, items, cardTemplate, emptyMarkup, itemKey = categoryCollectionItemKey }) => {
+  grid.classList.toggle("is-single-result", items.length === 1);
   const nextKey = items.length
     ? items.map((item, index) => itemKey(item, index)).join("|")
     : `__empty__:${emptyMarkup}`;
@@ -1488,11 +1489,13 @@ class SearchPreviewController {
     closeAllSearchPreviews(this);
     this.entries = collectSearchPreviewItems(searchPreviewScopeValue(this.input), query);
     if (this.highlightedIndex >= this.entries.length) this.highlightedIndex = -1;
+    const wasHidden = this.preview.hidden;
     this.preview.innerHTML = this.entries.length
       ? `<div class="search-preview-list" role="presentation">${this.entries.map((entry, index) => searchPreviewItemButton(entry, this, index)).join("")}</div>
         <button class="search-preview-all" type="button" data-search-preview-all>전체 검색결과 보기</button>`
       : `<div class="search-preview-empty">검색결과가 없습니다.</div>`;
     this.preview.hidden = false;
+    if (wasHidden) playEnterAnimation(this.preview, "is-preview-entering");
     activeSearchPreview = this;
     this.input.setAttribute("aria-expanded", "true");
     if (this.highlightedIndex >= 0) {
