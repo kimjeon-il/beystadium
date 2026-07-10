@@ -19,7 +19,7 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="./styles.css?v=20260709-part-stat-gap" />
+    <link rel="stylesheet" href="./styles.css?v=20260710-modal-controls-motion" />
   </head>
   <body class="is-overview" data-active-panel="overview">
     <header class="topbar">
@@ -221,7 +221,6 @@
                 </div>
               </details>
               <div class="catalog-search-controls">
-                <button type="button" class="catalog-search-help-button" id="catalogSearchHelpButton" aria-label="상세검색 도움말" aria-expanded="false" aria-controls="catalogSearchHelpPopover">i</button>
                 <div class="unified-search catalog-local-search">
                   <div class="search-box global-search-box catalog-search-box">
                     <details class="search-scope catalog-dropdown" id="catalogSearchScope" data-scope="all" aria-label="완구 검색 범위">
@@ -235,6 +234,7 @@
                     </details>
                     <span class="search-icon" aria-hidden="true"></span>
                     <input id="catalogSearchInput" type="search" placeholder="검색어를 입력해주세요." autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none" />
+                    <button type="button" class="catalog-search-help-button" id="catalogSearchHelpButton" aria-label="상세검색 도움말" aria-expanded="false" aria-controls="catalogSearchHelpPopover">?</button>
                   </div>
                 </div>
               </div>
@@ -289,11 +289,11 @@
 
           <div class="catalog-control-bar anime-control-bar">
             <div class="toolbar catalog-toolbar anime-toolbar">
-              <button type="button" class="catalog-search-help-button anime-search-help-button" id="animeSearchHelpButton" aria-label="상세검색 도움말" aria-expanded="false" aria-controls="animeSearchHelpPopover">i</button>
               <div class="unified-search catalog-local-search anime-local-search">
                 <div class="search-box global-search-box catalog-search-box anime-search-box">
                   <span class="search-icon" aria-hidden="true"></span>
                   <input id="animeSearchInput" type="search" placeholder="검색어를 입력해주세요." autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none" />
+                  <button type="button" class="catalog-search-help-button anime-search-help-button" id="animeSearchHelpButton" aria-label="상세검색 도움말" aria-expanded="false" aria-controls="animeSearchHelpPopover">?</button>
                 </div>
               </div>
             </div>
@@ -336,15 +336,15 @@
 
     <button class="to-top" id="toTop" type="button" aria-label="맨 위로 이동">↑</button>
   <script defer src="./app.js?v=20260709-code-diet"></script>
-  <script defer src="./data/catalog-data.js?v=20260709-code-diet"></script>
-  <script defer src="./src/ui-core.js?v=20260709-code-diet"></script>
-  <script defer src="./data/product-data.js?v=20260709-code-diet"></script>
+  <script defer src="./data/catalog-data.js?v=20260710-scorpion-spear-names"></script>
+  <script defer src="./src/ui-core.js?v=20260710-release-date-default"></script>
+  <script defer src="./data/product-data.js?v=20260710-scorpion-spear-names"></script>
   <script defer src="./src/release-core.js?v=20260709-code-diet"></script>
   <script defer src="./data/secondary-data.js?v=20260709-code-diet"></script>
-  <script defer src="./src/catalog-core.js?v=20260709-code-diet"></script>
-  <script defer src="./src/release-page.js?v=20260709-code-diet"></script>
+  <script defer src="./src/catalog-core.js?v=20260710-single-result-grid"></script>
+  <script defer src="./src/release-page.js?v=20260710-release-date-default"></script>
   <script defer src="./data/anime-data.js?v=20260709-code-diet"></script>
   <script defer src="./src/anime.js?v=20260709-code-diet"></script>
-  <script defer src="./src/router.js?v=20260710-help-popover"></script>
+  <script defer src="./src/router.js?v=20260710-modal-controls-motion"></script>
   </body>
 </html>

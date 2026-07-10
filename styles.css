@@ -35,6 +35,9 @@
   --motion-enter: 220ms;
   --ease-standard: cubic-bezier(.2, 0, 0, 1);
   --ease-emphasized: cubic-bezier(.16, 1, .3, 1);
+  --hover-lift-y: -1px;
+  --hover-shift-x: 1px;
+  --hover-scale-subtle: 1.005;
   --font-xs: .75rem;
   --font-sm: .8125rem;
   --font-md: .9375rem;
@@ -196,6 +199,17 @@ a,
   }
 }
 
+@keyframes fluent-modal-composition-enter {
+  from {
+    opacity: .001;
+    transform: translate(var(--modal-origin-shift-x, 0px), var(--modal-origin-shift-y, 0px)) scale(.988);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
 @keyframes fluent-modal-back-enter {
   from {
     opacity: .001;
@@ -352,7 +366,7 @@ a,
   transform-origin: top center;
 }
 
-.catalog-dropdown[open] > .catalog-dropdown-menu {
+.catalog-dropdown.is-dropdown-entering > .catalog-dropdown-menu {
   animation: fluent-popover-enter var(--motion-enter) var(--ease-emphasized) both;
 }
 
@@ -458,6 +472,9 @@ dialog[open] .modal-scroll-area::-webkit-scrollbar-corner,
   font: inherit;
   font-size: var(--font-md);
   font-weight: var(--font-weight-regular);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .search-box input::placeholder,
@@ -524,19 +541,36 @@ dialog[open] .modal-scroll-area::-webkit-scrollbar-corner,
   display: none !important;
 }
 
-.search-clear {
+.search-clear,
+.catalog-search-help-button {
+  appearance: none;
+  -webkit-appearance: none;
   position: relative;
-  width: 22px;
-  height: 22px;
-  min-width: 22px;
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
   padding: 0;
-  flex: 0 0 22px;
+  flex: 0 0 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: 0;
-  border-radius: 8px;
+  border-radius: 10px;
   background: transparent;
   color: var(--ui-muted);
   box-shadow: none;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color var(--motion-standard) var(--ease-standard), color var(--motion-standard) var(--ease-standard), box-shadow var(--motion-standard) var(--ease-standard), transform var(--motion-fast) var(--ease-standard);
+}
+
+.catalog-search-help-button {
+  font-family: inherit;
+  font-size: var(--font-md);
+  font-weight: var(--font-weight-medium);
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .search-clear[hidden] {
@@ -549,8 +583,8 @@ dialog[open] .modal-scroll-area::-webkit-scrollbar-corner,
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 14px;
-  height: 2px;
+  width: 12px;
+  height: 1.8px;
   border-radius: 999px;
   background: currentColor;
   transform-origin: center;
@@ -565,10 +599,19 @@ dialog[open] .modal-scroll-area::-webkit-scrollbar-corner,
 }
 
 .search-clear:hover,
-.search-clear:focus-visible {
+.search-clear:focus-visible,
+.catalog-search-help-button:hover,
+.catalog-search-help-button:focus-visible,
+.catalog-search-help-button[aria-expanded="true"] {
   background: var(--ui-control-hover) !important;
   color: var(--ui-control-text-active) !important;
   outline: 0 !important;
+  transform: translateY(var(--hover-lift-y));
+}
+
+.search-clear:focus-visible,
+.catalog-search-help-button:focus-visible {
+  box-shadow: var(--ui-focus-ring);
 }
 
 .unified-search {
@@ -773,6 +816,7 @@ main {
   background: var(--ui-control-hover);
   color: var(--ui-text);
   box-shadow: var(--ui-elevation-1);
+  transform: translateY(var(--hover-lift-y));
 }
 
 .topbar-menu-button:active {
@@ -783,6 +827,7 @@ main {
   position: relative;
   z-index: 1;
   width: auto;
+  min-width: 0;
   max-width: 100%;
   grid-column: 2;
   justify-self: center;
@@ -790,12 +835,8 @@ main {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-
-.topbar-primary-nav::-webkit-scrollbar {
-  display: none;
+  overflow: visible;
+  white-space: nowrap;
 }
 
 .topbar-search {
@@ -823,6 +864,8 @@ body.is-overview .topbar-search {
 
 .topbar-primary-button {
   appearance: none;
+  position: relative;
+  z-index: 1;
   flex: 0 0 auto;
   width: max-content;
   min-width: 0;
@@ -850,6 +893,7 @@ body.is-overview .topbar-search {
   background: var(--ui-control-hover);
   color: var(--ui-text);
   box-shadow: var(--ui-elevation-1);
+  transform: translateY(var(--hover-lift-y));
 }
 
 .topbar-primary-button:focus-visible {
@@ -865,6 +909,7 @@ body.is-overview .topbar-search {
 .topbar-primary-button[aria-current="page"] {
   background: var(--ui-control-hover);
   color: var(--ui-control-text-active);
+  box-shadow: var(--ui-elevation-1);
 }
 
 .topbar-primary-button.disabled,
@@ -891,6 +936,7 @@ body.is-overview .topbar-search {
 .app-shell {
   --section-heading-align: flex-end;
   --catalog-grid-min-card-width: clamp(148px, 19vw, 244px);
+  --catalog-grid-single-card-width: var(--catalog-grid-min-card-width);
   --catalog-grid-columns: repeat(auto-fit, minmax(min(100%, var(--catalog-grid-min-card-width)), 1fr));
   --catalog-grid-max-width: min(var(--page-max), 1320px);
   --catalog-content-max: var(--catalog-grid-max-width);
@@ -1015,7 +1061,6 @@ dialog[open] .icon-back-button{
   color: var(--ui-muted) !important;
   box-shadow: none !important;
   filter: none !important;
-  transform: none !important;
   transition: background-color .16s ease, color .16s ease !important;
 }
 
@@ -1038,7 +1083,6 @@ dialog[open] #modalClose.modal-close:hover{
   border-radius: 12px !important;
   color: var(--ui-control-text-active) !important;
   box-shadow: var(--ui-elevation-1) !important;
-  transform: none !important;
 }
 /* Scroll-to-top button */
 .to-top {
@@ -1099,6 +1143,12 @@ dialog[open] #modalClose.modal-close:hover{
   border: 0;
   background: transparent;
   box-shadow: none;
+}
+
+.category-collection__grid.is-single-result,
+.catalog-grid.is-single-result{
+  grid-template-columns: minmax(0, min(100%, var(--catalog-grid-single-card-width)));
+  justify-content: start;
 }
 
 .category-card,
@@ -1251,7 +1301,7 @@ html.route-booting .app-shell {
 /* Gentle interactions for cards and popover links. */
 .catalog-card:hover,
 .product-card:hover{
-  transform: translateY(-2px) !important;
+  transform: translateY(var(--hover-lift-y)) scale(var(--hover-scale-subtle)) !important;
   background: var(--ui-surface-raised) !important;
   border: 1px solid color-mix(in srgb, var(--ui-accent) 22%, var(--ui-stroke-subtle)) !important;
   box-shadow: var(--ui-elevation-1) !important;
@@ -1307,7 +1357,6 @@ dialog[open] #modalClose.modal-close {
   font-size: var(--font-xl) !important;
   font-weight: var(--font-weight-strong) !important;
   text-indent: 0 !important;
-  transform: none !important;
 }
 
 /* Unified catalog page header placement. */
@@ -1450,6 +1499,8 @@ dialog[open] {
   --modal-scroll-start: calc(var(--modal-close-offset) + 42px + 8px);
   --modal-inner-columns: minmax(220px, 32%) minmax(0, 1fr);
   --modal-inner-rows: none;
+  --modal-origin-shift-x: 0px;
+  --modal-origin-shift-y: 0px;
   --modal-info-align-self: stretch;
   --modal-info-height: 100%;
   --modal-info-padding-inline: 6px;
@@ -1530,6 +1581,10 @@ dialog[open] .modal-inner.modal-inner--enter-drill {
   animation: fluent-modal-drill-enter var(--motion-enter) var(--ease-emphasized) both;
 }
 
+dialog[open] .modal-inner.modal-inner--enter-composition {
+  animation: fluent-modal-composition-enter var(--motion-enter) var(--ease-emphasized) both;
+}
+
 dialog[open] .modal-inner.modal-inner--enter-back {
   animation: fluent-modal-back-enter var(--motion-enter) var(--ease-emphasized) both;
 }
@@ -1585,6 +1640,34 @@ dialog[open] .modal-close {
   top: calc((var(--modal-vh) - var(--modal-h)) / 2 + var(--modal-close-offset)) !important;
   right: calc((var(--modal-vw) - var(--modal-w)) / 2 + var(--modal-close-offset)) !important;
   z-index: 300 !important;
+}
+
+dialog[open][data-modal-transition="list"] .is-modal-control-moving {
+  animation: fluent-modal-list-enter var(--motion-enter) var(--ease-emphasized) both;
+}
+
+dialog[open][data-modal-transition="drill"] .is-modal-control-moving {
+  animation: fluent-modal-drill-enter var(--motion-enter) var(--ease-emphasized) both;
+}
+
+dialog[open][data-modal-transition="composition"] .is-modal-control-moving {
+  animation: fluent-modal-composition-enter var(--motion-enter) var(--ease-emphasized) both;
+}
+
+dialog[open][data-modal-transition="back"] .is-modal-control-moving {
+  animation: fluent-modal-back-enter var(--motion-enter) var(--ease-emphasized) both;
+}
+
+dialog[open][data-modal-transition="route"] .is-modal-control-moving {
+  animation: fluent-modal-route-enter var(--motion-enter) var(--ease-emphasized) both;
+}
+
+dialog[open][data-modal-transition="step-prev"] .is-modal-control-moving {
+  animation: fluent-modal-step-prev var(--motion-enter) var(--ease-emphasized) both;
+}
+
+dialog[open][data-modal-transition="step-next"] .is-modal-control-moving {
+  animation: fluent-modal-step-next var(--motion-enter) var(--ease-emphasized) both;
 }
 
 dialog[open] .modal-name {
@@ -2603,6 +2686,13 @@ dialog[open] .modal-info.part-modal-info .modal-name {
   color: var(--ui-control-text-active) !important;
 }
 
+.ui-button:not(:disabled):not([aria-disabled="true"]):hover,
+.ui-button:not(:disabled):not([aria-disabled="true"]):focus-visible,
+.ui-icon-button:not(:disabled):not([aria-disabled="true"]):hover,
+.ui-icon-button:not(:disabled):not([aria-disabled="true"]):focus-visible {
+  transform: translateY(var(--hover-lift-y));
+}
+
 .ui-button:focus-visible,
 .ui-icon-button:focus-visible {
   box-shadow: var(--ui-focus-ring) !important;
@@ -2650,7 +2740,6 @@ dialog[open] .modal-step {
   z-index: 320 !important;
   -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
-  transform: none !important;
 }
 
 dialog[open] .modal-step-prev {
@@ -2731,6 +2820,7 @@ dialog[open] .modal-step-next::after {
   text-overflow: ellipsis;
   box-shadow: none;
   cursor: pointer;
+  transition: background-color var(--motion-standard) var(--ease-standard), color var(--motion-standard) var(--ease-standard), transform var(--motion-fast) var(--ease-standard);
 }
 
 .ui-tab-button:not(.sidebar-button):hover,
@@ -2739,6 +2829,11 @@ dialog[open] .modal-step-next::after {
 .ui-tab-button:not(.sidebar-button)[aria-selected="true"] {
   background: var(--ui-control-hover) !important;
   color: var(--ui-control-text-active) !important;
+}
+
+.ui-tab-button:not(.sidebar-button):hover,
+.ui-tab-button:not(.sidebar-button):focus-visible {
+  transform: translateY(var(--hover-lift-y));
 }
 
 .ui-dropdown-item,
@@ -2773,6 +2868,13 @@ dialog[open] .modal-step-next::after {
 .catalog-dropdown-menu button.active {
   background: var(--ui-control-hover) !important;
   color: var(--ui-control-text-active) !important;
+}
+
+.ui-dropdown-item:hover,
+.ui-dropdown-item:focus-visible,
+.catalog-dropdown-menu button:hover,
+.catalog-dropdown-menu button:focus-visible {
+  transform: translateY(var(--hover-lift-y));
 }
 
 .ui-dropdown-item:active,
@@ -3106,41 +3208,17 @@ body.is-overview .app-shell {
   grid-area: search;
   min-width: 0;
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   align-items: stretch;
-  gap: var(--catalog-search-control-gap);
+  gap: 0;
 }
 
 .catalog-search-controls .catalog-local-search {
   min-width: 0;
 }
 
-.catalog-search-help-button {
-  width: var(--toolbar-icon-button-size);
-  min-width: var(--toolbar-icon-button-size);
-  height: var(--toolbar-icon-button-size);
-  min-height: var(--toolbar-icon-button-size);
-  padding: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--ui-line);
-  border-radius: var(--ui-radius);
-  background: var(--ui-surface);
-  color: var(--ui-muted);
-  font-size: var(--font-md);
-  font-weight: var(--font-weight-strong);
-  line-height: 1;
-  white-space: nowrap;
-  box-shadow: none;
-  cursor: pointer;
-}
-
-.catalog-search-help-button:hover,
-.catalog-search-help-button:focus-visible,
-.catalog-search-help-button[aria-expanded="true"] {
-  background: var(--ui-control);
-  color: var(--ui-text);
+.anime-toolbar {
+  --catalog-toolbar-columns: minmax(0, 1fr);
 }
 
 .topbar-search-box,
@@ -3274,10 +3352,6 @@ body.is-overview .app-shell {
 }
 
 .catalog-control-bar {
-  position: sticky;
-  top: var(--catalog-sticky-top, 72px);
-  z-index: 70;
-  isolation: isolate;
   display: grid;
   grid-template-columns: var(--catalog-control-columns);
   align-items: start;
@@ -3290,19 +3364,6 @@ body.is-overview .app-shell {
   background: var(--ui-bg);
   background-image: none;
   overflow: visible;
-}
-
-.catalog-panel.active .catalog-control-bar.is-stuck::before {
-  content: "";
-  position: absolute;
-  z-index: 0;
-  top: 0;
-  bottom: calc(var(--catalog-control-stack-gap) * -1);
-  left: calc((100vw - 100%) / -2);
-  right: calc((100vw - 100%) / -2);
-  pointer-events: none;
-  background: color-mix(in srgb, var(--ui-surface) 88%, var(--ui-bg) 12%);
-  box-shadow: inset 0 -1px 0 var(--ui-line);
 }
 
 .catalog-control-bar > .catalog-toolbar {
@@ -3551,6 +3612,7 @@ body.is-overview .app-shell {
 .search-result-item:focus-visible {
   background: var(--ui-control-hover) !important;
   outline: 0 !important;
+  transform: translateX(var(--hover-shift-x));
 }
 
 .search-result-item:active {
@@ -3696,6 +3758,9 @@ body.is-overview .app-shell {
   scrollbar-width: thin;
   scrollbar-color: var(--ui-line) transparent;
   transform-origin: top center;
+}
+
+.search-preview.is-preview-entering {
   animation: fluent-popover-enter var(--motion-enter) var(--ease-emphasized) both;
 }
 
@@ -3731,13 +3796,14 @@ body.is-overview .app-shell {
   font-size: var(--font-sm);
   font-weight: var(--font-weight-medium);
   text-align: left;
-  transition: background-color var(--motion-standard) var(--ease-standard), color var(--motion-standard) var(--ease-standard);
+  transition: background-color var(--motion-standard) var(--ease-standard), color var(--motion-standard) var(--ease-standard), transform var(--motion-fast) var(--ease-standard);
 }
 
 .search-preview-all:hover,
 .search-preview-all:focus-visible {
   background: var(--ui-control-hover) !important;
   outline: 0 !important;
+  transform: translateX(var(--hover-shift-x));
 }
 
 .search-preview-all span {
@@ -4087,6 +4153,7 @@ body.menu-open .mobile-drawer {
   background: var(--sidebar-hover-bg);
   color: var(--ui-text);
   box-shadow: var(--ui-elevation-1);
+  transform: translateY(var(--hover-lift-y));
 }
 
 .sidebar-root .sidebar-button:focus-visible,
@@ -4179,7 +4246,6 @@ body.menu-open .mobile-drawer {
   }
 
   .app-shell {
-    --catalog-sticky-top: 72px;
     min-height: calc(100vh - 72px);
   }
 
@@ -4201,12 +4267,45 @@ body.menu-open .mobile-drawer {
   }
 
   .app-panel.active,
-  .catalog-dropdown[open] > .catalog-dropdown-menu,
-  .search-preview,
+  .catalog-dropdown.is-dropdown-entering > .catalog-dropdown-menu,
+  .search-preview.is-preview-entering,
   .modal-tag-popover,
   .modal-overlay,
-  dialog[open] .modal-inner {
+  dialog[open] .modal-inner,
+  dialog[open] .is-modal-control-moving {
     animation: none !important;
+  }
+
+  .topbar-menu-button:hover,
+  .topbar-menu-button:focus-visible,
+  .topbar-primary-button:not(:disabled):hover,
+  .topbar-primary-button:not(:disabled):focus-visible,
+  .search-clear:hover,
+  .search-clear:focus-visible,
+  .catalog-search-help-button:hover,
+  .catalog-search-help-button:focus-visible,
+  .catalog-search-help-button[aria-expanded="true"],
+  .catalog-card:hover,
+  .product-card:hover,
+  .ui-button:not(:disabled):not([aria-disabled="true"]):hover,
+  .ui-button:not(:disabled):not([aria-disabled="true"]):focus-visible,
+  .ui-icon-button:not(:disabled):not([aria-disabled="true"]):hover,
+  .ui-icon-button:not(:disabled):not([aria-disabled="true"]):focus-visible,
+  .ui-tab-button:not(.sidebar-button):hover,
+  .ui-tab-button:not(.sidebar-button):focus-visible,
+  .ui-dropdown-item:hover,
+  .ui-dropdown-item:focus-visible,
+  .catalog-dropdown-menu button:hover,
+  .catalog-dropdown-menu button:focus-visible,
+  .search-result-item:hover,
+  .search-result-item:focus-visible,
+  .search-preview-all:hover,
+  .search-preview-all:focus-visible,
+  .sidebar-root .sidebar-button:not(:disabled):not([aria-disabled="true"]):hover,
+  .sidebar-root .sidebar-button:not(:disabled):not([aria-disabled="true"]):focus-visible,
+  .mobile-drawer-close:hover,
+  .mobile-drawer-close:focus-visible {
+    transform: none !important;
   }
 }
 
@@ -4225,7 +4324,7 @@ body.menu-open .mobile-drawer {
     grid-template-columns: var(--topbar-side-size) minmax(0, 1fr);
     justify-content: stretch;
     margin: 0;
-    background: var(--ui-bg);
+    background: var(--ui-surface-glass);
   }
 
   .topbar-primary-nav {
