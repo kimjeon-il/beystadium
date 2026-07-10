@@ -497,7 +497,7 @@ const beyItems = [
   { id: "BEY-X-BX-00-JP-38", series: "x", type: "bey", name: "드라군스톰 4-60RA", productNo: "BX-00", battleType: "attack", spin: "left", tags: [], desc: "", parts: ["X-BLADE-DRAGOON-STORM", "X-RATCHET-4-60", "X-BIT-RA"] },
   { id: "BEY-X-CX-12", series: "x", type: "bey", name: "피닉스플레어Z 9-80WW", productNo: "CX-12", battleType: "", spin: "", tags: [], desc: "", parts: [] },
   { id: "BEY-X-UX-00-JP-9", series: "x", type: "bey", name: "에어로페가서스 3-70A 레드 Ver.", productNo: "UX-00", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["X-BLADE-AERO-PEGASUS", "X-RATCHET-3-70", "X-BIT-A"] },
-  { id: "BEY-X-BX-00-JP-39", series: "x", type: "bey", name: "드란소드 1-60V 메탈코트:블랙 J리그 Ver.", productNo: "BX-00", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["X-BLADE-DRAN-SWORD", "X-RATCHET-1-60", "X-BIT-V"] },
+  { id: "BEY-X-BX-00-JP-39", series: "x", type: "bey", name: "드랜소드 1-60V 메탈코트:블랙 J리그 Ver.", jpName: "드란소드 1-60V 메탈코트:블랙 J리그 Ver.", productNo: "BX-00", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["X-BLADE-DRAN-SWORD", "X-RATCHET-1-60", "X-BIT-V"] },
   { id: "BEY-X-BX-00-JP-40", series: "x", type: "bey", name: "코발트드라군 9-60F 메탈코트:화이트 J리그 Ver.", productNo: "BX-00", battleType: "attack", spin: "left", tags: [], desc: "", parts: ["X-BLADE-COBALT-DRAGOON", "X-RATCHET-9-60", "X-BIT-F"] },
   { id: "BEY-X-CX-13", series: "x", type: "bey", name: "바하무트블리츠BK 1-50I", productNo: "CX-13", battleType: "", spin: "", tags: [], desc: "", parts: [] },
   { id: "BEY-X-CX-14", series: "x", type: "bey", name: "나이트포트리스GV 8-70UN", productNo: "CX-14", battleType: "", spin: "", tags: [], desc: "", parts: [] },
