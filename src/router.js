@@ -862,8 +862,8 @@ class ModalController {
     const centerX = rect?.width ? rect.left + rect.width / 2 : viewport.width / 2;
     const centerY = rect?.height ? rect.top + rect.height / 2 : viewport.height / 2;
     const clamp = (value, max) => Math.max(max * -1, Math.min(max, value));
-    const shiftX = clamp((origin.x - centerX) * 0.035, 14);
-    const shiftY = clamp((origin.y - centerY) * 0.035, 10);
+    const shiftX = clamp((origin.x - centerX) * 0.035, 8);
+    const shiftY = clamp((origin.y - centerY) * 0.035, 6);
     this.modal.style.setProperty("--modal-origin-shift-x", `${shiftX.toFixed(1)}px`);
     this.modal.style.setProperty("--modal-origin-shift-y", `${shiftY.toFixed(1)}px`);
   }
@@ -1162,40 +1162,67 @@ function detailHeading(item, options = {}) {
   }
   return modalTitle(itemDisplayName(item, options.region));
 }
+const validReleaseRegion = region => releaseRegionLabels[region] ? region : "";
+const catalogDetailProductHasTarget = (product, region, targetId) =>
+  productReleasedInRegion(product, region) &&
+  (productCompositionItems(product, region).some(part => part.target === targetId) ||
+    productLineupIds(product).includes(targetId));
+const inferCatalogDetailRegionFromProduct = (options = {}) => {
+  const product = options.backProductId ? productItemsById.get(options.backProductId) : null;
+  if (!product) return "";
+  const requestedRegion = validReleaseRegion(options.region) || validReleaseRegion(activeReleaseRegion) || "kr";
+  return productDisplayRegion(product, requestedRegion);
+};
+const inferCatalogDetailRegionFromItem = item => {
+  if (!item || item.series !== "x") return "";
+  if (item.id.includes("-JP-")) return "jp";
+  if (item.type !== "bey") return "";
+  const hasJpRelease = productItems.some(product => catalogDetailProductHasTarget(product, "jp", item.id));
+  const hasKrRelease = productItems.some(product => catalogDetailProductHasTarget(product, "kr", item.id));
+  return hasJpRelease && !hasKrRelease ? "jp" : "";
+};
+function catalogDetailRegion(item, options = {}) {
+  return validReleaseRegion(options.region) ||
+    inferCatalogDetailRegionFromProduct(options) ||
+    inferCatalogDetailRegionFromItem(item) ||
+    validReleaseRegion(activeReleaseRegion) ||
+    "kr";
+}
 function openDetail(id, options = {}) {
   const item = catalogCoreItemsById.get(id);
   if (!item) return;
-  if (routeIfNeeded({ type: "detail", id, options }, options)) return;
+  const detailRegion = catalogDetailRegion(item, options);
+  const detailOptions = { ...options, region: detailRegion };
+  if (routeIfNeeded({ type: "detail", id, options: detailOptions }, detailOptions)) return;
   closeModalTagPopover();
   cleanupModelViewer();
-  const description = itemDisplayDesc(item, options.region);
+  const description = itemDisplayDesc(item, detailRegion);
   const slot = item.type === "bey"
     ? modalInfoSlot(description, beyModalTags(item), "single-line-info-slot")
     : modalInfoSlot(description, partModalTags(item));
-  const body = item.type === "bey" ? beyDetailSections(item, options.region) : partStats(item);
+  const body = item.type === "bey" ? beyDetailSections(item, detailRegion) : partStats(item);
   const visibleCoreItems = visibleCatalogCoreItems();
   const stepItems = visibleCoreItems.some(entry => entry.id === item.id) ? visibleCoreItems : catalogCoreItems;
   const modalContentRoot = setModalContent(`${modalStepButtons(stepItems, item.id, "item")}<div class="modal-inner">
     <div class="modal-art">${modalArtMarkup(item)}</div>
     <div class="modal-info ${item.type === "bey" ? "bey-modal-info" : "part-modal-info"}">
-    ${modalScrollArea(`${detailHeading(item, options)}
-    ${slot}<div class="modal-body-block">${body}</div>`)}${detailBackButton(options.backId, options.backProductId, options.backRelease, options.region)}</div></div>`);
+    ${modalScrollArea(`${detailHeading(item, detailOptions)}
+    ${slot}<div class="modal-body-block">${body}</div>`)}${detailBackButton(detailOptions.backId, detailOptions.backProductId, detailOptions.backRelease, detailRegion)}</div></div>`);
   if (!modalContentRoot) return;
-  bindModalStepButtons({ item: options });
+  bindModalStepButtons({ item: detailOptions });
   bindCatalogModalBack(modalContentRoot);
   modalContentRoot.querySelectorAll(".mounted-link").forEach(link => link.addEventListener("click", event => {
     event.preventDefault();
     if (!link.dataset.partId) return;
-    const linkOptions = { backId: item.id };
-    if (options.backProductId) linkOptions.backProductId = options.backProductId;
-    if (options.backRelease) linkOptions.backRelease = true;
-    if (options.region) linkOptions.region = options.region;
+    const linkOptions = { backId: item.id, region: detailRegion };
+    if (detailOptions.backProductId) linkOptions.backProductId = detailOptions.backProductId;
+    if (detailOptions.backRelease) linkOptions.backRelease = true;
     queueModalTransition("composition", { sourceElement: link });
     openDetail(link.dataset.partId, linkOptions);
   }));
   bindModalTagPopovers(modalContentRoot);
   bindModalDescriptionExpanders(modalContentRoot);
-  finishModalOpen({ contextKind: "item", contextId: item.id, contextOptions: options, root: modalContentRoot });
+  finishModalOpen({ contextKind: "item", contextId: item.id, contextOptions: detailOptions, root: modalContentRoot });
   scheduleModalDescriptionMeasure(modalContentRoot);
   if (item.model) requestAnimationFrame(initModelViewer);
 }
@@ -1559,6 +1586,53 @@ function restoreDetailOriginPanel(context) {
   restorePageScroll(modalController.scrollY);
   return true;
 }
+const isValidAnimeEpisodeDetailId = id =>
+  typeof episodeIndexFromHash === "function" && episodeIndexFromHash(id) >= 0;
+const isAnimeEpisodeDetailHash = id =>
+  typeof isAnimeEpisodeHash === "function" && isAnimeEpisodeHash(id);
+const catalogDetailFallbackScope = id => {
+  const item = catalogCoreItemsById.get(id);
+  return item?.type === "bey" ? "bey" : "parts";
+};
+const searchFallbackRouteForItem = item => ({
+  type: "search",
+  query: item?.name || "",
+  scope: "all"
+});
+function detailFallbackOriginRoute(id = "") {
+  if (productItemsById.has(id)) return { type: "category-release" };
+  if (toolsItemsById.has(id)) return { type: "catalog", scope: "tools" };
+  if (catalogCoreItemsById.has(id)) return { type: "catalog", scope: catalogDetailFallbackScope(id) };
+  if (isAnimeEpisodeDetailHash(id)) return { type: "category-anime-episodes" };
+  if (bookItemsById.has(id)) return searchFallbackRouteForItem(bookItemsById.get(id));
+  if (gameItemsById.has(id)) return searchFallbackRouteForItem(gameItemsById.get(id));
+  return null;
+}
+function detailRouteExists(id = "") {
+  return Boolean(
+    productItemsById.has(id) ||
+    catalogCoreItemsById.has(id) ||
+    toolsItemsById.has(id) ||
+    bookItemsById.has(id) ||
+    gameItemsById.has(id) ||
+    isValidAnimeEpisodeDetailId(id)
+  );
+}
+function routeWithKnownDetailFallback(route = {}) {
+  const normalizedRoute = normalizeRoute(route || { type: "overview" });
+  if (!isDetailRoute(normalizedRoute) || !normalizedRoute.id || detailRouteExists(normalizedRoute.id)) return normalizedRoute;
+  return detailFallbackOriginRoute(normalizedRoute.id) || { type: "overview" };
+}
+function restoreDetailFallbackOriginIfNeeded(restoredContext, fallbackOriginRoute) {
+  const restoredOriginRoute = routeSnapshot(restoredContext?.originRoute);
+  if (restoredOriginRoute && isPrimaryRoute(restoredOriginRoute) && restoredOriginRoute.type !== "overview") {
+    return restoreDetailOriginPanel(restoredContext);
+  }
+  if (fallbackOriginRoute && (!modalOriginRoute || modalOriginRoute.type === "overview")) {
+    return restoreDetailOriginPanel({ originRoute: fallbackOriginRoute, originState: {} });
+  }
+  return false;
+}
 function applyRoute(route = parseRouteFromHash(), { preserveScroll = false, preserveSearch = false } = {}) {
   const normalizedRoute = normalizeRoute(route || { type: "overview" });
   const normalizedRouteKey = appliedRouteKey(normalizedRoute);
@@ -1589,10 +1663,8 @@ function applyRoute(route = parseRouteFromHash(), { preserveScroll = false, pres
     } else if (normalizedRoute.type === "detail" && normalizedRoute.id) {
       const hashId = normalizedRoute.id;
       const restoredContext = restoredModalContext(hashId);
-      const restoredOriginRoute = routeSnapshot(restoredContext?.originRoute);
-      if (restoredOriginRoute && isPrimaryRoute(restoredOriginRoute) && (!modalOriginRoute || (modalOriginRoute.type === "overview" && restoredOriginRoute.type !== "overview"))) {
-        restoreDetailOriginPanel(restoredContext);
-      }
+      const fallbackOriginRoute = detailFallbackOriginRoute(hashId);
+      restoreDetailFallbackOriginIfNeeded(restoredContext, fallbackOriginRoute);
       const restoredOptions = { ...(restoredContext?.options || {}), ...routeApplyOptions(normalizedRoute) };
       openDetailByKind(restoredContext?.kind || "", hashId, restoredOptions);
     }
@@ -1675,7 +1747,7 @@ syncNavigationMode();
 syncCatalogScopeState();
 renderCatalogFilterChips();
 const applyCurrentHashRoute = () => {
-  const route = parseRouteFromHash();
+  const route = routeWithKnownDetailFallback(parseRouteFromHash());
   const canonicalHash = serializeRoute(route);
   const canonicalRouteKey = `${currentPathWithSearch()}${canonicalHash}`;
   try {
@@ -1688,6 +1760,12 @@ const applyCurrentHashRoute = () => {
       }
     }
     applyRoute(route);
+    if (isDetailRoute(route) && !modal?.open) {
+      navigateToRoute(detailFallbackOriginRoute(route.id) || { type: "overview" }, {
+        replace: true,
+        preserveSearch: true
+      });
+    }
   } finally {
     document.documentElement.classList.remove("route-booting");
   }

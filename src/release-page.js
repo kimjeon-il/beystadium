@@ -4,14 +4,21 @@ const releaseSortableColumns = {
   release: "발매",
   price: "가격"
 };
+const releaseSortAccessibleColumns = {
+  ...releaseSortableColumns,
+  release: "발매일"
+};
+const releaseSortDirectionLabel = direction => direction === "desc" ? "내림차순" : "오름차순";
+const releaseSortOptionAriaLabel = (key, direction) =>
+  `${releaseSortAccessibleColumns[key] || releaseSortableColumns[key] || key} ${releaseSortDirectionLabel(direction)} 정렬`;
 const releaseMobileSortOptions = [
-  { value: "release:asc", label: "발매순 ↑", key: "release", direction: "asc" },
-  { value: "release:desc", label: "발매순 ↓", key: "release", direction: "desc" },
-  { value: "no:asc", label: "번호순 ↑", key: "no", direction: "asc" },
-  { value: "no:desc", label: "번호순 ↓", key: "no", direction: "desc" },
-  { value: "kind:asc", label: "종류순", key: "kind", direction: "asc" },
-  { value: "price:asc", label: "가격순 ↑", key: "price", direction: "asc" },
-  { value: "price:desc", label: "가격순 ↓", key: "price", direction: "desc" }
+  { value: "release:asc", label: "발매순 ↑", key: "release", direction: "asc", ariaLabel: releaseSortOptionAriaLabel("release", "asc") },
+  { value: "release:desc", label: "발매순 ↓", key: "release", direction: "desc", ariaLabel: releaseSortOptionAriaLabel("release", "desc") },
+  { value: "no:asc", label: "번호순 ↑", key: "no", direction: "asc", ariaLabel: releaseSortOptionAriaLabel("no", "asc") },
+  { value: "no:desc", label: "번호순 ↓", key: "no", direction: "desc", ariaLabel: releaseSortOptionAriaLabel("no", "desc") },
+  { value: "kind:asc", label: "종류순", key: "kind", direction: "asc", ariaLabel: releaseSortOptionAriaLabel("kind", "asc") },
+  { value: "price:asc", label: "가격순 ↑", key: "price", direction: "asc", ariaLabel: releaseSortOptionAriaLabel("price", "asc") },
+  { value: "price:desc", label: "가격순 ↓", key: "price", direction: "desc", ariaLabel: releaseSortOptionAriaLabel("price", "desc") }
 ];
 const releaseMobileSortOptionValue = sort => sort?.key === "kind" ? "kind:asc" : `${sort?.key || "release"}:${sort?.direction === "desc" ? "desc" : "asc"}`;
 const activeReleaseMobileSortOption = () =>
@@ -88,12 +95,17 @@ const releaseSortSymbol = key => {
   if (activeReleaseSort.key !== key) return "\u2195";
   return activeReleaseSort.direction === "asc" ? "\u2191" : "\u2193";
 };
+const releaseSortButtonAriaLabel = (key, active, direction) => {
+  const columnName = releaseSortAccessibleColumns[key] || releaseSortableColumns[key] || key;
+  const nextDirection = active && direction === "asc" ? "내림차순" : "오름차순";
+  if (!active) return `${columnName}: 정렬 안 됨. ${nextDirection}으로 정렬`;
+  return `${columnName}: 현재 ${releaseSortDirectionLabel(direction)} 정렬됨. ${nextDirection}으로 변경`;
+};
 const releaseSortHeader = (key, label) => {
   const active = activeReleaseSort.key === key;
   const direction = active ? activeReleaseSort.direction : "none";
-  const nextDirection = active && activeReleaseSort.direction === "asc" ? "내림차순" : "오름차순";
   return `<th aria-sort="${direction === "asc" ? "ascending" : direction === "desc" ? "descending" : "none"}">
-    <button class="release-sort-button" type="button" data-release-sort="${key}" aria-label="${label} ${nextDirection} 정렬">
+    <button class="release-sort-button" type="button" data-release-sort="${key}" aria-label="${escapeAttributeValue(releaseSortButtonAriaLabel(key, active, direction))}">
       <span class="release-sort-label">${label}</span><span class="release-sort-mark" aria-hidden="true">${releaseSortSymbol(key)}</span>
     </button>
   </th>`;

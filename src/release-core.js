@@ -234,7 +234,7 @@ const setSortDropdownLabel = (element, label) => {
   if (element) element.innerHTML = sortDropdownLabelMarkup(label);
 };
 const sortDropdownOptionsMarkup = (options, activeValue, dataAttr) => options.map(option =>
-  `<button type="button" class="${option.value === activeValue ? "active" : ""}" ${dataAttr}="${escapeAttributeValue(option.value)}" data-summary-label="${escapeAttributeValue(option.label)}">${sortDropdownLabelMarkup(option.label)}</button>`
+  `<button type="button" class="${option.value === activeValue ? "active" : ""}" ${dataAttr}="${escapeAttributeValue(option.value)}" data-summary-label="${escapeAttributeValue(option.label)}"${option.ariaLabel ? ` aria-label="${escapeAttributeValue(option.ariaLabel)}"` : ""}>${sortDropdownLabelMarkup(option.label)}</button>`
 ).join("");
 const sortDropdownMarkup = ({ className = "", label = "정렬", value = "", options = [], dataAttr = "" } = {}) =>
   `<details class="${tableListClassName("catalog-dropdown", "search-scope", "list-sort-dropdown", className)}" aria-label="${escapeAttributeValue(label)}">

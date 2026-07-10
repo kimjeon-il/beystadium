@@ -1631,7 +1631,8 @@ const itemAttributeLabels = item => [
 const visibleModalTags = item => orderedTags(item);
 
 function modalTagDescription(tag) {
-  return "";
+  const label = tagLabels[tag] || tag;
+  return modalTagDescriptions[tag] || modalTagDescriptions[label] || "";
 }
 
 
