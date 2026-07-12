@@ -389,6 +389,12 @@ const burstBeySystemFilterGroups = {
   db: { label: "DB레이어 시스템", aliases: ["DB레이어"], partPrefixes: ["DBBLADE-", "DBLAYER-"] }
 };
 const shouldIncludeSeriesSearchField = options => options?.includeSeries !== false;
+const searchTagAliases = {
+  "크로스오버": ["crossover"]
+};
+const itemSearchTagValues = item => Array.isArray(item.searchTags)
+  ? item.searchTags.flatMap(tag => [tag, tagLabels[tag] || "", ...(searchTagAliases[tag] || [])]).filter(Boolean)
+  : [];
 const catalogItemSearchFields = (item, options = {}) => {
   const includeSeries = shouldIncludeSeriesSearchField(options);
   return [
@@ -398,7 +404,7 @@ const catalogItemSearchFields = (item, options = {}) => {
     ...searchFieldsFromValues("category", [
       ...catalogItemKindSearchValues(item),
       ...(includeSeries ? [item.series, itemSeriesLabel(item)] : []),
-      ...partTypeSearchValues(item),
+      ...partClassificationSearchValues(item),
       item.category,
       item.category ? typeLabels[item.category] : "",
       item.structure,
@@ -410,8 +416,7 @@ const catalogItemSearchFields = (item, options = {}) => {
       ...catalogListSpinSearchTerms(item),
       item.heightClass,
       item.heightClass ? heightClassLabel(item.heightClass) : "",
-      ...(Array.isArray(item.tags) ? item.tags : []),
-      ...(Array.isArray(item.tags) ? item.tags.map(tag => tagLabels[tag] || "") : [])
+      ...itemSearchTagValues(item)
     ])
   ];
 };
@@ -458,9 +463,13 @@ const catalogAttributeChipCandidates = (() => {
   };
   Object.values(layerSystemFilterGroups)
     .forEach(group => add(`part-system:${catalogAttributeChipAliasKey(group.label)}`, group.label));
-  Object.entries(typeLabels).forEach(([value, label]) => add(`type:${value}`, label, [value]));
-  [...new Set(Object.values(partTypeHierarchy).map(meta => meta.systemLabel).filter(Boolean))]
-    .forEach(label => add(`part-system:${catalogAttributeChipAliasKey(label)}`, label));
+  partClassificationFilterDescriptors()
+    .forEach(descriptor => {
+      const key = descriptor.group === "part-system"
+        ? catalogAttributeChipAliasKey(descriptor.key)
+        : descriptor.key;
+      add(`${descriptor.group}:${key}`, descriptor.label, descriptor.aliases);
+    });
   Object.entries(structureLabels).forEach(([value, label]) => {
     const aliases = value === "basic"
       ? ["4단 구조", "4단", "basic"]
@@ -480,6 +489,7 @@ const catalogAttributeChipCandidates = (() => {
   });
   Object.entries(spinLabels).forEach(([value, label]) => add(`spin:${value}`, label, [value]));
   toolsSubtypeOptions.forEach(option => add(`tools:${option.value}`, option.label, [option.value]));
+  Object.entries(searchTagAliases).forEach(([tag, aliases]) => add(`tag:${catalogAttributeChipAliasKey(tag)}`, tagLabels[tag] || tag, aliases));
   Object.entries(tagLabels).forEach(([value, label]) => add(`tag:${value}`, label, [value]));
   return candidates;
 })();
@@ -487,7 +497,7 @@ const catalogAttributeChipForTerm = term => {
   const key = catalogAttributeChipAliasKey(term);
   return catalogAttributeChipCandidates.find(candidate => candidate.aliasKeys.has(key)) || null;
 };
-const catalogExclusiveFilterGroups = new Set(["type", "part-system", "bey-system", "system", "battle", "spin", "tools"]);
+const catalogExclusiveFilterGroups = new Set(["type", "part-system", "bey-system", "system", "battle", "spin", "x-line", "x-blade-role", "tools"]);
 const catalogFilterGroupForTerm = term => {
   const candidate = catalogAttributeChipForTerm(term);
   const group = String(candidate?.key || "").split(":")[0];
@@ -568,21 +578,7 @@ function productCompositionItems(item, region = activeReleaseRegion) {
   const baseComposition = region === "jp" ? item.composition || krReleaseComposition : region === "kr" ? item.composition : null;
   return regionComposition || baseComposition || [];
 }
-const randomBoosterNamePattern = /(랜덤부스터|라이트블레이드|러이트블레이드)/;
-const productReleaseNos = product => [...new Set([
-  product.no,
-  ...Object.values(product.releases || {}).map(release => release.no)
-].filter(Boolean))];
-const productLineupIds = product => {
-  if (product.lineupPool?.length) return product.lineupPool;
-  if (product.beyPool?.length) return product.beyPool;
-  const isRandomBooster = Object.values(product.releases || {}).some(release => randomBoosterNamePattern.test(release.name || ""));
-  if (!isRandomBooster) return [];
-  const releaseNos = productReleaseNos(product);
-  return catalogCoreItems
-    .filter(entry => entry.type === "bey" && releaseNos.includes(entry.productNo))
-    .map(entry => entry.id);
-};
+const productLineupIds = product => Array.isArray(product?.lineupPool) ? product.lineupPool : [];
 const compareCatalogFirstReleaseMeta = (a, b) =>
   a.dateSort - b.dateSort ||
   a.productIndex - b.productIndex ||
@@ -848,7 +844,6 @@ let currentAnimeRenderKey = "";
 const categoryCollectionRenderKeys = new Map();
 const categoryCollectionItemKey = (item, index) => item?.id || item?.name || item?.title || String(index);
 const renderCategoryCollectionGrid = ({ cacheKey, grid, items, cardTemplate, emptyMarkup, itemKey = categoryCollectionItemKey }) => {
-  grid.classList.toggle("is-single-result", items.length === 1);
   const nextKey = items.length
     ? items.map((item, index) => itemKey(item, index)).join("|")
     : `__empty__:${emptyMarkup}`;
@@ -989,6 +984,25 @@ const searchHash = (query = globalSearchQuery(), scope = globalSearchScopeValue(
 };
 const catalogRouteScopes = new Set(["all", "bey", "parts", "tools"]);
 const normalizeCatalogRouteScope = scope => catalogRouteScopes.has(scope) ? scope : "all";
+const defaultCatalogSort = () => catalogSortOptions[2]?.value || "latest";
+const normalizeCatalogRouteSort = sort =>
+  catalogSortOptions.some(option => option.value === sort) ? sort : defaultCatalogSort();
+const normalizeCatalogRoutePage = page => {
+  const numeric = Number.parseInt(page, 10);
+  return Number.isFinite(numeric) && numeric > 0 ? numeric : 1;
+};
+const normalizeCatalogRouteQuery = query => String(query || "").trim();
+const normalizeReleaseRouteRegion = region => releaseRegionLabels[region] ? region : "jp";
+const normalizeReleaseRouteSeries = series => releaseSeriesLabels[series] ? series : "x";
+const normalizeRareBeyGetListRouteOptions = options => {
+  const region = normalizeReleaseRouteRegion(options?.region);
+  return {
+    region,
+    series: normalizeReleaseRouteSeries(options?.series),
+    ...(options?.backProductId ? { backProductId: String(options.backProductId) } : {}),
+    ...(options?.backRelease ? { backRelease: true } : {})
+  };
+};
 const currentPathWithSearch = () => `${window.location.pathname}${window.location.search}`;
 const routeHashParts = (hash = window.location.hash) => {
   const raw = (hash || "").replace(/^#/, "");
@@ -1007,7 +1021,11 @@ function normalizeRoute(route = {}) {
   };
   if (route.type === "catalog") return {
     type: "catalog",
-    scope: normalizeCatalogRouteScope(route.scope)
+    scope: normalizeCatalogRouteScope(route.scope),
+    series: normalizeCatalogSeries(route.series || "all"),
+    sort: normalizeCatalogRouteSort(route.sort),
+    page: normalizeCatalogRoutePage(route.page),
+    query: normalizeCatalogRouteQuery(route.query ?? route.q)
   };
   if (route.type === "category-release") return {
     type: "category-release",
@@ -1020,6 +1038,12 @@ function normalizeRoute(route = {}) {
     type: "category-anime-episodes",
     options: { ...(route.options || {}) }
   };
+  if (route.type === "rare-bey-get-list") {
+    return {
+      type: "rare-bey-get-list",
+      options: normalizeRareBeyGetListRouteOptions({ ...(route.options || {}), ...route })
+    };
+  }
   if (route.type === "detail" || route.id) {
     const id = String(route.id || "");
     return id ? {
@@ -1040,11 +1064,22 @@ function parseRouteFromHash(hash = window.location.hash) {
   };
   if (id === "toy-catalog") return {
     type: "catalog",
-    scope: normalizeCatalogRouteScope(params.get("scope"))
+    scope: normalizeCatalogRouteScope(params.get("scope")),
+    series: normalizeCatalogSeries(params.get("series") || "all"),
+    sort: normalizeCatalogRouteSort(params.get("sort")),
+    page: normalizeCatalogRoutePage(params.get("page")),
+    query: normalizeCatalogRouteQuery(params.get("q") || "")
   };
   if (id === "toy-release") return { type: "category-release" };
   if (id === "anime-character") return { type: "category-anime" };
   if (id === "anime-episode") return { type: "category-anime-episodes" };
+  if (id === "rare-bey-get-list") return normalizeRoute({
+    type: "rare-bey-get-list",
+    region: params.get("region") || "",
+    series: params.get("series") || "",
+    backProductId: params.get("backProductId") || "",
+    backRelease: params.get("backRelease") === "1"
+  });
   return normalizeRoute({ type: "detail", id });
 }
 function serializeRoute(route = {}) {
@@ -1054,11 +1089,24 @@ function serializeRoute(route = {}) {
   if (normalizedRoute.type === "catalog") {
     const params = new URLSearchParams();
     params.set("scope", normalizeCatalogRouteScope(normalizedRoute.scope));
+    params.set("series", normalizeCatalogSeries(normalizedRoute.series || "all"));
+    params.set("sort", normalizeCatalogRouteSort(normalizedRoute.sort));
+    params.set("page", String(normalizeCatalogRoutePage(normalizedRoute.page)));
+    if (normalizedRoute.query) params.set("q", normalizeCatalogRouteQuery(normalizedRoute.query));
     return `#toy-catalog?${params.toString()}`;
   }
   if (normalizedRoute.type === "category-release") return "#toy-release";
   if (normalizedRoute.type === "category-anime") return "#anime-character";
   if (normalizedRoute.type === "category-anime-episodes") return "#anime-episode";
+  if (normalizedRoute.type === "rare-bey-get-list") {
+    const params = new URLSearchParams();
+    const options = normalizeRareBeyGetListRouteOptions(normalizedRoute.options || {});
+    params.set("region", options.region);
+    params.set("series", options.series);
+    if (options.backProductId) params.set("backProductId", options.backProductId);
+    if (options.backRelease) params.set("backRelease", "1");
+    return `#rare-bey-get-list?${params.toString()}`;
+  }
   if (normalizedRoute.id) return `#${normalizedRoute.id}`;
   return "";
 }
@@ -1072,22 +1120,27 @@ function isDetailRoute(route = {}) {
 }
 const routeSnapshot = route => route ? normalizeRoute(route) : null;
 let modalOriginRoute = null;
+let modalOriginRouteExplicit = false;
 let activeDetailModalContext = null;
 let lastPrimaryRoute = { type: "overview" };
 function rememberPrimaryRoute(route = {}) {
   if (isPrimaryRoute(route)) lastPrimaryRoute = routeSnapshot(route) || { type: "overview" };
 }
-function syncModalOriginRoute(route = {}) {
+function syncModalOriginRoute(route = {}, { explicit = false } = {}) {
   if (isDetailRoute(route)) {
     if (!modalOriginRoute) {
       const currentRoute = parseRouteFromHash();
       modalOriginRoute = isPrimaryRoute(currentRoute) ? routeSnapshot(currentRoute) : routeSnapshot(lastPrimaryRoute);
+      modalOriginRouteExplicit = Boolean(explicit && modalOriginRoute);
+    } else if (explicit) {
+      modalOriginRouteExplicit = true;
     }
     return;
   }
   if (isPrimaryRoute(route)) {
     rememberPrimaryRoute(route);
     modalOriginRoute = null;
+    modalOriginRouteExplicit = false;
   }
 }
 function getModalCloseRoute() {
@@ -1095,6 +1148,7 @@ function getModalCloseRoute() {
 }
 function clearModalOriginRoute() {
   modalOriginRoute = null;
+  modalOriginRouteExplicit = false;
 }
 function stabilizePrimaryRouteScroll() {
   requestAnimationFrame(() => {
@@ -1106,7 +1160,7 @@ let lastAppliedRouteKey = "";
 const appliedRouteKey = route => `${currentPathWithSearch()}${serializeRoute(route)}`;
 function navigateToRoute(route, { replace = false, apply = true, preserveScroll = false, preserveSearch = false } = {}) {
   const normalizedRoute = normalizeRoute(route);
-  syncModalOriginRoute(normalizedRoute);
+  syncModalOriginRoute(normalizedRoute, { explicit: isDetailRoute(normalizedRoute) });
   const nextHash = serializeRoute(normalizedRoute);
   const nextUrl = `${currentPathWithSearch()}${nextHash}`;
   if (`${currentPathWithSearch()}${window.location.hash}` !== nextUrl) {
@@ -1621,28 +1675,22 @@ const renderGlobalCards = () => {
   bindSearchResultControls(grid);
 };
 
-const orderedTags = item => Array.isArray(item.tags) ? item.tags.slice() : [];
 const itemAttributeLabels = item => [
   item.battleType ? battleTypeLabel(item.battleType, item) : "",
   item.spin ? spinLabel(item.spin) : "",
   item.heightClass ? heightClassLabel(item.heightClass) : "",
-  ...orderedTags(item).map(tag => tagLabels[tag] || tag)
+  ...partClassificationLabels(item, "card")
 ].filter(Boolean);
-const visibleModalTags = item => orderedTags(item);
-
-function modalTagDescription(tag) {
-  const label = tagLabels[tag] || tag;
-  return modalTagDescriptions[tag] || modalTagDescriptions[label] || "";
-}
-
 
 const modalTagInfoMarkup = (label, description) => {
   return description
     ? `<button type="button" class="modal-tag-info" data-tag-label="${escapeAttributeValue(label)}" data-tag-description="${escapeAttributeValue(description)}" aria-expanded="false">${escapeHtml(label)}</button>`
     : `<span>${escapeHtml(label)}</span>`;
 };
-const modalTagMarkup = tag => modalTagInfoMarkup(tagLabels[tag] || tag, modalTagDescription(tag));
-const modalTags = item => visibleModalTags(item).map(modalTagMarkup).join("");
+const partClassificationModalTags = item => partClassificationDescriptors(item)
+  .filter(descriptor => descriptor.showInModal)
+  .map(descriptor => modalTagInfoMarkup(descriptor.label, descriptor.description))
+  .join("");
 const battleTypeTag = item => item.battleType
   ? modalTagInfoMarkup(battleTypeLabel(item.battleType, item), battleTypeDescription(item.battleType, item))
   : "";
@@ -1653,23 +1701,18 @@ const beySystemTag = item => {
   const description = structureTagDescriptions[item.structure];
   return label && description ? modalTagInfoMarkup(label, description) : "";
 };
-const partTypeTag = item => {
-  const label = partDetailTypeLabel(item);
-  if (!label) return "";
-  return modalTagInfoMarkup(label, partTypeTagDescriptions[partTypeDescriptionType(item)] || "");
-};
-const partSystemTag = item => {
-  const label = partSystemLabel(item);
-  return label && shouldShowPartSystemTag(item) ? modalTagInfoMarkup(label, "") : "";
-};
 const modalTagGroup = (tags, className = "") => tags ? `<div class="${["modal-tags", className].filter(Boolean).join(" ")}">${tags}</div>` : "";
-const modalInfoSlot = (description = "", tags = "", className = "") => `<div class="${["modal-info-slot", className].filter(Boolean).join(" ")}"><div class="modal-slot-tags">${tags || ""}</div><div class="modal-description-region"><p class="modal-description">${escapeHtml(description || "")}</p><button class="modal-description-toggle" type="button" aria-expanded="false" hidden>더보기</button></div></div>`;
+const modalInfoSlot = (description = "", tags = "", className = "") => {
+  const hasDescription = String(description || "").trim().length > 0;
+  const classes = ["modal-info-slot", className, hasDescription ? "has-description" : ""].filter(Boolean).join(" ");
+  return `<div class="${classes}"><div class="modal-slot-tags">${tags || ""}</div><div class="modal-description-region"><p class="modal-description">${escapeHtml(description || "")}</p><button class="modal-description-toggle" type="button" aria-expanded="false" hidden>더보기</button></div></div>`;
+};
 const modalScrollArea = content => `<div class="modal-scroll-area">${content}</div>`;
 function beyModalTags(item) {
-  return modalTagGroup(`${beySystemTag(item)}${battleTypeTag(item)}${spinTag(item)}${modalTags(item)}`, "bey-modal-tags");
+  return modalTagGroup(`${beySystemTag(item)}${battleTypeTag(item)}${spinTag(item)}`, "bey-modal-tags");
 }
 function partModalTags(item) {
-  return modalTagGroup(`${partTypeTag(item)}${partSystemTag(item)}${battleTypeTag(item)}${spinTag(item)}${heightClassTag(item)}${modalTags(item)}`);
+  return modalTagGroup(`${partClassificationModalTags(item)}${battleTypeTag(item)}${spinTag(item)}${heightClassTag(item)}`);
 }
 
 let activeModalTagButton = null;
@@ -1775,7 +1818,7 @@ function beyDetailSections(item, region) {
   const detailPartIds = beyDetailPartIds(item);
   const info = detailPartIds.length ? `<section class="modal-section mounted-parts"><p class="mounted-title">구성</p><div class="modal-section-scroll mounted-parts-list">${detailPartIds.map(partId => {
     const part = catalogCoreItemsById.get(partId);
-    return `<a class="ui-list-link mounted-link" href="#${part.id}" data-part-id="${part.id}"><span>${partDisplayTypeLabel(part)}</span><strong>${itemDisplayName(part, region)}</strong><b>→</b></a>`;
+    return `<a class="ui-list-link mounted-link" href="#${part.id}" data-part-id="${part.id}"><span>${partMountedTypeLabel(part)}</span><strong>${itemDisplayName(part, region)}</strong><b>→</b></a>`;
   }).join("")}</div></section>` : "";
   return info;
 }
@@ -1980,6 +2023,7 @@ const modalOriginStateGetters = {
   catalog: () => ({
     catalogQuery: catalogSearchQuery(),
     catalogSeries: selectedCatalogSeries,
+    catalogSort: activeCatalogSort,
     catalogPage: currentCatalogPage
   }),
   search: () => ({
@@ -2005,12 +2049,25 @@ const modalOriginState = originRoute => ({
   scrollY: currentPageScrollY(),
   ...(modalOriginStateGetters[originRoute?.type]?.() || {})
 });
-const modalContextOptionKeys = ["backId", "backProductId", "region", "series", "releaseQuery", "animeSeason", "animeQuery"];
+const modalContextOptionKeys = [
+  "backId",
+  "backProductId",
+  "region",
+  "series",
+  "releaseQuery",
+  "animeSeason",
+  "animeQuery",
+  "rareBeyGetListRegion",
+  "rareBeyGetListSeries",
+  "rareBeyGetListBackProductId"
+];
 const modalContextOptions = options => {
   const context = Object.fromEntries(modalContextOptionKeys
     .map(key => [key, options?.[key]])
     .filter(([, value]) => value));
   if (options?.backRelease) context.backRelease = true;
+  if (options?.backRareBeyGetList) context.backRareBeyGetList = true;
+  if (options?.rareBeyGetListBackRelease) context.rareBeyGetListBackRelease = true;
   if (options?.fromAnimeList) context.fromAnimeList = true;
   if (options?.releaseSort?.key && options?.releaseSort?.direction) context.releaseSort = options.releaseSort;
   return context;
@@ -2045,6 +2102,7 @@ function rememberModalContext(kind, id, options = {}) {
   if (originRoute) {
     context.originRoute = originRoute;
     context.originState = modalOriginState(originRoute);
+    if (modalOriginRouteExplicit) context.originExplicit = true;
   }
   rememberActiveDetailModalContext(context);
   try {

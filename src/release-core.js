@@ -8,6 +8,59 @@ const releaseSeriesLabels = {
   burst: "베이블레이드 버스트",
   x: "베이블레이드 X"
 };
+const RARE_BEY_GET_BADGE = "rare-bey-get";
+const releaseBadgeDefinitions = {
+  [RARE_BEY_GET_BADGE]: {
+    label: "레어 베이 겟",
+    aliases: ["레어 베이 겟", "레어베이겟", "레어 베이", "rare bey get"]
+  }
+};
+const releaseBadgeLabel = badge => releaseBadgeDefinitions[badge]?.label || "";
+const releaseBadgeSearchTerms = badge => {
+  const definition = releaseBadgeDefinitions[badge];
+  return definition ? [definition.label, ...(definition.aliases || [])].filter(Boolean) : [];
+};
+const rareBeyGetEntries = () =>
+  typeof rareBeyGetItems !== "undefined" && Array.isArray(rareBeyGetItems) ? rareBeyGetItems : [];
+const rareBeyGetEntryProductIds = entry => {
+  const singleProductId = entry?.productId ? [entry.productId] : [];
+  const groupedProductIds = Array.isArray(entry?.productIds) ? entry.productIds : [];
+  return [...new Set([...singleProductId, ...groupedProductIds].filter(Boolean))];
+};
+const rareBeyGetEntryProductId = entry => rareBeyGetEntryProductIds(entry)[0] || "";
+const rareBeyGetEntryRegion = entry => releaseRegionLabels[entry?.region] ? entry.region : "";
+const rareBeyGetEntryMatchesProduct = (entry, item, region = activeReleaseRegion) =>
+  rareBeyGetEntryProductIds(entry).includes(item.id) && (!rareBeyGetEntryRegion(entry) || rareBeyGetEntryRegion(entry) === region);
+const rareBeyGetEntryForProduct = (item, region = activeReleaseRegion) =>
+  rareBeyGetEntries().find(entry => rareBeyGetEntryMatchesProduct(entry, item, region)) || null;
+const releaseBadges = (item, region = activeReleaseRegion) => {
+  const release = productRelease(item, region);
+  const explicitBadges = Array.isArray(release.badges) ? release.badges : [];
+  const derivedBadges = rareBeyGetEntryForProduct(item, region) ? [RARE_BEY_GET_BADGE] : [];
+  return [...new Set([...explicitBadges, ...derivedBadges])].filter(releaseBadgeLabel);
+};
+const releaseHasBadge = (item, badge, region = activeReleaseRegion) => releaseBadges(item, region).includes(badge);
+const releaseBadgeSearchText = (item, region = activeReleaseRegion) =>
+  releaseBadges(item, region).flatMap(releaseBadgeSearchTerms).join(" ");
+const rareBeyGetEntryProducts = entry =>
+  rareBeyGetEntryProductIds(entry).map(id => productItemsById.get(id)).filter(Boolean);
+const rareBeyGetEntryStartSortValue = entry => releaseDateSortValue(entry?.startDate || "");
+const rareBeyGetEntryCurrentSortValue = entry => entry?.isCurrent === true ? 0 : 1;
+const rareBeyGetListEntryMatchesContext = (entry, { region = activeReleaseRegion, series = activeReleaseSeries } = {}) => {
+  const products = rareBeyGetEntryProducts(entry);
+  if (!products.length) return false;
+  const entryRegion = rareBeyGetEntryRegion(entry);
+  if (entryRegion && entryRegion !== region) return false;
+  return !series || products.some(product => product.series === series);
+};
+const visibleRareBeyGetEntries = ({ region = activeReleaseRegion, series = activeReleaseSeries } = {}) =>
+  rareBeyGetEntries()
+    .filter(entry => rareBeyGetListEntryMatchesContext(entry, { region, series }))
+    .slice()
+    .sort((a, b) => {
+      const currentDiff = rareBeyGetEntryCurrentSortValue(a) - rareBeyGetEntryCurrentSortValue(b);
+      return currentDiff || rareBeyGetEntryStartSortValue(a) - rareBeyGetEntryStartSortValue(b);
+    });
 const normalizeProductKind = kind => kind === "기타" ? "" : kind || "";
 const baseProductRelease = item => ({
   status: "released",

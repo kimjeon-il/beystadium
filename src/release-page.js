@@ -36,7 +36,8 @@ const releaseTableSearchText = (item, region = activeReleaseRegion) => {
     releaseDate,
     releaseDateLabel(releaseDate),
     release.price,
-    priceLabel(release.price, region)
+    priceLabel(release.price, region),
+    releaseBadgeSearchText(item, region)
   ].join(" ");
 };
 const releaseTableInitialSearchText = (item, region = activeReleaseRegion) => {
@@ -119,13 +120,21 @@ const releaseTableHead = () => `<thead>
     ${releaseSortHeader("price", releaseSortableColumns.price)}
   </tr>
 </thead>`;
+const releaseBadgesMarkup = (item, region = activeReleaseRegion) => {
+  const badges = releaseBadges(item, region);
+  if (!badges.length) return "";
+  return `<span class="release-badges" aria-label="제품 표시">${badges.map(badge =>
+    `<span class="release-badge">${escapeHtml(releaseBadgeLabel(badge))}</span>`
+  ).join("")}</span>`;
+};
 const productReleaseTableRows = (region = activeReleaseRegion, series = activeReleaseSeries) => {
   const rows = visibleReleaseTableItems(region, series).map(item => {
     const release = productRelease(item, region);
     const releaseDate = release.releaseDate || release.release;
+    const productName = release.name || item.name || "";
     return `<tr class="table-list-row release-product-row" role="button" tabindex="0" data-product-id="${item.id}" data-release-region="${region}">
     <td>${release.no || ""}</td>
-    <td><span class="release-product-link">${release.name || item.name}</span></td>
+    <td><span class="release-product-cell"><span class="release-product-link">${escapeHtml(productName)}</span>${releaseBadgesMarkup(item, region)}</span></td>
     <td>${release.kind || ""}</td>
     <td>${responsiveDateSpans("release-date-full", "release-date-compact", releaseDateLabel(releaseDate), releaseDateCompactLabel(releaseDate))}</td>
     <td>${priceLabel(release.price, region)}</td>
@@ -243,10 +252,6 @@ function bindReleaseSortControls(root = document) {
 
 function renderReleasePage() {
   releaseTableController.renderPage();
-}
-
-function bindProductReleaseTable(contentRoot = document) {
-  releaseTableController.bind(contentRoot);
 }
 
 function openCategoryReleaseDetail(options = {}) {

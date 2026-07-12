@@ -2,13 +2,15 @@ const categoryReleaseMenuRoute = () => {
   const region = "kr";
   return { type: "category-release", options: { region, series: defaultReleaseSeries(region) } };
 };
-const openCategoryCatalog = ({ scope = "all", updateHash = true, replace = false, preserveSearch = false } = {}) => {
-  const normalizedScope = normalizeCatalogRouteScope(scope);
+const openCategoryCatalog = ({ scope = "all", series = "all", sort = defaultCatalogSort(), page = 1, query = "", updateHash = true, replace = false, preserveSearch = false } = {}) => {
+  const catalogRoute = normalizeRoute({ type: "catalog", scope, series, sort, page, query });
+  const normalizedScope = catalogRoute.scope;
   if (updateHash && !applyingRoute) {
-    navigateToRoute({ type: "catalog", scope: normalizedScope }, { replace });
+    navigateToRoute(catalogRoute, { replace });
     return;
   }
   activatePrimarySection(normalizedScope === "all" ? "catalog" : normalizedScope, { preserveSearch });
+  applyCatalogRouteState(catalogRoute);
 };
 const openCategoryAnimePage = ({ updateHash = true, replace = false, preserveSearch = false } = {}) => {
   if (updateHash && !applyingRoute) {
@@ -235,7 +237,9 @@ const refreshSearchPanel = () => {
     container: ".catalog-search-box",
     refresh: input => {
       normalizeCatalogSearchInput(input);
+      currentCatalogPage = 1;
       scheduleCatalogSearchResultsRefresh();
+      syncCatalogRouteHash({ overrides: { page: 1 } });
     }
   },
   {
@@ -305,16 +309,20 @@ bindSearchScopeControls({
   dropdown: catalogSeriesFilter,
   dataAttr: "data-catalog-series",
   setScope: series => setCatalogSeries(series),
-  afterChange: () => closeSearchHelpPopovers()
+  afterChange: () => {
+    closeSearchHelpPopovers();
+    syncCatalogRouteHash();
+  }
 });
 bindSearchScopeControls({
   dropdown: catalogSearchScope,
   dataAttr: "data-catalog-search-scope",
   afterChange: button => {
+    const nextScope = button.getAttribute("data-catalog-search-scope") || "all";
     closeSearchHelpPopovers();
     navigateToRoute(
-      { type: "catalog", scope: button.getAttribute("data-catalog-search-scope") || "all" },
-      { preserveSearch: true, preserveScroll: true }
+      catalogRouteFromState({ scope: nextScope, page: 1 }),
+      { replace: true, preserveSearch: true, preserveScroll: true }
     );
   }
 });
@@ -355,13 +363,43 @@ const setCatalogSeries = (series, { refresh = true } = {}) => {
   setCatalogSeriesFilter(selectedCatalogSeries);
   if (refresh) refreshCatalogState();
 };
-const setCatalogScope = scope => {
+const setCatalogScope = (scope, { refresh = true } = {}) => {
   if (scope === "bey" || scope === "parts" || scope === "tools") {
     selectedCatalogKind = scope;
   } else {
     selectedCatalogKind = "";
   }
   setCatalogSearchScope(selectedCatalogKind || "all");
+  if (refresh) refreshCatalogState();
+};
+const catalogRouteFromState = (overrides = {}) => normalizeRoute({
+  type: "catalog",
+  scope: selectedCatalogKind || "all",
+  series: selectedCatalogSeries || "all",
+  sort: activeCatalogSort,
+  page: currentCatalogPage,
+  query: catalogSearchQuery(),
+  ...overrides
+});
+const syncCatalogRouteHash = ({ replace = true, force = false, overrides = {} } = {}) => {
+  if (!force && (applyingRoute || activeAppPanelName() !== "catalog")) return;
+  navigateToRoute(catalogRouteFromState(overrides), {
+    replace,
+    apply: false,
+    preserveScroll: true,
+    preserveSearch: true
+  });
+};
+function applyCatalogRouteState(route = {}) {
+  const catalogRoute = normalizeRoute({ type: "catalog", ...route });
+  setCatalogSeries(catalogRoute.series, { refresh: false });
+  setCatalogScope(catalogRoute.scope, { refresh: false });
+  activeCatalogSort = catalogRoute.sort;
+  setSearchInputValue(catalogSearch, catalogRoute.query);
+  currentCatalogPage = catalogRoute.page;
+  currentCatalogRenderKey = catalogRenderKey();
+  catalogVisibleItemsCache.clear();
+  syncGlobalSearchScopePeers(catalogRoute.scope === "bey" || catalogRoute.scope === "tools" ? catalogRoute.scope : "all");
   refreshCatalogState();
 };
 const resetCatalogFilter = (scope, key) => {
@@ -375,7 +413,9 @@ const resetCatalogFilter = (scope, key) => {
     return true;
   });
   setSearchInputValue(catalogSearch, nextTerms.join(" "));
+  currentCatalogPage = 1;
   refreshCatalogState();
+  syncCatalogRouteHash();
 };
 const activeFilterChips = scope => {
   if (scope !== "catalog") return [];
@@ -595,8 +635,10 @@ document.querySelectorAll(".catalog-filter-chips").forEach(root => root.addEvent
   if (reset) {
     if (reset.dataset.filterResetScope === "catalog") {
       setSearchInputValue(catalogSearch, "");
+      currentCatalogPage = 1;
     }
     refreshCatalogState();
+    syncCatalogRouteHash();
   }
 }));
 document.addEventListener("click", event => {
@@ -608,8 +650,10 @@ document.addEventListener("click", event => {
   activeCatalogSort = sortValue;
   setDropdownOption(catalogSortButton);
   catalogVisibleItemsCache.clear();
+  currentCatalogPage = 1;
   refreshCatalogResults();
   renderCatalogFilterChips();
+  syncCatalogRouteHash();
 });
 const bindPaginationControls = ({ rootSelector, dataAttr, setPage, render, scroll }) => {
   document.querySelector(rootSelector)?.addEventListener("click", event => {
@@ -618,6 +662,7 @@ const bindPaginationControls = ({ rootSelector, dataAttr, setPage, render, scrol
     event.preventDefault();
     setPage(Number(pageButton.getAttribute(dataAttr)) || 1);
     render();
+    if (rootSelector === "#catalogPagination") syncCatalogRouteHash();
     scroll();
   });
 };
@@ -677,6 +722,7 @@ updateToTop();
 
 const modal = document.querySelector("#detailModal");
 const modalTransitionKinds = new Set(["list", "drill", "composition", "back", "route", "step-prev", "step-next"]);
+const modalStageMotionKinds = new Set(["list", "drill", "route"]);
 let pendingModalTransition = "";
 let pendingModalTransitionOrigin = null;
 const modalTransitionOrigin = element => {
@@ -715,6 +761,10 @@ class ModalController {
 
   get contentRoot() {
     return document.querySelector("#modalContent");
+  }
+
+  get stage() {
+    return this.modal?.querySelector(".modal-stage") || null;
   }
 
   getViewportSize() {
@@ -868,11 +918,13 @@ class ModalController {
     this.modal.style.setProperty("--modal-origin-shift-y", `${shiftY.toFixed(1)}px`);
   }
 
-  playExternalControlMotion(root = document) {
-    [
-      this.modal?.querySelector(".modal-close"),
-      ...Array.from(root.querySelectorAll?.(".modal-step") || [])
-    ].filter(Boolean).forEach(button => playEnterAnimation(button, "is-modal-control-moving"));
+  playStageMotion(transition) {
+    const stage = this.stage;
+    if (!stage) return;
+    stage.classList.remove("is-modal-stage-entering");
+    if (modalStageMotionKinds.has(transition)) {
+      playEnterAnimation(stage, "is-modal-stage-entering");
+    }
   }
 
   setContent(html) {
@@ -887,7 +939,7 @@ class ModalController {
     if (this.modal) this.modal.dataset.modalTransition = transition;
     this.setTransitionOrigin(origin, modalInner);
     modalInner?.classList.add(modalTransitionClass(transition));
-    this.playExternalControlMotion(root);
+    this.playStageMotion(transition);
     return root;
   }
 
@@ -898,12 +950,7 @@ class ModalController {
   }
 }
 const modalController = new ModalController(modal);
-const getModalViewportSize = () => modalController.getViewportSize();
-const getModalLockWidth = () => modalController.getLockWidth();
 const cancelModalViewportSync = () => modalController.cancelViewportSync();
-function setModalDescriptionExpanded(slot, expanded) {
-  modalController.setDescriptionExpanded(slot, expanded);
-}
 function scheduleModalDescriptionMeasure(root = document) {
   modalController.scheduleDescriptionMeasure(root);
 }
@@ -911,14 +958,8 @@ function bindModalDescriptionExpanders(root = document) {
   modalController.bindDescriptionExpanders(root);
 }
 const clearModalLockStyles = () => modalController.clearLockStyles();
-function syncModalViewportMetrics() {
-  modalController.syncViewportMetrics();
-}
 function scheduleModalViewportSync() {
   modalController.scheduleViewportSync();
-}
-function openModal() {
-  modalController.open();
 }
 function closeModal() {
   modalController.close();
@@ -935,8 +976,8 @@ function closeModalSession({ clearContext = true, clearOrigin = true } = {}) {
   if (modal?.open) closeModal();
   else if (shouldRestoreModalScroll) restorePageScroll(modalController.scrollY);
 }
-function routeIfNeeded(route, options = {}) {
-  if (options.updateHash === false || applyingRoute) return false;
+function routeIfNeeded(route) {
+  if (applyingRoute) return false;
   navigateToRoute(route);
   return true;
 }
@@ -1046,18 +1087,22 @@ function isZeroGStadiumBottom(item) {
 function zeroGStadiumNote(item) {
   return isZeroGStadiumBottom(item) ? `<p class="stat-note">방어력과 지구력은 제로G 스타디움 기준이며, 일반 스타디움에서는 두 값이 서로 바뀝니다.</p>` : "";
 }
+function statBlockMarkup(content) {
+  const body = String(content || "").trim();
+  return body ? `<section class="stat-block"><p class="stat-block-title">능력치</p><div class="stat-block-content">${body}</div></section>` : "";
+}
 function partStats(item) {
   if (item.type === "track") {
     if (item.id === "TRACK-CHANGE-HEIGHT-120") {
-      return `<div class="stat-block"><div class="mode-stats"><section><p class="mode-title">120 모드</p>${trackHeightModeRow("보통", 3)}</section><section><p class="mode-title">145 모드</p>${trackHeightModeRow("높음", 4)}</section></div></div>`;
+      return statBlockMarkup(`<div class="mode-stats"><section><p class="mode-title">120 모드</p>${trackHeightModeRow("보통", 3)}</section><section><p class="mode-title">145 모드</p>${trackHeightModeRow("높음", 4)}</section></div>`);
     }
     const level = trackHeightLevel(item);
-    return `<div class="stat-block">${trackHeightModeRow(trackHeightType(item), level)}</div>`;
+    return statBlockMarkup(trackHeightModeRow(trackHeightType(item), level));
   }
   const note = zeroGStadiumNote(item);
   if (!item.modes) {
     const rows = statRows(item, item.stats, item.extraStats);
-    return rows ? `<div class="stat-block">${rows}${note}</div>` : "";
+    return rows ? statBlockMarkup(`${rows}${note}`) : "";
   }
   const modeStats = item.modes
     .map(mode => {
@@ -1066,15 +1111,17 @@ function partStats(item) {
     })
     .filter(Boolean)
     .join("");
-  return modeStats ? `<div class="stat-block"><div class="mode-stats">${modeStats}</div>${note}</div>` : "";
+  return modeStats ? statBlockMarkup(`<div class="mode-stats">${modeStats}</div>${note}`) : "";
 }
-const modalBackButtonMarkup = ({ backId = "", backProductId = "", backRelease = false, region = "", label = "돌아가기", animeEpisodes = false } = {}) => {
+const modalBackButtonMarkup = ({ backId = "", backProductId = "", backRelease = false, backRareBeyGetList = false, region = "", series = "", label = "돌아가기", animeEpisodes = false } = {}) => {
   const releaseBackAttr = backRelease ? ` data-back-release="true"` : "";
+  const rareBeyGetListAttr = backRareBeyGetList ? ` data-back-rare-bey-get-list="true"` : "";
   const regionBackAttr = region ? ` data-back-region="${escapeAttributeValue(region)}"` : "";
+  const seriesBackAttr = series ? ` data-back-series="${escapeAttributeValue(series)}"` : "";
   const backIdAttr = backId ? ` data-back-id="${escapeAttributeValue(backId)}"` : "";
   const productAttr = backProductId ? ` data-back-product-id="${escapeAttributeValue(backProductId)}"` : "";
   const animeBackAttr = animeEpisodes ? " data-back-anime-episodes" : "";
-  return `<button class="ui-icon-button modal-back icon-back-button" type="button"${backIdAttr}${productAttr}${releaseBackAttr}${regionBackAttr}${animeBackAttr} aria-label="${escapeAttributeValue(label)}">←</button>`;
+  return `<button class="ui-icon-button modal-back icon-back-button" type="button"${backIdAttr}${productAttr}${releaseBackAttr}${rareBeyGetListAttr}${regionBackAttr}${seriesBackAttr}${animeBackAttr} aria-label="${escapeAttributeValue(label)}">←</button>`;
 };
 const detailBackButton = (backId, backProductId, backRelease, backRegion) => {
   if (backId) {
@@ -1086,8 +1133,22 @@ const productBackButton = ({ backProductId, backRelease = false, region = "" } =
   if (!backProductId) return "";
   return modalBackButtonMarkup({ backProductId, backRelease, region, label: "제품으로 돌아가기" });
 };
+const rareBeyGetListBackButton = ({ region = "", series = "", backProductId = "", backRelease = false } = {}) =>
+  modalBackButtonMarkup({ backRareBeyGetList: true, backProductId, backRelease, region, series, label: "레어 베이 겟 목록으로 돌아가기" });
+const productModalBackButton = (item, options = {}, region = activeReleaseRegion) => {
+  if (options.backRareBeyGetList) return rareBeyGetListBackButton({
+    region: options.rareBeyGetListRegion || region,
+    series: options.rareBeyGetListSeries || item?.series || activeReleaseSeries,
+    backProductId: options.rareBeyGetListBackProductId || "",
+    backRelease: options.rareBeyGetListBackRelease === true
+  });
+  if (options.backProductId) return productBackButton({ backProductId: options.backProductId, backRelease: options.backRelease, region });
+  if (options.backRelease) return modalBackButtonMarkup({ backRelease: true, region, label: "발매목록으로 돌아가기" });
+  return "";
+};
 const modalBackOptions = (button, fallbackRegion = "") => ({
   ...(button.dataset.backRelease ? { backRelease: true } : {}),
+  ...(button.dataset.backSeries ? { series: button.dataset.backSeries } : {}),
   ...((button.dataset.backRegion || fallbackRegion) ? { region: button.dataset.backRegion || fallbackRegion } : {})
 });
 function bindCatalogModalBack(scope = document, { fallbackRegion = "" } = {}) {
@@ -1095,6 +1156,16 @@ function bindCatalogModalBack(scope = document, { fallbackRegion = "" } = {}) {
     event.preventDefault();
     const backButton = event.currentTarget;
     const backOptions = modalBackOptions(backButton, fallbackRegion);
+    if (backButton.dataset.backRareBeyGetList) {
+      queueModalTransition("back");
+      openRareBeyGetListDetail({
+        region: backOptions.region || activeReleaseRegion,
+        series: backOptions.series || activeReleaseSeries,
+        backProductId: backButton.dataset.backProductId || "",
+        backRelease: backOptions.backRelease === true
+      });
+      return;
+    }
     if (backButton.dataset.backId) {
       if (backButton.dataset.backProductId) backOptions.backProductId = backButton.dataset.backProductId;
       queueModalTransition("back");
@@ -1193,7 +1264,7 @@ function openDetail(id, options = {}) {
   if (!item) return;
   const detailRegion = catalogDetailRegion(item, options);
   const detailOptions = { ...options, region: detailRegion };
-  if (routeIfNeeded({ type: "detail", id, options: detailOptions }, detailOptions)) return;
+  if (routeIfNeeded({ type: "detail", id, options: detailOptions })) return;
   closeModalTagPopover();
   cleanupModelViewer();
   const description = itemDisplayDesc(item, detailRegion);
@@ -1229,7 +1300,13 @@ function openDetail(id, options = {}) {
 function productHeader(item, region = activeReleaseRegion) {
   return modalTitle(productDisplayName(item, region), "product-modal-name");
 }
-function productMetaSlot() {
+function rareBeyGetMetaChip(item, region = activeReleaseRegion) {
+  if (!releaseHasBadge(item, RARE_BEY_GET_BADGE, region)) return "";
+  return `<button class="ui-chip-button rare-bey-get-chip rare-bey-get-list-trigger" type="button" aria-label="역대 레어 베이 겟 상품 보기" data-release-region="${escapeAttributeValue(region)}" data-release-series="${escapeAttributeValue(item.series || "")}"><span>레어 베이 겟 목록</span><b aria-hidden="true">→</b></button>`;
+}
+function productMetaSlot(item = null, region = activeReleaseRegion) {
+  const chip = item ? rareBeyGetMetaChip(item, region) : "";
+  if (chip) return `<div class="product-meta-slot product-rare-bey-get-slot">${chip}</div>`;
   return `<div class="product-empty-info-slot"></div>`;
 }
 const productLineupTitle = product => product.lineupTitle || "등장 베이";
@@ -1271,6 +1348,8 @@ function productComposition(item, region = activeReleaseRegion) {
     return `<a class="ui-list-link product-composition-item composition-link" href="#${part.target}" data-target-id="${part.target}"><span>${displayName} ${quantity}</span><b>→</b></a>`;
   }).join("")}</div></section>`;
 }
+const productDetailBody = (item, region = activeReleaseRegion) =>
+  productComposition(item, region);
 const productLineupItemName = (item, region = activeReleaseRegion) => {
   if (productItemsById.has(item.id)) return productDisplayName(item, region);
   const combo = item.type === "bey" ? partCategory(item) : "";
@@ -1296,7 +1375,7 @@ function bindProductCompositionLinks(product, root = document, options = {}) {
       event.preventDefault();
       if (!lineupButton.dataset.productId) return;
       queueModalTransition("composition", { sourceElement: lineupButton });
-      openProductLineupDetail(lineupButton.dataset.productId, options);
+      openProductLineupDetail(lineupButton.dataset.productId, { ...options, skipRoute: true });
       return;
     }
     const link = event.target.closest(".composition-link");
@@ -1311,19 +1390,79 @@ function bindProductCompositionLinks(product, root = document, options = {}) {
     openDetailByKind("", targetId, backOptions);
   }));
 }
+const rareBeyGetListItemMarkup = (entry, region = activeReleaseRegion) => {
+  const productIds = rareBeyGetEntryProductIds(entry);
+  const productId = entry?.productId || "";
+  const primaryProduct = productItemsById.get(productId) || productItemsById.get(productIds[0]);
+  if (!primaryProduct) return "";
+  const entryRegion = rareBeyGetEntryRegion(entry) || region;
+  const release = productRelease(primaryProduct, entryRegion);
+  const name = entry.name || release.name || productDisplayName(primaryProduct, entryRegion);
+  const reward = entry.finish ? `${entry.finish} 경품` : "경품";
+  const period = entry.period || "";
+  const content = `<span class="rare-bey-get-list-item-content">
+    <span class="rare-bey-get-list-item-main"><span class="rare-bey-get-list-item-title">${escapeHtml(name)}</span></span>
+    <span class="rare-bey-get-list-item-meta"><span>${escapeHtml(reward)}</span>${period ? `<span>${escapeHtml(period)}</span>` : ""}</span>
+  </span>`;
+  if (!productId) return `<div class="rare-bey-get-list-item rare-bey-get-list-item--static">${content}</div>`;
+  return `<a class="rare-bey-get-list-item rare-bey-get-list-link" href="#${productId}" data-product-id="${escapeAttributeValue(productId)}" data-release-region="${escapeAttributeValue(entryRegion)}">${content}<b aria-hidden="true">→</b></a>`;
+};
+function rareBeyGetListMarkup({ region = activeReleaseRegion, series = activeReleaseSeries } = {}) {
+  const rows = visibleRareBeyGetEntries({ region, series }).map(entry => rareBeyGetListItemMarkup(entry, region)).filter(Boolean);
+  const body = rows.length
+    ? rows.join("")
+    : `<p class="rare-bey-get-empty">목록 준비 중입니다.</p>`;
+  return `<section class="modal-section rare-bey-get-list"><div class="modal-section-scroll rare-bey-get-list-scroll"><div class="rare-bey-get-list-items">${body}</div></div></section>`;
+}
+function bindRareBeyGetListLinks(root = document, options = {}) {
+  root.querySelectorAll(".rare-bey-get-list-link").forEach(link => link.addEventListener("click", event => {
+    event.preventDefault();
+    const productId = link.dataset.productId;
+    if (!productId) return;
+    const region = releaseRegionLabels[link.dataset.releaseRegion] ? link.dataset.releaseRegion : options.region;
+    queueModalTransition("composition", { sourceElement: link });
+    openProductEntry(productId, {
+      ...options,
+      region,
+      backRareBeyGetList: true,
+      rareBeyGetListRegion: region,
+      rareBeyGetListSeries: options.series || activeReleaseSeries,
+      rareBeyGetListBackProductId: options.backProductId || "",
+      rareBeyGetListBackRelease: options.backRelease === true
+    });
+  }));
+}
+function openRareBeyGetListDetail(options = {}) {
+  const { skipRoute = false, ...detailOptions } = options;
+  const normalizedRoute = normalizeRoute({ type: "rare-bey-get-list", options: detailOptions });
+  const routeOptions = normalizedRoute.options || {};
+  const region = routeOptions.region || activeReleaseRegion;
+  const series = routeOptions.series || activeReleaseSeries;
+  const backProductId = routeOptions.backProductId || "";
+  const backRelease = routeOptions.backRelease === true;
+  if (!skipRoute && routeIfNeeded(normalizedRoute)) return;
+  const modalContentRoot = setModalContent(`<div class="modal-inner">
+    <div class="modal-art product-modal-art"></div>
+    <div class="modal-info product-modal-info">
+    ${modalScrollArea(`${modalTitle("레어 베이 겟 목록", "product-modal-name")}
+    ${productMetaSlot()}
+    <div class="modal-body-block">${rareBeyGetListMarkup({ region, series })}</div>`)}
+    ${productBackButton({ backProductId, backRelease, region })}</div></div>`);
+  if (!modalContentRoot) return;
+  bindCatalogModalBack(modalContentRoot, { fallbackRegion: region });
+  bindRareBeyGetListLinks(modalContentRoot, { region, series, backProductId, backRelease });
+  finishModalOpen({ contextKind: "rare-bey-get-list", contextId: "rare-bey-get-list", contextOptions: { region, series, backProductId, backRelease }, root: modalContentRoot });
+}
 function openProductLineupDetail(id, options = {}) {
   const item = productItemsById.get(id);
   if (!item) return;
-  if (routeIfNeeded({ type: "detail", id, options }, options)) return;
-  const requestedRegion = releaseRegionLabels[options.region] ? options.region : (releaseRegionLabels[activeReleaseRegion] ? activeReleaseRegion : "kr");
+  const { skipRoute = false, ...detailOptions } = options;
+  if (!skipRoute && routeIfNeeded({ type: "detail", id, options: detailOptions })) return;
+  const requestedRegion = releaseRegionLabels[detailOptions.region] ? detailOptions.region : (releaseRegionLabels[activeReleaseRegion] ? activeReleaseRegion : "kr");
   const region = productDisplayRegion(item, requestedRegion);
   activeReleaseRegion = region;
   cleanupModelViewer();
-  const backButton = options.backProductId
-    ? productBackButton({ backProductId: options.backProductId, backRelease: options.backRelease, region })
-    : options.backRelease
-      ? modalBackButtonMarkup({ backRelease: true, region, label: "발매목록으로 돌아가기" })
-      : "";
+  const backButton = productModalBackButton(item, detailOptions, region);
   const modalContentRoot = setModalContent(`<div class="modal-inner">
     <div class="modal-art product-modal-art"></div>
     <div class="modal-info product-modal-info">
@@ -1333,45 +1472,58 @@ function openProductLineupDetail(id, options = {}) {
     ${backButton}</div></div>`);
   if (!modalContentRoot) return;
   bindCatalogModalBack(modalContentRoot, { fallbackRegion: region });
-  bindProductCompositionLinks(item, modalContentRoot, { ...options, region });
-  finishModalOpen({ contextKind: "product-lineup", contextId: item.id, contextOptions: { ...options, region }, root: modalContentRoot });
+  bindProductCompositionLinks(item, modalContentRoot, { ...detailOptions, region });
+  finishModalOpen({ contextKind: "product-lineup", contextId: item.id, contextOptions: { ...detailOptions, region }, root: modalContentRoot });
 }
 function openProductEntry(id, options = {}) {
   const item = productItemsById.get(id);
   if (!item) return;
-  if (item.lineupPool?.length) openProductLineupDetail(id, options);
-  else openProductDetail(id, options);
+  if (item.lineupEntryMode === "lineup-first" && productLineupIds(item).length) {
+    openProductLineupDetail(id, options);
+    return;
+  }
+  openProductDetail(id, options);
 }
 function openProductDetail(id, options = {}) {
   const item = productItemsById.get(id);
   if (!item) return;
-  if (routeIfNeeded({ type: "detail", id, options }, options)) return;
+  if (routeIfNeeded({ type: "detail", id, options })) return;
   const requestedRegion = releaseRegionLabels[options.region] ? options.region : (releaseRegionLabels[activeReleaseRegion] ? activeReleaseRegion : "kr");
   const region = productDisplayRegion(item, requestedRegion);
   const stepRegion = requestedRegion === "kr" ? "kr" : region;
   activeReleaseRegion = region;
   cleanupModelViewer();
-  const backButton = options.backProductId
-    ? productBackButton({ backProductId: options.backProductId, backRelease: options.backRelease, region })
-    : options.backRelease
-      ? modalBackButtonMarkup({ backRelease: true, region, label: "발매목록으로 돌아가기" })
-      : "";
+  const backButton = productModalBackButton(item, options, region);
   const productStepSource = productItems.filter(entry => !entry.lineupOnly).sort((a, b) => productSerialNumber(a, stepRegion) - productSerialNumber(b, stepRegion));
   const stepItems = productStepSource.filter(entry => productReleasedInRegion(entry, stepRegion));
+  const productInfoClass = releaseHasBadge(item, RARE_BEY_GET_BADGE, region) ? " has-rare-bey-get-chip" : "";
   const modalContentRoot = setModalContent(`${modalStepButtons(stepItems, item.id, "product")}<div class="modal-inner">
     <div class="modal-art product-modal-art"></div>
-    <div class="modal-info product-modal-info">
+    <div class="modal-info product-modal-info${productInfoClass}">
     ${modalScrollArea(`${productHeader(item, region)}
-    ${productMetaSlot()}
-    <div class="modal-body-block">${productComposition(item, region)}</div>`)}${backButton}</div></div>`);
+    ${productMetaSlot(item, region)}
+    <div class="modal-body-block">${productDetailBody(item, region)}</div>`)}${backButton}</div></div>`);
   if (!modalContentRoot) return;
   bindModalStepButtons({ product: { ...options, region: stepRegion } });
   bindCatalogModalBack(modalContentRoot, { fallbackRegion: region });
   bindProductCompositionLinks(item, modalContentRoot, { ...options, region });
+  modalContentRoot.querySelector(".rare-bey-get-list-trigger")?.addEventListener("click", event => {
+    event.preventDefault();
+    const trigger = event.currentTarget;
+    const triggerRegion = releaseRegionLabels[trigger.dataset.releaseRegion] ? trigger.dataset.releaseRegion : region;
+    const triggerSeries = releaseSeriesLabels[trigger.dataset.releaseSeries] ? trigger.dataset.releaseSeries : item.series;
+    queueModalTransition("composition", { sourceElement: trigger });
+    openRareBeyGetListDetail({
+      region: triggerRegion,
+      series: triggerSeries,
+      backProductId: item.id,
+      backRelease: options.backRelease === true
+    });
+  });
   finishModalOpen({ contextKind: "product", contextId: item.id, contextOptions: { ...options, region }, root: modalContentRoot });
 }
 function openSimpleCatalogDetail({ item, options = {}, kind, stepItems, tags = "" }) {
-  if (routeIfNeeded({ type: "detail", id: item.id, options }, options)) return;
+  if (routeIfNeeded({ type: "detail", id: item.id, options })) return;
   cleanupModelViewer();
   const backButton = productBackButton({ backProductId: options.backProductId, backRelease: options.backRelease, region: options.region });
   const modalContentRoot = setModalContent(`${modalStepButtons(stepItems, item.id, kind)}<div class="modal-inner">
@@ -1525,6 +1677,7 @@ const restorePagedSearchOrigin = ({ originState, queryKey, pageKey, input, setPa
 };
 const restoreStoredCatalogOrigin = originState => {
   setCatalogSeries(originState?.catalogSeries || "all", { refresh: false });
+  activeCatalogSort = normalizeCatalogRouteSort(originState?.catalogSort || activeCatalogSort);
   restorePagedSearchOrigin({
     originState,
     queryKey: "catalogQuery",
@@ -1548,9 +1701,10 @@ function restoreDetailOriginPanel(context) {
   if (!originRoute || !isPrimaryRoute(originRoute)) return false;
   const originState = context?.originState || {};
   modalOriginRoute = routeSnapshot(originRoute);
+  modalOriginRouteExplicit = context?.originExplicit === true;
   rememberPrimaryRoute(originRoute);
   if (originRoute.type === "catalog") {
-    openCategoryCatalog({ scope: originRoute.scope || "all", updateHash: false, preserveSearch: true });
+    openCategoryCatalog({ ...originRoute, updateHash: false, preserveSearch: true });
     restoreStoredCatalogOrigin(originState);
   } else if (originRoute.type === "search") {
     const scope = originState.globalScope || originRoute.scope || "all";
@@ -1625,8 +1779,15 @@ function routeWithKnownDetailFallback(route = {}) {
 }
 function restoreDetailFallbackOriginIfNeeded(restoredContext, fallbackOriginRoute) {
   const restoredOriginRoute = routeSnapshot(restoredContext?.originRoute);
-  if (restoredOriginRoute && isPrimaryRoute(restoredOriginRoute) && restoredOriginRoute.type !== "overview") {
+  if (restoredOriginRoute && isPrimaryRoute(restoredOriginRoute) && (restoredOriginRoute.type !== "overview" || restoredContext?.originExplicit === true)) {
     return restoreDetailOriginPanel(restoredContext);
+  }
+  if (modalOriginRouteExplicit && modalOriginRoute && isPrimaryRoute(modalOriginRoute)) {
+    return restoreDetailOriginPanel({
+      originRoute: modalOriginRoute,
+      originState: modalOriginState(modalOriginRoute),
+      originExplicit: true
+    });
   }
   if (fallbackOriginRoute && (!modalOriginRoute || modalOriginRoute.type === "overview")) {
     return restoreDetailOriginPanel({ originRoute: fallbackOriginRoute, originState: {} });
@@ -1635,7 +1796,7 @@ function restoreDetailFallbackOriginIfNeeded(restoredContext, fallbackOriginRout
 }
 function applyRoute(route = parseRouteFromHash(), { preserveScroll = false, preserveSearch = false } = {}) {
   const normalizedRoute = normalizeRoute(route || { type: "overview" });
-  const normalizedRouteKey = appliedRouteKey(normalizedRoute);
+  let normalizedRouteKey = appliedRouteKey(normalizedRoute);
   const preservePrimaryReturn = Boolean(isPrimaryRoute(normalizedRoute) && (modal?.open || modalOriginRoute));
   const shouldPreserveScroll = preserveScroll || preservePrimaryReturn;
   const shouldPreserveSearch = preserveSearch || preservePrimaryReturn;
@@ -1653,13 +1814,26 @@ function applyRoute(route = parseRouteFromHash(), { preserveScroll = false, pres
       setGlobalSearchState(normalizedRoute.query || "", normalizedRoute.scope || "all");
       openSearchResults({ replace: true, updateHash: false });
     } else if (normalizedRoute.type === "catalog") {
-      openCategoryCatalog({ scope: normalizedRoute.scope || "all", updateHash: false, preserveSearch: shouldPreserveSearch });
+      openCategoryCatalog({ ...normalizedRoute, updateHash: false, preserveSearch: shouldPreserveSearch });
+      syncCatalogRouteHash({ replace: true, force: true });
+      normalizedRouteKey = appliedRouteKey(catalogRouteFromState());
     } else if (normalizedRoute.type === "category-release") {
       openCategoryReleaseDetail({ ...routeApplyOptions(normalizedRoute), preserveSearch: shouldPreserveSearch });
     } else if (normalizedRoute.type === "category-anime") {
       openCategoryAnimePage({ updateHash: false, preserveSearch: shouldPreserveSearch });
     } else if (normalizedRoute.type === "category-anime-episodes") {
       openCategoryAnimeEpisodesDetail({ ...routeApplyOptions(normalizedRoute), preserveSearch: shouldPreserveSearch });
+    } else if (normalizedRoute.type === "rare-bey-get-list") {
+      const restoredContext = restoredModalContext("rare-bey-get-list");
+      const rareBeyGetListOptions = { ...(restoredContext?.options || {}), ...routeApplyOptions(normalizedRoute) };
+      restoreDetailFallbackOriginIfNeeded(restoredContext, {
+        type: "category-release",
+        options: {
+          region: rareBeyGetListOptions.region,
+          series: rareBeyGetListOptions.series
+        }
+      });
+      openRareBeyGetListDetail(rareBeyGetListOptions);
     } else if (normalizedRoute.type === "detail" && normalizedRoute.id) {
       const hashId = normalizedRoute.id;
       const restoredContext = restoredModalContext(hashId);

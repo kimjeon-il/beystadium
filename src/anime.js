@@ -260,10 +260,6 @@ function rememberAnimeModalContext() {
   });
 }
 
-function bindAnimeEpisodesContent(root = document) {
-  animeEpisodeTableController.bind(root);
-}
-
 function renderAnimeEpisodesPage() {
   animeEpisodeTableController.renderPage();
 }
