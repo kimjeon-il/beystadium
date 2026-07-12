@@ -337,6 +337,9 @@ a,
 }
 
 .catalog-dropdown-menu {
+  --dropdown-menu-padding: var(--space-3);
+  --dropdown-scrollbar-width: 8px;
+  --dropdown-scrollbar-compensation: 0px;
   position: absolute;
   left: 0;
   top: calc(100% + var(--floating-layer-gap));
@@ -344,7 +347,7 @@ a,
   width: 100%;
   min-width: 100%;
   max-height: min(360px, 62vh);
-  padding: var(--space-3);
+  padding: var(--dropdown-menu-padding);
   display: grid;
   gap: var(--space-1);
   overflow-x: hidden !important;
@@ -358,8 +361,12 @@ a,
   transform-origin: top center;
 }
 
+.catalog-dropdown-menu.is-scrollbar-visible {
+  padding-inline-end: max(0px, calc(var(--dropdown-menu-padding) - var(--dropdown-scrollbar-compensation)));
+}
+
 .catalog-dropdown.is-dropdown-entering > .catalog-dropdown-menu {
-  animation: var(--motion-preset-popover-enter);
+  animation: var(--motion-preset-fade-in);
 }
 
 .catalog-dropdown-menu::-webkit-scrollbar,
@@ -368,8 +375,8 @@ a,
 .release-table-scroll::-webkit-scrollbar,
 dialog[open] .modal-scroll-area::-webkit-scrollbar,
 .sidebar-root .sidebar-nav::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: var(--dropdown-scrollbar-width, 8px);
+  height: var(--dropdown-scrollbar-width, 8px);
 }
 
 .catalog-dropdown-menu::-webkit-scrollbar-button,
@@ -1169,6 +1176,32 @@ dialog[open] #modalClose.modal-close:hover{
   display: none !important;
 }
 
+.catalog-card-visual {
+  position: absolute;
+  inset: var(--catalog-card-padding) var(--catalog-card-padding) calc(var(--catalog-card-padding) + 30px);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.catalog-card-visual:empty {
+  display: none;
+}
+
+.bey-image {
+  display: block;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.catalog-card-visual .bey-image {
+  max-width: min(78%, 112px);
+  max-height: 100%;
+}
+
 .card-name{
   position: relative;
   z-index: 3;
@@ -1630,6 +1663,20 @@ dialog[open] .modal-info:not(.category-anime-info) {
   width: calc(100% - (var(--modal-scrollbar-inset) * 2)) !important;
   padding: 0 var(--modal-info-padding-inline) !important;
   display: block !important;
+}
+
+dialog[open] .modal-inner--rare-bey-get-list {
+  --modal-inner-columns: minmax(0, 1fr);
+  --modal-inner-rows: minmax(0, 1fr);
+  --modal-info-padding-inline: clamp(18px, 4vw, 42px);
+}
+
+dialog[open] .modal-inner--rare-bey-get-list .modal-art {
+  display: none !important;
+}
+
+dialog[open] .modal-inner--rare-bey-get-list .modal-info:not(.category-anime-info) {
+  --modal-body-width: min(100%, 820px);
 }
 
 @supports (width: 1cqw) {
@@ -2387,81 +2434,94 @@ dialog[open] .category-anime-info .anime-episode-title-row .category-title {
 }
 
 .rare-bey-get-list {
-  --rare-bey-get-row-gap: 8px;
-  --rare-bey-get-row-padding: 10px 12px;
-  --rare-bey-get-row-bg: color-mix(in srgb, var(--ui-control) 54%, transparent);
+  --composition-list-max-height: min(62dvh, 520px);
 }
 
 .rare-bey-get-list-scroll {
-  max-height: min(52dvh, 420px);
+  max-height: var(--composition-list-max-height);
 }
 
 .rare-bey-get-list-items {
   display: grid;
-  gap: var(--rare-bey-get-row-gap);
-  padding-inline: var(--modal-section-scroll-gutter) 0;
+  gap: 0;
+  padding-inline: 0;
+}
+
+.rare-bey-get-list-section {
+  min-width: 0;
+  display: grid;
+  gap: 0;
+}
+
+.rare-bey-get-list-section + .rare-bey-get-list-section {
+  margin-top: 10px;
+  padding-top: 0;
+}
+
+.rare-bey-get-list-panel-title {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.rare-bey-get-list-panel-title > b {
+  color: var(--ui-muted);
+  font: inherit;
+}
+
+.rare-bey-get-list-group-items {
+  min-width: 0;
+  display: grid;
+  border-top: 0;
 }
 
 .rare-bey-get-list-item {
-  width: 100%;
   min-width: 0;
-  min-height: 72px;
-  padding: var(--rare-bey-get-row-padding);
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 22px;
-  align-items: center;
-  gap: 10px;
-  border-radius: var(--radius-control-sm);
-  background: var(--rare-bey-get-row-bg);
-  color: var(--ui-text);
-  text-decoration: none;
-  transition: var(--transition-control);
-}
-
-.rare-bey-get-list-item:hover,
-.rare-bey-get-list-item:focus-visible {
-  background: var(--ui-control-hover);
-  color: var(--ui-text);
-  box-shadow: none;
-  outline: 0;
-}
-
-.rare-bey-get-list-item-content {
-  display: grid;
-  gap: 6px;
-  min-width: 0;
+  grid-template-columns: minmax(0, 1fr) var(--modal-row-arrow-column);
 }
 
 .rare-bey-get-list-item-main {
   min-width: 0;
   display: flex;
   align-items: baseline;
+  justify-self: start;
   gap: 8px;
+  font-weight: var(--font-weight-regular);
+  text-align: left;
+}
+
+.rare-bey-get-list-item-finish {
+  flex: 0 0 auto;
+  padding: 2px 6px;
+  border: 1px solid color-mix(in srgb, var(--ui-line) 82%, transparent);
+  border-radius: var(--radius-control-sm);
+  background: color-mix(in srgb, var(--ui-surface) 78%, transparent);
+  color: var(--ui-muted);
+  font-size: var(--font-xs);
+  font-weight: var(--font-weight-strong);
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+@container (max-width: 39.999rem) {
+  .modal-inner--rare-bey-get-list .rare-bey-get-list-item-finish {
+    display: none;
+  }
 }
 
 .rare-bey-get-list-item-title {
   min-width: 0;
-  font-size: var(--font-md);
-  font-weight: var(--font-weight-strong);
-  line-height: 1.35;
+  font-size: inherit;
+  font-weight: var(--font-weight-regular);
+  line-height: inherit;
   overflow-wrap: anywhere;
-}
-
-.rare-bey-get-list-item-meta {
-  min-width: 0;
-  display: grid;
-  gap: 2px;
-  color: var(--ui-muted);
-  font-size: var(--font-xs);
-  font-weight: var(--font-weight-medium);
-  line-height: 1.35;
 }
 
 .rare-bey-get-list-item > b {
   justify-self: end;
   color: var(--ui-text);
-  font-size: var(--font-md);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-regular);
+  text-align: left;
 }
 
 .rare-bey-get-list-item--static {
@@ -2595,6 +2655,12 @@ dialog[open] .modal-art {
   padding: var(--modal-art-padding) !important;
   border-right: 0 !important;
   border-bottom: 0 !important;
+}
+
+dialog[open] .modal-art > .bey-image {
+  max-width: min(92%, 280px);
+  max-height: min(92%, 280px);
+  filter: drop-shadow(0 0 20px color-mix(in srgb, var(--ui-text) 26%, transparent));
 }
 
 .mounted-link:hover > :last-child {
@@ -3527,7 +3593,28 @@ body.is-overview .app-shell {
 }
 
 .anime-toolbar {
-  --catalog-toolbar-columns: minmax(0, 1fr);
+  --release-series-dropdown-width: 14.5rem;
+  --catalog-toolbar-columns: minmax(13.5rem, var(--release-series-dropdown-width)) minmax(0, 1fr);
+  grid-template-areas: "series search";
+}
+
+.anime-character-season-filter {
+  grid-area: series;
+  min-width: 0;
+}
+
+.anime-character-season-filter .release-dropdown {
+  --dropdown-item-min-width: 0;
+  --dropdown-item-padding: 0 12px;
+  --dropdown-item-overflow: hidden;
+  --dropdown-item-text-overflow: ellipsis;
+  --dropdown-item-white-space: nowrap;
+  width: 100%;
+}
+
+.anime-local-search {
+  grid-area: search;
+  min-width: 0;
 }
 
 .topbar-search-box,
@@ -4715,6 +4802,11 @@ body.menu-open .mobile-drawer {
     --stat-row-gap: 6px;
   }
 
+  dialog[open] .modal-art > .bey-image {
+    max-width: min(72vw, 240px);
+    max-height: min(29dvh, 240px);
+  }
+
   .app-panel:is(
     [data-app-panel="catalog"],
     [data-app-panel="release"],
@@ -4776,6 +4868,13 @@ body.menu-open .mobile-drawer {
 
   .app-panel[data-app-panel="catalog"] {
     --catalog-toolbar-columns: 1fr;
+  }
+
+  .anime-toolbar {
+    --catalog-toolbar-columns: 1fr;
+    grid-template-areas:
+      "series"
+      "search";
   }
 
   .catalog-panel .catalog-toolbar {
