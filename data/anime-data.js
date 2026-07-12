@@ -1,4 +1,3 @@
-window.BeystadiumData = window.BeystadiumData || {};
 const animeInfo = {
   title: "메탈베이블레이드",
   overview: [],
@@ -529,4 +528,3 @@ const animeInfo = {
     { no: "49화", season: "beyblade-x-2", titles: { kr: "별을 삼키는 자", jp: "" }, airDates: { kr: "2026-03-16", jp: "" }, note: "" }
   ]
 };
-window.BeystadiumData.anime = { animeInfo };

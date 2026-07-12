@@ -1,5 +1,4 @@
-window.BeystadiumData = window.BeystadiumData || {};
-const productItems = [
+﻿const productItems = [
 { id: "PRODUCT-BB-01", series: "metal fight", releases: {
   kr: { no: "BB-01", name: "페가시스 105F", sale: "일반 판매", kind: "리미티드스타터세트", releaseDate: "2008-10", price: "17600", composition: [{ name: "페가시스 105F", quantity: "1개", target: "BEY-BB-01-PEGASIS-105F" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }, { name: "포인터", quantity: "1개", target: "TOOLS-POINTER" }, { name: "라이트런처", quantity: "1개", target: "TOOLS-LIGHT-LAUNCHER" }] },
   jp: { no: "BB-01", name: "페가시스 105F", sale: "일반 판매", kind: "스타터", releaseDate: "2008-08-09", price: "1544", composition: [{ name: "페가시스 105F", quantity: "1개", target: "BEY-BB-01-PEGASIS-105F" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }, { name: "베이포인터", quantity: "1개", target: "TOOLS-POINTER" }, { name: "라이트런처", quantity: "1개", target: "TOOLS-LIGHT-LAUNCHER" }] } } },
@@ -41,7 +40,7 @@ const productItems = [
   jp: { no: "BB-12", name: "볼프 105F", sale: "일반 판매", kind: "부스터", releaseDate: "2008-09-18", price: "630", composition: [{ name: "볼프 105F", quantity: "1개", target: "BEY-BB-12-WOLF-105F" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] } } },
 { id: "PRODUCT-BB-13", series: "metal fight", releases: {
   kr: { status: "unreleased" },
-  jp: { no: "BB-13", name: "랜덤부스터 Vol.1 시크릿 아리에스", sale: "일반 판매", kind: "부스터", releaseDate: "2008-09-18", price: "630", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BB-13-ARIES-125D" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] } }, beyPool: ["BEY-BB-13-ARIES-125D", "BEY-BB-13-SAGITTARIO-145F", "BEY-BB-13-BULL-105S", "BEY-BB-13-PEGASIS-145SF", "BEY-BB-13-LEONE-125S", "BEY-BB-13-SAGITTARIO-145SF", "BEY-BB-13-BULL-105D", "BEY-BB-13-PEGASIS-145F"] },
+  jp: { no: "BB-13", name: "랜덤부스터 Vol.1 시크릿 아리에스", sale: "일반 판매", kind: "부스터", releaseDate: "2008-09-18", price: "630", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BB-13-ARIES-125D" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] } }, lineupPool: ["BEY-BB-13-ARIES-125D", "BEY-BB-13-SAGITTARIO-145F", "BEY-BB-13-BULL-105S", "BEY-BB-13-PEGASIS-145SF", "BEY-BB-13-LEONE-125S", "BEY-BB-13-SAGITTARIO-145SF", "BEY-BB-13-BULL-105D", "BEY-BB-13-PEGASIS-145F"] },
 { id: "PRODUCT-BB-14", series: "metal fight", releases: {
   kr: { status: "unreleased" },
   jp: { no: "BB-14", name: "베이스타디움 밸런스타입", sale: "일반 판매", releaseDate: "2008-09-18", price: "1260", composition: [{ name: "밸런스형 메탈파이트 스타디움", quantity: "1개", target: "TOOLS-BALANCE-BEYSTADIUM" }, { name: "오버펜스", quantity: "7장", target: "TOOLS-OVER-FENCE" }] } } },
@@ -84,7 +83,7 @@ const productItems = [
   jp: { no: "BB-24", name: "에스콜피오 WD145B", sale: "일반 판매", kind: "부스터", releaseDate: "2008-12-25", price: "630", composition: [{ name: "에스콜피오 WD145B", quantity: "1개", target: "BEY-BB-24-ESCOLPIO-WD145B" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] } } },
 { id: "PRODUCT-BB-25", series: "metal fight", releases: {
   kr: { status: "unreleased" },
-  jp: { no: "BB-25", name: "랜덤부스터 Vol.2 레전드 파이시즈", sale: "일반 판매", kind: "부스터", releaseDate: "2009-02-22", price: "630", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BB-25-PISCES-D125BS" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] } }, beyPool: ["BEY-BB-25-PISCES-D125BS", "BEY-BB-25-AQUARIO-DF145SF", "BEY-BB-25-VIRGO-125BS", "BEY-BB-25-LIBRA-D125HF", "BEY-BB-25-AQUARIO-105B", "BEY-BB-25-VIRGO-100B", "BEY-BB-25-LIBRA-100F", "BEY-BB-25-BULL-DF145HF"] },
+  jp: { no: "BB-25", name: "랜덤부스터 Vol.2 레전드 파이시즈", sale: "일반 판매", kind: "부스터", releaseDate: "2009-02-22", price: "630", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BB-25-PISCES-D125BS" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] } }, lineupPool: ["BEY-BB-25-PISCES-D125BS", "BEY-BB-25-AQUARIO-DF145SF", "BEY-BB-25-VIRGO-125BS", "BEY-BB-25-LIBRA-D125HF", "BEY-BB-25-AQUARIO-105B", "BEY-BB-25-VIRGO-100B", "BEY-BB-25-LIBRA-100F", "BEY-BB-25-BULL-DF145HF"] },
 { id: "PRODUCT-BB-26", series: "metal fight", releases: {
   kr: { status: "unreleased" },
   jp: { no: "BB-26", name: "제미오스 DF145FS", sale: "일반 판매", kind: "부스터", releaseDate: "2009-02-22", price: "630", composition: [{ name: "제미오스 DF145FS", quantity: "1개", target: "BEY-BB-26-GEMIOS-DF145FS" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] } } },
@@ -105,7 +104,7 @@ const productItems = [
   jp: { status: "unreleased" }} },
 { id: "PRODUCT-BB-31", series: "metal fight", releases: {
   kr: { no: "BB-31", name: "라이트블레이드 Vol.1", sale: "일반 판매", kind: "부스터", releaseDate: "2009-09-23", price: "3200", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BB-31-MAD-CANCER-CH120FS" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] },
-  jp: { no: "BB-31", name: "랜덤부스터 라이트 Vol.1", sale: "일반 판매", kind: "부스터", releaseDate: "2009-03-28", price: "367", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BB-31-MAD-CANCER-CH120FS" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] }}, beyPool: ["BEY-BB-31-MAD-CANCER-CH120FS","BEY-BB-31-HEAT-PEGASIS-100WB", "BEY-BB-31-CLAY-WOLF-145FS", "BEY-BB-31-HEAT-WOLF-WD145SF", "BEY-BB-31-MAD-LEONE-145B", "BEY-BB-31-CLAY-LEONE-DF145WB", "BEY-BB-31-WIND-PEGASIS-DF145B", "BEY-BB-31-WIND-LEONE-D125HF"] },
+  jp: { no: "BB-31", name: "랜덤부스터 라이트 Vol.1", sale: "일반 판매", kind: "부스터", releaseDate: "2009-03-28", price: "367", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BB-31-MAD-CANCER-CH120FS" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] }}, lineupPool: ["BEY-BB-31-MAD-CANCER-CH120FS","BEY-BB-31-HEAT-PEGASIS-100WB", "BEY-BB-31-CLAY-WOLF-145FS", "BEY-BB-31-HEAT-WOLF-WD145SF", "BEY-BB-31-MAD-LEONE-145B", "BEY-BB-31-CLAY-LEONE-DF145WB", "BEY-BB-31-WIND-PEGASIS-DF145B", "BEY-BB-31-WIND-LEONE-D125HF"] },
 { id: "PRODUCT-BB-32", series: "metal fight", releases: {
   kr: { status: "unreleased" },
   jp: { no: "BB-32", name: "하이브리드휠 대전 세트", sale: "일반 판매", kind: "세트", releaseDate: "2009-03-28", price: "3675", composition: [{ name: "스톰 페가시스 105RF", quantity: "1개", target: "BEY-BB-32-STORM-PEGASIS-105RF" }, { name: "다크 볼프 DF145FS", quantity: "1개", target: "BEY-BB-32-DARK-WOLF-DF145FS" }, { name: "툴", quantity: "2개", target: "TOOLS-TOOL" }, { name: "베이런처", quantity: "2개", target: "TOOLS-POWER-LAUNCHER" }, { name: "베이스타디움 어택타입", quantity: "1개", target: "TOOLS-ATTACK-BEYSTADIUM" }, { name: "오버펜스", quantity: "7장", target: "TOOLS-OVER-FENCE" }] }} },
@@ -123,7 +122,7 @@ const productItems = [
   jp: { no: "BB-36", name: "메탈페이스", sale: "일반 판매", releaseDate: "2009-04-25", price: "367", composition: [{ name: "메탈페이스", quantity: "2개", target: "FACE-METAL-FACE" }, { name: "홀더툴", quantity: "1개", target: "TOOLS-HOLDER-TOOL" }] }} },
 { id: "PRODUCT-BB-37", series: "metal fight", releases: {
   kr: { no: "BB-37", name: "라이트블레이드 Vol.2", sale: "일반 판매", kind: "부스터", releaseDate: "2009-09-23", price: "3200", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BB-37-WIND-AQUARIO-100HF-S" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] },
-  jp: { no: "BB-37", name: "랜덤부스터 라이트 Vol.2", sale: "일반 판매", kind: "부스터", releaseDate: "2009-05-23", price: "367", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BB-37-WIND-AQUARIO-100HF-S" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] }}, beyPool: ["BEY-BB-37-WIND-AQUARIO-100HF-S", "BEY-BB-37-CLAY-WOLF-105B", "BEY-BB-37-CLAY-SAGITTARIO-145B", "BEY-BB-37-HEAT-PEGASIS-DF145WB", "BEY-BB-37-HEAT-LEONE-D125FS", "BEY-BB-37-MAD-SAGITTARIO-DF145HF", "BEY-BB-37-MAD-LEONE-145FS", "BEY-BB-37-WIND-WOLF-WD145WB"] },
+  jp: { no: "BB-37", name: "랜덤부스터 라이트 Vol.2", sale: "일반 판매", kind: "부스터", releaseDate: "2009-05-23", price: "367", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BB-37-WIND-AQUARIO-100HF-S" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] }}, lineupPool: ["BEY-BB-37-WIND-AQUARIO-100HF-S", "BEY-BB-37-CLAY-WOLF-105B", "BEY-BB-37-CLAY-SAGITTARIO-145B", "BEY-BB-37-HEAT-PEGASIS-DF145WB", "BEY-BB-37-HEAT-LEONE-D125FS", "BEY-BB-37-MAD-SAGITTARIO-DF145HF", "BEY-BB-37-MAD-LEONE-145FS", "BEY-BB-37-WIND-WOLF-WD145WB"] },
 { id: "PRODUCT-BB-38", series: "metal fight", releases: {
   kr: { status: "unreleased" },
   jp: { no: "BB-38", name: "베이런처(아이언그레이)", sale: "일반 판매", releaseDate: "2009-05-23", price: "630", composition: [{ name: "베이런처", quantity: "1개", target: "TOOLS-POWER-LAUNCHER" }] }} },
@@ -147,10 +146,10 @@ const productItems = [
   jp: { no: "", name: "라이트닝 엘드라고 100HF 극룡 Ver.", sale: "한정 배포", kind: "", releaseDate: "2009-11-05", price: "", composition: [{ name: "라이트닝 엘드라고 100HF 극룡 Ver.", quantity: "1개", target: "BEY-BB-43-LIGHTNING-L-DRAGO-100HF" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] }} },
 { id: "PRODUCT-BB-44", series: "metal fight", releases: {
   kr: { no: "BB-44", name: "메탈블레이드&런처", sale: "일반 판매", kind: "스타터세트", releaseDate: "2009-09-23", price: "8000", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BB-44-STORM-PEGASIS-100RF" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }, { name: "라이트런처", quantity: "1개", target: "TOOLS-LIGHT-LAUNCHER" }] },
-  jp: { no: "BB-44", name: "랜덤부스터 Vol.3 스타더스트 페가시스", sale: "일반 판매", kind: "부스터", releaseDate: "2009-07-18", price: "682", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BB-44-STORM-PEGASIS-100RF" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] }}, beyPool: ["BEY-BB-44-STORM-PEGASIS-100RF", "BEY-BB-44-ROCK-WOLF-H145B", "BEY-BB-44-DARK-LEONE-C145B", "BEY-BB-44-FLAME-WOLF-H145S", "BEY-BB-44-STORM-SAGITTARIO-145SD", "BEY-BB-44-ROCK-BULL-WD145HF", "BEY-BB-44-DARK-SAGITTARIO-WD145SD", "BEY-BB-44-FLAME-BULL-105WB"] },
+  jp: { no: "BB-44", name: "랜덤부스터 Vol.3 스타더스트 페가시스", sale: "일반 판매", kind: "부스터", releaseDate: "2009-07-18", price: "682", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BB-44-STORM-PEGASIS-100RF" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] }}, lineupPool: ["BEY-BB-44-STORM-PEGASIS-100RF", "BEY-BB-44-ROCK-WOLF-H145B", "BEY-BB-44-DARK-LEONE-C145B", "BEY-BB-44-FLAME-WOLF-H145S", "BEY-BB-44-STORM-SAGITTARIO-145SD", "BEY-BB-44-ROCK-BULL-WD145HF", "BEY-BB-44-DARK-SAGITTARIO-WD145SD", "BEY-BB-44-FLAME-BULL-105WB"] },
 { id: "PRODUCT-BB-45", series: "metal fight", releases: {
   kr: { no: "BB-45", name: "라이트블레이드 Vol.3", sale: "일반 판매", kind: "부스터", releaseDate: "2009-09-23", price: "3200", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BB-45-CLAY-ARIES-ED145B" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] },
-  jp: { no: "BB-45", name: "랜덤부스터 라이트 Vol.3", sale: "일반 판매", kind: "부스터", releaseDate: "2009-08-08", price: "682", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BB-45-CLAY-ARIES-ED145B" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] }}, beyPool: [ "BEY-BB-45-CLAY-ARIES-ED145B", "BEY-BB-45-CLAY-PEGASIS-145S", "BEY-BB-45-MAD-SAGITTARIO-C145SD", "BEY-BB-45-HEAT-BULL-D125WB", "BEY-BB-45-WIND-WOLF-H145D", "BEY-BB-45-HEAT-LEONE-H145S", "BEY-BB-45-MAD-BULL-C145HF", "BEY-BB-45-WIND-SAGITTARIO-100SD"] },
+  jp: { no: "BB-45", name: "랜덤부스터 라이트 Vol.3", sale: "일반 판매", kind: "부스터", releaseDate: "2009-08-08", price: "682", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BB-45-CLAY-ARIES-ED145B" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] }}, lineupPool: [ "BEY-BB-45-CLAY-ARIES-ED145B", "BEY-BB-45-CLAY-PEGASIS-145S", "BEY-BB-45-MAD-SAGITTARIO-C145SD", "BEY-BB-45-HEAT-BULL-D125WB", "BEY-BB-45-WIND-WOLF-H145D", "BEY-BB-45-HEAT-LEONE-H145S", "BEY-BB-45-MAD-BULL-C145HF", "BEY-BB-45-WIND-SAGITTARIO-100SD"] },
 { id: "PRODUCT-BB-46", series: "metal fight", releases: {
   kr: { status: "unreleased" },
   jp: { no: "BB-46", name: "베이스타디움 스탠다드타입", sale: "일반 판매", releaseDate: "2009-08-08", price: "2625", composition: [{ name: "베이스타디움 스탠다드타입", quantity: "1개", target: "TOOLS-STANDARD-BEYSTADIUM" }, { name: "오버펜스", quantity: "7장", target: "TOOLS-OVER-FENCE" }] }} },
@@ -228,7 +227,7 @@ const productItems = [
     jp: { no: "", name: "번 피닉스 90WF", sale: "한정 배포", kind: "", releaseDate: "2010-01-17", price: "", composition: [{ name: "번 피닉스 90WF", quantity: "1개", target: "BEY-BURN-PHOENIX-90WF" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }, { name: "베이런처", quantity: "1개", target: "TOOLS-POWER-LAUNCHER" }] }} },
   { id: "PRODUCT-BB-60", series: "metal fight", releases: {
     kr: { no: "BB-60", name: "어스 비르고 GB145BS", sale: "일반 판매", kind: "스타터세트", releaseDate: "2010-02-10", price: "8000", composition: [{ name: "어스 비르고 GB145BS", quantity: "1개", target: "BEY-BB-60-EARTH-VIRGO-GB145BS" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }, { name: "라이트런처", quantity: "1개", target: "TOOLS-LIGHT-LAUNCHER" }] },
-    jp: { no: "BB-60", name: "랜덤부스터 Vol.4 미라주 비르고", sale: "일반 판매", kind: "부스터", releaseDate: "2009-12-26", price: "682", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BB-60-EARTH-VIRGO-GB145BS" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] }}, beyPool: ["BEY-BB-60-EARTH-VIRGO-GB145BS", "BEY-BB-60-EARTH-CANCER-DF145ES", "BEY-BB-60-FLAME-CAPRICORNE-T125HF", "BEY-BB-60-FLAME-AQUILA-100ES", "BEY-BB-60-ROCK-CAPRICORNE-T125D", "BEY-BB-60-ROCK-LIBRA-100WD", "BEY-BB-60-STORM-AQUILA-145HF", "BEY-BB-60-STORM-LIBRA-145S"] },
+    jp: { no: "BB-60", name: "랜덤부스터 Vol.4 미라주 비르고", sale: "일반 판매", kind: "부스터", releaseDate: "2009-12-26", price: "682", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BB-60-EARTH-VIRGO-GB145BS" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] }}, lineupPool: ["BEY-BB-60-EARTH-VIRGO-GB145BS", "BEY-BB-60-EARTH-CANCER-DF145ES", "BEY-BB-60-FLAME-CAPRICORNE-T125HF", "BEY-BB-60-FLAME-AQUILA-100ES", "BEY-BB-60-ROCK-CAPRICORNE-T125D", "BEY-BB-60-ROCK-LIBRA-100WD", "BEY-BB-60-STORM-AQUILA-145HF", "BEY-BB-60-STORM-LIBRA-145S"] },
   { id: "PRODUCT-BURN-PISCES-ED145WF", series: "metal fight", releases: {
     kr: { no: "", name: "번 파이시즈 ED145WF", sale: "한정 판매", kind: "", releaseDate: "2010-08-22", price: "7000", composition: [{ name: "번 파이시즈 ED145WF", quantity: "1개", target: "BEY-BURN-PISCES-ED145WF" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] },
     jp: { no: "", name: "번 파이시즈 ED145WF", sale: "한정 배포", kind: "", releaseDate: "2010-02-15", price: "", composition: [{ name: "번 파이시즈 ED145WF", quantity: "1개", target: "BEY-BURN-PISCES-ED145WF" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] }} },
@@ -279,7 +278,7 @@ const productItems = [
     jp: { no: "", name: "록 아리에스 ED145D", sale: "한정 배포", kind: "", releaseDate: "2010-04-01", price: "", composition: [{ name: "록 아리에스 ED145D", quantity: "1개", target: "BEY-ROCK-ARIES-ED145D" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] }} },
   { id: "PRODUCT-BEYPOINT-LEVELS", series: "metal fight", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "", name: "베이포인트 레벨1~7", sale: "한정 배포", kind: "", releaseDate: "2010-04-01", price: "", composition: [{ name: "레벨별 교환 상품", quantity: "1개", target: "PRODUCT-BEYPOINT-LEVEL-1" }] }}, lineupTitle: "교환 상품", lineupPool: ["PRODUCT-BEYPOINT-LEVEL-1", "PRODUCT-BEYPOINT-LEVEL-2", "PRODUCT-BEYPOINT-LEVEL-3", "PRODUCT-BEYPOINT-LEVEL-4", "PRODUCT-BEYPOINT-LEVEL-5", "PRODUCT-BEYPOINT-LEVEL-6", "PRODUCT-BEYPOINT-LEVEL-7"] },
+    jp: { no: "", name: "베이포인트 레벨1~7", sale: "한정 배포", kind: "", releaseDate: "2010-04-01", price: "", composition: [{ name: "레벨별 교환 상품", quantity: "1개", target: "PRODUCT-BEYPOINT-LEVEL-1" }] }}, lineupTitle: "교환 상품", lineupEntryMode: "lineup-first", lineupPool: ["PRODUCT-BEYPOINT-LEVEL-1", "PRODUCT-BEYPOINT-LEVEL-2", "PRODUCT-BEYPOINT-LEVEL-3", "PRODUCT-BEYPOINT-LEVEL-4", "PRODUCT-BEYPOINT-LEVEL-5", "PRODUCT-BEYPOINT-LEVEL-6", "PRODUCT-BEYPOINT-LEVEL-7"] },
   { id: "PRODUCT-BEYPOINT-LEVEL-1", series: "metal fight", lineupOnly: true, releases: {
     kr: { status: "unreleased" },
     jp: { no: "", name: "베이포인트 레벨1", sale: "한정 배포", kind: "", releaseDate: "2010-04-01", price: "", composition: [{ name: "베이포인트 레벨 스티커", quantity: "1장", target: "TOOLS-BEYPOINT-LEVEL-STICKER" }] }} },
@@ -369,7 +368,7 @@ const productItems = [
     jp: { no: "BB-81", name: "런처러버", sale: "일반 판매", releaseDate: "2010-06-22", price: "315", composition: [{ name: "런처러버", quantity: "3개", target: "TOOLS-LAUNCHER-RUBBER" }] }} },
   { id: "PRODUCT-BB-82", series: "metal fight", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "BB-82", name: "랜덤부스터 Vol.5 그랜드 케토스", sale: "일반 판매", kind: "부스터", releaseDate: "2010-07-24", price: "682", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BB-82-GRAND-KETOS-WD145RS" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] }}, beyPool: ["BEY-BB-82-GRAND-KETOS-WD145RS", "BEY-BB-82-GRAND-KETOS-T125RS", "BEY-BB-82-BURN-UNICORNO-SW145JB", "BEY-BB-82-POISON-UNICORNO-130HF", "BEY-BB-82-STORM-PHOENIX-130B", "BEY-BB-82-POISON-PHOENIX-WA130SD", "BEY-BB-82-BURN-SERPENT-WA130ES", "BEY-BB-82-STORM-SERPENT-T125HF"] },
+    jp: { no: "BB-82", name: "랜덤부스터 Vol.5 그랜드 케토스", sale: "일반 판매", kind: "부스터", releaseDate: "2010-07-24", price: "682", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BB-82-GRAND-KETOS-WD145RS" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] }}, lineupPool: ["BEY-BB-82-GRAND-KETOS-WD145RS", "BEY-BB-82-GRAND-KETOS-T125RS", "BEY-BB-82-BURN-UNICORNO-SW145JB", "BEY-BB-82-POISON-UNICORNO-130HF", "BEY-BB-82-STORM-PHOENIX-130B", "BEY-BB-82-POISON-PHOENIX-WA130SD", "BEY-BB-82-BURN-SERPENT-WA130ES", "BEY-BB-82-STORM-SERPENT-T125HF"] },
   { id: "PRODUCT-BB-82-1", series: "metal fight", releases: {
     kr: { no: "BB-82-1", name: "그랜드 케토스 WD145RS", sale: "일반 판매", kind: "스타터세트", releaseDate: "2010-10-01", price: "9600", composition: [{ name: "그랜드 케토스 WD145RS", quantity: "1개", target: "BEY-BB-82-GRAND-KETOS-WD145RS" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }, { name: "라이트런처2", quantity: "1개", target: "TOOLS-LIGHT-LAUNCHER-2" }]},
     jp: { status: "unreleased" }} },
@@ -454,7 +453,7 @@ const productItems = [
   { id: "PRODUCT-BB-100", series: "metal fight", releases: {
     kr: { no: "BB-100", name: "키라 비폴 UW145EWD", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-02-01", price: "9600", composition: [{ name: "키라 비폴 UW145EWD", quantity: "1개", target: "BEY-BB-100-KILLER-BEAFOWL-UW145EWD" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }, { name: "라이트런처2", quantity: "1개", target: "TOOLS-LIGHT-LAUNCHER-2" }]},
     jp: { no: "BB-100", name: "랜덤부스터 Vol.6 키라 비폴", sale: "일반 판매", kind: "부스터", releaseDate: "2010-12-28", price: "682", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BB-100-KILLER-BEAFOWL-UW145EWD" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] }
-  }, beyPool: ["BEY-BB-100-KILLER-BEAFOWL-UW145EWD", "BEY-BB-100-GALAXY-CANCER-D125HF", "BEY-BB-100-BURN-ESCOLPIO-100RF", "BEY-BB-100-FLAME-GEMIOS-105CS", "BEY-BB-100-KILLER-ESCOLPIO-100D", "BEY-BB-100-GALAXY-SAGITTARIO-145CS", "BEY-BB-100-FLAME-CANCER-D125RF", "BEY-BB-100-BURN-SAGITTARIO-105HF"] },
+  }, lineupPool: ["BEY-BB-100-KILLER-BEAFOWL-UW145EWD", "BEY-BB-100-GALAXY-CANCER-D125HF", "BEY-BB-100-BURN-ESCOLPIO-100RF", "BEY-BB-100-FLAME-GEMIOS-105CS", "BEY-BB-100-KILLER-ESCOLPIO-100D", "BEY-BB-100-GALAXY-SAGITTARIO-145CS", "BEY-BB-100-FLAME-CANCER-D125RF", "BEY-BB-100-BURN-SAGITTARIO-105HF"] },
   { id: "PRODUCT-BB-101", series: "metal fight", releases: {
     kr: { status: "unreleased" },
     jp: { no: "BB-101", name: "그립서포트", sale: "일반 판매", releaseDate: "2010-12-28", price: "367", composition: [{ name: "그립서포트", quantity: "1개", target: "TOOLS-GRIP-SUPPORT" }] }} },
@@ -487,7 +486,7 @@ const productItems = [
     jp: { no: "BB-107", name: "빅뱅 페가시스 DX 세트", sale: "일반 판매", kind: "세트", releaseDate: "2011-03-26", price: "3990", composition: [{ name: "빅뱅 페가시스 F:D", quantity: "1개", target: "BEY-BB-107-BIG-BANG-PEGASIS-FD" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }, { name: "85 트랙", quantity: "1개", target: "TRACK-85" }, { name: "105 트랙", quantity: "1개", target: "TRACK-105" }, { name: "XF 버텀", quantity: "1개", target: "BOTTOM-EXTREME-FLAT" }, { name: "RF 버텀", quantity: "1개", target: "BOTTOM-RUBBER-FLAT" }, { name: "베이런처", quantity: "1개", target: "TOOLS-POWER-LAUNCHER" }, { name: "3세그 런처그립", quantity: "1개", target: "TOOLS-3SEG-LAUNCHER-GRIP" }, { name: "베이포인트카드", quantity: "1개", target: "TOOLS-BEYPOINT-CARD" }, { name: "베이스타디움 어택타입", quantity: "1개", target: "TOOLS-ATTACK-BEYSTADIUM" }, { name: "오버펜스", quantity: "7장", target: "TOOLS-OVER-FENCE" }] }} },
   { id: "PRODUCT-BEYPOINT-LEVELS-2011", series: "metal fight", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "", name: "베이포인트 레벨1~10", sale: "한정 배포", kind: "", releaseDate: "2011-04-01", price: "", composition: [{ name: "레벨별 교환 상품", quantity: "1개", target: "PRODUCT-BEYPOINT-LEVEL-2011-1" }] }}, lineupTitle: "교환 상품", lineupPool: ["PRODUCT-BEYPOINT-LEVEL-2011-1", "PRODUCT-BEYPOINT-LEVEL-2011-2", "PRODUCT-BEYPOINT-LEVEL-2011-3", "PRODUCT-BEYPOINT-LEVEL-2011-4", "PRODUCT-BEYPOINT-LEVEL-2011-5", "PRODUCT-BEYPOINT-LEVEL-2011-6", "PRODUCT-BEYPOINT-LEVEL-2011-7", "PRODUCT-BEYPOINT-LEVEL-2011-8", "PRODUCT-BEYPOINT-LEVEL-2011-9", "PRODUCT-BEYPOINT-LEVEL-2011-10"] },
+    jp: { no: "", name: "베이포인트 레벨1~10", sale: "한정 배포", kind: "", releaseDate: "2011-04-01", price: "", composition: [{ name: "레벨별 교환 상품", quantity: "1개", target: "PRODUCT-BEYPOINT-LEVEL-2011-1" }] }}, lineupTitle: "교환 상품", lineupEntryMode: "lineup-first", lineupPool: ["PRODUCT-BEYPOINT-LEVEL-2011-1", "PRODUCT-BEYPOINT-LEVEL-2011-2", "PRODUCT-BEYPOINT-LEVEL-2011-3", "PRODUCT-BEYPOINT-LEVEL-2011-4", "PRODUCT-BEYPOINT-LEVEL-2011-5", "PRODUCT-BEYPOINT-LEVEL-2011-6", "PRODUCT-BEYPOINT-LEVEL-2011-7", "PRODUCT-BEYPOINT-LEVEL-2011-8", "PRODUCT-BEYPOINT-LEVEL-2011-9", "PRODUCT-BEYPOINT-LEVEL-2011-10"] },
   { id: "PRODUCT-BEYPOINT-LEVEL-2011-1", series: "metal fight", lineupOnly: true, releases: {
     kr: { status: "unreleased" },
     jp: { no: "", name: "베이포인트 레벨1", sale: "한정 배포", kind: "", releaseDate: "2011-04-01", price: "", composition: [{ name: "베이포인트 레벨 스티커", quantity: "1장", target: "TOOLS-BEYPOINT-LEVEL-STICKER" }] }} },
@@ -526,7 +525,7 @@ const productItems = [
     jp: { no: "", name: "엘드라고 디스트로이 LW105LRF", sale: "한정 배포", kind: "", releaseDate: "2011-06-15", price: "", composition: [{ name: "엘드라고 디스트로이 LW105LRF", quantity: "1개", target: "BEY-L-DRAGO-DESTROY-LW105LRF" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] }} },
   { id: "PRODUCT-BB-109", series: "metal fight", releases: {
     kr: { no: "BB-109", name: "비트 링크스 TH170WD", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-10-28", price: "12000", composition: [{ name: "비트 링크스 TH170WD", quantity: "1개", target: "BEY-BB-109-BEAT-LYNX-TH170WD" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }, { name: "라이트런처2", quantity: "1개", target: "TOOLS-LIGHT-LAUNCHER-2" }]},
-    jp: { no: "BB-109", name: "랜덤부스터 Vol.7 비트 링크스", sale: "일반 판매", kind: "부스터", releaseDate: "2011-04-23", price: "682", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BB-109-BEAT-LYNX-TH170WD" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] }}, beyPool: ["BEY-BB-109-BEAT-LYNX-TH170WD", "BEY-BB-109-GRAVITY-PERSEUS-BD145XF", "BEY-BB-109-HELL-HORUSEUS-85RS", "BEY-BB-109-VULCAN-HERCULEO-130DS", "BEY-BB-109-GRAVITY-PERSEUS-85DS", "BEY-BB-109-TORNADO-HORUSEUS-130RSF", "BEY-BB-109-HELL-HERCULEO-100XF", "BEY-BB-109-VULCAN-HOROGIUM-BD145RS"] },
+    jp: { no: "BB-109", name: "랜덤부스터 Vol.7 비트 링크스", sale: "일반 판매", kind: "부스터", releaseDate: "2011-04-23", price: "682", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BB-109-BEAT-LYNX-TH170WD" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] }}, lineupPool: ["BEY-BB-109-BEAT-LYNX-TH170WD", "BEY-BB-109-GRAVITY-PERSEUS-BD145XF", "BEY-BB-109-HELL-HORUSEUS-85RS", "BEY-BB-109-VULCAN-HERCULEO-130DS", "BEY-BB-109-GRAVITY-PERSEUS-85DS", "BEY-BB-109-TORNADO-HORUSEUS-130RSF", "BEY-BB-109-HELL-HERCULEO-100XF", "BEY-BB-109-VULCAN-HOROGIUM-BD145RS"] },
   { id: "PRODUCT-BB-110", series: "metal fight", releases: {
     kr: { status: "unreleased" },
     jp: { no: "BB-110", name: "베이런처(코스모블루)", sale: "일반 판매", releaseDate: "2011-04-23", price: "525", composition: [{ name: "베이런처", quantity: "1개", target: "TOOLS-POWER-LAUNCHER" }] }} },
@@ -547,7 +546,7 @@ const productItems = [
     jp: { no: "BB-115", name: "베이런처LR(마스레드)", sale: "일반 판매", releaseDate: "2011-07-16", price: "735", composition: [{ name: "베이런처LR", quantity: "1개", target: "TOOLS-POWER-LAUNCHER-LR" }] }} },
   { id: "PRODUCT-BB-116", series: "metal fight", releases: {
     kr: { no: "BB-116", name: "제이드 쥬피터 S130RB", sale: "일반 판매", kind: "스타터세트", releaseDate: "2011-10-28", price: "12000", composition: [{ name: "제이드 쥬피터 S130RB", quantity: "1개", target: "BEY-BB-116-JADE-JUPITER-S130RB" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }, { name: "라이트런처2", quantity: "1개", target: "TOOLS-LIGHT-LAUNCHER-2" }]},
-    jp: { no: "BB-116", name: "랜덤부스터 Vol.8 제이드 쥬피터", sale: "일반 판매", kind: "부스터", releaseDate: "2011-08-06", price: "682", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BB-116-JADE-JUPITER-S130RB" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] }}, beyPool: [ "BEY-BB-116-JADE-JUPITER-S130RB", "BEY-BB-116-FORBIDDEN-EONIS-ED145FB", "BEY-BB-116-DIVINE-FOX-90W2D", "BEY-BB-116-SCREW-LYRA-ED145MF", "BEY-BB-116-FORBIDDEN-EONIS-130D", "BEY-BB-116-DIVINE-CROWN-TR145D", "BEY-BB-116-SCREW-FOX-TR145W2D", "BEY-BB-116-HELL-CROWN-130FB"] },
+    jp: { no: "BB-116", name: "랜덤부스터 Vol.8 제이드 쥬피터", sale: "일반 판매", kind: "부스터", releaseDate: "2011-08-06", price: "682", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BB-116-JADE-JUPITER-S130RB" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] }}, lineupPool: [ "BEY-BB-116-JADE-JUPITER-S130RB", "BEY-BB-116-FORBIDDEN-EONIS-ED145FB", "BEY-BB-116-DIVINE-FOX-90W2D", "BEY-BB-116-SCREW-LYRA-ED145MF", "BEY-BB-116-FORBIDDEN-EONIS-130D", "BEY-BB-116-DIVINE-CROWN-TR145D", "BEY-BB-116-SCREW-FOX-TR145W2D", "BEY-BB-116-HELL-CROWN-130FB"] },
   { id: "PRODUCT-BB-117", series: "metal fight", releases: {
     kr: { no: "BB-117", name: "넘버원 블레이더 세트", sale: "일반 판매", kind: "세트", releaseDate: "2011-10-28", price: "29600", composition: [{ name: "브릿츠 유니콘 100RSF", quantity: "1개", target: "BEY-BB-117-BLITZ-UNICORNO-100RSF" }, { name: "나이트메어 렉스 UW145EWD", quantity: "1개", target: "BEY-BB-117-NIGHTMARE-REX-UW145EWD" }, { name: "바셀트 호로지움 130RS", quantity: "1개", target: "BEY-BB-117-BASALT-HOROGIUM-130RS" }, { name: "홀더툴", quantity: "1개", target: "TOOLS-HOLDER-TOOL" }, { name: "베이 덱 케이스", quantity: "1개", target: "TOOLS-BEY-DECK-CASE" }] },
     jp: { no: "BB-117", name: "최강 블레이더 세트", sale: "일반 판매", kind: "세트", releaseDate: "2011-08-06", price: "2625", composition: [{ name: "브릿츠 유니코르노 100RSF", quantity: "1개", target: "BEY-BB-117-BLITZ-UNICORNO-100RSF" }, { name: "나이트메어 렉스 UW145EWD", quantity: "1개", target: "BEY-BB-117-NIGHTMARE-REX-UW145EWD" }, { name: "바살트 호로기움 130RS", quantity: "1개", target: "BEY-BB-117-BASALT-HOROGIUM-130RS" }, { name: "홀더툴", quantity: "1개", target: "TOOLS-HOLDER-TOOL" }, { name: "베이 덱 케이스", quantity: "1개", target: "TOOLS-BEY-DECK-CASE" }] }} },
@@ -613,7 +612,7 @@ const productItems = [
     jp: { no: "BB-122", name: "디아블로 네메시스 X:D", sale: "일반 판매", kind: "스타터", releaseDate: "2011-12-18", price: "1470", composition: [{ name: "디아블로 네메시스 X:D", quantity: "1개", target: "BEY-BB-122-DIABLO-NEMESIS-XD" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }, { name: "라이트런처2", quantity: "1개", target: "TOOLS-LIGHT-LAUNCHER-2" }]}} },
   { id: "PRODUCT-BB-123", series: "metal fight", releases: {
     kr: { no: "BB-123", name: "퓨전 하데스 AD145SWD", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-02-01", price: "12000", composition: [{ name: "퓨전 하데스 AD145SWD", quantity: "1개", target: "BEY-BB-123-FUSION-HADES-AD145SWD" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }, { name: "라이트런처2", quantity: "1개", target: "TOOLS-LIGHT-LAUNCHER-2" }]},
-    jp: { no: "BB-123", name: "랜덤부스터 Vol.9 퓨전 하데스", sale: "일반 판매", kind: "부스터", releaseDate: "2011-12-18", price: "682", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BB-123-FUSION-HADES-AD145SWD" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] }}, beyPool: [ "BEY-BB-123-FUSION-HADES-AD145SWD", "BEY-BB-123-HELL-BEELZEB-125XF", "BEY-BB-123-CLOUD-LYRA-85SF", "BEY-BB-123-CLOUD-GEMIOS-T125SF", "BEY-BB-123-CRASH-ESCOLPIO-125JB", "BEY-BB-123-BAKUSHIN-BEELZEB-T125XF", "BEY-BB-123-METEO-L-DRAGO-85LF-RUSH", "BEY-BB-123-METEO-L-DRAGO-LW105JB-ASSAULT"] },
+    jp: { no: "BB-123", name: "랜덤부스터 Vol.9 퓨전 하데스", sale: "일반 판매", kind: "부스터", releaseDate: "2011-12-18", price: "682", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BB-123-FUSION-HADES-AD145SWD" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] }}, lineupPool: [ "BEY-BB-123-FUSION-HADES-AD145SWD", "BEY-BB-123-HELL-BEELZEB-125XF", "BEY-BB-123-CLOUD-LYRA-85SF", "BEY-BB-123-CLOUD-GEMIOS-T125SF", "BEY-BB-123-CRASH-ESCOLPIO-125JB", "BEY-BB-123-BAKUSHIN-BEELZEB-T125XF", "BEY-BB-123-METEO-L-DRAGO-85LF-RUSH", "BEY-BB-123-METEO-L-DRAGO-LW105JB-ASSAULT"] },
   { id: "PRODUCT-BB-124", series: "metal fight", releases: {
     kr: { no: "BB-124", name: "크라이스 시그너스 145WD", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-03-04", price: "12000", composition: [{ name: "크라이스 시그너스 145WD", quantity: "1개", target: "BEY-BB-124-KREIS-CYGNUS-145WD" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }, { name: "라이트런처2", quantity: "1개", target: "TOOLS-LIGHT-LAUNCHER-2" }]},
     jp: { no: "BB-124", name: "크라이스 시그너스 145WD", sale: "일반 판매", kind: "스타터", releaseDate: "2012-01-21", price: "997", composition: [{ name: "크라이스 시그너스 145WD", quantity: "1개", target: "BEY-BB-124-KREIS-CYGNUS-145WD" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }, { name: "라이트런처2", quantity: "1개", target: "TOOLS-LIGHT-LAUNCHER-2" }]}} },
@@ -655,7 +654,7 @@ const productItems = [
     jp: { status: "unreleased" }} },
   { id: "PRODUCT-BBG-09", series: "metal fight", releases: {
     kr: { no: "BBG-09", name: "시프 피닉 E230GCF", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-09-12", price: "10400", composition: [{ name: "시프 피닉 E230GCF", quantity: "1개", target: "BEY-BBG-09-THIEF-PHOENIC-E230GCF" }, { name: "컴팩트런처", quantity: "1개", target: "TOOLS-COMPACT-LAUNCHER" }]},
-    jp: { no: "BBG-09", name: "ZEROG 랜덤부스터 Vol.1 시프 피닉 E230GCF", sale: "일반 판매", kind: "부스터", releaseDate: "2012-04-21", price: "682", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BBG-09-THIEF-PHOENIC-E230GCF" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] }}, beyPool: [ "BEY-BBG-09-THIEF-PHOENIC-E230GCF", "BEY-BBG-09-THIEF-SARAMANDA-230WB", "BEY-BBG-09-WARRIORS-SARAMANDA-E230ES", "BEY-BBG-09-PIRATES-IFRAID-T125GCF", "BEY-BBG-09-SHINOBI-IFRAID-230WD", "BEY-BBG-09-PIRATES-SARAMANDA-T125WB", "BEY-BBG-09-SHINOBI-OROJYA-145ES", "BEY-BBG-09-WARRIORS-OROJYA-145WD"] },
+    jp: { no: "BBG-09", name: "ZEROG 랜덤부스터 Vol.1 시프 피닉 E230GCF", sale: "일반 판매", kind: "부스터", releaseDate: "2012-04-21", price: "682", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BBG-09-THIEF-PHOENIC-E230GCF" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] }}, lineupPool: [ "BEY-BBG-09-THIEF-PHOENIC-E230GCF", "BEY-BBG-09-THIEF-SARAMANDA-230WB", "BEY-BBG-09-WARRIORS-SARAMANDA-E230ES", "BEY-BBG-09-PIRATES-IFRAID-T125GCF", "BEY-BBG-09-SHINOBI-IFRAID-230WD", "BEY-BBG-09-PIRATES-SARAMANDA-T125WB", "BEY-BBG-09-SHINOBI-OROJYA-145ES", "BEY-BBG-09-WARRIORS-OROJYA-145WD"] },
   { id: "PRODUCT-BBG-10", series: "metal fight", releases: {
     kr: { no: "BBG-10", name: "가디언 리바이저 160SB", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-09-12", price: "12000", composition: [{ name: "가디언 리바이저 160SB", quantity: "1개", target: "BEY-BBG-10-GUARDIAN-REVIZER-160SB" }, { name: "컴팩트런처", quantity: "1개", target: "TOOLS-COMPACT-LAUNCHER" }]},
     jp: { no: "BBG-10", name: "가디언 리바이저 160SB", sale: "일반 판매", kind: "스타터", releaseDate: "2012-05-19", price: "997", composition: [{ name: "가디언 리바이저 160SB", quantity: "1개", target: "BEY-BBG-10-GUARDIAN-REVIZER-160SB" }, { name: "컴팩트런처", quantity: "1개", target: "TOOLS-COMPACT-LAUNCHER" }]}} },
@@ -691,7 +690,7 @@ const productItems = [
     jp: { no: "BBG-16", name: "다크나이트 드라군 LW160BSF", sale: "일반 판매", kind: "스타터", releaseDate: "2012-07-21", price: "997", composition: [{ name: "다크나이트 드라군 LW160BSF", quantity: "1개", target: "BEY-BBG-16-DARK-KNIGHT-DRAGOOON-LW160BSF" }, { name: "컴팩트런처L", quantity: "1개", target: "TOOLS-COMPACT-LAUNCHER-L" }]}} },
   { id: "PRODUCT-BBG-17", series: "metal fight", releases: {
     kr: { no: "BBG-17", name: "아처 가고일 SA165WSF", sale: "일반 판매", kind: "스타터세트", releaseDate: "2012-10-20", price: "10400", composition: [{ name: "아처 가고일 SA165WSF", quantity: "1개", target: "BEY-BBG-17-ARCHER-GARGOLE-SA165WSF" }, { name: "컴팩트런처", quantity: "1개", target: "TOOLS-COMPACT-LAUNCHER" }]},
-    jp: { no: "BBG-17", name: "ZEROG 랜덤부스터 Vol.2 아처 가골 SA165WSF", sale: "일반 판매", kind: "부스터", releaseDate: "2012-07-21", price: "682", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BBG-17-ARCHER-GARGOLE-SA165WSF" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] }}, beyPool: [
+    jp: { no: "BBG-17", name: "ZEROG 랜덤부스터 Vol.2 아처 가골 SA165WSF", sale: "일반 판매", kind: "부스터", releaseDate: "2012-07-21", price: "682", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BBG-17-ARCHER-GARGOLE-SA165WSF" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] }}, lineupPool: [
     "BEY-BBG-17-ARCHER-GARGOLE-SA165WSF",
     "BEY-BBG-17-GUARDIAN-GARGOLE-M145SB",
     "BEY-BBG-17-SHINOBI-OROJYA-160WSF",
@@ -721,7 +720,7 @@ const productItems = [
     jp: { no: "BBG-22", name: "버서커 베기라도스 SR200BWD", sale: "일반 판매", kind: "스타터", releaseDate: "2012-09-15", price: "997", composition: [{ name: "버서커 베기라도스 SR200BWD", quantity: "1개", target: "BEY-BBG-22-BERSERKER-BEGIRADOS-SR200BWD" }, { name: "컴팩트런처", quantity: "1개", target: "TOOLS-COMPACT-LAUNCHER" }]}} },
   { id: "PRODUCT-BBG-23", series: "metal fight", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "BBG-23", name: "ZEROG 랜덤부스터 Vol.3 반디드 겐블 F230TB", sale: "일반 판매", kind: "부스터", releaseDate: "2012-10-20", price: "682", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BBG-23-BANDID-GENBULL-F230TB" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] }}, beyPool: [ "BEY-BBG-23-BANDID-GENBULL-F230TB", "BEY-BBG-23-SHINOBI-GENBULL-130W2D", "BEY-BBG-23-THIEF-SARAMANDA-F230SF", "BEY-BBG-23-SHINOBI-GRYPH-WD145TB", "BEY-BBG-23-ARCHER-PHOENIC-125B", "BEY-BBG-23-PIRATES-PHOENIC-WD145SF", "BEY-BBG-23-ARCHER-KILLERKEN-130B", "BEY-BBG-23-BANDID-KILLERKEN-125W2D"] },
+    jp: { no: "BBG-23", name: "ZEROG 랜덤부스터 Vol.3 반디드 겐블 F230TB", sale: "일반 판매", kind: "부스터", releaseDate: "2012-10-20", price: "682", composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-BBG-23-BANDID-GENBULL-F230TB" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] }}, lineupPool: [ "BEY-BBG-23-BANDID-GENBULL-F230TB", "BEY-BBG-23-SHINOBI-GENBULL-130W2D", "BEY-BBG-23-THIEF-SARAMANDA-F230SF", "BEY-BBG-23-SHINOBI-GRYPH-WD145TB", "BEY-BBG-23-ARCHER-PHOENIC-125B", "BEY-BBG-23-PIRATES-PHOENIC-WD145SF", "BEY-BBG-23-ARCHER-KILLERKEN-130B", "BEY-BBG-23-BANDID-KILLERKEN-125W2D"] },
   { id: "PRODUCT-BBG-24", series: "metal fight", releases: {
     kr: { status: "unreleased" },
     jp: { no: "BBG-24", name: "베이블레이드 ZEROG 궁극 싱크롬 DX 세트 어택&밸런스타입", sale: "일반 판매", kind: "세트", releaseDate: "2012-11-17", price: "3300", composition: [{ name: "가골 이프레이드 SA165GCF", quantity: "1개", target: "BEY-BBG-24-GARGOLE-IFRAID-SA165GCF" }, { name: "사라만다 발로 DF145SWD", quantity: "1개", target: "BEY-BBG-24-SARAMANDA-BALRO-DF145SWD" }, { name: "그리프 지라고 WA130HF", quantity: "1개", target: "BEY-BBG-24-GRYPH-GIRAGO-WA130HF" }, { name: "230 트랙", quantity: "1개", target: "TRACK-230" }, { name: "T125 트랙", quantity: "1개", target: "TRACK-TORNADO-125" }, { name: "WSF 버텀", quantity: "1개", target: "BOTTOM-WIDE-SEMI-FLAT" }, { name: "FS 버텀", quantity: "1개", target: "BOTTOM-FLAT-SHARP" }, { name: "툴", quantity: "1개", target: "TOOLS-TOOL" }] }} },
@@ -6304,7 +6303,7 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2023-11-01",
         price: "19900",
-        composition: [{ name: "드랜소드 3-60F", quantity: "1개", target: "BEY-X-BX-01" }]
+        composition: [{ name: "드랜소드 3-60F", quantity: "1개", target: "BEY-X-BX-01" }, { name: "와인더런처", quantity: "1개", target: "TOOLS-X-WINDER-LAUNCHER" }]
       },
       jp: {
         no: "BX-01",
@@ -6327,7 +6326,7 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2023-11-01",
         price: "19900",
-        composition: [{ name: "헬즈사이드 4-60T", quantity: "1개", target: "BEY-X-BX-02" }]
+        composition: [{ name: "헬즈사이드 4-60T", quantity: "1개", target: "BEY-X-BX-02" }, { name: "와인더런처", quantity: "1개", target: "TOOLS-X-WINDER-LAUNCHER" }]
       },
       jp: {
         no: "BX-02",
@@ -6350,7 +6349,7 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2023-11-01",
         price: "19900",
-        composition: [{ name: "위저드애로우 4-80B", quantity: "1개", target: "BEY-X-BX-03" }]
+        composition: [{ name: "위저드애로우 4-80B", quantity: "1개", target: "BEY-X-BX-03" }, { name: "와인더런처", quantity: "1개", target: "TOOLS-X-WINDER-LAUNCHER" }]
       },
       jp: {
         no: "BX-03",
@@ -6373,7 +6372,7 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2023-11-01",
         price: "19900",
-        composition: [{ name: "나이트실드 3-80N", quantity: "1개", target: "BEY-X-BX-04" }]
+        composition: [{ name: "나이트실드 3-80N", quantity: "1개", target: "BEY-X-BX-04" }, { name: "와인더런처", quantity: "1개", target: "TOOLS-X-WINDER-LAUNCHER" }]
       },
       jp: {
         no: "BX-04",
@@ -6442,7 +6441,7 @@ const productItems = [
         kind: "세트",
         releaseDate: "2023-11-01",
         price: "69900",
-        composition: []
+        composition: [{ name: "드랜소드 3-60F", quantity: "1개", target: "BEY-X-BX-07-DRAN-SWORD-3-60F" }, { name: "스트링런처", quantity: "1개", target: "TOOLS-X-STRING-LAUNCHER" }, { name: "런처그립", quantity: "1개", target: "TOOLS-X-LAUNCHER-GRIP" }, { name: "익스트림스타디움", quantity: "1개", target: "TOOLS-X-EXTREME-STADIUM" }]
       },
       jp: {
         no: "BX-07",
@@ -6465,7 +6464,7 @@ const productItems = [
         kind: "세트",
         releaseDate: "2023-11-01",
         price: "37900",
-        composition: []
+        composition: [{ name: "헬즈사이드 3-80B", quantity: "1개", target: "BEY-X-BX-08-HELLS-SCYTHE-3-80B" }, { name: "위저드애로우 4-60N", quantity: "1개", target: "BEY-X-BX-08-WIZARD-ARROW-4-60N" }, { name: "나이트실드 4-80T", quantity: "1개", target: "BEY-X-BX-08-KNIGHT-SHIELD-4-80T" }]
       },
       jp: {
         no: "BX-08",
@@ -6662,7 +6661,7 @@ const productItems = [
         kind: "랜덤부스터",
         releaseDate: "2023-12-01",
         price: "15900",
-        composition: []
+        composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-X-BX-14-01" }]
       },
       jp: {
         no: "BX-14",
@@ -6670,9 +6669,10 @@ const productItems = [
         kind: "랜덤부스터",
         releaseDate: "2023-09-09",
         price: "1400",
-        composition: []
+        composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-X-BX-14-01" }]
       }
-    }
+    },
+    lineupPool: ["BEY-X-BX-14-01", "BEY-X-BX-14-02", "BEY-X-BX-14-03", "BEY-X-BX-14-04", "BEY-X-BX-14-05", "BEY-X-BX-14-06"]
   },
 {
     id: "PRODUCT-X-BX-00-JP-3",
@@ -6708,15 +6708,15 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2024-10-16",
         price: "19500",
-        composition: [{ name: "헬즈사이드 4-60T 골드 Ver.", quantity: "1개", target: "BEY-X-BX-00-JP-4" }]
+        composition: [{ name: "헬즈사이드 4-60T", quantity: "1개", target: "BEY-X-BX-00-JP-4" }]
       },
       jp: {
         no: "BX-00",
-        name: "헬즈사이즈 4-60T 메탈코트:골드",
+        name: "헬즈사이즈 4-60T 골드 Ver.",
         kind: "부스터",
         releaseDate: "2023-09-11",
         price: "1600",
-        composition: [{ name: "헬즈사이즈 4-60T 메탈코트:골드", quantity: "1개", target: "BEY-X-BX-00-JP-4" }]
+        composition: [{ name: "헬즈사이즈 4-60T", quantity: "1개", target: "BEY-X-BX-00-JP-4" }]
       }
     }
   },
@@ -6731,7 +6731,7 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2024-02-07",
         price: "19900",
-        composition: [{ name: "레온클로우 5-60P", quantity: "1개", target: "BEY-X-BX-15" }]
+        composition: [{ name: "레온클로우 5-60P", quantity: "1개", target: "BEY-X-BX-15" }, { name: "와인더런처", quantity: "1개", target: "TOOLS-X-WINDER-LAUNCHER" }]
       },
       jp: {
         no: "BX-15",
@@ -6754,7 +6754,7 @@ const productItems = [
         kind: "랜덤부스터",
         releaseDate: "2024-02-07",
         price: "15900",
-        composition: []
+        composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-X-BX-16-01" }]
       },
       jp: {
         no: "BX-16",
@@ -6762,9 +6762,10 @@ const productItems = [
         kind: "랜덤부스터",
         releaseDate: "2023-10-07",
         price: "1400",
-        composition: []
+        composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-X-BX-16-01" }]
       }
-    }
+    },
+    lineupPool: ["BEY-X-BX-16-01", "BEY-X-BX-16-02", "BEY-X-BX-16-03"]
   },
 {
     id: "PRODUCT-X-BX-17",
@@ -6777,7 +6778,7 @@ const productItems = [
         kind: "세트",
         releaseDate: "2024-02-07",
         price: "74900",
-        composition: []
+        composition: [{ name: "드랜소드 3-60F", quantity: "1개", target: "BEY-X-BX-17-DRAN-SWORD-3-60F" }, { name: "위저드애로우 4-80B", quantity: "1개", target: "BEY-X-BX-17-WIZARD-ARROW-4-80B" }, { name: "와인더런처", quantity: "2개", target: "TOOLS-X-WINDER-LAUNCHER" }, { name: "익스트림스타디움", quantity: "1개", target: "TOOLS-X-EXTREME-STADIUM" }]
       },
       jp: {
         no: "BX-17",
@@ -6846,7 +6847,7 @@ const productItems = [
         kind: "세트",
         releaseDate: "2024-03-01",
         price: "37900",
-        composition: []
+        composition: [{ name: "드랜대거 4-60R", quantity: "1개", target: "BEY-X-BX-20-DRAN-DAGGER-4-60R" }, { name: "나이트실드 5-80T", quantity: "1개", target: "BEY-X-BX-20-KNIGHT-SHIELD-5-80T" }, { name: "샤크엣지 3-80F", quantity: "1개", target: "BEY-X-BX-20-SHARK-EDGE-3-80F" }]
       },
       jp: {
         no: "BX-20",
@@ -6869,7 +6870,7 @@ const productItems = [
         kind: "세트",
         releaseDate: "2024-03-01",
         price: "37900",
-        composition: []
+        composition: [{ name: "헬즈체인 5-60HT", quantity: "1개", target: "BEY-X-BX-21-HELLS-CHAIN-5-60HT" }, { name: "위저드애로우 4-80N", quantity: "1개", target: "BEY-X-BX-21-WIZARD-ARROW-4-80N" }, { name: "나이트랜스 3-60LF", quantity: "1개", target: "BEY-X-BX-21-KNIGHT-LANCE-3-60LF" }]
       },
       jp: {
         no: "BX-21",
@@ -6892,7 +6893,7 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2024-03-14",
         price: "16600",
-        composition: [{ name: "드랜소드 3-60F 엔트리패키지", quantity: "1개", target: "BEY-X-BX-22" }]
+        composition: [{ name: "드랜소드 3-60F 엔트리패키지", quantity: "1개", target: "BEY-X-BX-22" }, { name: "엔트리런처", quantity: "1개", target: "TOOLS-X-ENTRY-LAUNCHER" }]
       },
       jp: {
         no: "BX-22",
@@ -6932,7 +6933,7 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2024-04-11",
         price: "25900",
-        composition: [{ name: "피닉스소어 9-60GF", quantity: "1개", target: "BEY-X-BX-23" }]
+        composition: [{ name: "피닉스소어 9-60GF", quantity: "1개", target: "BEY-X-BX-23" }, { name: "스트링런처", quantity: "1개", target: "TOOLS-X-STRING-LAUNCHER" }]
       },
       jp: {
         no: "BX-23",
@@ -6955,7 +6956,7 @@ const productItems = [
         kind: "랜덤부스터",
         releaseDate: "2024-04-11",
         price: "15900",
-        composition: []
+        composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-X-BX-24-01" }]
       },
       jp: {
         no: "BX-24",
@@ -6963,9 +6964,10 @@ const productItems = [
         kind: "랜덤부스터",
         releaseDate: "2023-12-27",
         price: "1400",
-        composition: []
+        composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-X-BX-24-01" }]
       }
-    }
+    },
+    lineupPool: ["BEY-X-BX-24-01", "BEY-X-BX-24-02", "BEY-X-BX-24-03", "BEY-X-BX-24-04", "BEY-X-BX-24-05", "BEY-X-BX-24-06"]
   },
 {
     id: "PRODUCT-X-BX-25",
@@ -7001,15 +7003,15 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2024-10-16",
         price: "19500",
-        composition: [{ name: "레온클로우 5-60P 골드 Ver.", quantity: "1개", target: "BEY-X-BX-00-JP-6" }]
+        composition: [{ name: "레온클로우 5-60P", quantity: "1개", target: "BEY-X-BX-00-JP-6" }]
       },
       jp: {
         no: "BX-00",
-        name: "레온클로 5-60P 메탈코트:골드",
+        name: "레온클로 5-60P 골드 Ver.",
         kind: "부스터",
         releaseDate: "2024-02-22",
         price: "1600",
-        composition: [{ name: "레온클로 5-60P 메탈코트:골드", quantity: "1개", target: "BEY-X-BX-00-JP-6" }]
+        composition: [{ name: "레온클로 5-60P", quantity: "1개", target: "BEY-X-BX-00-JP-6" }]
       }
     }
   },
@@ -7064,7 +7066,7 @@ const productItems = [
         kind: "랜덤부스터",
         releaseDate: "2024-07-15",
         price: "15900",
-        composition: []
+        composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-X-BX-27-01" }]
       },
       jp: {
         no: "BX-27",
@@ -7072,9 +7074,10 @@ const productItems = [
         kind: "랜덤부스터",
         releaseDate: "2024-02-22",
         price: "1400",
-        composition: []
+        composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-X-BX-27-01" }]
       }
-    }
+    },
+    lineupPool: ["BEY-X-BX-27-01", "BEY-X-BX-27-02", "BEY-X-BX-27-03"]
   },
 {
     id: "PRODUCT-X-BX-00-JP-8",
@@ -7089,7 +7092,7 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2024-03-23",
         price: "1600",
-        composition: [{ name: "샤크엣지 5-60GF 블루 Ver.", quantity: "1개", target: "BEY-X-BX-00-JP-8" }]
+        composition: [{ name: "샤크엣지 5-60GF", quantity: "1개", target: "BEY-X-BX-00-JP-8" }]
       }
     }
   },
@@ -7173,7 +7176,7 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2024-07-15",
         price: "19900",
-        composition: [{ name: "드랜버스터 1-60A", quantity: "1개", target: "BEY-X-UX-01" }]
+        composition: [{ name: "드랜버스터 1-60A", quantity: "1개", target: "BEY-X-UX-01" }, { name: "와인더런처", quantity: "1개", target: "TOOLS-X-WINDER-LAUNCHER" }]
       },
       jp: {
         no: "UX-01",
@@ -7196,7 +7199,7 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2024-07-15",
         price: "19900",
-        composition: [{ name: "헬즈해머 3-70H", quantity: "1개", target: "BEY-X-UX-02" }]
+        composition: [{ name: "헬즈해머 3-70H", quantity: "1개", target: "BEY-X-UX-02" }, { name: "와인더런처", quantity: "1개", target: "TOOLS-X-WINDER-LAUNCHER" }]
       },
       jp: {
         no: "UX-02",
@@ -7244,7 +7247,7 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2024-04-15",
         price: "",
-        composition: [{ name: "드란버스터 1-60A 레드 Ver.", quantity: "1개", target: "BEY-X-UX-00-JP-1" }]
+        composition: [{ name: "드란버스터 1-60A", quantity: "1개", target: "BEY-X-UX-00-JP-1" }]
       }
     }
   },
@@ -7259,7 +7262,7 @@ const productItems = [
         kind: "랜덤부스터",
         releaseDate: "2024-08-06",
         price: "15900",
-        composition: []
+        composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-X-BX-31-01" }]
       },
       jp: {
         no: "BX-31",
@@ -7267,9 +7270,10 @@ const productItems = [
         kind: "랜덤부스터",
         releaseDate: "2024-04-27",
         price: "1400",
-        composition: []
+        composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-X-BX-31-01" }]
       }
-    }
+    },
+    lineupPool: ["BEY-X-BX-31-01", "BEY-X-BX-31-02", "BEY-X-BX-31-03", "BEY-X-BX-31-04", "BEY-X-BX-31-05", "BEY-X-BX-31-06"]
   },
 {
     id: "PRODUCT-X-UX-04",
@@ -7282,7 +7286,7 @@ const productItems = [
         kind: "세트",
         releaseDate: "2024-07-15",
         price: "74900",
-        composition: []
+        composition: [{ name: "드랜버스터 1-60A", quantity: "1개", target: "BEY-X-UX-04-DRAN-BUSTER-1-60A" }, { name: "위저드로드 5-70DB", quantity: "1개", target: "BEY-X-UX-04-WIZARD-ROD-5-70DB" }, { name: "와인더런처", quantity: "2개", target: "TOOLS-X-WINDER-LAUNCHER" }, { name: "익스트림스타디움", quantity: "1개", target: "TOOLS-X-EXTREME-STADIUM" }]
       },
       jp: {
         no: "UX-04",
@@ -7322,7 +7326,7 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2025-07-25",
         price: "",
-        composition: [{ name: "헬즈체인 5-60HT 블랙 Ver.", quantity: "1개", target: "BEY-X-BX-00-JP-10" }]
+        composition: [{ name: "헬즈체인 5-60HT", quantity: "1개", target: "BEY-X-BX-00-JP-10" }]
       },
       jp: {
         no: "BX-00",
@@ -7330,7 +7334,7 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2024-05-16",
         price: "1600",
-        composition: [{ name: "헬즈체인 5-60HT 블랙 Ver.", quantity: "1개", target: "BEY-X-BX-00-JP-10" }]
+        composition: [{ name: "헬즈체인 5-60HT", quantity: "1개", target: "BEY-X-BX-00-JP-10" }]
       }
     }
   },
@@ -7345,7 +7349,7 @@ const productItems = [
         kind: "랜덤부스터",
         releaseDate: "2024-08-06",
         price: "15900",
-        composition: []
+        composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-X-UX-05-01" }]
       },
       jp: {
         no: "UX-05",
@@ -7353,9 +7357,10 @@ const productItems = [
         kind: "랜덤부스터",
         releaseDate: "2024-05-18",
         price: "1400",
-        composition: []
+        composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-X-UX-05-01" }]
       }
-    }
+    },
+    lineupPool: ["BEY-X-UX-05-01", "BEY-X-UX-05-02", "BEY-X-UX-05-03"]
   },
 {
     id: "PRODUCT-X-BX-00-JP-11",
@@ -7409,10 +7414,15 @@ const productItems = [
         kind: "세트",
         releaseDate: "2024-11-14",
         price: "43900",
-        composition: []
+        composition: [{ name: "드랜소드 4-80DB", quantity: "1개", target: "BEY-X-UX-00-ASIA-DRAN-SWORD-4-80DB" }, { name: "드랜대거 9-60LF", quantity: "1개", target: "BEY-X-UX-00-ASIA-DRAN-DAGGER-9-60LF" }, { name: "드랜버스터 3-70N", quantity: "1개", target: "BEY-X-UX-00-ASIA-DRAN-BUSTER-3-70N" }, { name: "스트링런처", quantity: "1개", target: "TOOLS-X-STRING-LAUNCHER" }]
       },
       jp: {
-        status: "unreleased"
+        no: "UX-00",
+        name: "드란 덱 스타터",
+        kind: "스타터",
+        releaseDate: "2024-11-16",
+        price: "4950",
+        composition: [{ name: "드란소드 4-80DB", quantity: "1개", target: "BEY-X-UX-00-ASIA-DRAN-SWORD-4-80DB" }, { name: "드란대거 9-60LF", quantity: "1개", target: "BEY-X-UX-00-ASIA-DRAN-DAGGER-9-60LF" }, { name: "드란버스터 3-70N", quantity: "1개", target: "BEY-X-UX-00-ASIA-DRAN-BUSTER-3-70N" }, { name: "스트링런처", quantity: "1개", target: "TOOLS-X-STRING-LAUNCHER" }]
       }
     }
   },
@@ -7450,7 +7460,7 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2024-10-26",
         price: "25900",
-        composition: [{ name: "코발트 드래군 2-60C 블랙 Ver.", quantity: "1개", target: "BEY-X-BX-00-JP-13" }]
+        composition: [{ name: "코발트 드래군 2-60C", quantity: "1개", target: "BEY-X-BX-00-JP-13" }]
       },
       jp: {
         no: "BX-00",
@@ -7458,7 +7468,7 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2024-08-31",
         price: "2420",
-        composition: [{ name: "코발트드라군 2-60C 블랙 Ver.", quantity: "1개", target: "BEY-X-BX-00-JP-13" }]
+        composition: [{ name: "코발트드라군 2-60C", quantity: "1개", target: "BEY-X-BX-00-JP-13" }]
       }
     }
   },
@@ -7496,7 +7506,7 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2024-09-25",
         price: "24900",
-        composition: [{ name: "코발트드래군 2-60C", quantity: "1개", target: "BEY-X-BX-34" }]
+        composition: [{ name: "코발트드래군 2-60C", quantity: "1개", target: "BEY-X-BX-34" }, { name: "스트링런처L", quantity: "1개", target: "TOOLS-X-STRING-LAUNCHER-L" }]
       },
       jp: {
         no: "BX-34",
@@ -7593,7 +7603,7 @@ const productItems = [
         kind: "랜덤부스터",
         releaseDate: "2024-08-19",
         price: "15900",
-        composition: []
+        composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-X-BX-35-01" }]
       },
       jp: {
         no: "BX-35",
@@ -7601,9 +7611,10 @@ const productItems = [
         kind: "랜덤부스터",
         releaseDate: "2024-07-13",
         price: "1400",
-        composition: []
+        composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-X-BX-35-01" }]
       }
-    }
+    },
+    lineupPool: ["BEY-X-BX-35-01", "BEY-X-BX-35-02", "BEY-X-BX-35-03", "BEY-X-BX-35-04", "BEY-X-BX-35-05", "BEY-X-BX-35-06"]
   },
 {
     id: "PRODUCT-X-UX-00-JP-2",
@@ -7641,7 +7652,7 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2024-08-03",
         price: "2400",
-        composition: [{ name: "드란대거 2-80GP 블랙자이언츠 Ver.", quantity: "1개", target: "BEY-X-BX-00-JP-14" }]
+        composition: [{ name: "드란대거 2-80GP", quantity: "1개", target: "BEY-X-BX-00-JP-14" }]
       }
     }
   },
@@ -7658,7 +7669,7 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2024-08-10",
         price: "1600",
-        composition: [{ name: "드랜져스파이럴 3-80T 블랙 Ver.", quantity: "1개", target: "BEY-X-BX-00-JP-15" }]
+        composition: [{ name: "드랜져스파이럴 3-80T", quantity: "1개", target: "BEY-X-BX-00-JP-15" }]
       }
     }
   },
@@ -7696,7 +7707,7 @@ const productItems = [
         kind: "세트",
         releaseDate: "2024-09-10",
         price: "37900",
-        composition: []
+        composition: [{ name: "피닉스러더 9-70G", quantity: "1개", target: "BEY-X-UX-07-PHOENIX-RUDDER-9-70G" }, { name: "스핑크스카울 1-80GF", quantity: "1개", target: "BEY-X-UX-07-SPHINX-COWL-1-80GF" }, { name: "와이번게일 2-60S", quantity: "1개", target: "BEY-X-UX-07-WYVERN-GALE-2-60S" }]
       },
       jp: {
         no: "UX-07",
@@ -7719,7 +7730,7 @@ const productItems = [
         kind: "랜덤부스터",
         releaseDate: "2024-10-11",
         price: "15900",
-        composition: []
+        composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-X-BX-36-01" }]
       },
       jp: {
         no: "BX-36",
@@ -7727,9 +7738,10 @@ const productItems = [
         kind: "랜덤부스터",
         releaseDate: "2024-09-14",
         price: "1400",
-        composition: []
+        composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-X-BX-36-01" }]
       }
-    }
+    },
+    lineupPool: ["BEY-X-BX-36-01", "BEY-X-BX-36-02", "BEY-X-BX-36-03"]
   },
 {
     id: "PRODUCT-X-BX-00-JP-16",
@@ -7761,7 +7773,7 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2024-09-15",
         price: "1950",
-        composition: [{ name: "피닉스윙 9-80DB 네이비 Ver.", quantity: "1개", target: "BEY-X-BX-00-JP-17" }]
+        composition: [{ name: "피닉스윙 9-80DB", quantity: "1개", target: "BEY-X-BX-00-JP-17" }]
       }
     }
   },
@@ -7776,7 +7788,7 @@ const productItems = [
         kind: "세트",
         releaseDate: "2024-11-27",
         price: "92900",
-        composition: []
+        composition: [{ name: "베어스크래치 5-60F", quantity: "1개", target: "BEY-X-BX-37-BEAR-SCRATCH-5-60F" }, { name: "와인더런처", quantity: "1개", target: "TOOLS-X-WINDER-LAUNCHER" }, { name: "더블익스트림스타디움", quantity: "1개", target: "TOOLS-X-DOUBLE-EXTREME-STADIUM" }]
       },
       jp: {
         no: "BX-37",
@@ -7799,7 +7811,7 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2024-11-18",
         price: "22900",
-        composition: [{ name: "실버울프 3-80FB", quantity: "1개", target: "BEY-X-UX-08" }]
+        composition: [{ name: "실버울프 3-80FB", quantity: "1개", target: "BEY-X-UX-08" }, { name: "스트링런처", quantity: "1개", target: "TOOLS-X-STRING-LAUNCHER" }]
       },
       jp: {
         no: "UX-08",
@@ -7845,7 +7857,7 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2024-12-09",
         price: "32900",
-        composition: [{ name: "워리어세이버 2-70L", quantity: "1개", target: "BEY-X-UX-09" }]
+        composition: [{ name: "워리어세이버 2-70L", quantity: "1개", target: "BEY-X-UX-09" }, { name: "와인더런처", quantity: "1개", target: "TOOLS-X-WINDER-LAUNCHER" }]
       },
       jp: {
         no: "UX-09",
@@ -7868,7 +7880,7 @@ const productItems = [
         kind: "세트",
         releaseDate: "2025-01-10",
         price: "49900",
-        composition: []
+        composition: [{ name: "나이트메일", quantity: "1개", target: "X-BLADE-KNIGHT-MAIL" }, { name: "프테라스윙", quantity: "1개", target: "X-BLADE-PTERA-SWING" }, { name: "헬즈해머", quantity: "1개", target: "X-BLADE-HELLS-HAMMER" }, { name: "티라노비트", quantity: "1개", target: "X-BLADE-TYRANNO-BEAT" }, { name: "3-85", quantity: "1개", target: "X-RATCHET-3-85" }, { name: "7-70", quantity: "1개", target: "X-RATCHET-7-70" }, { name: "1-60", quantity: "1개", target: "X-RATCHET-1-60" }, { name: "바운드 스파이크", quantity: "1개", target: "X-BIT-BS" }, { name: "러버 엑셀", quantity: "1개", target: "X-BIT-RA" }, { name: "볼", quantity: "1개", target: "X-BIT-B" }, { name: "포인트", quantity: "1개", target: "X-BIT-P" }, { name: "러시", quantity: "1개", target: "X-BIT-R" }, { name: "메탈 니들", quantity: "1개", target: "X-BIT-MN" }]
       },
       jp: {
         no: "UX-10",
@@ -7893,24 +7905,7 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2024-11-14",
         price: "8228",
-        composition: [{ name: "시노비나이프 4-60LF 블루 Ver.", quantity: "1개", target: "BEY-X-BX-00-JP-18" }]
-      }
-    }
-  },
-{
-    id: "PRODUCT-X-UX-00-JP-3",
-    series: "x",
-    releases: {
-      kr: {
-        status: "unreleased"
-      },
-      jp: {
-        no: "UX-00",
-        name: "드란 덱 스타터",
-        kind: "스타터",
-        releaseDate: "2024-11-16",
-        price: "4950",
-        composition: [{ name: "드란 덱 스타터", quantity: "1개", target: "BEY-X-UX-00-JP-3" }]
+        composition: [{ name: "시노비나이프 4-60LF", quantity: "1개", target: "BEY-X-BX-00-JP-18" }]
       }
     }
   },
@@ -7927,7 +7922,7 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2024-11-28",
         price: "1600",
-        composition: [{ name: "코발트드레이크 4-60F 클리어 Ver.", quantity: "1개", target: "BEY-X-BX-00-JP-19" }]
+        composition: [{ name: "코발트드레이크 4-60F", quantity: "1개", target: "BEY-X-BX-00-JP-19" }]
       }
     }
   },
@@ -7942,7 +7937,7 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2025-08-10",
         price: "16900",
-        composition: [{ name: "매머드터스크 2-80E 블랙 Ver.", quantity: "1개", target: "BEY-X-BX-00-JP-20" }]
+        composition: [{ name: "매머드터스크 2-80E", quantity: "1개", target: "BEY-X-BX-00-JP-20" }]
       },
       jp: {
         no: "BX-00",
@@ -7950,7 +7945,7 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2024-12-27",
         price: "1600",
-        composition: [{ name: "맘모스터스크 2-80E 블랙 Ver.", quantity: "1개", target: "BEY-X-BX-00-JP-20" }]
+        composition: [{ name: "맘모스터스크 2-80E", quantity: "1개", target: "BEY-X-BX-00-JP-20" }]
       }
     }
   },
@@ -7982,7 +7977,7 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2025-02-14",
         price: "25900",
-        composition: [{ name: "임팩트드레이크 9-60LR", quantity: "1개", target: "BEY-X-UX-11" }]
+        composition: [{ name: "임팩트드레이크 9-60LR", quantity: "1개", target: "BEY-X-UX-11" }, { name: "와인더런처", quantity: "1개", target: "TOOLS-X-WINDER-LAUNCHER" }]
       },
       jp: {
         no: "UX-11",
@@ -8007,9 +8002,10 @@ const productItems = [
         kind: "랜덤부스터",
         releaseDate: "2024-12-28",
         price: "1400",
-        composition: []
+        composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-X-UX-12-01" }]
       }
-    }
+    },
+    lineupPool: ["BEY-X-UX-12-01", "BEY-X-UX-12-02", "BEY-X-UX-12-03", "BEY-X-UX-12-04", "BEY-X-UX-12-05", "BEY-X-UX-12-06"]
   },
 {
     id: "PRODUCT-X-BX-00-JP-21",
@@ -8056,7 +8052,7 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2025-02-14",
         price: "23900",
-        composition: [{ name: "드랜버스터 1-60A FC 바르셀로나 Ver.", quantity: "1개", target: "BEY-X-UX-00-JP-5" }]
+        composition: [{ name: "드랜버스터 1-60A", quantity: "1개", target: "BEY-X-UX-00-JP-5" }, { name: "런처", quantity: "1개", target: "TOOLS-X-LAUNCHER" }]
       },
       jp: {
         no: "UX-00",
@@ -8064,7 +8060,7 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2025-01-25",
         price: "2500",
-        composition: [{ name: "드란버스터 1-60A FC 바르셀로나 Ver.", quantity: "1개", target: "BEY-X-UX-00-JP-5" }]
+        composition: [{ name: "드란버스터 1-60A", quantity: "1개", target: "BEY-X-UX-00-JP-5" }]
       }
     }
   },
@@ -8079,7 +8075,7 @@ const productItems = [
         kind: "세트",
         releaseDate: "2025-02-14",
         price: "72900",
-        composition: []
+        composition: [{ name: "헬즈해머 3-70H", quantity: "1개", target: "BEY-X-UX-00-JP-6-HELLS-HAMMER-3-70H" }, { name: "와인더런처", quantity: "1개", target: "TOOLS-X-WINDER-LAUNCHER" }, { name: "익스트림스타디움", quantity: "1개", target: "TOOLS-X-EXTREME-STADIUM" }]
       },
       jp: {
         no: "UX-00",
@@ -8127,9 +8123,10 @@ const productItems = [
         kind: "랜덤부스터",
         releaseDate: "2025-02-15",
         price: "1400",
-        composition: []
+        composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-X-BX-39-01" }]
       }
-    }
+    },
+    lineupPool: ["BEY-X-BX-39-01", "BEY-X-BX-39-02", "BEY-X-BX-39-03"]
   },
 {
     id: "PRODUCT-X-UX-00-JP-7",
@@ -8144,7 +8141,7 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2025-02-15",
         price: "",
-        composition: [{ name: "사무라이세이버 2-70L 오렌지 Ver.", quantity: "1개", target: "BEY-X-UX-00-JP-7" }]
+        composition: [{ name: "사무라이세이버 2-70L", quantity: "1개", target: "BEY-X-UX-00-JP-7" }]
       }
     }
   },
@@ -8178,7 +8175,7 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2025-03-15",
         price: "2400",
-        composition: [{ name: "피닉스윙 9-60GF 키타니타츠야 Ver.", quantity: "1개", target: "BEY-X-BX-00-JP-24" }]
+        composition: [{ name: "피닉스윙 9-60GF", quantity: "1개", target: "BEY-X-BX-00-JP-24" }]
       }
     }
   },
@@ -8278,7 +8275,7 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2025-04-10",
         price: "25900",
-        composition: [{ name: "드랜 브레이브S 6-60V", quantity: "1개", target: "BEY-X-CX-01" }]
+        composition: [{ name: "드랜 브레이브S 6-60V", quantity: "1개", target: "BEY-X-CX-01" }, { name: "와인더런처", quantity: "1개", target: "TOOLS-X-WINDER-LAUNCHER" }]
       },
       jp: {
         no: "CX-01",
@@ -8301,7 +8298,7 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2025-04-10",
         price: "25900",
-        composition: [{ name: "위저드 아크R 4-55LO", quantity: "1개", target: "BEY-X-CX-02" }]
+        composition: [{ name: "위저드 아크R 4-55LO", quantity: "1개", target: "BEY-X-CX-02" }, { name: "와인더런처", quantity: "1개", target: "TOOLS-X-WINDER-LAUNCHER" }]
       },
       jp: {
         no: "CX-02",
@@ -8347,7 +8344,7 @@ const productItems = [
         kind: "세트",
         releaseDate: "2025-04-10",
         price: "75900",
-        composition: []
+        composition: [{ name: "드랜 브레이브S 6-60V", quantity: "1개", target: "BEY-X-CX-04-DRAN-BRAVE-S-6-60V" }, { name: "페르세우스 다크B 6-80W", quantity: "1개", target: "BEY-X-CX-04-PERSEUS-DARK-B-6-80W" }, { name: "와인더런처", quantity: "2개", target: "TOOLS-X-WINDER-LAUNCHER" }, { name: "익스트림스타디움", quantity: "1개", target: "TOOLS-X-EXTREME-STADIUM" }]
       },
       jp: {
         no: "CX-04",
@@ -8370,7 +8367,7 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2025-04-10",
         price: "32900",
-        composition: [{ name: "제노엑스칼리버 3-60GF", quantity: "1개", target: "BEY-X-BX-00-JP-26" }]
+        composition: [{ name: "제노엑스칼리버 3-60GF", quantity: "1개", target: "BEY-X-BX-00-JP-26" }, { name: "홀드런처", quantity: "1개", target: "TOOLS-X-HOLD-LAUNCHER" }]
       },
       jp: {
         no: "BX-00",
@@ -8395,9 +8392,10 @@ const productItems = [
         kind: "랜덤부스터",
         releaseDate: "2025-04-26",
         price: "1600",
-        composition: []
+        composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-X-CX-05-01" }]
       }
-    }
+    },
+    lineupPool: ["BEY-X-CX-05-01", "BEY-X-CX-05-02", "BEY-X-CX-05-03", "BEY-X-CX-05-04", "BEY-X-CX-05-05", "BEY-X-CX-05-06"]
   },
 {
     id: "PRODUCT-X-BX-00-JP-27",
@@ -8478,7 +8476,7 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2025-05-30",
         price: "25900",
-        composition: [{ name: "스콜피온스피어 0-70Z", quantity: "1개", target: "BEY-X-UX-14" }]
+        composition: [{ name: "스콜피온스피어 0-70Z", quantity: "1개", target: "BEY-X-UX-14" }, { name: "와인더런처", quantity: "1개", target: "TOOLS-X-WINDER-LAUNCHER" }]
       },
       jp: {
         no: "UX-14",
@@ -8535,7 +8533,7 @@ const productItems = [
         kind: "랜덤부스터",
         releaseDate: "2025-05-30",
         price: "17900",
-        composition: []
+        composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-X-CX-06-01" }]
       },
       jp: {
         no: "CX-06",
@@ -8543,9 +8541,10 @@ const productItems = [
         kind: "랜덤부스터",
         releaseDate: "2025-05-17",
         price: "1600",
-        composition: []
+        composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-X-CX-06-01" }]
       }
-    }
+    },
+    lineupPool: ["BEY-X-CX-06-01", "BEY-X-CX-06-02", "BEY-X-CX-06-03"]
   },
 {
     id: "PRODUCT-X-BX-44",
@@ -8600,7 +8599,7 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2025-07-17",
         price: "1800",
-        composition: [{ name: "나이트메일 3-85BS 네이비 Ver.", quantity: "1개", target: "BEY-X-UX-00-JP-8" }]
+        composition: [{ name: "나이트메일 3-85BS", quantity: "1개", target: "BEY-X-UX-00-JP-8" }]
       }
     }
   },
@@ -8615,7 +8614,7 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2025-08-11",
         price: "25900",
-        composition: [{ name: "페가시우스 블라스트A Tr", quantity: "1개", target: "BEY-X-CX-07" }]
+        composition: [{ name: "페가시우스 블라스트A Tr", quantity: "1개", target: "BEY-X-CX-07" }, { name: "와인더런처", quantity: "1개", target: "TOOLS-X-WINDER-LAUNCHER" }]
       },
       jp: {
         no: "CX-07",
@@ -8638,7 +8637,7 @@ const productItems = [
         kind: "랜덤부스터",
         releaseDate: "2025-08-11",
         price: "17900",
-        composition: []
+        composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-X-CX-08-01" }]
       },
       jp: {
         no: "CX-08",
@@ -8646,9 +8645,10 @@ const productItems = [
         kind: "랜덤부스터",
         releaseDate: "2025-07-19",
         price: "1600",
-        composition: []
+        composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-X-CX-08-01" }]
       }
-    }
+    },
+    lineupPool: ["BEY-X-CX-08-01", "BEY-X-CX-08-02", "BEY-X-CX-08-03", "BEY-X-CX-08-04", "BEY-X-CX-08-05", "BEY-X-CX-08-06"]
   },
 {
     id: "PRODUCT-X-BX-00-JP-33",
@@ -8724,7 +8724,7 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2025-08-10",
         price: "25900",
-        composition: [{ name: "페가시우스 블라스트A Tr 레드 Ver.", quantity: "1개", target: "BEY-X-CX-00-JP-2" }]
+        composition: [{ name: "페가시우스 블라스트A Tr", quantity: "1개", target: "BEY-X-CX-00-JP-2" }]
       },
       jp: {
         no: "CX-00",
@@ -8732,7 +8732,7 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2025-08-03",
         price: "2700",
-        composition: [{ name: "페가서스 블래스트A Tr 레드 Ver.", quantity: "1개", target: "BEY-X-CX-00-JP-2" }]
+        composition: [{ name: "페가서스 블래스트A Tr", quantity: "1개", target: "BEY-X-CX-00-JP-2" }]
       }
     }
   },
@@ -8749,7 +8749,7 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2025-08-09",
         price: "1800",
-        composition: [{ name: "위저드 아크R 4-55LO 블랙 Ver.", quantity: "1개", target: "BEY-X-CX-00-JP-3" }]
+        composition: [{ name: "위저드 아크R 4-55LO", quantity: "1개", target: "BEY-X-CX-00-JP-3" }]
       }
     }
   },
@@ -8787,7 +8787,7 @@ const productItems = [
         kind: "세트",
         releaseDate: "2025-09-17",
         price: "37900",
-        composition: []
+        composition: [{ name: "샤크스케일 4-50UF", quantity: "1개", target: "BEY-X-UX-15-SHARK-SCALE-4-50UF" }, { name: "티라노로어 1-70L", quantity: "1개", target: "BEY-X-UX-15-TYRANNO-ROAR-1-70L" }, { name: "헬즈 브레이브J 3-60GF", quantity: "1개", target: "BEY-X-UX-15-HELLS-BRAVE-J-3-60GF" }]
       },
       jp: {
         no: "UX-15",
@@ -8810,7 +8810,7 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2025-09-27",
         price: "25900",
-        composition: [{ name: "솔 이클립스 D5-70TK", quantity: "1개", target: "BEY-X-CX-09" }]
+        composition: [{ name: "솔 이클립스D 5-70TK", quantity: "1개", target: "BEY-X-CX-09" }]
       },
       jp: {
         no: "CX-09",
@@ -8818,7 +8818,7 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2025-09-27",
         price: "2500",
-        composition: [{ name: "솔이클립스D 5-70TK", quantity: "1개", target: "BEY-X-CX-09" }]
+        composition: [{ name: "솔 이클립스D 5-70TK", quantity: "1개", target: "BEY-X-CX-09" }]
       }
     }
   },
@@ -8835,7 +8835,7 @@ const productItems = [
         kind: "세트",
         releaseDate: "2025-10-11",
         price: "7500",
-        composition: []
+        composition: [{ name: "고어태클 7-70T", quantity: "1개", target: "BEY-X-BX-46-GORE-TACKLE-7-70T" }, { name: "코발트드레이크 9-60R", quantity: "1개", target: "BEY-X-BX-46-COBALT-DRAKE-9-60R" }, { name: "와인더런처", quantity: "2개", target: "TOOLS-X-WINDER-LAUNCHER" }, { name: "인피니티스타디움", quantity: "1개", target: "TOOLS-X-INFINITY-STADIUM" }]
       }
     }
   },
@@ -8869,9 +8869,10 @@ const productItems = [
         kind: "랜덤부스터",
         releaseDate: "2025-10-11",
         price: "1400",
-        composition: []
+        composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-X-UX-16-01" }]
       }
-    }
+    },
+    lineupPool: ["BEY-X-UX-16-01", "BEY-X-UX-16-02", "BEY-X-UX-16-03"]
   },
 {
     id: "PRODUCT-X-CX-10",
@@ -8886,7 +8887,7 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2025-11-01",
         price: "1700",
-        composition: [{ name: "울프헌트F 0-60DB", quantity: "1개", target: "BEY-X-CX-10" }]
+        composition: [{ name: "울프 헌트F 0-60DB", quantity: "1개", target: "BEY-X-CX-10" }]
       }
     }
   },
@@ -8903,7 +8904,7 @@ const productItems = [
         kind: "세트",
         releaseDate: "2025-11-01",
         price: "5000",
-        composition: []
+        composition: [{ name: "엠퍼러 마이트H Op", quantity: "1개", target: "BEY-X-CX-11-EMPEROR-MIGHT-H-OP" }, { name: "샤크길 5-60FB", quantity: "1개", target: "BEY-X-CX-11-SHARK-GILL-5-60FB" }, { name: "골렘락 M-85HN", quantity: "1개", target: "BEY-X-CX-11-GOLEM-ROCK-M-85HN" }]
       }
     }
   },
@@ -8971,9 +8972,10 @@ const productItems = [
         kind: "랜덤부스터",
         releaseDate: "2025-12-27",
         price: "1600",
-        composition: []
+        composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-X-UX-18-01" }]
       }
-    }
+    },
+    lineupPool: ["BEY-X-UX-18-01", "BEY-X-UX-18-02", "BEY-X-UX-18-03", "BEY-X-UX-18-04", "BEY-X-UX-18-05", "BEY-X-UX-18-06"]
   },
 {
     id: "PRODUCT-X-BX-00-JP-38",
@@ -9005,7 +9007,7 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2026-01-24",
         price: "1700",
-        composition: [{ name: "피닉스플레어Z 9-80WW", quantity: "1개", target: "BEY-X-CX-12" }]
+        composition: [{ name: "피닉스 플레어Z 9-80WW", quantity: "1개", target: "BEY-X-CX-12" }]
       }
     }
   },
@@ -9039,7 +9041,7 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2026-02-21",
         price: "1600",
-        composition: [{ name: "에어로페가서스 3-70A 레드 Ver.", quantity: "1개", target: "BEY-X-UX-00-JP-9" }]
+        composition: [{ name: "에어로페가서스 3-70A", quantity: "1개", target: "BEY-X-UX-00-JP-9" }]
       }
     }
   },
@@ -9052,11 +9054,11 @@ const productItems = [
       },
       jp: {
         no: "BX-00",
-        name: "드란소드 1-60V 메탈코트:블랙 J리그 Ver.",
+        name: "드란소드 1-60V J리그 Ver.",
         kind: "스타터",
         releaseDate: "2026-03-14",
         price: "2500",
-        composition: [{ name: "드란소드 1-60V 메탈코트:블랙 J리그 Ver.", quantity: "1개", target: "BEY-X-BX-00-JP-39" }]
+        composition: [{ name: "드란소드 1-60V", quantity: "1개", target: "BEY-X-BX-00-JP-39" }]
       }
     }
   },
@@ -9069,11 +9071,11 @@ const productItems = [
       },
       jp: {
         no: "BX-00",
-        name: "코발트드라군 9-60F 메탈코트:화이트 J리그 Ver.",
+        name: "코발트드라군 9-60F J리그 Ver.",
         kind: "스타터",
         releaseDate: "2026-03-14",
         price: "2500",
-        composition: [{ name: "코발트드라군 9-60F 메탈코트:화이트 J리그 Ver.", quantity: "1개", target: "BEY-X-BX-00-JP-40" }]
+        composition: [{ name: "코발트드라군 9-60F", quantity: "1개", target: "BEY-X-BX-00-JP-40" }]
       }
     }
   },
@@ -9090,7 +9092,7 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2026-03-28",
         price: "2200",
-        composition: [{ name: "바하무트블리츠BK 1-50I", quantity: "1개", target: "BEY-X-CX-13" }]
+        composition: [{ name: "바하무트 블리츠BK 1-50I", quantity: "1개", target: "BEY-X-CX-13" }]
       }
     }
   },
@@ -9107,7 +9109,7 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2026-03-28",
         price: "2200",
-        composition: [{ name: "나이트포트리스GV 8-70UN", quantity: "1개", target: "BEY-X-CX-14" }]
+        composition: [{ name: "나이트 포트리스GV 8-70UN", quantity: "1개", target: "BEY-X-CX-14" }]
       }
     }
   },
@@ -9124,7 +9126,7 @@ const productItems = [
         kind: "부스터",
         releaseDate: "2026-03-28",
         price: "1600",
-        composition: [{ name: "라그나레이지FE 4-55Y", quantity: "1개", target: "BEY-X-CX-15" }]
+        composition: [{ name: "라그나 레이지FE 4-55Y", quantity: "1개", target: "BEY-X-CX-15" }]
       }
     }
   },
@@ -9205,11 +9207,11 @@ const productItems = [
       },
       jp: {
         no: "UX-00",
-        name: "스코피오스피어 0-70Z 메탈코트:마젠타",
+        name: "스코피오스피어 0-70Z 마젠타 Ver.",
         kind: "부스터",
         releaseDate: "2026-04-25",
         price: "1800",
-        composition: [{ name: "스코피오스피어 0-70Z 메탈코트:마젠타", quantity: "1개", target: "BEY-X-UX-00-JP-10" }]
+        composition: [{ name: "스코피오스피어 0-70Z", quantity: "1개", target: "BEY-X-UX-00-JP-10" }]
       }
     }
   },
@@ -9256,11 +9258,11 @@ const productItems = [
       },
       jp: {
         no: "CX-00",
-        name: "드란브레이브S 6-60V 메탈코트:블랙",
+        name: "드란 브레이브S 6-60V 블랙 Ver.",
         kind: "부스터",
         releaseDate: "2026-05-30",
         price: "1800",
-        composition: [{ name: "드란브레이브S 6-60V 메탈코트:블랙", quantity: "1개", target: "BEY-X-CX-00-JP-4" }]
+        composition: [{ name: "드란 브레이브S 6-60V", quantity: "1개", target: "BEY-X-CX-00-JP-4" }]
       }
     }
   },
@@ -9273,11 +9275,11 @@ const productItems = [
       },
       jp: {
         no: "UX-00",
-        name: "사무라이세이버 5-60K 메탈코트:사무라이블루 축구 일본 대표 Ver.",
+        name: "사무라이세이버 5-60K 축구 일본 대표 Ver.",
         kind: "스타터",
         releaseDate: "2026-06-13",
         price: "2500",
-        composition: [{ name: "사무라이세이버 5-60K 메탈코트:사무라이블루 축구 일본 대표 Ver.", quantity: "1개", target: "BEY-X-UX-00-JP-11" }]
+        composition: [{ name: "사무라이세이버 5-60K", quantity: "1개", target: "BEY-X-UX-00-JP-11" }]
       }
     }
   },
@@ -9324,11 +9326,11 @@ const productItems = [
       },
       jp: {
         no: "CX-00",
-        name: "벅스앤틀러스B 2-60D 메탈코트:오렌지",
+        name: "벅스앤틀러스B 2-60D 오렌지 Ver.",
         kind: "부스터",
         releaseDate: "2026-07-09",
         price: "1800",
-        composition: [{ name: "벅스앤틀러스B 2-60D 메탈코트:오렌지", quantity: "1개", target: "BEY-X-CX-00-JP-5" }]
+        composition: [{ name: "벅스 앤틀러스B 2-60D", quantity: "1개", target: "BEY-X-CX-00-JP-5" }]
       }
     }
   },
@@ -9341,11 +9343,11 @@ const productItems = [
       },
       jp: {
         no: "CX-00",
-        name: "크라켄리글S 3-70O 메탈코트:블루",
+        name: "크라켄리글S 3-70O 블루 Ver.",
         kind: "부스터",
         releaseDate: "2026-07-09",
         price: "1800",
-        composition: [{ name: "크라켄리글S 3-70O 메탈코트:블루", quantity: "1개", target: "BEY-X-CX-00-JP-6" }]
+        composition: [{ name: "크라켄 리글S 3-70O", quantity: "1개", target: "BEY-X-CX-00-JP-6" }]
       }
     }
   },
@@ -9358,11 +9360,11 @@ const productItems = [
       },
       jp: {
         no: "CX-00",
-        name: "호넷포트R 7-60T 메탈코트:옐로",
+        name: "호넷포트R 7-60T 옐로 Ver.",
         kind: "부스터",
         releaseDate: "2026-07-09",
         price: "1800",
-        composition: [{ name: "호넷포트R 7-60T 메탈코트:옐로", quantity: "1개", target: "BEY-X-CX-00-JP-7" }]
+        composition: [{ name: "호넷 포트R 7-60T", quantity: "1개", target: "BEY-X-CX-00-JP-7" }]
       }
     }
   },
@@ -9375,11 +9377,11 @@ const productItems = [
       },
       jp: {
         no: "CX-00",
-        name: "드레이크브레이브G 4-70I 메탈코트:블루",
+        name: "드레이크브레이브G 4-70I 블루 Ver.",
         kind: "부스터",
         releaseDate: "2026-07-09",
         price: "1900",
-        composition: [{ name: "드레이크브레이브G 4-70I 메탈코트:블루", quantity: "1개", target: "BEY-X-CX-00-JP-8" }]
+        composition: [{ name: "드레이크 브레이브G 4-70I", quantity: "1개", target: "BEY-X-CX-00-JP-8" }]
       }
     }
   },
@@ -9464,9 +9466,8 @@ const productItems = [
         kind: "스타터",
         releaseDate: "2026-09-12",
         price: "2750",
-        composition: [{ name: "티가레이지FT 3-60T", quantity: "1개", target: "BEY-X-CX-00-JP-10" }]
+        composition: [{ name: "티가 레이지FT 3-60T", quantity: "1개", target: "BEY-X-CX-00-JP-10" }]
       }
     }
   }
 ];
-window.BeystadiumData.products = { productItems };

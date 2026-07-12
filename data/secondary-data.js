@@ -1,4 +1,3 @@
-window.BeystadiumData = window.BeystadiumData || {};
 const toolsItems = [
   { id: "TOOLS-TOOL", series: "metal fight", name: "툴", en: "Tool", category: "기타", desc: "" },
   { id: "TOOLS-BEYPOINT-CARD", series: "metal fight", name: "포인트카드", jpName: "베이포인트카드", en: "BeyPoint Card", category: "기타", desc: "" },
@@ -116,7 +115,17 @@ const toolsItems = [
   { id: "TOOLS-BURST-CUSTOM-BEYLAUNCHER-LR", series: "burst", name: "커스텀베이런처LR", en: "Custom BeyLauncher LR", category: "런처", desc: "" },
   { id: "TOOLS-BURST-POWER-CUSTOM-BEYLAUNCHER-LR", series: "burst", name: "파워커스텀베이런처LR", en: "Power Custom BeyLauncher LR", category: "런처", desc: "" },
   { id: "TOOLS-BURST-FULL-CUSTOM-BEYLAUNCHER-LR", series: "burst", name: "풀커스텀베이런처LR", en: "Full Custom BeyLauncher LR", category: "런처", desc: "" },
-  { id: "TOOLS-BURST-POWER-CUSTOM-SWORD-LAUNCHER-LR", series: "burst", name: "파워커스텀소드런처LR", en: "Power Custom Sword Launcher LR", category: "런처", desc: "" }
+  { id: "TOOLS-BURST-POWER-CUSTOM-SWORD-LAUNCHER-LR", series: "burst", name: "파워커스텀소드런처LR", en: "Power Custom Sword Launcher LR", category: "런처", desc: "" },
+  { id: "TOOLS-X-WINDER-LAUNCHER", series: "x", name: "와인더런처", en: "Winder Launcher", category: "런처", desc: "" },
+  { id: "TOOLS-X-ENTRY-LAUNCHER", series: "x", name: "엔트리런처", en: "Entry Launcher", category: "런처", desc: "" },
+  { id: "TOOLS-X-STRING-LAUNCHER", series: "x", name: "스트링런처", en: "String Launcher", category: "런처", desc: "" },
+  { id: "TOOLS-X-STRING-LAUNCHER-L", series: "x", name: "스트링런처L", en: "String Launcher L", category: "런처", desc: "" },
+  { id: "TOOLS-X-HOLD-LAUNCHER", series: "x", name: "홀드런처", en: "Hold Launcher", category: "런처", desc: "" },
+  { id: "TOOLS-X-LAUNCHER", series: "x", name: "런처", en: "Launcher", category: "런처", desc: "" },
+  { id: "TOOLS-X-LAUNCHER-GRIP", series: "x", name: "런처그립", en: "Launcher Grip", category: "그립", desc: "" },
+  { id: "TOOLS-X-EXTREME-STADIUM", series: "x", name: "익스트림스타디움", en: "Extreme Stadium", category: "스타디움", desc: "" },
+  { id: "TOOLS-X-DOUBLE-EXTREME-STADIUM", series: "x", name: "더블익스트림스타디움", en: "Double Extreme Stadium", category: "스타디움", desc: "" },
+  { id: "TOOLS-X-INFINITY-STADIUM", series: "x", name: "인피니티스타디움", en: "Infinity Stadium", category: "스타디움", desc: "" }
 ];
 
 const bookItems = [
@@ -132,4 +141,3 @@ const gameItems = [
   { id: "GAME-CHOUJOU-KESSEN-BIG-BANG-BLADERS-CARD", name: "정상결전! 빅뱅블레이더즈 게임 카드", category: "게임", desc: "" },
   { id: "GAME-4D-ZEROG-ULTIMATE-TOURNAMENT-CARD", name: "4DxZEROG 얼티밋 토너먼트 게임 카드", category: "게임", desc: "" }
 ];
-window.BeystadiumData.secondary = { toolsItems, bookItems, gameItems };

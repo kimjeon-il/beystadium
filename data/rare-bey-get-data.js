@@ -1,0 +1,200 @@
+const rareBeyGetItems = [
+  {
+    region: "jp",
+    productId: "PRODUCT-X-BX-00-JP-3",
+    name: "코발트드레이크 4-60F",
+    finish: "익스트림피니시",
+    prize: "레어베이 겟 배틀 익스트림피니시 경품",
+    period: "2023년 9월 11일~2024년 8월 16일",
+    startDate: "2023-09-11",
+    endDate: "2024-08-16",
+    isCurrent: false
+  },
+  {
+    region: "jp",
+    productId: "PRODUCT-X-BX-00-JP-4",
+    name: "부스터 헬즈사이드 4-60T 골드 Ver.",
+    finish: "버스트피니시",
+    prize: "레어베이 겟 배틀 버스트피니시 경품",
+    period: "2023년 9월 11일~2024년 2월 5일",
+    startDate: "2023-09-11",
+    endDate: "2024-02-05",
+    isCurrent: false
+  },
+  {
+    region: "jp",
+    productId: "PRODUCT-X-BX-00-JP-6",
+    name: "부스터 레온클로 5-60P 골드 Ver.",
+    finish: "버스트피니시",
+    prize: "레어베이 겟 배틀 버스트피니시 경품",
+    period: "2024년 1월 22일~2024년 6월 11일",
+    startDate: "2024-01-22",
+    endDate: "2024-06-11",
+    isCurrent: false
+  },
+  {
+    region: "jp",
+    productId: "PRODUCT-X-BX-00-JP-10",
+    name: "부스터 헬즈체인 5-60HT 블랙 Ver.",
+    finish: "버스트피니시",
+    prize: "레어베이 겟 배틀 버스트피니시 경품",
+    period: "2024년 5월 16일~2024년 10월 10일",
+    startDate: "2024-05-16",
+    endDate: "2024-10-10",
+    isCurrent: false
+  },
+  {
+    region: "jp",
+    productId: "PRODUCT-X-BX-00-JP-44",
+    name: "F/T/B/N 비트 골드×블랙 Ver.",
+    finish: "오버피니시",
+    prize: "레어베이 겟 배틀 오버피니시 경품",
+    period: "2024년 7월 30일~",
+    startDate: "2024-07-30",
+    endDate: "",
+    isCurrent: true
+  },
+  {
+    region: "jp",
+    productIds: ["PRODUCT-X-BX-00-JP-45", "PRODUCT-X-BX-00-JP-46", "PRODUCT-X-BX-00-JP-47"],
+    name: "베이블레이드 스티커(3종)",
+    finish: "오버피니시",
+    prize: "레어베이 겟 배틀 오버피니시 경품",
+    period: "2024년 7월 30일~",
+    startDate: "2024-07-30",
+    endDate: "",
+    isCurrent: true
+  },
+  {
+    region: "jp",
+    productId: "PRODUCT-X-UX-00-JP-2",
+    name: "에어로페가서스 3-70A",
+    finish: "익스트림피니시",
+    prize: "레어베이 겟 배틀 익스트림피니시 경품",
+    period: "2024년 7월 30일~2025년 7월 17일",
+    startDate: "2024-07-30",
+    endDate: "2025-07-17",
+    isCurrent: false
+  },
+  {
+    region: "jp",
+    productId: "PRODUCT-X-BX-00-JP-19",
+    name: "부스터 코발트드레이크 4-60F 클리어 Ver.",
+    finish: "버스트피니시",
+    prize: "레어베이 겟 배틀 버스트피니시 경품",
+    period: "2024년 11월 28일~2025년 3월 27일",
+    startDate: "2024-11-28",
+    endDate: "2025-03-27",
+    isCurrent: false
+  },
+  {
+    region: "jp",
+    productId: "PRODUCT-X-BX-00-JP-20",
+    name: "부스터 맘모스터스크 2-80E 블랙 Ver.",
+    finish: "버스트피니시",
+    prize: "레어베이 겟 배틀 버스트피니시 경품",
+    period: "2024년 12월 27일~",
+    startDate: "2024-12-27",
+    endDate: "",
+    isCurrent: true
+  },
+  {
+    region: "jp",
+    productId: "PRODUCT-X-CX-00-JP-1",
+    name: "왈큐레 볼트S 4-70V",
+    finish: "익스트림피니시",
+    prize: "레어베이 겟 배틀 익스트림피니시 경품",
+    period: "2025년 7월 17일~",
+    startDate: "2025-07-17",
+    endDate: "",
+    isCurrent: true
+  },
+  {
+    region: "jp",
+    productId: "PRODUCT-X-UX-00-JP-8",
+    name: "부스터 나이트메일 3-85BS 네이비 Ver.",
+    finish: "버스트피니시",
+    prize: "레어베이 겟 배틀 버스트피니시 경품",
+    period: "2025년 7월 17일~",
+    startDate: "2025-07-17",
+    endDate: "",
+    isCurrent: true
+  },
+  {
+    region: "jp",
+    productId: "PRODUCT-X-CX-00-JP-3",
+    name: "부스터 위저드 아크R 4-55LO 블랙 Ver.",
+    finish: "버스트피니시",
+    prize: "레어베이 겟 배틀 버스트피니시 경품",
+    period: "2025년 8월 9일~",
+    startDate: "2025-08-09",
+    endDate: "",
+    isCurrent: true
+  },
+  {
+    region: "jp",
+    productId: "PRODUCT-X-UX-00-JP-9",
+    name: "부스터 에어로페가서스 3-70A 레드 Ver.",
+    finish: "버스트피니시",
+    prize: "레어베이 겟 배틀 버스트피니시 경품",
+    period: "2026년 2월 21일~",
+    startDate: "2026-02-21",
+    endDate: "",
+    isCurrent: true
+  },
+  {
+    region: "jp",
+    productId: "PRODUCT-X-UX-00-JP-10",
+    name: "부스터 스코피오스피어 0-70Z 마젠타 Ver.",
+    finish: "버스트피니시",
+    prize: "레어베이 겟 배틀 버스트피니시 경품",
+    period: "2026년 4월 25일~",
+    startDate: "2026-04-25",
+    endDate: "",
+    isCurrent: true
+  },
+  {
+    region: "jp",
+    productId: "PRODUCT-X-CX-00-JP-8",
+    name: "부스터 드레이크브레이브G 4-70I 블루 Ver.",
+    finish: "익스트림/버스트피니시",
+    prize: "레어베이 겟 배틀 익스트림/버스트피니시 경품",
+    period: "2026년 7월 9일~",
+    startDate: "2026-07-09",
+    endDate: "",
+    isCurrent: true
+  },
+  {
+    region: "jp",
+    productId: "PRODUCT-X-CX-00-JP-7",
+    name: "부스터 호넷포트R 7-60T 옐로 Ver.",
+    finish: "버스트피니시",
+    prize: "레어베이 겟 배틀 버스트피니시 경품",
+    period: "2026년 7월 9일~",
+    startDate: "2026-07-09",
+    endDate: "",
+    isCurrent: true
+  },
+  {
+    region: "jp",
+    productId: "PRODUCT-X-CX-00-JP-6",
+    name: "부스터 크라켄리글S 3-70O 블루 Ver.",
+    finish: "버스트피니시",
+    prize: "레어베이 겟 배틀 버스트피니시 경품",
+    period: "2026년 7월 9일~",
+    startDate: "2026-07-09",
+    endDate: "",
+    isCurrent: true
+  },
+  {
+    region: "jp",
+    productId: "PRODUCT-X-CX-00-JP-5",
+    name: "부스터 벅스앤틀러스B 2-60D 오렌지 Ver.",
+    finish: "버스트피니시",
+    prize: "레어베이 겟 배틀 버스트피니시 경품",
+    period: "2026년 7월 9일~",
+    startDate: "2026-07-09",
+    endDate: "",
+    isCurrent: true
+  }
+];
