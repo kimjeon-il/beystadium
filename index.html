@@ -19,7 +19,7 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="./styles.css?v=20260711-table-hover-unified" />
+  <link rel="stylesheet" href="./styles.css?v=20260712-rare-cta-button" />
   </head>
   <body class="is-overview" data-active-panel="overview">
     <header class="topbar">
@@ -74,16 +74,6 @@
           </svg>
         </button>
       </div>
-      <button class="sidebar-button" type="button" data-sidebar-home aria-label="홈으로 이동" title="홈으로 이동">
-        <span class="sidebar-button__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4.5 11.2 12 4.8l7.5 6.4" />
-            <path d="M6.7 10.2v8.3h10.6v-8.3" />
-            <path d="M10 18.5v-5h4v5" />
-          </svg>
-        </span>
-        <span class="sidebar-button__label">홈</span>
-      </button>
       <div class="mobile-drawer-search search-box global-search-box" role="search">
         <details class="search-scope catalog-dropdown" id="mobileDrawerSearchScope" data-scope="all" aria-label="모바일 검색 범위">
           <summary><b class="catalog-dropdown-value">전체</b></summary>
@@ -99,6 +89,16 @@
         <span class="search-icon" aria-hidden="true"></span>
         <input id="mobileDrawerSearchInput" type="search" placeholder="검색어를 입력해주세요." autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none" />
       </div>
+      <button class="sidebar-button" type="button" data-sidebar-home aria-label="홈으로 이동" title="홈으로 이동">
+        <span class="sidebar-button__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4.5 11.2 12 4.8l7.5 6.4" />
+            <path d="M6.7 10.2v8.3h10.6v-8.3" />
+            <path d="M10 18.5v-5h4v5" />
+          </svg>
+        </span>
+        <span class="sidebar-button__label">홈</span>
+      </button>
       <nav class="mobile-drawer-nav sidebar-nav" aria-label="모바일 메뉴">
         <section class="sidebar-section">
           <div class="sidebar-group-label">완구</div>
@@ -330,21 +330,23 @@
 
     <dialog id="detailModal">
       <div class="modal-overlay" data-modal-overlay></div>
-      <button class="ui-icon-button modal-close" id="modalClose" aria-label="상세 닫기">×</button>
-      <div id="modalContent"></div>
+      <div class="modal-stage">
+        <button class="ui-icon-button modal-close" id="modalClose" aria-label="상세 닫기">×</button>
+        <div id="modalContent"></div>
+      </div>
     </dialog>
 
     <button class="to-top" id="toTop" type="button" aria-label="맨 위로 이동">↑</button>
-  <script defer src="./app.js?v=20260709-code-diet"></script>
-  <script defer src="./data/catalog-data.js?v=20260710-x-jp-region-names"></script>
-  <script defer src="./src/ui-core.js?v=20260711-basicline-tag-description"></script>
-  <script defer src="./data/product-data.js?v=20260710-scorpion-spear-names"></script>
-  <script defer src="./src/release-core.js?v=20260710-release-sort-a11y"></script>
-  <script defer src="./data/secondary-data.js?v=20260709-code-diet"></script>
-  <script defer src="./src/catalog-core.js?v=20260711-tag-descriptions"></script>
-  <script defer src="./src/release-page.js?v=20260710-release-sort-a11y"></script>
+  <script defer src="./data/catalog-data.js?v=20260711-x-missing-parts-complete"></script>
+  <script defer src="./src/ui-core.js?v=20260711-mounted-part-labels"></script>
+  <script defer src="./data/product-data.js?v=20260712-rare-bey-list-readable"></script>
+  <script defer src="./data/rare-bey-get-data.js?v=20260712-rare-route-hover-fix"></script>
+  <script defer src="./src/release-core.js?v=20260712-rare-bey-list-readable"></script>
+  <script defer src="./data/secondary-data.js?v=20260711-x-set-tools"></script>
+  <script defer src="./src/catalog-core.js?v=20260712-rare-route-hover-fix"></script>
+  <script defer src="./src/release-page.js?v=20260712-rare-bey-list-readable"></script>
   <script defer src="./data/anime-data.js?v=20260709-code-diet"></script>
   <script defer src="./src/anime.js?v=20260709-code-diet"></script>
-  <script defer src="./src/router.js?v=20260710-x-jp-region-names"></script>
+  <script defer src="./src/router.js?v=20260712-rare-cta-button"></script>
   </body>
 </html>
