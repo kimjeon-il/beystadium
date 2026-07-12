@@ -7914,7 +7914,13 @@
     series: "x",
     releases: {
       kr: {
-        status: "unreleased"
+        no: "",
+        name: "코발트드레이크 4-60F 클리어 Ver.",
+        sale: "",
+        kind: "부스터",
+        releaseDate: "2025-09-25",
+        price: "",
+        composition: [{ name: "코발트드레이크 4-60F", quantity: "1개", target: "BEY-X-BX-00-JP-19" }]
       },
       jp: {
         no: "BX-00",

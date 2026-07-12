@@ -46,24 +46,35 @@ const rareBeyGetItems = [
   {
     region: "jp",
     productId: "PRODUCT-X-BX-00-JP-44",
-    name: "F/T/B/N 비트 골드×블랙 Ver.",
+    name: "F/T/B/N 비트 세트 골드×블랙",
     finish: "오버피니시",
     prize: "레어베이 겟 배틀 오버피니시 경품",
-    period: "2024년 7월 30일~",
+    period: "2024년 7월 30일~2025년 11월 15일",
     startDate: "2024-07-30",
-    endDate: "",
-    isCurrent: true
+    endDate: "2025-11-15",
+    isCurrent: false
   },
   {
     region: "jp",
-    productIds: ["PRODUCT-X-BX-00-JP-45", "PRODUCT-X-BX-00-JP-46", "PRODUCT-X-BX-00-JP-47"],
-    name: "베이블레이드 스티커(3종)",
+    productId: "PRODUCT-X-BX-00-JP-45",
+    name: "베이블레이드 스티커 01",
     finish: "오버피니시",
     prize: "레어베이 겟 배틀 오버피니시 경품",
-    period: "2024년 7월 30일~",
+    period: "2024년 7월 30일~2025년 11월 15일",
     startDate: "2024-07-30",
-    endDate: "",
-    isCurrent: true
+    endDate: "2025-11-15",
+    isCurrent: false
+  },
+  {
+    region: "jp",
+    productId: "PRODUCT-X-BX-00-JP-47",
+    name: "베이블레이드 스티커 03",
+    finish: "오버피니시",
+    prize: "레어베이 겟 배틀 오버피니시 경품",
+    period: "2024년 7월 30일~2025년 11월 15일",
+    startDate: "2024-07-30",
+    endDate: "2025-11-15",
+    isCurrent: false
   },
   {
     region: "jp",
@@ -93,10 +104,10 @@ const rareBeyGetItems = [
     name: "부스터 맘모스터스크 2-80E 블랙 Ver.",
     finish: "버스트피니시",
     prize: "레어베이 겟 배틀 버스트피니시 경품",
-    period: "2024년 12월 27일~",
+    period: "2024년 12월 27일~2025년 7월 31일",
     startDate: "2024-12-27",
-    endDate: "",
-    isCurrent: true
+    endDate: "2025-07-31",
+    isCurrent: false
   },
   {
     region: "jp",
@@ -115,10 +126,10 @@ const rareBeyGetItems = [
     name: "부스터 나이트메일 3-85BS 네이비 Ver.",
     finish: "버스트피니시",
     prize: "레어베이 겟 배틀 버스트피니시 경품",
-    period: "2025년 7월 17일~",
+    period: "2025년 7월 17일~2025년 12월 15일",
     startDate: "2025-07-17",
-    endDate: "",
-    isCurrent: true
+    endDate: "2025-12-15",
+    isCurrent: false
   },
   {
     region: "jp",
@@ -126,10 +137,10 @@ const rareBeyGetItems = [
     name: "부스터 위저드 아크R 4-55LO 블랙 Ver.",
     finish: "버스트피니시",
     prize: "레어베이 겟 배틀 버스트피니시 경품",
-    period: "2025년 8월 9일~",
-    startDate: "2025-08-09",
-    endDate: "",
-    isCurrent: true
+    period: "2025년 12월 1일~2026년 5월 31일",
+    startDate: "2025-12-01",
+    endDate: "2026-05-31",
+    isCurrent: false
   },
   {
     region: "jp",
@@ -137,9 +148,9 @@ const rareBeyGetItems = [
     name: "부스터 에어로페가서스 3-70A 레드 Ver.",
     finish: "버스트피니시",
     prize: "레어베이 겟 배틀 버스트피니시 경품",
-    period: "2026년 2월 21일~",
-    startDate: "2026-02-21",
-    endDate: "",
+    period: "2026년 3월 23일~2026년 7월 31일",
+    startDate: "2026-03-23",
+    endDate: "2026-07-31",
     isCurrent: true
   },
   {
@@ -148,8 +159,41 @@ const rareBeyGetItems = [
     name: "부스터 스코피오스피어 0-70Z 마젠타 Ver.",
     finish: "버스트피니시",
     prize: "레어베이 겟 배틀 버스트피니시 경품",
-    period: "2026년 4월 25일~",
+    period: "2026년 4월 25일~2026년 7월 9일",
     startDate: "2026-04-25",
+    endDate: "2026-07-09",
+    isCurrent: false
+  },
+  {
+    region: "jp",
+    productId: "PRODUCT-X-BX-00-JP-36",
+    name: "F/T/B/N 비트 세트 실버×화이트",
+    finish: "오버피니시",
+    prize: "레어베이 겟 배틀 오버피니시 경품",
+    period: "2025년 11월 15일~",
+    startDate: "2025-11-15",
+    endDate: "",
+    isCurrent: true
+  },
+  {
+    region: "jp",
+    productId: "PRODUCT-X-BX-00-JP-37",
+    name: "베이 엠블럼 스티커 01",
+    finish: "오버피니시",
+    prize: "레어베이 겟 배틀 오버피니시 경품",
+    period: "2025년 11월 15일~",
+    startDate: "2025-11-15",
+    endDate: "",
+    isCurrent: true
+  },
+  {
+    region: "jp",
+    productId: "PRODUCT-X-BX-00-JP-46",
+    name: "베이블레이드 스티커 02",
+    finish: "오버피니시",
+    prize: "레어베이 겟 배틀 오버피니시 경품",
+    period: "2025년 11월 15일~",
+    startDate: "2025-11-15",
     endDate: "",
     isCurrent: true
   },
@@ -196,5 +240,82 @@ const rareBeyGetItems = [
     startDate: "2026-07-09",
     endDate: "",
     isCurrent: true
+  },
+  {
+    region: "kr",
+    productId: "PRODUCT-X-BX-00-JP-4",
+    name: "헬즈사이드 4-60T 골드 Ver.",
+    finish: "버스트피니시",
+    prize: "레어베이 겟 배틀 버스트피니시 경품",
+    period: "2024년 10월 10일~2025년 4월 30일",
+    startDate: "2024-10-10",
+    endDate: "2025-04-30",
+    isCurrent: false
+  },
+  {
+    region: "kr",
+    productId: "PRODUCT-X-BX-00-JP-6",
+    name: "레온클로우 5-60P 골드 Ver.",
+    finish: "버스트피니시",
+    prize: "레어베이 겟 배틀 버스트피니시 경품",
+    period: "2024년 10월 10일~2025년 4월 30일",
+    startDate: "2024-10-10",
+    endDate: "2025-04-30",
+    isCurrent: false
+  },
+  {
+    region: "kr",
+    productId: "PRODUCT-X-BX-00-JP-3",
+    name: "코발트드레이크 4-60F",
+    finish: "익스트림피니시",
+    prize: "레어베이 겟 배틀 익스트림피니시 경품",
+    period: "2024년 10월 10일~2025년 12월 1일",
+    startDate: "2024-10-10",
+    endDate: "2025-12-01",
+    isCurrent: false
+  },
+  {
+    region: "kr",
+    productId: "PRODUCT-X-BX-00-JP-44",
+    name: "비트 세트 F/T/B/N 골드×블랙",
+    finish: "버스트피니시",
+    prize: "레어베이 겟 배틀 버스트피니시 경품",
+    period: "2025년 4월 30일~2026년 3월 31일",
+    startDate: "2025-04-30",
+    endDate: "2026-03-31",
+    isCurrent: false
+  },
+  {
+    region: "kr",
+    productId: "PRODUCT-X-BX-00-JP-10",
+    name: "헬즈체인 5-60HT 블랙 Ver.",
+    finish: "버스트피니시",
+    prize: "레어베이 겟 배틀 버스트피니시 경품",
+    period: "2025년 4월 30일~2026년 3월 31일",
+    startDate: "2025-04-30",
+    endDate: "2026-03-31",
+    isCurrent: false
+  },
+  {
+    region: "kr",
+    productId: "PRODUCT-X-UX-00-JP-2",
+    name: "에어로페가시우스 3-70A",
+    finish: "익스트림피니시",
+    prize: "레어베이 겟 배틀 익스트림피니시 경품",
+    period: "2025년 4월 30일~2025년 12월 1일",
+    startDate: "2025-04-30",
+    endDate: "2025-12-01",
+    isCurrent: false
+  },
+  {
+    region: "kr",
+    productId: "PRODUCT-X-BX-00-JP-19",
+    name: "코발트드레이크 4-60F 클리어 Ver.",
+    finish: "버스트피니시",
+    prize: "레어베이 겟 배틀 버스트피니시 경품",
+    period: "2025년 9월 25일~2026년 3월 31일",
+    startDate: "2025-09-25",
+    endDate: "2026-03-31",
+    isCurrent: false
   }
 ];

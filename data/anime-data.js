@@ -1,7 +1,27 @@
 const animeInfo = {
   title: "메탈베이블레이드",
   overview: [],
-  characters: [],
+  characters: [
+    { name: "구이수", season: "beyblade-x", role: "팀 페르소나", beys: ["드랜소드", "드랜대거", "드랜버스터", "드랜브레이브"] },
+    { name: "강바람", season: "beyblade-x", role: "팀 페르소나", beys: ["스트라이크호크", "헬즈사이드", "헬즈체인", "헬즈해머", "헬즈리퍼"] },
+    { name: "나다운", season: "beyblade-x", role: "팀 페르소나", beys: ["위저드애로우", "위저드로드", "위저드아크", "위저드마이트", "나이트실드", "나이트랜스", "나이트메일", "나이트포트리스"] },
+    { name: "천은성", season: "beyblade-x", role: "팀 페르소나", beys: ["워리어세이버", "워리어칼리버"] },
+    { name: "구나인", season: "beyblade-x", role: "팀 페르소나", beys: ["왈큐레볼트", "라그나레이지"] },
+    { name: "태 사장", season: "beyblade-x", role: "", beys: ["튜나엣지"] },
+    { name: "임메이", season: "beyblade-x", role: "", beys: ["샤크엣지", "샤크스케일", "웨일웨이브"] },
+    { name: "류크롬", season: "beyblade-x", role: "팀 펜드래곤", beys: ["코발트드레이크", "코발트드래군", "임팩트드레이크", "메테오드래군"] },
+    { name: "나시우", season: "beyblade-x", role: "팀 펜드래곤", beys: ["펄타이거", "울프헌트"] },
+    { name: "신하늘", season: "beyblade-x", role: "팀 펜드래곤", beys: ["블랙터틀", "쉘터드레이크"] },
+    { name: "김만호", season: "beyblade-x", role: "팀 쥬가닉", beys: ["레온클로우", "레온크레스트"] },
+    { name: "오사현", season: "beyblade-x", role: "팀 쥬가닉", beys: ["바이퍼테일"] },
+    { name: "조나리", season: "beyblade-x", role: "팀 쥬가닉", beys: ["라이노혼"] },
+    { name: "홍불새", season: "beyblade-x", role: "팀 이그드라실", beys: ["피닉스페더", "피닉스소어", "피닉스러더", "피닉스플레어"] },
+    { name: "남유니", season: "beyblade-x", role: "팀 이그드라실", beys: ["유니콘스팅"] },
+    { name: "조나모", season: "beyblade-x", role: "팀 이그드라실", beys: ["스핑크스카울"] },
+    { name: "이석산", season: "beyblade-x", role: "팀 팔랑크스", beys: ["스톤몽블랑"] },
+    { name: "유원리", season: "beyblade-x", role: "팀 팔랑크스", beys: ["아이언포레스트"] },
+    { name: "진승진", season: "beyblade-x", role: "팀 팔랑크스", beys: ["다이아몬드너츠"] }
+  ],
   episodes: [
     { no: "1화", season: "topblade", titles: { kr: "운명의 시작", jp: "" }, airDates: { kr: "2001-10-09", jp: "" }, note: "" },
     { no: "2화", season: "topblade", titles: { kr: "드래곤 탄생!", jp: "" }, airDates: { kr: "2001-10-15", jp: "" }, note: "" },
