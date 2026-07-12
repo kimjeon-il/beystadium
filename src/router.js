@@ -12,13 +12,18 @@ const openCategoryCatalog = ({ scope = "all", series = "all", sort = defaultCata
   activatePrimarySection(normalizedScope === "all" ? "catalog" : normalizedScope, { preserveSearch });
   applyCatalogRouteState(catalogRoute);
 };
-const openCategoryAnimePage = ({ updateHash = true, replace = false, preserveSearch = false } = {}) => {
+const openCategoryAnimePage = (options = {}) => {
+  const { updateHash = true, replace = false, preserveSearch = false } = options;
+  const animeRoute = normalizeRoute({ type: "category-anime", ...options });
   if (updateHash && !applyingRoute) {
-    navigateToRoute({ type: "category-anime" }, { replace });
+    navigateToRoute(animeRoute, { replace });
     return;
   }
   activatePrimarySection("anime", { preserveSearch });
-  renderAnimePage();
+  applyAnimeRouteState(animeRoute, {
+    preserveSearch,
+    hasQuery: Object.prototype.hasOwnProperty.call(options, "query") || Object.prototype.hasOwnProperty.call(options, "q")
+  });
 };
 const categoryRouteTriggers = [
   { selector: "[data-category-release-open]", route: categoryReleaseMenuRoute },
@@ -245,7 +250,11 @@ const refreshSearchPanel = () => {
   {
     input: animeSearch,
     container: ".anime-search-box",
-    refresh: scheduleAnimeSearchResultsRefresh
+    refresh: () => {
+      currentAnimePage = 1;
+      scheduleAnimeSearchResultsRefresh();
+      syncAnimeRouteHash({ overrides: { page: 1 } });
+    }
   }
 ].forEach(({ input, container, refresh }) => {
   bindSearchInput(input, container, {
@@ -390,6 +399,22 @@ const syncCatalogRouteHash = ({ replace = true, force = false, overrides = {} } 
     preserveSearch: true
   });
 };
+const animeRouteFromState = (overrides = {}) => normalizeRoute({
+  type: "category-anime",
+  season: activeAnimeCharacterSeason || "all",
+  page: currentAnimePage,
+  query: animeSearchQuery(),
+  ...overrides
+});
+const syncAnimeRouteHash = ({ replace = true, force = false, overrides = {} } = {}) => {
+  if (!force && (applyingRoute || activeAppPanelName() !== "anime")) return;
+  navigateToRoute(animeRouteFromState(overrides), {
+    replace,
+    apply: false,
+    preserveScroll: true,
+    preserveSearch: true
+  });
+};
 function applyCatalogRouteState(route = {}) {
   const catalogRoute = normalizeRoute({ type: "catalog", ...route });
   setCatalogSeries(catalogRoute.series, { refresh: false });
@@ -402,6 +427,14 @@ function applyCatalogRouteState(route = {}) {
   syncGlobalSearchScopePeers(catalogRoute.scope === "bey" || catalogRoute.scope === "tools" ? catalogRoute.scope : "all");
   refreshCatalogState();
 };
+function applyAnimeRouteState(route = {}, { preserveSearch = false, hasQuery = false } = {}) {
+  const animeRoute = normalizeRoute({ type: "category-anime", ...route });
+  activeAnimeCharacterSeason = normalizeAnimeCharacterSeason(animeRoute.season);
+  if (hasQuery || !preserveSearch) setSearchInputValue(animeSearch, animeRoute.query);
+  currentAnimePage = animeRoute.page;
+  currentAnimeRenderKey = animeRenderKey();
+  renderAnimePage();
+}
 const resetCatalogFilter = (scope, key) => {
   if (scope !== "catalog" || !catalogSearch) return;
   let removed = false;
@@ -471,9 +504,33 @@ const rootPixelValue = (name, fallback) => {
   const value = Number.parseFloat(getComputedStyle(document.documentElement).getPropertyValue(name));
   return Number.isFinite(value) ? value : fallback;
 };
+const catalogDropdownMenu = dropdown => dropdown?.querySelector?.(":scope > .catalog-dropdown-menu") || null;
+const clearCatalogDropdownScrollbarCompensation = dropdown => {
+  const menu = catalogDropdownMenu(dropdown);
+  if (!menu) return;
+  menu.classList.remove("is-scrollbar-visible");
+  menu.style.removeProperty("--dropdown-scrollbar-compensation");
+};
+const syncCatalogDropdownScrollbarCompensation = dropdown => {
+  const menu = catalogDropdownMenu(dropdown);
+  if (!menu || !dropdown?.open || dropdown.classList.contains("search-scope")) return;
+  const hasVerticalScrollbar = menu.scrollHeight > menu.clientHeight + 1;
+  const scrollbarWidth = Math.max(0, menu.offsetWidth - menu.clientWidth);
+  if (!hasVerticalScrollbar || scrollbarWidth <= 0) {
+    clearCatalogDropdownScrollbarCompensation(dropdown);
+    return;
+  }
+  menu.style.setProperty("--dropdown-scrollbar-compensation", `${scrollbarWidth}px`);
+  menu.classList.add("is-scrollbar-visible");
+};
+const scheduleCatalogDropdownScrollbarCompensation = dropdown => {
+  if (!dropdown || dropdown.classList.contains("search-scope")) return;
+  requestAnimationFrame(() => syncCatalogDropdownScrollbarCompensation(dropdown));
+};
 function closeCatalogDropdown(dropdown) {
   if (!dropdown) return;
   dropdown.classList.remove("is-dropdown-entering");
+  clearCatalogDropdownScrollbarCompensation(dropdown);
   dropdown.removeAttribute("open");
 }
 function closeOpenCatalogDropdowns(exceptDropdown = null) {
@@ -489,6 +546,7 @@ function openCatalogDropdown(dropdown) {
   closeSearchHelpPopovers();
   playEnterAnimation(dropdown, "is-dropdown-entering");
   dropdown.setAttribute("open", "");
+  scheduleCatalogDropdownScrollbarCompensation(dropdown);
 }
 function toggleCatalogDropdown(dropdown) {
   if (!dropdown) return;
@@ -680,6 +738,11 @@ bindPaginationControls({
   render: renderAnimePage,
   scroll: scrollAnimeGridIntoView
 });
+document.querySelector("#animePagination")?.addEventListener("click", event => {
+  const pageButton = event.target.closest("[data-anime-page]");
+  if (!pageButton || pageButton.disabled) return;
+  syncAnimeRouteHash();
+});
 document.addEventListener("click", event => {
   if (event.defaultPrevented || event.button !== 0) return;
   const dropdown = catalogDropdownFromSummaryEvent(event);
@@ -699,12 +762,17 @@ document.addEventListener("toggle", event => {
   if (!dropdown) return;
   if (!dropdown.open) {
     dropdown.classList.remove("is-dropdown-entering");
+    clearCatalogDropdownScrollbarCompensation(dropdown);
     return;
   }
   closeOpenCatalogDropdowns(dropdown);
   closeAllSearchPreviews();
   closeSearchHelpPopovers();
+  scheduleCatalogDropdownScrollbarCompensation(dropdown);
 }, true);
+window.addEventListener("resize", () => {
+  document.querySelectorAll(".catalog-dropdown[open]").forEach(scheduleCatalogDropdownScrollbarCompensation);
+}, { passive: true });
 document.addEventListener("click", event => {
   if (!event.target.closest(".search-box") && !event.target.closest(".overview-search")) closeAllSearchPreviews();
   if (!event.target.closest(".catalog-dropdown")) closeOpenCatalogDropdowns();
@@ -1390,6 +1458,29 @@ function bindProductCompositionLinks(product, root = document, options = {}) {
     openDetailByKind("", targetId, backOptions);
   }));
 }
+const rareBeyGetFinishGroupOrder = ["익스트림피니시", "버스트피니시", "오버피니시", "스핀피니시"];
+const rareBeyGetFinishGroup = finish => {
+  const value = finish || "";
+  return rareBeyGetFinishGroupOrder.find(name => value.includes(name.replace("피니시", ""))) || "";
+};
+const rareBeyGetFinishRank = entry => {
+  const rank = rareBeyGetFinishGroupOrder.indexOf(rareBeyGetFinishGroup(entry?.finish));
+  return rank === -1 ? rareBeyGetFinishGroupOrder.length : rank;
+};
+const sortRareBeyGetCurrentEntries = entries => entries
+  .map((entry, index) => ({ entry, index }))
+  .sort((a, b) => rareBeyGetFinishRank(a.entry) - rareBeyGetFinishRank(b.entry) || a.index - b.index)
+  .map(({ entry }) => entry);
+const rareBeyGetEndSortValue = entry => releaseDateSortValue(entry?.endDate || "");
+const sortRareBeyGetEndedEntries = entries => entries
+  .map((entry, index) => ({ entry, index }))
+  .sort((a, b) => {
+    const endDiff = rareBeyGetEndSortValue(b.entry) - rareBeyGetEndSortValue(a.entry);
+    const startDiff = rareBeyGetEntryStartSortValue(b.entry) - rareBeyGetEntryStartSortValue(a.entry);
+    return endDiff || startDiff || a.index - b.index;
+  })
+  .map(({ entry }) => entry);
+const rareBeyGetListDisplayName = name => String(name || "").replace(/^부스터\s+/, "");
 const rareBeyGetListItemMarkup = (entry, region = activeReleaseRegion) => {
   const productIds = rareBeyGetEntryProductIds(entry);
   const productId = entry?.productId || "";
@@ -1398,19 +1489,34 @@ const rareBeyGetListItemMarkup = (entry, region = activeReleaseRegion) => {
   const entryRegion = rareBeyGetEntryRegion(entry) || region;
   const release = productRelease(primaryProduct, entryRegion);
   const name = entry.name || release.name || productDisplayName(primaryProduct, entryRegion);
-  const reward = entry.finish ? `${entry.finish} 경품` : "경품";
-  const period = entry.period || "";
-  const content = `<span class="rare-bey-get-list-item-content">
-    <span class="rare-bey-get-list-item-main"><span class="rare-bey-get-list-item-title">${escapeHtml(name)}</span></span>
-    <span class="rare-bey-get-list-item-meta"><span>${escapeHtml(reward)}</span>${period ? `<span>${escapeHtml(period)}</span>` : ""}</span>
-  </span>`;
-  if (!productId) return `<div class="rare-bey-get-list-item rare-bey-get-list-item--static">${content}</div>`;
-  return `<a class="rare-bey-get-list-item rare-bey-get-list-link" href="#${productId}" data-product-id="${escapeAttributeValue(productId)}" data-release-region="${escapeAttributeValue(entryRegion)}">${content}<b aria-hidden="true">→</b></a>`;
+  const displayName = rareBeyGetListDisplayName(name);
+  const displayNameAttr = escapeAttributeValue(displayName);
+  const finish = entry.finish || "";
+  const finishBadge = finish ? `<span class="rare-bey-get-list-item-finish">${escapeHtml(finish)}</span>` : "";
+  const content = `<span class="rare-bey-get-list-item-main">${finishBadge}<span class="rare-bey-get-list-item-title">${escapeHtml(displayName)}</span></span>`;
+  if (!productId) return `<div class="ui-list-link product-composition-item rare-bey-get-list-item rare-bey-get-list-item--static" aria-label="${displayNameAttr}">${content}</div>`;
+  return `<a class="ui-list-link product-composition-item rare-bey-get-list-item rare-bey-get-list-link" href="#${productId}" data-product-id="${escapeAttributeValue(productId)}" data-release-region="${escapeAttributeValue(entryRegion)}" aria-label="${escapeAttributeValue(`${displayName} 상세 보기`)}">${content}<b aria-hidden="true">→</b></a>`;
+};
+const rareBeyGetListSectionMarkup = (title, entries, { region = activeReleaseRegion, current = false } = {}) => {
+  if (!entries.length) return "";
+  const orderedEntries = current ? sortRareBeyGetCurrentEntries(entries) : sortRareBeyGetEndedEntries(entries);
+  const rows = orderedEntries.map(entry => rareBeyGetListItemMarkup(entry, region)).filter(Boolean);
+  if (!rows.length) return "";
+  return `<section class="product-composition rare-bey-get-list-section${current ? " rare-bey-get-list-section--current" : " rare-bey-get-list-section--ended"}" aria-label="${escapeAttributeValue(`${title} ${rows.length}개`)}">
+    <h3 class="mounted-title rare-bey-get-list-panel-title"><span>${escapeHtml(title)}</span> <b>${rows.length}개</b></h3>
+    <div class="rare-bey-get-list-group-items">${rows.join("")}</div>
+  </section>`;
 };
 function rareBeyGetListMarkup({ region = activeReleaseRegion, series = activeReleaseSeries } = {}) {
-  const rows = visibleRareBeyGetEntries({ region, series }).map(entry => rareBeyGetListItemMarkup(entry, region)).filter(Boolean);
-  const body = rows.length
-    ? rows.join("")
+  const entries = visibleRareBeyGetEntries({ region, series });
+  const currentEntries = entries.filter(entry => entry?.isCurrent === true);
+  const endedEntries = entries.filter(entry => entry?.isCurrent !== true);
+  const groups = [
+    rareBeyGetListSectionMarkup("현행 경품", currentEntries, { region, current: true }),
+    rareBeyGetListSectionMarkup("종료 경품", endedEntries, { region })
+  ].filter(Boolean);
+  const body = groups.length
+    ? groups.join("")
     : `<p class="rare-bey-get-empty">목록 준비 중입니다.</p>`;
   return `<section class="modal-section rare-bey-get-list"><div class="modal-section-scroll rare-bey-get-list-scroll"><div class="rare-bey-get-list-items">${body}</div></div></section>`;
 }
@@ -1441,7 +1547,7 @@ function openRareBeyGetListDetail(options = {}) {
   const backProductId = routeOptions.backProductId || "";
   const backRelease = routeOptions.backRelease === true;
   if (!skipRoute && routeIfNeeded(normalizedRoute)) return;
-  const modalContentRoot = setModalContent(`<div class="modal-inner">
+  const modalContentRoot = setModalContent(`<div class="modal-inner modal-inner--rare-bey-get-list">
     <div class="modal-art product-modal-art"></div>
     <div class="modal-info product-modal-info">
     ${modalScrollArea(`${modalTitle("레어 베이 겟 목록", "product-modal-name")}
@@ -1688,14 +1794,17 @@ const restoreStoredCatalogOrigin = originState => {
     refresh: refreshCatalogState
   });
 };
-const restoreStoredAnimeOrigin = originState => restorePagedSearchOrigin({
-  originState,
-  queryKey: "animeQuery",
-  pageKey: "animePage",
-  input: animeSearch,
-  setPage: page => { currentAnimePage = page; },
-  render: renderAnimePage
-});
+const restoreStoredAnimeOrigin = originState => {
+  if (originState?.animeSeason) activeAnimeCharacterSeason = normalizeAnimeCharacterSeason(originState.animeSeason);
+  restorePagedSearchOrigin({
+    originState,
+    queryKey: "animeQuery",
+    pageKey: "animePage",
+    input: animeSearch,
+    setPage: page => { currentAnimePage = page; },
+    render: renderAnimePage
+  });
+};
 function restoreDetailOriginPanel(context) {
   const originRoute = routeSnapshot(context?.originRoute);
   if (!originRoute || !isPrimaryRoute(originRoute)) return false;
@@ -1722,7 +1831,14 @@ function restoreDetailOriginPanel(context) {
       preserveSearch: true
     });
   } else if (originRoute.type === "category-anime") {
-    openCategoryAnimePage({ updateHash: false, preserveSearch: true });
+    openCategoryAnimePage({
+      ...originRoute,
+      season: originState.animeSeason || originRoute.season,
+      query: typeof originState.animeQuery === "string" ? originState.animeQuery : originRoute.query,
+      page: originState.animePage || originRoute.page,
+      updateHash: false,
+      preserveSearch: true
+    });
     restoreStoredAnimeOrigin(originState);
   } else if (originRoute.type === "category-anime-episodes") {
     openCategoryAnimeEpisodesDetail({
@@ -1820,7 +1936,7 @@ function applyRoute(route = parseRouteFromHash(), { preserveScroll = false, pres
     } else if (normalizedRoute.type === "category-release") {
       openCategoryReleaseDetail({ ...routeApplyOptions(normalizedRoute), preserveSearch: shouldPreserveSearch });
     } else if (normalizedRoute.type === "category-anime") {
-      openCategoryAnimePage({ updateHash: false, preserveSearch: shouldPreserveSearch });
+      openCategoryAnimePage({ ...normalizedRoute, updateHash: false, preserveSearch: shouldPreserveSearch });
     } else if (normalizedRoute.type === "category-anime-episodes") {
       openCategoryAnimeEpisodesDetail({ ...routeApplyOptions(normalizedRoute), preserveSearch: shouldPreserveSearch });
     } else if (normalizedRoute.type === "rare-bey-get-list") {

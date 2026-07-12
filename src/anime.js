@@ -35,14 +35,18 @@ const animeSeasonLabels = {
   "beyblade-x-3": "베이블레이드 X 3"
 };
 const animeSeasonEntries = () => animeSeasonOrder.map(value => [value, animeSeasonLabels[value]]).filter(([, label]) => label);
+const animeCharacterAllSeason = "all";
+const animeCharacterSeasonEntries = () => [[animeCharacterAllSeason, "전체 시리즈"], ...animeSeasonEntries()];
 const latestAnimeSeason = () => animeSeasonOrder[animeSeasonOrder.length - 1] || "metal-fight";
 const defaultAnimeSeason = () => [...animeSeasonOrder].reverse().find(season =>
   animeInfo.episodes.some(episode => episode.season === season)
 ) || latestAnimeSeason();
 const normalizeAnimeSeason = season => animeSeasonLabels[season] ? season : defaultAnimeSeason();
+const normalizeAnimeCharacterSeason = season => animeSeasonLabels[season] ? season : animeCharacterAllSeason;
 const animeDisplayRegion = "kr";
 let activeAnimeSeason = defaultAnimeSeason();
 let activeAnimeEpisodeQuery = "";
+let activeAnimeCharacterSeason = animeCharacterAllSeason;
 const animeEpisodeControls = () => tableListControlsMarkup({
   label: "방영목록 필터",
   className: "anime-episode-controls",
@@ -55,11 +59,42 @@ const animeEpisodeControls = () => tableListControlsMarkup({
   },
   search: { id: "animeEpisodeSearchInput", value: activeAnimeEpisodeQuery }
 });
+const animeCharacterSeasonLabel = () =>
+  activeAnimeCharacterSeason === animeCharacterAllSeason ? "전체 시리즈" : animeSeasonLabels[activeAnimeCharacterSeason] || "전체 시리즈";
+const animeCharacterSeasonFilterRoot = () => document.querySelector("[data-anime-character-season-filter]");
+const animeCharacterSeasonFilterMarkup = () => tableListDropdownMarkup({
+  label: animeCharacterSeasonLabel(),
+  entries: animeCharacterSeasonEntries(),
+  activeValue: activeAnimeCharacterSeason,
+  dataAttr: "data-anime-character-season"
+});
+
+function renderAnimeCharacterSeasonFilter() {
+  const root = animeCharacterSeasonFilterRoot();
+  if (!root) return;
+  const renderKey = activeAnimeCharacterSeason;
+  if (root.dataset.renderKey !== renderKey) {
+    root.innerHTML = animeCharacterSeasonFilterMarkup();
+    root.dataset.renderKey = renderKey;
+  }
+  root.querySelectorAll("[data-anime-character-season]").forEach(button => {
+    if (button.dataset.animeCharacterSeasonBound) return;
+    button.dataset.animeCharacterSeasonBound = "true";
+    button.addEventListener("click", event => {
+      event.preventDefault();
+      activeAnimeCharacterSeason = normalizeAnimeCharacterSeason(event.currentTarget.dataset.animeCharacterSeason);
+      event.currentTarget.closest(".catalog-dropdown")?.removeAttribute("open");
+      currentAnimePage = 1;
+      renderAnimePage();
+      syncAnimeRouteHash({ overrides: { page: 1 } });
+    });
+  });
+}
 
 const animeCharacterCardMarkup = character => {
   const name = character?.name || character?.title || "";
   const beys = Array.isArray(character?.beys) ? character.beys.filter(Boolean).join(" / ") : "";
-  const detail = character?.desc || character?.role || character?.season || "";
+  const detail = character?.desc || character?.role || "";
   return `<article class="category-card anime-character-card">
     <strong>${escapeHtml(name)}</strong>
     ${beys ? `<small>${escapeHtml(beys)}</small>` : ""}
@@ -79,6 +114,7 @@ const visibleAnimeCharacters = () => {
   const characters = Array.isArray(animeInfo.characters) ? animeInfo.characters : [];
   const query = prepareCatalogSearchQuery(animeSearchQuery());
   return characters
+    .filter(character => activeAnimeCharacterSeason === animeCharacterAllSeason || character?.season === activeAnimeCharacterSeason)
     .map((character, index) => {
       const record = animeCharacterSearchRecord(character, index);
       const match = matchSearchRecord(record, query);
@@ -120,6 +156,7 @@ const categoryCollectionConfigs = {
 };
 
 function renderAnimePage() {
+  renderAnimeCharacterSeasonFilter();
   renderCategoryCollection(categoryCollectionConfigs.animeCharacters);
 }
 

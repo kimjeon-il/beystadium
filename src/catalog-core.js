@@ -888,7 +888,10 @@ const syncCatalogRenderPage = renderKey => {
     currentCatalogPage = 1;
   }
 };
-const animeRenderKey = () => animeSearchQuery();
+const animeRenderKey = () => [
+  typeof activeAnimeCharacterSeason === "string" ? activeAnimeCharacterSeason : "all",
+  animeSearchQuery()
+].join("|");
 const syncAnimeRenderPage = renderKey => {
   if (renderKey !== currentAnimeRenderKey) {
     currentAnimeRenderKey = renderKey;
@@ -992,6 +995,8 @@ const normalizeCatalogRoutePage = page => {
   return Number.isFinite(numeric) && numeric > 0 ? numeric : 1;
 };
 const normalizeCatalogRouteQuery = query => String(query || "").trim();
+const normalizeAnimeCharacterRouteSeason = season =>
+  typeof normalizeAnimeCharacterSeason === "function" ? normalizeAnimeCharacterSeason(season) : "all";
 const normalizeReleaseRouteRegion = region => releaseRegionLabels[region] ? region : "jp";
 const normalizeReleaseRouteSeries = series => releaseSeriesLabels[series] ? series : "x";
 const normalizeRareBeyGetListRouteOptions = options => {
@@ -1032,7 +1037,10 @@ function normalizeRoute(route = {}) {
     options: { ...(route.options || {}) }
   };
   if (route.type === "category-anime") return {
-    type: "category-anime"
+    type: "category-anime",
+    season: normalizeAnimeCharacterRouteSeason(route.season ?? route.options?.season),
+    page: normalizeCatalogRoutePage(route.page ?? route.options?.page),
+    query: normalizeCatalogRouteQuery(route.query ?? route.q ?? route.options?.query ?? route.options?.q)
   };
   if (route.type === "category-anime-episodes") return {
     type: "category-anime-episodes",
@@ -1071,7 +1079,12 @@ function parseRouteFromHash(hash = window.location.hash) {
     query: normalizeCatalogRouteQuery(params.get("q") || "")
   };
   if (id === "toy-release") return { type: "category-release" };
-  if (id === "anime-character") return { type: "category-anime" };
+  if (id === "anime-character") return {
+    type: "category-anime",
+    season: normalizeAnimeCharacterRouteSeason(params.get("season") || "all"),
+    page: normalizeCatalogRoutePage(params.get("page")),
+    query: normalizeCatalogRouteQuery(params.get("q") || "")
+  };
   if (id === "anime-episode") return { type: "category-anime-episodes" };
   if (id === "rare-bey-get-list") return normalizeRoute({
     type: "rare-bey-get-list",
@@ -1096,7 +1109,14 @@ function serializeRoute(route = {}) {
     return `#toy-catalog?${params.toString()}`;
   }
   if (normalizedRoute.type === "category-release") return "#toy-release";
-  if (normalizedRoute.type === "category-anime") return "#anime-character";
+  if (normalizedRoute.type === "category-anime") {
+    const params = new URLSearchParams();
+    if (normalizedRoute.season && normalizedRoute.season !== "all") params.set("season", normalizedRoute.season);
+    if (normalizedRoute.query) params.set("q", normalizeCatalogRouteQuery(normalizedRoute.query));
+    if (normalizeCatalogRoutePage(normalizedRoute.page) > 1) params.set("page", String(normalizeCatalogRoutePage(normalizedRoute.page)));
+    const queryString = params.toString();
+    return queryString ? `#anime-character?${queryString}` : "#anime-character";
+  }
   if (normalizedRoute.type === "category-anime-episodes") return "#anime-episode";
   if (normalizedRoute.type === "rare-bey-get-list") {
     const params = new URLSearchParams();
@@ -2037,6 +2057,7 @@ const modalOriginStateGetters = {
     releaseSort: { ...activeReleaseSort }
   }),
   "category-anime": () => ({
+    animeSeason: typeof activeAnimeCharacterSeason === "string" ? activeAnimeCharacterSeason : "all",
     animeQuery: animeSearchQuery(),
     animePage: currentAnimePage
   }),
