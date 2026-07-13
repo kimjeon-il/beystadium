@@ -284,6 +284,70 @@ test("detail route restores modal and internal navigation hash", async ({ page }
   expect(errors).toEqual([]);
 });
 
+test("episode modal matches the rare bey get shell and preserves contextual back navigation", async ({ page }) => {
+  const errors = consoleErrors(page);
+  const shellGeometry = async () => {
+    await page.locator("#detailModal .modal-stage").evaluate(stage =>
+      Promise.all(stage.getAnimations({ subtree: true }).map(animation => animation.finished.catch(() => {})))
+    );
+    const shell = await page.locator("#detailModal .modal-inner--rare-bey-get-list").boundingBox();
+    const title = await page.locator("#detailModal .product-modal-name").boundingBox();
+    return { shell, title };
+  };
+
+  await page.goto("/#rare-bey-get-list?region=jp&series=x");
+  await expect(page.locator("#detailModal")).toBeVisible();
+  await expect(page.locator("#detailModal .rare-bey-get-list")).toBeVisible();
+  const rareGeometry = await shellGeometry();
+
+  await page.goto("/#anime-episode");
+  const episodeRow = page.locator(".anime-episode-row").first();
+  await expect(episodeRow).toBeVisible();
+  await episodeRow.click();
+  await expect(page).toHaveURL(/#.*EPISODE-\d+$/);
+  await expect(page.locator("#detailModal")).toBeVisible();
+
+  const episodeShell = page.locator("#detailModal .modal-inner--rare-bey-get-list");
+  const episodeTitle = page.locator("#detailModal .product-modal-name");
+  const episodeArt = page.locator("#detailModal .product-modal-art");
+  const backButton = page.locator("#detailModal .modal-back[data-back-anime-episodes]");
+  await expect(episodeShell).toBeVisible();
+  await expect(episodeTitle).toBeVisible();
+  await expect(episodeArt).toHaveCSS("display", "none");
+  await expect(backButton).toBeVisible();
+  await expect(episodeShell.locator(".modal-body-block, .modal-section, .product-composition, .rare-bey-get-list")).toHaveCount(0);
+
+  const episodeGeometry = await shellGeometry();
+  for (const key of ["x", "y", "width", "height"]) {
+    expect(Math.abs(episodeGeometry.shell[key] - rareGeometry.shell[key])).toBeLessThanOrEqual(1);
+  }
+  for (const key of ["x", "y", "width"]) {
+    expect(Math.abs(episodeGeometry.title[key] - rareGeometry.title[key])).toBeLessThanOrEqual(1);
+  }
+
+  const backBox = await backButton.boundingBox();
+  expect(episodeGeometry.title.y - (backBox.y + backBox.height)).toBeGreaterThanOrEqual(7.5);
+  const viewport = page.viewportSize();
+  const closeBox = await page.locator("#detailModal .modal-close").boundingBox();
+  expect(episodeGeometry.shell.x).toBeGreaterThanOrEqual(0);
+  expect(episodeGeometry.shell.y).toBeGreaterThanOrEqual(0);
+  expect(episodeGeometry.shell.x + episodeGeometry.shell.width).toBeLessThanOrEqual(viewport.width + 1);
+  expect(episodeGeometry.shell.y + episodeGeometry.shell.height).toBeLessThanOrEqual(viewport.height + 1);
+  expect(closeBox.x).toBeGreaterThanOrEqual(0);
+  expect(closeBox.y).toBeGreaterThanOrEqual(0);
+  expect(closeBox.x + closeBox.width).toBeLessThanOrEqual(viewport.width + 1);
+  expect(closeBox.y + closeBox.height).toBeLessThanOrEqual(viewport.height + 1);
+
+  const episodeHash = new URL(page.url()).hash;
+  const episodeTitleText = await episodeTitle.textContent();
+  await page.evaluate(() => sessionStorage.removeItem("beyArchiveModalContext"));
+  await page.goto(`/index.html${episodeHash}`);
+  await expect(page.locator("#detailModal")).toBeVisible();
+  await expect(page.locator("#detailModal .product-modal-name")).toHaveText(episodeTitleText);
+  await expect(page.locator("#detailModal .modal-back")).toHaveCount(0);
+  expect(errors).toEqual([]);
+});
+
 test("modal tag popovers follow the active pointer type", async ({ page }, testInfo) => {
   const mobile = testInfo.project.name === "mobile";
   if (!mobile) {

@@ -351,7 +351,7 @@ dialog[open] .modal-info {
   max-height: 100%;
 }
 
-dialog[open] .modal-info:not(.category-anime-info) {
+dialog[open] .modal-info {
   --modal-body-width: min(100%, 520px);
   --modal-flow-gap: 16px;
   --modal-title-size: var(--font-title);
@@ -376,12 +376,12 @@ dialog[open] .modal-inner--rare-bey-get-list .modal-art {
   display: none;
 }
 
-dialog[open] .modal-inner--rare-bey-get-list .modal-info:not(.category-anime-info) {
+dialog[open] .modal-inner--rare-bey-get-list .modal-info {
   --modal-body-width: min(100%, 820px);
 }
 
 @supports (width: 1cqw) {
-dialog[open] .modal-info:not(.category-anime-info) .modal-name {
+dialog[open] .modal-info .modal-name {
     --modal-title-size: clamp(1.25rem, calc(1rem + 2cqw), var(--font-title));
   }
 }
@@ -652,40 +652,6 @@ dialog[open] .product-modal-name {
   justify-self: end;
   font-weight: var(--font-weight-regular);
   text-align: left;
-}
-
-dialog[open] .modal-inner.category-anime-modal {
-  --modal-inner-columns: minmax(0, 1fr);
-  --modal-inner-rows: minmax(0, 1fr);
-}
-
-dialog[open] .category-anime-info {
-  --modal-body-width: 100%;
-  --modal-flow-gap: 16px;
-  --release-content-inset: 40px;
-  grid-column: 1 / -1;
-  grid-row: 1 / -1;
-  display: grid;
-  grid-template-rows: auto minmax(0, 1fr);
-  align-content: stretch;
-  padding: 40px 0;
-}
-
-dialog[open] .category-anime-info .overview-title-row {
-  width: calc(100% - (var(--release-content-inset) * 2));
-  margin: 0 auto var(--modal-flow-gap);
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  gap: 10px;
-}
-
-dialog[open] .category-anime-info .anime-episode-title-row {
-  margin-top: 42px;
-}
-
-dialog[open] .category-anime-info .anime-episode-title-row .category-title {
-  min-width: 0;
 }
 
 .rare-bey-get-list {
@@ -1325,17 +1291,13 @@ dialog[open] {
     --composition-list-max-height-default: min(calc(var(--composition-row-height) * var(--composition-visible-rows)), 30dvh);
   }
 
-dialog[open] .modal-info:not(.product-modal-info):not(.category-anime-info) .modal-name {
+dialog[open] .modal-info:not(.product-modal-info) .modal-name {
     --modal-title-lines: 1;
     min-width: 0;
     flex-wrap: nowrap;
     white-space: nowrap;
     overflow-wrap: normal;
     text-overflow: ellipsis;
-  }
-
-dialog[open] .category-anime-info .anime-episode-title-row {
-    margin-top: 34px;
   }
 }
 }
