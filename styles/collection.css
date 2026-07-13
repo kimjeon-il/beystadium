@@ -1,4 +1,27 @@
 @layer collection {
+.category-collection,
+.catalog-combined {
+  display: grid;
+  gap: var(--catalog-filter-card-gap);
+  width: 100%;
+  max-width: var(--catalog-content-max, var(--catalog-grid-max-width, var(--page-max)));
+  margin: 0 auto;
+}
+
+.category-collection__section,
+.catalog-subsection {
+  display: grid;
+  gap: var(--catalog-filter-card-gap);
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+.category-collection__section[hidden],
+.catalog-subsection[hidden] {
+  display: none;
+}
+
 .category-collection__grid,
 .catalog-grid{
   display: grid;

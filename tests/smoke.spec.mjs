@@ -9,6 +9,31 @@ const consoleErrors = page => {
   return errors;
 };
 
+const animeLayoutSnapshot = page => page.evaluate(() => {
+  const snapshot = selector => {
+    const element = document.querySelector(selector);
+    const rect = element.getBoundingClientRect();
+    const style = getComputedStyle(element);
+    return {
+      display: style.display,
+      width: Math.round(rect.width),
+      height: Math.round(rect.height),
+      backgroundColor: style.backgroundColor,
+      borderTopStyle: style.borderTopStyle,
+      columnGap: style.columnGap,
+      gridTemplateColumns: style.gridTemplateColumns
+    };
+  };
+  return {
+    control: snapshot(".anime-control-bar"),
+    collection: snapshot(".anime-combined"),
+    section: snapshot(".anime-subsection"),
+    query: snapshot(".anime-query-row"),
+    grid: snapshot("#animeCharacterGrid"),
+    card: snapshot("#animeCharacterGrid .anime-character-card")
+  };
+});
+
 test("primary routes render without runtime errors", async ({ page }) => {
   const errors = consoleErrors(page);
   for (const hash of ["", "#toy-catalog?scope=bey&series=x", "#toy-release", "#anime-character", "#anime-episode"]) {
@@ -80,6 +105,88 @@ test("runtime data is loaded by route instead of during home boot", async ({ pag
   await page.goto("/#anime-character");
   await expect(page.locator('[data-app-panel="anime"].active')).toBeVisible();
   expect(moduleRequests).toContain("/src/anime.js");
+  expect(styleRequests).toContain("/styles/anime.css");
+  expect(styleRequests).toContain("/styles/search.css");
+});
+
+test("direct anime character route owns its shared layout styles", async ({ browser }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "style request coverage only needs one browser");
+  const context = await browser.newContext();
+  const page = await context.newPage();
+  const styleRequests = [];
+  page.on("request", request => {
+    const pathname = new URL(request.url()).pathname;
+    if (pathname.includes("/styles/")) styleRequests.push(pathname);
+  });
+
+  await page.goto("/#anime-character");
+  await expect(page.locator("#animeCharacterGrid .anime-character-card").first()).toBeVisible();
+  await expect(page.locator("html")).not.toHaveClass(/route-booting/);
+
+  expect(styleRequests).toEqual(expect.arrayContaining([
+    "/styles/base.css",
+    "/styles/page.css",
+    "/styles/collection.css",
+    "/styles/anime.css",
+    "/styles/search.css"
+  ]));
+  expect(styleRequests).not.toContain("/styles/catalog.css");
+
+  const layout = await animeLayoutSnapshot(page);
+  expect(layout.control.display).toBe("grid");
+  expect(layout.collection.display).toBe("grid");
+  expect(layout.section.display).toBe("grid");
+  expect(layout.query.display).toBe("grid");
+  expect(layout.query.height).toBeGreaterThanOrEqual(48);
+  expect(layout.query.borderTopStyle).not.toBe("none");
+  expect(layout.grid.display).toBe("grid");
+  expect(layout.grid.columnGap).not.toBe("normal");
+  await context.close();
+});
+
+test("anime character layout is independent of prior catalog navigation", async ({ browser }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "layout order coverage only needs one browser");
+  const directContext = await browser.newContext();
+  const directPage = await directContext.newPage();
+  await directPage.goto("/#anime-character");
+  await expect(directPage.locator("#animeCharacterGrid .anime-character-card").first()).toBeVisible();
+  const directLayout = await animeLayoutSnapshot(directPage);
+
+  const catalogContext = await browser.newContext();
+  const catalogPage = await catalogContext.newPage();
+  await catalogPage.goto("/#toy-catalog?scope=bey&series=x");
+  await expect(catalogPage.locator("#catalogGrid .catalog-card").first()).toBeVisible();
+  await catalogPage.goto("/#anime-character");
+  await expect(catalogPage.locator("#animeCharacterGrid .anime-character-card").first()).toBeVisible();
+  const afterCatalogLayout = await animeLayoutSnapshot(catalogPage);
+
+  expect(directLayout).toEqual(afterCatalogLayout);
+  await directContext.close();
+  await catalogContext.close();
+});
+
+test("anime route stays masked until collection styles are ready", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "style timing coverage only needs one browser");
+  let unblockStyle;
+  let markStyleBlocked;
+  const styleGate = new Promise(resolve => { unblockStyle = resolve; });
+  const styleBlocked = new Promise(resolve => { markStyleBlocked = resolve; });
+  await page.route("**/styles/collection.css*", async route => {
+    markStyleBlocked();
+    await styleGate;
+    await route.continue();
+  });
+
+  const navigation = page.goto("/#anime-character", { waitUntil: "domcontentloaded" });
+  await styleBlocked;
+  await expect(page.locator("html")).toHaveClass(/route-booting/);
+  await expect(page.locator("main")).toHaveCSS("visibility", "hidden");
+
+  unblockStyle();
+  await navigation;
+  await expect(page.locator("#animeCharacterGrid .anime-character-card").first()).toBeVisible();
+  await expect(page.locator("html")).not.toHaveClass(/route-booting/);
+  await expect(page.locator(".anime-query-row")).toHaveCSS("display", "grid");
 });
 
 test("catalog and anime listings do not preload detail controllers", async ({ browser }, testInfo) => {
