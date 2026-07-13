@@ -317,10 +317,14 @@ const bindSearchScopeControls = ({ dropdown, dataAttr, setScope = () => {}, afte
 bindSearchScopeControls({
   dropdown: catalogSeriesFilter,
   dataAttr: "data-catalog-series",
-  setScope: series => setCatalogSeries(series),
+  setScope: series => setCatalogSeries(series, { refresh: false }),
   afterChange: () => {
     closeSearchHelpPopovers();
-    syncCatalogRouteHash();
+    navigateToRoute(catalogRouteFromState({ page: 1 }), {
+      replace: true,
+      preserveSearch: true,
+      preserveScroll: true
+    });
   }
 });
 bindSearchScopeControls({
@@ -1150,7 +1154,8 @@ function trackHeightModeRow(type, level) {
 }
 function isZeroGStadiumBottom(item) {
   if (!["bottom", "4dbottom"].includes(item.type)) return false;
-  return partItems.indexOf(item) >= zeroGBottomStartIndex;
+  const startIndex = zeroGBottomStartIndex();
+  return startIndex >= 0 && partItems.indexOf(item) >= startIndex;
 }
 function zeroGStadiumNote(item) {
   return isZeroGStadiumBottom(item) ? `<p class="stat-note">방어력과 지구력은 제로G 스타디움 기준이며, 일반 스타디움에서는 두 값이 서로 바뀝니다.</p>` : "";
@@ -1880,6 +1885,7 @@ function detailFallbackOriginRoute(id = "") {
 }
 function detailRouteExists(id = "") {
   return Boolean(
+    window.BeystadiumDataStore?.hasItem(id) ||
     productItemsById.has(id) ||
     catalogCoreItemsById.has(id) ||
     toolsItemsById.has(id) ||
@@ -1910,8 +1916,12 @@ function restoreDetailFallbackOriginIfNeeded(restoredContext, fallbackOriginRout
   }
   return false;
 }
-function applyRoute(route = parseRouteFromHash(), { preserveScroll = false, preserveSearch = false } = {}) {
+let routeApplyGeneration = 0;
+async function applyRoute(route = parseRouteFromHash(), { preserveScroll = false, preserveSearch = false } = {}) {
   const normalizedRoute = normalizeRoute(route || { type: "overview" });
+  const generation = ++routeApplyGeneration;
+  const ready = await window.BeystadiumDataStore.ensureRoute(normalizedRoute);
+  if (!ready || generation !== routeApplyGeneration) return false;
   let normalizedRouteKey = appliedRouteKey(normalizedRoute);
   const preservePrimaryReturn = Boolean(isPrimaryRoute(normalizedRoute) && (modal?.open || modalOriginRoute));
   const shouldPreserveScroll = preserveScroll || preservePrimaryReturn;
@@ -1966,6 +1976,7 @@ function applyRoute(route = parseRouteFromHash(), { preserveScroll = false, pres
     if (shouldPreserveScroll) restorePageScroll(modalController.scrollY);
     else stabilizePrimaryRouteScroll();
   }
+  return true;
 }
 document.querySelectorAll(".topbar > .brand, [data-sidebar-home]").forEach(brand => brand.addEventListener("click", event => {
   event.preventDefault();
@@ -2036,7 +2047,7 @@ document.addEventListener("click", event => {
 syncNavigationMode();
 syncCatalogScopeState();
 renderCatalogFilterChips();
-const applyCurrentHashRoute = () => {
+const applyCurrentHashRoute = async () => {
   const route = routeWithKnownDetailFallback(parseRouteFromHash());
   const canonicalHash = serializeRoute(route);
   const canonicalRouteKey = `${currentPathWithSearch()}${canonicalHash}`;
@@ -2049,7 +2060,8 @@ const applyCurrentHashRoute = () => {
         // URL canonicalization is best-effort; route application is the source of truth here.
       }
     }
-    applyRoute(route);
+    const applied = await applyRoute(route);
+    if (!applied) return;
     if (isDetailRoute(route) && !modal?.open) {
       navigateToRoute(detailFallbackOriginRoute(route.id) || { type: "overview" }, {
         replace: true,
@@ -2065,6 +2077,6 @@ try {
 } catch {
   // Some embedded browsers can deny history mutations; routing still works.
 }
-applyCurrentHashRoute();
-window.addEventListener("hashchange", applyCurrentHashRoute);
-window.addEventListener("popstate", applyCurrentHashRoute);
+void applyCurrentHashRoute();
+window.addEventListener("hashchange", () => void applyCurrentHashRoute());
+window.addEventListener("popstate", () => void applyCurrentHashRoute());

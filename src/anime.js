@@ -343,7 +343,8 @@ function openAnimeEpisodeDetail(indexOrId, options = {}) {
 function openCategoryAnimeEpisodesDetail(options = {}) {
   if (routeIfNeeded({ type: "category-anime-episodes", options }, options)) return;
   const preserveSearch = options.preserveSearch === true;
-  if (options.animeSeason || !preserveSearch) activeAnimeSeason = normalizeAnimeSeason(options.animeSeason || activeAnimeSeason);
+  if (options.animeSeason) activeAnimeSeason = normalizeAnimeSeason(options.animeSeason);
+  else if (!preserveSearch && !animeInfo.episodes.some(episode => episode.season === activeAnimeSeason)) activeAnimeSeason = defaultAnimeSeason();
   if (typeof options.animeQuery === "string") activeAnimeEpisodeQuery = options.animeQuery;
   else if (!preserveSearch) activeAnimeEpisodeQuery = "";
   cleanupModelViewer();

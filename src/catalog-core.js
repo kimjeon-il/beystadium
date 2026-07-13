@@ -1,10 +1,3 @@
-const catalogCoreItemsById = new Map(catalogCoreItems.map(item => [item.id, item]));
-const productItemsById = new Map(productItems.map(item => [item.id, item]));
-const toolsItemsById = new Map(toolsItems.map(item => [item.id, item]));
-const bookItemsById = new Map(bookItems.map(item => [item.id, item]));
-const gameItemsById = new Map(gameItems.map(item => [item.id, item]));
-const catalogCoreItemOrder = new Map(catalogCoreItems.map((item, index) => [item, index]));
-const toolsItemOrder = new Map(toolsItems.map((item, index) => [item, index]));
 const catalogSourceOrder = item => {
   if (!item || typeof item !== "object") return Number.MAX_SAFE_INTEGER;
   const toolsOrder = toolsItemOrder.get(item);
@@ -12,7 +5,7 @@ const catalogSourceOrder = item => {
   const coreOrder = catalogCoreItemOrder.get(item);
   return coreOrder !== undefined ? coreOrder : Number.MAX_SAFE_INTEGER;
 };
-const zeroGBottomStartIndex = partItems.findIndex(item => item.id === "BOTTOM-CIRCLE-FLAT");
+const zeroGBottomStartIndex = () => partItems.findIndex(item => item.id === "BOTTOM-CIRCLE-FLAT");
 const findCatalogItemById = id => catalogCoreItemsById.get(id) || toolsItemsById.get(id) || bookItemsById.get(id) || gameItemsById.get(id) || productItemsById.get(id) || null;
 
 const cardVisualMarkup = item => item.image
@@ -1190,12 +1183,19 @@ function navigateToRoute(route, { replace = false, apply = true, preserveScroll 
       // URL writes can be denied in embedded browsers; still apply the route state.
     }
   }
-  if (apply) applyRoute(normalizedRoute, { preserveScroll, preserveSearch });
+  if (!apply) return Promise.resolve(true);
+  const result = applyRoute(normalizedRoute, { preserveScroll, preserveSearch });
+  result?.catch?.(error => console.error(error));
+  return result;
 }
-const mainSearchProductCompositionText = (item, region) => productCompositionItems(item, region)
-  .map(part => [part.name, mainSearchItemText(findCatalogItemById(part.target))].filter(Boolean).join(" "))
-  .filter(Boolean)
-  .join(" ");
+const mainSearchProductCompositionText = (item, region) => {
+  const composition = productCompositionItems(item, region);
+  if (!composition.length) return item._compositionSearchText || "";
+  return composition
+    .map(part => [part.name, mainSearchItemText(findCatalogItemById(part.target))].filter(Boolean).join(" "))
+    .filter(Boolean)
+    .join(" ");
+};
 const productSearchFields = item => {
   const krRelease = productRelease(item, "kr");
   const jpRelease = productRelease(item, "jp");
@@ -1260,19 +1260,26 @@ const cacheSearchResultMarkup = (key, result) => {
 const mainSearchRecord = (kind, item, fields, order, extra = {}) => createSearchRecord(kind, item, fields, order, extra);
 const createMainSearchRecords = ({ items, kind, fields = catalogItemSearchFields, extra = () => ({}) }, sourceIndex = 0) =>
   items.map((item, index) => mainSearchRecord(kind, item, fields(item, index), (sourceIndex * 100000) + index, extra(item, index)));
+const indexedSearchItems = kind => searchIndexItems.filter(entry => entry.kind === kind).map(entry => entry.item);
 const mainSearchRecordSources = () => [
-  { key: "catalog", kind: "catalog-item", items: catalogCoreItems, fields: catalogItemSearchFields },
-  { key: "tools", kind: "tools", items: toolsItems, fields: toolsSearchFields },
-  { key: "product", kind: "product", items: productItems.filter(item => !item.lineupOnly), fields: productSearchFields },
-  { key: "manga", kind: "book", items: bookItems, fields: bookSearchFields },
-  { key: "game", kind: "game", items: gameItems, fields: gameSearchFields },
-  { key: "anime", kind: "anime", items: animeInfo.episodes, fields: animeSearchFields, extra: (episode, index) => ({ index }) }
+  { key: "catalog", kind: "catalog-item", items: indexedSearchItems("catalog-item"), fields: catalogItemSearchFields },
+  { key: "tools", kind: "tools", items: indexedSearchItems("tools"), fields: toolsSearchFields },
+  { key: "product", kind: "product", items: indexedSearchItems("product"), fields: productSearchFields },
+  { key: "manga", kind: "book", items: indexedSearchItems("book"), fields: bookSearchFields },
+  { key: "game", kind: "game", items: indexedSearchItems("game"), fields: gameSearchFields },
+  { key: "anime", kind: "anime", items: indexedSearchItems("anime"), fields: animeSearchFields, extra: (episode, index) => ({ index }) }
 ];
 const searchResultRecords = () => {
   if (searchResultRecordCache) return searchResultRecordCache;
   searchResultRecordCache = Object.fromEntries(mainSearchRecordSources().map((source, sourceIndex) => [source.key, createMainSearchRecords(source, sourceIndex)]));
   return searchResultRecordCache;
 };
+window.addEventListener("beystadium:data-loaded", () => {
+  searchResultRecordCache = null;
+  searchResultRecordListCache = null;
+  searchResultItemsCache.clear();
+  searchResultMarkupCache.clear();
+});
 const searchResultCacheKey = (scope, query) => `${scope}\u0000${searchQueryFrom(query).raw}`;
 const searchResultRenderKey = (scope, query) => [
   scope,

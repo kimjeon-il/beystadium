@@ -102,7 +102,7 @@ const releaseSeriesHasProducts = (series, region = activeReleaseRegion) => relea
 );
 const defaultReleaseSeries = (region = activeReleaseRegion) => [...releaseSeriesOrder()].reverse().find(series =>
   releaseSeriesHasProducts(series, region)
-) || releaseSeriesOrder()[0] || "metal fight";
+) || window.BeystadiumDataStore?.defaultReleaseSeries(region) || releaseSeriesOrder()[0] || "metal fight";
 const releaseSeriesForRegion = (series, region = activeReleaseRegion) =>
   releaseSeriesHasProducts(series, region) ? series : defaultReleaseSeries(region);
 const productDisplayFallbackRegions = (region = "kr") =>
