@@ -19,9 +19,14 @@
       type="font/woff2"
       crossorigin
     />
-  <link rel="stylesheet" href="./styles.css?v=20260712-bey-image-stronger-shadow" />
+  <link rel="stylesheet" href="./styles.css?v=20260713-lazy-data-v2" />
   </head>
   <body class="is-overview" data-active-panel="overview">
+    <div class="data-load-status" id="dataLoadStatus" role="status" aria-live="polite" hidden>
+      <span class="data-load-spinner" aria-hidden="true"></span>
+      <span data-load-message>데이터를 불러오는 중입니다.</span>
+      <button type="button" data-load-retry hidden>다시 시도</button>
+    </div>
     <header class="topbar">
       <a class="brand" href="#" data-sidebar-home aria-label="홈으로 이동" title="홈으로 이동">
         <span class="brand-mark" aria-hidden="true">B</span>
@@ -338,16 +343,7 @@
     </dialog>
 
     <button class="to-top" id="toTop" type="button" aria-label="맨 위로 이동">↑</button>
-  <script defer src="./data/catalog-data.js?v=20260712-storm-pegasis-stardust"></script>
-  <script defer src="./src/ui-core.js?v=20260711-mounted-part-labels"></script>
-  <script defer src="./data/product-data.js?v=20260712-kr-rare-bey-get"></script>
-  <script defer src="./data/rare-bey-get-data.js?v=20260712-kr-rare-bey-get"></script>
-  <script defer src="./src/release-core.js?v=20260712-rare-bey-list-readable"></script>
-  <script defer src="./data/secondary-data.js?v=20260711-x-set-tools"></script>
-  <script defer src="./src/catalog-core.js?v=20260712-anime-character-season-filter"></script>
-  <script defer src="./src/release-page.js?v=20260712-rare-bey-list-readable"></script>
-  <script defer src="./data/anime-data.js?v=20260712-x-characters-empty-role"></script>
-  <script defer src="./src/anime.js?v=20260712-anime-character-season-filter"></script>
-  <script defer src="./src/router.js?v=20260712-dropdown-scrollbar-compensation"></script>
+  <script defer src="./src/data-store.js?v=20260713-lazy-data-v2"></script>
+  <script defer src="./src/bootstrap.js?v=20260713-lazy-data-v2"></script>
   </body>
 </html>

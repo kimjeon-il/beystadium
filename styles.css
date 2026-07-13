@@ -66,6 +66,7 @@
   --space-4: 16px;
   --space-5: 20px;
   --space-6: 24px;
+  --touch-target-min: 44px;
   --modal-section-padding: var(--space-5);
   --modal-section-row-height: 36px;
   --modal-section-content-inset: 10px;
@@ -1318,6 +1319,50 @@ html.route-booting .mobile-drawer,
 html.route-booting #detailModal,
 html.route-booting .to-top {
   visibility: hidden !important;
+}
+
+.data-load-status {
+  position: fixed;
+  left: 50%;
+  bottom: var(--space-5);
+  z-index: 1300;
+  min-height: var(--touch-target-min);
+  padding: var(--space-2) var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  border: var(--border-subtle);
+  border-radius: var(--radius-control);
+  background: var(--ui-surface-raised);
+  color: var(--ui-text);
+  box-shadow: var(--shadow-floating);
+  transform: translateX(-50%);
+}
+
+.data-load-status[hidden] {
+  display: none;
+}
+
+.data-load-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--ui-stroke-subtle);
+  border-top-color: var(--ui-text);
+  border-radius: 999px;
+  animation: data-load-spin var(--motion-enter) linear infinite;
+}
+
+.data-load-status.is-error .data-load-spinner {
+  display: none;
+}
+
+.data-load-status button {
+  min-height: 32px;
+  padding: var(--space-1) var(--space-3);
+}
+
+@keyframes data-load-spin {
+  to { transform: rotate(360deg); }
 }
 
 /* Gentle interactions for cards and popover links. */
