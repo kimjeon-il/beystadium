@@ -20,7 +20,7 @@
       type="font/woff2"
       crossorigin
     />
-  <link rel="stylesheet" href="./styles.css?v=20260713-lazy-data-v2" />
+  <link rel="stylesheet" href="./styles.css?v=20260713-sidebar-category-icons" />
   </head>
   <body class="is-overview" data-active-panel="overview">
     <div class="data-load-status" id="dataLoadStatus" role="status" aria-live="polite" hidden>
@@ -107,8 +107,7 @@
       </button>
       <nav class="mobile-drawer-nav sidebar-nav" aria-label="모바일 메뉴">
         <section class="sidebar-section">
-          <div class="sidebar-group-label">완구</div>
-          <button class="sidebar-button sidebar-button--child" type="button" data-category-catalog-open aria-label="완구 도감" title="완구 도감">
+          <div class="sidebar-group-label">
             <span class="sidebar-button__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M9.1 4.1h5.8l.6 2.2h-7z" />
@@ -116,31 +115,17 @@
                 <path d="M9.7 16.3h4.6v1.8L12 20.8l-2.3-2.7z" />
               </svg>
             </span>
+            <span>완구</span>
+          </div>
+          <button class="sidebar-button sidebar-button--child" type="button" data-category-catalog-open aria-label="완구 도감" title="완구 도감">
+            <span class="sidebar-button__icon" aria-hidden="true"></span>
             <span class="sidebar-button__label">도감</span>
           </button>
           <button class="sidebar-button sidebar-button--child" type="button" data-category-release-open aria-label="제품 발매목록" title="제품 발매목록">
-            <span class="sidebar-button__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="4" y="5.5" width="16" height="14.5" rx="2.5" stroke-width="1.8" />
-                <path d="M8 4v3M16 4v3M4.5 9.2h15" stroke-width="1.8" />
-                <path d="M8 12.5h1.2M12 12.5h4M8 16h1.2M12 16h4" stroke-width="1.8" />
-              </svg>
-            </span>
+            <span class="sidebar-button__icon" aria-hidden="true"></span>
             <span class="sidebar-button__label">발매목록</span>
           </button>
-          <div class="sidebar-group-label">미디어</div>
-          <button class="sidebar-button sidebar-button--child" type="button" data-category-anime-open aria-label="미디어 등장인물" title="미디어 등장인물">
-            <span class="sidebar-button__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3.8" y="5.5" width="16.4" height="13" rx="2.6" stroke-width="1.8" />
-                <circle cx="9" cy="10.4" r="2" stroke-width="1.7" />
-                <path d="M6.2 15.5c.7-1.7 2-2.5 2.8-2.5s2.1.8 2.8 2.5" stroke-width="1.7" />
-                <path d="M14 9.6h3.2M14 13h4" stroke-width="1.7" />
-              </svg>
-            </span>
-            <span class="sidebar-button__label">등장인물</span>
-          </button>
-          <button class="sidebar-button sidebar-button--child" type="button" data-category-anime-episodes-open aria-label="미디어 방영목록" title="미디어 방영목록">
+          <div class="sidebar-group-label">
             <span class="sidebar-button__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="3.5" y="6.5" width="17" height="12" rx="2.4" stroke-width="1.8" />
@@ -149,16 +134,18 @@
                 <path d="M9 20h6" stroke-width="1.7" />
               </svg>
             </span>
+            <span>미디어</span>
+          </div>
+          <button class="sidebar-button sidebar-button--child" type="button" data-category-anime-open aria-label="미디어 등장인물" title="미디어 등장인물">
+            <span class="sidebar-button__icon" aria-hidden="true"></span>
+            <span class="sidebar-button__label">등장인물</span>
+          </button>
+          <button class="sidebar-button sidebar-button--child" type="button" data-category-anime-episodes-open aria-label="미디어 방영목록" title="미디어 방영목록">
+            <span class="sidebar-button__icon" aria-hidden="true"></span>
             <span class="sidebar-button__label">방영목록</span>
           </button>
           <button class="sidebar-button sidebar-button--child" type="button" disabled aria-disabled="true" aria-label="미디어 연재목록" title="미디어 연재목록">
-            <span class="sidebar-button__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4.5 5.2h5.4c1.1 0 2.1.5 2.1 1.6v12c0-1.1-1-1.6-2.1-1.6H4.5V5.2Z" />
-                <path d="M19.5 5.2h-5.4c-1.1 0-2.1.5-2.1 1.6v12c0-1.1 1-1.6 2.1-1.6h5.4V5.2Z" />
-                <path d="M7.4 8.5h2.2M14.4 8.5h2.2M15.2 12.8h3.2l1.1 1.3v-3.6" />
-              </svg>
-            </span>
+            <span class="sidebar-button__icon" aria-hidden="true"></span>
             <span class="sidebar-button__label">연재목록</span>
           </button>
         </section>

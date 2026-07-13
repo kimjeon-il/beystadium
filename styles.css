@@ -4544,6 +4544,7 @@ body.menu-open .mobile-drawer {
   min-height: 30px;
   display: flex;
   align-items: center;
+  gap: var(--sidebar-button-gap);
   padding: 0 var(--sidebar-button-padding-inline);
   color: var(--ui-text);
   font-size: var(--sidebar-primary-font-size);
