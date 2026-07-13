@@ -45,7 +45,9 @@ test("runtime data is loaded by route instead of during home boot", async ({ pag
   expect(runtimeRequests).toContain("/data/runtime/series/x.json");
   expect(runtimeRequests.some(path => path.includes("/search/"))).toBe(false);
   expect(moduleRequests).toContain("/src/router.js");
-  expect(moduleRequests).toContain("/src/catalog-core.js");
+  expect(moduleRequests).toContain("/src/catalog-model.js");
+  expect(moduleRequests).toContain("/src/collection-view.js");
+  expect(moduleRequests).toContain("/src/search-engine.js");
   expect(moduleRequests).not.toContain("/src/release-page.js");
   expect(moduleRequests).not.toContain("/src/anime.js");
 

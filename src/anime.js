@@ -12,7 +12,10 @@ import {
   normalizeAnimeCharacterSeason,
   normalizeAnimeSeason
 } from "#app/anime-core";
-import { ANIME_PAGE_SIZE, animeRenderKey, animeSearchQuery, cleanupModelViewer, createSearchRecord, matchSearchRecord, matchesSearchText, prepareCatalogSearchQuery, rememberModalContext, renderAnimePagination, renderCategoryCollection, searchFieldsFromValues, syncAnimeRenderPage } from "#app/catalog-core";
+import { ANIME_PAGE_SIZE, animeRenderKey, renderAnimePagination, renderCategoryCollection, syncAnimeRenderPage } from "#app/collection-view";
+import { cleanupModelViewer } from "#app/detail-view";
+import { rememberModalContext } from "#app/modal-context";
+import { animeSearchQuery, createSearchRecord, matchSearchRecord, matchesSearchText, prepareCatalogSearchQuery, searchFieldsFromValues } from "#app/search-engine";
 import { animeInfo } from "#app/data-store";
 import { TableListController, animeAirDateCompactLabel, animeAirDateLabel, escapeHtml, responsiveDateSpans, tableListControlsMarkup, tableListDropdownMarkup, tableListPageMarkup, tableListTableMarkup } from "#app/release-core";
 import { appServices } from "#app/services";

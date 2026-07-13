@@ -1,6 +1,90 @@
 import { episodeIndexFromHash, isAnimeEpisodeHash, normalizeAnimeCharacterSeason } from "#app/anime-core";
 import { appState } from "#app/state";
-import { SEARCH_HASH_UPDATE_DELAY, SEARCH_RENDER_DELAY, activeCatalogSortOption, animeRenderKey, animeSearchQuery, appliedRouteKey, beyDetailSections, beyModalTags, bindModalTagPopovers, bindSearchPreview, catalogAttributeChipForTerm, catalogFilterChipLabelForTerm, catalogFilterQueryTerms, catalogRenderKey, catalogSearchQuery, catalogSortOptions, catalogVisibleItemsCache, cleanupModelViewer, clearActiveDetailModalContext, clearModalContext, clearModalOriginRoute, closeAllSearchPreviews, closeModalTagPopover, codedPartNameTypes, compareToolsItemsByFirstRelease, currentPageScrollY, currentPathWithSearch, defaultCatalogSort, findCatalogItemById, getModalCloseRoute, globalSearchQuery, handleSearchPreviewKeydown, initModelViewer, isDetailRoute, isPrimaryRoute, modalArtMarkup, modalInfoSlot, modalOriginState, modalScrollArea, modalTagGroup, navigateToRoute, normalizeCatalogRouteSort, normalizeCatalogSearchInput, normalizeRoute, parseRouteFromHash, partCategory, partKoName, partModalTags, positionModalTagPopover, productCompositionItems, productLineupIds, productSerialNumber, refreshSearchPreview, rememberModalContext, rememberPrimaryRoute, renderCatalogItems, renderGlobalCards, restorePageScroll, restoredModalContext, routeSnapshot, scrollAnimeGridIntoView, scrollCatalogGridIntoView, searchPreviewScopeValue, serializeRoute, stabilizePrimaryRouteScroll, syncCatalogScopeState, syncModalOriginRoute, validScrollY, visibleCatalogCoreItems, visibleToolsItems, zeroGBottomStartIndex } from "#app/catalog-core";
+import {
+  activeCatalogSortOption,
+  catalogRenderKey,
+  catalogSortOptions,
+  catalogVisibleItemsCache,
+  codedPartNameTypes,
+  compareToolsItemsByFirstRelease,
+  findCatalogItemById,
+  modalArtMarkup,
+  partCategory,
+  partKoName,
+  productCompositionItems,
+  productLineupIds,
+  productSerialNumber,
+  visibleCatalogCoreItems,
+  visibleToolsItems,
+  zeroGBottomStartIndex
+} from "#app/catalog-model";
+import {
+  animeRenderKey,
+  renderCatalogItems,
+  scrollAnimeGridIntoView,
+  scrollCatalogGridIntoView,
+  syncCatalogScopeState
+} from "#app/collection-view";
+import {
+  beyDetailSections,
+  beyModalTags,
+  bindModalTagPopovers,
+  cleanupModelViewer,
+  closeModalTagPopover,
+  initModelViewer,
+  modalInfoSlot,
+  modalScrollArea,
+  modalTagGroup,
+  partModalTags,
+  positionModalTagPopover
+} from "#app/detail-view";
+import {
+  clearActiveDetailModalContext,
+  clearModalContext,
+  currentPageScrollY,
+  modalOriginState,
+  rememberModalContext,
+  restorePageScroll,
+  restoredModalContext,
+  validScrollY
+} from "#app/modal-context";
+import {
+  appliedRouteKey,
+  clearModalOriginRoute,
+  currentPathWithSearch,
+  defaultCatalogSort,
+  getModalCloseRoute,
+  isDetailRoute,
+  isPrimaryRoute,
+  navigateToRoute,
+  normalizeCatalogRouteSort,
+  normalizeRoute,
+  parseRouteFromHash,
+  rememberPrimaryRoute,
+  routeSnapshot,
+  serializeRoute,
+  stabilizePrimaryRouteScroll,
+  syncModalOriginRoute
+} from "#app/route-core";
+import {
+  animeSearchQuery,
+  catalogAttributeChipForTerm,
+  catalogFilterChipLabelForTerm,
+  catalogFilterQueryTerms,
+  catalogSearchQuery,
+  globalSearchQuery,
+  normalizeCatalogSearchInput
+} from "#app/search-engine";
+import {
+  SEARCH_HASH_UPDATE_DELAY,
+  SEARCH_RENDER_DELAY,
+  bindSearchPreview,
+  closeAllSearchPreviews,
+  handleSearchPreviewKeydown,
+  refreshSearchPreview,
+  renderGlobalCards,
+  searchPreviewScopeValue
+} from "#app/search-feature";
 import { BeystadiumDataStore, bookItems, bookItemsById, catalogCoreItems, catalogCoreItemsById, gameItems, gameItemsById, partItems, productItems, productItemsById, toolsItems, toolsItemsById } from "#app/data-store";
 import { RARE_BEY_GET_BADGE, defaultCatalogSeries, defaultReleaseSeries, escapeAttributeValue, escapeHtml, normalizeCatalogSeries, productDisplayName, productDisplayRegion, productRelease, productReleasedInRegion, rareBeyGetEntryProductIds, rareBeyGetEntryRegion, rareBeyGetEntryStartSortValue, releaseDateSortValue, releaseHasBadge, releaseRegionLabels, releaseSeriesLabels, setSortDropdownLabel, sortDropdownMarkup, visibleRareBeyGetEntries } from "#app/release-core";
 import { registerAppServices } from "#app/services";

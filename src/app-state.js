@@ -13,6 +13,8 @@ const appState = {
   applyingRoute: false,
   modalOriginRoute: null,
   modalOriginRouteExplicit: false,
+  activeDetailModalContext: null,
+  lastPrimaryRoute: { type: "overview" },
   activeModalTagButton: null,
   activeSearchPreview: null,
   lastAppliedRouteKey: "",

@@ -1,6 +1,9 @@
 import { appServices } from "#app/services";
 import { appState } from "#app/state";
-import { cleanupModelViewer, compareProductReleaseOrder, matchesSearchText, productSerialNumber, rememberModalContext } from "#app/catalog-core";
+import { compareProductReleaseOrder, productSerialNumber } from "#app/catalog-model";
+import { cleanupModelViewer } from "#app/detail-view";
+import { rememberModalContext } from "#app/modal-context";
+import { matchesSearchText } from "#app/search-engine";
 import { productItems } from "#app/data-store";
 import { TableListController, defaultReleaseSeries, escapeAttributeValue, escapeHtml, priceLabel, productRelease, productReleasedInRegion, releaseBadgeLabel, releaseBadgeSearchText, releaseBadges, releaseControls, releaseDateCompactLabel, releaseDateLabel, releaseDateSortValue, releaseKindSortValue, releasePriceSortValue, releaseRegionLabels, releaseSeriesForRegion, releaseSeriesLabels, responsiveDateSpans, sortDropdownMarkup, tableListPageMarkup, tableListTableMarkup } from "#app/release-core";
 import { bindActionRows } from "#app/ui-core";
