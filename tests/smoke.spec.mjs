@@ -609,8 +609,22 @@ test("persistent selections use the existing neutral highlight in light and dark
       sidebarBackground: getComputedStyle(document.querySelector("#mobileDrawer .sidebar-button.active")).backgroundColor,
       sidebarText: getComputedStyle(document.querySelector("#mobileDrawer .sidebar-button.active")).color,
       sidebarAccentToken: getComputedStyle(document.querySelector("#mobileDrawer")).getPropertyValue("--sidebar-accent").trim(),
-      sidebarMarker: getComputedStyle(document.querySelector("#mobileDrawer .sidebar-button.active"), "::before").backgroundColor,
-      sidebarIcon: getComputedStyle(document.querySelector("#mobileDrawer .sidebar-button.active .sidebar-button__icon")).color
+      sidebarChannels: (() => {
+        const canvas = document.createElement("canvas");
+        canvas.width = 1;
+        canvas.height = 1;
+        const context = canvas.getContext("2d", { willReadFrequently: true });
+        const channels = color => {
+          context.clearRect(0, 0, 1, 1);
+          context.fillStyle = color;
+          context.fillRect(0, 0, 1, 1);
+          return [...context.getImageData(0, 0, 1, 1).data];
+        };
+        return {
+          marker: channels(getComputedStyle(document.querySelector("#mobileDrawer .sidebar-button.active"), "::before").backgroundColor),
+          icon: channels(getComputedStyle(document.querySelector("#mobileDrawer .sidebar-button.active .sidebar-button__icon")).color)
+        };
+      })()
     }));
     expect(colors.menuBackground).toBe(colors.neutralBackground);
     expect(colors.menuText).toBe(colors.neutralText);
@@ -625,7 +639,7 @@ test("persistent selections use the existing neutral highlight in light and dark
     expect(colors.sidebarText).toBe(colors.neutralText);
     expect(colors.sidebarAccentToken).toContain("light-dark(#334155, #d7dee8) 84%");
     expect(colors.sidebarAccentToken).toContain("light-dark(#101827, #f3f6fa) 16%");
-    expect(colors.sidebarMarker).toBe(colors.sidebarIcon);
+    expect(colors.sidebarChannels.marker).toEqual(colors.sidebarChannels.icon);
 
     await page.goto("/#toy-release");
     await expect(page.locator(".release-region-tabs .ui-tab-button.active")).toBeVisible();
