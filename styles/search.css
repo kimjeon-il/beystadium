@@ -274,12 +274,23 @@
 }
 
 .search-results-meta {
-  min-height: 18px;
   margin: 0 0 14px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
   color: var(--ui-muted);
   font-size: var(--font-sm);
   font-weight: var(--font-weight-regular);
   line-height: 1.35;
+}
+
+.search-results-meta:empty {
+  display: none;
+}
+
+.search-results-meta .active-query-chip {
+  max-width: min(100%, 32rem);
 }
 
 .search-results-list {

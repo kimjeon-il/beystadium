@@ -250,6 +250,139 @@ test("episode and release table styles are independent of navigation order", asy
   await crossContext.close();
 });
 
+test("query chips clear only the search query across list routes", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "full query-chip route coverage only needs one browser");
+  const errors = consoleErrors(page);
+
+  await page.goto("/#search?q=드래곤&scope=bey");
+  await expect(page.locator('[data-app-panel="all"].active')).toBeVisible();
+  const globalChip = page.locator("#searchResultsMeta [data-clear-query]");
+  await expect(globalChip).toHaveText(/검색:\s*드래곤\s*×/);
+  await expect(globalChip).toHaveAttribute("aria-label", "검색어 “드래곤” 제거");
+  await globalChip.click();
+  await expect(page).toHaveURL(/#search\?q=&scope=bey$/);
+  await expect(page.locator("#searchResultsMeta [data-clear-query]")).toHaveCount(0);
+  await expect(page.locator("#searchResultsMeta .search-results-scope-label")).toHaveText("베이 범위");
+  for (const selector of ["#globalSearchInput", "#mobileDrawerSearchInput", "#overviewSearchInput"]) {
+    await expect(page.locator(selector)).toHaveValue("");
+  }
+
+  await page.goto("/#toy-catalog?scope=bey&series=x&sort=no-desc&page=1&q=드래곤");
+  await expect(page.locator('[data-app-panel="catalog"].active')).toBeVisible();
+  const catalogState = await page.evaluate(() => ({
+    scope: document.querySelector("#catalogSearchScope")?.dataset.scope,
+    series: document.querySelector("#catalogSeriesFilter")?.dataset.scope,
+    sort: document.querySelector("[data-catalog-sort].active")?.dataset.catalogSort
+  }));
+  await expect(page.locator('[data-catalog-filter-chips="catalog"] [data-clear-query]')).toBeVisible();
+  await page.locator('[data-catalog-filter-chips="catalog"] [data-clear-query]').click();
+  await expect(page).toHaveURL(/#toy-catalog\?scope=bey&series=x&sort=no-desc&page=1$/);
+  await expect(page.locator("#catalogSearchInput")).toHaveValue("");
+  await expect(page.locator('[data-catalog-filter-chips="catalog"]')).toBeHidden();
+  expect(await page.evaluate(() => ({
+    scope: document.querySelector("#catalogSearchScope")?.dataset.scope,
+    series: document.querySelector("#catalogSeriesFilter")?.dataset.scope,
+    sort: document.querySelector("[data-catalog-sort].active")?.dataset.catalogSort
+  }))).toEqual(catalogState);
+
+  await page.goto("/#anime-character?season=burst&q=강산&page=1");
+  await expect(page.locator('[data-app-panel="anime"].active')).toBeVisible();
+  await expect(page.locator('[data-catalog-filter-chips="anime"] [data-clear-query]')).toBeVisible();
+  await page.locator('[data-catalog-filter-chips="anime"] [data-clear-query]').click();
+  await expect(page).toHaveURL(/#anime-character\?season=burst$/);
+  await expect(page.locator("#animeSearchInput")).toHaveValue("");
+  await expect(page.locator('[data-catalog-filter-chips="anime"]')).toBeHidden();
+  await expect(page.locator('[data-anime-character-season="burst"].active')).toHaveCount(1);
+
+  await page.goto("/#toy-release");
+  await expect(page.locator(".release-product-row").first()).toBeVisible();
+  const releaseState = await page.evaluate(() => ({
+    region: document.querySelector("[data-release-region].active")?.dataset.releaseRegion,
+    series: document.querySelector("[data-release-series].active")?.dataset.releaseSeries,
+    sort: document.querySelector("[data-release-sort-option].active")?.dataset.releaseSortOption
+  }));
+  await page.locator("#releaseSearchInput").fill("베이");
+  await expect(page.locator("[data-release-meta-row] [data-clear-query]")).toBeVisible();
+  await page.locator("[data-release-meta-row] [data-clear-query]").click();
+  await expect(page.locator("#releaseSearchInput")).toHaveValue("");
+  await expect(page.locator("[data-release-meta-row] [data-clear-query]")).toHaveCount(0);
+  expect(await page.evaluate(() => ({
+    region: document.querySelector("[data-release-region].active")?.dataset.releaseRegion,
+    series: document.querySelector("[data-release-series].active")?.dataset.releaseSeries,
+    sort: document.querySelector("[data-release-sort-option].active")?.dataset.releaseSortOption
+  }))).toEqual(releaseState);
+
+  await page.goto("/#anime-episode");
+  await expect(page.locator(".anime-episode-row").first()).toBeVisible();
+  const episodeSeason = await page.locator("[data-anime-season].active").getAttribute("data-anime-season");
+  await page.locator("#animeEpisodeSearchInput").fill("1");
+  await expect(page.locator(".table-list-query-row [data-clear-query]")).toBeVisible();
+  await page.locator(".table-list-query-row [data-clear-query]").click();
+  await expect(page.locator("#animeEpisodeSearchInput")).toHaveValue("");
+  await expect(page.locator(".table-list-query-row")).toHaveCount(0);
+  await expect(page.locator(`[data-anime-season="${episodeSeason}"].active`)).toHaveCount(1);
+  expect(errors).toEqual([]);
+});
+
+test("long query chip truncates inside the mobile viewport", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "mobile", "narrow query-chip coverage is mobile-only");
+  const query = "아주긴검색어".repeat(16);
+  await page.goto(`/#toy-catalog?scope=bey&series=x&q=${encodeURIComponent(query)}`);
+  const chip = page.locator('[data-catalog-filter-chips="catalog"] [data-clear-query]');
+  await expect(chip).toBeVisible();
+  await expect(chip).toHaveAttribute("aria-label", `검색어 “${query}” 제거`);
+  const layout = await page.evaluate(() => {
+    const chipElement = document.querySelector('[data-catalog-filter-chips="catalog"] [data-clear-query]');
+    const value = chipElement.querySelector(".active-query-chip__value");
+    const rect = chipElement.getBoundingClientRect();
+    return {
+      chipLeft: rect.left,
+      chipRight: rect.right,
+      viewportWidth: document.documentElement.clientWidth,
+      documentWidth: document.documentElement.scrollWidth,
+      textOverflow: getComputedStyle(value).textOverflow,
+      valueWidth: value.clientWidth,
+      valueScrollWidth: value.scrollWidth
+    };
+  });
+  expect(layout.chipLeft).toBeGreaterThanOrEqual(0);
+  expect(layout.chipRight).toBeLessThanOrEqual(layout.viewportWidth + 1);
+  expect(layout.documentWidth).toBeLessThanOrEqual(layout.viewportWidth + 1);
+  expect(layout.textOverflow).toBe("ellipsis");
+  expect(layout.valueScrollWidth).toBeGreaterThan(layout.valueWidth);
+});
+
+test("persistent selections use Fluent blue in light and dark themes", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "theme color coverage only needs one browser");
+  for (const [colorScheme, expectedAccent] of [["light", "rgb(15, 108, 189)"], ["dark", "rgb(98, 171, 245)"]]) {
+    await page.emulateMedia({ colorScheme });
+    await page.goto("/#toy-catalog?scope=all&series=all&sort=latest&page=1");
+    await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
+    await expect(page.locator(".catalog-pagination-nav .ui-button.active")).toBeVisible();
+    await expect(page.locator(".topbar-primary-button.active")).toHaveCSS("color", expectedAccent);
+    await expect(page.locator("#catalogSeriesFilter .ui-dropdown-item.active")).toHaveCSS("color", expectedAccent);
+    await expect(page.locator(".catalog-pagination-nav .ui-button.active")).toHaveCSS("color", expectedAccent);
+    const colors = await page.evaluate(() => ({
+      menu: getComputedStyle(document.querySelector(".topbar-primary-button.active")).color,
+      dropdown: getComputedStyle(document.querySelector("#catalogSeriesFilter .ui-dropdown-item.active")).color,
+      page: getComputedStyle(document.querySelector(".catalog-pagination-nav .ui-button.active")).color,
+      inactive: getComputedStyle(document.querySelector("#catalogSeriesFilter .ui-dropdown-item:not(.active)")).color,
+      focusToken: getComputedStyle(document.documentElement).getPropertyValue("--ui-focus-ring"),
+      accentToken: getComputedStyle(document.documentElement).getPropertyValue("--ui-accent")
+    }));
+    expect(colors.menu).toBe(expectedAccent);
+    expect(colors.dropdown).toBe(expectedAccent);
+    expect(colors.page).toBe(expectedAccent);
+    expect(colors.inactive).not.toBe(expectedAccent);
+    expect(colors.focusToken).toContain(colors.accentToken.trim());
+    expect(colors.accentToken).not.toContain("0f6cbd");
+
+    await page.goto("/#toy-release");
+    await expect(page.locator(".release-region-tabs .ui-tab-button.active")).toBeVisible();
+    await expect(page.locator(".release-region-tabs .ui-tab-button.active")).toHaveCSS("color", expectedAccent);
+  }
+});
+
 test("anime route stays masked until collection styles are ready", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "style timing coverage only needs one browser");
   let unblockStyle;
@@ -596,6 +729,14 @@ test("mobile drawer opens and exposes category navigation", async ({ page }, tes
   await page.locator("#menuButton").click();
   await expect(page.locator("#mobileDrawer")).toHaveAttribute("aria-hidden", "false");
   await expect(page.locator("[data-category-catalog-open]").last()).toBeVisible();
+  await expect(page.locator("#mobileDrawer [data-sidebar-home]")).toHaveCSS("color", "rgb(15, 108, 189)");
+  const currentMenuColors = await page.locator("#mobileDrawer [data-sidebar-home]").evaluate(element => ({
+    text: getComputedStyle(element).color,
+    marker: getComputedStyle(element, "::before").backgroundColor,
+    icon: getComputedStyle(element.querySelector(".sidebar-button__icon")).color
+  }));
+  expect(currentMenuColors.marker).toBe(currentMenuColors.text);
+  expect(currentMenuColors.icon).toBe(currentMenuColors.text);
   expect(errors).toEqual([]);
 });
 

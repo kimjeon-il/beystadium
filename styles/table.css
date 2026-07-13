@@ -317,6 +317,27 @@
   display: none;
 }
 
+.table-list-meta-row.has-active-query {
+  display: grid;
+}
+
+.table-list-meta-primary {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.release-mobile-sort-row.has-active-query > .catalog-query-actions {
+  display: none;
+}
+
+@container (max-width: 39.999rem) {
+  .table-list-meta-row.release-mobile-sort-row > .catalog-query-actions {
+    display: inline-flex;
+  }
+}
+
 @media (max-width: 39.999rem) {
 .table-list-controls {
     --table-list-grid-columns: minmax(0, 8fr) minmax(0, 14.5fr);

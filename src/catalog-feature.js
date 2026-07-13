@@ -4,15 +4,10 @@ import { renderCatalogItems, scrollCatalogGridIntoView, syncCatalogScopeState } 
 import { navigateToRoute } from "#app/navigation";
 import { defaultCatalogSort, normalizeCatalogRouteSort, normalizeRoute } from "#app/route-parser";
 import {
-  escapeAttributeValue,
-  escapeHtml,
   normalizeCatalogSeries,
   sortDropdownMarkup
 } from "#app/release-core";
 import {
-  catalogAttributeChipForTerm,
-  catalogFilterChipLabelForTerm,
-  catalogFilterQueryTerms,
   catalogSearchQuery,
   normalizeCatalogSearchInput
 } from "#app/search-engine";
@@ -28,6 +23,7 @@ import {
   catalogSearch,
   catalogSearchScope,
   catalogSeriesFilter,
+  queryChipMarkup,
   setCatalogSearchScope,
   setCatalogSeriesFilter,
   setGlobalSearchScope,
@@ -121,34 +117,6 @@ const openCategoryCatalog = ({ scope = "all", series = "all", sort = defaultCata
   applyCatalogRouteState(route);
 };
 
-const resetCatalogFilter = key => {
-  let removed = false;
-  const nextTerms = catalogFilterQueryTerms(catalogSearchQuery()).filter(term => {
-    if (!removed && term === key) {
-      removed = true;
-      return false;
-    }
-    return true;
-  });
-  setSearchInputValue(catalogSearch, nextTerms.join(" "));
-  appState.currentCatalogPage = 1;
-  refreshCatalogState();
-  syncCatalogRouteHash();
-};
-const activeFilterChips = () => {
-  const seen = new Set();
-  return catalogFilterQueryTerms(catalogSearchQuery())
-    .map(term => {
-      const candidate = catalogAttributeChipForTerm(term);
-      if (!candidate || seen.has(candidate.key)) return null;
-      seen.add(candidate.key);
-      return { key: term, label: catalogFilterChipLabelForTerm(candidate, term) };
-    })
-    .filter(Boolean);
-};
-const catalogFilterChipMarkup = chip =>
-  `<button type="button" class="ui-chip-button catalog-filter-chip" data-filter-chip-key="${escapeAttributeValue(chip.key)}">${escapeHtml(chip.label)}<span aria-hidden="true">×</span></button>`;
-const catalogScopeStateLabel = () => ({ bey: "베이", parts: "부품", tools: "장비" })[appState.selectedCatalogKind] || "전체";
 const catalogSortDropdownMarkup = () => sortDropdownMarkup({
   className: "catalog-sort-dropdown",
   label: "도감 정렬",
@@ -159,13 +127,11 @@ const catalogSortDropdownMarkup = () => sortDropdownMarkup({
 const renderCatalogFilterChips = () => {
   const root = document.querySelector('[data-catalog-filter-chips="catalog"]');
   if (root) {
-    const chips = activeFilterChips();
-    root.hidden = false;
-    root.classList.remove("is-empty");
-    root.removeAttribute("aria-hidden");
-    root.innerHTML = chips.length
-      ? `${chips.map(catalogFilterChipMarkup).join("")}<button type="button" class="ui-chip-button catalog-filter-reset" data-filter-reset>초기화</button>`
-      : `<span class="catalog-state-chip">${escapeHtml(catalogScopeStateLabel())}</span>`;
+    const markup = queryChipMarkup(catalogSearchQuery());
+    root.innerHTML = markup;
+    root.hidden = !markup;
+    root.classList.toggle("is-empty", !markup);
+    root.setAttribute("aria-hidden", String(!markup));
   }
   document.querySelectorAll("[data-catalog-sort-control]").forEach(control => {
     control.innerHTML = catalogSortDropdownMarkup();
@@ -219,19 +185,14 @@ const initializeCatalogFeature = () => {
       preserveScroll: true
     });
   });
-  document.querySelectorAll(".catalog-filter-chips").forEach(root => {
-    if (root.dataset.catalogFilterBound) return;
-    root.dataset.catalogFilterBound = "true";
-    root.addEventListener("click", event => {
-      const chip = event.target.closest("[data-filter-chip-key]");
-      if (chip) resetCatalogFilter(chip.dataset.filterChipKey);
-      if (event.target.closest("[data-filter-reset]")) {
-        setSearchInputValue(catalogSearch, "");
-        appState.currentCatalogPage = 1;
-        refreshCatalogState();
-        syncCatalogRouteHash();
-      }
-    });
+  const queryChips = document.querySelector('[data-catalog-filter-chips="catalog"]');
+  queryChips?.addEventListener("click", event => {
+    if (!event.target.closest("[data-clear-query]")) return;
+    setSearchInputValue(catalogSearch, "");
+    appState.currentCatalogPage = 1;
+    refreshCatalogState();
+    syncCatalogRouteHash({ overrides: { page: 1 } });
+    catalogSearch?.focus();
   });
   document.addEventListener("click", event => {
     const button = event.target.closest("button[data-catalog-sort]");

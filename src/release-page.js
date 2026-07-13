@@ -4,7 +4,7 @@ import { rememberModalContext } from "#app/modal-context";
 import { matchesSearchText } from "#app/search-engine";
 import { productItems } from "#app/data-store";
 import { TableListController, compareProductReleaseOrder, defaultReleaseSeries, escapeAttributeValue, escapeHtml, priceLabel, productRelease, productReleasedInRegion, productSerialNumber, releaseBadgeLabel, releaseBadgeSearchText, releaseBadges, releaseControls, releaseDateCompactLabel, releaseDateLabel, releaseDateSortValue, releaseKindSortValue, releasePriceSortValue, releaseRegionLabels, releaseSeriesForRegion, releaseSeriesLabels, responsiveDateSpans, sortDropdownMarkup, tableListPageMarkup, tableListTableMarkup } from "#app/release-core";
-import { bindActionRows } from "#app/ui-core";
+import { bindActionRows, queryChipMarkup, setSearchInputValue } from "#app/ui-core";
 
 const releaseSortableColumns = {
   no: "번호",
@@ -168,8 +168,10 @@ const releaseMobileSortDropdownMarkup = () => {
 };
 const releaseMetaRowMarkup = (region = appState.activeReleaseRegion, series = appState.activeReleaseSeries) => {
   const visibleCount = visibleReleaseTableItems(region, series).length;
-  return `<div class="table-list-meta-row catalog-query-row release-mobile-sort-row" data-release-meta-row>
+  const queryMarkup = queryChipMarkup(appState.activeReleaseQuery);
+  return `<div class="table-list-meta-row catalog-query-row release-mobile-sort-row${queryMarkup ? " has-active-query" : ""}" data-release-meta-row>
     <div class="table-list-meta-primary">
+      ${queryMarkup}
       <p class="result-count release-query-count"><b>${visibleCount}</b>개 항목</p>
     </div>
     <div class="catalog-query-actions">
@@ -223,6 +225,14 @@ const releaseTableController = new TableListController({
       rememberReleaseModalContext();
       controller.renderTable(contentRoot);
     } });
+    contentRoot.addEventListener("click", event => {
+      if (!event.target.closest("[data-clear-query]")) return;
+      appState.activeReleaseQuery = "";
+      setSearchInputValue(releaseSearch, "");
+      rememberReleaseModalContext();
+      controller.renderTable(contentRoot);
+      releaseSearch?.focus();
+    });
   }
 });
 

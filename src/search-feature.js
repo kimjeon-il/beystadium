@@ -40,6 +40,7 @@ import {
   overviewSearchScopeValue,
   partDetailTypeLabel,
   playEnterAnimation,
+  queryChipMarkup,
   setGlobalSearchScope,
   setMobileDrawerSearchScope,
   setOverviewSearchScope,
@@ -558,7 +559,8 @@ const renderGlobalCards = () => {
         : `${searchScopeLabel(scope)} 검색결과`;
   }
   if (searchResultMeta) {
-    searchResultMeta.textContent = scope === "all" ? "" : `${searchScopeLabel(scope)} 범위`;
+    const scopeMarkup = scope === "all" ? "" : `<span class="search-results-scope-label">${escapeHtml(searchScopeLabel(scope))} 범위</span>`;
+    searchResultMeta.innerHTML = `${queryChipMarkup(query)}${scopeMarkup}`;
   }
   const itemMarkup = visible.length ? searchResultButtonMarkupSlice(renderKey, visible, pageStart, pageEnd) : [];
   grid.innerHTML = visible.length

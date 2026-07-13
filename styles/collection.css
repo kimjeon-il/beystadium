@@ -207,8 +207,8 @@
 
 .search-results-pagination .ui-button.active,
 .catalog-pagination-nav .ui-button.active {
-  background: var(--ui-control-hover);
-  color: var(--ui-control-text-active);
+  background: var(--ui-selection-surface);
+  color: var(--ui-selection-accent);
   box-shadow: var(--shadow-rest);
 }
 

@@ -25,6 +25,15 @@
   --ui-text: light-dark(#101827, #f3f6fa);
   --ui-muted: light-dark(#667386, #a8b3c2);
   --ui-accent: light-dark(#334155, #d7dee8);
+  --ui-selection-accent: light-dark(#0f6cbd, #62abf5);
+  --ui-selection-surface: light-dark(
+    color-mix(in srgb, #0f6cbd 12%, var(--ui-surface-raised)),
+    color-mix(in srgb, #62abf5 18%, var(--ui-surface-raised))
+  );
+  --ui-selection-border: light-dark(
+    color-mix(in srgb, #0f6cbd 52%, var(--ui-line)),
+    color-mix(in srgb, #62abf5 64%, var(--ui-line))
+  );
   --ui-brand-bg: light-dark(#475569, #2f3b4d);
   --ui-brand-text: #f3f6fa;
   --ui-surface-raised: light-dark(#ffffff, #1a222d);
@@ -861,8 +870,8 @@ body.is-overview .topbar-search {
 
 .topbar-primary-button.active,
 .topbar-primary-button[aria-current="page"] {
-  background: var(--ui-control-hover);
-  color: var(--ui-control-text-active);
+  background: var(--ui-selection-surface);
+  color: var(--ui-selection-accent);
   box-shadow: var(--shadow-rest);
 }
 
@@ -1226,12 +1235,16 @@ html.route-booting .to-top {
 
 .ui-button:hover,
 .ui-button:focus-visible,
-.ui-button.active,
-.ui-button[aria-selected="true"],
 .ui-icon-button:hover,
 .ui-icon-button:focus-visible {
   background: var(--ui-control-hover);
   color: var(--ui-control-text-active);
+}
+
+.ui-button.active,
+.ui-button[aria-selected="true"] {
+  background: var(--ui-selection-surface);
+  color: var(--ui-selection-accent);
 }
 
 .ui-button:not(:disabled):not([aria-disabled="true"]):hover,
@@ -1325,11 +1338,15 @@ html.route-booting .to-top {
 }
 
 .ui-tab-button:not(.sidebar-button):hover,
-.ui-tab-button:not(.sidebar-button):focus-visible,
-.ui-tab-button:not(.sidebar-button).active,
-.ui-tab-button:not(.sidebar-button)[aria-selected="true"] {
+.ui-tab-button:not(.sidebar-button):focus-visible {
   background: var(--ui-control-hover);
   color: var(--ui-control-text-active);
+}
+
+.ui-tab-button:not(.sidebar-button).active,
+.ui-tab-button:not(.sidebar-button)[aria-selected="true"] {
+  background: var(--ui-selection-surface);
+  color: var(--ui-selection-accent);
 }
 
 .ui-tab-button:not(.sidebar-button):hover,
@@ -1380,12 +1397,16 @@ html.route-booting .to-top {
 
 .ui-dropdown-item:hover,
 .ui-dropdown-item:focus-visible,
-.ui-dropdown-item.active,
 .catalog-dropdown-menu button:hover,
-.catalog-dropdown-menu button:focus-visible,
-.catalog-dropdown-menu button.active {
+.catalog-dropdown-menu button:focus-visible {
   background: transparent;
   color: var(--ui-control-text-active);
+}
+
+.ui-dropdown-item.active,
+.catalog-dropdown-menu button.active {
+  background: transparent;
+  color: var(--ui-selection-accent);
 }
 
 .ui-dropdown-item:hover::before,
@@ -1396,6 +1417,11 @@ html.route-booting .to-top {
 .catalog-dropdown-menu button.active::before {
   opacity: 1;
   transform: scale(1);
+}
+
+.ui-dropdown-item.active::before,
+.catalog-dropdown-menu button.active::before {
+  background: var(--ui-selection-surface);
 }
 
 .ui-dropdown-item:active,
@@ -1783,13 +1809,13 @@ body.menu-open .mobile-drawer {
   --sidebar-child-button-font-weight: var(--sidebar-secondary-font-weight);
   --sidebar-hover-bg: var(--ui-control-hover);
   --sidebar-pressed-bg: var(--ui-control-hover);
-  --sidebar-current-bg: var(--ui-control-hover);
-  --sidebar-current-color: var(--ui-control-text-active);
+  --sidebar-current-bg: var(--ui-selection-surface);
+  --sidebar-current-color: var(--ui-selection-accent);
   --sidebar-current-marker-left: 5px;
   --sidebar-current-marker-width: 3px;
   --sidebar-current-marker-height: 22px;
   --sidebar-current-marker-opacity: 1;
-  --sidebar-accent: color-mix(in srgb, var(--ui-accent) 84%, var(--ui-text) 16%);
+  --sidebar-accent: var(--ui-selection-accent);
   color: var(--ui-text);
 }
 

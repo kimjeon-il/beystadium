@@ -134,6 +134,13 @@ const initializeSearchFeature = () => {
   bindSearchScopeControl(globalSearchScope, "data-global-search-scope", globalSearch);
   bindSearchScopeControl(overviewSearchScope, "data-overview-search-scope", overviewSearch);
   bindSearchScopeControl(mobileDrawerSearchScope, "data-mobile-drawer-search-scope", mobileDrawerSearch);
+  document.querySelector("#searchResultsMeta")?.addEventListener("click", event => {
+    if (!event.target.closest("[data-clear-query]")) return;
+    setGlobalSearchState("", globalSearchScopeValue());
+    closeAllSearchPreviews();
+    refreshGlobalSearchResults({ deferHash: false });
+    globalSearch?.focus();
+  });
   [globalSearch, overviewSearch, mobileDrawerSearch].forEach(input => {
     if (input?.matches(":focus") && input.value.trim()) refreshSearchPreview(input, { resetActive: true });
   });
