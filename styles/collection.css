@@ -202,4 +202,11 @@
   text-align: center;
   font-size: var(--font-sm);
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .catalog-card:hover,
+  .product-card:hover {
+    transform: none;
+  }
+}
 }

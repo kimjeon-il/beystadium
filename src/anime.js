@@ -3,28 +3,64 @@ import {
   animeCharacterAllSeason,
   animeCharacterSeasonEntries,
   animeDisplayRegion,
-  animeEpisodeTitle,
   animeSeasonEntries,
   animeSeasonLabels,
   defaultAnimeSeason,
-  episodeHashId,
-  episodeIndexFromHash,
   normalizeAnimeCharacterSeason,
   normalizeAnimeSeason
 } from "#app/anime-core";
-import { ANIME_PAGE_SIZE, animeRenderKey, renderAnimePagination, renderCategoryCollection, syncAnimeRenderPage } from "#app/collection-view";
-import { cleanupModelViewer } from "#app/detail-view";
-import { rememberModalContext } from "#app/modal-context";
+import { renderCategoryCollection, renderPagination, scrollGridIntoView } from "#app/collection-view";
 import { animeSearchQuery, createSearchRecord, matchSearchRecord, matchesSearchText, prepareCatalogSearchQuery, searchFieldsFromValues } from "#app/search-engine";
 import { animeInfo } from "#app/data-store";
 import { TableListController, animeAirDateCompactLabel, animeAirDateLabel, escapeHtml, responsiveDateSpans, tableListControlsMarkup, tableListDropdownMarkup, tableListPageMarkup, tableListTableMarkup } from "#app/release-core";
-import { appServices } from "#app/services";
-import { registerAppServices } from "#app/services";
+import { appServices, registerAppServices } from "#app/services";
 import { normalizeRoute } from "#app/route-parser";
 import { navigateToRoute } from "#app/navigation";
+import { initializeSearchHelpController } from "#app/search-help-controller";
 import { activeAppPanel, animeSearch, bindActionRows, setSearchInputValue } from "#app/ui-core";
 
 if (!appState.activeAnimeSeason) appState.activeAnimeSeason = defaultAnimeSeason();
+
+const ANIME_PAGE_SIZE = 40;
+const SEARCH_RENDER_DELAY = 100;
+let initialized = false;
+let animeRenderTimer = 0;
+let animeRenderFrame = 0;
+const animeRenderKey = () => [
+  typeof appState.activeAnimeCharacterSeason === "string" ? appState.activeAnimeCharacterSeason : "all",
+  animeSearchQuery()
+].join("|");
+const syncAnimeRenderPage = renderKey => {
+  if (renderKey !== appState.currentAnimeRenderKey) {
+    appState.currentAnimeRenderKey = renderKey;
+    appState.currentAnimePage = 1;
+  }
+};
+const renderAnimePagination = totalPages => renderPagination({
+  rootSelector: "#animePagination",
+  totalPages,
+  currentPage: appState.currentAnimePage,
+  dataAttr: "data-anime-page",
+  buttonClass: "anime-page-button",
+  stepClass: "anime-page-step",
+  navClass: "anime-pagination-nav",
+  label: "애니메이션 페이지"
+});
+const scrollAnimeGridIntoView = () => scrollGridIntoView({
+  gridSelector: "#animeCharacterGrid",
+  controlSelector: ".anime-control-bar"
+});
+const scheduleAnimeRender = () => {
+  if (animeRenderTimer) clearTimeout(animeRenderTimer);
+  if (animeRenderFrame) cancelAnimationFrame(animeRenderFrame);
+  animeRenderTimer = setTimeout(() => {
+    animeRenderTimer = 0;
+    animeRenderFrame = requestAnimationFrame(() => {
+      animeRenderFrame = 0;
+      renderAnimePage();
+    });
+  }, SEARCH_RENDER_DELAY);
+};
 
 const animeRouteFromState = (overrides = {}) => normalizeRoute({
   type: "category-anime",
@@ -226,13 +262,11 @@ const animeEpisodeTableController = new TableListController({
     animePanel.querySelectorAll("[data-anime-season]").forEach(button => button.addEventListener("click", event => {
       appState.activeAnimeSeason = normalizeAnimeSeason(event.currentTarget.dataset.animeSeason);
       event.currentTarget.closest(".catalog-dropdown")?.removeAttribute("open");
-      rememberAnimeModalContext();
       controller.renderPage();
     }));
     const animeSearch = animePanel.querySelector("#animeEpisodeSearchInput");
     appServices.bindSearchInput(animeSearch, ".release-search-box", { onInput: searchInput => {
       appState.activeAnimeEpisodeQuery = searchInput.value.trim();
-      rememberAnimeModalContext();
       controller.renderPage();
       const nextInput = animeEpisodesPageRoot()?.querySelector("#animeEpisodeSearchInput");
       nextInput?.focus();
@@ -241,7 +275,7 @@ const animeEpisodeTableController = new TableListController({
     bindActionRows(animePanel, "[data-anime-episode-index]", animeRow => {
       const index = Number(animeRow.dataset.animeEpisodeIndex);
       appServices.queueModalTransition("list");
-      openAnimeEpisodeDetail(index, {
+      appServices.openAnimeEpisodeDetail(index, {
         fromAnimeList: true,
         animeSeason: appState.activeAnimeSeason,
         animeQuery: appState.activeAnimeEpisodeQuery
@@ -250,54 +284,8 @@ const animeEpisodeTableController = new TableListController({
   }
 });
 
-function rememberAnimeModalContext() {
-  rememberModalContext("category-anime-episodes", "anime-episode", {
-    animeSeason: appState.activeAnimeSeason,
-    animeQuery: appState.activeAnimeEpisodeQuery
-  });
-}
-
 function renderAnimeEpisodesPage() {
   animeEpisodeTableController.renderPage();
-}
-
-function openAnimeEpisodeDetail(indexOrId, options = {}) {
-  const index = typeof indexOrId === "number" ? indexOrId : episodeIndexFromHash(indexOrId);
-  const episode = animeInfo.episodes[index];
-  if (!episode) return;
-  const id = episodeHashId(index);
-  if (!id) return;
-  if (appServices.routeIfNeeded({ type: "detail", id, options }, options)) return;
-  cleanupModelViewer();
-  const backAnimeSeason = normalizeAnimeSeason(options.animeSeason || episode.season || appState.activeAnimeSeason);
-  const backAnimeQuery = typeof options.animeQuery === "string" ? options.animeQuery : appState.activeAnimeEpisodeQuery;
-  const backButton = options.fromAnimeList
-    ? appServices.modalBackButtonMarkup({ label: "방영목록으로 돌아가기", animeEpisodes: true })
-    : "";
-  const content = appServices.setModalContent(`<div class="modal-inner category-anime-modal">
-    <div class="modal-info category-anime-info">
-      ${backButton}
-      <div class="overview-title-row anime-episode-title-row">
-        <h3 class="category-title">${escapeHtml(animeEpisodeTitle(episode))}</h3>
-      </div>
-    </div>
-  </div>`);
-  if (!content || !appServices.modal) return;
-  content.querySelector("[data-back-anime-episodes]")?.addEventListener("click", () => {
-    openCategoryAnimeEpisodesDetail({
-      animeSeason: backAnimeSeason,
-      animeQuery: backAnimeQuery
-    });
-  });
-  appServices.finishModalOpen({
-    contextKind: "metal-fight-episode",
-    contextId: id,
-    contextOptions: {
-      fromAnimeList: options.fromAnimeList,
-      animeSeason: backAnimeSeason,
-      animeQuery: backAnimeQuery
-    }
-  });
 }
 
 function openCategoryAnimeEpisodesDetail(options = {}) {
@@ -307,16 +295,36 @@ function openCategoryAnimeEpisodesDetail(options = {}) {
   else if (!preserveSearch && !animeInfo.episodes.some(episode => episode.season === appState.activeAnimeSeason)) appState.activeAnimeSeason = defaultAnimeSeason();
   if (typeof options.animeQuery === "string") appState.activeAnimeEpisodeQuery = options.animeQuery;
   else if (!preserveSearch) appState.activeAnimeEpisodeQuery = "";
-  cleanupModelViewer();
   appServices.activatePrimarySection("anime-episodes", { preserveSearch });
   renderAnimeEpisodesPage();
-  rememberAnimeModalContext();
 }
+
+const initializeAnimeFeature = () => {
+  if (initialized) return;
+  initialized = true;
+  initializeSearchHelpController();
+  appServices.bindSearchInput(animeSearch, ".anime-search-box", {
+    onInput: () => {
+      appState.currentAnimePage = 1;
+      scheduleAnimeRender();
+      syncAnimeRouteHash({ overrides: { page: 1 } });
+    }
+  });
+  document.querySelector("#animePagination")?.addEventListener("click", event => {
+    const button = event.target.closest("[data-anime-page]");
+    if (!button || button.disabled) return;
+    event.preventDefault();
+    appState.currentAnimePage = Number(button.dataset.animePage) || 1;
+    renderAnimePage();
+    syncAnimeRouteHash();
+    scrollAnimeGridIntoView();
+  });
+};
 
 registerAppServices({ syncAnimeRouteHash });
 
 export {
-  openAnimeEpisodeDetail,
+  initializeAnimeFeature,
   openCategoryAnimePage,
   openCategoryAnimeEpisodesDetail,
   restoreStoredAnimeOrigin,

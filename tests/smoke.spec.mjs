@@ -48,6 +48,8 @@ test("runtime data is loaded by route instead of during home boot", async ({ pag
   expect(moduleRequests).toContain("/src/release-page.js");
   expect(moduleRequests).not.toContain("/src/view-controller.js");
   expect(moduleRequests).not.toContain("/src/collection-view.js");
+  expect(moduleRequests).not.toContain("/src/catalog-feature.js");
+  expect(moduleRequests).not.toContain("/src/search-controller.js");
   expect(moduleRequests).not.toContain("/src/search-feature.js");
   expect(moduleRequests).not.toContain("/src/catalog-model.js");
   expect(moduleRequests).not.toContain("/src/detail-controller.js");
@@ -56,6 +58,7 @@ test("runtime data is loaded by route instead of during home boot", async ({ pag
   expect(moduleRequests).not.toContain("/src/anime.js");
   expect(styleRequests).toContain("/styles/table.css");
   expect(styleRequests).toContain("/styles/release.css");
+  expect(styleRequests).toContain("/styles/page.css");
   expect(styleRequests).not.toContain("/styles/catalog.css");
   expect(styleRequests).not.toContain("/styles/modal.css");
 
@@ -64,16 +67,99 @@ test("runtime data is loaded by route instead of during home boot", async ({ pag
   expect(runtimeRequests).toContain("/data/runtime/series/x.json");
   expect(runtimeRequests.some(path => path.includes("/search/"))).toBe(false);
   expect(moduleRequests).toContain("/src/router.js");
+  expect(moduleRequests).toContain("/src/catalog-feature.js");
+  expect(moduleRequests).toContain("/src/catalog-view.js");
   expect(moduleRequests).toContain("/src/catalog-model.js");
   expect(moduleRequests).toContain("/src/collection-view.js");
   expect(moduleRequests).toContain("/src/search-engine.js");
   expect(moduleRequests).not.toContain("/src/anime.js");
   expect(styleRequests).toContain("/styles/collection.css");
   expect(styleRequests).toContain("/styles/catalog.css");
+  expect(styleRequests).toContain("/styles/search.css");
 
   await page.goto("/#anime-character");
   await expect(page.locator('[data-app-panel="anime"].active')).toBeVisible();
   expect(moduleRequests).toContain("/src/anime.js");
+});
+
+test("catalog and anime listings do not preload detail controllers", async ({ browser }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "request isolation only needs one browser");
+  for (const [hash, readySelector, forbidden] of [
+    ["#toy-catalog?scope=bey&series=x", "#catalogGrid .catalog-card", ["detail-controller", "detail-view", "modal-controller", "anime-detail"]],
+    ["#anime-character", "#animeCharacterGrid .anime-character-card", ["detail-controller", "detail-view", "modal-controller", "anime-detail", "catalog-model", "catalog-feature", "catalog-view"]],
+    ["#anime-episode", ".anime-episode-row", ["detail-controller", "detail-view", "modal-controller", "anime-detail", "catalog-model", "catalog-feature", "catalog-view"]]
+  ]) {
+    const context = await browser.newContext();
+    const page = await context.newPage();
+    const modules = [];
+    page.on("request", request => {
+      const pathname = new URL(request.url()).pathname;
+      if (pathname.includes("/src/")) modules.push(pathname);
+    });
+    await page.goto(`/${hash}`);
+    await expect(page.locator(readySelector).first()).toBeVisible();
+    forbidden.forEach(name => expect(modules, `${hash} loaded ${name}`).not.toContain(`/src/${name}.js`));
+    if (hash.startsWith("#toy-catalog")) {
+      await page.locator(readySelector).first().click();
+      await expect(page.locator("#detailModal")).toBeVisible();
+      expect(modules).toContain("/src/detail-controller.js");
+      expect(modules).toContain("/src/modal-controller.js");
+    }
+    if (hash === "#anime-episode") {
+      await page.locator(readySelector).first().click();
+      await expect(page.locator("#detailModal")).toBeVisible();
+      expect(modules).toContain("/src/anime-detail.js");
+      expect(modules).toContain("/src/modal-controller.js");
+    }
+    await context.close();
+  }
+});
+
+test("first home search interaction loads search feature once and preserves fast input", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "lazy search coverage only needs one browser");
+  const requests = [];
+  page.on("request", request => requests.push(new URL(request.url()).pathname));
+  await page.goto("/");
+  expect(requests).not.toContain("/src/search-controller.js");
+  expect(requests).not.toContain("/styles/search.css");
+
+  const input = page.locator("#overviewSearchInput");
+  await input.click();
+  await input.fill("드랜소드");
+  await expect(input).toHaveValue("드랜소드");
+  await expect(page.locator("#overviewSearchInputPreview")).toBeVisible();
+  expect(requests.filter(path => path === "/src/search-controller.js")).toHaveLength(1);
+  expect(requests.filter(path => path === "/styles/search.css")).toHaveLength(1);
+
+  await input.fill("드랜소드 3-60F");
+  await expect(input).toHaveValue("드랜소드 3-60F");
+  expect(requests.filter(path => path === "/src/search-controller.js")).toHaveLength(1);
+  expect(requests.filter(path => path === "/styles/search.css")).toHaveLength(1);
+});
+
+test("feature loaders initialize controls idempotently", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "idempotence coverage only needs one browser");
+  await page.goto("/#toy-catalog?scope=bey&series=x");
+  await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
+  const state = await page.evaluate(async () => {
+    const loaders = await import("#app/feature-loaders");
+    await Promise.all([loaders.loadCatalogFeature(), loaders.loadCatalogFeature()]);
+    await Promise.all([loaders.loadSearchFeature(), loaders.loadSearchFeature()]);
+    return {
+      catalogInputBound: document.querySelector("#catalogSearchInput")?.dataset.searchInputBound,
+      overviewInputBound: document.querySelector("#overviewSearchInput")?.dataset.searchInputBound,
+      overviewPreviews: document.querySelectorAll("#overviewSearchInputPreview").length,
+      overviewClearButtons: document.querySelectorAll(".overview-search .search-clear").length,
+      catalogClearButtons: document.querySelectorAll(".catalog-search-box .search-clear").length
+    };
+  });
+  expect(state).toEqual({
+    catalogInputBound: "true",
+    overviewInputBound: "true",
+    overviewPreviews: 1,
+    overviewClearButtons: 1,
+    catalogClearButtons: 1
+  });
 });
 
 test("detail route restores modal and internal navigation hash", async ({ page }) => {

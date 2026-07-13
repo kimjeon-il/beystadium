@@ -1,4 +1,13 @@
 @layer anime {
+.anime-character-season-filter .release-dropdown {
+  --dropdown-item-min-width: 0;
+  --dropdown-item-padding: 0 12px;
+  --dropdown-item-overflow: hidden;
+  --dropdown-item-text-overflow: ellipsis;
+  --dropdown-item-white-space: nowrap;
+  width: 100%;
+}
+
 .anime-character-card {
   display: grid;
   align-content: end;

@@ -1,4 +1,9 @@
 @layer release {
+.release-mobile-sort-dropdown {
+  --list-sort-width: 132px;
+  --list-sort-menu-width: 156px;
+}
+
 .release-table {
   --release-table-min-width: 640px;
   --release-col-date-width: 96px;

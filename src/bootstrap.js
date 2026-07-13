@@ -28,7 +28,9 @@ const loadApp = () => {
 const appInteractionTarget = target => target?.closest?.(lazyInteractionSelector) || null;
 
 const primeApp = event => {
-  if (!appLoaded && appInteractionTarget(event.target)) void loadApp();
+  if (appLoaded) return;
+  const target = appInteractionTarget(event.target);
+  if (target) void loadApp().then(module => module.prepareInteraction?.(target));
 };
 
 const replayClickAfterLoad = event => {
@@ -37,14 +39,22 @@ const replayClickAfterLoad = event => {
   if (!target) return;
   event.preventDefault();
   event.stopImmediatePropagation();
-  void loadApp().then(() => target.click());
+  void loadApp().then(async module => {
+    await module.prepareInteraction?.(target);
+    target.click();
+  });
 };
 
 const replayInputAfterLoad = event => {
   if (appLoaded || !event.target?.matches?.("input[type='search']")) return;
   const input = event.target;
+  const value = input.value;
   event.stopImmediatePropagation();
-  void loadApp().then(() => input.dispatchEvent(new Event("input", { bubbles: true })));
+  void loadApp().then(async module => {
+    await module.prepareInteraction?.(input);
+    input.value = value;
+    input.dispatchEvent(new Event("input", { bubbles: true }));
+  });
 };
 
 try {

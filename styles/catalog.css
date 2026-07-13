@@ -1,4 +1,21 @@
 @layer catalog {
+.app-panel[data-app-panel="catalog"] {
+  --catalog-series-dropdown-width: 14.5rem;
+  --catalog-control-columns: minmax(0, 1fr);
+  --catalog-toolbar-columns: minmax(13.5rem, var(--catalog-series-dropdown-width)) minmax(0, 1fr);
+}
+
+.catalog-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+}
+
+@media (max-width: 39.999rem) {
+  .app-panel[data-app-panel="catalog"] {
+    --catalog-toolbar-columns: 1fr;
+  }
+}
+
 .catalog-panel .result-count.is-hidden {
   display: none;
 }

@@ -12,7 +12,8 @@ const HOME_TEXT_FILES = [
   "src/data-store.js",
   "data/runtime/index.json"
 ];
-const HOME_TEXT_LIMIT = 120_000;
+const HOME_TEXT_LIMIT = 100_000;
+const BASE_CSS_LIMIT = 60_000;
 const CSS_IMPORTANT_LIMIT = 80;
 const SOURCE_LINE_LIMIT = 1_000;
 const ROUTER_LINE_LIMIT = 600;
@@ -20,6 +21,7 @@ const FORBIDDEN_MONOLITHS = [
   "src/app-runtime.js",
   "src/catalog-core.js",
   "src/route-core.js",
+  "src/view-controller.js",
   "styles.css",
   "scripts/build-app-runtime.mjs"
 ];
@@ -58,7 +60,7 @@ for (const [route, keys] of Object.entries(routeStyleManifest)) {
     if (!styleKeys.has(key)) throw new Error(`Unknown style key in route manifest: ${route} -> ${key}`);
   }
 }
-const expectedLayerOrder = "@layer base, collection, table, release, anime, catalog, search, modal;";
+const expectedLayerOrder = "@layer base, page, collection, table, release, anime, catalog, search, modal;";
 const baseStylesheet = await readFile(fromRoot("styles/base.css"), "utf8");
 if (!baseStylesheet.startsWith(expectedLayerOrder)) throw new Error("Global CSS layer order is missing or changed.");
 for (const [key, target] of Object.entries(styleFiles)) {
@@ -70,6 +72,10 @@ const sizes = await Promise.all(HOME_TEXT_FILES.map(async file => [file, await b
 const total = sizes.reduce((sum, [, size]) => sum + size, 0);
 if (total > HOME_TEXT_LIMIT) {
   throw new Error(`Home text payload is ${total} bytes; expected <= ${HOME_TEXT_LIMIT}.`);
+}
+const baseCssSize = await byteSize("styles/base.css");
+if (baseCssSize > BASE_CSS_LIMIT) {
+  throw new Error(`Base stylesheet is ${baseCssSize} bytes; expected <= ${BASE_CSS_LIMIT}.`);
 }
 
 let importantCount = 0;
@@ -94,7 +100,8 @@ if (/^\s*import\s/m.test(routeParserSource)) {
   throw new Error("src/route-parser.js must remain a pure module without imports.");
 }
 
-const importPattern = /\bimport\s+(?:[^"']*?\s+from\s+)?["']([^"']+)["']/g;
+const importPattern = /\b(?:import|export)\s+(?:[^"']*?\s+from\s+)?["']([^"']+)["']/g;
+const dynamicImportPattern = /\bimport\s*\(\s*["']([^"']+)["']\s*\)/g;
 const sourceSet = new Set(sourceFiles.map(file => fromRoot(file)));
 const resolveImport = (specifier, importer) => {
   const mapped = importMap[specifier];
@@ -103,15 +110,25 @@ const resolveImport = (specifier, importer) => {
   return resolve(dirname(importer), stripQuery(specifier));
 };
 const graph = new Map();
+const runtimeGraph = new Map();
+const usedImportAliases = new Set();
 for (const file of sourceFiles) {
   const absolute = fromRoot(file);
   const source = await readFile(absolute, "utf8");
   const dependencies = [];
   for (const match of source.matchAll(importPattern)) {
+    if (importMap[match[1]]) usedImportAliases.add(match[1]);
     const dependency = resolveImport(match[1], absolute);
     if (dependency && sourceSet.has(dependency)) dependencies.push(dependency);
   }
   graph.set(absolute, dependencies);
+  const runtimeDependencies = [...dependencies];
+  for (const match of source.matchAll(dynamicImportPattern)) {
+    if (importMap[match[1]]) usedImportAliases.add(match[1]);
+    const dependency = resolveImport(match[1], absolute);
+    if (dependency && sourceSet.has(dependency)) runtimeDependencies.push(dependency);
+  }
+  runtimeGraph.set(absolute, [...new Set(runtimeDependencies)]);
 }
 const visiting = new Set();
 const visited = new Set();
@@ -129,12 +146,26 @@ const visit = (file, stack = []) => {
 };
 for (const file of graph.keys()) visit(file);
 
+const runtimeEntry = fromRoot("src/bootstrap.js");
+const reachable = new Set();
+const pending = [runtimeEntry];
+while (pending.length) {
+  const file = pending.pop();
+  if (reachable.has(file)) continue;
+  reachable.add(file);
+  pending.push(...(runtimeGraph.get(file) || []));
+}
+const unreachable = sourceFiles.filter(file => !reachable.has(fromRoot(file)));
+if (unreachable.length) throw new Error(`Unreachable source modules: ${unreachable.join(", ")}`);
+const unusedAliases = Object.keys(importMap).filter(alias => !usedImportAliases.has(alias));
+if (unusedAliases.length) throw new Error(`Unused import-map aliases: ${unusedAliases.join(", ")}`);
+
 for (const file of FORBIDDEN_MONOLITHS) {
   if (await exists(file)) throw new Error(`Forbidden monolith must not exist: ${file}`);
 }
 
 console.log(
   `App audit OK: ${total} initial text bytes across ${sizes.length} files; `
-  + `${sourceFiles.length} source modules; 0 static import cycles; `
+  + `${sourceFiles.length} reachable source modules; 0 static import cycles; `
   + `${importantCount} !important declarations.`
 );

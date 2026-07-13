@@ -7,15 +7,14 @@ import {
   clearSearchInputs,
   dropdownSummaryText,
   getNavigationRoots,
-  globalSearch,
   isNavigationButtonCurrent,
   menuButton,
   mobileDrawer,
   mobileDrawerClose,
-  mobileDrawerSearch,
   normalizeSidebarSection,
-  overviewSearch,
+  playEnterAnimation,
   setSidebarButtonCurrent,
+  setSearchInputValue,
   sidebarCurrentButtonSelector,
   syncSearchInputState,
   toTop
@@ -94,8 +93,33 @@ const handleCategoryRouteClick = (event, { closeMobileMenu = true } = {}) => {
   return true;
 };
 
+const catalogDropdownMenu = dropdown => dropdown?.querySelector?.(":scope > .catalog-dropdown-menu") || null;
+const clearCatalogDropdownScrollbarCompensation = dropdown => {
+  const menu = catalogDropdownMenu(dropdown);
+  if (!menu) return;
+  menu.classList.remove("is-scrollbar-visible");
+  menu.style.removeProperty("--dropdown-scrollbar-compensation");
+};
+const syncCatalogDropdownScrollbarCompensation = dropdown => {
+  const menu = catalogDropdownMenu(dropdown);
+  if (!menu || !dropdown?.open || dropdown.classList.contains("search-scope")) return;
+  const hasVerticalScrollbar = menu.scrollHeight > menu.clientHeight + 1;
+  const scrollbarWidth = Math.max(0, menu.offsetWidth - menu.clientWidth);
+  if (!hasVerticalScrollbar || scrollbarWidth <= 0) {
+    clearCatalogDropdownScrollbarCompensation(dropdown);
+    return;
+  }
+  menu.style.setProperty("--dropdown-scrollbar-compensation", `${scrollbarWidth}px`);
+  menu.classList.add("is-scrollbar-visible");
+};
+const scheduleCatalogDropdownScrollbarCompensation = dropdown => {
+  if (!dropdown || dropdown.classList.contains("search-scope")) return;
+  requestAnimationFrame(() => syncCatalogDropdownScrollbarCompensation(dropdown));
+};
 const closeCatalogDropdown = dropdown => {
   if (!dropdown) return;
+  dropdown.classList.remove("is-dropdown-entering");
+  clearCatalogDropdownScrollbarCompensation(dropdown);
   dropdown.removeAttribute("open");
   dropdown.querySelector(":scope > summary")?.setAttribute("aria-expanded", "false");
 };
@@ -107,6 +131,29 @@ const closeOpenCatalogDropdowns = exceptDropdown => {
 const closeSearchHelpPopovers = () => {
   document.querySelectorAll(".catalog-search-help-popover").forEach(popover => { popover.hidden = true; });
   document.querySelectorAll(".catalog-search-help-button[aria-expanded='true']").forEach(button => button.setAttribute("aria-expanded", "false"));
+};
+const closeSearchPreviews = () => {
+  document.querySelectorAll(".search-preview").forEach(preview => { preview.hidden = true; });
+  appState.activeSearchPreview = null;
+};
+const openCatalogDropdown = dropdown => {
+  if (!dropdown || dropdown.open) return;
+  closeOpenCatalogDropdowns(dropdown);
+  closeSearchPreviews();
+  closeSearchHelpPopovers();
+  playEnterAnimation(dropdown, "is-dropdown-entering");
+  dropdown.setAttribute("open", "");
+  dropdown.querySelector(":scope > summary")?.setAttribute("aria-expanded", "true");
+  scheduleCatalogDropdownScrollbarCompensation(dropdown);
+};
+const toggleCatalogDropdown = dropdown => {
+  if (dropdown?.open) closeCatalogDropdown(dropdown);
+  else openCatalogDropdown(dropdown);
+};
+const catalogDropdownFromSummaryEvent = event => {
+  const summary = event.target?.closest?.("summary");
+  const dropdown = summary?.parentElement;
+  return dropdown?.classList?.contains("catalog-dropdown") ? dropdown : null;
 };
 const setDropdownOption = button => {
   const attr = filterButtonAttr(button);
@@ -122,15 +169,20 @@ const setDropdownOption = button => {
   closeCatalogDropdown(dropdown);
 };
 
-const bindSearchInput = (input, containerSelector, { onInput, onSubmit = onInput } = {}) => {
+const bindSearchInput = (input, containerSelector, {
+  onInput,
+  onSubmit = onInput,
+  onKeydown,
+  ensureSearchScope
+} = {}) => {
   if (!input || input.dataset.searchInputBound) return;
   input.dataset.searchInputBound = "true";
   const root = input.closest(containerSelector);
   let clearButton = root?.querySelector(".search-clear");
-  const usesGlobalSearchIndex = input === globalSearch || input === overviewSearch || input === mobileDrawerSearch;
   const runSearch = async handler => {
     syncSearchInputState(input);
-    if (usesGlobalSearchIndex) await BeystadiumDataStore.ensureSearch("all");
+    const scope = ensureSearchScope?.(input);
+    if (scope) await BeystadiumDataStore.ensureSearch(scope);
     handler?.(input);
   };
   if (root && !clearButton) {
@@ -141,13 +193,14 @@ const bindSearchInput = (input, containerSelector, { onInput, onSubmit = onInput
     clearButton.setAttribute("aria-label", "검색어 지우기");
     input.insertAdjacentElement("afterend", clearButton);
     clearButton.addEventListener("click", () => {
-      input.value = "";
+      setSearchInputValue(input, "");
       input.focus();
       void runSearch(onInput);
     });
   }
   input.addEventListener("input", () => void runSearch(onInput));
   input.addEventListener("keydown", event => {
+    if (onKeydown?.(event, input) === true) return;
     if (event.key !== "Enter") return;
     event.preventDefault();
     void runSearch(onSubmit);
@@ -184,18 +237,49 @@ toTop?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smoo
 window.addEventListener("scroll", updateToTop, { passive: true });
 window.addEventListener("resize", syncNavigationMode);
 document.addEventListener("click", event => {
+  const dropdown = catalogDropdownFromSummaryEvent(event);
+  if (dropdown && !event.defaultPrevented && event.button === 0) {
+    event.preventDefault();
+    toggleCatalogDropdown(dropdown);
+    return;
+  }
   if (!event.target.closest(".catalog-dropdown")) closeOpenCatalogDropdowns();
   if (!event.target.closest(".topbar") && !event.target.closest(".mobile-drawer")) setMobileDrawerOpen(false);
 });
 document.addEventListener("keydown", event => {
+  if (event.key === "Enter" || event.key === " " || event.key === "Spacebar") {
+    const dropdown = catalogDropdownFromSummaryEvent(event);
+    if (dropdown) {
+      event.preventDefault();
+      toggleCatalogDropdown(dropdown);
+      return;
+    }
+  }
   if (event.key === "Escape" && document.body.classList.contains("menu-open")) setMobileDrawerOpen(false);
 });
+document.addEventListener("toggle", event => {
+  const dropdown = event.target.closest?.(".catalog-dropdown");
+  if (!dropdown) return;
+  if (!dropdown.open) {
+    dropdown.classList.remove("is-dropdown-entering");
+    clearCatalogDropdownScrollbarCompensation(dropdown);
+    return;
+  }
+  closeOpenCatalogDropdowns(dropdown);
+  closeSearchPreviews();
+  closeSearchHelpPopovers();
+  scheduleCatalogDropdownScrollbarCompensation(dropdown);
+}, true);
+window.addEventListener("resize", () => {
+  document.querySelectorAll(".catalog-dropdown[open]").forEach(scheduleCatalogDropdownScrollbarCompensation);
+}, { passive: true });
 syncNavigationMode();
 updateToTop();
 
 export {
   activatePrimarySection,
   bindSearchInput,
+  closeCatalogDropdown,
   closeOpenCatalogDropdowns,
   closeSearchHelpPopovers,
   currentMenuTrigger,

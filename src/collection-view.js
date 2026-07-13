@@ -1,13 +1,4 @@
-import { appState } from "#app/state";
 import { appServices } from "#app/services";
-import {
-  cardInfo,
-  cardVisualMarkup,
-  catalogRenderKey,
-  toolsCard,
-  visibleCatalogItems
-} from "#app/catalog-model";
-import { animeSearchQuery } from "#app/search-engine";
 
 const openCatalogCard = card => {
   appServices.queueModalTransition("list");
@@ -28,8 +19,6 @@ const bindCatalogCardClicks = gridRoot => {
     openCatalogCard(card);
   });
 };
-const CATALOG_PAGE_SIZE = 40;
-const ANIME_PAGE_SIZE = CATALOG_PAGE_SIZE;
 const categoryCollectionRenderKeys = new Map();
 const categoryCollectionItemKey = (item, index) => item?.id || item?.name || item?.title || String(index);
 const renderCategoryCollectionGrid = ({ cacheKey, grid, items, cardTemplate, emptyMarkup, itemKey = categoryCollectionItemKey }) => {
@@ -66,22 +55,6 @@ const renderCategoryCollection = config => {
   return visible;
 };
 
-const syncCatalogRenderPage = renderKey => {
-  if (renderKey !== appState.currentCatalogRenderKey) {
-    appState.currentCatalogRenderKey = renderKey;
-    appState.currentCatalogPage = 1;
-  }
-};
-const animeRenderKey = () => [
-  typeof appState.activeAnimeCharacterSeason === "string" ? appState.activeAnimeCharacterSeason : "all",
-  animeSearchQuery()
-].join("|");
-const syncAnimeRenderPage = renderKey => {
-  if (renderKey !== appState.currentAnimeRenderKey) {
-    appState.currentAnimeRenderKey = renderKey;
-    appState.currentAnimePage = 1;
-  }
-};
 const paginationButtons = ({ currentPage, totalPages, dataAttr, buttonClass, stepClass, navClass = "", label }) => {
   if (totalPages <= 1) return "";
   const pages = [];
@@ -105,25 +78,6 @@ const renderPagination = ({ rootSelector, totalPages, currentPage, ...buttonOpti
   root.innerHTML = paginationButtons({ currentPage, totalPages, ...buttonOptions });
   root.hidden = totalPages <= 1;
 };
-const renderCatalogPagination = totalPages => renderPagination({
-  rootSelector: "#catalogPagination",
-  totalPages,
-  currentPage: appState.currentCatalogPage,
-  dataAttr: "data-catalog-page",
-  buttonClass: "catalog-page-button",
-  stepClass: "catalog-page-step",
-  label: "완구 페이지"
-});
-const renderAnimePagination = totalPages => renderPagination({
-  rootSelector: "#animePagination",
-  totalPages,
-  currentPage: appState.currentAnimePage,
-  dataAttr: "data-anime-page",
-  buttonClass: "anime-page-button",
-  stepClass: "anime-page-step",
-  navClass: "anime-pagination-nav",
-  label: "애니메이션 페이지"
-});
 const scrollGridIntoView = ({ gridSelector, controlSelector }) => {
   const grid = document.querySelector(gridSelector);
   if (!grid) return;
@@ -132,70 +86,10 @@ const scrollGridIntoView = ({ gridSelector, controlSelector }) => {
   const targetTop = grid.getBoundingClientRect().top + window.scrollY - topbarHeight - controlHeight - 18;
   window.scrollTo({ top: Math.max(0, targetTop), behavior: "smooth" });
 };
-const scrollCatalogGridIntoView = () => scrollGridIntoView({
-  gridSelector: "#catalogGrid",
-  controlSelector: ".catalog-control-bar"
-});
-const scrollAnimeGridIntoView = () => scrollGridIntoView({
-  gridSelector: "#animeCharacterGrid",
-  controlSelector: ".anime-control-bar"
-});
-
-const updateCatalogCount = visibleItems => {
-  const count = document.querySelector("#catalogCount");
-  if (!count) return;
-  const countRoot = count.closest(".result-count");
-  countRoot?.classList.remove("is-hidden");
-  countRoot?.removeAttribute("aria-hidden");
-  count.textContent = Array.isArray(visibleItems) ? visibleItems.length : visibleCatalogItems().length;
-};
-const syncCatalogScopeState = ({ updateCount = true } = {}) => {
-  const panel = document.querySelector('.app-panel[data-app-panel="catalog"]');
-  if (panel) panel.dataset.catalogScope = appState.selectedCatalogKind || "all";
-  if (updateCount) updateCatalogCount();
-};
-
-const catalogItemCard = item => `
-    <button class="ui-card-button category-card catalog-card${item.type === "bey" ? " bey-card" : ""}" data-id="${item.id}">
-      <div class="catalog-card-visual">${cardVisualMarkup(item)}</div>
-      ${cardInfo(item)}
-    </button>`;
-const catalogCard = item => item.category ? toolsCard(item) : catalogItemCard(item);
-
-const catalogCollectionConfig = {
-  key: "catalog",
-  gridSelector: "#catalogGrid",
-  pageSize: CATALOG_PAGE_SIZE,
-  getVisibleItems: visibleCatalogItems,
-  renderKey: catalogRenderKey,
-  syncRenderPage: syncCatalogRenderPage,
-  getCurrentPage: () => appState.currentCatalogPage,
-  setCurrentPage: page => { appState.currentCatalogPage = page; },
-  cardTemplate: catalogCard,
-  emptyMarkup: () => `<p class="catalog-empty search-empty">검색결과가 없습니다.</p>`,
-  afterRender: updateCatalogCount,
-  renderPagination: renderCatalogPagination
-};
-
-function renderCatalogItems() {
-  renderCategoryCollection(catalogCollectionConfig);
-}
-
 export {
-  ANIME_PAGE_SIZE,
-  CATALOG_PAGE_SIZE,
-  animeRenderKey,
   bindCatalogCardClicks,
-  catalogCard,
   openCatalogCard,
-  renderAnimePagination,
-  renderCatalogItems,
-  renderCatalogPagination,
   renderCategoryCollection,
-  scrollAnimeGridIntoView,
-  scrollCatalogGridIntoView,
-  syncAnimeRenderPage,
-  syncCatalogRenderPage,
-  syncCatalogScopeState,
-  updateCatalogCount
+  renderPagination,
+  scrollGridIntoView
 };

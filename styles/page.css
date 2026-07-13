@@ -1,0 +1,175 @@
+@layer page {
+.app-panel:is(
+  [data-app-panel="catalog"],
+  [data-app-panel="release"],
+  [data-app-panel="anime"],
+  [data-app-panel="anime-episodes"]
+) {
+  --section-heading-width: 100%;
+  --section-heading-max-width: var(--catalog-content-max);
+  --section-heading-min-height: 0;
+  --section-heading-columns: minmax(0, 1fr) auto;
+  --section-heading-align: end;
+  --section-heading-gap: clamp(12px, 1.8vw, 24px);
+  --section-heading-margin: 0 auto clamp(14px, 1.8vw, 18px);
+  --result-count-margin: 0 0 4px;
+  --panel-control-top-padding: 8px;
+  --catalog-control-columns: minmax(0, 1fr);
+  --catalog-control-justify: stretch;
+  --catalog-control-gap: 0;
+  --catalog-toolbar-display: grid;
+  --catalog-toolbar-columns: auto minmax(0, 1fr);
+  --catalog-toolbar-align: stretch;
+  --catalog-toolbar-justify: stretch;
+  --catalog-control-row-gap: 12px;
+  --catalog-toolbar-gap: var(--catalog-control-row-gap);
+  --catalog-toolbar-margin: 0;
+  --catalog-toolbar-margin-left: 0;
+  --catalog-toolbar-margin-right: 0;
+  --catalog-toolbar-width: 100%;
+  --catalog-toolbar-max-width: none;
+  --unified-search-width: var(--catalog-search-wrap-width);
+  --unified-search-max-width: var(--catalog-search-wrap-max);
+  --unified-search-margin: var(--catalog-search-wrap-margin);
+  --unified-search-flex: var(--catalog-search-wrap-flex);
+  --unified-search-align-self: var(--catalog-search-wrap-align);
+  --search-box-width: var(--catalog-search-box-width);
+  --search-box-min-width: var(--catalog-search-box-min-width);
+  --search-box-max-width: var(--catalog-search-box-max-width);
+  --search-box-block-height: var(--search-box-height, 48px);
+  --search-box-padding: 0 16px 0 8px;
+  --search-box-gap: 10px;
+  --search-scope-min-width: var(--primary-search-scope-min-width);
+  --search-scope-max-width: var(--primary-search-scope-max-width);
+  --search-scope-height: var(--primary-search-scope-height);
+  --search-scope-summary-height: var(--primary-search-scope-height);
+  --search-scope-summary-padding: var(--primary-search-scope-padding);
+  --search-scope-summary-bg: var(--primary-search-scope-bg);
+  --search-scope-summary-hover-bg: var(--primary-search-scope-bg-hover);
+  --search-scope-arrow-right: 12px;
+  --global-search-box-flex: var(--catalog-search-box-flex);
+  --catalog-search-wrap-width: 100%;
+  --catalog-search-wrap-max: none;
+  --catalog-search-wrap-margin: 0;
+  --catalog-search-wrap-flex: 0 1 auto;
+  --catalog-search-wrap-align: stretch;
+  --catalog-search-box-width: 100%;
+  --catalog-search-box-min-width: 0;
+  --catalog-search-box-max-width: 100%;
+  --catalog-search-box-flex: 1 1 auto;
+  --catalog-control-stack-gap: var(--catalog-control-row-gap);
+  --catalog-filter-card-gap: var(--catalog-control-row-gap);
+  --catalog-pill-radius: 12px;
+  --catalog-chip-row-height: 36px;
+}
+
+.list-sort-control {
+  display: inline-flex;
+  align-items: center;
+}
+
+.list-sort-dropdown.search-scope.catalog-dropdown {
+  --list-sort-width: 112px;
+  --list-sort-menu-width: 136px;
+  --search-scope-height: var(--catalog-chip-row-height);
+  --search-scope-summary-height: var(--catalog-chip-row-height);
+  --search-scope-summary-padding: 0 28px 0 12px;
+  --search-scope-font-size: var(--font-md);
+  --search-scope-arrow-right: 13px;
+  width: var(--list-sort-width);
+  min-width: var(--list-sort-width);
+  max-width: var(--list-sort-width);
+}
+
+.list-sort-dropdown.search-scope.catalog-dropdown summary,
+.list-sort-dropdown.search-scope.catalog-dropdown summary:hover,
+.list-sort-dropdown.search-scope.catalog-dropdown summary:focus-visible,
+.list-sort-dropdown.search-scope.catalog-dropdown[open] summary {
+  border-radius: var(--catalog-pill-radius);
+}
+
+.list-sort-dropdown.search-scope.catalog-dropdown summary b {
+  font-size: var(--font-md);
+  font-weight: var(--font-weight-strong);
+}
+
+.list-sort-dropdown.search-scope.catalog-dropdown .catalog-dropdown-menu button {
+  justify-content: stretch;
+}
+
+.sort-dropdown-label {
+  width: 100%;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  column-gap: 4px;
+}
+
+.sort-dropdown-label-spacer {
+  min-width: 0;
+}
+
+.sort-dropdown-label-text {
+  grid-column: 2;
+  min-width: 0;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sort-dropdown-label-direction {
+  grid-column: 3;
+  justify-self: start;
+  min-width: 1em;
+  color: inherit;
+  text-align: left;
+}
+
+.list-sort-dropdown.search-scope.catalog-dropdown .catalog-dropdown-menu {
+  left: 50%;
+  right: auto;
+  width: var(--list-sort-menu-width);
+  min-width: var(--list-sort-menu-width);
+  max-width: var(--list-sort-menu-width);
+  transform: translateX(-50%);
+}
+
+.catalog-dropdown:not(.search-scope) > .catalog-dropdown-menu {
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+}
+
+@media (max-width: 63.999rem) {
+  .app-panel:is(
+    [data-app-panel="catalog"],
+    [data-app-panel="release"],
+    [data-app-panel="anime"],
+    [data-app-panel="anime-episodes"]
+  ) {
+    --section-heading-gap: clamp(10px, 2vw, 18px);
+    --section-heading-margin: 0 auto clamp(12px, 1.8vw, 16px);
+    --result-count-margin: 0 0 3px;
+    --catalog-toolbar-gap: var(--catalog-control-row-gap);
+  }
+}
+
+@media (max-width: 39.999rem) {
+  .app-panel:is(
+    [data-app-panel="catalog"],
+    [data-app-panel="release"],
+    [data-app-panel="anime"],
+    [data-app-panel="anime-episodes"]
+  ) {
+    --section-heading-gap: 8px;
+    --section-heading-margin: 0 auto 12px;
+    --result-count-margin: 0 0 2px;
+    --catalog-control-gap: 10px;
+    --catalog-control-stack-gap: var(--catalog-control-row-gap);
+    --catalog-filter-card-gap: var(--catalog-control-row-gap);
+    --catalog-toolbar-gap: var(--catalog-control-row-gap);
+  }
+}
+}

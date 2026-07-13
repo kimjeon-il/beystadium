@@ -1,16 +1,16 @@
-const styleVersion = "20260713-structure-optimization";
-const styleOrder = ["collection", "table", "release", "anime", "catalog", "search", "modal"];
+const styleVersion = "20260713-feature-boundaries";
+const styleOrder = ["page", "collection", "table", "release", "anime", "catalog", "search", "modal"];
 const styleFiles = Object.fromEntries(styleOrder.map(key => [key, `./styles/${key}.css?v=${styleVersion}`]));
 const stylePromises = new Map();
 
 const routeStyleManifest = Object.freeze({
   overview: [],
-  search: ["collection", "search"],
-  catalog: ["collection", "catalog"],
-  "category-release": ["table", "release"],
-  "category-anime": ["collection", "anime"],
-  "category-anime-episodes": ["table", "anime"],
-  "rare-bey-get-list": ["table", "release", "modal"]
+  search: ["page", "collection", "search"],
+  catalog: ["page", "collection", "catalog", "search"],
+  "category-release": ["page", "table", "release"],
+  "category-anime": ["page", "collection", "anime", "search"],
+  "category-anime-episodes": ["page", "table", "anime"],
+  "rare-bey-get-list": ["page", "table", "release", "modal"]
 });
 
 const showStyleError = error => {

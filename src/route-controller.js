@@ -9,9 +9,11 @@ import {
 } from "#app/data-store";
 import {
   loadAnimeFeature,
+  loadCatalogFeature,
   loadDetailFeature,
   loadReleaseFeature,
-  loadViewFeature
+  loadSearchFeature,
+  openAnimeEpisodeDetail
 } from "#app/feature-loaders";
 import {
   isDetailRoute,
@@ -100,15 +102,15 @@ async function restoreDetailOriginPanel(context, detailFeature) {
   rememberPrimaryRoute(originRoute);
 
   if (originRoute.type === "catalog") {
-    const view = await loadViewFeature();
-    view.openCategoryCatalog({ ...originRoute, updateHash: false, preserveSearch: true });
-    view.restoreStoredCatalogOrigin(originState);
+    const catalog = await loadCatalogFeature();
+    catalog.openCategoryCatalog({ ...originRoute, updateHash: false, preserveSearch: true });
+    catalog.restoreStoredCatalogOrigin(originState);
   } else if (originRoute.type === "search") {
-    const view = await loadViewFeature();
+    const search = await loadSearchFeature();
     const scope = originState.globalScope || originRoute.scope || "all";
     const query = typeof originState.globalQuery === "string" ? originState.globalQuery : originRoute.query || "";
-    view.setGlobalSearchState(query, scope);
-    view.openSearchResults({ replace: true, updateHash: false });
+    search.setGlobalSearchState(query, scope);
+    search.openSearchResults({ replace: true, updateHash: false });
   } else if (originRoute.type === "category-release") {
     const release = await loadReleaseFeature();
     await release.openCategoryReleaseDetail({
@@ -195,17 +197,16 @@ async function applyRoute(route = parseRouteFromHash(window.location.hash), { pr
     }
 
     if (normalizedRoute.type === "overview") {
-      await loadViewFeature();
       activatePrimarySection("overview", { preserveSearch: shouldPreserveSearch });
     } else if (normalizedRoute.type === "search") {
-      const view = await loadViewFeature();
-      view.setGlobalSearchState(normalizedRoute.query || "", normalizedRoute.scope || "all");
-      view.openSearchResults({ replace: true, updateHash: false });
+      const search = await loadSearchFeature();
+      search.setGlobalSearchState(normalizedRoute.query || "", normalizedRoute.scope || "all");
+      search.openSearchResults({ replace: true, updateHash: false });
     } else if (normalizedRoute.type === "catalog") {
-      const view = await loadViewFeature();
-      view.openCategoryCatalog({ ...normalizedRoute, updateHash: false, preserveSearch: shouldPreserveSearch });
-      view.syncCatalogRouteHash({ replace: true, force: true });
-      normalizedRouteKey = appliedRouteKey(view.catalogRouteFromState());
+      const catalog = await loadCatalogFeature();
+      catalog.openCategoryCatalog({ ...normalizedRoute, updateHash: false, preserveSearch: shouldPreserveSearch });
+      catalog.syncCatalogRouteHash({ replace: true, force: true });
+      normalizedRouteKey = appliedRouteKey(catalog.catalogRouteFromState());
     } else if (normalizedRoute.type === "category-release") {
       const release = await loadReleaseFeature();
       await release.openCategoryReleaseDetail({ ...routeApplyOptions(normalizedRoute), preserveSearch: shouldPreserveSearch });
@@ -249,12 +250,13 @@ registerAppServices({
   cleanupModelViewer: () => {},
   closeOpenCatalogDropdowns,
   closeSearchHelpPopovers,
-  openAnimeEpisodeDetail: (...args) => loadAnimeFeature().then(module => module.openAnimeEpisodeDetail(...args)),
+  openAnimeEpisodeDetail,
+  openCategoryAnimeEpisodesDetail: (...args) => loadAnimeFeature().then(module => module.openCategoryAnimeEpisodesDetail(...args)),
   openBookDetail: loadDetailCall("openBookDetail"),
   openDetail: loadDetailCall("openDetail"),
   openGameDetail: loadDetailCall("openGameDetail"),
   openProductEntry: loadDetailCall("openProductEntry"),
-  openSearchResults: (...args) => loadViewFeature().then(module => module.openSearchResults(...args)),
+  openSearchResults: (...args) => loadSearchFeature().then(module => module.openSearchResults(...args)),
   openToolsDetail: loadDetailCall("openToolsDetail"),
   queueModalTransition: loadDetailCall("queueModalTransition"),
   routeIfNeeded,
