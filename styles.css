@@ -129,9 +129,9 @@ html {
 }
 
 html.is-modal-open {
-  overflow-x: hidden !important;
-  overflow-y: scroll !important;
-  scrollbar-gutter: stable !important;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -249,7 +249,7 @@ a,
 }
 
 .catalog-dropdown[hidden] {
-  display: none !important;
+  display: none;
 }
 
 .catalog-dropdown summary {
@@ -279,7 +279,7 @@ a,
 }
 
 .catalog-dropdown summary::-webkit-details-marker {
-  display: none !important;
+  display: none;
 }
 
 .catalog-dropdown summary b {
@@ -314,7 +314,7 @@ a,
 }
 
 .catalog-dropdown[open] summary::after {
-  transform: translateY(-40%) rotate(225deg) !important;
+  transform: translateY(-40%) rotate(225deg);
 }
 
 .catalog-dropdown summary:hover,
@@ -322,15 +322,15 @@ a,
 .catalog-dropdown summary:focus-visible,
 .catalog-dropdown summary:active,
 .catalog-dropdown[open] summary {
-  border-radius: var(--radius-control) !important;
-  background: var(--ui-surface-raised) !important;
-  background-clip: padding-box !important;
-  outline: 0 !important;
-  box-shadow: var(--shadow-hover) !important;
+  border-radius: var(--radius-control);
+  background: var(--ui-surface-raised);
+  background-clip: padding-box;
+  outline: 0;
+  box-shadow: var(--shadow-hover);
 }
 
 .catalog-dropdown summary:focus-visible {
-  box-shadow: var(--ui-focus-ring), var(--shadow-hover) !important;
+  box-shadow: var(--ui-focus-ring), var(--shadow-hover);
 }
 
 .catalog-dropdown-menu {
@@ -347,7 +347,7 @@ a,
   padding: var(--dropdown-menu-padding);
   display: grid;
   gap: var(--space-1);
-  overflow-x: hidden !important;
+  overflow-x: hidden;
   overflow-y: auto;
   border: var(--border-subtle);
   border-radius: var(--radius-floating);
@@ -486,11 +486,11 @@ dialog[open] .modal-scroll-area::-webkit-scrollbar-corner,
 .overview-search input[type="search"]:-webkit-autofill:hover,
 .overview-search input[type="search"]:-webkit-autofill:focus,
 .overview-search input[type="search"]:-webkit-autofill:active {
-  -webkit-text-fill-color: var(--ui-control-text-active) !important;
-  caret-color: var(--ui-control-text-active) !important;
-  box-shadow: 0 0 0 1000px var(--ui-surface) inset !important;
-  -webkit-box-shadow: 0 0 0 1000px var(--ui-surface) inset !important;
-  transition: background-color 9999s ease-out 0s !important;
+  -webkit-text-fill-color: var(--ui-control-text-active);
+  caret-color: var(--ui-control-text-active);
+  box-shadow: 0 0 0 1000px var(--ui-surface) inset;
+  -webkit-box-shadow: 0 0 0 1000px var(--ui-surface) inset;
+  transition: background-color 9999s ease-out 0s;
 }
 
 .search-box .search-icon,
@@ -532,9 +532,9 @@ dialog[open] .modal-scroll-area::-webkit-scrollbar-corner,
 
 .search-box input[type="search"]::-webkit-search-cancel-button,
 .overview-search input[type="search"]::-webkit-search-cancel-button {
-  -webkit-appearance: none !important;
-  appearance: none !important;
-  display: none !important;
+  -webkit-appearance: none;
+  appearance: none;
+  display: none;
 }
 
 .search-clear,
@@ -570,7 +570,7 @@ dialog[open] .modal-scroll-area::-webkit-scrollbar-corner,
 }
 
 .search-clear[hidden] {
-  display: none !important;
+  display: none;
 }
 
 .search-clear::before,
@@ -599,9 +599,9 @@ dialog[open] .modal-scroll-area::-webkit-scrollbar-corner,
 .catalog-search-help-button:hover,
 .catalog-search-help-button:focus-visible,
 .catalog-search-help-button[aria-expanded="true"] {
-  background: var(--ui-control-hover) !important;
-  color: var(--ui-control-text-active) !important;
-  outline: 0 !important;
+  background: var(--ui-control-hover);
+  color: var(--ui-control-text-active);
+  outline: 0;
   transform: translateY(var(--hover-lift-y));
 }
 
@@ -634,7 +634,7 @@ dialog[open] .modal-scroll-area::-webkit-scrollbar-corner,
 }
 
 .search-scope.catalog-dropdown[open] {
-  z-index: 85 !important;
+  z-index: 85;
 }
 
 .search-scope.catalog-dropdown summary {
@@ -696,7 +696,7 @@ dialog[open] .modal-scroll-area::-webkit-scrollbar-corner,
 .search-scope.catalog-dropdown summary:hover,
 .search-scope.catalog-dropdown summary:focus-visible,
 .search-scope.catalog-dropdown[open] summary {
-  background: var(--search-scope-summary-hover-bg, var(--search-scope-summary-bg, var(--ui-control))) !important;
+  background: var(--search-scope-summary-hover-bg, var(--search-scope-summary-bg, var(--ui-control)));
 }
 
 .search-scope.catalog-dropdown .catalog-dropdown-menu {
@@ -1040,44 +1040,44 @@ button.icon-back-button {
 
 dialog[open] .modal-back,
 dialog[open] .icon-back-button{
-  position: absolute !important;
-  top: 18px !important;
-  left: 18px !important;
-  right: auto !important;
-  bottom: auto !important;
-  z-index: 300 !important;
-  margin: 0 !important;
-  border: 0 !important;
-  outline: 0 !important;
-  border-radius: var(--radius-control) !important;
-  background: transparent !important;
-  background-color: transparent !important;
-  background-image: none !important;
-  color: var(--ui-muted) !important;
-  box-shadow: var(--shadow-rest) !important;
-  filter: none !important;
-  transition: var(--transition-control) !important;
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  right: auto;
+  bottom: auto;
+  z-index: 300;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  border-radius: var(--radius-control);
+  background: transparent;
+  background-color: transparent;
+  background-image: none;
+  color: var(--ui-muted);
+  box-shadow: var(--shadow-rest);
+  filter: none;
+  transition: var(--transition-control);
 }
 
 dialog[open] .modal-back:not(:hover),
 dialog[open] .icon-back-button:not(:hover),
 dialog[open] #modalClose.modal-close:not(:hover){
-  background: transparent !important;
-  background-color: transparent !important;
-  background-image: none !important;
-  color: var(--ui-muted) !important;
-  box-shadow: var(--shadow-rest) !important;
+  background: transparent;
+  background-color: transparent;
+  background-image: none;
+  color: var(--ui-muted);
+  box-shadow: var(--shadow-rest);
 }
 
 dialog[open] .modal-back:hover,
 dialog[open] .icon-back-button:hover,
 dialog[open] #modalClose.modal-close:hover{
-  background: var(--ui-control-hover) !important;
-  background-color: var(--ui-control-hover) !important;
-  background-image: none !important;
-  border-radius: var(--radius-control) !important;
-  color: var(--ui-control-text-active) !important;
-  box-shadow: var(--shadow-hover) !important;
+  background: var(--ui-control-hover);
+  background-color: var(--ui-control-hover);
+  background-image: none;
+  border-radius: var(--radius-control);
+  color: var(--ui-control-text-active);
+  box-shadow: var(--shadow-hover);
 }
 /* Scroll-to-top button */
 .to-top {
@@ -1103,23 +1103,23 @@ dialog[open] #modalClose.modal-close:hover{
   font-weight: var(--font-weight-strong);
   line-height: 1;
   text-indent: 0;
-  opacity: 0 !important;
-  pointer-events: none !important;
+  opacity: 0;
+  pointer-events: none;
   cursor: pointer;
   transform: translateY(8px);
   transition: opacity .18s ease, transform .18s ease, background-color .16s ease, color .16s ease;
 }
 
 .to-top.show {
-  opacity: 1 !important;
-  pointer-events: auto !important;
-  transform: translateY(0) !important;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
 .to-top:hover,
 .to-top:focus-visible {
-  background: var(--ui-control-hover) !important;
-  color: var(--ui-control-text-active) !important;
+  background: var(--ui-control-hover);
+  color: var(--ui-control-text-active);
 }
 
 /* Canonical card system - latest UI source of truth. */
@@ -1170,7 +1170,7 @@ dialog[open] #modalClose.modal-close:hover{
 .catalog-card::after,
 .product-card::before,
 .product-card::after{
-  display: none !important;
+  display: none;
 }
 
 .catalog-card-visual {
@@ -1297,11 +1297,11 @@ dialog[open] #modalClose.modal-close:hover{
   max-width: var(--page-max);
   margin-left: auto;
   margin-right: auto;
-  display: none !important;
+  display: none;
 }
 
 .app-panel.active {
-  display: block !important;
+  display: block;
   animation: var(--motion-preset-panel-enter);
 }
 
@@ -1314,7 +1314,7 @@ html.route-booting main,
 html.route-booting .mobile-drawer,
 html.route-booting #detailModal,
 html.route-booting .to-top {
-  visibility: hidden !important;
+  visibility: hidden;
 }
 
 .data-load-status {
@@ -1364,15 +1364,15 @@ html.route-booting .to-top {
 /* Gentle interactions for cards and popover links. */
 .catalog-card:hover,
 .product-card:hover{
-  transform: none !important;
-  background: var(--ui-surface-raised) !important;
-  border-color: color-mix(in srgb, var(--ui-accent) 22%, var(--ui-stroke-subtle)) !important;
-  box-shadow: var(--shadow-hover) !important;
+  transform: none;
+  background: var(--ui-surface-raised);
+  border-color: color-mix(in srgb, var(--ui-accent) 22%, var(--ui-stroke-subtle));
+  box-shadow: var(--shadow-hover);
 }
 
 .catalog-card:active,
 .product-card:active{
-  transform: none !important;
+  transform: none;
 }
 
 .modal-art {
@@ -1399,7 +1399,7 @@ html.route-booting .to-top {
 }
 
 .model-viewer.is-grabbing canvas {
-  cursor: grabbing !important;
+  cursor: grabbing;
 }
 
 .modal-info {
@@ -1410,16 +1410,16 @@ html.route-booting .to-top {
 /* Match modal close button with back button style. */
 #modalClose,
 dialog[open] #modalClose.modal-close {
-  -webkit-appearance: none !important;
-  appearance: none !important;
-  overflow: hidden !important;
-  background-clip: padding-box !important;
-  background-color: transparent !important;
-  background-image: none !important;
-  filter: none !important;
-  font-size: var(--font-xl) !important;
-  font-weight: var(--font-weight-strong) !important;
-  text-indent: 0 !important;
+  -webkit-appearance: none;
+  appearance: none;
+  overflow: hidden;
+  background-clip: padding-box;
+  background-color: transparent;
+  background-image: none;
+  filter: none;
+  font-size: var(--font-xl);
+  font-weight: var(--font-weight-strong);
+  text-indent: 0;
 }
 
 /* Unified catalog page header placement. */
@@ -1451,7 +1451,7 @@ dialog[open] #modalClose.modal-close {
 .product-card .card-en,
 .product-card .card-full-en,
 .product-card .card-full-ko{
-  display: none !important;
+  display: none;
 }
 
 /* Latest modal tag style. */
@@ -1495,21 +1495,21 @@ dialog[open] #modalClose.modal-close {
 
 .modal-tags > .modal-tag-info:hover,
 .modal-tags > .modal-tag-info[aria-expanded="true"] {
-  background: color-mix(in srgb, var(--ui-text) 92%, var(--ui-surface) 8%) !important;
-  color: var(--ui-surface) !important;
-  border-color: transparent !important;
+  background: color-mix(in srgb, var(--ui-text) 92%, var(--ui-surface) 8%);
+  color: var(--ui-surface);
+  border-color: transparent;
   box-shadow: none;
-  outline: 0 !important;
-  outline-offset: 0 !important;
+  outline: 0;
+  outline-offset: 0;
 }
 
 .modal-tags > .modal-tag-info:focus-visible {
-  background: color-mix(in srgb, var(--ui-text) 92%, var(--ui-surface) 8%) !important;
-  color: var(--ui-surface) !important;
-  border-color: transparent !important;
+  background: color-mix(in srgb, var(--ui-text) 92%, var(--ui-surface) 8%);
+  color: var(--ui-surface);
+  border-color: transparent;
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--ui-surface) 22%, transparent);
-  outline: 0 !important;
-  outline-offset: 0 !important;
+  outline: 0;
+  outline-offset: 0;
 }
 
 .modal-tag-popover {
@@ -1545,20 +1545,20 @@ dialog[open] #modalClose.modal-close {
 
 /* Latest responsive popover sizing. */
 dialog[open] {
-  position: fixed !important;
-  inset: 0 !important;
-  margin: 0 !important;
-  border: 0 !important;
-  outline: 0 !important;
-  width: var(--modal-viewport-width, 100vw) !important;
-  max-width: none !important;
-  height: var(--modal-viewport-height, 100vh) !important;
-  max-height: none !important;
-  padding: 0 !important;
-  overflow: hidden !important;
-  display: grid !important;
-  place-items: center !important;
-  background: transparent !important;
+  position: fixed;
+  inset: 0;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  width: var(--modal-viewport-width, 100vw);
+  max-width: none;
+  height: var(--modal-viewport-height, 100vh);
+  max-height: none;
+  padding: 0;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: transparent;
   --modal-vw: var(--modal-viewport-width, 100vw);
   --modal-vh: var(--modal-viewport-height, 100vh);
   --modal-edge-gap: 48px;
@@ -1582,12 +1582,12 @@ dialog[open] {
 }
 
 body.is-modal-open {
-  position: fixed !important;
-  left: var(--modal-lock-left, 0px) !important;
-  right: auto !important;
-  top: var(--modal-scroll-lock-top, 0px) !important;
-  width: var(--modal-lock-width, 100%) !important;
-  overflow: hidden !important;
+  position: fixed;
+  left: var(--modal-lock-left, 0px);
+  right: auto;
+  top: var(--modal-scroll-lock-top, 0px);
+  width: var(--modal-lock-width, 100%);
+  overflow: hidden;
 }
 
 body.is-modal-open:not(.is-overview) .topbar {
@@ -1652,43 +1652,43 @@ dialog[open][data-modal-transition="composition"] .modal-stage.is-modal-stage-en
 dialog[open][data-modal-transition="back"] .modal-stage.is-modal-stage-entering,
 dialog[open][data-modal-transition="step-prev"] .modal-stage.is-modal-stage-entering,
 dialog[open][data-modal-transition="step-next"] .modal-stage.is-modal-stage-entering {
-  animation: var(--motion-preset-none) !important;
+  animation: var(--motion-preset-none);
 }
 
 dialog[open]::backdrop {
-  position: fixed !important;
-  inset: 0 !important;
-  width: var(--modal-viewport-width, 100vw) !important;
-  height: var(--modal-viewport-height, 100vh) !important;
-  background: transparent !important;
+  position: fixed;
+  inset: 0;
+  width: var(--modal-viewport-width, 100vw);
+  height: var(--modal-viewport-height, 100vh);
+  background: transparent;
 }
 
 dialog[open] .modal-inner {
-  position: relative !important;
-  z-index: 1 !important;
-  width: var(--modal-w) !important;
-  min-width: 0 !important;
-  max-width: var(--modal-w) !important;
-  height: var(--modal-h) !important;
-  min-height: 0 !important;
-  max-height: var(--modal-h) !important;
-  display: grid !important;
-  grid-template-columns: var(--modal-inner-columns) !important;
-  grid-template-rows: var(--modal-inner-rows) !important;
-  overflow: hidden !important;
-  margin: 0 !important;
-  border: var(--border-subtle) !important;
-  outline: 0 !important;
-  border-radius: var(--radius-modal) !important;
-  background: var(--ui-surface-raised) !important;
-  box-shadow: var(--shadow-floating) !important;
-  animation: var(--motion-preset-none) !important;
+  position: relative;
+  z-index: 1;
+  width: var(--modal-w);
+  min-width: 0;
+  max-width: var(--modal-w);
+  height: var(--modal-h);
+  min-height: 0;
+  max-height: var(--modal-h);
+  display: grid;
+  grid-template-columns: var(--modal-inner-columns);
+  grid-template-rows: var(--modal-inner-rows);
+  overflow: hidden;
+  margin: 0;
+  border: var(--border-subtle);
+  outline: 0;
+  border-radius: var(--radius-modal);
+  background: var(--ui-surface-raised);
+  box-shadow: var(--shadow-floating);
+  animation: var(--motion-preset-none);
 }
 
 dialog[open] .modal-info {
-  min-width: 0 !important;
-  min-height: 0 !important;
-  max-height: 100% !important;
+  min-width: 0;
+  min-height: 0;
+  max-height: 100%;
 }
 
 dialog[open] .modal-info:not(.category-anime-info) {
@@ -1696,14 +1696,14 @@ dialog[open] .modal-info:not(.category-anime-info) {
   --modal-flow-gap: 16px;
   --modal-title-size: var(--font-title);
   container-type: inline-size;
-  align-self: var(--modal-info-align-self) !important;
-  height: var(--modal-info-height) !important;
-  overflow-x: hidden !important;
-  overflow-y: hidden !important;
-  margin-inline: var(--modal-scrollbar-inset) !important;
-  width: calc(100% - (var(--modal-scrollbar-inset) * 2)) !important;
-  padding: 0 var(--modal-info-padding-inline) !important;
-  display: block !important;
+  align-self: var(--modal-info-align-self);
+  height: var(--modal-info-height);
+  overflow-x: hidden;
+  overflow-y: hidden;
+  margin-inline: var(--modal-scrollbar-inset);
+  width: calc(100% - (var(--modal-scrollbar-inset) * 2));
+  padding: 0 var(--modal-info-padding-inline);
+  display: block;
 }
 
 dialog[open] .modal-inner--rare-bey-get-list {
@@ -1713,7 +1713,7 @@ dialog[open] .modal-inner--rare-bey-get-list {
 }
 
 dialog[open] .modal-inner--rare-bey-get-list .modal-art {
-  display: none !important;
+  display: none;
 }
 
 dialog[open] .modal-inner--rare-bey-get-list .modal-info:not(.category-anime-info) {
@@ -1727,56 +1727,56 @@ dialog[open] .modal-inner--rare-bey-get-list .modal-info:not(.category-anime-inf
 }
 
 dialog[open] .modal-scroll-area {
-  box-sizing: border-box !important;
-  width: calc(100% + var(--modal-scrollbar-x-shift, 0px)) !important;
-  height: calc(100% - (var(--modal-scroll-start) * 2)) !important;
-  min-height: 0 !important;
-  margin: var(--modal-scroll-start) calc(var(--modal-scrollbar-x-shift, 0px) * -1) 0 0 !important;
-  padding: 0 var(--modal-scrollbar-x-shift, 0px) 0 0 !important;
-  overflow-x: hidden !important;
-  overflow-y: auto !important;
-  overscroll-behavior: contain !important;
-  scrollbar-gutter: stable both-edges !important;
-  scrollbar-width: thin !important;
-  scrollbar-color: var(--ui-line) transparent !important;
+  box-sizing: border-box;
+  width: calc(100% + var(--modal-scrollbar-x-shift, 0px));
+  height: calc(100% - (var(--modal-scroll-start) * 2));
+  min-height: 0;
+  margin: var(--modal-scroll-start) calc(var(--modal-scrollbar-x-shift, 0px) * -1) 0 0;
+  padding: 0 var(--modal-scrollbar-x-shift, 0px) 0 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable both-edges;
+  scrollbar-width: thin;
+  scrollbar-color: var(--ui-line) transparent;
 }
 
 dialog[open] .modal-close {
-  position: absolute !important;
-  top: calc((var(--modal-vh) - var(--modal-h)) / 2 + var(--modal-close-offset)) !important;
-  right: calc((var(--modal-vw) - var(--modal-w)) / 2 + var(--modal-close-offset)) !important;
-  z-index: 300 !important;
+  position: absolute;
+  top: calc((var(--modal-vh) - var(--modal-h)) / 2 + var(--modal-close-offset));
+  right: calc((var(--modal-vw) - var(--modal-w)) / 2 + var(--modal-close-offset));
+  z-index: 300;
 }
 
 dialog[open] .modal-name {
   --modal-title-line-height: 1.15em;
   --modal-title-row-height: max(34px, var(--modal-title-line-height));
   --modal-title-lines: 1;
-  width: var(--modal-body-width) !important;
-  display: flex !important;
-  align-items: baseline !important;
-  align-content: flex-start !important;
-  flex-wrap: nowrap !important;
-  column-gap: 10px !important;
-  row-gap: 2px !important;
-  height: calc(var(--modal-title-row-height) * var(--modal-title-lines)) !important;
-  max-height: calc(var(--modal-title-row-height) * var(--modal-title-lines)) !important;
-  margin: 0 auto 0 !important;
-  font-size: var(--modal-title-size) !important;
-  font-weight: var(--font-weight-title) !important;
-  line-height: 1.15 !important;
-  color: var(--ui-text) !important;
-  word-break: keep-all !important;
-  white-space: nowrap !important;
-  overflow-wrap: normal !important;
-  text-overflow: ellipsis !important;
-  overflow: hidden !important;
+  width: var(--modal-body-width);
+  display: flex;
+  align-items: baseline;
+  align-content: flex-start;
+  flex-wrap: nowrap;
+  column-gap: 10px;
+  row-gap: 2px;
+  height: calc(var(--modal-title-row-height) * var(--modal-title-lines));
+  max-height: calc(var(--modal-title-row-height) * var(--modal-title-lines));
+  margin: 0 auto 0;
+  font-size: var(--modal-title-size);
+  font-weight: var(--font-weight-title);
+  line-height: 1.15;
+  color: var(--ui-text);
+  word-break: keep-all;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 dialog[open] .product-modal-name {
   --modal-title-lines: 2;
-  flex-wrap: wrap !important;
-  white-space: normal !important;
+  flex-wrap: wrap;
+  white-space: normal;
 }
 
 .modal-info-slot {
@@ -1802,11 +1802,11 @@ dialog[open] .product-modal-name {
 }
 
 .modal-info-slot.single-line-info-slot .modal-description:empty {
-  display: none !important;
+  display: none;
 }
 
 .modal-info-slot.single-line-info-slot .modal-description-region {
-  display: none !important;
+  display: none;
 }
 
 .modal-description-region {
@@ -1872,7 +1872,7 @@ dialog[open] .product-modal-name {
 }
 
 .modal-description-toggle[hidden] {
-  display: none !important;
+  display: none;
 }
 
 .modal-description-toggle:hover,
@@ -1937,7 +1937,7 @@ dialog[open] .product-modal-name {
   margin-right: calc(var(--modal-scroll-gutter) * -1);
   min-height: 0;
   flex: 0 1 auto;
-  overflow-x: hidden !important;
+  overflow-x: hidden;
   overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-gutter: stable;
@@ -1986,7 +1986,7 @@ dialog[open] .product-modal-name {
 
 .product-composition-item > span::before {
   content: none;
-  display: none !important;
+  display: none;
 }
 
 .product-composition-item > b {
@@ -2686,16 +2686,16 @@ dialog[open] .category-anime-info .anime-episode-title-row .category-title {
 }
 
 dialog[open] .modal-art {
-  min-width: 0 !important;
-  min-height: 0 !important;
-  height: var(--modal-art-height) !important;
-  max-height: var(--modal-art-max-height) !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding: var(--modal-art-padding) !important;
-  border-right: 0 !important;
-  border-bottom: 0 !important;
+  min-width: 0;
+  min-height: 0;
+  height: var(--modal-art-height);
+  max-height: var(--modal-art-max-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--modal-art-padding);
+  border-right: 0;
+  border-bottom: 0;
 }
 
 dialog[open] .modal-art > .bey-image {
@@ -2705,14 +2705,14 @@ dialog[open] .modal-art > .bey-image {
 }
 
 .mounted-link:hover > :last-child {
-  transform: none !important;
+  transform: none;
 }
 
 /* Prevent generated modal artwork remnants. */
 .modal-art::before,
 .modal-art::after {
   content: none;
-  display: none !important;
+  display: none;
   background: transparent;
   background-image: none;
   box-shadow: none;
@@ -2860,9 +2860,9 @@ dialog[open] .modal-art > .bey-image {
 
 .product-modal-info.has-rare-bey-get-chip .product-modal-name {
   grid-row: 1;
-  height: auto !important;
+  height: auto;
   min-height: calc(var(--modal-title-size, var(--font-title)) * 1.15);
-  max-height: calc(var(--modal-title-row-height) * var(--modal-title-lines)) !important;
+  max-height: calc(var(--modal-title-row-height) * var(--modal-title-lines));
 }
 
 .product-meta-slot {
@@ -2911,8 +2911,8 @@ dialog[open] .modal-info.part-modal-info .modal-name {
   --modal-title-lines: 1;
   position: relative;
   z-index: 1;
-  overflow: visible !important;
-  margin: 0 auto var(--modal-flow-gap) !important;
+  overflow: visible;
+  margin: 0 auto var(--modal-flow-gap);
 }
 
 .modal-body-block > .modal-section,
@@ -3025,8 +3025,8 @@ dialog[open] .modal-info.part-modal-info .modal-name {
 .ui-button[aria-selected="true"],
 .ui-icon-button:hover,
 .ui-icon-button:focus-visible {
-  background: var(--ui-control-hover) !important;
-  color: var(--ui-control-text-active) !important;
+  background: var(--ui-control-hover);
+  color: var(--ui-control-text-active);
 }
 
 .ui-button:not(:disabled):not([aria-disabled="true"]):hover,
@@ -3041,7 +3041,7 @@ dialog[open] .modal-info.part-modal-info .modal-name {
 
 .ui-button:focus-visible,
 .ui-icon-button:focus-visible {
-  box-shadow: var(--ui-focus-ring) !important;
+  box-shadow: var(--ui-focus-ring);
 }
 
 .ui-button:active {
@@ -3083,53 +3083,53 @@ dialog[open] .modal-step {
   --modal-step-bottom-offset: max(var(--modal-close-offset, 18px), env(safe-area-inset-bottom, 0px));
   --modal-step-start-offset: max(var(--modal-close-offset, 18px), env(safe-area-inset-left, 0px));
   --modal-step-end-offset: max(var(--modal-close-offset, 18px), env(safe-area-inset-right, 0px));
-  position: fixed !important;
-  top: auto !important;
-  bottom: calc((var(--modal-vh, 100vh) - var(--modal-h, min(620px, calc(100vh - 48px)))) / 2 + var(--modal-step-bottom-offset)) !important;
-  z-index: 320 !important;
-  -webkit-backdrop-filter: none !important;
-  backdrop-filter: none !important;
+  position: fixed;
+  top: auto;
+  bottom: calc((var(--modal-vh, 100vh) - var(--modal-h, min(620px, calc(100vh - 48px)))) / 2 + var(--modal-step-bottom-offset));
+  z-index: 320;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
 }
 
 dialog[open] .modal-step-prev {
-  left: calc((var(--modal-vw, 100vw) - var(--modal-w, min(980px, calc(100vw - 48px)))) / 2 + var(--modal-step-start-offset)) !important;
-  right: auto !important;
+  left: calc((var(--modal-vw, 100vw) - var(--modal-w, min(980px, calc(100vw - 48px)))) / 2 + var(--modal-step-start-offset));
+  right: auto;
 }
 
 dialog[open] .modal-step-next {
-  left: auto !important;
-  right: calc((var(--modal-vw, 100vw) - var(--modal-w, min(980px, calc(100vw - 48px)))) / 2 + var(--modal-step-end-offset)) !important;
+  left: auto;
+  right: calc((var(--modal-vw, 100vw) - var(--modal-w, min(980px, calc(100vw - 48px)))) / 2 + var(--modal-step-end-offset));
 }
 
 dialog[open] .modal-step::before,
 dialog[open] .modal-step::after {
-  content: "" !important;
-  display: block !important;
-  position: absolute !important;
-  left: 50% !important;
-  top: 50% !important;
-  width: 12px !important;
-  height: 2px !important;
-  border: 0 !important;
-  border-radius: var(--radius-pill) !important;
-  background: currentColor !important;
-  transform-origin: center !important;
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 12px;
+  height: 2px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: currentColor;
+  transform-origin: center;
 }
 
 dialog[open] .modal-step-prev::before {
-  transform: translate(-50%, -50%) translateY(-4px) rotate(-45deg) !important;
+  transform: translate(-50%, -50%) translateY(-4px) rotate(-45deg);
 }
 
 dialog[open] .modal-step-prev::after {
-  transform: translate(-50%, -50%) translateY(4px) rotate(45deg) !important;
+  transform: translate(-50%, -50%) translateY(4px) rotate(45deg);
 }
 
 dialog[open] .modal-step-next::before {
-  transform: translate(-50%, -50%) translateY(-4px) rotate(45deg) !important;
+  transform: translate(-50%, -50%) translateY(-4px) rotate(45deg);
 }
 
 dialog[open] .modal-step-next::after {
-  transform: translate(-50%, -50%) translateY(4px) rotate(-45deg) !important;
+  transform: translate(-50%, -50%) translateY(4px) rotate(-45deg);
 }
 
 .ui-chip-button {
@@ -3176,8 +3176,8 @@ dialog[open] .modal-step-next::after {
 .ui-tab-button:not(.sidebar-button):focus-visible,
 .ui-tab-button:not(.sidebar-button).active,
 .ui-tab-button:not(.sidebar-button)[aria-selected="true"] {
-  background: var(--ui-control-hover) !important;
-  color: var(--ui-control-text-active) !important;
+  background: var(--ui-control-hover);
+  color: var(--ui-control-text-active);
 }
 
 .ui-tab-button:not(.sidebar-button):hover,
@@ -3232,8 +3232,8 @@ dialog[open] .modal-step-next::after {
 .catalog-dropdown-menu button:hover,
 .catalog-dropdown-menu button:focus-visible,
 .catalog-dropdown-menu button.active {
-  background: transparent !important;
-  color: var(--ui-control-text-active) !important;
+  background: transparent;
+  color: var(--ui-control-text-active);
 }
 
 .ui-dropdown-item:hover::before,
@@ -3354,28 +3354,28 @@ dialog[open] .modal-step-next::after {
 .ui-list-link:hover,
 .product-composition-item:hover,
 .mounted-link:hover {
-  background: var(--ui-control) !important;
-  color: var(--ui-text) !important;
-  box-shadow: none !important;
-  filter: none !important;
-  transform: none !important;
+  background: var(--ui-control);
+  color: var(--ui-text);
+  box-shadow: none;
+  filter: none;
+  transform: none;
 }
 
 .product-composition .product-composition-item:hover,
 .product-composition .product-composition-item:focus-visible {
-  background: var(--ui-control-hover) !important;
-  color: var(--ui-text) !important;
+  background: var(--ui-control-hover);
+  color: var(--ui-text);
 }
 
 .mounted-parts .mounted-link:hover,
 .mounted-parts .mounted-link:focus-visible {
-  background: transparent !important;
-  color: var(--ui-text) !important;
+  background: transparent;
+  color: var(--ui-text);
 }
 
 .product-composition .product-composition-item::before {
   content: none;
-  display: none !important;
+  display: none;
 }
 
 .product-composition .product-composition-item:hover::before,
@@ -3388,7 +3388,7 @@ dialog[open] .modal-step-next::after {
 
 /* Canonical brand style. */
 .brand:not(.topbar > .brand) {
-  display: none !important;
+  display: none;
 }
 
 .topbar > .brand {
@@ -3445,9 +3445,9 @@ dialog[open] .modal-step-next::after {
 }
 
 body.is-overview .app-shell {
-  min-height: calc(100svh - 72px) !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
+  min-height: calc(100svh - 72px);
+  padding-top: 0;
+  padding-bottom: 0;
   display: grid;
   align-items: center;
 }
@@ -3688,7 +3688,7 @@ body.is-overview .app-shell {
 }
 
 .catalog-search-help-popover[hidden] {
-  display: none !important;
+  display: none;
 }
 
 .catalog-search-help-popover strong {
@@ -3740,7 +3740,7 @@ body.is-overview .app-shell {
 }
 
 .catalog-filter-chips.is-empty {
-  display: none !important;
+  display: none;
 }
 
 .catalog-filter-chips > .ui-chip-button {
@@ -3826,7 +3826,7 @@ body.is-overview .app-shell {
 
 .category-collection__section[hidden],
 .catalog-subsection[hidden] {
-  display: none !important;
+  display: none;
 }
 
 .category-collection__meta-row,
@@ -3905,7 +3905,7 @@ body.is-overview .app-shell {
 .list-sort-dropdown.search-scope.catalog-dropdown summary:hover,
 .list-sort-dropdown.search-scope.catalog-dropdown summary:focus-visible,
 .list-sort-dropdown.search-scope.catalog-dropdown[open] summary {
-  border-radius: var(--catalog-pill-radius) !important;
+  border-radius: var(--catalog-pill-radius);
 }
 
 .list-sort-dropdown.search-scope.catalog-dropdown summary b {
@@ -4045,8 +4045,8 @@ body.is-overview .app-shell {
 
 .search-result-item:hover,
 .search-result-item:focus-visible {
-  background: var(--ui-control-hover) !important;
-  outline: 0 !important;
+  background: var(--ui-control-hover);
+  outline: 0;
   transform: none;
 }
 
@@ -4105,7 +4105,7 @@ body.is-overview .app-shell {
 
 .category-collection__pagination[hidden],
 .catalog-pagination[hidden] {
-  display: none !important;
+  display: none;
 }
 
 .search-results-pagination,
@@ -4135,22 +4135,22 @@ body.is-overview .app-shell {
 .search-results-pagination .ui-button:focus-visible,
 .catalog-pagination-nav .ui-button:hover,
 .catalog-pagination-nav .ui-button:focus-visible {
-  background: var(--ui-control-hover) !important;
-  color: var(--ui-control-text-active) !important;
-  box-shadow: var(--shadow-hover) !important;
+  background: var(--ui-control-hover);
+  color: var(--ui-control-text-active);
+  box-shadow: var(--shadow-hover);
 }
 
 .search-results-pagination .ui-button.active,
 .catalog-pagination-nav .ui-button.active {
-  background: var(--ui-control-hover) !important;
-  color: var(--ui-control-text-active) !important;
-  box-shadow: var(--shadow-rest) !important;
+  background: var(--ui-control-hover);
+  color: var(--ui-control-text-active);
+  box-shadow: var(--shadow-rest);
 }
 
 .search-results-pagination .ui-button:disabled,
 .catalog-pagination-nav .ui-button:disabled {
-  opacity: .42 !important;
-  cursor: default !important;
+  opacity: .42;
+  cursor: default;
 }
 
 .search-results-page-gap,
@@ -4188,7 +4188,7 @@ body.is-overview .app-shell {
   padding: var(--space-2);
   display: grid;
   gap: var(--space-2);
-  overflow-x: hidden !important;
+  overflow-x: hidden;
   overflow-y: visible;
   border: var(--border-subtle);
   border-radius: var(--ui-panel-radius);
@@ -4205,7 +4205,7 @@ body.is-overview .app-shell {
 }
 
 .search-preview[hidden] {
-  display: none !important;
+  display: none;
 }
 
 .search-preview-list {
@@ -4217,8 +4217,8 @@ body.is-overview .app-shell {
 .search-preview .search-result-item:focus-visible,
 .search-preview .search-result-item[aria-selected="true"],
 .search-preview .search-result-item.is-active {
-  background: var(--ui-control-hover) !important;
-  outline: 0 !important;
+  background: var(--ui-control-hover);
+  outline: 0;
 }
 
 .search-preview-all {
@@ -4241,8 +4241,8 @@ body.is-overview .app-shell {
 
 .search-preview-all:hover,
 .search-preview-all:focus-visible {
-  background: var(--ui-control-hover) !important;
-  outline: 0 !important;
+  background: var(--ui-control-hover);
+  outline: 0;
   transform: none;
 }
 
@@ -4379,8 +4379,8 @@ body.menu-open .menu-button span:nth-child(3) {
 }
 
 body.menu-open {
-  overflow-x: hidden !important;
-  overflow-y: hidden !important;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .mobile-drawer {
@@ -4691,7 +4691,7 @@ body.menu-open .mobile-drawer {
 /* The restored topbar is the primary navigation at every width. */
 @media (min-width: 100rem) {
   .topbar {
-    display: grid !important;
+    display: grid;
   }
 
   .app-shell {
@@ -4699,7 +4699,7 @@ body.menu-open .mobile-drawer {
   }
 
   body.is-overview .app-shell {
-    min-height: calc(100svh - 72px) !important;
+    min-height: calc(100svh - 72px);
   }
 
 
@@ -4723,7 +4723,7 @@ body.menu-open .mobile-drawer {
   dialog[open] .modal-stage.is-modal-stage-entering,
   dialog[open] .modal-inner,
   dialog[open] .modal-step {
-    animation: none !important;
+    animation: none;
   }
 
   .topbar-menu-button:hover,
@@ -4751,21 +4751,21 @@ body.menu-open .mobile-drawer {
   .sidebar-root .sidebar-button:not(:disabled):not([aria-disabled="true"]):focus-visible,
   .mobile-drawer-close:hover,
   .mobile-drawer-close:focus-visible {
-    transform: none !important;
+    transform: none;
   }
 
   .ui-dropdown-item::before,
   .catalog-dropdown-menu button::before,
   .product-composition-item::before,
   .mounted-link::before {
-    transform: none !important;
-    transition: opacity 1ms linear !important;
+    transform: none;
+    transition: opacity 1ms linear;
   }
 }
 
 @media (min-width: 64rem) {
   .topbar .menu-button {
-    display: none !important;
+    display: none;
   }
 }
 
@@ -4782,15 +4782,15 @@ body.menu-open .mobile-drawer {
   }
 
   .topbar-primary-nav {
-    display: none !important;
+    display: none;
   }
 
   .topbar > .brand {
-    display: none !important;
+    display: none;
   }
 
   .topbar-search {
-    display: none !important;
+    display: none;
   }
 
   .overview-home {
@@ -4879,11 +4879,11 @@ body.menu-open .mobile-drawer {
 
   dialog[open] .modal-info:not(.product-modal-info):not(.category-anime-info) .modal-name {
     --modal-title-lines: 1;
-    min-width: 0 !important;
-    flex-wrap: nowrap !important;
-    white-space: nowrap !important;
-    overflow-wrap: normal !important;
-    text-overflow: ellipsis !important;
+    min-width: 0;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    overflow-wrap: normal;
+    text-overflow: ellipsis;
   }
 
   dialog[open] .category-anime-info .anime-episode-title-row {

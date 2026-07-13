@@ -83,3 +83,48 @@ test("mobile drawer opens and exposes category navigation", async ({ page }, tes
   await expect(page.locator("[data-category-catalog-open]").last()).toBeVisible();
   expect(errors).toEqual([]);
 });
+
+test("responsive routes preserve hidden states and viewport bounds", async ({ page }) => {
+  const errors = consoleErrors(page);
+  for (const hash of ["#toy-catalog?scope=bey&series=x", "#toy-release", "#PRODUCT-X-BX-01"]) {
+    await page.goto(`/${hash}`);
+    await expect(page.locator("html")).not.toHaveClass(/route-booting/);
+
+    const layout = await page.evaluate(() => ({
+      hiddenLeaks: [...document.querySelectorAll("[hidden]")]
+        .filter(element => getComputedStyle(element).display !== "none")
+        .map(element => element.id || element.className || element.tagName),
+      inactivePanelLeaks: [...document.querySelectorAll(".app-panel:not(.active)")]
+        .filter(element => getComputedStyle(element).display !== "none")
+        .map(element => element.dataset.appPanel || element.id),
+      viewportWidth: document.documentElement.clientWidth,
+      documentWidth: document.documentElement.scrollWidth
+    }));
+
+    expect(layout.hiddenLeaks).toEqual([]);
+    expect(layout.inactivePanelLeaks).toEqual([]);
+    expect(layout.documentWidth).toBeLessThanOrEqual(layout.viewportWidth + 1);
+  }
+  expect(errors).toEqual([]);
+});
+
+test("reduced motion disables route and control transitions", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "motion coverage only needs one browser");
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/#toy-catalog?scope=bey&series=x");
+  await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
+
+  const catalogMotion = await page.evaluate(() => ({
+    panelAnimation: getComputedStyle(document.querySelector(".app-panel.active")).animationName,
+    cardTransition: getComputedStyle(document.querySelector(".catalog-card")).transitionDuration
+  }));
+  expect(catalogMotion.panelAnimation).toBe("none");
+  expect(catalogMotion.cardTransition).toBe("0.001s");
+
+  await page.goto("/#PRODUCT-X-BX-01");
+  await expect(page.locator("#detailModal")).toBeVisible();
+  const modalAnimation = await page.locator(".modal-stage").evaluate(
+    element => getComputedStyle(element).animationName
+  );
+  expect(modalAnimation).toBe("none");
+});

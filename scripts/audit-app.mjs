@@ -9,6 +9,7 @@ const HOME_TEXT_FILES = [
   "data/runtime/index.json"
 ];
 const HOME_TEXT_LIMIT = 250_000;
+const CSS_IMPORTANT_LIMIT = 80;
 const FORBIDDEN_GENERATED_RUNTIME = [
   "src/app-runtime.js",
   "scripts/build-app-runtime.mjs"
@@ -22,6 +23,12 @@ if (total > HOME_TEXT_LIMIT) {
   throw new Error(`Home text payload is ${total} bytes; expected <= ${HOME_TEXT_LIMIT}.`);
 }
 
+const stylesheet = await readFile("styles.css", "utf8");
+const importantCount = stylesheet.match(/!important\b/g)?.length ?? 0;
+if (importantCount > CSS_IMPORTANT_LIMIT) {
+  throw new Error(`styles.css contains ${importantCount} !important declarations; expected <= ${CSS_IMPORTANT_LIMIT}.`);
+}
+
 for (const file of FORBIDDEN_GENERATED_RUNTIME) {
   try {
     await access(file);
@@ -31,4 +38,7 @@ for (const file of FORBIDDEN_GENERATED_RUNTIME) {
   }
 }
 
-console.log(`App audit OK: ${total} initial text bytes across ${sizes.length} files.`);
+console.log(
+  `App audit OK: ${total} initial text bytes across ${sizes.length} files; `
+  + `${importantCount} !important declarations.`
+);
