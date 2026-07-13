@@ -1,7 +1,13 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
-import vm from "node:vm";
 import { pathToFileURL } from "node:url";
 
+import { animeInfo } from "../data/source/anime.mjs";
+import { beyItems, partItems } from "../data/source/catalog.mjs";
+import { productItems } from "../data/source/products.mjs";
+import { rareBeyGetItems } from "../data/source/rare-bey-get.mjs";
+import { bookItems, gameItems, toolsItems } from "../data/source/secondary.mjs";
+
+const VERSION = "20260713-runtime-v3";
 const SERIES_SLUGS = {
   "metal fight": "metal-fight",
   burst: "burst",
@@ -22,20 +28,25 @@ const ANIME_EPISODE_PREFIXES = {
   "beyblade-x": "BEYBLADE-X-EPISODE",
   "beyblade-x-2": "BEYBLADE-X-2-EPISODE"
 };
-const LEGACY_FILES = [
-  "data/catalog-data.js",
-  "data/product-data.js",
-  "data/rare-bey-get-data.js",
-  "data/secondary-data.js",
-  "data/anime-data.js"
-];
 
+const sourceData = {
+  animeInfo,
+  beyItems,
+  bookItems,
+  gameItems,
+  partItems,
+  productItems,
+  rareBeyGetItems,
+  toolsItems
+};
 const jsonText = value => `${JSON.stringify(value)}\n`;
 const unique = values => [...new Set(values.filter(Boolean))];
-const released = release => release && release.status !== "unreleased" && Boolean(release.no || release.name || release.releaseDate || release.release);
-const episodeIds = animeInfo => {
+const released = release => release && release.status !== "unreleased" && Boolean(
+  release.no || release.name || release.releaseDate || release.release
+);
+const episodeIds = info => {
   const counts = new Map();
-  return (animeInfo.episodes || []).map(episode => {
+  return (info.episodes || []).map(episode => {
     const count = (counts.get(episode.season) || 0) + 1;
     counts.set(episode.season, count);
     const prefix = ANIME_EPISODE_PREFIXES[episode.season];
@@ -81,31 +92,11 @@ const animeSearchEntry = (episode, id, index) => [
   "a", id, index, episode.no || "", episode.season || "", episode.titles?.kr || "",
   episode.titles?.jp || "", episode.airDates?.kr || "", episode.airDates?.jp || "", episode.note || ""
 ];
-const registryStub = (item, kind, chunk, order) => ({
-  id: item.id,
-  kind,
-  chunk,
-  series: item.series || "",
-  type: item.type || "",
-  name: item.name || "",
-  sub: item.sub || "",
-  _order: order
-});
-
-async function readLegacyData(rootDir) {
-  let source = "";
-  for (const file of LEGACY_FILES) source += `${await readFile(new URL(file, rootDir), "utf8")}\n`;
-  source += "\nglobalThis.__legacyData={beyItems,partItems,productItems,rareBeyGetItems,toolsItems,bookItems,gameItems,animeInfo};";
-  const context = {};
-  vm.createContext(context);
-  new vm.Script(source, { filename: "legacy-data.js" }).runInContext(context);
-  return context.__legacyData;
-}
 
 function buildSeriesChunks(data) {
   const productSeriesById = new Map(data.productItems.map(item => [item.id, item.series]));
   return Object.fromEntries(SERIES_ORDER.map(series => {
-    const rareBeyGetItems = data.rareBeyGetItems.filter(entry => {
+    const seriesRareItems = data.rareBeyGetItems.filter(entry => {
       const ids = unique([entry.productId, ...(entry.productIds || [])]);
       return ids.some(id => productSeriesById.get(id) === series);
     });
@@ -115,104 +106,138 @@ function buildSeriesChunks(data) {
       partItems: data.partItems.filter(item => item.series === series),
       productItems: data.productItems.filter(item => item.series === series),
       toolsItems: data.toolsItems.filter(item => item.series === series),
-      rareBeyGetItems
+      rareBeyGetItems: seriesRareItems
     }];
   }));
 }
 
-function buildIndex(chunks, data) {
-  const registry = [];
-  const search = [];
-  const catalogById = new Map(SERIES_ORDER.flatMap(series => [
-    ...chunks[series].beyItems,
-    ...chunks[series].partItems,
-    ...chunks[series].toolsItems
-  ]).map(item => [item.id, item]));
+function buildSearchChunks(chunks, data) {
+  const catalogById = new Map([
+    ...data.beyItems,
+    ...data.partItems,
+    ...data.toolsItems
+  ].map(item => [item.id, item]));
+  const searchChunks = {};
+
   for (const series of SERIES_ORDER) {
     const chunk = SERIES_SLUGS[series];
     const payload = chunks[series];
-    payload.beyItems.forEach((item, order) => {
-      search.push(catalogSearchEntry(item, chunk, order));
-    });
+    const search = [];
+    payload.beyItems.forEach((item, order) => search.push(catalogSearchEntry(item, chunk, order)));
     payload.partItems.forEach((item, order) => {
-      const sourceOrder = payload.beyItems.length + order;
-      search.push(catalogSearchEntry(item, chunk, sourceOrder));
+      search.push(catalogSearchEntry(item, chunk, payload.beyItems.length + order));
     });
     payload.productItems.forEach((item, order) => {
-      if (item.lineupOnly) registry.push(registryStub(item, "product", chunk, order));
-      else search.push(productSearchEntry(item, chunk, order, catalogById));
+      if (!item.lineupOnly) search.push(productSearchEntry(item, chunk, order, catalogById));
     });
-    payload.toolsItems.forEach((item, order) => {
-      search.push(toolsSearchEntry(item, chunk, order));
-    });
+    payload.toolsItems.forEach((item, order) => search.push(toolsSearchEntry(item, chunk, order)));
+    searchChunks[chunk] = { search };
   }
-  data.bookItems.forEach((item, order) => {
-    search.push(["k", item.id, item.name || "", item.en || "", item.category || "", item.desc || "", order]);
-  });
-  data.gameItems.forEach((item, order) => {
-    search.push(["g", item.id, item.name || "", item.en || "", item.category || "", item.desc || "", order]);
-  });
-  episodeIds(data.animeInfo).forEach((id, index) => {
-    if (!id) return;
-    search.push(animeSearchEntry(data.animeInfo.episodes[index], id, index));
-  });
-  const availableReleaseSeries = Object.fromEntries(["kr", "jp"].map(region => [
-    region,
-    SERIES_ORDER.filter(series => chunks[series].productItems.some(item => released(item.releases?.[region])))
-  ]));
-  return {
-    version: "20260713-lazy-data-v2",
-    series: SERIES_ORDER.map(series => SERIES_SLUGS[series]),
-    chunks: Object.fromEntries(SERIES_ORDER.map(series => [SERIES_SLUGS[series], `./data/series/${SERIES_SLUGS[series]}.json?v=20260713-lazy-data-v2`])),
-    animeChunk: "./data/anime.json?v=20260713-lazy-data-v2",
-    availableReleaseSeries,
-    registry,
-    search
+
+  searchChunks.common = {
+    search: [
+      ...data.bookItems.map((item, order) => [
+        "k", item.id, item.name || "", item.en || "", item.category || "", item.desc || "", order
+      ]),
+      ...data.gameItems.map((item, order) => [
+        "g", item.id, item.name || "", item.en || "", item.category || "", item.desc || "", order
+      ])
+    ]
   };
+  searchChunks.anime = {
+    search: episodeIds(data.animeInfo).flatMap((id, index) => id
+      ? [animeSearchEntry(data.animeInfo.episodes[index], id, index)]
+      : [])
+  };
+  return searchChunks;
 }
 
-export async function migrateLegacyData() {
-  const rootDir = new URL("../", import.meta.url);
-  const data = await readLegacyData(rootDir);
-  const chunks = buildSeriesChunks(data);
-  await mkdir(new URL("../data/series/", import.meta.url), { recursive: true });
-  for (const [series, payload] of Object.entries(chunks)) {
-    await writeFile(new URL(`../data/series/${SERIES_SLUGS[series]}.json`, import.meta.url), jsonText(payload));
-  }
-  await writeFile(new URL("../data/anime.json", import.meta.url), jsonText(data.animeInfo));
-  await writeFile(new URL("../data/index.json", import.meta.url), jsonText(buildIndex(chunks, data)));
-  return { chunks, data };
-}
-
-export async function rebuildIndex() {
-  const chunks = {};
+function buildRegistry(chunks, data) {
+  const items = [];
   for (const series of SERIES_ORDER) {
-    chunks[series] = JSON.parse(await readFile(new URL(`../data/series/${SERIES_SLUGS[series]}.json`, import.meta.url), "utf8"));
+    const slug = SERIES_SLUGS[series];
+    const code = chunkCode(slug);
+    const payload = chunks[series];
+    [payload.beyItems, payload.partItems, payload.productItems, payload.toolsItems]
+      .flat()
+      .forEach(item => items.push([item.id, code]));
   }
-  const data = {
-    bookItems: [],
-    gameItems: [],
-    animeInfo: JSON.parse(await readFile(new URL("../data/anime.json", import.meta.url), "utf8"))
+  data.bookItems.forEach(item => items.push([item.id, chunkCode("common")]));
+  data.gameItems.forEach(item => items.push([item.id, chunkCode("common")]));
+  episodeIds(data.animeInfo).filter(Boolean).forEach(id => items.push([id, chunkCode("anime")]));
+  return { items };
+}
+
+function buildManifest(chunks) {
+  return {
+    version: VERSION,
+    series: SERIES_ORDER.map(series => SERIES_SLUGS[series]),
+    chunks: Object.fromEntries(SERIES_ORDER.map(series => {
+      const slug = SERIES_SLUGS[series];
+      return [slug, `./data/runtime/series/${slug}.json?v=${VERSION}`];
+    })),
+    searchChunks: {
+      "metal-fight": `./data/runtime/search/metal-fight.json?v=${VERSION}`,
+      burst: `./data/runtime/search/burst.json?v=${VERSION}`,
+      x: `./data/runtime/search/x.json?v=${VERSION}`,
+      common: `./data/runtime/search/common.json?v=${VERSION}`,
+      anime: `./data/runtime/search/anime.json?v=${VERSION}`
+    },
+    registryChunk: `./data/runtime/registry.json?v=${VERSION}`,
+    animeChunk: `./data/runtime/anime.json?v=${VERSION}`,
+    availableReleaseSeries: Object.fromEntries(["kr", "jp"].map(region => [
+      region,
+      SERIES_ORDER.filter(series => chunks[series].productItems.some(item => released(item.releases?.[region])))
+    ]))
   };
-  const existingIndex = JSON.parse(await readFile(new URL("../data/index.json", import.meta.url), "utf8"));
-  data.bookItems = existingIndex.search.filter(entry => entry[0] === "k").map(entry => ({ id: entry[1], name: entry[2], en: entry[3], category: entry[4], desc: entry[5] }));
-  data.gameItems = existingIndex.search.filter(entry => entry[0] === "g").map(entry => ({ id: entry[1], name: entry[2], en: entry[3], category: entry[4], desc: entry[5] }));
-  await writeFile(new URL("../data/index.json", import.meta.url), jsonText(buildIndex(chunks, data)));
+}
+
+export function buildRuntimeData(data = sourceData) {
+  const chunks = buildSeriesChunks(data);
+  return {
+    anime: data.animeInfo,
+    chunks,
+    manifest: buildManifest(chunks),
+    registry: buildRegistry(chunks, data),
+    searchChunks: buildSearchChunks(chunks, data)
+  };
+}
+
+function generatedFiles(runtime) {
+  const files = new Map([
+    ["data/runtime/index.json", runtime.manifest],
+    ["data/runtime/registry.json", runtime.registry],
+    ["data/runtime/anime.json", runtime.anime]
+  ]);
+  for (const [series, payload] of Object.entries(runtime.chunks)) {
+    files.set(`data/runtime/series/${SERIES_SLUGS[series]}.json`, payload);
+  }
+  for (const [chunk, payload] of Object.entries(runtime.searchChunks)) {
+    files.set(`data/runtime/search/${chunk}.json`, payload);
+  }
+  return files;
+}
+
+export async function buildGeneratedData() {
+  const runtime = buildRuntimeData();
+  await mkdir(new URL("../data/runtime/series/", import.meta.url), { recursive: true });
+  await mkdir(new URL("../data/runtime/search/", import.meta.url), { recursive: true });
+  for (const [path, payload] of generatedFiles(runtime)) {
+    await writeFile(new URL(`../${path}`, import.meta.url), jsonText(payload));
+  }
+  return runtime;
 }
 
 export async function checkGeneratedData() {
-  const rootDir = new URL("../", import.meta.url);
-  const data = await readLegacyData(rootDir);
-  const chunks = buildSeriesChunks(data);
   const mismatches = [];
-  for (const [series, payload] of Object.entries(chunks)) {
-    const generated = JSON.parse(await readFile(new URL(`../data/series/${SERIES_SLUGS[series]}.json`, import.meta.url), "utf8"));
-    if (JSON.stringify(generated) !== JSON.stringify(payload)) mismatches.push(`data/series/${SERIES_SLUGS[series]}.json`);
+  for (const [path, payload] of generatedFiles(buildRuntimeData())) {
+    try {
+      const current = await readFile(new URL(`../${path}`, import.meta.url), "utf8");
+      if (current !== jsonText(payload)) mismatches.push(path);
+    } catch {
+      mismatches.push(path);
+    }
   }
-  const generatedAnime = JSON.parse(await readFile(new URL("../data/anime.json", import.meta.url), "utf8"));
-  if (JSON.stringify(generatedAnime) !== JSON.stringify(data.animeInfo)) mismatches.push("data/anime.json");
-  const generatedIndex = JSON.parse(await readFile(new URL("../data/index.json", import.meta.url), "utf8"));
-  if (JSON.stringify(generatedIndex) !== JSON.stringify(buildIndex(chunks, data))) mismatches.push("data/index.json");
   if (mismatches.length) throw new Error(`Generated data is stale: ${mismatches.join(", ")}`);
   return true;
 }
@@ -221,14 +246,11 @@ const isDirectRun = process.argv[1] && import.meta.url === pathToFileURL(process
 if (isDirectRun) {
   const command = process.argv[2] || "--check";
   if (command === "--build") {
-    await migrateLegacyData();
+    await buildGeneratedData();
     console.log("Runtime data rebuilt.");
   } else if (command === "--check") {
     await checkGeneratedData();
     console.log("Generated data is current.");
-  } else if (command === "--rebuild-index") {
-    await rebuildIndex();
-    console.log("Search index rebuilt.");
   } else {
     throw new Error(`Unknown command: ${command}`);
   }

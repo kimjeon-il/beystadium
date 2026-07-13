@@ -19,6 +19,27 @@ test("primary routes render without runtime errors", async ({ page }) => {
   expect(errors).toEqual([]);
 });
 
+test("runtime data is loaded by route instead of during home boot", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "request coverage only needs one browser");
+  const runtimeRequests = [];
+  page.on("request", request => {
+    const pathname = new URL(request.url()).pathname;
+    if (pathname.includes("/data/runtime/")) runtimeRequests.push(pathname);
+  });
+
+  await page.goto("/");
+  await expect(page.locator("html")).not.toHaveClass(/route-booting/);
+  expect(runtimeRequests).toContain("/data/runtime/index.json");
+  expect(runtimeRequests.some(path => path.includes("/series/"))).toBe(false);
+  expect(runtimeRequests.some(path => path.includes("/search/"))).toBe(false);
+  expect(runtimeRequests).not.toContain("/data/runtime/registry.json");
+
+  await page.goto("/#toy-catalog?scope=bey&series=x");
+  await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
+  expect(runtimeRequests).toContain("/data/runtime/series/x.json");
+  expect(runtimeRequests.some(path => path.includes("/search/"))).toBe(false);
+});
+
 test("detail route restores modal and internal navigation hash", async ({ page }) => {
   const errors = consoleErrors(page);
   await page.goto("/#PRODUCT-X-BX-01");

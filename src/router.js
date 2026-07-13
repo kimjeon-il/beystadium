@@ -124,8 +124,12 @@ const bindSearchInput = (input, containerSelector, { onInput, onSubmit = onInput
   if (!input) return;
   const root = input.closest(containerSelector);
   let clearButton = root?.querySelector(".search-clear");
-  const runSearch = handler => {
+  const usesGlobalSearchIndex = input === globalSearch || input === overviewSearch || input === mobileDrawerSearch;
+  const runSearch = async handler => {
     syncSearchInputState(input);
+    if (usesGlobalSearchIndex) {
+      await window.BeystadiumDataStore?.ensureSearch(searchPreviewScopeValue(input));
+    }
     handler?.(input);
   };
   if (root && !clearButton) {
@@ -138,21 +142,21 @@ const bindSearchInput = (input, containerSelector, { onInput, onSubmit = onInput
     clearButton.addEventListener("click", () => {
       setSearchInputValue(input, "");
       input.focus();
-      runSearch(onInput);
+      void runSearch(onInput);
       refreshSearchPreview(input, { resetActive: true });
     });
   }
   input.addEventListener("input", () => {
-    runSearch(onInput);
+    void runSearch(onInput);
     refreshSearchPreview(input, { resetActive: true });
   });
   input.addEventListener("keydown", event => {
     if (handleSearchPreviewKeydown(input, event)) return;
     if (event.key !== "Enter") return;
     event.preventDefault();
-    runSearch(onSubmit);
+    void runSearch(onSubmit);
   });
-  root?.querySelector(".search-icon")?.addEventListener("click", () => runSearch(onSubmit));
+  root?.querySelector(".search-icon")?.addEventListener("click", () => void runSearch(onSubmit));
   syncSearchInputState(input);
 };
 const setGlobalSearchState = (query = "", scope = "all") => {

@@ -128,6 +128,8 @@ const toolsItems = [
   { id: "TOOLS-X-INFINITY-STADIUM", series: "x", name: "인피니티스타디움", en: "Infinity Stadium", category: "스타디움", desc: "" }
 ];
 
+export { toolsItems, bookItems, gameItems };
+
 const bookItems = [
   { id: "BOOK-BEYBLADE-ZEROG-SERIES-WINNING-GUIDE", name: "베이블레이드 ZEROG 시리즈 필승 가이드", en: "Beyblade Zero-G Series Winning Guide", category: "공략집", desc: "" }
 ];

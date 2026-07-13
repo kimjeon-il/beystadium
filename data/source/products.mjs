@@ -9477,3 +9477,5 @@
     }
   }
 ];
+
+export { productItems };

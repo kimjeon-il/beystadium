@@ -52,7 +52,7 @@ const cardInfo = item => {
 const mainSearchItemText = item => item
   ? [item.name, item.jpName, item.en, item.sub, item.no, item.productNo].filter(Boolean).join(" ")
   : "";
-const compactSearchSpacing = value => String(value || "").replace(/[\s·,.;:!?()[\]{}"“”'‘’/\\\-]+/g, "");
+const compactSearchSpacing = value => String(value || "").replace(/[\s·,.;:!?()[\]{}"“”'‘’/\\-]+/g, "");
 const lowerSearchText = value => String(value || "").toLocaleLowerCase("ko");
 const HANGUL_SYLLABLE_START = 0xac00;
 const HANGUL_SYLLABLE_END = 0xd7a3;
@@ -110,7 +110,7 @@ const catalogSearchQueryTerms = query => String(query || "").split(/[\s,]+/).map
 const createHangulInitialWordStartSet = text => {
   const starts = new Set();
   String(text || "")
-    .split(/[\s·,.;:!?()[\]{}"“”'‘’/\\\-]+/)
+    .split(/[\s·,.;:!?()[\]{}"“”'‘’/\\-]+/)
     .filter(Boolean)
     .forEach(word => {
       const initial = hangulInitialForChar([...word][0] || "");
@@ -119,7 +119,7 @@ const createHangulInitialWordStartSet = text => {
   return starts;
 };
 const searchWords = text => String(text || "")
-  .split(/[\s·,.;:!?()[\]{}"“”'‘’/\\\-]+/)
+  .split(/[\s·,.;:!?()[\]{}"“”'‘’/\\-]+/)
   .filter(Boolean);
 const hangulInitialSequence = text => [...String(text || "")]
   .map(hangulInitialForChar)
@@ -128,7 +128,7 @@ const hangulWordInitialSequence = text => searchWords(text)
   .map(word => hangulInitialForChar([...word][0] || ""))
   .filter(Boolean)
   .join("");
-const searchDelimiterPattern = /[\s·,.;:!?()[\]{}"“”'‘’/\\\-]/;
+const searchDelimiterPattern = /[\s·,.;:!?()[\]{}"“”'‘’/\\-]/;
 const hangulFinalJamo = finalIndex => HANGUL_FINAL_DECOMPOSED[HANGUL_FINALS[finalIndex]] || HANGUL_FINALS[finalIndex] || "";
 const hangulImeJamoKey = text => [...String(text || "").toLocaleLowerCase("ko")]
   .map(char => {
@@ -763,7 +763,7 @@ const cacheCatalogVisibleItems = (key, factory) => {
   return items;
 };
 const catalogVisibleCacheKey = bucket => `${bucket}|${catalogRenderKey()}`;
-const sortCatalogEntries = (entries, query) => entries
+const sortCatalogEntries = entries => entries
   .sort((a, b) => compareCatalogItemsByActiveSort(a.item, b.item))
   .map(entry => entry.item);
 const visibleCatalogSubsetItems = ({ bucket, items, includeItem }) =>
@@ -775,7 +775,7 @@ const visibleCatalogSubsetItems = ({ bucket, items, includeItem }) =>
         const score = query.isEmpty ? 0 : catalogListSearchScore(item, query);
         return query.isEmpty || score > 0 ? { item, score } : null;
       })
-      .filter(Boolean), query);
+      .filter(Boolean));
   });
 const visibleToolsItems = () => visibleCatalogSubsetItems({
   bucket: "tools",
@@ -806,7 +806,7 @@ const visibleCatalogItems = () => {
       const score = query.isEmpty ? 0 : catalogListSearchScore(item, query);
       return query.isEmpty || score > 0 ? { item, score } : null;
     })
-    .filter(Boolean), query);
+    .filter(Boolean));
   });
 };
 const openCatalogCard = card => {
@@ -1513,6 +1513,7 @@ class SearchPreviewController {
     this.entries = [];
     this.highlightedIndex = -1;
     this.renderTimer = 0;
+    this.renderGeneration = 0;
     this.preview.className = "search-preview";
     this.preview.id = `${input.id}Preview`;
     this.preview.hidden = true;
@@ -1547,6 +1548,7 @@ class SearchPreviewController {
   }
 
   close() {
+    this.renderGeneration += 1;
     if (this.renderTimer) {
       clearTimeout(this.renderTimer);
       this.renderTimer = 0;
@@ -1594,8 +1596,11 @@ class SearchPreviewController {
       this.render();
       return;
     }
-    this.renderTimer = setTimeout(() => {
+    const generation = ++this.renderGeneration;
+    this.renderTimer = setTimeout(async () => {
       this.renderTimer = 0;
+      await window.BeystadiumDataStore?.ensureSearch(searchPreviewScopeValue(this.input));
+      if (generation !== this.renderGeneration) return;
       this.render();
     }, SEARCH_PREVIEW_RENDER_DELAY);
   }

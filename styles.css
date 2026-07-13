@@ -39,8 +39,6 @@
   --ease-standard: cubic-bezier(.2, 0, 0, 1);
   --ease-emphasized: cubic-bezier(.16, 1, .3, 1);
   --hover-lift-y: -1px;
-  --hover-shift-x: 1px;
-  --hover-scale-subtle: 1.005;
   --font-xs: .75rem;
   --font-sm: .8125rem;
   --font-md: .9375rem;
@@ -115,8 +113,6 @@
   --primary-search-scope-padding: 0 clamp(20px, 5vw, 24px) 0 clamp(9px, 2.6vw, 12px);
   --primary-search-scope-bg: var(--ui-control);
   --primary-search-scope-bg-hover: var(--ui-control-hover);
-  --ui-shadow-color: light-dark(rgba(16, 24, 39, 0.12), color-mix(in srgb, var(--ui-bg) 72%, transparent));
-  --ui-shadow-soft: 0 10px 30px var(--ui-shadow-color);
 }
 
 /* Responsive tiers: desktop sidebar >= 100rem, compact < 64rem, narrow < 40rem; catalog grid has intermediate density steps. */
@@ -3550,7 +3546,6 @@ body.is-overview .app-shell {
   [data-app-panel="anime"],
   [data-app-panel="anime-episodes"]
 ) {
-  --toolbar-icon-button-size: var(--search-box-height, 48px);
   --section-heading-width: 100%;
   --section-heading-max-width: var(--catalog-content-max);
   --section-heading-min-height: 0;
@@ -3569,7 +3564,6 @@ body.is-overview .app-shell {
   --catalog-toolbar-justify: stretch;
   --catalog-control-row-gap: 12px;
   --catalog-toolbar-gap: var(--catalog-control-row-gap);
-  --catalog-search-control-gap: var(--catalog-control-row-gap);
   --catalog-toolbar-margin: 0;
   --catalog-toolbar-margin-left: 0;
   --catalog-toolbar-margin-right: 0;
@@ -4507,8 +4501,6 @@ body.menu-open .mobile-drawer {
   --sidebar-current-marker-width: 3px;
   --sidebar-current-marker-height: 22px;
   --sidebar-current-marker-opacity: 1;
-  --sidebar-stroke: color-mix(in srgb, var(--ui-line) 58%, transparent);
-  --sidebar-stroke-strong: color-mix(in srgb, var(--ui-line) 78%, transparent);
   --sidebar-accent: color-mix(in srgb, var(--ui-accent) 84%, var(--ui-text) 16%);
   color: var(--ui-text);
 }
@@ -4942,10 +4934,6 @@ body.menu-open .mobile-drawer {
     --catalog-control-stack-gap: var(--catalog-control-row-gap);
     --catalog-filter-card-gap: var(--catalog-control-row-gap);
     --catalog-toolbar-gap: var(--catalog-control-row-gap);
-    --catalog-filter-primary-min-height: 0;
-    --catalog-filter-expanded-display: none;
-    --catalog-filter-compact-display: grid;
-    --catalog-filter-compact-columns: 1fr;
   }
 
 }

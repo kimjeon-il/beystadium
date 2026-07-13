@@ -548,3 +548,5 @@ const animeInfo = {
     { no: "49화", season: "beyblade-x-2", titles: { kr: "별을 삼키는 자", jp: "" }, airDates: { kr: "2026-03-16", jp: "" }, note: "" }
   ]
 };
+
+export { animeInfo };

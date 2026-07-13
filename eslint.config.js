@@ -10,7 +10,7 @@ export default [
   },
   js.configs.recommended,
   {
-    files: ["scripts/**/*.mjs", "tests/**/*.mjs", "*.mjs"],
+    files: ["scripts/**/*.mjs", "tests/**/*.mjs", "src/app-runtime.js", "src/bootstrap.js", "src/data-store.js", "*.mjs"],
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
@@ -24,9 +24,20 @@ export default [
         URL: "readonly",
         URLSearchParams: "readonly",
         requestAnimationFrame: "readonly",
+        ResizeObserver: "readonly",
         cancelAnimationFrame: "readonly",
         setTimeout: "readonly",
         clearTimeout: "readonly",
+        Element: "readonly",
+        getComputedStyle: "readonly",
+        HTMLDialogElement: "readonly",
+        IntersectionObserver: "readonly",
+        matchMedia: "readonly",
+        MutationObserver: "readonly",
+        Node: "readonly",
+        performance: "readonly",
+        sessionStorage: "readonly",
+        fetch: "readonly",
         console: "readonly",
         process: "readonly"
       }

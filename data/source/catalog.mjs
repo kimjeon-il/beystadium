@@ -1676,3 +1676,5 @@ const partItems = [
 ];
 
 const catalogCoreItems = [...beyItems, ...partItems];
+
+export { beyItems, partItems, catalogCoreItems };

@@ -27,7 +27,6 @@ const rareBeyGetEntryProductIds = entry => {
   const groupedProductIds = Array.isArray(entry?.productIds) ? entry.productIds : [];
   return [...new Set([...singleProductId, ...groupedProductIds].filter(Boolean))];
 };
-const rareBeyGetEntryProductId = entry => rareBeyGetEntryProductIds(entry)[0] || "";
 const rareBeyGetEntryRegion = entry => releaseRegionLabels[entry?.region] ? entry.region : "";
 const rareBeyGetEntryMatchesProduct = (entry, item, region = activeReleaseRegion) =>
   rareBeyGetEntryProductIds(entry).includes(item.id) && (!rareBeyGetEntryRegion(entry) || rareBeyGetEntryRegion(entry) === region);

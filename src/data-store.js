@@ -19,10 +19,23 @@ const toolsItemOrder = new Map();
 
 const BeystadiumDataStore = (() => {
   const SERIES_KEYS = new Set(["metal-fight", "burst", "x"]);
+  const PRIMARY_HASH_IDS = new Set([
+    "toy-catalog",
+    "toy-release",
+    "anime-character",
+    "anime-episode",
+    "search",
+    "rare-bey-get-list"
+  ]);
   const chunkPromises = new Map();
+  const searchChunkPromises = new Map();
   const loadedChunks = new Set();
+  const loadedSearchChunks = new Set();
   const itemChunks = new Map();
+  const searchEntryKeys = new Set();
   let indexData = null;
+  let registryPromise = null;
+  let registryLoaded = false;
   let loadingCount = 0;
   const seriesOrder = { "metal-fight": 0, burst: 1, x: 2 };
 
@@ -133,8 +146,13 @@ const BeystadiumDataStore = (() => {
     if (!items.includes(item)) items.push(item);
   };
   const sortBySourceOrder = items => items.sort((a, b) => (a._order ?? Number.MAX_SAFE_INTEGER) - (b._order ?? Number.MAX_SAFE_INTEGER));
+  const rememberChunkItems = (items, key) => items.forEach(item => item?.id && itemChunks.set(item.id, key));
   const registerChunk = (key, payload) => {
     const seriesOffset = (seriesOrder[key] ?? 0) * 3000;
+    rememberChunkItems(payload.beyItems || [], key);
+    rememberChunkItems(payload.partItems || [], key);
+    rememberChunkItems(payload.productItems || [], key);
+    rememberChunkItems(payload.toolsItems || [], key);
     (payload.beyItems || []).forEach((item, order) => {
       const current = hydrate(catalogCoreItemsById, item);
       current._order = seriesOffset + order;
@@ -167,20 +185,13 @@ const BeystadiumDataStore = (() => {
     loadedChunks.add(key);
     window.dispatchEvent(new CustomEvent("beystadium:data-loaded", { detail: { kind: "series", key } }));
   };
-  const registerIndex = data => {
-    indexData = data;
-    (data.registry || []).forEach(entry => {
-      itemChunks.set(entry.id, entry.chunk);
-      const stub = { ...entry };
-      if (entry.kind === "catalog-item") catalogCoreItemsById.set(entry.id, stub);
-      else if (entry.kind === "product") productItemsById.set(entry.id, stub);
-      else if (entry.kind === "tools") toolsItemsById.set(entry.id, stub);
-      else if (entry.kind === "book") bookItemsById.set(entry.id, stub);
-      else if (entry.kind === "game") gameItemsById.set(entry.id, stub);
-    });
-    (data.search || []).map(decodeSearchEntry).filter(Boolean).forEach(entry => {
+  const registerSearchChunk = (key, payload) => {
+    (payload.search || []).map(decodeSearchEntry).filter(Boolean).forEach(entry => {
       let item = entry.item;
       const id = entry.id || item?.id;
+      const entryKey = `${entry.kind}:${id || entry.index}`;
+      if (searchEntryKeys.has(entryKey)) return;
+      searchEntryKeys.add(entryKey);
       if (id) itemChunks.set(id, entry.chunk);
       const map = entry.kind === "catalog-item" ? catalogCoreItemsById
         : entry.kind === "product" ? productItemsById
@@ -189,17 +200,27 @@ const BeystadiumDataStore = (() => {
               : entry.kind === "game" ? gameItemsById
                 : null;
       if (map) item = hydrate(map, entry.item);
-      const searchEntry = { ...entry, item };
-      searchIndexItems.push(searchEntry);
+      searchIndexItems.push({ ...entry, item });
       if (entry.kind === "book") pushUnique(bookItems, item);
       if (entry.kind === "game") pushUnique(gameItems, item);
     });
+    loadedSearchChunks.add(key);
+    window.dispatchEvent(new CustomEvent("beystadium:data-loaded", { detail: { kind: "search", key } }));
+  };
+  const registerRegistry = payload => {
+    (payload.items || []).forEach(([id, chunk]) => itemChunks.set(id, chunkNames[chunk] || chunk));
+    registryLoaded = true;
+  };
+  const detailHashOnBoot = () => {
+    const raw = window.location.hash.replace(/^#/, "");
+    const id = decodeURIComponent(raw.split("?")[0] || "");
+    return Boolean(id && !PRIMARY_HASH_IDS.has(id));
   };
   const initialize = async () => {
     clearError();
     try {
-      const data = await fetchJson("./data/index.json?v=20260713-lazy-data-v2");
-      registerIndex(data);
+      indexData = await fetchJson("./data/runtime/index.json?v=20260713-runtime-v3");
+      if (detailHashOnBoot()) await ensureRegistry();
       document.querySelector("[data-load-retry]")?.addEventListener("click", () => window.location.reload());
       return true;
     } catch (error) {
@@ -207,8 +228,45 @@ const BeystadiumDataStore = (() => {
       throw error;
     }
   };
+  const ensureRegistry = () => {
+    if (registryLoaded) return Promise.resolve(true);
+    if (registryPromise) return registryPromise;
+    if (!indexData?.registryChunk) return Promise.resolve(false);
+    clearError();
+    registryPromise = fetchJson(indexData.registryChunk)
+      .then(payload => {
+        registerRegistry(payload);
+        return true;
+      })
+      .catch(error => {
+        registryPromise = null;
+        showError(error);
+        return false;
+      });
+    return registryPromise;
+  };
+  const ensureSearchChunk = key => {
+    if (loadedSearchChunks.has(key)) return Promise.resolve(true);
+    if (searchChunkPromises.has(key)) return searchChunkPromises.get(key);
+    const url = indexData?.searchChunks?.[key];
+    if (!url) return Promise.resolve(false);
+    clearError();
+    const promise = fetchJson(url)
+      .then(payload => {
+        registerSearchChunk(key, payload);
+        return true;
+      })
+      .catch(error => {
+        searchChunkPromises.delete(key);
+        showError(error);
+        return false;
+      });
+    searchChunkPromises.set(key, promise);
+    return promise;
+  };
   const ensureChunk = key => {
-    if (key === "common" || loadedChunks.has(key)) return Promise.resolve(true);
+    if (key === "common") return ensureSearchChunk("common");
+    if (loadedChunks.has(key)) return Promise.resolve(true);
     if (chunkPromises.has(key)) return chunkPromises.get(key);
     const url = key === "anime" ? indexData?.animeChunk : indexData?.chunks?.[key];
     if (!url) return Promise.resolve(false);
@@ -240,7 +298,22 @@ const BeystadiumDataStore = (() => {
     return SERIES_KEYS.has(key) ? ensureChunk(key) : Promise.resolve(false);
   };
   const ensureAllSeries = async () => (await Promise.all([...SERIES_KEYS].map(ensureChunk))).every(Boolean);
-  const ensureItem = id => ensureChunk(itemChunks.get(id) || "");
+  const ensureSearch = async scope => {
+    const key = String(scope || "all").toLowerCase();
+    if (key === "anime") return ensureSearchChunk("anime");
+    if (key === "manga" || key === "game" || key === "common") return ensureSearchChunk("common");
+    const seriesReady = await Promise.all([...SERIES_KEYS].map(ensureSearchChunk));
+    if (key !== "all") return seriesReady.every(Boolean);
+    const extraReady = await Promise.all([ensureSearchChunk("common"), ensureSearchChunk("anime")]);
+    return [...seriesReady, ...extraReady].every(Boolean);
+  };
+  const ensureItem = async id => {
+    if (!itemChunks.has(id)) await ensureRegistry();
+    const chunk = itemChunks.get(id);
+    if (!chunk) return false;
+    if (chunk === "common") return ensureSearchChunk("common");
+    return ensureChunk(chunk);
+  };
   const defaultReleaseSeries = region => {
     const values = indexData?.availableReleaseSeries?.[region] || [];
     return values[values.length - 1] || "metal fight";
@@ -248,6 +321,7 @@ const BeystadiumDataStore = (() => {
   const ensureRoute = async route => {
     if (!route) return true;
     if (route.type === "catalog") return route.series && route.series !== "all" ? ensureSeries(route.series) : ensureAllSeries();
+    if (route.type === "search") return ensureSearch(route.scope || "all");
     if (route.type === "category-release") return ensureSeries(route.options?.series || defaultReleaseSeries(route.options?.region || "kr"));
     if (route.type === "category-anime" || route.type === "category-anime-episodes") return ensureChunk("anime");
     if (route.type === "rare-bey-get-list") return ensureSeries(route.options?.series || "x");
@@ -255,9 +329,45 @@ const BeystadiumDataStore = (() => {
     return true;
   };
   const isSeriesLoaded = series => loadedChunks.has(String(series || "").replace(/\s+/g, "-"));
-  const hasItem = id => itemChunks.has(id);
+  const hasItem = id => itemChunks.has(id)
+    || catalogCoreItemsById.has(id)
+    || productItemsById.has(id)
+    || toolsItemsById.has(id)
+    || bookItemsById.has(id)
+    || gameItemsById.has(id);
 
-  return { initialize, ensureSeries, ensureAllSeries, ensureItem, ensureRoute, isSeriesLoaded, hasItem, defaultReleaseSeries };
+  return {
+    defaultReleaseSeries,
+    ensureAllSeries,
+    ensureItem,
+    ensureRoute,
+    ensureSearch,
+    ensureSeries,
+    hasItem,
+    initialize,
+    isSeriesLoaded
+  };
 })();
 
 window.BeystadiumDataStore = BeystadiumDataStore;
+
+export {
+  animeInfo,
+  beyItems,
+  bookItems,
+  bookItemsById,
+  catalogCoreItemOrder,
+  catalogCoreItems,
+  catalogCoreItemsById,
+  gameItems,
+  gameItemsById,
+  partItems,
+  productItems,
+  productItemsById,
+  rareBeyGetItems,
+  searchIndexItems,
+  toolsItemOrder,
+  toolsItems,
+  toolsItemsById,
+  BeystadiumDataStore
+};

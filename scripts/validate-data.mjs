@@ -1,50 +1,38 @@
-import { readFile } from "node:fs/promises";
-import vm from "node:vm";
+import { animeInfo } from "../data/source/anime.mjs";
+import { beyItems, partItems } from "../data/source/catalog.mjs";
+import { productItems } from "../data/source/products.mjs";
+import { rareBeyGetItems } from "../data/source/rare-bey-get.mjs";
+import { bookItems, gameItems, toolsItems } from "../data/source/secondary.mjs";
 
-const sourceFiles = [
-  "data/catalog-data.js",
-  "data/product-data.js",
-  "data/rare-bey-get-data.js",
-  "data/secondary-data.js",
-  "data/anime-data.js"
-];
-
-let source = "";
-for (const file of sourceFiles) source += `${await readFile(new URL(`../${file}`, import.meta.url), "utf8")}\n`;
-source += "\nglobalThis.__data={beyItems,partItems,productItems,rareBeyGetItems,toolsItems,bookItems,gameItems,animeInfo};";
-
-const context = {};
-vm.createContext(context);
-new vm.Script(source, { filename: "beystadium-data.js" }).runInContext(context);
-const data = context.__data;
-const collections = [
-  data.beyItems,
-  data.partItems,
-  data.productItems,
-  data.toolsItems,
-  data.bookItems,
-  data.gameItems
-];
+const collections = [beyItems, partItems, productItems, toolsItems, bookItems, gameItems];
 const allItems = collections.flat();
 const ids = allItems.map(item => item.id).filter(Boolean);
 const idSet = new Set(ids);
 const duplicateIds = [...new Set(ids.filter((id, index) => ids.indexOf(id) !== index))];
-const missingParts = data.beyItems.flatMap(item => (item.parts || [])
+const missingParts = beyItems.flatMap(item => (item.parts || [])
   .filter(target => !idSet.has(target))
   .map(target => `${item.id} -> ${target}`));
-const missingTargets = data.productItems.flatMap(item => Object.values(item.releases || {}).flatMap(release =>
+const missingTargets = productItems.flatMap(item => Object.values(item.releases || {}).flatMap(release =>
   (release?.composition || [])
     .filter(entry => entry.target && !idSet.has(entry.target))
     .map(entry => `${item.id} -> ${entry.target}`)));
-const missingPoolItems = data.productItems.flatMap(item => (item.beyPool || [])
+const missingPoolItems = productItems.flatMap(item => (item.beyPool || [])
   .filter(target => !idSet.has(target))
   .map(target => `${item.id} -> ${target}`));
+const missingRareProducts = rareBeyGetItems.flatMap(entry => [entry.productId, ...(entry.productIds || [])]
+  .filter(Boolean)
+  .filter(target => !idSet.has(target))
+  .map(target => `${entry.name || "rare entry"} -> ${target}`));
+const invalidEpisodes = (animeInfo.episodes || []).flatMap((episode, index) =>
+  episode?.season && episode?.titles ? [] : [`episode index ${index}`]);
 
 const failures = [
   ["duplicate IDs", duplicateIds],
   ["missing parts", missingParts],
   ["missing composition targets", missingTargets],
-  ["missing Bey pool targets", missingPoolItems]
+  ["missing Bey pool targets", missingPoolItems],
+  ["missing rare product targets", missingRareProducts],
+  ["invalid anime episodes", invalidEpisodes]
 ].filter(([, values]) => values.length);
 
 if (failures.length) {
