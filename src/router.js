@@ -134,7 +134,7 @@ const bindSearchInput = (input, containerSelector, { onInput, onSubmit = onInput
     clearButton.className = "search-clear";
     clearButton.hidden = true;
     clearButton.setAttribute("aria-label", "검색어 지우기");
-    clearButton.setAttribute("title", "검색어 지우기");
+    if (!root.closest(".mobile-drawer")) clearButton.setAttribute("title", "검색어 지우기");
     input.insertAdjacentElement("afterend", clearButton);
     clearButton.addEventListener("click", () => {
       setSearchInputValue(input, "");
