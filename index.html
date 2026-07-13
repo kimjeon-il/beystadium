@@ -4,10 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>베이 아카이브 - 베이블레이드 도감</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <script>
       (() => {
         const hash = window.location.hash || "";
-        if (/^#(?:toy-catalog|toy-release|anime-character|anime-episode|search)(?:\?|$)/.test(hash)) {
+        if (hash.length > 1) {
           document.documentElement.classList.add("route-booting");
         }
       })();
@@ -19,29 +20,82 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="./styles.css?v=20260704-modal-title-overflow-visible" />
+  <link rel="stylesheet" href="./styles.css?v=20260713-lazy-data-v2" />
   </head>
   <body class="is-overview" data-active-panel="overview">
+    <div class="data-load-status" id="dataLoadStatus" role="status" aria-live="polite" hidden>
+      <span class="data-load-spinner" aria-hidden="true"></span>
+      <span data-load-message>데이터를 불러오는 중입니다.</span>
+      <button type="button" data-load-retry hidden>다시 시도</button>
+    </div>
     <header class="topbar">
-      <a class="brand" href="#">
-        <span class="brand-mark">B</span>
-        <span><b>베이</b> 아카이브</span>
+      <a class="brand" href="#" data-sidebar-home aria-label="홈으로 이동" title="홈으로 이동">
+        <span class="brand-mark" aria-hidden="true">B</span>
+        <span>베이 아카이브</span>
       </a>
-      <button class="menu-button" id="menuButton" type="button" aria-label="메뉴 열기" aria-controls="mobileDrawer" aria-expanded="false">
+      <nav class="topbar-primary-nav" aria-label="주 메뉴">
+        <button class="topbar-primary-button" type="button" data-category-catalog-open>
+          완구 도감
+        </button>
+        <button class="topbar-primary-button" type="button" data-category-release-open>
+          발매목록
+        </button>
+        <button class="topbar-primary-button" type="button" data-category-anime-open>
+          등장인물
+        </button>
+        <button class="topbar-primary-button" type="button" data-category-anime-episodes-open>
+          방영목록
+        </button>
+        <button class="topbar-primary-button disabled" type="button" disabled aria-disabled="true">
+          연재목록
+        </button>
+      </nav>
+      <div class="unified-search topbar-search" role="search">
+        <div class="search-box global-search-box topbar-search-box">
+          <details class="search-scope catalog-dropdown" id="globalSearchScope" data-scope="all" aria-label="검색 범위">
+            <summary><b class="catalog-dropdown-value">전체</b></summary>
+            <div class="catalog-dropdown-menu">
+              <button type="button" class="ui-dropdown-item active" data-global-search-scope="all">전체</button>
+              <button type="button" class="ui-dropdown-item" data-global-search-scope="bey">베이</button>
+              <button type="button" class="ui-dropdown-item" data-global-search-scope="tools">장비</button>
+              <button type="button" class="ui-dropdown-item" data-global-search-scope="product">제품</button>
+              <button type="button" class="ui-dropdown-item" data-global-search-scope="manga">만화</button>
+              <button type="button" class="ui-dropdown-item" data-global-search-scope="anime">애니</button>
+            </div>
+          </details>
+          <span class="search-icon" aria-hidden="true"></span>
+          <input id="globalSearchInput" type="search" placeholder="검색어를 입력해주세요." autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none" />
+        </div>
+      </div>
+      <button class="menu-button topbar-menu-button" id="menuButton" type="button" aria-label="메뉴 열기" aria-controls="mobileDrawer" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </header>
 
-    <aside class="mobile-drawer sidebar-root sidebar-root--drawer" id="mobileDrawer" data-sidebar-root aria-hidden="true">
+    <aside class="mobile-drawer sidebar-root" id="mobileDrawer" data-sidebar-root aria-hidden="true">
       <div class="mobile-drawer-header">
-        <strong>메뉴</strong>
         <button class="ui-icon-button mobile-drawer-close" type="button" aria-label="메뉴 닫기">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M6.5 6.5 17.5 17.5M17.5 6.5 6.5 17.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
           </svg>
         </button>
       </div>
-      <button class="sidebar-button sidebar-button--item" type="button" data-sidebar-home aria-label="홈으로 이동" title="홈으로 이동">
+      <div class="mobile-drawer-search search-box global-search-box" role="search">
+        <details class="search-scope catalog-dropdown" id="mobileDrawerSearchScope" data-scope="all" aria-label="모바일 검색 범위">
+          <summary><b class="catalog-dropdown-value">전체</b></summary>
+          <div class="catalog-dropdown-menu">
+            <button type="button" class="ui-dropdown-item active" data-mobile-drawer-search-scope="all">전체</button>
+            <button type="button" class="ui-dropdown-item" data-mobile-drawer-search-scope="bey">베이</button>
+            <button type="button" class="ui-dropdown-item" data-mobile-drawer-search-scope="tools">장비</button>
+            <button type="button" class="ui-dropdown-item" data-mobile-drawer-search-scope="product">제품</button>
+            <button type="button" class="ui-dropdown-item" data-mobile-drawer-search-scope="manga">만화</button>
+            <button type="button" class="ui-dropdown-item" data-mobile-drawer-search-scope="anime">애니</button>
+          </div>
+        </details>
+        <span class="search-icon" aria-hidden="true"></span>
+        <input id="mobileDrawerSearchInput" type="search" placeholder="검색어를 입력해주세요." autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none" />
+      </div>
+      <button class="sidebar-button" type="button" data-sidebar-home aria-label="홈으로 이동" title="홈으로 이동">
         <span class="sidebar-button__icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
             <path d="M4.5 11.2 12 4.8l7.5 6.4" />
@@ -52,8 +106,9 @@
         <span class="sidebar-button__label">홈</span>
       </button>
       <nav class="mobile-drawer-nav sidebar-nav" aria-label="모바일 메뉴">
-        <section class="mobile-drawer-section sidebar-section sidebar-section--flat">
-          <button class="sidebar-button sidebar-button--item" type="button" data-category-catalog-open aria-label="완구 도감" title="완구 도감">
+        <section class="sidebar-section">
+          <div class="sidebar-group-label">완구</div>
+          <button class="sidebar-button sidebar-button--child" type="button" data-category-catalog-open aria-label="완구 도감" title="완구 도감">
             <span class="sidebar-button__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M9.1 4.1h5.8l.6 2.2h-7z" />
@@ -61,9 +116,9 @@
                 <path d="M9.7 16.3h4.6v1.8L12 20.8l-2.3-2.7z" />
               </svg>
             </span>
-            <span class="sidebar-button__label">완구 도감</span>
+            <span class="sidebar-button__label">도감</span>
           </button>
-          <button class="sidebar-button sidebar-button--item" type="button" data-category-release-open aria-label="제품 발매목록" title="제품 발매목록">
+          <button class="sidebar-button sidebar-button--child" type="button" data-category-release-open aria-label="제품 발매목록" title="제품 발매목록">
             <span class="sidebar-button__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="4" y="5.5" width="16" height="14.5" rx="2.5" stroke-width="1.8" />
@@ -71,19 +126,10 @@
                 <path d="M8 12.5h1.2M12 12.5h4M8 16h1.2M12 16h4" stroke-width="1.8" />
               </svg>
             </span>
-            <span class="sidebar-button__label">제품 발매목록</span>
+            <span class="sidebar-button__label">발매목록</span>
           </button>
-          <button class="sidebar-button sidebar-button--item sidebar-button--pending" type="button" disabled aria-disabled="true">
-            <span class="sidebar-button__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4.5 5.2h5.4c1.1 0 2.1.5 2.1 1.6v12c0-1.1-1-1.6-2.1-1.6H4.5V5.2Z" />
-                <path d="M19.5 5.2h-5.4c-1.1 0-2.1.5-2.1 1.6v12c0-1.1 1-1.6 2.1-1.6h5.4V5.2Z" />
-                <path d="M7.4 8.5h2.2M14.4 8.5h2.2M15.2 12.8h3.2l1.1 1.3v-3.6" />
-              </svg>
-            </span>
-            <span class="sidebar-button__label">만화</span>
-          </button>
-          <button class="sidebar-button sidebar-button--item" type="button" data-category-anime-open aria-label="애니메이션 등장인물" title="애니메이션 등장인물">
+          <div class="sidebar-group-label">미디어</div>
+          <button class="sidebar-button sidebar-button--child" type="button" data-category-anime-open aria-label="미디어 등장인물" title="미디어 등장인물">
             <span class="sidebar-button__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="3.8" y="5.5" width="16.4" height="13" rx="2.6" stroke-width="1.8" />
@@ -92,9 +138,9 @@
                 <path d="M14 9.6h3.2M14 13h4" stroke-width="1.7" />
               </svg>
             </span>
-            <span class="sidebar-button__label">애니메이션 등장인물</span>
+            <span class="sidebar-button__label">등장인물</span>
           </button>
-          <button class="sidebar-button sidebar-button--item" type="button" data-category-anime-episodes-open aria-label="애니메이션 방영목록" title="애니메이션 방영목록">
+          <button class="sidebar-button sidebar-button--child" type="button" data-category-anime-episodes-open aria-label="미디어 방영목록" title="미디어 방영목록">
             <span class="sidebar-button__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="3.5" y="6.5" width="17" height="12" rx="2.4" stroke-width="1.8" />
@@ -103,53 +149,25 @@
                 <path d="M9 20h6" stroke-width="1.7" />
               </svg>
             </span>
-            <span class="sidebar-button__label">애니메이션 방영목록</span>
+            <span class="sidebar-button__label">방영목록</span>
+          </button>
+          <button class="sidebar-button sidebar-button--child" type="button" disabled aria-disabled="true" aria-label="미디어 연재목록" title="미디어 연재목록">
+            <span class="sidebar-button__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4.5 5.2h5.4c1.1 0 2.1.5 2.1 1.6v12c0-1.1-1-1.6-2.1-1.6H4.5V5.2Z" />
+                <path d="M19.5 5.2h-5.4c-1.1 0-2.1.5-2.1 1.6v12c0-1.1 1-1.6 2.1-1.6h5.4V5.2Z" />
+                <path d="M7.4 8.5h2.2M14.4 8.5h2.2M15.2 12.8h3.2l1.1 1.3v-3.6" />
+              </svg>
+            </span>
+            <span class="sidebar-button__label">연재목록</span>
           </button>
         </section>
       </nav>
     </aside>
 
-    <aside class="desktop-sidebar sidebar-root sidebar-root--desktop" data-sidebar-root aria-label="주 메뉴">
-      <button class="desktop-sidebar-toggle sidebar-button sidebar-button--utility" type="button" aria-label="메뉴 열기" aria-controls="mobileDrawer" aria-expanded="false" title="메뉴 열기">
-        <span class="sidebar-button__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 7h14M5 12h14M5 17h14" />
-          </svg>
-        </span>
-        <span class="sidebar-button__label">메뉴</span>
-      </button>
-      <a class="brand desktop-sidebar-brand sidebar-button sidebar-button--item" href="#" data-sidebar-home aria-label="홈으로 이동" title="홈으로 이동">
-        <span class="sidebar-button__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4.5 11.2 12 4.8l7.5 6.4" />
-            <path d="M6.7 10.2v8.3h10.6v-8.3" />
-            <path d="M10 18.5v-5h4v5" />
-          </svg>
-        </span>
-        <span class="sidebar-button__label">홈</span>
-      </a>
-      <nav class="desktop-sidebar-nav sidebar-nav" id="desktopSidebarNav" aria-label="데스크톱 메뉴"></nav>
-    </aside>
 
     <main>
       <section class="app-shell active">
-        <div class="unified-search">
-          <div class="search-box global-search-box">
-            <details class="search-scope catalog-dropdown" id="globalSearchScope" data-scope="all" aria-label="검색 범위">
-              <summary><b class="catalog-dropdown-value">전체</b></summary>
-              <div class="catalog-dropdown-menu">
-                <button type="button" class="ui-dropdown-item active" data-global-search-scope="all">전체</button>
-                <button type="button" class="ui-dropdown-item" data-global-search-scope="bey">베이</button>
-                <button type="button" class="ui-dropdown-item" data-global-search-scope="tools">장비</button>
-                <button type="button" class="ui-dropdown-item" data-global-search-scope="product">제품</button>
-                <button type="button" class="ui-dropdown-item" data-global-search-scope="manga">만화</button>
-                <button type="button" class="ui-dropdown-item" data-global-search-scope="anime">애니</button>
-              </div>
-            </details>
-            <span class="search-icon" aria-hidden="true"></span>
-            <input id="globalSearchInput" type="search" placeholder="검색어를 입력해주세요." autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none" />
-          </div>
-        </div>
         <div class="app-panel active overview-panel" data-app-panel="overview">
           <section class="overview-home">
             <div class="overview-hero">
@@ -209,7 +227,6 @@
                 </div>
               </details>
               <div class="catalog-search-controls">
-                <button type="button" class="catalog-search-help-button" id="catalogSearchHelpButton" aria-label="상세검색 도움말" aria-expanded="false" aria-controls="catalogSearchHelpPopover">i</button>
                 <div class="unified-search catalog-local-search">
                   <div class="search-box global-search-box catalog-search-box">
                     <details class="search-scope catalog-dropdown" id="catalogSearchScope" data-scope="all" aria-label="완구 검색 범위">
@@ -223,6 +240,7 @@
                     </details>
                     <span class="search-icon" aria-hidden="true"></span>
                     <input id="catalogSearchInput" type="search" placeholder="검색어를 입력해주세요." autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none" />
+                    <button type="button" class="catalog-search-help-button" id="catalogSearchHelpButton" aria-label="상세검색 도움말" aria-expanded="false" aria-controls="catalogSearchHelpPopover">?</button>
                   </div>
                 </div>
               </div>
@@ -247,7 +265,10 @@
             <section class="category-collection__section catalog-subsection" data-catalog-section="catalog">
               <div class="category-collection__meta-row catalog-query-row">
                 <div class="catalog-filter-chips catalog-query-chips is-empty" data-catalog-filter-chips="catalog" aria-hidden="true"></div>
-                <p class="result-count catalog-query-count is-hidden" aria-hidden="true"><b id="catalogCount">0</b>개 항목</p>
+                <div class="catalog-query-actions">
+                  <p class="result-count catalog-query-count"><b id="catalogCount">0</b>개 항목</p>
+                  <div class="list-sort-control catalog-sort-control" data-catalog-sort-control></div>
+                </div>
               </div>
               <div class="category-collection__grid catalog-grid" id="catalogGrid"></div>
               <div class="category-collection__pagination catalog-pagination" id="catalogPagination" aria-live="polite"></div>
@@ -274,11 +295,12 @@
 
           <div class="catalog-control-bar anime-control-bar">
             <div class="toolbar catalog-toolbar anime-toolbar">
-              <button type="button" class="catalog-search-help-button anime-search-help-button" id="animeSearchHelpButton" aria-label="상세검색 도움말" aria-expanded="false" aria-controls="animeSearchHelpPopover">i</button>
+              <div class="anime-character-season-filter" data-anime-character-season-filter></div>
               <div class="unified-search catalog-local-search anime-local-search">
                 <div class="search-box global-search-box catalog-search-box anime-search-box">
                   <span class="search-icon" aria-hidden="true"></span>
                   <input id="animeSearchInput" type="search" placeholder="검색어를 입력해주세요." autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none" />
+                  <button type="button" class="catalog-search-help-button anime-search-help-button" id="animeSearchHelpButton" aria-label="상세검색 도움말" aria-expanded="false" aria-controls="animeSearchHelpPopover">?</button>
                 </div>
               </div>
             </div>
@@ -315,11 +337,14 @@
 
     <dialog id="detailModal">
       <div class="modal-overlay" data-modal-overlay></div>
-      <button class="ui-icon-button modal-close" id="modalClose" aria-label="상세 닫기">×</button>
-      <div id="modalContent"></div>
+      <div class="modal-stage">
+        <button class="ui-icon-button modal-close" id="modalClose" aria-label="상세 닫기">×</button>
+        <div id="modalContent"></div>
+      </div>
     </dialog>
 
     <button class="to-top" id="toTop" type="button" aria-label="맨 위로 이동">↑</button>
-    <script src="./app.js?v=20260706-stamina-desc-wording-unify-burst-only"></script>
+  <script defer src="./src/data-store.js?v=20260713-lazy-data-v2"></script>
+  <script defer src="./src/bootstrap.js?v=20260713-lazy-data-v2"></script>
   </body>
 </html>
