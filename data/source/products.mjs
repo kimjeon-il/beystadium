@@ -8811,7 +8811,7 @@
     releases: {
       kr: {
         no: "CX-09",
-        name: "솔 이클립스 D5-70TK",
+        name: "솔 이클립스D 5-70TK",
         sale: "일반 판매",
         kind: "스타터",
         releaseDate: "2025-09-27",
@@ -8820,7 +8820,7 @@
       },
       jp: {
         no: "CX-09",
-        name: "솔이클립스D 5-70TK",
+        name: "솔 이클립스D 5-70TK",
         kind: "스타터",
         releaseDate: "2025-09-27",
         price: "2500",
@@ -8889,7 +8889,7 @@
       },
       jp: {
         no: "CX-10",
-        name: "울프헌트F 0-60DB",
+        name: "울프 헌트F 0-60DB",
         kind: "부스터",
         releaseDate: "2025-11-01",
         price: "1700",
@@ -9009,7 +9009,7 @@
       },
       jp: {
         no: "CX-12",
-        name: "피닉스플레어Z 9-80WW",
+        name: "피닉스 플레어Z 9-80WW",
         kind: "부스터",
         releaseDate: "2026-01-24",
         price: "1700",
@@ -9094,7 +9094,7 @@
       },
       jp: {
         no: "CX-13",
-        name: "바하무트블리츠BK 1-50I",
+        name: "바하무트 블리츠BK 1-50I",
         kind: "스타터",
         releaseDate: "2026-03-28",
         price: "2200",
@@ -9111,7 +9111,7 @@
       },
       jp: {
         no: "CX-14",
-        name: "나이트포트리스GV 8-70UN",
+        name: "나이트 포트리스GV 8-70UN",
         kind: "스타터",
         releaseDate: "2026-03-28",
         price: "2200",
@@ -9128,7 +9128,7 @@
       },
       jp: {
         no: "CX-15",
-        name: "라그나레이지FE 4-55Y",
+        name: "라그나 레이지FE 4-55Y",
         kind: "부스터",
         releaseDate: "2026-03-28",
         price: "1600",
@@ -9468,7 +9468,7 @@
       },
       jp: {
         no: "CX-00",
-        name: "티가레이지FT 3-60T",
+        name: "티가 레이지FT 3-60T",
         kind: "스타터",
         releaseDate: "2026-09-12",
         price: "2750",
