@@ -84,9 +84,9 @@
   max-width: 100%;
   min-height: var(--catalog-chip-row-height);
   border-radius: var(--catalog-pill-radius);
-  border-color: var(--ui-selection-border);
-  background: var(--ui-selection-surface);
-  color: var(--ui-selection-accent);
+  border-color: var(--ui-line);
+  background: var(--ui-control-hover);
+  color: var(--ui-control-text-active);
   font-size: var(--font-md);
   font-weight: var(--font-weight-medium);
   overflow: hidden;

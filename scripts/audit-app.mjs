@@ -17,6 +17,7 @@ const BASE_CSS_LIMIT = 60_000;
 const CSS_IMPORTANT_LIMIT = 80;
 const SOURCE_LINE_LIMIT = 1_000;
 const ROUTER_LINE_LIMIT = 600;
+const FORBIDDEN_HIGHLIGHT_PATTERN = /--ui-selection-|#(?:0f6cbd|62abf5)\b/i;
 const FORBIDDEN_MONOLITHS = [
   "src/app-runtime.js",
   "src/catalog-core.js",
@@ -66,6 +67,10 @@ if (!baseStylesheet.startsWith(expectedLayerOrder)) throw new Error("Global CSS 
 for (const [key, target] of Object.entries(styleFiles)) {
   const stylesheet = await readFile(fromRoot(projectPath(target)), "utf8");
   if (!stylesheet.includes(`@layer ${key} {`)) throw new Error(`Stylesheet is missing its layer wrapper: ${key}`);
+}
+for (const file of stylesheetFiles) {
+  const stylesheet = await readFile(fromRoot(file), "utf8");
+  if (FORBIDDEN_HIGHLIGHT_PATTERN.test(stylesheet)) throw new Error(`Stylesheet contains a retired Fluent selection color or token: ${file}`);
 }
 
 const sizes = await Promise.all(HOME_TEXT_FILES.map(async file => [file, await byteSize(file)]));

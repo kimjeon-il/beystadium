@@ -575,34 +575,66 @@ test("long query chip truncates inside the mobile viewport", async ({ page }, te
   expect(layout.valueScrollWidth).toBeGreaterThan(layout.valueWidth);
 });
 
-test("persistent selections use Fluent blue in light and dark themes", async ({ page }, testInfo) => {
-  test.skip(testInfo.project.name !== "desktop", "theme color coverage only needs one browser");
-  for (const [colorScheme, expectedAccent] of [["light", "rgb(15, 108, 189)"], ["dark", "rgb(98, 171, 245)"]]) {
-    await page.emulateMedia({ colorScheme });
-    await page.goto("/#toy-catalog?scope=all&series=all&sort=latest&page=1");
+test("persistent selections use the existing neutral highlight in light and dark themes", async ({ page }, testInfo) => {
+  for (const colorScheme of ["light", "dark"]) {
+    await page.emulateMedia({ colorScheme, reducedMotion: "reduce" });
+    await page.goto(`/#toy-catalog?scope=all&series=all&sort=latest&page=1&q=${encodeURIComponent("공격형")}`);
     await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
     await expect(page.locator(".catalog-pagination-nav .ui-button.active")).toBeVisible();
-    await expect(page.locator(".topbar-primary-button.active")).toHaveCSS("color", expectedAccent);
-    await expect(page.locator("#catalogSeriesFilter .ui-dropdown-item.active")).toHaveCSS("color", expectedAccent);
-    await expect(page.locator(".catalog-pagination-nav .ui-button.active")).toHaveCSS("color", expectedAccent);
+    await expect(page.locator('[data-catalog-filter-chips="catalog"] .active-query-chip')).toBeVisible();
+    if (testInfo.project.name === "mobile") {
+      await page.locator("#menuButton").click();
+      await expect(page.locator("#mobileDrawer")).toBeVisible();
+    }
     const colors = await page.evaluate(() => ({
-      menu: getComputedStyle(document.querySelector(".topbar-primary-button.active")).color,
-      dropdown: getComputedStyle(document.querySelector("#catalogSeriesFilter .ui-dropdown-item.active")).color,
-      page: getComputedStyle(document.querySelector(".catalog-pagination-nav .ui-button.active")).color,
-      inactive: getComputedStyle(document.querySelector("#catalogSeriesFilter .ui-dropdown-item:not(.active)")).color,
-      focusToken: getComputedStyle(document.documentElement).getPropertyValue("--ui-focus-ring"),
-      accentToken: getComputedStyle(document.documentElement).getPropertyValue("--ui-accent")
+      ...(() => {
+        const probe = document.createElement("i");
+        probe.style.cssText = "position:fixed;border:1px solid var(--ui-line);background:var(--ui-control-hover);color:var(--ui-control-text-active)";
+        document.body.append(probe);
+        const neutralBackground = getComputedStyle(probe).backgroundColor;
+        const neutralBorder = getComputedStyle(probe).borderColor;
+        const neutralText = getComputedStyle(probe).color;
+        probe.remove();
+        return { neutralBackground, neutralBorder, neutralText };
+      })(),
+      menuBackground: getComputedStyle(document.querySelector(".topbar-primary-button.active")).backgroundColor,
+      menuText: getComputedStyle(document.querySelector(".topbar-primary-button.active")).color,
+      dropdownBackground: getComputedStyle(document.querySelector("#catalogSeriesFilter .ui-dropdown-item.active"), "::before").backgroundColor,
+      dropdownText: getComputedStyle(document.querySelector("#catalogSeriesFilter .ui-dropdown-item.active")).color,
+      pageBackground: getComputedStyle(document.querySelector(".catalog-pagination-nav .ui-button.active")).backgroundColor,
+      pageText: getComputedStyle(document.querySelector(".catalog-pagination-nav .ui-button.active")).color,
+      chipBackground: getComputedStyle(document.querySelector('[data-catalog-filter-chips="catalog"] .active-query-chip')).backgroundColor,
+      chipBorder: getComputedStyle(document.querySelector('[data-catalog-filter-chips="catalog"] .active-query-chip')).borderColor,
+      chipText: getComputedStyle(document.querySelector('[data-catalog-filter-chips="catalog"] .active-query-chip')).color,
+      sidebarBackground: getComputedStyle(document.querySelector("#mobileDrawer .sidebar-button.active")).backgroundColor,
+      sidebarText: getComputedStyle(document.querySelector("#mobileDrawer .sidebar-button.active")).color,
+      sidebarAccentToken: getComputedStyle(document.querySelector("#mobileDrawer")).getPropertyValue("--sidebar-accent").trim(),
+      sidebarMarker: getComputedStyle(document.querySelector("#mobileDrawer .sidebar-button.active"), "::before").backgroundColor,
+      sidebarIcon: getComputedStyle(document.querySelector("#mobileDrawer .sidebar-button.active .sidebar-button__icon")).color
     }));
-    expect(colors.menu).toBe(expectedAccent);
-    expect(colors.dropdown).toBe(expectedAccent);
-    expect(colors.page).toBe(expectedAccent);
-    expect(colors.inactive).not.toBe(expectedAccent);
-    expect(colors.focusToken).toContain(colors.accentToken.trim());
-    expect(colors.accentToken).not.toContain("0f6cbd");
+    expect(colors.menuBackground).toBe(colors.neutralBackground);
+    expect(colors.menuText).toBe(colors.neutralText);
+    expect(colors.dropdownBackground).toBe(colors.neutralBackground);
+    expect(colors.dropdownText).toBe(colors.neutralText);
+    expect(colors.pageBackground).toBe(colors.neutralBackground);
+    expect(colors.pageText).toBe(colors.neutralText);
+    expect(colors.chipBackground).toBe(colors.neutralBackground);
+    expect(colors.chipBorder).toBe(colors.neutralBorder);
+    expect(colors.chipText).toBe(colors.neutralText);
+    expect(colors.sidebarBackground).toBe(colors.neutralBackground);
+    expect(colors.sidebarText).toBe(colors.neutralText);
+    expect(colors.sidebarAccentToken).toContain("light-dark(#334155, #d7dee8) 84%");
+    expect(colors.sidebarAccentToken).toContain("light-dark(#101827, #f3f6fa) 16%");
+    expect(colors.sidebarMarker).toBe(colors.sidebarIcon);
 
     await page.goto("/#toy-release");
     await expect(page.locator(".release-region-tabs .ui-tab-button.active")).toBeVisible();
-    await expect(page.locator(".release-region-tabs .ui-tab-button.active")).toHaveCSS("color", expectedAccent);
+    const releaseTabColors = await page.locator(".release-region-tabs .ui-tab-button.active").evaluate(element => ({
+      background: getComputedStyle(element).backgroundColor,
+      text: getComputedStyle(element).color
+    }));
+    expect(releaseTabColors.background).toBe(colors.neutralBackground);
+    expect(releaseTabColors.text).toBe(colors.neutralText);
   }
 });
 
@@ -952,14 +984,14 @@ test("mobile drawer opens and exposes category navigation", async ({ page }, tes
   await page.locator("#menuButton").click();
   await expect(page.locator("#mobileDrawer")).toHaveAttribute("aria-hidden", "false");
   await expect(page.locator("[data-category-catalog-open]").last()).toBeVisible();
-  await expect(page.locator("#mobileDrawer [data-sidebar-home]")).toHaveCSS("color", "rgb(15, 108, 189)");
+  await expect(page.locator("#mobileDrawer [data-sidebar-home]")).toHaveCSS("color", "rgb(16, 24, 39)");
   const currentMenuColors = await page.locator("#mobileDrawer [data-sidebar-home]").evaluate(element => ({
     text: getComputedStyle(element).color,
     marker: getComputedStyle(element, "::before").backgroundColor,
     icon: getComputedStyle(element.querySelector(".sidebar-button__icon")).color
   }));
-  expect(currentMenuColors.marker).toBe(currentMenuColors.text);
-  expect(currentMenuColors.icon).toBe(currentMenuColors.text);
+  expect(currentMenuColors.marker).toBe(currentMenuColors.icon);
+  expect(currentMenuColors.marker).not.toBe(currentMenuColors.text);
   expect(errors).toEqual([]);
 });
 
