@@ -22,9 +22,11 @@ test("primary routes render without runtime errors", async ({ page }) => {
 test("runtime data is loaded by route instead of during home boot", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "request coverage only needs one browser");
   const runtimeRequests = [];
+  const moduleRequests = [];
   page.on("request", request => {
     const pathname = new URL(request.url()).pathname;
     if (pathname.includes("/data/runtime/")) runtimeRequests.push(pathname);
+    if (pathname.includes("/src/")) moduleRequests.push(pathname);
   });
 
   await page.goto("/");
@@ -33,11 +35,28 @@ test("runtime data is loaded by route instead of during home boot", async ({ pag
   expect(runtimeRequests.some(path => path.includes("/series/"))).toBe(false);
   expect(runtimeRequests.some(path => path.includes("/search/"))).toBe(false);
   expect(runtimeRequests).not.toContain("/data/runtime/registry.json");
+  expect(moduleRequests).toContain("/src/bootstrap.js");
+  expect(moduleRequests).toContain("/src/data-store.js");
+  expect(moduleRequests).not.toContain("/src/app-entry.js");
+  expect(moduleRequests).not.toContain("/src/router.js");
 
   await page.goto("/#toy-catalog?scope=bey&series=x");
   await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
   expect(runtimeRequests).toContain("/data/runtime/series/x.json");
   expect(runtimeRequests.some(path => path.includes("/search/"))).toBe(false);
+  expect(moduleRequests).toContain("/src/router.js");
+  expect(moduleRequests).toContain("/src/catalog-core.js");
+  expect(moduleRequests).not.toContain("/src/release-page.js");
+  expect(moduleRequests).not.toContain("/src/anime.js");
+
+  await page.goto("/#toy-release");
+  await expect(page.locator(".release-product-row").first()).toBeVisible();
+  expect(moduleRequests).toContain("/src/release-page.js");
+  expect(moduleRequests).not.toContain("/src/anime.js");
+
+  await page.goto("/#anime-character");
+  await expect(page.locator('[data-app-panel="anime"].active')).toBeVisible();
+  expect(moduleRequests).toContain("/src/anime.js");
 });
 
 test("detail route restores modal and internal navigation hash", async ({ page }) => {

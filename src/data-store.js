@@ -349,8 +349,6 @@ const BeystadiumDataStore = (() => {
   };
 })();
 
-window.BeystadiumDataStore = BeystadiumDataStore;
-
 export {
   animeInfo,
   beyItems,

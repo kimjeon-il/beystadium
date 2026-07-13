@@ -1,3 +1,20 @@
+import { episodeIndexFromHash, isAnimeEpisodeHash, normalizeAnimeCharacterSeason } from "#app/anime-core";
+import { appState } from "#app/state";
+import { SEARCH_HASH_UPDATE_DELAY, SEARCH_RENDER_DELAY, activeCatalogSortOption, animeRenderKey, animeSearchQuery, appliedRouteKey, beyDetailSections, beyModalTags, bindModalTagPopovers, bindSearchPreview, catalogAttributeChipForTerm, catalogFilterChipLabelForTerm, catalogFilterQueryTerms, catalogRenderKey, catalogSearchQuery, catalogSortOptions, catalogVisibleItemsCache, cleanupModelViewer, clearActiveDetailModalContext, clearModalContext, clearModalOriginRoute, closeAllSearchPreviews, closeModalTagPopover, codedPartNameTypes, compareToolsItemsByFirstRelease, currentPageScrollY, currentPathWithSearch, defaultCatalogSort, findCatalogItemById, getModalCloseRoute, globalSearchQuery, handleSearchPreviewKeydown, initModelViewer, isDetailRoute, isPrimaryRoute, modalArtMarkup, modalInfoSlot, modalOriginState, modalScrollArea, modalTagGroup, navigateToRoute, normalizeCatalogRouteSort, normalizeCatalogSearchInput, normalizeRoute, parseRouteFromHash, partCategory, partKoName, partModalTags, positionModalTagPopover, productCompositionItems, productLineupIds, productSerialNumber, refreshSearchPreview, rememberModalContext, rememberPrimaryRoute, renderCatalogItems, renderGlobalCards, restorePageScroll, restoredModalContext, routeSnapshot, scrollAnimeGridIntoView, scrollCatalogGridIntoView, searchPreviewScopeValue, serializeRoute, stabilizePrimaryRouteScroll, syncCatalogScopeState, syncModalOriginRoute, validScrollY, visibleCatalogCoreItems, visibleToolsItems, zeroGBottomStartIndex } from "#app/catalog-core";
+import { BeystadiumDataStore, bookItems, bookItemsById, catalogCoreItems, catalogCoreItemsById, gameItems, gameItemsById, partItems, productItems, productItemsById, toolsItems, toolsItemsById } from "#app/data-store";
+import { RARE_BEY_GET_BADGE, defaultCatalogSeries, defaultReleaseSeries, escapeAttributeValue, escapeHtml, normalizeCatalogSeries, productDisplayName, productDisplayRegion, productRelease, productReleasedInRegion, rareBeyGetEntryProductIds, rareBeyGetEntryRegion, rareBeyGetEntryStartSortValue, releaseDateSortValue, releaseHasBadge, releaseRegionLabels, releaseSeriesLabels, setSortDropdownLabel, sortDropdownMarkup, visibleRareBeyGetEntries } from "#app/release-core";
+import { registerAppServices } from "#app/services";
+import { activeAppPanel, animeSearch, animeSearchHelpButton, animeSearchHelpPopover, catalogSearch, catalogSearchHelpButton, catalogSearchHelpPopover, catalogSearchScope, catalogSeriesFilter, clearSearchInputs, dropdownSummaryText, getNavigationRoots, globalSearch, globalSearchScope, globalSearchScopeValue, isNavigationButtonCurrent, menuButton, mobileDrawer, mobileDrawerClose, mobileDrawerSearch, mobileDrawerSearchScope, mobileDrawerSearchScopeValue, normalizeSidebarSection, overviewSearch, overviewSearchScope, overviewSearchScopeValue, partDisplayTypeLabel, playEnterAnimation, setCatalogSearchScope, setCatalogSeriesFilter, setGlobalSearchScope, setMobileDrawerSearchScope, setOverviewSearchScope, setSearchInputValue, setSidebarButtonCurrent, sidebarCurrentButtonSelector, syncSearchInputState, toTop, typeLabels } from "#app/ui-core";
+
+let animeFeaturePromise = null;
+let releaseFeaturePromise = null;
+const loadAnimeFeature = () => animeFeaturePromise ||= import("#app/anime");
+const loadReleaseFeature = () => releaseFeaturePromise ||= import("#app/release-page");
+const renderAnimePage = (...args) => loadAnimeFeature().then(module => module.renderAnimePage(...args));
+const openAnimeEpisodeDetail = (...args) => loadAnimeFeature().then(module => module.openAnimeEpisodeDetail(...args));
+const openCategoryAnimeEpisodesDetail = (...args) => loadAnimeFeature().then(module => module.openCategoryAnimeEpisodesDetail(...args));
+const openCategoryReleaseDetail = (...args) => loadReleaseFeature().then(module => module.openCategoryReleaseDetail(...args));
+
 const categoryReleaseMenuRoute = () => {
   const region = "kr";
   return { type: "category-release", options: { region, series: defaultReleaseSeries(region) } };
@@ -5,20 +22,21 @@ const categoryReleaseMenuRoute = () => {
 const openCategoryCatalog = ({ scope = "all", series = "all", sort = defaultCatalogSort(), page = 1, query = "", updateHash = true, replace = false, preserveSearch = false } = {}) => {
   const catalogRoute = normalizeRoute({ type: "catalog", scope, series, sort, page, query });
   const normalizedScope = catalogRoute.scope;
-  if (updateHash && !applyingRoute) {
+  if (updateHash && !appState.applyingRoute) {
     navigateToRoute(catalogRoute, { replace });
     return;
   }
   activatePrimarySection(normalizedScope === "all" ? "catalog" : normalizedScope, { preserveSearch });
   applyCatalogRouteState(catalogRoute);
 };
-const openCategoryAnimePage = (options = {}) => {
+const openCategoryAnimePage = async (options = {}) => {
   const { updateHash = true, replace = false, preserveSearch = false } = options;
   const animeRoute = normalizeRoute({ type: "category-anime", ...options });
-  if (updateHash && !applyingRoute) {
+  if (updateHash && !appState.applyingRoute) {
     navigateToRoute(animeRoute, { replace });
     return;
   }
+  await loadAnimeFeature();
   activatePrimarySection("anime", { preserveSearch });
   applyAnimeRouteState(animeRoute, {
     preserveSearch,
@@ -109,7 +127,7 @@ const scheduleGlobalSearchResultsRefresh = () => scheduleSearchRender(searchRend
 const scheduleCatalogSearchResultsRefresh = () => scheduleSearchRender(searchRenderTasks.catalog);
 const scheduleAnimeSearchResultsRefresh = () => scheduleSearchRender(searchRenderTasks.anime);
 const openSearchResults = ({ replace = false, updateHash = true } = {}) => {
-  if (updateHash && !applyingRoute) {
+  if (updateHash && !appState.applyingRoute) {
     navigateToRoute({ type: "search", query: globalSearchQuery(), scope: globalSearchScopeValue() }, { replace });
     return;
   }
@@ -128,7 +146,7 @@ const bindSearchInput = (input, containerSelector, { onInput, onSubmit = onInput
   const runSearch = async handler => {
     syncSearchInputState(input);
     if (usesGlobalSearchIndex) {
-      await window.BeystadiumDataStore?.ensureSearch(searchPreviewScopeValue(input));
+      await BeystadiumDataStore?.ensureSearch(searchPreviewScopeValue(input));
     }
     handler?.(input);
   };
@@ -245,7 +263,7 @@ const refreshSearchPanel = () => {
     container: ".catalog-search-box",
     refresh: input => {
       normalizeCatalogSearchInput(input);
-      currentCatalogPage = 1;
+      appState.currentCatalogPage = 1;
       scheduleCatalogSearchResultsRefresh();
       syncCatalogRouteHash({ overrides: { page: 1 } });
     }
@@ -254,7 +272,7 @@ const refreshSearchPanel = () => {
     input: animeSearch,
     container: ".anime-search-box",
     refresh: () => {
-      currentAnimePage = 1;
+      appState.currentAnimePage = 1;
       scheduleAnimeSearchResultsRefresh();
       syncAnimeRouteHash({ overrides: { page: 1 } });
     }
@@ -372,33 +390,33 @@ const refreshCatalogState = () => {
   renderCatalogFilterChips();
 };
 const resetCatalogFilters = () => {
-  selectedCatalogKind = "";
+  appState.selectedCatalogKind = "";
 };
 const setCatalogSeries = (series, { refresh = true } = {}) => {
-  selectedCatalogSeries = normalizeCatalogSeries(series);
-  setCatalogSeriesFilter(selectedCatalogSeries);
+  appState.selectedCatalogSeries = normalizeCatalogSeries(series);
+  setCatalogSeriesFilter(appState.selectedCatalogSeries);
   if (refresh) refreshCatalogState();
 };
 const setCatalogScope = (scope, { refresh = true } = {}) => {
   if (scope === "bey" || scope === "parts" || scope === "tools") {
-    selectedCatalogKind = scope;
+    appState.selectedCatalogKind = scope;
   } else {
-    selectedCatalogKind = "";
+    appState.selectedCatalogKind = "";
   }
-  setCatalogSearchScope(selectedCatalogKind || "all");
+  setCatalogSearchScope(appState.selectedCatalogKind || "all");
   if (refresh) refreshCatalogState();
 };
 const catalogRouteFromState = (overrides = {}) => normalizeRoute({
   type: "catalog",
-  scope: selectedCatalogKind || "all",
-  series: selectedCatalogSeries || "all",
-  sort: activeCatalogSort,
-  page: currentCatalogPage,
+  scope: appState.selectedCatalogKind || "all",
+  series: appState.selectedCatalogSeries || "all",
+  sort: appState.activeCatalogSort,
+  page: appState.currentCatalogPage,
   query: catalogSearchQuery(),
   ...overrides
 });
 const syncCatalogRouteHash = ({ replace = true, force = false, overrides = {} } = {}) => {
-  if (!force && (applyingRoute || activeAppPanelName() !== "catalog")) return;
+  if (!force && (appState.applyingRoute || activeAppPanelName() !== "catalog")) return;
   navigateToRoute(catalogRouteFromState(overrides), {
     replace,
     apply: false,
@@ -408,13 +426,13 @@ const syncCatalogRouteHash = ({ replace = true, force = false, overrides = {} } 
 };
 const animeRouteFromState = (overrides = {}) => normalizeRoute({
   type: "category-anime",
-  season: activeAnimeCharacterSeason || "all",
-  page: currentAnimePage,
+  season: appState.activeAnimeCharacterSeason || "all",
+  page: appState.currentAnimePage,
   query: animeSearchQuery(),
   ...overrides
 });
 const syncAnimeRouteHash = ({ replace = true, force = false, overrides = {} } = {}) => {
-  if (!force && (applyingRoute || activeAppPanelName() !== "anime")) return;
+  if (!force && (appState.applyingRoute || activeAppPanelName() !== "anime")) return;
   navigateToRoute(animeRouteFromState(overrides), {
     replace,
     apply: false,
@@ -426,20 +444,20 @@ function applyCatalogRouteState(route = {}) {
   const catalogRoute = normalizeRoute({ type: "catalog", ...route });
   setCatalogSeries(catalogRoute.series, { refresh: false });
   setCatalogScope(catalogRoute.scope, { refresh: false });
-  activeCatalogSort = catalogRoute.sort;
+  appState.activeCatalogSort = catalogRoute.sort;
   setSearchInputValue(catalogSearch, catalogRoute.query);
-  currentCatalogPage = catalogRoute.page;
-  currentCatalogRenderKey = catalogRenderKey();
+  appState.currentCatalogPage = catalogRoute.page;
+  appState.currentCatalogRenderKey = catalogRenderKey();
   catalogVisibleItemsCache.clear();
   syncGlobalSearchScopePeers(catalogRoute.scope === "bey" || catalogRoute.scope === "tools" ? catalogRoute.scope : "all");
   refreshCatalogState();
 };
 function applyAnimeRouteState(route = {}, { preserveSearch = false, hasQuery = false } = {}) {
   const animeRoute = normalizeRoute({ type: "category-anime", ...route });
-  activeAnimeCharacterSeason = normalizeAnimeCharacterSeason(animeRoute.season);
+  appState.activeAnimeCharacterSeason = normalizeAnimeCharacterSeason(animeRoute.season);
   if (hasQuery || !preserveSearch) setSearchInputValue(animeSearch, animeRoute.query);
-  currentAnimePage = animeRoute.page;
-  currentAnimeRenderKey = animeRenderKey();
+  appState.currentAnimePage = animeRoute.page;
+  appState.currentAnimeRenderKey = animeRenderKey();
   renderAnimePage();
 }
 const resetCatalogFilter = (scope, key) => {
@@ -453,7 +471,7 @@ const resetCatalogFilter = (scope, key) => {
     return true;
   });
   setSearchInputValue(catalogSearch, nextTerms.join(" "));
-  currentCatalogPage = 1;
+  appState.currentCatalogPage = 1;
   refreshCatalogState();
   syncCatalogRouteHash();
 };
@@ -477,7 +495,7 @@ const catalogScopeStateLabel = () => ({
   bey: "베이",
   parts: "부품",
   tools: "장비"
-})[selectedCatalogKind] || "전체";
+})[appState.selectedCatalogKind] || "전체";
 const catalogFilterStateMarkup = () =>
   `<span class="catalog-state-chip">${escapeHtml(catalogScopeStateLabel())}</span>`;
 const catalogSortDropdownMarkup = () => sortDropdownMarkup({
@@ -700,7 +718,7 @@ document.querySelectorAll(".catalog-filter-chips").forEach(root => root.addEvent
   if (reset) {
     if (reset.dataset.filterResetScope === "catalog") {
       setSearchInputValue(catalogSearch, "");
-      currentCatalogPage = 1;
+      appState.currentCatalogPage = 1;
     }
     refreshCatalogState();
     syncCatalogRouteHash();
@@ -712,10 +730,10 @@ document.addEventListener("click", event => {
   event.preventDefault();
   const sortValue = catalogSortButton.dataset.catalogSort;
   if (!catalogSortOptions.some(option => option.value === sortValue)) return;
-  activeCatalogSort = sortValue;
+  appState.activeCatalogSort = sortValue;
   setDropdownOption(catalogSortButton);
   catalogVisibleItemsCache.clear();
-  currentCatalogPage = 1;
+  appState.currentCatalogPage = 1;
   refreshCatalogResults();
   renderCatalogFilterChips();
   syncCatalogRouteHash();
@@ -734,14 +752,14 @@ const bindPaginationControls = ({ rootSelector, dataAttr, setPage, render, scrol
 bindPaginationControls({
   rootSelector: "#catalogPagination",
   dataAttr: "data-catalog-page",
-  setPage: page => { currentCatalogPage = page; },
+  setPage: page => { appState.currentCatalogPage = page; },
   render: renderCatalogItems,
   scroll: scrollCatalogGridIntoView
 });
 bindPaginationControls({
   rootSelector: "#animePagination",
   dataAttr: "data-anime-page",
-  setPage: page => { currentAnimePage = page; },
+  setPage: page => { appState.currentAnimePage = page; },
   render: renderAnimePage,
   scroll: scrollAnimeGridIntoView
 });
@@ -1046,13 +1064,13 @@ function closeModalSession({ clearContext = true, clearOrigin = true } = {}) {
     clearModalContext();
     clearActiveDetailModalContext();
   }
-  const shouldRestoreModalScroll = Boolean(modalOriginRoute);
+  const shouldRestoreModalScroll = Boolean(appState.modalOriginRoute);
   if (clearOrigin) clearModalOriginRoute();
   if (modal?.open) closeModal();
   else if (shouldRestoreModalScroll) restorePageScroll(modalController.scrollY);
 }
 function routeIfNeeded(route) {
-  if (applyingRoute) return false;
+  if (appState.applyingRoute) return false;
   navigateToRoute(route);
   return true;
 }
@@ -1211,10 +1229,10 @@ const productBackButton = ({ backProductId, backRelease = false, region = "" } =
 };
 const rareBeyGetListBackButton = ({ region = "", series = "", backProductId = "", backRelease = false } = {}) =>
   modalBackButtonMarkup({ backRareBeyGetList: true, backProductId, backRelease, region, series, label: "레어 베이 겟 목록으로 돌아가기" });
-const productModalBackButton = (item, options = {}, region = activeReleaseRegion) => {
+const productModalBackButton = (item, options = {}, region = appState.activeReleaseRegion) => {
   if (options.backRareBeyGetList) return rareBeyGetListBackButton({
     region: options.rareBeyGetListRegion || region,
-    series: options.rareBeyGetListSeries || item?.series || activeReleaseSeries,
+    series: options.rareBeyGetListSeries || item?.series || appState.activeReleaseSeries,
     backProductId: options.rareBeyGetListBackProductId || "",
     backRelease: options.rareBeyGetListBackRelease === true
   });
@@ -1235,8 +1253,8 @@ function bindCatalogModalBack(scope = document, { fallbackRegion = "" } = {}) {
     if (backButton.dataset.backRareBeyGetList) {
       queueModalTransition("back");
       openRareBeyGetListDetail({
-        region: backOptions.region || activeReleaseRegion,
-        series: backOptions.series || activeReleaseSeries,
+        region: backOptions.region || appState.activeReleaseRegion,
+        series: backOptions.series || appState.activeReleaseSeries,
         backProductId: backButton.dataset.backProductId || "",
         backRelease: backOptions.backRelease === true
       });
@@ -1253,7 +1271,7 @@ function bindCatalogModalBack(scope = document, { fallbackRegion = "" } = {}) {
       openProductEntry(backButton.dataset.backProductId, backOptions);
       return;
     }
-    if (backButton.dataset.backRelease) openCategoryReleaseDetail({ region: backOptions.region || activeReleaseRegion });
+    if (backButton.dataset.backRelease) openCategoryReleaseDetail({ region: backOptions.region || appState.activeReleaseRegion });
   });
 }
 const modalStepButtonMarkup = ({ direction, targetId, kind, label }) =>
@@ -1279,9 +1297,9 @@ function bindModalStepButtons(options = {}) {
     openDetailByKind(kind, targetId, options[kind] || (kind === "item" ? options.item : {}) || {});
   }));
 }
-function openDetailByKind(kind, targetId, options = {}) {
+async function openDetailByKind(kind, targetId, options = {}) {
   if (!targetId) return;
-  if (isAnimeEpisodeHash(targetId)) openAnimeEpisodeDetail(targetId, options);
+  if (isAnimeEpisodeHash(targetId)) await openAnimeEpisodeDetail(targetId, options);
   else if (kind === "product-lineup") openProductLineupDetail(targetId, options);
   else if (kind === "product" || targetId.startsWith("PRODUCT-")) openProductEntry(targetId, options);
   else if (kind === "tools" || targetId.startsWith("TOOLS-")) openToolsDetail(targetId, options);
@@ -1317,7 +1335,7 @@ const catalogDetailProductHasTarget = (product, region, targetId) =>
 const inferCatalogDetailRegionFromProduct = (options = {}) => {
   const product = options.backProductId ? productItemsById.get(options.backProductId) : null;
   if (!product) return "";
-  const requestedRegion = validReleaseRegion(options.region) || validReleaseRegion(activeReleaseRegion) || "kr";
+  const requestedRegion = validReleaseRegion(options.region) || validReleaseRegion(appState.activeReleaseRegion) || "kr";
   return productDisplayRegion(product, requestedRegion);
 };
 const inferCatalogDetailRegionFromItem = item => {
@@ -1332,7 +1350,7 @@ function catalogDetailRegion(item, options = {}) {
   return validReleaseRegion(options.region) ||
     inferCatalogDetailRegionFromProduct(options) ||
     inferCatalogDetailRegionFromItem(item) ||
-    validReleaseRegion(activeReleaseRegion) ||
+    validReleaseRegion(appState.activeReleaseRegion) ||
     "kr";
 }
 function openDetail(id, options = {}) {
@@ -1373,14 +1391,14 @@ function openDetail(id, options = {}) {
   scheduleModalDescriptionMeasure(modalContentRoot);
   if (item.model) requestAnimationFrame(initModelViewer);
 }
-function productHeader(item, region = activeReleaseRegion) {
+function productHeader(item, region = appState.activeReleaseRegion) {
   return modalTitle(productDisplayName(item, region), "product-modal-name");
 }
-function rareBeyGetMetaChip(item, region = activeReleaseRegion) {
+function rareBeyGetMetaChip(item, region = appState.activeReleaseRegion) {
   if (!releaseHasBadge(item, RARE_BEY_GET_BADGE, region)) return "";
   return `<button class="ui-chip-button rare-bey-get-chip rare-bey-get-list-trigger" type="button" aria-label="역대 레어 베이 겟 상품 보기" data-release-region="${escapeAttributeValue(region)}" data-release-series="${escapeAttributeValue(item.series || "")}"><span>레어 베이 겟 목록</span><b aria-hidden="true">→</b></button>`;
 }
-function productMetaSlot(item = null, region = activeReleaseRegion) {
+function productMetaSlot(item = null, region = appState.activeReleaseRegion) {
   const chip = item ? rareBeyGetMetaChip(item, region) : "";
   if (chip) return `<div class="product-meta-slot product-rare-bey-get-slot">${chip}</div>`;
   return `<div class="product-empty-info-slot"></div>`;
@@ -1401,16 +1419,16 @@ const compositionItemLabel = part => {
   return "";
 };
 
-function itemDisplayName(item, region = activeReleaseRegion, options = {}) {
+function itemDisplayName(item, region = appState.activeReleaseRegion, options = {}) {
   const name = region === "jp" ? item.jpName || item.name || "" : item.name || "";
   const sub = options.withSub ? item.sub || "" : "";
   return sub && !name.includes(sub) ? `${name} ${sub}` : name;
 }
-function itemDisplayDesc(item, region = activeReleaseRegion) {
+function itemDisplayDesc(item, region = appState.activeReleaseRegion) {
   return region === "jp" && item.jpDesc ? item.jpDesc : item.desc || "";
 }
 const compositionDisplayName = name => (name || "").replace(/\([^)]*\)/g, "").replace(/\s+/g, " ").trim();
-function productComposition(item, region = activeReleaseRegion) {
+function productComposition(item, region = appState.activeReleaseRegion) {
   const composition = productCompositionItems(item, region);
   if (!composition.length) return "";
   return `<section class="modal-section product-composition"><p class="mounted-title">구성</p><div class="modal-section-scroll product-composition-list">${composition.map(part => {
@@ -1424,15 +1442,15 @@ function productComposition(item, region = activeReleaseRegion) {
     return `<a class="ui-list-link product-composition-item composition-link" href="#${part.target}" data-target-id="${part.target}"><span>${displayName} ${quantity}</span><b>→</b></a>`;
   }).join("")}</div></section>`;
 }
-const productDetailBody = (item, region = activeReleaseRegion) =>
+const productDetailBody = (item, region = appState.activeReleaseRegion) =>
   productComposition(item, region);
-const productLineupItemName = (item, region = activeReleaseRegion) => {
+const productLineupItemName = (item, region = appState.activeReleaseRegion) => {
   if (productItemsById.has(item.id)) return productDisplayName(item, region);
   const combo = item.type === "bey" ? partCategory(item) : "";
   const name = itemDisplayName(item, region);
   return combo ? `${name} ${combo}` : name;
 };
-function productLineup(item, region = activeReleaseRegion) {
+function productLineup(item, region = appState.activeReleaseRegion) {
   const lineupIds = productLineupIds(item);
   if (!lineupIds.length) return "";
   const lineupItems = lineupIds
@@ -1489,7 +1507,7 @@ const sortRareBeyGetEndedEntries = entries => entries
   })
   .map(({ entry }) => entry);
 const rareBeyGetListDisplayName = name => String(name || "").replace(/^부스터\s+/, "");
-const rareBeyGetListItemMarkup = (entry, region = activeReleaseRegion) => {
+const rareBeyGetListItemMarkup = (entry, region = appState.activeReleaseRegion) => {
   const productIds = rareBeyGetEntryProductIds(entry);
   const productId = entry?.productId || "";
   const primaryProduct = productItemsById.get(productId) || productItemsById.get(productIds[0]);
@@ -1505,7 +1523,7 @@ const rareBeyGetListItemMarkup = (entry, region = activeReleaseRegion) => {
   if (!productId) return `<div class="ui-list-link product-composition-item rare-bey-get-list-item rare-bey-get-list-item--static" aria-label="${displayNameAttr}">${content}</div>`;
   return `<a class="ui-list-link product-composition-item rare-bey-get-list-item rare-bey-get-list-link" href="#${productId}" data-product-id="${escapeAttributeValue(productId)}" data-release-region="${escapeAttributeValue(entryRegion)}" aria-label="${escapeAttributeValue(`${displayName} 상세 보기`)}">${content}<b aria-hidden="true">→</b></a>`;
 };
-const rareBeyGetListSectionMarkup = (title, entries, { region = activeReleaseRegion, current = false } = {}) => {
+const rareBeyGetListSectionMarkup = (title, entries, { region = appState.activeReleaseRegion, current = false } = {}) => {
   if (!entries.length) return "";
   const orderedEntries = current ? sortRareBeyGetCurrentEntries(entries) : sortRareBeyGetEndedEntries(entries);
   const rows = orderedEntries.map(entry => rareBeyGetListItemMarkup(entry, region)).filter(Boolean);
@@ -1515,7 +1533,7 @@ const rareBeyGetListSectionMarkup = (title, entries, { region = activeReleaseReg
     <div class="rare-bey-get-list-group-items">${rows.join("")}</div>
   </section>`;
 };
-function rareBeyGetListMarkup({ region = activeReleaseRegion, series = activeReleaseSeries } = {}) {
+function rareBeyGetListMarkup({ region = appState.activeReleaseRegion, series = appState.activeReleaseSeries } = {}) {
   const entries = visibleRareBeyGetEntries({ region, series });
   const currentEntries = entries.filter(entry => entry?.isCurrent === true);
   const endedEntries = entries.filter(entry => entry?.isCurrent !== true);
@@ -1540,7 +1558,7 @@ function bindRareBeyGetListLinks(root = document, options = {}) {
       region,
       backRareBeyGetList: true,
       rareBeyGetListRegion: region,
-      rareBeyGetListSeries: options.series || activeReleaseSeries,
+      rareBeyGetListSeries: options.series || appState.activeReleaseSeries,
       rareBeyGetListBackProductId: options.backProductId || "",
       rareBeyGetListBackRelease: options.backRelease === true
     });
@@ -1550,8 +1568,8 @@ function openRareBeyGetListDetail(options = {}) {
   const { skipRoute = false, ...detailOptions } = options;
   const normalizedRoute = normalizeRoute({ type: "rare-bey-get-list", options: detailOptions });
   const routeOptions = normalizedRoute.options || {};
-  const region = routeOptions.region || activeReleaseRegion;
-  const series = routeOptions.series || activeReleaseSeries;
+  const region = routeOptions.region || appState.activeReleaseRegion;
+  const series = routeOptions.series || appState.activeReleaseSeries;
   const backProductId = routeOptions.backProductId || "";
   const backRelease = routeOptions.backRelease === true;
   if (!skipRoute && routeIfNeeded(normalizedRoute)) return;
@@ -1572,9 +1590,9 @@ function openProductLineupDetail(id, options = {}) {
   if (!item) return;
   const { skipRoute = false, ...detailOptions } = options;
   if (!skipRoute && routeIfNeeded({ type: "detail", id, options: detailOptions })) return;
-  const requestedRegion = releaseRegionLabels[detailOptions.region] ? detailOptions.region : (releaseRegionLabels[activeReleaseRegion] ? activeReleaseRegion : "kr");
+  const requestedRegion = releaseRegionLabels[detailOptions.region] ? detailOptions.region : (releaseRegionLabels[appState.activeReleaseRegion] ? appState.activeReleaseRegion : "kr");
   const region = productDisplayRegion(item, requestedRegion);
-  activeReleaseRegion = region;
+  appState.activeReleaseRegion = region;
   cleanupModelViewer();
   const backButton = productModalBackButton(item, detailOptions, region);
   const modalContentRoot = setModalContent(`<div class="modal-inner">
@@ -1602,10 +1620,10 @@ function openProductDetail(id, options = {}) {
   const item = productItemsById.get(id);
   if (!item) return;
   if (routeIfNeeded({ type: "detail", id, options })) return;
-  const requestedRegion = releaseRegionLabels[options.region] ? options.region : (releaseRegionLabels[activeReleaseRegion] ? activeReleaseRegion : "kr");
+  const requestedRegion = releaseRegionLabels[options.region] ? options.region : (releaseRegionLabels[appState.activeReleaseRegion] ? appState.activeReleaseRegion : "kr");
   const region = productDisplayRegion(item, requestedRegion);
   const stepRegion = requestedRegion === "kr" ? "kr" : region;
-  activeReleaseRegion = region;
+  appState.activeReleaseRegion = region;
   cleanupModelViewer();
   const backButton = productModalBackButton(item, options, region);
   const productStepSource = productItems.filter(entry => !entry.lineupOnly).sort((a, b) => productSerialNumber(a, stepRegion) - productSerialNumber(b, stepRegion));
@@ -1700,7 +1718,7 @@ document.querySelector("#modalClose").addEventListener("click", closeDetail);
 document.querySelector("[data-modal-overlay]")?.addEventListener("click", closeDetail);
 modal.addEventListener("cancel", event => {
   event.preventDefault();
-  if (activeModalTagButton) {
+  if (appState.activeModalTagButton) {
     closeModalTagPopover();
     return;
   }
@@ -1790,34 +1808,34 @@ const restorePagedSearchOrigin = ({ originState, queryKey, pageKey, input, setPa
 };
 const restoreStoredCatalogOrigin = originState => {
   setCatalogSeries(originState?.catalogSeries || "all", { refresh: false });
-  activeCatalogSort = normalizeCatalogRouteSort(originState?.catalogSort || activeCatalogSort);
+  appState.activeCatalogSort = normalizeCatalogRouteSort(originState?.catalogSort || appState.activeCatalogSort);
   restorePagedSearchOrigin({
     originState,
     queryKey: "catalogQuery",
     pageKey: "catalogPage",
     input: catalogSearch,
-    setPage: page => { currentCatalogPage = page; },
+    setPage: page => { appState.currentCatalogPage = page; },
     render: renderCatalogItems,
     refresh: refreshCatalogState
   });
 };
 const restoreStoredAnimeOrigin = originState => {
-  if (originState?.animeSeason) activeAnimeCharacterSeason = normalizeAnimeCharacterSeason(originState.animeSeason);
+  if (originState?.animeSeason) appState.activeAnimeCharacterSeason = normalizeAnimeCharacterSeason(originState.animeSeason);
   restorePagedSearchOrigin({
     originState,
     queryKey: "animeQuery",
     pageKey: "animePage",
     input: animeSearch,
-    setPage: page => { currentAnimePage = page; },
+    setPage: page => { appState.currentAnimePage = page; },
     render: renderAnimePage
   });
 };
-function restoreDetailOriginPanel(context) {
+async function restoreDetailOriginPanel(context) {
   const originRoute = routeSnapshot(context?.originRoute);
   if (!originRoute || !isPrimaryRoute(originRoute)) return false;
   const originState = context?.originState || {};
-  modalOriginRoute = routeSnapshot(originRoute);
-  modalOriginRouteExplicit = context?.originExplicit === true;
+  appState.modalOriginRoute = routeSnapshot(originRoute);
+  appState.modalOriginRouteExplicit = context?.originExplicit === true;
   rememberPrimaryRoute(originRoute);
   if (originRoute.type === "catalog") {
     openCategoryCatalog({ ...originRoute, updateHash: false, preserveSearch: true });
@@ -1828,7 +1846,7 @@ function restoreDetailOriginPanel(context) {
     setGlobalSearchState(query, scope);
     openSearchResults({ replace: true, updateHash: false });
   } else if (originRoute.type === "category-release") {
-    openCategoryReleaseDetail({
+    await openCategoryReleaseDetail({
       ...(originRoute.options || {}),
       region: originState.releaseRegion || originRoute.options?.region,
       series: originState.releaseSeries || originRoute.options?.series,
@@ -1838,7 +1856,7 @@ function restoreDetailOriginPanel(context) {
       preserveSearch: true
     });
   } else if (originRoute.type === "category-anime") {
-    openCategoryAnimePage({
+    await openCategoryAnimePage({
       ...originRoute,
       season: originState.animeSeason || originRoute.season,
       query: typeof originState.animeQuery === "string" ? originState.animeQuery : originRoute.query,
@@ -1848,7 +1866,7 @@ function restoreDetailOriginPanel(context) {
     });
     restoreStoredAnimeOrigin(originState);
   } else if (originRoute.type === "category-anime-episodes") {
-    openCategoryAnimeEpisodesDetail({
+    await openCategoryAnimeEpisodesDetail({
       ...(originRoute.options || {}),
       animeSeason: originState.animeSeason || originRoute.options?.animeSeason,
       animeQuery: typeof originState.animeQuery === "string" ? originState.animeQuery : originRoute.options?.animeQuery,
@@ -1887,7 +1905,7 @@ function detailFallbackOriginRoute(id = "") {
 }
 function detailRouteExists(id = "") {
   return Boolean(
-    window.BeystadiumDataStore?.hasItem(id) ||
+    BeystadiumDataStore?.hasItem(id) ||
     productItemsById.has(id) ||
     catalogCoreItemsById.has(id) ||
     toolsItemsById.has(id) ||
@@ -1901,20 +1919,20 @@ function routeWithKnownDetailFallback(route = {}) {
   if (!isDetailRoute(normalizedRoute) || !normalizedRoute.id || detailRouteExists(normalizedRoute.id)) return normalizedRoute;
   return detailFallbackOriginRoute(normalizedRoute.id) || { type: "overview" };
 }
-function restoreDetailFallbackOriginIfNeeded(restoredContext, fallbackOriginRoute) {
+async function restoreDetailFallbackOriginIfNeeded(restoredContext, fallbackOriginRoute) {
   const restoredOriginRoute = routeSnapshot(restoredContext?.originRoute);
   if (restoredOriginRoute && isPrimaryRoute(restoredOriginRoute) && (restoredOriginRoute.type !== "overview" || restoredContext?.originExplicit === true)) {
-    return restoreDetailOriginPanel(restoredContext);
+    return await restoreDetailOriginPanel(restoredContext);
   }
-  if (modalOriginRouteExplicit && modalOriginRoute && isPrimaryRoute(modalOriginRoute)) {
-    return restoreDetailOriginPanel({
-      originRoute: modalOriginRoute,
-      originState: modalOriginState(modalOriginRoute),
+  if (appState.modalOriginRouteExplicit && appState.modalOriginRoute && isPrimaryRoute(appState.modalOriginRoute)) {
+    return await restoreDetailOriginPanel({
+      originRoute: appState.modalOriginRoute,
+      originState: modalOriginState(appState.modalOriginRoute),
       originExplicit: true
     });
   }
-  if (fallbackOriginRoute && (!modalOriginRoute || modalOriginRoute.type === "overview")) {
-    return restoreDetailOriginPanel({ originRoute: fallbackOriginRoute, originState: {} });
+  if (fallbackOriginRoute && (!appState.modalOriginRoute || appState.modalOriginRoute.type === "overview")) {
+    return await restoreDetailOriginPanel({ originRoute: fallbackOriginRoute, originState: {} });
   }
   return false;
 }
@@ -1922,13 +1940,13 @@ let routeApplyGeneration = 0;
 async function applyRoute(route = parseRouteFromHash(), { preserveScroll = false, preserveSearch = false } = {}) {
   const normalizedRoute = normalizeRoute(route || { type: "overview" });
   const generation = ++routeApplyGeneration;
-  const ready = await window.BeystadiumDataStore.ensureRoute(normalizedRoute);
+  const ready = await BeystadiumDataStore.ensureRoute(normalizedRoute);
   if (!ready || generation !== routeApplyGeneration) return false;
   let normalizedRouteKey = appliedRouteKey(normalizedRoute);
-  const preservePrimaryReturn = Boolean(isPrimaryRoute(normalizedRoute) && (modal?.open || modalOriginRoute));
+  const preservePrimaryReturn = Boolean(isPrimaryRoute(normalizedRoute) && (modal?.open || appState.modalOriginRoute));
   const shouldPreserveScroll = preserveScroll || preservePrimaryReturn;
   const shouldPreserveSearch = preserveSearch || preservePrimaryReturn;
-  applyingRoute = true;
+  appState.applyingRoute = true;
   try {
     if (isPrimaryRoute(normalizedRoute)) {
       rememberPrimaryRoute(normalizedRoute);
@@ -1946,15 +1964,15 @@ async function applyRoute(route = parseRouteFromHash(), { preserveScroll = false
       syncCatalogRouteHash({ replace: true, force: true });
       normalizedRouteKey = appliedRouteKey(catalogRouteFromState());
     } else if (normalizedRoute.type === "category-release") {
-      openCategoryReleaseDetail({ ...routeApplyOptions(normalizedRoute), preserveSearch: shouldPreserveSearch });
+      await openCategoryReleaseDetail({ ...routeApplyOptions(normalizedRoute), preserveSearch: shouldPreserveSearch });
     } else if (normalizedRoute.type === "category-anime") {
-      openCategoryAnimePage({ ...normalizedRoute, updateHash: false, preserveSearch: shouldPreserveSearch });
+      await openCategoryAnimePage({ ...normalizedRoute, updateHash: false, preserveSearch: shouldPreserveSearch });
     } else if (normalizedRoute.type === "category-anime-episodes") {
-      openCategoryAnimeEpisodesDetail({ ...routeApplyOptions(normalizedRoute), preserveSearch: shouldPreserveSearch });
+      await openCategoryAnimeEpisodesDetail({ ...routeApplyOptions(normalizedRoute), preserveSearch: shouldPreserveSearch });
     } else if (normalizedRoute.type === "rare-bey-get-list") {
       const restoredContext = restoredModalContext("rare-bey-get-list");
       const rareBeyGetListOptions = { ...(restoredContext?.options || {}), ...routeApplyOptions(normalizedRoute) };
-      restoreDetailFallbackOriginIfNeeded(restoredContext, {
+      await restoreDetailFallbackOriginIfNeeded(restoredContext, {
         type: "category-release",
         options: {
           region: rareBeyGetListOptions.region,
@@ -1966,13 +1984,13 @@ async function applyRoute(route = parseRouteFromHash(), { preserveScroll = false
       const hashId = normalizedRoute.id;
       const restoredContext = restoredModalContext(hashId);
       const fallbackOriginRoute = detailFallbackOriginRoute(hashId);
-      restoreDetailFallbackOriginIfNeeded(restoredContext, fallbackOriginRoute);
+      await restoreDetailFallbackOriginIfNeeded(restoredContext, fallbackOriginRoute);
       const restoredOptions = { ...(restoredContext?.options || {}), ...routeApplyOptions(normalizedRoute) };
-      openDetailByKind(restoredContext?.kind || "", hashId, restoredOptions);
+      await openDetailByKind(restoredContext?.kind || "", hashId, restoredOptions);
     }
   } finally {
-    applyingRoute = false;
-    lastAppliedRouteKey = normalizedRouteKey;
+    appState.applyingRoute = false;
+    appState.lastAppliedRouteKey = normalizedRouteKey;
   }
   if (isPrimaryRoute(normalizedRoute)) {
     if (shouldPreserveScroll) restorePageScroll(modalController.scrollY);
@@ -2009,19 +2027,19 @@ window.addEventListener("resize", () => {
   syncNavigationMode();
   positionSearchHelpPopovers();
   if (modal?.open) scheduleModalViewportSync();
-  if (!activeModalTagButton) return;
-  if (!modal?.open || !document.body.contains(activeModalTagButton)) {
+  if (!appState.activeModalTagButton) return;
+  if (!modal?.open || !document.body.contains(appState.activeModalTagButton)) {
     closeModalTagPopover();
     return;
   }
-  positionModalTagPopover(activeModalTagButton);
+  positionModalTagPopover(appState.activeModalTagButton);
 });
 window.visualViewport?.addEventListener("resize", scheduleModalViewportSync);
 window.visualViewport?.addEventListener("scroll", scheduleModalViewportSync);
 window.visualViewport?.addEventListener("resize", positionSearchHelpPopovers);
 window.visualViewport?.addEventListener("scroll", closeSearchHelpPopoversOnScroll, { passive: true });
 document.addEventListener("keydown", event => {
-  if (event.key === "Escape" && activeSearchPreview) {
+  if (event.key === "Escape" && appState.activeSearchPreview) {
     closeAllSearchPreviews();
     event.preventDefault();
     return;
@@ -2031,7 +2049,7 @@ document.addEventListener("keydown", event => {
     event.preventDefault();
     return;
   }
-  if (event.key === "Escape" && activeModalTagButton) {
+  if (event.key === "Escape" && appState.activeModalTagButton) {
     closeModalTagPopover();
     event.preventDefault();
     return;
@@ -2042,8 +2060,33 @@ document.addEventListener("click", event => {
   searchHelpPopovers.forEach(controller => {
     if (controller.isOpen() && !controller.containsEventTarget(event)) controller.close();
   });
-  if (activeModalTagButton && !event.target.closest(".modal-tag-info") && !event.target.closest(".modal-tag-popover")) closeModalTagPopover();
+  if (appState.activeModalTagButton && !event.target.closest(".modal-tag-info") && !event.target.closest(".modal-tag-popover")) closeModalTagPopover();
   if (!event.target.closest(".topbar") && !event.target.closest(".mobile-drawer")) setMobileDrawerOpen(false);
+});
+
+registerAppServices({
+  activatePrimarySection,
+  applyRoute,
+  bindSearchInput,
+  closeOpenCatalogDropdowns,
+  closeSearchHelpPopovers,
+  finishModalOpen,
+  itemDisplayName,
+  modal,
+  modalBackButtonMarkup,
+  openAnimeEpisodeDetail,
+  openBookDetail,
+  openDetail,
+  openGameDetail,
+  openProductEntry,
+  openSearchResults,
+  openToolsDetail,
+  queueModalTransition,
+  routeIfNeeded,
+  setDropdownOption,
+  setMobileDrawerOpen,
+  setModalContent,
+  syncAnimeRouteHash
 });
 
 syncNavigationMode();
@@ -2054,7 +2097,7 @@ const applyCurrentHashRoute = async () => {
   const canonicalHash = serializeRoute(route);
   const canonicalRouteKey = `${currentPathWithSearch()}${canonicalHash}`;
   try {
-    if (canonicalRouteKey === lastAppliedRouteKey) return;
+    if (canonicalRouteKey === appState.lastAppliedRouteKey) return;
     if (window.location.hash !== canonicalHash) {
       try {
         history.replaceState(null, "", canonicalRouteKey);
@@ -2082,3 +2125,27 @@ try {
 void applyCurrentHashRoute();
 window.addEventListener("hashchange", () => void applyCurrentHashRoute());
 window.addEventListener("popstate", () => void applyCurrentHashRoute());
+
+export {
+  activatePrimarySection,
+  applyRoute,
+  bindSearchInput,
+  closeOpenCatalogDropdowns,
+  closeSearchHelpPopovers,
+  finishModalOpen,
+  itemDisplayName,
+  modal,
+  modalBackButtonMarkup,
+  openBookDetail,
+  openDetail,
+  openGameDetail,
+  openProductEntry,
+  openSearchResults,
+  openToolsDetail,
+  queueModalTransition,
+  routeIfNeeded,
+  setDropdownOption,
+  setMobileDrawerOpen,
+  setModalContent,
+  syncAnimeRouteHash
+};

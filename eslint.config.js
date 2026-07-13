@@ -10,12 +10,13 @@ export default [
   },
   js.configs.recommended,
   {
-    files: ["scripts/**/*.mjs", "tests/**/*.mjs", "src/app-runtime.js", "src/bootstrap.js", "src/data-store.js", "*.mjs"],
+    files: ["scripts/**/*.mjs", "tests/**/*.mjs", "src/**/*.js", "*.mjs"],
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
       globals: {
         document: "readonly",
+        Event: "readonly",
         window: "readonly",
         history: "readonly",
         location: "readonly",

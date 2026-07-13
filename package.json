@@ -5,14 +5,13 @@
   "type": "module",
   "scripts": {
     "serve": "node scripts/serve.mjs",
-    "app:build": "node scripts/build-app-runtime.mjs --build",
-    "app:check": "node scripts/build-app-runtime.mjs --check",
     "data:build": "node scripts/build-data-index.mjs --build",
     "data:check": "node scripts/build-data-index.mjs --check",
-    "lint:js": "eslint scripts tests src/app-runtime.js src/bootstrap.js src/data-store.js playwright.config.mjs eslint.config.js",
+    "audit:app": "node scripts/audit-app.mjs",
+    "lint:js": "eslint scripts tests \"src/**/*.js\" playwright.config.mjs eslint.config.js",
     "test:data": "node scripts/validate-data.mjs",
     "test:smoke": "playwright test",
-    "check": "pnpm lint:js && pnpm app:check && pnpm data:check && pnpm test:data && pnpm test:smoke"
+    "check": "pnpm lint:js && pnpm audit:app && pnpm data:check && pnpm test:data && pnpm test:smoke"
   },
   "devDependencies": {
     "@eslint/js": "^9.31.0",

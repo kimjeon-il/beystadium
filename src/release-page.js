@@ -1,3 +1,10 @@
+import { appServices } from "#app/services";
+import { appState } from "#app/state";
+import { cleanupModelViewer, compareProductReleaseOrder, matchesSearchText, productSerialNumber, rememberModalContext } from "#app/catalog-core";
+import { productItems } from "#app/data-store";
+import { TableListController, defaultReleaseSeries, escapeAttributeValue, escapeHtml, priceLabel, productRelease, productReleasedInRegion, releaseBadgeLabel, releaseBadgeSearchText, releaseBadges, releaseControls, releaseDateCompactLabel, releaseDateLabel, releaseDateSortValue, releaseKindSortValue, releasePriceSortValue, releaseRegionLabels, releaseSeriesForRegion, releaseSeriesLabels, responsiveDateSpans, sortDropdownMarkup, tableListPageMarkup, tableListTableMarkup } from "#app/release-core";
+import { bindActionRows } from "#app/ui-core";
+
 const releaseSortableColumns = {
   no: "번호",
   kind: "종류",
@@ -22,10 +29,10 @@ const releaseMobileSortOptions = [
 ];
 const releaseMobileSortOptionValue = sort => sort?.key === "kind" ? "kind:asc" : `${sort?.key || "release"}:${sort?.direction === "desc" ? "desc" : "asc"}`;
 const activeReleaseMobileSortOption = () =>
-  releaseMobileSortOptions.find(option => option.value === releaseMobileSortOptionValue(activeReleaseSort)) || releaseMobileSortOptions[0];
+  releaseMobileSortOptions.find(option => option.value === releaseMobileSortOptionValue(appState.activeReleaseSort)) || releaseMobileSortOptions[0];
 const releaseSortFromOptionValue = value =>
   releaseMobileSortOptions.find(option => option.value === value) || releaseMobileSortOptions[0];
-const releaseTableSearchText = (item, region = activeReleaseRegion) => {
+const releaseTableSearchText = (item, region = appState.activeReleaseRegion) => {
   const release = productRelease(item, region);
   const releaseDate = release.releaseDate || release.release;
   return [
@@ -40,11 +47,11 @@ const releaseTableSearchText = (item, region = activeReleaseRegion) => {
     releaseBadgeSearchText(item, region)
   ].join(" ");
 };
-const releaseTableInitialSearchText = (item, region = activeReleaseRegion) => {
+const releaseTableInitialSearchText = (item, region = appState.activeReleaseRegion) => {
   const release = productRelease(item, region);
   return [release.name || item.name || "", item.name || ""].filter(Boolean).join(" ");
 };
-const releaseSortTieBreak = (a, b, region = activeReleaseRegion) => {
+const releaseSortTieBreak = (a, b, region = appState.activeReleaseRegion) => {
   const serialDiff = productSerialNumber(a, region) - productSerialNumber(b, region);
   if (serialDiff) return serialDiff;
   const releaseA = productRelease(a, region);
@@ -58,7 +65,7 @@ const releaseDateNameTieBreak = (a, b, releaseA, releaseB) => {
   if (nameDiff) return nameDiff;
   return a.id.localeCompare(b.id, "ko", { numeric: true });
 };
-const compareReleaseTableItemsAsc = (a, b, key = activeReleaseSort.key, region = activeReleaseRegion) => {
+const compareReleaseTableItemsAsc = (a, b, key = appState.activeReleaseSort.key, region = appState.activeReleaseRegion) => {
   const releaseA = productRelease(a, region);
   const releaseB = productRelease(b, region);
   if (key === "no") {
@@ -83,18 +90,18 @@ const compareReleaseTableItemsAsc = (a, b, key = activeReleaseSort.key, region =
   }
   return compareProductReleaseOrder(a, b, region);
 };
-const visibleReleaseTableItems = (region = activeReleaseRegion, series = activeReleaseSeries) => {
-  const query = activeReleaseQuery.trim();
+const visibleReleaseTableItems = (region = appState.activeReleaseRegion, series = appState.activeReleaseSeries) => {
+  const query = appState.activeReleaseQuery.trim();
   const sortedItems = productItems
     .slice()
     .filter(item => !item.lineupOnly && item.series === series && productReleasedInRegion(item, region))
     .filter(item => matchesSearchText(releaseTableSearchText(item, region), query, releaseTableInitialSearchText(item, region)))
-    .sort((a, b) => compareReleaseTableItemsAsc(a, b, activeReleaseSort.key, region));
-  return activeReleaseSort.direction === "desc" ? sortedItems.reverse() : sortedItems;
+    .sort((a, b) => compareReleaseTableItemsAsc(a, b, appState.activeReleaseSort.key, region));
+  return appState.activeReleaseSort.direction === "desc" ? sortedItems.reverse() : sortedItems;
 };
 const releaseSortSymbol = key => {
-  if (activeReleaseSort.key !== key) return "\u2195";
-  return activeReleaseSort.direction === "asc" ? "\u2191" : "\u2193";
+  if (appState.activeReleaseSort.key !== key) return "\u2195";
+  return appState.activeReleaseSort.direction === "asc" ? "\u2191" : "\u2193";
 };
 const releaseSortButtonAriaLabel = (key, active, direction) => {
   const columnName = releaseSortAccessibleColumns[key] || releaseSortableColumns[key] || key;
@@ -103,8 +110,8 @@ const releaseSortButtonAriaLabel = (key, active, direction) => {
   return `${columnName}: 현재 ${releaseSortDirectionLabel(direction)} 정렬됨. ${nextDirection}으로 변경`;
 };
 const releaseSortHeader = (key, label) => {
-  const active = activeReleaseSort.key === key;
-  const direction = active ? activeReleaseSort.direction : "none";
+  const active = appState.activeReleaseSort.key === key;
+  const direction = active ? appState.activeReleaseSort.direction : "none";
   return `<th aria-sort="${direction === "asc" ? "ascending" : direction === "desc" ? "descending" : "none"}">
     <button class="release-sort-button" type="button" data-release-sort="${key}" aria-label="${escapeAttributeValue(releaseSortButtonAriaLabel(key, active, direction))}">
       <span class="release-sort-label">${label}</span><span class="release-sort-mark" aria-hidden="true">${releaseSortSymbol(key)}</span>
@@ -120,14 +127,14 @@ const releaseTableHead = () => `<thead>
     ${releaseSortHeader("price", releaseSortableColumns.price)}
   </tr>
 </thead>`;
-const releaseBadgesMarkup = (item, region = activeReleaseRegion) => {
+const releaseBadgesMarkup = (item, region = appState.activeReleaseRegion) => {
   const badges = releaseBadges(item, region);
   if (!badges.length) return "";
   return `<span class="release-badges" aria-label="제품 표시">${badges.map(badge =>
     `<span class="release-badge">${escapeHtml(releaseBadgeLabel(badge))}</span>`
   ).join("")}</span>`;
 };
-const productReleaseTableRows = (region = activeReleaseRegion, series = activeReleaseSeries) => {
+const productReleaseTableRows = (region = appState.activeReleaseRegion, series = appState.activeReleaseSeries) => {
   const rows = visibleReleaseTableItems(region, series).map(item => {
     const release = productRelease(item, region);
     const releaseDate = release.releaseDate || release.release;
@@ -142,7 +149,7 @@ const productReleaseTableRows = (region = activeReleaseRegion, series = activeRe
   }).join("");
   return rows || `<tr class="table-list-empty-row release-empty-row"><td colspan="5">검색 결과가 없습니다.</td></tr>`;
 };
-const releaseTableMarkup = (region = activeReleaseRegion, series = activeReleaseSeries) => tableListTableMarkup({
+const releaseTableMarkup = (region = appState.activeReleaseRegion, series = appState.activeReleaseSeries) => tableListTableMarkup({
   scrollClass: "release-table-scroll",
   tableClass: "release-table",
   head: releaseTableHead(),
@@ -158,7 +165,7 @@ const releaseMobileSortDropdownMarkup = () => {
     dataAttr: "data-release-sort-option"
   });
 };
-const releaseMetaRowMarkup = (region = activeReleaseRegion, series = activeReleaseSeries) => {
+const releaseMetaRowMarkup = (region = appState.activeReleaseRegion, series = appState.activeReleaseSeries) => {
   const visibleCount = visibleReleaseTableItems(region, series).length;
   return `<div class="table-list-meta-row catalog-query-row release-mobile-sort-row" data-release-meta-row>
     <div class="table-list-meta-primary">
@@ -170,10 +177,10 @@ const releaseMetaRowMarkup = (region = activeReleaseRegion, series = activeRelea
   </div>`;
 };
 const rememberReleaseModalContext = () => rememberModalContext("category-release", "toy-release", {
-  region: activeReleaseRegion,
-  series: activeReleaseSeries,
-  releaseSort: activeReleaseSort,
-  releaseQuery: activeReleaseQuery
+  region: appState.activeReleaseRegion,
+  series: appState.activeReleaseSeries,
+  releaseSort: appState.activeReleaseSort,
+  releaseQuery: appState.activeReleaseQuery
 });
 const releasePageRoot = () => document.querySelector("[data-release-page-content]");
 const releasePageContentRoot = root =>
@@ -184,13 +191,13 @@ const releaseTableController = new TableListController({
   pageMarkup: () => tableListPageMarkup({
     className: "release-list-page",
     controlsMarkup: releaseControls(),
-    metaMarkup: releaseMetaRowMarkup(activeReleaseRegion, activeReleaseSeries),
-    tableMarkup: releaseTableMarkup(activeReleaseRegion, activeReleaseSeries)
+    metaMarkup: releaseMetaRowMarkup(appState.activeReleaseRegion, appState.activeReleaseSeries),
+    tableMarkup: releaseTableMarkup(appState.activeReleaseRegion, appState.activeReleaseSeries)
   }),
-  tableMarkup: () => releaseTableMarkup(activeReleaseRegion, activeReleaseSeries),
+  tableMarkup: () => releaseTableMarkup(appState.activeReleaseRegion, appState.activeReleaseSeries),
   renderMeta: root => {
     const releaseMetaRow = root.querySelector("[data-release-meta-row]");
-    if (releaseMetaRow) releaseMetaRow.outerHTML = releaseMetaRowMarkup(activeReleaseRegion, activeReleaseSeries);
+    if (releaseMetaRow) releaseMetaRow.outerHTML = releaseMetaRowMarkup(appState.activeReleaseRegion, appState.activeReleaseSeries);
   },
   bindTable: (section, root) => {
     bindProductReleaseTableRows(section);
@@ -200,18 +207,18 @@ const releaseTableController = new TableListController({
     bindProductReleaseTableRows(contentRoot);
     bindReleaseSortControls(contentRoot);
     contentRoot.querySelectorAll("button[data-release-region]").forEach(button => button.addEventListener("click", event => {
-      activeReleaseRegion = event.currentTarget.dataset.releaseRegion;
-      activeReleaseSeries = releaseSeriesForRegion(activeReleaseSeries, activeReleaseRegion);
-      openCategoryReleaseDetail({ region: activeReleaseRegion, series: activeReleaseSeries });
+      appState.activeReleaseRegion = event.currentTarget.dataset.releaseRegion;
+      appState.activeReleaseSeries = releaseSeriesForRegion(appState.activeReleaseSeries, appState.activeReleaseRegion);
+      openCategoryReleaseDetail({ region: appState.activeReleaseRegion, series: appState.activeReleaseSeries });
     }));
     contentRoot.querySelectorAll("button[data-release-series]").forEach(button => button.addEventListener("click", event => {
-      setDropdownOption(event.currentTarget);
-      activeReleaseSeries = event.currentTarget.dataset.releaseSeries;
-      openCategoryReleaseDetail({ region: activeReleaseRegion, series: activeReleaseSeries });
+      appServices.setDropdownOption(event.currentTarget);
+      appState.activeReleaseSeries = event.currentTarget.dataset.releaseSeries;
+      openCategoryReleaseDetail({ region: appState.activeReleaseRegion, series: appState.activeReleaseSeries });
     }));
     const releaseSearch = contentRoot.querySelector("#releaseSearchInput");
-    bindSearchInput(releaseSearch, ".release-search-box", { onInput: searchInput => {
-      activeReleaseQuery = searchInput.value.trim();
+    appServices.bindSearchInput(releaseSearch, ".release-search-box", { onInput: searchInput => {
+      appState.activeReleaseQuery = searchInput.value.trim();
       rememberReleaseModalContext();
       controller.renderTable(contentRoot);
     } });
@@ -224,16 +231,16 @@ function renderProductReleaseTable(contentRoot = document) {
 
 function bindProductReleaseTableRows(tableRoot = document) {
   bindActionRows(tableRoot, ".release-product-row[data-product-id]", releaseRow => {
-    const region = releaseRegionLabels[releaseRow.dataset.releaseRegion] ? releaseRow.dataset.releaseRegion : activeReleaseRegion;
-    queueModalTransition("list");
-    openProductEntry(releaseRow.dataset.productId, { backRelease: true, region });
+    const region = releaseRegionLabels[releaseRow.dataset.releaseRegion] ? releaseRow.dataset.releaseRegion : appState.activeReleaseRegion;
+    appServices.queueModalTransition("list");
+    appServices.openProductEntry(releaseRow.dataset.productId, { backRelease: true, region });
   });
   tableRoot.querySelectorAll("button[data-release-sort]").forEach(button => button.addEventListener("click", event => {
     event.preventDefault();
     const key = event.currentTarget.dataset.releaseSort;
     if (!releaseSortableColumns[key]) return;
-    activeReleaseSort = activeReleaseSort.key === key
-      ? { key, direction: activeReleaseSort.direction === "asc" ? "desc" : "asc" }
+    appState.activeReleaseSort = appState.activeReleaseSort.key === key
+      ? { key, direction: appState.activeReleaseSort.direction === "asc" ? "desc" : "asc" }
       : { key, direction: "asc" };
     rememberReleaseModalContext();
     renderProductReleaseTable(tableRoot.closest?.("[data-release-page-content]") || releasePageRoot() || document);
@@ -243,8 +250,8 @@ function bindReleaseSortControls(root = document) {
   root.querySelectorAll("button[data-release-sort-option]").forEach(button => button.addEventListener("click", event => {
     event.preventDefault();
     const option = releaseSortFromOptionValue(event.currentTarget.dataset.releaseSortOption);
-    activeReleaseSort = { key: option.key, direction: option.direction };
-    setDropdownOption(event.currentTarget);
+    appState.activeReleaseSort = { key: option.key, direction: option.direction };
+    appServices.setDropdownOption(event.currentTarget);
     rememberReleaseModalContext();
     renderProductReleaseTable(root);
   }));
@@ -255,17 +262,21 @@ function renderReleasePage() {
 }
 
 function openCategoryReleaseDetail(options = {}) {
-  if (routeIfNeeded({ type: "category-release", options }, options)) return;
+  if (appServices.routeIfNeeded({ type: "category-release", options }, options)) return;
   const preserveSearch = options.preserveSearch === true;
-  if (options.region && releaseRegionLabels[options.region]) activeReleaseRegion = options.region;
-  if (options.series && releaseSeriesLabels[options.series]) activeReleaseSeries = options.series;
-  if (!releaseSeriesLabels[activeReleaseSeries]) activeReleaseSeries = defaultReleaseSeries(activeReleaseRegion);
+  if (options.region && releaseRegionLabels[options.region]) appState.activeReleaseRegion = options.region;
+  if (options.series && releaseSeriesLabels[options.series]) appState.activeReleaseSeries = options.series;
+  if (!releaseSeriesLabels[appState.activeReleaseSeries]) appState.activeReleaseSeries = defaultReleaseSeries(appState.activeReleaseRegion);
   if (options.releaseSort?.key && releaseSortableColumns[options.releaseSort.key]) {
-    activeReleaseSort = { key: options.releaseSort.key, direction: options.releaseSort.direction === "desc" ? "desc" : "asc" };
+    appState.activeReleaseSort = { key: options.releaseSort.key, direction: options.releaseSort.direction === "desc" ? "desc" : "asc" };
   }
-  if (typeof options.releaseQuery === "string") activeReleaseQuery = options.releaseQuery;
+  if (typeof options.releaseQuery === "string") appState.activeReleaseQuery = options.releaseQuery;
   cleanupModelViewer();
-  activatePrimarySection("release", { preserveSearch });
+  appServices.activatePrimarySection("release", { preserveSearch });
   renderReleasePage();
   rememberReleaseModalContext();
 }
+
+export {
+  openCategoryReleaseDetail
+};

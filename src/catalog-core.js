@@ -1,3 +1,10 @@
+import { animeDisplayRegion, animeEpisodeTitle, animeSeasonLabels, episodeHashId, normalizeAnimeCharacterSeason } from "#app/anime-core";
+import { appState } from "#app/state";
+import { BeystadiumDataStore, bookItemsById, catalogCoreItemOrder, catalogCoreItems, catalogCoreItemsById, gameItemsById, partItems, productItems, productItemsById, searchIndexItems, toolsItemOrder, toolsItems, toolsItemsById } from "#app/data-store";
+import { animeAirDateLabel, escapeAttributeValue, escapeHtml, itemSeriesLabel, normalizeCatalogSeries, priceLabel, productDisplayName, productDisplayRegion, productRelease, productReleaseValue, productReleasedInRegion, releaseDateLabel, releaseDateSortValue, releaseRegionLabels, releaseSeriesLabels, releaseSeriesOrder, seriesLabels } from "#app/release-core";
+import { appServices } from "#app/services";
+import { animeSearch, battleTypeDescription, battleTypeLabel, battleTypeLabels, catalogSearch, globalSearch, globalSearchScopeValue, heightClassLabel, mobileDrawerSearch, mobileDrawerSearchScopeValue, overviewSearch, overviewSearchScopeValue, partClassificationDescriptors, partClassificationFilterDescriptors, partClassificationLabels, partClassificationSearchValues, partDetailTypeLabel, partDisplayTypeLabel, partMountedTypeLabel, playEnterAnimation, setGlobalSearchScope, setMobileDrawerSearchScope, setOverviewSearchScope, setSearchInputValue, spinDescription, spinLabel, spinLabels, structureLabels, structureTagDescriptions, tagLabels, toolsSubtypeOptions, typeLabels } from "#app/ui-core";
+
 const catalogSourceOrder = item => {
   if (!item || typeof item !== "object") return Number.MAX_SAFE_INTEGER;
   const toolsOrder = toolsItemOrder.get(item);
@@ -542,12 +549,12 @@ const catalogSearchQuery = () => catalogSearch?.value.trim() || "";
 const animeSearchQuery = () => animeSearch?.value.trim() || "";
 const searchResultTitleElement = document.querySelector("#searchResultsTitle");
 const searchResultMeta = document.querySelector("#searchResultsMeta");
-const productSerialNumber = (item, region = activeReleaseRegion) => {
+const productSerialNumber = (item, region = appState.activeReleaseRegion) => {
   const no = productReleaseValue(item, "no", region) || item.no || "";
   const match = no.match(/BB-(\d+)/);
   return match ? Number(match[1]) : Number.MAX_SAFE_INTEGER;
 };
-const compareProductReleaseOrder = (a, b, region = activeReleaseRegion) => {
+const compareProductReleaseOrder = (a, b, region = appState.activeReleaseRegion) => {
   const releaseA = productRelease(a, region);
   const releaseB = productRelease(b, region);
   const dateDiff = releaseDateSortValue(releaseA.releaseDate || releaseA.release) - releaseDateSortValue(releaseB.releaseDate || releaseB.release);
@@ -563,7 +570,7 @@ const toolsCard = item => `
     <p class="card-full-en">${item.en}</p>
     <p class="card-full-ko">&nbsp;</p>
   </button>`;
-function productCompositionItems(item, region = activeReleaseRegion) {
+function productCompositionItems(item, region = appState.activeReleaseRegion) {
   const release = productRelease(item, region);
   const releaseComposition = Array.isArray(release.composition) && release.composition.length ? release.composition : null;
   const regionComposition = releaseComposition || (region === "jp" ? item.compositionJp || item.compositionJapan : item.compositionKr || item.compositionKorea);
@@ -658,7 +665,7 @@ const catalogToolFirstReleaseProductNo = item => {
   const meta = toolsFirstReleaseMetaMap().get(item?.id);
   const product = Number.isInteger(meta?.productIndex) ? productItems[meta.productIndex] : null;
   if (!product) return "";
-  const region = Object.keys(releaseRegionLabels)[meta.regionIndex] || activeReleaseRegion;
+  const region = Object.keys(releaseRegionLabels)[meta.regionIndex] || appState.activeReleaseRegion;
   const release = productRelease(product, region);
   return release.no || product.no || "";
 };
@@ -744,12 +751,12 @@ const catalogSortOptions = [
   { value: "latest", label: "최신순", compare: compareCatalogItemsByLatest },
   { value: "oldest", label: "오래된순", compare: compareCatalogItemsByOldest }
 ];
-const activeCatalogSortOption = () => catalogSortOptions.find(option => option.value === activeCatalogSort) || catalogSortOptions[2];
+const activeCatalogSortOption = () => catalogSortOptions.find(option => option.value === appState.activeCatalogSort) || catalogSortOptions[2];
 const compareCatalogItemsByActiveSort = (a, b) => activeCatalogSortOption().compare(a, b);
 const catalogHasSearchQuery = () => Boolean(catalogSearchQuery());
-const catalogHasSeriesFilter = () => selectedCatalogSeries !== "all";
-const catalogItemMatchesSeries = item => !catalogHasSeriesFilter() || item?.series === selectedCatalogSeries;
-const catalogUsesDefaultBrowseSet = query => !selectedCatalogKind && (query ? query.isEmpty : !catalogHasSearchQuery());
+const catalogHasSeriesFilter = () => appState.selectedCatalogSeries !== "all";
+const catalogItemMatchesSeries = item => !catalogHasSeriesFilter() || item?.series === appState.selectedCatalogSeries;
+const catalogUsesDefaultBrowseSet = query => !appState.selectedCatalogKind && (query ? query.isEmpty : !catalogHasSearchQuery());
 const CATALOG_VISIBLE_ITEMS_CACHE_LIMIT = 48;
 const catalogVisibleItemsCache = new Map();
 const cacheCatalogVisibleItems = (key, factory) => {
@@ -781,17 +788,17 @@ const visibleToolsItems = () => visibleCatalogSubsetItems({
   bucket: "tools",
   items: toolsItems,
   includeItem: (item, query) => catalogItemMatchesSeries(item) && (
-    selectedCatalogKind === "tools" ||
-    (!selectedCatalogKind && !query.isEmpty)
+    appState.selectedCatalogKind === "tools" ||
+    (!appState.selectedCatalogKind && !query.isEmpty)
   )
 });
 const visibleCatalogCoreItems = () => visibleCatalogSubsetItems({
   bucket: "core",
   items: catalogCoreItems,
   includeItem: (item, query) => {
-    if (selectedCatalogKind === "tools" || !catalogItemMatchesSeries(item)) return false;
+    if (appState.selectedCatalogKind === "tools" || !catalogItemMatchesSeries(item)) return false;
     const useDefaultBrowseSet = catalogUsesDefaultBrowseSet(query);
-    const effectiveCatalogItemType = useDefaultBrowseSet ? "bey" : selectedCatalogKind || "all";
+    const effectiveCatalogItemType = useDefaultBrowseSet ? "bey" : appState.selectedCatalogKind || "all";
     if (effectiveCatalogItemType === "bey" && item.type !== "bey") return false;
     if (effectiveCatalogItemType === "parts" && item.type === "bey") return false;
     return true;
@@ -810,13 +817,13 @@ const visibleCatalogItems = () => {
   });
 };
 const openCatalogCard = card => {
-  queueModalTransition("list");
-  if (card.dataset.productId) openProductEntry(card.dataset.productId);
-  else if (card.dataset.toolsId) openToolsDetail(card.dataset.toolsId);
-  else if (card.dataset.bookId) openBookDetail(card.dataset.bookId);
-  else if (card.dataset.gameId) openGameDetail(card.dataset.gameId);
-  else if (card.dataset.animeEpisodeId) openAnimeEpisodeDetail(card.dataset.animeEpisodeId);
-  else if (card.dataset.id) openDetail(card.dataset.id);
+  appServices.queueModalTransition("list");
+  if (card.dataset.productId) appServices.openProductEntry(card.dataset.productId);
+  else if (card.dataset.toolsId) appServices.openToolsDetail(card.dataset.toolsId);
+  else if (card.dataset.bookId) appServices.openBookDetail(card.dataset.bookId);
+  else if (card.dataset.gameId) appServices.openGameDetail(card.dataset.gameId);
+  else if (card.dataset.animeEpisodeId) appServices.openAnimeEpisodeDetail(card.dataset.animeEpisodeId);
+  else if (card.dataset.id) appServices.openDetail(card.dataset.id);
 };
 const bindCatalogCardClicks = gridRoot => {
   if (!gridRoot || gridRoot.dataset.catalogCardClicksBound) return;
@@ -830,10 +837,6 @@ const bindCatalogCardClicks = gridRoot => {
 };
 const CATALOG_PAGE_SIZE = 40;
 const ANIME_PAGE_SIZE = CATALOG_PAGE_SIZE;
-let currentCatalogPage = 1;
-let currentCatalogRenderKey = "";
-let currentAnimePage = 1;
-let currentAnimeRenderKey = "";
 const categoryCollectionRenderKeys = new Map();
 const categoryCollectionItemKey = (item, index) => item?.id || item?.name || item?.title || String(index);
 const renderCategoryCollectionGrid = ({ cacheKey, grid, items, cardTemplate, emptyMarkup, itemKey = categoryCollectionItemKey }) => {
@@ -870,25 +873,25 @@ const renderCategoryCollection = config => {
   return visible;
 };
 const catalogRenderKey = () => [
-  selectedCatalogKind || "",
-  selectedCatalogSeries || "all",
-  activeCatalogSort,
+  appState.selectedCatalogKind || "",
+  appState.selectedCatalogSeries || "all",
+  appState.activeCatalogSort,
   catalogSearchQuery()
 ].join("|");
 const syncCatalogRenderPage = renderKey => {
-  if (renderKey !== currentCatalogRenderKey) {
-    currentCatalogRenderKey = renderKey;
-    currentCatalogPage = 1;
+  if (renderKey !== appState.currentCatalogRenderKey) {
+    appState.currentCatalogRenderKey = renderKey;
+    appState.currentCatalogPage = 1;
   }
 };
 const animeRenderKey = () => [
-  typeof activeAnimeCharacterSeason === "string" ? activeAnimeCharacterSeason : "all",
+  typeof appState.activeAnimeCharacterSeason === "string" ? appState.activeAnimeCharacterSeason : "all",
   animeSearchQuery()
 ].join("|");
 const syncAnimeRenderPage = renderKey => {
-  if (renderKey !== currentAnimeRenderKey) {
-    currentAnimeRenderKey = renderKey;
-    currentAnimePage = 1;
+  if (renderKey !== appState.currentAnimeRenderKey) {
+    appState.currentAnimeRenderKey = renderKey;
+    appState.currentAnimePage = 1;
   }
 };
 const paginationButtons = ({ currentPage, totalPages, dataAttr, buttonClass, stepClass, navClass = "", label }) => {
@@ -917,7 +920,7 @@ const renderPagination = ({ rootSelector, totalPages, currentPage, ...buttonOpti
 const renderCatalogPagination = totalPages => renderPagination({
   rootSelector: "#catalogPagination",
   totalPages,
-  currentPage: currentCatalogPage,
+  currentPage: appState.currentCatalogPage,
   dataAttr: "data-catalog-page",
   buttonClass: "catalog-page-button",
   stepClass: "catalog-page-step",
@@ -926,7 +929,7 @@ const renderCatalogPagination = totalPages => renderPagination({
 const renderAnimePagination = totalPages => renderPagination({
   rootSelector: "#animePagination",
   totalPages,
-  currentPage: currentAnimePage,
+  currentPage: appState.currentAnimePage,
   dataAttr: "data-anime-page",
   buttonClass: "anime-page-button",
   stepClass: "anime-page-step",
@@ -969,7 +972,7 @@ const updateCatalogCount = visibleItems => {
 };
 const syncCatalogScopeState = ({ updateCount = true } = {}) => {
   const panel = document.querySelector('.app-panel[data-app-panel="catalog"]');
-  if (panel) panel.dataset.catalogScope = selectedCatalogKind || "all";
+  if (panel) panel.dataset.catalogScope = appState.selectedCatalogKind || "all";
   if (updateCount) updateCatalogCount();
 };
 const searchHash = (query = globalSearchQuery(), scope = globalSearchScopeValue()) => {
@@ -1132,8 +1135,6 @@ function isDetailRoute(route = {}) {
   return route.type === "detail";
 }
 const routeSnapshot = route => route ? normalizeRoute(route) : null;
-let modalOriginRoute = null;
-let modalOriginRouteExplicit = false;
 let activeDetailModalContext = null;
 let lastPrimaryRoute = { type: "overview" };
 function rememberPrimaryRoute(route = {}) {
@@ -1141,35 +1142,33 @@ function rememberPrimaryRoute(route = {}) {
 }
 function syncModalOriginRoute(route = {}, { explicit = false } = {}) {
   if (isDetailRoute(route)) {
-    if (!modalOriginRoute) {
+    if (!appState.modalOriginRoute) {
       const currentRoute = parseRouteFromHash();
-      modalOriginRoute = isPrimaryRoute(currentRoute) ? routeSnapshot(currentRoute) : routeSnapshot(lastPrimaryRoute);
-      modalOriginRouteExplicit = Boolean(explicit && modalOriginRoute);
+      appState.modalOriginRoute = isPrimaryRoute(currentRoute) ? routeSnapshot(currentRoute) : routeSnapshot(lastPrimaryRoute);
+      appState.modalOriginRouteExplicit = Boolean(explicit && appState.modalOriginRoute);
     } else if (explicit) {
-      modalOriginRouteExplicit = true;
+      appState.modalOriginRouteExplicit = true;
     }
     return;
   }
   if (isPrimaryRoute(route)) {
     rememberPrimaryRoute(route);
-    modalOriginRoute = null;
-    modalOriginRouteExplicit = false;
+    appState.modalOriginRoute = null;
+    appState.modalOriginRouteExplicit = false;
   }
 }
 function getModalCloseRoute() {
-  return routeSnapshot(modalOriginRoute) || detailModalFallbackCloseRoute(activeDetailModalContext);
+  return routeSnapshot(appState.modalOriginRoute) || detailModalFallbackCloseRoute(activeDetailModalContext);
 }
 function clearModalOriginRoute() {
-  modalOriginRoute = null;
-  modalOriginRouteExplicit = false;
+  appState.modalOriginRoute = null;
+  appState.modalOriginRouteExplicit = false;
 }
 function stabilizePrimaryRouteScroll() {
   requestAnimationFrame(() => {
-    if (!modal?.open) window.scrollTo(0, 0);
+    if (!appServices.modal?.open) window.scrollTo(0, 0);
   });
 }
-let applyingRoute = false;
-let lastAppliedRouteKey = "";
 const appliedRouteKey = route => `${currentPathWithSearch()}${serializeRoute(route)}`;
 function navigateToRoute(route, { replace = false, apply = true, preserveScroll = false, preserveSearch = false } = {}) {
   const normalizedRoute = normalizeRoute(route);
@@ -1184,7 +1183,7 @@ function navigateToRoute(route, { replace = false, apply = true, preserveScroll 
     }
   }
   if (!apply) return Promise.resolve(true);
-  const result = applyRoute(normalizedRoute, { preserveScroll, preserveSearch });
+  const result = appServices.applyRoute(normalizedRoute, { preserveScroll, preserveSearch });
   result?.catch?.(error => console.error(error));
   return result;
 }
@@ -1284,7 +1283,7 @@ const searchResultCacheKey = (scope, query) => `${scope}\u0000${searchQueryFrom(
 const searchResultRenderKey = (scope, query) => [
   scope,
   searchQueryFrom(query).raw,
-  activeReleaseRegion,
+  appState.activeReleaseRegion,
   animeDisplayRegion
 ].join("\u0000");
 const searchResultRecordLists = () => {
@@ -1354,14 +1353,14 @@ const searchResultType = entry => {
 };
 const searchResultTitle = entry => {
   if (entry.kind === "tools") return entry.item.name;
-  if (entry.kind === "product") return productDisplayName(entry.item, activeReleaseRegion);
+  if (entry.kind === "product") return productDisplayName(entry.item, appState.activeReleaseRegion);
   if (entry.kind === "book" || entry.kind === "game") return entry.item.name;
   if (entry.kind === "anime") return animeEpisodeTitle(entry.item, animeDisplayRegion);
   const suffix = entry.item.type === "bey" && entry.item.sub ? ` ${entry.item.sub}` : "";
   return `${entry.item.name}${suffix}`;
 };
 const searchProductSnippet = item => {
-  const region = productDisplayRegion(item, activeReleaseRegion);
+  const region = productDisplayRegion(item, appState.activeReleaseRegion);
   const release = productRelease(item, region);
   return [
     release.no || item.no,
@@ -1463,7 +1462,6 @@ const bindSearchResultControls = gridRoot => {
 const SEARCH_PREVIEW_LIMIT = 6;
 const SEARCH_PREVIEW_RENDER_DELAY = 100;
 const searchPreviewControls = new Map();
-let activeSearchPreview = null;
 const searchPreviewScopeValue = input => {
   if (input === overviewSearch) return overviewSearchScopeValue();
   if (input === mobileDrawerSearch) return mobileDrawerSearchScopeValue();
@@ -1502,8 +1500,8 @@ const searchPreviewItemButton = (entry, control, index) => {
   </button>`;
 };
 const closeSearchPreviewCompetingLayers = () => {
-  if (typeof closeOpenCatalogDropdowns === "function") closeOpenCatalogDropdowns();
-  if (typeof closeSearchHelpPopovers === "function") closeSearchHelpPopovers();
+  if (typeof appServices.closeOpenCatalogDropdowns === "function") appServices.closeOpenCatalogDropdowns();
+  if (typeof appServices.closeSearchHelpPopovers === "function") appServices.closeSearchHelpPopovers();
 };
 class SearchPreviewController {
   constructor(input, root) {
@@ -1558,7 +1556,7 @@ class SearchPreviewController {
     this.entries = [];
     this.input.setAttribute("aria-expanded", "false");
     this.input.removeAttribute("aria-activedescendant");
-    if (activeSearchPreview === this) activeSearchPreview = null;
+    if (appState.activeSearchPreview === this) appState.activeSearchPreview = null;
   }
 
   render() {
@@ -1579,7 +1577,7 @@ class SearchPreviewController {
       : `<div class="search-preview-empty">검색결과가 없습니다.</div>`;
     this.preview.hidden = false;
     if (wasHidden) playEnterAnimation(this.preview, "is-preview-entering");
-    activeSearchPreview = this;
+    appState.activeSearchPreview = this;
     this.input.setAttribute("aria-expanded", "true");
     if (this.highlightedIndex >= 0) {
       this.input.setAttribute("aria-activedescendant", searchPreviewOptionId(this, this.highlightedIndex));
@@ -1599,7 +1597,7 @@ class SearchPreviewController {
     const generation = ++this.renderGeneration;
     this.renderTimer = setTimeout(async () => {
       this.renderTimer = 0;
-      await window.BeystadiumDataStore?.ensureSearch(searchPreviewScopeValue(this.input));
+      await BeystadiumDataStore?.ensureSearch(searchPreviewScopeValue(this.input));
       if (generation !== this.renderGeneration) return;
       this.render();
     }, SEARCH_PREVIEW_RENDER_DELAY);
@@ -1614,13 +1612,13 @@ class SearchPreviewController {
     this.syncToGlobal();
     closeAllSearchPreviews();
     openCatalogCard(button);
-    setMobileDrawerOpen(false);
+    appServices.setMobileDrawerOpen(false);
   }
 
   openResults() {
     this.syncToGlobal();
     closeAllSearchPreviews();
-    openSearchResults();
+    appServices.openSearchResults();
   }
 
   handleKeydown(event) {
@@ -1747,18 +1745,17 @@ function partModalTags(item) {
   return modalTagGroup(`${partClassificationModalTags(item)}${battleTypeTag(item)}${spinTag(item)}${heightClassTag(item)}`);
 }
 
-let activeModalTagButton = null;
 let modalTagPopover = null;
 let modalTagPinned = false;
 const isTouchPointer = () => window.matchMedia("(hover: none), (pointer: coarse)").matches;
 
 function closeModalTagPopover() {
-  if (activeModalTagButton) {
-    activeModalTagButton.setAttribute("aria-expanded", "false");
-    activeModalTagButton.removeAttribute("aria-describedby");
+  if (appState.activeModalTagButton) {
+    appState.activeModalTagButton.setAttribute("aria-expanded", "false");
+    appState.activeModalTagButton.removeAttribute("aria-describedby");
   }
   modalTagPopover?.remove();
-  activeModalTagButton = null;
+  appState.activeModalTagButton = null;
   modalTagPopover = null;
   modalTagPinned = false;
 }
@@ -1781,21 +1778,21 @@ function openModalTagPopover(button, { pinned = false } = {}) {
   const label = button.dataset.tagLabel || button.textContent.trim();
   const description = button.dataset.tagDescription || "";
   if (!description) return;
-  if (activeModalTagButton === button && modalTagPopover) {
+  if (appState.activeModalTagButton === button && modalTagPopover) {
     modalTagPinned = modalTagPinned || pinned;
     button.setAttribute("aria-expanded", "true");
     positionModalTagPopover(button);
     return;
   }
-  if (activeModalTagButton && activeModalTagButton !== button) closeModalTagPopover();
-  activeModalTagButton = button;
+  if (appState.activeModalTagButton && appState.activeModalTagButton !== button) closeModalTagPopover();
+  appState.activeModalTagButton = button;
   modalTagPinned = pinned;
   modalTagPopover = document.createElement("div");
   modalTagPopover.id = `modal-tag-popover-${Date.now()}`;
   modalTagPopover.className = "modal-tag-popover";
   modalTagPopover.setAttribute("role", "tooltip");
   modalTagPopover.innerHTML = `<strong>${escapeHtml(label)}</strong><p>${escapeHtml(description)}</p>`;
-  modal.appendChild(modalTagPopover);
+  appServices.modal.appendChild(modalTagPopover);
   button.setAttribute("aria-expanded", "true");
   button.setAttribute("aria-describedby", modalTagPopover.id);
   positionModalTagPopover(button);
@@ -1823,11 +1820,11 @@ function bindModalTagPopovers(scope = document) {
     button.addEventListener("click", event => {
       event.preventDefault();
       event.stopPropagation();
-      if (focusOpened && activeModalTagButton === button) {
+      if (focusOpened && appState.activeModalTagButton === button) {
         modalTagPinned = true;
         return;
       }
-      if (activeModalTagButton === button && modalTagPinned) closeModalTagPopover();
+      if (appState.activeModalTagButton === button && modalTagPinned) closeModalTagPopover();
       else openModalTagPopover(button, { pinned: true });
     });
   });
@@ -1850,7 +1847,7 @@ function beyDetailSections(item, region) {
   const detailPartIds = beyDetailPartIds(item);
   const info = detailPartIds.length ? `<section class="modal-section mounted-parts"><p class="mounted-title">구성</p><div class="modal-section-scroll mounted-parts-list">${detailPartIds.map(partId => {
     const part = catalogCoreItemsById.get(partId);
-    return `<a class="ui-list-link mounted-link" href="#${part.id}" data-part-id="${part.id}"><span>${partMountedTypeLabel(part)}</span><strong>${itemDisplayName(part, region)}</strong><b>→</b></a>`;
+    return `<a class="ui-list-link mounted-link" href="#${part.id}" data-part-id="${part.id}"><span>${partMountedTypeLabel(part)}</span><strong>${appServices.itemDisplayName(part, region)}</strong><b>→</b></a>`;
   }).join("")}</div></section>` : "";
   return info;
 }
@@ -2025,8 +2022,23 @@ const catalogItemCard = item => `
     </button>`;
 const catalogCard = item => item.category ? toolsCard(item) : catalogItemCard(item);
 
+const catalogCollectionConfig = {
+  key: "catalog",
+  gridSelector: "#catalogGrid",
+  pageSize: CATALOG_PAGE_SIZE,
+  getVisibleItems: visibleCatalogItems,
+  renderKey: catalogRenderKey,
+  syncRenderPage: syncCatalogRenderPage,
+  getCurrentPage: () => appState.currentCatalogPage,
+  setCurrentPage: page => { appState.currentCatalogPage = page; },
+  cardTemplate: catalogCard,
+  emptyMarkup: () => `<p class="catalog-empty search-empty">검색결과가 없습니다.</p>`,
+  afterRender: updateCatalogCount,
+  renderPagination: renderCatalogPagination
+};
+
 function renderCatalogItems() {
-  renderCategoryCollection(categoryCollectionConfigs.catalog);
+  renderCategoryCollection(catalogCollectionConfig);
 }
 
 const modalContextStorageKey = "beyArchiveModalContext";
@@ -2048,34 +2060,34 @@ const restorePageScroll = value => {
   });
 };
 const modalOriginRouteSnapshot = () => {
-  const origin = routeSnapshot(modalOriginRoute) || routeSnapshot(lastPrimaryRoute);
+  const origin = routeSnapshot(appState.modalOriginRoute) || routeSnapshot(lastPrimaryRoute);
   return origin && isPrimaryRoute(origin) ? origin : null;
 };
 const modalOriginStateGetters = {
   catalog: () => ({
     catalogQuery: catalogSearchQuery(),
-    catalogSeries: selectedCatalogSeries,
-    catalogSort: activeCatalogSort,
-    catalogPage: currentCatalogPage
+    catalogSeries: appState.selectedCatalogSeries,
+    catalogSort: appState.activeCatalogSort,
+    catalogPage: appState.currentCatalogPage
   }),
   search: () => ({
     globalQuery: globalSearchQuery(),
     globalScope: globalSearchScopeValue()
   }),
   "category-release": () => ({
-    releaseQuery: activeReleaseQuery,
-    releaseRegion: activeReleaseRegion,
-    releaseSeries: activeReleaseSeries,
-    releaseSort: { ...activeReleaseSort }
+    releaseQuery: appState.activeReleaseQuery,
+    releaseRegion: appState.activeReleaseRegion,
+    releaseSeries: appState.activeReleaseSeries,
+    releaseSort: { ...appState.activeReleaseSort }
   }),
   "category-anime": () => ({
-    animeSeason: typeof activeAnimeCharacterSeason === "string" ? activeAnimeCharacterSeason : "all",
+    animeSeason: typeof appState.activeAnimeCharacterSeason === "string" ? appState.activeAnimeCharacterSeason : "all",
     animeQuery: animeSearchQuery(),
-    animePage: currentAnimePage
+    animePage: appState.currentAnimePage
   }),
   "category-anime-episodes": () => ({
-    animeSeason: activeAnimeSeason,
-    animeQuery: activeAnimeEpisodeQuery
+    animeSeason: appState.activeAnimeSeason,
+    animeQuery: appState.activeAnimeEpisodeQuery
   })
 };
 const modalOriginState = originRoute => ({
@@ -2135,7 +2147,7 @@ function rememberModalContext(kind, id, options = {}) {
   if (originRoute) {
     context.originRoute = originRoute;
     context.originState = modalOriginState(originRoute);
-    if (modalOriginRouteExplicit) context.originExplicit = true;
+    if (appState.modalOriginRouteExplicit) context.originExplicit = true;
   }
   rememberActiveDetailModalContext(context);
   try {
@@ -2159,3 +2171,93 @@ function clearModalContext() {
     // Ignore storage restrictions.
   }
 }
+
+export {
+  ANIME_PAGE_SIZE,
+  CATALOG_PAGE_SIZE,
+  SEARCH_HASH_UPDATE_DELAY,
+  SEARCH_RENDER_DELAY,
+  activeCatalogSortOption,
+  animeRenderKey,
+  animeSearchQuery,
+  appliedRouteKey,
+  beyDetailSections,
+  beyModalTags,
+  bindModalTagPopovers,
+  bindSearchPreview,
+  catalogAttributeChipForTerm,
+  catalogCard,
+  catalogFilterChipLabelForTerm,
+  catalogFilterQueryTerms,
+  catalogRenderKey,
+  catalogSearchQuery,
+  catalogSortOptions,
+  catalogVisibleItemsCache,
+  cleanupModelViewer,
+  clearActiveDetailModalContext,
+  clearModalContext,
+  clearModalOriginRoute,
+  closeAllSearchPreviews,
+  closeModalTagPopover,
+  codedPartNameTypes,
+  compareProductReleaseOrder,
+  compareToolsItemsByFirstRelease,
+  createSearchRecord,
+  currentPageScrollY,
+  currentPathWithSearch,
+  defaultCatalogSort,
+  findCatalogItemById,
+  getModalCloseRoute,
+  globalSearchQuery,
+  handleSearchPreviewKeydown,
+  initModelViewer,
+  isDetailRoute,
+  isPrimaryRoute,
+  matchSearchRecord,
+  matchesSearchText,
+  modalArtMarkup,
+  modalInfoSlot,
+  modalOriginState,
+  modalScrollArea,
+  modalTagGroup,
+  navigateToRoute,
+  normalizeCatalogRouteSort,
+  normalizeCatalogSearchInput,
+  normalizeRoute,
+  parseRouteFromHash,
+  partCategory,
+  partKoName,
+  partModalTags,
+  positionModalTagPopover,
+  prepareCatalogSearchQuery,
+  productCompositionItems,
+  productLineupIds,
+  productSerialNumber,
+  refreshSearchPreview,
+  rememberModalContext,
+  rememberPrimaryRoute,
+  renderAnimePagination,
+  renderCatalogItems,
+  renderCatalogPagination,
+  renderCategoryCollection,
+  renderGlobalCards,
+  restorePageScroll,
+  restoredModalContext,
+  routeSnapshot,
+  scrollAnimeGridIntoView,
+  scrollCatalogGridIntoView,
+  searchFieldsFromValues,
+  searchPreviewScopeValue,
+  serializeRoute,
+  stabilizePrimaryRouteScroll,
+  syncAnimeRenderPage,
+  syncCatalogRenderPage,
+  syncCatalogScopeState,
+  syncModalOriginRoute,
+  updateCatalogCount,
+  validScrollY,
+  visibleCatalogCoreItems,
+  visibleCatalogItems,
+  visibleToolsItems,
+  zeroGBottomStartIndex
+};

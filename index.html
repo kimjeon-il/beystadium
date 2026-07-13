@@ -331,6 +331,24 @@
     </dialog>
 
     <button class="to-top" id="toTop" type="button" aria-label="맨 위로 이동">↑</button>
-  <script type="module" src="./src/bootstrap.js?v=20260713-esm-runtime"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "#app/state": "./src/app-state.js?v=20260713-native-esm",
+        "#app/services": "./src/app-services.js?v=20260713-native-esm",
+        "#app/markup-core": "./src/markup-core.js?v=20260713-native-esm",
+        "#app/anime-core": "./src/anime-core.js?v=20260713-native-esm",
+        "#app/data-store": "./src/data-store.js?v=20260713-native-esm",
+        "#app/ui-core": "./src/ui-core.js?v=20260713-native-esm",
+        "#app/release-core": "./src/release-core.js?v=20260713-native-esm",
+        "#app/catalog-core": "./src/catalog-core.js?v=20260713-native-esm",
+        "#app/release-page": "./src/release-page.js?v=20260713-native-esm",
+        "#app/anime": "./src/anime.js?v=20260713-native-esm",
+        "#app/router": "./src/router.js?v=20260713-native-esm",
+        "#app/entry": "./src/app-entry.js?v=20260713-native-esm"
+      }
+    }
+  </script>
+  <script type="module" src="./src/bootstrap.js?v=20260713-native-esm"></script>
   </body>
 </html>

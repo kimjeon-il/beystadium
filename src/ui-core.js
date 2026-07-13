@@ -1,3 +1,5 @@
+import { escapeAttributeValue, escapeHtml } from "#app/markup-core";
+
 const globalSearch = document.querySelector("#globalSearchInput");
 const globalSearchScope = document.querySelector("#globalSearchScope");
 const mobileDrawerSearch = document.querySelector("#mobileDrawerSearchInput");
@@ -452,13 +454,6 @@ const battleTypeDescription = (value, item) => battleTypeDescriptions[battleType
 const spinLabel = value => spinLabels[value] || value || "";
 const spinDescription = value => spinDescriptions[value] || "";
 const heightClassLabel = value => heightClassLabels[value] || value || "";
-let activeReleaseRegion = "kr";
-let activeReleaseSeries = "";
-let activeReleaseSort = { key: "release", direction: "asc" };
-let activeReleaseQuery = "";
-let selectedCatalogKind = "";
-let selectedCatalogSeries = "all";
-let activeCatalogSort = "latest";
 const toolsSubtypeOptions = [
   { value: "런처", label: "런처" },
   { value: "그립", label: "그립" },
@@ -471,3 +466,65 @@ const dropdownButtonMarkup = ({ value = "", label = "", active = false, dataAttr
 };
 const tabButtonMarkup = ({ value = "", label = "", active = false, dataAttr }) =>
   `<button type="button" role="tab" class="ui-tab-button ${active ? "active" : ""}" ${dataAttr}="${escapeAttributeValue(value)}" aria-selected="${active ? "true" : "false"}">${escapeHtml(label)}</button>`;
+
+export {
+  activeAppPanel,
+  animeSearch,
+  animeSearchHelpButton,
+  animeSearchHelpPopover,
+  battleTypeDescription,
+  battleTypeLabel,
+  battleTypeLabels,
+  bindActionRows,
+  catalogSearch,
+  catalogSearchHelpButton,
+  catalogSearchHelpPopover,
+  catalogSearchScope,
+  catalogSeriesFilter,
+  clearSearchInputs,
+  dropdownButtonMarkup,
+  dropdownSummaryText,
+  getNavigationRoots,
+  globalSearch,
+  globalSearchScope,
+  globalSearchScopeValue,
+  heightClassLabel,
+  isNavigationButtonCurrent,
+  menuButton,
+  mobileDrawer,
+  mobileDrawerClose,
+  mobileDrawerSearch,
+  mobileDrawerSearchScope,
+  mobileDrawerSearchScopeValue,
+  normalizeSidebarSection,
+  overviewSearch,
+  overviewSearchScope,
+  overviewSearchScopeValue,
+  partClassificationDescriptors,
+  partClassificationFilterDescriptors,
+  partClassificationLabels,
+  partClassificationSearchValues,
+  partDetailTypeLabel,
+  partDisplayTypeLabel,
+  partMountedTypeLabel,
+  playEnterAnimation,
+  setCatalogSearchScope,
+  setCatalogSeriesFilter,
+  setGlobalSearchScope,
+  setMobileDrawerSearchScope,
+  setOverviewSearchScope,
+  setSearchInputValue,
+  setSidebarButtonCurrent,
+  sidebarCurrentButtonSelector,
+  spinDescription,
+  spinLabel,
+  spinLabels,
+  structureLabels,
+  structureTagDescriptions,
+  syncSearchInputState,
+  tabButtonMarkup,
+  tagLabels,
+  toTop,
+  toolsSubtypeOptions,
+  typeLabels
+};

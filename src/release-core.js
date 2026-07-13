@@ -1,3 +1,8 @@
+import { appState } from "#app/state";
+import { BeystadiumDataStore, productItems, productItemsById, rareBeyGetItems } from "#app/data-store";
+import { escapeAttributeValue, escapeHtml } from "#app/markup-core";
+import { dropdownButtonMarkup, tabButtonMarkup } from "#app/ui-core";
+
 const releaseRegionLabels = {
   kr: "한국",
   jp: "일본"
@@ -28,31 +33,31 @@ const rareBeyGetEntryProductIds = entry => {
   return [...new Set([...singleProductId, ...groupedProductIds].filter(Boolean))];
 };
 const rareBeyGetEntryRegion = entry => releaseRegionLabels[entry?.region] ? entry.region : "";
-const rareBeyGetEntryMatchesProduct = (entry, item, region = activeReleaseRegion) =>
+const rareBeyGetEntryMatchesProduct = (entry, item, region = appState.activeReleaseRegion) =>
   rareBeyGetEntryProductIds(entry).includes(item.id) && (!rareBeyGetEntryRegion(entry) || rareBeyGetEntryRegion(entry) === region);
-const rareBeyGetEntryForProduct = (item, region = activeReleaseRegion) =>
+const rareBeyGetEntryForProduct = (item, region = appState.activeReleaseRegion) =>
   rareBeyGetEntries().find(entry => rareBeyGetEntryMatchesProduct(entry, item, region)) || null;
-const releaseBadges = (item, region = activeReleaseRegion) => {
+const releaseBadges = (item, region = appState.activeReleaseRegion) => {
   const release = productRelease(item, region);
   const explicitBadges = Array.isArray(release.badges) ? release.badges : [];
   const derivedBadges = rareBeyGetEntryForProduct(item, region) ? [RARE_BEY_GET_BADGE] : [];
   return [...new Set([...explicitBadges, ...derivedBadges])].filter(releaseBadgeLabel);
 };
-const releaseHasBadge = (item, badge, region = activeReleaseRegion) => releaseBadges(item, region).includes(badge);
-const releaseBadgeSearchText = (item, region = activeReleaseRegion) =>
+const releaseHasBadge = (item, badge, region = appState.activeReleaseRegion) => releaseBadges(item, region).includes(badge);
+const releaseBadgeSearchText = (item, region = appState.activeReleaseRegion) =>
   releaseBadges(item, region).flatMap(releaseBadgeSearchTerms).join(" ");
 const rareBeyGetEntryProducts = entry =>
   rareBeyGetEntryProductIds(entry).map(id => productItemsById.get(id)).filter(Boolean);
 const rareBeyGetEntryStartSortValue = entry => releaseDateSortValue(entry?.startDate || "");
 const rareBeyGetEntryCurrentSortValue = entry => entry?.isCurrent === true ? 0 : 1;
-const rareBeyGetListEntryMatchesContext = (entry, { region = activeReleaseRegion, series = activeReleaseSeries } = {}) => {
+const rareBeyGetListEntryMatchesContext = (entry, { region = appState.activeReleaseRegion, series = appState.activeReleaseSeries } = {}) => {
   const products = rareBeyGetEntryProducts(entry);
   if (!products.length) return false;
   const entryRegion = rareBeyGetEntryRegion(entry);
   if (entryRegion && entryRegion !== region) return false;
   return !series || products.some(product => product.series === series);
 };
-const visibleRareBeyGetEntries = ({ region = activeReleaseRegion, series = activeReleaseSeries } = {}) =>
+const visibleRareBeyGetEntries = ({ region = appState.activeReleaseRegion, series = appState.activeReleaseSeries } = {}) =>
   rareBeyGetEntries()
     .filter(entry => rareBeyGetListEntryMatchesContext(entry, { region, series }))
     .slice()
@@ -83,7 +88,7 @@ const blankProductRelease = () => ({
   price: "",
   composition: []
 });
-const productRelease = (item, region = activeReleaseRegion) => {
+const productRelease = (item, region = appState.activeReleaseRegion) => {
   const base = baseProductRelease(item);
   const blank = blankProductRelease();
   if (!item.releases) return region === "kr" ? base : blank;
@@ -93,16 +98,16 @@ const productRelease = (item, region = activeReleaseRegion) => {
   const merged = { ...(region === "kr" ? base : blank), ...release, status: release.status || "released" };
   return { ...merged, kind: normalizeProductKind(merged.kind) };
 };
-const productReleaseValue = (item, key, region = activeReleaseRegion) => productRelease(item, region)[key] || "";
-const productReleasedInRegion = (item, region = activeReleaseRegion) => productRelease(item, region).status !== "unreleased";
+const productReleaseValue = (item, key, region = appState.activeReleaseRegion) => productRelease(item, region)[key] || "";
+const productReleasedInRegion = (item, region = appState.activeReleaseRegion) => productRelease(item, region).status !== "unreleased";
 const releaseSeriesOrder = () => Object.keys(releaseSeriesLabels);
-const releaseSeriesHasProducts = (series, region = activeReleaseRegion) => releaseSeriesLabels[series] && productItems.some(item =>
+const releaseSeriesHasProducts = (series, region = appState.activeReleaseRegion) => releaseSeriesLabels[series] && productItems.some(item =>
   !item.lineupOnly && item.series === series && productReleasedInRegion(item, region)
 );
-const defaultReleaseSeries = (region = activeReleaseRegion) => [...releaseSeriesOrder()].reverse().find(series =>
+const defaultReleaseSeries = (region = appState.activeReleaseRegion) => [...releaseSeriesOrder()].reverse().find(series =>
   releaseSeriesHasProducts(series, region)
-) || window.BeystadiumDataStore?.defaultReleaseSeries(region) || releaseSeriesOrder()[0] || "metal fight";
-const releaseSeriesForRegion = (series, region = activeReleaseRegion) =>
+) || BeystadiumDataStore?.defaultReleaseSeries(region) || releaseSeriesOrder()[0] || "metal fight";
+const releaseSeriesForRegion = (series, region = appState.activeReleaseRegion) =>
   releaseSeriesHasProducts(series, region) ? series : defaultReleaseSeries(region);
 const productDisplayFallbackRegions = (region = "kr") =>
   [region, "kr", "jp"].filter((value, index, values) => releaseRegionLabels[value] && values.indexOf(value) === index);
@@ -113,7 +118,7 @@ const seriesLabels = { topblade: "탑블레이드", "metal fight": "메탈베이
 const defaultCatalogSeries = () => "all";
 const normalizeCatalogSeries = series => seriesLabels[series] ? series : "all";
 const itemSeriesLabel = item => seriesLabels[item.series] || item.series || "";
-const productDisplayName = (item, region = activeReleaseRegion) => {
+const productDisplayName = (item, region = appState.activeReleaseRegion) => {
   const release = productDisplayRelease(item, region);
   if (release.name) return release.name;
   const fallbackReleases = productDisplayFallbackRegions(region).map(candidate => productRelease(item, candidate));
@@ -178,14 +183,8 @@ const releaseDropdownOptions = (entries, activeValue, dataAttr) => entries
   .map(([value, label]) => dropdownButtonMarkup({ value, label, active: activeValue === value, dataAttr }))
   .join("");
 const releaseRegionTabs = () => `<div class="release-region-tabs" role="tablist" aria-label="출시 지역">
-  ${Object.entries(releaseRegionLabels).map(([value, label]) => tabButtonMarkup({ value, label, active: activeReleaseRegion === value, dataAttr: "data-release-region" })).join("")}
+  ${Object.entries(releaseRegionLabels).map(([value, label]) => tabButtonMarkup({ value, label, active: appState.activeReleaseRegion === value, dataAttr: "data-release-region" })).join("")}
 </div>`;
-const escapeAttributeValue = value => String(value || "")
-  .replace(/&/g, "&amp;")
-  .replace(/"/g, "&quot;")
-  .replace(/</g, "&lt;")
-  .replace(/>/g, "&gt;");
-const escapeHtml = escapeAttributeValue;
 const tableListClassName = (...classes) => classes.filter(Boolean).join(" ");
 const tableListTableMarkup = ({ scrollClass = "", tableClass = "", head = "", body = "" } = {}) => `<div class="${tableListClassName("table-list-scroll", "page-table-scroll", scrollClass)}">
   <table class="${tableListClassName("table-list-table", "ui-data-table", tableClass)}">
@@ -266,12 +265,12 @@ const releaseControls = () => tableListControlsMarkup({
   label: "발매목록 필터",
   before: releaseRegionTabs(),
   dropdown: {
-    label: releaseSeriesLabels[activeReleaseSeries],
+    label: releaseSeriesLabels[appState.activeReleaseSeries],
     entries: Object.entries(releaseSeriesLabels),
-    activeValue: activeReleaseSeries,
+    activeValue: appState.activeReleaseSeries,
     dataAttr: "data-release-series"
   },
-  search: { id: "releaseSearchInput", value: activeReleaseQuery }
+  search: { id: "releaseSearchInput", value: appState.activeReleaseQuery }
 });
 const sortDropdownLabelParts = label => {
   const rawLabel = String(label || "").trim();
@@ -295,3 +294,48 @@ const sortDropdownMarkup = ({ className = "", label = "정렬", value = "", opti
       ${sortDropdownOptionsMarkup(options, value, dataAttr)}
     </div>
   </details>`;
+
+export {
+  RARE_BEY_GET_BADGE,
+  TableListController,
+  animeAirDateCompactLabel,
+  animeAirDateLabel,
+  defaultCatalogSeries,
+  defaultReleaseSeries,
+  escapeAttributeValue,
+  escapeHtml,
+  itemSeriesLabel,
+  normalizeCatalogSeries,
+  priceLabel,
+  productDisplayName,
+  productDisplayRegion,
+  productRelease,
+  productReleaseValue,
+  productReleasedInRegion,
+  rareBeyGetEntryProductIds,
+  rareBeyGetEntryRegion,
+  rareBeyGetEntryStartSortValue,
+  releaseBadgeLabel,
+  releaseBadgeSearchText,
+  releaseBadges,
+  releaseControls,
+  releaseDateCompactLabel,
+  releaseDateLabel,
+  releaseDateSortValue,
+  releaseHasBadge,
+  releaseKindSortValue,
+  releasePriceSortValue,
+  releaseRegionLabels,
+  releaseSeriesForRegion,
+  releaseSeriesLabels,
+  releaseSeriesOrder,
+  responsiveDateSpans,
+  seriesLabels,
+  setSortDropdownLabel,
+  sortDropdownMarkup,
+  tableListControlsMarkup,
+  tableListDropdownMarkup,
+  tableListPageMarkup,
+  tableListTableMarkup,
+  visibleRareBeyGetEntries
+};

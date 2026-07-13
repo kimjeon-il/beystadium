@@ -1,8 +1,64 @@
-import { BeystadiumDataStore } from "./data-store.js";
+import { BeystadiumDataStore } from "#app/data-store";
+
+const lazyInteractionSelector = [
+  "button",
+  "a[href]",
+  "input",
+  "summary",
+  "[role='button']",
+  "[data-category-catalog-open]",
+  "[data-category-release-open]",
+  "[data-category-anime-open]",
+  "[data-category-anime-episodes-open]"
+].join(",");
+
+let appPromise = null;
+let appLoaded = false;
+
+const loadApp = () => {
+  if (!appPromise) {
+    appPromise = import("#app/entry").then(module => {
+      appLoaded = true;
+      return module;
+    });
+  }
+  return appPromise;
+};
+
+const appInteractionTarget = target => target?.closest?.(lazyInteractionSelector) || null;
+
+const primeApp = event => {
+  if (!appLoaded && appInteractionTarget(event.target)) void loadApp();
+};
+
+const replayClickAfterLoad = event => {
+  if (appLoaded) return;
+  const target = appInteractionTarget(event.target);
+  if (!target) return;
+  event.preventDefault();
+  event.stopImmediatePropagation();
+  void loadApp().then(() => target.click());
+};
+
+const replayInputAfterLoad = event => {
+  if (appLoaded || !event.target?.matches?.("input[type='search']")) return;
+  const input = event.target;
+  event.stopImmediatePropagation();
+  void loadApp().then(() => input.dispatchEvent(new Event("input", { bubbles: true })));
+};
 
 try {
   await BeystadiumDataStore.initialize();
-  await import("./app-runtime.js?v=20260713-esm-runtime");
+  if (window.location.hash) {
+    await loadApp();
+  } else {
+    document.documentElement.classList.remove("route-booting");
+    document.addEventListener("pointerdown", primeApp, { capture: true, passive: true });
+    document.addEventListener("focusin", primeApp, true);
+    document.addEventListener("click", replayClickAfterLoad, true);
+    document.addEventListener("input", replayInputAfterLoad, true);
+    window.addEventListener("hashchange", () => void loadApp());
+  }
 } catch (error) {
   document.documentElement.classList.remove("route-booting");
   console.error(error);

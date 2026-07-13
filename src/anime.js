@@ -1,78 +1,51 @@
-const animeSeasonOrder = [
-  "topblade",
-  "topblade-v",
-  "gblade",
-  "metal-fight",
-  "metal-fight-2",
-  "metal-fight-4d",
-  "metal-fight-zerog",
-  "burst",
-  "burst-god",
-  "burst-cho-z",
-  "burst-gachi",
-  "burst-superking",
-  "burst-db",
-  "beyblade-x",
-  "beyblade-x-2",
-  "beyblade-x-3"
-];
-const animeSeasonLabels = {
-  topblade: "탑블레이드",
-  "topblade-v": "탑블레이드 V",
-  gblade: "팽이대전 G블레이드",
-  "metal-fight": "메탈베이블레이드",
-  "metal-fight-2": "메탈베이블레이드 2",
-  "metal-fight-4d": "메탈베이블레이드 4D",
-  "metal-fight-zerog": "메탈베이블레이드 제로G",
-  burst: "베이블레이드 버스트",
-  "burst-god": "베이블레이드 버스트 갓",
-  "burst-cho-z": "베이블레이드 버스트 초제트",
-  "burst-gachi": "베이블레이드 버스트 진검",
-  "burst-superking": "베이블레이드 버스트 슈퍼킹",
-  "burst-db": "베이블레이드 버스트 DB",
-  "beyblade-x": "베이블레이드 X",
-  "beyblade-x-2": "베이블레이드 X 2",
-  "beyblade-x-3": "베이블레이드 X 3"
-};
-const animeSeasonEntries = () => animeSeasonOrder.map(value => [value, animeSeasonLabels[value]]).filter(([, label]) => label);
-const animeCharacterAllSeason = "all";
-const animeCharacterSeasonEntries = () => [[animeCharacterAllSeason, "전체 시리즈"], ...animeSeasonEntries()];
-const latestAnimeSeason = () => animeSeasonOrder[animeSeasonOrder.length - 1] || "metal-fight";
-const defaultAnimeSeason = () => [...animeSeasonOrder].reverse().find(season =>
-  animeInfo.episodes.some(episode => episode.season === season)
-) || latestAnimeSeason();
-const normalizeAnimeSeason = season => animeSeasonLabels[season] ? season : defaultAnimeSeason();
-const normalizeAnimeCharacterSeason = season => animeSeasonLabels[season] ? season : animeCharacterAllSeason;
-const animeDisplayRegion = "kr";
-let activeAnimeSeason = defaultAnimeSeason();
-let activeAnimeEpisodeQuery = "";
-let activeAnimeCharacterSeason = animeCharacterAllSeason;
+import { appState } from "#app/state";
+import {
+  animeCharacterAllSeason,
+  animeCharacterSeasonEntries,
+  animeDisplayRegion,
+  animeEpisodeTitle,
+  animeSeasonEntries,
+  animeSeasonLabels,
+  defaultAnimeSeason,
+  episodeHashId,
+  episodeIndexFromHash,
+  normalizeAnimeCharacterSeason,
+  normalizeAnimeSeason
+} from "#app/anime-core";
+import { ANIME_PAGE_SIZE, animeRenderKey, animeSearchQuery, cleanupModelViewer, createSearchRecord, matchSearchRecord, matchesSearchText, prepareCatalogSearchQuery, rememberModalContext, renderAnimePagination, renderCategoryCollection, searchFieldsFromValues, syncAnimeRenderPage } from "#app/catalog-core";
+import { animeInfo } from "#app/data-store";
+import { TableListController, animeAirDateCompactLabel, animeAirDateLabel, escapeHtml, responsiveDateSpans, tableListControlsMarkup, tableListDropdownMarkup, tableListPageMarkup, tableListTableMarkup } from "#app/release-core";
+import { appServices } from "#app/services";
+import { bindActionRows } from "#app/ui-core";
+
+if (!appState.activeAnimeSeason) appState.activeAnimeSeason = defaultAnimeSeason();
+
 const animeEpisodeControls = () => tableListControlsMarkup({
   label: "방영목록 필터",
   className: "anime-episode-controls",
   attrs: "data-anime-controls",
   dropdown: {
-    label: animeSeasonLabels[activeAnimeSeason] || "",
+    label: animeSeasonLabels[appState.activeAnimeSeason] || "",
     entries: animeSeasonEntries(),
-    activeValue: activeAnimeSeason,
+    activeValue: appState.activeAnimeSeason,
     dataAttr: "data-anime-season"
   },
-  search: { id: "animeEpisodeSearchInput", value: activeAnimeEpisodeQuery }
+  search: { id: "animeEpisodeSearchInput", value: appState.activeAnimeEpisodeQuery }
 });
 const animeCharacterSeasonLabel = () =>
-  activeAnimeCharacterSeason === animeCharacterAllSeason ? "전체 시리즈" : animeSeasonLabels[activeAnimeCharacterSeason] || "전체 시리즈";
+  appState.activeAnimeCharacterSeason === animeCharacterAllSeason ? "전체 시리즈" : animeSeasonLabels[appState.activeAnimeCharacterSeason] || "전체 시리즈";
 const animeCharacterSeasonFilterRoot = () => document.querySelector("[data-anime-character-season-filter]");
 const animeCharacterSeasonFilterMarkup = () => tableListDropdownMarkup({
   label: animeCharacterSeasonLabel(),
   entries: animeCharacterSeasonEntries(),
-  activeValue: activeAnimeCharacterSeason,
+  activeValue: appState.activeAnimeCharacterSeason,
   dataAttr: "data-anime-character-season"
 });
 
 function renderAnimeCharacterSeasonFilter() {
   const root = animeCharacterSeasonFilterRoot();
   if (!root) return;
-  const renderKey = activeAnimeCharacterSeason;
+  const renderKey = appState.activeAnimeCharacterSeason;
   if (root.dataset.renderKey !== renderKey) {
     root.innerHTML = animeCharacterSeasonFilterMarkup();
     root.dataset.renderKey = renderKey;
@@ -82,11 +55,11 @@ function renderAnimeCharacterSeasonFilter() {
     button.dataset.animeCharacterSeasonBound = "true";
     button.addEventListener("click", event => {
       event.preventDefault();
-      activeAnimeCharacterSeason = normalizeAnimeCharacterSeason(event.currentTarget.dataset.animeCharacterSeason);
+      appState.activeAnimeCharacterSeason = normalizeAnimeCharacterSeason(event.currentTarget.dataset.animeCharacterSeason);
       event.currentTarget.closest(".catalog-dropdown")?.removeAttribute("open");
-      currentAnimePage = 1;
+      appState.currentAnimePage = 1;
       renderAnimePage();
-      syncAnimeRouteHash({ overrides: { page: 1 } });
+      appServices.syncAnimeRouteHash({ overrides: { page: 1 } });
     });
   });
 }
@@ -114,7 +87,7 @@ const visibleAnimeCharacters = () => {
   const characters = Array.isArray(animeInfo.characters) ? animeInfo.characters : [];
   const query = prepareCatalogSearchQuery(animeSearchQuery());
   return characters
-    .filter(character => activeAnimeCharacterSeason === animeCharacterAllSeason || character?.season === activeAnimeCharacterSeason)
+    .filter(character => appState.activeAnimeCharacterSeason === animeCharacterAllSeason || character?.season === appState.activeAnimeCharacterSeason)
     .map((character, index) => {
       const record = animeCharacterSearchRecord(character, index);
       const match = matchSearchRecord(record, query);
@@ -124,87 +97,25 @@ const visibleAnimeCharacters = () => {
     .sort((a, b) => query.isEmpty ? a.index - b.index : b.score - a.score || a.index - b.index)
     .map(entry => entry.character);
 };
-const categoryCollectionConfigs = {
-  catalog: {
-    key: "catalog",
-    gridSelector: "#catalogGrid",
-    pageSize: CATALOG_PAGE_SIZE,
-    getVisibleItems: visibleCatalogItems,
-    renderKey: catalogRenderKey,
-    syncRenderPage: syncCatalogRenderPage,
-    getCurrentPage: () => currentCatalogPage,
-    setCurrentPage: page => { currentCatalogPage = page; },
-    cardTemplate: catalogCard,
-    emptyMarkup: () => `<p class="catalog-empty search-empty">검색결과가 없습니다.</p>`,
-    afterRender: updateCatalogCount,
-    renderPagination: renderCatalogPagination
-  },
-  animeCharacters: {
-    key: "animeCharacters",
-    gridSelector: "#animeCharacterGrid",
-    countSelector: "#animeCount",
-    pageSize: ANIME_PAGE_SIZE,
-    getVisibleItems: visibleAnimeCharacters,
-    renderKey: animeRenderKey,
-    syncRenderPage: syncAnimeRenderPage,
-    getCurrentPage: () => currentAnimePage,
-    setCurrentPage: page => { currentAnimePage = page; },
-    cardTemplate: animeCharacterCardMarkup,
-    emptyMarkup: () => `<p class="anime-page-empty panel-empty-state">${animeSearchQuery() ? "검색결과가 없습니다." : "등록된 등장인물 및 베이 정보가 없습니다."}</p>`,
-    renderPagination: renderAnimePagination
-  }
+const animeCharacterCollectionConfig = {
+  key: "animeCharacters",
+  gridSelector: "#animeCharacterGrid",
+  countSelector: "#animeCount",
+  pageSize: ANIME_PAGE_SIZE,
+  getVisibleItems: visibleAnimeCharacters,
+  renderKey: animeRenderKey,
+  syncRenderPage: syncAnimeRenderPage,
+  getCurrentPage: () => appState.currentAnimePage,
+  setCurrentPage: page => { appState.currentAnimePage = page; },
+  cardTemplate: animeCharacterCardMarkup,
+  emptyMarkup: () => `<p class="anime-page-empty panel-empty-state">${animeSearchQuery() ? "검색결과가 없습니다." : "등록된 등장인물 및 베이 정보가 없습니다."}</p>`,
+  renderPagination: renderAnimePagination
 };
 
 function renderAnimePage() {
   renderAnimeCharacterSeasonFilter();
-  renderCategoryCollection(categoryCollectionConfigs.animeCharacters);
+  renderCategoryCollection(animeCharacterCollectionConfig);
 }
-
-const animeEpisodeHashPrefixes = {
-  topblade: "TOPBLADE-EPISODE",
-  "topblade-v": "TOPBLADE-V-EPISODE",
-  gblade: "GBLADE-EPISODE",
-  "metal-fight": "METAL-FIGHT-EPISODE",
-  "metal-fight-2": "METAL-FIGHT-2-EPISODE",
-  "metal-fight-4d": "METAL-FIGHT-4D-EPISODE",
-  "metal-fight-zerog": "METAL-FIGHT-ZEROG-EPISODE",
-  burst: "BURST-EPISODE",
-  "burst-god": "BURST-GOD-EPISODE",
-  "beyblade-x": "BEYBLADE-X-EPISODE",
-  "beyblade-x-2": "BEYBLADE-X-2-EPISODE"
-};
-const animeEpisodeSeasonIndex = index => {
-  const episode = animeInfo.episodes[index];
-  if (!episode?.season) return -1;
-  return animeInfo.episodes
-    .slice(0, index + 1)
-    .filter(item => item.season === episode.season).length;
-};
-const episodeHashId = index => {
-  const episode = animeInfo.episodes[index];
-  const prefix = animeEpisodeHashPrefixes[episode?.season];
-  const seasonIndex = animeEpisodeSeasonIndex(index);
-  return prefix && seasonIndex > 0 ? `${prefix}-${seasonIndex}` : "";
-};
-const isAnimeEpisodeHash = id => Object.values(animeEpisodeHashPrefixes).some(prefix => String(id || "").startsWith(`${prefix}-`));
-const episodeIndexFromHash = id => {
-  const source = String(id || "");
-  const prefixEntry = Object.entries(animeEpisodeHashPrefixes).find(([, prefix]) => source.startsWith(`${prefix}-`));
-  if (!prefixEntry) return -1;
-  const [season, prefix] = prefixEntry;
-  const match = source.slice(prefix.length + 1).match(/^\d+$/);
-  if (!match) return -1;
-  const seasonIndex = Number(match[0]);
-  if (!Number.isInteger(seasonIndex) || seasonIndex < 1) return -1;
-  const matchingEpisodes = animeInfo.episodes
-    .map((episode, index) => ({ episode, index }))
-    .filter(({ episode }) => episode.season === season);
-  return matchingEpisodes[seasonIndex - 1]?.index ?? -1;
-};
-const animeEpisodeTitle = (episode, region = animeDisplayRegion) => {
-  const title = episode?.titles?.[region] || episode?.titles?.kr || "";
-  return [episode?.no || "", title].filter(Boolean).join(" ");
-};
 
 const animeEpisodeSearchText = episode => [
   episode.no || "",
@@ -215,10 +126,10 @@ const animeEpisodeSearchText = episode => [
 const animeEpisodeDisplayInitialSearchText = episode => episode.titles?.[animeDisplayRegion] || "";
 
 const visibleAnimeEpisodes = () => {
-  const query = activeAnimeEpisodeQuery.trim();
+  const query = appState.activeAnimeEpisodeQuery.trim();
   return animeInfo.episodes
     .map((episode, index) => ({ episode, index }))
-    .filter(({ episode }) => episode.season === activeAnimeSeason)
+    .filter(({ episode }) => episode.season === appState.activeAnimeSeason)
     .filter(({ episode }) => matchesSearchText(animeEpisodeSearchText(episode), query, animeEpisodeDisplayInitialSearchText(episode)));
 };
 
@@ -264,14 +175,14 @@ const animeEpisodeTableController = new TableListController({
     const animePanel = root.querySelector(".category-anime-episodes");
     if (!animePanel) return;
     animePanel.querySelectorAll("[data-anime-season]").forEach(button => button.addEventListener("click", event => {
-      activeAnimeSeason = normalizeAnimeSeason(event.currentTarget.dataset.animeSeason);
+      appState.activeAnimeSeason = normalizeAnimeSeason(event.currentTarget.dataset.animeSeason);
       event.currentTarget.closest(".catalog-dropdown")?.removeAttribute("open");
       rememberAnimeModalContext();
       controller.renderPage();
     }));
     const animeSearch = animePanel.querySelector("#animeEpisodeSearchInput");
-    bindSearchInput(animeSearch, ".release-search-box", { onInput: searchInput => {
-      activeAnimeEpisodeQuery = searchInput.value.trim();
+    appServices.bindSearchInput(animeSearch, ".release-search-box", { onInput: searchInput => {
+      appState.activeAnimeEpisodeQuery = searchInput.value.trim();
       rememberAnimeModalContext();
       controller.renderPage();
       const nextInput = animeEpisodesPageRoot()?.querySelector("#animeEpisodeSearchInput");
@@ -280,11 +191,11 @@ const animeEpisodeTableController = new TableListController({
     } });
     bindActionRows(animePanel, "[data-anime-episode-index]", animeRow => {
       const index = Number(animeRow.dataset.animeEpisodeIndex);
-      queueModalTransition("list");
+      appServices.queueModalTransition("list");
       openAnimeEpisodeDetail(index, {
         fromAnimeList: true,
-        animeSeason: activeAnimeSeason,
-        animeQuery: activeAnimeEpisodeQuery
+        animeSeason: appState.activeAnimeSeason,
+        animeQuery: appState.activeAnimeEpisodeQuery
       });
     });
   }
@@ -292,8 +203,8 @@ const animeEpisodeTableController = new TableListController({
 
 function rememberAnimeModalContext() {
   rememberModalContext("category-anime-episodes", "anime-episode", {
-    animeSeason: activeAnimeSeason,
-    animeQuery: activeAnimeEpisodeQuery
+    animeSeason: appState.activeAnimeSeason,
+    animeQuery: appState.activeAnimeEpisodeQuery
   });
 }
 
@@ -307,14 +218,14 @@ function openAnimeEpisodeDetail(indexOrId, options = {}) {
   if (!episode) return;
   const id = episodeHashId(index);
   if (!id) return;
-  if (routeIfNeeded({ type: "detail", id, options }, options)) return;
+  if (appServices.routeIfNeeded({ type: "detail", id, options }, options)) return;
   cleanupModelViewer();
-  const backAnimeSeason = normalizeAnimeSeason(options.animeSeason || episode.season || activeAnimeSeason);
-  const backAnimeQuery = typeof options.animeQuery === "string" ? options.animeQuery : activeAnimeEpisodeQuery;
+  const backAnimeSeason = normalizeAnimeSeason(options.animeSeason || episode.season || appState.activeAnimeSeason);
+  const backAnimeQuery = typeof options.animeQuery === "string" ? options.animeQuery : appState.activeAnimeEpisodeQuery;
   const backButton = options.fromAnimeList
-    ? modalBackButtonMarkup({ label: "방영목록으로 돌아가기", animeEpisodes: true })
+    ? appServices.modalBackButtonMarkup({ label: "방영목록으로 돌아가기", animeEpisodes: true })
     : "";
-  const content = setModalContent(`<div class="modal-inner category-anime-modal">
+  const content = appServices.setModalContent(`<div class="modal-inner category-anime-modal">
     <div class="modal-info category-anime-info">
       ${backButton}
       <div class="overview-title-row anime-episode-title-row">
@@ -322,14 +233,14 @@ function openAnimeEpisodeDetail(indexOrId, options = {}) {
       </div>
     </div>
   </div>`);
-  if (!content || !modal) return;
+  if (!content || !appServices.modal) return;
   content.querySelector("[data-back-anime-episodes]")?.addEventListener("click", () => {
     openCategoryAnimeEpisodesDetail({
       animeSeason: backAnimeSeason,
       animeQuery: backAnimeQuery
     });
   });
-  finishModalOpen({
+  appServices.finishModalOpen({
     contextKind: "metal-fight-episode",
     contextId: id,
     contextOptions: {
@@ -341,14 +252,20 @@ function openAnimeEpisodeDetail(indexOrId, options = {}) {
 }
 
 function openCategoryAnimeEpisodesDetail(options = {}) {
-  if (routeIfNeeded({ type: "category-anime-episodes", options }, options)) return;
+  if (appServices.routeIfNeeded({ type: "category-anime-episodes", options }, options)) return;
   const preserveSearch = options.preserveSearch === true;
-  if (options.animeSeason) activeAnimeSeason = normalizeAnimeSeason(options.animeSeason);
-  else if (!preserveSearch && !animeInfo.episodes.some(episode => episode.season === activeAnimeSeason)) activeAnimeSeason = defaultAnimeSeason();
-  if (typeof options.animeQuery === "string") activeAnimeEpisodeQuery = options.animeQuery;
-  else if (!preserveSearch) activeAnimeEpisodeQuery = "";
+  if (options.animeSeason) appState.activeAnimeSeason = normalizeAnimeSeason(options.animeSeason);
+  else if (!preserveSearch && !animeInfo.episodes.some(episode => episode.season === appState.activeAnimeSeason)) appState.activeAnimeSeason = defaultAnimeSeason();
+  if (typeof options.animeQuery === "string") appState.activeAnimeEpisodeQuery = options.animeQuery;
+  else if (!preserveSearch) appState.activeAnimeEpisodeQuery = "";
   cleanupModelViewer();
-  activatePrimarySection("anime-episodes", { preserveSearch });
+  appServices.activatePrimarySection("anime-episodes", { preserveSearch });
   renderAnimeEpisodesPage();
   rememberAnimeModalContext();
 }
+
+export {
+  openAnimeEpisodeDetail,
+  openCategoryAnimeEpisodesDetail,
+  renderAnimePage
+};
