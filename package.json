@@ -1,0 +1,20 @@
+{
+  "name": "beystadium",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "serve": "node scripts/serve.mjs",
+    "data:build": "node scripts/build-data-index.mjs --build",
+    "data:check": "node scripts/build-data-index.mjs --check",
+    "lint:js": "eslint scripts tests playwright.config.mjs eslint.config.js",
+    "test:data": "node scripts/validate-data.mjs",
+    "test:smoke": "playwright test",
+    "check": "pnpm lint:js && pnpm data:check && pnpm test:data && pnpm test:smoke"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.31.0",
+    "@playwright/test": "^1.54.1",
+    "eslint": "^9.31.0"
+  }
+}

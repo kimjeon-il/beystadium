@@ -1,5 +1,6 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import vm from "node:vm";
+import { pathToFileURL } from "node:url";
 
 const SERIES_SLUGS = {
   "metal fight": "metal-fight",
@@ -197,4 +198,38 @@ export async function rebuildIndex() {
   data.bookItems = existingIndex.search.filter(entry => entry[0] === "k").map(entry => ({ id: entry[1], name: entry[2], en: entry[3], category: entry[4], desc: entry[5] }));
   data.gameItems = existingIndex.search.filter(entry => entry[0] === "g").map(entry => ({ id: entry[1], name: entry[2], en: entry[3], category: entry[4], desc: entry[5] }));
   await writeFile(new URL("../data/index.json", import.meta.url), jsonText(buildIndex(chunks, data)));
+}
+
+export async function checkGeneratedData() {
+  const rootDir = new URL("../", import.meta.url);
+  const data = await readLegacyData(rootDir);
+  const chunks = buildSeriesChunks(data);
+  const mismatches = [];
+  for (const [series, payload] of Object.entries(chunks)) {
+    const generated = JSON.parse(await readFile(new URL(`../data/series/${SERIES_SLUGS[series]}.json`, import.meta.url), "utf8"));
+    if (JSON.stringify(generated) !== JSON.stringify(payload)) mismatches.push(`data/series/${SERIES_SLUGS[series]}.json`);
+  }
+  const generatedAnime = JSON.parse(await readFile(new URL("../data/anime.json", import.meta.url), "utf8"));
+  if (JSON.stringify(generatedAnime) !== JSON.stringify(data.animeInfo)) mismatches.push("data/anime.json");
+  const generatedIndex = JSON.parse(await readFile(new URL("../data/index.json", import.meta.url), "utf8"));
+  if (JSON.stringify(generatedIndex) !== JSON.stringify(buildIndex(chunks, data))) mismatches.push("data/index.json");
+  if (mismatches.length) throw new Error(`Generated data is stale: ${mismatches.join(", ")}`);
+  return true;
+}
+
+const isDirectRun = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
+if (isDirectRun) {
+  const command = process.argv[2] || "--check";
+  if (command === "--build") {
+    await migrateLegacyData();
+    console.log("Runtime data rebuilt.");
+  } else if (command === "--check") {
+    await checkGeneratedData();
+    console.log("Generated data is current.");
+  } else if (command === "--rebuild-index") {
+    await rebuildIndex();
+    console.log("Search index rebuilt.");
+  } else {
+    throw new Error(`Unknown command: ${command}`);
+  }
 }
