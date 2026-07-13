@@ -582,6 +582,7 @@ test("persistent selections use the existing neutral highlight in light and dark
     await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
     await expect(page.locator(".catalog-pagination-nav .ui-button.active")).toBeVisible();
     await expect(page.locator('[data-catalog-filter-chips="catalog"] .active-query-chip')).toBeVisible();
+    if (testInfo.project.name === "desktop") await page.mouse.move(1, 1);
     if (testInfo.project.name === "mobile") {
       await page.locator("#menuButton").click();
       await expect(page.locator("#mobileDrawer")).toBeVisible();
@@ -589,13 +590,19 @@ test("persistent selections use the existing neutral highlight in light and dark
     const colors = await page.evaluate(() => ({
       ...(() => {
         const probe = document.createElement("i");
-        probe.style.cssText = "position:fixed;border:1px solid var(--ui-line);background:var(--ui-control-hover);color:var(--ui-control-text-active)";
+        probe.style.cssText = "position:fixed;border:1px solid var(--ui-line);background:var(--ui-control);color:var(--ui-text)";
         document.body.append(probe);
-        const neutralBackground = getComputedStyle(probe).backgroundColor;
+        const controlBackground = getComputedStyle(probe).backgroundColor;
+        const controlText = getComputedStyle(probe).color;
+        const hoverProbe = document.createElement("i");
+        hoverProbe.style.cssText = "position:fixed;background:var(--ui-control-hover);color:var(--ui-control-text-active)";
+        document.body.append(hoverProbe);
+        const neutralBackground = getComputedStyle(hoverProbe).backgroundColor;
         const neutralBorder = getComputedStyle(probe).borderColor;
-        const neutralText = getComputedStyle(probe).color;
+        const neutralText = getComputedStyle(hoverProbe).color;
         probe.remove();
-        return { neutralBackground, neutralBorder, neutralText };
+        hoverProbe.remove();
+        return { controlBackground, controlText, neutralBackground, neutralBorder, neutralText };
       })(),
       menuBackground: getComputedStyle(document.querySelector(".topbar-primary-button.active")).backgroundColor,
       menuText: getComputedStyle(document.querySelector(".topbar-primary-button.active")).color,
@@ -632,14 +639,21 @@ test("persistent selections use the existing neutral highlight in light and dark
     expect(colors.dropdownText).toBe(colors.neutralText);
     expect(colors.pageBackground).toBe(colors.neutralBackground);
     expect(colors.pageText).toBe(colors.neutralText);
-    expect(colors.chipBackground).toBe(colors.neutralBackground);
+    expect(colors.chipBackground).toBe(colors.controlBackground);
     expect(colors.chipBorder).toBe(colors.neutralBorder);
-    expect(colors.chipText).toBe(colors.neutralText);
+    expect(colors.chipText).toBe(colors.controlText);
     expect(colors.sidebarBackground).toBe(colors.neutralBackground);
     expect(colors.sidebarText).toBe(colors.neutralText);
     expect(colors.sidebarAccentToken).toContain("light-dark(#334155, #d7dee8) 84%");
     expect(colors.sidebarAccentToken).toContain("light-dark(#101827, #f3f6fa) 16%");
     expect(colors.sidebarChannels.marker).toEqual(colors.sidebarChannels.icon);
+
+    if (testInfo.project.name === "desktop") {
+      const chip = page.locator('[data-catalog-filter-chips="catalog"] .active-query-chip');
+      await chip.hover();
+      await expect(chip).toHaveCSS("background-color", colors.neutralBackground);
+      await expect(chip).toHaveCSS("color", colors.neutralText);
+    }
 
     await page.goto("/#toy-release");
     await expect(page.locator(".release-region-tabs .ui-tab-button.active")).toBeVisible();

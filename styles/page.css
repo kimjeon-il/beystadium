@@ -85,11 +85,19 @@
   min-height: var(--catalog-chip-row-height);
   border-radius: var(--catalog-pill-radius);
   border-color: var(--ui-line);
-  background: var(--ui-control-hover);
-  color: var(--ui-control-text-active);
+  background: var(--ui-control);
+  color: var(--ui-text);
   font-size: var(--font-md);
   font-weight: var(--font-weight-medium);
   overflow: hidden;
+  transition: var(--transition-control);
+}
+
+.active-query-chip:hover,
+.active-query-chip:focus-visible,
+.active-query-chip:active {
+  background: var(--ui-control-hover);
+  color: var(--ui-control-text-active);
 }
 
 .active-query-chip:focus-visible {
