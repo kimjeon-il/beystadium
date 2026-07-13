@@ -5,7 +5,7 @@
     "./src/catalog-core.js?v=20260713-lazy-data-v2",
     "./src/release-page.js?v=20260713-lazy-data-v2",
     "./src/anime.js?v=20260713-lazy-data-v2",
-    "./src/router.js?v=20260713-drawer-tooltip"
+    "./src/router.js?v=20260713-no-native-tooltips"
   ];
   const loadScript = src => new Promise((resolve, reject) => {
     const script = document.createElement("script");

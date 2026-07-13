@@ -134,7 +134,6 @@ const bindSearchInput = (input, containerSelector, { onInput, onSubmit = onInput
     clearButton.className = "search-clear";
     clearButton.hidden = true;
     clearButton.setAttribute("aria-label", "검색어 지우기");
-    if (!root.closest(".mobile-drawer")) clearButton.setAttribute("title", "검색어 지우기");
     input.insertAdjacentElement("afterend", clearButton);
     clearButton.addEventListener("click", () => {
       setSearchInputValue(input, "");
@@ -1731,7 +1730,6 @@ const syncMenuButtonMode = () => {
   menuButton.setAttribute("aria-expanded", String(open));
   menuButton.setAttribute("aria-controls", "mobileDrawer");
   menuButton.setAttribute("aria-label", open ? "메뉴 닫기" : "메뉴 열기");
-  menuButton.setAttribute("title", open ? "메뉴 닫기" : "메뉴 열기");
 };
 const setMobileDrawerOpen = open => {
   const nextOpen = Boolean(open && isMobileDrawerMode());
