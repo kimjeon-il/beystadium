@@ -253,12 +253,14 @@ test("episode and release table styles are independent of navigation order", asy
 test("query chips clear only the search query across list routes", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "full query-chip route coverage only needs one browser");
   const errors = consoleErrors(page);
+  const phraseQuery = "스톰 페가시스 공격형";
 
-  await page.goto("/#search?q=드래곤&scope=bey");
+  await page.goto(`/#search?q=${encodeURIComponent(phraseQuery)}&scope=bey`);
   await expect(page.locator('[data-app-panel="all"].active')).toBeVisible();
   const globalChip = page.locator("#searchResultsMeta [data-clear-query]");
-  await expect(globalChip).toHaveText(/검색:\s*드래곤\s*×/);
-  await expect(globalChip).toHaveAttribute("aria-label", "검색어 “드래곤” 제거");
+  await expect(globalChip).toHaveCount(1);
+  await expect(globalChip).toHaveText(/스톰 페가시스 공격형\s*×/);
+  await expect(globalChip).toHaveAttribute("aria-label", `검색어 “${phraseQuery}” 제거`);
   await globalChip.click();
   await expect(page).toHaveURL(/#search\?q=&scope=bey$/);
   await expect(page.locator("#searchResultsMeta [data-clear-query]")).toHaveCount(0);
@@ -285,9 +287,10 @@ test("query chips clear only the search query across list routes", async ({ page
     sort: document.querySelector("[data-catalog-sort].active")?.dataset.catalogSort
   }))).toEqual(catalogState);
 
-  await page.goto("/#anime-character?season=burst&q=강산&page=1");
+  await page.goto(`/#anime-character?season=burst&q=${encodeURIComponent("강산 발키리")}&page=1`);
   await expect(page.locator('[data-app-panel="anime"].active')).toBeVisible();
-  await expect(page.locator('[data-catalog-filter-chips="anime"] [data-clear-query]')).toBeVisible();
+  await expect(page.locator('[data-catalog-filter-chips="anime"] [data-clear-query]')).toHaveCount(1);
+  await expect(page.locator('[data-catalog-filter-chips="anime"] [data-clear-query]')).toContainText("강산 발키리");
   await page.locator('[data-catalog-filter-chips="anime"] [data-clear-query]').click();
   await expect(page).toHaveURL(/#anime-character\?season=burst$/);
   await expect(page.locator("#animeSearchInput")).toHaveValue("");
@@ -301,8 +304,9 @@ test("query chips clear only the search query across list routes", async ({ page
     series: document.querySelector("[data-release-series].active")?.dataset.releaseSeries,
     sort: document.querySelector("[data-release-sort-option].active")?.dataset.releaseSortOption
   }));
-  await page.locator("#releaseSearchInput").fill("베이");
-  await expect(page.locator("[data-release-meta-row] [data-clear-query]")).toBeVisible();
+  await page.locator("#releaseSearchInput").fill("베이 블레이드");
+  await expect(page.locator("[data-release-meta-row] [data-clear-query]")).toHaveCount(1);
+  await expect(page.locator("[data-release-meta-row] [data-clear-query]")).toContainText("베이 블레이드");
   await page.locator("[data-release-meta-row] [data-clear-query]").click();
   await expect(page.locator("#releaseSearchInput")).toHaveValue("");
   await expect(page.locator("[data-release-meta-row] [data-clear-query]")).toHaveCount(0);
@@ -315,12 +319,101 @@ test("query chips clear only the search query across list routes", async ({ page
   await page.goto("/#anime-episode");
   await expect(page.locator(".anime-episode-row").first()).toBeVisible();
   const episodeSeason = await page.locator("[data-anime-season].active").getAttribute("data-anime-season");
-  await page.locator("#animeEpisodeSearchInput").fill("1");
-  await expect(page.locator(".table-list-query-row [data-clear-query]")).toBeVisible();
+  await page.locator("#animeEpisodeSearchInput").fill("운명의 시작");
+  await expect(page.locator(".table-list-query-row [data-clear-query]")).toHaveCount(1);
+  await expect(page.locator(".table-list-query-row [data-clear-query]")).toContainText("운명의 시작");
   await page.locator(".table-list-query-row [data-clear-query]").click();
   await expect(page.locator("#animeEpisodeSearchInput")).toHaveValue("");
   await expect(page.locator(".table-list-query-row")).toHaveCount(0);
   await expect(page.locator(`[data-anime-season="${episodeSeason}"].active`)).toHaveCount(1);
+  expect(errors).toEqual([]);
+});
+
+test("catalog query chips split designated attributes and keep sort alignment stable", async ({ page }, testInfo) => {
+  const errors = consoleErrors(page);
+  const query = "스톰 페가시스 공격형";
+  const chipRoot = page.locator('[data-catalog-filter-chips="catalog"]');
+  const queryChips = chipRoot.locator("[data-query-chip-key]");
+  const searchInput = page.locator("#catalogSearchInput");
+  const routeState = () => page.evaluate(() => {
+    const parameters = new URLSearchParams(window.location.hash.split("?")[1] || "");
+    return {
+      scope: parameters.get("scope"),
+      series: parameters.get("series"),
+      sort: parameters.get("sort"),
+      page: parameters.get("page"),
+      query: parameters.get("q") || ""
+    };
+  });
+  const layout = () => page.evaluate(() => {
+    const actions = document.querySelector(".catalog-query-actions");
+    const dropdown = document.querySelector(".catalog-sort-control");
+    const actionsRect = actions.getBoundingClientRect();
+    const dropdownRect = dropdown.getBoundingClientRect();
+    return {
+      actionsRight: Math.round(actionsRect.right * 100) / 100,
+      dropdownRight: Math.round(dropdownRect.right * 100) / 100,
+      actionGridColumn: getComputedStyle(actions).gridColumnStart,
+      viewportWidth: document.documentElement.clientWidth,
+      documentWidth: document.documentElement.scrollWidth
+    };
+  });
+  const expectAligned = (actual, baseline) => {
+    expect(Math.abs(actual.actionsRight - baseline.actionsRight)).toBeLessThanOrEqual(1);
+    expect(Math.abs(actual.dropdownRight - baseline.dropdownRight)).toBeLessThanOrEqual(1);
+    expect(actual.actionGridColumn).toBe("2");
+    expect(actual.dropdownRight).toBeLessThanOrEqual(actual.viewportWidth + 1);
+    expect(actual.documentWidth).toBeLessThanOrEqual(actual.viewportWidth + 1);
+  };
+
+  await page.goto("/#toy-catalog?scope=bey&series=x&sort=no-desc&page=1");
+  await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
+  await expect(chipRoot).toBeHidden();
+  const emptyLayout = await layout();
+  expectAligned(emptyLayout, emptyLayout);
+
+  await searchInput.fill(query);
+  await expect(queryChips).toHaveCount(2);
+  await expect(queryChips.nth(0)).toHaveText(/스톰 페가시스\s*×/);
+  await expect(queryChips.nth(1)).toHaveText(/공격형\s*×/);
+  await expect(queryChips.nth(0)).toHaveAttribute("aria-label", "검색어 “스톰 페가시스” 제거");
+  await expect(queryChips.nth(1)).toHaveAttribute("aria-label", "검색어 “공격형” 제거");
+  await expect.poll(async () => (await routeState()).query).toBe(query);
+  expect(await routeState()).toEqual({ scope: "bey", series: "x", sort: "no-desc", page: "1", query });
+  expectAligned(await layout(), emptyLayout);
+
+  await queryChips.nth(1).click();
+  await expect(searchInput).toHaveValue("스톰 페가시스");
+  await expect(queryChips).toHaveCount(1);
+  await expect(queryChips).toContainText("스톰 페가시스");
+  await expect.poll(async () => (await routeState()).query).toBe("스톰 페가시스");
+  expectAligned(await layout(), emptyLayout);
+
+  await queryChips.click();
+  await expect(searchInput).toHaveValue("");
+  await expect(chipRoot).toBeHidden();
+  await expect.poll(async () => (await routeState()).query).toBe("");
+  expect(await routeState()).toEqual({ scope: "bey", series: "x", sort: "no-desc", page: "1", query: "" });
+  expectAligned(await layout(), emptyLayout);
+
+  await searchInput.fill(query);
+  await expect(queryChips).toHaveCount(2);
+  await queryChips.nth(0).click();
+  await expect(searchInput).toHaveValue("공격형");
+  await expect(queryChips).toHaveCount(1);
+  await expect(queryChips).toContainText("공격형");
+  await expect.poll(async () => (await routeState()).query).toBe("공격형");
+  expectAligned(await layout(), emptyLayout);
+
+  if (testInfo.project.name === "desktop") {
+    const compoundQuery = "드랜 버스터 메인 블레이드";
+    await searchInput.fill(compoundQuery);
+    await expect(queryChips).toHaveCount(2);
+    await expect(queryChips.nth(0)).toContainText("드랜 버스터");
+    await expect(queryChips.nth(1)).toContainText("메인블레이드");
+    await expect.poll(async () => (await routeState()).query).toBe(compoundQuery);
+    expectAligned(await layout(), emptyLayout);
+  }
   expect(errors).toEqual([]);
 });
 

@@ -394,27 +394,6 @@ const toolsSearchFields = (item, options = {}) => {
   ];
 };
 const catalogAttributeChipAliasKey = value => compactSearchSpacing(lowerSearchText(value));
-const burstBeySystemBaseTermLabels = new Map(
-  Object.values(burstBeySystemFilterGroups)
-    .flatMap(group => (group.aliases || []).map(alias => [catalogAttributeChipAliasKey(alias), group.label]))
-);
-const catalogSystemTermKey = catalogAttributeChipAliasKey("시스템");
-const catalogFilterQueryTerms = query => {
-  const terms = catalogSearchQueryTerms(query);
-  const mergedTerms = [];
-  for (let index = 0; index < terms.length; index += 1) {
-    const term = terms[index];
-    const nextTermKey = catalogAttributeChipAliasKey(terms[index + 1] || "");
-    const burstSystemLabel = burstBeySystemBaseTermLabels.get(catalogAttributeChipAliasKey(term));
-    if (burstSystemLabel && nextTermKey === catalogSystemTermKey) {
-      mergedTerms.push(burstSystemLabel);
-      index += 1;
-      continue;
-    }
-    mergedTerms.push(term);
-  }
-  return mergedTerms;
-};
 const catalogAttributeChipCandidates = (() => {
   const candidates = [];
   const seenKeys = new Set();
@@ -477,6 +456,60 @@ const catalogFilterChipLabelForTerm = (candidate, term) => {
   if (modernLabel && termKey === catalogAttributeChipAliasKey(modernLabel)) return modernLabel;
   return candidate.label;
 };
+const catalogAttributeSegmentAt = (terms, start) => {
+  for (let end = terms.length; end > start; end -= 1) {
+    const term = terms.slice(start, end).join(" ");
+    const candidate = catalogAttributeChipForTerm(term);
+    if (candidate) return { kind: "attribute", start, end, term, candidate };
+  }
+  return null;
+};
+const catalogQuerySegments = query => {
+  const terms = catalogSearchQueryTerms(query);
+  const segments = [];
+  for (let index = 0; index < terms.length;) {
+    const attribute = catalogAttributeSegmentAt(terms, index);
+    if (attribute) {
+      segments.push(attribute);
+      index = attribute.end;
+      continue;
+    }
+    segments.push({ kind: "text", start: index, end: index + 1, term: terms[index] });
+    index += 1;
+  }
+  return { terms, segments };
+};
+const catalogFilterQueryTerms = query => catalogQuerySegments(query).segments.map(segment => segment.term);
+const catalogQueryChipRecords = query => {
+  const { terms, segments } = catalogQuerySegments(query);
+  const textSegments = segments.filter(segment => segment.kind === "text");
+  const records = segments
+    .filter(segment => segment.kind === "attribute")
+    .map(segment => ({
+      key: `attribute:${segment.start}:${segment.end}`,
+      label: catalogFilterChipLabelForTerm(segment.candidate, segment.term),
+      start: segment.start,
+      termIndexes: Array.from({ length: segment.end - segment.start }, (_, index) => segment.start + index)
+    }));
+  if (textSegments.length) {
+    records.push({
+      key: "text",
+      label: textSegments.map(segment => segment.term).join(" "),
+      start: textSegments[0].start,
+      termIndexes: textSegments.map(segment => segment.start)
+    });
+  }
+  records.sort((a, b) => a.start - b.start);
+  return { terms, records };
+};
+const catalogQueryChips = query => catalogQueryChipRecords(query).records.map(({ key, label }) => ({ key, label }));
+const removeCatalogQueryChip = (query, key) => {
+  const { terms, records } = catalogQueryChipRecords(query);
+  const record = records.find(entry => entry.key === key);
+  if (!record) return String(query || "").trim();
+  const removedIndexes = new Set(record.termIndexes);
+  return terms.filter((term, index) => term && !removedIndexes.has(index)).join(" ");
+};
 const normalizeCatalogFilterTerms = query => {
   const terms = catalogFilterQueryTerms(query);
   if (!terms.length) return String(query || "").trim();
@@ -524,6 +557,7 @@ export {
   catalogFilterChipLabelForTerm,
   catalogFilterQueryTerms,
   catalogItemSearchFields,
+  catalogQueryChips,
   catalogSearchQuery,
   compareScoredSearchResults,
   createSearchRecord,
@@ -536,6 +570,7 @@ export {
   normalizeSearchScope,
   prepareCatalogSearchQuery,
   prepareSearchQuery,
+  removeCatalogQueryChip,
   searchFieldsFromValues,
   searchQueryFrom,
   searchScopeLabel,

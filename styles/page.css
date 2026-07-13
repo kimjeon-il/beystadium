@@ -97,7 +97,6 @@
   box-shadow: var(--ui-focus-ring), var(--shadow-hover);
 }
 
-.active-query-chip__prefix,
 .active-query-chip__remove {
   flex: 0 0 auto;
   white-space: nowrap;
@@ -156,6 +155,11 @@
   min-width: 0;
 }
 
+.category-collection__meta-row > .catalog-filter-chips,
+.catalog-query-row > .catalog-filter-chips {
+  grid-column: 1;
+}
+
 .catalog-query-row .catalog-filter-chips:not(.is-empty) {
   flex-wrap: nowrap;
   overflow-x: auto;
@@ -176,6 +180,7 @@
   justify-self: end;
   align-self: center;
   margin-right: calc(var(--query-action-edge-offset) * -1);
+  grid-column: 2;
 }
 
 .catalog-query-count {
@@ -183,6 +188,10 @@
   min-width: max-content;
   justify-self: auto;
   align-self: center;
+}
+
+.catalog-query-row > .catalog-query-count {
+  grid-column: 2;
 }
 
 .list-sort-control {

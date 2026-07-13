@@ -8,8 +8,10 @@ import {
   sortDropdownMarkup
 } from "#app/release-core";
 import {
+  catalogQueryChips,
   catalogSearchQuery,
-  normalizeCatalogSearchInput
+  normalizeCatalogSearchInput,
+  removeCatalogQueryChip
 } from "#app/search-engine";
 import { closeSearchHelpPopovers, initializeSearchHelpController } from "#app/search-help-controller";
 import {
@@ -127,7 +129,7 @@ const catalogSortDropdownMarkup = () => sortDropdownMarkup({
 const renderCatalogFilterChips = () => {
   const root = document.querySelector('[data-catalog-filter-chips="catalog"]');
   if (root) {
-    const markup = queryChipMarkup(catalogSearchQuery());
+    const markup = queryChipMarkup(catalogQueryChips(catalogSearchQuery()));
     root.innerHTML = markup;
     root.hidden = !markup;
     root.classList.toggle("is-empty", !markup);
@@ -187,8 +189,9 @@ const initializeCatalogFeature = () => {
   });
   const queryChips = document.querySelector('[data-catalog-filter-chips="catalog"]');
   queryChips?.addEventListener("click", event => {
-    if (!event.target.closest("[data-clear-query]")) return;
-    setSearchInputValue(catalogSearch, "");
+    const chip = event.target.closest("[data-query-chip-key]");
+    if (!chip) return;
+    setSearchInputValue(catalogSearch, removeCatalogQueryChip(catalogSearchQuery(), chip.dataset.queryChipKey));
     appState.currentCatalogPage = 1;
     refreshCatalogState();
     syncCatalogRouteHash({ overrides: { page: 1 } });
