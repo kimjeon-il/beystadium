@@ -49,7 +49,7 @@ function partModalTags(item) {
 
 let modalTagPopover = null;
 let modalTagPinned = false;
-const isTouchPointer = () => window.matchMedia("(hover: none), (pointer: coarse)").matches;
+const isHoverPointer = event => event.pointerType !== "touch";
 
 function closeModalTagPopover() {
   if (appState.activeModalTagButton) {
@@ -103,11 +103,11 @@ function openModalTagPopover(button, { pinned = false } = {}) {
 function bindModalTagPopovers(scope = document) {
   scope.querySelectorAll(".modal-tag-info").forEach(button => {
     let focusOpened = false;
-    button.addEventListener("mouseenter", () => {
-      if (!isTouchPointer()) openModalTagPopover(button);
+    button.addEventListener("pointerenter", event => {
+      if (isHoverPointer(event)) openModalTagPopover(button);
     });
-    button.addEventListener("mouseleave", () => {
-      if (!isTouchPointer() && !modalTagPinned) closeModalTagPopover();
+    button.addEventListener("pointerleave", event => {
+      if (isHoverPointer(event) && !modalTagPinned) closeModalTagPopover();
     });
     button.addEventListener("focus", () => {
       focusOpened = true;

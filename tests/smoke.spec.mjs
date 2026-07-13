@@ -284,6 +284,67 @@ test("detail route restores modal and internal navigation hash", async ({ page }
   expect(errors).toEqual([]);
 });
 
+test("modal tag popovers follow the active pointer type", async ({ page }, testInfo) => {
+  const mobile = testInfo.project.name === "mobile";
+  if (!mobile) {
+    await page.addInitScript(() => {
+      const nativeMatchMedia = window.matchMedia.bind(window);
+      window.matchMedia = query => {
+        const result = nativeMatchMedia(query);
+        if (query !== "(hover: none), (pointer: coarse)") return result;
+        return {
+          matches: true,
+          media: result.media,
+          onchange: result.onchange,
+          addListener: result.addListener.bind(result),
+          removeListener: result.removeListener.bind(result),
+          addEventListener: result.addEventListener.bind(result),
+          removeEventListener: result.removeEventListener.bind(result),
+          dispatchEvent: result.dispatchEvent.bind(result)
+        };
+      };
+    });
+  }
+
+  await page.goto("/#BEY-X-BX-03");
+  await expect(page.locator("#detailModal")).toBeVisible();
+  const tag = page.locator('.modal-tag-info[data-tag-label="스태미나형"]');
+  await expect(tag).toHaveCount(1);
+  const popover = page.locator(".modal-tag-popover");
+
+  if (mobile) {
+    await tag.tap();
+    await expect(popover).toBeVisible();
+    await expect(tag).toHaveAttribute("aria-expanded", "true");
+    await tag.tap();
+    await expect(popover).toHaveCount(0);
+    await expect(tag).toHaveAttribute("aria-expanded", "false");
+    return;
+  }
+
+  await tag.hover();
+  await expect(popover).toBeVisible();
+  await expect(tag).toHaveAttribute("aria-expanded", "true");
+  await expect(tag).toHaveAttribute("aria-describedby", /modal-tag-popover-/);
+
+  await page.locator(".modal-name").hover();
+  await expect(popover).toHaveCount(0);
+  await expect(tag).toHaveAttribute("aria-expanded", "false");
+
+  await tag.click();
+  await expect(popover).toBeVisible();
+  await page.locator(".modal-name").hover();
+  await expect(popover).toBeVisible();
+  await tag.click();
+  await expect(popover).toHaveCount(0);
+
+  await page.locator("#modalClose").focus();
+  await tag.focus();
+  await expect(popover).toBeVisible();
+  await page.keyboard.press("Tab");
+  await expect(popover).toHaveCount(0);
+});
+
 test("mobile drawer opens and exposes category navigation", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "mobile", "mobile-only behavior");
   const errors = consoleErrors(page);
