@@ -34,6 +34,29 @@ const animeLayoutSnapshot = page => page.evaluate(() => {
   };
 });
 
+const tableListTitleSnapshot = (page, selector) => page.locator(selector).first().evaluate(element => {
+  const rounded = value => Math.round(value * 100) / 100;
+  const rect = element.getBoundingClientRect();
+  const cellRect = element.closest("td")?.getBoundingClientRect();
+  const rowRect = element.closest("tr")?.getBoundingClientRect();
+  const style = getComputedStyle(element);
+  return {
+    display: style.display,
+    fontFamily: style.fontFamily,
+    fontSize: style.fontSize,
+    fontWeight: style.fontWeight,
+    lineHeight: style.lineHeight,
+    color: style.color,
+    overflow: style.overflow,
+    textOverflow: style.textOverflow,
+    whiteSpace: style.whiteSpace,
+    width: rounded(rect.width),
+    height: rounded(rect.height),
+    cellWidth: rounded(cellRect?.width || 0),
+    rowHeight: rounded(rowRect?.height || 0)
+  };
+});
+
 test("primary routes render without runtime errors", async ({ page }) => {
   const errors = consoleErrors(page);
   for (const hash of ["", "#toy-catalog?scope=bey&series=x", "#toy-release", "#anime-character", "#anime-episode"]) {
@@ -163,6 +186,68 @@ test("anime character layout is independent of prior catalog navigation", async 
   expect(directLayout).toEqual(afterCatalogLayout);
   await directContext.close();
   await catalogContext.close();
+});
+
+test("episode and release table styles are independent of navigation order", async ({ browser }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "layout order coverage only needs one browser");
+
+  const directContext = await browser.newContext();
+  const directPage = await directContext.newPage();
+  const directStyleRequests = [];
+  directPage.on("request", request => {
+    const pathname = new URL(request.url()).pathname;
+    if (pathname.includes("/styles/")) directStyleRequests.push(pathname);
+  });
+  await directPage.goto("/#anime-episode");
+  await expect(directPage.locator(".anime-episode-title").first()).toBeVisible();
+  const directEpisodeTitle = await tableListTitleSnapshot(directPage, ".anime-episode-title");
+
+  expect(directEpisodeTitle.fontWeight).toBe("450");
+  expect(directEpisodeTitle.display).toBe("block");
+  expect(directEpisodeTitle.overflow).toBe("hidden");
+  expect(directEpisodeTitle.textOverflow).toBe("ellipsis");
+  expect(directEpisodeTitle.whiteSpace).toBe("nowrap");
+  expect(directStyleRequests).toContain("/styles/table.css");
+  expect(directStyleRequests).toContain("/styles/anime.css");
+  expect(directStyleRequests).not.toContain("/styles/release.css");
+  await expect(directPage.locator(".anime-episode-controls .table-list-search-box")).toBeVisible();
+  await expect(directPage.locator(".anime-episode-controls .table-list-dropdown")).toBeVisible();
+  expect(await directPage.locator("[data-anime-episodes-page-content] [class]").evaluateAll(elements =>
+    elements.flatMap(element => [...element.classList].filter(className => className.startsWith("release-")))
+  )).toEqual([]);
+
+  await directPage.locator("#animeEpisodeSearchInput").fill("__등록되지_않은_방영목록__");
+  await expect(directPage.locator(".table-list-empty-row")).toBeVisible();
+  await expect(directPage.locator(".table-list-empty-row")).not.toHaveClass(/release-empty-row/);
+
+  const crossContext = await browser.newContext();
+  const crossPage = await crossContext.newPage();
+  const crossStyleRequests = [];
+  crossPage.on("request", request => {
+    const pathname = new URL(request.url()).pathname;
+    if (pathname.includes("/styles/")) crossStyleRequests.push(pathname);
+  });
+
+  await crossPage.goto("/#toy-release");
+  await expect(crossPage.locator(".release-product-link").first()).toBeVisible();
+  const directReleaseTitle = await tableListTitleSnapshot(crossPage, ".release-product-link");
+  const releaseStylesBeforeAnime = [...crossStyleRequests];
+  expect(releaseStylesBeforeAnime).toContain("/styles/table.css");
+  expect(releaseStylesBeforeAnime).toContain("/styles/release.css");
+  expect(releaseStylesBeforeAnime).not.toContain("/styles/anime.css");
+
+  await crossPage.goto("/#anime-episode");
+  await expect(crossPage.locator(".anime-episode-title").first()).toBeVisible();
+  const episodeTitleAfterRelease = await tableListTitleSnapshot(crossPage, ".anime-episode-title");
+  expect(episodeTitleAfterRelease).toEqual(directEpisodeTitle);
+
+  await crossPage.goto("/#toy-release");
+  await expect(crossPage.locator(".release-product-link").first()).toBeVisible();
+  const releaseTitleAfterAnime = await tableListTitleSnapshot(crossPage, ".release-product-link");
+  expect(releaseTitleAfterAnime).toEqual(directReleaseTitle);
+
+  await directContext.close();
+  await crossContext.close();
 });
 
 test("anime route stays masked until collection styles are ready", async ({ page }, testInfo) => {

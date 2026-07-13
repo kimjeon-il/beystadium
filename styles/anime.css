@@ -1,5 +1,5 @@
 @layer anime {
-.anime-character-season-filter .release-dropdown {
+.anime-character-season-filter .table-list-dropdown {
   --dropdown-item-min-width: 0;
   --dropdown-item-padding: 0 12px;
   --dropdown-item-overflow: hidden;
@@ -61,6 +61,10 @@
   text-align: left;
 }
 
+.anime-episode-title {
+  font-weight: var(--font-weight-medium);
+}
+
 @container (max-width: 39.999rem) {
 .anime-episode-table {
     --anime-table-min-width: 0;
@@ -70,8 +74,8 @@
 }
 
 .anime-toolbar {
-  --release-series-dropdown-width: 14.5rem;
-  --catalog-toolbar-columns: minmax(13.5rem, var(--release-series-dropdown-width)) minmax(0, 1fr);
+  --anime-season-dropdown-width: 14.5rem;
+  --catalog-toolbar-columns: minmax(13.5rem, var(--anime-season-dropdown-width)) minmax(0, 1fr);
   grid-template-areas: "series search";
 }
 

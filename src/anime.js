@@ -223,11 +223,11 @@ const animeEpisodeRowsMarkup = visibleRows => {
     const airDate = episode.airDates?.[animeDisplayRegion] || "";
     return `<tr class="table-list-row anime-episode-row" role="button" tabindex="0" data-anime-episode-index="${index}">
     <td>${escapeHtml(episode.no || "")}</td>
-    <td><span class="release-product-link">${escapeHtml(episode.titles?.[animeDisplayRegion] || "")}</span></td>
+    <td><span class="table-list-primary-text anime-episode-title">${escapeHtml(episode.titles?.[animeDisplayRegion] || "")}</span></td>
     <td>${responsiveDateSpans("anime-air-date-full", "anime-air-date-compact", animeAirDateLabel(airDate), animeAirDateCompactLabel(airDate))}</td>
   </tr>`;
   }).join("");
-  return rows || `<tr class="table-list-empty-row release-empty-row"><td colspan="3">등록된 방영목록이 없습니다.</td></tr>`;
+  return rows || `<tr class="table-list-empty-row"><td colspan="3">등록된 방영목록이 없습니다.</td></tr>`;
 };
 
 const animeEpisodesMarkup = () => {
@@ -265,7 +265,7 @@ const animeEpisodeTableController = new TableListController({
       controller.renderPage();
     }));
     const animeSearch = animePanel.querySelector("#animeEpisodeSearchInput");
-    appServices.bindSearchInput(animeSearch, ".release-search-box", { onInput: searchInput => {
+    appServices.bindSearchInput(animeSearch, ".table-list-search-box", { onInput: searchInput => {
       appState.activeAnimeEpisodeQuery = searchInput.value.trim();
       controller.renderPage();
       const nextInput = animeEpisodesPageRoot()?.querySelector("#animeEpisodeSearchInput");

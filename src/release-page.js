@@ -142,13 +142,13 @@ const productReleaseTableRows = (region = appState.activeReleaseRegion, series =
     const productName = release.name || item.name || "";
     return `<tr class="table-list-row release-product-row" role="button" tabindex="0" data-product-id="${item.id}" data-release-region="${region}">
     <td>${release.no || ""}</td>
-    <td><span class="release-product-cell"><span class="release-product-link">${escapeHtml(productName)}</span>${releaseBadgesMarkup(item, region)}</span></td>
+    <td><span class="release-product-cell"><span class="table-list-primary-text release-product-link">${escapeHtml(productName)}</span>${releaseBadgesMarkup(item, region)}</span></td>
     <td>${release.kind || ""}</td>
     <td>${responsiveDateSpans("release-date-full", "release-date-compact", releaseDateLabel(releaseDate), releaseDateCompactLabel(releaseDate))}</td>
     <td>${priceLabel(release.price, region)}</td>
   </tr>`;
   }).join("");
-  return rows || `<tr class="table-list-empty-row release-empty-row"><td colspan="5">검색 결과가 없습니다.</td></tr>`;
+  return rows || `<tr class="table-list-empty-row"><td colspan="5">검색 결과가 없습니다.</td></tr>`;
 };
 const releaseTableMarkup = (region = appState.activeReleaseRegion, series = appState.activeReleaseSeries) => tableListTableMarkup({
   scrollClass: "release-table-scroll",
@@ -218,7 +218,7 @@ const releaseTableController = new TableListController({
       openCategoryReleaseDetail({ region: appState.activeReleaseRegion, series: appState.activeReleaseSeries });
     }));
     const releaseSearch = contentRoot.querySelector("#releaseSearchInput");
-    appServices.bindSearchInput(releaseSearch, ".release-search-box", { onInput: searchInput => {
+    appServices.bindSearchInput(releaseSearch, ".table-list-search-box", { onInput: searchInput => {
       appState.activeReleaseQuery = searchInput.value.trim();
       rememberReleaseModalContext();
       controller.renderTable(contentRoot);

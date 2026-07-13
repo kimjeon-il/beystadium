@@ -1,16 +1,15 @@
 @layer table {
-.table-list-controls,
-.release-dropdowns {
-  --release-region-tabs-width: 8rem;
-  --release-series-dropdown-width: 14.5rem;
-  --release-grid-columns: minmax(7.5rem, var(--release-region-tabs-width)) minmax(13.5rem, var(--release-series-dropdown-width)) minmax(0, 1fr);
-  --release-grid-areas: "region series search";
+.table-list-controls {
+  --table-list-region-tabs-width: 8rem;
+  --table-list-dropdown-width: 14.5rem;
+  --table-list-grid-columns: minmax(7.5rem, var(--table-list-region-tabs-width)) minmax(13.5rem, var(--table-list-dropdown-width)) minmax(0, 1fr);
+  --table-list-grid-areas: "region series search";
   width: 100%;
   max-width: 100%;
   margin: 0;
   display: grid;
-  grid-template-columns: var(--release-grid-columns);
-  grid-template-areas: var(--release-grid-areas);
+  grid-template-columns: var(--table-list-grid-columns);
+  grid-template-areas: var(--table-list-grid-areas);
   align-items: flex-start;
   gap: var(--catalog-control-row-gap, var(--filter-dropdown-gap, var(--space-3)));
   justify-content: start;
@@ -18,28 +17,24 @@
   z-index: 5;
 }
 
-.table-list-controls[data-anime-controls],
-.release-dropdowns[data-anime-controls] {
-  --release-grid-columns: minmax(13.5rem, var(--release-series-dropdown-width)) minmax(0, 1fr);
-  --release-grid-areas: "series search";
+.table-list-controls[data-anime-controls] {
+  --table-list-grid-columns: minmax(13.5rem, var(--table-list-dropdown-width)) minmax(0, 1fr);
+  --table-list-grid-areas: "series search";
 }
 
-.table-list-controls > .release-region-tabs,
-.release-dropdowns > .release-region-tabs {
+.table-list-controls > .release-region-tabs {
   grid-area: region;
 }
 
-.table-list-controls > .release-dropdown,
-.release-dropdowns > .release-dropdown {
+.table-list-controls > .table-list-dropdown {
   grid-area: series;
 }
 
-.table-list-controls > .release-search-box,
-.release-dropdowns > .release-search-box {
+.table-list-controls > .table-list-search-box {
   grid-area: search;
 }
 
-.release-search-box {
+.table-list-search-box {
   width: 100%;
   min-width: 0;
   max-width: none;
@@ -73,8 +68,7 @@
   line-height: 1;
 }
 
-.table-list-section,
-.release-table-section {
+.table-list-section {
   --table-header-control-height: 28px;
   width: 100%;
   min-height: 0;
@@ -101,12 +95,11 @@
   container-type: inline-size;
 }
 
-.table-list-shell,
-.release-page-shell {
+.table-list-shell {
   --modal-body-width: 100%;
   --modal-flow-gap: 12px;
-  --release-content-inset: 0px;
-  --release-scrollbar-x-shift: 0px;
+  --table-list-content-inset: 0px;
+  --table-list-scrollbar-x-shift: 0px;
   width: 100%;
   max-width: var(--catalog-content-max, var(--catalog-grid-max-width, var(--page-max)));
   min-height: 0;
@@ -123,11 +116,11 @@
   container-type: inline-size;
   box-sizing: border-box;
   flex: 1 1 auto;
-  width: calc(100% + var(--release-scrollbar-x-shift, 0px));
+  width: calc(100% + var(--table-list-scrollbar-x-shift, 0px));
   margin-left: 0;
-  margin-right: calc(var(--release-scrollbar-x-shift, 0px) * -1);
+  margin-right: calc(var(--table-list-scrollbar-x-shift, 0px) * -1);
   padding-left: 0;
-  padding-right: var(--release-scrollbar-x-shift, 0px);
+  padding-right: var(--table-list-scrollbar-x-shift, 0px);
   min-height: 0;
   max-height: none;
   overflow-x: auto;
@@ -149,23 +142,18 @@
   -webkit-overflow-scrolling: touch;
 }
 
-.table-list-section .ui-data-table th,
-.release-table-section .ui-data-table th {
+.table-list-section .ui-data-table th {
   padding-top: 8px;
   line-height: var(--table-header-control-height);
 }
 
 .table-list-section .ui-data-table th:first-child,
-.table-list-section .ui-data-table td:first-child,
-.release-table-section .ui-data-table th:first-child,
-.release-table-section .ui-data-table td:first-child {
+.table-list-section .ui-data-table td:first-child {
   padding-left: 12px;
 }
 
 .table-list-section .ui-data-table th:last-child,
-.table-list-section .ui-data-table td:last-child,
-.release-table-section .ui-data-table th:last-child,
-.release-table-section .ui-data-table td:last-child {
+.table-list-section .ui-data-table td:last-child {
   padding-right: 12px;
 }
 
@@ -179,37 +167,26 @@
   display: none;
 }
 
-.table-list-row,
-.anime-episode-row,
-.release-product-row {
+.table-list-row {
   cursor: pointer;
   outline: 0;
 }
 
 .table-list-table tbody .table-list-row:hover td,
-.table-list-table tbody .table-list-row:focus-visible td,
-.anime-episode-table tbody .anime-episode-row:hover td,
-.anime-episode-table tbody .anime-episode-row:focus-visible td,
-.release-table tbody .release-product-row:hover td,
-.release-table tbody .release-product-row:focus-visible td {
+.table-list-table tbody .table-list-row:focus-visible td {
   background: var(--ui-control-hover);
   color: var(--ui-text);
 }
 
-.table-list-table tbody td:first-child,
-.anime-episode-table tbody td:first-child,
-.release-table tbody td:first-child {
+.table-list-table tbody td:first-child {
   border-radius: var(--ui-radius) 0 0 var(--ui-radius);
 }
 
-.table-list-table tbody td:last-child,
-.anime-episode-table tbody td:last-child,
-.release-table tbody td:last-child {
+.table-list-table tbody td:last-child {
   border-radius: 0 var(--ui-radius) var(--ui-radius) 0;
 }
 
-.table-list-empty-row td,
-.release-empty-row td {
+.table-list-empty-row td {
   height: 120px;
   padding: 11px 12px;
   border-radius: 0;
@@ -217,6 +194,19 @@
   color: var(--ui-muted);
   text-align: center;
   cursor: default;
+}
+
+.table-list-primary-text {
+  color: var(--ui-text);
+  text-align: left;
+  display: block;
+  flex: 0 1 auto;
+  width: auto;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 @container (max-width: 39.999rem) {
@@ -328,16 +318,16 @@
 }
 
 @media (max-width: 39.999rem) {
-.release-dropdowns {
-    --release-grid-columns: minmax(0, 8fr) minmax(0, 14.5fr);
-    --release-grid-areas:
+.table-list-controls {
+    --table-list-grid-columns: minmax(0, 8fr) minmax(0, 14.5fr);
+    --table-list-grid-areas:
       "region series"
       "search search";
   }
 
-.release-dropdowns[data-anime-controls] {
-    --release-grid-columns: 1fr;
-    --release-grid-areas:
+.table-list-controls[data-anime-controls] {
+    --table-list-grid-columns: 1fr;
+    --table-list-grid-areas:
       "series"
       "search";
   }

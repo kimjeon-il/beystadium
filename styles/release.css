@@ -121,17 +121,7 @@
 }
 
 .release-product-link {
-  color: var(--ui-text);
   font-weight: var(--font-weight-medium);
-  text-align: left;
-  display: block;
-  flex: 0 1 auto;
-  width: auto;
-  max-width: 100%;
-  min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .release-product-link:hover {

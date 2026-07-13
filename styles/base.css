@@ -1163,7 +1163,8 @@ html.route-booting .to-top {
   max-height: 100%;
 }
 
-.release-dropdown {
+.table-list-dropdown,
+.catalog-series-dropdown {
   --catalog-dropdown-menu-z: 45;
   --dropdown-item-justify: center;
   --dropdown-item-padding: 0;
@@ -1174,7 +1175,7 @@ html.route-booting .to-top {
   flex: 0 0 auto;
 }
 
-.anime-episode-controls .release-dropdown {
+.anime-episode-controls .table-list-dropdown {
   --dropdown-item-min-width: 0;
   --dropdown-item-padding: 0 12px;
   --dropdown-item-overflow: hidden;

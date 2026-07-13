@@ -207,25 +207,25 @@ const tableListTableMarkup = ({ scrollClass = "", tableClass = "", head = "", bo
     <tbody>${body}</tbody>
   </table>
 </div>`;
-const tableListSectionMarkup = tableMarkup => `<section class="table-list-section release-table-section">${tableMarkup}</section>`;
+const tableListSectionMarkup = tableMarkup => `<section class="table-list-section">${tableMarkup}</section>`;
 const tableListPageMarkup = ({ className = "", attrs = "", controlsMarkup = "", metaMarkup = "", tableMarkup = "" } = {}) =>
   `<section class="${tableListClassName("table-list-page", className)}"${attrs ? ` ${attrs}` : ""}>
     ${controlsMarkup}
     ${metaMarkup}
     ${tableListSectionMarkup(tableMarkup)}
   </section>`;
-const tableListSearchBoxMarkup = ({ id, value = "", className = "release-search-box" } = {}) =>
-  `<div class="search-box ${className}" role="search">
+const tableListSearchBoxMarkup = ({ id, value = "", className = "" } = {}) =>
+  `<div class="${tableListClassName("search-box", "table-list-search-box", className)}" role="search">
     <span class="search-icon" aria-hidden="true"></span>
     <input id="${escapeAttributeValue(id)}" type="search" placeholder="검색어를 입력해주세요." value="${escapeAttributeValue(value)}" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none" />
   </div>`;
-const tableListDropdownMarkup = ({ label = "", entries = [], activeValue = "", dataAttr = "" } = {}) => `<details class="catalog-dropdown release-dropdown">
+const tableListDropdownMarkup = ({ label = "", entries = [], activeValue = "", dataAttr = "", className = "" } = {}) => `<details class="${tableListClassName("catalog-dropdown", "table-list-dropdown", className)}">
   <summary><b class="catalog-dropdown-value">${escapeHtml(label)}</b></summary>
   <div class="catalog-dropdown-menu">
     ${releaseDropdownOptions(entries, activeValue, dataAttr)}
   </div>
 </details>`;
-const tableListControlsMarkup = ({ label = "", className = "", before = "", dropdown = null, search = null, attrs = "" } = {}) => `<div class="${tableListClassName("table-list-controls", "release-dropdowns", className)}"${attrs ? ` ${attrs}` : ""} aria-label="${escapeAttributeValue(label)}">
+const tableListControlsMarkup = ({ label = "", className = "", before = "", dropdown = null, search = null, attrs = "" } = {}) => `<div class="${tableListClassName("table-list-controls", className)}"${attrs ? ` ${attrs}` : ""} aria-label="${escapeAttributeValue(label)}">
   ${before || ""}
   ${dropdown ? tableListDropdownMarkup(dropdown) : ""}
   ${search ? tableListSearchBoxMarkup(search) : ""}
@@ -246,7 +246,6 @@ class TableListController {
   tableSection(root = document) {
     return this.config.tableSection?.(root)
       || root.querySelector?.(".table-list-section")
-      || root.querySelector?.(".release-table-section")
       || null;
   }
 
