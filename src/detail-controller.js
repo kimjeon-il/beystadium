@@ -6,7 +6,9 @@ import { beyDetailSections, beyModalTags, bindModalTagPopovers, cleanupModelView
 import { openAnimeEpisodeDetail, openCategoryReleaseDetail } from "#app/feature-loaders";
 import { bindModalDescriptionExpanders, cancelModalViewportSync, clearModalLockStyles, closeModalSession, finishModalOpen, modal, modalBackButtonMarkup, modalController, partStats, queueModalStepDirection, queueModalTransition, routeIfNeeded, scheduleModalDescriptionMeasure, setModalContent } from "#app/modal-controller";
 import { restorePageScroll, validScrollY } from "#app/modal-context";
-import { getModalCloseRoute, navigateToRoute, normalizeRoute } from "#app/route-core";
+import { normalizeRoute } from "#app/route-parser";
+import { getModalCloseRoute, navigateToRoute } from "#app/navigation";
+import { registerAppServices } from "#app/services";
 import { RARE_BEY_GET_BADGE, escapeAttributeValue, escapeHtml, productDisplayName, productDisplayRegion, productRelease, productReleasedInRegion, rareBeyGetEntryProductIds, rareBeyGetEntryRegion, rareBeyGetEntryStartSortValue, releaseDateSortValue, releaseHasBadge, releaseRegionLabels, releaseSeriesLabels, visibleRareBeyGetEntries } from "#app/release-core";
 import { partDisplayTypeLabel, typeLabels } from "#app/ui-core";
 
@@ -520,6 +522,22 @@ modal.addEventListener("cancel", event => {
 modal.addEventListener("close", () => {
   cancelModalViewportSync();
   clearModalLockStyles();
+});
+
+registerAppServices({
+  cleanupModelViewer,
+  finishModalOpen,
+  itemDisplayName,
+  modal,
+  modalBackButtonMarkup,
+  openBookDetail,
+  openDetail,
+  openGameDetail,
+  openProductEntry,
+  openToolsDetail,
+  queueModalTransition,
+  routeIfNeeded,
+  setModalContent
 });
 
 

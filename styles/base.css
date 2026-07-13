@@ -1,4 +1,8 @@
+@layer base, collection, table, release, anime, catalog, search, modal;
+
+@layer base {
 * { box-sizing: border-box; }
+
 @font-face {
   font-family: "Pretendard Variable";
   font-style: normal;
@@ -7,7 +11,6 @@
   src: url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/woff2/PretendardVariable.woff2") format("woff2");
 }
 
-/* Design tokens. */
 :root {
   color-scheme: light dark;
   --page-gutter: clamp(18px, 5vw, 96px);
@@ -115,8 +118,6 @@
   --primary-search-scope-bg-hover: var(--ui-control-hover);
 }
 
-/* Responsive tiers: desktop sidebar >= 100rem, compact < 64rem, narrow < 40rem; catalog grid has intermediate density steps. */
-
 html {
   overflow-y: scroll;
   scrollbar-gutter: stable;
@@ -126,12 +127,6 @@ html {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-html.is-modal-open {
-  overflow-x: hidden;
-  overflow-y: scroll;
-  scrollbar-gutter: stable;
 }
 
 body {
@@ -171,7 +166,6 @@ a,
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Floating panel entrance. */
 @keyframes fluent-panel-enter {
   from {
     opacity: .001;
@@ -183,7 +177,6 @@ a,
   }
 }
 
-/* Dropdown, popover, and search preview entrance. */
 @keyframes fluent-popover-enter {
   from {
     opacity: .001;
@@ -195,43 +188,6 @@ a,
   }
 }
 
-/* Modal first open and list-origin entrance. */
-@keyframes fluent-modal-enter {
-  from {
-    opacity: .001;
-    transform: translateY(10px) scale(.985);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* Direct route or restored modal entrance. */
-@keyframes fluent-modal-route-enter {
-  from {
-    opacity: .001;
-    transform: scale(.985);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Drill-down modal entrance kept for external deep-entry paths. */
-@keyframes fluent-modal-drill-enter {
-  from {
-    opacity: .001;
-    transform: translateX(8px) scale(.992);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0) scale(1);
-  }
-}
-
-/* Plain opacity-only entrance. */
 @keyframes fluent-fade-in {
   from {
     opacity: .001;
@@ -240,6 +196,7 @@ a,
     opacity: 1;
   }
 }
+
 .catalog-dropdown {
   position: relative;
   width: 100%;
@@ -719,6 +676,7 @@ dialog[open] .modal-scroll-area::-webkit-scrollbar-corner,
   font-size: var(--search-scope-font-size, var(--font-md));
   font-weight: var(--font-weight-regular);
 }
+
 .global-search-box {
   flex: var(--global-search-box-flex, var(--search-box-flex, 0 1 420px));
 }
@@ -1002,10 +960,6 @@ body.is-overview .topbar-search {
   white-space: var(--result-count-white-space, normal);
 }
 
-.catalog-panel .result-count.is-hidden {
-  display: none;
-}
-
 .toolbar {
   position: relative;
   top: auto;
@@ -1038,48 +992,6 @@ button.icon-back-button {
   white-space: nowrap;
 }
 
-dialog[open] .modal-back,
-dialog[open] .icon-back-button{
-  position: absolute;
-  top: 18px;
-  left: 18px;
-  right: auto;
-  bottom: auto;
-  z-index: 300;
-  margin: 0;
-  border: 0;
-  outline: 0;
-  border-radius: var(--radius-control);
-  background: transparent;
-  background-color: transparent;
-  background-image: none;
-  color: var(--ui-muted);
-  box-shadow: var(--shadow-rest);
-  filter: none;
-  transition: var(--transition-control);
-}
-
-dialog[open] .modal-back:not(:hover),
-dialog[open] .icon-back-button:not(:hover),
-dialog[open] #modalClose.modal-close:not(:hover){
-  background: transparent;
-  background-color: transparent;
-  background-image: none;
-  color: var(--ui-muted);
-  box-shadow: var(--shadow-rest);
-}
-
-dialog[open] .modal-back:hover,
-dialog[open] .icon-back-button:hover,
-dialog[open] #modalClose.modal-close:hover{
-  background: var(--ui-control-hover);
-  background-color: var(--ui-control-hover);
-  background-image: none;
-  border-radius: var(--radius-control);
-  color: var(--ui-control-text-active);
-  box-shadow: var(--shadow-hover);
-}
-/* Scroll-to-top button */
 .to-top {
   position: fixed;
   right: max(16px, calc(var(--page-gutter) - 40px));
@@ -1122,81 +1034,11 @@ dialog[open] #modalClose.modal-close:hover{
   color: var(--ui-control-text-active);
 }
 
-/* Canonical card system - latest UI source of truth. */
-.category-collection__grid,
-.catalog-grid{
-  display: grid;
-  grid-template-columns: var(--catalog-grid-columns);
-  gap: var(--catalog-grid-gap);
-  min-width: 0;
-  width: 100%;
-  max-width: min(100%, var(--catalog-content-max, var(--catalog-grid-max-width, var(--page-max))));
-  margin: 0;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  box-shadow: none;
-}
-
-.category-card,
-.catalog-card,
-.product-card{
-  position: relative;
-  isolation: isolate;
-  min-height: var(--catalog-card-min-height);
-  padding: var(--catalog-card-padding);
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  border: var(--border-subtle);
-  border-radius: var(--radius-card);
-  background: var(--ui-surface-raised);
-  background-image: none;
-  color: var(--ui-control-text-active);
-  text-align: left;
-  box-shadow: var(--shadow-card-rest);
-  overflow: hidden;
-  content-visibility: auto;
-  contain-intrinsic-size: auto var(--catalog-card-min-height);
-  transform: none;
-  transition: var(--transition-surface);
-}
-
-.category-card::before,
-.category-card::after,
-.catalog-card::before,
-.catalog-card::after,
-.product-card::before,
-.product-card::after{
-  display: none;
-}
-
-.catalog-card-visual {
-  position: absolute;
-  inset: var(--catalog-card-padding) var(--catalog-card-padding) calc(var(--catalog-card-padding) + 30px);
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-}
-
-.catalog-card-visual:empty {
-  display: none;
-}
-
 .bey-image {
   display: block;
   width: auto;
   height: auto;
   object-fit: contain;
-}
-
-.catalog-card-visual .bey-image {
-  max-width: min(78%, 112px);
-  max-height: 100%;
 }
 
 .card-name{
@@ -1219,77 +1061,6 @@ dialog[open] #modalClose.modal-close:hover{
   text-align: left;
   white-space: nowrap;
   opacity: 1;
-}
-
-.catalog-card-badge {
-  box-sizing: border-box;
-  flex: 0 0 auto;
-  max-width: 100%;
-  min-height: calc(var(--catalog-card-badge-font-size) * 1.65);
-  padding: var(--catalog-card-badge-padding);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius-control-sm);
-  background: var(--ui-text);
-  color: var(--ui-surface);
-  font-size: var(--catalog-card-badge-font-size);
-  font-weight: var(--font-weight-strong);
-  line-height: 1;
-  white-space: nowrap;
-}
-
-.catalog-card-title {
-  min-width: 0;
-  flex: 1 1 auto;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  color: var(--ui-control-text-active);
-  font-weight: var(--font-weight-medium);
-  line-height: 1.2;
-  padding-bottom: 0.06em;
-  margin-bottom: -0.06em;
-}
-
-.anime-character-card {
-  display: grid;
-  align-content: end;
-  gap: var(--space-2);
-}
-
-.anime-character-card strong {
-  color: var(--ui-control-text-active);
-  font-size: var(--font-md);
-  font-weight: var(--font-weight-strong);
-  line-height: 1.25;
-}
-
-.anime-character-card small,
-.anime-character-card p {
-  margin: 0;
-  color: var(--ui-muted);
-  font-size: var(--font-sm);
-  font-weight: var(--font-weight-regular);
-  line-height: 1.45;
-}
-
-.panel-empty-state {
-  grid-column: 1 / -1;
-  min-height: 180px;
-  margin: 0;
-  padding: var(--catalog-card-padding);
-  display: grid;
-  place-items: center;
-  border: var(--border-line);
-  border-radius: var(--radius-section);
-  background: var(--ui-surface);
-  text-align: center;
-  color: var(--ui-muted);
-  font-size: var(--font-md);
-  font-weight: var(--font-weight-regular);
-  line-height: 1.5;
-  box-shadow: var(--shadow-rest);
 }
 
 .app-panel {
@@ -1361,68 +1132,6 @@ html.route-booting .to-top {
   to { transform: rotate(360deg); }
 }
 
-/* Gentle interactions for cards and popover links. */
-.catalog-card:hover,
-.product-card:hover{
-  transform: none;
-  background: var(--ui-surface-raised);
-  border-color: color-mix(in srgb, var(--ui-accent) 22%, var(--ui-stroke-subtle));
-  box-shadow: var(--shadow-hover);
-}
-
-.catalog-card:active,
-.product-card:active{
-  transform: none;
-}
-
-.modal-art {
-  background: color-mix(in srgb, var(--ui-section-bg) 82%, var(--ui-surface-raised) 18%);
-  background-image: none;
-  position: relative;
-}
-
-.model-viewer {
-  position: relative;
-  width: var(--model-viewer-width, min(100%, 520px));
-  height: var(--model-viewer-height, min(58vh, 520px));
-  min-height: var(--model-viewer-min-height, 300px);
-  overflow: hidden;
-}
-
-.model-viewer canvas {
-  display: block;
-  width: 100%;
-  height: 100%;
-  cursor: grab;
-  touch-action: none;
-  user-select: none;
-}
-
-.model-viewer.is-grabbing canvas {
-  cursor: grabbing;
-}
-
-.modal-info {
-  background: var(--ui-surface-raised);
-  background-image: none;
-}
-
-/* Match modal close button with back button style. */
-#modalClose,
-dialog[open] #modalClose.modal-close {
-  -webkit-appearance: none;
-  appearance: none;
-  overflow: hidden;
-  background-clip: padding-box;
-  background-color: transparent;
-  background-image: none;
-  filter: none;
-  font-size: var(--font-xl);
-  font-weight: var(--font-weight-strong);
-  text-indent: 0;
-}
-
-/* Unified catalog page header placement. */
 .app-panel[data-app-panel] {
   --section-heading-width: 100%;
   --section-heading-min-height: 82px;
@@ -1444,167 +1153,6 @@ dialog[open] #modalClose.modal-close {
   padding-top: 0;
 }
 
-/* Hide English/sub labels on cards only; keep modal labels intact. */
-.catalog-card .card-en,
-.catalog-card .card-full-en,
-.catalog-card .card-full-ko,
-.product-card .card-en,
-.product-card .card-full-en,
-.product-card .card-full-ko{
-  display: none;
-}
-
-/* Latest modal tag style. */
-.modal-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-  margin: 0;
-}
-
-.bey-modal-tags {
-  margin: 0;
-}
-
-.modal-tags > * {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 34px;
-  padding: 0 13px;
-  border: 0;
-  border-radius: var(--radius-control-sm);
-  background: var(--ui-text);
-  color: var(--ui-surface);
-  font: inherit;
-  font-size: var(--font-md);
-  font-weight: var(--font-weight-strong);
-  line-height: 1;
-  white-space: nowrap;
-  box-shadow: var(--shadow-rest);
-  filter: none;
-  cursor: default;
-}
-
-.modal-tags > .modal-tag-info {
-  appearance: none;
-  border: 1px solid transparent;
-  box-sizing: border-box;
-  cursor: pointer;
-}
-
-.modal-tags > .modal-tag-info:hover,
-.modal-tags > .modal-tag-info[aria-expanded="true"] {
-  background: color-mix(in srgb, var(--ui-text) 92%, var(--ui-surface) 8%);
-  color: var(--ui-surface);
-  border-color: transparent;
-  box-shadow: none;
-  outline: 0;
-  outline-offset: 0;
-}
-
-.modal-tags > .modal-tag-info:focus-visible {
-  background: color-mix(in srgb, var(--ui-text) 92%, var(--ui-surface) 8%);
-  color: var(--ui-surface);
-  border-color: transparent;
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--ui-surface) 22%, transparent);
-  outline: 0;
-  outline-offset: 0;
-}
-
-.modal-tag-popover {
-  position: fixed;
-  z-index: 2000;
-  width: min(280px, calc(100vw - 28px));
-  padding: 12px 14px;
-  border: var(--border-subtle);
-  border-radius: var(--radius-floating);
-  background: var(--ui-surface-raised);
-  color: var(--ui-text);
-  box-shadow: var(--shadow-floating);
-  pointer-events: none;
-  animation: var(--motion-preset-popover-enter);
-}
-
-.modal-tag-popover strong {
-  display: block;
-  margin: 0 0 6px;
-  font-size: var(--font-sm);
-  font-weight: var(--font-weight-strong);
-  line-height: 1.2;
-}
-
-.modal-tag-popover p {
-  margin: 0;
-  color: var(--ui-muted);
-  font-size: var(--font-sm);
-  line-height: 1.55;
-  white-space: pre-line;
-  word-break: keep-all;
-}
-
-/* Latest responsive popover sizing. */
-dialog[open] {
-  position: fixed;
-  inset: 0;
-  margin: 0;
-  border: 0;
-  outline: 0;
-  width: var(--modal-viewport-width, 100vw);
-  max-width: none;
-  height: var(--modal-viewport-height, 100vh);
-  max-height: none;
-  padding: 0;
-  overflow: hidden;
-  display: grid;
-  place-items: center;
-  background: transparent;
-  --modal-vw: var(--modal-viewport-width, 100vw);
-  --modal-vh: var(--modal-viewport-height, 100vh);
-  --modal-edge-gap: 48px;
-  --modal-w: min(980px, calc(var(--modal-vw) - var(--modal-edge-gap)));
-  --modal-h: min(620px, calc(var(--modal-vh) - var(--modal-edge-gap)));
-  --modal-gutter: 45px;
-  --modal-close-offset: 18px;
-  --modal-scrollbar-inset: calc(var(--modal-close-offset) + 16px);
-  --modal-scrollbar-x-shift: 6px;
-  --modal-scroll-start: calc(var(--modal-close-offset) + 42px + 8px);
-  --modal-inner-columns: minmax(220px, 32%) minmax(0, 1fr);
-  --modal-inner-rows: none;
-  --modal-origin-shift-x: 0px;
-  --modal-origin-shift-y: 0px;
-  --modal-info-align-self: stretch;
-  --modal-info-height: 100%;
-  --modal-info-padding-inline: 6px;
-  --modal-art-height: auto;
-  --modal-art-max-height: 100%;
-  --modal-art-padding: var(--space-6);
-}
-
-body.is-modal-open {
-  position: fixed;
-  left: var(--modal-lock-left, 0px);
-  right: auto;
-  top: var(--modal-scroll-lock-top, 0px);
-  width: var(--modal-lock-width, 100%);
-  overflow: hidden;
-}
-
-body.is-modal-open:not(.is-overview) .topbar {
-  transform: translateY(calc(var(--modal-scroll-lock-top, 0px) * -1));
-}
-
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  width: var(--modal-viewport-width, 100vw);
-  height: var(--modal-viewport-height, 100vh);
-  z-index: 0;
-  background: rgba(17, 24, 39, 0.58);
-  pointer-events: auto;
-  animation: var(--motion-preset-fade-in);
-}
-
 #modalContent {
   --modal-vw: var(--modal-viewport-width, 100vw);
   --modal-vh: var(--modal-viewport-height, 100vh);
@@ -1613,405 +1161,6 @@ body.is-modal-open:not(.is-overview) .topbar {
   overflow: visible;
   max-width: 100%;
   max-height: 100%;
-}
-
-.modal-stage {
-  --modal-vw: var(--modal-viewport-width, 100vw);
-  --modal-vh: var(--modal-viewport-height, 100vh);
-  position: fixed;
-  inset: 0;
-  width: var(--modal-vw);
-  height: var(--modal-vh);
-  z-index: 1;
-  display: grid;
-  place-items: center;
-  overflow: visible;
-  pointer-events: none;
-  transform-origin: center;
-}
-
-.modal-stage > #modalContent,
-.modal-stage > .modal-close,
-.modal-stage .modal-step {
-  pointer-events: auto;
-}
-
-dialog[open] .modal-stage.is-modal-stage-entering {
-  animation: var(--motion-preset-modal-enter);
-}
-
-dialog[open][data-modal-transition="route"] .modal-stage.is-modal-stage-entering {
-  animation: var(--motion-preset-modal-route);
-}
-
-dialog[open][data-modal-transition="drill"] .modal-stage.is-modal-stage-entering {
-  animation: var(--motion-preset-modal-drill);
-}
-
-dialog[open][data-modal-transition="composition"] .modal-stage.is-modal-stage-entering,
-dialog[open][data-modal-transition="back"] .modal-stage.is-modal-stage-entering,
-dialog[open][data-modal-transition="step-prev"] .modal-stage.is-modal-stage-entering,
-dialog[open][data-modal-transition="step-next"] .modal-stage.is-modal-stage-entering {
-  animation: var(--motion-preset-none);
-}
-
-dialog[open]::backdrop {
-  position: fixed;
-  inset: 0;
-  width: var(--modal-viewport-width, 100vw);
-  height: var(--modal-viewport-height, 100vh);
-  background: transparent;
-}
-
-dialog[open] .modal-inner {
-  position: relative;
-  z-index: 1;
-  width: var(--modal-w);
-  min-width: 0;
-  max-width: var(--modal-w);
-  height: var(--modal-h);
-  min-height: 0;
-  max-height: var(--modal-h);
-  display: grid;
-  grid-template-columns: var(--modal-inner-columns);
-  grid-template-rows: var(--modal-inner-rows);
-  overflow: hidden;
-  margin: 0;
-  border: var(--border-subtle);
-  outline: 0;
-  border-radius: var(--radius-modal);
-  background: var(--ui-surface-raised);
-  box-shadow: var(--shadow-floating);
-  animation: var(--motion-preset-none);
-}
-
-dialog[open] .modal-info {
-  min-width: 0;
-  min-height: 0;
-  max-height: 100%;
-}
-
-dialog[open] .modal-info:not(.category-anime-info) {
-  --modal-body-width: min(100%, 520px);
-  --modal-flow-gap: 16px;
-  --modal-title-size: var(--font-title);
-  container-type: inline-size;
-  align-self: var(--modal-info-align-self);
-  height: var(--modal-info-height);
-  overflow-x: hidden;
-  overflow-y: hidden;
-  margin-inline: var(--modal-scrollbar-inset);
-  width: calc(100% - (var(--modal-scrollbar-inset) * 2));
-  padding: 0 var(--modal-info-padding-inline);
-  display: block;
-}
-
-dialog[open] .modal-inner--rare-bey-get-list {
-  --modal-inner-columns: minmax(0, 1fr);
-  --modal-inner-rows: minmax(0, 1fr);
-  --modal-info-padding-inline: clamp(18px, 4vw, 42px);
-}
-
-dialog[open] .modal-inner--rare-bey-get-list .modal-art {
-  display: none;
-}
-
-dialog[open] .modal-inner--rare-bey-get-list .modal-info:not(.category-anime-info) {
-  --modal-body-width: min(100%, 820px);
-}
-
-@supports (width: 1cqw) {
-  dialog[open] .modal-info:not(.category-anime-info) .modal-name {
-    --modal-title-size: clamp(1.25rem, calc(1rem + 2cqw), var(--font-title));
-  }
-}
-
-dialog[open] .modal-scroll-area {
-  box-sizing: border-box;
-  width: calc(100% + var(--modal-scrollbar-x-shift, 0px));
-  height: calc(100% - (var(--modal-scroll-start) * 2));
-  min-height: 0;
-  margin: var(--modal-scroll-start) calc(var(--modal-scrollbar-x-shift, 0px) * -1) 0 0;
-  padding: 0 var(--modal-scrollbar-x-shift, 0px) 0 0;
-  overflow-x: hidden;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  scrollbar-gutter: stable both-edges;
-  scrollbar-width: thin;
-  scrollbar-color: var(--ui-line) transparent;
-}
-
-dialog[open] .modal-close {
-  position: absolute;
-  top: calc((var(--modal-vh) - var(--modal-h)) / 2 + var(--modal-close-offset));
-  right: calc((var(--modal-vw) - var(--modal-w)) / 2 + var(--modal-close-offset));
-  z-index: 300;
-}
-
-dialog[open] .modal-name {
-  --modal-title-line-height: 1.15em;
-  --modal-title-row-height: max(34px, var(--modal-title-line-height));
-  --modal-title-lines: 1;
-  width: var(--modal-body-width);
-  display: flex;
-  align-items: baseline;
-  align-content: flex-start;
-  flex-wrap: nowrap;
-  column-gap: 10px;
-  row-gap: 2px;
-  height: calc(var(--modal-title-row-height) * var(--modal-title-lines));
-  max-height: calc(var(--modal-title-row-height) * var(--modal-title-lines));
-  margin: 0 auto 0;
-  font-size: var(--modal-title-size);
-  font-weight: var(--font-weight-title);
-  line-height: 1.15;
-  color: var(--ui-text);
-  word-break: keep-all;
-  white-space: nowrap;
-  overflow-wrap: normal;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-
-dialog[open] .product-modal-name {
-  --modal-title-lines: 2;
-  flex-wrap: wrap;
-  white-space: normal;
-}
-
-.modal-info-slot {
-  --modal-info-lines: var(--modal-info-lines-default, 2);
-  width: var(--modal-body-width);
-  display: grid;
-  grid-template-rows: 34px auto;
-  gap: var(--modal-flow-gap);
-  margin: 0 auto var(--modal-flow-gap);
-}
-
-.modal-info-slot.single-line-info-slot {
-  --modal-info-lines: 1;
-  grid-template-rows: 34px;
-  gap: 0;
-}
-
-.modal-info-slot.single-line-info-slot .modal-slot-tags {
-  min-height: 0;
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
-
-.modal-info-slot.single-line-info-slot .modal-description:empty {
-  display: none;
-}
-
-.modal-info-slot.single-line-info-slot .modal-description-region {
-  display: none;
-}
-
-.modal-description-region {
-  min-height: var(--modal-description-two-line-height);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 4px;
-}
-
-.modal-info-slot.has-description .modal-description-region {
-  box-sizing: border-box;
-  width: 100%;
-  min-height: calc(var(--modal-description-two-line-height) + var(--modal-description-padding-y) + var(--modal-description-padding-y) + 2px);
-  padding: var(--modal-description-padding-y) var(--space-5);
-  border: var(--border-subtle);
-  border-radius: var(--radius-section);
-  background: color-mix(in srgb, var(--ui-surface-raised) 70%, var(--ui-section-bg) 30%);
-  box-shadow: var(--shadow-rest);
-}
-
-.modal-description {
-  min-height: 0;
-  margin: 0;
-  color: var(--ui-text);
-  font-size: var(--font-md);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--modal-description-line-height);
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: var(--modal-info-lines);
-}
-
-.modal-info-slot.is-expanded .modal-description-region,
-.modal-info-slot.is-measuring-description .modal-description-region {
-  min-height: 0;
-}
-
-.modal-info-slot.is-expanded .modal-description,
-.modal-info-slot.is-measuring-description .modal-description {
-  display: block;
-  overflow: visible;
-  -webkit-line-clamp: unset;
-}
-
-.modal-description-toggle {
-  display: none;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  color: var(--ui-muted);
-  font: inherit;
-  font-size: var(--font-sm);
-  font-weight: var(--font-weight-strong);
-  line-height: 1.4;
-  cursor: pointer;
-}
-
-.modal-info-slot.is-expandable .modal-description-toggle {
-  display: inline-flex;
-}
-
-.modal-description-toggle[hidden] {
-  display: none;
-}
-
-.modal-description-toggle:hover,
-.modal-description-toggle:focus-visible {
-  color: var(--ui-text);
-}
-
-.modal-slot-tags {
-  min-height: 34px;
-  overflow: hidden;
-}
-
-/* Final composition/mounted list style. */
-.mounted-parts {
-  --composition-row-height: var(--modal-section-row-height);
-  --composition-visible-rows: var(--composition-visible-rows-default, 6);
-  --composition-list-max-height: var(--composition-list-max-height-default, calc(var(--composition-row-height) * var(--composition-visible-rows)));
-  --modal-row-arrow-column: 26px;
-  --modal-row-x-padding: var(--modal-section-content-inset);
-  --modal-row-gap: 16px;
-  --modal-scroll-gutter: var(--modal-section-scroll-gutter);
-  margin-top: 12px;
-  width: 100%;
-  background: transparent;
-  background-image: none;
-  border: 0;
-  box-shadow: none;
-  filter: none;
-}
-
-.modal-section {
-  width: var(--modal-body-width);
-  margin: 0 auto;
-  padding: var(--modal-section-padding);
-  min-height: 0;
-  overflow: hidden;
-  border: 0;
-  border-radius: var(--radius-section);
-  background: var(--ui-section-bg);
-  background-image: none;
-  box-shadow: var(--shadow-rest);
-  filter: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.product-composition {
-  --composition-row-height: var(--modal-section-row-height);
-  --composition-visible-rows: var(--composition-visible-rows-default, 6);
-  --composition-list-max-height: var(--composition-list-max-height-default, calc(var(--composition-row-height) * var(--composition-visible-rows)));
-  --modal-row-arrow-column: 26px;
-  --modal-row-x-padding: var(--modal-section-content-inset);
-  --modal-row-gap: 16px;
-  --modal-scroll-gutter: var(--modal-section-scroll-gutter);
-  margin-top: 0;
-}
-
-.modal-section-scroll {
-  display: block;
-  width: calc(100% + var(--modal-scroll-gutter));
-  margin-right: calc(var(--modal-scroll-gutter) * -1);
-  min-height: 0;
-  flex: 0 1 auto;
-  overflow-x: hidden;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  scrollbar-gutter: stable;
-  scrollbar-width: thin;
-  scrollbar-color: var(--ui-line) transparent;
-  -webkit-overflow-scrolling: touch;
-  touch-action: pan-y;
-  padding-inline: var(--modal-scroll-gutter) 0;
-}
-
-.product-composition-list,
-.mounted-parts-list {
-  max-height: var(--composition-list-max-height);
-}
-
-.mounted-title {
-  margin: 0 0 8px;
-  color: var(--ui-text);
-  font-size: var(--font-md);
-  font-weight: var(--font-weight-strong);
-  line-height: 1.2;
-  padding: 0 10px;
-}
-
-.product-composition > .mounted-title,
-.mounted-parts > .mounted-title {
-  position: relative;
-  display: block;
-  width: auto;
-  max-width: none;
-  margin: 0 var(--modal-scroll-gutter) 10px;
-  padding: 0 var(--modal-row-x-padding) 10px;
-  border-bottom: 1px solid var(--ui-line);
-}
-
-.product-composition .product-composition-item {
-  grid-template-columns: minmax(0, 1fr) var(--modal-row-arrow-column);
-}
-
-.product-composition-item > span {
-  min-width: 0;
-  justify-self: start;
-  font-weight: var(--font-weight-regular);
-  text-align: left;
-}
-
-.product-composition-item > span::before {
-  content: none;
-  display: none;
-}
-
-.product-composition-item > b {
-  justify-self: end;
-  font-weight: var(--font-weight-regular);
-  text-align: left;
-}
-
-.table-list-controls,
-.release-dropdowns {
-  --release-region-tabs-width: 8rem;
-  --release-series-dropdown-width: 14.5rem;
-  --release-grid-columns: minmax(7.5rem, var(--release-region-tabs-width)) minmax(13.5rem, var(--release-series-dropdown-width)) minmax(0, 1fr);
-  --release-grid-areas: "region series search";
-  width: 100%;
-  max-width: 100%;
-  margin: 0;
-  display: grid;
-  grid-template-columns: var(--release-grid-columns);
-  grid-template-areas: var(--release-grid-areas);
-  align-items: flex-start;
-  gap: var(--catalog-control-row-gap, var(--filter-dropdown-gap, var(--space-3)));
-  justify-content: start;
-  position: relative;
-  z-index: 5;
 }
 
 .release-dropdown {
@@ -2025,116 +1174,12 @@ dialog[open] .product-modal-name {
   flex: 0 0 auto;
 }
 
-.table-list-controls[data-anime-controls],
-.release-dropdowns[data-anime-controls] {
-  --release-grid-columns: minmax(13.5rem, var(--release-series-dropdown-width)) minmax(0, 1fr);
-  --release-grid-areas: "series search";
-}
-
-.table-list-controls > .release-region-tabs,
-.release-dropdowns > .release-region-tabs {
-  grid-area: region;
-}
-
-.table-list-controls > .release-dropdown,
-.release-dropdowns > .release-dropdown {
-  grid-area: series;
-}
-
-.table-list-controls > .release-search-box,
-.release-dropdowns > .release-search-box {
-  grid-area: search;
-}
-
-.release-search-box {
-  width: 100%;
-  min-width: 0;
-  max-width: none;
-  flex: 1 1 auto;
-}
-
-.release-region-tabs {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-self: stretch;
-  align-items: center;
-  gap: var(--space-1);
-  width: 100%;
-  min-width: 0;
-  height: var(--filter-dropdown-height, 48px);
-  min-height: var(--filter-dropdown-height, 48px);
-  max-height: var(--filter-dropdown-height, 48px);
-  padding: var(--space-1);
-  border: var(--border-subtle);
-  border-radius: var(--radius-control);
-  background: var(--ui-surface-raised);
-  background-clip: padding-box;
-  color: var(--ui-control-text-active);
-  box-shadow: var(--shadow-rest);
-}
-
-.release-region-tabs button {
-  height: 100%;
-  min-height: 0;
-  font-size: var(--font-md);
-  line-height: 1;
-}
-
 .anime-episode-controls .release-dropdown {
   --dropdown-item-min-width: 0;
   --dropdown-item-padding: 0 12px;
   --dropdown-item-overflow: hidden;
   --dropdown-item-text-overflow: ellipsis;
   --dropdown-item-white-space: nowrap;
-}
-
-.table-list-section,
-.release-table-section {
-  --table-header-control-height: 28px;
-  width: 100%;
-  min-height: 0;
-  margin: 0;
-  padding: var(--space-3);
-  display: flex;
-  flex-direction: column;
-  background: var(--ui-surface-raised);
-  border: var(--border-subtle);
-  border-radius: var(--radius-section);
-  box-shadow: var(--shadow-rest);
-}
-
-dialog[open] .modal-inner.category-anime-modal {
-  --modal-inner-columns: minmax(0, 1fr);
-  --modal-inner-rows: minmax(0, 1fr);
-}
-
-dialog[open] .category-anime-info {
-  --modal-body-width: 100%;
-  --modal-flow-gap: 16px;
-  --release-content-inset: 40px;
-  grid-column: 1 / -1;
-  grid-row: 1 / -1;
-  display: grid;
-  grid-template-rows: auto minmax(0, 1fr);
-  align-content: stretch;
-  padding: 40px 0;
-}
-
-dialog[open] .category-anime-info .overview-title-row {
-  width: calc(100% - (var(--release-content-inset) * 2));
-  margin: 0 auto var(--modal-flow-gap);
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  gap: 10px;
-}
-
-dialog[open] .category-anime-info .anime-episode-title-row {
-  margin-top: 42px;
-}
-
-dialog[open] .category-anime-info .anime-episode-title-row .category-title {
-  min-width: 0;
 }
 
 .category-title {
@@ -2146,657 +1191,6 @@ dialog[open] .category-anime-info .anime-episode-title-row .category-title {
   word-break: keep-all;
 }
 
-.table-list-page,
-.category-anime-episodes {
-  min-height: 0;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  gap: var(--modal-flow-gap);
-}
-
-.table-list-page {
-  container-type: inline-size;
-}
-
-.table-list-shell,
-.release-page-shell {
-  --modal-body-width: 100%;
-  --modal-flow-gap: 12px;
-  --release-content-inset: 0px;
-  --release-scrollbar-x-shift: 0px;
-  width: 100%;
-  max-width: var(--catalog-content-max, var(--catalog-grid-max-width, var(--page-max)));
-  min-height: 0;
-  margin: 0 auto;
-  padding: var(--panel-control-top-padding, 8px) 0 0;
-  display: flex;
-  flex-direction: column;
-  gap: var(--modal-flow-gap);
-}
-
-.table-list-scroll,
-.anime-episode-table-scroll,
-.release-table-scroll {
-  container-type: inline-size;
-  box-sizing: border-box;
-  flex: 1 1 auto;
-  width: calc(100% + var(--release-scrollbar-x-shift, 0px));
-  margin-left: 0;
-  margin-right: calc(var(--release-scrollbar-x-shift, 0px) * -1);
-  padding-left: 0;
-  padding-right: var(--release-scrollbar-x-shift, 0px);
-  min-height: 0;
-  max-height: none;
-  overflow-x: auto;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: var(--ui-line) transparent;
-}
-
-.page-table-scroll {
-  min-width: 0;
-  max-width: 100%;
-  margin: 0;
-  padding: 0;
-  overflow-y: visible;
-  scrollbar-gutter: auto;
-  background: transparent;
-  border: 0;
-  border-radius: 0;
-  -webkit-overflow-scrolling: touch;
-}
-
-.table-list-section .ui-data-table th,
-.release-table-section .ui-data-table th {
-  padding-top: 8px;
-  line-height: var(--table-header-control-height);
-}
-
-.table-list-section .ui-data-table th:first-child,
-.table-list-section .ui-data-table td:first-child,
-.release-table-section .ui-data-table th:first-child,
-.release-table-section .ui-data-table td:first-child {
-  padding-left: 12px;
-}
-
-.table-list-section .ui-data-table th:last-child,
-.table-list-section .ui-data-table td:last-child,
-.release-table-section .ui-data-table th:last-child,
-.release-table-section .ui-data-table td:last-child {
-  padding-right: 12px;
-}
-
-.category-anime-episodes[data-anime-table-mode="fit"] .table-list-scroll,
-.category-anime-episodes[data-anime-table-mode="fit"] .anime-episode-table-scroll {
-  flex: 0 1 auto;
-}
-
-.anime-episode-table {
-  --anime-table-min-width: 640px;
-  --anime-col-episode-width: 96px;
-  --anime-col-date-width: 210px;
-  min-width: var(--anime-table-min-width);
-}
-
-.anime-episode-table th:nth-child(1),
-.anime-episode-table td:nth-child(1) {
-  width: var(--anime-col-episode-width);
-}
-
-.anime-episode-table th:nth-child(2),
-.anime-episode-table td:nth-child(2) {
-  width: auto;
-}
-
-.anime-episode-table th:nth-child(3),
-.anime-episode-table td:nth-child(3) {
-  width: var(--anime-col-date-width);
-}
-
-.anime-episode-table th,
-.anime-episode-table td {
-  text-align: center;
-}
-
-.anime-episode-table tbody td:nth-child(2) {
-  text-align: left;
-}
-
-.anime-air-date-compact,
-.release-date-compact {
-  display: none;
-}
-
-.table-list-row,
-.anime-episode-row,
-.release-product-row {
-  cursor: pointer;
-  outline: 0;
-}
-
-.table-list-table tbody .table-list-row:hover td,
-.table-list-table tbody .table-list-row:focus-visible td,
-.anime-episode-table tbody .anime-episode-row:hover td,
-.anime-episode-table tbody .anime-episode-row:focus-visible td,
-.release-table tbody .release-product-row:hover td,
-.release-table tbody .release-product-row:focus-visible td {
-  background: var(--ui-control-hover);
-  color: var(--ui-text);
-}
-
-.table-list-table tbody td:first-child,
-.anime-episode-table tbody td:first-child,
-.release-table tbody td:first-child {
-  border-radius: var(--ui-radius) 0 0 var(--ui-radius);
-}
-
-.table-list-table tbody td:last-child,
-.anime-episode-table tbody td:last-child,
-.release-table tbody td:last-child {
-  border-radius: 0 var(--ui-radius) var(--ui-radius) 0;
-}
-
-.release-table {
-  --release-table-min-width: 640px;
-  --release-col-date-width: 96px;
-  --release-col-name-width: auto;
-  --release-col-price-width: 170px;
-  --release-col-region-width: 116px;
-  --release-col-series-width: 94px;
-  min-width: var(--release-table-min-width);
-}
-
-.release-table th:nth-child(1),
-.release-table td:nth-child(1) {
-  width: var(--release-col-date-width);
-}
-
-.release-table th:nth-child(2),
-.release-table td:nth-child(2) {
-  width: var(--release-col-name-width);
-}
-
-.release-table th:nth-child(3),
-.release-table td:nth-child(3) {
-  width: var(--release-col-price-width);
-}
-
-.release-table th:nth-child(4),
-.release-table td:nth-child(4) {
-  width: var(--release-col-region-width);
-}
-
-.release-table th:nth-child(5),
-.release-table td:nth-child(5) {
-  width: var(--release-col-series-width);
-}
-
-.release-table td {
-  border-bottom: 0;
-  color: var(--ui-text);
-  text-align: left;
-  transition: background-color 160ms ease, color 160ms ease;
-}
-
-.release-table th {
-  border-bottom: 0;
-  position: sticky;
-  text-align: center;
-}
-
-.release-sort-button {
-  position: relative;
-  width: 100%;
-  min-width: 0;
-  height: var(--table-header-control-height);
-  border: 0;
-  border-radius: var(--ui-radius);
-  padding: 0 20px;
-  display: block;
-  background: transparent;
-  color: inherit;
-  font: inherit;
-  font-size: var(--font-md);
-  font-weight: inherit;
-  text-align: center;
-  cursor: pointer;
-}
-
-.release-sort-button:hover,
-.release-sort-button:focus-visible {
-  color: var(--ui-text);
-  background: transparent;
-  outline: 0;
-}
-
-.release-sort-label {
-  display: block;
-  width: 100%;
-  font-size: var(--font-md);
-  line-height: inherit;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.release-sort-mark {
-  position: absolute;
-  top: 50%;
-  right: 4px;
-  width: 14px;
-  transform: translateY(-50%);
-  color: var(--ui-muted);
-  font-size: var(--font-xs);
-  font-weight: var(--font-weight-strong);
-  line-height: 1;
-  text-align: center;
-  opacity: .58;
-  pointer-events: none;
-}
-
-.release-sort-button:hover .release-sort-mark,
-.release-sort-button:focus-visible .release-sort-mark {
-  color: var(--ui-text);
-  opacity: 1;
-}
-
-.release-table tbody td:not(:nth-child(2)) {
-  text-align: center;
-}
-
-.release-table tbody td:nth-child(2) {
-  text-align: left;
-}
-
-.release-table tbody tr:last-child td {
-  border-bottom: 0;
-}
-
-.table-list-empty-row td,
-.release-empty-row td {
-  height: 120px;
-  padding: 11px 12px;
-  border-radius: 0;
-  background: transparent;
-  color: var(--ui-muted);
-  text-align: center;
-  cursor: default;
-}
-
-.release-product-link {
-  color: var(--ui-text);
-  font-weight: var(--font-weight-medium);
-  text-align: left;
-  display: block;
-  flex: 0 1 auto;
-  width: auto;
-  max-width: 100%;
-  min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.release-product-link:hover {
-  color: var(--ui-text);
-}
-
-.release-product-cell {
-  display: inline-flex;
-  align-items: center;
-  max-width: 100%;
-  gap: 8px;
-  min-width: 0;
-  vertical-align: middle;
-}
-
-.release-badges {
-  display: inline-flex;
-  align-items: center;
-  flex: 0 0 auto;
-  gap: 4px;
-  min-width: 0;
-}
-
-.release-badge {
-  display: inline-flex;
-  align-items: center;
-  min-height: calc(var(--font-xs) * 1.65);
-  padding: 0 7px;
-  border-radius: 999px;
-  background: var(--ui-text);
-  color: var(--ui-surface);
-  font-size: var(--font-xs);
-  font-weight: var(--font-weight-strong);
-  line-height: 1;
-  white-space: nowrap;
-  pointer-events: none;
-}
-
-.rare-bey-get-list {
-  --composition-list-max-height: min(62dvh, 520px);
-}
-
-.rare-bey-get-list-scroll {
-  max-height: var(--composition-list-max-height);
-}
-
-.rare-bey-get-list-items {
-  display: grid;
-  gap: 0;
-  padding-inline: 0;
-}
-
-.rare-bey-get-list-section {
-  min-width: 0;
-  display: grid;
-  gap: 0;
-}
-
-.rare-bey-get-list-section + .rare-bey-get-list-section {
-  margin-top: 10px;
-  padding-top: 0;
-}
-
-.rare-bey-get-list-panel-title {
-  display: flex;
-  align-items: baseline;
-  gap: 6px;
-}
-
-.rare-bey-get-list-panel-title > b {
-  color: var(--ui-muted);
-  font: inherit;
-}
-
-.rare-bey-get-list-group-items {
-  min-width: 0;
-  display: grid;
-  border-top: 0;
-}
-
-.rare-bey-get-list-item {
-  min-width: 0;
-  grid-template-columns: minmax(0, 1fr) var(--modal-row-arrow-column);
-}
-
-.rare-bey-get-list-item-main {
-  min-width: 0;
-  display: flex;
-  align-items: baseline;
-  justify-self: start;
-  gap: 8px;
-  font-weight: var(--font-weight-regular);
-  text-align: left;
-}
-
-.rare-bey-get-list-item-finish {
-  flex: 0 0 auto;
-  padding: 2px 6px;
-  border: 1px solid color-mix(in srgb, var(--ui-line) 82%, transparent);
-  border-radius: var(--radius-control-sm);
-  background: color-mix(in srgb, var(--ui-surface) 78%, transparent);
-  color: var(--ui-muted);
-  font-size: var(--font-xs);
-  font-weight: var(--font-weight-strong);
-  line-height: 1.15;
-  white-space: nowrap;
-}
-
-@container (max-width: 39.999rem) {
-  .modal-inner--rare-bey-get-list .rare-bey-get-list-item-finish {
-    display: none;
-  }
-}
-
-.rare-bey-get-list-item-title {
-  min-width: 0;
-  font-size: inherit;
-  font-weight: var(--font-weight-regular);
-  line-height: inherit;
-  overflow-wrap: anywhere;
-}
-
-.rare-bey-get-list-item > b {
-  justify-self: end;
-  color: var(--ui-text);
-  font-weight: var(--font-weight-regular);
-  text-align: left;
-}
-
-.rare-bey-get-list-item--static {
-  grid-template-columns: minmax(0, 1fr);
-  cursor: default;
-  pointer-events: none;
-}
-
-.rare-bey-get-empty {
-  min-height: var(--modal-section-row-height);
-  margin: 0;
-  padding: 0 var(--modal-row-x-padding);
-  display: flex;
-  align-items: center;
-  color: var(--ui-muted);
-  font-size: var(--font-md);
-  font-weight: var(--font-weight-medium);
-}
-
-@container (max-width: 39.999rem) {
-  .release-table,
-  .anime-episode-table {
-    --mobile-table-leading-col-width: 25%;
-    --mobile-table-date-col-width: clamp(92px, 27%, 96px);
-  }
-
-  .table-list-meta-row.release-mobile-sort-row {
-    display: grid;
-  }
-
-  .release-table {
-    --release-table-min-width: 0;
-    --release-col-date-width: var(--mobile-table-leading-col-width);
-    --release-col-region-width: var(--mobile-table-date-col-width);
-  }
-
-  .release-table th:nth-child(3),
-  .release-table td:nth-child(3),
-  .release-table th:nth-child(4),
-  .release-table td:nth-child(4),
-  .release-table th:nth-child(5),
-  .release-table td:nth-child(5),
-  .anime-episode-table th:nth-child(3),
-  .anime-episode-table td:nth-child(3) {
-    display: none;
-  }
-
-  .release-table th:nth-child(1),
-  .release-table td:nth-child(1),
-  .anime-episode-table th:nth-child(1),
-  .anime-episode-table td:nth-child(1) {
-    width: var(--mobile-table-leading-col-width);
-  }
-
-  .release-table th:nth-child(2),
-  .release-table td:nth-child(2),
-  .anime-episode-table th:nth-child(2),
-  .anime-episode-table td:nth-child(2) {
-    width: 75%;
-  }
-
-  .release-table th,
-  .release-table td,
-  .anime-episode-table th,
-  .anime-episode-table td {
-    padding-inline: 8px;
-  }
-
-  .release-table tbody td:nth-child(2),
-  .anime-episode-table tbody td:nth-child(2) {
-    border-radius: 0 var(--ui-radius) var(--ui-radius) 0;
-  }
-
-  .release-table .release-sort-button {
-    padding: 0;
-    color: inherit;
-    cursor: default;
-    pointer-events: none;
-  }
-
-  .release-table .release-sort-mark {
-    display: none;
-  }
-
-  .release-date-full,
-  .anime-air-date-full {
-    display: none;
-  }
-
-  .release-date-compact,
-  .anime-air-date-compact {
-    display: inline;
-  }
-
-  .anime-episode-table {
-    --anime-table-min-width: 0;
-    --anime-col-episode-width: var(--mobile-table-leading-col-width);
-    --anime-col-date-width: var(--mobile-table-date-col-width);
-  }
-
-}
-
-.mounted-parts .mounted-link {
-  grid-template-columns: 128px minmax(0, 1fr) var(--modal-row-arrow-column);
-}
-
-.mounted-link > * {
-  justify-self: start;
-  font-weight: var(--font-weight-regular);
-  text-align: left;
-}
-
-.mounted-link > :last-child {
-  justify-self: end;
-  font-weight: var(--font-weight-regular);
-  text-align: right;
-}
-
-.mounted-link > span {
-  white-space: nowrap;
-}
-
-dialog[open] .modal-art {
-  min-width: 0;
-  min-height: 0;
-  height: var(--modal-art-height);
-  max-height: var(--modal-art-max-height);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--modal-art-padding);
-  border-right: 0;
-  border-bottom: 0;
-}
-
-dialog[open] .modal-art > .bey-image {
-  max-width: min(92%, 280px);
-  max-height: min(92%, 280px);
-  filter: drop-shadow(0 0 20px color-mix(in srgb, var(--ui-text) 26%, transparent));
-}
-
-.mounted-link:hover > :last-child {
-  transform: none;
-}
-
-/* Prevent generated modal artwork remnants. */
-.modal-art::before,
-.modal-art::after {
-  content: none;
-  display: none;
-  background: transparent;
-  background-image: none;
-  box-shadow: none;
-  filter: none;
-}
-
-.stat-row,
-.track-height-row {
-  box-sizing: var(--stat-row-box-sizing, content-box);
-  width: var(--stat-row-width, var(--modal-body-width));
-  max-width: var(--stat-row-max-width, none);
-  min-width: var(--stat-row-min-width, auto);
-  display: grid;
-  grid-template-columns: var(--stat-label-column, var(--stat-label-column-width)) var(--stat-track-column, minmax(0, 1fr)) var(--stat-value-column, 44px);
-  align-items: center;
-  gap: var(--stat-row-gap, 8px);
-  margin: 9px auto;
-  color: var(--ui-text);
-  font-size: var(--font-md);
-  line-height: 1.35;
-}
-
-.stat-row span,
-.track-height-row span {
-  min-width: var(--stat-label-min-width, auto);
-  font-size: var(--font-md);
-  font-weight: var(--font-weight-regular);
-  text-align: center;
-  white-space: var(--stat-label-white-space, normal);
-}
-
-.stat-row b,
-.track-height-row b {
-  box-sizing: border-box;
-  width: var(--stat-value-width, auto);
-  min-width: var(--stat-value-min-width, auto);
-  min-height: 26px;
-  padding: 0 10px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: var(--border-subtle);
-  border-radius: var(--radius-pill);
-  background: var(--ui-surface-raised);
-  box-shadow: var(--shadow-card-rest);
-  font-size: var(--font-sm);
-  font-weight: var(--font-weight-strong);
-  text-align: center;
-  white-space: nowrap;
-  color: var(--ui-accent);
-  font-variant-numeric: var(--stat-value-font-variant, normal);
-}
-
-.stat-track {
-  position: relative;
-  display: block;
-  width: 100%;
-  min-width: var(--stat-track-min-width, auto);
-  height: 8px;
-  overflow: hidden;
-  background: var(--stat-track-bg);
-  border-radius: 4px;
-}
-
-.stat-fill {
-  display: block;
-  height: 100%;
-  background: var(--stat-fill-bg);
-  border-radius: 4px;
-  transition: none;
-}
-
-.mode-stats {
-  width: var(--modal-body-width);
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-  margin: 18px auto 0;
-}
-
-.mode-stats section {
-  min-width: 0;
-}
-
 .mode-title {
   margin: 0 0 8px;
   color: var(--ui-text);
@@ -2805,196 +1199,6 @@ dialog[open] .modal-art > .bey-image {
   line-height: 1.35;
 }
 
-.stat-note {
-  width: var(--modal-body-width);
-  margin: 12px auto 0;
-  color: var(--ui-muted);
-  font-size: var(--font-md);
-  line-height: 1.6;
-}
-
-.modal-body-block {
-  box-sizing: var(--modal-body-block-box-sizing, content-box);
-  width: var(--modal-body-width);
-  max-width: var(--modal-body-block-max-width, none);
-  min-width: var(--modal-body-block-min-width, auto);
-  min-height: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: var(--modal-section-stack-gap, var(--space-3));
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.product-modal-info .modal-body-block {
-  grid-row: 5;
-  margin-top: 0;
-}
-
-.product-modal-info .modal-scroll-area {
-  display: grid;
-  grid-template-columns: var(--modal-body-width);
-  grid-template-rows: calc(var(--modal-title-size, var(--font-title)) * 1.15) var(--modal-flow-gap) 34px var(--modal-flow-gap) auto;
-  align-content: start;
-  justify-content: center;
-}
-
-.product-modal-info .product-modal-name {
-  grid-row: 1 / 4;
-  align-self: start;
-}
-
-.product-modal-info .product-empty-info-slot {
-  grid-row: 3;
-  width: var(--modal-body-width);
-  height: 34px;
-  margin: 0 auto;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.product-modal-info.has-rare-bey-get-chip .modal-scroll-area {
-  grid-template-rows: minmax(calc(var(--modal-title-size, var(--font-title)) * 1.15), auto) var(--modal-flow-gap) 34px var(--modal-flow-gap) auto;
-}
-
-.product-modal-info.has-rare-bey-get-chip .product-modal-name {
-  grid-row: 1;
-  height: auto;
-  min-height: calc(var(--modal-title-size, var(--font-title)) * 1.15);
-  max-height: calc(var(--modal-title-row-height) * var(--modal-title-lines));
-}
-
-.product-meta-slot {
-  grid-row: 3;
-  width: var(--modal-body-width);
-  min-width: 0;
-  min-height: 28px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.ui-chip-button.rare-bey-get-chip {
-  min-height: 34px;
-  padding: 0 12px;
-  gap: 8px;
-  border-color: color-mix(in srgb, var(--ui-line) 86%, transparent);
-  border-radius: 8px;
-  background: var(--ui-surface);
-  color: var(--ui-text);
-  font-size: var(--font-sm);
-  font-weight: var(--font-weight-strong);
-  line-height: 1;
-  white-space: nowrap;
-  box-shadow: var(--shadow-rest);
-}
-
-.ui-chip-button.rare-bey-get-chip > b {
-  font-size: var(--font-md);
-  font-weight: var(--font-weight-medium);
-  line-height: 1;
-}
-
-.ui-chip-button.rare-bey-get-chip:hover,
-.ui-chip-button.rare-bey-get-chip:focus-visible {
-  background: var(--ui-control-hover);
-  color: var(--ui-text);
-  border-color: color-mix(in srgb, var(--ui-line) 70%, var(--ui-text) 30%);
-  box-shadow: var(--shadow-rest);
-}
-
-dialog[open] .modal-info.bey-modal-info .modal-name,
-dialog[open] .modal-info.part-modal-info .modal-name {
-  --modal-title-row-height: var(--modal-title-line-height);
-  --modal-title-lines: 1;
-  position: relative;
-  z-index: 1;
-  overflow: visible;
-  margin: 0 auto var(--modal-flow-gap);
-}
-
-.modal-body-block > .modal-section,
-.modal-body-block > .stat-block {
-  width: 100%;
-  margin: 0;
-}
-
-.stat-block {
-  box-sizing: border-box;
-  width: 100%;
-  max-width: var(--stat-block-max-width, none);
-  min-width: var(--stat-block-min-width, auto);
-  margin: 0;
-  padding: var(--modal-section-padding);
-  border-radius: var(--radius-section);
-  background: var(--ui-section-bg);
-  box-shadow: var(--shadow-rest);
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.stat-block-title {
-  margin: 0 var(--modal-section-scroll-gutter) 10px;
-  padding: 0 var(--modal-section-content-inset) 10px;
-  border-bottom: 1px solid var(--ui-line);
-  color: var(--ui-text);
-  font-size: var(--font-md);
-  font-weight: var(--font-weight-strong);
-  line-height: 1.2;
-}
-
-.stat-block-content {
-  min-width: 0;
-  padding-inline: calc(var(--modal-section-scroll-gutter) + var(--modal-section-content-inset));
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.stat-block .stat-row,
-.stat-block .track-height-row {
-  width: 100%;
-  min-height: var(--modal-section-row-height);
-  margin: 0;
-}
-
-.stat-block .mode-stats {
-  width: 100%;
-  gap: var(--space-3);
-  margin: 0;
-}
-
-.stat-block .stat-note {
-  width: 100%;
-  margin: var(--space-3) 0 0;
-}
-
-.part-modal-info {
-  --modal-body-block-box-sizing: border-box;
-  --modal-body-block-max-width: 100%;
-  --modal-body-block-min-width: 0;
-  --stat-block-max-width: 100%;
-  --stat-block-min-width: 0;
-  --stat-row-box-sizing: border-box;
-  --stat-row-width: 100%;
-  --stat-row-max-width: 100%;
-  --stat-row-min-width: 0;
-  --stat-label-column: var(--stat-label-column-width);
-  --stat-track-column: minmax(32px, 1fr);
-  --stat-value-column: 3.75em;
-  --stat-row-gap: 8px;
-  --stat-label-min-width: 0;
-  --stat-label-white-space: nowrap;
-  --stat-track-min-width: 0;
-  --stat-value-width: var(--stat-value-column);
-  --stat-value-min-width: var(--stat-value-column);
-  --stat-value-font-variant: tabular-nums;
-}
-
-/* Reusable control templates. */
 .ui-button {
   min-height: 38px;
   padding: 0 14px;
@@ -3077,59 +1281,6 @@ dialog[open] .modal-info.part-modal-info .modal-name {
   line-height: 1;
   cursor: pointer;
   transition: var(--transition-control);
-}
-
-dialog[open] .modal-step {
-  --modal-step-bottom-offset: max(var(--modal-close-offset, 18px), env(safe-area-inset-bottom, 0px));
-  --modal-step-start-offset: max(var(--modal-close-offset, 18px), env(safe-area-inset-left, 0px));
-  --modal-step-end-offset: max(var(--modal-close-offset, 18px), env(safe-area-inset-right, 0px));
-  position: fixed;
-  top: auto;
-  bottom: calc((var(--modal-vh, 100vh) - var(--modal-h, min(620px, calc(100vh - 48px)))) / 2 + var(--modal-step-bottom-offset));
-  z-index: 320;
-  -webkit-backdrop-filter: none;
-  backdrop-filter: none;
-}
-
-dialog[open] .modal-step-prev {
-  left: calc((var(--modal-vw, 100vw) - var(--modal-w, min(980px, calc(100vw - 48px)))) / 2 + var(--modal-step-start-offset));
-  right: auto;
-}
-
-dialog[open] .modal-step-next {
-  left: auto;
-  right: calc((var(--modal-vw, 100vw) - var(--modal-w, min(980px, calc(100vw - 48px)))) / 2 + var(--modal-step-end-offset));
-}
-
-dialog[open] .modal-step::before,
-dialog[open] .modal-step::after {
-  content: "";
-  display: block;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 12px;
-  height: 2px;
-  border: 0;
-  border-radius: var(--radius-pill);
-  background: currentColor;
-  transform-origin: center;
-}
-
-dialog[open] .modal-step-prev::before {
-  transform: translate(-50%, -50%) translateY(-4px) rotate(-45deg);
-}
-
-dialog[open] .modal-step-prev::after {
-  transform: translate(-50%, -50%) translateY(4px) rotate(45deg);
-}
-
-dialog[open] .modal-step-next::before {
-  transform: translate(-50%, -50%) translateY(-4px) rotate(45deg);
-}
-
-dialog[open] .modal-step-next::after {
-  transform: translate(-50%, -50%) translateY(4px) rotate(-45deg);
 }
 
 .ui-chip-button {
@@ -3251,84 +1402,6 @@ dialog[open] .modal-step-next::after {
   transform: none;
 }
 
-.ui-data-table {
-  width: 100%;
-  table-layout: fixed;
-  border-collapse: separate;
-  border-spacing: 0;
-  color: var(--ui-text);
-  font-size: var(--font-md);
-  line-height: 1.45;
-}
-
-.ui-data-table thead {
-  position: sticky;
-  top: 0;
-  z-index: 3;
-}
-
-.ui-data-table th {
-  background: var(--ui-surface-raised);
-  color: var(--ui-muted);
-  font-size: var(--font-md);
-  font-weight: var(--font-weight-strong);
-  padding: 11px 12px;
-  padding-top: 0;
-  padding-bottom: 10px;
-  vertical-align: middle;
-  white-space: nowrap;
-}
-
-.ui-data-table td {
-  padding: 11px 12px;
-  vertical-align: middle;
-  white-space: nowrap;
-  transition: background-color var(--motion-standard) var(--ease-standard), color var(--motion-standard) var(--ease-standard);
-}
-
-.ui-data-table th:first-child,
-.ui-data-table td:first-child {
-  padding-left: 0;
-}
-
-.ui-data-table th:last-child,
-.ui-data-table td:last-child {
-  padding-right: 0;
-}
-
-.ui-list-link,
-.product-composition-item,
-.mounted-link {
-  position: relative;
-  isolation: isolate;
-  width: 100%;
-  display: grid;
-  align-items: center;
-  gap: var(--modal-row-gap);
-  min-height: 36px;
-  padding: 0 var(--modal-row-x-padding);
-  margin: 0;
-  border: 0;
-  border-radius: var(--radius-control-sm);
-  background: transparent;
-  background-image: none;
-  color: var(--ui-text);
-  font-size: var(--font-md);
-  font-weight: var(--font-weight-regular);
-  line-height: 1.2;
-  text-decoration: none;
-  box-shadow: var(--shadow-rest);
-  filter: none;
-  transform: none;
-  transition: var(--transition-control);
-}
-
-.product-composition-item > *,
-.mounted-link > * {
-  position: relative;
-  z-index: 1;
-}
-
 .product-lineup-trigger {
   appearance: none;
   cursor: pointer;
@@ -3336,57 +1409,6 @@ dialog[open] .modal-step-next::after {
   text-align: left;
 }
 
-.product-composition-item::before,
-.mounted-link::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  border-radius: inherit;
-  background: var(--ui-control-hover);
-  opacity: 0;
-  transform: scale(.96);
-  transform-origin: center;
-  transition: var(--transition-highlight);
-  pointer-events: none;
-}
-
-.ui-list-link:hover,
-.product-composition-item:hover,
-.mounted-link:hover {
-  background: var(--ui-control);
-  color: var(--ui-text);
-  box-shadow: none;
-  filter: none;
-  transform: none;
-}
-
-.product-composition .product-composition-item:hover,
-.product-composition .product-composition-item:focus-visible {
-  background: var(--ui-control-hover);
-  color: var(--ui-text);
-}
-
-.mounted-parts .mounted-link:hover,
-.mounted-parts .mounted-link:focus-visible {
-  background: transparent;
-  color: var(--ui-text);
-}
-
-.product-composition .product-composition-item::before {
-  content: none;
-  display: none;
-}
-
-.product-composition .product-composition-item:hover::before,
-.product-composition .product-composition-item:focus-visible::before,
-.mounted-parts .mounted-link:hover::before,
-.mounted-parts .mounted-link:focus-visible::before {
-  opacity: 1;
-  transform: scale(1);
-}
-
-/* Canonical brand style. */
 .brand:not(.topbar > .brand) {
   display: none;
 }
@@ -3439,7 +1461,6 @@ dialog[open] .modal-step-next::after {
   opacity: 1;
 }
 
-/* Overview page. */
 .overview-panel {
   padding-bottom: 0;
 }
@@ -3610,38 +1631,6 @@ body.is-overview .app-shell {
   --catalog-toolbar-columns: minmax(13.5rem, var(--catalog-series-dropdown-width)) minmax(0, 1fr);
 }
 
-.catalog-panel .catalog-toolbar {
-  grid-template-areas: "series search";
-}
-
-.catalog-series-dropdown {
-  grid-area: series;
-}
-
-.catalog-search-controls {
-  grid-area: search;
-  min-width: 0;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  align-items: stretch;
-  gap: 0;
-}
-
-.catalog-search-controls .catalog-local-search {
-  min-width: 0;
-}
-
-.anime-toolbar {
-  --release-series-dropdown-width: 14.5rem;
-  --catalog-toolbar-columns: minmax(13.5rem, var(--release-series-dropdown-width)) minmax(0, 1fr);
-  grid-template-areas: "series search";
-}
-
-.anime-character-season-filter {
-  grid-area: series;
-  min-width: 0;
-}
-
 .anime-character-season-filter .release-dropdown {
   --dropdown-item-min-width: 0;
   --dropdown-item-padding: 0 12px;
@@ -3649,11 +1638,6 @@ body.is-overview .app-shell {
   --dropdown-item-text-overflow: ellipsis;
   --dropdown-item-white-space: nowrap;
   width: 100%;
-}
-
-.anime-local-search {
-  grid-area: search;
-  min-width: 0;
 }
 
 .topbar-search-box,
@@ -3729,158 +1713,6 @@ body.is-overview .app-shell {
   line-height: 1.45;
   word-break: keep-all;
   overflow-wrap: anywhere;
-}
-
-.catalog-filter-chips {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
-}
-
-.catalog-filter-chips.is-empty {
-  display: none;
-}
-
-.catalog-filter-chips > .ui-chip-button {
-  margin: 0;
-}
-
-.catalog-filter-chip {
-  min-width: 0;
-  min-height: var(--catalog-chip-row-height);
-  border-radius: var(--catalog-pill-radius);
-  font-size: var(--font-md);
-  font-weight: var(--font-weight-medium);
-}
-
-.catalog-filter-chip span {
-  color: var(--ui-muted);
-}
-
-.catalog-state-chip {
-  min-width: 0;
-  min-height: var(--catalog-chip-row-height);
-  padding: 0 var(--space-3);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: var(--border-line);
-  border-radius: var(--catalog-pill-radius);
-  background: var(--ui-control);
-  color: var(--ui-text);
-  font-size: var(--font-md);
-  font-weight: var(--font-weight-medium);
-  line-height: 1;
-  white-space: nowrap;
-}
-
-.catalog-filter-reset {
-  min-width: 0;
-  min-height: var(--catalog-chip-row-height);
-  border-radius: var(--catalog-pill-radius);
-  background: transparent;
-  color: var(--ui-muted);
-  font-size: var(--font-md);
-  font-weight: var(--font-weight-medium);
-}
-
-.catalog-control-bar {
-  display: grid;
-  grid-template-columns: var(--catalog-control-columns);
-  align-items: start;
-  justify-content: var(--catalog-control-justify);
-  gap: var(--catalog-control-gap);
-  width: 100%;
-  max-width: var(--catalog-content-max, var(--catalog-grid-max-width, var(--page-max)));
-  padding: var(--panel-control-top-padding, 8px) 0 0;
-  margin: 0 auto var(--catalog-control-stack-gap);
-  background: var(--ui-bg);
-  background-image: none;
-  overflow: visible;
-}
-
-.catalog-control-bar > .catalog-toolbar {
-  position: relative;
-  z-index: 1;
-}
-
-.category-collection,
-.catalog-combined {
-  display: grid;
-  gap: var(--catalog-filter-card-gap);
-  width: 100%;
-  max-width: var(--catalog-content-max, var(--catalog-grid-max-width, var(--page-max)));
-  margin: 0 auto;
-}
-
-.category-collection__section,
-.catalog-subsection {
-  display: grid;
-  gap: var(--catalog-filter-card-gap);
-  min-width: 0;
-  width: 100%;
-  max-width: 100%;
-}
-
-.category-collection__section[hidden],
-.catalog-subsection[hidden] {
-  display: none;
-}
-
-.category-collection__meta-row,
-.catalog-query-row {
-  min-width: 0;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
-  min-height: var(--search-box-height, 48px);
-  gap: var(--space-2) var(--space-3);
-  padding: 0 var(--space-3);
-  border: var(--border-line);
-  border-radius: var(--radius-section);
-  background: var(--ui-surface);
-  box-shadow: var(--shadow-rest);
-}
-
-.catalog-panel .catalog-query-row {
-  padding-left: calc((var(--search-box-height, 48px) - var(--catalog-chip-row-height)) / 2);
-}
-
-.category-collection__meta-row .catalog-filter-chips,
-.catalog-query-row .catalog-filter-chips {
-  width: auto;
-  min-width: 0;
-}
-
-.catalog-query-row .catalog-filter-chips:not(.is-empty) {
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-
-.catalog-query-row .catalog-filter-chips:not(.is-empty)::-webkit-scrollbar {
-  display: none;
-}
-
-.catalog-query-actions {
-  --query-action-edge-offset: calc((var(--search-box-height, 48px) - var(--catalog-chip-row-height)) / 2);
-  min-width: max-content;
-  display: inline-flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 8px;
-  justify-self: end;
-  align-self: center;
-  margin-right: calc(var(--query-action-edge-offset) * -1);
-}
-
-.catalog-query-count {
-  --result-count-margin: 0;
-  min-width: max-content;
-  justify-self: auto;
-  align-self: center;
 }
 
 .list-sort-control {
@@ -3961,69 +1793,10 @@ body.is-overview .app-shell {
   --list-sort-menu-width: 156px;
 }
 
-.table-list-meta-row {
-  display: none;
-}
-
 .catalog-dropdown:not(.search-scope) > .catalog-dropdown-menu {
   width: 100%;
   min-width: 100%;
   max-width: 100%;
-}
-
-.search-results-panel {
-  max-width: 1120px;
-}
-
-.search-results-page {
-  width: min(100%, 960px);
-  margin: 0 auto;
-  padding: 18px 0 56px;
-}
-
-.search-results-heading {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  grid-template-areas:
-    "title count";
-  align-items: end;
-  gap: 6px 14px;
-  margin-bottom: 6px;
-}
-
-.search-results-heading h2 {
-  grid-area: title;
-  margin: 0;
-  color: var(--ui-text);
-  font-size: var(--font-xl);
-  font-weight: var(--font-weight-strong);
-  line-height: 1.08;
-}
-
-.search-results-summary {
-  grid-area: count;
-  margin: 0;
-  padding: 7px 11px;
-  border-radius: var(--ui-radius);
-  background: var(--ui-control);
-  color: var(--ui-muted);
-  font-size: var(--font-sm);
-  font-weight: var(--font-weight-regular);
-  white-space: nowrap;
-}
-
-.search-results-meta {
-  min-height: 18px;
-  margin: 0 0 14px;
-  color: var(--ui-muted);
-  font-size: var(--font-sm);
-  font-weight: var(--font-weight-regular);
-  line-height: 1.35;
-}
-
-.search-results-list {
-  display: grid;
-  gap: 4px;
 }
 
 .search-result-item {
@@ -4095,70 +1868,6 @@ body.is-overview .app-shell {
   font-weight: var(--font-weight-regular);
   line-height: var(--search-snippet-line-height, 1.55);
   word-break: keep-all;
-}
-
-.category-collection__pagination,
-.catalog-pagination {
-  justify-self: center;
-  width: 100%;
-}
-
-.category-collection__pagination[hidden],
-.catalog-pagination[hidden] {
-  display: none;
-}
-
-.search-results-pagination,
-.catalog-pagination-nav {
-  justify-self: center;
-  margin-top: 12px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-}
-
-.search-results-pagination .ui-button,
-.catalog-pagination-nav .ui-button {
-  min-width: 38px;
-  min-height: 34px;
-  padding: 0 11px;
-  background: var(--ui-control);
-  color: var(--ui-muted);
-  font-size: var(--font-sm);
-  font-weight: var(--font-weight-medium);
-  transition: var(--transition-control);
-}
-
-.search-results-pagination .ui-button:hover,
-.search-results-pagination .ui-button:focus-visible,
-.catalog-pagination-nav .ui-button:hover,
-.catalog-pagination-nav .ui-button:focus-visible {
-  background: var(--ui-control-hover);
-  color: var(--ui-control-text-active);
-  box-shadow: var(--shadow-hover);
-}
-
-.search-results-pagination .ui-button.active,
-.catalog-pagination-nav .ui-button.active {
-  background: var(--ui-control-hover);
-  color: var(--ui-control-text-active);
-  box-shadow: var(--shadow-rest);
-}
-
-.search-results-pagination .ui-button:disabled,
-.catalog-pagination-nav .ui-button:disabled {
-  opacity: .42;
-  cursor: default;
-}
-
-.search-results-page-gap,
-.catalog-page-gap {
-  min-width: 18px;
-  color: var(--ui-muted);
-  text-align: center;
-  font-size: var(--font-sm);
 }
 
 .search-preview {
@@ -4283,15 +1992,6 @@ body.is-overview .app-shell {
   align-items: center;
   gap: 10px 14px;
   margin: var(--overview-title-row-margin, 0 auto 16px);
-}
-
-.overview-title-row .modal-name {
-  width: var(--overview-title-name-width, auto);
-  height: auto;
-  max-height: none;
-  margin: 0;
-  flex: 0 1 auto;
-  overflow: visible;
 }
 
 .menu-button {
@@ -4464,7 +2164,6 @@ body.menu-open .mobile-drawer {
 .mobile-drawer-search .search-preview {
   z-index: 150;
 }
-
 
 .sidebar-root {
   --sidebar-primary-font-size: var(--font-md);
@@ -4688,25 +2387,22 @@ body.menu-open .mobile-drawer {
   white-space: nowrap;
 }
 
-/* The restored topbar is the primary navigation at every width. */
 @media (min-width: 100rem) {
-  .topbar {
+.topbar {
     display: grid;
   }
 
-  .app-shell {
+.app-shell {
     min-height: calc(100vh - 72px);
   }
 
-  body.is-overview .app-shell {
+body.is-overview .app-shell {
     min-height: calc(100svh - 72px);
   }
-
-
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *,
+*,
   *::before,
   *::after {
     animation-duration: 1ms !important;
@@ -4715,18 +2411,13 @@ body.menu-open .mobile-drawer {
     transition-duration: 1ms !important;
   }
 
-  .app-panel.active,
+.app-panel.active,
   .catalog-dropdown.is-dropdown-entering > .catalog-dropdown-menu,
-  .search-preview.is-preview-entering,
-  .modal-tag-popover,
-  .modal-overlay,
-  dialog[open] .modal-stage.is-modal-stage-entering,
-  dialog[open] .modal-inner,
-  dialog[open] .modal-step {
+  .search-preview.is-preview-entering {
     animation: none;
   }
 
-  .topbar-menu-button:hover,
+.topbar-menu-button:hover,
   .topbar-menu-button:focus-visible,
   .topbar-primary-button:not(:disabled):hover,
   .topbar-primary-button:not(:disabled):focus-visible,
@@ -4753,24 +2444,16 @@ body.menu-open .mobile-drawer {
   .mobile-drawer-close:focus-visible {
     transform: none;
   }
-
-  .ui-dropdown-item::before,
-  .catalog-dropdown-menu button::before,
-  .product-composition-item::before,
-  .mounted-link::before {
-    transform: none;
-    transition: opacity 1ms linear;
-  }
 }
 
 @media (min-width: 64rem) {
-  .topbar .menu-button {
+.topbar .menu-button {
     display: none;
   }
 }
 
 @media (max-width: 63.999rem) {
-  .topbar {
+.topbar {
     width: auto;
     max-width: none;
     padding: 0 var(--page-gutter);
@@ -4781,27 +2464,27 @@ body.menu-open .mobile-drawer {
     background: var(--ui-surface-glass);
   }
 
-  .topbar-primary-nav {
+.topbar-primary-nav {
     display: none;
   }
 
-  .topbar > .brand {
+.topbar > .brand {
     display: none;
   }
 
-  .topbar-search {
+.topbar-search {
     display: none;
   }
 
-  .overview-home {
+.overview-home {
     --overview-home-lift: calc(clamp(28px, 6svh, 56px) * -1);
   }
 
-  .topbar::before {
+.topbar::before {
     content: none;
   }
 
-  .topbar .menu-button {
+.topbar .menu-button {
     position: relative;
     inset: auto;
     justify-self: start;
@@ -4815,37 +2498,7 @@ body.menu-open .mobile-drawer {
     transform: none;
   }
 
-  dialog[open] {
-    --modal-edge-gap: clamp(18px, 3.2vw, 28px);
-    --modal-h: calc(var(--modal-vh) - var(--modal-edge-gap));
-    --modal-gutter: 6px;
-    --modal-close-offset: 18px;
-    --modal-scrollbar-inset: calc(var(--modal-close-offset) + 16px);
-    --modal-scroll-start: calc(var(--modal-close-offset) + 42px + 8px);
-    --modal-inner-columns: minmax(0, 1fr);
-    --modal-inner-rows: minmax(140px, 30%) minmax(0, 1fr);
-    --modal-info-align-self: auto;
-    --modal-info-height: 100%;
-    --modal-info-padding-inline: var(--modal-gutter);
-    --modal-art-height: 100%;
-    --modal-art-max-height: none;
-    --modal-art-padding: 0;
-    --composition-list-max-height-default: min(calc(var(--composition-row-height) * var(--composition-visible-rows)), 34dvh);
-    --overview-title-row-margin: 0 auto var(--modal-flow-gap);
-    --overview-title-name-width: 100%;
-    --model-viewer-width: min(100%, clamp(420px, 58vw, 520px));
-    --model-viewer-height: min(52vh, clamp(420px, 58vw, 520px));
-    --model-viewer-min-height: clamp(280px, 32vh, 300px);
-    --stat-value-column: 32px;
-    --stat-row-gap: 6px;
-  }
-
-  dialog[open] .modal-art > .bey-image {
-    max-width: min(72vw, 240px);
-    max-height: min(29dvh, 240px);
-  }
-
-  .app-panel:is(
+.app-panel:is(
     [data-app-panel="catalog"],
     [data-app-panel="release"],
     [data-app-panel="anime"],
@@ -4856,72 +2509,18 @@ body.menu-open .mobile-drawer {
     --result-count-margin: 0 0 3px;
     --catalog-toolbar-gap: var(--catalog-control-row-gap);
   }
-
-  dialog[open] .part-modal-info {
-    --stat-value-column: 4em;
-  }
-
 }
 
 @media (max-width: 39.999rem) {
-  .overview-home {
+.overview-home {
     --overview-home-lift: calc(clamp(20px, 5svh, 40px) * -1);
   }
 
-  .modal-info-slot.has-description .modal-description-region {
-    --modal-description-padding-y: var(--space-3);
-  }
-
-  dialog[open] {
-    --composition-visible-rows-default: 5;
-    --composition-list-max-height-default: min(calc(var(--composition-row-height) * var(--composition-visible-rows)), 30dvh);
-  }
-
-  dialog[open] .modal-info:not(.product-modal-info):not(.category-anime-info) .modal-name {
-    --modal-title-lines: 1;
-    min-width: 0;
-    flex-wrap: nowrap;
-    white-space: nowrap;
-    overflow-wrap: normal;
-    text-overflow: ellipsis;
-  }
-
-  dialog[open] .category-anime-info .anime-episode-title-row {
-    margin-top: 34px;
-  }
-
-  .release-dropdowns {
-    --release-grid-columns: minmax(0, 8fr) minmax(0, 14.5fr);
-    --release-grid-areas:
-      "region series"
-      "search search";
-  }
-
-  .release-dropdowns[data-anime-controls] {
-    --release-grid-columns: 1fr;
-    --release-grid-areas:
-      "series"
-      "search";
-  }
-
-  .app-panel[data-app-panel="catalog"] {
+.app-panel[data-app-panel="catalog"] {
     --catalog-toolbar-columns: 1fr;
   }
 
-  .anime-toolbar {
-    --catalog-toolbar-columns: 1fr;
-    grid-template-areas:
-      "series"
-      "search";
-  }
-
-  .catalog-panel .catalog-toolbar {
-    grid-template-areas:
-      "series"
-      "search";
-  }
-
-  .app-panel:is(
+.app-panel:is(
     [data-app-panel="catalog"],
     [data-app-panel="release"],
     [data-app-panel="anime"],
@@ -4935,5 +2534,5 @@ body.menu-open .mobile-drawer {
     --catalog-filter-card-gap: var(--catalog-control-row-gap);
     --catalog-toolbar-gap: var(--catalog-control-row-gap);
   }
-
+}
 }

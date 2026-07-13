@@ -1,1 +1,1 @@
-import "#app/route-controller";
+export { routerReady } from "#app/route-controller";

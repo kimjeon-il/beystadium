@@ -1,11 +1,9 @@
 import { appServices } from "#app/services";
 import { appState } from "#app/state";
-import { compareProductReleaseOrder, productSerialNumber } from "#app/catalog-model";
-import { cleanupModelViewer } from "#app/detail-view";
 import { rememberModalContext } from "#app/modal-context";
 import { matchesSearchText } from "#app/search-engine";
 import { productItems } from "#app/data-store";
-import { TableListController, defaultReleaseSeries, escapeAttributeValue, escapeHtml, priceLabel, productRelease, productReleasedInRegion, releaseBadgeLabel, releaseBadgeSearchText, releaseBadges, releaseControls, releaseDateCompactLabel, releaseDateLabel, releaseDateSortValue, releaseKindSortValue, releasePriceSortValue, releaseRegionLabels, releaseSeriesForRegion, releaseSeriesLabels, responsiveDateSpans, sortDropdownMarkup, tableListPageMarkup, tableListTableMarkup } from "#app/release-core";
+import { TableListController, compareProductReleaseOrder, defaultReleaseSeries, escapeAttributeValue, escapeHtml, priceLabel, productRelease, productReleasedInRegion, productSerialNumber, releaseBadgeLabel, releaseBadgeSearchText, releaseBadges, releaseControls, releaseDateCompactLabel, releaseDateLabel, releaseDateSortValue, releaseKindSortValue, releasePriceSortValue, releaseRegionLabels, releaseSeriesForRegion, releaseSeriesLabels, responsiveDateSpans, sortDropdownMarkup, tableListPageMarkup, tableListTableMarkup } from "#app/release-core";
 import { bindActionRows } from "#app/ui-core";
 
 const releaseSortableColumns = {
@@ -274,7 +272,7 @@ function openCategoryReleaseDetail(options = {}) {
     appState.activeReleaseSort = { key: options.releaseSort.key, direction: options.releaseSort.direction === "desc" ? "desc" : "asc" };
   }
   if (typeof options.releaseQuery === "string") appState.activeReleaseQuery = options.releaseQuery;
-  cleanupModelViewer();
+  appServices.cleanupModelViewer();
   appServices.activatePrimarySection("release", { preserveSearch });
   renderReleasePage();
   rememberReleaseModalContext();

@@ -19,9 +19,55 @@ import { animeSearchQuery, createSearchRecord, matchSearchRecord, matchesSearchT
 import { animeInfo } from "#app/data-store";
 import { TableListController, animeAirDateCompactLabel, animeAirDateLabel, escapeHtml, responsiveDateSpans, tableListControlsMarkup, tableListDropdownMarkup, tableListPageMarkup, tableListTableMarkup } from "#app/release-core";
 import { appServices } from "#app/services";
-import { bindActionRows } from "#app/ui-core";
+import { registerAppServices } from "#app/services";
+import { normalizeRoute } from "#app/route-parser";
+import { navigateToRoute } from "#app/navigation";
+import { activeAppPanel, animeSearch, bindActionRows, setSearchInputValue } from "#app/ui-core";
 
 if (!appState.activeAnimeSeason) appState.activeAnimeSeason = defaultAnimeSeason();
+
+const animeRouteFromState = (overrides = {}) => normalizeRoute({
+  type: "category-anime",
+  season: appState.activeAnimeCharacterSeason || "all",
+  page: appState.currentAnimePage,
+  query: animeSearchQuery(),
+  ...overrides
+});
+const syncAnimeRouteHash = ({ replace = true, force = false, overrides = {} } = {}) => {
+  if (!force && (appState.applyingRoute || activeAppPanel()?.dataset.appPanel !== "anime")) return;
+  navigateToRoute(animeRouteFromState(overrides), {
+    replace,
+    apply: false,
+    preserveScroll: true,
+    preserveSearch: true
+  });
+};
+const openCategoryAnimePage = (options = {}) => {
+  const { updateHash = true, replace = false, preserveSearch = false } = options;
+  const route = normalizeRoute({ type: "category-anime", ...options });
+  if (updateHash && !appState.applyingRoute) {
+    navigateToRoute(route, { replace });
+    return;
+  }
+  appServices.activatePrimarySection("anime", { preserveSearch });
+  appState.activeAnimeCharacterSeason = normalizeAnimeCharacterSeason(route.season);
+  if (Object.hasOwn(options, "query") || Object.hasOwn(options, "q") || !preserveSearch) {
+    setSearchInputValue(animeSearch, route.query);
+  }
+  appState.currentAnimePage = route.page;
+  appState.currentAnimeRenderKey = animeRenderKey();
+  renderAnimePage();
+};
+const restoreStoredAnimeOrigin = originState => {
+  if (originState?.animeSeason) appState.activeAnimeCharacterSeason = normalizeAnimeCharacterSeason(originState.animeSeason);
+  if (typeof originState?.animeQuery === "string") setSearchInputValue(animeSearch, originState.animeQuery);
+  renderAnimePage();
+  const page = Number(originState?.animePage);
+  if (Number.isFinite(page) && page > 1) {
+    appState.currentAnimePage = Math.floor(page);
+    renderAnimePage();
+  }
+};
 
 const animeEpisodeControls = () => tableListControlsMarkup({
   label: "방영목록 필터",
@@ -267,8 +313,13 @@ function openCategoryAnimeEpisodesDetail(options = {}) {
   rememberAnimeModalContext();
 }
 
+registerAppServices({ syncAnimeRouteHash });
+
 export {
   openAnimeEpisodeDetail,
+  openCategoryAnimePage,
   openCategoryAnimeEpisodesDetail,
+  restoreStoredAnimeOrigin,
+  syncAnimeRouteHash,
   renderAnimePage
 };

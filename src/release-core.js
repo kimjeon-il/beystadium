@@ -156,6 +156,21 @@ const releaseDateSortValue = value => {
   if (!match) return Number.MAX_SAFE_INTEGER;
   return Number(`${match[1]}${match[2]}${match[3] || "15"}`);
 };
+const productSerialNumber = (item, region = appState.activeReleaseRegion) => {
+  const no = productReleaseValue(item, "no", region) || item.no || "";
+  const match = no.match(/BB-(\d+)/);
+  return match ? Number(match[1]) : Number.MAX_SAFE_INTEGER;
+};
+const compareProductReleaseOrder = (a, b, region = appState.activeReleaseRegion) => {
+  const releaseA = productRelease(a, region);
+  const releaseB = productRelease(b, region);
+  const dateDiff = releaseDateSortValue(releaseA.releaseDate || releaseA.release)
+    - releaseDateSortValue(releaseB.releaseDate || releaseB.release);
+  if (dateDiff) return dateDiff;
+  const serialDiff = productSerialNumber(a, region) - productSerialNumber(b, region);
+  if (serialDiff) return serialDiff;
+  return (releaseA.no || a.no || "").localeCompare(releaseB.no || b.no || "", "ko", { numeric: true });
+};
 const priceLabel = (value, region = "kr") => {
   if (!value) return "";
   const digits = String(value).replace(/[^\d]/g, "");
@@ -300,6 +315,7 @@ export {
   TableListController,
   animeAirDateCompactLabel,
   animeAirDateLabel,
+  compareProductReleaseOrder,
   defaultCatalogSeries,
   defaultReleaseSeries,
   escapeAttributeValue,
@@ -312,6 +328,7 @@ export {
   productRelease,
   productReleaseValue,
   productReleasedInRegion,
+  productSerialNumber,
   rareBeyGetEntryProductIds,
   rareBeyGetEntryRegion,
   rareBeyGetEntryStartSortValue,

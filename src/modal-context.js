@@ -1,9 +1,12 @@
 import { appState } from "#app/state";
-import { animeSearchQuery, catalogSearchQuery, globalSearchQuery } from "#app/search-engine";
-import { isPrimaryRoute, routeSnapshot } from "#app/route-core";
-import { globalSearchScopeValue } from "#app/ui-core";
+import { isPrimaryRoute, routeSnapshot } from "#app/route-parser";
+import { animeSearch, catalogSearch, globalSearch, globalSearchScopeValue, mobileDrawerSearch } from "#app/ui-core";
 
 const modalContextStorageKey = "beyArchiveModalContext";
+const inputQuery = input => input?.value?.trim() || "";
+const globalSearchQuery = () => inputQuery(globalSearch) || inputQuery(mobileDrawerSearch);
+const catalogSearchQuery = () => inputQuery(catalogSearch);
+const animeSearchQuery = () => inputQuery(animeSearch);
 const currentPageScrollY = () => window.scrollY || document.documentElement.scrollTop || 0;
 const validScrollY = value => {
   const numeric = Number(value);

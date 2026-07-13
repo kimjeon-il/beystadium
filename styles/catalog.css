@@ -1,0 +1,186 @@
+@layer catalog {
+.catalog-panel .result-count.is-hidden {
+  display: none;
+}
+
+.catalog-panel .catalog-toolbar {
+  grid-template-areas: "series search";
+}
+
+.catalog-series-dropdown {
+  grid-area: series;
+}
+
+.catalog-search-controls {
+  grid-area: search;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: stretch;
+  gap: 0;
+}
+
+.catalog-search-controls .catalog-local-search {
+  min-width: 0;
+}
+
+.catalog-filter-chips {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.catalog-filter-chips.is-empty {
+  display: none;
+}
+
+.catalog-filter-chips > .ui-chip-button {
+  margin: 0;
+}
+
+.catalog-filter-chip {
+  min-width: 0;
+  min-height: var(--catalog-chip-row-height);
+  border-radius: var(--catalog-pill-radius);
+  font-size: var(--font-md);
+  font-weight: var(--font-weight-medium);
+}
+
+.catalog-filter-chip span {
+  color: var(--ui-muted);
+}
+
+.catalog-state-chip {
+  min-width: 0;
+  min-height: var(--catalog-chip-row-height);
+  padding: 0 var(--space-3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--border-line);
+  border-radius: var(--catalog-pill-radius);
+  background: var(--ui-control);
+  color: var(--ui-text);
+  font-size: var(--font-md);
+  font-weight: var(--font-weight-medium);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.catalog-filter-reset {
+  min-width: 0;
+  min-height: var(--catalog-chip-row-height);
+  border-radius: var(--catalog-pill-radius);
+  background: transparent;
+  color: var(--ui-muted);
+  font-size: var(--font-md);
+  font-weight: var(--font-weight-medium);
+}
+
+.catalog-control-bar {
+  display: grid;
+  grid-template-columns: var(--catalog-control-columns);
+  align-items: start;
+  justify-content: var(--catalog-control-justify);
+  gap: var(--catalog-control-gap);
+  width: 100%;
+  max-width: var(--catalog-content-max, var(--catalog-grid-max-width, var(--page-max)));
+  padding: var(--panel-control-top-padding, 8px) 0 0;
+  margin: 0 auto var(--catalog-control-stack-gap);
+  background: var(--ui-bg);
+  background-image: none;
+  overflow: visible;
+}
+
+.catalog-control-bar > .catalog-toolbar {
+  position: relative;
+  z-index: 1;
+}
+
+.category-collection,
+.catalog-combined {
+  display: grid;
+  gap: var(--catalog-filter-card-gap);
+  width: 100%;
+  max-width: var(--catalog-content-max, var(--catalog-grid-max-width, var(--page-max)));
+  margin: 0 auto;
+}
+
+.category-collection__section,
+.catalog-subsection {
+  display: grid;
+  gap: var(--catalog-filter-card-gap);
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+.category-collection__section[hidden],
+.catalog-subsection[hidden] {
+  display: none;
+}
+
+.category-collection__meta-row,
+.catalog-query-row {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  min-height: var(--search-box-height, 48px);
+  gap: var(--space-2) var(--space-3);
+  padding: 0 var(--space-3);
+  border: var(--border-line);
+  border-radius: var(--radius-section);
+  background: var(--ui-surface);
+  box-shadow: var(--shadow-rest);
+}
+
+.catalog-panel .catalog-query-row {
+  padding-left: calc((var(--search-box-height, 48px) - var(--catalog-chip-row-height)) / 2);
+}
+
+.category-collection__meta-row .catalog-filter-chips,
+.catalog-query-row .catalog-filter-chips {
+  width: auto;
+  min-width: 0;
+}
+
+.catalog-query-row .catalog-filter-chips:not(.is-empty) {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.catalog-query-row .catalog-filter-chips:not(.is-empty)::-webkit-scrollbar {
+  display: none;
+}
+
+.catalog-query-actions {
+  --query-action-edge-offset: calc((var(--search-box-height, 48px) - var(--catalog-chip-row-height)) / 2);
+  min-width: max-content;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  justify-self: end;
+  align-self: center;
+  margin-right: calc(var(--query-action-edge-offset) * -1);
+}
+
+.catalog-query-count {
+  --result-count-margin: 0;
+  min-width: max-content;
+  justify-self: auto;
+  align-self: center;
+}
+
+@media (max-width: 39.999rem) {
+.catalog-panel .catalog-toolbar {
+    grid-template-areas:
+      "series"
+      "search";
+  }
+}
+}

@@ -1,0 +1,345 @@
+@layer table {
+.table-list-controls,
+.release-dropdowns {
+  --release-region-tabs-width: 8rem;
+  --release-series-dropdown-width: 14.5rem;
+  --release-grid-columns: minmax(7.5rem, var(--release-region-tabs-width)) minmax(13.5rem, var(--release-series-dropdown-width)) minmax(0, 1fr);
+  --release-grid-areas: "region series search";
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  display: grid;
+  grid-template-columns: var(--release-grid-columns);
+  grid-template-areas: var(--release-grid-areas);
+  align-items: flex-start;
+  gap: var(--catalog-control-row-gap, var(--filter-dropdown-gap, var(--space-3)));
+  justify-content: start;
+  position: relative;
+  z-index: 5;
+}
+
+.table-list-controls[data-anime-controls],
+.release-dropdowns[data-anime-controls] {
+  --release-grid-columns: minmax(13.5rem, var(--release-series-dropdown-width)) minmax(0, 1fr);
+  --release-grid-areas: "series search";
+}
+
+.table-list-controls > .release-region-tabs,
+.release-dropdowns > .release-region-tabs {
+  grid-area: region;
+}
+
+.table-list-controls > .release-dropdown,
+.release-dropdowns > .release-dropdown {
+  grid-area: series;
+}
+
+.table-list-controls > .release-search-box,
+.release-dropdowns > .release-search-box {
+  grid-area: search;
+}
+
+.release-search-box {
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  flex: 1 1 auto;
+}
+
+.release-region-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-self: stretch;
+  align-items: center;
+  gap: var(--space-1);
+  width: 100%;
+  min-width: 0;
+  height: var(--filter-dropdown-height, 48px);
+  min-height: var(--filter-dropdown-height, 48px);
+  max-height: var(--filter-dropdown-height, 48px);
+  padding: var(--space-1);
+  border: var(--border-subtle);
+  border-radius: var(--radius-control);
+  background: var(--ui-surface-raised);
+  background-clip: padding-box;
+  color: var(--ui-control-text-active);
+  box-shadow: var(--shadow-rest);
+}
+
+.release-region-tabs button {
+  height: 100%;
+  min-height: 0;
+  font-size: var(--font-md);
+  line-height: 1;
+}
+
+.table-list-section,
+.release-table-section {
+  --table-header-control-height: 28px;
+  width: 100%;
+  min-height: 0;
+  margin: 0;
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  background: var(--ui-surface-raised);
+  border: var(--border-subtle);
+  border-radius: var(--radius-section);
+  box-shadow: var(--shadow-rest);
+}
+
+.table-list-page,
+.category-anime-episodes {
+  min-height: 0;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--modal-flow-gap);
+}
+
+.table-list-page {
+  container-type: inline-size;
+}
+
+.table-list-shell,
+.release-page-shell {
+  --modal-body-width: 100%;
+  --modal-flow-gap: 12px;
+  --release-content-inset: 0px;
+  --release-scrollbar-x-shift: 0px;
+  width: 100%;
+  max-width: var(--catalog-content-max, var(--catalog-grid-max-width, var(--page-max)));
+  min-height: 0;
+  margin: 0 auto;
+  padding: var(--panel-control-top-padding, 8px) 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--modal-flow-gap);
+}
+
+.table-list-scroll,
+.anime-episode-table-scroll,
+.release-table-scroll {
+  container-type: inline-size;
+  box-sizing: border-box;
+  flex: 1 1 auto;
+  width: calc(100% + var(--release-scrollbar-x-shift, 0px));
+  margin-left: 0;
+  margin-right: calc(var(--release-scrollbar-x-shift, 0px) * -1);
+  padding-left: 0;
+  padding-right: var(--release-scrollbar-x-shift, 0px);
+  min-height: 0;
+  max-height: none;
+  overflow-x: auto;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--ui-line) transparent;
+}
+
+.page-table-scroll {
+  min-width: 0;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-y: visible;
+  scrollbar-gutter: auto;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-list-section .ui-data-table th,
+.release-table-section .ui-data-table th {
+  padding-top: 8px;
+  line-height: var(--table-header-control-height);
+}
+
+.table-list-section .ui-data-table th:first-child,
+.table-list-section .ui-data-table td:first-child,
+.release-table-section .ui-data-table th:first-child,
+.release-table-section .ui-data-table td:first-child {
+  padding-left: 12px;
+}
+
+.table-list-section .ui-data-table th:last-child,
+.table-list-section .ui-data-table td:last-child,
+.release-table-section .ui-data-table th:last-child,
+.release-table-section .ui-data-table td:last-child {
+  padding-right: 12px;
+}
+
+.category-anime-episodes[data-anime-table-mode="fit"] .table-list-scroll,
+.category-anime-episodes[data-anime-table-mode="fit"] .anime-episode-table-scroll {
+  flex: 0 1 auto;
+}
+
+.anime-air-date-compact,
+.release-date-compact {
+  display: none;
+}
+
+.table-list-row,
+.anime-episode-row,
+.release-product-row {
+  cursor: pointer;
+  outline: 0;
+}
+
+.table-list-table tbody .table-list-row:hover td,
+.table-list-table tbody .table-list-row:focus-visible td,
+.anime-episode-table tbody .anime-episode-row:hover td,
+.anime-episode-table tbody .anime-episode-row:focus-visible td,
+.release-table tbody .release-product-row:hover td,
+.release-table tbody .release-product-row:focus-visible td {
+  background: var(--ui-control-hover);
+  color: var(--ui-text);
+}
+
+.table-list-table tbody td:first-child,
+.anime-episode-table tbody td:first-child,
+.release-table tbody td:first-child {
+  border-radius: var(--ui-radius) 0 0 var(--ui-radius);
+}
+
+.table-list-table tbody td:last-child,
+.anime-episode-table tbody td:last-child,
+.release-table tbody td:last-child {
+  border-radius: 0 var(--ui-radius) var(--ui-radius) 0;
+}
+
+.table-list-empty-row td,
+.release-empty-row td {
+  height: 120px;
+  padding: 11px 12px;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ui-muted);
+  text-align: center;
+  cursor: default;
+}
+
+@container (max-width: 39.999rem) {
+.release-table,
+  .anime-episode-table {
+    --mobile-table-leading-col-width: 25%;
+    --mobile-table-date-col-width: clamp(92px, 27%, 96px);
+  }
+
+.table-list-meta-row.release-mobile-sort-row {
+    display: grid;
+  }
+
+.release-table th:nth-child(3),
+  .release-table td:nth-child(3),
+  .release-table th:nth-child(4),
+  .release-table td:nth-child(4),
+  .release-table th:nth-child(5),
+  .release-table td:nth-child(5),
+  .anime-episode-table th:nth-child(3),
+  .anime-episode-table td:nth-child(3) {
+    display: none;
+  }
+
+.release-table th:nth-child(1),
+  .release-table td:nth-child(1),
+  .anime-episode-table th:nth-child(1),
+  .anime-episode-table td:nth-child(1) {
+    width: var(--mobile-table-leading-col-width);
+  }
+
+.release-table th:nth-child(2),
+  .release-table td:nth-child(2),
+  .anime-episode-table th:nth-child(2),
+  .anime-episode-table td:nth-child(2) {
+    width: 75%;
+  }
+
+.release-table th,
+  .release-table td,
+  .anime-episode-table th,
+  .anime-episode-table td {
+    padding-inline: 8px;
+  }
+
+.release-table tbody td:nth-child(2),
+  .anime-episode-table tbody td:nth-child(2) {
+    border-radius: 0 var(--ui-radius) var(--ui-radius) 0;
+  }
+
+.release-date-full,
+  .anime-air-date-full {
+    display: none;
+  }
+
+.release-date-compact,
+  .anime-air-date-compact {
+    display: inline;
+  }
+}
+
+.ui-data-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+  color: var(--ui-text);
+  font-size: var(--font-md);
+  line-height: 1.45;
+}
+
+.ui-data-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+
+.ui-data-table th {
+  background: var(--ui-surface-raised);
+  color: var(--ui-muted);
+  font-size: var(--font-md);
+  font-weight: var(--font-weight-strong);
+  padding: 11px 12px;
+  padding-top: 0;
+  padding-bottom: 10px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.ui-data-table td {
+  padding: 11px 12px;
+  vertical-align: middle;
+  white-space: nowrap;
+  transition: background-color var(--motion-standard) var(--ease-standard), color var(--motion-standard) var(--ease-standard);
+}
+
+.ui-data-table th:first-child,
+.ui-data-table td:first-child {
+  padding-left: 0;
+}
+
+.ui-data-table th:last-child,
+.ui-data-table td:last-child {
+  padding-right: 0;
+}
+
+.table-list-meta-row {
+  display: none;
+}
+
+@media (max-width: 39.999rem) {
+.release-dropdowns {
+    --release-grid-columns: minmax(0, 8fr) minmax(0, 14.5fr);
+    --release-grid-areas:
+      "region series"
+      "search search";
+  }
+
+.release-dropdowns[data-anime-controls] {
+    --release-grid-columns: 1fr;
+    --release-grid-areas:
+      "series"
+      "search";
+  }
+}
+}

@@ -13,9 +13,10 @@ import {
   toolsItemsById
 } from "#app/data-store";
 import {
+  compareProductReleaseOrder,
   productRelease,
-  productReleaseValue,
   productReleasedInRegion,
+  productSerialNumber,
   releaseDateSortValue,
   releaseRegionLabels,
   releaseSeriesOrder
@@ -95,20 +96,6 @@ const catalogListSearchRecord = item => {
 };
 const catalogListSearchScore = (item, query) => matchSearchRecord(catalogListSearchRecord(item), query).score;
 
-const productSerialNumber = (item, region = appState.activeReleaseRegion) => {
-  const no = productReleaseValue(item, "no", region) || item.no || "";
-  const match = no.match(/BB-(\d+)/);
-  return match ? Number(match[1]) : Number.MAX_SAFE_INTEGER;
-};
-const compareProductReleaseOrder = (a, b, region = appState.activeReleaseRegion) => {
-  const releaseA = productRelease(a, region);
-  const releaseB = productRelease(b, region);
-  const dateDiff = releaseDateSortValue(releaseA.releaseDate || releaseA.release) - releaseDateSortValue(releaseB.releaseDate || releaseB.release);
-  if (dateDiff) return dateDiff;
-  const serialDiff = productSerialNumber(a, region) - productSerialNumber(b, region);
-  if (serialDiff) return serialDiff;
-  return (releaseA.no || a.no || "").localeCompare(releaseB.no || b.no || "", "ko", { numeric: true });
-};
 const toolsCard = item => `
   <button class="ui-card-button category-card catalog-card product-card" data-tools-id="${item.id}">
     <div class="catalog-card-visual"></div>

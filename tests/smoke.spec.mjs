@@ -23,10 +23,12 @@ test("runtime data is loaded by route instead of during home boot", async ({ pag
   test.skip(testInfo.project.name !== "desktop", "request coverage only needs one browser");
   const runtimeRequests = [];
   const moduleRequests = [];
+  const styleRequests = [];
   page.on("request", request => {
     const pathname = new URL(request.url()).pathname;
     if (pathname.includes("/data/runtime/")) runtimeRequests.push(pathname);
     if (pathname.includes("/src/")) moduleRequests.push(pathname);
+    if (pathname.includes("/styles/")) styleRequests.push(pathname);
   });
 
   await page.goto("/");
@@ -39,6 +41,23 @@ test("runtime data is loaded by route instead of during home boot", async ({ pag
   expect(moduleRequests).toContain("/src/data-store.js");
   expect(moduleRequests).not.toContain("/src/app-entry.js");
   expect(moduleRequests).not.toContain("/src/router.js");
+  expect(styleRequests).toEqual(["/styles/base.css"]);
+
+  await page.goto("/#toy-release");
+  await expect(page.locator(".release-product-row").first()).toBeVisible();
+  expect(moduleRequests).toContain("/src/release-page.js");
+  expect(moduleRequests).not.toContain("/src/view-controller.js");
+  expect(moduleRequests).not.toContain("/src/collection-view.js");
+  expect(moduleRequests).not.toContain("/src/search-feature.js");
+  expect(moduleRequests).not.toContain("/src/catalog-model.js");
+  expect(moduleRequests).not.toContain("/src/detail-controller.js");
+  expect(moduleRequests).not.toContain("/src/detail-view.js");
+  expect(moduleRequests).not.toContain("/src/modal-controller.js");
+  expect(moduleRequests).not.toContain("/src/anime.js");
+  expect(styleRequests).toContain("/styles/table.css");
+  expect(styleRequests).toContain("/styles/release.css");
+  expect(styleRequests).not.toContain("/styles/catalog.css");
+  expect(styleRequests).not.toContain("/styles/modal.css");
 
   await page.goto("/#toy-catalog?scope=bey&series=x");
   await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
@@ -48,13 +67,9 @@ test("runtime data is loaded by route instead of during home boot", async ({ pag
   expect(moduleRequests).toContain("/src/catalog-model.js");
   expect(moduleRequests).toContain("/src/collection-view.js");
   expect(moduleRequests).toContain("/src/search-engine.js");
-  expect(moduleRequests).not.toContain("/src/release-page.js");
   expect(moduleRequests).not.toContain("/src/anime.js");
-
-  await page.goto("/#toy-release");
-  await expect(page.locator(".release-product-row").first()).toBeVisible();
-  expect(moduleRequests).toContain("/src/release-page.js");
-  expect(moduleRequests).not.toContain("/src/anime.js");
+  expect(styleRequests).toContain("/styles/collection.css");
+  expect(styleRequests).toContain("/styles/catalog.css");
 
   await page.goto("/#anime-character");
   await expect(page.locator('[data-app-panel="anime"].active')).toBeVisible();
@@ -110,6 +125,19 @@ test("responsive routes preserve hidden states and viewport bounds", async ({ pa
   expect(errors).toEqual([]);
 });
 
+test("table date labels switch once at the responsive breakpoint", async ({ page }, testInfo) => {
+  const mobile = testInfo.project.name === "mobile";
+  for (const [hash, fullSelector, compactSelector, rowSelector] of [
+    ["#toy-release", ".release-date-full", ".release-date-compact", ".release-product-row"],
+    ["#anime-episode", ".anime-air-date-full", ".anime-air-date-compact", ".anime-episode-row"]
+  ]) {
+    await page.goto(`/${hash}`);
+    await expect(page.locator(rowSelector).first()).toBeVisible();
+    await expect(page.locator(fullSelector).first()).toHaveCSS("display", mobile ? "none" : "inline");
+    await expect(page.locator(compactSelector).first()).toHaveCSS("display", mobile ? "inline" : "none");
+  }
+});
+
 test("reduced motion disables route and control transitions", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "motion coverage only needs one browser");
   await page.emulateMedia({ reducedMotion: "reduce" });
@@ -129,4 +157,27 @@ test("reduced motion disables route and control transitions", async ({ page }, t
     element => getComputedStyle(element).animationName
   );
   expect(modalAnimation).toBe("none");
+});
+
+test("failed route stylesheet exposes a retry that recovers the page", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "stylesheet recovery only needs one browser");
+  let shouldFail = true;
+  await page.route("**/styles/catalog.css*", async route => {
+    if (shouldFail) {
+      shouldFail = false;
+      await route.abort("failed");
+      return;
+    }
+    await route.continue();
+  });
+
+  await page.goto("/#toy-catalog?scope=bey&series=x");
+  const status = page.locator("#dataLoadStatus");
+  await expect(status).toBeVisible();
+  await expect(status.locator("[data-load-message]")).toHaveText("화면 스타일을 불러오지 못했습니다.");
+  await status.locator("[data-load-retry]").click();
+
+  await expect(page.locator("html")).not.toHaveClass(/route-booting/);
+  await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
+  await expect(status).toBeHidden();
 });

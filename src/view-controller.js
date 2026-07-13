@@ -5,7 +5,8 @@ import { activeCatalogSortOption, catalogRenderKey, catalogSortOptions, catalogV
 import { animeRenderKey, renderCatalogItems, scrollAnimeGridIntoView, scrollCatalogGridIntoView, syncCatalogScopeState } from "#app/collection-view";
 import { loadAnimeFeature, renderAnimePage } from "#app/feature-loaders";
 import { cancelModalViewportSync, clearModalLockStyles, closeModalSession, modal } from "#app/modal-controller";
-import { defaultCatalogSort, navigateToRoute, normalizeCatalogRouteSort, normalizeRoute } from "#app/route-core";
+import { defaultCatalogSort, normalizeCatalogRouteSort, normalizeRoute } from "#app/route-parser";
+import { navigateToRoute } from "#app/navigation";
 import { defaultCatalogSeries, defaultReleaseSeries, escapeAttributeValue, escapeHtml, normalizeCatalogSeries, setSortDropdownLabel, sortDropdownMarkup } from "#app/release-core";
 import { animeSearchQuery, catalogAttributeChipForTerm, catalogFilterChipLabelForTerm, catalogFilterQueryTerms, catalogSearchQuery, globalSearchQuery, normalizeCatalogSearchInput } from "#app/search-engine";
 import { SEARCH_HASH_UPDATE_DELAY, SEARCH_RENDER_DELAY, bindSearchPreview, closeAllSearchPreviews, handleSearchPreviewKeydown, refreshSearchPreview, renderGlobalCards, searchPreviewScopeValue } from "#app/search-feature";
@@ -68,9 +69,6 @@ const handleCategoryRouteClick = (event, { closeSearchHelp = false, closeMobileM
   return true;
 };
 
-document.querySelector(".overview-panel")?.addEventListener("click", event => {
-  handleCategoryRouteClick(event);
-});
 const activeAppPanelName = () => activeAppPanel()?.dataset.appPanel || "";
 let searchHashUpdateTimer = 0;
 const updateGlobalSearchHash = () => {

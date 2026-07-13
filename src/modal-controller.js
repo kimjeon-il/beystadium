@@ -3,7 +3,7 @@ import { partItems } from "#app/data-store";
 import { zeroGBottomStartIndex } from "#app/catalog-model";
 import { cleanupModelViewer, closeModalTagPopover } from "#app/detail-view";
 import { clearActiveDetailModalContext, clearModalContext, currentPageScrollY, rememberModalContext, restorePageScroll, validScrollY } from "#app/modal-context";
-import { clearModalOriginRoute, navigateToRoute } from "#app/route-core";
+import { clearModalOriginRoute, navigateToRoute } from "#app/navigation";
 import { escapeAttributeValue } from "#app/release-core";
 import { playEnterAnimation } from "#app/ui-core";
 

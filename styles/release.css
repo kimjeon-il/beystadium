@@ -1,0 +1,186 @@
+@layer release {
+.release-table {
+  --release-table-min-width: 640px;
+  --release-col-date-width: 96px;
+  --release-col-name-width: auto;
+  --release-col-price-width: 170px;
+  --release-col-region-width: 116px;
+  --release-col-series-width: 94px;
+  min-width: var(--release-table-min-width);
+}
+
+.release-table th:nth-child(1),
+.release-table td:nth-child(1) {
+  width: var(--release-col-date-width);
+}
+
+.release-table th:nth-child(2),
+.release-table td:nth-child(2) {
+  width: var(--release-col-name-width);
+}
+
+.release-table th:nth-child(3),
+.release-table td:nth-child(3) {
+  width: var(--release-col-price-width);
+}
+
+.release-table th:nth-child(4),
+.release-table td:nth-child(4) {
+  width: var(--release-col-region-width);
+}
+
+.release-table th:nth-child(5),
+.release-table td:nth-child(5) {
+  width: var(--release-col-series-width);
+}
+
+.release-table td {
+  border-bottom: 0;
+  color: var(--ui-text);
+  text-align: left;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.release-table th {
+  border-bottom: 0;
+  position: sticky;
+  text-align: center;
+}
+
+.release-sort-button {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  height: var(--table-header-control-height);
+  border: 0;
+  border-radius: var(--ui-radius);
+  padding: 0 20px;
+  display: block;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: var(--font-md);
+  font-weight: inherit;
+  text-align: center;
+  cursor: pointer;
+}
+
+.release-sort-button:hover,
+.release-sort-button:focus-visible {
+  color: var(--ui-text);
+  background: transparent;
+  outline: 0;
+}
+
+.release-sort-label {
+  display: block;
+  width: 100%;
+  font-size: var(--font-md);
+  line-height: inherit;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.release-sort-mark {
+  position: absolute;
+  top: 50%;
+  right: 4px;
+  width: 14px;
+  transform: translateY(-50%);
+  color: var(--ui-muted);
+  font-size: var(--font-xs);
+  font-weight: var(--font-weight-strong);
+  line-height: 1;
+  text-align: center;
+  opacity: .58;
+  pointer-events: none;
+}
+
+.release-sort-button:hover .release-sort-mark,
+.release-sort-button:focus-visible .release-sort-mark {
+  color: var(--ui-text);
+  opacity: 1;
+}
+
+.release-table tbody td:not(:nth-child(2)) {
+  text-align: center;
+}
+
+.release-table tbody td:nth-child(2) {
+  text-align: left;
+}
+
+.release-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.release-product-link {
+  color: var(--ui-text);
+  font-weight: var(--font-weight-medium);
+  text-align: left;
+  display: block;
+  flex: 0 1 auto;
+  width: auto;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.release-product-link:hover {
+  color: var(--ui-text);
+}
+
+.release-product-cell {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  gap: 8px;
+  min-width: 0;
+  vertical-align: middle;
+}
+
+.release-badges {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 4px;
+  min-width: 0;
+}
+
+.release-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: calc(var(--font-xs) * 1.65);
+  padding: 0 7px;
+  border-radius: 999px;
+  background: var(--ui-text);
+  color: var(--ui-surface);
+  font-size: var(--font-xs);
+  font-weight: var(--font-weight-strong);
+  line-height: 1;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+@container (max-width: 39.999rem) {
+.release-table {
+    --release-table-min-width: 0;
+    --release-col-date-width: var(--mobile-table-leading-col-width);
+    --release-col-region-width: var(--mobile-table-date-col-width);
+  }
+
+.release-table .release-sort-button {
+    padding: 0;
+    color: inherit;
+    cursor: default;
+    pointer-events: none;
+  }
+
+.release-table .release-sort-mark {
+    display: none;
+  }
+}
+}

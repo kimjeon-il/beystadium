@@ -1,82 +1,55 @@
-import { episodeIndexFromHash, isAnimeEpisodeHash } from "#app/anime-core";
 import { appState } from "#app/state";
-import { BeystadiumDataStore, bookItemsById, catalogCoreItemsById, gameItemsById, productItemsById, toolsItemsById } from "#app/data-store";
-import { syncCatalogScopeState } from "#app/collection-view";
-import { itemDisplayName, openBookDetail, openDetail, openDetailByKind, openGameDetail, openProductEntry, openRareBeyGetListDetail, openToolsDetail } from "#app/detail-controller";
-import { closeModalTagPopover, positionModalTagPopover } from "#app/detail-view";
-import { openAnimeEpisodeDetail, openCategoryAnimeEpisodesDetail, openCategoryReleaseDetail } from "#app/feature-loaders";
-import { finishModalOpen, modal, modalBackButtonMarkup, modalController, queueModalTransition, routeIfNeeded, scheduleModalViewportSync, setModalContent } from "#app/modal-controller";
-import { modalOriginState, restorePageScroll, restoredModalContext, validScrollY } from "#app/modal-context";
-import { appliedRouteKey, currentPathWithSearch, isDetailRoute, isPrimaryRoute, navigateToRoute, normalizeRoute, parseRouteFromHash, rememberPrimaryRoute, routeSnapshot, serializeRoute, stabilizePrimaryRouteScroll, syncModalOriginRoute } from "#app/route-core";
+import {
+  BeystadiumDataStore,
+  bookItemsById,
+  catalogCoreItemsById,
+  gameItemsById,
+  productItemsById,
+  toolsItemsById
+} from "#app/data-store";
+import {
+  loadAnimeFeature,
+  loadDetailFeature,
+  loadReleaseFeature,
+  loadViewFeature
+} from "#app/feature-loaders";
+import {
+  isDetailRoute,
+  isPrimaryRoute,
+  normalizeRoute,
+  parseRouteFromHash,
+  routeSnapshot,
+  serializeRoute
+} from "#app/route-parser";
+import {
+  appliedRouteKey,
+  currentPathWithSearch,
+  navigateToRoute,
+  rememberPrimaryRoute,
+  stabilizePrimaryRouteScroll,
+  syncModalOriginRoute
+} from "#app/navigation";
 import { registerAppServices } from "#app/services";
-import { closeAllSearchPreviews } from "#app/search-feature";
-import { menuButton, mobileDrawer, mobileDrawerClose } from "#app/ui-core";
-import { activatePrimarySection, anySearchHelpPopoverIsOpen, bindSearchInput, catalogRouteFromState, closeDetailModalForPrimaryRoute, closeOpenCatalogDropdowns, closeSearchHelpPopovers, closeSearchHelpPopoversOnScroll, currentMenuTrigger, handleCategoryRouteClick, isMobileDrawerMode, mobileDrawerIsOpen, openCategoryAnimePage, openCategoryCatalog, openSearchResults, positionSearchHelpPopovers, renderCatalogFilterChips, restoreStoredAnimeOrigin, restoreStoredCatalogOrigin, routeApplyOptions, searchHelpPopovers, setDropdownOption, setGlobalSearchState, setMobileDrawerOpen, syncAnimeRouteHash, syncCatalogRouteHash, syncMenuButtonMode } from "#app/view-controller";
+import {
+  activatePrimarySection,
+  bindSearchInput,
+  closeOpenCatalogDropdowns,
+  closeSearchHelpPopovers,
+  setDropdownOption,
+  setMobileDrawerOpen
+} from "#app/shell-controller";
+import { ensureStyles, routeStyleManifest } from "#app/style-loader";
 
-async function restoreDetailOriginPanel(context) {
-  const originRoute = routeSnapshot(context?.originRoute);
-  if (!originRoute || !isPrimaryRoute(originRoute)) return false;
-  const originState = context?.originState || {};
-  appState.modalOriginRoute = routeSnapshot(originRoute);
-  appState.modalOriginRouteExplicit = context?.originExplicit === true;
-  rememberPrimaryRoute(originRoute);
-  if (originRoute.type === "catalog") {
-    openCategoryCatalog({ ...originRoute, updateHash: false, preserveSearch: true });
-    restoreStoredCatalogOrigin(originState);
-  } else if (originRoute.type === "search") {
-    const scope = originState.globalScope || originRoute.scope || "all";
-    const query = typeof originState.globalQuery === "string" ? originState.globalQuery : originRoute.query || "";
-    setGlobalSearchState(query, scope);
-    openSearchResults({ replace: true, updateHash: false });
-  } else if (originRoute.type === "category-release") {
-    await openCategoryReleaseDetail({
-      ...(originRoute.options || {}),
-      region: originState.releaseRegion || originRoute.options?.region,
-      series: originState.releaseSeries || originRoute.options?.series,
-      releaseQuery: typeof originState.releaseQuery === "string" ? originState.releaseQuery : originRoute.options?.releaseQuery,
-      releaseSort: originState.releaseSort || originRoute.options?.releaseSort,
-      updateHash: false,
-      preserveSearch: true
-    });
-  } else if (originRoute.type === "category-anime") {
-    await openCategoryAnimePage({
-      ...originRoute,
-      season: originState.animeSeason || originRoute.season,
-      query: typeof originState.animeQuery === "string" ? originState.animeQuery : originRoute.query,
-      page: originState.animePage || originRoute.page,
-      updateHash: false,
-      preserveSearch: true
-    });
-    restoreStoredAnimeOrigin(originState);
-  } else if (originRoute.type === "category-anime-episodes") {
-    await openCategoryAnimeEpisodesDetail({
-      ...(originRoute.options || {}),
-      animeSeason: originState.animeSeason || originRoute.options?.animeSeason,
-      animeQuery: typeof originState.animeQuery === "string" ? originState.animeQuery : originRoute.options?.animeQuery,
-      updateHash: false,
-      preserveSearch: true
-    });
-  } else {
-    activatePrimarySection("overview", { preserveSearch: true });
-  }
-  modalController.scrollY = validScrollY(originState.scrollY);
-  modalController.pendingScrollY = modalController.scrollY;
-  restorePageScroll(modalController.scrollY);
+const routeApplyOptions = (route = {}) => ({ ...(route.options || {}), updateHash: false });
+const routeIfNeeded = route => {
+  if (appState.applyingRoute) return false;
+  navigateToRoute(route);
   return true;
-}
-const isValidAnimeEpisodeDetailId = id =>
-  typeof episodeIndexFromHash === "function" && episodeIndexFromHash(id) >= 0;
-const isAnimeEpisodeDetailHash = id =>
-  typeof isAnimeEpisodeHash === "function" && isAnimeEpisodeHash(id);
-const catalogDetailFallbackScope = id => {
-  const item = catalogCoreItemsById.get(id);
-  return item?.type === "bey" ? "bey" : "parts";
 };
-const searchFallbackRouteForItem = item => ({
-  type: "search",
-  query: item?.name || "",
-  scope: "all"
-});
+const isAnimeEpisodeDetailHash = id => /(?:^|-)EPISODE-\d+$/.test(String(id || ""));
+const catalogDetailFallbackScope = id => catalogCoreItemsById.get(id)?.type === "bey" ? "bey" : "parts";
+const searchFallbackRouteForItem = item => ({ type: "search", query: item?.name || "", scope: "all" });
+
 function detailFallbackOriginRoute(id = "") {
   if (productItemsById.has(id)) return { type: "category-release" };
   if (toolsItemsById.has(id)) return { type: "catalog", scope: "tools" };
@@ -88,195 +61,210 @@ function detailFallbackOriginRoute(id = "") {
 }
 function detailRouteExists(id = "") {
   return Boolean(
-    BeystadiumDataStore?.hasItem(id) ||
-    productItemsById.has(id) ||
-    catalogCoreItemsById.has(id) ||
-    toolsItemsById.has(id) ||
-    bookItemsById.has(id) ||
-    gameItemsById.has(id) ||
-    isValidAnimeEpisodeDetailId(id)
+    BeystadiumDataStore.hasItem(id)
+    || productItemsById.has(id)
+    || catalogCoreItemsById.has(id)
+    || toolsItemsById.has(id)
+    || bookItemsById.has(id)
+    || gameItemsById.has(id)
   );
 }
 function routeWithKnownDetailFallback(route = {}) {
-  const normalizedRoute = normalizeRoute(route || { type: "overview" });
-  if (!isDetailRoute(normalizedRoute) || !normalizedRoute.id || detailRouteExists(normalizedRoute.id)) return normalizedRoute;
-  return detailFallbackOriginRoute(normalizedRoute.id) || { type: "overview" };
+  const normalized = normalizeRoute(route || { type: "overview" });
+  if (!isDetailRoute(normalized) || !normalized.id || detailRouteExists(normalized.id)) return normalized;
+  return detailFallbackOriginRoute(normalized.id) || { type: "overview" };
 }
-async function restoreDetailFallbackOriginIfNeeded(restoredContext, fallbackOriginRoute) {
+
+const detailBackgroundStyleKeys = id => {
+  if (productItemsById.has(id)) return routeStyleManifest["category-release"];
+  if (isAnimeEpisodeDetailHash(id)) return routeStyleManifest["category-anime-episodes"];
+  if (bookItemsById.has(id) || gameItemsById.has(id)) return routeStyleManifest.search;
+  if (catalogCoreItemsById.has(id) || toolsItemsById.has(id)) return routeStyleManifest.catalog;
+  return [];
+};
+const routeStyleKeys = (route, detailFeature) => {
+  if (!isDetailRoute(route)) return routeStyleManifest[route.type] || [];
+  const restoredOrigin = routeSnapshot(detailFeature?.restoredModalContext(route.id)?.originRoute);
+  const backgroundStyles = restoredOrigin && isPrimaryRoute(restoredOrigin)
+    ? routeStyleManifest[restoredOrigin.type] || []
+    : detailBackgroundStyleKeys(route.id);
+  return [...backgroundStyles, "modal"];
+};
+
+async function restoreDetailOriginPanel(context, detailFeature) {
+  const originRoute = routeSnapshot(context?.originRoute);
+  if (!originRoute || !isPrimaryRoute(originRoute)) return false;
+  const originState = context?.originState || {};
+  appState.modalOriginRoute = routeSnapshot(originRoute);
+  appState.modalOriginRouteExplicit = context?.originExplicit === true;
+  rememberPrimaryRoute(originRoute);
+
+  if (originRoute.type === "catalog") {
+    const view = await loadViewFeature();
+    view.openCategoryCatalog({ ...originRoute, updateHash: false, preserveSearch: true });
+    view.restoreStoredCatalogOrigin(originState);
+  } else if (originRoute.type === "search") {
+    const view = await loadViewFeature();
+    const scope = originState.globalScope || originRoute.scope || "all";
+    const query = typeof originState.globalQuery === "string" ? originState.globalQuery : originRoute.query || "";
+    view.setGlobalSearchState(query, scope);
+    view.openSearchResults({ replace: true, updateHash: false });
+  } else if (originRoute.type === "category-release") {
+    const release = await loadReleaseFeature();
+    await release.openCategoryReleaseDetail({
+      ...(originRoute.options || {}),
+      region: originState.releaseRegion || originRoute.options?.region,
+      series: originState.releaseSeries || originRoute.options?.series,
+      releaseQuery: typeof originState.releaseQuery === "string" ? originState.releaseQuery : originRoute.options?.releaseQuery,
+      releaseSort: originState.releaseSort || originRoute.options?.releaseSort,
+      updateHash: false,
+      preserveSearch: true
+    });
+  } else if (originRoute.type === "category-anime") {
+    const anime = await loadAnimeFeature();
+    anime.openCategoryAnimePage({
+      ...originRoute,
+      season: originState.animeSeason || originRoute.season,
+      query: typeof originState.animeQuery === "string" ? originState.animeQuery : originRoute.query,
+      page: originState.animePage || originRoute.page,
+      updateHash: false,
+      preserveSearch: true
+    });
+    anime.restoreStoredAnimeOrigin(originState);
+  } else if (originRoute.type === "category-anime-episodes") {
+    const anime = await loadAnimeFeature();
+    await anime.openCategoryAnimeEpisodesDetail({
+      ...(originRoute.options || {}),
+      animeSeason: originState.animeSeason || originRoute.options?.animeSeason,
+      animeQuery: typeof originState.animeQuery === "string" ? originState.animeQuery : originRoute.options?.animeQuery,
+      updateHash: false,
+      preserveSearch: true
+    });
+  } else {
+    activatePrimarySection("overview", { preserveSearch: true });
+  }
+
+  detailFeature.modalController.scrollY = detailFeature.validScrollY(originState.scrollY);
+  detailFeature.modalController.pendingScrollY = detailFeature.modalController.scrollY;
+  detailFeature.restorePageScroll(detailFeature.modalController.scrollY);
+  return true;
+}
+async function restoreDetailFallbackOriginIfNeeded(restoredContext, fallbackOriginRoute, detailFeature) {
   const restoredOriginRoute = routeSnapshot(restoredContext?.originRoute);
-  if (restoredOriginRoute && isPrimaryRoute(restoredOriginRoute) && (restoredOriginRoute.type !== "overview" || restoredContext?.originExplicit === true)) {
-    return await restoreDetailOriginPanel(restoredContext);
+  if (restoredOriginRoute && isPrimaryRoute(restoredOriginRoute)
+    && (restoredOriginRoute.type !== "overview" || restoredContext?.originExplicit === true)) {
+    return restoreDetailOriginPanel(restoredContext, detailFeature);
   }
   if (appState.modalOriginRouteExplicit && appState.modalOriginRoute && isPrimaryRoute(appState.modalOriginRoute)) {
-    return await restoreDetailOriginPanel({
+    return restoreDetailOriginPanel({
       originRoute: appState.modalOriginRoute,
-      originState: modalOriginState(appState.modalOriginRoute),
+      originState: detailFeature.modalOriginState(appState.modalOriginRoute),
       originExplicit: true
-    });
+    }, detailFeature);
   }
   if (fallbackOriginRoute && (!appState.modalOriginRoute || appState.modalOriginRoute.type === "overview")) {
-    return await restoreDetailOriginPanel({ originRoute: fallbackOriginRoute, originState: {} });
+    return restoreDetailOriginPanel({ originRoute: fallbackOriginRoute, originState: {} }, detailFeature);
   }
   return false;
 }
+
 let routeApplyGeneration = 0;
-async function applyRoute(route = parseRouteFromHash(), { preserveScroll = false, preserveSearch = false } = {}) {
+async function applyRoute(route = parseRouteFromHash(window.location.hash), { preserveScroll = false, preserveSearch = false } = {}) {
   const normalizedRoute = normalizeRoute(route || { type: "overview" });
   const generation = ++routeApplyGeneration;
   const ready = await BeystadiumDataStore.ensureRoute(normalizedRoute);
   if (!ready || generation !== routeApplyGeneration) return false;
+
+  const modalOpen = Boolean(document.querySelector("#detailModal")?.open);
+  const needsDetail = isDetailRoute(normalizedRoute) || normalizedRoute.type === "rare-bey-get-list" || modalOpen;
+  const detailFeature = needsDetail ? await loadDetailFeature() : null;
+  await ensureStyles(routeStyleKeys(normalizedRoute, detailFeature));
+  if (generation !== routeApplyGeneration) return false;
+
   let normalizedRouteKey = appliedRouteKey(normalizedRoute);
-  const preservePrimaryReturn = Boolean(isPrimaryRoute(normalizedRoute) && (modal?.open || appState.modalOriginRoute));
+  const preservePrimaryReturn = Boolean(isPrimaryRoute(normalizedRoute) && (modalOpen || appState.modalOriginRoute));
   const shouldPreserveScroll = preserveScroll || preservePrimaryReturn;
   const shouldPreserveSearch = preserveSearch || preservePrimaryReturn;
   appState.applyingRoute = true;
   try {
     if (isPrimaryRoute(normalizedRoute)) {
       rememberPrimaryRoute(normalizedRoute);
-      closeDetailModalForPrimaryRoute();
+      detailFeature?.closeModalSession();
     } else if (isDetailRoute(normalizedRoute)) {
       syncModalOriginRoute(normalizedRoute);
     }
+
     if (normalizedRoute.type === "overview") {
+      await loadViewFeature();
       activatePrimarySection("overview", { preserveSearch: shouldPreserveSearch });
     } else if (normalizedRoute.type === "search") {
-      setGlobalSearchState(normalizedRoute.query || "", normalizedRoute.scope || "all");
-      openSearchResults({ replace: true, updateHash: false });
+      const view = await loadViewFeature();
+      view.setGlobalSearchState(normalizedRoute.query || "", normalizedRoute.scope || "all");
+      view.openSearchResults({ replace: true, updateHash: false });
     } else if (normalizedRoute.type === "catalog") {
-      openCategoryCatalog({ ...normalizedRoute, updateHash: false, preserveSearch: shouldPreserveSearch });
-      syncCatalogRouteHash({ replace: true, force: true });
-      normalizedRouteKey = appliedRouteKey(catalogRouteFromState());
+      const view = await loadViewFeature();
+      view.openCategoryCatalog({ ...normalizedRoute, updateHash: false, preserveSearch: shouldPreserveSearch });
+      view.syncCatalogRouteHash({ replace: true, force: true });
+      normalizedRouteKey = appliedRouteKey(view.catalogRouteFromState());
     } else if (normalizedRoute.type === "category-release") {
-      await openCategoryReleaseDetail({ ...routeApplyOptions(normalizedRoute), preserveSearch: shouldPreserveSearch });
+      const release = await loadReleaseFeature();
+      await release.openCategoryReleaseDetail({ ...routeApplyOptions(normalizedRoute), preserveSearch: shouldPreserveSearch });
     } else if (normalizedRoute.type === "category-anime") {
-      await openCategoryAnimePage({ ...normalizedRoute, updateHash: false, preserveSearch: shouldPreserveSearch });
+      const anime = await loadAnimeFeature();
+      anime.openCategoryAnimePage({ ...normalizedRoute, updateHash: false, preserveSearch: shouldPreserveSearch });
     } else if (normalizedRoute.type === "category-anime-episodes") {
-      await openCategoryAnimeEpisodesDetail({ ...routeApplyOptions(normalizedRoute), preserveSearch: shouldPreserveSearch });
+      const anime = await loadAnimeFeature();
+      await anime.openCategoryAnimeEpisodesDetail({ ...routeApplyOptions(normalizedRoute), preserveSearch: shouldPreserveSearch });
     } else if (normalizedRoute.type === "rare-bey-get-list") {
-      const restoredContext = restoredModalContext("rare-bey-get-list");
-      const rareBeyGetListOptions = { ...(restoredContext?.options || {}), ...routeApplyOptions(normalizedRoute) };
+      const restoredContext = detailFeature.restoredModalContext("rare-bey-get-list");
+      const options = { ...(restoredContext?.options || {}), ...routeApplyOptions(normalizedRoute) };
       await restoreDetailFallbackOriginIfNeeded(restoredContext, {
         type: "category-release",
-        options: {
-          region: rareBeyGetListOptions.region,
-          series: rareBeyGetListOptions.series
-        }
-      });
-      openRareBeyGetListDetail(rareBeyGetListOptions);
-    } else if (normalizedRoute.type === "detail" && normalizedRoute.id) {
-      const hashId = normalizedRoute.id;
-      const restoredContext = restoredModalContext(hashId);
-      const fallbackOriginRoute = detailFallbackOriginRoute(hashId);
-      await restoreDetailFallbackOriginIfNeeded(restoredContext, fallbackOriginRoute);
-      const restoredOptions = { ...(restoredContext?.options || {}), ...routeApplyOptions(normalizedRoute) };
-      await openDetailByKind(restoredContext?.kind || "", hashId, restoredOptions);
+        options: { region: options.region, series: options.series }
+      }, detailFeature);
+      detailFeature.openRareBeyGetListDetail(options);
+    } else if (isDetailRoute(normalizedRoute) && normalizedRoute.id) {
+      const restoredContext = detailFeature.restoredModalContext(normalizedRoute.id);
+      await restoreDetailFallbackOriginIfNeeded(restoredContext, detailFallbackOriginRoute(normalizedRoute.id), detailFeature);
+      const options = { ...(restoredContext?.options || {}), ...routeApplyOptions(normalizedRoute) };
+      await detailFeature.openDetailByKind(restoredContext?.kind || "", normalizedRoute.id, options);
     }
   } finally {
     appState.applyingRoute = false;
     appState.lastAppliedRouteKey = normalizedRouteKey;
   }
+
   if (isPrimaryRoute(normalizedRoute)) {
-    if (shouldPreserveScroll) restorePageScroll(modalController.scrollY);
+    if (shouldPreserveScroll && detailFeature) detailFeature.restorePageScroll(detailFeature.modalController.scrollY);
     else stabilizePrimaryRouteScroll();
   }
   return true;
 }
-document.querySelectorAll(".topbar > .brand, [data-sidebar-home]").forEach(brand => brand.addEventListener("click", event => {
-  event.preventDefault();
-  navigateToRoute({ type: "overview" }, { replace: true });
-  setMobileDrawerOpen(false);
-}));
-document.querySelector(".topbar")?.addEventListener("click", event => {
-  handleCategoryRouteClick(event);
-});
-menuButton?.addEventListener("click", event => {
-  event.preventDefault();
-  event.stopPropagation();
-  if (isMobileDrawerMode()) setMobileDrawerOpen(!mobileDrawerIsOpen());
-});
-mobileDrawerClose?.addEventListener("click", event => {
-  event.preventDefault();
-  setMobileDrawerOpen(false);
-  currentMenuTrigger()?.focus();
-});
-mobileDrawer?.addEventListener("click", event => {
-  handleCategoryRouteClick(event);
-});
-const syncNavigationMode = () => {
-  if (!isMobileDrawerMode()) setMobileDrawerOpen(false);
-  syncMenuButtonMode();
-};
-window.addEventListener("resize", () => {
-  syncNavigationMode();
-  positionSearchHelpPopovers();
-  if (modal?.open) scheduleModalViewportSync();
-  if (!appState.activeModalTagButton) return;
-  if (!modal?.open || !document.body.contains(appState.activeModalTagButton)) {
-    closeModalTagPopover();
-    return;
-  }
-  positionModalTagPopover(appState.activeModalTagButton);
-});
-window.visualViewport?.addEventListener("resize", scheduleModalViewportSync);
-window.visualViewport?.addEventListener("scroll", scheduleModalViewportSync);
-window.visualViewport?.addEventListener("resize", positionSearchHelpPopovers);
-window.visualViewport?.addEventListener("scroll", closeSearchHelpPopoversOnScroll, { passive: true });
-document.addEventListener("keydown", event => {
-  if (event.key === "Escape" && appState.activeSearchPreview) {
-    closeAllSearchPreviews();
-    event.preventDefault();
-    return;
-  }
-  if (event.key === "Escape" && anySearchHelpPopoverIsOpen()) {
-    closeSearchHelpPopovers();
-    event.preventDefault();
-    return;
-  }
-  if (event.key === "Escape" && appState.activeModalTagButton) {
-    closeModalTagPopover();
-    event.preventDefault();
-    return;
-  }
-  if (event.key === "Escape" && document.body.classList.contains("menu-open")) setMobileDrawerOpen(false);
-});
-document.addEventListener("click", event => {
-  searchHelpPopovers.forEach(controller => {
-    if (controller.isOpen() && !controller.containsEventTarget(event)) controller.close();
-  });
-  if (appState.activeModalTagButton && !event.target.closest(".modal-tag-info") && !event.target.closest(".modal-tag-popover")) closeModalTagPopover();
-  if (!event.target.closest(".topbar") && !event.target.closest(".mobile-drawer")) setMobileDrawerOpen(false);
-});
 
+const loadDetailCall = method => (...args) => loadDetailFeature().then(module => module[method](...args));
 registerAppServices({
   activatePrimarySection,
   applyRoute,
   bindSearchInput,
+  cleanupModelViewer: () => {},
   closeOpenCatalogDropdowns,
   closeSearchHelpPopovers,
-  finishModalOpen,
-  itemDisplayName,
-  modal,
-  modalBackButtonMarkup,
-  openAnimeEpisodeDetail,
-  openBookDetail,
-  openDetail,
-  openGameDetail,
-  openProductEntry,
-  openSearchResults,
-  openToolsDetail,
-  queueModalTransition,
+  openAnimeEpisodeDetail: (...args) => loadAnimeFeature().then(module => module.openAnimeEpisodeDetail(...args)),
+  openBookDetail: loadDetailCall("openBookDetail"),
+  openDetail: loadDetailCall("openDetail"),
+  openGameDetail: loadDetailCall("openGameDetail"),
+  openProductEntry: loadDetailCall("openProductEntry"),
+  openSearchResults: (...args) => loadViewFeature().then(module => module.openSearchResults(...args)),
+  openToolsDetail: loadDetailCall("openToolsDetail"),
+  queueModalTransition: loadDetailCall("queueModalTransition"),
   routeIfNeeded,
   setDropdownOption,
   setMobileDrawerOpen,
-  setModalContent,
-  syncAnimeRouteHash
+  syncAnimeRouteHash: (...args) => loadAnimeFeature().then(module => module.syncAnimeRouteHash(...args))
 });
 
-syncNavigationMode();
-syncCatalogScopeState();
-renderCatalogFilterChips();
 const applyCurrentHashRoute = async () => {
-  const route = routeWithKnownDetailFallback(parseRouteFromHash());
+  const route = routeWithKnownDetailFallback(parseRouteFromHash(window.location.hash));
   const canonicalHash = serializeRoute(route);
   const canonicalRouteKey = `${currentPathWithSearch()}${canonicalHash}`;
   try {
@@ -285,12 +273,12 @@ const applyCurrentHashRoute = async () => {
       try {
         history.replaceState(null, "", canonicalRouteKey);
       } catch {
-        // URL canonicalization is best-effort; route application is the source of truth here.
+        // URL canonicalization is best-effort; route application is authoritative.
       }
     }
     const applied = await applyRoute(route);
     if (!applied) return;
-    if (isDetailRoute(route) && !modal?.open) {
+    if (isDetailRoute(route) && !document.querySelector("#detailModal")?.open) {
       navigateToRoute(detailFallbackOriginRoute(route.id) || { type: "overview" }, {
         replace: true,
         preserveSearch: true
@@ -300,16 +288,14 @@ const applyCurrentHashRoute = async () => {
     document.documentElement.classList.remove("route-booting");
   }
 };
+
 try {
   if ("scrollRestoration" in history) history.scrollRestoration = "manual";
 } catch {
-  // Some embedded browsers can deny history mutations; routing still works.
+  // Embedded browsers can deny history mutations; routing still works.
 }
-void applyCurrentHashRoute();
+const routerReady = applyCurrentHashRoute();
 window.addEventListener("hashchange", () => void applyCurrentHashRoute());
 window.addEventListener("popstate", () => void applyCurrentHashRoute());
 
-export {
-  applyRoute,
-  applyCurrentHashRoute
-};
+export { applyCurrentHashRoute, applyRoute, routerReady };
