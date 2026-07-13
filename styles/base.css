@@ -813,7 +813,8 @@ main {
   min-width: min(220px, 100%);
 }
 
-body.is-overview .topbar-search {
+body.is-overview .topbar-search,
+body[data-active-panel="all"] .topbar-search {
   display: none;
 }
 

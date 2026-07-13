@@ -26,7 +26,6 @@ import {
   prepareSearchQuery,
   searchFieldsFromValues,
   searchQueryFrom,
-  searchScopeLabel,
   toolsSearchFields
 } from "#app/search-engine";
 import { findCatalogItemById, productCompositionItems } from "#app/catalog-model";
@@ -40,16 +39,15 @@ import {
   overviewSearchScopeValue,
   partDetailTypeLabel,
   playEnterAnimation,
-  queryChipMarkup,
+  searchResultsSearch,
+  searchResultsSearchScopeValue,
   setGlobalSearchScope,
   setMobileDrawerSearchScope,
   setOverviewSearchScope,
+  setSearchResultsSearchScope,
   setSearchInputValue,
   structureLabels
 } from "#app/ui-core";
-
-const searchResultTitleElement = document.querySelector("#searchResultsTitle");
-const searchResultMeta = document.querySelector("#searchResultsMeta");
 
 const mainSearchProductCompositionText = (item, region) => {
   const composition = productCompositionItems(item, region);
@@ -329,28 +327,35 @@ const searchPreviewControls = new Map();
 const searchPreviewScopeValue = input => {
   if (input === overviewSearch) return overviewSearchScopeValue();
   if (input === mobileDrawerSearch) return mobileDrawerSearchScopeValue();
+  if (input === searchResultsSearch) return searchResultsSearchScopeValue();
   return globalSearchScopeValue();
 };
 const searchPreviewSyncToGlobal = input => {
   if (input === overviewSearch) {
     if (globalSearch) setSearchInputValue(globalSearch, overviewSearch.value);
     if (mobileDrawerSearch) setSearchInputValue(mobileDrawerSearch, overviewSearch.value);
+    if (searchResultsSearch) setSearchInputValue(searchResultsSearch, overviewSearch.value);
     setGlobalSearchScope(overviewSearchScopeValue());
     setMobileDrawerSearchScope(overviewSearchScopeValue());
+    setSearchResultsSearchScope(overviewSearchScopeValue());
     return;
   }
   if (input === mobileDrawerSearch) {
     if (globalSearch) setSearchInputValue(globalSearch, mobileDrawerSearch.value);
     if (overviewSearch) setSearchInputValue(overviewSearch, mobileDrawerSearch.value);
+    if (searchResultsSearch) setSearchInputValue(searchResultsSearch, mobileDrawerSearch.value);
     setGlobalSearchScope(mobileDrawerSearchScopeValue());
     setOverviewSearchScope(mobileDrawerSearchScopeValue());
+    setSearchResultsSearchScope(mobileDrawerSearchScopeValue());
     return;
   }
   if (input === globalSearch) {
     if (mobileDrawerSearch) setSearchInputValue(mobileDrawerSearch, globalSearch.value);
     if (overviewSearch) setSearchInputValue(overviewSearch, globalSearch.value);
+    if (searchResultsSearch) setSearchInputValue(searchResultsSearch, globalSearch.value);
     setMobileDrawerSearchScope(globalSearchScopeValue());
     setOverviewSearchScope(globalSearchScopeValue());
+    setSearchResultsSearchScope(globalSearchScopeValue());
   }
 };
 const searchPreviewOptionId = (control, index) => `${control.preview.id}-option-${index}`;
@@ -543,7 +548,7 @@ const renderGlobalCards = () => {
   const grid = document.querySelector("#globalGrid");
   const count = document.querySelector("#globalCount");
   if (!grid || !count) return;
-  const { scope, query, preparedQuery, renderKey } = syncSearchResultRenderState(globalSearchScopeValue(), globalSearchQuery());
+  const { scope, preparedQuery, renderKey } = syncSearchResultRenderState(globalSearchScopeValue(), globalSearchQuery());
   const visible = collectSearchResultItems(scope, preparedQuery).items;
   const totalCount = visible.length;
   const totalPages = Math.max(1, Math.ceil(totalCount / SEARCH_RESULTS_PAGE_SIZE));
@@ -551,17 +556,6 @@ const renderGlobalCards = () => {
   const pageStart = (currentSearchResultPage - 1) * SEARCH_RESULTS_PAGE_SIZE;
   const pageEnd = pageStart + SEARCH_RESULTS_PAGE_SIZE;
   count.textContent = totalCount;
-  if (searchResultTitleElement) {
-    searchResultTitleElement.textContent = query
-      ? `${query}의 검색결과`
-      : scope === "all"
-        ? "전체 검색결과"
-        : `${searchScopeLabel(scope)} 검색결과`;
-  }
-  if (searchResultMeta) {
-    const scopeMarkup = scope === "all" ? "" : `<span class="search-results-scope-label">${escapeHtml(searchScopeLabel(scope))} 범위</span>`;
-    searchResultMeta.innerHTML = `${queryChipMarkup(query)}${scopeMarkup}`;
-  }
   const itemMarkup = visible.length ? searchResultButtonMarkupSlice(renderKey, visible, pageStart, pageEnd) : [];
   grid.innerHTML = visible.length
     ? `${itemMarkup.join("")}${searchResultPageButtons(currentSearchResultPage, totalPages)}`

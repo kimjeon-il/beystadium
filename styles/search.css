@@ -236,6 +236,10 @@
   max-width: 1120px;
 }
 
+.search-results-search-box {
+  --search-scope-menu-z: 80;
+}
+
 .search-results-page {
   width: min(100%, 960px);
   margin: 0 auto;
@@ -271,26 +275,6 @@
   font-size: var(--font-sm);
   font-weight: var(--font-weight-regular);
   white-space: nowrap;
-}
-
-.search-results-meta {
-  margin: 0 0 14px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--space-2);
-  color: var(--ui-muted);
-  font-size: var(--font-sm);
-  font-weight: var(--font-weight-regular);
-  line-height: 1.35;
-}
-
-.search-results-meta:empty {
-  display: none;
-}
-
-.search-results-meta .active-query-chip {
-  max-width: min(100%, 32rem);
 }
 
 .search-results-list {

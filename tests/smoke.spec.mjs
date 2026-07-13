@@ -250,22 +250,20 @@ test("episode and release table styles are independent of navigation order", asy
   await crossContext.close();
 });
 
-test("query chips clear only the search query across list routes", async ({ page }, testInfo) => {
-  test.skip(testInfo.project.name !== "desktop", "full query-chip route coverage only needs one browser");
+test("search controls clear only the query across list routes", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "full search control route coverage only needs one browser");
   const errors = consoleErrors(page);
   const phraseQuery = "스톰 페가시스 공격형";
 
   await page.goto(`/#search?q=${encodeURIComponent(phraseQuery)}&scope=bey`);
   await expect(page.locator('[data-app-panel="all"].active')).toBeVisible();
-  const globalChip = page.locator("#searchResultsMeta [data-clear-query]");
-  await expect(globalChip).toHaveCount(1);
-  await expect(globalChip).toHaveText(/스톰 페가시스 공격형\s*×/);
-  await expect(globalChip).toHaveAttribute("aria-label", `검색어 “${phraseQuery}” 제거`);
-  await globalChip.click();
+  await expect(page.locator("#searchResultsSearchInput")).toHaveValue(phraseQuery);
+  await expect(page.locator("#searchResultsMeta")).toHaveCount(0);
+  await expect(page.locator(".search-results-panel .active-query-chip")).toHaveCount(0);
+  await expect(page.locator(".search-results-search .search-clear")).toBeVisible();
+  await page.locator(".search-results-search .search-clear").click();
   await expect(page).toHaveURL(/#search\?q=&scope=bey$/);
-  await expect(page.locator("#searchResultsMeta [data-clear-query]")).toHaveCount(0);
-  await expect(page.locator("#searchResultsMeta .search-results-scope-label")).toHaveText("베이 범위");
-  for (const selector of ["#globalSearchInput", "#mobileDrawerSearchInput", "#overviewSearchInput"]) {
+  for (const selector of ["#globalSearchInput", "#mobileDrawerSearchInput", "#overviewSearchInput", "#searchResultsSearchInput"]) {
     await expect(page.locator(selector)).toHaveValue("");
   }
 
@@ -326,6 +324,138 @@ test("query chips clear only the search query across list routes", async ({ page
   await expect(page.locator("#animeEpisodeSearchInput")).toHaveValue("");
   await expect(page.locator(".table-list-query-row")).toHaveCount(0);
   await expect(page.locator(`[data-anime-season="${episodeSeason}"].active`)).toHaveCount(1);
+  expect(errors).toEqual([]);
+});
+
+test("search results own live search controls", async ({ page }, testInfo) => {
+  const errors = consoleErrors(page);
+  const queryInputs = [
+    "#globalSearchInput",
+    "#mobileDrawerSearchInput",
+    "#overviewSearchInput",
+    "#searchResultsSearchInput"
+  ];
+  const scopeRoots = [
+    "#globalSearchScope",
+    "#mobileDrawerSearchScope",
+    "#overviewSearchScope",
+    "#searchResultsSearchScope"
+  ];
+  const routeState = () => page.evaluate(() => {
+    const parameters = new URLSearchParams(window.location.hash.split("?")[1] || "");
+    return {
+      query: parameters.get("q") || "",
+      scope: parameters.get("scope") || ""
+    };
+  });
+  const layout = () => page.evaluate(() => {
+    const search = document.querySelector(".search-results-search");
+    const searchBox = document.querySelector(".search-results-search-box");
+    const heading = document.querySelector(".search-results-heading");
+    const summary = document.querySelector(".search-results-summary");
+    const snapshot = element => {
+      const rect = element.getBoundingClientRect();
+      return {
+        left: Math.round(rect.left * 100) / 100,
+        right: Math.round(rect.right * 100) / 100,
+        top: Math.round(rect.top * 100) / 100,
+        bottom: Math.round(rect.bottom * 100) / 100
+      };
+    };
+    return {
+      search: snapshot(search),
+      searchBox: snapshot(searchBox),
+      heading: snapshot(heading),
+      summary: snapshot(summary),
+      topbarSearchDisplay: getComputedStyle(document.querySelector(".topbar-search")).display,
+      viewportWidth: document.documentElement.clientWidth,
+      viewportHeight: document.documentElement.clientHeight,
+      documentWidth: document.documentElement.scrollWidth
+    };
+  });
+  const expectInViewport = actual => {
+    for (const part of [actual.search, actual.searchBox, actual.heading, actual.summary]) {
+      expect(part.left).toBeGreaterThanOrEqual(-1);
+      expect(part.right).toBeLessThanOrEqual(actual.viewportWidth + 1);
+      expect(part.top).toBeGreaterThanOrEqual(-1);
+      expect(part.bottom).toBeLessThanOrEqual(actual.viewportHeight + 1);
+    }
+    expect(actual.documentWidth).toBeLessThanOrEqual(actual.viewportWidth + 1);
+    expect(actual.topbarSearchDisplay).toBe("none");
+  };
+
+  await page.goto(`/#search?q=${encodeURIComponent("스톰 페가시스")}&scope=bey`);
+  await expect(page.locator('[data-app-panel="all"].active')).toBeVisible();
+  await expect(page.locator(".search-results-search")).toBeVisible();
+  await expect(page.locator("#searchResultsSearchInput")).toHaveValue("스톰 페가시스");
+  await expect(page.locator("#searchResultsSearchScope")).toHaveAttribute("data-scope", "bey");
+  await expect(page.locator('[data-search-results-search-scope="bey"].active')).toHaveCount(1);
+  await expect(page.locator("#searchResultsTitle")).toHaveText("검색결과");
+  await expect(page.locator("#searchResultsMeta")).toHaveCount(0);
+  await expect(page.locator(".search-results-panel .active-query-chip")).toHaveCount(0);
+  await expect(page.locator(".search-results-search .search-preview")).toHaveCount(0);
+  await expect(page.locator(".topbar-search")).toBeHidden();
+  expect(await page.evaluate(() => document.activeElement?.id)).not.toBe("searchResultsSearchInput");
+  expectInViewport(await layout());
+
+  await page.locator("#searchResultsSearchInput").fill("존재하지않는검색어");
+  await expect.poll(async () => (await routeState()).query).toBe("존재하지않는검색어");
+  await expect(page.locator("#globalCount")).toHaveText("0");
+  await expect(page.locator("#globalGrid .search-empty")).toBeVisible();
+  for (const selector of queryInputs) await expect(page.locator(selector)).toHaveValue("존재하지않는검색어");
+  await expect(page.locator(".search-results-search .search-preview")).toHaveCount(0);
+
+  await page.locator("#searchResultsSearchInput").fill("드래곤");
+  await expect.poll(async () => (await routeState()).query).toBe("드래곤");
+  await page.locator("#searchResultsSearchScope > summary").click();
+  await page.locator('[data-search-results-search-scope="anime"]').click();
+  await expect.poll(async () => (await routeState()).scope).toBe("anime");
+  expect(await routeState()).toEqual({ query: "드래곤", scope: "anime" });
+  for (const selector of queryInputs) await expect(page.locator(selector)).toHaveValue("드래곤");
+  for (const selector of scopeRoots) await expect(page.locator(selector)).toHaveAttribute("data-scope", "anime");
+  await expect(page.locator(".search-results-search .search-preview")).toHaveCount(0);
+  expectInViewport(await layout());
+
+  await page.locator(".search-results-search .search-clear").click();
+  await expect.poll(async () => (await routeState()).query).toBe("");
+  expect(await routeState()).toEqual({ query: "", scope: "anime" });
+  for (const selector of queryInputs) await expect(page.locator(selector)).toHaveValue("");
+
+  if (testInfo.project.name === "desktop") {
+    await page.goto("/");
+    await page.locator("#overviewSearchInput").click();
+    await expect(page.locator("#overviewSearchInput")).toHaveAttribute("data-search-input-bound", "true");
+    await page.locator("#overviewSearchInput").fill("페가시스");
+    await page.locator("#overviewSearchInput").press("Enter");
+    await expect(page.locator('[data-app-panel="all"].active')).toBeVisible();
+    await expect(page.locator("#searchResultsSearchInput")).toBeFocused();
+    await expect(page.locator("#searchResultsSearchInput")).toHaveValue("페가시스");
+
+    await page.goto("/#toy-catalog?scope=bey&series=x");
+    await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
+    await expect(page.locator(".topbar-search")).toBeVisible();
+    await page.locator("#globalSearchInput").fill("드랜소드");
+    await page.locator("#globalSearchInput").press("Enter");
+    await expect(page.locator('[data-app-panel="all"].active')).toBeVisible();
+    await expect(page.locator("#searchResultsSearchInput")).toBeFocused();
+    await expect(page.locator("#searchResultsSearchInput")).toHaveValue("드랜소드");
+  } else {
+    await page.goto("/");
+    await page.locator("#menuButton").click();
+    await expect(page.locator("#mobileDrawer")).toBeVisible();
+    await page.locator("#mobileDrawerSearchInput").click();
+    await expect(page.locator("#mobileDrawerSearchInput")).toHaveAttribute("data-search-input-bound", "true");
+    await page.locator("#mobileDrawerSearchInput").fill("페가시스");
+    await page.locator("#mobileDrawerSearchInput").press("Enter");
+    await expect(page.locator('[data-app-panel="all"].active')).toBeVisible();
+    await expect(page.locator("#searchResultsSearchInput")).toBeFocused();
+    await expect(page.locator("#searchResultsSearchInput")).toHaveValue("페가시스");
+    await expect(page.locator("#mobileDrawer")).toBeHidden();
+  }
+
+  await page.goto(`/#toy-catalog?scope=bey&series=x&q=${encodeURIComponent("공격형")}`);
+  await expect(page.locator('[data-app-panel="catalog"].active')).toBeVisible();
+  await expect(page.locator('[data-catalog-filter-chips="catalog"] [data-clear-query]')).toBeVisible();
   expect(errors).toEqual([]);
 });
 

@@ -5,6 +5,7 @@ const globalSearchScope = document.querySelector("#globalSearchScope");
 const mobileDrawerSearch = document.querySelector("#mobileDrawerSearchInput");
 const mobileDrawerSearchScope = document.querySelector("#mobileDrawerSearchScope");
 const overviewSearchScope = document.querySelector("#overviewSearchScope");
+const searchResultsSearchScope = document.querySelector("#searchResultsSearchScope");
 const catalogSearchScope = document.querySelector("#catalogSearchScope");
 const catalogSeriesFilter = document.querySelector("#catalogSeriesFilter");
 const catalogSearch = document.querySelector("#catalogSearchInput");
@@ -16,6 +17,7 @@ const animeSearchHelpPopover = document.querySelector("#animeSearchHelpPopover")
 const globalSearchScopeValue = () => globalSearchScope?.dataset.scope || "all";
 const mobileDrawerSearchScopeValue = () => mobileDrawerSearchScope?.dataset.scope || "all";
 const overviewSearchScopeValue = () => overviewSearchScope?.dataset.scope || "all";
+const searchResultsSearchScopeValue = () => searchResultsSearchScope?.dataset.scope || "all";
 const dropdownSummaryText = button => button?.dataset.summaryLabel || button?.textContent.trim() || "";
 function playEnterAnimation(element, className) {
   if (!element || !className || window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches) return;
@@ -41,12 +43,14 @@ const setSearchScope = (dropdown, dataAttr, scope) => {
 const setGlobalSearchScope = scope => setSearchScope(globalSearchScope, "data-global-search-scope", scope);
 const setMobileDrawerSearchScope = scope => setSearchScope(mobileDrawerSearchScope, "data-mobile-drawer-search-scope", scope);
 const setOverviewSearchScope = scope => setSearchScope(overviewSearchScope, "data-overview-search-scope", scope);
+const setSearchResultsSearchScope = scope => setSearchScope(searchResultsSearchScope, "data-search-results-search-scope", scope);
 const setCatalogSearchScope = scope => setSearchScope(catalogSearchScope, "data-catalog-search-scope", scope || "all");
 const setCatalogSeriesFilter = series => setSearchScope(catalogSeriesFilter, "data-catalog-series", series || "all");
 const overviewSearch = document.querySelector("#overviewSearchInput");
+const searchResultsSearch = document.querySelector("#searchResultsSearchInput");
 const searchInputRoot = input => input?.closest(".overview-search, .search-box");
 const searchClearButton = input => searchInputRoot(input)?.querySelector(".search-clear");
-const searchPlaceholderInputs = () => [globalSearch, mobileDrawerSearch, overviewSearch, catalogSearch, animeSearch].filter(Boolean);
+const searchPlaceholderInputs = () => [globalSearch, mobileDrawerSearch, overviewSearch, searchResultsSearch, catalogSearch, animeSearch].filter(Boolean);
 const searchPlaceholderText = width => {
   if (width >= 156) return "검색어를 입력해주세요.";
   return "검색어 입력";
@@ -91,6 +95,7 @@ const clearSearchInputs = () => {
   setSearchInputValue(globalSearch, "");
   setSearchInputValue(mobileDrawerSearch, "");
   setSearchInputValue(overviewSearch, "");
+  setSearchInputValue(searchResultsSearch, "");
   setSearchInputValue(catalogSearch, "");
   setSearchInputValue(animeSearch, "");
 };
@@ -522,11 +527,15 @@ export {
   partMountedTypeLabel,
   playEnterAnimation,
   queryChipMarkup,
+  searchResultsSearch,
+  searchResultsSearchScope,
+  searchResultsSearchScopeValue,
   setCatalogSearchScope,
   setCatalogSeriesFilter,
   setGlobalSearchScope,
   setMobileDrawerSearchScope,
   setOverviewSearchScope,
+  setSearchResultsSearchScope,
   setSearchInputValue,
   setSidebarButtonCurrent,
   sidebarCurrentButtonSelector,
