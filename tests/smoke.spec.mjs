@@ -345,6 +345,101 @@ test("modal tag popovers follow the active pointer type", async ({ page }, testI
   await expect(popover).toHaveCount(0);
 });
 
+test("open detail modal follows viewport resize in both directions", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "viewport resize coverage only needs one browser");
+  const errors = consoleErrors(page);
+  const snapshotModalLayout = () => page.evaluate(() => {
+    const rect = element => {
+      const bounds = element.getBoundingClientRect();
+      return {
+        left: Math.round(bounds.left),
+        top: Math.round(bounds.top),
+        width: Math.round(bounds.width),
+        height: Math.round(bounds.height),
+        right: Math.round(bounds.right),
+        bottom: Math.round(bounds.bottom)
+      };
+    };
+    const dialog = document.querySelector("#detailModal");
+    const inner = dialog.querySelector(".modal-inner");
+    const bodyStyle = getComputedStyle(document.body);
+    const viewport = window.visualViewport;
+    return {
+      viewportWidth: Math.round(viewport?.width || window.innerWidth),
+      viewportHeight: Math.round(viewport?.height || window.innerHeight),
+      storedViewportWidth: Math.round(parseFloat(bodyStyle.getPropertyValue("--modal-viewport-width"))),
+      storedViewportHeight: Math.round(parseFloat(bodyStyle.getPropertyValue("--modal-viewport-height"))),
+      storedLockWidth: Math.round(parseFloat(bodyStyle.getPropertyValue("--modal-lock-width"))),
+      dialog: rect(dialog),
+      overlay: rect(dialog.querySelector(".modal-overlay")),
+      stage: rect(dialog.querySelector(".modal-stage")),
+      inner: rect(inner),
+      columnCount: getComputedStyle(inner).gridTemplateColumns.split(" ").filter(Boolean).length,
+      title: dialog.querySelector(".modal-name")?.textContent.trim() || ""
+    };
+  });
+  const expectViewportFit = layout => {
+    expect(layout.storedViewportWidth).toBe(layout.viewportWidth);
+    expect(layout.storedViewportHeight).toBe(layout.viewportHeight);
+    expect(layout.storedLockWidth).toBe(layout.viewportWidth);
+    for (const [name, layer] of [["dialog", layout.dialog], ["overlay", layout.overlay], ["stage", layout.stage]]) {
+      expect(Math.abs(layer.width - layout.viewportWidth), `${name}: ${JSON.stringify(layout)}`).toBeLessThanOrEqual(1);
+      expect(Math.abs(layer.height - layout.viewportHeight), `${name}: ${JSON.stringify(layout)}`).toBeLessThanOrEqual(1);
+    }
+    expect(layout.inner.left).toBeGreaterThanOrEqual(0);
+    expect(layout.inner.top).toBeGreaterThanOrEqual(0);
+    expect(layout.inner.right).toBeLessThanOrEqual(layout.viewportWidth);
+    expect(layout.inner.bottom).toBeLessThanOrEqual(layout.viewportHeight);
+    expect(Math.abs((layout.inner.left + layout.inner.right) / 2 - layout.viewportWidth / 2)).toBeLessThanOrEqual(1);
+  };
+
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/#BEY-X-CX-09");
+  await expect(page.locator("#detailModal")).toBeVisible();
+  await expect.poll(async () => (await snapshotModalLayout()).stage.width).toBe(1440);
+  const initialUrl = page.url();
+  const initialTitle = await page.locator(".modal-name").textContent();
+
+  const wideLayout = await snapshotModalLayout();
+  expectViewportFit(wideLayout);
+  expect(wideLayout.columnCount).toBe(2);
+
+  await page.setViewportSize({ width: 900, height: 800 });
+  await expect.poll(async () => (await snapshotModalLayout()).storedViewportWidth).toBe(900);
+  const compactLayout = await snapshotModalLayout();
+  expectViewportFit(compactLayout);
+  expect(compactLayout.columnCount).toBe(1);
+  await expect(page.locator("#detailModal")).toBeVisible();
+  expect(page.url()).toBe(initialUrl);
+  expect(compactLayout.title).toBe(initialTitle?.trim());
+
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await expect.poll(async () => (await snapshotModalLayout()).storedViewportWidth).toBe(1440);
+  const restoredLayout = await snapshotModalLayout();
+  expectViewportFit(restoredLayout);
+  expect(restoredLayout.columnCount).toBe(2);
+  expect(page.url()).toBe(initialUrl);
+  expect(restoredLayout.title).toBe(initialTitle?.trim());
+
+  await page.locator("#modalClose").click();
+  await expect(page.locator("#detailModal")).not.toBeVisible();
+  const lockState = await page.evaluate(() => ({
+    htmlOpen: document.documentElement.classList.contains("is-modal-open"),
+    bodyOpen: document.body.classList.contains("is-modal-open"),
+    viewportWidth: document.body.style.getPropertyValue("--modal-viewport-width"),
+    viewportHeight: document.body.style.getPropertyValue("--modal-viewport-height"),
+    lockWidth: document.body.style.getPropertyValue("--modal-lock-width")
+  }));
+  expect(lockState).toEqual({
+    htmlOpen: false,
+    bodyOpen: false,
+    viewportWidth: "",
+    viewportHeight: "",
+    lockWidth: ""
+  });
+  expect(errors).toEqual([]);
+});
+
 test("mobile drawer opens and exposes category navigation", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "mobile", "mobile-only behavior");
   const errors = consoleErrors(page);

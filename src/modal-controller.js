@@ -248,6 +248,8 @@ const clearModalLockStyles = () => modalController.clearLockStyles();
 function scheduleModalViewportSync() {
   modalController.scheduleViewportSync();
 }
+window.addEventListener("resize", scheduleModalViewportSync, { passive: true });
+window.visualViewport?.addEventListener("resize", scheduleModalViewportSync, { passive: true });
 function closeModal() {
   modalController.close();
 }
