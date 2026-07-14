@@ -737,14 +737,91 @@ test("scroll affordances appear only while internal content remains below", asyn
   await page.goto("/#rare-bey-get-list?region=jp&series=x");
   await expect(page.locator("#detailModal")).toBeVisible();
   const rareList = page.locator("#detailModal .rare-bey-get-list-scroll");
+  const rareListHost = page.locator("#detailModal .rare-bey-get-list");
   await expect(rareList).toHaveClass(/has-scroll-content-below/);
-  const rareListState = await rareList.evaluate(element => ({
-    clientHeight: element.clientHeight,
-    scrollHeight: element.scrollHeight
-  }));
+  await expect(rareListHost).toHaveClass(/has-scroll-overlay/);
+  await expect.poll(() => rareListHost.evaluate(element => getComputedStyle(element, "::after").opacity)).toBe("1");
+  const rareListState = await rareList.evaluate(element => {
+    const host = element.closest(".modal-section");
+    const hostRect = host.getBoundingClientRect();
+    const scrollRect = element.getBoundingClientRect();
+    const overlay = getComputedStyle(host, "::after");
+    return {
+      clientHeight: element.clientHeight,
+      scrollHeight: element.scrollHeight,
+      scrollShadow: getComputedStyle(element).boxShadow,
+      overlayBottom: hostRect.bottom - parseFloat(overlay.bottom),
+      overlayPointerEvents: overlay.pointerEvents,
+      overlayShadow: overlay.boxShadow,
+      overlayZIndex: overlay.zIndex,
+      scrollBottom: scrollRect.bottom
+    };
+  });
   expect(rareListState.scrollHeight).toBeGreaterThan(rareListState.clientHeight + 2);
+  expect(rareListState.scrollShadow).not.toContain("inset");
+  expect(rareListState.overlayPointerEvents).toBe("none");
+  expect(rareListState.overlayShadow).toContain("inset");
+  expect(rareListState.overlayZIndex).toBe("5");
+  expect(Math.abs(rareListState.overlayBottom - rareListState.scrollBottom)).toBeLessThanOrEqual(1);
   await rareList.evaluate(element => { element.scrollTop = element.scrollHeight; });
   await expect(rareList).not.toHaveClass(/has-scroll-content-below/);
+  await expect(rareListHost).not.toHaveClass(/has-scroll-overlay/);
+  await expect.poll(() => rareListHost.evaluate(element => getComputedStyle(element, "::after").opacity)).toBe("0");
+  expect(errors).toEqual([]);
+});
+
+test("mobile modal scroll affordance stays above opaque detail sections", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "mobile", "mobile modal layering coverage");
+  const errors = consoleErrors(page);
+  await page.goto("/#DBLAYER-GREATEST-RAPHAEL");
+  await expect(page.locator("#detailModal")).toBeVisible();
+
+  const scrollArea = page.locator("#detailModal .part-modal-info .modal-scroll-area");
+  const overlayHost = page.locator("#detailModal .part-modal-info");
+  await expect(scrollArea).toHaveClass(/has-scroll-content-below/);
+  await expect(overlayHost).toHaveClass(/has-scroll-overlay/);
+  await expect.poll(() => overlayHost.evaluate(element => getComputedStyle(element, "::after").opacity)).toBe("1");
+  const layerState = await scrollArea.evaluate(element => {
+    const host = element.closest(".modal-info");
+    const hostRect = host.getBoundingClientRect();
+    const scrollRect = element.getBoundingClientRect();
+    const statRect = host.querySelector(".stat-block").getBoundingClientRect();
+    const overlay = getComputedStyle(host, "::after");
+    const overlayBottom = hostRect.bottom - parseFloat(overlay.bottom);
+    const overlayTop = overlayBottom - parseFloat(overlay.height);
+    return {
+      hostPosition: getComputedStyle(host).position,
+      overlayBottom,
+      overlayOpacity: overlay.opacity,
+      overlayPointerEvents: overlay.pointerEvents,
+      overlayShadow: overlay.boxShadow,
+      overlayTop,
+      overlayZIndex: overlay.zIndex,
+      scrollBottom: scrollRect.bottom,
+      scrollShadow: getComputedStyle(element).boxShadow,
+      shadowToken: overlay.getPropertyValue("--scroll-below-shadow"),
+      statBottom: statRect.bottom,
+      statTop: statRect.top
+    };
+  });
+  expect(layerState.hostPosition).toBe("relative");
+  expect(layerState.overlayOpacity).toBe("1");
+  expect(layerState.overlayPointerEvents).toBe("none");
+  expect(layerState.overlayShadow).toContain("inset");
+  expect(layerState.overlayZIndex).toBe("5");
+  expect(layerState.scrollShadow).not.toContain("inset");
+  expect(layerState.shadowToken).toContain("28%");
+  expect(Math.abs(layerState.overlayBottom - layerState.scrollBottom)).toBeLessThanOrEqual(1);
+  expect(layerState.overlayTop).toBeLessThan(layerState.statBottom);
+  expect(layerState.overlayBottom).toBeGreaterThan(layerState.statTop);
+
+  await scrollArea.evaluate(element => { element.scrollTop = element.scrollHeight; });
+  await expect(scrollArea).not.toHaveClass(/has-scroll-content-below/);
+  await expect(overlayHost).not.toHaveClass(/has-scroll-overlay/);
+  await expect.poll(() => overlayHost.evaluate(element => getComputedStyle(element, "::after").opacity)).toBe("0");
+  await scrollArea.evaluate(element => { element.scrollTop = 0; });
+  await expect(scrollArea).toHaveClass(/has-scroll-content-below/);
+  await expect(overlayHost).toHaveClass(/has-scroll-overlay/);
   expect(errors).toEqual([]);
 });
 

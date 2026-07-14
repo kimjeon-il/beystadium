@@ -355,6 +355,7 @@ dialog[open] .modal-info {
   --modal-body-width: min(100%, 520px);
   --modal-flow-gap: 16px;
   --modal-title-size: var(--font-title);
+  position: relative;
   container-type: inline-size;
   align-self: var(--modal-info-align-self);
   height: var(--modal-info-height);
@@ -399,7 +400,30 @@ dialog[open] .modal-scroll-area {
   scrollbar-gutter: stable both-edges;
   scrollbar-width: thin;
   scrollbar-color: var(--ui-line) transparent;
+}
+
+dialog[open] .modal-info::after,
+.modal-section::after {
+  content: "";
+  position: absolute;
+  z-index: 5;
+  height: 18px;
+  opacity: 0;
   box-shadow: var(--scroll-below-shadow, none);
+  pointer-events: none;
+  transition: opacity var(--motion-fast) var(--ease-standard);
+}
+
+dialog[open] .modal-info::after {
+  left: 50%;
+  bottom: var(--modal-scroll-start);
+  width: var(--modal-body-width);
+  transform: translateX(-50%);
+}
+
+dialog[open] .modal-info.has-scroll-overlay::after,
+.modal-section.has-scroll-overlay::after {
+  opacity: 1;
 }
 
 dialog[open] .modal-close {
@@ -591,6 +615,7 @@ dialog[open] .product-modal-name {
 }
 
 .modal-section {
+  position: relative;
   width: var(--modal-body-width);
   margin: 0 auto;
   padding: var(--modal-section-padding);
@@ -630,10 +655,15 @@ dialog[open] .product-modal-name {
   scrollbar-gutter: stable;
   scrollbar-width: thin;
   scrollbar-color: var(--ui-line) transparent;
-  box-shadow: var(--scroll-below-shadow, none);
   -webkit-overflow-scrolling: touch;
   touch-action: pan-y;
   padding-inline: var(--modal-scroll-gutter) 0;
+}
+
+.modal-section::after {
+  right: var(--modal-section-padding);
+  bottom: var(--modal-section-padding);
+  left: var(--modal-section-padding);
 }
 
 .product-composition-list,

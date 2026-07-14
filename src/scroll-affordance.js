@@ -6,6 +6,7 @@ const scrollAffordanceSelector = [
   ".sidebar-root .sidebar-nav"
 ].join(",");
 const scrollAffordanceClass = "has-scroll-content-below";
+const scrollAffordanceOverlayClass = "has-scroll-overlay";
 const scrollAffordanceTolerance = 2;
 const boundScrollAffordances = new Set();
 let syncFrame = 0;
@@ -23,9 +24,16 @@ const hasScrollContentBelow = element => {
   return overflow > scrollAffordanceTolerance
     && overflow - element.scrollTop > scrollAffordanceTolerance;
 };
+const scrollAffordanceOverlayHost = element => {
+  if (element?.classList?.contains("modal-scroll-area")) return element.closest(".modal-info");
+  if (element?.classList?.contains("modal-section-scroll")) return element.closest(".modal-section");
+  return null;
+};
 const syncScrollAffordance = element => {
   if (!(element instanceof Element)) return;
-  element.classList.toggle(scrollAffordanceClass, hasScrollContentBelow(element));
+  const active = hasScrollContentBelow(element);
+  element.classList.toggle(scrollAffordanceClass, active);
+  scrollAffordanceOverlayHost(element)?.classList.toggle(scrollAffordanceOverlayClass, active);
 };
 const cleanupDetachedScrollAffordances = () => {
   boundScrollAffordances.forEach(element => {
@@ -62,7 +70,10 @@ const bindScrollAffordance = element => {
 function bindScrollAffordances(root = document) {
   scrollAffordanceElements(root).forEach(bindScrollAffordance);
 }
-const clearScrollAffordance = element => element?.classList?.remove(scrollAffordanceClass);
+const clearScrollAffordance = element => {
+  element?.classList?.remove(scrollAffordanceClass);
+  scrollAffordanceOverlayHost(element)?.classList.remove(scrollAffordanceOverlayClass);
+};
 const clearScrollAffordances = (root = document) => scrollAffordanceElements(root).forEach(clearScrollAffordance);
 
 window.addEventListener("resize", () => scheduleScrollAffordances(document), { passive: true });
