@@ -9,6 +9,25 @@ const consoleErrors = page => {
   return errors;
 };
 
+const expectModalBackAtShellTopLeft = async backButton => {
+  await expect(backButton).toBeVisible();
+  const geometry = await backButton.evaluate(button => {
+    const shell = button.closest(".modal-inner");
+    return {
+      parentIsShell: button.parentElement === shell,
+      offsetParentIsShell: button.offsetParent === shell,
+      left: Math.round(button.offsetLeft),
+      top: Math.round(button.offsetTop)
+    };
+  });
+  expect(geometry).toEqual({
+    parentIsShell: true,
+    offsetParentIsShell: true,
+    left: 18,
+    top: 18
+  });
+};
+
 const animeLayoutSnapshot = page => page.evaluate(() => {
   const snapshot = selector => {
     const element = document.querySelector(selector);
@@ -940,7 +959,22 @@ test("detail route restores modal and internal navigation hash", async ({ page }
   const target = await compositionLink.first().getAttribute("data-target-id");
   await compositionLink.first().click();
   await expect(page).toHaveURL(new RegExp(`#${target}$`));
-  await expect(page.locator(".modal-back")).toBeVisible();
+  await expectModalBackAtShellTopLeft(page.locator(".modal-back"));
+  expect(errors).toEqual([]);
+});
+
+test("release detail back button stays at the modal photo corner", async ({ page }) => {
+  const errors = consoleErrors(page);
+  await page.goto("/#toy-release");
+  const releaseLink = page.locator(".release-product-link").first();
+  await expect(releaseLink).toBeVisible();
+  await releaseLink.click();
+  await expect(page.locator("#detailModal")).toBeVisible();
+
+  const backButton = page.locator("#detailModal .modal-back[data-back-release]");
+  await expectModalBackAtShellTopLeft(backButton);
+  await backButton.click();
+  await expect(page.locator('[data-app-panel="release"].active')).toBeVisible();
   expect(errors).toEqual([]);
 });
 
@@ -1016,7 +1050,7 @@ test("episode modal matches the rare bey get shell and preserves contextual back
   await expect(episodeShell).toBeVisible();
   await expect(episodeTitle).toBeVisible();
   await expect(episodeArt).toHaveCSS("display", "none");
-  await expect(backButton).toBeVisible();
+  await expectModalBackAtShellTopLeft(backButton);
   await expect(episodeShell.locator(".modal-body-block, .modal-section, .product-composition, .rare-bey-get-list")).toHaveCount(0);
 
   const episodeGeometry = await shellGeometry();
