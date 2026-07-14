@@ -11,6 +11,12 @@ const lazyInteractionSelector = [
   "[data-category-anime-open]",
   "[data-category-anime-episodes-open]"
 ].join(",");
+const categoryInteractionSelector = [
+  "[data-category-catalog-open]",
+  "[data-category-release-open]",
+  "[data-category-anime-open]",
+  "[data-category-anime-episodes-open]"
+].join(",");
 
 let appPromise = null;
 let appLoaded = false;
@@ -26,10 +32,16 @@ const loadApp = () => {
 };
 
 const appInteractionTarget = target => target?.closest?.(lazyInteractionSelector) || null;
+const categoryInteractionTarget = target => target?.closest?.(categoryInteractionSelector) || null;
 
 const primeApp = event => {
   if (appLoaded) return;
   const target = appInteractionTarget(event.target);
+  if (target) void loadApp().then(module => module.prepareInteraction?.(target));
+};
+const primeCategoryApp = event => {
+  if (appLoaded) return;
+  const target = categoryInteractionTarget(event.target);
   if (target) void loadApp().then(module => module.prepareInteraction?.(target));
 };
 
@@ -63,6 +75,7 @@ try {
     await loadApp();
   } else {
     document.documentElement.classList.remove("route-booting");
+    document.addEventListener("pointerover", primeCategoryApp, { capture: true, passive: true });
     document.addEventListener("pointerdown", primeApp, { capture: true, passive: true });
     document.addEventListener("focusin", primeApp, true);
     document.addEventListener("click", replayClickAfterLoad, true);

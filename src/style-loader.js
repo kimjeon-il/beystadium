@@ -24,11 +24,18 @@ const showStyleError = error => {
   console.error(error);
 };
 
-const loadStyle = key => {
+const observeStylePromise = (promise, { background = false } = {}) => background
+  ? promise
+  : promise.catch(error => {
+    showStyleError(error);
+    throw error;
+  });
+
+const loadStyle = (key, options = {}) => {
   if (!styleFiles[key]) return Promise.reject(new Error(`Unknown style key: ${key}`));
   const current = document.querySelector(`link[data-style-key="${key}"]`);
   if (current?.sheet) return Promise.resolve(current);
-  if (stylePromises.has(key)) return stylePromises.get(key);
+  if (stylePromises.has(key)) return observeStylePromise(stylePromises.get(key), options);
 
   const promise = new Promise((resolve, reject) => {
     const link = current || document.createElement("link");
@@ -41,17 +48,17 @@ const loadStyle = key => {
   }).catch(error => {
     stylePromises.delete(key);
     document.querySelector(`link[data-style-key="${key}"]`)?.remove();
-    showStyleError(error);
     throw error;
   });
 
   stylePromises.set(key, promise);
-  return promise;
+  return observeStylePromise(promise, options);
 };
 
-const ensureStyles = (...keys) => {
+const prepareStyles = (keys, options = {}) => {
   const requested = new Set(keys.flat().filter(Boolean));
-  return Promise.all(styleOrder.filter(key => requested.has(key)).map(loadStyle));
+  return Promise.all(styleOrder.filter(key => requested.has(key)).map(key => loadStyle(key, options)));
 };
+const ensureStyles = (...keys) => prepareStyles(keys);
 
-export { ensureStyles, routeStyleManifest, styleFiles };
+export { ensureStyles, prepareStyles, routeStyleManifest, styleFiles };

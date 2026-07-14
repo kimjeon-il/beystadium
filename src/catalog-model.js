@@ -117,37 +117,40 @@ const compareCatalogFirstReleaseMeta = (a, b) =>
   a.productIndex - b.productIndex ||
   a.compositionIndex - b.compositionIndex ||
   a.regionIndex - b.regionIndex;
-const firstReleaseMetaMapCache = new Map();
-const firstReleaseMetaMap = (cacheKey, { matchesTarget, includeLineupTargets = false }) => {
-  const cached = firstReleaseMetaMapCache.get(cacheKey);
-  if (cached) return cached;
-  const map = new Map();
-  const rememberReleaseMeta = (target, meta) => {
-    if (!matchesTarget(target)) return;
-    const prev = map.get(target);
-    if (!prev || compareCatalogFirstReleaseMeta(meta, prev) < 0) map.set(target, meta);
+const releaseRegions = Object.keys(releaseRegionLabels);
+let firstReleaseMetaMapsCache = null;
+let catalogProductNumberKeyCache = new WeakMap();
+const rememberReleaseMeta = (map, target, meta) => {
+  const prev = map.get(target);
+  if (!prev || compareCatalogFirstReleaseMeta(meta, prev) < 0) map.set(target, meta);
+};
+const firstReleaseMetaMaps = () => {
+  if (firstReleaseMetaMapsCache) return firstReleaseMetaMapsCache;
+  const catalogCore = new Map();
+  const tools = new Map();
+  const rememberTarget = (target, meta) => {
+    if (target?.startsWith("TOOLS-") && toolsItemsById.has(target)) rememberReleaseMeta(tools, target, meta);
+    if (catalogCoreItemsById.has(target)) rememberReleaseMeta(catalogCore, target, meta);
   };
   productItems.forEach((product, productIndex) => {
-    Object.keys(releaseRegionLabels).forEach((region, regionIndex) => {
+    releaseRegions.forEach((region, regionIndex) => {
       if (!productReleasedInRegion(product, region)) return;
       const release = productRelease(product, region);
       const dateSort = releaseDateSortValue(release.releaseDate || release.release);
       if (dateSort === Number.MAX_SAFE_INTEGER) return;
       productCompositionItems(product, region).forEach((part, compositionIndex) => {
-        rememberReleaseMeta(part.target, { dateSort, productIndex, compositionIndex, regionIndex });
+        rememberTarget(part.target, { dateSort, productIndex, compositionIndex, regionIndex });
       });
-      if (!includeLineupTargets) return;
       productLineupIds(product).forEach((target, lineupIndex) => {
-        rememberReleaseMeta(target, { dateSort, productIndex, compositionIndex: 1000 + lineupIndex, regionIndex });
+        if (!catalogCoreItemsById.has(target)) return;
+        rememberReleaseMeta(catalogCore, target, { dateSort, productIndex, compositionIndex: 1000 + lineupIndex, regionIndex });
       });
     });
   });
-  firstReleaseMetaMapCache.set(cacheKey, map);
-  return map;
+  firstReleaseMetaMapsCache = { catalogCore, tools };
+  return firstReleaseMetaMapsCache;
 };
-const toolsFirstReleaseMetaMap = () => firstReleaseMetaMap("tools", {
-  matchesTarget: target => target?.startsWith("TOOLS-") && toolsItemsById.has(target)
-});
+const toolsFirstReleaseMetaMap = () => firstReleaseMetaMaps().tools;
 const compareToolsItemsByFirstRelease = (a, b) => {
   const metaA = toolsFirstReleaseMetaMap().get(a.id);
   const metaB = toolsFirstReleaseMetaMap().get(b.id);
@@ -159,10 +162,7 @@ const compareToolsItemsByFirstRelease = (a, b) => {
   }
   return a.name.localeCompare(b.name, "ko");
 };
-const catalogCoreFirstReleaseMetaMap = () => firstReleaseMetaMap("catalog-core", {
-  matchesTarget: target => catalogCoreItemsById.has(target),
-  includeLineupTargets: true
-});
+const catalogCoreFirstReleaseMetaMap = () => firstReleaseMetaMaps().catalogCore;
 const catalogFirstReleaseMeta = item => {
   if (!item?.id) return null;
   const meta = toolsItemsById.has(item.id)
@@ -189,20 +189,23 @@ const catalogProductPrefixRank = {
   UX: 2,
   CX: 3
 };
+const catalogLatestSeriesOrder = [...releaseSeriesOrder()].reverse();
+const catalogLatestSeriesRanks = new Map(catalogLatestSeriesOrder.map((series, index) => [series, index]));
 const catalogLatestSeriesRank = item => {
-  const order = [...releaseSeriesOrder()].reverse();
-  const index = order.indexOf(item?.series);
-  return index >= 0 ? index : order.length;
+  const index = catalogLatestSeriesRanks.get(item?.series);
+  return index ?? catalogLatestSeriesOrder.length;
 };
 const catalogToolFirstReleaseProductNo = item => {
   const meta = toolsFirstReleaseMetaMap().get(item?.id);
   const product = Number.isInteger(meta?.productIndex) ? productItems[meta.productIndex] : null;
   if (!product) return "";
-  const region = Object.keys(releaseRegionLabels)[meta.regionIndex] || appState.activeReleaseRegion;
+  const region = releaseRegions[meta.regionIndex] || appState.activeReleaseRegion;
   const release = productRelease(product, region);
   return release.no || product.no || "";
 };
 const catalogProductNumberKey = item => {
+  if (!item || typeof item !== "object") return null;
+  if (catalogProductNumberKeyCache.has(item)) return catalogProductNumberKeyCache.get(item);
   const source = [
     item?.productNo,
     item?.no,
@@ -210,12 +213,17 @@ const catalogProductNumberKey = item => {
     item?.id
   ].filter(Boolean).join(" ");
   const match = source.match(/\b(BBG|BX|UX|CX|BB|B)[-_\s]?(\d+)/i);
-  if (!match) return null;
+  if (!match) {
+    catalogProductNumberKeyCache.set(item, null);
+    return null;
+  }
   const prefix = match[1].toUpperCase();
-  return {
+  const key = {
     prefixRank: catalogProductPrefixRank[prefix] || 0,
     number: Number(match[2]) || 0
   };
+  catalogProductNumberKeyCache.set(item, key);
+  return key;
 };
 const compareCatalogProductNumberKeys = (a, b) => {
   if (a && b) {
@@ -292,6 +300,19 @@ const catalogItemMatchesSeries = item => !catalogHasSeriesFilter() || item?.seri
 const catalogUsesDefaultBrowseSet = query => !appState.selectedCatalogKind && (query ? query.isEmpty : !catalogHasSearchQuery());
 const CATALOG_VISIBLE_ITEMS_CACHE_LIMIT = 48;
 const catalogVisibleItemsCache = new Map();
+const invalidateCatalogDerivedCaches = () => {
+  firstReleaseMetaMapsCache = null;
+  catalogProductNumberKeyCache = new WeakMap();
+  catalogVisibleItemsCache.clear();
+};
+const prepareCatalogSortMetadata = () => {
+  firstReleaseMetaMaps();
+  catalogCoreItems.forEach(catalogProductNumberKey);
+  toolsItems.forEach(catalogProductNumberKey);
+};
+window.addEventListener("beystadium:data-loaded", event => {
+  if (event.detail?.kind === "series") invalidateCatalogDerivedCaches();
+});
 const cacheCatalogVisibleItems = (key, factory) => {
   const cached = catalogVisibleItemsCache.get(key);
   if (cached) return cached;
@@ -373,6 +394,7 @@ export {
   modalArtMarkup,
   partCategory,
   partKoName,
+  prepareCatalogSortMetadata,
   productCompositionItems,
   productLineupIds,
   productSerialNumber,

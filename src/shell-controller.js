@@ -294,6 +294,7 @@ bindScrollAffordances(document);
 export {
   activatePrimarySection,
   bindSearchInput,
+  categoryRouteFromTrigger,
   closeCatalogDropdown,
   closeOpenCatalogDropdowns,
   closeSearchHelpPopovers,

@@ -171,6 +171,137 @@ test("runtime data is loaded by route instead of during home boot", async ({ pag
   expect(styleRequests).toContain("/styles/search.css");
 });
 
+test("catalog intent preload stays silent and is reused by navigation", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "request orchestration only needs one browser");
+  const requests = [];
+  const heldRoutes = [];
+  let releaseData;
+  const dataGate = new Promise(resolve => { releaseData = resolve; });
+  page.on("request", request => requests.push(new URL(request.url()).pathname));
+  await page.route("**/data/runtime/series/*.json*", async route => {
+    heldRoutes.push(route);
+    await dataGate;
+    await route.continue();
+  });
+
+  await page.goto("/");
+  const catalogButton = page.locator("[data-category-catalog-open]").first();
+  await catalogButton.hover();
+  await expect.poll(() => heldRoutes.length).toBe(3);
+  await expect(page.locator("#dataLoadStatus")).toBeHidden();
+  await expect(page.locator("body")).toHaveAttribute("aria-busy", "false");
+  await expect(page).toHaveURL(/\/$/);
+  await expect(page.locator('[data-app-panel="overview"].active')).toBeVisible();
+
+  await catalogButton.click();
+  await expect(page.locator("#dataLoadStatus")).toBeVisible();
+  await expect(page.locator("body")).toHaveAttribute("aria-busy", "true");
+  releaseData();
+  await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
+  await expect(page.locator("#dataLoadStatus")).toBeHidden();
+  expect(requests.filter(path => path.includes("/data/runtime/series/"))).toHaveLength(3);
+  expect(requests.filter(path => path === "/src/catalog-feature.js")).toHaveLength(1);
+  expect(requests.filter(path => path === "/styles/catalog.css")).toHaveLength(1);
+});
+
+test("focus and touch intent preload only their category", async ({ browser }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "intent coverage only needs one browser");
+  const cases = [
+    {
+      selector: "[data-category-release-open]",
+      expectedData: "/data/runtime/series/x.json",
+      expectedModule: "/src/release-page.js",
+      trigger: locator => locator.focus()
+    },
+    {
+      selector: "[data-category-anime-open]",
+      expectedData: "/data/runtime/anime.json",
+      expectedModule: "/src/anime.js",
+      trigger: locator => locator.dispatchEvent("pointerdown", { pointerType: "touch", bubbles: true })
+    }
+  ];
+
+  for (const entry of cases) {
+    const context = await browser.newContext();
+    const page = await context.newPage();
+    const requests = [];
+    page.on("request", request => requests.push(new URL(request.url()).pathname));
+    await page.goto("/");
+    const trigger = page.locator(entry.selector).first();
+    await entry.trigger(trigger);
+    await expect.poll(() => requests.includes(entry.expectedData) && requests.includes(entry.expectedModule)).toBe(true);
+    await expect(page).toHaveURL(/\/$/);
+    await expect(page.locator('[data-app-panel="overview"].active')).toBeVisible();
+    await expect(page.locator("#dataLoadStatus")).toBeHidden();
+    await entry.trigger(trigger);
+    await expect.poll(() => requests.filter(path => path === entry.expectedData).length).toBe(1);
+    expect(requests.filter(path => path === entry.expectedModule)).toHaveLength(1);
+    await context.close();
+  }
+});
+
+test("cold catalog route requests data styles and feature in parallel", async ({ browser }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "parallel request coverage only needs one browser");
+  const context = await browser.newContext();
+  const page = await context.newPage();
+  const pending = new Set();
+  let releaseRequests;
+  const requestGate = new Promise(resolve => { releaseRequests = resolve; });
+  const hold = async (name, pattern) => page.route(pattern, async route => {
+    pending.add(name);
+    await requestGate;
+    await route.continue();
+  });
+  await hold("data", "**/data/runtime/series/x.json*");
+  await hold("feature", "**/src/catalog-feature.js*");
+  await hold("style", "**/styles/catalog.css*");
+
+  const navigation = page.goto("/#toy-catalog?scope=bey&series=x");
+  try {
+    await expect.poll(() => [...pending].sort()).toEqual(["data", "feature", "style"]);
+  } finally {
+    releaseRequests();
+  }
+  await navigation;
+  await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
+  await context.close();
+});
+
+test("catalog sort caches match direct load after incremental series loading", async ({ browser }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "catalog cache coverage only needs one browser");
+  const incrementalContext = await browser.newContext();
+  const directContext = await browser.newContext();
+  const incrementalPage = await incrementalContext.newPage();
+  const directPage = await directContext.newPage();
+  const catalogHash = sort => `#toy-catalog?scope=bey&series=all&sort=${sort}&page=1`;
+  const applyCatalogHash = async (page, sort) => {
+    const hash = catalogHash(sort);
+    await page.evaluate(value => { window.location.hash = value; }, hash);
+    await expect(page).toHaveURL(new RegExp(`${hash.replace(/[?]/g, "\\?")}$`));
+    await expect(page.locator("#catalogSeriesFilter")).toHaveAttribute("data-scope", "all");
+    await expect(page.locator(`[data-catalog-sort="${sort}"].active`)).toHaveCount(1);
+    await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
+  };
+  const catalogSnapshot = page => page.evaluate(() => ({
+    count: document.querySelector("#catalogCount")?.textContent,
+    ids: [...document.querySelectorAll("#catalogGrid .catalog-card")].map(card => card.dataset.id || card.dataset.toolsId)
+  }));
+
+  await incrementalPage.goto("/#toy-catalog?scope=bey&series=x&sort=latest&page=1");
+  await expect(incrementalPage.locator("#catalogGrid .catalog-card").first()).toBeVisible();
+  await directPage.goto(`/${catalogHash("latest")}`);
+  await expect(directPage.locator("#catalogGrid .catalog-card").first()).toBeVisible();
+
+  for (const sort of ["latest", "oldest", "no-asc", "no-desc"]) {
+    await applyCatalogHash(incrementalPage, sort);
+    await applyCatalogHash(directPage, sort);
+    expect(await catalogSnapshot(incrementalPage)).toEqual(await catalogSnapshot(directPage));
+  }
+
+  await incrementalContext.close();
+  await directContext.close();
+});
+
 test("direct anime character route owns its shared layout styles", async ({ browser }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "style request coverage only needs one browser");
   const context = await browser.newContext();
@@ -865,8 +996,8 @@ test("shared interface controls keep tokenized sizes and timings", async ({ page
   await expect(page.locator("#detailModal")).toBeVisible();
   const modalControls = await page.evaluate(() => {
     const size = element => {
-      const rect = element.getBoundingClientRect();
-      return [Math.round(rect.width), Math.round(rect.height)];
+      const style = getComputedStyle(element);
+      return [Math.round(Number.parseFloat(style.width)), Math.round(Number.parseFloat(style.height))];
     };
     const scrollArea = document.querySelector("#detailModal .modal-scroll-area");
     return {

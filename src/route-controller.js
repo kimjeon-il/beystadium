@@ -13,7 +13,8 @@ import {
   loadDetailFeature,
   loadReleaseFeature,
   loadSearchFeature,
-  openAnimeEpisodeDetail
+  openAnimeEpisodeDetail,
+  preparePrimaryRoute
 } from "#app/feature-loaders";
 import {
   isDetailRoute,
@@ -174,13 +175,16 @@ let routeApplyGeneration = 0;
 async function applyRoute(route = parseRouteFromHash(window.location.hash), { preserveScroll = false, preserveSearch = false } = {}) {
   const normalizedRoute = normalizeRoute(route || { type: "overview" });
   const generation = ++routeApplyGeneration;
-  const ready = await BeystadiumDataStore.ensureRoute(normalizedRoute);
+  const primaryRoute = isPrimaryRoute(normalizedRoute);
+  const ready = primaryRoute
+    ? await preparePrimaryRoute(normalizedRoute)
+    : await BeystadiumDataStore.ensureRoute(normalizedRoute);
   if (!ready || generation !== routeApplyGeneration) return false;
 
   const modalOpen = Boolean(document.querySelector("#detailModal")?.open);
   const needsDetail = isDetailRoute(normalizedRoute) || normalizedRoute.type === "rare-bey-get-list" || modalOpen;
   const detailFeature = needsDetail ? await loadDetailFeature() : null;
-  await ensureStyles(routeStyleKeys(normalizedRoute, detailFeature));
+  if (!primaryRoute) await ensureStyles(routeStyleKeys(normalizedRoute, detailFeature));
   if (generation !== routeApplyGeneration) return false;
 
   let normalizedRouteKey = appliedRouteKey(normalizedRoute);

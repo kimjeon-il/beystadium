@@ -1,5 +1,11 @@
 import { appState } from "#app/state";
-import { activeCatalogSortOption, catalogRenderKey, catalogSortOptions, catalogVisibleItemsCache } from "#app/catalog-model";
+import {
+  activeCatalogSortOption,
+  catalogRenderKey,
+  catalogSortOptions,
+  catalogVisibleItemsCache,
+  prepareCatalogSortMetadata
+} from "#app/catalog-model";
 import { renderCatalogItems, scrollCatalogGridIntoView, syncCatalogScopeState } from "#app/catalog-view";
 import { navigateToRoute } from "#app/navigation";
 import { defaultCatalogSort, normalizeCatalogRouteSort, normalizeRoute } from "#app/route-parser";
@@ -224,6 +230,7 @@ export {
   catalogRouteFromState,
   initializeCatalogFeature,
   openCategoryCatalog,
+  prepareCatalogSortMetadata,
   refreshCatalogState,
   renderCatalogFilterChips,
   restoreStoredCatalogOrigin,
