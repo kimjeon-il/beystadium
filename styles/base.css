@@ -637,19 +637,7 @@ dialog[open] .modal-scroll-area::-webkit-scrollbar-corner,
 }
 
 .search-scope.catalog-dropdown summary::after {
-  content: "";
-  width: 7px;
-  height: 7px;
-  position: absolute;
-  top: 50%;
   right: var(--search-scope-arrow-right, 11px);
-  flex: none;
-  margin-left: 0;
-  border-right: 1.8px solid currentColor;
-  border-bottom: 1.8px solid currentColor;
-  color: var(--ui-muted);
-  transform: translateY(-60%) rotate(45deg);
-  transition: transform .16s ease, color .16s ease;
 }
 
 .search-scope.catalog-dropdown summary:hover,

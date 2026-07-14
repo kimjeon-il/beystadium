@@ -715,6 +715,66 @@ test("persistent selections use the existing neutral highlight in light and dark
   }
 });
 
+test("dropdown chevrons share the same open and close rotation", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "motion coverage only needs one browser");
+  await page.goto("/#toy-catalog?scope=bey&series=x");
+  await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
+
+  const dropdowns = [
+    page.locator("#catalogSeriesFilter"),
+    page.locator("#catalogSearchScope"),
+    page.locator(".catalog-sort-dropdown")
+  ];
+  const arrowState = dropdown => dropdown.locator("summary").evaluate(summary => {
+    const style = getComputedStyle(summary, "::after");
+    return {
+      transform: style.transform,
+      transitionDuration: style.transitionDuration,
+      transitionProperty: style.transitionProperty
+    };
+  });
+
+  for (const dropdown of dropdowns) await expect(dropdown).toBeVisible();
+  const closedStates = await Promise.all(dropdowns.map(arrowState));
+  expect(new Set(closedStates.map(state => state.transform)).size).toBe(1);
+  for (const state of closedStates) {
+    expect(state.transitionProperty.split(", ")).toContain("transform");
+    expect(state.transitionDuration.split(", ")[0]).toBe("0.16s");
+  }
+  const expectedOpenTransform = await page.evaluate(() => {
+    const probe = document.createElement("details");
+    probe.className = "catalog-dropdown";
+    probe.open = true;
+    probe.innerHTML = "<summary></summary>";
+    document.body.append(probe);
+    const transform = getComputedStyle(probe.querySelector("summary"), "::after").transform;
+    probe.remove();
+    return transform;
+  });
+
+  const openTransforms = [];
+  for (const [index, dropdown] of dropdowns.entries()) {
+    const summary = dropdown.locator("summary");
+    if (index === dropdowns.length - 1) {
+      await summary.focus();
+      await page.keyboard.press("Enter");
+    } else {
+      await summary.click();
+    }
+    await expect(dropdown).toHaveAttribute("open", "");
+    await expect.poll(async () => (await arrowState(dropdown)).transform)
+      .toBe(expectedOpenTransform);
+    openTransforms.push((await arrowState(dropdown)).transform);
+
+    if (index === dropdowns.length - 1) await page.keyboard.press("Enter");
+    else await summary.click();
+    await expect(dropdown).not.toHaveAttribute("open", "");
+    await expect.poll(async () => (await arrowState(dropdown)).transform)
+      .toBe(closedStates[index].transform);
+  }
+  expect(new Set(openTransforms).size).toBe(1);
+});
+
 test("scroll affordances appear only while internal content remains below", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "scroll position coverage only needs one browser");
   const errors = consoleErrors(page);
