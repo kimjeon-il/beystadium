@@ -17,6 +17,16 @@
   display: none;
 }
 
+.catalog-search-help-popover.is-summary-only {
+  --scroll-below-shadow: none;
+  max-height: none;
+  overflow-y: hidden;
+}
+
+.catalog-search-help-popover.is-summary-only [data-help-details] {
+  display: none;
+}
+
 .catalog-search-help-popover strong {
   display: block;
   margin: 0 0 6px;

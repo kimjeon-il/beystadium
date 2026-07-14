@@ -9,6 +9,9 @@ import {
 } from "#app/ui-core";
 
 const searchHelpPopovers = [];
+const searchHelpSummaryClass = "is-summary-only";
+const searchHelpDetailsSelector = "[data-help-details]";
+const searchHelpOverflowTolerance = 2;
 let initialized = false;
 
 const rootPixelValue = (name, fallback) => {
@@ -18,6 +21,30 @@ const rootPixelValue = (name, fallback) => {
 const closeSearchPreviews = () => {
   document.querySelectorAll(".search-preview").forEach(preview => { preview.hidden = true; });
   appState.activeSearchPreview = null;
+};
+const clamp = (value, min, max) => Math.min(Math.max(value, min), Math.max(min, max));
+const resetSearchHelpPopoverLayout = popover => {
+  popover.classList.remove(searchHelpSummaryClass);
+  clearScrollAffordance(popover);
+  popover.scrollTop = 0;
+  popover.style.width = "";
+  popover.style.maxHeight = "";
+  popover.style.left = "";
+  popover.style.top = "";
+};
+const fitSearchHelpPopoverContent = (popover, availableHeight) => {
+  const fullRect = popover.getBoundingClientRect();
+  const fullHeight = popover.scrollHeight;
+  const hasDetails = Boolean(popover.querySelector(searchHelpDetailsSelector));
+  const constrainedByCss = fullHeight - fullRect.height > searchHelpOverflowTolerance;
+  const constrainedBySpace = fullHeight - availableHeight > searchHelpOverflowTolerance;
+  const summaryOnly = hasDetails && (constrainedByCss || constrainedBySpace);
+  popover.classList.toggle(searchHelpSummaryClass, summaryOnly);
+  if (summaryOnly) {
+    popover.scrollTop = 0;
+    clearScrollAffordance(popover);
+  }
+  return popover.getBoundingClientRect();
 };
 const positionSearchHelpPopover = (button, popover) => {
   if (!button || !popover || popover.hidden) return;
@@ -36,8 +63,7 @@ const positionSearchHelpPopover = (button, popover) => {
   const minTop = Math.max(viewportTop + margin, topbarBottom + margin);
   const maxTop = viewportTop + viewportHeight - margin;
   const buttonRect = button.getBoundingClientRect();
-  popover.style.width = "";
-  popover.style.maxHeight = "";
+  resetSearchHelpPopoverLayout(popover);
   if (isCompact) {
     const controlBar = button.closest(".catalog-control-bar");
     const anchorRow = button.closest(".catalog-search-controls, .catalog-toolbar") || button;
@@ -46,32 +72,27 @@ const positionSearchHelpPopover = (button, popover) => {
     const availableLeft = Math.max(minLeft, contentRect.left);
     const availableRight = Math.min(maxLeft, contentRect.right || maxLeft);
     const width = Math.min(360, Math.max(160, availableRight - availableLeft), Math.max(0, maxLeft - minLeft));
-    let left = Math.min(Math.max(availableLeft, minLeft), maxLeft - width);
-    let top = Math.max(anchorRect.bottom + gap, minTop);
-    let availableHeight = maxTop - top;
     const viewportAvailableHeight = Math.max(0, maxTop - minTop);
-    const minReadableHeight = Math.min(140, viewportAvailableHeight);
-    if (availableHeight < minReadableHeight) {
-      top = Math.max(minTop, maxTop - minReadableHeight);
-      availableHeight = maxTop - top;
-    }
-    popover.style.width = `${Math.floor(Math.min(width, maxLeft - left))}px`;
-    popover.style.maxHeight = `${Math.floor(Math.max(80, Math.min(availableHeight, viewportAvailableHeight)))}px`;
+    popover.style.width = `${Math.floor(width)}px`;
+    const popoverRect = fitSearchHelpPopoverContent(popover, viewportAvailableHeight);
+    const left = clamp(availableLeft, minLeft, maxLeft - popoverRect.width);
+    const top = clamp(anchorRect.bottom + gap, minTop, maxTop - popoverRect.height);
     popover.style.left = `${Math.floor(left)}px`;
     popover.style.top = `${Math.floor(top)}px`;
     return;
   }
-  const popoverRect = popover.getBoundingClientRect();
-  let left = buttonRect.left;
-  let top = buttonRect.bottom + gap;
+  const preferredTop = Math.max(buttonRect.bottom + gap, minTop);
+  const availableBelow = Math.max(0, maxTop - preferredTop);
+  const availableAbove = Math.max(0, buttonRect.top - gap - minTop);
+  const popoverRect = fitSearchHelpPopoverContent(popover, Math.max(availableBelow, availableAbove));
   const rightmostLeft = Math.max(minLeft, maxLeft - popoverRect.width);
-  const lowestTop = Math.max(minTop, maxTop - popoverRect.height);
+  let top = preferredTop;
   if (top + popoverRect.height > maxTop) {
     const flippedTop = buttonRect.top - popoverRect.height - gap;
     top = flippedTop >= minTop ? flippedTop : minTop;
   }
-  popover.style.left = `${Math.min(Math.max(left, minLeft), rightmostLeft)}px`;
-  popover.style.top = `${Math.min(Math.max(top, minTop), lowestTop)}px`;
+  popover.style.left = `${clamp(buttonRect.left, minLeft, rightmostLeft)}px`;
+  popover.style.top = `${clamp(top, minTop, maxTop - popoverRect.height)}px`;
 };
 
 class SearchHelpPopoverController {
@@ -93,9 +114,7 @@ class SearchHelpPopoverController {
   close() {
     if (!this.popover) return;
     this.popover.hidden = true;
-    clearScrollAffordance(this.popover);
-    this.popover.style.width = "";
-    this.popover.style.maxHeight = "";
+    resetSearchHelpPopoverLayout(this.popover);
     this.button?.setAttribute("aria-expanded", "false");
   }
 
@@ -142,6 +161,7 @@ const initializeSearchHelpController = () => {
     if (!searchHelpPopovers.some(controller => controller.contains(event.target))) closeSearchHelpPopovers();
   });
   window.addEventListener("resize", positionSearchHelpPopovers, { passive: true });
+  window.visualViewport?.addEventListener("resize", positionSearchHelpPopovers, { passive: true });
   window.addEventListener("scroll", () => closeSearchHelpPopovers(), { passive: true });
 };
 

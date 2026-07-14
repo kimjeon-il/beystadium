@@ -789,6 +789,57 @@ test("scroll affordances appear only while internal content remains below", asyn
   expect(errors).toEqual([]);
 });
 
+test("search help shows only its summary when the full guide does not fit", async ({ page }) => {
+  const errors = consoleErrors(page);
+  const viewport = page.viewportSize();
+  const width = viewport?.width || 1280;
+  await page.setViewportSize({ width, height: 900 });
+  await page.goto("/#toy-catalog?scope=bey&series=x");
+  await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
+
+  const button = page.locator("#catalogSearchHelpButton");
+  const popover = page.locator("#catalogSearchHelpPopover");
+  const details = popover.locator("[data-help-details]");
+  await button.evaluate(element => element.click());
+  await expect(popover).toBeVisible();
+  await expect(popover).not.toHaveClass(/is-summary-only/);
+  await expect(details).toBeVisible();
+  const fullState = await popover.evaluate(element => ({
+    clientHeight: element.clientHeight,
+    overflowY: getComputedStyle(element).overflowY,
+    scrollHeight: element.scrollHeight
+  }));
+  expect(fullState.scrollHeight).toBeLessThanOrEqual(fullState.clientHeight + 2);
+  expect(fullState.overflowY).toBe("auto");
+
+  await page.setViewportSize({ width, height: 260 });
+  await expect(popover).toHaveClass(/is-summary-only/);
+  await expect(popover.locator("strong")).toHaveText("상세검색");
+  await expect(popover.locator("p")).toHaveText("띄어쓰기로 여러 조건을 함께 검색할 수 있습니다.");
+  await expect(details).toBeHidden();
+  await expect(popover).not.toHaveClass(/has-scroll-content-below/);
+  const summaryState = await popover.evaluate(element => ({
+    clientHeight: element.clientHeight,
+    overflowY: getComputedStyle(element).overflowY,
+    scrollHeight: element.scrollHeight
+  }));
+  expect(summaryState.scrollHeight).toBeLessThanOrEqual(summaryState.clientHeight + 2);
+  expect(summaryState.overflowY).toBe("hidden");
+
+  await page.setViewportSize({ width, height: 900 });
+  await expect(popover).not.toHaveClass(/is-summary-only/);
+  await expect(details).toBeVisible();
+
+  await page.goto("/#anime-character");
+  await expect(page.locator("#animeCharacterGrid .anime-character-card").first()).toBeVisible();
+  await page.locator("#animeSearchHelpButton").evaluate(element => element.click());
+  const animePopover = page.locator("#animeSearchHelpPopover");
+  await expect(animePopover).toBeVisible();
+  await expect(animePopover).not.toHaveClass(/is-summary-only/);
+  await expect(animePopover.locator("strong")).toHaveText("등장인물 및 베이 검색");
+  expect(errors).toEqual([]);
+});
+
 test("mobile modal scroll affordance stays above opaque detail sections", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "mobile", "mobile modal layering coverage");
   const errors = consoleErrors(page);
