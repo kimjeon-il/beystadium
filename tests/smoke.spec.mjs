@@ -1073,6 +1073,7 @@ test("long part descriptions use an accessible chevron expander", async ({ page 
     const descriptionRect = description.getBoundingClientRect();
     const buttonRect = button.getBoundingClientRect();
     const buttonStyle = getComputedStyle(button);
+    const hoverSurfaceStyle = getComputedStyle(button, "::after");
     const regionStyle = getComputedStyle(region);
     const paddingBottom = Number.parseFloat(regionStyle.paddingBottom);
     const expectedRegionHeight = descriptionRect.height
@@ -1084,7 +1085,14 @@ test("long part descriptions use an accessible chevron expander", async ({ page 
       backgroundColor: buttonStyle.backgroundColor,
       borderStyle: buttonStyle.borderTopStyle,
       borderWidth: buttonStyle.borderTopWidth,
+      buttonHeight: buttonRect.height,
+      buttonWidth: buttonRect.width,
       expectedRegionHeight,
+      hoverSurfaceBackgroundColor: hoverSurfaceStyle.backgroundColor,
+      hoverSurfaceHeight: Number.parseFloat(hoverSurfaceStyle.height),
+      hoverSurfaceLeft: Number.parseFloat(hoverSurfaceStyle.left),
+      hoverSurfaceTop: Number.parseFloat(hoverSurfaceStyle.top),
+      hoverSurfaceWidth: Number.parseFloat(hoverSurfaceStyle.width),
       horizontalOffset: (buttonRect.left + buttonRect.width / 2) - (regionRect.left + regionRect.width / 2),
       paddingBottom,
       regionContainsButton: region.contains(button),
@@ -1113,6 +1121,27 @@ test("long part descriptions use an accessible chevron expander", async ({ page 
   expect(collapsedGeometry.backgroundColor).toBe("rgba(0, 0, 0, 0)");
   expect(collapsedGeometry.borderStyle).toBe("none");
   expect(collapsedGeometry.borderWidth).toBe("0px");
+  expect(collapsedGeometry.buttonWidth).toBe(44);
+  expect(collapsedGeometry.buttonHeight).toBe(32);
+  expect(collapsedGeometry.hoverSurfaceBackgroundColor).toBe("rgba(0, 0, 0, 0)");
+  expect(collapsedGeometry.hoverSurfaceWidth).toBe(28);
+  expect(collapsedGeometry.hoverSurfaceHeight).toBe(24);
+  expect(collapsedGeometry.hoverSurfaceLeft).toBe(8);
+  expect(collapsedGeometry.hoverSurfaceTop).toBe(4);
+
+  await toggle.hover();
+  const hoveredGeometry = await expanderGeometry();
+  const hoverColor = await toggle.evaluate(() => {
+    const probe = document.createElement("i");
+    probe.style.cssText = "position:fixed;background:var(--ui-control-hover)";
+    document.body.append(probe);
+    const color = getComputedStyle(probe).backgroundColor;
+    probe.remove();
+    return color;
+  });
+  expect(hoveredGeometry.backgroundColor).toBe("rgba(0, 0, 0, 0)");
+  await expect.poll(() => toggle.evaluate(element => getComputedStyle(element, "::after").backgroundColor))
+    .toBe(hoverColor);
 
   await toggle.focus();
   await page.keyboard.press("Enter");

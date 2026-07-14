@@ -566,12 +566,25 @@ dialog[open] .product-modal-name {
 
 .modal-description-toggle::before {
   content: "";
+  position: relative;
+  z-index: 1;
   width: 8px;
   height: 8px;
   border-right: 1.8px solid currentColor;
   border-bottom: 1.8px solid currentColor;
   transform: translateY(-25%) rotate(45deg);
   transition: transform var(--motion-fast) var(--ease-standard);
+}
+
+.modal-description-toggle::after {
+  content: "";
+  position: absolute;
+  inset: 4px 8px;
+  z-index: 0;
+  border-radius: var(--radius-control-sm);
+  background: transparent;
+  pointer-events: none;
+  transition: var(--transition-control);
 }
 
 .modal-description-toggle[aria-expanded="true"]::before {
@@ -588,9 +601,14 @@ dialog[open] .product-modal-name {
 
 .modal-description-toggle:hover,
 .modal-description-toggle:focus-visible {
-  background: var(--ui-control-hover);
+  background: transparent;
   color: var(--ui-text);
   outline: 0;
+}
+
+.modal-description-toggle:hover::after,
+.modal-description-toggle:focus-visible::after {
+  background: var(--ui-control-hover);
 }
 
 .modal-description-toggle:focus-visible {
