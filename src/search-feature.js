@@ -121,15 +121,29 @@ const cacheSearchResultMarkup = (key, result) => {
 const mainSearchRecord = (kind, item, fields, order, extra = {}) => createSearchRecord(kind, item, fields, order, extra);
 const createMainSearchRecords = ({ items, kind, fields = catalogItemSearchFields, extra = () => ({}) }, sourceIndex = 0) =>
   items.map((item, index) => mainSearchRecord(kind, item, fields(item, index), (sourceIndex * 100000) + index, extra(item, index)));
-const indexedSearchItems = kind => searchIndexItems.filter(entry => entry.kind === kind).map(entry => entry.item);
-const mainSearchRecordSources = () => [
-  { key: "catalog", kind: "catalog-item", items: indexedSearchItems("catalog-item"), fields: catalogItemSearchFields },
-  { key: "tools", kind: "tools", items: indexedSearchItems("tools"), fields: toolsSearchFields },
-  { key: "product", kind: "product", items: indexedSearchItems("product"), fields: productSearchFields },
-  { key: "manga", kind: "book", items: indexedSearchItems("book"), fields: bookSearchFields },
-  { key: "game", kind: "game", items: indexedSearchItems("game"), fields: gameSearchFields },
-  { key: "anime", kind: "anime", items: indexedSearchItems("anime"), fields: animeSearchFields, extra: (episode, index) => ({ index }) }
-];
+const groupedSearchIndexItems = () => {
+  const groups = {
+    "catalog-item": [],
+    tools: [],
+    product: [],
+    book: [],
+    game: [],
+    anime: []
+  };
+  searchIndexItems.forEach(entry => groups[entry.kind]?.push(entry.item));
+  return groups;
+};
+const mainSearchRecordSources = () => {
+  const items = groupedSearchIndexItems();
+  return [
+    { key: "catalog", kind: "catalog-item", items: items["catalog-item"], fields: catalogItemSearchFields },
+    { key: "tools", kind: "tools", items: items.tools, fields: toolsSearchFields },
+    { key: "product", kind: "product", items: items.product, fields: productSearchFields },
+    { key: "manga", kind: "book", items: items.book, fields: bookSearchFields },
+    { key: "game", kind: "game", items: items.game, fields: gameSearchFields },
+    { key: "anime", kind: "anime", items: items.anime, fields: animeSearchFields, extra: (episode, index) => ({ index }) }
+  ];
+};
 const searchResultRecords = () => {
   if (searchResultRecordCache) return searchResultRecordCache;
   searchResultRecordCache = Object.fromEntries(mainSearchRecordSources().map((source, sourceIndex) => [source.key, createMainSearchRecords(source, sourceIndex)]));
@@ -141,10 +155,10 @@ window.addEventListener("beystadium:data-loaded", () => {
   searchResultItemsCache.clear();
   searchResultMarkupCache.clear();
 });
-const searchResultCacheKey = (scope, query) => `${scope}\u0000${searchQueryFrom(query).raw}`;
+const searchResultCacheKey = (scope, query) => `${scope}\u0000${searchQueryFrom(query).cacheKey}`;
 const searchResultRenderKey = (scope, query) => [
   scope,
-  searchQueryFrom(query).raw,
+  searchQueryFrom(query).cacheKey,
   appState.activeReleaseRegion,
   animeDisplayRegion
 ].join("\u0000");
