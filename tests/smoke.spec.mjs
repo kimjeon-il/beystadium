@@ -893,9 +893,9 @@ test("long part descriptions use an accessible chevron expander", async ({ page 
   await expect(toggle).toHaveAttribute("aria-label", "부품 설명 접기");
   await expect(toggle).toHaveAttribute("aria-expanded", "true");
   const expandedHeight = await description.evaluate(element => element.getBoundingClientRect().height);
-  const expandedChevron = await toggle.evaluate(element => getComputedStyle(element, "::before").transform);
   expect(expandedHeight).toBeGreaterThan(collapsed.height + 1);
-  expect(expandedChevron).not.toBe(collapsedChevron);
+  await expect.poll(() => toggle.evaluate(element => getComputedStyle(element, "::before").transform))
+    .not.toBe(collapsedChevron);
 
   await page.keyboard.press("Enter");
   await expect(slot).not.toHaveClass(/is-expanded/);
