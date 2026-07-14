@@ -305,6 +305,10 @@ test("search controls clear only the query across list routes", async ({ page },
   for (const selector of ["#globalSearchInput", "#mobileDrawerSearchInput", "#overviewSearchInput", "#searchResultsSearchInput"]) {
     await expect(page.locator(selector)).toHaveValue("");
   }
+  await expect(page.locator(".search-results-summary")).toBeHidden();
+  await expect(page.locator("#globalCount")).toHaveText("0");
+  await expect(page.locator("#globalGrid [data-search-idle]")).toHaveText("검색어를 입력해주세요.");
+  await expect(page.locator("#globalGrid .search-result-item, #globalGrid [data-search-results-page]")).toHaveCount(0);
 
   await page.goto("/#toy-catalog?scope=bey&series=x&sort=no-desc&page=1&q=드래곤");
   await expect(page.locator('[data-app-panel="catalog"].active')).toBeVisible();
@@ -489,6 +493,8 @@ test("search results own live search controls", async ({ page }, testInfo) => {
   await expect.poll(async () => (await routeState()).query).toBe("");
   expect(await routeState()).toEqual({ query: "", scope: "anime" });
   for (const selector of queryInputs) await expect(page.locator(selector)).toHaveValue("");
+  await expect(page.locator(".search-results-summary")).toBeHidden();
+  await expect(page.locator("#globalGrid [data-search-idle]")).toHaveText("검색어를 입력해주세요.");
 
   if (testInfo.project.name === "desktop") {
     await page.goto("/");

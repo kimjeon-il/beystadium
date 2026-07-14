@@ -4,6 +4,29 @@ const resultIds = page => page.locator("#globalGrid .search-result-item").evalua
   item.dataset.id || item.dataset.productId || item.dataset.toolsId || item.dataset.bookId || item.dataset.gameId || item.dataset.animeIndex
 ));
 
+test("empty global search shows an idle prompt instead of result items", async ({ page }) => {
+  for (const query of ["", "   "]) {
+    await page.goto("about:blank");
+    await page.goto(`/#search?q=${encodeURIComponent(query)}&scope=bey`);
+    await expect(page.locator("#searchResultsSearchInput")).toHaveValue(query);
+    await expect(page.locator(".search-results-summary")).toBeHidden();
+    await expect(page.locator("#globalCount")).toHaveText("0");
+    await expect(page.locator("#globalGrid [data-search-idle]")).toHaveText("검색어를 입력해주세요.");
+    await expect(page.locator("#globalGrid .search-result-item, #globalGrid [data-search-results-page]")).toHaveCount(0);
+  }
+
+  await page.locator("#searchResultsSearchScope > summary").click();
+  await page.locator('[data-search-results-search-scope="product"]').click();
+  await expect(page.locator("#searchResultsSearchScope")).toHaveAttribute("data-scope", "product");
+  await expect(page.locator("#globalGrid [data-search-idle]")).toHaveText("검색어를 입력해주세요.");
+
+  await page.locator("#searchResultsSearchInput").fill("존재하지않는검색어");
+  await expect(page.locator(".search-results-summary")).toBeVisible();
+  await expect(page.locator("#globalCount")).toHaveText("0");
+  await expect(page.locator("#globalGrid [data-search-idle]")).toHaveCount(0);
+  await expect(page.locator("#globalGrid .search-empty")).toHaveText("검색결과가 없습니다.");
+});
+
 test("real search data keeps representative result IDs and ordering", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "The same search data is shared by desktop and mobile layouts.");
 

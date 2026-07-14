@@ -563,6 +563,14 @@ const renderGlobalCards = () => {
   const count = document.querySelector("#globalCount");
   if (!grid || !count) return;
   const { scope, preparedQuery, renderKey } = syncSearchResultRenderState(globalSearchScopeValue(), globalSearchQuery());
+  const summary = count.closest(".search-results-summary");
+  if (preparedQuery.isEmpty) {
+    count.textContent = "0";
+    if (summary) summary.hidden = true;
+    grid.innerHTML = `<p class="search-empty" data-search-idle>검색어를 입력해주세요.</p>`;
+    return;
+  }
+  if (summary) summary.hidden = false;
   const visible = collectSearchResultItems(scope, preparedQuery).items;
   const totalCount = visible.length;
   const totalPages = Math.max(1, Math.ceil(totalCount / SEARCH_RESULTS_PAGE_SIZE));
