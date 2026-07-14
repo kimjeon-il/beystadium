@@ -1014,6 +1014,34 @@ test("detail route restores modal and internal navigation hash", async ({ page }
   expect(errors).toEqual([]);
 });
 
+test("mounted part names use the restored compact label column", async ({ page }) => {
+  const errors = consoleErrors(page);
+  await page.goto("/#BEY-BB-80-GRAVITY-PERSEUS-AD145WD");
+  await expect(page.locator("#detailModal")).toBeVisible();
+
+  const links = page.locator("#detailModal .mounted-parts .mounted-link");
+  await expect(links).toHaveCount(5);
+  await expect(links.locator("strong")).toHaveText(["페르세우스", "페르세우스", "그라비티", "AD145", "WD"]);
+  const rows = await links.evaluateAll(elements => elements.map(element => {
+    const name = element.querySelector("strong");
+    const nameStyle = getComputedStyle(name);
+    return {
+      arrow: element.querySelector("b")?.textContent,
+      firstColumn: Number.parseFloat(getComputedStyle(element).gridTemplateColumns),
+      nameLines: name.getBoundingClientRect().height / Number.parseFloat(nameStyle.lineHeight)
+    };
+  }));
+  rows.forEach(row => {
+    expect(row.firstColumn).toBe(84);
+    expect(row.nameLines).toBeLessThanOrEqual(1.1);
+    expect(row.arrow).toBe("→");
+  });
+
+  await links.first().click();
+  await expect(page).toHaveURL(/#FACE-PERSEUS$/);
+  expect(errors).toEqual([]);
+});
+
 test("release detail back button stays at the modal photo corner", async ({ page }) => {
   const errors = consoleErrors(page);
   await page.goto("/#toy-release");
@@ -1042,9 +1070,13 @@ test("long part descriptions use an accessible chevron expander", async ({ page 
     const button = element.querySelector(".modal-description-toggle");
     const regionRect = region.getBoundingClientRect();
     const buttonRect = button.getBoundingClientRect();
+    const buttonStyle = getComputedStyle(button);
     return {
-      backgroundColor: getComputedStyle(button).backgroundColor,
+      backgroundColor: buttonStyle.backgroundColor,
+      borderStyle: buttonStyle.borderTopStyle,
+      borderWidth: buttonStyle.borderTopWidth,
       horizontalOffset: (buttonRect.left + buttonRect.width / 2) - (regionRect.left + regionRect.width / 2),
+      regionBackgroundColor: getComputedStyle(region).backgroundColor,
       regionContainsButton: region.contains(button),
       slotOwnsButton: button.parentElement === element,
       verticalOffset: (buttonRect.top + buttonRect.height / 2) - regionRect.bottom
@@ -1066,7 +1098,10 @@ test("long part descriptions use an accessible chevron expander", async ({ page 
   expect(collapsedGeometry.slotOwnsButton).toBe(true);
   expect(Math.abs(collapsedGeometry.horizontalOffset)).toBeLessThanOrEqual(1);
   expect(Math.abs(collapsedGeometry.verticalOffset)).toBeLessThanOrEqual(1);
-  expect(collapsedGeometry.backgroundColor).toBe("rgba(0, 0, 0, 0)");
+  expect(collapsedGeometry.backgroundColor).not.toBe("rgba(0, 0, 0, 0)");
+  expect(collapsedGeometry.backgroundColor).toBe(collapsedGeometry.regionBackgroundColor);
+  expect(collapsedGeometry.borderStyle).toBe("solid");
+  expect(collapsedGeometry.borderWidth).toBe("1px");
 
   await toggle.focus();
   await page.keyboard.press("Enter");

@@ -503,6 +503,10 @@ dialog[open] .product-modal-name {
   gap: 4px;
 }
 
+.modal-info-slot.has-description {
+  --modal-description-surface: color-mix(in srgb, var(--ui-surface-raised) 70%, var(--ui-section-bg) 30%);
+}
+
 .modal-info-slot.has-description .modal-description-region {
   box-sizing: border-box;
   width: 100%;
@@ -510,7 +514,7 @@ dialog[open] .product-modal-name {
   padding: var(--modal-description-padding-y) var(--space-5);
   border: var(--border-subtle);
   border-radius: var(--radius-section);
-  background: color-mix(in srgb, var(--ui-surface-raised) 70%, var(--ui-section-bg) 30%);
+  background: var(--modal-description-surface);
   box-shadow: var(--shadow-rest);
 }
 
@@ -553,9 +557,9 @@ dialog[open] .product-modal-name {
   align-items: center;
   justify-content: center;
   padding: 0;
-  border: 0;
+  border: var(--border-subtle);
   border-radius: var(--radius-control-sm);
-  background: transparent;
+  background: var(--modal-description-surface);
   color: var(--ui-muted);
   font: inherit;
   cursor: pointer;
@@ -587,7 +591,7 @@ dialog[open] .product-modal-name {
 
 .modal-description-toggle:hover,
 .modal-description-toggle:focus-visible {
-  background: transparent;
+  background: var(--ui-control-hover);
   color: var(--ui-text);
   outline: 0;
 }
@@ -826,7 +830,7 @@ dialog[open] .product-modal-name {
 }
 
 .mounted-parts .mounted-link {
-  grid-template-columns: 128px minmax(0, 1fr) var(--modal-row-arrow-column);
+  grid-template-columns: 84px minmax(0, 1fr) var(--modal-row-arrow-column);
 }
 
 .mounted-link > * {
