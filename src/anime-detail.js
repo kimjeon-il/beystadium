@@ -32,13 +32,13 @@ function openAnimeEpisodeDetail(indexOrId, options = {}) {
     ? appServices.modalBackButtonMarkup({ label: "방영목록으로 돌아가기", animeEpisodes: true })
     : "";
   const content = appServices.setModalContent(`<div class="modal-inner modal-inner--rare-bey-get-list">
+    ${backButton}
     <div class="modal-art product-modal-art"></div>
     <div class="modal-info product-modal-info">
       <div class="modal-scroll-area">
         <h3 class="modal-name product-modal-name">${escapeHtml(animeEpisodeTitle(episode))}</h3>
         <div class="product-empty-info-slot" aria-hidden="true"></div>
       </div>
-      ${backButton}
     </div>
   </div>`);
   if (!content || !appServices.modal) return;

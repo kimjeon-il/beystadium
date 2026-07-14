@@ -164,10 +164,11 @@ function openDetail(id, options = {}) {
   const visibleCoreItems = visibleCatalogCoreItems();
   const stepItems = visibleCoreItems.some(entry => entry.id === item.id) ? visibleCoreItems : catalogCoreItems;
   const modalContentRoot = setModalContent(`${modalStepButtons(stepItems, item.id, "item")}<div class="modal-inner">
+    ${detailBackButton(detailOptions.backId, detailOptions.backProductId, detailOptions.backRelease, detailRegion)}
     <div class="modal-art">${modalArtMarkup(item)}</div>
     <div class="modal-info ${item.type === "bey" ? "bey-modal-info" : "part-modal-info"}">
     ${modalScrollArea(`${detailHeading(item, detailOptions)}
-    ${slot}<div class="modal-body-block">${body}</div>`)}${detailBackButton(detailOptions.backId, detailOptions.backProductId, detailOptions.backRelease, detailRegion)}</div></div>`);
+    ${slot}<div class="modal-body-block">${body}</div>`)}</div></div>`);
   if (!modalContentRoot) return;
   bindModalStepButtons({ item: detailOptions });
   bindCatalogModalBack(modalContentRoot);
@@ -369,12 +370,12 @@ function openRareBeyGetListDetail(options = {}) {
   const backRelease = routeOptions.backRelease === true;
   if (!skipRoute && routeIfNeeded(normalizedRoute)) return;
   const modalContentRoot = setModalContent(`<div class="modal-inner modal-inner--rare-bey-get-list">
+    ${productBackButton({ backProductId, backRelease, region })}
     <div class="modal-art product-modal-art"></div>
     <div class="modal-info product-modal-info">
     ${modalScrollArea(`${modalTitle("레어 베이 겟 목록", "product-modal-name")}
     ${productMetaSlot()}
-    <div class="modal-body-block">${rareBeyGetListMarkup({ region, series })}</div>`)}
-    ${productBackButton({ backProductId, backRelease, region })}</div></div>`);
+    <div class="modal-body-block">${rareBeyGetListMarkup({ region, series })}</div>`)}</div></div>`);
   if (!modalContentRoot) return;
   bindCatalogModalBack(modalContentRoot, { fallbackRegion: region });
   bindRareBeyGetListLinks(modalContentRoot, { region, series, backProductId, backRelease });
@@ -391,12 +392,12 @@ function openProductLineupDetail(id, options = {}) {
   cleanupModelViewer();
   const backButton = productModalBackButton(item, detailOptions, region);
   const modalContentRoot = setModalContent(`<div class="modal-inner">
+    ${backButton}
     <div class="modal-art product-modal-art"></div>
     <div class="modal-info product-modal-info">
     ${modalScrollArea(`${productHeader(item, region)}
     ${productMetaSlot()}
-    <div class="modal-body-block">${productLineup(item, region)}</div>`)}
-    ${backButton}</div></div>`);
+    <div class="modal-body-block">${productLineup(item, region)}</div>`)}</div></div>`);
   if (!modalContentRoot) return;
   bindCatalogModalBack(modalContentRoot, { fallbackRegion: region });
   bindProductCompositionLinks(item, modalContentRoot, { ...detailOptions, region });
@@ -425,11 +426,12 @@ function openProductDetail(id, options = {}) {
   const stepItems = productStepSource.filter(entry => productReleasedInRegion(entry, stepRegion));
   const productInfoClass = releaseHasBadge(item, RARE_BEY_GET_BADGE, region) ? " has-rare-bey-get-chip" : "";
   const modalContentRoot = setModalContent(`${modalStepButtons(stepItems, item.id, "product")}<div class="modal-inner">
+    ${backButton}
     <div class="modal-art product-modal-art"></div>
     <div class="modal-info product-modal-info${productInfoClass}">
     ${modalScrollArea(`${productHeader(item, region)}
     ${productMetaSlot(item, region)}
-    <div class="modal-body-block">${productDetailBody(item, region)}</div>`)}${backButton}</div></div>`);
+    <div class="modal-body-block">${productDetailBody(item, region)}</div>`)}</div></div>`);
   if (!modalContentRoot) return;
   bindModalStepButtons({ product: { ...options, region: stepRegion } });
   bindCatalogModalBack(modalContentRoot, { fallbackRegion: region });
@@ -454,9 +456,10 @@ function openSimpleCatalogDetail({ item, options = {}, kind, stepItems, tags = "
   cleanupModelViewer();
   const backButton = productBackButton({ backProductId: options.backProductId, backRelease: options.backRelease, region: options.region });
   const modalContentRoot = setModalContent(`${modalStepButtons(stepItems, item.id, kind)}<div class="modal-inner">
+    ${backButton}
     <div class="modal-art"></div>
     <div class="modal-info part-modal-info">${modalScrollArea(`${modalTitle(itemDisplayName(item, options.region))}
-    ${modalInfoSlot(itemDisplayDesc(item, options.region), tags)}<div class="modal-body-block"></div>`)}${backButton}</div></div>`);
+    ${modalInfoSlot(itemDisplayDesc(item, options.region), tags)}<div class="modal-body-block"></div>`)}</div></div>`);
   if (!modalContentRoot) return;
   bindModalStepButtons({ [kind]: options });
   bindCatalogModalBack(modalContentRoot);
