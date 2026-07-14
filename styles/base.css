@@ -118,6 +118,10 @@
   --primary-search-scope-bg-hover: var(--ui-control-hover);
 }
 
+.has-scroll-content-below {
+  --scroll-below-shadow: inset 0 -18px 14px -16px color-mix(in srgb, var(--ui-text) 34%, transparent);
+}
+
 html {
   overflow-y: scroll;
   scrollbar-gutter: stable;
@@ -309,7 +313,7 @@ a,
   border: var(--border-subtle);
   border-radius: var(--radius-floating);
   background: var(--ui-surface-raised);
-  box-shadow: var(--shadow-floating);
+  box-shadow: var(--shadow-floating), var(--scroll-below-shadow, 0 0 transparent);
   scrollbar-width: thin;
   scrollbar-color: var(--ui-line) transparent;
   transform-origin: top center;
@@ -1820,6 +1824,7 @@ body.menu-open .mobile-drawer {
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: var(--ui-line) transparent;
+  box-shadow: var(--scroll-below-shadow, none);
 }
 
 .mobile-drawer .sidebar-nav {

@@ -1,5 +1,6 @@
 import { appState } from "#app/state";
 import { closeOpenCatalogDropdowns } from "#app/shell-controller";
+import { bindScrollAffordance, clearScrollAffordance, scheduleScrollAffordances } from "#app/scroll-affordance";
 import {
   animeSearchHelpButton,
   animeSearchHelpPopover,
@@ -92,6 +93,7 @@ class SearchHelpPopoverController {
   close() {
     if (!this.popover) return;
     this.popover.hidden = true;
+    clearScrollAffordance(this.popover);
     this.popover.style.width = "";
     this.popover.style.maxHeight = "";
     this.button?.setAttribute("aria-expanded", "false");
@@ -106,6 +108,8 @@ class SearchHelpPopoverController {
     this.popover.hidden = false;
     this.button?.setAttribute("aria-expanded", "true");
     positionSearchHelpPopover(this.button, this.popover);
+    bindScrollAffordance(this.popover);
+    scheduleScrollAffordances(this.popover);
   }
 
   toggle() {
@@ -122,7 +126,10 @@ const closeSearchHelpPopovers = exceptController => searchHelpPopovers.forEach(c
   if (controller !== exceptController) controller.close();
 });
 const positionSearchHelpPopovers = () => searchHelpPopovers.forEach(controller => {
-  if (controller.isOpen()) positionSearchHelpPopover(controller.button, controller.popover);
+  if (controller.isOpen()) {
+    positionSearchHelpPopover(controller.button, controller.popover);
+    scheduleScrollAffordances(controller.popover);
+  }
 });
 const initializeSearchHelpController = () => {
   if (initialized) return;

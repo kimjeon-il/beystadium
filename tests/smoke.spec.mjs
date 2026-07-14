@@ -696,6 +696,58 @@ test("persistent selections use the existing neutral highlight in light and dark
   }
 });
 
+test("scroll affordances appear only while internal content remains below", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "scroll position coverage only needs one browser");
+  const errors = consoleErrors(page);
+
+  await page.setViewportSize({ width: 1280, height: 260 });
+  await page.goto("/#toy-catalog?scope=bey&series=x");
+  await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
+  const seriesMenu = page.locator("#catalogSeriesFilter > .catalog-dropdown-menu");
+  await page.locator("#catalogSeriesFilter > summary").click();
+  await expect(seriesMenu).toHaveClass(/has-scroll-content-below/);
+  const activeDropdownState = await seriesMenu.evaluate(element => ({
+    clientHeight: element.clientHeight,
+    scrollHeight: element.scrollHeight,
+    shadow: getComputedStyle(element).boxShadow
+  }));
+  expect(activeDropdownState.scrollHeight).toBeGreaterThan(activeDropdownState.clientHeight + 2);
+  expect(activeDropdownState.shadow).toContain("inset");
+
+  await seriesMenu.evaluate(element => { element.scrollTop = element.scrollHeight; });
+  await expect(seriesMenu).not.toHaveClass(/has-scroll-content-below/);
+  const bottomShadow = await seriesMenu.evaluate(element => getComputedStyle(element).boxShadow);
+  expect(bottomShadow).not.toContain("inset");
+
+  await seriesMenu.evaluate(element => { element.scrollTop = 0; });
+  await expect(seriesMenu).toHaveClass(/has-scroll-content-below/);
+  await page.locator("#catalogSeriesFilter > summary").click();
+  await expect(seriesMenu).not.toHaveClass(/has-scroll-content-below/);
+
+  await page.setViewportSize({ width: 1280, height: 900 });
+  const searchScopeMenu = page.locator("#catalogSearchScope > .catalog-dropdown-menu");
+  await page.locator("#catalogSearchScope > summary").click();
+  await expect(searchScopeMenu).not.toHaveClass(/has-scroll-content-below/);
+  const shortMenuState = await searchScopeMenu.evaluate(element => ({
+    clientHeight: element.clientHeight,
+    scrollHeight: element.scrollHeight
+  }));
+  expect(shortMenuState.scrollHeight).toBeLessThanOrEqual(shortMenuState.clientHeight + 2);
+
+  await page.goto("/#rare-bey-get-list?region=jp&series=x");
+  await expect(page.locator("#detailModal")).toBeVisible();
+  const rareList = page.locator("#detailModal .rare-bey-get-list-scroll");
+  await expect(rareList).toHaveClass(/has-scroll-content-below/);
+  const rareListState = await rareList.evaluate(element => ({
+    clientHeight: element.clientHeight,
+    scrollHeight: element.scrollHeight
+  }));
+  expect(rareListState.scrollHeight).toBeGreaterThan(rareListState.clientHeight + 2);
+  await rareList.evaluate(element => { element.scrollTop = element.scrollHeight; });
+  await expect(rareList).not.toHaveClass(/has-scroll-content-below/);
+  expect(errors).toEqual([]);
+});
+
 test("anime route stays masked until collection styles are ready", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "style timing coverage only needs one browser");
   let unblockStyle;
@@ -812,6 +864,48 @@ test("detail route restores modal and internal navigation hash", async ({ page }
   await compositionLink.first().click();
   await expect(page).toHaveURL(new RegExp(`#${target}$`));
   await expect(page.locator(".modal-back")).toBeVisible();
+  expect(errors).toEqual([]);
+});
+
+test("long part descriptions use an accessible chevron expander", async ({ page }) => {
+  const errors = consoleErrors(page);
+  await page.goto("/#DBLAYER-GREATEST-RAPHAEL");
+  await expect(page.locator("#detailModal")).toBeVisible();
+
+  const slot = page.locator("#detailModal .part-modal-info .modal-info-slot");
+  const description = slot.locator(".modal-description");
+  const toggle = slot.locator(".modal-description-toggle");
+  await expect(slot).toHaveClass(/is-expandable/);
+  await expect(toggle).toBeVisible();
+  await expect(toggle).toHaveText("");
+  await expect(toggle).toHaveAttribute("aria-label", "부품 설명 펼치기");
+  await expect(toggle).toHaveAttribute("aria-expanded", "false");
+  const collapsed = await description.evaluate(element => ({
+    height: element.getBoundingClientRect().height,
+    lineClamp: getComputedStyle(element).webkitLineClamp
+  }));
+  const collapsedChevron = await toggle.evaluate(element => getComputedStyle(element, "::before").transform);
+  expect(collapsed.lineClamp).toBe("2");
+
+  await toggle.focus();
+  await page.keyboard.press("Enter");
+  await expect(slot).toHaveClass(/is-expanded/);
+  await expect(toggle).toHaveAttribute("aria-label", "부품 설명 접기");
+  await expect(toggle).toHaveAttribute("aria-expanded", "true");
+  const expandedHeight = await description.evaluate(element => element.getBoundingClientRect().height);
+  const expandedChevron = await toggle.evaluate(element => getComputedStyle(element, "::before").transform);
+  expect(expandedHeight).toBeGreaterThan(collapsed.height + 1);
+  expect(expandedChevron).not.toBe(collapsedChevron);
+
+  await page.keyboard.press("Enter");
+  await expect(slot).not.toHaveClass(/is-expanded/);
+  await expect(toggle).toHaveAttribute("aria-label", "부품 설명 펼치기");
+  await expect(toggle).toHaveAttribute("aria-expanded", "false");
+
+  await page.goto("/#X-BLADE-DRAN-SWORD");
+  await expect(page.locator("#detailModal")).toBeVisible();
+  const shortToggle = page.locator("#detailModal .part-modal-info .modal-description-toggle");
+  await expect(shortToggle).toBeHidden();
   expect(errors).toEqual([]);
 });
 

@@ -2,6 +2,7 @@ import { appState } from "#app/state";
 import { BeystadiumDataStore } from "#app/data-store";
 import { navigateToRoute } from "#app/navigation";
 import { defaultReleaseSeries, setSortDropdownLabel } from "#app/release-core";
+import { bindScrollAffordance, bindScrollAffordances, clearScrollAffordance, clearScrollAffordances, scheduleScrollAffordances } from "#app/scroll-affordance";
 import {
   activeAppPanel,
   clearSearchInputs,
@@ -54,7 +55,12 @@ const setMobileDrawerOpen = open => {
   const nextOpen = Boolean(open && isMobileDrawerMode());
   document.body.classList.toggle("menu-open", nextOpen);
   mobileDrawer?.setAttribute("aria-hidden", String(!nextOpen));
-  if (nextOpen) syncSidebarActiveState(activeAppPanelName() || "overview");
+  if (nextOpen) {
+    syncSidebarActiveState(activeAppPanelName() || "overview");
+    scheduleScrollAffordances(mobileDrawer);
+  } else {
+    clearScrollAffordances(mobileDrawer);
+  }
   syncMenuButtonMode();
 };
 const activatePrimarySection = (section, { preserveSearch = false } = {}) => {
@@ -113,13 +119,17 @@ const syncCatalogDropdownScrollbarCompensation = dropdown => {
   menu.classList.add("is-scrollbar-visible");
 };
 const scheduleCatalogDropdownScrollbarCompensation = dropdown => {
-  if (!dropdown || dropdown.classList.contains("search-scope")) return;
-  requestAnimationFrame(() => syncCatalogDropdownScrollbarCompensation(dropdown));
+  if (!dropdown) return;
+  requestAnimationFrame(() => {
+    bindScrollAffordance(catalogDropdownMenu(dropdown));
+    if (!dropdown.classList.contains("search-scope")) syncCatalogDropdownScrollbarCompensation(dropdown);
+  });
 };
 const closeCatalogDropdown = dropdown => {
   if (!dropdown) return;
   dropdown.classList.remove("is-dropdown-entering");
   clearCatalogDropdownScrollbarCompensation(dropdown);
+  clearScrollAffordance(catalogDropdownMenu(dropdown));
   dropdown.removeAttribute("open");
   dropdown.querySelector(":scope > summary")?.setAttribute("aria-expanded", "false");
 };
@@ -129,7 +139,10 @@ const closeOpenCatalogDropdowns = exceptDropdown => {
   });
 };
 const closeSearchHelpPopovers = () => {
-  document.querySelectorAll(".catalog-search-help-popover").forEach(popover => { popover.hidden = true; });
+  document.querySelectorAll(".catalog-search-help-popover").forEach(popover => {
+    popover.hidden = true;
+    clearScrollAffordance(popover);
+  });
   document.querySelectorAll(".catalog-search-help-button[aria-expanded='true']").forEach(button => button.setAttribute("aria-expanded", "false"));
 };
 const closeSearchPreviews = () => {
@@ -263,6 +276,7 @@ document.addEventListener("toggle", event => {
   if (!dropdown.open) {
     dropdown.classList.remove("is-dropdown-entering");
     clearCatalogDropdownScrollbarCompensation(dropdown);
+    clearScrollAffordance(catalogDropdownMenu(dropdown));
     return;
   }
   closeOpenCatalogDropdowns(dropdown);
@@ -275,6 +289,7 @@ window.addEventListener("resize", () => {
 }, { passive: true });
 syncNavigationMode();
 updateToTop();
+bindScrollAffordances(document);
 
 export {
   activatePrimarySection,

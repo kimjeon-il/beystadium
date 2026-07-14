@@ -5,6 +5,7 @@ import { cleanupModelViewer, closeModalTagPopover } from "#app/detail-view";
 import { clearActiveDetailModalContext, clearModalContext, currentPageScrollY, rememberModalContext, restorePageScroll, validScrollY } from "#app/modal-context";
 import { clearModalOriginRoute, navigateToRoute } from "#app/navigation";
 import { escapeAttributeValue } from "#app/release-core";
+import { bindScrollAffordances, clearScrollAffordances, scheduleScrollAffordances } from "#app/scroll-affordance";
 import { playEnterAnimation } from "#app/ui-core";
 
 const modal = document.querySelector("#detailModal");
@@ -83,8 +84,9 @@ class ModalController {
     const button = slot?.querySelector(".modal-description-toggle");
     if (!slot || !button) return;
     slot.classList.toggle("is-expanded", expanded);
-    button.textContent = expanded ? "접기" : "더보기";
     button.setAttribute("aria-expanded", expanded ? "true" : "false");
+    button.setAttribute("aria-label", expanded ? "부품 설명 접기" : "부품 설명 펼치기");
+    scheduleScrollAffordances(slot.closest(".modal-info") || this.contentRoot || document);
   }
 
   refreshDescriptionExpanders(root = document) {
@@ -98,8 +100,8 @@ class ModalController {
       const wasExpanded = slot.classList.contains("is-expanded");
       slot.classList.remove("is-expanded", "is-expandable");
       button.hidden = true;
-      button.textContent = "더보기";
       button.setAttribute("aria-expanded", "false");
+      button.setAttribute("aria-label", "부품 설명 펼치기");
       if (!hasDescription) return;
       const collapsedHeight = description.getBoundingClientRect().height;
       slot.classList.add("is-measuring-description");
@@ -110,6 +112,7 @@ class ModalController {
       button.hidden = !expandable;
       if (expandable && wasExpanded) this.setDescriptionExpanded(slot, true);
     });
+    scheduleScrollAffordances(root);
   }
 
   scheduleDescriptionMeasure(root = document) {
@@ -155,6 +158,7 @@ class ModalController {
       this.viewportSyncFrame = 0;
       this.syncViewportMetrics();
       this.scheduleDescriptionMeasure(this.contentRoot || document);
+      scheduleScrollAffordances(this.contentRoot || document);
     });
   }
 
@@ -174,6 +178,7 @@ class ModalController {
     document.body.classList.add("is-modal-open");
     this.modal.showModal();
     this.syncViewportMetrics();
+    scheduleScrollAffordances(this.contentRoot || document);
   }
 
   close() {
@@ -181,6 +186,7 @@ class ModalController {
     this.cancelDescriptionMeasure();
     if (this.modal?.open) this.modal.close();
     this.cancelViewportSync();
+    clearScrollAffordances(this.contentRoot || document);
     this.modal?.removeAttribute("data-modal-transition");
     restorePageScroll(targetScrollY);
     this.clearLockStyles();
@@ -221,6 +227,7 @@ class ModalController {
       return root;
     }
     root.innerHTML = html;
+    bindScrollAffordances(root);
     const { transition, origin } = takeModalTransition();
     const modalInner = root.querySelector(".modal-inner");
     if (this.modal) this.modal.dataset.modalTransition = transition;
@@ -233,6 +240,7 @@ class ModalController {
   finishOpen({ contextKind, contextId, contextOptions = {}, root = document } = {}) {
     if (contextKind && contextId) rememberModalContext(contextKind, contextId, contextOptions);
     this.open();
+    scheduleScrollAffordances(root);
     return root;
   }
 }

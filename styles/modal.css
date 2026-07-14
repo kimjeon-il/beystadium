@@ -399,6 +399,7 @@ dialog[open] .modal-scroll-area {
   scrollbar-gutter: stable both-edges;
   scrollbar-width: thin;
   scrollbar-color: var(--ui-line) transparent;
+  box-shadow: var(--scroll-below-shadow, none);
 }
 
 dialog[open] .modal-close {
@@ -514,17 +515,38 @@ dialog[open] .product-modal-name {
 }
 
 .modal-description-toggle {
+  appearance: none;
+  width: 44px;
+  min-width: 44px;
+  height: 32px;
+  min-height: 32px;
   display: none;
-  margin: 0;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
   padding: 0;
   border: 0;
+  border-radius: var(--radius-control-sm);
   background: transparent;
   color: var(--ui-muted);
   font: inherit;
-  font-size: var(--font-sm);
-  font-weight: var(--font-weight-strong);
-  line-height: 1.4;
   cursor: pointer;
+  transition: var(--transition-control);
+}
+
+.modal-description-toggle::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-right: 1.8px solid currentColor;
+  border-bottom: 1.8px solid currentColor;
+  transform: translateY(-25%) rotate(45deg);
+  transition: transform var(--motion-fast) var(--ease-standard);
+}
+
+.modal-description-toggle[aria-expanded="true"]::before {
+  transform: translateY(25%) rotate(225deg);
 }
 
 .modal-info-slot.is-expandable .modal-description-toggle {
@@ -537,7 +559,13 @@ dialog[open] .product-modal-name {
 
 .modal-description-toggle:hover,
 .modal-description-toggle:focus-visible {
+  background: var(--ui-control-hover);
   color: var(--ui-text);
+  outline: 0;
+}
+
+.modal-description-toggle:focus-visible {
+  box-shadow: var(--ui-focus-ring);
 }
 
 .modal-slot-tags {
@@ -602,6 +630,7 @@ dialog[open] .product-modal-name {
   scrollbar-gutter: stable;
   scrollbar-width: thin;
   scrollbar-color: var(--ui-line) transparent;
+  box-shadow: var(--scroll-below-shadow, none);
   -webkit-overflow-scrolling: touch;
   touch-action: pan-y;
   padding-inline: var(--modal-scroll-gutter) 0;

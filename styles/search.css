@@ -10,7 +10,7 @@
   border-radius: var(--radius-floating);
   background: var(--ui-surface);
   color: var(--ui-text);
-  box-shadow: var(--shadow-floating);
+  box-shadow: var(--shadow-floating), var(--scroll-below-shadow, 0 0 transparent);
 }
 
 .catalog-search-help-popover[hidden] {
