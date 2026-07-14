@@ -17,7 +17,7 @@ import { appServices, registerAppServices } from "#app/services";
 import { normalizeRoute } from "#app/route-parser";
 import { navigateToRoute } from "#app/navigation";
 import { initializeSearchHelpController } from "#app/search-help-controller";
-import { activeAppPanel, animeSearch, bindActionRows, queryChipMarkup, setSearchInputValue } from "#app/ui-core";
+import { activeAppPanel, animeSearch, bindActionRows, setSearchInputValue } from "#app/ui-core";
 
 if (!appState.activeAnimeSeason) appState.activeAnimeSeason = defaultAnimeSeason();
 
@@ -199,14 +199,6 @@ const animeCharacterCollectionConfig = {
 
 function renderAnimePage() {
   renderAnimeCharacterSeasonFilter();
-  const queryChips = document.querySelector('[data-catalog-filter-chips="anime"]');
-  if (queryChips) {
-    const markup = queryChipMarkup(animeSearchQuery());
-    queryChips.innerHTML = markup;
-    queryChips.hidden = !markup;
-    queryChips.classList.toggle("is-empty", !markup);
-    queryChips.setAttribute("aria-hidden", String(!markup));
-  }
   renderCategoryCollection(animeCharacterCollectionConfig);
 }
 
@@ -240,7 +232,6 @@ const animeEpisodeRowsMarkup = visibleRows => {
 
 const animeEpisodesMarkup = () => {
   const visibleRows = visibleAnimeEpisodes();
-  const queryMarkup = queryChipMarkup(appState.activeAnimeEpisodeQuery);
   const tableMode = visibleRows.length > 8 ? "scroll" : "fit";
   const tableMarkup = tableListTableMarkup({
     scrollClass: "anime-episode-table-scroll",
@@ -258,9 +249,6 @@ const animeEpisodesMarkup = () => {
     className: "category-anime-episodes anime-episode-list-page",
     attrs: `data-anime-table-mode="${tableMode}"`,
     controlsMarkup: animeEpisodeControls(),
-    metaMarkup: queryMarkup ? `<div class="table-list-meta-row table-list-query-row catalog-query-row has-active-query">
-      <div class="table-list-meta-primary">${queryMarkup}</div>
-    </div>` : "",
     tableMarkup
   });
 };
@@ -284,12 +272,6 @@ const animeEpisodeTableController = new TableListController({
       nextInput?.focus();
       nextInput?.setSelectionRange(nextInput.value.length, nextInput.value.length);
     } });
-    animePanel.addEventListener("click", event => {
-      if (!event.target.closest("[data-clear-query]")) return;
-      appState.activeAnimeEpisodeQuery = "";
-      controller.renderPage();
-      animeEpisodesPageRoot()?.querySelector("#animeEpisodeSearchInput")?.focus();
-    });
     bindActionRows(animePanel, "[data-anime-episode-index]", animeRow => {
       const index = Number(animeRow.dataset.animeEpisodeIndex);
       appServices.queueModalTransition("list");
@@ -327,14 +309,6 @@ const initializeAnimeFeature = () => {
       scheduleAnimeRender();
       syncAnimeRouteHash({ overrides: { page: 1 } });
     }
-  });
-  document.querySelector('[data-catalog-filter-chips="anime"]')?.addEventListener("click", event => {
-    if (!event.target.closest("[data-clear-query]")) return;
-    setSearchInputValue(animeSearch, "");
-    appState.currentAnimePage = 1;
-    renderAnimePage();
-    syncAnimeRouteHash({ overrides: { page: 1 } });
-    animeSearch?.focus();
   });
   document.querySelector("#animePagination")?.addEventListener("click", event => {
     const button = event.target.closest("[data-anime-page]");

@@ -275,6 +275,7 @@ test("search controls clear only the query across list routes", async ({ page },
     sort: document.querySelector("[data-catalog-sort].active")?.dataset.catalogSort
   }));
   await expect(page.locator('[data-catalog-filter-chips="catalog"] [data-clear-query]')).toBeVisible();
+  await expect(page.locator("[data-catalog-filter-chips]")).toHaveCount(1);
   await page.locator('[data-catalog-filter-chips="catalog"] [data-clear-query]').click();
   await expect(page).toHaveURL(/#toy-catalog\?scope=bey&series=x&sort=no-desc&page=1$/);
   await expect(page.locator("#catalogSearchInput")).toHaveValue("");
@@ -287,12 +288,12 @@ test("search controls clear only the query across list routes", async ({ page },
 
   await page.goto(`/#anime-character?season=burst&q=${encodeURIComponent("강산 발키리")}&page=1`);
   await expect(page.locator('[data-app-panel="anime"].active')).toBeVisible();
-  await expect(page.locator('[data-catalog-filter-chips="anime"] [data-clear-query]')).toHaveCount(1);
-  await expect(page.locator('[data-catalog-filter-chips="anime"] [data-clear-query]')).toContainText("강산 발키리");
-  await page.locator('[data-catalog-filter-chips="anime"] [data-clear-query]').click();
+  await expect(page.locator('[data-catalog-filter-chips="anime"]')).toHaveCount(0);
+  await expect(page.locator(".anime-panel .active-query-chip")).toHaveCount(0);
+  await expect(page.locator(".anime-search-box .search-clear")).toBeVisible();
+  await page.locator(".anime-search-box .search-clear").click();
   await expect(page).toHaveURL(/#anime-character\?season=burst$/);
   await expect(page.locator("#animeSearchInput")).toHaveValue("");
-  await expect(page.locator('[data-catalog-filter-chips="anime"]')).toBeHidden();
   await expect(page.locator('[data-anime-character-season="burst"].active')).toHaveCount(1);
 
   await page.goto("/#toy-release");
@@ -303,11 +304,12 @@ test("search controls clear only the query across list routes", async ({ page },
     sort: document.querySelector("[data-release-sort-option].active")?.dataset.releaseSortOption
   }));
   await page.locator("#releaseSearchInput").fill("베이 블레이드");
-  await expect(page.locator("[data-release-meta-row] [data-clear-query]")).toHaveCount(1);
-  await expect(page.locator("[data-release-meta-row] [data-clear-query]")).toContainText("베이 블레이드");
-  await page.locator("[data-release-meta-row] [data-clear-query]").click();
+  await expect(page.locator("[data-release-meta-row] .active-query-chip")).toHaveCount(0);
+  await expect(page.locator("[data-release-meta-row] .release-query-count")).toBeVisible();
+  await expect(page.locator(".release-list-page .search-clear")).toBeVisible();
+  await page.locator(".release-list-page .search-clear").click();
   await expect(page.locator("#releaseSearchInput")).toHaveValue("");
-  await expect(page.locator("[data-release-meta-row] [data-clear-query]")).toHaveCount(0);
+  await expect(page.locator("[data-release-meta-row] .active-query-chip")).toHaveCount(0);
   expect(await page.evaluate(() => ({
     region: document.querySelector("[data-release-region].active")?.dataset.releaseRegion,
     series: document.querySelector("[data-release-series].active")?.dataset.releaseSeries,
@@ -318,12 +320,40 @@ test("search controls clear only the query across list routes", async ({ page },
   await expect(page.locator(".anime-episode-row").first()).toBeVisible();
   const episodeSeason = await page.locator("[data-anime-season].active").getAttribute("data-anime-season");
   await page.locator("#animeEpisodeSearchInput").fill("운명의 시작");
-  await expect(page.locator(".table-list-query-row [data-clear-query]")).toHaveCount(1);
-  await expect(page.locator(".table-list-query-row [data-clear-query]")).toContainText("운명의 시작");
-  await page.locator(".table-list-query-row [data-clear-query]").click();
+  await expect(page.locator(".anime-episode-list-page .active-query-chip")).toHaveCount(0);
+  await expect(page.locator(".table-list-query-row")).toHaveCount(0);
+  await expect(page.locator(".anime-episode-list-page .search-clear")).toBeVisible();
+  await page.locator(".anime-episode-list-page .search-clear").click();
   await expect(page.locator("#animeEpisodeSearchInput")).toHaveValue("");
   await expect(page.locator(".table-list-query-row")).toHaveCount(0);
   await expect(page.locator(`[data-anime-season="${episodeSeason}"].active`)).toHaveCount(1);
+  expect(errors).toEqual([]);
+});
+
+test("query chips are limited to the toy catalog", async ({ page }) => {
+  const errors = consoleErrors(page);
+
+  await page.goto(`/#toy-catalog?scope=bey&series=x&q=${encodeURIComponent("공격형")}`);
+  await expect(page.locator('[data-app-panel="catalog"].active')).toBeVisible();
+  await expect(page.locator('[data-catalog-filter-chips="catalog"] [data-clear-query]')).toBeVisible();
+  await expect(page.locator("[data-catalog-filter-chips]")).toHaveCount(1);
+
+  const chipFreeRoutes = [
+    { route: "/#anime-character", panel: ".anime-panel", input: "#animeSearchInput", query: "강산 발키리" },
+    { route: "/#toy-release", panel: ".release-panel", input: "#releaseSearchInput", query: "베이 블레이드" },
+    { route: "/#anime-episode", panel: ".anime-episodes-panel", input: "#animeEpisodeSearchInput", query: "운명의 시작" }
+  ];
+
+  for (const entry of chipFreeRoutes) {
+    await page.goto(entry.route);
+    await page.locator(entry.input).fill(entry.query);
+    await expect(page.locator(`${entry.panel} .active-query-chip`)).toHaveCount(0);
+    await expect(page.locator(`${entry.panel} [data-clear-query]`)).toHaveCount(0);
+    await expect(page.locator(`${entry.panel} .search-clear`)).toBeVisible();
+    if (entry.route === "/#toy-release") await expect(page.locator(".release-query-count")).toBeVisible();
+  }
+
+  await expect(page.locator(".anime-episode-list-page .table-list-query-row")).toHaveCount(0);
   expect(errors).toEqual([]);
 });
 
