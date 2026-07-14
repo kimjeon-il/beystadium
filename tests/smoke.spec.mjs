@@ -1067,18 +1067,29 @@ test("long part descriptions use an accessible chevron expander", async ({ page 
   const toggle = slot.locator(".modal-description-toggle");
   const expanderGeometry = () => slot.evaluate(element => {
     const region = element.querySelector(".modal-description-region");
+    const description = element.querySelector(".modal-description");
     const button = element.querySelector(".modal-description-toggle");
     const regionRect = region.getBoundingClientRect();
+    const descriptionRect = description.getBoundingClientRect();
     const buttonRect = button.getBoundingClientRect();
     const buttonStyle = getComputedStyle(button);
+    const regionStyle = getComputedStyle(region);
+    const paddingBottom = Number.parseFloat(regionStyle.paddingBottom);
+    const expectedRegionHeight = descriptionRect.height
+      + Number.parseFloat(regionStyle.paddingTop)
+      + paddingBottom
+      + Number.parseFloat(regionStyle.borderTopWidth)
+      + Number.parseFloat(regionStyle.borderBottomWidth);
     return {
       backgroundColor: buttonStyle.backgroundColor,
       borderStyle: buttonStyle.borderTopStyle,
       borderWidth: buttonStyle.borderTopWidth,
+      expectedRegionHeight,
       horizontalOffset: (buttonRect.left + buttonRect.width / 2) - (regionRect.left + regionRect.width / 2),
-      regionBackgroundColor: getComputedStyle(region).backgroundColor,
+      paddingBottom,
       regionContainsButton: region.contains(button),
-      slotOwnsButton: button.parentElement === element,
+      regionHeight: regionRect.height,
+      regionOwnsButton: button.parentElement === region,
       verticalOffset: (buttonRect.top + buttonRect.height / 2) - regionRect.bottom
     };
   });
@@ -1094,14 +1105,14 @@ test("long part descriptions use an accessible chevron expander", async ({ page 
   const collapsedChevron = await toggle.evaluate(element => getComputedStyle(element, "::before").transform);
   const collapsedGeometry = await expanderGeometry();
   expect(collapsed.lineClamp).toBe("2");
-  expect(collapsedGeometry.regionContainsButton).toBe(false);
-  expect(collapsedGeometry.slotOwnsButton).toBe(true);
+  expect(collapsedGeometry.regionContainsButton).toBe(true);
+  expect(collapsedGeometry.regionOwnsButton).toBe(true);
   expect(Math.abs(collapsedGeometry.horizontalOffset)).toBeLessThanOrEqual(1);
-  expect(Math.abs(collapsedGeometry.verticalOffset)).toBeLessThanOrEqual(1);
-  expect(collapsedGeometry.backgroundColor).not.toBe("rgba(0, 0, 0, 0)");
-  expect(collapsedGeometry.backgroundColor).toBe(collapsedGeometry.regionBackgroundColor);
-  expect(collapsedGeometry.borderStyle).toBe("solid");
-  expect(collapsedGeometry.borderWidth).toBe("1px");
+  expect(Math.abs(collapsedGeometry.verticalOffset + collapsedGeometry.paddingBottom / 2)).toBeLessThanOrEqual(1);
+  expect(Math.abs(collapsedGeometry.regionHeight - collapsedGeometry.expectedRegionHeight)).toBeLessThanOrEqual(1);
+  expect(collapsedGeometry.backgroundColor).toBe("rgba(0, 0, 0, 0)");
+  expect(collapsedGeometry.borderStyle).toBe("none");
+  expect(collapsedGeometry.borderWidth).toBe("0px");
 
   await toggle.focus();
   await page.keyboard.press("Enter");
@@ -1112,7 +1123,8 @@ test("long part descriptions use an accessible chevron expander", async ({ page 
   expect(expandedHeight).toBeGreaterThan(collapsed.height + 1);
   const expandedGeometry = await expanderGeometry();
   expect(Math.abs(expandedGeometry.horizontalOffset)).toBeLessThanOrEqual(1);
-  expect(Math.abs(expandedGeometry.verticalOffset)).toBeLessThanOrEqual(1);
+  expect(Math.abs(expandedGeometry.verticalOffset + expandedGeometry.paddingBottom / 2)).toBeLessThanOrEqual(1);
+  expect(Math.abs(expandedGeometry.regionHeight - expandedGeometry.expectedRegionHeight)).toBeLessThanOrEqual(1);
   await expect.poll(() => toggle.evaluate(element => getComputedStyle(element, "::before").transform))
     .not.toBe(collapsedChevron);
 

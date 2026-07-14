@@ -37,7 +37,7 @@ const modalTagGroup = (tags, className = "") => tags ? `<div class="${["modal-ta
 const modalInfoSlot = (description = "", tags = "", className = "") => {
   const hasDescription = String(description || "").trim().length > 0;
   const classes = ["modal-info-slot", className, hasDescription ? "has-description" : ""].filter(Boolean).join(" ");
-  return `<div class="${classes}"><div class="modal-slot-tags">${tags || ""}</div><div class="modal-description-region"><p class="modal-description">${escapeHtml(description || "")}</p></div><button class="modal-description-toggle" type="button" aria-label="부품 설명 펼치기" aria-expanded="false" hidden></button></div>`;
+  return `<div class="${classes}"><div class="modal-slot-tags">${tags || ""}</div><div class="modal-description-region"><p class="modal-description">${escapeHtml(description || "")}</p><button class="modal-description-toggle" type="button" aria-label="부품 설명 펼치기" aria-expanded="false" hidden></button></div></div>`;
 };
 const modalScrollArea = content => `<div class="modal-scroll-area">${content}</div>`;
 function beyModalTags(item) {

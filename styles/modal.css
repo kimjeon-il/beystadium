@@ -496,15 +496,12 @@ dialog[open] .product-modal-name {
 }
 
 .modal-description-region {
+  position: relative;
   min-height: var(--modal-description-two-line-height);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 4px;
-}
-
-.modal-info-slot.has-description {
-  --modal-description-surface: color-mix(in srgb, var(--ui-surface-raised) 70%, var(--ui-section-bg) 30%);
 }
 
 .modal-info-slot.has-description .modal-description-region {
@@ -514,7 +511,7 @@ dialog[open] .product-modal-name {
   padding: var(--modal-description-padding-y) var(--space-5);
   border: var(--border-subtle);
   border-radius: var(--radius-section);
-  background: var(--modal-description-surface);
+  background: color-mix(in srgb, var(--ui-surface-raised) 70%, var(--ui-section-bg) 30%);
   box-shadow: var(--shadow-rest);
 }
 
@@ -548,7 +545,7 @@ dialog[open] .product-modal-name {
   position: absolute;
   z-index: 1;
   left: 50%;
-  bottom: 0;
+  bottom: -8px;
   width: 44px;
   min-width: 44px;
   height: 32px;
@@ -557,13 +554,13 @@ dialog[open] .product-modal-name {
   align-items: center;
   justify-content: center;
   padding: 0;
-  border: var(--border-subtle);
+  border: 0;
   border-radius: var(--radius-control-sm);
-  background: var(--modal-description-surface);
+  background: transparent;
   color: var(--ui-muted);
   font: inherit;
   cursor: pointer;
-  transform: translate(-50%, 50%);
+  transform: translateX(-50%);
   transition: var(--transition-control);
 }
 
@@ -1351,6 +1348,10 @@ dialog[open] .part-modal-info {
 @media (max-width: 39.999rem) {
 .modal-info-slot.has-description .modal-description-region {
     --modal-description-padding-y: var(--space-3);
+  }
+
+.modal-info-slot.has-description .modal-description-toggle {
+    bottom: -10px;
   }
 
 dialog[open] {
