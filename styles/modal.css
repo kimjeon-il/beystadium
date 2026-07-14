@@ -466,6 +466,7 @@ dialog[open] .product-modal-name {
 
 .modal-info-slot {
   --modal-info-lines: var(--modal-info-lines-default, 2);
+  position: relative;
   width: var(--modal-body-width);
   display: grid;
   grid-template-rows: 34px auto;
@@ -540,15 +541,17 @@ dialog[open] .product-modal-name {
 
 .modal-description-toggle {
   appearance: none;
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  bottom: 0;
   width: 44px;
   min-width: 44px;
   height: 32px;
   min-height: 32px;
   display: none;
-  align-self: center;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
   padding: 0;
   border: 0;
   border-radius: var(--radius-control-sm);
@@ -556,6 +559,7 @@ dialog[open] .product-modal-name {
   color: var(--ui-muted);
   font: inherit;
   cursor: pointer;
+  transform: translate(-50%, 50%);
   transition: var(--transition-control);
 }
 
@@ -583,7 +587,7 @@ dialog[open] .product-modal-name {
 
 .modal-description-toggle:hover,
 .modal-description-toggle:focus-visible {
-  background: var(--ui-control-hover);
+  background: transparent;
   color: var(--ui-text);
   outline: 0;
 }

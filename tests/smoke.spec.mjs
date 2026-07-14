@@ -1037,6 +1037,19 @@ test("long part descriptions use an accessible chevron expander", async ({ page 
   const slot = page.locator("#detailModal .part-modal-info .modal-info-slot");
   const description = slot.locator(".modal-description");
   const toggle = slot.locator(".modal-description-toggle");
+  const expanderGeometry = () => slot.evaluate(element => {
+    const region = element.querySelector(".modal-description-region");
+    const button = element.querySelector(".modal-description-toggle");
+    const regionRect = region.getBoundingClientRect();
+    const buttonRect = button.getBoundingClientRect();
+    return {
+      backgroundColor: getComputedStyle(button).backgroundColor,
+      horizontalOffset: (buttonRect.left + buttonRect.width / 2) - (regionRect.left + regionRect.width / 2),
+      regionContainsButton: region.contains(button),
+      slotOwnsButton: button.parentElement === element,
+      verticalOffset: (buttonRect.top + buttonRect.height / 2) - regionRect.bottom
+    };
+  });
   await expect(slot).toHaveClass(/is-expandable/);
   await expect(toggle).toBeVisible();
   await expect(toggle).toHaveText("");
@@ -1047,7 +1060,13 @@ test("long part descriptions use an accessible chevron expander", async ({ page 
     lineClamp: getComputedStyle(element).webkitLineClamp
   }));
   const collapsedChevron = await toggle.evaluate(element => getComputedStyle(element, "::before").transform);
+  const collapsedGeometry = await expanderGeometry();
   expect(collapsed.lineClamp).toBe("2");
+  expect(collapsedGeometry.regionContainsButton).toBe(false);
+  expect(collapsedGeometry.slotOwnsButton).toBe(true);
+  expect(Math.abs(collapsedGeometry.horizontalOffset)).toBeLessThanOrEqual(1);
+  expect(Math.abs(collapsedGeometry.verticalOffset)).toBeLessThanOrEqual(1);
+  expect(collapsedGeometry.backgroundColor).toBe("rgba(0, 0, 0, 0)");
 
   await toggle.focus();
   await page.keyboard.press("Enter");
@@ -1056,6 +1075,9 @@ test("long part descriptions use an accessible chevron expander", async ({ page 
   await expect(toggle).toHaveAttribute("aria-expanded", "true");
   const expandedHeight = await description.evaluate(element => element.getBoundingClientRect().height);
   expect(expandedHeight).toBeGreaterThan(collapsed.height + 1);
+  const expandedGeometry = await expanderGeometry();
+  expect(Math.abs(expandedGeometry.horizontalOffset)).toBeLessThanOrEqual(1);
+  expect(Math.abs(expandedGeometry.verticalOffset)).toBeLessThanOrEqual(1);
   await expect.poll(() => toggle.evaluate(element => getComputedStyle(element, "::before").transform))
     .not.toBe(collapsedChevron);
 
