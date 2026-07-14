@@ -38,6 +38,16 @@ html.is-modal-open {
   }
 }
 
+#modalContent {
+  --modal-vw: var(--modal-viewport-width, 100vw);
+  --modal-vh: var(--modal-viewport-height, 100vh);
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+  max-width: 100%;
+  max-height: 100%;
+}
+
 dialog[open] .modal-back,
 dialog[open] .icon-back-button{
   position: absolute;
@@ -178,7 +188,7 @@ dialog[open] #modalClose.modal-close {
   background: color-mix(in srgb, var(--ui-text) 92%, var(--ui-surface) 8%);
   color: var(--ui-surface);
   border-color: transparent;
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--ui-surface) 22%, transparent);
+  box-shadow: var(--ui-focus-ring);
   outline: 0;
   outline-offset: 0;
 }
@@ -229,6 +239,21 @@ dialog[open] {
   display: grid;
   place-items: center;
   background: transparent;
+  --stat-track-bg: color-mix(in srgb, var(--ui-control) 82%, var(--ui-text) 18%);
+  --stat-fill-bg: color-mix(in srgb, var(--ui-accent) 92%, #2563eb 8%);
+  --stat-label-column-width: 5.5em;
+  --modal-section-padding: var(--space-5);
+  --modal-section-row-height: 36px;
+  --modal-section-content-inset: 10px;
+  --modal-section-scroll-gutter: 5px;
+  --modal-info-lines-default: 2;
+  --modal-description-line-height: 1.40625rem;
+  --modal-description-two-line-height: 2.8125rem;
+  --modal-description-padding-y: var(--space-4);
+  --motion-preset-modal-enter: fluent-modal-enter var(--motion-enter) var(--ease-emphasized) both;
+  --motion-preset-modal-route: fluent-modal-route-enter var(--motion-enter) var(--ease-emphasized) both;
+  --motion-preset-modal-drill: fluent-modal-drill-enter var(--motion-enter) var(--ease-emphasized) both;
+  --motion-preset-none: none;
   --modal-vw: var(--modal-viewport-width, 100vw);
   --modal-vh: var(--modal-viewport-height, 100vh);
   --modal-edge-gap: 48px;
@@ -238,7 +263,7 @@ dialog[open] {
   --modal-close-offset: 18px;
   --modal-scrollbar-inset: calc(var(--modal-close-offset) + 16px);
   --modal-scrollbar-x-shift: 6px;
-  --modal-scroll-start: calc(var(--modal-close-offset) + 42px + 8px);
+  --modal-scroll-start: calc(var(--modal-close-offset) + var(--icon-control-size) + 8px);
   --modal-inner-columns: minmax(220px, 32%) minmax(0, 1fr);
   --modal-inner-rows: none;
   --modal-origin-shift-x: 0px;
@@ -1075,6 +1100,11 @@ dialog[open] .modal-art > .bey-image {
   box-shadow: var(--shadow-rest);
 }
 
+.ui-chip-button.rare-bey-get-chip:focus-visible {
+  outline: 0;
+  box-shadow: var(--ui-focus-ring);
+}
+
 dialog[open] .modal-info.bey-modal-info .modal-name,
 dialog[open] .modal-info.part-modal-info .modal-name {
   --modal-title-row-height: var(--modal-title-line-height);
@@ -1281,6 +1311,12 @@ dialog[open] .modal-step-next::after {
   color: var(--ui-text);
 }
 
+.product-composition-item:focus-visible,
+.mounted-link:focus-visible {
+  outline: 0;
+  box-shadow: var(--ui-focus-ring);
+}
+
 .mounted-parts .mounted-link:hover,
 .mounted-parts .mounted-link:focus-visible {
   background: transparent;
@@ -1334,7 +1370,7 @@ dialog[open] {
     --modal-gutter: 6px;
     --modal-close-offset: 18px;
     --modal-scrollbar-inset: calc(var(--modal-close-offset) + 16px);
-    --modal-scroll-start: calc(var(--modal-close-offset) + 42px + 8px);
+    --modal-scroll-start: calc(var(--modal-close-offset) + var(--icon-control-size) + 8px);
     --modal-inner-columns: minmax(0, 1fr);
     --modal-inner-rows: minmax(140px, 30%) minmax(0, 1fr);
     --modal-info-align-self: auto;

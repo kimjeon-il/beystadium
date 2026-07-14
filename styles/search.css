@@ -97,6 +97,10 @@
   transform: none;
 }
 
+.search-result-item:focus-visible {
+  box-shadow: var(--ui-focus-ring);
+}
+
 .search-result-kind {
   grid-area: kind;
   width: auto;
@@ -193,7 +197,7 @@
 }
 
 .search-preview-all {
-  min-height: 38px;
+  min-height: var(--control-height-default);
   padding: 0 11px;
   display: flex;
   align-items: center;
@@ -215,6 +219,10 @@
   background: var(--ui-control-hover);
   outline: 0;
   transform: none;
+}
+
+.search-preview-all:focus-visible {
+  box-shadow: var(--ui-focus-ring);
 }
 
 .search-preview-all span {

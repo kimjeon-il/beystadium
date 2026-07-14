@@ -1,4 +1,4 @@
-const styleVersion = "20260714-dropdown-chevron-motion";
+const styleVersion = "20260714-ui-consistency";
 const styleOrder = ["page", "collection", "table", "release", "anime", "catalog", "search", "modal"];
 const styleFiles = Object.fromEntries(styleOrder.map(key => [key, `./styles/${key}.css?v=${styleVersion}`]));
 const stylePromises = new Map();

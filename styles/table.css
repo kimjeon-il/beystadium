@@ -178,6 +178,11 @@
   color: var(--ui-text);
 }
 
+.table-list-row:focus-visible {
+  outline: var(--ui-focus-outline);
+  outline-offset: -3px;
+}
+
 .table-list-table tbody td:first-child {
   border-radius: var(--ui-radius) 0 0 var(--ui-radius);
 }

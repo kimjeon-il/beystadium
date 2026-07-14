@@ -9,6 +9,26 @@ const consoleErrors = page => {
   return errors;
 };
 
+const expectFocusIndicator = async locator => {
+  const readIndicator = element => {
+    const style = getComputedStyle(element);
+    return {
+      boxShadow: style.boxShadow,
+      outlineStyle: style.outlineStyle,
+      outlineWidth: style.outlineWidth,
+      focusVisible: element.matches(":focus-visible")
+    };
+  };
+  const before = await locator.evaluate(readIndicator);
+  await locator.press("Tab");
+  await locator.focus();
+  await expect(locator).toBeFocused();
+  const after = await locator.evaluate(readIndicator);
+  const visibleOutline = after.outlineStyle !== "none" && Number.parseFloat(after.outlineWidth) > 0;
+  expect(after.focusVisible).toBe(true);
+  expect(after.boxShadow !== before.boxShadow || visibleOutline).toBe(true);
+};
+
 const expectModalBackAtShellTopLeft = async backButton => {
   await expect(backButton).toBeVisible();
   const geometry = await backButton.evaluate(button => {
@@ -775,6 +795,135 @@ test("dropdown chevrons share the same open and close rotation", async ({ page }
   expect(new Set(openTransforms).size).toBe(1);
 });
 
+test("shared interface controls keep tokenized sizes and timings", async ({ page }) => {
+  await page.goto("/#toy-catalog?scope=bey&series=x");
+  await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
+  await page.locator("#catalogSeriesFilter > summary").click();
+  await expect(page.locator("#catalogSeriesFilter .ui-dropdown-item").first()).toBeVisible();
+
+  const catalogControls = await page.evaluate(() => {
+    const rootStyle = getComputedStyle(document.documentElement);
+    const size = selector => {
+      const rect = document.querySelector(selector).getBoundingClientRect();
+      return [Math.round(rect.width), Math.round(rect.height)];
+    };
+    const transitionDurations = (selector, pseudo = null) =>
+      getComputedStyle(document.querySelector(selector), pseudo).transitionDuration.split(", ");
+    return {
+      tokens: {
+        inline: rootStyle.getPropertyValue("--inline-icon-control-size").trim(),
+        compact: rootStyle.getPropertyValue("--control-height-compact").trim(),
+        default: rootStyle.getPropertyValue("--control-height-default").trim(),
+        icon: rootStyle.getPropertyValue("--icon-control-size").trim(),
+        compactMotion: rootStyle.getPropertyValue("--motion-compact").trim(),
+        standardMotion: rootStyle.getPropertyValue("--motion-standard").trim()
+      },
+      help: size("#catalogSearchHelpButton"),
+      searchScope: size("#catalogSearchScope > summary"),
+      dropdownItem: size("#catalogSeriesFilter .ui-dropdown-item"),
+      toTop: size("#toTop"),
+      drawerClose: size(".mobile-drawer-close"),
+      dropdownMotion: transitionDurations("#catalogSeriesFilter > summary", "::after"),
+      menuMotion: transitionDurations("#menuButton"),
+      menuLineMotion: transitionDurations("#menuButton span"),
+      toTopMotion: transitionDurations("#toTop")
+    };
+  });
+
+  expect(catalogControls.tokens).toEqual({
+    inline: "30px",
+    compact: "32px",
+    default: "38px",
+    icon: "44px",
+    compactMotion: "160ms",
+    standardMotion: "180ms"
+  });
+  expect(catalogControls.help).toEqual([30, 30]);
+  expect(catalogControls.searchScope[1]).toBe(32);
+  expect(catalogControls.dropdownItem[1]).toBe(38);
+  expect(catalogControls.toTop).toEqual([44, 44]);
+  expect(catalogControls.drawerClose).toEqual([44, 44]);
+  expect(catalogControls.dropdownMotion).toEqual(["0.16s", "0.16s"]);
+  expect(catalogControls.menuMotion).toEqual(["0.16s", "0.16s"]);
+  expect(catalogControls.menuLineMotion).toEqual(["0.18s", "0.18s", "0.16s", "0.18s"]);
+  expect(catalogControls.toTopMotion).toEqual(["0.18s", "0.18s", "0.16s", "0.16s"]);
+
+  await page.goto("/#toy-release");
+  await expect(page.locator(".release-product-row").first()).toBeVisible();
+  const releaseMotion = await page.locator(".release-table td").first().evaluate(
+    element => getComputedStyle(element).transitionDuration.split(", ")
+  );
+  expect(releaseMotion).toEqual(["0.16s", "0.16s"]);
+
+  await page.goto("/#PRODUCT-X-BX-01");
+  await expect(page.locator("#detailModal")).toBeVisible();
+  const modalControls = await page.evaluate(() => {
+    const size = element => {
+      const rect = element.getBoundingClientRect();
+      return [Math.round(rect.width), Math.round(rect.height)];
+    };
+    const scrollArea = document.querySelector("#detailModal .modal-scroll-area");
+    return {
+      close: size(document.querySelector("#modalClose")),
+      steps: [...document.querySelectorAll("#detailModal .modal-step")].map(size),
+      scrollMarginTop: Math.round(Number.parseFloat(getComputedStyle(scrollArea).marginTop))
+    };
+  });
+  expect(modalControls.close).toEqual([44, 44]);
+  modalControls.steps.forEach(step => expect(step).toEqual([44, 44]));
+  expect(modalControls.scrollMarginTop).toBe(70);
+});
+
+test("keyboard focus indicators stay visible across interface surfaces", async ({ page }, testInfo) => {
+  test.setTimeout(90_000);
+  const mobile = testInfo.project.name === "mobile";
+
+  for (const colorScheme of ["light", "dark"]) {
+    await page.emulateMedia({ colorScheme });
+    await page.goto("/#toy-catalog?scope=bey&series=x");
+    await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
+
+    await expectFocusIndicator(page.locator(mobile ? "#menuButton" : ".topbar > .brand"));
+    await expectFocusIndicator(page.locator("#catalogGrid .catalog-card").first());
+    await expectFocusIndicator(page.locator("#toTop"));
+
+    const seriesFilter = page.locator("#catalogSeriesFilter");
+    await seriesFilter.locator("summary").click();
+    await expect(seriesFilter.locator(".ui-dropdown-item").first()).toBeVisible();
+    await expectFocusIndicator(seriesFilter.locator(".ui-dropdown-item").first());
+    await seriesFilter.locator("summary").click();
+
+    if (mobile) {
+      await page.locator("#menuButton").click();
+      await expect(page.locator("#mobileDrawer")).toHaveAttribute("aria-hidden", "false");
+      await expectFocusIndicator(page.locator(".mobile-drawer-close"));
+    }
+
+    await page.goto("/#toy-release");
+    await expect(page.locator(".release-product-row").first()).toBeVisible();
+    await expectFocusIndicator(page.locator(".release-region-tabs .ui-tab-button").first());
+    await expectFocusIndicator(page.locator(".release-product-row").first());
+    if (!mobile) await expectFocusIndicator(page.locator(".release-sort-button").first());
+
+    await page.goto(`/#search?q=${encodeURIComponent("드래곤")}&scope=bey`);
+    await expect(page.locator(".search-results-panel .search-result-item").first()).toBeVisible();
+    await expectFocusIndicator(page.locator(".search-results-panel .search-result-item").first());
+
+    await page.goto("/#PRODUCT-X-BX-01");
+    await page.reload();
+    await expect(page.locator("#detailModal")).toBeVisible();
+    await expect(page.locator(".composition-link[data-target-id]").first()).toBeVisible();
+    await expectFocusIndicator(page.locator(".composition-link[data-target-id]").first());
+
+    await page.goto("/#BEY-BB-80-GRAVITY-PERSEUS-AD145WD");
+    await page.reload();
+    await expect(page.locator("#detailModal .mounted-parts .mounted-link").first()).toBeVisible();
+    await expectFocusIndicator(page.locator("#detailModal .mounted-parts .mounted-link").first());
+    await expect(page.locator("#detailModal .modal-tag-info").first()).toBeVisible();
+    await expectFocusIndicator(page.locator("#detailModal .modal-tag-info").first());
+  }
+});
+
 test("scroll affordances appear only while internal content remains below", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "scroll position coverage only needs one browser");
   const errors = consoleErrors(page);
@@ -1512,10 +1661,14 @@ test("reduced motion disables route and control transitions", async ({ page }, t
 
   const catalogMotion = await page.evaluate(() => ({
     panelAnimation: getComputedStyle(document.querySelector(".app-panel.active")).animationName,
-    cardTransition: getComputedStyle(document.querySelector(".catalog-card")).transitionDuration
+    cardTransition: getComputedStyle(document.querySelector(".catalog-card")).transitionDuration,
+    dropdownTransition: getComputedStyle(document.querySelector("#catalogSeriesFilter > summary"), "::after").transitionDuration,
+    toTopTransition: getComputedStyle(document.querySelector("#toTop")).transitionDuration
   }));
   expect(catalogMotion.panelAnimation).toBe("none");
   expect(catalogMotion.cardTransition).toBe("0.001s");
+  expect(catalogMotion.dropdownTransition).toBe("0.001s");
+  expect(catalogMotion.toTopTransition).toBe("0.001s");
 
   await page.goto("/#PRODUCT-X-BX-01");
   await expect(page.locator("#detailModal")).toBeVisible();

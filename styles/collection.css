@@ -141,11 +141,19 @@
 }
 
 .catalog-card:hover,
-.product-card:hover{
+.catalog-card:focus-visible,
+.product-card:hover,
+.product-card:focus-visible{
   transform: none;
   background: var(--ui-surface-raised);
   border-color: color-mix(in srgb, var(--ui-accent) 22%, var(--ui-stroke-subtle));
   box-shadow: var(--shadow-hover);
+}
+
+.catalog-card:focus-visible,
+.product-card:focus-visible {
+  outline: 0;
+  box-shadow: var(--ui-focus-ring), var(--shadow-hover);
 }
 
 .catalog-card:active,

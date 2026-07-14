@@ -30,13 +30,13 @@
   --ui-surface-raised: light-dark(#ffffff, #1a222d);
   --ui-surface-glass: light-dark(color-mix(in srgb, #f7f9fc 86%, transparent), color-mix(in srgb, #151b23 88%, transparent));
   --ui-stroke-subtle: light-dark(color-mix(in srgb, #cfd6df 72%, transparent), color-mix(in srgb, #3a4656 76%, transparent));
-  --stat-track-bg: color-mix(in srgb, var(--ui-control) 82%, var(--ui-text) 18%);
-  --stat-fill-bg: color-mix(in srgb, var(--ui-accent) 92%, #2563eb 8%);
-  --stat-label-column-width: 5.5em;
   --ui-elevation-1: 0 1px 2px light-dark(rgba(16, 24, 39, 0.08), rgba(0, 0, 0, 0.22)), 0 8px 20px light-dark(rgba(16, 24, 39, 0.07), rgba(0, 0, 0, 0.18));
   --ui-elevation-2: 0 2px 5px light-dark(rgba(16, 24, 39, 0.10), rgba(0, 0, 0, 0.28)), 0 18px 42px light-dark(rgba(16, 24, 39, 0.10), rgba(0, 0, 0, 0.24));
-  --ui-focus-ring: 0 0 0 3px color-mix(in srgb, var(--ui-accent) 24%, transparent);
+  --ui-focus-color: color-mix(in srgb, var(--ui-accent) 24%, transparent);
+  --ui-focus-ring: 0 0 0 3px var(--ui-focus-color);
+  --ui-focus-outline: 3px solid var(--ui-focus-color);
   --motion-fast: 120ms;
+  --motion-compact: 160ms;
   --motion-standard: 180ms;
   --motion-enter: 220ms;
   --ease-standard: cubic-bezier(.2, 0, 0, 1);
@@ -68,14 +68,10 @@
   --space-5: 20px;
   --space-6: 24px;
   --touch-target-min: 44px;
-  --modal-section-padding: var(--space-5);
-  --modal-section-row-height: 36px;
-  --modal-section-content-inset: 10px;
-  --modal-section-scroll-gutter: 5px;
-  --modal-info-lines-default: 2;
-  --modal-description-line-height: 1.40625rem;
-  --modal-description-two-line-height: 2.8125rem;
-  --modal-description-padding-y: var(--space-4);
+  --inline-icon-control-size: 30px;
+  --control-height-compact: 32px;
+  --control-height-default: 38px;
+  --icon-control-size: var(--touch-target-min);
   --border-subtle: 1px solid var(--ui-stroke-subtle);
   --border-line: 1px solid var(--ui-line);
   --shadow-rest: none;
@@ -88,11 +84,7 @@
   /* Animation presets. */
   --motion-preset-panel-enter: fluent-panel-enter var(--motion-enter) var(--ease-standard) both;
   --motion-preset-popover-enter: fluent-popover-enter var(--motion-enter) var(--ease-emphasized) both;
-  --motion-preset-modal-enter: fluent-modal-enter var(--motion-enter) var(--ease-emphasized) both;
-  --motion-preset-modal-route: fluent-modal-route-enter var(--motion-enter) var(--ease-emphasized) both;
-  --motion-preset-modal-drill: fluent-modal-drill-enter var(--motion-enter) var(--ease-emphasized) both;
   --motion-preset-fade-in: fluent-fade-in var(--motion-standard) var(--ease-standard) both;
-  --motion-preset-none: none;
   --ui-panel-radius: var(--radius-floating);
   --filter-dropdown-height: 48px;
   --filter-dropdown-gap: var(--space-3);
@@ -102,7 +94,7 @@
   --compact-search-height: 48px;
   --compact-search-padding: 0 12px 0 8px;
   --compact-search-gap: 8px;
-  --compact-search-scope-height: 32px;
+  --compact-search-scope-height: var(--control-height-compact);
   --compact-search-scope-min-width: 58px;
   --compact-search-scope-max-width: 70px;
   --compact-search-scope-padding: 0 20px 0 9px;
@@ -269,7 +261,7 @@ a,
   border-bottom: 1.8px solid currentColor;
   color: var(--ui-muted);
   transform: translateY(-60%) rotate(45deg);
-  transition: transform .16s ease, color .16s ease;
+  transition: transform var(--motion-compact) ease, color var(--motion-compact) ease;
 }
 
 .catalog-dropdown[open] summary::after {
@@ -501,12 +493,12 @@ dialog[open] .modal-scroll-area::-webkit-scrollbar-corner,
   appearance: none;
   -webkit-appearance: none;
   position: relative;
-  width: 30px;
-  height: 30px;
-  min-width: 30px;
-  min-height: 30px;
+  width: var(--inline-icon-control-size);
+  height: var(--inline-icon-control-size);
+  min-width: var(--inline-icon-control-size);
+  min-height: var(--inline-icon-control-size);
   padding: 0;
-  flex: 0 0 30px;
+  flex: 0 0 var(--inline-icon-control-size);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -661,7 +653,7 @@ dialog[open] .modal-scroll-area::-webkit-scrollbar-corner,
 }
 
 .search-scope.catalog-dropdown .catalog-dropdown-menu button {
-  min-height: 32px;
+  min-height: var(--control-height-compact);
   padding: 0 10px;
   font-size: var(--search-scope-font-size, var(--font-md));
   font-weight: var(--font-weight-regular);
@@ -983,15 +975,13 @@ button.icon-back-button {
   white-space: nowrap;
 }
 
+:is(.ui-icon-button,.to-top,.mobile-drawer-close){width:var(--icon-control-size);min-width:var(--icon-control-size);height:var(--icon-control-size);min-height:var(--icon-control-size)}
+
 .to-top {
   position: fixed;
   right: max(16px, calc(var(--page-gutter) - 40px));
   bottom: 28px;
   z-index: 90;
-  width: 42px;
-  min-width: 42px;
-  height: 42px;
-  min-height: 42px;
   padding: 0;
   display: inline-flex;
   align-items: center;
@@ -1010,7 +1000,7 @@ button.icon-back-button {
   pointer-events: none;
   cursor: pointer;
   transform: translateY(8px);
-  transition: opacity .18s ease, transform .18s ease, background-color .16s ease, color .16s ease;
+  transition: opacity var(--motion-standard) ease, transform var(--motion-standard) ease, background-color var(--motion-compact) ease, color var(--motion-compact) ease;
 }
 
 .to-top.show {
@@ -1024,6 +1014,8 @@ button.icon-back-button {
   background: var(--ui-control-hover);
   color: var(--ui-control-text-active);
 }
+
+.to-top:focus-visible{box-shadow:var(--ui-focus-ring)}
 
 .bey-image {
   display: block;
@@ -1144,16 +1136,6 @@ html.route-booting .to-top {
   padding-top: 0;
 }
 
-#modalContent {
-  --modal-vw: var(--modal-viewport-width, 100vw);
-  --modal-vh: var(--modal-viewport-height, 100vh);
-  position: relative;
-  z-index: 1;
-  overflow: visible;
-  max-width: 100%;
-  max-height: 100%;
-}
-
 .table-list-dropdown,
 .catalog-series-dropdown {
   --catalog-dropdown-menu-z: 45;
@@ -1192,7 +1174,7 @@ html.route-booting .to-top {
 }
 
 .ui-button {
-  min-height: 38px;
+  min-height: var(--control-height-default);
   padding: 0 14px;
   display: inline-flex;
   align-items: center;
@@ -1260,10 +1242,6 @@ html.route-booting .to-top {
 }
 
 .ui-icon-button {
-  width: 42px;
-  min-width: 42px;
-  height: 42px;
-  min-height: 42px;
   padding: 0;
   display: inline-flex;
   align-items: center;
@@ -1280,7 +1258,7 @@ html.route-booting .to-top {
 }
 
 .ui-chip-button {
-  min-height: 32px;
+  min-height: var(--control-height-compact);
   padding: 0 12px;
   display: inline-flex;
   align-items: center;
@@ -1336,13 +1314,15 @@ html.route-booting .to-top {
   transform: none;
 }
 
+:is(.ui-card-button,.ui-chip-button,.ui-tab-button:not(.sidebar-button),.ui-dropdown-item,.catalog-dropdown-menu button):focus-visible{outline:0;box-shadow:var(--ui-focus-ring)}
+
 .ui-dropdown-item,
 .catalog-dropdown-menu button {
   position: relative;
   isolation: isolate;
   width: 100%;
   min-width: var(--dropdown-item-min-width, auto);
-  min-height: 38px;
+  min-height: var(--control-height-default);
   padding: var(--dropdown-item-padding, 0 12px);
   display: flex;
   align-items: center;
@@ -1441,7 +1421,11 @@ html.route-booting .to-top {
   white-space: nowrap;
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
+  outline: 0;
+  transition: var(--transition-control);
 }
+
+.topbar > .brand:focus-visible{box-shadow:var(--ui-focus-ring)}
 
 .brand span:not(.brand-mark),
 .brand span:not(.brand-mark) b {
@@ -1623,7 +1607,7 @@ body.is-overview .app-shell {
   transform: translateY(-50%);
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-  transition: background-color .16s ease, color .16s ease;
+  transition: background-color var(--motion-compact) ease, color var(--motion-compact) ease;
 }
 
 .menu-button span {
@@ -1639,7 +1623,7 @@ body.is-overview .app-shell {
   transform: translateX(-50%);
   transform-origin: center;
   opacity: 1;
-  transition: transform .18s ease, opacity .18s ease, background-color .16s ease, box-shadow .18s ease;
+  transition: transform var(--motion-standard) ease, opacity var(--motion-standard) ease, background-color var(--motion-compact) ease, box-shadow var(--motion-standard) ease;
 }
 
 .menu-button span:nth-child(1),
@@ -1658,6 +1642,8 @@ body.is-overview .app-shell {
   background: var(--ui-control-hover);
   box-shadow: var(--shadow-hover);
 }
+
+.menu-button:focus-visible{box-shadow:var(--ui-focus-ring),var(--shadow-hover)}
 
 body.menu-open .menu-button {
   background: var(--ui-control-hover);
@@ -1727,8 +1713,6 @@ body.menu-open .mobile-drawer {
 
 .mobile-drawer-close {
   appearance: none;
-  width: 42px;
-  height: 42px;
   display: inline-grid;
   place-items: center;
   border: 0;
