@@ -16,11 +16,12 @@
     "test:burst-random-boosters": "node --test tests/burst-random-boosters.test.mjs",
     "test:burst-random-layers": "node --test tests/burst-random-layers.test.mjs",
     "test:x-tool-products": "node --test tests/x-tool-products.test.mjs",
+    "test:x-part-products": "node --test tests/x-part-products.test.mjs",
     "test:x-set-products": "node --test tests/x-set-products.test.mjs",
     "test:x-random-boosters": "node --test tests/x-random-boosters.test.mjs",
     "test:data": "node scripts/validate-data.mjs",
     "test:smoke": "playwright test",
-    "check": "pnpm lint:js && pnpm audit:app && pnpm data:check && pnpm test:data && pnpm test:search && pnpm test:ids && pnpm test:address-ids && pnpm test:product-ids && pnpm test:burst-random-boosters && pnpm test:burst-random-layers && pnpm test:x-tool-products && pnpm test:x-set-products && pnpm test:x-random-boosters && pnpm test:smoke"
+    "check": "pnpm lint:js && pnpm audit:app && pnpm data:check && pnpm test:data && pnpm test:search && pnpm test:ids && pnpm test:address-ids && pnpm test:product-ids && pnpm test:burst-random-boosters && pnpm test:burst-random-layers && pnpm test:x-tool-products && pnpm test:x-part-products && pnpm test:x-set-products && pnpm test:x-random-boosters && pnpm test:smoke"
   },
   "devDependencies": {
     "@eslint/js": "^9.31.0",

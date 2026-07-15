@@ -6610,17 +6610,53 @@
     }
   },
 {
-    id: "PRODUCT-X-BX-00-NIGHT-SHIELD-3-80N-GOLD", addressSlug: "NIGHT-SHIELD-3-80N-GOLD",
+    id: "PRODUCT-X-BX-00-NIGHT-SHIELD-GOLD", addressSlug: "NIGHT-SHIELD-GOLD",
     series: "x",
     releases: {
       kr: {
         no: "BX-00",
-        name: "나이트실드/3-80/N 골드 Ver.",
+        name: "나이트실드 골드 Ver.",
         sale: "",
         kind: "부스터",
         releaseDate: "2023-11-04",
         price: "",
-        composition: []
+        composition: [{ name: "나이트실드", quantity: "1개", target: "PART-X-BLADE-KNIGHT-SHIELD" }]
+      },
+      jp: {
+        status: "unreleased"
+      }
+    }
+  },
+{
+    id: "PRODUCT-X-BX-00-3-80-GOLD", addressSlug: "3-80-GOLD",
+    series: "x",
+    releases: {
+      kr: {
+        no: "BX-00",
+        name: "3-80 골드 Ver.",
+        sale: "",
+        kind: "부스터",
+        releaseDate: "2023-11-04",
+        price: "",
+        composition: [{ name: "3-80", quantity: "1개", target: "PART-X-RATCHET-3-80" }]
+      },
+      jp: {
+        status: "unreleased"
+      }
+    }
+  },
+{
+    id: "PRODUCT-X-BX-00-N-GOLD", addressSlug: "N-GOLD",
+    series: "x",
+    releases: {
+      kr: {
+        no: "BX-00",
+        name: "N 골드 Ver.",
+        sale: "",
+        kind: "부스터",
+        releaseDate: "2023-11-04",
+        price: "",
+        composition: [{ name: "N", quantity: "1개", target: "PART-X-BIT-N" }]
       },
       jp: {
         status: "unreleased"
@@ -7529,7 +7565,7 @@
         kind: "툴",
         releaseDate: "2025-07-25",
         price: "",
-        composition: []
+        composition: [{ name: "F", quantity: "1개", target: "PART-X-BIT-F" }, { name: "T", quantity: "1개", target: "PART-X-BIT-T" }, { name: "B", quantity: "1개", target: "PART-X-BIT-B" }, { name: "N", quantity: "1개", target: "PART-X-BIT-N" }]
       },
       jp: {
         no: "BX-00",
@@ -7537,7 +7573,7 @@
         kind: "툴",
         releaseDate: "2024-07-30",
         price: "990",
-        composition: []
+        composition: [{ name: "F", quantity: "1개", target: "PART-X-BIT-F" }, { name: "T", quantity: "1개", target: "PART-X-BIT-T" }, { name: "B", quantity: "1개", target: "PART-X-BIT-B" }, { name: "N", quantity: "1개", target: "PART-X-BIT-N" }]
       }
     }
   },
@@ -8927,7 +8963,7 @@
         kind: "툴",
         releaseDate: "2025-11-15",
         price: "990",
-        composition: []
+        composition: [{ name: "F", quantity: "1개", target: "PART-X-BIT-F" }, { name: "T", quantity: "1개", target: "PART-X-BIT-T" }, { name: "B", quantity: "1개", target: "PART-X-BIT-B" }, { name: "N", quantity: "1개", target: "PART-X-BIT-N" }]
       }
     }
   },

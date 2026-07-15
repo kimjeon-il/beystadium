@@ -19,7 +19,7 @@ test("product number normalization preserves established address variants", () =
 
   assert.equal(productIdIncludesNumber("PRODUCT-METAL-FIGHT-BB-15-KR-BLUE", "BB-15(2)"), true);
   assert.equal(productIdIncludesNumber("PRODUCT-BURST-B-00-AMATERIOS-AERO-ASSAULT", "B-00"), true);
-  assert.equal(productIdIncludesNumber("PRODUCT-X-BX-00-NIGHT-SHIELD-3-80N-GOLD", "BX-00"), true);
+  assert.equal(productIdIncludesNumber("PRODUCT-X-BX-00-NIGHT-SHIELD-GOLD", "BX-00"), true);
 });
 
 test("product IDs use their series namespace and at least one regional release number", () => {

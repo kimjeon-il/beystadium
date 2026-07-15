@@ -1585,6 +1585,37 @@ test("X set products render Bey, part, tool, and quantity compositions", async (
   expect(errors).toEqual([]);
 });
 
+test("X gold part products link to their base parts", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "part product data is shared by desktop and mobile layouts");
+  const errors = consoleErrors(page);
+  const cases = [
+    {
+      productId: "PRODUCT-X-BX-00-NIGHT-SHIELD-GOLD",
+      names: ["나이트실드"],
+      targetIds: ["PART-X-BLADE-KNIGHT-SHIELD"]
+    },
+    {
+      productId: "PRODUCT-X-BX-00-F-T-B-N-BIT-SET-GOLD-BLACK",
+      names: ["F", "T", "B", "N"],
+      targetIds: ["PART-X-BIT-F", "PART-X-BIT-T", "PART-X-BIT-B", "PART-X-BIT-N"]
+    }
+  ];
+
+  for (const entry of cases) {
+    await page.goto("about:blank");
+    await page.goto(`/#${entry.productId}`);
+    const links = page.locator("#detailModal .product-composition-list .composition-link");
+    await expect(links).toHaveCount(entry.targetIds.length);
+    await expect(links).toHaveText(entry.names.map(name => `${name} 1개→`));
+    expect(await links.evaluateAll(elements => elements.map(element => element.getAttribute("data-target-id"))))
+      .toEqual(entry.targetIds);
+    await links.first().click();
+    await expect(page).toHaveURL(new RegExp(`#${entry.targetIds[0]}$`));
+    await expectModalBackAtShellTopLeft(page.locator("#detailModal .modal-back"));
+  }
+  expect(errors).toEqual([]);
+});
+
 test("mounted part names use the restored compact label column", async ({ page }) => {
   const errors = consoleErrors(page);
   await page.goto("/#BEY-METAL-FIGHT-BB-80-GRAVITY-PERSEUS-AD145WD");
