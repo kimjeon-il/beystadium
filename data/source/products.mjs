@@ -9478,7 +9478,11 @@
   }
 ];
 
-import { burstRandomBoosterLineups, burstRandomLayerLineups } from "./catalog.mjs";
+import {
+  burstRandomBoosterLineups,
+  burstRandomLayerLineups,
+  xRandomBoosterLineups
+} from "./catalog.mjs";
 import { xSetProductCompositions } from "./x-set-products.mjs";
 
 for (const product of productItems) {
@@ -9490,6 +9494,16 @@ for (const product of productItems) {
     if (!release || release.status === "unreleased") continue;
     release.composition = [{ name: "무작위 베이", quantity: "1개", target: lineup[0] }];
   }
+}
+
+for (const product of productItems) {
+  const productNo = product.id.match(/^PRODUCT-X-((?:BX|CX)-\d+)$/)?.[1];
+  const lineup = productNo ? xRandomBoosterLineups[productNo] : null;
+  if (!lineup) continue;
+  product.lineupPool = lineup;
+  const release = product.releases?.jp;
+  if (!release || release.status === "unreleased") continue;
+  release.composition = [{ name: "무작위 베이", quantity: "1개", target: lineup[0] }];
 }
 
 for (const product of productItems) {

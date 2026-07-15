@@ -1399,6 +1399,56 @@ test("Burst random booster products open their ordered Bey lineups", async ({ pa
   expect(errors).toEqual([]);
 });
 
+test("X random booster products open their ordered Bey lineups", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "lineup data is shared by desktop and mobile layouts");
+  const errors = consoleErrors(page);
+  const cases = [
+    {
+      productId: "PRODUCT-X-BX-48",
+      count: 5,
+      firstId: "BEY-X-BX-48-01-COBALT-DRAGOON-9-80F",
+      lastId: "BEY-X-BX-48-05-DRAN-BUSTER-2-80Q"
+    },
+    {
+      productId: "PRODUCT-X-CX-17",
+      count: 6,
+      firstId: "BEY-X-CX-17-01-UNICORN-DELTA-PO-3-60GU",
+      lastId: "BEY-X-CX-17-06-CRIMSON-GARUDA-7-80GU"
+    },
+    {
+      productId: "PRODUCT-X-CX-18",
+      count: 3,
+      firstId: "BEY-X-CX-18-01-BRACHIO-WHIP-OW-5-70NR",
+      lastId: "BEY-X-CX-18-03-BRACHIO-WHIP-OW-5-70NR"
+    },
+    {
+      productId: "PRODUCT-X-BX-50",
+      count: 6,
+      firstId: "BEY-X-BX-50-01-HEAVENS-RING-0-80DS",
+      lastId: "BEY-X-BX-50-06-KERBEROS-REAPER-B-0-80WB"
+    }
+  ];
+
+  for (const entry of cases) {
+    await page.goto("about:blank");
+    await page.goto(`/#${entry.productId}`);
+    const lineupTrigger = page.locator("#detailModal .product-lineup-trigger");
+    await expect(lineupTrigger).toHaveText("무작위 베이 1개→");
+    await lineupTrigger.click();
+    const lineupLinks = page.locator("#detailModal .product-composition-list .composition-link");
+    await expect(page.locator("#detailModal .mounted-title")).toHaveText("등장 베이");
+    await expect(lineupLinks).toHaveCount(entry.count);
+    await expect(lineupLinks.first()).toHaveAttribute("data-target-id", entry.firstId);
+    await expect(lineupLinks.last()).toHaveAttribute("data-target-id", entry.lastId);
+    await lineupLinks.first().click();
+    await expect(page).toHaveURL(new RegExp(`#${entry.firstId}$`));
+    await expectModalBackAtShellTopLeft(page.locator("#detailModal .modal-back"));
+    await page.locator("#detailModal .modal-back").click();
+    await expect(page.locator("#detailModal .product-lineup-trigger")).toHaveText("무작위 베이 1개→");
+  }
+  expect(errors).toEqual([]);
+});
+
 test("Burst random layer products open their ordered layer lineups", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "lineup data is shared by desktop and mobile layouts");
   const errors = consoleErrors(page);

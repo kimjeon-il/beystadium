@@ -7,6 +7,11 @@ import {
   burstRandomLayerParts
 } from "./burst-random-layers.mjs";
 import { xSetBeyItems, xSetPartItems } from "./x-set-products.mjs";
+import {
+  xRandomBoosterBeyItems,
+  xRandomBoosterLineups,
+  xRandomBoosterPartItems
+} from "./x-random-boosters.mjs";
 
 const beyItems = [
   { id: "BEY-METAL-FIGHT-BB-01-PEGASIS-105F", series: "metal fight", type: "bey", structure: "basic", name: "페가시스", en: "Pegasis", sub: "105F", productNo: "BB-01", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["PART-METAL-FIGHT-FACE-PEGASIS", "PART-METAL-FIGHT-WHEEL-PEGASIS", "PART-METAL-FIGHT-TRACK-105", "PART-METAL-FIGHT-BOTTOM-FLAT"] },
@@ -1680,8 +1685,8 @@ const partItems = [
   {"id":"PART-X-BIT-BS","series":"x","type":"bit","name":"BS","en":"Bound Spike","sub":"바운드 스파이크","battleType":"defense","tags":[],"desc":"","stats":[5,60,30],"extraStats":[{"name":"대시력","value":5},{"name":"버스트 저항","value":30}]}
 ];
 
-partItems.push(...xSetPartItems, ...burstRandomBoosterParts, ...burstRandomLayerParts);
-beyItems.push(...xSetBeyItems);
+partItems.push(...xSetPartItems, ...xRandomBoosterPartItems, ...burstRandomBoosterParts, ...burstRandomLayerParts);
+beyItems.push(...xSetBeyItems, ...xRandomBoosterBeyItems);
 const {
   beys: burstRandomBoosterBeys,
   lineups: burstRandomBoosterLineups
@@ -1695,5 +1700,6 @@ export {
   partItems,
   catalogCoreItems,
   burstRandomBoosterLineups,
-  burstRandomLayerLineups
+  burstRandomLayerLineups,
+  xRandomBoosterLineups
 };
