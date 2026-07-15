@@ -1370,9 +1370,21 @@ test("Burst random booster products open their ordered Bey lineups", async ({ pa
       firstId: "BEY-BURST-B-15-01-TRIDENT-H-C"
     },
     {
+      productId: "PRODUCT-BURST-B-61",
+      count: 8,
+      firstId: "BEY-BURST-B-61-01-QUAD-QUETZALCOATL-J-P",
+      lastId: "BEY-BURST-B-61-08-DRIGER-SLASH-H-F"
+    },
+    {
       productId: "PRODUCT-BURST-B-156",
       count: 8,
       firstId: "BEY-BURST-B-156-01-NAKED-SPRIGGAN-PR-OM-TEN"
+    },
+    {
+      productId: "PRODUCT-BURST-B-181",
+      count: 6,
+      firstId: "BEY-BURST-B-181-01-CYCLONE-RAGNARUK-GG-NV-6",
+      lastId: "BEY-BURST-B-181-06-BRAVE-WYVERN-10-NV-4A"
     },
     {
       productId: "PRODUCT-BURST-B-202",
@@ -1390,12 +1402,46 @@ test("Burst random booster products open their ordered Bey lineups", async ({ pa
     const lineupLinks = page.locator("#detailModal .product-composition-list .composition-link");
     await expect(lineupLinks).toHaveCount(entry.count);
     await expect(lineupLinks.first()).toHaveAttribute("data-target-id", entry.firstId);
+    if (entry.lastId) await expect(lineupLinks.last()).toHaveAttribute("data-target-id", entry.lastId);
     await lineupLinks.first().click();
     await expect(page).toHaveURL(new RegExp(`#${entry.firstId}$`));
     await expectModalBackAtShellTopLeft(page.locator("#detailModal .modal-back"));
     await page.locator("#detailModal .modal-back").click();
     await expect(page.locator("#detailModal .product-lineup-trigger")).toHaveText("무작위 베이 1개→");
   }
+  expect(errors).toEqual([]);
+});
+
+test("B-181 Dragoon V2 separates its mounted combination from the bundled 6 Armor", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "bundled part data is shared by desktop and mobile layouts");
+  const errors = consoleErrors(page);
+  await page.goto("/#PRODUCT-BURST-B-181");
+  await page.locator("#detailModal .product-lineup-trigger").click();
+
+  const dragoonLink = page.locator('#detailModal .composition-link[data-target-id="BEY-BURST-B-181-03-DRAGOON-V2-WH-XC-DASH"]');
+  await expect(dragoonLink.locator("span")).toHaveText("드래곤 V2.Wh.Xc' + 6 아머");
+  await dragoonLink.click();
+  await expect(page).toHaveURL(/#BEY-BURST-B-181-03-DRAGOON-V2-WH-XC-DASH$/);
+  await expect(page.locator("#detailModal .modal-name")).toHaveText("드래곤 V2.Wh.Xc'");
+
+  const mountedLinks = page.locator("#detailModal .mounted-parts:not(.bundled-parts) .mounted-link");
+  await expect(mountedLinks).toHaveCount(3);
+  expect(await mountedLinks.evaluateAll(links => links.map(link => link.dataset.partId))).toEqual([
+    "PART-BURST-LAYER-DRAGOON-V2",
+    "PART-BURST-DISK-WHEEL",
+    "PART-BURST-DRIVER-XCEED-DASH"
+  ]);
+
+  const bundledSection = page.locator("#detailModal .bundled-parts");
+  await expect(bundledSection.locator(".mounted-title")).toHaveText("동봉 부품");
+  const armorLink = bundledSection.locator(".mounted-link");
+  await expect(armorLink).toHaveCount(1);
+  await expect(armorLink).toHaveAttribute("data-part-id", "PART-BURST-DBARMOR-6");
+  await expect(armorLink.locator("span")).toHaveText("아머");
+  await expect(armorLink.locator("strong")).toHaveText("6");
+  await armorLink.click();
+  await expect(page).toHaveURL(/#PART-BURST-DBARMOR-6$/);
+  await expectModalBackAtShellTopLeft(page.locator("#detailModal .modal-back"));
   expect(errors).toEqual([]);
 });
 

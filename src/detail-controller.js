@@ -244,7 +244,12 @@ const productLineupItemName = (item, region = appState.activeReleaseRegion) => {
   if (productItemsById.has(item.id)) return productDisplayName(item, region);
   const combo = item.type === "bey" ? partCategory(item) : "";
   const name = itemDisplayName(item, region);
-  return combo ? `${name} ${combo}` : name;
+  const displayName = combo ? `${name} ${combo}` : name;
+  const bundledNames = (item.bundledParts || []).map(partId => {
+    const part = findCatalogItemById(partId);
+    return part ? `${itemDisplayName(part, region)} ${partDisplayTypeLabel(part)}` : "";
+  }).filter(Boolean);
+  return bundledNames.length ? `${displayName} + ${bundledNames.join(" + ")}` : displayName;
 };
 function productLineup(item, region = appState.activeReleaseRegion) {
   const lineupIds = productLineupIds(item);

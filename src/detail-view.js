@@ -144,14 +144,22 @@ const beyDetailPartIds = item => {
     .sort((a, b) => a.order - b.order || a.index - b.index)
     .map(entry => entry.partId);
 };
+const beyPartSection = (title, partIds, region, className = "") => {
+  const links = (partIds || []).map(partId => {
+    const part = catalogCoreItemsById.get(partId);
+    if (!part) return "";
+    return `<a class="ui-list-link mounted-link" href="#${part.id}" data-part-id="${part.id}"><span>${partMountedTypeLabel(part)}</span><strong>${appServices.itemDisplayName(part, region)}</strong><b>→</b></a>`;
+  }).filter(Boolean).join("");
+  if (!links) return "";
+  const classes = ["modal-section", "mounted-parts", className].filter(Boolean).join(" ");
+  return `<section class="${classes}"><p class="mounted-title">${title}</p><div class="modal-section-scroll mounted-parts-list">${links}</div></section>`;
+};
 
 function beyDetailSections(item, region) {
   const detailPartIds = beyDetailPartIds(item);
-  const info = detailPartIds.length ? `<section class="modal-section mounted-parts"><p class="mounted-title">구성</p><div class="modal-section-scroll mounted-parts-list">${detailPartIds.map(partId => {
-    const part = catalogCoreItemsById.get(partId);
-    return `<a class="ui-list-link mounted-link" href="#${part.id}" data-part-id="${part.id}"><span>${partMountedTypeLabel(part)}</span><strong>${appServices.itemDisplayName(part, region)}</strong><b>→</b></a>`;
-  }).join("")}</div></section>` : "";
-  return info;
+  const mounted = beyPartSection("구성", detailPartIds, region);
+  const bundled = beyPartSection("동봉 부품", item.bundledParts, region, "bundled-parts");
+  return `${mounted}${bundled}`;
 }
 
 let modelViewerCleanup = null;

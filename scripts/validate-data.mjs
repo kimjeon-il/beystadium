@@ -32,6 +32,9 @@ const invalidAddressIds = [
 const missingParts = beyItems.flatMap(item => (item.parts || [])
   .filter(target => !idSet.has(target))
   .map(target => `${item.id} -> ${target}`));
+const missingBundledParts = beyItems.flatMap(item => (item.bundledParts || [])
+  .filter(target => !idSet.has(target))
+  .map(target => `${item.id} -> ${target}`));
 const missingTargets = productItems.flatMap(item => Object.values(item.releases || {}).flatMap(release =>
   (release?.composition || [])
     .filter(entry => entry.target && !idSet.has(entry.target))
@@ -57,6 +60,7 @@ const failures = [
   ["invalid address IDs", invalidAddressIds],
   ["invalid product IDs", invalidProductIds],
   ["missing parts", missingParts],
+  ["missing bundled parts", missingBundledParts],
   ["missing composition targets", missingTargets],
   ["mismatched X product/Bey numbers", invalidXProductBeyNumbers],
   ["missing Bey pool targets", missingPoolItems],

@@ -10,12 +10,12 @@ import { burstRandomBoosterRows } from "../data/source/burst-random-boosters.mjs
 import { productItems } from "../data/source/products.mjs";
 
 const expectedCounts = {
-  "B-15": 8, "B-24": 8, "B-49": 8, "B-67": 8,
+  "B-15": 8, "B-24": 8, "B-49": 8, "B-61": 8, "B-67": 8,
   "B-80": 8, "B-87": 8, "B-95": 8, "B-101": 8,
   "B-111": 8, "B-118": 8, "B-125": 8, "B-130": 8,
   "B-132": 8, "B-140": 8, "B-146": 8, "B-151": 8,
   "B-156": 8, "B-158": 8, "B-164": 8, "B-170": 8,
-  "B-173": 8, "B-176": 8, "B-178": 8, "B-186": 6,
+  "B-173": 8, "B-176": 8, "B-178": 8, "B-181": 6, "B-186": 6,
   "B-194": 7, "B-196": 5, "B-198": 6, "B-202": 5
 };
 const randomBeys = beyItems.filter(item => Object.hasOwn(expectedCounts, item.productNo)
@@ -27,10 +27,10 @@ const productsByNo = new Map(productItems.flatMap(item => {
   return no ? [[no, item]] : [];
 }));
 
-test("Burst random booster source contains the requested 213 slots", () => {
-  assert.equal(burstRandomBoosterRows.length, 213);
-  assert.equal(randomBeys.length, 213);
-  assert.equal(new Set(randomBeys.map(item => item.id)).size, 213);
+test("Burst random booster source contains the requested 227 slots", () => {
+  assert.equal(burstRandomBoosterRows.length, 227);
+  assert.equal(randomBeys.length, 227);
+  assert.equal(new Set(randomBeys.map(item => item.id)).size, 227);
   assert.deepEqual(Object.fromEntries(Object.entries(burstRandomBoosterLineups)
     .map(([no, ids]) => [no, ids.length])), expectedCounts);
 });
@@ -45,8 +45,48 @@ test("Burst random booster IDs, Korean names, and part references are canonical"
       assert.match(item.name, /[가-힣]/);
       assert.doesNotMatch(`${item.name} ${item.en} ${item.desc} ${item.tags.join(" ")}`, /[()]/);
       item.parts.forEach(partId => assert.ok(partIds.has(partId), `${id} -> ${partId}`));
+      (item.bundledParts || []).forEach(partId => assert.ok(partIds.has(partId), `${id} bundled -> ${partId}`));
     });
   }
+});
+
+test("B-61 and B-181 keep exact names, combinations, types, spins, and bundled parts", () => {
+  const cases = [
+    ["BEY-BURST-B-61-01-QUAD-QUETZALCOATL-J-P", "쿼드 케찰콰틀.J.P", "defense", "right", ["PART-BURST-DUALLAYER-QUAD-QUETZALCOATL", "PART-BURST-DISK-JERK", "PART-BURST-DRIVER-PRESS"]],
+    ["BEY-BURST-B-61-02-WILD-WYVERN-J-G", "와일드 와이번.J.G", "defense", "right", ["PART-BURST-DUALLAYER-WILD-WYVERN", "PART-BURST-DISK-JERK", "PART-BURST-DRIVER-GYRO"]],
+    ["BEY-BURST-B-61-03-DARK-DEATHSCYTHER-J-O", "다크 데스사이저.J.O", "attack", "right", ["PART-BURST-DUALLAYER-DARK-DEATHSCYTHER", "PART-BURST-DISK-JERK", "PART-BURST-DRIVER-ORBIT"]],
+    ["BEY-BURST-B-61-04-HOLY-HORUSOOD-V-J", "홀리 호루스드.V.J", "stamina", "right", ["PART-BURST-DUALLAYER-HOLY-HORUSOOD", "PART-BURST-DISK-VERTICAL", "PART-BURST-DRIVER-JAGGY"]],
+    ["BEY-BURST-B-61-05-OBELISK-ODIN-U-J", "오벨리스크 오딘.U.J", "attack", "right", ["PART-BURST-DUALLAYER-OBELISK-ODIN", "PART-BURST-DISK-UPPER", "PART-BURST-DRIVER-JAGGY"]],
+    ["BEY-BURST-B-61-06-HOLY-HORUSOOD-T-O", "홀리 호루스드.T.O", "stamina", "right", ["PART-BURST-DUALLAYER-HOLY-HORUSOOD", "PART-BURST-DISK-TRIPLE", "PART-BURST-DRIVER-ORBIT"]],
+    ["BEY-BURST-B-61-07-DARK-DEATHSCYTHER-V-G", "다크 데스사이저.V.G", "attack", "right", ["PART-BURST-DUALLAYER-DARK-DEATHSCYTHER", "PART-BURST-DISK-VERTICAL", "PART-BURST-DRIVER-GYRO"]],
+    ["BEY-BURST-B-61-08-DRIGER-SLASH-H-F", "드래이거 슬래시.H.F", "balance", "right", ["PART-BURST-LAYER-DRIGER-SLASH", "PART-BURST-DISK-HEAVY", "PART-BURST-DRIVER-FUSION"]],
+    ["BEY-BURST-B-181-01-CYCLONE-RAGNARUK-GG-NV-6", "사이클론 라그나로크.Gg.Nv-6", "stamina", "right", ["PART-BURST-DBBLADE-CYCLONE", "PART-BURST-DBCORE-RAGNARUK", "PART-BURST-DBDISK-GIGA", "PART-BURST-DRIVER-NEVER", "PART-BURST-DBARMOR-6"]],
+    ["BEY-BURST-B-181-02-CYCLONE-RAGNARUK-NX-RS-2", "사이클론 라그나로크.Nx.Rs-2", "stamina", "right", ["PART-BURST-DBBLADE-CYCLONE", "PART-BURST-DBCORE-RAGNARUK", "PART-BURST-DBDISK-NEXUS", "PART-BURST-DRIVER-RISE", "PART-BURST-DBARMOR-2"]],
+    ["BEY-BURST-B-181-03-DRAGOON-V2-WH-XC-DASH", "드래곤 V2.Wh.Xc'", "attack", "left", ["PART-BURST-LAYER-DRAGOON-V2", "PART-BURST-DISK-WHEEL", "PART-BURST-DRIVER-XCEED-DASH"], ["PART-BURST-DBARMOR-6"]],
+    ["BEY-BURST-B-181-04-HELL-KERBECS-GG-WV", "헬 켈베로스.Gg.Wv", "stamina", "right", ["PART-BURST-LAYER-HELL-KERBECS", "PART-BURST-DBDISK-GIGA", "PART-BURST-DRIVER-WAVE"]],
+    ["BEY-BURST-B-181-05-INFINITE-DEATHSCYTHER-UN-1A", "인피니트 데스사이저.Un 1A", "balance", "right", ["PART-BURST-SUPERKINGRING-INFINITE", "PART-BURST-SUPERKINGCHIP-DEATHSCYTHER", "PART-BURST-DRIVER-UNIVERSE", "PART-BURST-SUPERKINGCHASSIS-1A"]],
+    ["BEY-BURST-B-181-06-BRAVE-WYVERN-10-NV-4A", "브레이브 와이번.10.Nv 4A", "attack", "right", ["PART-BURST-SUPERKINGRING-BRAVE", "PART-BURST-SUPERKINGCHIP-WYVERN", "PART-BURST-COREDISK-10", "PART-BURST-DRIVER-NEVER", "PART-BURST-SUPERKINGCHASSIS-4A"]]
+  ];
+  for (const [id, name, battleType, spin, parts, bundledParts] of cases) {
+    const item = beysById.get(id);
+    assert.deepEqual({ name: item?.name, battleType: item?.battleType, spin: item?.spin, parts: item?.parts }, { name, battleType, spin, parts });
+    assert.deepEqual(item?.bundledParts, bundledParts);
+  }
+
+  const hellKerbecs = partItems.find(item => item.id === "PART-BURST-LAYER-HELL-KERBECS");
+  assert.deepEqual(hellKerbecs, {
+    id: "PART-BURST-LAYER-HELL-KERBECS", series: "burst", type: "layer",
+    name: "헬 켈베로스", en: "Hell Kerbecs", battleType: "stamina", spin: "right",
+    tags: [], desc: "", stats: []
+  });
+});
+
+test("only the X Bey Emblem Sticker remains empty after adding both lineups", () => {
+  const emptyReleased = productItems.flatMap(product => Object.entries(product.releases || {}).flatMap(([region, release]) =>
+    release?.status !== "unreleased" && (!Array.isArray(release?.composition) || release.composition.length === 0)
+      ? [`${product.id}:${region}`]
+      : []));
+  assert.deepEqual(emptyReleased, ["PRODUCT-X-BX-00-BEY-EMBLEM-STICKER-01:jp"]);
 });
 
 test("released products expose the ordered lineup through a random Bey entry", () => {

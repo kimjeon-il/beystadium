@@ -23,6 +23,14 @@ B-49-05: Victory Valkyrie Limited Unite
 B-49-06: Storm Spriggan Limited Variable
 B-49-07: Rising Ragnaruk Boost Press
 B-49-08: Kaiser Kerbeus Gravity Variable
+B-61-01: Quad Quetzalcoatl Jerk Press
+B-61-02: Wild Wyvern Jerk Gyro
+B-61-03: Dark Deathscyther Jerk Orbit
+B-61-04: Holy Horusood Vertical Jaggy
+B-61-05: Obelisk Odin Upper Jaggy
+B-61-06: Holy Horusood Triple Orbit
+B-61-07: Dark Deathscyther Vertical Gyro
+B-61-08: Driger Slash Heavy Fusion
 B-67-01: Gigant Gaia Quarter Fusion
 B-67-02: Nova Neptune Quarter Needle
 B-67-03: Unlock Unicorn Quarter Accel
@@ -183,6 +191,12 @@ B-178-05: Variant Lucifer Orbit 2D
 B-178-06: Imperial Dragon 7 Eternal
 B-178-07: Master Diabolos 0 Zephyr
 B-178-08: Revive Phoenix 4 Metal Defense
+B-181-01: Cyclone Ragnaruk Giga Never-6
+B-181-02: Cyclone Ragnaruk Nexus Rise-2
+B-181-03: Dragoon V2 Wheel Xceed'
+B-181-04: Hell Kerbecs Giga Wave
+B-181-05: Infinite Deathscyther Universe 1A
+B-181-06: Brave Wyvern 10 Never 4A
 B-186-01: Roar Bahamut Giga Moment-10
 B-186-02: Roar Fafnir 00 Revolve-2
 B-186-03: Dranzer V2 0Cross Reboot'
@@ -232,7 +246,8 @@ const burstRandomBoosterParts = [
   { id: "PART-BURST-LAYER-DRANZER-V2", series: "burst", type: "layer", name: "드랜저 V2", en: "Dranzer V2", battleType: "balance", tags: [], desc: "", stats: [] },
   { id: "PART-BURST-LAYER-GALAXY-PEGASIS", series: "burst", type: "layer", name: "갤럭시 페가시스", en: "Galaxy Pegasis", battleType: "attack", tags: [], desc: "", stats: [] },
   { id: "PART-BURST-LAYER-DRAGOON-V2", series: "burst", type: "layer", name: "드래곤 V2", en: "Dragoon V2", battleType: "attack", tags: [], desc: "", stats: [] },
-  { id: "PART-BURST-LAYER-DRIGER-V2", series: "burst", type: "layer", name: "드래이거 V2", en: "Driger V2", battleType: "balance", tags: [], desc: "", stats: [] }
+  { id: "PART-BURST-LAYER-DRIGER-V2", series: "burst", type: "layer", name: "드래이거 V2", en: "Driger V2", battleType: "balance", tags: [], desc: "", stats: [] },
+  { id: "PART-BURST-LAYER-HELL-KERBECS", series: "burst", type: "layer", name: "헬 켈베로스", en: "Hell Kerbecs", battleType: "stamina", spin: "right", tags: [], desc: "", stats: [] }
 ];
 
 const identityPartTypes = new Set([
@@ -277,6 +292,9 @@ const spinByPrimaryPart = new Map([
   ["PART-BURST-LAYER-GAIA-DRAGOON", "left"],
   ["PART-BURST-LAYER-DRAGOON-VICTORY", "left"],
   ["PART-BURST-LAYER-DRAGOON-V2", "left"]
+]);
+const bundledPartsBySlot = new Map([
+  ["B-181-03", ["PART-BURST-DBARMOR-6"]]
 ]);
 
 const compact = value => String(value || "")
@@ -456,6 +474,8 @@ function buildBurstRandomBoosterData(partItems, existingBeys) {
       desc: "",
       parts: orderedParts(resolved.identity, resolved.trailing)
     };
+    const bundledParts = bundledPartsBySlot.get(`${row.productNo}-${row.slot}`);
+    if (bundledParts) item.bundledParts = [...bundledParts];
     const lineup = byProduct.get(row.productNo) || [];
     lineup.push(id);
     byProduct.set(row.productNo, lineup);
