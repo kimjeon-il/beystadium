@@ -10,8 +10,8 @@ import { xProductBaseNo, xProductBeyNumberIssues } from "../scripts/x-product-nu
 const productsById = new Map(productItems.map(product => [product.id, product]));
 const allTargetIds = new Set([...beyItems, ...partItems, ...toolsItems].map(item => item.id));
 
-test("23 requested X products expose the exact regional compositions", () => {
-  assert.equal(Object.keys(xSetProductCompositions).length, 23);
+test("24 requested X products expose the exact regional compositions", () => {
+  assert.equal(Object.keys(xSetProductCompositions).length, 24);
 
   for (const [productId, regionalCompositions] of Object.entries(xSetProductCompositions)) {
     const product = productsById.get(productId);
@@ -113,4 +113,48 @@ test("logger labels and Spider-Man correction are region-safe", () => {
   assert.equal(spider.addressSlug, "SPIDER-MAN-3-60F-VENOM-3-80N");
   assert.match(spider.releases.jp.name, /3-60F/);
   assert.equal(productItems.some(item => /SPIDER-MAN-3-30F/.test(item.id)), false);
+});
+
+test("Evangelion deck set reuses shared parts and exposes its storage box", () => {
+  const product = productsById.get("PRODUCT-X-CX-00-EVANGELION-DECK-SET");
+  assert.deepEqual(product.releases.kr, { status: "unreleased" });
+  assert.deepEqual(product.releases.jp.composition, [
+    { name: "에바 아크B 0-70E", quantity: "1개", target: "BEY-X-CX-00-EVA-ARC-B-0-70E" },
+    { name: "에바 브레이브A 1-70V", quantity: "1개", target: "BEY-X-CX-00-EVA-BRAVE-A-1-70V" },
+    { name: "에바 브러시T 2-70A", quantity: "1개", target: "BEY-X-CX-00-EVA-BRUSH-T-2-70A" },
+    { name: "와인더런처", quantity: "2개", target: "TOOLS-X-WINDER-LAUNCHER" },
+    { name: "베이블레이드 수납 박스", quantity: "1개", target: "TOOLS-X-BEYBLADE-STORAGE-BOX" }
+  ]);
+
+  const evaChip = partItems.find(item => item.id === "PART-X-BLADE-LOCK-CHIP-EVA");
+  assert.deepEqual(evaChip && {
+    name: evaChip.name,
+    en: evaChip.en,
+    spin: evaChip.spin,
+    line: evaChip.xLine,
+    role: evaChip.xBladeRole
+  }, { name: "에바", en: "Eva", spin: "right", line: "custom", role: "lockChip" });
+
+  const evaBeys = [
+    ["BEY-X-CX-00-EVA-ARC-B-0-70E", "balance", ["PART-X-BLADE-MAIN-BLADE-ARC", "PART-X-BLADE-ASSIST-BLADE-BUMPER", "PART-X-RATCHET-0-70", "PART-X-BIT-E"]],
+    ["BEY-X-CX-00-EVA-BRAVE-A-1-70V", "attack", ["PART-X-BLADE-MAIN-BLADE-BRAVE", "PART-X-BLADE-ASSIST-BLADE-ASSAULT", "PART-X-RATCHET-1-70", "PART-X-BIT-V"]],
+    ["BEY-X-CX-00-EVA-BRUSH-T-2-70A", "attack", ["PART-X-BLADE-MAIN-BLADE-BRUSH", "PART-X-BLADE-ASSIST-BLADE-TURN", "PART-X-RATCHET-2-70", "PART-X-BIT-A"]]
+  ];
+  for (const [id, battleType, remainingParts] of evaBeys) {
+    const bey = beyItems.find(item => item.id === id);
+    assert.equal(bey.productNo, "CX-00");
+    assert.equal(bey.battleType, battleType);
+    assert.equal(bey.spin, "right");
+    assert.deepEqual(bey.parts, ["PART-X-BLADE-LOCK-CHIP-EVA", ...remainingParts]);
+  }
+
+  const storageBox = toolsItems.find(item => item.id === "TOOLS-X-BEYBLADE-STORAGE-BOX");
+  assert.deepEqual(storageBox, {
+    id: "TOOLS-X-BEYBLADE-STORAGE-BOX",
+    series: "x",
+    name: "베이블레이드 수납 박스",
+    en: "Beyblade Storage Box",
+    category: "기타",
+    desc: ""
+  });
 });

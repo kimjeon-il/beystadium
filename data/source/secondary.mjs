@@ -134,6 +134,7 @@ const toolsItems = [
   { id: "TOOLS-X-RUBBER-CUSTOM-GRIP", series: "x", name: "러버커스텀그립", en: "Rubber Custom Grip", category: "그립", desc: "" },
   { id: "TOOLS-X-BATTLE-DECK-CASE", series: "x", name: "배틀 덱 케이스", en: "Battle Deck Case", category: "기타", desc: "" },
   { id: "TOOLS-X-GEAR-CASE", series: "x", name: "기어케이스", en: "Gear Case", category: "기타", desc: "" },
+  { id: "TOOLS-X-BEYBLADE-STORAGE-BOX", series: "x", name: "베이블레이드 수납 박스", en: "Beyblade Storage Box", category: "기타", desc: "" },
   { id: "TOOLS-X-XTREME-STADIUM", series: "x", name: "익스트림스타디움", en: "Xtreme Stadium", category: "스타디움", desc: "" },
   { id: "TOOLS-X-WIDE-XTREME-STADIUM", series: "x", name: "와이드익스트림스타디움", en: "Wide Xtreme Stadium", category: "스타디움", desc: "" },
   { id: "TOOLS-X-DOUBLE-XTREME-STADIUM", series: "x", name: "더블익스트림스타디움", en: "Double Xtreme Stadium", category: "스타디움", desc: "" },

@@ -7752,7 +7752,7 @@
       },
       jp: {
         no: "BX-00",
-        name: "라이트닝엘드라고 1-60F",
+        name: "랜덤부스터 라이트닝엘드라고 1-60F",
         kind: "랜덤부스터",
         releaseDate: "2024-09-14",
         price: "1600",
@@ -9497,8 +9497,7 @@ for (const product of productItems) {
 }
 
 for (const product of productItems) {
-  const productNo = product.id.match(/^PRODUCT-X-((?:BX|CX)-\d+)$/)?.[1];
-  const lineup = productNo ? xRandomBoosterLineups[productNo] : null;
+  const lineup = xRandomBoosterLineups[product.id];
   if (!lineup) continue;
   product.lineupPool = lineup;
   const release = product.releases?.jp;

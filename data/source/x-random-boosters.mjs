@@ -32,14 +32,17 @@ const xRandomBoosterBeyItems = [
   { id: "BEY-X-BX-50-03-IMPACT-DRAKE-7-55FB", series: "x", type: "bey", name: "임팩트드레이크 7-55FB", en: "Impact Drake 7-55FB", productNo: "BX-50-03", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["PART-X-BLADE-IMPACT-DRAKE", "PART-X-RATCHET-7-55", "PART-X-BIT-FB"] },
   { id: "BEY-X-BX-50-04-GHOST-CIRCLE-M-85DS", series: "x", type: "bey", name: "고스트서클 M-85DS", en: "Ghost Circle M-85DS", productNo: "BX-50-04", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["PART-X-BLADE-GHOST-CIRCLE", "PART-X-RATCHET-M-85", "PART-X-BIT-DS"] },
   { id: "BEY-X-BX-50-05-WOLF-FLAME-D-9-65L", series: "x", type: "bey", name: "울프 플레임D 9-65L", en: "Wolf Flame D 9-65L", productNo: "BX-50-05", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["PART-X-BLADE-LOCK-CHIP-WOLF", "PART-X-BLADE-MAIN-BLADE-FLAME", "PART-X-BLADE-ASSIST-BLADE-DUAL", "PART-X-RATCHET-9-65", "PART-X-BIT-L"] },
-  { id: "BEY-X-BX-50-06-KERBEROS-REAPER-B-0-80WB", series: "x", type: "bey", name: "케르베로스 리퍼B 0-80WB", en: "Kerberos Reaper B 0-80WB", productNo: "BX-50-06", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["PART-X-BLADE-LOCK-CHIP-KERBEROS", "PART-X-BLADE-MAIN-BLADE-REAPER", "PART-X-BLADE-ASSIST-BLADE-BUMPER", "PART-X-RATCHET-0-80", "PART-X-BIT-WB"] }
+  { id: "BEY-X-BX-50-06-KERBEROS-REAPER-B-0-80WB", series: "x", type: "bey", name: "케르베로스 리퍼B 0-80WB", en: "Kerberos Reaper B 0-80WB", productNo: "BX-50-06", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["PART-X-BLADE-LOCK-CHIP-KERBEROS", "PART-X-BLADE-MAIN-BLADE-REAPER", "PART-X-BLADE-ASSIST-BLADE-BUMPER", "PART-X-RATCHET-0-80", "PART-X-BIT-WB"] },
+  { id: "BEY-X-BX-00-01-LIGHTNING-L-DRAGO-UPPER-1-60F", series: "x", type: "bey", name: "라이트닝 엘드라고 1-60F (어퍼형)", jpName: "라이트닝엘드라고 1-60F (어퍼형)", en: "Lightning L-Drago 1-60F (Upper Mode)", productNo: "BX-00-01", battleType: "attack", spin: "left", tags: [], desc: "", parts: ["PART-X-BLADE-LIGHTNING-L-DRAGO-UPPER", "PART-X-RATCHET-1-60", "PART-X-BIT-F"] },
+  { id: "BEY-X-BX-00-02-LIGHTNING-L-DRAGO-BARRAGE-1-60F", series: "x", type: "bey", name: "라이트닝 엘드라고 1-60F (연타형)", jpName: "라이트닝엘드라고 1-60F (연타형)", en: "Lightning L-Drago 1-60F (Barrage Mode)", productNo: "BX-00-02", battleType: "attack", spin: "left", tags: [], desc: "", parts: ["PART-X-BLADE-LIGHTNING-L-DRAGO-BARRAGE", "PART-X-RATCHET-1-60", "PART-X-BIT-F"] }
 ];
 
 const xRandomBoosterLineups = {
-  "BX-48": xRandomBoosterBeyItems.slice(0, 5).map(item => item.id),
-  "CX-17": xRandomBoosterBeyItems.slice(5, 11).map(item => item.id),
-  "CX-18": xRandomBoosterBeyItems.slice(11, 14).map(item => item.id),
-  "BX-50": xRandomBoosterBeyItems.slice(14, 20).map(item => item.id)
+  "PRODUCT-X-BX-48": xRandomBoosterBeyItems.slice(0, 5).map(item => item.id),
+  "PRODUCT-X-CX-17": xRandomBoosterBeyItems.slice(5, 11).map(item => item.id),
+  "PRODUCT-X-CX-18": xRandomBoosterBeyItems.slice(11, 14).map(item => item.id),
+  "PRODUCT-X-BX-50": xRandomBoosterBeyItems.slice(14, 20).map(item => item.id),
+  "PRODUCT-X-BX-00-LIGHTNING-L-DRAGO-1-60F": xRandomBoosterBeyItems.slice(20, 22).map(item => item.id)
 };
 
 export {

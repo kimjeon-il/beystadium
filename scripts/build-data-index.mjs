@@ -7,7 +7,7 @@ import { productItems } from "../data/source/products.mjs";
 import { rareBeyGetItems } from "../data/source/rare-bey-get.mjs";
 import { bookItems, gameItems, toolsItems } from "../data/source/secondary.mjs";
 
-const VERSION = "20260715-x-random-boosters-9-11";
+const VERSION = "20260715-x-lightning-eva-products";
 const SERIES_SLUGS = {
   "metal fight": "metal-fight",
   burst: "burst",

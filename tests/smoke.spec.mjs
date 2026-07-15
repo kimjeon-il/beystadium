@@ -1426,6 +1426,12 @@ test("X random booster products open their ordered Bey lineups", async ({ page }
       count: 6,
       firstId: "BEY-X-BX-50-01-HEAVENS-RING-0-80DS",
       lastId: "BEY-X-BX-50-06-KERBEROS-REAPER-B-0-80WB"
+    },
+    {
+      productId: "PRODUCT-X-BX-00-LIGHTNING-L-DRAGO-1-60F",
+      count: 2,
+      firstId: "BEY-X-BX-00-01-LIGHTNING-L-DRAGO-UPPER-1-60F",
+      lastId: "BEY-X-BX-00-02-LIGHTNING-L-DRAGO-BARRAGE-1-60F"
     }
   ];
 
@@ -1561,6 +1567,7 @@ test("X set products render Bey, part, tool, and quantity compositions", async (
     { productId: "PRODUCT-X-BX-00-BEYBLADE-25TH-ANNIVERSARY-SET", count: 7, targetIndex: 3, targetId: "BEY-X-BX-00-DRAN-SWORD-3-60F" },
     { productId: "PRODUCT-X-BX-00-IRON-MAN-4-80B-THANOS-4-60P", count: 3, targetId: "BEY-X-BX-00-IRON-MAN-4-80B" },
     { productId: "PRODUCT-X-BX-00-T-REX-MOSASAURUS", count: 3, targetId: "BEY-X-BX-00-T-REX-1-80GB" },
+    { productId: "PRODUCT-X-CX-00-EVANGELION-DECK-SET", count: 5, targetIndex: 4, targetId: "TOOLS-X-BEYBLADE-STORAGE-BOX" },
     { productId: "PRODUCT-X-CX-16", count: 4, targetId: "BEY-X-CX-16-BAHAMUT-BLITZ-BK-1-50I" }
   ];
 

@@ -9,14 +9,14 @@ import {
 } from "../data/source/x-random-boosters.mjs";
 
 const expectedLineups = {
-  "BX-48": [
+  "PRODUCT-X-BX-48": [
     "BEY-X-BX-48-01-COBALT-DRAGOON-9-80F",
     "BEY-X-BX-48-02-SHARK-EDGE-4-70E",
     "BEY-X-BX-48-03-MAMMOTH-TUSK-7-60S",
     "BEY-X-BX-48-04-HELLS-SCYTHE-3-85GB",
     "BEY-X-BX-48-05-DRAN-BUSTER-2-80Q"
   ],
-  "CX-17": [
+  "PRODUCT-X-CX-17": [
     "BEY-X-CX-17-01-UNICORN-DELTA-PO-3-60GU",
     "BEY-X-CX-17-02-UNICORN-DELTA-PO-1-80GR",
     "BEY-X-CX-17-03-WARRIOR-SABER-9-65LO",
@@ -24,18 +24,22 @@ const expectedLineups = {
     "BEY-X-CX-17-05-TYRANNO-BEAT-3-60N",
     "BEY-X-CX-17-06-CRIMSON-GARUDA-7-80GU"
   ],
-  "CX-18": [
+  "PRODUCT-X-CX-18": [
     "BEY-X-CX-18-01-BRACHIO-WHIP-OW-5-70NR",
     "BEY-X-CX-18-02-BRACHIO-WHIP-OW-5-70NR",
     "BEY-X-CX-18-03-BRACHIO-WHIP-OW-5-70NR"
   ],
-  "BX-50": [
+  "PRODUCT-X-BX-50": [
     "BEY-X-BX-50-01-HEAVENS-RING-0-80DS",
     "BEY-X-BX-50-02-HEAVENS-RING-6-60TP",
     "BEY-X-BX-50-03-IMPACT-DRAKE-7-55FB",
     "BEY-X-BX-50-04-GHOST-CIRCLE-M-85DS",
     "BEY-X-BX-50-05-WOLF-FLAME-D-9-65L",
     "BEY-X-BX-50-06-KERBEROS-REAPER-B-0-80WB"
+  ],
+  "PRODUCT-X-BX-00-LIGHTNING-L-DRAGO-1-60F": [
+    "BEY-X-BX-00-01-LIGHTNING-L-DRAGO-UPPER-1-60F",
+    "BEY-X-BX-00-02-LIGHTNING-L-DRAGO-BARRAGE-1-60F"
   ]
 };
 const productsById = new Map(productItems.map(item => [item.id, item]));
@@ -44,17 +48,17 @@ const partsById = new Map(partItems.map(item => [item.id, item]));
 
 test("X random booster products expose exact Japanese lineups", () => {
   assert.deepEqual(xRandomBoosterLineups, expectedLineups);
-  assert.equal(xRandomBoosterBeyItems.length, 20);
+  assert.equal(xRandomBoosterBeyItems.length, 22);
 
-  for (const [productNo, lineup] of Object.entries(expectedLineups)) {
-    const product = productsById.get(`PRODUCT-X-${productNo}`);
-    assert.ok(product, productNo);
-    assert.deepEqual(product.releases.kr, { status: "unreleased" }, `${productNo} kr`);
+  for (const [productId, lineup] of Object.entries(expectedLineups)) {
+    const product = productsById.get(productId);
+    assert.ok(product, productId);
+    assert.deepEqual(product.releases.kr, { status: "unreleased" }, `${productId} kr`);
     assert.deepEqual(product.releases.jp.composition, [
       { name: "무작위 베이", quantity: "1개", target: lineup[0] }
-    ], `${productNo} jp composition`);
-    assert.deepEqual(product.lineupPool, lineup, `${productNo} lineup`);
-    for (const target of lineup) assert.ok(beysById.has(target), `${productNo} -> ${target}`);
+    ], `${productId} jp composition`);
+    assert.deepEqual(product.lineupPool, lineup, `${productId} lineup`);
+    for (const target of lineup) assert.ok(beysById.has(target), `${productId} -> ${target}`);
   }
 });
 
@@ -63,14 +67,20 @@ test("X random booster Beys keep canonical product numbers, types, and spins", (
     "attack", "balance", "defense", "stamina", "attack",
     "balance", "attack", "stamina", "balance", "defense", "balance",
     "stamina", "stamina", "stamina",
-    "defense", "balance", "stamina", "defense", "attack", "stamina"
+    "defense", "balance", "stamina", "defense", "attack", "stamina",
+    "attack", "attack"
   ];
 
   assert.deepEqual(xRandomBoosterBeyItems.map(item => item.battleType), expectedTypes);
-  assert.equal(xRandomBoosterBeyItems[0].spin, "left");
-  assert.equal(xRandomBoosterBeyItems.slice(1).every(item => item.spin === "right"), true);
+  assert.deepEqual(xRandomBoosterBeyItems.filter(item => item.spin === "left").map(item => item.id), [
+    "BEY-X-BX-48-01-COBALT-DRAGOON-9-80F",
+    "BEY-X-BX-00-01-LIGHTNING-L-DRAGO-UPPER-1-60F",
+    "BEY-X-BX-00-02-LIGHTNING-L-DRAGO-BARRAGE-1-60F"
+  ]);
+  assert.equal(xRandomBoosterBeyItems.filter(item => item.spin === "right").length, 19);
 
-  for (const [productNo, lineup] of Object.entries(expectedLineups)) {
+  for (const [productId, lineup] of Object.entries(expectedLineups)) {
+    const productNo = productId.match(/^PRODUCT-X-((?:BX|CX)-\d+)/)?.[1];
     for (const [index, id] of lineup.entries()) {
       const bey = beysById.get(id);
       assert.equal(bey.productNo, `${productNo}-${String(index + 1).padStart(2, "0")}`);
@@ -104,9 +114,26 @@ test("new X parts preserve official names, roles, and stats", () => {
 });
 
 test("Brachio Whip color variants remain distinct slot entries", () => {
-  const variants = expectedLineups["CX-18"].map(id => beysById.get(id));
+  const variants = expectedLineups["PRODUCT-X-CX-18"].map(id => beysById.get(id));
   assert.equal(new Set(variants.map(item => item.id)).size, 3);
   assert.equal(new Set(variants.map(item => item.productNo)).size, 3);
   assert.equal(new Set(variants.map(item => item.name)).size, 1);
   assert.equal(new Set(variants.map(item => item.parts.join("|"))).size, 1);
+});
+
+test("Lightning L-Drago keeps the official Upper and Barrage modes", () => {
+  const product = productsById.get("PRODUCT-X-BX-00-LIGHTNING-L-DRAGO-1-60F");
+  assert.equal(product.releases.jp.name, "랜덤부스터 라이트닝엘드라고 1-60F");
+  assert.equal(product.releases.jp.kind, "랜덤부스터");
+
+  const [upper, barrage] = expectedLineups["PRODUCT-X-BX-00-LIGHTNING-L-DRAGO-1-60F"]
+    .map(id => beysById.get(id));
+  assert.deepEqual([upper.jpName, barrage.jpName], [
+    "라이트닝엘드라고 1-60F (어퍼형)",
+    "라이트닝엘드라고 1-60F (연타형)"
+  ]);
+  assert.deepEqual([upper.parts[0], barrage.parts[0]], [
+    "PART-X-BLADE-LIGHTNING-L-DRAGO-UPPER",
+    "PART-X-BLADE-LIGHTNING-L-DRAGO-BARRAGE"
+  ]);
 });

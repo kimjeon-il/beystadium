@@ -16,7 +16,8 @@ const xSetPartItems = [
   { id: "PART-X-BLADE-T-REX", series: "x", type: "blade", name: "티렉스", en: "T. Rex", battleType: "stamina", spin: "right", tags: [], desc: "", stats: [] },
   { id: "PART-X-BLADE-MOSASAURUS", series: "x", type: "blade", name: "모사사우루스", en: "Mosasaurus", battleType: "balance", spin: "right", tags: [], desc: "", stats: [] },
   { id: "PART-X-BLADE-SPINOSAURUS", series: "x", type: "blade", name: "스피노사우루스", en: "Spinosaurus", battleType: "attack", spin: "right", tags: [], desc: "", stats: [] },
-  { id: "PART-X-BLADE-QUETZALCOATLUS", series: "x", type: "blade", name: "케찰코아틀루스", en: "Quetzalcoatlus", battleType: "defense", spin: "right", tags: [], desc: "", stats: [] }
+  { id: "PART-X-BLADE-QUETZALCOATLUS", series: "x", type: "blade", name: "케찰코아틀루스", en: "Quetzalcoatlus", battleType: "defense", spin: "right", tags: [], desc: "", stats: [] },
+  { id: "PART-X-BLADE-LOCK-CHIP-EVA", series: "x", type: "blade", name: "에바", en: "Eva", spin: "right", xLine: "custom", xBladeRole: "lockChip", tags: [], desc: "", stats: [] }
 ];
 
 const xSetBeyItems = [
@@ -39,7 +40,10 @@ const xSetBeyItems = [
   { id: "BEY-X-BX-00-MOSASAURUS-9-60U", series: "x", type: "bey", name: "모사사우루스 9-60U", en: "Mosasaurus 9-60U", productNo: "BX-00", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["PART-X-BLADE-MOSASAURUS", "PART-X-RATCHET-9-60", "PART-X-BIT-U"] },
   { id: "BEY-X-BX-00-SPINOSAURUS-3-85A", series: "x", type: "bey", name: "스피노사우루스 3-85A", en: "Spinosaurus 3-85A", productNo: "BX-00", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["PART-X-BLADE-SPINOSAURUS", "PART-X-RATCHET-3-85", "PART-X-BIT-A"] },
   { id: "BEY-X-BX-00-QUETZALCOATLUS-4-55D", series: "x", type: "bey", name: "케찰코아틀루스 4-55D", en: "Quetzalcoatlus 4-55D", productNo: "BX-00", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["PART-X-BLADE-QUETZALCOATLUS", "PART-X-RATCHET-4-55", "PART-X-BIT-D"] },
-  { id: "BEY-X-CX-16-BAHAMUT-BLITZ-BK-1-50I", series: "x", type: "bey", name: "바하무트 블리츠BK 1-50I", en: "Bahamut Blitz BK 1-50I", productNo: "CX-16", battleType: "", spin: "", tags: [], desc: "", parts: ["PART-X-BLADE-LOCK-CHIP-BAHAMUT", "PART-X-BLADE-MAIN-BLADE-BLITZ", "PART-X-BLADE-OVER-BLADE-BRAKE", "PART-X-BLADE-ASSIST-BLADE-KNUCKLE", "PART-X-RATCHET-1-50", "PART-X-BIT-I"] }
+  { id: "BEY-X-CX-16-BAHAMUT-BLITZ-BK-1-50I", series: "x", type: "bey", name: "바하무트 블리츠BK 1-50I", en: "Bahamut Blitz BK 1-50I", productNo: "CX-16", battleType: "", spin: "", tags: [], desc: "", parts: ["PART-X-BLADE-LOCK-CHIP-BAHAMUT", "PART-X-BLADE-MAIN-BLADE-BLITZ", "PART-X-BLADE-OVER-BLADE-BRAKE", "PART-X-BLADE-ASSIST-BLADE-KNUCKLE", "PART-X-RATCHET-1-50", "PART-X-BIT-I"] },
+  { id: "BEY-X-CX-00-EVA-ARC-B-0-70E", series: "x", type: "bey", name: "에바 아크B 0-70E", en: "EvaArc B0-70E", productNo: "CX-00", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["PART-X-BLADE-LOCK-CHIP-EVA", "PART-X-BLADE-MAIN-BLADE-ARC", "PART-X-BLADE-ASSIST-BLADE-BUMPER", "PART-X-RATCHET-0-70", "PART-X-BIT-E"] },
+  { id: "BEY-X-CX-00-EVA-BRAVE-A-1-70V", series: "x", type: "bey", name: "에바 브레이브A 1-70V", en: "EvaBrave A1-70V", productNo: "CX-00", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["PART-X-BLADE-LOCK-CHIP-EVA", "PART-X-BLADE-MAIN-BLADE-BRAVE", "PART-X-BLADE-ASSIST-BLADE-ASSAULT", "PART-X-RATCHET-1-70", "PART-X-BIT-V"] },
+  { id: "BEY-X-CX-00-EVA-BRUSH-T-2-70A", series: "x", type: "bey", name: "에바 브러시T 2-70A", en: "EvaBrush T2-70A", productNo: "CX-00", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["PART-X-BLADE-LOCK-CHIP-EVA", "PART-X-BLADE-MAIN-BLADE-BRUSH", "PART-X-BLADE-ASSIST-BLADE-TURN", "PART-X-RATCHET-2-70", "PART-X-BIT-A"] }
 ];
 
 const xSetProductCompositions = {
@@ -123,6 +127,9 @@ const xSetProductCompositions = {
   "PRODUCT-X-BX-00-SPINOSAURUS-QUETZALCOATLUS": {
     kr: [item("스피노사우루스 3-85A", "BEY-X-BX-00-SPINOSAURUS-3-85A"), item("케찰코아틀루스 4-55D", "BEY-X-BX-00-QUETZALCOATLUS-4-55D"), item("엔트리런처", "TOOLS-X-ENTRY-LAUNCHER", "2개")],
     jp: [item("스피노사우루스 3-85A", "BEY-X-BX-00-SPINOSAURUS-3-85A"), item("케찰코아틀루스 4-55D", "BEY-X-BX-00-QUETZALCOATLUS-4-55D"), item("엔트리런처", "TOOLS-X-ENTRY-LAUNCHER", "2개")]
+  },
+  "PRODUCT-X-CX-00-EVANGELION-DECK-SET": {
+    jp: [item("에바 아크B 0-70E", "BEY-X-CX-00-EVA-ARC-B-0-70E"), item("에바 브레이브A 1-70V", "BEY-X-CX-00-EVA-BRAVE-A-1-70V"), item("에바 브러시T 2-70A", "BEY-X-CX-00-EVA-BRUSH-T-2-70A"), item("와인더런처", "TOOLS-X-WINDER-LAUNCHER", "2개"), item("베이블레이드 수납 박스", "TOOLS-X-BEYBLADE-STORAGE-BOX")]
   },
   "PRODUCT-X-CX-16": {
     jp: [item("바하무트 블리츠BK 1-50I", "BEY-X-CX-16-BAHAMUT-BLITZ-BK-1-50I"), item("와인더런처", "TOOLS-X-WINDER-LAUNCHER"), item("런처그립", "TOOLS-X-LAUNCHER-GRIP"), item("익스트림스타디움", "TOOLS-X-XTREME-STADIUM")]
