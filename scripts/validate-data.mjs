@@ -6,6 +6,7 @@ import { bookItems, gameItems, toolsItems } from "../data/source/secondary.mjs";
 import { addressIdIssues } from "./address-id.mjs";
 import { productIdIssues } from "./product-id.mjs";
 import { expectedXBeyId } from "./x-bey-id.mjs";
+import { xProductBeyNumberIssues } from "./x-product-number.mjs";
 
 const collections = [beyItems, partItems, productItems, toolsItems, bookItems, gameItems];
 const allItems = collections.flat();
@@ -35,6 +36,7 @@ const missingTargets = productItems.flatMap(item => Object.values(item.releases 
   (release?.composition || [])
     .filter(entry => entry.target && !idSet.has(entry.target))
     .map(entry => `${item.id} -> ${entry.target}`)));
+const invalidXProductBeyNumbers = xProductBeyNumberIssues(productItems, beyItems);
 const missingPoolItems = productItems.flatMap(item => (item.beyPool || [])
   .filter(target => !idSet.has(target))
   .map(target => `${item.id} -> ${target}`));
@@ -56,6 +58,7 @@ const failures = [
   ["invalid product IDs", invalidProductIds],
   ["missing parts", missingParts],
   ["missing composition targets", missingTargets],
+  ["mismatched X product/Bey numbers", invalidXProductBeyNumbers],
   ["missing Bey pool targets", missingPoolItems],
   ["missing lineup targets", missingLineupItems],
   ["missing rare product targets", missingRareProducts],

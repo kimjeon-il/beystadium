@@ -21,6 +21,7 @@ const xSetPartItems = [
 
 const xSetBeyItems = [
   { id: "BEY-X-UX-10-KNIGHT-MAIL-3-85BS", series: "x", type: "bey", name: "나이트메일 3-85BS", en: "Knight Mail 3-85BS", productNo: "UX-10", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["PART-X-BLADE-KNIGHT-MAIL", "PART-X-RATCHET-3-85", "PART-X-BIT-BS"] },
+  { id: "BEY-X-BX-00-DRAN-SWORD-3-60F", series: "x", type: "bey", name: "드랜소드 3-60F", jpName: "드란소드 3-60F", en: "Dran Sword 3-60F", productNo: "BX-00", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["PART-X-BLADE-DRAN-SWORD", "PART-X-RATCHET-3-60", "PART-X-BIT-F"] },
   { id: "BEY-X-BX-00-VICTORY-VALKYRIE-2-60RA", series: "x", type: "bey", name: "빅토리 발키리 2-60RA", jpName: "빅토리발키리 2-60RA", en: "Victory Valkyrie 2-60RA", productNo: "BX-00", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["PART-X-BLADE-VICTORY-VALKYRIE", "PART-X-RATCHET-2-60", "PART-X-BIT-RA"] },
   { id: "BEY-X-BX-00-IRON-MAN-4-80B", series: "x", type: "bey", name: "아이언맨 4-80B", en: "Iron Man 4-80B", productNo: "BX-00", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["PART-X-BLADE-IRON-MAN", "PART-X-RATCHET-4-80", "PART-X-BIT-B"] },
   { id: "BEY-X-BX-00-THANOS-4-60P", series: "x", type: "bey", name: "타노스 4-60P", en: "Thanos 4-60P", productNo: "BX-00", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["PART-X-BLADE-THANOS", "PART-X-RATCHET-4-60", "PART-X-BIT-P"] },
@@ -95,7 +96,7 @@ const xSetProductCompositions = {
     jp: [item("샤크스케일 4-50UF", "BEY-X-UX-15-SHARK-SCALE-4-50UF"), item("티라노로어 1-70L", "BEY-X-UX-15-TYRANNO-ROAR-1-70L"), item("헬즈 브레이브J 3-60GF", "BEY-X-UX-15-HELLS-BRAVE-J-3-60GF")]
   },
   "PRODUCT-X-BX-00-BEYBLADE-25TH-ANNIVERSARY-SET": {
-    jp: [item("드라군스톰 4-60RA", "BEY-X-BX-00-DRAGOON-STORM-4-60RA"), item("스톰 페가시스 3-70RA", "BEY-X-BX-00-STORM-PEGASIS-3-70RA"), item("빅토리발키리 2-60RA", "BEY-X-BX-00-VICTORY-VALKYRIE-2-60RA"), item("드란소드 3-60F", "BEY-X-BX-01-DRAN-SWORD-3-60F"), item("와인더런처", "TOOLS-X-WINDER-LAUNCHER"), item("와인더런처L", "TOOLS-X-WINDER-LAUNCHER-L"), item("스트링런처", "TOOLS-X-STRING-LAUNCHER", "2개")]
+    jp: [item("드라군스톰 4-60RA", "BEY-X-BX-00-DRAGOON-STORM-4-60RA"), item("스톰 페가시스 3-70RA", "BEY-X-BX-00-STORM-PEGASIS-3-70RA"), item("빅토리발키리 2-60RA", "BEY-X-BX-00-VICTORY-VALKYRIE-2-60RA"), item("드란소드 3-60F", "BEY-X-BX-00-DRAN-SWORD-3-60F"), item("와인더런처", "TOOLS-X-WINDER-LAUNCHER"), item("와인더런처L", "TOOLS-X-WINDER-LAUNCHER-L"), item("스트링런처", "TOOLS-X-STRING-LAUNCHER", "2개")]
   },
   "PRODUCT-X-BX-00-IRON-MAN-4-80B-THANOS-4-60P": {
     jp: [item("아이언맨 4-80B", "BEY-X-BX-00-IRON-MAN-4-80B"), item("타노스 4-60P", "BEY-X-BX-00-THANOS-4-60P"), item("엔트리런처", "TOOLS-X-ENTRY-LAUNCHER", "2개")]

@@ -57,13 +57,11 @@ test("real search data keeps representative result IDs and ordering", async ({ p
       scope: "all",
       expectedIds: [
         "BEY-X-BX-01-DRAN-SWORD-3-60F",
-        "PRODUCT-X-BX-01",
-        "PRODUCT-X-BX-00-BEYBLADE-25TH-ANNIVERSARY-SET"
+        "PRODUCT-X-BX-01"
       ],
       orderedGroups: [[
         "BEY-X-BX-01-DRAN-SWORD-3-60F",
-        "PRODUCT-X-BX-01",
-        "PRODUCT-X-BX-00-BEYBLADE-25TH-ANNIVERSARY-SET"
+        "PRODUCT-X-BX-01"
       ]]
     },
     {

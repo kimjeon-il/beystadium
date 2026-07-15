@@ -5,6 +5,7 @@ import { beyItems, partItems } from "../data/source/catalog.mjs";
 import { productItems } from "../data/source/products.mjs";
 import { toolsItems } from "../data/source/secondary.mjs";
 import { xSetProductCompositions } from "../data/source/x-set-products.mjs";
+import { xProductBaseNo, xProductBeyNumberIssues } from "../scripts/x-product-number.mjs";
 
 const productsById = new Map(productItems.map(product => [product.id, product]));
 const allTargetIds = new Set([...beyItems, ...partItems, ...toolsItems].map(item => item.id));
@@ -43,7 +44,7 @@ test("set quantities and mixed Bey-part compositions stay exact", () => {
     ["BEY-X-BX-00-DRAGOON-STORM-4-60RA", "1개"],
     ["BEY-X-BX-00-STORM-PEGASIS-3-70RA", "1개"],
     ["BEY-X-BX-00-VICTORY-VALKYRIE-2-60RA", "1개"],
-    ["BEY-X-BX-01-DRAN-SWORD-3-60F", "1개"],
+    ["BEY-X-BX-00-DRAN-SWORD-3-60F", "1개"],
     ["TOOLS-X-WINDER-LAUNCHER", "1개"],
     ["TOOLS-X-WINDER-LAUNCHER-L", "1개"],
     ["TOOLS-X-STRING-LAUNCHER", "2개"]
@@ -59,6 +60,37 @@ test("set quantities and mixed Bey-part compositions stay exact", () => {
   ]) {
     assert.equal(productsById.get(productId).releases.jp.composition.at(-1).quantity, "2개");
   }
+});
+
+test("25th anniversary Dran Sword has a dedicated BX-00 Bey entry", () => {
+  const dranSword = beyItems.find(item => item.id === "BEY-X-BX-00-DRAN-SWORD-3-60F");
+  assert.deepEqual(dranSword, {
+    id: "BEY-X-BX-00-DRAN-SWORD-3-60F",
+    series: "x",
+    type: "bey",
+    name: "드랜소드 3-60F",
+    jpName: "드란소드 3-60F",
+    en: "Dran Sword 3-60F",
+    productNo: "BX-00",
+    battleType: "attack",
+    spin: "right",
+    tags: [],
+    desc: "",
+    parts: ["PART-X-BLADE-DRAN-SWORD", "PART-X-RATCHET-3-60", "PART-X-BIT-F"]
+  });
+
+  const anniversary = productsById.get("PRODUCT-X-BX-00-BEYBLADE-25TH-ANNIVERSARY-SET");
+  const beyTargets = anniversary.releases.jp.composition
+    .map(entry => entry.target)
+    .filter(target => target.startsWith("BEY-"));
+  assert.equal(beyTargets.length, 4);
+  assert.equal(beyTargets.every(target => target.startsWith("BEY-X-BX-00-")), true);
+});
+
+test("X product compositions only reference Beys with the same base product number", () => {
+  assert.equal(xProductBaseNo("BX-14-01"), "BX-14");
+  assert.equal(xProductBaseNo("PRODUCT-X-BX-14-RANDOM-BOOSTER"), "BX-14");
+  assert.deepEqual(xProductBeyNumberIssues(productItems, beyItems), []);
 });
 
 test("limited X Bey addresses use English names without regional sequence qualifiers", () => {
