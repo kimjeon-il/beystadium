@@ -17,6 +17,21 @@ const expectedProducts = new Map([
   ["PRODUCT-X-BX-00-CUSTOM-GRIP-CLEAR-BLACK", ["커스텀그립", "TOOLS-X-CUSTOM-GRIP"]],
   ["PRODUCT-X-BX-32", ["와이드익스트림스타디움", "TOOLS-X-WIDE-XTREME-STADIUM"]]
 ]);
+const expectedJapaneseProducts = new Map([
+  ["PRODUCT-X-BX-00-PHOENIX-FEATHER-BLADE", ["피닉스페더 블레이드", "TOOLS-X-PHOENIX-FEATHER-BLADE"]],
+  ["PRODUCT-X-BX-00-DRAN-SWORD-BLADE-BLUE", ["드란소드 블레이드", "TOOLS-X-DRAN-SWORD-BLADE"]],
+  ["PRODUCT-X-BX-00-BEYBLADE-STICKER-01", ["베이블레이드 스티커 01", "TOOLS-X-BEYBLADE-STICKER-01"]],
+  ["PRODUCT-X-BX-00-BEYBLADE-STICKER-02", ["베이블레이드 스티커 02", "TOOLS-X-BEYBLADE-STICKER-02"]],
+  ["PRODUCT-X-BX-00-BEYBLADE-STICKER-03", ["베이블레이드 스티커 03", "TOOLS-X-BEYBLADE-STICKER-03"]],
+  ["PRODUCT-X-BX-00-PHOENIX-FEATHER-BLADE-ORANGE", ["피닉스페더 블레이드", "TOOLS-X-PHOENIX-FEATHER-BLADE"]],
+  ["PRODUCT-X-BX-40", ["와인더런처L", "TOOLS-X-WINDER-LAUNCHER-L"]],
+  ["PRODUCT-X-BX-41", ["러버커스텀그립", "TOOLS-X-RUBBER-CUSTOM-GRIP"]],
+  ["PRODUCT-X-BX-42", ["러버커스텀그립", "TOOLS-X-RUBBER-CUSTOM-GRIP"]],
+  ["PRODUCT-X-BX-43", ["기어케이스", "TOOLS-X-GEAR-CASE"]],
+  ["PRODUCT-X-BX-47", ["스트링런처L", "TOOLS-X-STRING-LAUNCHER-L"]],
+  ["PRODUCT-X-BX-00-STRING-LAUNCHER-B4-STORE-LIMITED-COLOR", ["스트링런처", "TOOLS-X-STRING-LAUNCHER"]],
+  ["PRODUCT-X-BX-51", ["스트링런처", "TOOLS-X-STRING-LAUNCHER"]]
+]);
 const productsById = new Map(productItems.map(item => [item.id, item]));
 const toolsById = new Map(toolsItems.map(item => [item.id, item]));
 
@@ -32,18 +47,37 @@ test("requested X tool products contain exactly one matching tool in every relea
   }
 });
 
+test("requested Japanese-only X tool products contain one base equipment item", () => {
+  assert.equal(expectedJapaneseProducts.size, 13);
+  for (const [productId, [name, target]] of expectedJapaneseProducts) {
+    const product = productsById.get(productId);
+    assert.ok(product, productId);
+    assert.deepEqual(product.releases.kr, { status: "unreleased" }, `${productId} kr`);
+    assert.deepEqual(product.releases.jp.composition, [{ name, quantity: "1개", target }], `${productId} jp`);
+    assert.ok(toolsById.has(target), `${productId} -> ${target}`);
+  }
+});
+
 test("new X tools use shared base names without color variants", () => {
   const expectedTools = [
     ["TOOLS-X-BATTLE-DECK-CASE", "배틀 덱 케이스", "Battle Deck Case", "기타"],
     ["TOOLS-X-GEAR-CASE", "기어케이스", "Gear Case", "기타"],
     ["TOOLS-X-CUSTOM-GRIP", "커스텀그립", "Custom Grip", "그립"],
-    ["TOOLS-X-WIDE-XTREME-STADIUM", "와이드익스트림스타디움", "Wide Xtreme Stadium", "스타디움"]
+    ["TOOLS-X-WIDE-XTREME-STADIUM", "와이드익스트림스타디움", "Wide Xtreme Stadium", "스타디움"],
+    ["TOOLS-X-PHOENIX-FEATHER-BLADE", "피닉스페더 블레이드", "Phoenix Feather Blade", "기타"],
+    ["TOOLS-X-DRAN-SWORD-BLADE", "드랜소드 블레이드", "Dran Sword Blade", "기타"],
+    ["TOOLS-X-BEYBLADE-STICKER-01", "베이블레이드 스티커 01", "Beyblade Sticker 01", "기타"],
+    ["TOOLS-X-BEYBLADE-STICKER-02", "베이블레이드 스티커 02", "Beyblade Sticker 02", "기타"],
+    ["TOOLS-X-BEYBLADE-STICKER-03", "베이블레이드 스티커 03", "Beyblade Sticker 03", "기타"],
+    ["TOOLS-X-RUBBER-CUSTOM-GRIP", "러버커스텀그립", "Rubber Custom Grip", "그립"]
   ];
   for (const [id, name, en, category] of expectedTools) {
     const item = toolsById.get(id);
     assert.deepEqual(item && { name: item.name, en: item.en, category: item.category },
       { name, en, category });
   }
+
+  assert.equal(toolsById.get("TOOLS-X-DRAN-SWORD-BLADE")?.jpName, "드란소드 블레이드");
 
   for (const productId of [
     "PRODUCT-X-BX-28",
@@ -57,6 +91,15 @@ test("new X tools use shared base names without color variants", () => {
       .join(" ");
     assert.doesNotMatch(compositionText, /화이트|레드|클리어블랙|Ver\./);
   }
+
+  const variantCompositionText = [...expectedJapaneseProducts.keys()]
+    .flatMap(productId => productsById.get(productId).releases.jp.composition)
+    .map(item => item.name)
+    .join(" ");
+  assert.doesNotMatch(variantCompositionText, /블루|오렌지|건메탈|화이트|레드|블랙×그린|B4스토어|Ver\./);
+  assert.match(variantCompositionText, /스티커 01/);
+  assert.match(variantCompositionText, /스티커 02/);
+  assert.match(variantCompositionText, /스티커 03/);
 });
 
 test("X series uses Xtreme in English names and addresses", () => {

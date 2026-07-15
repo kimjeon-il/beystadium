@@ -182,7 +182,7 @@ const BeystadiumDataStore = (() => {
   const initialize = async () => {
     clearError();
     try {
-      indexData = await fetchJson("./data/runtime/index.json?v=20260715-x-25th-dran-sword");
+      indexData = await fetchJson("./data/runtime/index.json?v=20260715-x-tool-products-expanded");
       if (detailHashOnBoot()) await ensureRegistry();
       document.querySelector("[data-load-retry]")?.addEventListener("click", () => window.location.reload());
       return true;

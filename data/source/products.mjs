@@ -6918,7 +6918,7 @@
         kind: "툴",
         releaseDate: "2023-12-15",
         price: "",
-        composition: []
+        composition: [{ name: "피닉스페더 블레이드", quantity: "1개", target: "TOOLS-X-PHOENIX-FEATHER-BLADE" }]
       }
     }
   },
@@ -7399,7 +7399,7 @@
         kind: "툴",
         releaseDate: "2024-06-14",
         price: "",
-        composition: []
+        composition: [{ name: "드란소드 블레이드", quantity: "1개", target: "TOOLS-X-DRAN-SWORD-BLADE" }]
       }
     }
   },
@@ -7554,7 +7554,7 @@
         kind: "툴",
         releaseDate: "2024-07-30",
         price: "500",
-        composition: []
+        composition: [{ name: "베이블레이드 스티커 01", quantity: "1개", target: "TOOLS-X-BEYBLADE-STICKER-01" }]
       }
     }
   },
@@ -7571,7 +7571,7 @@
         kind: "툴",
         releaseDate: "2024-07-30",
         price: "500",
-        composition: []
+        composition: [{ name: "베이블레이드 스티커 02", quantity: "1개", target: "TOOLS-X-BEYBLADE-STICKER-02" }]
       }
     }
   },
@@ -7588,7 +7588,7 @@
         kind: "툴",
         releaseDate: "2024-07-30",
         price: "500",
-        composition: []
+        composition: [{ name: "베이블레이드 스티커 03", quantity: "1개", target: "TOOLS-X-BEYBLADE-STICKER-03" }]
       }
     }
   },
@@ -8164,7 +8164,7 @@
         kind: "툴",
         releaseDate: "2025-02-28",
         price: "2500",
-        composition: []
+        composition: [{ name: "피닉스페더 블레이드", quantity: "1개", target: "TOOLS-X-PHOENIX-FEATHER-BLADE" }]
       }
     }
   },
@@ -8215,7 +8215,7 @@
         kind: "툴",
         releaseDate: "2025-03-29",
         price: "880",
-        composition: []
+        composition: [{ name: "와인더런처L", quantity: "1개", target: "TOOLS-X-WINDER-LAUNCHER-L" }]
       }
     }
   },
@@ -8232,7 +8232,7 @@
         kind: "툴",
         releaseDate: "2025-03-29",
         price: "1320",
-        composition: []
+        composition: [{ name: "러버커스텀그립", quantity: "1개", target: "TOOLS-X-RUBBER-CUSTOM-GRIP" }]
       }
     }
   },
@@ -8249,7 +8249,7 @@
         kind: "툴",
         releaseDate: "2025-03-29",
         price: "1320",
-        composition: []
+        composition: [{ name: "러버커스텀그립", quantity: "1개", target: "TOOLS-X-RUBBER-CUSTOM-GRIP" }]
       }
     }
   },
@@ -8266,7 +8266,7 @@
         kind: "툴",
         releaseDate: "2025-03-29",
         price: "4000",
-        composition: []
+        composition: [{ name: "기어케이스", quantity: "1개", target: "TOOLS-X-GEAR-CASE" }]
       }
     }
   },
@@ -8858,7 +8858,7 @@
         kind: "툴",
         releaseDate: "2025-10-11",
         price: "990",
-        composition: []
+        composition: [{ name: "스트링런처L", quantity: "1개", target: "TOOLS-X-STRING-LAUNCHER-L" }]
       }
     }
   },
@@ -9166,7 +9166,7 @@
         kind: "툴",
         releaseDate: "2026-03-28",
         price: "1100",
-        composition: []
+        composition: [{ name: "스트링런처", quantity: "1개", target: "TOOLS-X-STRING-LAUNCHER" }]
       }
     }
   },
@@ -9302,7 +9302,7 @@
         kind: "툴",
         releaseDate: "2026-06-13",
         price: "1100",
-        composition: []
+        composition: [{ name: "스트링런처", quantity: "1개", target: "TOOLS-X-STRING-LAUNCHER" }]
       }
     }
   },

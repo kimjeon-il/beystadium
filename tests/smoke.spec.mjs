@@ -1455,6 +1455,36 @@ test("X tool products open their base equipment without color variants", async (
       productId: "PRODUCT-X-BX-32",
       name: "와이드익스트림스타디움",
       targetId: "TOOLS-X-WIDE-XTREME-STADIUM"
+    },
+    {
+      productId: "PRODUCT-X-BX-00-PHOENIX-FEATHER-BLADE-ORANGE",
+      name: "피닉스페더 블레이드",
+      targetId: "TOOLS-X-PHOENIX-FEATHER-BLADE"
+    },
+    {
+      productId: "PRODUCT-X-BX-00-DRAN-SWORD-BLADE-BLUE",
+      name: "드란소드 블레이드",
+      targetId: "TOOLS-X-DRAN-SWORD-BLADE"
+    },
+    {
+      productId: "PRODUCT-X-BX-00-BEYBLADE-STICKER-02",
+      name: "베이블레이드 스티커 02",
+      targetId: "TOOLS-X-BEYBLADE-STICKER-02"
+    },
+    {
+      productId: "PRODUCT-X-BX-41",
+      name: "러버커스텀그립",
+      targetId: "TOOLS-X-RUBBER-CUSTOM-GRIP"
+    },
+    {
+      productId: "PRODUCT-X-BX-47",
+      name: "스트링런처L",
+      targetId: "TOOLS-X-STRING-LAUNCHER-L"
+    },
+    {
+      productId: "PRODUCT-X-BX-51",
+      name: "스트링런처",
+      targetId: "TOOLS-X-STRING-LAUNCHER"
     }
   ];
 
