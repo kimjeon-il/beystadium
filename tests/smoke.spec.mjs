@@ -1472,6 +1472,30 @@ test("X tool products open their base equipment without color variants", async (
   expect(errors).toEqual([]);
 });
 
+test("X set products render Bey, part, tool, and quantity compositions", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "set data is shared by desktop and mobile layouts");
+  const errors = consoleErrors(page);
+  const cases = [
+    { productId: "PRODUCT-X-BX-09", count: 1, firstId: "TOOLS-X-BEY-BATTLE-LOGGER" },
+    { productId: "PRODUCT-X-UX-10", count: 11, firstId: "BEY-X-UX-10-KNIGHT-MAIL-3-85BS" },
+    { productId: "PRODUCT-X-BX-00-IRON-MAN-4-80B-THANOS-4-60P", count: 3, firstId: "BEY-X-BX-00-IRON-MAN-4-80B" },
+    { productId: "PRODUCT-X-BX-00-T-REX-MOSASAURUS", count: 3, firstId: "BEY-X-BX-00-T-REX-1-80GB" },
+    { productId: "PRODUCT-X-CX-16", count: 4, firstId: "BEY-X-CX-16-BAHAMUT-BLITZ-BK-1-50I" }
+  ];
+
+  for (const entry of cases) {
+    await page.goto("about:blank");
+    await page.goto(`/#${entry.productId}`);
+    const compositionLinks = page.locator("#detailModal .product-composition-list .composition-link");
+    await expect(compositionLinks).toHaveCount(entry.count);
+    await expect(compositionLinks.first()).toHaveAttribute("data-target-id", entry.firstId);
+    await compositionLinks.first().click();
+    await expect(page).toHaveURL(new RegExp(`#${entry.firstId}$`));
+    await expectModalBackAtShellTopLeft(page.locator("#detailModal .modal-back"));
+  }
+  expect(errors).toEqual([]);
+});
+
 test("mounted part names use the restored compact label column", async ({ page }) => {
   const errors = consoleErrors(page);
   await page.goto("/#BEY-METAL-FIGHT-BB-80-GRAVITY-PERSEUS-AD145WD");

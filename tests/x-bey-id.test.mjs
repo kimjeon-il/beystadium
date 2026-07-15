@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import { beyItems, partItems } from "../data/source/catalog.mjs";
-import { expectedXBeyId, xBeyCombo, xBeyIdentity, xBeyQualifier } from "../scripts/x-bey-id.mjs";
+import { expectedXBeyId, xBeyCombo, xBeyIdentity } from "../scripts/x-bey-id.mjs";
 
 const partsById = new Map(partItems.map(item => [item.id, item]));
 const xBeys = beyItems.filter(item => item.series === "x");
@@ -14,7 +14,7 @@ test("X Bey IDs include product number, mounted identity, and combination", () =
     "BEY-X-CX-01-DRAN-BRAVE-S-6-60V",
     "BEY-X-CX-14-KNIGHT-FORTRESS-GV-8-70UN",
     "BEY-X-UX-19-BULLET-GRIFFON-H",
-    "BEY-X-BX-00-JP-2-DRANZER-SPIRAL-3-80T"
+    "BEY-X-BX-00-DRANZER-SPIRAL-3-80T"
   ];
 
   for (const id of cases) {
@@ -24,22 +24,23 @@ test("X Bey IDs include product number, mounted identity, and combination", () =
   }
 });
 
-test("X Bey ID component helpers preserve custom-line and qualifier rules", () => {
+test("X Bey ID component helpers preserve custom-line and English-name rules", () => {
   const custom = byId.get("BEY-X-CX-14-KNIGHT-FORTRESS-GV-8-70UN");
   assert.equal(xBeyIdentity(custom, partsById), "KNIGHT-FORTRESS-GV");
   assert.equal(xBeyCombo(custom, partsById), "8-70UN");
 
-  const limited = byId.get("BEY-X-BX-00-JP-2-DRANZER-SPIRAL-3-80T");
-  assert.equal(xBeyQualifier(limited), "JP-2");
+  const limited = byId.get("BEY-X-BX-00-DRANZER-SPIRAL-3-80T");
+  assert.equal(xBeyIdentity(limited, partsById), "DRANZER-SPIRAL");
+  assert.equal(expectedXBeyId(limited, partsById), limited.id);
 
-  const asia = xBeys.find(item => item.id.startsWith("BEY-X-UX-00-ASIA-DRAN-SWORD"));
-  assert.ok(asia);
-  assert.equal(xBeyQualifier(asia), "ASIA");
-  assert.equal(expectedXBeyId(asia, partsById), asia.id);
+  const international = byId.get("BEY-X-UX-00-DRAN-SWORD-4-80DB");
+  assert.ok(international);
+  assert.equal(expectedXBeyId(international, partsById), international.id);
 });
 
 test("all X Bey IDs follow the canonical rule without collisions", () => {
   const expectedIds = xBeys.map(item => expectedXBeyId(item, partsById));
   assert.deepEqual(xBeys.map(item => item.id), expectedIds);
   assert.equal(new Set(expectedIds).size, xBeys.length);
+  assert.equal(xBeys.some(item => /-(?:JP-\d+|ASIA)-/.test(item.id)), false);
 });

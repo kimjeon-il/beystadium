@@ -5,7 +5,7 @@ import { rareBeyGetItems } from "../data/source/rare-bey-get.mjs";
 import { bookItems, gameItems, toolsItems } from "../data/source/secondary.mjs";
 import { addressIdIssues } from "./address-id.mjs";
 import { productIdIssues } from "./product-id.mjs";
-import { expectedXBeyId, xBeyQualifier } from "./x-bey-id.mjs";
+import { expectedXBeyId } from "./x-bey-id.mjs";
 
 const collections = [beyItems, partItems, productItems, toolsItems, bookItems, gameItems];
 const allItems = collections.flat();
@@ -17,9 +17,9 @@ const invalidXBeyIds = beyItems
   .filter(item => item.series === "x")
   .filter(item => item.id !== expectedXBeyId(item, partsById))
   .map(item => `${item.id} -> ${expectedXBeyId(item, partsById)}`);
-const invalidXBeyQualifiers = beyItems
-  .filter(item => item.series === "x" && xBeyQualifier(item) && !item.productNo?.endsWith("-00"))
-  .map(item => `${item.id} (${item.productNo})`);
+const legacyQualifiedXBeyIds = beyItems
+  .filter(item => item.series === "x" && /-(?:JP-\d+|ASIA)-/.test(item.id))
+  .map(item => item.id);
 const invalidProductIds = productItems.flatMap(item => productIdIssues(item)
   .map(issue => `${item.id}: ${issue}`));
 const invalidAddressIds = [
@@ -51,7 +51,7 @@ const invalidEpisodes = (animeInfo.episodes || []).flatMap((episode, index) =>
 const failures = [
   ["duplicate IDs", duplicateIds],
   ["invalid X Bey IDs", invalidXBeyIds],
-  ["invalid X Bey qualifiers", invalidXBeyQualifiers],
+  ["legacy-qualified X Bey IDs", legacyQualifiedXBeyIds],
   ["invalid address IDs", invalidAddressIds],
   ["invalid product IDs", invalidProductIds],
   ["missing parts", missingParts],

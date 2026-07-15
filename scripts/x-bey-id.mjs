@@ -8,13 +8,6 @@ const partIdToken = (part, prefix) => part?.id?.startsWith(prefix)
   ? normalizeIdToken(part.id.slice(prefix.length))
   : "";
 
-const xBeyQualifier = item => {
-  const prefix = `BEY-X-${item?.productNo || ""}`;
-  if (!item?.id?.startsWith(prefix)) return "";
-  const suffix = item.id.slice(prefix.length).replace(/^-/, "");
-  return suffix.match(/^(?:JP-\d+|ASIA)(?:-|$)/)?.[0]?.replace(/-$/, "") || "";
-};
-
 const xBeyParts = (item, partsById) => (item?.parts || [])
   .map(id => partsById.get(id))
   .filter(Boolean);
@@ -47,13 +40,12 @@ function expectedXBeyId(item, partsById) {
   const productNo = normalizeIdToken(item?.productNo);
   const identity = xBeyIdentity(item, partsById);
   const combo = xBeyCombo(item, partsById);
-  return ["BEY-X", productNo, xBeyQualifier(item), identity, combo].filter(Boolean).join("-");
+  return ["BEY-X", productNo, identity, combo].filter(Boolean).join("-");
 }
 
 export {
   expectedXBeyId,
   normalizeIdToken,
   xBeyCombo,
-  xBeyIdentity,
-  xBeyQualifier
+  xBeyIdentity
 };
