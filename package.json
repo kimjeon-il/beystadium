@@ -15,9 +15,10 @@
     "test:product-ids": "node --test tests/product-id.test.mjs",
     "test:burst-random-boosters": "node --test tests/burst-random-boosters.test.mjs",
     "test:burst-random-layers": "node --test tests/burst-random-layers.test.mjs",
+    "test:x-tool-products": "node --test tests/x-tool-products.test.mjs",
     "test:data": "node scripts/validate-data.mjs",
     "test:smoke": "playwright test",
-    "check": "pnpm lint:js && pnpm audit:app && pnpm data:check && pnpm test:data && pnpm test:search && pnpm test:ids && pnpm test:address-ids && pnpm test:product-ids && pnpm test:burst-random-boosters && pnpm test:burst-random-layers && pnpm test:smoke"
+    "check": "pnpm lint:js && pnpm audit:app && pnpm data:check && pnpm test:data && pnpm test:search && pnpm test:ids && pnpm test:address-ids && pnpm test:product-ids && pnpm test:burst-random-boosters && pnpm test:burst-random-layers && pnpm test:x-tool-products && pnpm test:smoke"
   },
   "devDependencies": {
     "@eslint/js": "^9.31.0",

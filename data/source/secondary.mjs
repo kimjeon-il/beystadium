@@ -123,8 +123,12 @@ const toolsItems = [
   { id: "TOOLS-X-HOLD-LAUNCHER", series: "x", name: "홀드런처", en: "Hold Launcher", category: "런처", desc: "" },
   { id: "TOOLS-X-LAUNCHER", series: "x", name: "런처", en: "Launcher", category: "런처", desc: "" },
   { id: "TOOLS-X-LAUNCHER-GRIP", series: "x", name: "런처그립", en: "Launcher Grip", category: "그립", desc: "" },
-  { id: "TOOLS-X-EXTREME-STADIUM", series: "x", name: "익스트림스타디움", en: "Extreme Stadium", category: "스타디움", desc: "" },
-  { id: "TOOLS-X-DOUBLE-EXTREME-STADIUM", series: "x", name: "더블익스트림스타디움", en: "Double Extreme Stadium", category: "스타디움", desc: "" },
+  { id: "TOOLS-X-CUSTOM-GRIP", series: "x", name: "커스텀그립", en: "Custom Grip", category: "그립", desc: "" },
+  { id: "TOOLS-X-BATTLE-DECK-CASE", series: "x", name: "배틀 덱 케이스", en: "Battle Deck Case", category: "기타", desc: "" },
+  { id: "TOOLS-X-GEAR-CASE", series: "x", name: "기어케이스", en: "Gear Case", category: "기타", desc: "" },
+  { id: "TOOLS-X-XTREME-STADIUM", series: "x", name: "익스트림스타디움", en: "Xtreme Stadium", category: "스타디움", desc: "" },
+  { id: "TOOLS-X-WIDE-XTREME-STADIUM", series: "x", name: "와이드익스트림스타디움", en: "Wide Xtreme Stadium", category: "스타디움", desc: "" },
+  { id: "TOOLS-X-DOUBLE-XTREME-STADIUM", series: "x", name: "더블익스트림스타디움", en: "Double Xtreme Stadium", category: "스타디움", desc: "" },
   { id: "TOOLS-X-INFINITY-STADIUM", series: "x", name: "인피니티스타디움", en: "Infinity Stadium", category: "스타디움", desc: "" }
 ];
 

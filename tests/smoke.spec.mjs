@@ -1432,6 +1432,46 @@ test("Burst random layer products open their ordered layer lineups", async ({ pa
   expect(errors).toEqual([]);
 });
 
+test("X tool products open their base equipment without color variants", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "tool data is shared by desktop and mobile layouts");
+  const errors = consoleErrors(page);
+  const cases = [
+    {
+      productId: "PRODUCT-X-BX-00-XTREME-STADIUM-LIGHT-PACKAGE",
+      name: "익스트림스타디움",
+      targetId: "TOOLS-X-XTREME-STADIUM"
+    },
+    {
+      productId: "PRODUCT-X-BX-28",
+      name: "스트링런처",
+      targetId: "TOOLS-X-STRING-LAUNCHER"
+    },
+    {
+      productId: "PRODUCT-X-BX-00-CUSTOM-GRIP-CLEAR-BLACK",
+      name: "커스텀그립",
+      targetId: "TOOLS-X-CUSTOM-GRIP"
+    },
+    {
+      productId: "PRODUCT-X-BX-32",
+      name: "와이드익스트림스타디움",
+      targetId: "TOOLS-X-WIDE-XTREME-STADIUM"
+    }
+  ];
+
+  for (const entry of cases) {
+    await page.goto("about:blank");
+    await page.goto(`/#${entry.productId}`);
+    const compositionLink = page.locator("#detailModal .product-composition-list .composition-link");
+    await expect(compositionLink).toHaveCount(1);
+    await expect(compositionLink).toHaveText(`${entry.name} 1개→`);
+    await expect(compositionLink).toHaveAttribute("data-target-id", entry.targetId);
+    await compositionLink.click();
+    await expect(page).toHaveURL(new RegExp(`#${entry.targetId}$`));
+    await expectModalBackAtShellTopLeft(page.locator("#detailModal .modal-back"));
+  }
+  expect(errors).toEqual([]);
+});
+
 test("mounted part names use the restored compact label column", async ({ page }) => {
   const errors = consoleErrors(page);
   await page.goto("/#BEY-METAL-FIGHT-BB-80-GRAVITY-PERSEUS-AD145WD");

@@ -6441,7 +6441,7 @@
         kind: "세트",
         releaseDate: "2023-11-01",
         price: "69900",
-        composition: [{ name: "드랜소드 3-60F", quantity: "1개", target: "BEY-X-BX-07-DRAN-SWORD-3-60F" }, { name: "스트링런처", quantity: "1개", target: "TOOLS-X-STRING-LAUNCHER" }, { name: "런처그립", quantity: "1개", target: "TOOLS-X-LAUNCHER-GRIP" }, { name: "익스트림스타디움", quantity: "1개", target: "TOOLS-X-EXTREME-STADIUM" }]
+        composition: [{ name: "드랜소드 3-60F", quantity: "1개", target: "BEY-X-BX-07-DRAN-SWORD-3-60F" }, { name: "스트링런처", quantity: "1개", target: "TOOLS-X-STRING-LAUNCHER" }, { name: "런처그립", quantity: "1개", target: "TOOLS-X-LAUNCHER-GRIP" }, { name: "익스트림스타디움", quantity: "1개", target: "TOOLS-X-XTREME-STADIUM" }]
       },
       jp: {
         no: "BX-07",
@@ -6510,7 +6510,7 @@
         kind: "툴",
         releaseDate: "2023-11-01",
         price: "34900",
-        composition: []
+        composition: [{ name: "익스트림스타디움", quantity: "1개", target: "TOOLS-X-XTREME-STADIUM" }]
       },
       jp: {
         no: "BX-10",
@@ -6518,7 +6518,7 @@
         kind: "툴",
         releaseDate: "2023-07-15",
         price: "2750",
-        composition: []
+        composition: [{ name: "익스트림스타디움", quantity: "1개", target: "TOOLS-X-XTREME-STADIUM" }]
       }
     }
   },
@@ -6533,7 +6533,7 @@
         kind: "툴",
         releaseDate: "2023-11-01",
         price: "6900",
-        composition: []
+        composition: [{ name: "런처그립", quantity: "1개", target: "TOOLS-X-LAUNCHER-GRIP" }]
       },
       jp: {
         no: "BX-11",
@@ -6541,7 +6541,7 @@
         kind: "툴",
         releaseDate: "2023-07-15",
         price: "700",
-        composition: []
+        composition: [{ name: "런처그립", quantity: "1개", target: "TOOLS-X-LAUNCHER-GRIP" }]
       }
     }
   },
@@ -6556,7 +6556,7 @@
         kind: "툴",
         releaseDate: "2024-04-04",
         price: "15300",
-        composition: []
+        composition: [{ name: "배틀 덱 케이스", quantity: "1개", target: "TOOLS-X-BATTLE-DECK-CASE" }]
       },
       jp: {
         no: "BX-12",
@@ -6564,12 +6564,12 @@
         kind: "툴",
         releaseDate: "2023-07-15",
         price: "990",
-        composition: []
+        composition: [{ name: "배틀 덱 케이스", quantity: "1개", target: "TOOLS-X-BATTLE-DECK-CASE" }]
       }
     }
   },
 {
-    id: "PRODUCT-X-BX-00-EXTREME-STADIUM-LIGHT-PACKAGE", addressSlug: "EXTREME-STADIUM-LIGHT-PACKAGE",
+    id: "PRODUCT-X-BX-00-XTREME-STADIUM-LIGHT-PACKAGE", addressSlug: "XTREME-STADIUM-LIGHT-PACKAGE",
     series: "x",
     releases: {
       kr: {
@@ -6579,7 +6579,7 @@
         kind: "툴",
         releaseDate: "2023-11-04",
         price: "",
-        composition: []
+        composition: [{ name: "익스트림스타디움", quantity: "1개", target: "TOOLS-X-XTREME-STADIUM" }]
       },
       jp: {
         no: "BX-00",
@@ -6587,7 +6587,7 @@
         kind: "툴",
         releaseDate: "2023-07-15",
         price: "1980",
-        composition: []
+        composition: [{ name: "익스트림스타디움", quantity: "1개", target: "TOOLS-X-XTREME-STADIUM" }]
       }
     }
   },
@@ -6778,7 +6778,7 @@
         kind: "세트",
         releaseDate: "2024-02-07",
         price: "74900",
-        composition: [{ name: "드랜소드 3-60F", quantity: "1개", target: "BEY-X-BX-17-DRAN-SWORD-3-60F" }, { name: "위저드애로우 4-80B", quantity: "1개", target: "BEY-X-BX-17-WIZARD-ARROW-4-80B" }, { name: "와인더런처", quantity: "2개", target: "TOOLS-X-WINDER-LAUNCHER" }, { name: "익스트림스타디움", quantity: "1개", target: "TOOLS-X-EXTREME-STADIUM" }]
+        composition: [{ name: "드랜소드 3-60F", quantity: "1개", target: "BEY-X-BX-17-DRAN-SWORD-3-60F" }, { name: "위저드애로우 4-80B", quantity: "1개", target: "BEY-X-BX-17-WIZARD-ARROW-4-80B" }, { name: "와인더런처", quantity: "2개", target: "TOOLS-X-WINDER-LAUNCHER" }, { name: "익스트림스타디움", quantity: "1개", target: "TOOLS-X-XTREME-STADIUM" }]
       },
       jp: {
         no: "BX-17",
@@ -6801,7 +6801,7 @@
         kind: "툴",
         releaseDate: "2024-02-07",
         price: "10900",
-        composition: []
+        composition: [{ name: "스트링런처", quantity: "1개", target: "TOOLS-X-STRING-LAUNCHER" }]
       },
       jp: {
         no: "BX-18",
@@ -6809,7 +6809,7 @@
         kind: "툴",
         releaseDate: "2023-10-07",
         price: "990",
-        composition: []
+        composition: [{ name: "스트링런처", quantity: "1개", target: "TOOLS-X-STRING-LAUNCHER" }]
       }
     }
   },
@@ -6980,7 +6980,7 @@
         kind: "툴",
         releaseDate: "2024-03-19",
         price: "42900",
-        composition: []
+        composition: [{ name: "기어케이스", quantity: "1개", target: "TOOLS-X-GEAR-CASE" }]
       },
       jp: {
         no: "BX-25",
@@ -6988,7 +6988,7 @@
         kind: "툴",
         releaseDate: "2023-12-27",
         price: "4000",
-        composition: []
+        composition: [{ name: "기어케이스", quantity: "1개", target: "TOOLS-X-GEAR-CASE" }]
       }
     }
   },
@@ -7107,7 +7107,7 @@
         kind: "툴",
         releaseDate: "2024-07-15",
         price: "10900",
-        composition: []
+        composition: [{ name: "스트링런처", quantity: "1개", target: "TOOLS-X-STRING-LAUNCHER" }]
       },
       jp: {
         no: "BX-28",
@@ -7115,7 +7115,7 @@
         kind: "툴",
         releaseDate: "2024-03-30",
         price: "990",
-        composition: []
+        composition: [{ name: "스트링런처", quantity: "1개", target: "TOOLS-X-STRING-LAUNCHER" }]
       }
     }
   },
@@ -7130,7 +7130,7 @@
         kind: "툴",
         releaseDate: "2024-07-15",
         price: "10900",
-        composition: []
+        composition: [{ name: "커스텀그립", quantity: "1개", target: "TOOLS-X-CUSTOM-GRIP" }]
       },
       jp: {
         no: "BX-29",
@@ -7138,7 +7138,7 @@
         kind: "툴",
         releaseDate: "2024-03-30",
         price: "1100",
-        composition: []
+        composition: [{ name: "커스텀그립", quantity: "1개", target: "TOOLS-X-CUSTOM-GRIP" }]
       }
     }
   },
@@ -7153,7 +7153,7 @@
         kind: "툴",
         releaseDate: "2024-07-15",
         price: "10900",
-        composition: []
+        composition: [{ name: "커스텀그립", quantity: "1개", target: "TOOLS-X-CUSTOM-GRIP" }]
       },
       jp: {
         no: "BX-30",
@@ -7161,7 +7161,7 @@
         kind: "툴",
         releaseDate: "2024-03-30",
         price: "1100",
-        composition: []
+        composition: [{ name: "커스텀그립", quantity: "1개", target: "TOOLS-X-CUSTOM-GRIP" }]
       }
     }
   },
@@ -7286,7 +7286,7 @@
         kind: "세트",
         releaseDate: "2024-07-15",
         price: "74900",
-        composition: [{ name: "드랜버스터 1-60A", quantity: "1개", target: "BEY-X-UX-04-DRAN-BUSTER-1-60A" }, { name: "위저드로드 5-70DB", quantity: "1개", target: "BEY-X-UX-04-WIZARD-ROD-5-70DB" }, { name: "와인더런처", quantity: "2개", target: "TOOLS-X-WINDER-LAUNCHER" }, { name: "익스트림스타디움", quantity: "1개", target: "TOOLS-X-EXTREME-STADIUM" }]
+        composition: [{ name: "드랜버스터 1-60A", quantity: "1개", target: "BEY-X-UX-04-DRAN-BUSTER-1-60A" }, { name: "위저드로드 5-70DB", quantity: "1개", target: "BEY-X-UX-04-WIZARD-ROD-5-70DB" }, { name: "와인더런처", quantity: "2개", target: "TOOLS-X-WINDER-LAUNCHER" }, { name: "익스트림스타디움", quantity: "1개", target: "TOOLS-X-XTREME-STADIUM" }]
       },
       jp: {
         no: "UX-04",
@@ -7373,7 +7373,7 @@
         kind: "툴",
         releaseDate: "2024-10-26",
         price: "10900",
-        composition: []
+        composition: [{ name: "커스텀그립", quantity: "1개", target: "TOOLS-X-CUSTOM-GRIP" }]
       },
       jp: {
         no: "BX-00",
@@ -7381,7 +7381,7 @@
         kind: "툴",
         releaseDate: "2024-06-01",
         price: "1200",
-        composition: []
+        composition: [{ name: "커스텀그립", quantity: "1개", target: "TOOLS-X-CUSTOM-GRIP" }]
       }
     }
   },
@@ -7483,7 +7483,7 @@
         kind: "툴",
         releaseDate: "2024-08-06",
         price: "49900",
-        composition: []
+        composition: [{ name: "와이드익스트림스타디움", quantity: "1개", target: "TOOLS-X-WIDE-XTREME-STADIUM" }]
       },
       jp: {
         no: "BX-32",
@@ -7491,7 +7491,7 @@
         kind: "툴",
         releaseDate: "2024-07-13",
         price: "4400",
-        composition: []
+        composition: [{ name: "와이드익스트림스타디움", quantity: "1개", target: "TOOLS-X-WIDE-XTREME-STADIUM" }]
       }
     }
   },
@@ -7788,7 +7788,7 @@
         kind: "세트",
         releaseDate: "2024-11-27",
         price: "92900",
-        composition: [{ name: "베어스크래치 5-60F", quantity: "1개", target: "BEY-X-BX-37-BEAR-SCRATCH-5-60F" }, { name: "와인더런처", quantity: "1개", target: "TOOLS-X-WINDER-LAUNCHER" }, { name: "더블익스트림스타디움", quantity: "1개", target: "TOOLS-X-DOUBLE-EXTREME-STADIUM" }]
+        composition: [{ name: "베어스크래치 5-60F", quantity: "1개", target: "BEY-X-BX-37-BEAR-SCRATCH-5-60F" }, { name: "와인더런처", quantity: "1개", target: "TOOLS-X-WINDER-LAUNCHER" }, { name: "더블익스트림스타디움", quantity: "1개", target: "TOOLS-X-DOUBLE-XTREME-STADIUM" }]
       },
       jp: {
         no: "BX-37",
@@ -8081,7 +8081,7 @@
         kind: "세트",
         releaseDate: "2025-02-14",
         price: "72900",
-        composition: [{ name: "헬즈해머 3-70H", quantity: "1개", target: "BEY-X-UX-00-JP-6-HELLS-HAMMER-3-70H" }, { name: "와인더런처", quantity: "1개", target: "TOOLS-X-WINDER-LAUNCHER" }, { name: "익스트림스타디움", quantity: "1개", target: "TOOLS-X-EXTREME-STADIUM" }]
+        composition: [{ name: "헬즈해머 3-70H", quantity: "1개", target: "BEY-X-UX-00-JP-6-HELLS-HAMMER-3-70H" }, { name: "와인더런처", quantity: "1개", target: "TOOLS-X-WINDER-LAUNCHER" }, { name: "익스트림스타디움", quantity: "1개", target: "TOOLS-X-XTREME-STADIUM" }]
       },
       jp: {
         no: "UX-00",
@@ -8350,7 +8350,7 @@
         kind: "세트",
         releaseDate: "2025-04-10",
         price: "75900",
-        composition: [{ name: "드랜 브레이브S 6-60V", quantity: "1개", target: "BEY-X-CX-04-DRAN-BRAVE-S-6-60V" }, { name: "페르세우스 다크B 6-80W", quantity: "1개", target: "BEY-X-CX-04-PERSEUS-DARK-B-6-80W" }, { name: "와인더런처", quantity: "2개", target: "TOOLS-X-WINDER-LAUNCHER" }, { name: "익스트림스타디움", quantity: "1개", target: "TOOLS-X-EXTREME-STADIUM" }]
+        composition: [{ name: "드랜 브레이브S 6-60V", quantity: "1개", target: "BEY-X-CX-04-DRAN-BRAVE-S-6-60V" }, { name: "페르세우스 다크B 6-80W", quantity: "1개", target: "BEY-X-CX-04-PERSEUS-DARK-B-6-80W" }, { name: "와인더런처", quantity: "2개", target: "TOOLS-X-WINDER-LAUNCHER" }, { name: "익스트림스타디움", quantity: "1개", target: "TOOLS-X-XTREME-STADIUM" }]
       },
       jp: {
         no: "CX-04",
