@@ -1189,7 +1189,7 @@ test("search help shows only its summary when the full guide does not fit", asyn
 test("mobile modal scroll affordance stays above opaque detail sections", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "mobile", "mobile modal layering coverage");
   const errors = consoleErrors(page);
-  await page.goto("/#DBLAYER-GREATEST-RAPHAEL");
+  await page.goto("/#PART-BURST-DBLAYER-GREATEST-RAPHAEL");
   await expect(page.locator("#detailModal")).toBeVisible();
 
   const scrollArea = page.locator("#detailModal .part-modal-info .modal-scroll-area");
@@ -1357,56 +1357,6 @@ test("detail route restores modal and internal navigation hash", async ({ page }
   await compositionLink.first().click();
   await expect(page).toHaveURL(new RegExp(`#${target}$`));
   await expectModalBackAtShellTopLeft(page.locator(".modal-back"));
-  expect(errors).toEqual([]);
-});
-
-test("legacy X Bey address opens the canonical descriptive route", async ({ page }) => {
-  const errors = consoleErrors(page);
-  const canonicalId = "BEY-X-BX-01-DRAN-SWORD-3-60F";
-
-  await page.goto("/#BEY-X-BX-01");
-  await expect(page).toHaveURL(new RegExp(`#${canonicalId}$`));
-  await expect(page.locator("#detailModal")).toBeVisible();
-  await expect(page.locator("#detailModal .modal-name")).toContainText("드랜소드 3-60F");
-
-  await page.goto(`/#${canonicalId}`);
-  await expect(page.locator("#detailModal")).toBeVisible();
-  await expect(page).toHaveURL(new RegExp(`#${canonicalId}$`));
-  expect(errors).toEqual([]);
-});
-
-test("legacy Burst product address opens the corrected canonical route", async ({ page }) => {
-  const errors = consoleErrors(page);
-  const canonicalId = "PRODUCT-BURST-BA-03";
-
-  await page.goto("/#PRODUCT-BURST-BK-03");
-  await expect(page).toHaveURL(new RegExp(`#${canonicalId}$`));
-  await expect(page.locator("#detailModal")).toBeVisible();
-  await expect(page.locator("#detailModal .modal-name")).toContainText("초Z 올인원 배틀 세트");
-
-  await page.goto(`/#${canonicalId}`);
-  await expect(page.locator("#detailModal")).toBeVisible();
-  await expect(page).toHaveURL(new RegExp(`#${canonicalId}$`));
-  expect(errors).toEqual([]);
-});
-
-test("legacy catalog addresses open their unified canonical routes", async ({ page }) => {
-  const errors = consoleErrors(page);
-  const cases = [
-    ["BEY-BB-80-GRAVITY-PERSEUS-AD145WD", "BEY-METAL-FIGHT-BB-80-GRAVITY-PERSEUS-AD145WD"],
-    ["FACE-PERSEUS", "PART-METAL-FIGHT-FACE-PERSEUS"],
-    ["DBLAYER-GREATEST-RAPHAEL", "PART-BURST-DBLAYER-GREATEST-RAPHAEL"],
-    ["X-BLADE-DRAN-SWORD", "PART-X-BLADE-DRAN-SWORD"],
-    ["PRODUCT-BB-28", "PRODUCT-METAL-FIGHT-BB-28"],
-    ["PRODUCT-X-BX-00-JP-3", "PRODUCT-X-BX-00-COBALT-DRAKE-4-60F"],
-    ["TOOLS-LIGHT-LAUNCHER", "TOOLS-METAL-FIGHT-LIGHT-LAUNCHER"]
-  ];
-
-  for (const [legacyId, canonicalId] of cases) {
-    await page.goto(`/#${legacyId}`);
-    await expect(page).toHaveURL(new RegExp(`#${canonicalId}$`));
-    await expect(page.locator("#detailModal")).toBeVisible();
-  }
   expect(errors).toEqual([]);
 });
 
@@ -1651,7 +1601,7 @@ test("modal tag popovers follow the active pointer type", async ({ page }, testI
     });
   }
 
-  await page.goto("/#BEY-X-BX-03");
+  await page.goto("/#BEY-X-BX-03-WIZARD-ARROW-4-80B");
   await expect(page.locator("#detailModal")).toBeVisible();
   const tag = page.locator('.modal-tag-info[data-tag-label="스태미나형"]');
   await expect(tag).toHaveCount(1);
@@ -1739,7 +1689,7 @@ test("open detail modal follows viewport resize in both directions", async ({ pa
   };
 
   await page.setViewportSize({ width: 1440, height: 900 });
-  await page.goto("/#BEY-X-CX-09");
+  await page.goto("/#BEY-X-CX-09-SOL-ECLIPSE-D-5-70TK");
   await expect(page.locator("#detailModal")).toBeVisible();
   await expect.poll(async () => (await snapshotModalLayout()).stage.width).toBe(1440);
   const initialUrl = page.url();

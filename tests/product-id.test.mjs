@@ -66,12 +66,8 @@ test("number 00 products replace region sequence qualifiers with descriptive slu
   ]);
 });
 
-test("all product IDs follow the canonical rule and retain the corrected legacy address", () => {
+test("all product IDs follow the canonical rule", () => {
   const invalid = productItems.flatMap(item => productIdIssues(item)
     .map(issue => `${item.id}: ${issue}`));
   assert.deepEqual(invalid, []);
-
-  const corrected = productItems.find(item => item.id === "PRODUCT-BURST-BA-03");
-  assert.ok(corrected);
-  assert.deepEqual(corrected.legacyIds, ["PRODUCT-BURST-BK-03"]);
 });

@@ -7,7 +7,7 @@ import { productItems } from "../data/source/products.mjs";
 import { rareBeyGetItems } from "../data/source/rare-bey-get.mjs";
 import { bookItems, gameItems, toolsItems } from "../data/source/secondary.mjs";
 
-const VERSION = "20260715-unified-addresses";
+const VERSION = "20260715-canonical-addresses";
 const SERIES_SLUGS = {
   "metal fight": "metal-fight",
   burst: "burst",
@@ -42,7 +42,7 @@ const sourceData = {
 const jsonText = value => `${JSON.stringify(value)}\n`;
 const unique = values => [...new Set(values.filter(Boolean))];
 const runtimeItem = item => {
-  const { addressSlug: _addressSlug, legacyIds: _legacyIds, ...value } = item;
+  const { addressSlug: _addressSlug, ...value } = item;
   return value;
 };
 const released = release => release && release.status !== "unreleased" && Boolean(
@@ -169,15 +169,7 @@ function buildRegistry(chunks, data) {
   data.bookItems.forEach(item => items.push([item.id, chunkCode("common")]));
   data.gameItems.forEach(item => items.push([item.id, chunkCode("common")]));
   episodeIds(data.animeInfo).filter(Boolean).forEach(id => items.push([id, chunkCode("anime")]));
-  const aliases = [
-    ...data.beyItems,
-    ...data.partItems,
-    ...data.productItems,
-    ...data.toolsItems,
-    ...data.bookItems,
-    ...data.gameItems
-  ].flatMap(item => (item.legacyIds || []).map(legacyId => [legacyId, item.id]));
-  return { items, aliases };
+  return { items };
 }
 
 function buildManifest(chunks) {

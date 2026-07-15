@@ -33,7 +33,6 @@ const BeystadiumDataStore = (() => {
   const loadedChunks = new Set();
   const loadedSearchChunks = new Set();
   const itemChunks = new Map();
-  const itemAliases = new Map();
   const searchEntryKeys = new Set();
   let indexData = null;
   let registryPromise = null;
@@ -173,11 +172,6 @@ const BeystadiumDataStore = (() => {
   };
   const registerRegistry = payload => {
     (payload.items || []).forEach(([id, chunk]) => itemChunks.set(id, chunkNames[chunk] || chunk));
-    (payload.aliases || []).forEach(([legacyId, id]) => {
-      itemAliases.set(legacyId, id);
-      const chunk = itemChunks.get(id);
-      if (chunk) itemChunks.set(legacyId, chunk);
-    });
     registryLoaded = true;
   };
   const detailHashOnBoot = () => {
@@ -188,7 +182,7 @@ const BeystadiumDataStore = (() => {
   const initialize = async () => {
     clearError();
     try {
-      indexData = await fetchJson("./data/runtime/index.json?v=20260715-unified-addresses");
+      indexData = await fetchJson("./data/runtime/index.json?v=20260715-canonical-addresses");
       if (detailHashOnBoot()) await ensureRegistry();
       document.querySelector("[data-load-retry]")?.addEventListener("click", () => window.location.reload());
       return true;
@@ -279,11 +273,9 @@ const BeystadiumDataStore = (() => {
     const extraReady = await Promise.all([ensureSearchChunk("common"), ensureSearchChunk("anime")]);
     return [...seriesReady, ...extraReady].every(Boolean);
   };
-  const resolveItemId = id => itemAliases.get(id) || id;
   const ensureItem = async id => {
     if (!itemChunks.has(id)) await ensureRegistry();
-    const resolvedId = resolveItemId(id);
-    const chunk = itemChunks.get(resolvedId) || itemChunks.get(id);
+    const chunk = itemChunks.get(id);
     if (!chunk) return false;
     if (chunk === "common") return ensureSearchChunk("common");
     return ensureChunk(chunk);
@@ -303,16 +295,12 @@ const BeystadiumDataStore = (() => {
     return true;
   };
   const isSeriesLoaded = series => loadedChunks.has(String(series || "").replace(/\s+/g, "-"));
-  const hasItem = id => {
-    const resolvedId = resolveItemId(id);
-    return itemChunks.has(id)
-      || itemChunks.has(resolvedId)
-      || catalogCoreItemsById.has(resolvedId)
-      || productItemsById.has(resolvedId)
-      || toolsItemsById.has(resolvedId)
-      || bookItemsById.has(resolvedId)
-      || gameItemsById.has(resolvedId);
-  };
+  const hasItem = id => itemChunks.has(id)
+    || catalogCoreItemsById.has(id)
+    || productItemsById.has(id)
+    || toolsItemsById.has(id)
+    || bookItemsById.has(id)
+    || gameItemsById.has(id);
 
   return {
     defaultReleaseSeries,
@@ -323,8 +311,7 @@ const BeystadiumDataStore = (() => {
     ensureSeries,
     hasItem,
     initialize,
-    isSeriesLoaded,
-    resolveItemId
+    isSeriesLoaded
   };
 })();
 
