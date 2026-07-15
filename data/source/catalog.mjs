@@ -1,3 +1,8 @@
+import {
+  buildBurstRandomBoosterData,
+  burstRandomBoosterParts
+} from "./burst-random-boosters.mjs";
+
 const beyItems = [
   { id: "BEY-METAL-FIGHT-BB-01-PEGASIS-105F", series: "metal fight", type: "bey", structure: "basic", name: "페가시스", en: "Pegasis", sub: "105F", productNo: "BB-01", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["PART-METAL-FIGHT-FACE-PEGASIS", "PART-METAL-FIGHT-WHEEL-PEGASIS", "PART-METAL-FIGHT-TRACK-105", "PART-METAL-FIGHT-BOTTOM-FLAT"] },
   { id: "BEY-METAL-FIGHT-BB-02-BULL-125SF", series: "metal fight", type: "bey", structure: "basic", name: "불", en: "Bull", sub: "125SF", productNo: "BB-02", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["PART-METAL-FIGHT-FACE-BULL", "PART-METAL-FIGHT-WHEEL-BULL", "PART-METAL-FIGHT-TRACK-125", "PART-METAL-FIGHT-BOTTOM-SEMI-FLAT"] },
@@ -960,7 +965,7 @@ const partItems = [
   { id: "PART-BURST-LAYER-NEPTUNE", series: "burst", type: "layer", name: "넵튠", en: "Neptune", battleType: "balance", tags: [], desc: "해신 넵튠이 모티브, 대중소로 사이즈가 나눠진 칼날로 공격, 방어, 지구 성능을 함께 갖추고 있는 밸런스계열 레이어", stats: [2,1,1,2,2,2] },
   { id: "PART-BURST-LAYER-YGGDRASIL", series: "burst", type: "layer", name: "위그드라실", en: "Yggdrasil", battleType: "stamina", tags: [], desc: "세계수가 모티브. 외곽에 배치된 네 개의 날이 원심력을 만들어내 오래 회전하는 스태미나계열 레이어.", stats: [1,1,3,2,1,2] },
   { id: "PART-BURST-LAYER-WOLBORG", series: "burst", type: "layer", name: "하운드 도그", jpName: "울보그", en: "Wolborg", battleType: "stamina", tags: [], desc: "사냥개 하운드 도그가 모티브. 원심력을 만들어내는 4개의 날이 지구력을 높이고 상대의 공격을 받아넘기는 스태미나계열의 레이어.", jpDesc: "늑대 울보그가 모티브. 원심력을 만들어내는 4개의 날이 지구력을 높이고 상대의 공격을 받아넘기는 스태미너계열의 레이어.", stats: [0,0,4,1,3,2] },
-  { id: "PART-BURST-LAYER-DRAIGER-FANG", series: "burst", type: "layer", name: "클로타이거", jpName: "드래이거 팽", en: "Draiger Fang", battleType: "balance", tags: [], desc: "강력한 발톱을 감추고 있는 클로타이거가 모티브. 공격과 방어에 우수한 날이 겹쳐진 모양의 밸런스계열의 레이어.", jpDesc: "강력한 발톱을 감추고 있는 드래이거 팽이 모티브. 공격과 방어에 우수한 날이 겹쳐진 모양의 밸런스계열의 레이어.", stats: [2,2,2,1,1,2] },
+  { id: "PART-BURST-LAYER-DRIGER-FANG", series: "burst", type: "layer", name: "드래이거 팽", en: "Driger Fang", battleType: "balance", tags: [], desc: "강력한 발톱을 감추고 있는 드래이거 팽이 모티브. 공격과 방어에 우수한 날이 겹쳐진 모양의 밸런스계열의 레이어.", stats: [2,2,2,1,1,2] },
   { id: "PART-BURST-LAYER-STORM-PEGASIS", series: "burst", type: "layer", name: "플래시 슬레이프닐", jpName: "스톰 페가시스", en: "Storm Pegasis", battleType: "attack", tags: [], desc: "위쪽에서 오는 공격을 어퍼 공격으로 튕겨내고, 3개의 날로 상대를 베어가르며 공격을 가하는 레이어.", stats: [4,0,0,2,3,2] },
   { id: "PART-BURST-LAYER-GAIA-DRAGOON-SPIKE", series: "burst", type: "layer", name: "나이프 리저드", jpName: "가이아드라군 스파이크", en: "Gaia Dragoon Spike", battleType: "attack", tags: [], desc: "거대한 자유 회전 윙이 확실하게 상대의 레이어를 잡아내는 어택계열의 레이어.", stats: [4,1,0,2,3,1] },
   { id: "PART-BURST-LAYER-LIGHTNING-L-DRAGO", series: "burst", type: "layer", name: "아쿠아 레비아탄", jpName: "라이트닝 엘드라고", en: "Lightning L-Drago", battleType: "attack", tags: [], desc: "3마리 용의 강한 어택! 연타로 공격할 수 있는 날이 3곳에 있어 공격에 특화된 좌회전 레이어.", stats: [4,0,0,2,2,3] },
@@ -1281,7 +1286,7 @@ const partItems = [
   { id: "PART-BURST-FRAME-TURN", series: "burst", type: "frame", name: "T", en: "Turn", sub: "턴", tags: [], desc: "코어디스크에 장착할 수 있는 공격력 강화 부품. 위아래로 뒤집어서 날의 방향을 바꿀 수 있다.", stats: [2,1,0,0,0,0] },
   { id: "PART-BURST-FRAME-WALL", series: "burst", type: "frame", name: "W", en: "Wall", sub: "월", tags: [], desc: "코어디스크에 장착할 수 있는 공격력 강화 부품. 두껍고 무거운 형태로 전체적인 능력치를 끌어올리는 밸런스계열의 프레임.", stats: [1,1,1,0,0,null] },
   { id: "PART-BURST-FRAME-EXPAND", series: "burst", type: "frame", name: "E", en: "Expand", sub: "익스팬드", tags: [], desc: "코어디스크에 장착할 수 있는 공격력 강화 부품. 어퍼포스를 만들어내는 4개의 큰 날로 공격 성능을 높인다!!", stats: [0,1,1,0,1,null] },
-  { id: "PART-BURST-FRAME-X", series: "burst", type: "frame", name: "A", en: "X", sub: "엑스", tags: [], desc: "코어디스크에 장착할 수 있는 공격력 강화 부품. 3장의 초대형 타격날이 버스트력을 높인다!", stats: [1,0,0,0,0,2] },
+  { id: "PART-BURST-FRAME-AXE", series: "burst", type: "frame", name: "A", en: "Axe", sub: "액스", tags: [], desc: "코어디스크에 장착할 수 있는 공격력 강화 부품. 3장의 초대형 타격날이 버스트력을 높인다!", stats: [1,0,0,0,0,2] },
   { id: "PART-BURST-DBDISK-NEXUS", series: "burst", type: "dbdisk", name: "Nx", en: "Nexus", sub: "넥서스", tags: [], desc: "로우모드에 사용되는 DB디스크. 상하로 나뉘어진 8개의 날개로 공기를 가르는 듯 기동력을 높이는 디스크.", stats: [1,0,0,4,2,1] },
   { id: "PART-BURST-DBDISK-GIGA", series: "burst", type: "dbdisk", name: "Gg", en: "Giga", sub: "기가", tags: [], desc: "로우모드로 조합 가능한 DB디스크. 울퉁불퉁한 두꺼운 축 형태로 되어 있어 낮은 중심과 원심력을 모두 갖춘 디스크.", stats: [0,1,2,5,0,0] },
   { id: "PART-BURST-DBDISK-TAPERED", series: "burst", type: "dbdisk", name: "Tp", en: "Tapered", sub: "테이퍼드", tags: [], desc: "로우모드 대응 DB디스크. 아래로 점점 넓어지며 매끄럽게 꺾여가는 테두리 모양으로 부드럽게 자세를 지지해주는 스태미나타입 디스크.", stats: [0,1,3,4,0,0] },
@@ -1675,6 +1680,13 @@ const partItems = [
   {"id":"PART-X-BIT-BS","series":"x","type":"bit","name":"BS","en":"Bound Spike","sub":"바운드 스파이크","battleType":"defense","tags":[],"desc":"","stats":[5,60,30],"extraStats":[{"name":"대시력","value":5},{"name":"버스트 저항","value":30}]}
 ];
 
+partItems.push(...burstRandomBoosterParts);
+const {
+  beys: burstRandomBoosterBeys,
+  lineups: burstRandomBoosterLineups
+} = buildBurstRandomBoosterData(partItems, beyItems);
+beyItems.push(...burstRandomBoosterBeys);
+
 const catalogCoreItems = [...beyItems, ...partItems];
 
-export { beyItems, partItems, catalogCoreItems };
+export { beyItems, partItems, catalogCoreItems, burstRandomBoosterLineups };

@@ -182,7 +182,7 @@ const BeystadiumDataStore = (() => {
   const initialize = async () => {
     clearError();
     try {
-      indexData = await fetchJson("./data/runtime/index.json?v=20260715-canonical-addresses");
+      indexData = await fetchJson("./data/runtime/index.json?v=20260715-burst-random-boosters");
       if (detailHashOnBoot()) await ensureRegistry();
       document.querySelector("[data-load-retry]")?.addEventListener("click", () => window.location.reload());
       return true;

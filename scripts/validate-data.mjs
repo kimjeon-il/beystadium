@@ -38,6 +38,9 @@ const missingTargets = productItems.flatMap(item => Object.values(item.releases 
 const missingPoolItems = productItems.flatMap(item => (item.beyPool || [])
   .filter(target => !idSet.has(target))
   .map(target => `${item.id} -> ${target}`));
+const missingLineupItems = productItems.flatMap(item => (item.lineupPool || [])
+  .filter(target => !idSet.has(target))
+  .map(target => `${item.id} -> ${target}`));
 const missingRareProducts = rareBeyGetItems.flatMap(entry => [entry.productId, ...(entry.productIds || [])]
   .filter(Boolean)
   .filter(target => !idSet.has(target))
@@ -54,6 +57,7 @@ const failures = [
   ["missing parts", missingParts],
   ["missing composition targets", missingTargets],
   ["missing Bey pool targets", missingPoolItems],
+  ["missing lineup targets", missingLineupItems],
   ["missing rare product targets", missingRareProducts],
   ["invalid anime episodes", invalidEpisodes]
 ].filter(([, values]) => values.length);

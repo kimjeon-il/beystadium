@@ -9478,4 +9478,17 @@
   }
 ];
 
+import { burstRandomBoosterLineups } from "./catalog.mjs";
+
+for (const product of productItems) {
+  const productNo = product.id.match(/^PRODUCT-BURST-(B-\d+)$/)?.[1];
+  const lineup = productNo ? burstRandomBoosterLineups[productNo] : null;
+  if (!lineup) continue;
+  product.lineupPool = lineup;
+  for (const release of Object.values(product.releases || {})) {
+    if (!release || release.status === "unreleased") continue;
+    release.composition = [{ name: "무작위 베이", quantity: "1개", target: lineup[0] }];
+  }
+}
+
 export { productItems };
