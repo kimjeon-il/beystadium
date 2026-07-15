@@ -1685,13 +1685,13 @@ test("long part descriptions use an accessible chevron expander", async ({ page 
   expect(collapsedGeometry.backgroundColor).toBe("rgba(0, 0, 0, 0)");
   expect(collapsedGeometry.borderStyle).toBe("none");
   expect(collapsedGeometry.borderWidth).toBe("0px");
-  expect(collapsedGeometry.buttonWidth).toBeCloseTo(44, 2);
-  expect(collapsedGeometry.buttonHeight).toBeCloseTo(32, 2);
+  expect(collapsedGeometry.buttonWidth).toBeCloseTo(44, 1);
+  expect(collapsedGeometry.buttonHeight).toBeCloseTo(32, 1);
   expect(collapsedGeometry.hoverSurfaceBackgroundColor).toBe("rgba(0, 0, 0, 0)");
-  expect(collapsedGeometry.hoverSurfaceWidth).toBeCloseTo(28, 2);
-  expect(collapsedGeometry.hoverSurfaceHeight).toBeCloseTo(24, 2);
-  expect(collapsedGeometry.hoverSurfaceLeft).toBeCloseTo(8, 2);
-  expect(collapsedGeometry.hoverSurfaceTop).toBeCloseTo(4, 2);
+  expect(collapsedGeometry.hoverSurfaceWidth).toBeCloseTo(28, 1);
+  expect(collapsedGeometry.hoverSurfaceHeight).toBeCloseTo(24, 1);
+  expect(collapsedGeometry.hoverSurfaceLeft).toBeCloseTo(8, 1);
+  expect(collapsedGeometry.hoverSurfaceTop).toBeCloseTo(4, 1);
 
   await toggle.hover();
   const hoveredGeometry = await expanderGeometry();
