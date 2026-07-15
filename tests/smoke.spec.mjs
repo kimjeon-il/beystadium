@@ -1419,10 +1419,10 @@ test("B-181 Dragoon V2 separates its mounted combination from the bundled 6 Armo
   await page.locator("#detailModal .product-lineup-trigger").click();
 
   const dragoonLink = page.locator('#detailModal .composition-link[data-target-id="BEY-BURST-B-181-03-DRAGOON-V2-WH-XC-DASH"]');
-  await expect(dragoonLink.locator("span")).toHaveText("드래곤 V2.Wh.Xc' + 6 아머");
+  await expect(dragoonLink.locator("span")).toHaveText("마그마 리저드.Wh.Xc' + 6 아머");
   await dragoonLink.click();
   await expect(page).toHaveURL(/#BEY-BURST-B-181-03-DRAGOON-V2-WH-XC-DASH$/);
-  await expect(page.locator("#detailModal .modal-name")).toHaveText("드래곤 V2.Wh.Xc'");
+  await expect(page.locator("#detailModal .modal-name")).toHaveText("마그마 리저드.Wh.Xc'");
 
   const mountedLinks = page.locator("#detailModal .mounted-parts:not(.bundled-parts) .mounted-link");
   await expect(mountedLinks).toHaveCount(3);
@@ -1442,6 +1442,18 @@ test("B-181 Dragoon V2 separates its mounted combination from the bundled 6 Armo
   await armorLink.click();
   await expect(page).toHaveURL(/#PART-BURST-DBARMOR-6$/);
   await expectModalBackAtShellTopLeft(page.locator("#detailModal .modal-back"));
+
+  await page.goto("/#toy-release");
+  await page.locator('[data-release-region="jp"]').click();
+  await page.locator(".release-list-page .table-list-dropdown summary").click();
+  await page.locator('[data-release-series="burst"]').click();
+  await page.locator("#releaseSearchInput").fill("B-181");
+  await page.locator('.release-product-row[data-product-id="PRODUCT-BURST-B-181"]').click();
+  await page.locator("#detailModal .product-lineup-trigger").click();
+  const japaneseDragoonLink = page.locator('#detailModal .composition-link[data-target-id="BEY-BURST-B-181-03-DRAGOON-V2-WH-XC-DASH"]');
+  await expect(japaneseDragoonLink.locator("span")).toHaveText("드라군 V2.Wh.Xc' + 6 아머");
+  await japaneseDragoonLink.click();
+  await expect(page.locator("#detailModal .modal-name")).toHaveText("드라군 V2.Wh.Xc'");
   expect(errors).toEqual([]);
 });
 

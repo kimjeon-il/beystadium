@@ -40,6 +40,7 @@ const BeystadiumDataStore = (() => {
   let decodeSearchEntryPromise = null;
   let loadingCount = 0;
   const seriesOrder = { "metal-fight": 0, burst: 1, x: 2 };
+  const searchChunkOrder = { ...seriesOrder, common: 3, anime: 4 };
 
   const chunkNames = { m: "metal-fight", b: "burst", x: "x", a: "anime", o: "common" };
   const loadSearchEntryDecoder = () => decodeSearchEntryPromise ||= import("#app/search-data-decoder")
@@ -167,6 +168,9 @@ const BeystadiumDataStore = (() => {
       if (entry.kind === "book") pushUnique(bookItems, item);
       if (entry.kind === "game") pushUnique(gameItems, item);
     });
+    searchIndexItems.sort((left, right) =>
+      (searchChunkOrder[left.chunk] ?? Number.MAX_SAFE_INTEGER) - (searchChunkOrder[right.chunk] ?? Number.MAX_SAFE_INTEGER)
+      || (left.item?._order ?? left.index ?? Number.MAX_SAFE_INTEGER) - (right.item?._order ?? right.index ?? Number.MAX_SAFE_INTEGER));
     loadedSearchChunks.add(key);
     window.dispatchEvent(new CustomEvent("beystadium:data-loaded", { detail: { kind: "search", key } }));
   };
@@ -182,7 +186,7 @@ const BeystadiumDataStore = (() => {
   const initialize = async () => {
     clearError();
     try {
-      indexData = await fetchJson("./data/runtime/index.json?v=20260715-x-tool-products-expanded");
+      indexData = await fetchJson("./data/runtime/index.json?v=20260716-burst-bakuten-remake-regional-names");
       if (detailHashOnBoot()) await ensureRegistry();
       document.querySelector("[data-load-retry]")?.addEventListener("click", () => window.location.reload());
       return true;

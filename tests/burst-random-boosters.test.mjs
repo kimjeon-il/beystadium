@@ -8,6 +8,7 @@ import {
 } from "../data/source/catalog.mjs";
 import { burstRandomBoosterRows } from "../data/source/burst-random-boosters.mjs";
 import { productItems } from "../data/source/products.mjs";
+import { buildRuntimeData } from "../scripts/build-data-index.mjs";
 
 const expectedCounts = {
   "B-15": 8, "B-24": 8, "B-49": 8, "B-61": 8, "B-67": 8,
@@ -26,6 +27,27 @@ const productsByNo = new Map(productItems.flatMap(item => {
   const no = item.id.match(/^PRODUCT-BURST-(B-\d+)$/)?.[1];
   return no ? [[no, item]] : [];
 }));
+const bakutenRemakeLayers = [
+  ["PART-BURST-LAYER-DRAGOON-STORM", "드래곤 스톰", "드라군 스톰", "Dragoon Storm"],
+  ["PART-BURST-LAYER-DRANZER-SPIRAL", "드랜져 스파이럴", "드랜저 스파이럴", "Dranzer Spiral"],
+  ["PART-BURST-LAYER-DRIGER-SLASH", "드래이거 슬래시", "드라이거 슬래시", "Driger Slash"],
+  ["PART-BURST-LAYER-DRACIEL-SHIELD", "드래셀 실드", "드라시엘 실드", "Draciel Shield"],
+  ["PART-BURST-LAYER-DRAGOON-PHANTOM", "드래곤 팬텀", "드라군 팬텀", "Dragoon Phantom"],
+  ["PART-BURST-LAYER-DRANZER-FLAME", "윙 팔콘", "드랜저 플레임", "Dranzer Flame"],
+  ["PART-BURST-LAYER-WOLBORG", "하운드 도그", "울보그", "Wolborg"],
+  ["PART-BURST-LAYER-DRIGER-FANG", "클로 타이거", "드라이거 팽", "Driger Fang"],
+  ["PART-BURST-LAYER-GAIA-DRAGOON", "나이프 리저드", "가이아 드라군", "Gaia Dragoon"],
+  ["PART-BURST-LAYER-DRACIEL-FORTRESS", "드래셀 포트리스", "드라시엘 포트리스", "Draciel Fortress"],
+  ["PART-BURST-LAYER-DRAGOON-VICTORY", "파이어 리저드", "드라군 빅토리", "Dragoon Victory"],
+  ["PART-BURST-LAYER-DRANZER-VOLCANO", "드랜져 볼케이노", "드랜저 볼케이노", "Dranzer Volcano"],
+  ["PART-BURST-LAYER-DRIGER-VULCAN", "팽 타이거", "드라이거 발칸", "Driger Vulcan"],
+  ["PART-BURST-LAYER-DRACIEL-VIPER", "프로텍션 터틀", "드라시엘 바이퍼", "Draciel Viper"],
+  ["PART-BURST-LAYER-GAIA-DRAGOON-BURST", "가이아 드래곤 버스트", "가이아 드라군 버스트", "Gaia Dragoon Burst"],
+  ["PART-BURST-LAYER-DRAGOON-V2", "마그마 리저드", "드라군 V2", "Dragoon V2"],
+  ["PART-BURST-LAYER-DRANZER-V2", "스카이 팔콘", "드랜저 V2", "Dranzer V2"],
+  ["PART-BURST-LAYER-DRIGER-V2", "스톰 타이거", "드라이거 V2", "Driger V2"],
+  ["PART-BURST-LAYER-DRACIEL-V2", "드래셀 V2", "드라시엘 V2", "Draciel V2"]
+];
 
 test("Burst random booster source contains the requested 227 slots", () => {
   assert.equal(burstRandomBoosterRows.length, 227);
@@ -43,6 +65,7 @@ test("Burst random booster IDs, Korean names, and part references are canonical"
       assert.equal(item.productNo, productNo);
       assert.match(id, new RegExp(`^BEY-BURST-${productNo}-${String(index + 1).padStart(2, "0")}-`));
       assert.match(item.name, /[가-힣]/);
+      assert.match(item.jpName, /[가-힣]/);
       assert.doesNotMatch(`${item.name} ${item.en} ${item.desc} ${item.tags.join(" ")}`, /[()]/);
       item.parts.forEach(partId => assert.ok(partIds.has(partId), `${id} -> ${partId}`));
       (item.bundledParts || []).forEach(partId => assert.ok(partIds.has(partId), `${id} bundled -> ${partId}`));
@@ -62,7 +85,7 @@ test("B-61 and B-181 keep exact names, combinations, types, spins, and bundled p
     ["BEY-BURST-B-61-08-DRIGER-SLASH-H-F", "드래이거 슬래시.H.F", "balance", "right", ["PART-BURST-LAYER-DRIGER-SLASH", "PART-BURST-DISK-HEAVY", "PART-BURST-DRIVER-FUSION"]],
     ["BEY-BURST-B-181-01-CYCLONE-RAGNARUK-GG-NV-6", "사이클론 라그나로크.Gg.Nv-6", "stamina", "right", ["PART-BURST-DBBLADE-CYCLONE", "PART-BURST-DBCORE-RAGNARUK", "PART-BURST-DBDISK-GIGA", "PART-BURST-DRIVER-NEVER", "PART-BURST-DBARMOR-6"]],
     ["BEY-BURST-B-181-02-CYCLONE-RAGNARUK-NX-RS-2", "사이클론 라그나로크.Nx.Rs-2", "stamina", "right", ["PART-BURST-DBBLADE-CYCLONE", "PART-BURST-DBCORE-RAGNARUK", "PART-BURST-DBDISK-NEXUS", "PART-BURST-DRIVER-RISE", "PART-BURST-DBARMOR-2"]],
-    ["BEY-BURST-B-181-03-DRAGOON-V2-WH-XC-DASH", "드래곤 V2.Wh.Xc'", "attack", "left", ["PART-BURST-LAYER-DRAGOON-V2", "PART-BURST-DISK-WHEEL", "PART-BURST-DRIVER-XCEED-DASH"], ["PART-BURST-DBARMOR-6"]],
+    ["BEY-BURST-B-181-03-DRAGOON-V2-WH-XC-DASH", "마그마 리저드.Wh.Xc'", "attack", "left", ["PART-BURST-LAYER-DRAGOON-V2", "PART-BURST-DISK-WHEEL", "PART-BURST-DRIVER-XCEED-DASH"], ["PART-BURST-DBARMOR-6"]],
     ["BEY-BURST-B-181-04-HELL-KERBECS-GG-WV", "헬 켈베로스.Gg.Wv", "stamina", "right", ["PART-BURST-LAYER-HELL-KERBECS", "PART-BURST-DBDISK-GIGA", "PART-BURST-DRIVER-WAVE"]],
     ["BEY-BURST-B-181-05-INFINITE-DEATHSCYTHER-UN-1A", "인피니트 데스사이저.Un 1A", "balance", "right", ["PART-BURST-SUPERKINGRING-INFINITE", "PART-BURST-SUPERKINGCHIP-DEATHSCYTHER", "PART-BURST-DRIVER-UNIVERSE", "PART-BURST-SUPERKINGCHASSIS-1A"]],
     ["BEY-BURST-B-181-06-BRAVE-WYVERN-10-NV-4A", "브레이브 와이번.10.Nv 4A", "attack", "right", ["PART-BURST-SUPERKINGRING-BRAVE", "PART-BURST-SUPERKINGCHIP-WYVERN", "PART-BURST-COREDISK-10", "PART-BURST-DRIVER-NEVER", "PART-BURST-SUPERKINGCHASSIS-4A"]]
@@ -73,12 +96,57 @@ test("B-61 and B-181 keep exact names, combinations, types, spins, and bundled p
     assert.deepEqual(item?.bundledParts, bundledParts);
   }
 
+  assert.equal(beysById.get("BEY-BURST-B-181-03-DRAGOON-V2-WH-XC-DASH")?.jpName, "드라군 V2.Wh.Xc'");
+
   const hellKerbecs = partItems.find(item => item.id === "PART-BURST-LAYER-HELL-KERBECS");
   assert.deepEqual(hellKerbecs, {
     id: "PART-BURST-LAYER-HELL-KERBECS", series: "burst", type: "layer",
     name: "헬 켈베로스", en: "Hell Kerbecs", battleType: "stamina", spin: "right",
     tags: [], desc: "", stats: []
   });
+});
+
+test("all 19 Bakuten remake layers keep exact Korean, Japanese, and English identities", () => {
+  const partsById = new Map(partItems.map(item => [item.id, item]));
+  assert.equal(bakutenRemakeLayers.length, 19);
+
+  for (const [id, name, jpName, en] of bakutenRemakeLayers) {
+    const part = partsById.get(id);
+    assert.deepEqual(
+      { id: part?.id, name: part?.name, jpName: part?.jpName, en: part?.en },
+      { id, name, jpName, en }
+    );
+    assert.equal(id, `PART-BURST-LAYER-${en.toUpperCase().replace(/[^A-Z0-9]+/g, "-")}`);
+  }
+
+  assert.equal(partItems.some(item => item.id === "PART-BURST-LAYER-GAIA-DRAGOON-SPIKE"), false);
+});
+
+test("remake Bey names localize by region while addresses retain Japanese identities", () => {
+  const partsById = new Map(bakutenRemakeLayers.map(([id, name, jpName]) => [id, { name, jpName }]));
+  const remakeBeys = beyItems.filter(item => item.parts?.some(id => partsById.has(id)));
+  const koreanAddressTokens = /(?:MAGMA-LIZARD|SKY-FALCON|STORM-TIGER|PROTECTION-TURTLE|FIRE-LIZARD|CLAW-TIGER|KNIFE-LIZARD|WING-FALCON|HOUND-DOG)/;
+
+  assert.equal(remakeBeys.length, 22);
+  for (const item of remakeBeys) {
+    const layerId = item.parts.find(id => partsById.has(id));
+    const layer = partsById.get(layerId);
+    assert.ok(item.name.startsWith(layer.name), `${item.id} Korean name`);
+    assert.ok(item.jpName.startsWith(layer.jpName), `${item.id} Japanese name`);
+    assert.ok(item.id.includes(`-${layerId.replace("PART-BURST-LAYER-", "")}-`), `${item.id} canonical identity`);
+  }
+
+  const invalidAddresses = [...partItems, ...beyItems]
+    .filter(item => item.series === "burst" && koreanAddressTokens.test(item.id))
+    .map(item => item.id);
+  assert.deepEqual(invalidAddresses, []);
+});
+
+test("Burst search data exposes both regional Dragoon V2 names", () => {
+  const entry = buildRuntimeData().searchChunks.burst.search
+    .find(item => item[2] === "BEY-BURST-B-181-03-DRAGOON-V2-WH-XC-DASH");
+  assert.equal(entry?.[6], "마그마 리저드.Wh.Xc'");
+  assert.equal(entry?.[7], "드라군 V2.Wh.Xc'");
 });
 
 test("only the X Bey Emblem Sticker remains empty after adding both lineups", () => {

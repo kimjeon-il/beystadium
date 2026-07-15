@@ -229,24 +229,27 @@ B-202-05: Xiphoid Belial Karma Destroy'-10
 `.trim();
 
 const burstRandomBoosterParts = [
-  { id: "PART-BURST-LAYER-DRACIEL-SHIELD", series: "burst", type: "layer", name: "드래셀 실드", en: "Draciel Shield", battleType: "defense", tags: [], desc: "", stats: [] },
-  { id: "PART-BURST-LAYER-DRANZER-SPIRAL", series: "burst", type: "layer", name: "드랜저 스파이럴", en: "Dranzer Spiral", battleType: "balance", tags: [], desc: "", stats: [] },
-  { id: "PART-BURST-LAYER-DRAGOON-STORM", series: "burst", type: "layer", name: "드래곤 스톰", en: "Dragoon Storm", battleType: "attack", tags: [], desc: "", stats: [] },
-  { id: "PART-BURST-LAYER-DRIGER-SLASH", series: "burst", type: "layer", name: "드래이거 슬래시", en: "Driger Slash", battleType: "balance", tags: [], desc: "", stats: [] },
-  { id: "PART-BURST-LAYER-DRANZER-FLAME", series: "burst", type: "layer", name: "드랜저 플레임", en: "Dranzer Flame", battleType: "balance", tags: [], desc: "", stats: [] },
-  { id: "PART-BURST-LAYER-GAIA-DRAGOON", series: "burst", type: "layer", name: "가이아 드래군", en: "Gaia Dragoon", battleType: "attack", tags: [], desc: "", stats: [] },
-  { id: "PART-BURST-LAYER-DRAGOON-VICTORY", series: "burst", type: "layer", name: "드래곤 빅토리", en: "Dragoon Victory", battleType: "attack", tags: [], desc: "", stats: [] },
-  { id: "PART-BURST-LAYER-DRACIEL-FORTRESS", series: "burst", type: "layer", name: "드래셀 포트리스", en: "Draciel Fortress", battleType: "defense", tags: [], desc: "", stats: [] },
+  { id: "PART-BURST-LAYER-DRAGOON-STORM", series: "burst", type: "layer", name: "드래곤 스톰", jpName: "드라군 스톰", en: "Dragoon Storm", battleType: "attack", tags: [], desc: "", stats: [] },
+  { id: "PART-BURST-LAYER-DRANZER-SPIRAL", series: "burst", type: "layer", name: "드랜져 스파이럴", jpName: "드랜저 스파이럴", en: "Dranzer Spiral", battleType: "balance", tags: [], desc: "", stats: [] },
+  { id: "PART-BURST-LAYER-DRIGER-SLASH", series: "burst", type: "layer", name: "드래이거 슬래시", jpName: "드라이거 슬래시", en: "Driger Slash", battleType: "balance", tags: [], desc: "", stats: [] },
+  { id: "PART-BURST-LAYER-DRACIEL-SHIELD", series: "burst", type: "layer", name: "드래셀 실드", jpName: "드라시엘 실드", en: "Draciel Shield", battleType: "defense", tags: [], desc: "", stats: [] },
+  { id: "PART-BURST-LAYER-DRAGOON-PHANTOM", series: "burst", type: "layer", name: "드래곤 팬텀", jpName: "드라군 팬텀", en: "Dragoon Phantom", battleType: "attack", tags: [], desc: "", stats: [] },
+  { id: "PART-BURST-LAYER-DRANZER-FLAME", series: "burst", type: "layer", name: "윙 팔콘", jpName: "드랜저 플레임", en: "Dranzer Flame", battleType: "balance", tags: [], desc: "", stats: [] },
+  { id: "PART-BURST-LAYER-GAIA-DRAGOON", series: "burst", type: "layer", name: "나이프 리저드", jpName: "가이아 드라군", en: "Gaia Dragoon", battleType: "attack", tags: [], desc: "거대한 자유 회전 윙이 확실하게 상대의 레이어를 잡아내는 어택계열의 레이어.", stats: [4,1,0,2,3,1] },
+  { id: "PART-BURST-LAYER-DRACIEL-FORTRESS", series: "burst", type: "layer", name: "드래셀 포트리스", jpName: "드라시엘 포트리스", en: "Draciel Fortress", battleType: "defense", tags: [], desc: "", stats: [] },
+  { id: "PART-BURST-LAYER-DRAGOON-VICTORY", series: "burst", type: "layer", name: "파이어 리저드", jpName: "드라군 빅토리", en: "Dragoon Victory", battleType: "attack", tags: [], desc: "", stats: [] },
   { id: "PART-BURST-LAYER-BURN-PHOENIX", series: "burst", type: "layer", name: "번 피닉스", en: "Burn Phoenix", battleType: "stamina", tags: [], desc: "", stats: [] },
   { id: "PART-BURST-LAYER-EARTH-AQUILA", series: "burst", type: "layer", name: "어스 아쿠이라", en: "Earth Aquila", battleType: "defense", tags: [], desc: "", stats: [] },
   { id: "PART-BURST-LAYER-FLAME-SAGITTARIO", series: "burst", type: "layer", name: "플레임 사지타리오", en: "Flame Sagittario", battleType: "stamina", tags: [], desc: "", stats: [] },
-  { id: "PART-BURST-LAYER-DRANZER-VOLCANO", series: "burst", type: "layer", name: "드랜저 볼케이노", en: "Dranzer Volcano", battleType: "balance", tags: [], desc: "", stats: [] },
-  { id: "PART-BURST-LAYER-DRIGER-VULCAN", series: "burst", type: "layer", name: "드래이거 발칸", en: "Driger Vulcan", battleType: "balance", tags: [], desc: "", stats: [] },
-  { id: "PART-BURST-LAYER-DRACIEL-VIPER", series: "burst", type: "layer", name: "드래셀 바이퍼", en: "Draciel Viper", battleType: "defense", tags: [], desc: "", stats: [] },
-  { id: "PART-BURST-LAYER-DRANZER-V2", series: "burst", type: "layer", name: "드랜저 V2", en: "Dranzer V2", battleType: "balance", tags: [], desc: "", stats: [] },
+  { id: "PART-BURST-LAYER-DRANZER-VOLCANO", series: "burst", type: "layer", name: "드랜져 볼케이노", jpName: "드랜저 볼케이노", en: "Dranzer Volcano", battleType: "balance", tags: [], desc: "", stats: [] },
+  { id: "PART-BURST-LAYER-DRIGER-VULCAN", series: "burst", type: "layer", name: "팽 타이거", jpName: "드라이거 발칸", en: "Driger Vulcan", battleType: "balance", tags: [], desc: "", stats: [] },
+  { id: "PART-BURST-LAYER-DRACIEL-VIPER", series: "burst", type: "layer", name: "프로텍션 터틀", jpName: "드라시엘 바이퍼", en: "Draciel Viper", battleType: "defense", tags: [], desc: "", stats: [] },
+  { id: "PART-BURST-LAYER-GAIA-DRAGOON-BURST", series: "burst", type: "layer", name: "가이아 드래곤 버스트", jpName: "가이아 드라군 버스트", en: "Gaia Dragoon Burst", battleType: "attack", tags: [], desc: "", stats: [] },
+  { id: "PART-BURST-LAYER-DRAGOON-V2", series: "burst", type: "layer", name: "마그마 리저드", jpName: "드라군 V2", en: "Dragoon V2", battleType: "attack", tags: [], desc: "", stats: [] },
+  { id: "PART-BURST-LAYER-DRANZER-V2", series: "burst", type: "layer", name: "스카이 팔콘", jpName: "드랜저 V2", en: "Dranzer V2", battleType: "balance", tags: [], desc: "", stats: [] },
+  { id: "PART-BURST-LAYER-DRIGER-V2", series: "burst", type: "layer", name: "스톰 타이거", jpName: "드라이거 V2", en: "Driger V2", battleType: "balance", tags: [], desc: "", stats: [] },
+  { id: "PART-BURST-LAYER-DRACIEL-V2", series: "burst", type: "layer", name: "드래셀 V2", jpName: "드라시엘 V2", en: "Draciel V2", battleType: "defense", tags: [], desc: "", stats: [] },
   { id: "PART-BURST-LAYER-GALAXY-PEGASIS", series: "burst", type: "layer", name: "갤럭시 페가시스", en: "Galaxy Pegasis", battleType: "attack", tags: [], desc: "", stats: [] },
-  { id: "PART-BURST-LAYER-DRAGOON-V2", series: "burst", type: "layer", name: "드래곤 V2", en: "Dragoon V2", battleType: "attack", tags: [], desc: "", stats: [] },
-  { id: "PART-BURST-LAYER-DRIGER-V2", series: "burst", type: "layer", name: "드래이거 V2", en: "Driger V2", battleType: "balance", tags: [], desc: "", stats: [] },
   { id: "PART-BURST-LAYER-HELL-KERBECS", series: "burst", type: "layer", name: "헬 켈베로스", en: "Hell Kerbecs", battleType: "stamina", spin: "right", tags: [], desc: "", stats: [] }
 ];
 
@@ -261,8 +264,7 @@ const compositeIdentityTypes = [
 ];
 const displayNameOverrides = new Map([
   ["PART-BURST-LAYER-STORM-PEGASIS", "스톰 페가시스"],
-  ["PART-BURST-LAYER-LIGHTNING-L-DRAGO", "라이트닝 엘드라고"],
-  ["PART-BURST-LAYER-DRIGER-FANG", "드래이거 팽"]
+  ["PART-BURST-LAYER-LIGHTNING-L-DRAGO", "라이트닝 엘드라고"]
 ]);
 const partAliases = new Map([
   ["PART-BURST-DUALLAYER-YAGER-YGGDRASIL", ["Yaeger Yggdrasil"]],
@@ -324,6 +326,7 @@ function identityCandidates(parts) {
       key: compact(alias),
       en: part.en,
       name: displayName(part),
+      jpName: part.jpName || displayName(part),
       parts: [part]
     })));
 
@@ -338,6 +341,7 @@ function identityCandidates(parts) {
               key: compact(`${primaryAlias} ${secondaryAlias}`),
               en: `${primary.en} ${secondary.en}`,
               name: `${displayName(primary)} ${displayName(secondary)}`,
+              jpName: `${primary.jpName || displayName(primary)} ${secondary.jpName || displayName(secondary)}`,
               parts: [primary, secondary]
             });
           }
@@ -466,6 +470,7 @@ function buildBurstRandomBoosterData(partItems, existingBeys) {
       series: "burst",
       type: "bey",
       name: displayCombination(resolved.identity.name, resolved.trailing),
+      jpName: displayCombination(resolved.identity.jpName, resolved.trailing),
       en: row.en,
       productNo: row.productNo,
       battleType: resolved.identity.parts[0].battleType || "balance",
