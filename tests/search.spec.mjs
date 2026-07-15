@@ -39,21 +39,21 @@ test("real search data keeps representative result IDs and ordering", async ({ p
         "BEY-BB-28-STORM-PEGASIS-105RF",
         "BEY-BB-32-STORM-PEGASIS-105RF",
         "BEY-BB-44-STORM-PEGASIS-100RF",
-        "BEY-X-BX-00-JP-43",
+        "BEY-X-BX-00-JP-43-STORM-PEGASIS-3-70RA",
         "LAYER-STORM-PEGASIS",
         "X-BLADE-STORM-PEGASIS"
       ],
       orderedGroups: [
         ["BEY-BB-28-STORM-PEGASIS-105RF", "BEY-BB-32-STORM-PEGASIS-105RF", "BEY-BB-44-STORM-PEGASIS-100RF"],
-        ["X-BLADE-STORM-PEGASIS", "BEY-X-BX-00-JP-43", "LAYER-STORM-PEGASIS"]
+        ["X-BLADE-STORM-PEGASIS", "BEY-X-BX-00-JP-43-STORM-PEGASIS-3-70RA", "LAYER-STORM-PEGASIS"]
       ]
     },
     {
       route: "/#search?q=BX-01&scope=all",
       query: "BX-01",
       scope: "all",
-      expectedIds: ["BEY-X-BX-01", "PRODUCT-X-BX-01"],
-      orderedGroups: [["BEY-X-BX-01", "PRODUCT-X-BX-01"]]
+      expectedIds: ["BEY-X-BX-01-DRAN-SWORD-3-60F", "PRODUCT-X-BX-01"],
+      orderedGroups: [["BEY-X-BX-01-DRAN-SWORD-3-60F", "PRODUCT-X-BX-01"]]
     },
     {
       route: `/#search?q=${encodeURIComponent("ㅅㅌㅍㄱㅅㅅ")}&scope=bey`,
@@ -63,13 +63,13 @@ test("real search data keeps representative result IDs and ordering", async ({ p
         "BEY-BB-28-STORM-PEGASIS-105RF",
         "BEY-BB-32-STORM-PEGASIS-105RF",
         "BEY-BB-44-STORM-PEGASIS-100RF",
-        "BEY-X-BX-00-JP-43",
+        "BEY-X-BX-00-JP-43-STORM-PEGASIS-3-70RA",
         "LAYER-STORM-PEGASIS",
         "X-BLADE-STORM-PEGASIS"
       ],
       orderedGroups: [
         ["BEY-BB-28-STORM-PEGASIS-105RF", "BEY-BB-32-STORM-PEGASIS-105RF", "BEY-BB-44-STORM-PEGASIS-100RF"],
-        ["BEY-X-BX-00-JP-43", "X-BLADE-STORM-PEGASIS", "LAYER-STORM-PEGASIS"]
+        ["BEY-X-BX-00-JP-43-STORM-PEGASIS-3-70RA", "X-BLADE-STORM-PEGASIS", "LAYER-STORM-PEGASIS"]
       ]
     },
     {

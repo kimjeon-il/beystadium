@@ -74,8 +74,10 @@ function detailRouteExists(id = "") {
 }
 function routeWithKnownDetailFallback(route = {}) {
   const normalized = normalizeRoute(route || { type: "overview" });
-  if (!isDetailRoute(normalized) || !normalized.id || detailRouteExists(normalized.id)) return normalized;
-  return detailFallbackOriginRoute(normalized.id) || { type: "overview" };
+  if (!isDetailRoute(normalized) || !normalized.id) return normalized;
+  const resolvedId = BeystadiumDataStore.resolveItemId(normalized.id);
+  if (detailRouteExists(resolvedId)) return { ...normalized, id: resolvedId };
+  return detailFallbackOriginRoute(resolvedId) || { type: "overview" };
 }
 
 const detailBackgroundStyleKeys = id => {
@@ -173,13 +175,16 @@ async function restoreDetailFallbackOriginIfNeeded(restoredContext, fallbackOrig
 
 let routeApplyGeneration = 0;
 async function applyRoute(route = parseRouteFromHash(window.location.hash), { preserveScroll = false, preserveSearch = false } = {}) {
-  const normalizedRoute = normalizeRoute(route || { type: "overview" });
+  let normalizedRoute = normalizeRoute(route || { type: "overview" });
   const generation = ++routeApplyGeneration;
   const primaryRoute = isPrimaryRoute(normalizedRoute);
   const ready = primaryRoute
     ? await preparePrimaryRoute(normalizedRoute)
     : await BeystadiumDataStore.ensureRoute(normalizedRoute);
   if (!ready || generation !== routeApplyGeneration) return false;
+  if (isDetailRoute(normalizedRoute)) {
+    normalizedRoute = { ...normalizedRoute, id: BeystadiumDataStore.resolveItemId(normalizedRoute.id) };
+  }
 
   const modalOpen = Boolean(document.querySelector("#detailModal")?.open);
   const needsDetail = isDetailRoute(normalizedRoute) || normalizedRoute.type === "rare-bey-get-list" || modalOpen;

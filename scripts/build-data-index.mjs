@@ -7,7 +7,7 @@ import { productItems } from "../data/source/products.mjs";
 import { rareBeyGetItems } from "../data/source/rare-bey-get.mjs";
 import { bookItems, gameItems, toolsItems } from "../data/source/secondary.mjs";
 
-const VERSION = "20260714-flame-libra-image";
+const VERSION = "20260715-x-bey-addresses";
 const SERIES_SLUGS = {
   "metal fight": "metal-fight",
   burst: "burst",
@@ -41,6 +41,10 @@ const sourceData = {
 };
 const jsonText = value => `${JSON.stringify(value)}\n`;
 const unique = values => [...new Set(values.filter(Boolean))];
+const runtimeItem = item => {
+  const { legacyIds: _legacyIds, ...value } = item;
+  return value;
+};
 const released = release => release && release.status !== "unreleased" && Boolean(
   release.no || release.name || release.releaseDate || release.release
 );
@@ -102,10 +106,10 @@ function buildSeriesChunks(data) {
     });
     return [series, {
       series,
-      beyItems: data.beyItems.filter(item => item.series === series),
-      partItems: data.partItems.filter(item => item.series === series),
-      productItems: data.productItems.filter(item => item.series === series),
-      toolsItems: data.toolsItems.filter(item => item.series === series),
+      beyItems: data.beyItems.filter(item => item.series === series).map(runtimeItem),
+      partItems: data.partItems.filter(item => item.series === series).map(runtimeItem),
+      productItems: data.productItems.filter(item => item.series === series).map(runtimeItem),
+      toolsItems: data.toolsItems.filter(item => item.series === series).map(runtimeItem),
       rareBeyGetItems: seriesRareItems
     }];
   }));
@@ -165,7 +169,15 @@ function buildRegistry(chunks, data) {
   data.bookItems.forEach(item => items.push([item.id, chunkCode("common")]));
   data.gameItems.forEach(item => items.push([item.id, chunkCode("common")]));
   episodeIds(data.animeInfo).filter(Boolean).forEach(id => items.push([id, chunkCode("anime")]));
-  return { items };
+  const aliases = [
+    ...data.beyItems,
+    ...data.partItems,
+    ...data.productItems,
+    ...data.toolsItems,
+    ...data.bookItems,
+    ...data.gameItems
+  ].flatMap(item => (item.legacyIds || []).map(legacyId => [legacyId, item.id]));
+  return { items, aliases };
 }
 
 function buildManifest(chunks) {

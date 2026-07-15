@@ -10,9 +10,10 @@
     "audit:app": "node scripts/audit-app.mjs",
     "lint:js": "eslint scripts tests \"src/**/*.js\" playwright.config.mjs eslint.config.js",
     "test:search": "node --test tests/search-core.test.mjs",
+    "test:ids": "node --test tests/x-bey-id.test.mjs",
     "test:data": "node scripts/validate-data.mjs",
     "test:smoke": "playwright test",
-    "check": "pnpm lint:js && pnpm audit:app && pnpm data:check && pnpm test:data && pnpm test:search && pnpm test:smoke"
+    "check": "pnpm lint:js && pnpm audit:app && pnpm data:check && pnpm test:data && pnpm test:search && pnpm test:ids && pnpm test:smoke"
   },
   "devDependencies": {
     "@eslint/js": "^9.31.0",

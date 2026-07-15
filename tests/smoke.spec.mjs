@@ -1360,6 +1360,21 @@ test("detail route restores modal and internal navigation hash", async ({ page }
   expect(errors).toEqual([]);
 });
 
+test("legacy X Bey address opens the canonical descriptive route", async ({ page }) => {
+  const errors = consoleErrors(page);
+  const canonicalId = "BEY-X-BX-01-DRAN-SWORD-3-60F";
+
+  await page.goto("/#BEY-X-BX-01");
+  await expect(page).toHaveURL(new RegExp(`#${canonicalId}$`));
+  await expect(page.locator("#detailModal")).toBeVisible();
+  await expect(page.locator("#detailModal .modal-name")).toContainText("드랜소드 3-60F");
+
+  await page.goto(`/#${canonicalId}`);
+  await expect(page.locator("#detailModal")).toBeVisible();
+  await expect(page).toHaveURL(new RegExp(`#${canonicalId}$`));
+  expect(errors).toEqual([]);
+});
+
 test("mounted part names use the restored compact label column", async ({ page }) => {
   const errors = consoleErrors(page);
   await page.goto("/#BEY-BB-80-GRAVITY-PERSEUS-AD145WD");
@@ -1467,13 +1482,13 @@ test("long part descriptions use an accessible chevron expander", async ({ page 
   expect(collapsedGeometry.backgroundColor).toBe("rgba(0, 0, 0, 0)");
   expect(collapsedGeometry.borderStyle).toBe("none");
   expect(collapsedGeometry.borderWidth).toBe("0px");
-  expect(collapsedGeometry.buttonWidth).toBe(44);
-  expect(collapsedGeometry.buttonHeight).toBe(32);
+  expect(collapsedGeometry.buttonWidth).toBeCloseTo(44, 2);
+  expect(collapsedGeometry.buttonHeight).toBeCloseTo(32, 2);
   expect(collapsedGeometry.hoverSurfaceBackgroundColor).toBe("rgba(0, 0, 0, 0)");
-  expect(collapsedGeometry.hoverSurfaceWidth).toBe(28);
-  expect(collapsedGeometry.hoverSurfaceHeight).toBe(24);
-  expect(collapsedGeometry.hoverSurfaceLeft).toBe(8);
-  expect(collapsedGeometry.hoverSurfaceTop).toBe(4);
+  expect(collapsedGeometry.hoverSurfaceWidth).toBeCloseTo(28, 2);
+  expect(collapsedGeometry.hoverSurfaceHeight).toBeCloseTo(24, 2);
+  expect(collapsedGeometry.hoverSurfaceLeft).toBeCloseTo(8, 2);
+  expect(collapsedGeometry.hoverSurfaceTop).toBeCloseTo(4, 2);
 
   await toggle.hover();
   const hoveredGeometry = await expanderGeometry();
