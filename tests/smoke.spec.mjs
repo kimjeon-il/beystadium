@@ -1052,7 +1052,7 @@ test("keyboard focus indicators stay visible across interface surfaces", async (
     await expect(page.locator(".composition-link[data-target-id]").first()).toBeVisible();
     await expectFocusIndicator(page.locator(".composition-link[data-target-id]").first());
 
-    await page.goto("/#BEY-BB-80-GRAVITY-PERSEUS-AD145WD");
+    await page.goto("/#BEY-METAL-FIGHT-BB-80-GRAVITY-PERSEUS-AD145WD");
     await page.reload();
     await expect(page.locator("#detailModal .mounted-parts .mounted-link").first()).toBeVisible();
     await expectFocusIndicator(page.locator("#detailModal .mounted-parts .mounted-link").first());
@@ -1390,9 +1390,29 @@ test("legacy Burst product address opens the corrected canonical route", async (
   expect(errors).toEqual([]);
 });
 
+test("legacy catalog addresses open their unified canonical routes", async ({ page }) => {
+  const errors = consoleErrors(page);
+  const cases = [
+    ["BEY-BB-80-GRAVITY-PERSEUS-AD145WD", "BEY-METAL-FIGHT-BB-80-GRAVITY-PERSEUS-AD145WD"],
+    ["FACE-PERSEUS", "PART-METAL-FIGHT-FACE-PERSEUS"],
+    ["DBLAYER-GREATEST-RAPHAEL", "PART-BURST-DBLAYER-GREATEST-RAPHAEL"],
+    ["X-BLADE-DRAN-SWORD", "PART-X-BLADE-DRAN-SWORD"],
+    ["PRODUCT-BB-28", "PRODUCT-METAL-FIGHT-BB-28"],
+    ["PRODUCT-X-BX-00-JP-3", "PRODUCT-X-BX-00-COBALT-DRAKE-4-60F"],
+    ["TOOLS-LIGHT-LAUNCHER", "TOOLS-METAL-FIGHT-LIGHT-LAUNCHER"]
+  ];
+
+  for (const [legacyId, canonicalId] of cases) {
+    await page.goto(`/#${legacyId}`);
+    await expect(page).toHaveURL(new RegExp(`#${canonicalId}$`));
+    await expect(page.locator("#detailModal")).toBeVisible();
+  }
+  expect(errors).toEqual([]);
+});
+
 test("mounted part names use the restored compact label column", async ({ page }) => {
   const errors = consoleErrors(page);
-  await page.goto("/#BEY-BB-80-GRAVITY-PERSEUS-AD145WD");
+  await page.goto("/#BEY-METAL-FIGHT-BB-80-GRAVITY-PERSEUS-AD145WD");
   await expect(page.locator("#detailModal")).toBeVisible();
 
   const links = page.locator("#detailModal .mounted-parts .mounted-link");
@@ -1414,7 +1434,7 @@ test("mounted part names use the restored compact label column", async ({ page }
   });
 
   await links.first().click();
-  await expect(page).toHaveURL(/#FACE-PERSEUS$/);
+  await expect(page).toHaveURL(/#PART-METAL-FIGHT-FACE-PERSEUS$/);
   expect(errors).toEqual([]);
 });
 
@@ -1435,7 +1455,7 @@ test("release detail back button stays at the modal photo corner", async ({ page
 
 test("long part descriptions use an accessible chevron expander", async ({ page }) => {
   const errors = consoleErrors(page);
-  await page.goto("/#DBLAYER-GREATEST-RAPHAEL");
+  await page.goto("/#PART-BURST-DBLAYER-GREATEST-RAPHAEL");
   await expect(page.locator("#detailModal")).toBeVisible();
 
   const slot = page.locator("#detailModal .part-modal-info .modal-info-slot");
@@ -1538,7 +1558,7 @@ test("long part descriptions use an accessible chevron expander", async ({ page 
   await expect(toggle).toHaveAttribute("aria-label", "부품 설명 펼치기");
   await expect(toggle).toHaveAttribute("aria-expanded", "false");
 
-  await page.goto("/#X-BLADE-DRAN-SWORD");
+  await page.goto("/#PART-X-BLADE-DRAN-SWORD");
   await expect(page.locator("#detailModal")).toBeVisible();
   const shortToggle = page.locator("#detailModal .part-modal-info .modal-description-toggle");
   await expect(shortToggle).toBeHidden();

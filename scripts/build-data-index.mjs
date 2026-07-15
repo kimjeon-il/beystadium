@@ -7,7 +7,7 @@ import { productItems } from "../data/source/products.mjs";
 import { rareBeyGetItems } from "../data/source/rare-bey-get.mjs";
 import { bookItems, gameItems, toolsItems } from "../data/source/secondary.mjs";
 
-const VERSION = "20260715-product-addresses";
+const VERSION = "20260715-unified-addresses";
 const SERIES_SLUGS = {
   "metal fight": "metal-fight",
   burst: "burst",
@@ -42,7 +42,7 @@ const sourceData = {
 const jsonText = value => `${JSON.stringify(value)}\n`;
 const unique = values => [...new Set(values.filter(Boolean))];
 const runtimeItem = item => {
-  const { legacyIds: _legacyIds, ...value } = item;
+  const { addressSlug: _addressSlug, legacyIds: _legacyIds, ...value } = item;
   return value;
 };
 const released = release => release && release.status !== "unreleased" && Boolean(

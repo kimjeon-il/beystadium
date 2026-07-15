@@ -352,7 +352,7 @@ function statRows(item, stats, extraStats = []) {
   return [...baseStats, ...additionalStats].join("");
 }
 function trackHeightType(item) {
-  if (item.id === "TRACK-CHANGE-HEIGHT-120") return "보통 / 높음";
+  if (item.id === "PART-METAL-FIGHT-TRACK-CHANGE-HEIGHT-120") return "보통 / 높음";
   const height = Number(item.name.match(/\d+$/)?.[0] || 0);
   if (height >= 170 && height <= 230) return "매우높음";
   if (height >= 130 && height <= 165) return "높음";
@@ -391,7 +391,7 @@ function statBlockMarkup(content) {
 }
 function partStats(item) {
   if (item.type === "track") {
-    if (item.id === "TRACK-CHANGE-HEIGHT-120") {
+    if (item.id === "PART-METAL-FIGHT-TRACK-CHANGE-HEIGHT-120") {
       return statBlockMarkup(`<div class="mode-stats"><section><p class="mode-title">120 모드</p>${trackHeightModeRow("보통", 3)}</section><section><p class="mode-title">145 모드</p>${trackHeightModeRow("높음", 4)}</section></div>`);
     }
     const level = trackHeightLevel(item);

@@ -58,13 +58,13 @@ const layerSystemFilterGroups = {
   }
 };
 const burstBeySystemFilterGroups = {
-  single: { label: "싱글레이어 시스템", aliases: ["싱글레이어"], partPrefixes: ["LAYER-"] },
-  dual: { label: "듀얼레이어 시스템", aliases: ["듀얼레이어"], partPrefixes: ["DUALLAYER-"] },
-  god: { label: "갓레이어 시스템", aliases: ["갓레이어"], partPrefixes: ["GODLAYER-"] },
-  choz: { label: "초제트레이어 시스템", aliases: ["초제트레이어"], partPrefixes: ["CHOZLAYER-"] },
-  gachi: { label: "진검레이어 시스템", aliases: ["진검레이어"], partPrefixes: ["GACHIBASE-", "GACHILAYER-"] },
-  superking: { label: "슈퍼킹레이어 시스템", aliases: ["슈퍼킹레이어"], partPrefixes: ["SUPERKINGRING-"] },
-  db: { label: "DB레이어 시스템", aliases: ["DB레이어"], partPrefixes: ["DBBLADE-", "DBLAYER-"] }
+  single: { label: "싱글레이어 시스템", aliases: ["싱글레이어"], partPrefixes: ["PART-BURST-LAYER-"] },
+  dual: { label: "듀얼레이어 시스템", aliases: ["듀얼레이어"], partPrefixes: ["PART-BURST-DUALLAYER-"] },
+  god: { label: "갓레이어 시스템", aliases: ["갓레이어"], partPrefixes: ["PART-BURST-GODLAYER-"] },
+  choz: { label: "초제트레이어 시스템", aliases: ["초제트레이어"], partPrefixes: ["PART-BURST-CHOZLAYER-"] },
+  gachi: { label: "진검레이어 시스템", aliases: ["진검레이어"], partPrefixes: ["PART-BURST-GACHIBASE-", "PART-BURST-GACHILAYER-"] },
+  superking: { label: "슈퍼킹레이어 시스템", aliases: ["슈퍼킹레이어"], partPrefixes: ["PART-BURST-SUPERKINGRING-"] },
+  db: { label: "DB레이어 시스템", aliases: ["DB레이어"], partPrefixes: ["PART-BURST-DBBLADE-", "PART-BURST-DBLAYER-"] }
 };
 const shouldIncludeSeriesSearchField = options => options?.includeSeries !== false;
 const searchTagAliases = {

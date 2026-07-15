@@ -3,6 +3,7 @@ import { beyItems, partItems } from "../data/source/catalog.mjs";
 import { productItems } from "../data/source/products.mjs";
 import { rareBeyGetItems } from "../data/source/rare-bey-get.mjs";
 import { bookItems, gameItems, toolsItems } from "../data/source/secondary.mjs";
+import { addressIdIssues } from "./address-id.mjs";
 import { productIdIssues } from "./product-id.mjs";
 import { expectedXBeyId, xBeyQualifier } from "./x-bey-id.mjs";
 
@@ -21,6 +22,12 @@ const invalidXBeyQualifiers = beyItems
   .map(item => `${item.id} (${item.productNo})`);
 const invalidProductIds = productItems.flatMap(item => productIdIssues(item)
   .map(issue => `${item.id}: ${issue}`));
+const invalidAddressIds = [
+  ...beyItems.flatMap(item => addressIdIssues("bey", item).map(issue => `${item.id}: ${issue}`)),
+  ...partItems.flatMap(item => addressIdIssues("part", item).map(issue => `${item.id}: ${issue}`)),
+  ...productItems.flatMap(item => addressIdIssues("product", item).map(issue => `${item.id}: ${issue}`)),
+  ...toolsItems.flatMap(item => addressIdIssues("tools", item).map(issue => `${item.id}: ${issue}`))
+];
 const legacyEntries = allItems.flatMap(item => (item.legacyIds || []).map(legacyId => [legacyId, item.id]));
 const legacyIds = legacyEntries.map(([legacyId]) => legacyId);
 const legacyIdSet = new Set(legacyIds);
@@ -58,6 +65,7 @@ const failures = [
   ["duplicate IDs", duplicateIds],
   ["invalid X Bey IDs", invalidXBeyIds],
   ["invalid X Bey qualifiers", invalidXBeyQualifiers],
+  ["invalid address IDs", invalidAddressIds],
   ["invalid product IDs", invalidProductIds],
   ["duplicate legacy IDs", duplicateLegacyIds],
   ["legacy IDs conflicting with current IDs", conflictingLegacyIds],

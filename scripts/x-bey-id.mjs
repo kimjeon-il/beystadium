@@ -23,12 +23,12 @@ const xBeyIdentity = (item, partsById) => {
   const blades = xBeyParts(item, partsById).filter(part => part.type === "blade");
   if (!blades.length) return "";
   if (!blades.some(part => part.xBladeRole)) {
-    return blades.map(part => partIdToken(part, "X-BLADE-")).filter(Boolean).join("-");
+    return blades.map(part => partIdToken(part, "PART-X-BLADE-")).filter(Boolean).join("-");
   }
 
   const rolePart = role => blades.find(part => part.xBladeRole === role);
-  const lockChip = partIdToken(rolePart("lockChip"), "X-BLADE-LOCK-CHIP-");
-  const mainBlade = partIdToken(rolePart("mainBlade") || rolePart("metalBlade"), "X-BLADE-MAIN-BLADE-");
+  const lockChip = partIdToken(rolePart("lockChip"), "PART-X-BLADE-LOCK-CHIP-");
+  const mainBlade = partIdToken(rolePart("mainBlade") || rolePart("metalBlade"), "PART-X-BLADE-MAIN-BLADE-");
   const bladeCodes = [rolePart("overBlade")?.name, rolePart("assistBlade")?.name]
     .map(normalizeIdToken)
     .filter(Boolean)

@@ -1,7 +1,7 @@
 const rareBeyGetItems = [
   {
     region: "jp",
-    productId: "PRODUCT-X-BX-00-JP-3",
+    productId: "PRODUCT-X-BX-00-COBALT-DRAKE-4-60F",
     name: "코발트드레이크 4-60F",
     finish: "익스트림피니시",
     prize: "레어베이 겟 배틀 익스트림피니시 경품",
@@ -12,7 +12,7 @@ const rareBeyGetItems = [
   },
   {
     region: "jp",
-    productId: "PRODUCT-X-BX-00-JP-4",
+    productId: "PRODUCT-X-BX-00-HELLS-SCYTHE-4-60T-GOLD",
     name: "부스터 헬즈사이드 4-60T 골드 Ver.",
     finish: "버스트피니시",
     prize: "레어베이 겟 배틀 버스트피니시 경품",
@@ -23,7 +23,7 @@ const rareBeyGetItems = [
   },
   {
     region: "jp",
-    productId: "PRODUCT-X-BX-00-JP-6",
+    productId: "PRODUCT-X-BX-00-LEON-CLAW-5-60P-GOLD",
     name: "부스터 레온클로 5-60P 골드 Ver.",
     finish: "버스트피니시",
     prize: "레어베이 겟 배틀 버스트피니시 경품",
@@ -34,7 +34,7 @@ const rareBeyGetItems = [
   },
   {
     region: "jp",
-    productId: "PRODUCT-X-BX-00-JP-10",
+    productId: "PRODUCT-X-BX-00-HELLS-CHAIN-5-60HT-BLACK",
     name: "부스터 헬즈체인 5-60HT 블랙 Ver.",
     finish: "버스트피니시",
     prize: "레어베이 겟 배틀 버스트피니시 경품",
@@ -45,7 +45,7 @@ const rareBeyGetItems = [
   },
   {
     region: "jp",
-    productId: "PRODUCT-X-BX-00-JP-44",
+    productId: "PRODUCT-X-BX-00-F-T-B-N-BIT-SET-GOLD-BLACK",
     name: "F/T/B/N 비트 세트 골드×블랙",
     finish: "오버피니시",
     prize: "레어베이 겟 배틀 오버피니시 경품",
@@ -56,7 +56,7 @@ const rareBeyGetItems = [
   },
   {
     region: "jp",
-    productId: "PRODUCT-X-BX-00-JP-45",
+    productId: "PRODUCT-X-BX-00-BEYBLADE-STICKER-01",
     name: "베이블레이드 스티커 01",
     finish: "오버피니시",
     prize: "레어베이 겟 배틀 오버피니시 경품",
@@ -67,7 +67,7 @@ const rareBeyGetItems = [
   },
   {
     region: "jp",
-    productId: "PRODUCT-X-BX-00-JP-47",
+    productId: "PRODUCT-X-BX-00-BEYBLADE-STICKER-03",
     name: "베이블레이드 스티커 03",
     finish: "오버피니시",
     prize: "레어베이 겟 배틀 오버피니시 경품",
@@ -78,7 +78,7 @@ const rareBeyGetItems = [
   },
   {
     region: "jp",
-    productId: "PRODUCT-X-UX-00-JP-2",
+    productId: "PRODUCT-X-UX-00-AERO-PEGASUS-3-70A",
     name: "에어로페가서스 3-70A",
     finish: "익스트림피니시",
     prize: "레어베이 겟 배틀 익스트림피니시 경품",
@@ -89,7 +89,7 @@ const rareBeyGetItems = [
   },
   {
     region: "jp",
-    productId: "PRODUCT-X-BX-00-JP-19",
+    productId: "PRODUCT-X-BX-00-COBALT-DRAKE-4-60F-CLEAR",
     name: "부스터 코발트드레이크 4-60F 클리어 Ver.",
     finish: "버스트피니시",
     prize: "레어베이 겟 배틀 버스트피니시 경품",
@@ -100,7 +100,7 @@ const rareBeyGetItems = [
   },
   {
     region: "jp",
-    productId: "PRODUCT-X-BX-00-JP-20",
+    productId: "PRODUCT-X-BX-00-MAMMOTH-TUSK-2-80E-BLACK",
     name: "부스터 맘모스터스크 2-80E 블랙 Ver.",
     finish: "버스트피니시",
     prize: "레어베이 겟 배틀 버스트피니시 경품",
@@ -111,7 +111,7 @@ const rareBeyGetItems = [
   },
   {
     region: "jp",
-    productId: "PRODUCT-X-CX-00-JP-1",
+    productId: "PRODUCT-X-CX-00-VALKYRIE-BOLT-S-4-70V",
     name: "왈큐레 볼트S 4-70V",
     finish: "익스트림피니시",
     prize: "레어베이 겟 배틀 익스트림피니시 경품",
@@ -122,7 +122,7 @@ const rareBeyGetItems = [
   },
   {
     region: "jp",
-    productId: "PRODUCT-X-UX-00-JP-8",
+    productId: "PRODUCT-X-UX-00-KNIGHT-MAIL-3-85BS-NAVY",
     name: "부스터 나이트메일 3-85BS 네이비 Ver.",
     finish: "버스트피니시",
     prize: "레어베이 겟 배틀 버스트피니시 경품",
@@ -133,7 +133,7 @@ const rareBeyGetItems = [
   },
   {
     region: "jp",
-    productId: "PRODUCT-X-CX-00-JP-3",
+    productId: "PRODUCT-X-CX-00-WIZARD-ARC-R-4-55LO-BLACK",
     name: "부스터 위저드 아크R 4-55LO 블랙 Ver.",
     finish: "버스트피니시",
     prize: "레어베이 겟 배틀 버스트피니시 경품",
@@ -144,7 +144,7 @@ const rareBeyGetItems = [
   },
   {
     region: "jp",
-    productId: "PRODUCT-X-UX-00-JP-9",
+    productId: "PRODUCT-X-UX-00-AERO-PEGASUS-3-70A-RED",
     name: "부스터 에어로페가서스 3-70A 레드 Ver.",
     finish: "버스트피니시",
     prize: "레어베이 겟 배틀 버스트피니시 경품",
@@ -155,7 +155,7 @@ const rareBeyGetItems = [
   },
   {
     region: "jp",
-    productId: "PRODUCT-X-UX-00-JP-10",
+    productId: "PRODUCT-X-UX-00-SCORPIO-SPEAR-0-70Z-MAGENTA",
     name: "부스터 스코피오스피어 0-70Z 마젠타 Ver.",
     finish: "버스트피니시",
     prize: "레어베이 겟 배틀 버스트피니시 경품",
@@ -166,7 +166,7 @@ const rareBeyGetItems = [
   },
   {
     region: "jp",
-    productId: "PRODUCT-X-BX-00-JP-36",
+    productId: "PRODUCT-X-BX-00-F-T-B-N-BIT-SET-SILVER-WHITE",
     name: "F/T/B/N 비트 세트 실버×화이트",
     finish: "오버피니시",
     prize: "레어베이 겟 배틀 오버피니시 경품",
@@ -177,7 +177,7 @@ const rareBeyGetItems = [
   },
   {
     region: "jp",
-    productId: "PRODUCT-X-BX-00-JP-37",
+    productId: "PRODUCT-X-BX-00-BEY-EMBLEM-STICKER-01",
     name: "베이 엠블럼 스티커 01",
     finish: "오버피니시",
     prize: "레어베이 겟 배틀 오버피니시 경품",
@@ -188,7 +188,7 @@ const rareBeyGetItems = [
   },
   {
     region: "jp",
-    productId: "PRODUCT-X-BX-00-JP-46",
+    productId: "PRODUCT-X-BX-00-BEYBLADE-STICKER-02",
     name: "베이블레이드 스티커 02",
     finish: "오버피니시",
     prize: "레어베이 겟 배틀 오버피니시 경품",
@@ -199,7 +199,7 @@ const rareBeyGetItems = [
   },
   {
     region: "jp",
-    productId: "PRODUCT-X-CX-00-JP-8",
+    productId: "PRODUCT-X-CX-00-DRAKE-BRAVE-G-4-70I-BLUE",
     name: "부스터 드레이크브레이브G 4-70I 블루 Ver.",
     finish: "익스트림/버스트피니시",
     prize: "레어베이 겟 배틀 익스트림/버스트피니시 경품",
@@ -210,7 +210,7 @@ const rareBeyGetItems = [
   },
   {
     region: "jp",
-    productId: "PRODUCT-X-CX-00-JP-7",
+    productId: "PRODUCT-X-CX-00-HORNET-PORT-R-7-60T-YELLOW",
     name: "부스터 호넷포트R 7-60T 옐로 Ver.",
     finish: "버스트피니시",
     prize: "레어베이 겟 배틀 버스트피니시 경품",
@@ -221,7 +221,7 @@ const rareBeyGetItems = [
   },
   {
     region: "jp",
-    productId: "PRODUCT-X-CX-00-JP-6",
+    productId: "PRODUCT-X-CX-00-KRAKEN-RIGGLE-S-3-70O-BLUE",
     name: "부스터 크라켄리글S 3-70O 블루 Ver.",
     finish: "버스트피니시",
     prize: "레어베이 겟 배틀 버스트피니시 경품",
@@ -232,7 +232,7 @@ const rareBeyGetItems = [
   },
   {
     region: "jp",
-    productId: "PRODUCT-X-CX-00-JP-5",
+    productId: "PRODUCT-X-CX-00-BUGS-ANTLERS-B-2-60D-ORANGE",
     name: "부스터 벅스앤틀러스B 2-60D 오렌지 Ver.",
     finish: "버스트피니시",
     prize: "레어베이 겟 배틀 버스트피니시 경품",
@@ -243,7 +243,7 @@ const rareBeyGetItems = [
   },
   {
     region: "kr",
-    productId: "PRODUCT-X-BX-00-JP-4",
+    productId: "PRODUCT-X-BX-00-HELLS-SCYTHE-4-60T-GOLD",
     name: "헬즈사이드 4-60T 골드 Ver.",
     finish: "버스트피니시",
     prize: "레어베이 겟 배틀 버스트피니시 경품",
@@ -254,7 +254,7 @@ const rareBeyGetItems = [
   },
   {
     region: "kr",
-    productId: "PRODUCT-X-BX-00-JP-6",
+    productId: "PRODUCT-X-BX-00-LEON-CLAW-5-60P-GOLD",
     name: "레온클로우 5-60P 골드 Ver.",
     finish: "버스트피니시",
     prize: "레어베이 겟 배틀 버스트피니시 경품",
@@ -265,7 +265,7 @@ const rareBeyGetItems = [
   },
   {
     region: "kr",
-    productId: "PRODUCT-X-BX-00-JP-3",
+    productId: "PRODUCT-X-BX-00-COBALT-DRAKE-4-60F",
     name: "코발트드레이크 4-60F",
     finish: "익스트림피니시",
     prize: "레어베이 겟 배틀 익스트림피니시 경품",
@@ -276,7 +276,7 @@ const rareBeyGetItems = [
   },
   {
     region: "kr",
-    productId: "PRODUCT-X-BX-00-JP-44",
+    productId: "PRODUCT-X-BX-00-F-T-B-N-BIT-SET-GOLD-BLACK",
     name: "비트 세트 F/T/B/N 골드×블랙",
     finish: "버스트피니시",
     prize: "레어베이 겟 배틀 버스트피니시 경품",
@@ -287,7 +287,7 @@ const rareBeyGetItems = [
   },
   {
     region: "kr",
-    productId: "PRODUCT-X-BX-00-JP-10",
+    productId: "PRODUCT-X-BX-00-HELLS-CHAIN-5-60HT-BLACK",
     name: "헬즈체인 5-60HT 블랙 Ver.",
     finish: "버스트피니시",
     prize: "레어베이 겟 배틀 버스트피니시 경품",
@@ -298,7 +298,7 @@ const rareBeyGetItems = [
   },
   {
     region: "kr",
-    productId: "PRODUCT-X-UX-00-JP-2",
+    productId: "PRODUCT-X-UX-00-AERO-PEGASUS-3-70A",
     name: "에어로페가시우스 3-70A",
     finish: "익스트림피니시",
     prize: "레어베이 겟 배틀 익스트림피니시 경품",
@@ -309,7 +309,7 @@ const rareBeyGetItems = [
   },
   {
     region: "kr",
-    productId: "PRODUCT-X-BX-00-JP-19",
+    productId: "PRODUCT-X-BX-00-COBALT-DRAKE-4-60F-CLEAR",
     name: "코발트드레이크 4-60F 클리어 Ver.",
     finish: "버스트피니시",
     prize: "레어베이 겟 배틀 버스트피니시 경품",

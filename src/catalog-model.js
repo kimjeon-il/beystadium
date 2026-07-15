@@ -38,7 +38,7 @@ const catalogSourceOrder = item => {
   const coreOrder = catalogCoreItemOrder.get(item);
   return coreOrder !== undefined ? coreOrder : Number.MAX_SAFE_INTEGER;
 };
-const zeroGBottomStartIndex = () => partItems.findIndex(item => item.id === "BOTTOM-CIRCLE-FLAT");
+const zeroGBottomStartIndex = () => partItems.findIndex(item => item.id === "PART-METAL-FIGHT-BOTTOM-CIRCLE-FLAT");
 const findCatalogItemById = id => catalogCoreItemsById.get(id) || toolsItemsById.get(id) || bookItemsById.get(id) || gameItemsById.get(id) || productItemsById.get(id) || null;
 
 const cardVisualMarkup = item => item.image
