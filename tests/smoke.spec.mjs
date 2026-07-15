@@ -1375,6 +1375,21 @@ test("legacy X Bey address opens the canonical descriptive route", async ({ page
   expect(errors).toEqual([]);
 });
 
+test("legacy Burst product address opens the corrected canonical route", async ({ page }) => {
+  const errors = consoleErrors(page);
+  const canonicalId = "PRODUCT-BURST-BA-03";
+
+  await page.goto("/#PRODUCT-BURST-BK-03");
+  await expect(page).toHaveURL(new RegExp(`#${canonicalId}$`));
+  await expect(page.locator("#detailModal")).toBeVisible();
+  await expect(page.locator("#detailModal .modal-name")).toContainText("초Z 올인원 배틀 세트");
+
+  await page.goto(`/#${canonicalId}`);
+  await expect(page.locator("#detailModal")).toBeVisible();
+  await expect(page).toHaveURL(new RegExp(`#${canonicalId}$`));
+  expect(errors).toEqual([]);
+});
+
 test("mounted part names use the restored compact label column", async ({ page }) => {
   const errors = consoleErrors(page);
   await page.goto("/#BEY-BB-80-GRAVITY-PERSEUS-AD145WD");

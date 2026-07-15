@@ -3,6 +3,7 @@ import { beyItems, partItems } from "../data/source/catalog.mjs";
 import { productItems } from "../data/source/products.mjs";
 import { rareBeyGetItems } from "../data/source/rare-bey-get.mjs";
 import { bookItems, gameItems, toolsItems } from "../data/source/secondary.mjs";
+import { productIdIssues } from "./product-id.mjs";
 import { expectedXBeyId, xBeyQualifier } from "./x-bey-id.mjs";
 
 const collections = [beyItems, partItems, productItems, toolsItems, bookItems, gameItems];
@@ -18,6 +19,8 @@ const invalidXBeyIds = beyItems
 const invalidXBeyQualifiers = beyItems
   .filter(item => item.series === "x" && xBeyQualifier(item) && !item.productNo?.endsWith("-00"))
   .map(item => `${item.id} (${item.productNo})`);
+const invalidProductIds = productItems.flatMap(item => productIdIssues(item)
+  .map(issue => `${item.id}: ${issue}`));
 const legacyEntries = allItems.flatMap(item => (item.legacyIds || []).map(legacyId => [legacyId, item.id]));
 const legacyIds = legacyEntries.map(([legacyId]) => legacyId);
 const legacyIdSet = new Set(legacyIds);
@@ -55,6 +58,7 @@ const failures = [
   ["duplicate IDs", duplicateIds],
   ["invalid X Bey IDs", invalidXBeyIds],
   ["invalid X Bey qualifiers", invalidXBeyQualifiers],
+  ["invalid product IDs", invalidProductIds],
   ["duplicate legacy IDs", duplicateLegacyIds],
   ["legacy IDs conflicting with current IDs", conflictingLegacyIds],
   ["invalid legacy alias targets", invalidLegacyTargets],

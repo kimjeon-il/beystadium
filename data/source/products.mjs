@@ -6210,7 +6210,8 @@
     }
   },
 {
-    id: "PRODUCT-BURST-BK-03",
+    id: "PRODUCT-BURST-BA-03",
+    legacyIds: ["PRODUCT-BURST-BK-03"],
     series: "burst",
     releases: {
       kr: {
