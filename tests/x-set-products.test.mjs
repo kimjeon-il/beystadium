@@ -158,3 +158,16 @@ test("Evangelion deck set reuses shared parts and exposes its storage box", () =
     desc: ""
   });
 });
+
+test("Accel bits and UX-10 composition use the canonical Korean spelling", () => {
+  const accel = partItems.find(item => item.id === "PART-X-BIT-A");
+  const rubberAccel = partItems.find(item => item.id === "PART-X-BIT-RA");
+  assert.deepEqual({ en: accel?.en, sub: accel?.sub }, { en: "Accel", sub: "액셀" });
+  assert.deepEqual({ en: rubberAccel?.en, sub: rubberAccel?.sub }, { en: "Rubber Accel", sub: "러버 액셀" });
+
+  const ux10 = productsById.get("PRODUCT-X-UX-10");
+  for (const region of ["kr", "jp"]) {
+    const entry = ux10.releases[region].composition.find(item => item.target === "PART-X-BIT-RA");
+    assert.deepEqual(entry, { name: "러버 액셀", quantity: "1개", target: "PART-X-BIT-RA" });
+  }
+});

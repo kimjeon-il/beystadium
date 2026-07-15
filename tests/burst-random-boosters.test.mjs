@@ -92,3 +92,11 @@ test("representative generations and corrected remake parts keep exact combinati
   assert.equal(partItems.some(item => item.id === "PART-BURST-FRAME-X"), false);
   assert.equal(partItems.some(item => item.id === "PART-BURST-LAYER-DRAIGER-FANG"), false);
 });
+
+test("High Accel dash uses the canonical Korean spelling", () => {
+  const highAccel = partItems.find(item => item.id === "PART-BURST-DRIVER-HIGH-ACCEL-DASH");
+  assert.deepEqual(
+    { en: highAccel?.en, sub: highAccel?.sub },
+    { en: "High Accel'", sub: "하이 액셀 대시" }
+  );
+});

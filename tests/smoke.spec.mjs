@@ -1585,6 +1585,34 @@ test("X set products render Bey, part, tool, and quantity compositions", async (
   expect(errors).toEqual([]);
 });
 
+test("Accel parts, UX-10 composition, and search use the canonical Korean spelling", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "spelling data is shared by desktop and mobile layouts");
+  const errors = consoleErrors(page);
+  const partCases = [
+    ["PART-X-BIT-A", "액셀"],
+    ["PART-X-BIT-RA", "러버 액셀"],
+    ["PART-BURST-DRIVER-HIGH-ACCEL-DASH", "하이 액셀 대시"]
+  ];
+
+  for (const [id, name] of partCases) {
+    await page.goto("about:blank");
+    await page.goto(`/#${id}`);
+    await expect(page.locator("#detailModal .modal-name")).toHaveText(name);
+  }
+
+  await page.goto("/#PRODUCT-X-UX-10");
+  const rubberAccelLink = page.locator('#detailModal .composition-link[data-target-id="PART-X-BIT-RA"]');
+  await expect(rubberAccelLink).toHaveText("러버 액셀 1개→");
+  await rubberAccelLink.click();
+  await expect(page).toHaveURL(/#PART-X-BIT-RA$/);
+  await expect(page.locator("#detailModal .modal-name")).toHaveText("러버 액셀");
+
+  await page.goto(`/#search?q=${encodeURIComponent("액셀")}&scope=all`);
+  await expect(page.locator('.search-results-panel .search-result-item[data-id="PART-X-BIT-A"]')).toBeVisible();
+  await expect(page.locator(".search-results-panel")).not.toContainText("엑셀");
+  expect(errors).toEqual([]);
+});
+
 test("X gold part products link to their base parts", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "part product data is shared by desktop and mobile layouts");
   const errors = consoleErrors(page);

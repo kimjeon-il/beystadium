@@ -84,8 +84,8 @@ const xSetProductCompositions = {
     jp: [item("베어스크래치 5-60F", "BEY-X-BX-37-BEAR-SCRATCH-5-60F"), item("와인더런처", "TOOLS-X-WINDER-LAUNCHER"), item("더블익스트림스타디움", "TOOLS-X-DOUBLE-XTREME-STADIUM")]
   },
   "PRODUCT-X-UX-10": {
-    kr: [item("나이트메일 3-85BS", "BEY-X-UX-10-KNIGHT-MAIL-3-85BS"), item("프테라스윙", "PART-X-BLADE-PTERA-SWING"), item("헬즈해머", "PART-X-BLADE-HELLS-HAMMER"), item("티라노비트", "PART-X-BLADE-TYRANNO-BEAT"), item("1-60", "PART-X-RATCHET-1-60"), item("7-70", "PART-X-RATCHET-7-70"), item("볼", "PART-X-BIT-B"), item("메탈 니들", "PART-X-BIT-MN"), item("포인트", "PART-X-BIT-P"), item("러버 엑셀", "PART-X-BIT-RA"), item("러시", "PART-X-BIT-R")],
-    jp: [item("나이트메일 3-85BS", "BEY-X-UX-10-KNIGHT-MAIL-3-85BS"), item("프테라스윙", "PART-X-BLADE-PTERA-SWING"), item("헬즈해머", "PART-X-BLADE-HELLS-HAMMER"), item("티라노비트", "PART-X-BLADE-TYRANNO-BEAT"), item("1-60", "PART-X-RATCHET-1-60"), item("7-70", "PART-X-RATCHET-7-70"), item("볼", "PART-X-BIT-B"), item("메탈 니들", "PART-X-BIT-MN"), item("포인트", "PART-X-BIT-P"), item("러버 엑셀", "PART-X-BIT-RA"), item("러시", "PART-X-BIT-R")]
+    kr: [item("나이트메일 3-85BS", "BEY-X-UX-10-KNIGHT-MAIL-3-85BS"), item("프테라스윙", "PART-X-BLADE-PTERA-SWING"), item("헬즈해머", "PART-X-BLADE-HELLS-HAMMER"), item("티라노비트", "PART-X-BLADE-TYRANNO-BEAT"), item("1-60", "PART-X-RATCHET-1-60"), item("7-70", "PART-X-RATCHET-7-70"), item("볼", "PART-X-BIT-B"), item("메탈 니들", "PART-X-BIT-MN"), item("포인트", "PART-X-BIT-P"), item("러버 액셀", "PART-X-BIT-RA"), item("러시", "PART-X-BIT-R")],
+    jp: [item("나이트메일 3-85BS", "BEY-X-UX-10-KNIGHT-MAIL-3-85BS"), item("프테라스윙", "PART-X-BLADE-PTERA-SWING"), item("헬즈해머", "PART-X-BLADE-HELLS-HAMMER"), item("티라노비트", "PART-X-BLADE-TYRANNO-BEAT"), item("1-60", "PART-X-RATCHET-1-60"), item("7-70", "PART-X-RATCHET-7-70"), item("볼", "PART-X-BIT-B"), item("메탈 니들", "PART-X-BIT-MN"), item("포인트", "PART-X-BIT-P"), item("러버 액셀", "PART-X-BIT-RA"), item("러시", "PART-X-BIT-R")]
   },
   "PRODUCT-X-UX-00-BEY-KICKOFF-SET-FC-BARCELONA": {
     kr: [item("헬즈해머 3-70H", "BEY-X-UX-00-HELLS-HAMMER-3-70H"), item("와인더런처", "TOOLS-X-WINDER-LAUNCHER"), item("익스트림스타디움", "TOOLS-X-XTREME-STADIUM")],
