@@ -252,7 +252,6 @@ const displayNameOverrides = new Map([
 const partAliases = new Map([
   ["PART-BURST-DUALLAYER-YAGER-YGGDRASIL", ["Yaeger Yggdrasil"]],
   ["PART-BURST-CHOZLAYER-VICE-LEOPARD", ["Vise Leopard"]],
-  ["PART-BURST-GACHIBASE-JUDGMENT", ["Judgement"]],
   ["PART-BURST-LAYER-DRIGER-FANG", ["Draiger Fang"]]
 ]);
 const spinByPrimaryPart = new Map([

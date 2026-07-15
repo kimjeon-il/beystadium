@@ -4454,7 +4454,7 @@
         releaseDate: "2019-07-26",
         price: "13900",
         composition: [
-          { name: "저지먼트 조커.00T.Tr 참", quantity: "1개", target: "BEY-BURST-B-142-JUDGMENT-JOKER-00T-TR-ZAN" }
+          { name: "저지먼트 조커.00T.Tr 참", quantity: "1개", target: "BEY-BURST-B-142-JUDGEMENT-JOKER-00T-TR-ZAN" }
         ]
       },
       jp: {
@@ -4464,7 +4464,7 @@
         releaseDate: "2019-05-25",
         price: "1296",
         composition: [
-          { name: "저지먼트 조커.00T.Tr 斬", quantity: "1개", target: "BEY-BURST-B-142-JUDGMENT-JOKER-00T-TR-ZAN" }
+          { name: "저지먼트 조커.00T.Tr 斬", quantity: "1개", target: "BEY-BURST-B-142-JUDGEMENT-JOKER-00T-TR-ZAN" }
         ]
       }
     }
@@ -9478,7 +9478,7 @@
   }
 ];
 
-import { burstRandomBoosterLineups } from "./catalog.mjs";
+import { burstRandomBoosterLineups, burstRandomLayerLineups } from "./catalog.mjs";
 
 for (const product of productItems) {
   const productNo = product.id.match(/^PRODUCT-BURST-(B-\d+)$/)?.[1];
@@ -9488,6 +9488,18 @@ for (const product of productItems) {
   for (const release of Object.values(product.releases || {})) {
     if (!release || release.status === "unreleased") continue;
     release.composition = [{ name: "무작위 베이", quantity: "1개", target: lineup[0] }];
+  }
+}
+
+for (const product of productItems) {
+  const productNo = product.id.match(/^PRODUCT-BURST-(B-\d+)$/)?.[1];
+  const lineup = productNo ? burstRandomLayerLineups[productNo] : null;
+  if (!lineup) continue;
+  product.lineupTitle = "등장 레이어";
+  product.lineupPool = lineup;
+  for (const release of Object.values(product.releases || {})) {
+    if (!release || release.status === "unreleased") continue;
+    release.composition = [{ name: "무작위 레이어", quantity: "1개", target: lineup[0] }];
   }
 }
 

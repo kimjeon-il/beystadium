@@ -2,6 +2,10 @@ import {
   buildBurstRandomBoosterData,
   burstRandomBoosterParts
 } from "./burst-random-boosters.mjs";
+import {
+  burstRandomLayerLineups,
+  burstRandomLayerParts
+} from "./burst-random-layers.mjs";
 
 const beyItems = [
   { id: "BEY-METAL-FIGHT-BB-01-PEGASIS-105F", series: "metal fight", type: "bey", structure: "basic", name: "페가시스", en: "Pegasis", sub: "105F", productNo: "BB-01", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["PART-METAL-FIGHT-FACE-PEGASIS", "PART-METAL-FIGHT-WHEEL-PEGASIS", "PART-METAL-FIGHT-TRACK-105", "PART-METAL-FIGHT-BOTTOM-FLAT"] },
@@ -376,7 +380,7 @@ const beyItems = [
   { id: "BEY-BURST-B-136-ACE-DRAGON-ST-CH-ZAN", series: "burst", type: "bey", name: "에이스 드래곤.St.Ch 참", jpName: "에이스 드래곤.St.Ch 斬", en: "Ace Dragon.St.Ch Zan", productNo: "B-136", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["PART-BURST-GACHIBASE-ACE", "PART-BURST-GACHICHIP-DRAGON", "PART-BURST-GACHIWEIGHT-ZAN", "PART-BURST-DISK-STING", "PART-BURST-DRIVER-CHARGE"] },
   { id: "BEY-BURST-B-136-SLASH-VALKYRIE-BL-PW-RETSU", series: "burst", type: "bey", name: "슬래시 발키리.Bl.Pw 열", jpName: "슬래시 발키리.Bl.Pw 烈", en: "Slash Valkyrie.Bl.Pw Retsu", productNo: "B-136", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["PART-BURST-GACHIBASE-SLASH", "PART-BURST-GACHICHIP-VALKYRIE", "PART-BURST-GACHIWEIGHT-RETSU", "PART-BURST-DISK-BLITZ", "PART-BURST-DRIVER-POWER"] },
   { id: "BEY-BURST-B-139-WIZARD-FAFNIR-RT-RS-SEN", series: "burst", type: "bey", name: "위저드 파브닐.Rt.Rs 섬", jpName: "위저드 파브닐.Rt.Rs 閃", en: "Wizard Fafnir.Rt.Rs Sen", productNo: "B-139", battleType: "stamina", spin: "left", tags: [], desc: "", parts: ["PART-BURST-GACHIBASE-WIZARD", "PART-BURST-GACHICHIP-FAFNIR", "PART-BURST-GACHIWEIGHT-SEN", "PART-BURST-DISK-RATCHET", "PART-BURST-DRIVER-RISE"] },
-  { id: "BEY-BURST-B-142-JUDGMENT-JOKER-00T-TR-ZAN", series: "burst", type: "bey", name: "저지먼트 조커.00T.Tr 참", jpName: "저지먼트 조커.00T.Tr 斬", en: "Judgment Joker.00T.Tr Zan", productNo: "B-142", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["PART-BURST-GACHIBASE-JUDGMENT", "PART-BURST-GACHICHIP-JOKER", "PART-BURST-GACHIWEIGHT-ZAN", "PART-BURST-COREDISK-00", "PART-BURST-FRAME-TURN", "PART-BURST-DRIVER-TRICK"] },
+  { id: "BEY-BURST-B-142-JUDGEMENT-JOKER-00T-TR-ZAN", series: "burst", type: "bey", name: "저지먼트 조커.00T.Tr 참", jpName: "저지먼트 조커.00T.Tr 斬", en: "Judgement Joker.00T.Tr Zan", productNo: "B-142", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["PART-BURST-GACHIBASE-JUDGEMENT", "PART-BURST-GACHICHIP-JOKER", "PART-BURST-GACHIWEIGHT-ZAN", "PART-BURST-COREDISK-00", "PART-BURST-FRAME-TURN", "PART-BURST-DRIVER-TRICK"] },
   { id: "BEY-BURST-B-144-ZWEI-LONGINUS-DR-SP-DASH-METSU", series: "burst", type: "bey", name: "츠바이 롱기누스.Dr.Sp' 멸", jpName: "츠바이 롱기누스.Dr.Sp' 滅", en: "Zwei Longinus.Dr.Sp' Metsu", productNo: "B-144", battleType: "attack", spin: "left", tags: [], desc: "", parts: ["PART-BURST-GACHIBASE-ZWEI", "PART-BURST-GACHICHIP-LONGINUS", "PART-BURST-GACHIWEIGHT-METSU", "PART-BURST-DISK-DRAKE", "PART-BURST-DRIVER-SPIRAL-DASH"] },
   { id: "BEY-BURST-B-145-VENOM-DIABOLOS-VN-BL", series: "burst", type: "bey", name: "베놈 디아볼로스.Vn.Bl", en: "Venom Diabolos.Vn.Bl", productNo: "B-145", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["PART-BURST-GACHIBASE-VENOM", "PART-BURST-GACHICHIP-DIABOLOS", "PART-BURST-DISK-VANGUARD", "PART-BURST-DRIVER-BULLET"] },
   { id: "BEY-BURST-B-148-HEAVEN-PEGASUS-10P-LW-SEN", series: "burst", type: "bey", name: "헤븐 페가수스.10P.Lw 섬", jpName: "헤븐 페가수스.10P.Lw 閃", en: "Heaven Pegasus.10P.Lw Sen", productNo: "B-148", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["PART-BURST-GACHIBASE-HEAVEN", "PART-BURST-GACHICHIP-PEGASUS", "PART-BURST-GACHIWEIGHT-SEN", "PART-BURST-COREDISK-10", "PART-BURST-FRAME-PROOF", "PART-BURST-DRIVER-LOW"] },
@@ -1078,7 +1082,7 @@ const partItems = [
   { id: "PART-BURST-GACHIBASE-BUSHIN", series: "burst", type: "gachibase", name: "무신", en: "Bushin", battleType: "defense", tags: [], desc: "6개의 경에 12개의 연타 날이 있어서, 상대의 공격을 분산해서 받아내는 디펜스타입의 베이스.", stats: [0,4,1,3,2,0] },
   { id: "PART-BURST-GACHIBASE-WIZARD", series: "burst", type: "gachibase", name: "위저드", en: "Wizard", battleType: "stamina", tags: [], desc: "레이어 바깥이 대부분 고무로 쌓여있어 회전 흡수에 특화된 스태미나타입의 베이스.", stats: [0,2,4,3,1,1] },
   { id: "PART-BURST-GACHIBASE-COSMO", series: "burst", type: "gachibase", name: "코스모", en: "Cosmo", battleType: "stamina", tags: [], desc: "2단으로 나뉜 상단 날로 원심력을 높이면서, 아주 매끄러운 하단 날로 모든 마찰을 최소화한 스태미나타입의 베이스.", stats: [1,1,4,3,1,0] },
-  { id: "PART-BURST-GACHIBASE-JUDGMENT", series: "burst", type: "gachibase", name: "저지먼트", en: "Judgment", battleType: "balance", tags: [], desc: "초대형의 고무 날이 상대에게 갈리면서 자신도 함께 이동함으로써 승부의 향방을 알 수 없는 밸런스타입의 베이스.", stats: [1,1,1,3,1,4] },
+  { id: "PART-BURST-GACHIBASE-JUDGEMENT", series: "burst", type: "gachibase", name: "저지먼트", en: "Judgement", battleType: "balance", tags: [], desc: "초대형의 고무 날이 상대에게 갈리면서 자신도 함께 이동함으로써 승부의 향방을 알 수 없는 밸런스타입의 베이스.", stats: [1,1,1,3,1,4] },
   { id: "PART-BURST-GACHIBASE-DREAD", series: "burst", type: "gachibase", name: "드레드", en: "Dread", battleType: "defense", tags: [], desc: "데미지를 받을 때마다 원형의 형태가 되어 상대의 공격을 흘려보내 버스트를 방지하는 디펜스타입의 베이스.", stats: [1,5,1,3,0,1] },
   { id: "PART-BURST-GACHIBASE-ZWEI", series: "burst", type: "gachibase", name: "츠바이", en: "Zwei", battleType: "attack", tags: [], desc: "초중량급 메탈을 탑재한 대형 어퍼 날로 상대를 격하게 튕겨내는 초 어택타입의 베이스.", stats: [3,0,0,5,0,3] },
   { id: "PART-BURST-GACHIBASE-VENOM", series: "burst", type: "gachibase", name: "베놈", en: "Venom", battleType: "balance", tags: [], desc: "두꺼운 어퍼 공격날과 스매시 연타날을 갖추어 상대의 밸런스를 무너뜨리고 공격을 몰아 붙이는 밸런스타입의 베이스.", stats: [2,1,0,3,1,3] },
@@ -1680,7 +1684,7 @@ const partItems = [
   {"id":"PART-X-BIT-BS","series":"x","type":"bit","name":"BS","en":"Bound Spike","sub":"바운드 스파이크","battleType":"defense","tags":[],"desc":"","stats":[5,60,30],"extraStats":[{"name":"대시력","value":5},{"name":"버스트 저항","value":30}]}
 ];
 
-partItems.push(...burstRandomBoosterParts);
+partItems.push(...burstRandomBoosterParts, ...burstRandomLayerParts);
 const {
   beys: burstRandomBoosterBeys,
   lineups: burstRandomBoosterLineups
@@ -1689,4 +1693,10 @@ beyItems.push(...burstRandomBoosterBeys);
 
 const catalogCoreItems = [...beyItems, ...partItems];
 
-export { beyItems, partItems, catalogCoreItems, burstRandomBoosterLineups };
+export {
+  beyItems,
+  partItems,
+  catalogCoreItems,
+  burstRandomBoosterLineups,
+  burstRandomLayerLineups
+};

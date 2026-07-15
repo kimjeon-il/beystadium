@@ -100,3 +100,18 @@ test("real search data keeps representative result IDs and ordering", async ({ p
     }
   }
 });
+
+test("Judgement search uses the corrected English spelling and addresses", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "The same search data is shared by desktop and mobile layouts.");
+  await page.goto(`/#search?q=${encodeURIComponent("Judgement")}&scope=bey`);
+  await expect.poll(() => resultIds(page)).toEqual(expect.arrayContaining([
+    "PART-BURST-GACHIBASE-JUDGEMENT",
+    "PART-BURST-GACHILAYER-JUDGEMENT-ASHURA-METSU",
+    "BEY-BURST-B-142-JUDGEMENT-JOKER-00T-TR-ZAN",
+    "BEY-BURST-B-151-08-JUDGEMENT-PEGASUS-8-DASH-G-KP-DASH-METSU"
+  ]));
+  expect(await resultIds(page)).toEqual(expect.not.arrayContaining([
+    "PART-BURST-GACHIBASE-JUDGMENT",
+    "BEY-BURST-B-142-JUDGMENT-JOKER-00T-TR-ZAN"
+  ]));
+});

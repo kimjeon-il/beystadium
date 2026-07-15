@@ -1399,6 +1399,39 @@ test("Burst random booster products open their ordered Bey lineups", async ({ pa
   expect(errors).toEqual([]);
 });
 
+test("Burst random layer products open their ordered layer lineups", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "lineup data is shared by desktop and mobile layouts");
+  const errors = consoleErrors(page);
+  const cases = [
+    {
+      productId: "PRODUCT-BURST-B-143",
+      firstId: "PART-BURST-GACHILAYER-DREAD-BAHAMUT-TEN"
+    },
+    {
+      productId: "PRODUCT-BURST-B-152",
+      firstId: "PART-BURST-GACHILAYER-KNOCKOUT-ODIN-GEN"
+    }
+  ];
+
+  for (const entry of cases) {
+    await page.goto("about:blank");
+    await page.goto(`/#${entry.productId}`);
+    const lineupTrigger = page.locator("#detailModal .product-lineup-trigger");
+    await expect(lineupTrigger).toHaveText("무작위 레이어 1개→");
+    await lineupTrigger.click();
+    const lineupLinks = page.locator("#detailModal .product-composition-list .composition-link");
+    await expect(page.locator("#detailModal .mounted-title")).toHaveText("등장 레이어");
+    await expect(lineupLinks).toHaveCount(4);
+    await expect(lineupLinks.first()).toHaveAttribute("data-target-id", entry.firstId);
+    await lineupLinks.first().click();
+    await expect(page).toHaveURL(new RegExp(`#${entry.firstId}$`));
+    await expectModalBackAtShellTopLeft(page.locator("#detailModal .modal-back"));
+    await page.locator("#detailModal .modal-back").click();
+    await expect(page.locator("#detailModal .product-lineup-trigger")).toHaveText("무작위 레이어 1개→");
+  }
+  expect(errors).toEqual([]);
+});
+
 test("mounted part names use the restored compact label column", async ({ page }) => {
   const errors = consoleErrors(page);
   await page.goto("/#BEY-METAL-FIGHT-BB-80-GRAVITY-PERSEUS-AD145WD");
