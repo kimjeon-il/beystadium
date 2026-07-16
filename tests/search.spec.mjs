@@ -35,20 +35,21 @@ test("real search data keeps representative result IDs and ordering", async ({ p
       route: `/#search?q=${encodeURIComponent("스톰 페가시스")}&scope=bey`,
       query: "스톰 페가시스",
       scope: "bey",
+      totalCount: 11,
       expectedIds: [
         "BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF",
         "BEY-METAL-FIGHT-BB-32-STORM-PEGASIS-105RF",
         "BEY-METAL-FIGHT-BB-44-STORM-PEGASIS-100RF",
+        "BEY-BURST-B-00-STORM-PEGASIS-HR-L-DASH",
         "BEY-BURST-B-00-STORM-PEGASIS-10-G-QC-DASH",
         "BEY-BURST-B-140-02-STORM-PEGASIS-10-G-QC-DASH",
         "BEY-BURST-B-151-05-STORM-PEGASIS-HR-AT",
-        "BEY-BURST-B-176-07-STORM-PEGASIS-DR-HS",
         "BEY-X-BX-00-STORM-PEGASIS-3-70RA",
         "PART-BURST-LAYER-STORM-PEGASIS",
         "PART-X-BLADE-STORM-PEGASIS"
       ],
       orderedGroups: [
-        ["BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF", "BEY-METAL-FIGHT-BB-32-STORM-PEGASIS-105RF", "BEY-METAL-FIGHT-BB-44-STORM-PEGASIS-100RF", "BEY-BURST-B-00-STORM-PEGASIS-10-G-QC-DASH", "BEY-BURST-B-140-02-STORM-PEGASIS-10-G-QC-DASH", "BEY-BURST-B-151-05-STORM-PEGASIS-HR-AT", "BEY-BURST-B-176-07-STORM-PEGASIS-DR-HS"],
+        ["BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF", "BEY-METAL-FIGHT-BB-32-STORM-PEGASIS-105RF", "BEY-METAL-FIGHT-BB-44-STORM-PEGASIS-100RF", "BEY-BURST-B-00-STORM-PEGASIS-HR-L-DASH", "BEY-BURST-B-00-STORM-PEGASIS-10-G-QC-DASH", "BEY-BURST-B-140-02-STORM-PEGASIS-10-G-QC-DASH", "BEY-BURST-B-151-05-STORM-PEGASIS-HR-AT"],
         ["PART-X-BLADE-STORM-PEGASIS", "BEY-X-BX-00-STORM-PEGASIS-3-70RA", "PART-BURST-LAYER-STORM-PEGASIS"]
       ]
     },
@@ -69,21 +70,22 @@ test("real search data keeps representative result IDs and ordering", async ({ p
       route: `/#search?q=${encodeURIComponent("ㅅㅌㅍㄱㅅㅅ")}&scope=bey`,
       query: "ㅅㅌㅍㄱㅅㅅ",
       scope: "bey",
+      totalCount: 11,
       expectedIds: [
         "BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF",
         "BEY-METAL-FIGHT-BB-32-STORM-PEGASIS-105RF",
         "BEY-METAL-FIGHT-BB-44-STORM-PEGASIS-100RF",
+        "BEY-BURST-B-00-STORM-PEGASIS-HR-L-DASH",
         "BEY-BURST-B-00-STORM-PEGASIS-10-G-QC-DASH",
         "BEY-BURST-B-140-02-STORM-PEGASIS-10-G-QC-DASH",
         "BEY-BURST-B-151-05-STORM-PEGASIS-HR-AT",
         "BEY-BURST-B-176-07-STORM-PEGASIS-DR-HS",
         "BEY-X-BX-00-STORM-PEGASIS-3-70RA",
-        "PART-BURST-LAYER-STORM-PEGASIS",
         "PART-X-BLADE-STORM-PEGASIS"
       ],
       orderedGroups: [
-        ["BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF", "BEY-METAL-FIGHT-BB-32-STORM-PEGASIS-105RF", "BEY-METAL-FIGHT-BB-44-STORM-PEGASIS-100RF", "BEY-BURST-B-00-STORM-PEGASIS-10-G-QC-DASH", "BEY-BURST-B-140-02-STORM-PEGASIS-10-G-QC-DASH", "BEY-BURST-B-151-05-STORM-PEGASIS-HR-AT", "BEY-BURST-B-176-07-STORM-PEGASIS-DR-HS"],
-        ["BEY-X-BX-00-STORM-PEGASIS-3-70RA", "PART-X-BLADE-STORM-PEGASIS", "PART-BURST-LAYER-STORM-PEGASIS"]
+        ["BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF", "BEY-METAL-FIGHT-BB-32-STORM-PEGASIS-105RF", "BEY-METAL-FIGHT-BB-44-STORM-PEGASIS-100RF", "BEY-BURST-B-00-STORM-PEGASIS-HR-L-DASH", "BEY-BURST-B-00-STORM-PEGASIS-10-G-QC-DASH", "BEY-BURST-B-140-02-STORM-PEGASIS-10-G-QC-DASH", "BEY-BURST-B-151-05-STORM-PEGASIS-HR-AT", "BEY-BURST-B-176-07-STORM-PEGASIS-DR-HS"],
+        ["BEY-X-BX-00-STORM-PEGASIS-3-70RA", "PART-X-BLADE-STORM-PEGASIS"]
       ]
     },
     {
@@ -95,12 +97,12 @@ test("real search data keeps representative result IDs and ordering", async ({ p
     }
   ];
 
-  for (const { route, query, scope, expectedIds, orderedGroups } of cases) {
+  for (const { route, query, scope, totalCount, expectedIds, orderedGroups } of cases) {
     await page.goto("about:blank");
     await page.goto(route);
     await expect(page.locator("#searchResultsSearchInput")).toHaveValue(query);
     await expect(page.locator("#searchResultsSearchScope")).toHaveAttribute("data-scope", scope);
-    await expect(page.locator("#globalCount")).toHaveText(String(expectedIds.length));
+    await expect(page.locator("#globalCount")).toHaveText(String(totalCount || expectedIds.length));
     await expect.poll(async () => (await resultIds(page)).toSorted()).toEqual(expectedIds.toSorted());
     const ids = await resultIds(page);
     for (const orderedGroup of orderedGroups) {

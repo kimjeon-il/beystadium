@@ -11,6 +11,22 @@ import { toolsItems } from "../data/source/secondary.mjs";
 import { buildRuntimeData } from "../scripts/build-data-index.mjs";
 
 const expectedSets = {
+  "PRODUCT-BURST-B-00-DRAGOON-STORM-W-X": {
+    name: "드라군 스톰.W.X", kind: "부스터", releaseDate: "2016-11", price: "972",
+    targets: ["BEY-BURST-B-00-DRAGOON-STORM-W-X"]
+  },
+  "PRODUCT-BURST-B-00-DRANZER-SPIRAL-S-T": {
+    name: "드랜저 스파이럴.S.T", kind: "부스터", releaseDate: "2016-11-25", price: "972",
+    targets: ["BEY-BURST-B-00-DRANZER-SPIRAL-S-T"]
+  },
+  "PRODUCT-BURST-B-00-LEGEND-STAR-BEY-SET": {
+    name: "레전드 스타 베이 세트", kind: "세트", releaseDate: "2019-07-12", price: "7560",
+    targets: [
+      "BEY-BURST-B-00-ACE-DRAGON-0-G-Z-DASH-TEN", "BEY-BURST-B-00-CHO-Z-ACHILLES-4-B-YR",
+      "BEY-BURST-B-00-DRAGOON-PHANTOM-00-S-PW", "BEY-BURST-B-00-SLASH-VALKYRIE-8-DASH-C-R-RETSU",
+      "BEY-BURST-B-00-STORM-PEGASIS-HR-L-DASH", "TOOLS-BURST-LONG-LIGHT-LAUNCHER-LR", "TOOLS-BURST-LAUNCHER-GRIP"
+    ]
+  },
   "PRODUCT-BURST-B-00-BAKUTEN-SHOOT-BEYBLADE-20TH-ANNIVERSARY-SET": {
     name: "폭전슛 베이블레이드 20주년 기념 세트", releaseDate: "2019-07-20", price: "8964",
     targets: [
@@ -66,6 +82,11 @@ const expectedParts = {
   "BEY-BURST-B-00-DRANZER-FLAME-Y-ZT": ["PART-BURST-LAYER-DRANZER-FLAME", "PART-BURST-DISK-YELL", "PART-BURST-DRIVER-ZETA"],
   "BEY-BURST-B-00-DRIGER-FANG-0-XT": ["PART-BURST-LAYER-DRIGER-FANG", "PART-BURST-COREDISK-0", "PART-BURST-DRIVER-XTEND"],
   "BEY-BURST-B-00-DRACIEL-FORTRESS-10-PL": ["PART-BURST-LAYER-DRACIEL-FORTRESS", "PART-BURST-COREDISK-10", "PART-BURST-DRIVER-PLANET"],
+  "BEY-BURST-B-00-ACE-DRAGON-0-G-Z-DASH-TEN": ["PART-BURST-GACHIBASE-ACE", "PART-BURST-GACHICHIP-DRAGON", "PART-BURST-GACHIWEIGHT-TEN", "PART-BURST-COREDISK-0", "PART-BURST-FRAME-GLAIVE", "PART-BURST-DRIVER-ZEPHYR-DASH"],
+  "BEY-BURST-B-00-CHO-Z-ACHILLES-4-B-YR": ["PART-BURST-CHOZLAYER-CHO-Z-ACHILLES", "PART-BURST-COREDISK-4", "PART-BURST-FRAME-BUMP", "PART-BURST-DRIVER-YARD"],
+  "BEY-BURST-B-00-DRAGOON-PHANTOM-00-S-PW": ["PART-BURST-LAYER-DRAGOON-PHANTOM", "PART-BURST-COREDISK-00", "PART-BURST-FRAME-STAR", "PART-BURST-DRIVER-POWER"],
+  "BEY-BURST-B-00-SLASH-VALKYRIE-8-DASH-C-R-RETSU": ["PART-BURST-GACHIBASE-SLASH", "PART-BURST-GACHICHIP-VALKYRIE", "PART-BURST-GACHIWEIGHT-RETSU", "PART-BURST-COREDISK-8-DASH", "PART-BURST-FRAME-CROSS", "PART-BURST-DRIVER-REVOLVE"],
+  "BEY-BURST-B-00-STORM-PEGASIS-HR-L-DASH": ["PART-BURST-LAYER-STORM-PEGASIS", "PART-BURST-DISK-HURRICANE", "PART-BURST-DRIVER-LINER-DASH"],
   "BEY-BURST-B-00-STORM-PEGASIS-10-G-QC-DASH": ["PART-BURST-LAYER-STORM-PEGASIS", "PART-BURST-COREDISK-10", "PART-BURST-FRAME-GLAIVE", "PART-BURST-DRIVER-QUICK-DASH"],
   "BEY-BURST-B-00-LIGHTNING-L-DRAGO-10-R-Z-DASH": ["PART-BURST-LAYER-LIGHTNING-L-DRAGO", "PART-BURST-COREDISK-10", "PART-BURST-FRAME-REACH", "PART-BURST-DRIVER-ZEPHYR-DASH"],
   "BEY-BURST-B-00-FLAME-SAGITTARIO-8-DASH-C": ["PART-BURST-LAYER-FLAME-SAGITTARIO", "PART-BURST-COREDISK-8-DASH", "PART-BURST-DRIVER-CLAW"],
@@ -87,28 +108,28 @@ const expectedParts = {
   "BEY-BURST-B-00-DRACIEL-V2-10-T-PL-DASH": ["PART-BURST-LAYER-DRACIEL-V2", "PART-BURST-COREDISK-10", "PART-BURST-FRAME-TURN", "PART-BURST-DRIVER-PLANET-DASH"]
 };
 
-test("five Japanese-only remake sets keep exact release metadata and compositions", () => {
+test("eight Japanese-only remake products keep exact release metadata and compositions", () => {
   const productsById = new Map(productItems.map(product => [product.id, product]));
-  assert.equal(Object.keys(burstRemakeSetProductCompositions).length, 5);
+  assert.equal(Object.keys(burstRemakeSetProductCompositions).length, 8);
 
   for (const [id, expected] of Object.entries(expectedSets)) {
     const product = productsById.get(id);
     assert.deepEqual(product?.releases.kr, { status: "unreleased" });
     assert.deepEqual(
       { no: product?.releases.jp.no, name: product?.releases.jp.name, kind: product?.releases.jp.kind, releaseDate: product?.releases.jp.releaseDate, price: product?.releases.jp.price },
-      { no: "B-00", name: expected.name, kind: "세트", releaseDate: expected.releaseDate, price: expected.price }
+      { no: "B-00", name: expected.name, kind: expected.kind || "세트", releaseDate: expected.releaseDate, price: expected.price }
     );
     assert.deepEqual(product?.releases.jp.composition.map(entry => entry.target), expected.targets);
     assert.deepEqual(product?.releases.jp.composition.map(entry => entry.quantity), expected.quantities || expected.targets.map(() => "1개"));
   }
 });
 
-test("all 28 remake-set Beys use B-00 Japanese identities and exact existing parts", () => {
+test("all 33 remake-product Beys use B-00 Japanese identities and exact existing parts", () => {
   const beysById = new Map(beyItems.map(item => [item.id, item]));
   const partIds = new Set(partItems.map(item => item.id));
   const toolIds = new Set(toolsItems.map(item => item.id));
-  assert.equal(burstRemakeSetBeyItems.length, 28);
-  assert.equal(Object.keys(expectedParts).length, 28);
+  assert.equal(burstRemakeSetBeyItems.length, 33);
+  assert.equal(Object.keys(expectedParts).length, 33);
 
   for (const [id, parts] of Object.entries(expectedParts)) {
     const bey = beysById.get(id);
@@ -130,6 +151,8 @@ test("remake-set search data exposes products and both regional Bey names", () =
   for (const id of Object.keys(expectedSets)) assert.ok(searchById.has(id), id);
 
   const cases = [
+    ["BEY-BURST-B-00-ACE-DRAGON-0-G-Z-DASH-TEN", "에이스 드래곤.0G.Z' 천", "에이스 드래곤.0G.Z' 天"],
+    ["BEY-BURST-B-00-DRAGOON-PHANTOM-00-S-PW", "드래곤 팬텀.00S.Pw", "드라군 팬텀.00S.Pw"],
     ["BEY-BURST-B-00-DRAGOON-PHANTOM-G-V", "드래곤 팬텀.G.V", "드라군 팬텀.G.V"],
     ["BEY-BURST-B-00-STORM-PEGASIS-10-G-QC-DASH", "플래시 슬레이프닐.10G.Qc'", "스톰 페가시스.10G.Qc'"],
     ["BEY-BURST-B-00-DRAGOON-V2-WH-XP-DASH", "마그마 리저드.Wh.Xp'", "드라군 V2.Wh.Xp'"]

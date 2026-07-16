@@ -11,6 +11,12 @@ const burstRemakeSetBeyItems = [
   { id: "BEY-BURST-B-00-DRIGER-FANG-0-XT", series: "burst", type: "bey", name: "클로 타이거.0.Xt", jpName: "드라이거 팽.0.Xt", en: "Driger Fang.0.Xt", productNo: "B-00", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["PART-BURST-LAYER-DRIGER-FANG", "PART-BURST-COREDISK-0", "PART-BURST-DRIVER-XTEND"] },
   { id: "BEY-BURST-B-00-DRACIEL-FORTRESS-10-PL", series: "burst", type: "bey", name: "드래셀 포트리스.10.Pl", jpName: "드라시엘 포트리스.10.Pl", en: "Draciel Fortress.10.Pl", productNo: "B-00", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["PART-BURST-LAYER-DRACIEL-FORTRESS", "PART-BURST-COREDISK-10", "PART-BURST-DRIVER-PLANET"] },
 
+  { id: "BEY-BURST-B-00-ACE-DRAGON-0-G-Z-DASH-TEN", series: "burst", type: "bey", name: "에이스 드래곤.0G.Z' 천", jpName: "에이스 드래곤.0G.Z' 天", en: "Ace Dragon.0G.Z' Ten", productNo: "B-00", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["PART-BURST-GACHIBASE-ACE", "PART-BURST-GACHICHIP-DRAGON", "PART-BURST-GACHIWEIGHT-TEN", "PART-BURST-COREDISK-0", "PART-BURST-FRAME-GLAIVE", "PART-BURST-DRIVER-ZEPHYR-DASH"] },
+  { id: "BEY-BURST-B-00-CHO-Z-ACHILLES-4-B-YR", series: "burst", type: "bey", name: "초Z 아킬레스.4B.Yr", jpName: "초Z 아킬레스.4B.Yr", en: "Cho-Z Achilles.4B.Yr", productNo: "B-00", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["PART-BURST-CHOZLAYER-CHO-Z-ACHILLES", "PART-BURST-COREDISK-4", "PART-BURST-FRAME-BUMP", "PART-BURST-DRIVER-YARD"] },
+  { id: "BEY-BURST-B-00-DRAGOON-PHANTOM-00-S-PW", series: "burst", type: "bey", name: "드래곤 팬텀.00S.Pw", jpName: "드라군 팬텀.00S.Pw", en: "Dragoon Phantom.00S.Pw", productNo: "B-00", battleType: "attack", spin: "left", tags: [], desc: "", parts: ["PART-BURST-LAYER-DRAGOON-PHANTOM", "PART-BURST-COREDISK-00", "PART-BURST-FRAME-STAR", "PART-BURST-DRIVER-POWER"] },
+  { id: "BEY-BURST-B-00-SLASH-VALKYRIE-8-DASH-C-R-RETSU", series: "burst", type: "bey", name: "슬래시 발키리.8'C.R 열", jpName: "슬래시 발키리.8'C.R 烈", en: "Slash Valkyrie.8'C.R Retsu", productNo: "B-00", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["PART-BURST-GACHIBASE-SLASH", "PART-BURST-GACHICHIP-VALKYRIE", "PART-BURST-GACHIWEIGHT-RETSU", "PART-BURST-COREDISK-8-DASH", "PART-BURST-FRAME-CROSS", "PART-BURST-DRIVER-REVOLVE"] },
+  { id: "BEY-BURST-B-00-STORM-PEGASIS-HR-L-DASH", series: "burst", type: "bey", name: "플래시 슬레이프닐.Hr.L'", jpName: "스톰 페가시스.Hr.L'", en: "Storm Pegasis.Hr.L'", productNo: "B-00", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["PART-BURST-LAYER-STORM-PEGASIS", "PART-BURST-DISK-HURRICANE", "PART-BURST-DRIVER-LINER-DASH"] },
+
   { id: "BEY-BURST-B-00-STORM-PEGASIS-10-G-QC-DASH", series: "burst", type: "bey", name: "플래시 슬레이프닐.10G.Qc'", jpName: "스톰 페가시스.10G.Qc'", en: "Storm Pegasis.10G.Qc'", productNo: "B-00", battleType: "attack", spin: "right", tags: [], desc: "", parts: ["PART-BURST-LAYER-STORM-PEGASIS", "PART-BURST-COREDISK-10", "PART-BURST-FRAME-GLAIVE", "PART-BURST-DRIVER-QUICK-DASH"] },
   { id: "BEY-BURST-B-00-LIGHTNING-L-DRAGO-10-R-Z-DASH", series: "burst", type: "bey", name: "아쿠아 레비아단.10R.Z'", jpName: "라이트닝 엘드라고.10R.Z'", en: "Lightning L-Drago.10R.Z'", productNo: "B-00", battleType: "attack", spin: "left", tags: [], desc: "", parts: ["PART-BURST-LAYER-LIGHTNING-L-DRAGO", "PART-BURST-COREDISK-10", "PART-BURST-FRAME-REACH", "PART-BURST-DRIVER-ZEPHYR-DASH"] },
   { id: "BEY-BURST-B-00-FLAME-SAGITTARIO-8-DASH-C", series: "burst", type: "bey", name: "플레임 사지타리오.8'.C", jpName: "플레임 사지타리오.8'.C", en: "Flame Sagittario.8'.C", productNo: "B-00", battleType: "stamina", spin: "right", tags: [], desc: "", parts: ["PART-BURST-LAYER-FLAME-SAGITTARIO", "PART-BURST-COREDISK-8-DASH", "PART-BURST-DRIVER-CLAW"] },
@@ -36,6 +42,23 @@ const burstRemakeSetBeyItems = [
 ];
 
 const burstRemakeSetProductCompositions = {
+  "PRODUCT-BURST-B-00-DRAGOON-STORM-W-X": {
+    jp: [item("드라군 스톰.W.X", "BEY-BURST-B-00-DRAGOON-STORM-W-X")]
+  },
+  "PRODUCT-BURST-B-00-DRANZER-SPIRAL-S-T": {
+    jp: [item("드랜저 스파이럴.S.T", "BEY-BURST-B-00-DRANZER-SPIRAL-S-T")]
+  },
+  "PRODUCT-BURST-B-00-LEGEND-STAR-BEY-SET": {
+    jp: [
+      item("에이스 드래곤.0G.Z' 天", "BEY-BURST-B-00-ACE-DRAGON-0-G-Z-DASH-TEN"),
+      item("초Z 아킬레스.4B.Yr", "BEY-BURST-B-00-CHO-Z-ACHILLES-4-B-YR"),
+      item("드라군 팬텀.00S.Pw", "BEY-BURST-B-00-DRAGOON-PHANTOM-00-S-PW"),
+      item("슬래시 발키리.8'C.R 烈", "BEY-BURST-B-00-SLASH-VALKYRIE-8-DASH-C-R-RETSU"),
+      item("스톰 페가시스.Hr.L'", "BEY-BURST-B-00-STORM-PEGASIS-HR-L-DASH"),
+      item("롱라이트런처LR", "TOOLS-BURST-LONG-LIGHT-LAUNCHER-LR"),
+      item("런처그립", "TOOLS-BURST-LAUNCHER-GRIP")
+    ]
+  },
   "PRODUCT-BURST-B-00-BAKUTEN-SHOOT-BEYBLADE-20TH-ANNIVERSARY-SET": {
     jp: [
       item("드라군 스톰.W.X", "BEY-BURST-B-00-DRAGOON-STORM-W-X"),

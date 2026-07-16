@@ -1661,10 +1661,13 @@ test("X tool products open their base equipment without color variants", async (
   expect(errors).toEqual([]);
 });
 
-test("Burst remake sets render exact Bey and launcher compositions", async ({ page }, testInfo) => {
+test("Burst remake products render exact Bey and launcher compositions", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "set data is shared by desktop and mobile layouts");
   const errors = consoleErrors(page);
   const cases = [
+    { productId: "PRODUCT-BURST-B-00-DRAGOON-STORM-W-X", count: 1, targetId: "BEY-BURST-B-00-DRAGOON-STORM-W-X" },
+    { productId: "PRODUCT-BURST-B-00-DRANZER-SPIRAL-S-T", count: 1, targetId: "BEY-BURST-B-00-DRANZER-SPIRAL-S-T" },
+    { productId: "PRODUCT-BURST-B-00-LEGEND-STAR-BEY-SET", count: 7, targetIndex: 4, targetId: "BEY-BURST-B-00-STORM-PEGASIS-HR-L-DASH" },
     { productId: "PRODUCT-BURST-B-00-BAKUTEN-SHOOT-BEYBLADE-20TH-ANNIVERSARY-SET", count: 9, targetId: "BEY-BURST-B-00-DRAGOON-STORM-W-X" },
     { productId: "PRODUCT-BURST-B-00-METAL-FIGHT-BEYBLADE-ANIME-10TH-ANNIVERSARY-SET", count: 7, targetIndex: 5, targetId: "TOOLS-BURST-LONG-BEYLAUNCHER" },
     { productId: "PRODUCT-BURST-B-00-BAKUTEN-SHOOT-BEYBLADE-2020-V-SET", count: 7, targetIndex: 4, targetId: "BEY-BURST-B-00-GAIA-DRAGOON-BURST-10-E-I" },
@@ -1687,6 +1690,9 @@ test("Burst remake sets render exact Bey and launcher compositions", async ({ pa
   await page.goto("/#PRODUCT-BURST-B-00-BAKUTEN-SHOOT-BEYBLADE-2023-V2-SET");
   await expect(page.locator('#detailModal .composition-link[data-target-id="TOOLS-BURST-LIGHT-LAUNCHER-LR"]')).toHaveText("라이트런처LR 2개→");
   await expect(page.locator('#detailModal .composition-link[data-target-id="TOOLS-BURST-LAUNCHER-GRIP"]')).toHaveText("런처그립 2개→");
+  await page.goto("/#PRODUCT-BURST-B-00-LEGEND-STAR-BEY-SET");
+  await expect(page.locator('#detailModal .composition-link[data-target-id="TOOLS-BURST-LONG-LIGHT-LAUNCHER-LR"]')).toHaveText("롱라이트런처LR 1개→");
+  await expect(page.locator('#detailModal .composition-link[data-target-id="TOOLS-BURST-LAUNCHER-GRIP"]')).toHaveText("런처그립 1개→");
   expect(errors).toEqual([]);
 });
 

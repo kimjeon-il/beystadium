@@ -6292,6 +6292,60 @@
     }
   },
 {
+    id: "PRODUCT-BURST-B-00-DRAGOON-STORM-W-X", addressSlug: "DRAGOON-STORM-W-X",
+    series: "burst",
+    releases: {
+      kr: {
+        status: "unreleased"
+      },
+      jp: {
+        no: "B-00",
+        name: "드라군 스톰.W.X",
+        sale: "코로코로 아니키·wbba. 스토어 한정",
+        kind: "부스터",
+        releaseDate: "2016-11",
+        price: "972",
+        composition: []
+      }
+    }
+  },
+{
+    id: "PRODUCT-BURST-B-00-DRANZER-SPIRAL-S-T", addressSlug: "DRANZER-SPIRAL-S-T",
+    series: "burst",
+    releases: {
+      kr: {
+        status: "unreleased"
+      },
+      jp: {
+        no: "B-00",
+        name: "드랜저 스파이럴.S.T",
+        sale: "wbba. 스토어 한정",
+        kind: "부스터",
+        releaseDate: "2016-11-25",
+        price: "972",
+        composition: []
+      }
+    }
+  },
+{
+    id: "PRODUCT-BURST-B-00-LEGEND-STAR-BEY-SET", addressSlug: "LEGEND-STAR-BEY-SET",
+    series: "burst",
+    releases: {
+      kr: {
+        status: "unreleased"
+      },
+      jp: {
+        no: "B-00",
+        name: "레전드 스타 베이 세트",
+        sale: "코로코로 프리미어 한정",
+        kind: "세트",
+        releaseDate: "2019-07-12",
+        price: "7560",
+        composition: []
+      }
+    }
+  },
+{
     id: "PRODUCT-BURST-B-00-BAKUTEN-SHOOT-BEYBLADE-20TH-ANNIVERSARY-SET", addressSlug: "BAKUTEN-SHOOT-BEYBLADE-20TH-ANNIVERSARY-SET",
     series: "burst",
     releases: {

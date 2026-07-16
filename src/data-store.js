@@ -186,7 +186,7 @@ const BeystadiumDataStore = (() => {
   const initialize = async () => {
     clearError();
     try {
-      indexData = await fetchJson("./data/runtime/index.json?v=20260716-burst-remake-sets");
+      indexData = await fetchJson("./data/runtime/index.json?v=20260716-burst-15th-legend-star-products");
       if (detailHashOnBoot()) await ensureRegistry();
       document.querySelector("[data-load-retry]")?.addEventListener("click", () => window.location.reload());
       return true;

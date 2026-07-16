@@ -18,7 +18,7 @@ test("all catalog addresses use kind then series namespaces", () => {
   const invalid = collections.flatMap(([kind, items]) => items.flatMap(item => addressIdIssues(kind, item)
     .map(issue => `${item.id}: ${issue}`)));
   assert.deepEqual(invalid, []);
-  assert.equal(allItems.length, 2799);
+  assert.equal(allItems.length, 2807);
   assert.equal(addressIdPrefix("part", "metal fight"), "PART-METAL-FIGHT-");
   assert.equal(addressIdPrefix("part", "burst"), "PART-BURST-");
   assert.equal(addressIdPrefix("part", "x"), "PART-X-");
