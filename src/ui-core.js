@@ -445,7 +445,6 @@ const spinDescriptions = {
   left: "반시계 방향으로 회전한다",
   dual: "좌우회전 모두 가능하다"
 };
-const heightClassLabels = { low: "낮은 높이", high: "높은 높이" };
 const isZeroGBattleTypeItem = item => item?.type === "crystalwheel"
   || item?.type === "chromewheel"
   || (item?.type === "bey" && item?.structure === "synchrome");
@@ -460,7 +459,6 @@ const battleTypeLabel = (value, item) => battleTypeLabels[battleTypeLabelGroup(i
 const battleTypeDescription = (value, item) => battleTypeDescriptions[battleTypeLabelGroup(item)]?.[value] || "";
 const spinLabel = value => spinLabels[value] || value || "";
 const spinDescription = value => spinDescriptions[value] || "";
-const heightClassLabel = value => heightClassLabels[value] || value || "";
 const toolsSubtypeOptions = [
   { value: "런처", label: "런처" },
   { value: "그립", label: "그립" },
@@ -508,7 +506,6 @@ export {
   globalSearch,
   globalSearchScope,
   globalSearchScopeValue,
-  heightClassLabel,
   isNavigationButtonCurrent,
   menuButton,
   mobileDrawer,

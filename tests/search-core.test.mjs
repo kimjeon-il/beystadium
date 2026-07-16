@@ -10,6 +10,7 @@ import {
   prepareCatalogSearchQuery,
   prepareSearchQuery
 } from "../src/search-core.js";
+import { decodeSearchEntry } from "../src/search-data-decoder.js";
 
 const advancedIndexProperties = [
   "initialWordStarts",
@@ -23,6 +24,32 @@ const advancedIndexProperties = [
 ];
 
 const hasOwn = (value, property) => Object.hasOwn(value, property);
+
+test("compact catalog search entries preserve every field after removing the unused slot", () => {
+  const entry = decodeSearchEntry([
+    "c", "x", "PART-X-BLADE-LOCK-CHIP-DRAN", "x", "blade", "",
+    "드랜", "드란", "Dran", "", "", "CX-01", "", "attack", "right",
+    "custom", "lockChip", ["크로스오버"], 7
+  ]);
+
+  assert.equal(entry.kind, "catalog-item");
+  assert.equal(entry.chunk, "x");
+  assert.deepEqual(entry.item, {
+    id: "PART-X-BLADE-LOCK-CHIP-DRAN",
+    series: "x",
+    type: "blade",
+    name: "드랜",
+    jpName: "드란",
+    en: "Dran",
+    productNo: "CX-01",
+    battleType: "attack",
+    spin: "right",
+    xLine: "custom",
+    xBladeRole: "lockChip",
+    searchTags: ["크로스오버"],
+    _order: 7
+  });
+});
 
 test("search fields create only the indexes required by their role", () => {
   for (const role of ["primaryName", "alias"]) {

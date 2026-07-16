@@ -5,7 +5,6 @@ import { escapeAttributeValue, escapeHtml } from "#app/markup-core";
 import {
   battleTypeDescription,
   battleTypeLabel,
-  heightClassLabel,
   partClassificationDescriptors,
   partMountedTypeLabel,
   spinDescription,
@@ -27,7 +26,6 @@ const battleTypeTag = item => item.battleType
   ? modalTagInfoMarkup(battleTypeLabel(item.battleType, item), battleTypeDescription(item.battleType, item))
   : "";
 const spinTag = item => item.spin ? modalTagInfoMarkup(spinLabel(item.spin), spinDescription(item.spin)) : "";
-const heightClassTag = item => item.heightClass ? modalTagInfoMarkup(heightClassLabel(item.heightClass), "") : "";
 const beySystemTag = item => {
   const label = structureLabels[item.structure];
   const description = structureTagDescriptions[item.structure];
@@ -44,7 +42,7 @@ function beyModalTags(item) {
   return modalTagGroup(`${beySystemTag(item)}${battleTypeTag(item)}${spinTag(item)}`, "bey-modal-tags");
 }
 function partModalTags(item) {
-  return modalTagGroup(`${partClassificationModalTags(item)}${battleTypeTag(item)}${spinTag(item)}${heightClassTag(item)}`);
+  return modalTagGroup(`${partClassificationModalTags(item)}${battleTypeTag(item)}${spinTag(item)}`);
 }
 
 let modalTagPopover = null;

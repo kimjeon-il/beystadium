@@ -19,7 +19,6 @@ import {
   battleTypeLabels,
   catalogSearch,
   globalSearch,
-  heightClassLabel,
   mobileDrawerSearch,
   partClassificationFilterDescriptors,
   partClassificationLabels,
@@ -92,8 +91,6 @@ const catalogItemSearchFields = (item, options = {}) => {
       item.battleType,
       item.battleType ? battleTypeLabel(item.battleType, item) : "",
       ...catalogListSpinSearchTerms(item),
-      item.heightClass,
-      item.heightClass ? heightClassLabel(item.heightClass) : "",
       ...itemSearchTagValues(item)
     ])
   ];
@@ -262,7 +259,6 @@ const normalizeSearchScope = scope => searchScopeValues.includes(scope) ? scope 
 const itemAttributeLabels = item => [
   item.battleType ? battleTypeLabel(item.battleType, item) : "",
   item.spin ? spinLabel(item.spin) : "",
-  item.heightClass ? heightClassLabel(item.heightClass) : "",
   ...partClassificationLabels(item, "card")
 ].filter(Boolean);
 

@@ -20,8 +20,8 @@ const decodeSearchEntry = values => {
       id: values[2], series: values[3], type: values[4], structure: compactValue(values[5]),
       name: values[6], jpName: compactValue(values[7]), en: compactValue(values[8]), sub: compactValue(values[9]),
       no: compactValue(values[10]), productNo: compactValue(values[11]), category: compactValue(values[12]),
-      battleType: compactValue(values[13]), spin: compactValue(values[14]), heightClass: compactValue(values[15]),
-      xLine: compactValue(values[16]), xBladeRole: compactValue(values[17]), searchTags: compactValue(values[18]), _order: values[19]
+      battleType: compactValue(values[13]), spin: compactValue(values[14]), xLine: compactValue(values[15]),
+      xBladeRole: compactValue(values[16]), searchTags: compactValue(values[17]), _order: values[18]
     })
   };
   if (kind === "t") return {

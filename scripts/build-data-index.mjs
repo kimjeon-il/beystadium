@@ -7,7 +7,7 @@ import { productItems } from "../data/source/products.mjs";
 import { rareBeyGetItems } from "../data/source/rare-bey-get.mjs";
 import { bookItems, gameItems, toolsItems } from "../data/source/secondary.mjs";
 
-const VERSION = "20260716-burst-dragoon-storm-editions";
+const VERSION = "20260716-remove-height-class";
 const SERIES_SLUGS = {
   "metal fight": "metal-fight",
   burst: "burst",
@@ -71,7 +71,7 @@ const catalogSearchEntry = (item, chunk, order) => [
   "c", chunkCode(chunk), item.id, item.series || "", item.type || "", item.structure || "",
   item.name || "", item.jpName || "", item.en || "", item.sub || "", item.no || "",
   item.productNo || "", item.category || "", item.battleType || "", item.spin || "",
-  item.heightClass || "", item.xLine || "", item.xBladeRole || "", item.searchTags || null, order
+  item.xLine || "", item.xBladeRole || "", item.searchTags || null, order
 ];
 const toolsSearchEntry = (item, chunk, order) => [
   "t", chunkCode(chunk), item.id, item.series || "", item.type || "", item.name || "",
