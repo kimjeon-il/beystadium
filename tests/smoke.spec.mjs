@@ -2146,6 +2146,57 @@ test("modal tag popovers follow the active pointer type", async ({ page }, testI
   await expect(popover).toHaveCount(0);
 });
 
+test("part classification tags expose their shared descriptions", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "shared copy only needs one browser");
+  const cases = [
+    {
+      id: "PART-BURST-EVOLUTIONGEAR-F",
+      label: "진화기어",
+      description: "벨리알의 성능을 올려준다."
+    },
+    {
+      id: "PART-X-BLADE-LOCK-CHIP-DRAN",
+      label: "락칩",
+      description: "CX 블레이드의 각 파츠를 결합해 고정한다."
+    },
+    {
+      id: "PART-X-BLADE-MAIN-BLADE-BRAVE",
+      label: "메인블레이드",
+      description: "상대와 직접 부딪치며, 형태와 무게에 따라 블레이드의 기본 성능을 결정한다."
+    },
+    {
+      id: "PART-X-BLADE-ASSIST-BLADE-SLASH",
+      label: "어시스트블레이드",
+      description: "메인블레이드와 조합하여 블레이드의 성능을 보조하고 조정한다."
+    },
+    {
+      id: "PART-X-BLADE-OVER-BLADE-BRAKE",
+      label: "오버블레이드",
+      description: "메탈블레이드와 어시스트블레이드 사이에 추가되어 CX 블레이드를 4파트 구조로 확장한다."
+    },
+    {
+      id: "PART-X-BLADE-MAIN-BLADE-BLITZ",
+      label: "메탈블레이드",
+      description: "금속 소재의 중량과 형태로 블레이드의 기본 성능을 결정한다."
+    }
+  ];
+
+  for (const { id, label, description } of cases) {
+    await page.goto(`/#${id}`);
+    await expect(page.locator("#detailModal")).toBeVisible();
+    const tag = page.locator(`.modal-tag-info[data-tag-label="${label}"]`);
+    await expect(tag).toHaveCount(1);
+    await expect(tag).toHaveAttribute("data-tag-description", description);
+
+    await tag.click();
+    const popover = page.locator(".modal-tag-popover");
+    await expect(popover.locator("strong")).toHaveText(label);
+    await expect(popover.locator("p")).toHaveText(description);
+    await tag.click();
+    await expect(popover).toHaveCount(0);
+  }
+});
+
 test("open detail modal follows viewport resize in both directions", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "viewport resize coverage only needs one browser");
   const errors = consoleErrors(page);

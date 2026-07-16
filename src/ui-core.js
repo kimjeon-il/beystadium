@@ -167,7 +167,13 @@ const xBladeRoleAliases = {
   overBlade: ["오버 블레이드"],
   metalBlade: ["메탈 블레이드"]
 };
-const xBladeRoleDescriptions = {};
+const xBladeRoleDescriptions = {
+  lockChip: "CX 블레이드의 각 파츠를 결합해 고정한다.",
+  mainBlade: "상대와 직접 부딪치며, 형태와 무게에 따라 블레이드의 기본 성능을 결정한다.",
+  assistBlade: "메인블레이드와 조합하여 블레이드의 성능을 보조하고 조정한다.",
+  overBlade: "메탈블레이드와 어시스트블레이드 사이에 추가되어 CX 블레이드를 4파트 구조로 확장한다.",
+  metalBlade: "금속 소재의 중량과 형태로 블레이드의 기본 성능을 결정한다."
+};
 const partTypeHierarchy = {
   "4dclearwheel": { groupType: "clearwheel", displayType: "clearwheel", detailType: "4dclearwheel" },
   "4dmetalwheel": { groupType: "metalwheel", displayType: "metalwheel", detailType: "4dmetalwheel" },
@@ -391,6 +397,7 @@ const partTypeTagDescriptions = {
   layer: "배틀 시 상대와 직접 부딪치는 부분으로 공격과 방어를 담당한다.",
   disk: "베이의 전체 중량과 무게중심을 변화시켜 배틀 성능에 영향을 준다.",
   driver: "베이가 스타디움 안에서 어떻게 움직이는지를 결정한다.",
+  evolutiongear: "벨리알의 성능을 올려준다.",
   blade: "공격을 담당하며, 베이의 회전 방향을 결정한다.",
   ratchet: "블레이드 아래에서 공격을 보조하며, 베이의 높이를 결정한다.",
   bit: "래칫 아래의 회전축으로 베이의 움직임과 고정력을 결정한다."
