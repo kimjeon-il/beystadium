@@ -1666,6 +1666,7 @@ test("Burst remake products render exact Bey and launcher compositions", async (
   const errors = consoleErrors(page);
   const cases = [
     { productId: "PRODUCT-BURST-B-00-DRAGOON-STORM-W-X", count: 1, targetId: "BEY-BURST-B-00-DRAGOON-STORM-W-X" },
+    { productId: "PRODUCT-BURST-B-00-DRAGOON-STORM-W-X-GOLD", count: 1, targetId: "BEY-BURST-B-00-DRAGOON-STORM-W-X-GOLD" },
     { productId: "PRODUCT-BURST-B-00-DRANZER-SPIRAL-S-T", count: 1, targetId: "BEY-BURST-B-00-DRANZER-SPIRAL-S-T" },
     { productId: "PRODUCT-BURST-B-00-LEGEND-STAR-BEY-SET", count: 7, targetIndex: 4, targetId: "BEY-BURST-B-00-STORM-PEGASIS-HR-L-DASH" },
     { productId: "PRODUCT-BURST-B-00-BAKUTEN-SHOOT-BEYBLADE-20TH-ANNIVERSARY-SET", count: 9, targetId: "BEY-BURST-B-00-DRAGOON-STORM-W-X" },

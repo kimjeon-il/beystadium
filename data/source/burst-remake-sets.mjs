@@ -2,6 +2,7 @@ const item = (name, target, quantity = "1개") => ({ name, quantity, target });
 
 const burstRemakeSetBeyItems = [
   { id: "BEY-BURST-B-00-DRAGOON-STORM-W-X", series: "burst", type: "bey", name: "드래곤 스톰.W.X", jpName: "드라군 스톰.W.X", en: "Dragoon Storm.W.X", productNo: "B-00", battleType: "attack", spin: "left", tags: [], desc: "", parts: ["PART-BURST-LAYER-DRAGOON-STORM", "PART-BURST-DISK-WING", "PART-BURST-DRIVER-XTREME"] },
+  { id: "BEY-BURST-B-00-DRAGOON-STORM-W-X-GOLD", series: "burst", type: "bey", name: "드래곤 스톰.W.X 골드 Ver.", jpName: "드라군 스톰.W.X 골드 Ver.", en: "Dragoon Storm.W.X Gold Ver.", productNo: "B-00", battleType: "attack", spin: "left", tags: [], desc: "", parts: ["PART-BURST-LAYER-DRAGOON-STORM", "PART-BURST-DISK-WING", "PART-BURST-DRIVER-XTREME"] },
   { id: "BEY-BURST-B-00-DRANZER-SPIRAL-S-T", series: "burst", type: "bey", name: "드랜져 스파이럴.S.T", jpName: "드랜저 스파이럴.S.T", en: "Dranzer Spiral.S.T", productNo: "B-00", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["PART-BURST-LAYER-DRANZER-SPIRAL", "PART-BURST-DISK-SPREAD", "PART-BURST-DRIVER-TRANS"] },
   { id: "BEY-BURST-B-00-DRIGER-SLASH-H-F", series: "burst", type: "bey", name: "드래이거 슬래시.H.F", jpName: "드라이거 슬래시.H.F", en: "Driger Slash.H.F", productNo: "B-00", battleType: "balance", spin: "right", tags: [], desc: "", parts: ["PART-BURST-LAYER-DRIGER-SLASH", "PART-BURST-DISK-HEAVY", "PART-BURST-DRIVER-FUSION"] },
   { id: "BEY-BURST-B-00-DRACIEL-SHIELD-C-P", series: "burst", type: "bey", name: "드래셀 실드.C.P", jpName: "드라시엘 실드.C.P", en: "Draciel Shield.C.P", productNo: "B-00", battleType: "defense", spin: "right", tags: [], desc: "", parts: ["PART-BURST-LAYER-DRACIEL-SHIELD", "PART-BURST-DISK-CENTRAL", "PART-BURST-DRIVER-PRESS"] },
@@ -44,6 +45,9 @@ const burstRemakeSetBeyItems = [
 const burstRemakeSetProductCompositions = {
   "PRODUCT-BURST-B-00-DRAGOON-STORM-W-X": {
     jp: [item("드라군 스톰.W.X", "BEY-BURST-B-00-DRAGOON-STORM-W-X")]
+  },
+  "PRODUCT-BURST-B-00-DRAGOON-STORM-W-X-GOLD": {
+    jp: [item("드라군 스톰.W.X 골드 Ver.", "BEY-BURST-B-00-DRAGOON-STORM-W-X-GOLD")]
   },
   "PRODUCT-BURST-B-00-DRANZER-SPIRAL-S-T": {
     jp: [item("드랜저 스파이럴.S.T", "BEY-BURST-B-00-DRANZER-SPIRAL-S-T")]

@@ -6301,15 +6301,33 @@
       jp: {
         no: "B-00",
         name: "드라군 스톰.W.X",
-        sale: "코로코로 아니키·wbba. 스토어 한정",
+        sale: "wbba. 스토어 한정",
         kind: "부스터",
-        releaseDate: "2016-11",
+        releaseDate: "2017-03-04",
         price: "972",
         composition: []
       }
     }
   },
-{
+  {
+    id: "PRODUCT-BURST-B-00-DRAGOON-STORM-W-X-GOLD", addressSlug: "DRAGOON-STORM-W-X-GOLD",
+    series: "burst",
+    releases: {
+      kr: {
+        status: "unreleased"
+      },
+      jp: {
+        no: "B-00",
+        name: "드라군 스톰.W.X 골드 Ver.",
+        sale: "코로코로 아니키 제7호 응모자 전원 서비스",
+        kind: "부스터",
+        releaseDate: "2016-12-28",
+        price: "1050",
+        composition: []
+      }
+    }
+  },
+  {
     id: "PRODUCT-BURST-B-00-DRANZER-SPIRAL-S-T", addressSlug: "DRANZER-SPIRAL-S-T",
     series: "burst",
     releases: {

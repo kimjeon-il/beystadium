@@ -12,8 +12,12 @@ import { buildRuntimeData } from "../scripts/build-data-index.mjs";
 
 const expectedSets = {
   "PRODUCT-BURST-B-00-DRAGOON-STORM-W-X": {
-    name: "드라군 스톰.W.X", kind: "부스터", releaseDate: "2016-11", price: "972",
+    name: "드라군 스톰.W.X", sale: "wbba. 스토어 한정", kind: "부스터", releaseDate: "2017-03-04", price: "972",
     targets: ["BEY-BURST-B-00-DRAGOON-STORM-W-X"]
+  },
+  "PRODUCT-BURST-B-00-DRAGOON-STORM-W-X-GOLD": {
+    name: "드라군 스톰.W.X 골드 Ver.", sale: "코로코로 아니키 제7호 응모자 전원 서비스", kind: "부스터", releaseDate: "2016-12-28", price: "1050",
+    targets: ["BEY-BURST-B-00-DRAGOON-STORM-W-X-GOLD"]
   },
   "PRODUCT-BURST-B-00-DRANZER-SPIRAL-S-T": {
     name: "드랜저 스파이럴.S.T", kind: "부스터", releaseDate: "2016-11-25", price: "972",
@@ -74,6 +78,7 @@ const expectedSets = {
 
 const expectedParts = {
   "BEY-BURST-B-00-DRAGOON-STORM-W-X": ["PART-BURST-LAYER-DRAGOON-STORM", "PART-BURST-DISK-WING", "PART-BURST-DRIVER-XTREME"],
+  "BEY-BURST-B-00-DRAGOON-STORM-W-X-GOLD": ["PART-BURST-LAYER-DRAGOON-STORM", "PART-BURST-DISK-WING", "PART-BURST-DRIVER-XTREME"],
   "BEY-BURST-B-00-DRANZER-SPIRAL-S-T": ["PART-BURST-LAYER-DRANZER-SPIRAL", "PART-BURST-DISK-SPREAD", "PART-BURST-DRIVER-TRANS"],
   "BEY-BURST-B-00-DRIGER-SLASH-H-F": ["PART-BURST-LAYER-DRIGER-SLASH", "PART-BURST-DISK-HEAVY", "PART-BURST-DRIVER-FUSION"],
   "BEY-BURST-B-00-DRACIEL-SHIELD-C-P": ["PART-BURST-LAYER-DRACIEL-SHIELD", "PART-BURST-DISK-CENTRAL", "PART-BURST-DRIVER-PRESS"],
@@ -108,9 +113,9 @@ const expectedParts = {
   "BEY-BURST-B-00-DRACIEL-V2-10-T-PL-DASH": ["PART-BURST-LAYER-DRACIEL-V2", "PART-BURST-COREDISK-10", "PART-BURST-FRAME-TURN", "PART-BURST-DRIVER-PLANET-DASH"]
 };
 
-test("eight Japanese-only remake products keep exact release metadata and compositions", () => {
+test("nine Japanese-only remake products keep exact release metadata and compositions", () => {
   const productsById = new Map(productItems.map(product => [product.id, product]));
-  assert.equal(Object.keys(burstRemakeSetProductCompositions).length, 8);
+  assert.equal(Object.keys(burstRemakeSetProductCompositions).length, 9);
 
   for (const [id, expected] of Object.entries(expectedSets)) {
     const product = productsById.get(id);
@@ -122,14 +127,17 @@ test("eight Japanese-only remake products keep exact release metadata and compos
     assert.deepEqual(product?.releases.jp.composition.map(entry => entry.target), expected.targets);
     assert.deepEqual(product?.releases.jp.composition.map(entry => entry.quantity), expected.quantities || expected.targets.map(() => "1개"));
   }
+
+  assert.equal(productsById.get("PRODUCT-BURST-B-00-DRAGOON-STORM-W-X")?.releases.jp.sale, expectedSets["PRODUCT-BURST-B-00-DRAGOON-STORM-W-X"].sale);
+  assert.equal(productsById.get("PRODUCT-BURST-B-00-DRAGOON-STORM-W-X-GOLD")?.releases.jp.sale, expectedSets["PRODUCT-BURST-B-00-DRAGOON-STORM-W-X-GOLD"].sale);
 });
 
-test("all 33 remake-product Beys use B-00 Japanese identities and exact existing parts", () => {
+test("all 34 remake-product Beys use B-00 Japanese identities and exact existing parts", () => {
   const beysById = new Map(beyItems.map(item => [item.id, item]));
   const partIds = new Set(partItems.map(item => item.id));
   const toolIds = new Set(toolsItems.map(item => item.id));
-  assert.equal(burstRemakeSetBeyItems.length, 33);
-  assert.equal(Object.keys(expectedParts).length, 33);
+  assert.equal(burstRemakeSetBeyItems.length, 34);
+  assert.equal(Object.keys(expectedParts).length, 34);
 
   for (const [id, parts] of Object.entries(expectedParts)) {
     const bey = beysById.get(id);

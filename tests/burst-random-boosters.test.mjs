@@ -141,7 +141,7 @@ test("remake Bey names localize by region while addresses retain Japanese identi
   const remakeBeys = beyItems.filter(item => item.parts?.some(id => partsById.has(id)));
   const koreanAddressTokens = /(?:MAGMA-LIZARD|SKY-FALCON|STORM-TIGER|PROTECTION-TURTLE|FIRE-LIZARD|CLAW-TIGER|KNIFE-LIZARD|WING-FALCON|HOUND-DOG)/;
 
-  assert.equal(remakeBeys.length, 41);
+  assert.equal(remakeBeys.length, 42);
   for (const item of remakeBeys) {
     const layerId = item.parts.find(id => partsById.has(id));
     const layer = partsById.get(layerId);
