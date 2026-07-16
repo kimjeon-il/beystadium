@@ -6,6 +6,7 @@ import {
   burstRandomLayerLineups,
   burstRandomLayerParts
 } from "./burst-random-layers.mjs";
+import { burstRemakeSetBeyItems } from "./burst-remake-sets.mjs";
 import { xSetBeyItems, xSetPartItems } from "./x-set-products.mjs";
 import {
   xRandomBoosterBeyItems,
@@ -1685,7 +1686,7 @@ const partItems = [
 ];
 
 partItems.push(...xSetPartItems, ...xRandomBoosterPartItems, ...burstRandomBoosterParts, ...burstRandomLayerParts);
-beyItems.push(...xSetBeyItems, ...xRandomBoosterBeyItems);
+beyItems.push(...burstRemakeSetBeyItems, ...xSetBeyItems, ...xRandomBoosterBeyItems);
 const {
   beys: burstRandomBoosterBeys,
   lineups: burstRandomBoosterLineups

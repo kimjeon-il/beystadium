@@ -6291,6 +6291,91 @@
       }
     }
   },
+{
+    id: "PRODUCT-BURST-B-00-BAKUTEN-SHOOT-BEYBLADE-20TH-ANNIVERSARY-SET", addressSlug: "BAKUTEN-SHOOT-BEYBLADE-20TH-ANNIVERSARY-SET",
+    series: "burst",
+    releases: {
+      kr: {
+        status: "unreleased"
+      },
+      jp: {
+        no: "B-00",
+        name: "폭전슛 베이블레이드 20주년 기념 세트",
+        kind: "세트",
+        releaseDate: "2019-07-20",
+        price: "8964",
+        composition: []
+      }
+    }
+  },
+{
+    id: "PRODUCT-BURST-B-00-METAL-FIGHT-BEYBLADE-ANIME-10TH-ANNIVERSARY-SET", addressSlug: "METAL-FIGHT-BEYBLADE-ANIME-10TH-ANNIVERSARY-SET",
+    series: "burst",
+    releases: {
+      kr: {
+        status: "unreleased"
+      },
+      jp: {
+        no: "B-00",
+        name: "메탈파이트 베이블레이드 애니메이션 10주년 기념 세트",
+        kind: "세트",
+        releaseDate: "2019-12-31",
+        price: "8100",
+        composition: []
+      }
+    }
+  },
+{
+    id: "PRODUCT-BURST-B-00-BAKUTEN-SHOOT-BEYBLADE-2020-V-SET", addressSlug: "BAKUTEN-SHOOT-BEYBLADE-2020-V-SET",
+    series: "burst",
+    releases: {
+      kr: {
+        status: "unreleased"
+      },
+      jp: {
+        no: "B-00",
+        name: "폭전슛 베이블레이드 2020 V 세트",
+        kind: "세트",
+        releaseDate: "2020-08-31",
+        price: "8250",
+        composition: []
+      }
+    }
+  },
+{
+    id: "PRODUCT-BURST-B-00-METAL-FIGHT-BEYBLADE-2020-BAKU-SET", addressSlug: "METAL-FIGHT-BEYBLADE-2020-BAKU-SET",
+    series: "burst",
+    releases: {
+      kr: {
+        status: "unreleased"
+      },
+      jp: {
+        no: "B-00",
+        name: "메탈파이트 베이블레이드 2020 폭 세트",
+        kind: "세트",
+        releaseDate: "2020-12-30",
+        price: "8250",
+        composition: []
+      }
+    }
+  },
+{
+    id: "PRODUCT-BURST-B-00-BAKUTEN-SHOOT-BEYBLADE-2023-V2-SET", addressSlug: "BAKUTEN-SHOOT-BEYBLADE-2023-V2-SET",
+    series: "burst",
+    releases: {
+      kr: {
+        status: "unreleased"
+      },
+      jp: {
+        no: "B-00",
+        name: "폭전슛 베이블레이드 2023 V2 세트",
+        kind: "세트",
+        releaseDate: "2023-02-15",
+        price: "8800",
+        composition: []
+      }
+    }
+  },
   // 베이블레이드 X
 {
     id: "PRODUCT-X-BX-01",
@@ -9519,6 +9604,7 @@ import {
   burstRandomLayerLineups,
   xRandomBoosterLineups
 } from "./catalog.mjs";
+import { burstRemakeSetProductCompositions } from "./burst-remake-sets.mjs";
 import { xSetProductCompositions } from "./x-set-products.mjs";
 
 for (const product of productItems) {
@@ -9550,6 +9636,16 @@ for (const product of productItems) {
   for (const release of Object.values(product.releases || {})) {
     if (!release || release.status === "unreleased") continue;
     release.composition = [{ name: "무작위 레이어", quantity: "1개", target: lineup[0] }];
+  }
+}
+
+for (const product of productItems) {
+  const regionalCompositions = burstRemakeSetProductCompositions[product.id];
+  if (!regionalCompositions) continue;
+  for (const [region, composition] of Object.entries(regionalCompositions)) {
+    const release = product.releases?.[region];
+    if (!release || release.status === "unreleased") continue;
+    release.composition = composition.map(entry => ({ ...entry }));
   }
 }
 
