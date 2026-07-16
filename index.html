@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>베이 아카이브 - 베이블레이드 도감</title>
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
     <script>
       (() => {
         const hash = window.location.hash || "";
@@ -19,8 +19,8 @@
       as="font"
       type="font/woff2"
       crossorigin
-    />
-    <link rel="stylesheet" href="./styles/base.css?v=20260714-ui-consistency" data-style-key="base" />
+    >
+    <link rel="stylesheet" href="./styles/base.css?v=20260716-html5-conformance" data-style-key="base">
   </head>
   <body class="is-overview" data-active-panel="overview">
     <div class="data-load-status" id="dataLoadStatus" role="status" aria-live="polite" hidden>
@@ -46,7 +46,7 @@
         <button class="topbar-primary-button" type="button" data-category-anime-episodes-open>
           방영목록
         </button>
-        <button class="topbar-primary-button disabled" type="button" disabled aria-disabled="true">
+        <button class="topbar-primary-button disabled" type="button" disabled>
           연재목록
         </button>
       </nav>
@@ -64,7 +64,7 @@
             </div>
           </details>
           <span class="search-icon" aria-hidden="true"></span>
-          <input id="globalSearchInput" type="search" placeholder="검색어를 입력해주세요." autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none" />
+          <input id="globalSearchInput" type="search" placeholder="검색어를 입력해주세요." autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none">
         </div>
       </div>
       <button class="menu-button topbar-menu-button" id="menuButton" type="button" aria-label="메뉴 열기" aria-controls="mobileDrawer" aria-expanded="false">
@@ -93,7 +93,7 @@
           </div>
         </details>
         <span class="search-icon" aria-hidden="true"></span>
-        <input id="mobileDrawerSearchInput" type="search" placeholder="검색어를 입력해주세요." autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none" />
+        <input id="mobileDrawerSearchInput" type="search" placeholder="검색어를 입력해주세요." autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none">
       </div>
       <button class="sidebar-button" type="button" data-sidebar-home aria-label="홈으로 이동">
         <span class="sidebar-button__icon" aria-hidden="true">
@@ -106,7 +106,7 @@
         <span class="sidebar-button__label">홈</span>
       </button>
       <nav class="mobile-drawer-nav sidebar-nav" aria-label="모바일 메뉴">
-        <section class="sidebar-section">
+        <div class="sidebar-section">
           <div class="sidebar-group-label">
             <span class="sidebar-button__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round">
@@ -144,31 +144,31 @@
             <span class="sidebar-button__icon" aria-hidden="true"></span>
             <span class="sidebar-button__label">방영목록</span>
           </button>
-          <button class="sidebar-button sidebar-button--child" type="button" disabled aria-disabled="true" aria-label="미디어 연재목록">
+          <button class="sidebar-button sidebar-button--child" type="button" disabled aria-label="미디어 연재목록">
             <span class="sidebar-button__icon" aria-hidden="true"></span>
             <span class="sidebar-button__label">연재목록</span>
           </button>
-        </section>
+        </div>
       </nav>
     </aside>
 
 
     <main>
-      <section class="app-shell active">
+      <div class="app-shell active">
         <div class="unified-search search-results-search" role="search">
           <div class="search-box global-search-box search-results-search-box">
             <details class="search-scope catalog-dropdown" id="searchResultsSearchScope" data-scope="all" aria-label="검색 범위">
               <summary><b class="catalog-dropdown-value">전체</b></summary><div class="catalog-dropdown-menu"></div>
             </details>
-            <span class="search-icon" aria-hidden="true"></span><input id="searchResultsSearchInput" type="search" placeholder="검색어를 입력해주세요." aria-label="검색어" />
+            <span class="search-icon" aria-hidden="true"></span><input id="searchResultsSearchInput" type="search" placeholder="검색어를 입력해주세요." aria-label="검색어">
           </div>
         </div>
 
         <div class="app-panel active overview-panel" data-app-panel="overview">
-          <section class="overview-home">
+          <div class="overview-home">
             <div class="overview-hero">
               <div class="overview-copy">
-                <h2>베이 아카이브</h2>
+                <h1>베이 아카이브</h1>
                 <p class="overview-intro">
                   베이블레이드 비공식 도감
                 </p>
@@ -185,11 +185,11 @@
                     </div>
                   </details>
                   <span class="search-icon" aria-hidden="true"></span>
-                  <input id="overviewSearchInput" type="search" placeholder="검색어를 입력해주세요." autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none" />
+                  <input id="overviewSearchInput" type="search" placeholder="검색어를 입력해주세요." autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none">
                 </div>
               </div>
             </div>
-          </section>
+          </div>
         </div>
 
         <div class="app-panel search-results-panel" data-app-panel="all">
@@ -234,7 +234,7 @@
                       </div>
                     </details>
                     <span class="search-icon" aria-hidden="true"></span>
-                    <input id="catalogSearchInput" type="search" placeholder="검색어를 입력해주세요." autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none" />
+                    <input id="catalogSearchInput" type="search" placeholder="검색어를 입력해주세요." autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none">
                     <button type="button" class="catalog-search-help-button" id="catalogSearchHelpButton" aria-label="상세검색 도움말" aria-expanded="false" aria-controls="catalogSearchHelpPopover">?</button>
                   </div>
                 </div>
@@ -257,9 +257,9 @@
           </div>
 
           <div class="category-collection catalog-combined">
-            <section class="category-collection__section catalog-subsection" data-catalog-section="catalog">
+            <div class="category-collection__section catalog-subsection" data-catalog-section="catalog">
               <div class="category-collection__meta-row catalog-query-row">
-                <div class="catalog-filter-chips catalog-query-chips is-empty" data-catalog-filter-chips="catalog" aria-hidden="true"></div>
+                <div class="catalog-filter-chips catalog-query-chips is-empty" data-catalog-filter-chips="catalog" hidden></div>
                 <div class="catalog-query-actions">
                   <p class="result-count catalog-query-count"><b id="catalogCount">0</b>개 항목</p>
                   <div class="list-sort-control catalog-sort-control" data-catalog-sort-control></div>
@@ -267,7 +267,7 @@
               </div>
               <div class="category-collection__grid catalog-grid" id="catalogGrid"></div>
               <div class="category-collection__pagination catalog-pagination" id="catalogPagination" aria-live="polite"></div>
-            </section>
+            </div>
           </div>
         </div>
 
@@ -294,7 +294,7 @@
               <div class="unified-search catalog-local-search anime-local-search">
                 <div class="search-box global-search-box catalog-search-box anime-search-box">
                   <span class="search-icon" aria-hidden="true"></span>
-                  <input id="animeSearchInput" type="search" placeholder="검색어를 입력해주세요." autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none" />
+                  <input id="animeSearchInput" type="search" placeholder="검색어를 입력해주세요." autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none">
                   <button type="button" class="catalog-search-help-button anime-search-help-button" id="animeSearchHelpButton" aria-label="상세검색 도움말" aria-expanded="false" aria-controls="animeSearchHelpPopover">?</button>
                 </div>
               </div>
@@ -306,13 +306,13 @@
           </div>
 
           <div class="category-collection catalog-combined anime-combined">
-            <section class="category-collection__section catalog-subsection anime-subsection" data-anime-section="characters">
+            <div class="category-collection__section catalog-subsection anime-subsection" data-anime-section="characters">
               <div class="category-collection__meta-row catalog-query-row anime-query-row">
                 <p class="result-count catalog-query-count anime-query-count"><b id="animeCount">0</b>개 항목</p>
               </div>
               <div class="category-collection__grid catalog-grid anime-character-grid" id="animeCharacterGrid" aria-live="polite"></div>
               <div class="category-collection__pagination catalog-pagination anime-pagination" id="animePagination" aria-live="polite"></div>
-            </section>
+            </div>
           </div>
         </div>
 
@@ -325,7 +325,7 @@
 
           <div class="table-list-shell anime-episodes-page-shell" data-anime-episodes-page-content></div>
         </div>
-      </section>
+      </div>
 
     </main>
 
@@ -347,30 +347,30 @@
         "#app/anime-core": "./src/anime-core.js?v=20260714-scroll-affordance-overlay",
         "#app/data-store": "./src/data-store.js?v=20260716-burst-dragoon-storm-editions",
         "#app/search-data-decoder": "./src/search-data-decoder.js?v=20260715-category-preload",
-        "#app/ui-core": "./src/ui-core.js?v=20260714-scroll-affordance-overlay",
-        "#app/release-core": "./src/release-core.js?v=20260714-scroll-affordance-overlay",
+        "#app/ui-core": "./src/ui-core.js?v=20260716-html5-conformance",
+        "#app/release-core": "./src/release-core.js?v=20260716-html5-conformance",
         "#app/scroll-affordance": "./src/scroll-affordance.js?v=20260714-scroll-affordance-overlay",
         "#app/search-core": "./src/search-core.js?v=20260714-search-core-optimization",
         "#app/search-engine": "./src/search-engine.js?v=20260715-unified-addresses",
-        "#app/catalog-model": "./src/catalog-model.js?v=20260715-unified-addresses",
-        "#app/collection-view": "./src/collection-view.js?v=20260714-scroll-affordance-overlay",
-        "#app/catalog-view": "./src/catalog-view.js?v=20260714-scroll-affordance-overlay",
+        "#app/catalog-model": "./src/catalog-model.js?v=20260716-html5-conformance",
+        "#app/collection-view": "./src/collection-view.js?v=20260716-html5-conformance",
+        "#app/catalog-view": "./src/catalog-view.js?v=20260716-html5-conformance",
         "#app/route-parser": "./src/route-parser.js?v=20260714-scroll-affordance-overlay",
         "#app/navigation": "./src/navigation.js?v=20260714-scroll-affordance-overlay",
-        "#app/search-feature": "./src/search-feature.js?v=20260715-empty-search-idle",
+        "#app/search-feature": "./src/search-feature.js?v=20260716-html5-conformance",
         "#app/search-controller": "./src/search-controller.js?v=20260714-scroll-affordance-overlay",
         "#app/search-help-controller": "./src/search-help-controller.js?v=20260714-search-help-summary",
-        "#app/detail-view": "./src/detail-view.js?v=20260715-burst-random-boosters-4-25",
+        "#app/detail-view": "./src/detail-view.js?v=20260716-html5-conformance",
         "#app/modal-context": "./src/modal-context.js?v=20260714-scroll-affordance-overlay",
-        "#app/style-loader": "./src/style-loader.js?v=20260715-category-preload",
+        "#app/style-loader": "./src/style-loader.js?v=20260716-html5-conformance",
         "#app/feature-loaders": "./src/feature-loaders.js?v=20260715-category-preload",
         "#app/shell-controller": "./src/shell-controller.js?v=20260715-category-preload",
-        "#app/catalog-feature": "./src/catalog-feature.js?v=20260715-category-preload",
-        "#app/modal-controller": "./src/modal-controller.js?v=20260715-unified-addresses",
-        "#app/detail-controller": "./src/detail-controller.js?v=20260716-burst-bakuten-remake-regional-names",
+        "#app/catalog-feature": "./src/catalog-feature.js?v=20260716-html5-conformance",
+        "#app/modal-controller": "./src/modal-controller.js?v=20260716-html5-conformance",
+        "#app/detail-controller": "./src/detail-controller.js?v=20260716-html5-conformance",
         "#app/route-controller": "./src/route-controller.js?v=20260715-canonical-addresses",
-        "#app/release-page": "./src/release-page.js?v=20260714-scroll-affordance-overlay",
-        "#app/anime": "./src/anime.js?v=20260714-scroll-affordance-overlay",
+        "#app/release-page": "./src/release-page.js?v=20260716-html5-conformance",
+        "#app/anime": "./src/anime.js?v=20260716-html5-conformance",
         "#app/anime-detail": "./src/anime-detail.js?v=20260714-scroll-affordance-overlay",
         "#app/router": "./src/router.js?v=20260714-scroll-affordance-overlay",
         "#app/entry": "./src/app-entry.js?v=20260715-category-preload"

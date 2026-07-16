@@ -154,7 +154,7 @@ const animeCharacterCardMarkup = character => {
   const beys = Array.isArray(character?.beys) ? character.beys.filter(Boolean).join(" / ") : "";
   const detail = character?.desc || character?.role || "";
   return `<article class="category-card anime-character-card">
-    <strong>${escapeHtml(name)}</strong>
+    <h3>${escapeHtml(name)}</h3>
     ${beys ? `<small>${escapeHtml(beys)}</small>` : ""}
     ${detail ? `<p>${escapeHtml(detail)}</p>` : ""}
   </article>`;
@@ -221,9 +221,9 @@ const visibleAnimeEpisodes = () => {
 const animeEpisodeRowsMarkup = visibleRows => {
   const rows = visibleRows.map(({ episode, index }) => {
     const airDate = episode.airDates?.[animeDisplayRegion] || "";
-    return `<tr class="table-list-row anime-episode-row" role="button" tabindex="0" data-anime-episode-index="${index}">
+    return `<tr class="table-list-row anime-episode-row" data-anime-episode-index="${index}">
     <td>${escapeHtml(episode.no || "")}</td>
-    <td><span class="table-list-primary-text anime-episode-title">${escapeHtml(episode.titles?.[animeDisplayRegion] || "")}</span></td>
+    <td><button class="table-list-row-action table-list-primary-text anime-episode-title" type="button">${escapeHtml(episode.titles?.[animeDisplayRegion] || "")}</button></td>
     <td>${responsiveDateSpans("anime-air-date-full", "anime-air-date-compact", animeAirDateLabel(airDate), animeAirDateCompactLabel(airDate))}</td>
   </tr>`;
   }).join("");

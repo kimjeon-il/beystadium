@@ -172,13 +172,28 @@
   outline: 0;
 }
 
+.table-list-row-action {
+  appearance: none;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
+  text-align: left;
+  cursor: pointer;
+  outline: 0;
+}
+
 .table-list-table tbody .table-list-row:hover td,
-.table-list-table tbody .table-list-row:focus-visible td {
+.table-list-table tbody .table-list-row:has(.table-list-row-action:focus-visible) td {
   background: var(--ui-control-hover);
   color: var(--ui-text);
 }
 
-.table-list-row:focus-visible {
+.table-list-row:has(.table-list-row-action:focus-visible) {
   outline: var(--ui-focus-outline);
   outline-offset: -3px;
 }

@@ -29,6 +29,21 @@ const expectFocusIndicator = async locator => {
   expect(after.boxShadow !== before.boxShadow || visibleOutline).toBe(true);
 };
 
+const expectActionRowFocusIndicator = async row => {
+  const action = row.locator(".table-list-row-action");
+  const before = await row.evaluate(element => getComputedStyle(element).outlineWidth);
+  await action.focus();
+  await expect(action).toBeFocused();
+  const after = await row.evaluate(element => ({
+    outlineStyle: getComputedStyle(element).outlineStyle,
+    outlineWidth: getComputedStyle(element).outlineWidth,
+    focusVisible: element.matches(":has(.table-list-row-action:focus-visible)")
+  }));
+  expect(after.focusVisible).toBe(true);
+  expect(after.outlineStyle).not.toBe("none");
+  expect(Number.parseFloat(after.outlineWidth)).toBeGreaterThan(Number.parseFloat(before));
+};
+
 const expectModalBackAtShellTopLeft = async backButton => {
   await expect(backButton).toBeVisible();
   const geometry = await backButton.evaluate(button => {
@@ -1021,7 +1036,7 @@ test("keyboard focus indicators stay visible across interface surfaces", async (
     await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
 
     await expectFocusIndicator(page.locator(mobile ? "#menuButton" : ".topbar > .brand"));
-    await expectFocusIndicator(page.locator("#catalogGrid .catalog-card").first());
+    await expectFocusIndicator(page.locator("#catalogGrid .catalog-card-action").first());
     await expectFocusIndicator(page.locator("#toTop"));
 
     const seriesFilter = page.locator("#catalogSeriesFilter");
@@ -1039,7 +1054,7 @@ test("keyboard focus indicators stay visible across interface surfaces", async (
     await page.goto("/#toy-release");
     await expect(page.locator(".release-product-row").first()).toBeVisible();
     await expectFocusIndicator(page.locator(".release-region-tabs .ui-tab-button").first());
-    await expectFocusIndicator(page.locator(".release-product-row").first());
+    await expectActionRowFocusIndicator(page.locator(".release-product-row").first());
     if (!mobile) await expectFocusIndicator(page.locator(".release-sort-button").first());
 
     await page.goto(`/#search?q=${encodeURIComponent("드래곤")}&scope=bey`);
@@ -1059,6 +1074,74 @@ test("keyboard focus indicators stay visible across interface surfaces", async (
     await expect(page.locator("#detailModal .modal-tag-info").first()).toBeVisible();
     await expectFocusIndicator(page.locator("#detailModal .modal-tag-info").first());
   }
+});
+
+test("rendered pages keep HTML and ARIA conformance invariants", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "markup conformance is viewport-independent");
+  const routes = [
+    ["/", ".overview-home"],
+    ["/#toy-catalog?scope=bey&series=x", "#catalogGrid .catalog-card"],
+    ["/#toy-release", ".release-product-row"],
+    ["/#anime-character", "#animeCharacterGrid .anime-character-card"],
+    ["/#anime-episode", ".anime-episode-row"],
+    [`/#search?q=${encodeURIComponent("드래곤")}&scope=bey`, ".search-results-panel .search-result-item"],
+    ["/#PRODUCT-X-BX-01", "#detailModal[open]"],
+    ["/#rare-bey-get-list?region=jp&series=x", "#detailModal[open]"]
+  ];
+
+  for (const [route, readySelector] of routes) {
+    await page.goto(route);
+    await expect(page.locator(readySelector).first()).toBeVisible();
+    const violations = await page.evaluate(() => ({
+      h1Count: document.querySelectorAll("h1").length,
+      actionRows: document.querySelectorAll('tr[role="button"], tr[tabindex]').length,
+      redundantDisabled: document.querySelectorAll("button[disabled][aria-disabled]").length,
+      invalidGenericLabels: document.querySelectorAll("div[aria-label]:not([role]), span[aria-label]:not([role])").length,
+      invalidButtonContent: document.querySelectorAll("button div, button h1, button h2, button h3, button h4, button h5, button h6, button p").length,
+      redundantHidden: document.querySelectorAll("[hidden][aria-hidden]").length,
+      invalidExpandedInputs: document.querySelectorAll('input[aria-expanded]:not([role="combobox"])').length,
+      headinglessSections: [...document.querySelectorAll("section")]
+        .filter(section => !section.querySelector("h1, h2, h3, h4, h5, h6"))
+        .map(section => section.className || section.id || section.tagName),
+      headinglessArticles: [...document.querySelectorAll("article")]
+        .filter(article => !article.querySelector("h1, h2, h3, h4, h5, h6"))
+        .map(article => article.className || article.id || article.tagName)
+    }));
+    expect(violations, route).toEqual({
+      h1Count: 1,
+      actionRows: 0,
+      redundantDisabled: 0,
+      invalidGenericLabels: 0,
+      invalidButtonContent: 0,
+      redundantHidden: 0,
+      invalidExpandedInputs: 0,
+      headinglessSections: [],
+      headinglessArticles: []
+    });
+  }
+});
+
+test("table action rows preserve pointer and native keyboard activation", async ({ page }) => {
+  const errors = consoleErrors(page);
+
+  await page.goto("/#toy-release");
+  const releaseRow = page.locator(".release-product-row").first();
+  const releaseAction = releaseRow.locator(".table-list-row-action");
+  await expect(releaseRow).not.toHaveAttribute("role", "button");
+  await expect(releaseRow).not.toHaveAttribute("tabindex", "0");
+  await releaseAction.focus();
+  await releaseAction.press("Enter");
+  await expect(page.locator("#detailModal")).toBeVisible();
+
+  await page.goto("/#anime-episode");
+  const episodeRow = page.locator(".anime-episode-row").first();
+  const episodeAction = episodeRow.locator(".table-list-row-action");
+  await expect(episodeRow).not.toHaveAttribute("role", "button");
+  await expect(episodeRow).not.toHaveAttribute("tabindex", "0");
+  await episodeAction.focus();
+  await episodeAction.press("Space");
+  await expect(page.locator("#detailModal")).toBeVisible();
+  expect(errors).toEqual([]);
 });
 
 test("scroll affordances appear only while internal content remains below", async ({ page }, testInfo) => {

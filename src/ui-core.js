@@ -102,14 +102,9 @@ const clearSearchInputs = () => {
 bindResponsiveSearchPlaceholders();
 const bindActionRows = (root = document, selector, handler) => {
   root.querySelectorAll(selector).forEach(row => {
-    const activate = event => {
+    row.addEventListener("click", event => {
       event.preventDefault();
       handler(row, event);
-    };
-    row.addEventListener("click", activate);
-    row.addEventListener("keydown", event => {
-      if (event.key !== "Enter" && event.key !== " ") return;
-      activate(event);
     });
   });
 };
@@ -470,7 +465,7 @@ const dropdownButtonMarkup = ({ value = "", label = "", active = false, dataAttr
   return `<button type="button" class="ui-dropdown-item ${active ? "active" : ""}" ${dataAttr}="${escapeAttributeValue(value)}"${summary}>${escapeHtml(label)}</button>`;
 };
 const tabButtonMarkup = ({ value = "", label = "", active = false, dataAttr }) =>
-  `<button type="button" role="tab" class="ui-tab-button ${active ? "active" : ""}" ${dataAttr}="${escapeAttributeValue(value)}" aria-selected="${active ? "true" : "false"}">${escapeHtml(label)}</button>`;
+  `<button type="button" class="ui-tab-button ${active ? "active" : ""}" ${dataAttr}="${escapeAttributeValue(value)}" aria-pressed="${active ? "true" : "false"}">${escapeHtml(label)}</button>`;
 const queryChipMarkup = queryOrEntries => {
   const entries = (Array.isArray(queryOrEntries) ? queryOrEntries : [{ label: queryOrEntries }])
     .map(entry => typeof entry === "string" ? { label: entry } : entry || {})

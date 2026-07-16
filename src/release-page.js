@@ -131,7 +131,7 @@ const releaseTableHead = () => `<thead>
 const releaseBadgesMarkup = (item, region = appState.activeReleaseRegion) => {
   const badges = releaseBadges(item, region);
   if (!badges.length) return "";
-  return `<span class="release-badges" aria-label="제품 표시">${badges.map(badge =>
+  return `<span class="release-badges">${badges.map(badge =>
     `<span class="release-badge">${escapeHtml(releaseBadgeLabel(badge))}</span>`
   ).join("")}</span>`;
 };
@@ -140,9 +140,9 @@ const productReleaseTableRows = (region = appState.activeReleaseRegion, series =
     const release = productRelease(item, region);
     const releaseDate = release.releaseDate || release.release;
     const productName = release.name || item.name || "";
-    return `<tr class="table-list-row release-product-row" role="button" tabindex="0" data-product-id="${item.id}" data-release-region="${region}">
+    return `<tr class="table-list-row release-product-row" data-product-id="${item.id}" data-release-region="${region}">
     <td>${release.no || ""}</td>
-    <td><span class="release-product-cell"><span class="table-list-primary-text release-product-link">${escapeHtml(productName)}</span>${releaseBadgesMarkup(item, region)}</span></td>
+    <td><span class="release-product-cell"><button class="table-list-row-action table-list-primary-text release-product-link" type="button">${escapeHtml(productName)}</button>${releaseBadgesMarkup(item, region)}</span></td>
     <td>${release.kind || ""}</td>
     <td>${responsiveDateSpans("release-date-full", "release-date-compact", releaseDateLabel(releaseDate), releaseDateCompactLabel(releaseDate))}</td>
     <td>${priceLabel(release.price, region)}</td>

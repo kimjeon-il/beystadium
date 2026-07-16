@@ -14,6 +14,7 @@ import {
 } from "#app/data-store";
 import {
   compareProductReleaseOrder,
+  escapeAttributeValue,
   productRelease,
   productReleasedInRegion,
   productSerialNumber,
@@ -42,13 +43,14 @@ const zeroGBottomStartIndex = () => partItems.findIndex(item => item.id === "PAR
 const findCatalogItemById = id => catalogCoreItemsById.get(id) || toolsItemsById.get(id) || bookItemsById.get(id) || gameItemsById.get(id) || productItemsById.get(id) || null;
 
 const cardVisualMarkup = item => item.image
-  ? `<img class="bey-image" src="${item.image}" alt="${item.name}" />`
+  ? `<img class="bey-image" src="${item.image}" alt="${item.name}">`
   : "";
 const modalArtMarkup = item => item.model
   ? `<div class="model-viewer" data-model="${item.model}"><p>3D 모델 로딩 중</p></div>`
   : cardVisualMarkup(item);
 const partCategory = item => item.sub || "";
 const catalogCardTypeLabel = item => partDisplayTypeLabel(item);
+const catalogCardActionMarkup = item => `<button class="ui-card-button catalog-card-action" type="button" aria-label="${escapeAttributeValue(`${item.name || "항목"} 상세 보기`)}"></button>`;
 const catalogCardTitle = (label, title, className = "") => {
   const titleClass = ["card-name", className].filter(Boolean).join(" ");
   return `
@@ -97,12 +99,13 @@ const catalogListSearchRecord = item => {
 const catalogListSearchScore = (item, query) => matchSearchRecord(catalogListSearchRecord(item), query).score;
 
 const toolsCard = item => `
-  <button class="ui-card-button category-card catalog-card product-card" data-tools-id="${item.id}">
+  <article class="category-card catalog-card product-card" data-tools-id="${item.id}">
+    ${catalogCardActionMarkup(item)}
     <div class="catalog-card-visual"></div>
     ${catalogCardTitle(item.category, item.name)}
     <p class="card-full-en">${item.en}</p>
     <p class="card-full-ko">&nbsp;</p>
-  </button>`;
+  </article>`;
 function productCompositionItems(item, region = appState.activeReleaseRegion) {
   const release = productRelease(item, region);
   const releaseComposition = Array.isArray(release.composition) && release.composition.length ? release.composition : null;
@@ -381,6 +384,7 @@ const catalogRenderKey = () => [
 export {
   activeCatalogSortOption,
   cardInfo,
+  catalogCardActionMarkup,
   cardVisualMarkup,
   catalogCardTitle,
   catalogRenderKey,

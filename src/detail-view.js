@@ -152,7 +152,7 @@ const beyPartSection = (title, partIds, region, className = "") => {
   }).filter(Boolean).join("");
   if (!links) return "";
   const classes = ["modal-section", "mounted-parts", className].filter(Boolean).join(" ");
-  return `<section class="${classes}"><p class="mounted-title">${title}</p><div class="modal-section-scroll mounted-parts-list">${links}</div></section>`;
+  return `<section class="${classes}"><h4 class="mounted-title">${title}</h4><div class="modal-section-scroll mounted-parts-list">${links}</div></section>`;
 };
 
 function beyDetailSections(item, region) {

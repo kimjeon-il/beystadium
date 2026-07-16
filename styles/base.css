@@ -1500,7 +1500,7 @@ body.is-overview .app-shell {
   text-align: center;
 }
 
-.overview-hero h2 {
+.overview-hero h1 {
   color: var(--ui-text);
   font-weight: var(--font-weight-title);
   white-space: nowrap;

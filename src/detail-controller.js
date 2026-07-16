@@ -227,7 +227,7 @@ const compositionDisplayName = name => (name || "").replace(/\([^)]*\)/g, "").re
 function productComposition(item, region = appState.activeReleaseRegion) {
   const composition = productCompositionItems(item, region);
   if (!composition.length) return "";
-  return `<section class="modal-section product-composition"><p class="mounted-title">구성</p><div class="modal-section-scroll product-composition-list">${composition.map(part => {
+  return `<section class="modal-section product-composition"><h4 class="mounted-title">구성</h4><div class="modal-section-scroll product-composition-list">${composition.map(part => {
     const name = compositionDisplayName(part.name || "");
     const quantity = part.quantity || part.qty || "1개";
     if (productLineupComposition(item, part)) return `<button class="ui-list-link product-composition-item product-lineup-trigger" type="button" data-product-id="${item.id}" data-target-id="${part.target || ""}"><span>${name} ${quantity}</span><b>→</b></button>`;
@@ -258,7 +258,7 @@ function productLineup(item, region = appState.activeReleaseRegion) {
     .map(id => findCatalogItemById(id))
     .filter(Boolean);
   if (!lineupItems.length) return "";
-  return `<section class="modal-section product-composition"><p class="mounted-title">${productLineupTitle(item)}</p><div class="modal-section-scroll product-composition-list">${lineupItems.map(lineupItem => {
+  return `<section class="modal-section product-composition"><h4 class="mounted-title">${productLineupTitle(item)}</h4><div class="modal-section-scroll product-composition-list">${lineupItems.map(lineupItem => {
     const name = productLineupItemName(lineupItem, region);
     return `<a class="ui-list-link product-composition-item composition-link" href="#${lineupItem.id}" data-target-id="${lineupItem.id}"><span>${name}</span><b>→</b></a>`;
   }).join("")}</div></section>`;
@@ -317,11 +317,10 @@ const rareBeyGetListItemMarkup = (entry, region = appState.activeReleaseRegion) 
   const release = productRelease(primaryProduct, entryRegion);
   const name = entry.name || release.name || productDisplayName(primaryProduct, entryRegion);
   const displayName = rareBeyGetListDisplayName(name);
-  const displayNameAttr = escapeAttributeValue(displayName);
   const finish = entry.finish || "";
   const finishBadge = finish ? `<span class="rare-bey-get-list-item-finish">${escapeHtml(finish)}</span>` : "";
   const content = `<span class="rare-bey-get-list-item-main">${finishBadge}<span class="rare-bey-get-list-item-title">${escapeHtml(displayName)}</span></span>`;
-  if (!productId) return `<div class="ui-list-link product-composition-item rare-bey-get-list-item rare-bey-get-list-item--static" aria-label="${displayNameAttr}">${content}</div>`;
+  if (!productId) return `<div class="ui-list-link product-composition-item rare-bey-get-list-item rare-bey-get-list-item--static">${content}</div>`;
   return `<a class="ui-list-link product-composition-item rare-bey-get-list-item rare-bey-get-list-link" href="#${productId}" data-product-id="${escapeAttributeValue(productId)}" data-release-region="${escapeAttributeValue(entryRegion)}" aria-label="${escapeAttributeValue(`${displayName} 상세 보기`)}">${content}<b aria-hidden="true">→</b></a>`;
 };
 const rareBeyGetListSectionMarkup = (title, entries, { region = appState.activeReleaseRegion, current = false } = {}) => {
@@ -329,8 +328,8 @@ const rareBeyGetListSectionMarkup = (title, entries, { region = appState.activeR
   const orderedEntries = current ? sortRareBeyGetCurrentEntries(entries) : sortRareBeyGetEndedEntries(entries);
   const rows = orderedEntries.map(entry => rareBeyGetListItemMarkup(entry, region)).filter(Boolean);
   if (!rows.length) return "";
-  return `<section class="product-composition rare-bey-get-list-section${current ? " rare-bey-get-list-section--current" : " rare-bey-get-list-section--ended"}" aria-label="${escapeAttributeValue(`${title} ${rows.length}개`)}">
-    <h3 class="mounted-title rare-bey-get-list-panel-title"><span>${escapeHtml(title)}</span> <b>${rows.length}개</b></h3>
+  return `<section class="product-composition rare-bey-get-list-section${current ? " rare-bey-get-list-section--current" : " rare-bey-get-list-section--ended"}">
+    <h4 class="mounted-title rare-bey-get-list-panel-title"><span>${escapeHtml(title)}</span> <b>${rows.length}개</b></h4>
     <div class="rare-bey-get-list-group-items">${rows.join("")}</div>
   </section>`;
 };
@@ -345,7 +344,7 @@ function rareBeyGetListMarkup({ region = appState.activeReleaseRegion, series = 
   const body = groups.length
     ? groups.join("")
     : `<p class="rare-bey-get-empty">목록 준비 중입니다.</p>`;
-  return `<section class="modal-section rare-bey-get-list"><div class="modal-section-scroll rare-bey-get-list-scroll"><div class="rare-bey-get-list-items">${body}</div></div></section>`;
+  return `<div class="modal-section rare-bey-get-list"><div class="modal-section-scroll rare-bey-get-list-scroll"><div class="rare-bey-get-list-items">${body}</div></div></div>`;
 }
 function bindRareBeyGetListLinks(root = document, options = {}) {
   root.querySelectorAll(".rare-bey-get-list-link").forEach(link => link.addEventListener("click", event => {

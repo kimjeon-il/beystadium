@@ -139,7 +139,6 @@ const renderCatalogFilterChips = () => {
     root.innerHTML = markup;
     root.hidden = !markup;
     root.classList.toggle("is-empty", !markup);
-    root.setAttribute("aria-hidden", String(!markup));
   }
   document.querySelectorAll("[data-catalog-sort-control]").forEach(control => {
     control.innerHTML = catalogSortDropdownMarkup();

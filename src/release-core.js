@@ -197,7 +197,7 @@ const releaseKindSortValue = kind => {
 const releaseDropdownOptions = (entries, activeValue, dataAttr) => entries
   .map(([value, label]) => dropdownButtonMarkup({ value, label, active: activeValue === value, dataAttr }))
   .join("");
-const releaseRegionTabs = () => `<div class="release-region-tabs" role="tablist" aria-label="출시 지역">
+const releaseRegionTabs = () => `<div class="release-region-tabs" role="group" aria-label="출시 지역">
   ${Object.entries(releaseRegionLabels).map(([value, label]) => tabButtonMarkup({ value, label, active: appState.activeReleaseRegion === value, dataAttr: "data-release-region" })).join("")}
 </div>`;
 const tableListClassName = (...classes) => classes.filter(Boolean).join(" ");
@@ -207,17 +207,17 @@ const tableListTableMarkup = ({ scrollClass = "", tableClass = "", head = "", bo
     <tbody>${body}</tbody>
   </table>
 </div>`;
-const tableListSectionMarkup = tableMarkup => `<section class="table-list-section">${tableMarkup}</section>`;
+const tableListSectionMarkup = tableMarkup => `<div class="table-list-section">${tableMarkup}</div>`;
 const tableListPageMarkup = ({ className = "", attrs = "", controlsMarkup = "", metaMarkup = "", tableMarkup = "" } = {}) =>
-  `<section class="${tableListClassName("table-list-page", className)}"${attrs ? ` ${attrs}` : ""}>
+  `<div class="${tableListClassName("table-list-page", className)}"${attrs ? ` ${attrs}` : ""}>
     ${controlsMarkup}
     ${metaMarkup}
     ${tableListSectionMarkup(tableMarkup)}
-  </section>`;
+  </div>`;
 const tableListSearchBoxMarkup = ({ id, value = "", className = "" } = {}) =>
   `<div class="${tableListClassName("search-box", "table-list-search-box", className)}" role="search">
     <span class="search-icon" aria-hidden="true"></span>
-    <input id="${escapeAttributeValue(id)}" type="search" placeholder="검색어를 입력해주세요." value="${escapeAttributeValue(value)}" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none" />
+    <input id="${escapeAttributeValue(id)}" type="search" placeholder="검색어를 입력해주세요." value="${escapeAttributeValue(value)}" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none">
   </div>`;
 const tableListDropdownMarkup = ({ label = "", entries = [], activeValue = "", dataAttr = "", className = "" } = {}) => `<details class="${tableListClassName("catalog-dropdown", "table-list-dropdown", className)}">
   <summary><b class="catalog-dropdown-value">${escapeHtml(label)}</b></summary>
@@ -225,7 +225,7 @@ const tableListDropdownMarkup = ({ label = "", entries = [], activeValue = "", d
     ${releaseDropdownOptions(entries, activeValue, dataAttr)}
   </div>
 </details>`;
-const tableListControlsMarkup = ({ label = "", className = "", before = "", dropdown = null, search = null, attrs = "" } = {}) => `<div class="${tableListClassName("table-list-controls", className)}"${attrs ? ` ${attrs}` : ""} aria-label="${escapeAttributeValue(label)}">
+const tableListControlsMarkup = ({ label = "", className = "", before = "", dropdown = null, search = null, attrs = "" } = {}) => `<div class="${tableListClassName("table-list-controls", className)}" role="group"${attrs ? ` ${attrs}` : ""}${label ? ` aria-label="${escapeAttributeValue(label)}"` : ""}>
   ${before || ""}
   ${dropdown ? tableListDropdownMarkup(dropdown) : ""}
   ${search ? tableListSearchBoxMarkup(search) : ""}

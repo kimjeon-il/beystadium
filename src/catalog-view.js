@@ -2,6 +2,7 @@ import { appState } from "#app/state";
 import {
   cardInfo,
   cardVisualMarkup,
+  catalogCardActionMarkup,
   catalogRenderKey,
   toolsCard,
   visibleCatalogItems
@@ -43,10 +44,11 @@ const syncCatalogScopeState = ({ updateCount = true } = {}) => {
   if (updateCount) updateCatalogCount();
 };
 const catalogItemCard = item => `
-    <button class="ui-card-button category-card catalog-card${item.type === "bey" ? " bey-card" : ""}" data-id="${item.id}">
+    <article class="category-card catalog-card${item.type === "bey" ? " bey-card" : ""}" data-id="${item.id}">
+      ${catalogCardActionMarkup(item)}
       <div class="catalog-card-visual">${cardVisualMarkup(item)}</div>
       ${cardInfo(item)}
-    </button>`;
+    </article>`;
 const catalogCard = item => item.category ? toolsCard(item) : catalogItemCard(item);
 const catalogCollectionConfig = {
   key: "catalog",

@@ -304,11 +304,11 @@ const searchResultPageButtons = (currentPage, totalPages) => {
   const pageButtons = pages.map(page => `
     <button class="ui-button search-results-page-button${page === currentPage ? " active" : ""}" type="button" data-search-results-page="${page}"${page === currentPage ? " aria-current=\"page\"" : ""}>${page}</button>`).join("");
   return `<nav class="search-results-pagination" aria-label="검색결과 페이지">
-    <button class="ui-button search-results-page-step" type="button" data-search-results-page="${currentPage - 1}" ${currentPage <= 1 ? "disabled aria-disabled=\"true\"" : ""}>이전</button>
+    <button class="ui-button search-results-page-step" type="button" data-search-results-page="${currentPage - 1}" ${currentPage <= 1 ? "disabled" : ""}>이전</button>
     ${start > 1 ? `<button class="ui-button search-results-page-button" type="button" data-search-results-page="1">1</button>${start > 2 ? `<span class="search-results-page-gap">…</span>` : ""}` : ""}
     ${pageButtons}
     ${end < totalPages ? `${end < totalPages - 1 ? `<span class="search-results-page-gap">…</span>` : ""}<button class="ui-button search-results-page-button" type="button" data-search-results-page="${totalPages}">${totalPages}</button>` : ""}
-    <button class="ui-button search-results-page-step" type="button" data-search-results-page="${currentPage + 1}" ${currentPage >= totalPages ? "disabled aria-disabled=\"true\"" : ""}>다음</button>
+    <button class="ui-button search-results-page-step" type="button" data-search-results-page="${currentPage + 1}" ${currentPage >= totalPages ? "disabled" : ""}>다음</button>
   </nav>`;
 };
 let currentSearchResultPage = 1;
@@ -401,6 +401,9 @@ class SearchPreviewController {
     this.preview.setAttribute("role", "listbox");
     this.preview.setAttribute("aria-label", "검색결과 미리보기");
     root.appendChild(this.preview);
+    input.type = "text";
+    input.setAttribute("role", "combobox");
+    input.setAttribute("aria-autocomplete", "list");
     input.setAttribute("aria-haspopup", "listbox");
     input.setAttribute("aria-controls", this.preview.id);
     input.setAttribute("aria-expanded", "false");

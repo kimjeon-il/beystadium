@@ -387,12 +387,12 @@ function zeroGStadiumNote(item) {
 }
 function statBlockMarkup(content) {
   const body = String(content || "").trim();
-  return body ? `<section class="stat-block"><p class="stat-block-title">능력치</p><div class="stat-block-content">${body}</div></section>` : "";
+  return body ? `<section class="stat-block"><h4 class="stat-block-title">능력치</h4><div class="stat-block-content">${body}</div></section>` : "";
 }
 function partStats(item) {
   if (item.type === "track") {
     if (item.id === "PART-METAL-FIGHT-TRACK-CHANGE-HEIGHT-120") {
-      return statBlockMarkup(`<div class="mode-stats"><section><p class="mode-title">120 모드</p>${trackHeightModeRow("보통", 3)}</section><section><p class="mode-title">145 모드</p>${trackHeightModeRow("높음", 4)}</section></div>`);
+      return statBlockMarkup(`<div class="mode-stats"><section><h5 class="mode-title">120 모드</h5>${trackHeightModeRow("보통", 3)}</section><section><h5 class="mode-title">145 모드</h5>${trackHeightModeRow("높음", 4)}</section></div>`);
     }
     const level = trackHeightLevel(item);
     return statBlockMarkup(trackHeightModeRow(trackHeightType(item), level));
@@ -405,7 +405,7 @@ function partStats(item) {
   const modeStats = item.modes
     .map(mode => {
       const rows = statRows(item, mode.stats, mode.extraStats);
-      return rows ? `<section><p class="mode-title">${mode.name}</p>${rows}</section>` : "";
+      return rows ? `<section><h5 class="mode-title">${mode.name}</h5>${rows}</section>` : "";
     })
     .filter(Boolean)
     .join("");
