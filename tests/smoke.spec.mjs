@@ -1457,6 +1457,51 @@ test("B-181 Dragoon V2 separates its mounted combination from the bundled 6 Armo
   expect(errors).toEqual([]);
 });
 
+test("Metal Fight remake names switch between Korean releases and Japanese originals", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "regional remake data is shared by desktop and mobile layouts");
+  const errors = consoleErrors(page);
+  const cases = [
+    {
+      productNo: "B-151",
+      targetId: "BEY-BURST-B-151-02-LIGHTNING-L-DRAGO-10-R-Z-DASH",
+      kr: "아쿠아 레비아단.10R.Z'",
+      jp: "라이트닝 엘드라고.10R.Z'"
+    },
+    {
+      productNo: "B-181",
+      targetId: "BEY-BURST-B-181-04-HELL-KERBECS-GG-WV",
+      kr: "다크 케르베로스.Gg.Wv",
+      jp: "헬 케르벡스.Gg.Wv"
+    },
+    {
+      productNo: "B-194",
+      targetId: "BEY-BURST-B-194-06-GALAXY-PEGASIS-LG-X-DASH",
+      kr: "스파크 슬레이프닐.Lg.X'",
+      jp: "갤럭시 페가시스.Lg.X'"
+    }
+  ];
+
+  const openRegionalBey = async (entry, region) => {
+    await page.goto("/#toy-release");
+    await page.locator(`button[data-release-region="${region}"]`).click();
+    await page.locator(".release-list-page .table-list-dropdown summary").click();
+    await page.locator('[data-release-series="burst"]').click();
+    await page.locator("#releaseSearchInput").fill(entry.productNo);
+    await page.locator(`.release-product-row[data-product-id="PRODUCT-BURST-${entry.productNo}"]`).click();
+    await page.locator("#detailModal .product-lineup-trigger").click();
+    const link = page.locator(`#detailModal .composition-link[data-target-id="${entry.targetId}"]`);
+    await expect(link.locator("span")).toHaveText(entry[region]);
+    await link.click();
+    await expect(page.locator("#detailModal .modal-name")).toHaveText(entry[region]);
+  };
+
+  for (const entry of cases) {
+    await openRegionalBey(entry, "kr");
+    await openRegionalBey(entry, "jp");
+  }
+  expect(errors).toEqual([]);
+});
+
 test("X random booster products open their ordered Bey lineups", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "lineup data is shared by desktop and mobile layouts");
   const errors = consoleErrors(page);

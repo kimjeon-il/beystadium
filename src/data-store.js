@@ -186,7 +186,7 @@ const BeystadiumDataStore = (() => {
   const initialize = async () => {
     clearError();
     try {
-      indexData = await fetchJson("./data/runtime/index.json?v=20260716-burst-bakuten-remake-regional-names");
+      indexData = await fetchJson("./data/runtime/index.json?v=20260716-burst-metal-remake-regional-names");
       if (detailHashOnBoot()) await ensureRegistry();
       document.querySelector("[data-load-retry]")?.addEventListener("click", () => window.location.reload());
       return true;

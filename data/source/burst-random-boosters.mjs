@@ -238,9 +238,10 @@ const burstRandomBoosterParts = [
   { id: "PART-BURST-LAYER-GAIA-DRAGOON", series: "burst", type: "layer", name: "나이프 리저드", jpName: "가이아 드라군", en: "Gaia Dragoon", battleType: "attack", tags: [], desc: "거대한 자유 회전 윙이 확실하게 상대의 레이어를 잡아내는 어택계열의 레이어.", stats: [4,1,0,2,3,1] },
   { id: "PART-BURST-LAYER-DRACIEL-FORTRESS", series: "burst", type: "layer", name: "드래셀 포트리스", jpName: "드라시엘 포트리스", en: "Draciel Fortress", battleType: "defense", tags: [], desc: "", stats: [] },
   { id: "PART-BURST-LAYER-DRAGOON-VICTORY", series: "burst", type: "layer", name: "파이어 리저드", jpName: "드라군 빅토리", en: "Dragoon Victory", battleType: "attack", tags: [], desc: "", stats: [] },
-  { id: "PART-BURST-LAYER-BURN-PHOENIX", series: "burst", type: "layer", name: "번 피닉스", en: "Burn Phoenix", battleType: "stamina", tags: [], desc: "", stats: [] },
-  { id: "PART-BURST-LAYER-EARTH-AQUILA", series: "burst", type: "layer", name: "어스 아쿠이라", en: "Earth Aquila", battleType: "defense", tags: [], desc: "", stats: [] },
-  { id: "PART-BURST-LAYER-FLAME-SAGITTARIO", series: "burst", type: "layer", name: "플레임 사지타리오", en: "Flame Sagittario", battleType: "stamina", tags: [], desc: "", stats: [] },
+  { id: "PART-BURST-LAYER-ROCK-LEONE", series: "burst", type: "layer", name: "로크 레온", jpName: "록 레오네", en: "Rock Leone", battleType: "defense", spin: "right", tags: [], desc: "", stats: [2,4,0,3,1,1] },
+  { id: "PART-BURST-LAYER-BURN-PHOENIX", series: "burst", type: "layer", name: "번 피닉스", jpName: "번 피닉스", en: "Burn Phoenix", battleType: "stamina", spin: "right", tags: [], desc: "", stats: [1,1,5,2,2,0] },
+  { id: "PART-BURST-LAYER-EARTH-AQUILA", series: "burst", type: "layer", name: "어스 아쿠이라", jpName: "어스 아쿠이라", en: "Earth Aquila", battleType: "defense", spin: "right", tags: [], desc: "", stats: [2,2,0,2,3,2] },
+  { id: "PART-BURST-LAYER-FLAME-SAGITTARIO", series: "burst", type: "layer", name: "플레임 사지타리오", jpName: "플레임 사지타리오", en: "Flame Sagittario", battleType: "stamina", spin: "right", tags: [], desc: "", stats: [1,1,4,2,1,2] },
   { id: "PART-BURST-LAYER-DRANZER-VOLCANO", series: "burst", type: "layer", name: "드랜져 볼케이노", jpName: "드랜저 볼케이노", en: "Dranzer Volcano", battleType: "balance", tags: [], desc: "", stats: [] },
   { id: "PART-BURST-LAYER-DRIGER-VULCAN", series: "burst", type: "layer", name: "팽 타이거", jpName: "드라이거 발칸", en: "Driger Vulcan", battleType: "balance", tags: [], desc: "", stats: [] },
   { id: "PART-BURST-LAYER-DRACIEL-VIPER", series: "burst", type: "layer", name: "프로텍션 터틀", jpName: "드라시엘 바이퍼", en: "Draciel Viper", battleType: "defense", tags: [], desc: "", stats: [] },
@@ -249,8 +250,11 @@ const burstRandomBoosterParts = [
   { id: "PART-BURST-LAYER-DRANZER-V2", series: "burst", type: "layer", name: "스카이 팔콘", jpName: "드랜저 V2", en: "Dranzer V2", battleType: "balance", tags: [], desc: "", stats: [] },
   { id: "PART-BURST-LAYER-DRIGER-V2", series: "burst", type: "layer", name: "스톰 타이거", jpName: "드라이거 V2", en: "Driger V2", battleType: "balance", tags: [], desc: "", stats: [] },
   { id: "PART-BURST-LAYER-DRACIEL-V2", series: "burst", type: "layer", name: "드래셀 V2", jpName: "드라시엘 V2", en: "Draciel V2", battleType: "defense", tags: [], desc: "", stats: [] },
-  { id: "PART-BURST-LAYER-GALAXY-PEGASIS", series: "burst", type: "layer", name: "갤럭시 페가시스", en: "Galaxy Pegasis", battleType: "attack", tags: [], desc: "", stats: [] },
-  { id: "PART-BURST-LAYER-HELL-KERBECS", series: "burst", type: "layer", name: "헬 켈베로스", en: "Hell Kerbecs", battleType: "stamina", spin: "right", tags: [], desc: "", stats: [] }
+  { id: "PART-BURST-LAYER-GALAXY-PEGASIS", series: "burst", type: "layer", name: "스파크 슬레이프닐", jpName: "갤럭시 페가시스", en: "Galaxy Pegasis", battleType: "attack", spin: "right", tags: [], desc: "", stats: [5,0,0,2,3,2] },
+  { id: "PART-BURST-LAYER-RAY-UNICORNO", series: "burst", type: "layer", name: "레이 유니콘", jpName: "레이 유니코르노", en: "Ray Unicorno", battleType: "attack", spin: "right", tags: [], desc: "", stats: [4,1,1,2,2,2] },
+  { id: "PART-BURST-LAYER-GRAVITY-PERSEUS", series: "burst", type: "layer", name: "그라비티 페르세우스", jpName: "그라비티 페르세우스", en: "Gravity Perseus", battleType: "defense", spin: "dual", tags: [], desc: "", stats: [2,5,0,3,1,1] },
+  { id: "PART-BURST-LAYER-METEO-L-DRAGO", series: "burst", type: "layer", name: "메테오 엘드라고", jpName: "메테오 엘드라고", en: "Meteo L-Drago", battleType: "attack", spin: "left", tags: [], desc: "", stats: [5,0,0,2,2,3] },
+  { id: "PART-BURST-LAYER-HELL-KERBECS", series: "burst", type: "layer", name: "다크 케르베로스", jpName: "헬 케르벡스", en: "Hell Kerbecs", battleType: "stamina", spin: "right", tags: [], desc: "", stats: [2,1,5,3,0,1] }
 ];
 
 const identityPartTypes = new Set([
@@ -262,10 +266,6 @@ const compositeIdentityTypes = [
   ["superkingring", "superkingchip"],
   ["dbblade", "dbcore"]
 ];
-const displayNameOverrides = new Map([
-  ["PART-BURST-LAYER-STORM-PEGASIS", "스톰 페가시스"],
-  ["PART-BURST-LAYER-LIGHTNING-L-DRAGO", "라이트닝 엘드라고"]
-]);
 const partAliases = new Map([
   ["PART-BURST-DUALLAYER-YAGER-YGGDRASIL", ["Yaeger Yggdrasil"]],
   ["PART-BURST-CHOZLAYER-VICE-LEOPARD", ["Vise Leopard"]],
@@ -317,16 +317,14 @@ const sourceRows = burstRandomBoosterSource.split("\n").map(line => {
   return { productNo: match[1], slot: match[2], en: match[3].trim() };
 });
 const aliasesForPart = part => [part.en, ...(partAliases.get(part.id) || [])].filter(Boolean);
-const displayName = part => displayNameOverrides.get(part.id) || part.name;
-
 function identityCandidates(parts) {
   const candidates = parts
     .filter(part => identityPartTypes.has(part.type))
     .flatMap(part => aliasesForPart(part).map(alias => ({
       key: compact(alias),
       en: part.en,
-      name: displayName(part),
-      jpName: part.jpName || displayName(part),
+      name: part.name,
+      jpName: part.jpName || part.name,
       parts: [part]
     })));
 
@@ -340,8 +338,8 @@ function identityCandidates(parts) {
             candidates.push({
               key: compact(`${primaryAlias} ${secondaryAlias}`),
               en: `${primary.en} ${secondary.en}`,
-              name: `${displayName(primary)} ${displayName(secondary)}`,
-              jpName: `${primary.jpName || displayName(primary)} ${secondary.jpName || displayName(secondary)}`,
+              name: `${primary.name} ${secondary.name}`,
+              jpName: `${primary.jpName || primary.name} ${secondary.jpName || secondary.name}`,
               parts: [primary, secondary]
             });
           }

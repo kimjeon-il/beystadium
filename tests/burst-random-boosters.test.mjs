@@ -48,6 +48,19 @@ const bakutenRemakeLayers = [
   ["PART-BURST-LAYER-DRIGER-V2", "스톰 타이거", "드라이거 V2", "Driger V2"],
   ["PART-BURST-LAYER-DRACIEL-V2", "드래셀 V2", "드라시엘 V2", "Draciel V2"]
 ];
+const metalFightRemakeLayers = [
+  ["PART-BURST-LAYER-STORM-PEGASIS", "플래시 슬레이프닐", "스톰 페가시스", "Storm Pegasis", "attack", "right", [4,0,0,2,3,2]],
+  ["PART-BURST-LAYER-LIGHTNING-L-DRAGO", "아쿠아 레비아단", "라이트닝 엘드라고", "Lightning L-Drago", "attack", "left", [4,0,0,2,2,3]],
+  ["PART-BURST-LAYER-ROCK-LEONE", "로크 레온", "록 레오네", "Rock Leone", "defense", "right", [2,4,0,3,1,1]],
+  ["PART-BURST-LAYER-FLAME-SAGITTARIO", "플레임 사지타리오", "플레임 사지타리오", "Flame Sagittario", "stamina", "right", [1,1,4,2,1,2]],
+  ["PART-BURST-LAYER-EARTH-AQUILA", "어스 아쿠이라", "어스 아쿠이라", "Earth Aquila", "defense", "right", [2,2,0,2,3,2]],
+  ["PART-BURST-LAYER-BURN-PHOENIX", "번 피닉스", "번 피닉스", "Burn Phoenix", "stamina", "right", [1,1,5,2,2,0]],
+  ["PART-BURST-LAYER-GALAXY-PEGASIS", "스파크 슬레이프닐", "갤럭시 페가시스", "Galaxy Pegasis", "attack", "right", [5,0,0,2,3,2]],
+  ["PART-BURST-LAYER-RAY-UNICORNO", "레이 유니콘", "레이 유니코르노", "Ray Unicorno", "attack", "right", [4,1,1,2,2,2]],
+  ["PART-BURST-LAYER-GRAVITY-PERSEUS", "그라비티 페르세우스", "그라비티 페르세우스", "Gravity Perseus", "defense", "dual", [2,5,0,3,1,1]],
+  ["PART-BURST-LAYER-METEO-L-DRAGO", "메테오 엘드라고", "메테오 엘드라고", "Meteo L-Drago", "attack", "left", [5,0,0,2,2,3]],
+  ["PART-BURST-LAYER-HELL-KERBECS", "다크 케르베로스", "헬 케르벡스", "Hell Kerbecs", "stamina", "right", [2,1,5,3,0,1]]
+];
 
 test("Burst random booster source contains the requested 227 slots", () => {
   assert.equal(burstRandomBoosterRows.length, 227);
@@ -86,7 +99,7 @@ test("B-61 and B-181 keep exact names, combinations, types, spins, and bundled p
     ["BEY-BURST-B-181-01-CYCLONE-RAGNARUK-GG-NV-6", "사이클론 라그나로크.Gg.Nv-6", "stamina", "right", ["PART-BURST-DBBLADE-CYCLONE", "PART-BURST-DBCORE-RAGNARUK", "PART-BURST-DBDISK-GIGA", "PART-BURST-DRIVER-NEVER", "PART-BURST-DBARMOR-6"]],
     ["BEY-BURST-B-181-02-CYCLONE-RAGNARUK-NX-RS-2", "사이클론 라그나로크.Nx.Rs-2", "stamina", "right", ["PART-BURST-DBBLADE-CYCLONE", "PART-BURST-DBCORE-RAGNARUK", "PART-BURST-DBDISK-NEXUS", "PART-BURST-DRIVER-RISE", "PART-BURST-DBARMOR-2"]],
     ["BEY-BURST-B-181-03-DRAGOON-V2-WH-XC-DASH", "마그마 리저드.Wh.Xc'", "attack", "left", ["PART-BURST-LAYER-DRAGOON-V2", "PART-BURST-DISK-WHEEL", "PART-BURST-DRIVER-XCEED-DASH"], ["PART-BURST-DBARMOR-6"]],
-    ["BEY-BURST-B-181-04-HELL-KERBECS-GG-WV", "헬 켈베로스.Gg.Wv", "stamina", "right", ["PART-BURST-LAYER-HELL-KERBECS", "PART-BURST-DBDISK-GIGA", "PART-BURST-DRIVER-WAVE"]],
+    ["BEY-BURST-B-181-04-HELL-KERBECS-GG-WV", "다크 케르베로스.Gg.Wv", "stamina", "right", ["PART-BURST-LAYER-HELL-KERBECS", "PART-BURST-DBDISK-GIGA", "PART-BURST-DRIVER-WAVE"]],
     ["BEY-BURST-B-181-05-INFINITE-DEATHSCYTHER-UN-1A", "인피니트 데스사이저.Un 1A", "balance", "right", ["PART-BURST-SUPERKINGRING-INFINITE", "PART-BURST-SUPERKINGCHIP-DEATHSCYTHER", "PART-BURST-DRIVER-UNIVERSE", "PART-BURST-SUPERKINGCHASSIS-1A"]],
     ["BEY-BURST-B-181-06-BRAVE-WYVERN-10-NV-4A", "브레이브 와이번.10.Nv 4A", "attack", "right", ["PART-BURST-SUPERKINGRING-BRAVE", "PART-BURST-SUPERKINGCHIP-WYVERN", "PART-BURST-COREDISK-10", "PART-BURST-DRIVER-NEVER", "PART-BURST-SUPERKINGCHASSIS-4A"]]
   ];
@@ -97,12 +110,13 @@ test("B-61 and B-181 keep exact names, combinations, types, spins, and bundled p
   }
 
   assert.equal(beysById.get("BEY-BURST-B-181-03-DRAGOON-V2-WH-XC-DASH")?.jpName, "드라군 V2.Wh.Xc'");
+  assert.equal(beysById.get("BEY-BURST-B-181-04-HELL-KERBECS-GG-WV")?.jpName, "헬 케르벡스.Gg.Wv");
 
   const hellKerbecs = partItems.find(item => item.id === "PART-BURST-LAYER-HELL-KERBECS");
   assert.deepEqual(hellKerbecs, {
     id: "PART-BURST-LAYER-HELL-KERBECS", series: "burst", type: "layer",
-    name: "헬 켈베로스", en: "Hell Kerbecs", battleType: "stamina", spin: "right",
-    tags: [], desc: "", stats: []
+    name: "다크 케르베로스", jpName: "헬 케르벡스", en: "Hell Kerbecs",
+    battleType: "stamina", spin: "right", tags: [], desc: "", stats: [2,1,5,3,0,1]
   });
 });
 
@@ -142,11 +156,60 @@ test("remake Bey names localize by region while addresses retain Japanese identi
   assert.deepEqual(invalidAddresses, []);
 });
 
+test("all 11 Metal Fight remake layers keep exact regional names and Japanese identity addresses", () => {
+  const partsById = new Map(partItems.map(item => [item.id, item]));
+  assert.equal(metalFightRemakeLayers.length, 11);
+
+  for (const [id, name, jpName, en, battleType, spin, stats] of metalFightRemakeLayers) {
+    const part = partsById.get(id);
+    assert.deepEqual(
+      { id: part?.id, name: part?.name, jpName: part?.jpName, en: part?.en, battleType: part?.battleType, spin: part?.spin, stats: part?.stats },
+      { id, name, jpName, en, battleType, spin, stats }
+    );
+    assert.equal(id, `PART-BURST-LAYER-${en.toUpperCase().replace(/[^A-Z0-9]+/g, "-")}`);
+  }
+
+  const koreanAddressTokens = /(?:FLASH-SLEIPNIR|AQUA-LEVIATHAN|SPARK-SLEIPNIR|DARK-CERBERUS|ROCK-LEON|RAY-UNICORN)(?:-|$)/;
+  const invalidAddresses = [...partItems, ...beyItems]
+    .filter(item => item.series === "burst" && koreanAddressTokens.test(item.id))
+    .map(item => item.id);
+  assert.deepEqual(invalidAddresses, []);
+});
+
+test("Metal Fight remake Bey names use Korean releases and Japanese originals by region", () => {
+  const cases = [
+    ["BEY-BURST-B-140-02-STORM-PEGASIS-10-G-QC-DASH", "플래시 슬레이프닐.10G.Qc'", "스톰 페가시스.10G.Qc'"],
+    ["BEY-BURST-B-151-02-LIGHTNING-L-DRAGO-10-R-Z-DASH", "아쿠아 레비아단.10R.Z'", "라이트닝 엘드라고.10R.Z'"],
+    ["BEY-BURST-B-151-05-STORM-PEGASIS-HR-AT", "플래시 슬레이프닐.Hr.At", "스톰 페가시스.Hr.At"],
+    ["BEY-BURST-B-176-07-STORM-PEGASIS-DR-HS", "플래시 슬레이프닐.Dr.HS", "스톰 페가시스.Dr.HS"],
+    ["BEY-BURST-B-181-04-HELL-KERBECS-GG-WV", "다크 케르베로스.Gg.Wv", "헬 케르벡스.Gg.Wv"],
+    ["BEY-BURST-B-194-06-GALAXY-PEGASIS-LG-X-DASH", "스파크 슬레이프닐.Lg.X'", "갤럭시 페가시스.Lg.X'"]
+  ];
+  for (const [id, name, jpName] of cases) {
+    const item = beysById.get(id);
+    assert.deepEqual({ name: item?.name, jpName: item?.jpName }, { name, jpName });
+  }
+});
+
 test("Burst search data exposes both regional Dragoon V2 names", () => {
   const entry = buildRuntimeData().searchChunks.burst.search
     .find(item => item[2] === "BEY-BURST-B-181-03-DRAGOON-V2-WH-XC-DASH");
   assert.equal(entry?.[6], "마그마 리저드.Wh.Xc'");
   assert.equal(entry?.[7], "드라군 V2.Wh.Xc'");
+});
+
+test("Burst search data exposes both regional Metal Fight remake names", () => {
+  const searchById = new Map(buildRuntimeData().searchChunks.burst.search.map(entry => [entry[2], entry]));
+  const cases = [
+    ["BEY-BURST-B-151-02-LIGHTNING-L-DRAGO-10-R-Z-DASH", "아쿠아 레비아단.10R.Z'", "라이트닝 엘드라고.10R.Z'"],
+    ["BEY-BURST-B-181-04-HELL-KERBECS-GG-WV", "다크 케르베로스.Gg.Wv", "헬 케르벡스.Gg.Wv"],
+    ["BEY-BURST-B-194-06-GALAXY-PEGASIS-LG-X-DASH", "스파크 슬레이프닐.Lg.X'", "갤럭시 페가시스.Lg.X'"]
+  ];
+  for (const [id, name, jpName] of cases) {
+    const entry = searchById.get(id);
+    assert.equal(entry?.[6], name);
+    assert.equal(entry?.[7], jpName);
+  }
 });
 
 test("only the X Bey Emblem Sticker remains empty after adding both lineups", () => {
