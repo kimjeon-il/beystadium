@@ -46,17 +46,23 @@ const productsById = new Map(productItems.map(item => [item.id, item]));
 const beysById = new Map(beyItems.map(item => [item.id, item]));
 const partsById = new Map(partItems.map(item => [item.id, item]));
 
-test("X random booster products expose exact Japanese lineups", () => {
+test("X random booster products expose exact regional lineups", () => {
   assert.deepEqual(xRandomBoosterLineups, expectedLineups);
   assert.equal(xRandomBoosterBeyItems.length, 22);
 
   for (const [productId, lineup] of Object.entries(expectedLineups)) {
     const product = productsById.get(productId);
     assert.ok(product, productId);
-    assert.deepEqual(product.releases.kr, { status: "unreleased" }, `${productId} kr`);
     assert.deepEqual(product.releases.jp.composition, [
       { name: "무작위 베이", quantity: "1개", target: lineup[0] }
     ], `${productId} jp composition`);
+    if (productId === "PRODUCT-X-CX-17") {
+      assert.deepEqual(product.releases.kr.composition, [
+        { name: "무작위 베이", quantity: "1개", target: lineup[0] }
+      ], `${productId} kr composition`);
+    } else {
+      assert.deepEqual(product.releases.kr, { status: "unreleased" }, `${productId} kr`);
+    }
     assert.deepEqual(product.lineupPool, lineup, `${productId} lineup`);
     for (const target of lineup) assert.ok(beysById.has(target), `${productId} -> ${target}`);
   }

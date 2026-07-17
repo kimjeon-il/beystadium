@@ -14,24 +14,26 @@ const released = (release) => release && release.status !== "unreleased" && Bool
 );
 
 const koreanReleaseProducts = Object.freeze({
-  "PRODUCT-X-UX-16": ["UX-16", "랜덤부스터 클락미라지 셀렉트", "랜덤부스터"],
-  "PRODUCT-X-CX-10": ["CX-10", "울프 헌트F 0-60DB", "부스터"],
-  "PRODUCT-X-CX-11": ["CX-11", "엠퍼러 마이트 덱 세트", "세트"],
-  "PRODUCT-X-UX-17": ["UX-17", "메테오 드래군 3-70J", "스타터"],
-  "PRODUCT-X-UX-18": ["UX-18", "랜덤 부스터 Vol.08", "랜덤부스터"],
-  "PRODUCT-X-CX-12": ["CX-12", "피닉스 플레어Z 9-80WW", "부스터"],
-  "PRODUCT-X-CX-13": ["CX-13", "바하무트 블리츠BK 1-50I", "스타터"],
-  "PRODUCT-X-CX-14": ["CX-14", "나이트 포트리스GV 8-70UN", "스타터"],
-  "PRODUCT-X-CX-15": ["CX-15", "라그나 레이지FE 4-55Y", "부스터"],
-  "PRODUCT-X-CX-16": ["CX-16", "스타트 대시 세트 C", "세트"],
-  "PRODUCT-X-BX-00-STORM-SPRIGGAN-2-70M": ["BX-00", "스톰 스프리건 2-70M", "스타터"]
+  "PRODUCT-X-BX-46": ["BX-46", undefined, "세트", "2025-12-12", ""],
+  "PRODUCT-X-UX-16": ["UX-16", "랜덤부스터 클락미라지 셀렉트", "랜덤부스터", "2025-12-24", "15900"],
+  "PRODUCT-X-CX-10": ["CX-10", "울프 헌트F 0-60DB", "부스터", "2026-06-13", "16900"],
+  "PRODUCT-X-CX-11": ["CX-11", "엠퍼러 마이트 덱 세트", "세트", "2026-06-13", "37900"],
+  "PRODUCT-X-UX-17": ["UX-17", "메테오 드래군 3-70J", "스타터", "2026-06-13", "19900"],
+  "PRODUCT-X-UX-18": ["UX-18", "랜덤 부스터 Vol.08", "랜덤부스터", "2026-05-23", "15900"],
+  "PRODUCT-X-CX-12": ["CX-12", "피닉스 플레어Z 9-80WW", "부스터", "", "15900"],
+  "PRODUCT-X-CX-13": ["CX-13", "바하무트 블리츠BK 1-50I", "스타터", "2026-04-24", "19900"],
+  "PRODUCT-X-CX-14": ["CX-14", "나이트 포트리스GV 8-70UN", "스타터", "2026-04-24", "19900"],
+  "PRODUCT-X-CX-15": ["CX-15", "라그나 레이지FE 4-55Y", "부스터", "2026-04-24", "15900"],
+  "PRODUCT-X-CX-16": ["CX-16", "스타트 대시 세트 C", "세트", "2026-04-24", "70900"],
+  "PRODUCT-X-BX-00-STORM-SPRIGGAN-2-70M": ["BX-00", "스톰 스프리건 2-70M", "스타터", "2026-05-23", "19900"],
+  "PRODUCT-X-UX-19": ["UX-19", undefined, "스타터", "2026-07-21", "19900"],
+  "PRODUCT-X-CX-17": ["CX-17", undefined, "랜덤부스터", "2026-07-21", "15900"]
 });
 
-const koreanProductPrices = Object.freeze({
-  "PRODUCT-X-UX-16": "15900",
-  "PRODUCT-X-CX-12": "15900",
-  "PRODUCT-X-CX-13": "19900",
-  "PRODUCT-X-CX-15": "15900"
+const japaneseFallbackProductNames = Object.freeze({
+  "PRODUCT-X-BX-46": "배틀 엔트리 세트∞",
+  "PRODUCT-X-UX-19": "불릿그리폰H",
+  "PRODUCT-X-CX-17": "랜덤부스터 Vol.10"
 });
 
 test("한국 공식 성능 설명 12건을 정확한 X 베이에 적용한다", () => {
@@ -49,23 +51,29 @@ test("한국 공식 성능 설명 12건을 정확한 X 베이에 적용한다", 
   );
 });
 
-test("국내 출시 제품 11건은 확인된 가격과 일본판 구성 순서를 유지한다", () => {
-  assert.equal(Object.keys(koreanReleaseProducts).length, 11);
+test("국내 출시 제품 14건은 기존 이름과 확인된 날짜·가격·구성 순서를 유지한다", () => {
+  assert.equal(Object.keys(koreanReleaseProducts).length, 14);
 
-  for (const [id, [no, name, kind]] of Object.entries(koreanReleaseProducts)) {
+  for (const [id, [no, name, kind, releaseDate, price]] of Object.entries(koreanReleaseProducts)) {
     const product = productsById.get(id);
     assert.ok(product, `${id}가 존재해야 합니다.`);
     const { kr, jp } = product.releases;
     assert.equal(released(kr), true, `${id}가 한국 발매 제품이어야 합니다.`);
     assert.deepEqual([kr.no, kr.name, kr.kind], [no, name, kind]);
     assert.equal(kr.sale, "일반 판매");
-    assert.equal(kr.releaseDate, "");
-    assert.equal(kr.price, koreanProductPrices[id] || "");
+    assert.equal(kr.releaseDate, releaseDate);
+    assert.equal(kr.price, price);
     assert.deepEqual(
       kr.composition.map(({ target, quantity }) => [target, quantity]),
       jp.composition.map(({ target, quantity }) => [target, quantity]),
       `${id} 한국판 구성 대상·수량·순서는 일본판과 같아야 합니다.`
     );
+  }
+
+  for (const [id, name] of Object.entries(japaneseFallbackProductNames)) {
+    const product = productsById.get(id);
+    assert.equal(product.releases.kr.name, undefined, `${id}에 별도 한국 제품명을 만들면 안 됩니다.`);
+    assert.equal(product.releases.jp.name, name, `${id} 기존 제품명을 수정하면 안 됩니다.`);
   }
 
   assert.deepEqual(
@@ -86,8 +94,8 @@ test("국내 발매 X 베이 중 공식 설명이 없는 항목은 빈 설명을
   ].filter((id) => id.startsWith("BEY-X-"))));
   const describedIds = [...releasedBeyIds].filter((id) => beysById.get(id)?.desc);
 
-  assert.equal(releasedProducts.length, 94);
-  assert.equal(releasedBeyIds.size, 138);
+  assert.equal(releasedProducts.length, 97);
+  assert.equal(releasedBeyIds.size, 147);
   assert.deepEqual(describedIds.sort(), Object.keys(xKoreaBeyDescriptions).sort());
 
   for (const slot of ["02", "03", "04", "05", "06"]) {
@@ -96,10 +104,8 @@ test("국내 발매 X 베이 중 공식 설명이 없는 항목은 빈 설명을
   }
 });
 
-test("7월 21일 출시 예정 제품은 현재 한국 미출시 상태를 유지한다", () => {
-  for (const id of ["PRODUCT-X-CX-17", "PRODUCT-X-UX-19", "PRODUCT-X-BX-49"]) {
-    assert.deepEqual(productsById.get(id)?.releases.kr, { status: "unreleased" }, `${id}가 조기 출시 처리되면 안 됩니다.`);
-  }
+test("출시 정보가 입력되지 않은 BX-49는 한국 미출시 상태를 유지한다", () => {
+  assert.deepEqual(productsById.get("PRODUCT-X-BX-49")?.releases.kr, { status: "unreleased" });
 });
 
 test("생성된 X 검색 레코드에 한국 공식 베이 설명을 포함한다", () => {

@@ -1863,6 +1863,33 @@ test("X 국내 공식 설명과 신규 한국 출시 구성이 상세·검색에
   expect(errors).toEqual([]);
 });
 
+test("X 한국 발매목록은 기존 제품명과 보강된 출시 정보를 유지한다", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "한국 발매목록은 데스크톱 대표 화면에서 확인합니다.");
+  const errors = consoleErrors(page);
+
+  await page.goto("/#toy-release");
+  await page.locator('button[data-release-region="kr"]').click();
+  await page.locator(".release-list-page .table-list-dropdown summary").click();
+  await page.locator('[data-release-series="x"]').click();
+
+  const cases = [
+    ["UX-16", "PRODUCT-X-UX-16", "랜덤부스터 클락미라지 셀렉트", "2025년 12월", "₩15,900"],
+    ["CX-16", "PRODUCT-X-CX-16", "스타트 대시 세트 C", "2026년 4월", "₩70,900"],
+    ["UX-19", "PRODUCT-X-UX-19", "불릿그리폰H", "2026년 7월", "₩19,900"]
+  ];
+
+  for (const [query, productId, name, date, price] of cases) {
+    await page.locator("#releaseSearchInput").fill(query);
+    const row = page.locator(`.release-product-row[data-product-id="${productId}"]`);
+    await expect(row).toBeVisible();
+    await expect(row.locator(".release-product-link")).toHaveText(name);
+    await expect(row.locator(".release-date-full")).toHaveText(date);
+    await expect(row.locator("td").nth(4)).toHaveText(price);
+  }
+
+  expect(errors).toEqual([]);
+});
+
 test("Accel parts, UX-10 composition, and search use the canonical Korean spelling", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "spelling data is shared by desktop and mobile layouts");
   const errors = consoleErrors(page);

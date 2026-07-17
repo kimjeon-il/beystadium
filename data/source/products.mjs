@@ -9026,7 +9026,12 @@
     series: "x",
     releases: {
       kr: {
-        status: "unreleased"
+        no: "BX-46",
+        sale: "일반 판매",
+        kind: "세트",
+        releaseDate: "2025-12-12",
+        price: "",
+        composition: [{ name: "고어태클 7-70T", quantity: "1개", target: "BEY-X-BX-46-GORE-TACKLE-7-70T" }, { name: "코발트드레이크 9-60R", quantity: "1개", target: "BEY-X-BX-46-COBALT-DRAKE-9-60R" }, { name: "와인더런처", quantity: "2개", target: "TOOLS-X-WINDER-LAUNCHER" }, { name: "인피니티스타디움", quantity: "1개", target: "TOOLS-X-INFINITY-STADIUM" }]
       },
       jp: {
         no: "BX-46",
@@ -9064,7 +9069,7 @@
         name: "랜덤부스터 클락미라지 셀렉트",
         sale: "일반 판매",
         kind: "랜덤부스터",
-        releaseDate: "",
+        releaseDate: "2025-12-24",
         price: "15900",
         composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-X-UX-16-01-CLOCK-MIRAGE-9-65B" }]
       },
@@ -9088,8 +9093,8 @@
         name: "울프 헌트F 0-60DB",
         sale: "일반 판매",
         kind: "부스터",
-        releaseDate: "",
-        price: "",
+        releaseDate: "2026-06-13",
+        price: "16900",
         composition: [{ name: "울프 헌트F 0-60DB", quantity: "1개", target: "BEY-X-CX-10-WOLF-HUNT-F-0-60DB" }]
       },
       jp: {
@@ -9111,8 +9116,8 @@
         name: "엠퍼러 마이트 덱 세트",
         sale: "일반 판매",
         kind: "세트",
-        releaseDate: "",
-        price: "",
+        releaseDate: "2026-06-13",
+        price: "37900",
         composition: [{ name: "엠퍼러 마이트H Op", quantity: "1개", target: "BEY-X-CX-11-EMPEROR-MIGHT-H-OP" }, { name: "샤크 길 5-60FB", quantity: "1개", target: "BEY-X-CX-11-SHARK-GILL-5-60FB" }, { name: "골렘 락 M-85HN", quantity: "1개", target: "BEY-X-CX-11-GOLEM-ROCK-M-85HN" }]
       },
       jp: {
@@ -9168,8 +9173,8 @@
         name: "메테오 드래군 3-70J",
         sale: "일반 판매",
         kind: "스타터",
-        releaseDate: "",
-        price: "",
+        releaseDate: "2026-06-13",
+        price: "19900",
         composition: [{ name: "메테오 드래군 3-70J", quantity: "1개", target: "BEY-X-UX-17-METEO-DRAGOON-3-70J" }]
       },
       jp: {
@@ -9191,8 +9196,8 @@
         name: "랜덤 부스터 Vol.08",
         sale: "일반 판매",
         kind: "랜덤부스터",
-        releaseDate: "",
-        price: "",
+        releaseDate: "2026-05-23",
+        price: "15900",
         composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-X-UX-18-01-MUMMY-CURSE-7-55W" }]
       },
       jp: {
@@ -9323,7 +9328,7 @@
         name: "바하무트 블리츠BK 1-50I",
         sale: "일반 판매",
         kind: "스타터",
-        releaseDate: "",
+        releaseDate: "2026-04-24",
         price: "19900",
         composition: [{ name: "바하무트 블리츠BK 1-50I", quantity: "1개", target: "BEY-X-CX-13-BAHAMUT-BLITZ-BK-1-50I" }]
       },
@@ -9346,8 +9351,8 @@
         name: "나이트 포트리스GV 8-70UN",
         sale: "일반 판매",
         kind: "스타터",
-        releaseDate: "",
-        price: "",
+        releaseDate: "2026-04-24",
+        price: "19900",
         composition: [{ name: "나이트 포트리스GV 8-70UN", quantity: "1개", target: "BEY-X-CX-14-KNIGHT-FORTRESS-GV-8-70UN" }]
       },
       jp: {
@@ -9369,7 +9374,7 @@
         name: "라그나 레이지FE 4-55Y",
         sale: "일반 판매",
         kind: "부스터",
-        releaseDate: "",
+        releaseDate: "2026-04-24",
         price: "15900",
         composition: [{ name: "라그나 레이지FE 4-55Y", quantity: "1개", target: "BEY-X-CX-15-RAGNA-RAGE-FE-4-55Y" }]
       },
@@ -9392,8 +9397,8 @@
         name: "스타트 대시 세트 C",
         sale: "일반 판매",
         kind: "세트",
-        releaseDate: "",
-        price: "",
+        releaseDate: "2026-04-24",
+        price: "70900",
         composition: []
       },
       jp: {
@@ -9432,8 +9437,8 @@
         name: "스톰 스프리건 2-70M",
         sale: "일반 판매",
         kind: "스타터",
-        releaseDate: "",
-        price: "",
+        releaseDate: "2026-05-23",
+        price: "19900",
         composition: [{ name: "스톰 스프리건 2-70M", quantity: "1개", target: "BEY-X-BX-00-STORM-SPRIGGAN-2-70M" }]
       },
       jp: {
@@ -9451,7 +9456,12 @@
     series: "x",
     releases: {
       kr: {
-        status: "unreleased"
+        no: "UX-19",
+        sale: "일반 판매",
+        kind: "스타터",
+        releaseDate: "2026-07-21",
+        price: "19900",
+        composition: [{ name: "불릿그리폰H", quantity: "1개", target: "BEY-X-UX-19-BULLET-GRIFFON-H" }]
       },
       jp: {
         no: "UX-19",
@@ -9485,7 +9495,12 @@
     series: "x",
     releases: {
       kr: {
-        status: "unreleased"
+        no: "CX-17",
+        sale: "일반 판매",
+        kind: "랜덤부스터",
+        releaseDate: "2026-07-21",
+        price: "15900",
+        composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-X-CX-17-01-UNICORN-DELTA-PO-3-60GU" }]
       },
       jp: {
         no: "CX-17",

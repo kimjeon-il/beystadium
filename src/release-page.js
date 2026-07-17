@@ -3,7 +3,7 @@ import { appState } from "#app/state";
 import { rememberModalContext } from "#app/modal-context";
 import { matchesSearchText } from "#app/search-engine";
 import { productItems } from "#app/data-store";
-import { TableListController, compareProductReleaseOrder, defaultReleaseSeries, escapeAttributeValue, escapeHtml, priceLabel, productRelease, productReleasedInRegion, productSerialNumber, releaseBadgeLabel, releaseBadgeSearchText, releaseBadges, releaseControls, releaseDateCompactLabel, releaseDateLabel, releaseDateSortValue, releaseKindSortValue, releasePriceSortValue, releaseRegionLabels, releaseSeriesForRegion, releaseSeriesLabels, responsiveDateSpans, sortDropdownMarkup, tableListPageMarkup, tableListTableMarkup } from "#app/release-core";
+import { TableListController, compareProductReleaseOrder, defaultReleaseSeries, escapeAttributeValue, escapeHtml, priceLabel, productDisplayName, productRelease, productReleasedInRegion, productSerialNumber, releaseBadgeLabel, releaseBadgeSearchText, releaseBadges, releaseControls, releaseDateCompactLabel, releaseDateLabel, releaseDateSortValue, releaseKindSortValue, releasePriceSortValue, releaseRegionLabels, releaseSeriesForRegion, releaseSeriesLabels, responsiveDateSpans, sortDropdownMarkup, tableListPageMarkup, tableListTableMarkup } from "#app/release-core";
 import { bindActionRows } from "#app/ui-core";
 
 const releaseSortableColumns = {
@@ -38,7 +38,7 @@ const releaseTableSearchText = (item, region = appState.activeReleaseRegion) => 
   const releaseDate = release.releaseDate || release.release;
   return [
     release.no || "",
-    release.name || item.name || "",
+    productDisplayName(item, region),
     release.sale || "",
     release.kind || "",
     releaseDate,
@@ -49,8 +49,7 @@ const releaseTableSearchText = (item, region = appState.activeReleaseRegion) => 
   ].join(" ");
 };
 const releaseTableInitialSearchText = (item, region = appState.activeReleaseRegion) => {
-  const release = productRelease(item, region);
-  return [release.name || item.name || "", item.name || ""].filter(Boolean).join(" ");
+  return [productDisplayName(item, region), item.name || ""].filter(Boolean).join(" ");
 };
 const releaseSortTieBreak = (a, b, region = appState.activeReleaseRegion) => {
   const serialDiff = productSerialNumber(a, region) - productSerialNumber(b, region);
@@ -139,7 +138,7 @@ const productReleaseTableRows = (region = appState.activeReleaseRegion, series =
   const rows = visibleReleaseTableItems(region, series).map(item => {
     const release = productRelease(item, region);
     const releaseDate = release.releaseDate || release.release;
-    const productName = release.name || item.name || "";
+    const productName = productDisplayName(item, region);
     return `<tr class="table-list-row release-product-row" data-product-id="${item.id}" data-release-region="${region}">
     <td>${release.no || ""}</td>
     <td><span class="release-product-cell"><button class="table-list-row-action table-list-primary-text release-product-link" type="button">${escapeHtml(productName)}</button>${releaseBadgesMarkup(item, region)}</span></td>
