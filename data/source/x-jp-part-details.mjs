@@ -56,51 +56,51 @@ const xJapanPartDetails = Object.freeze({
     stats: [30, 40, 30]
   },
   "PART-X-BLADE-IRON-MAN": {
-    desc: "6개의 방어 날과 댐퍼 구조로 충격을 쉽게 흡수한다.",
+    desc: "6개의 방어 날로 충격을 쉽게 흡수하는 댐퍼 구조를 사용한다.",
     stats: [17, 55, 28]
   },
   "PART-X-BLADE-THANOS": {
-    desc: "높게 배치된 날로 상대의 공격을 제압한다.",
+    desc: "날의 위치가 높게 설계되어 상대의 공격을 가뿐하게 제압할 수 있다.",
     stats: [22, 60, 18]
   },
   "PART-X-BLADE-SPIDER-MAN": {
-    desc: "아래를 향한 날카로운 6개 날로 상대를 위에서 내려친다.",
+    desc: "아래를 향한 날카로운 6개의 날이 상대를 위에서 내려치는 공격에 유용하다.",
     stats: [33, 17, 50]
   },
   "PART-X-BLADE-VENOM": {
-    desc: "3개의 어퍼 날로 상대를 강하게 튕겨낸다.",
+    desc: "3개의 어퍼 날이 상대를 튕겨내는 데 유리.",
     stats: [55, 22, 23]
   },
   "PART-X-BLADE-LUKE-SKYWALKER": {
-    desc: "6개의 방어 날과 댐퍼 구조로 충격을 쉽게 흡수한다.",
+    desc: "6개의 방어 날로 충격을 쉽게 흡수하는 댐퍼 구조를 사용한다.",
     stats: [23, 55, 22]
   },
   "PART-X-BLADE-DARTH-VADER": {
-    desc: "높게 배치된 날로 상대의 공격을 제압한다.",
+    desc: "날의 위치가 높게 설계되어 상대의 공격을 가뿐하게 제압할 수 있다.",
     stats: [28, 60, 12]
   },
   "PART-X-BLADE-THE-MANDALORIAN": {
-    desc: "공격 날과 방어 날을 함께 갖춰 슈팅 방법에 따라 성능을 활용한다.",
+    desc: "공격날과 방어날을 모두 가지고 있어 슈팅 방법에 따라 각각의 성능을 모두 사용할 수 있다.",
     stats: [40, 43, 17]
   },
   "PART-X-BLADE-MOFF-GIDEON": {
-    desc: "4개의 스매시 날로 상대의 자세를 무너뜨린다.",
+    desc: "4개의 스매시 날로 상대의 자세를 무너뜨리는데 뛰어나다.",
     stats: [32, 35, 33]
   },
   "PART-X-BLADE-OPTIMUS-PRIME": {
-    desc: "6개의 방어 날과 댐퍼 구조로 충격을 쉽게 흡수한다.",
+    desc: "6개의 방어 날로 충격을 쉽게 흡수하는 댐퍼 구조를 사용한다.",
     stats: [22, 55, 23]
   },
   "PART-X-BLADE-MEGATRON": {
-    desc: "4개의 스매시 날로 상대의 자세를 무너뜨린다.",
+    desc: "4개의 스매시 날로 상대의 자세를 무너뜨리는데 뛰어나다.",
     stats: [27, 35, 38]
   },
   "PART-X-BLADE-OPTIMUS-PRIMAL": {
-    desc: "날카로운 각도의 어퍼 날로 낮은 위치에서 파고들어 상대를 튕겨낸다.",
+    desc: "날카로운 각도의 어퍼 날로 상대에게 깊숙이 파고들어 낮은 위치에서 튕겨버리는 설계.",
     stats: [60, 27, 13]
   },
   "PART-X-BLADE-STARSCREAM": {
-    desc: "2개의 대형 원형 날이 강한 원심력을 만든다.",
+    desc: "2개의 대형 원형 날로 강력한 원심력을 만드는 외중심으로 설계되었다.",
     stats: [18, 27, 55]
   },
   "PART-X-BLADE-HEAVENS-RING": {
@@ -130,13 +130,13 @@ const xJapanPartDetails = Object.freeze({
   "PART-X-BLADE-MAIN-BLADE-BOLT": { desc: "메탈 코팅된 스매시 형상의 날로 상대를 강하게 타격한다." },
   "PART-X-BLADE-MAIN-BLADE-HUNT": { desc: "블레이드 외곽에 중량을 모은 매끄러운 연타 날로 높은 지구력과 공격력을 양립한다." },
   "PART-X-BLADE-MAIN-BLADE-FLARE": { desc: "두께가 있는 15개 연타 날로 강한 카운터를 가한다. 메탈 코팅으로 성능을 높였다." },
-  "PART-X-BLADE-MAIN-BLADE-BLITZ": { desc: "반발 성능이 높은 중량급 5개 날에 한쪽으로 치우친 대형 날을 더해 중량 성능을 높인다." },
-  "PART-X-BLADE-MAIN-BLADE-FORTRESS": { desc: "높낮이가 다른 형태로 공격을 분산하고 입체적인 날로 카운터를 가한다." },
+  "PART-X-BLADE-MAIN-BLADE-BLITZ": { desc: "반발 성능이 높은 중량급 5개 날에 무게중심을 한쪽으로 치우치게 하는 대형 날을 더해 중량 성능을 높인다." },
+  "PART-X-BLADE-MAIN-BLADE-FORTRESS": { desc: "높낮이가 있는 돌출 형태로 상대의 공격을 분산하고 입체적인 날로 카운터를 가한다." },
   "PART-X-BLADE-MAIN-BLADE-RAGE": { desc: "유선형의 매끄러운 날로 상대의 공격을 흘려보내고 회전 손실을 줄인다." },
   "PART-X-BLADE-MAIN-BLADE-ANTLERS": { desc: "지구력과 방어력을 함께 발휘하도록 설계되었다." },
   "PART-X-BLADE-MAIN-BLADE-RIGGLE": { desc: "높은 원심력을 만들어 종반까지 회전을 유지한다." },
   "PART-X-BLADE-MAIN-BLADE-PORT": { desc: "공격·방어·지구력의 균형을 맞춰 다양한 상대에 대응한다." },
-  "PART-X-BLADE-MAIN-BLADE-MIGHT": { desc: "옆면에 여러 개의 세로 모서리를 둔 중량급 8개 날로 상대의 회전력을 깎는다. 메탈 코팅으로 성능을 높였다." },
+  "PART-X-BLADE-MAIN-BLADE-MIGHT": { desc: "측면에 여러 개의 예각 면을 둔 중량급 8개 날로 상대의 회전력을 깎는다. 메탈 코팅으로 성능을 높였다." },
   "PART-X-BLADE-MAIN-BLADE-DELTA": { desc: "공격적인 날과 방어적인 날을 함께 갖추고 좌우 형태가 다른 2개 날을 사용한다." },
   "PART-X-BLADE-MAIN-BLADE-WHIP": { desc: "매끄러운 원호 형태의 4개 날로 상대의 공격을 흘려보낸다." },
 
@@ -153,29 +153,29 @@ const xJapanPartDetails = Object.freeze({
   "PART-X-BLADE-ASSIST-BLADE-HEAVY": { desc: "메탈 파츠로 원심력을 높인 낮은 6개 날이 타격력과 안정성을 강화한다." },
   "PART-X-BLADE-ASSIST-BLADE-ZILLION": { desc: "원형으로 배치된 중량급 12개 날로 공격을 튕겨내며 버틴다." },
   "PART-X-BLADE-ASSIST-BLADE-KNUCKLE": { desc: "5개 날 중 1개를 중량 포인트로 삼아 블레이드의 반발 성능을 높인다." },
-  "PART-X-BLADE-ASSIST-BLADE-VERTICAL": { desc: "위아래로 뻗은 12개의 수직 날로 래칫을 향한 공격을 막고 버스트 저항을 높인다." },
+  "PART-X-BLADE-ASSIST-BLADE-VERTICAL": { desc: "상하 방향으로 뻗은 12개의 중량급 날로 래칫을 향한 공격을 막고 버스트 내성을 높인다." },
   "PART-X-BLADE-ASSIST-BLADE-ERASE": { desc: "매끄러운 연타 날로 스태미나 손실을 최소화하면서 지구력을 활용한 연속 공격을 가한다." },
   "PART-X-BLADE-ASSIST-BLADE-ODD": { desc: "비대칭 구조에 연타 공격 날과 원형 흘려받기 날을 함께 갖춘다." },
 
   // Ratchets
   "PART-X-RATCHET-1-50": {
-    desc: "베이를 낮게 설정하며 공격 성능에 특화된 1개 날을 사용한다.",
+    desc: "베이를 낮게 세팅하는 파츠. 공격 성능에 특화된 1개의 날을 사용한다.",
     stats: [18, 9, 3]
   },
   "PART-X-RATCHET-7-55": {
-    desc: "베이를 낮게 설정하고 버스트 저항을 일정하게 하는 단순한 구조로 흔들림을 줄인다. 두껍고 방어 성능이 높은 7개 날을 사용한다.",
+    desc: "베이를 낮게 세팅하는 파츠. 비트에 따라 버스트 내성이 변하지 않는 단순한 구조로 흔들림이 적고, 두껍고 방어 성능이 높은 7개의 날을 사용한다.",
     stats: [6, 14, 10]
   },
   "PART-X-RATCHET-0-60": {
-    desc: "베이를 낮게 설정하며 수평 방향의 공격을 견디기 쉬운 무날 구조를 사용한다.",
+    desc: "베이를 낮게 세팅하는 파츠. 수평 방향의 공격을 견디기 쉬운 무날 구조를 사용한다.",
     stats: [3, 14, 13]
   },
   "PART-X-RATCHET-9-65": {
-    desc: "베이를 낮게 설정하고 버스트 저항을 일정하게 하는 단순한 구조로 흔들림을 줄인다. 연타에 뛰어난 9개 날을 사용한다.",
+    desc: "베이를 낮게 세팅하는 파츠. 비트에 따라 버스트 내성이 변하지 않는 단순한 구조로 흔들림이 적고, 연타에 뛰어난 9개의 날을 사용한다.",
     stats: [13, 10, 7]
   },
   "PART-X-RATCHET-8-70": {
-    desc: "베이 높이를 중간으로 설정하며 지름이 크고 원심력 강화에 뛰어난 8개 날을 사용한다.",
+    desc: "베이를 중간 높이로 세팅하는 파츠. 지름이 크고 원심력 강화에 뛰어난 8개의 날을 사용한다.",
     stats: [8, 10, 12]
   },
 
@@ -185,12 +185,12 @@ const xJapanPartDetails = Object.freeze({
     extraStats: dashAndBurst(25, 80)
   },
   "PART-X-BIT-FF": {
-    desc: "래칫에 대해 자유 회전하며, 조금 가늘고 평평한 축 끝으로 스태미나 손실을 줄이면서 대시 속도를 높인다.",
+    desc: "래칫과 별개로 자유 회전하는 비트. 조금 가늘고 평평한 축 끝으로 스태미나 손실을 줄이면서 대시 속도를 높인다.",
     stats: [40, 15, 15],
     extraStats: dashAndBurst(30, 80)
   },
   "PART-X-BIT-OP": {
-    desc: "흘려받기용 4개 날과 가는 축 끝의 방어 모드, 공력 구조의 2개 날과 굵은 축 끝으로 움직이는 공격 모드를 선택해 설정한다.",
+    desc: "공격을 흘려보내는 4개 날과 가는 축 끝으로 공격을 버티는 방어 모드와 공력 구조의 2개 날과 굵은 축 끝으로 움직이는 공격 모드 중 하나를 선택해 세팅한다.",
     stats: [20, 50, 50],
     extraStats: dashAndBurst(10, 30),
     modes: [
@@ -209,7 +209,7 @@ const xJapanPartDetails = Object.freeze({
     extraStats: dashAndBurst(30, 80)
   },
   "PART-X-BIT-Y": {
-    desc: "대형 구형 축 끝의 지구력과 네 방향으로 돌출된 연동 날의 자세 제어 성능을 양립한다.",
+    desc: "대형 구형 축 끝의 지구력과 네 방향으로 돌출된 무게추의 자세 제어 성능을 양립한다.",
     stats: [10, 15, 65],
     extraStats: dashAndBurst(10, 30)
   },
@@ -219,13 +219,13 @@ const xJapanPartDetails = Object.freeze({
     extraStats: dashAndBurst(40, 80)
   },
   "PART-X-BIT-GU": {
-    desc: "끝에서 기어를 제어하는 구형 축 끝에 평평한 접지면과 중앙 돌기를 두어 공격·방어·지구 움직임을 겸비한다."
+    desc: "끝까지 기어가 배치된 구형 축 끝에 평평한 접지면과 중앙 돌기를 두어 공격·방어·지구력에 특화된 움직임을 겸비한다."
   },
   "PART-X-BIT-NR": {
-    desc: "가느다란 축 모양의 축 끝으로 오래 회전하고, 10개 기어가 익스트림 대시 속도를 억제해 스태미나 손실을 줄인다."
+    desc: "가느다란 축 끝으로 오래 회전하고, 10개 톱니의 기어로 익스트림 대시 속도를 억제해 스태미나 손실을 줄인다."
   },
   "PART-X-BIT-DS": {
-    desc: "방어 성능이 높은 뾰족한 축 끝에 원반형 움직임을 더하고, 버스트 저항과 맞바꿔 자세 제어 성능을 높인다."
+    desc: "방어 성능이 높은 뾰족한 축 끝에 원반형 움직임을 더하고, 버스트 내성과 맞바꿔 자세 제어 성능을 높인다."
   }
 });
 
