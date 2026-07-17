@@ -9227,7 +9227,7 @@
         sale: "일반 판매",
         kind: "부스터",
         releaseDate: "",
-        price: "",
+        price: "15900",
         composition: [{ name: "피닉스 플레어Z 9-80WW", quantity: "1개", target: "BEY-X-CX-12-PHOENIX-FLARE-Z-9-80WW" }]
       },
       jp: {
@@ -9318,7 +9318,7 @@
         sale: "일반 판매",
         kind: "스타터",
         releaseDate: "",
-        price: "",
+        price: "19900",
         composition: [{ name: "바하무트 블리츠BK 1-50I", quantity: "1개", target: "BEY-X-CX-13-BAHAMUT-BLITZ-BK-1-50I" }]
       },
       jp: {
@@ -9364,7 +9364,7 @@
         sale: "일반 판매",
         kind: "부스터",
         releaseDate: "",
-        price: "",
+        price: "15900",
         composition: [{ name: "라그나 레이지FE 4-55Y", quantity: "1개", target: "BEY-X-CX-15-RAGNA-RAGE-FE-4-55Y" }]
       },
       jp: {
