@@ -9060,7 +9060,13 @@
     series: "x",
     releases: {
       kr: {
-        status: "unreleased"
+        no: "UX-16",
+        name: "랜덤부스터 클락미라지 셀렉트",
+        sale: "일반 판매",
+        kind: "랜덤부스터",
+        releaseDate: "",
+        price: "15900",
+        composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-X-UX-16-01-CLOCK-MIRAGE-9-65B" }]
       },
       jp: {
         no: "UX-16",

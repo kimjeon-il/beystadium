@@ -14,6 +14,7 @@ const released = (release) => release && release.status !== "unreleased" && Bool
 );
 
 const koreanReleaseProducts = Object.freeze({
+  "PRODUCT-X-UX-16": ["UX-16", "랜덤부스터 클락미라지 셀렉트", "랜덤부스터"],
   "PRODUCT-X-CX-10": ["CX-10", "울프 헌트F 0-60DB", "부스터"],
   "PRODUCT-X-CX-11": ["CX-11", "엠퍼러 마이트 덱 세트", "세트"],
   "PRODUCT-X-UX-17": ["UX-17", "메테오 드래군 3-70J", "스타터"],
@@ -27,6 +28,7 @@ const koreanReleaseProducts = Object.freeze({
 });
 
 const koreanProductPrices = Object.freeze({
+  "PRODUCT-X-UX-16": "15900",
   "PRODUCT-X-CX-12": "15900",
   "PRODUCT-X-CX-13": "19900",
   "PRODUCT-X-CX-15": "15900"
@@ -47,8 +49,8 @@ test("한국 공식 성능 설명 12건을 정확한 X 베이에 적용한다", 
   );
 });
 
-test("국내 출시 제품 10건은 확인된 가격과 일본판 구성 순서를 유지한다", () => {
-  assert.equal(Object.keys(koreanReleaseProducts).length, 10);
+test("국내 출시 제품 11건은 확인된 가격과 일본판 구성 순서를 유지한다", () => {
+  assert.equal(Object.keys(koreanReleaseProducts).length, 11);
 
   for (const [id, [no, name, kind]] of Object.entries(koreanReleaseProducts)) {
     const product = productsById.get(id);
@@ -84,8 +86,8 @@ test("국내 발매 X 베이 중 공식 설명이 없는 항목은 빈 설명을
   ].filter((id) => id.startsWith("BEY-X-"))));
   const describedIds = [...releasedBeyIds].filter((id) => beysById.get(id)?.desc);
 
-  assert.equal(releasedProducts.length, 93);
-  assert.equal(releasedBeyIds.size, 135);
+  assert.equal(releasedProducts.length, 94);
+  assert.equal(releasedBeyIds.size, 138);
   assert.deepEqual(describedIds.sort(), Object.keys(xKoreaBeyDescriptions).sort());
 
   for (const slot of ["02", "03", "04", "05", "06"]) {
