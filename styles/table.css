@@ -98,7 +98,6 @@
 .table-list-shell {
   --modal-body-width: 100%;
   --modal-flow-gap: 12px;
-  --table-list-content-inset: 0px;
   --table-list-scrollbar-x-shift: 0px;
   width: 100%;
   max-width: var(--catalog-content-max, var(--catalog-grid-max-width, var(--page-max)));

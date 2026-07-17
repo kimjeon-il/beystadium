@@ -304,4 +304,4 @@ const routerReady = applyCurrentHashRoute();
 window.addEventListener("hashchange", () => void applyCurrentHashRoute());
 window.addEventListener("popstate", () => void applyCurrentHashRoute());
 
-export { applyCurrentHashRoute, applyRoute, routerReady };
+export { routerReady };

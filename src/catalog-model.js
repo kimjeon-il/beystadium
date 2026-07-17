@@ -13,7 +13,6 @@ import {
   toolsItemsById
 } from "#app/data-store";
 import {
-  compareProductReleaseOrder,
   escapeAttributeValue,
   productRelease,
   productReleasedInRegion,
@@ -386,13 +385,10 @@ export {
   cardInfo,
   catalogCardActionMarkup,
   cardVisualMarkup,
-  catalogCardTitle,
   catalogRenderKey,
   catalogSortOptions,
-  catalogSourceOrder,
   catalogVisibleItemsCache,
   codedPartNameTypes,
-  compareProductReleaseOrder,
   compareToolsItemsByFirstRelease,
   findCatalogItemById,
   modalArtMarkup,

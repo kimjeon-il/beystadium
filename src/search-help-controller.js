@@ -167,6 +167,5 @@ const initializeSearchHelpController = () => {
 
 export {
   closeSearchHelpPopovers,
-  initializeSearchHelpController,
-  positionSearchHelpPopovers
+  initializeSearchHelpController
 };

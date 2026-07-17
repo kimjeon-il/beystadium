@@ -1156,15 +1156,6 @@ html.route-booting .to-top {
   --dropdown-item-white-space: nowrap;
 }
 
-.category-title {
-  margin: 0;
-  color: var(--ui-text);
-  font-size: var(--font-title);
-  font-weight: var(--font-weight-title);
-  line-height: 1;
-  word-break: keep-all;
-}
-
 .mode-title {
   margin: 0 0 8px;
   color: var(--ui-text);
@@ -1568,15 +1559,6 @@ body.is-overview .app-shell {
   --search-scope-font-size: var(--compact-search-scope-font-size);
   --search-scope-arrow-right: var(--compact-search-scope-arrow-right);
   --search-scope-menu-offset: calc((var(--compact-search-height) - var(--compact-search-scope-height)) / 2);
-}
-
-.overview-title-row {
-  width: var(--modal-body-width);
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px 14px;
-  margin: var(--overview-title-row-margin, 0 auto 16px);
 }
 
 .menu-button {

@@ -1,4 +1,4 @@
-const styleVersion = "20260716-html5-conformance";
+const styleVersion = "20260717-dead-code-cleanup";
 const styleOrder = ["page", "collection", "table", "release", "anime", "catalog", "search", "modal"];
 const styleFiles = Object.fromEntries(styleOrder.map(key => [key, `./styles/${key}.css?v=${styleVersion}`]));
 const stylePromises = new Map();

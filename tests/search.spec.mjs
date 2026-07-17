@@ -111,6 +111,33 @@ test("real search data keeps representative result IDs and ordering", async ({ p
   }
 });
 
+test("chassis search tags keep exact result IDs and ordering", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "The same search data is shared by desktop and mobile layouts.");
+
+  const cases = [
+    ["싱글 섀시", [
+      "PART-BURST-SUPERKINGCHASSIS-1S",
+      "PART-BURST-SUPERKINGCHASSIS-1D",
+      "PART-BURST-SUPERKINGCHASSIS-4A"
+    ]],
+    ["더블 섀시", [
+      "PART-BURST-SUPERKINGCHASSIS-1A",
+      "PART-BURST-SUPERKINGCHASSIS-1B",
+      "PART-BURST-SUPERKINGCHASSIS-2A",
+      "PART-BURST-SUPERKINGCHASSIS-2B",
+      "PART-BURST-SUPERKINGCHASSIS-2S",
+      "PART-BURST-SUPERKINGCHASSIS-2D",
+      "PART-BURST-SUPERKINGCHASSIS-3A"
+    ]]
+  ];
+
+  for (const [query, expectedIds] of cases) {
+    await page.goto(`/#search?q=${encodeURIComponent(query)}&scope=bey`);
+    await expect(page.locator("#globalCount")).toHaveText(String(expectedIds.length));
+    await expect.poll(() => resultIds(page)).toEqual(expectedIds);
+  }
+});
+
 test("Judgement search uses the corrected English spelling and addresses", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "The same search data is shared by desktop and mobile layouts.");
   await page.goto(`/#search?q=${encodeURIComponent("Judgement")}&scope=bey`);

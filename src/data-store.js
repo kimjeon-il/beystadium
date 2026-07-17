@@ -186,7 +186,7 @@ const BeystadiumDataStore = (() => {
   const initialize = async () => {
     clearError();
     try {
-      indexData = await fetchJson("./data/runtime/index.json?v=20260716-remove-height-class");
+      indexData = await fetchJson("./data/runtime/index.json?v=20260717-dead-code-cleanup");
       if (detailHashOnBoot()) await ensureRegistry();
       document.querySelector("[data-load-retry]")?.addEventListener("click", () => window.location.reload());
       return true;
@@ -321,7 +321,6 @@ const BeystadiumDataStore = (() => {
 
 export {
   animeInfo,
-  beyItems,
   bookItems,
   bookItemsById,
   catalogCoreItemOrder,

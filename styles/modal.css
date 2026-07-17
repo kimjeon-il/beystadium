@@ -1336,15 +1336,6 @@ dialog[open] .modal-step-next::after {
   transform: scale(1);
 }
 
-.overview-title-row .modal-name {
-  width: var(--overview-title-name-width, auto);
-  height: auto;
-  max-height: none;
-  margin: 0;
-  flex: 0 1 auto;
-  overflow: visible;
-}
-
 @media (prefers-reduced-motion: reduce) {
 .modal-tag-popover,
   .modal-overlay,
@@ -1380,8 +1371,6 @@ dialog[open] {
     --modal-art-max-height: none;
     --modal-art-padding: 0;
     --composition-list-max-height-default: min(calc(var(--composition-row-height) * var(--composition-visible-rows)), 34dvh);
-    --overview-title-row-margin: 0 auto var(--modal-flow-gap);
-    --overview-title-name-width: 100%;
     --model-viewer-width: min(100%, clamp(420px, 58vw, 520px));
     --model-viewer-height: min(52vh, clamp(420px, 58vw, 520px));
     --model-viewer-min-height: clamp(280px, 32vh, 300px);

@@ -68,11 +68,7 @@ const catalogCollectionConfig = {
 const renderCatalogItems = () => renderCategoryCollection(catalogCollectionConfig);
 
 export {
-  CATALOG_PAGE_SIZE,
   renderCatalogItems,
-  renderCatalogPagination,
   scrollCatalogGridIntoView,
-  syncCatalogRenderPage,
-  syncCatalogScopeState,
-  updateCatalogCount
+  syncCatalogScopeState
 };

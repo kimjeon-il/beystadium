@@ -49,7 +49,7 @@ test("new random layers use Korean display names and cleaned English source name
     assert.equal(item.type, "gachilayer");
     assert.match(item.name, /[가-힣]/);
     assert.doesNotMatch(`${item.name} ${item.en}`, /[()]/);
-    assert.deepEqual(item.tags, []);
+    assert.equal(Object.hasOwn(item, "tags"), false);
     assert.deepEqual(item.stats, []);
   }
 });

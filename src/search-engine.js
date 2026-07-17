@@ -27,7 +27,6 @@ import {
   spinLabel,
   spinLabels,
   structureLabels,
-  tagLabels,
   toolsSubtypeOptions,
   typeLabels
 } from "#app/ui-core";
@@ -67,10 +66,12 @@ const burstBeySystemFilterGroups = {
 };
 const shouldIncludeSeriesSearchField = options => options?.includeSeries !== false;
 const searchTagAliases = {
-  "크로스오버": ["crossover"]
+  "크로스오버": ["crossover"],
+  "싱글 섀시": [],
+  "더블 섀시": []
 };
 const itemSearchTagValues = item => Array.isArray(item.searchTags)
-  ? item.searchTags.flatMap(tag => [tag, tagLabels[tag] || "", ...(searchTagAliases[tag] || [])]).filter(Boolean)
+  ? item.searchTags.flatMap(tag => [tag, ...(searchTagAliases[tag] || [])]).filter(Boolean)
   : [];
 const catalogItemSearchFields = (item, options = {}) => {
   const includeSeries = shouldIncludeSeriesSearchField(options);
@@ -143,8 +144,7 @@ const catalogAttributeChipCandidates = (() => {
   });
   Object.entries(spinLabels).forEach(([value, label]) => add(`spin:${value}`, label, [value]));
   toolsSubtypeOptions.forEach(option => add(`tools:${option.value}`, option.label, [option.value]));
-  Object.entries(searchTagAliases).forEach(([tag, aliases]) => add(`tag:${catalogAttributeChipAliasKey(tag)}`, tagLabels[tag] || tag, aliases));
-  Object.entries(tagLabels).forEach(([value, label]) => add(`tag:${value}`, label, [value]));
+  Object.entries(searchTagAliases).forEach(([tag, aliases]) => add(`tag:${catalogAttributeChipAliasKey(tag)}`, tag, aliases));
   return candidates;
 })();
 const catalogAttributeChipForTerm = term => {
@@ -245,14 +245,6 @@ const globalSearchQuery = () => (globalSearch?.value || mobileDrawerSearch?.valu
 const catalogSearchQuery = () => catalogSearch?.value.trim() || "";
 const animeSearchQuery = () => animeSearch?.value.trim() || "";
 
-const searchScopeLabel = scope => ({
-  all: "전체",
-  bey: "베이",
-  tools: "장비",
-  product: "제품",
-  manga: "만화",
-  anime: "애니"
-})[scope] || "전체";
 const searchScopeValues = ["all", "bey", "tools", "product", "manga", "anime"];
 const normalizeSearchScope = scope => searchScopeValues.includes(scope) ? scope : "all";
 
@@ -264,9 +256,6 @@ const itemAttributeLabels = item => [
 
 export {
   animeSearchQuery,
-  catalogAttributeChipForTerm,
-  catalogFilterChipLabelForTerm,
-  catalogFilterQueryTerms,
   catalogItemSearchFields,
   catalogQueryChips,
   catalogSearchQuery,
@@ -284,6 +273,5 @@ export {
   removeCatalogQueryChip,
   searchFieldsFromValues,
   searchQueryFrom,
-  searchScopeLabel,
   toolsSearchFields
 };

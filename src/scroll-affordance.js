@@ -85,6 +85,5 @@ export {
   bindScrollAffordances,
   clearScrollAffordance,
   clearScrollAffordances,
-  scheduleScrollAffordances,
-  syncScrollAffordance
+  scheduleScrollAffordances
 };

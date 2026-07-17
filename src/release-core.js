@@ -115,7 +115,6 @@ const productDisplayRegion = (item, region = "kr") =>
   productDisplayFallbackRegions(region).find(candidate => productReleasedInRegion(item, candidate)) || region;
 const productDisplayRelease = (item, region = "kr") => productRelease(item, productDisplayRegion(item, region));
 const seriesLabels = { topblade: "탑블레이드", "metal fight": "메탈베이블레이드", burst: "베이블레이드 버스트", x: "베이블레이드 X" };
-const defaultCatalogSeries = () => "all";
 const normalizeCatalogSeries = series => seriesLabels[series] ? series : "all";
 const itemSeriesLabel = item => seriesLabels[item.series] || item.series || "";
 const productDisplayName = (item, region = appState.activeReleaseRegion) => {
@@ -315,7 +314,6 @@ export {
   animeAirDateCompactLabel,
   animeAirDateLabel,
   compareProductReleaseOrder,
-  defaultCatalogSeries,
   defaultReleaseSeries,
   escapeAttributeValue,
   escapeHtml,
@@ -325,7 +323,6 @@ export {
   productDisplayName,
   productDisplayRegion,
   productRelease,
-  productReleaseValue,
   productReleasedInRegion,
   productSerialNumber,
   rareBeyGetEntryProductIds,

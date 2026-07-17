@@ -60,5 +60,4 @@ document.addEventListener("keydown", event => {
   replaySearchEventAfterLoad(event, target => target.dispatchEvent(new window.KeyboardEvent("keydown", init)));
 }, true);
 
-export const appReady = true;
 export { prepareInteraction };

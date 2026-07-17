@@ -306,13 +306,11 @@ export {
   compareScoredSearchResults,
   createSearchField,
   createSearchRecord,
-  createSearchTextIndex,
   lowerSearchText,
   matchSearchRecord,
   matchesSearchText,
   prepareCatalogSearchQuery,
   prepareSearchQuery,
-  prepareSearchTerm,
   searchFieldsFromValues,
   searchQueryFrom,
   uniqueSearchValues

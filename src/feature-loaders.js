@@ -64,9 +64,7 @@ const preparePrimaryRoute = async (route, { background = false } = {}) => {
   if (prepared) warmPrimaryRouteData(route, ready, featureResult.value);
   return prepared;
 };
-const renderAnimePage = (...args) => loadAnimeFeature().then(module => module.renderAnimePage(...args));
 const openAnimeEpisodeDetail = (...args) => loadAnimeDetail().then(module => module.openAnimeEpisodeDetail(...args));
-const openCategoryAnimeEpisodesDetail = (...args) => loadAnimeFeature().then(module => module.openCategoryAnimeEpisodesDetail(...args));
 const openCategoryReleaseDetail = (...args) => loadReleaseFeature().then(module => module.openCategoryReleaseDetail(...args));
 
 export {
@@ -76,8 +74,6 @@ export {
   loadReleaseFeature,
   loadSearchFeature,
   openAnimeEpisodeDetail,
-  openCategoryAnimeEpisodesDetail,
   openCategoryReleaseDetail,
-  preparePrimaryRoute,
-  renderAnimePage
+  preparePrimaryRoute
 };

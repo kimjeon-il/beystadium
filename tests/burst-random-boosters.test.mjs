@@ -23,6 +23,18 @@ const randomBeys = beyItems.filter(item => Object.hasOwn(expectedCounts, item.pr
   && /^BEY-BURST-B-\d+-\d{2}-/.test(item.id));
 const beysById = new Map(randomBeys.map(item => [item.id, item]));
 const partIds = new Set(partItems.map(item => item.id));
+const chassisSearchTags = {
+  "PART-BURST-SUPERKINGCHASSIS-1S": ["싱글 섀시"],
+  "PART-BURST-SUPERKINGCHASSIS-1D": ["싱글 섀시"],
+  "PART-BURST-SUPERKINGCHASSIS-4A": ["싱글 섀시"],
+  "PART-BURST-SUPERKINGCHASSIS-1A": ["더블 섀시"],
+  "PART-BURST-SUPERKINGCHASSIS-1B": ["더블 섀시"],
+  "PART-BURST-SUPERKINGCHASSIS-2A": ["더블 섀시"],
+  "PART-BURST-SUPERKINGCHASSIS-2B": ["더블 섀시"],
+  "PART-BURST-SUPERKINGCHASSIS-2S": ["더블 섀시"],
+  "PART-BURST-SUPERKINGCHASSIS-2D": ["더블 섀시"],
+  "PART-BURST-SUPERKINGCHASSIS-3A": ["더블 섀시"]
+};
 const productsByNo = new Map(productItems.flatMap(item => {
   const no = item.id.match(/^PRODUCT-BURST-(B-\d+)$/)?.[1];
   return no ? [[no, item]] : [];
@@ -79,7 +91,7 @@ test("Burst random booster IDs, Korean names, and part references are canonical"
       assert.match(id, new RegExp(`^BEY-BURST-${productNo}-${String(index + 1).padStart(2, "0")}-`));
       assert.match(item.name, /[가-힣]/);
       assert.match(item.jpName, /[가-힣]/);
-      assert.doesNotMatch(`${item.name} ${item.en} ${item.desc} ${item.tags.join(" ")}`, /[()]/);
+      assert.doesNotMatch(`${item.name} ${item.en} ${item.desc}`, /[()]/);
       item.parts.forEach(partId => assert.ok(partIds.has(partId), `${id} -> ${partId}`));
       (item.bundledParts || []).forEach(partId => assert.ok(partIds.has(partId), `${id} bundled -> ${partId}`));
     });
@@ -116,8 +128,33 @@ test("B-61 and B-181 keep exact names, combinations, types, spins, and bundled p
   assert.deepEqual(hellKerbecs, {
     id: "PART-BURST-LAYER-HELL-KERBECS", series: "burst", type: "layer",
     name: "다크 케르베로스", jpName: "헬 케르벡스", en: "Hell Kerbecs",
-    battleType: "stamina", spin: "right", tags: [], desc: "", stats: [2,1,5,3,0,1]
+    battleType: "stamina", spin: "right", desc: "", stats: [2,1,5,3,0,1]
   });
+});
+
+test("legacy catalog tags are removed and chassis search tags are preserved", () => {
+  for (const item of [...beyItems, ...partItems]) assert.equal(Object.hasOwn(item, "tags"), false, item.id);
+
+  const partsById = new Map(partItems.map(item => [item.id, item]));
+  for (const [id, searchTags] of Object.entries(chassisSearchTags)) {
+    assert.deepEqual(partsById.get(id)?.searchTags, searchTags, id);
+  }
+  assert.deepEqual(
+    partItems.filter(item => item.searchTags?.includes("싱글 섀시")).map(item => item.id),
+    ["PART-BURST-SUPERKINGCHASSIS-1S", "PART-BURST-SUPERKINGCHASSIS-1D", "PART-BURST-SUPERKINGCHASSIS-4A"]
+  );
+  assert.deepEqual(
+    partItems.filter(item => item.searchTags?.includes("더블 섀시")).map(item => item.id),
+    [
+      "PART-BURST-SUPERKINGCHASSIS-1A",
+      "PART-BURST-SUPERKINGCHASSIS-1B",
+      "PART-BURST-SUPERKINGCHASSIS-2A",
+      "PART-BURST-SUPERKINGCHASSIS-2B",
+      "PART-BURST-SUPERKINGCHASSIS-2S",
+      "PART-BURST-SUPERKINGCHASSIS-2D",
+      "PART-BURST-SUPERKINGCHASSIS-3A"
+    ]
+  );
 });
 
 test("all 19 Bakuten remake layers keep exact Korean, Japanese, and English identities", () => {

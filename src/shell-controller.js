@@ -298,12 +298,6 @@ export {
   closeCatalogDropdown,
   closeOpenCatalogDropdowns,
   closeSearchHelpPopovers,
-  currentMenuTrigger,
-  handleCategoryRouteClick,
-  isMobileDrawerMode,
-  mobileDrawerIsOpen,
   setDropdownOption,
-  setMobileDrawerOpen,
-  syncMenuButtonMode,
-  syncNavigationMode
+  setMobileDrawerOpen
 };

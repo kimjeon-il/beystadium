@@ -74,7 +74,6 @@ test("25th anniversary Dran Sword has a dedicated BX-00 Bey entry", () => {
     productNo: "BX-00",
     battleType: "attack",
     spin: "right",
-    tags: [],
     desc: "",
     parts: ["PART-X-BLADE-DRAN-SWORD", "PART-X-RATCHET-3-60", "PART-X-BIT-F"]
   });
