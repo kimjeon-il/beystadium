@@ -25,11 +25,11 @@ const advancedIndexProperties = [
 
 const hasOwn = (value, property) => Object.hasOwn(value, property);
 
-test("compact catalog search entries preserve every field after removing the unused slot", () => {
+test("compact catalog search entries preserve every field and the searchable description", () => {
   const entry = decodeSearchEntry([
     "c", "x", "PART-X-BLADE-LOCK-CHIP-DRAN", "x", "blade", "",
     "드랜", "드란", "Dran", "", "", "CX-01", "", "attack", "right",
-    "custom", "lockChip", ["크로스오버"], 7
+    "custom", "lockChip", ["크로스오버"], "CX 블레이드를 고정한다.", 7
   ]);
 
   assert.equal(entry.kind, "catalog-item");
@@ -47,6 +47,7 @@ test("compact catalog search entries preserve every field after removing the unu
     xLine: "custom",
     xBladeRole: "lockChip",
     searchTags: ["크로스오버"],
+    desc: "CX 블레이드를 고정한다.",
     _order: 7
   });
 });

@@ -13,6 +13,7 @@ import {
   xRandomBoosterLineups,
   xRandomBoosterPartItems
 } from "./x-random-boosters.mjs";
+import { applyXJapanPartDetails } from "./x-jp-part-details.mjs";
 
 const beyItems = [
   { id: "BEY-METAL-FIGHT-BB-01-PEGASIS-105F", series: "metal fight", type: "bey", structure: "basic", name: "페가시스", en: "Pegasis", sub: "105F", productNo: "BB-01", battleType: "attack", spin: "right", desc: "", parts: ["PART-METAL-FIGHT-FACE-PEGASIS", "PART-METAL-FIGHT-WHEEL-PEGASIS", "PART-METAL-FIGHT-TRACK-105", "PART-METAL-FIGHT-BOTTOM-FLAT"] },
@@ -1686,6 +1687,7 @@ const partItems = [
 ];
 
 partItems.push(...xSetPartItems, ...xRandomBoosterPartItems, ...burstRandomBoosterParts, ...burstRandomLayerParts);
+applyXJapanPartDetails(partItems);
 beyItems.push(...burstRemakeSetBeyItems, ...xSetBeyItems, ...xRandomBoosterBeyItems);
 const {
   beys: burstRandomBoosterBeys,

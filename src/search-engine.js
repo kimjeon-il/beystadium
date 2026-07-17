@@ -93,7 +93,8 @@ const catalogItemSearchFields = (item, options = {}) => {
       item.battleType ? battleTypeLabel(item.battleType, item) : "",
       ...catalogListSpinSearchTerms(item),
       ...itemSearchTagValues(item)
-    ])
+    ]),
+    ...searchFieldsFromValues("description", [item.desc])
   ];
 };
 const toolsSearchFields = (item, options = {}) => {
