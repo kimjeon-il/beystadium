@@ -1443,6 +1443,37 @@ test("detail route restores modal and internal navigation hash", async ({ page }
   expect(errors).toEqual([]);
 });
 
+test("closing a detail modal restores its catalog scroll position", async ({ page }) => {
+  const errors = consoleErrors(page);
+  await page.goto("/#toy-catalog?scope=bey&series=x");
+  const card = page.locator("#catalogGrid .catalog-card").nth(12);
+  const action = card.locator(".catalog-card-action");
+  await expect(action).toBeVisible();
+
+  for (const closeMethod of ["button", "escape"]) {
+    await card.scrollIntoViewIfNeeded();
+    const expectedScrollY = await page.evaluate(() => Math.round(window.scrollY));
+    expect(expectedScrollY).toBeGreaterThan(0);
+
+    await action.click();
+    await expect(page.locator("#detailModal")).toBeVisible();
+    if (closeMethod === "button") await page.locator("#modalClose").click();
+    else await page.keyboard.press("Escape");
+
+    await expect(page.locator("#detailModal")).not.toBeVisible();
+    await expect(page).toHaveURL(/#toy-catalog\?scope=bey&series=x/);
+    await expect(page.locator("#catalogSeriesFilter")).toHaveAttribute("data-scope", "x");
+    await expect(page.locator("#catalogSearchScope")).toHaveAttribute("data-scope", "bey");
+    await expect.poll(async () => Math.abs(await page.evaluate(() => Math.round(window.scrollY)) - expectedScrollY))
+      .toBeLessThanOrEqual(1);
+  }
+
+  await page.locator("[data-category-release-open]").first().evaluate(element => element.click());
+  await expect(page.locator(".release-product-row").first()).toBeVisible();
+  await expect.poll(() => page.evaluate(() => Math.round(window.scrollY))).toBe(0);
+  expect(errors).toEqual([]);
+});
+
 test("Burst random booster products open their ordered Bey lineups", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "lineup data is shared by desktop and mobile layouts");
   const errors = consoleErrors(page);

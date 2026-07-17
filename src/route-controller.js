@@ -240,8 +240,11 @@ async function applyRoute(route = parseRouteFromHash(window.location.hash), { pr
   }
 
   if (isPrimaryRoute(normalizedRoute)) {
-    if (shouldPreserveScroll && detailFeature) detailFeature.restorePageScroll(detailFeature.modalController.scrollY);
-    else stabilizePrimaryRouteScroll();
+    if (shouldPreserveScroll) {
+      if (detailFeature) detailFeature.restorePageScroll(detailFeature.modalController.scrollY);
+    } else {
+      stabilizePrimaryRouteScroll();
+    }
   }
   return true;
 }
