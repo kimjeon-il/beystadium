@@ -2146,6 +2146,54 @@ test("modal tag popovers follow the active pointer type", async ({ page }, testI
   await expect(popover).toHaveCount(0);
 });
 
+test("modal tags follow the shared category-first order and use terminal punctuation", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "shared tag order only needs one browser");
+  const cases = [
+    {
+      id: "BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF",
+      labels: ["하이브리드 시스템", "공격형", "우회전"]
+    },
+    {
+      id: "PART-METAL-FIGHT-CLEARWHEEL-PEGASIS",
+      labels: ["클리어휠", "공격형", "우회전"]
+    },
+    {
+      id: "PART-BURST-SUPERKINGCHASSIS-1S",
+      labels: ["슈퍼킹레이어", "섀시", "스태미나형"],
+      plainLabels: ["슈퍼킹레이어"]
+    },
+    {
+      id: "PART-BURST-FRAME-VORTEX",
+      labels: ["코어디스크 대응", "프레임"],
+      plainLabels: ["코어디스크 대응"]
+    },
+    {
+      id: "PART-X-BLADE-DRAN-SWORD",
+      labels: ["베이직라인", "블레이드", "어택형", "우회전"]
+    },
+    {
+      id: "PART-X-BLADE-LOCK-CHIP-DRAN",
+      labels: ["커스텀라인", "락칩", "우회전"]
+    }
+  ];
+
+  for (const { id, labels, plainLabels = [] } of cases) {
+    await page.goto(`/#${id}`);
+    await expect(page.locator("#detailModal")).toBeVisible();
+    await expect(page.locator("#detailModal .modal-tags > *")).toHaveText(labels);
+    const descriptions = await page.locator("#detailModal .modal-tag-info").evaluateAll(tags => tags.map(tag => tag.dataset.tagDescription));
+    expect(descriptions.length).toBeGreaterThan(0);
+    expect(descriptions.every(description => /[.!?]$/u.test(description))).toBe(true);
+    for (const label of plainLabels) {
+      await expect(page.locator("#detailModal .modal-tags > span").filter({ hasText: label })).toHaveCount(1);
+      await expect(page.locator(`#detailModal .modal-tag-info[data-tag-label="${label}"]`)).toHaveCount(0);
+    }
+  }
+
+  await page.goto("/#BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF");
+  await expect(page.locator('.modal-tag-info[data-tag-label="공격형"]')).toHaveAttribute("data-tag-description", "높은 공격력으로 상대를 튕겨낸다!");
+});
+
 test("part classification tags expose their shared descriptions", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "shared copy only needs one browser");
   const cases = [

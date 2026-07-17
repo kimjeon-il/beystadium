@@ -214,9 +214,6 @@ const partSystemLabel = item => {
   const label = partTypeMeta(item).systemLabel || "";
   return label && label !== partDetailTypeLabel(item) ? label : "";
 };
-const shouldShowPartSystemTag = item => {
-  return partGroupType(item) !== "layer" || partDisplayType(item) === "layer";
-};
 const partTypeDescriptionType = item => partDetailType(item) || partDisplayType(item);
 const partTypeSearchValues = item => {
   const type = typeof item === "string" ? item : item?.type;
@@ -283,7 +280,6 @@ const partSystemDescriptor = item => {
     key: label,
     label,
     aliases: [],
-    showInModal: shouldShowPartSystemTag(item),
     showOnCard: false
   });
 };
@@ -374,25 +370,25 @@ const partClassificationFilterDescriptors = () => {
 };
 const structureLabels = { basic: "4단 구조 시스템", hybrid: "하이브리드 시스템", "4d": "4D 시스템", synchrome: "싱크롬 시스템" };
 const structureTagDescriptions = {
-  basic: "페이스, 휠, 트랙, 버텀으로 구성된다",
-  hybrid: "휠을 2단으로 분리하여 윗면과 측면의 공격 패턴을 다양하게 조합할 수 있다",
-  "4d": "메탈휠을 분할하여 모드 전환이 가능하며 트랙과 버텀을 융합하여 새로운 움직임을 실현한다",
-  synchrome: "크롬휠끼리 합체시켜 중량을 크게 늘릴 수 있다"
+  basic: "페이스, 휠, 트랙, 버텀으로 구성된다.",
+  hybrid: "휠을 2단으로 분리하여 윗면과 측면의 공격 패턴을 다양하게 조합할 수 있다.",
+  "4d": "메탈휠을 분할하여 모드 전환이 가능하며 트랙과 버텀을 융합하여 새로운 움직임을 실현한다.",
+  synchrome: "크롬휠끼리 합체시켜 중량을 크게 늘릴 수 있다."
 };
 const partTypeTagDescriptions = {
-  face: "휠, 트랙, 버텀을 연결하여 본체를 고정하는 나사 역할을 한다",
-  stoneface: "휠, 트랙, 버텀을 연결하여 본체를 고정하는 나사 역할을 한다",
-  wheel: "베이의 공격력과 방어력을 결정한다",
-  clearwheel: "베이의 공격력과 방어력을 결정한다",
-  lightwheel: "베이의 공격력과 방어력을 결정한다",
-  metalwheel: "베이의 공격력과 방어력을 결정한다",
-  "4dclearwheel": "베이의 공격력과 방어력을 결정하며 금속 소재를 융합하여 중량이 높아졌다",
-  "4dmetalwheel": "베이의 공격력과 방어력을 결정하며 여러 층으로 분할되어 모드 전환이 가능하다",
-  chromewheel: "베이의 공격력과 방어력을 결정하며 크리스탈휠과 위치를 바꾸거나 크롬휠끼리 결합할 수 있다",
-  crystalwheel: "베이의 공격력과 방어력을 결정하며 크롬휠과 위치를 바꿀 수 있다",
-  track: "베이의 높이를 결정한다",
-  bottom: "베이의 움직임을 결정한다",
-  "4dbottom": "트랙과 버텀을 융합하여 새로운 움직임을 실현한다",
+  face: "휠, 트랙, 버텀을 연결하여 본체를 고정하는 나사 역할을 한다.",
+  stoneface: "휠, 트랙, 버텀을 연결하여 본체를 고정하는 나사 역할을 한다.",
+  wheel: "베이의 공격력과 방어력을 결정한다.",
+  clearwheel: "베이의 공격력과 방어력을 결정한다.",
+  lightwheel: "베이의 공격력과 방어력을 결정한다.",
+  metalwheel: "베이의 공격력과 방어력을 결정한다.",
+  "4dclearwheel": "베이의 공격력과 방어력을 결정하며 금속 소재를 융합하여 중량이 높아졌다.",
+  "4dmetalwheel": "베이의 공격력과 방어력을 결정하며 여러 층으로 분할되어 모드 전환이 가능하다.",
+  chromewheel: "베이의 공격력과 방어력을 결정하며 크리스탈휠과 위치를 바꾸거나 크롬휠끼리 결합할 수 있다.",
+  crystalwheel: "베이의 공격력과 방어력을 결정하며 크롬휠과 위치를 바꿀 수 있다.",
+  track: "베이의 높이를 결정한다.",
+  bottom: "베이의 움직임을 결정한다.",
+  "4dbottom": "트랙과 버텀을 융합하여 새로운 움직임을 실현한다.",
   layer: "배틀 시 상대와 직접 부딪치는 부분으로 공격과 방어를 담당한다.",
   disk: "베이의 전체 중량과 무게중심을 변화시켜 배틀 성능에 영향을 준다.",
   driver: "베이가 스타디움 안에서 어떻게 움직이는지를 결정한다.",
@@ -410,10 +406,10 @@ const battleTypeLabels = {
   x: modernBattleTypeLabels
 };
 const burstBattleTypeDescriptions = {
-  attack: "공격에 특화되어 스태미나형에 유리하다",
-  defense: "방어에 특화되어 어택형에 유리하다",
-  stamina: "지구력이 높아 디펜스형에 유리하다",
-  balance: "공격·방어·지구력을 고르게 갖추고 있다"
+  attack: "공격에 특화되어 스태미나형에 유리하다.",
+  defense: "방어에 특화되어 어택형에 유리하다.",
+  stamina: "지구력이 높아 디펜스형에 유리하다.",
+  balance: "공격·방어·지구력을 고르게 갖추고 있다."
 };
 const xBattleTypeDescriptions = {
   attack: "대시 성능과 공격력이 높아 강한 위력의 X대시가 가능하다.",
@@ -440,9 +436,9 @@ const battleTypeDescriptions = {
 };
 const spinLabels = { right: "우회전", left: "좌회전", dual: "양회전" };
 const spinDescriptions = {
-  right: "시계 방향으로 회전한다",
-  left: "반시계 방향으로 회전한다",
-  dual: "좌우회전 모두 가능하다"
+  right: "시계 방향으로 회전한다.",
+  left: "반시계 방향으로 회전한다.",
+  dual: "좌우회전 모두 가능하다."
 };
 const isZeroGBattleTypeItem = item => item?.type === "crystalwheel"
   || item?.type === "chromewheel"

@@ -18,18 +18,42 @@ const modalTagInfoMarkup = (label, description) => {
     ? `<button type="button" class="modal-tag-info" data-tag-label="${escapeAttributeValue(label)}" data-tag-description="${escapeAttributeValue(description)}" aria-expanded="false">${escapeHtml(label)}</button>`
     : `<span>${escapeHtml(label)}</span>`;
 };
+const modalTagPriority = {
+  structure: 10,
+  "part-system": 20,
+  "x-line": 30,
+  type: 40,
+  "x-blade-role": 50,
+  battle: 60,
+  spin: 70
+};
+const orderedModalTagMarkup = entries => entries
+  .filter(entry => entry?.label)
+  .map((entry, index) => ({ entry, index }))
+  .sort((a, b) => (modalTagPriority[a.entry.group] ?? 55) - (modalTagPriority[b.entry.group] ?? 55) || a.index - b.index)
+  .map(({ entry }) => modalTagInfoMarkup(entry.label, entry.description))
+  .join("");
 const partClassificationModalTags = item => partClassificationDescriptors(item)
   .filter(descriptor => descriptor.showInModal)
-  .map(descriptor => modalTagInfoMarkup(descriptor.label, descriptor.description))
-  .join("");
-const battleTypeTag = item => item.battleType
-  ? modalTagInfoMarkup(battleTypeLabel(item.battleType, item), battleTypeDescription(item.battleType, item))
-  : "";
-const spinTag = item => item.spin ? modalTagInfoMarkup(spinLabel(item.spin), spinDescription(item.spin)) : "";
+  .map(descriptor => ({
+    group: descriptor.group,
+    label: descriptor.label,
+    description: descriptor.description
+  }));
+const battleTypeTag = item => item.battleType ? {
+  group: "battle",
+  label: battleTypeLabel(item.battleType, item),
+  description: battleTypeDescription(item.battleType, item)
+} : null;
+const spinTag = item => item.spin ? {
+  group: "spin",
+  label: spinLabel(item.spin),
+  description: spinDescription(item.spin)
+} : null;
 const beySystemTag = item => {
   const label = structureLabels[item.structure];
   const description = structureTagDescriptions[item.structure];
-  return label && description ? modalTagInfoMarkup(label, description) : "";
+  return label && description ? { group: "structure", label, description } : null;
 };
 const modalTagGroup = (tags, className = "") => tags ? `<div class="${["modal-tags", className].filter(Boolean).join(" ")}">${tags}</div>` : "";
 const modalInfoSlot = (description = "", tags = "", className = "") => {
@@ -39,10 +63,10 @@ const modalInfoSlot = (description = "", tags = "", className = "") => {
 };
 const modalScrollArea = content => `<div class="modal-scroll-area">${content}</div>`;
 function beyModalTags(item) {
-  return modalTagGroup(`${beySystemTag(item)}${battleTypeTag(item)}${spinTag(item)}`, "bey-modal-tags");
+  return modalTagGroup(orderedModalTagMarkup([beySystemTag(item), battleTypeTag(item), spinTag(item)]), "bey-modal-tags");
 }
 function partModalTags(item) {
-  return modalTagGroup(`${partClassificationModalTags(item)}${battleTypeTag(item)}${spinTag(item)}`);
+  return modalTagGroup(orderedModalTagMarkup([...partClassificationModalTags(item), battleTypeTag(item), spinTag(item)]));
 }
 
 let modalTagPopover = null;
