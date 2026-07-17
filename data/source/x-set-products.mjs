@@ -132,6 +132,7 @@ const xSetProductCompositions = {
     jp: [item("에바 아크B 0-70E", "BEY-X-CX-00-EVA-ARC-B-0-70E"), item("에바 브레이브A 1-70V", "BEY-X-CX-00-EVA-BRAVE-A-1-70V"), item("에바 브러시T 2-70A", "BEY-X-CX-00-EVA-BRUSH-T-2-70A"), item("와인더런처", "TOOLS-X-WINDER-LAUNCHER", "2개"), item("베이블레이드 수납 박스", "TOOLS-X-BEYBLADE-STORAGE-BOX")]
   },
   "PRODUCT-X-CX-16": {
+    kr: [item("바하무트 블리츠BK 1-50I", "BEY-X-CX-16-BAHAMUT-BLITZ-BK-1-50I"), item("와인더런처", "TOOLS-X-WINDER-LAUNCHER"), item("런처그립", "TOOLS-X-LAUNCHER-GRIP"), item("익스트림스타디움", "TOOLS-X-XTREME-STADIUM")],
     jp: [item("바하무트 블리츠BK 1-50I", "BEY-X-CX-16-BAHAMUT-BLITZ-BK-1-50I"), item("와인더런처", "TOOLS-X-WINDER-LAUNCHER"), item("런처그립", "TOOLS-X-LAUNCHER-GRIP"), item("익스트림스타디움", "TOOLS-X-XTREME-STADIUM")]
   }
 };

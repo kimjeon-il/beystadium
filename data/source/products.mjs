@@ -9078,7 +9078,13 @@
     series: "x",
     releases: {
       kr: {
-        status: "unreleased"
+        no: "CX-10",
+        name: "울프 헌트F 0-60DB",
+        sale: "일반 판매",
+        kind: "부스터",
+        releaseDate: "",
+        price: "",
+        composition: [{ name: "울프 헌트F 0-60DB", quantity: "1개", target: "BEY-X-CX-10-WOLF-HUNT-F-0-60DB" }]
       },
       jp: {
         no: "CX-10",
@@ -9095,7 +9101,13 @@
     series: "x",
     releases: {
       kr: {
-        status: "unreleased"
+        no: "CX-11",
+        name: "엠퍼러 마이트 덱 세트",
+        sale: "일반 판매",
+        kind: "세트",
+        releaseDate: "",
+        price: "",
+        composition: [{ name: "엠퍼러 마이트H Op", quantity: "1개", target: "BEY-X-CX-11-EMPEROR-MIGHT-H-OP" }, { name: "샤크 길 5-60FB", quantity: "1개", target: "BEY-X-CX-11-SHARK-GILL-5-60FB" }, { name: "골렘 락 M-85HN", quantity: "1개", target: "BEY-X-CX-11-GOLEM-ROCK-M-85HN" }]
       },
       jp: {
         no: "CX-11",
@@ -9146,7 +9158,13 @@
     series: "x",
     releases: {
       kr: {
-        status: "unreleased"
+        no: "UX-17",
+        name: "메테오 드래군 3-70J",
+        sale: "일반 판매",
+        kind: "스타터",
+        releaseDate: "",
+        price: "",
+        composition: [{ name: "메테오 드래군 3-70J", quantity: "1개", target: "BEY-X-UX-17-METEO-DRAGOON-3-70J" }]
       },
       jp: {
         no: "UX-17",
@@ -9163,7 +9181,13 @@
     series: "x",
     releases: {
       kr: {
-        status: "unreleased"
+        no: "UX-18",
+        name: "랜덤 부스터 Vol.08",
+        sale: "일반 판매",
+        kind: "랜덤부스터",
+        releaseDate: "",
+        price: "",
+        composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-X-UX-18-01-MUMMY-CURSE-7-55W" }]
       },
       jp: {
         no: "UX-18",
@@ -9198,7 +9222,13 @@
     series: "x",
     releases: {
       kr: {
-        status: "unreleased"
+        no: "CX-12",
+        name: "피닉스 플레어Z 9-80WW",
+        sale: "일반 판매",
+        kind: "부스터",
+        releaseDate: "",
+        price: "",
+        composition: [{ name: "피닉스 플레어Z 9-80WW", quantity: "1개", target: "BEY-X-CX-12-PHOENIX-FLARE-Z-9-80WW" }]
       },
       jp: {
         no: "CX-12",
@@ -9283,7 +9313,13 @@
     series: "x",
     releases: {
       kr: {
-        status: "unreleased"
+        no: "CX-13",
+        name: "바하무트 블리츠BK 1-50I",
+        sale: "일반 판매",
+        kind: "스타터",
+        releaseDate: "",
+        price: "",
+        composition: [{ name: "바하무트 블리츠BK 1-50I", quantity: "1개", target: "BEY-X-CX-13-BAHAMUT-BLITZ-BK-1-50I" }]
       },
       jp: {
         no: "CX-13",
@@ -9300,7 +9336,13 @@
     series: "x",
     releases: {
       kr: {
-        status: "unreleased"
+        no: "CX-14",
+        name: "나이트 포트리스GV 8-70UN",
+        sale: "일반 판매",
+        kind: "스타터",
+        releaseDate: "",
+        price: "",
+        composition: [{ name: "나이트 포트리스GV 8-70UN", quantity: "1개", target: "BEY-X-CX-14-KNIGHT-FORTRESS-GV-8-70UN" }]
       },
       jp: {
         no: "CX-14",
@@ -9317,7 +9359,13 @@
     series: "x",
     releases: {
       kr: {
-        status: "unreleased"
+        no: "CX-15",
+        name: "라그나 레이지FE 4-55Y",
+        sale: "일반 판매",
+        kind: "부스터",
+        releaseDate: "",
+        price: "",
+        composition: [{ name: "라그나 레이지FE 4-55Y", quantity: "1개", target: "BEY-X-CX-15-RAGNA-RAGE-FE-4-55Y" }]
       },
       jp: {
         no: "CX-15",
@@ -9334,7 +9382,13 @@
     series: "x",
     releases: {
       kr: {
-        status: "unreleased"
+        no: "CX-16",
+        name: "스타트 대시 세트 C",
+        sale: "일반 판매",
+        kind: "세트",
+        releaseDate: "",
+        price: "",
+        composition: []
       },
       jp: {
         no: "CX-16",
@@ -9368,7 +9422,13 @@
     series: "x",
     releases: {
       kr: {
-        status: "unreleased"
+        no: "BX-00",
+        name: "스톰 스프리건 2-70M",
+        sale: "일반 판매",
+        kind: "스타터",
+        releaseDate: "",
+        price: "",
+        composition: [{ name: "스톰 스프리건 2-70M", quantity: "1개", target: "BEY-X-BX-00-STORM-SPRIGGAN-2-70M" }]
       },
       jp: {
         no: "BX-00",

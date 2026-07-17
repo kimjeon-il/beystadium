@@ -1838,6 +1838,31 @@ test("X set products render Bey, part, tool, and quantity compositions", async (
   expect(errors).toEqual([]);
 });
 
+test("X 국내 공식 설명과 신규 한국 출시 구성이 상세·검색에 반영된다", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "한국 공식 데이터는 데스크톱 대표 화면에서 확인합니다.");
+  const errors = consoleErrors(page);
+
+  await page.goto("/#BEY-X-CX-14-KNIGHT-FORTRESS-GV-8-70UN");
+  await expect(page.locator("#detailModal .modal-description")).toHaveText(
+    "상대의 스매시 공격을 강하게 되돌리고 입체적인 형태의 날로 카운터를 만들어 전방위 방어 성능을 높인다."
+  );
+
+  await page.goto(`/#search?q=${encodeURIComponent("전방위 방어 성능")}&scope=bey`);
+  await expect(page.locator('.search-results-panel .search-result-item[data-id="BEY-X-CX-14-KNIGHT-FORTRESS-GV-8-70UN"]')).toBeVisible();
+
+  await page.goto("about:blank");
+  await page.goto("/#PRODUCT-X-CX-11");
+  await expect(page.locator("#detailModal .modal-name")).toHaveText("엠퍼러 마이트 덱 세트");
+  const compositionLinks = page.locator("#detailModal .product-composition-list .composition-link");
+  await expect(compositionLinks).toHaveCount(3);
+  expect(await compositionLinks.evaluateAll((links) => links.map((link) => link.getAttribute("data-target-id")))).toEqual([
+    "BEY-X-CX-11-EMPEROR-MIGHT-H-OP",
+    "BEY-X-CX-11-SHARK-GILL-5-60FB",
+    "BEY-X-CX-11-GOLEM-ROCK-M-85HN"
+  ]);
+  expect(errors).toEqual([]);
+});
+
 test("Accel parts, UX-10 composition, and search use the canonical Korean spelling", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "spelling data is shared by desktop and mobile layouts");
   const errors = consoleErrors(page);
