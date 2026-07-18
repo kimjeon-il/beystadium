@@ -1,4 +1,4 @@
-const styleVersion = "20260719-dropdown-shadow-mounted-label";
+const styleVersion = "20260719-modal-tags-horizontal-scroll";
 const styleOrder = ["page", "collection", "table", "release", "anime", "catalog", "search", "modal"];
 const styleFiles = Object.fromEntries(styleOrder.map(key => [key, `./styles/${key}.css?v=${styleVersion}`]));
 const stylePromises = new Map();

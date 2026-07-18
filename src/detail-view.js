@@ -98,6 +98,18 @@ function positionModalTagPopover(button) {
   modalTagPopover.style.top = `${Math.max(margin, top)}px`;
 }
 
+function revealModalTag(button) {
+  const scroller = button.closest(".modal-slot-tags");
+  if (!scroller) return;
+  const scrollerRect = scroller.getBoundingClientRect();
+  const buttonRect = button.getBoundingClientRect();
+  if (buttonRect.left < scrollerRect.left) {
+    scroller.scrollLeft += buttonRect.left - scrollerRect.left;
+  } else if (buttonRect.right > scrollerRect.right) {
+    scroller.scrollLeft += buttonRect.right - scrollerRect.right;
+  }
+}
+
 function openModalTagPopover(button, { pinned = false } = {}) {
   const label = button.dataset.tagLabel || button.textContent.trim();
   const description = button.dataset.tagDescription || "";
@@ -133,6 +145,7 @@ function bindModalTagPopovers(scope = document) {
     });
     button.addEventListener("focus", () => {
       focusOpened = true;
+      revealModalTag(button);
       openModalTagPopover(button);
       setTimeout(() => { focusOpened = false; }, 0);
     });
@@ -151,6 +164,20 @@ function bindModalTagPopovers(scope = document) {
       if (appState.activeModalTagButton === button && modalTagPinned) closeModalTagPopover();
       else openModalTagPopover(button, { pinned: true });
     });
+  });
+  scope.querySelectorAll(".modal-slot-tags").forEach(scroller => {
+    let positionFrame = 0;
+    scroller.addEventListener("scroll", () => {
+      const button = appState.activeModalTagButton;
+      if (!modalTagPopover || !button || !scroller.contains(button)) return;
+      cancelAnimationFrame(positionFrame);
+      positionFrame = requestAnimationFrame(() => {
+        positionFrame = 0;
+        if (modalTagPopover && appState.activeModalTagButton === button && scroller.contains(button)) {
+          positionModalTagPopover(button);
+        }
+      });
+    }, { passive: true });
   });
 }
 

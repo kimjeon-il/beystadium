@@ -2270,6 +2270,97 @@ test("modal tag popovers follow the active pointer type", async ({ page }, testI
   await expect(popover).toHaveCount(0);
 });
 
+test("modal tags use one free horizontal scroll row when space is narrow", async ({ page }, testInfo) => {
+  const narrowWidth = testInfo.project.name === "mobile" ? 393 : 360;
+  await page.setViewportSize({ width: narrowWidth, height: 800 });
+  await page.goto("/#PART-X-BLADE-DRAN-SWORD");
+  await expect(page.locator("#detailModal")).toBeVisible();
+
+  const slot = page.locator("#detailModal .modal-slot-tags");
+  const tags = slot.locator(".modal-tags > *");
+  await expect(tags).toHaveCount(4);
+  const narrowLayout = await slot.evaluate(element => {
+    const bounds = node => {
+      const rect = node.getBoundingClientRect();
+      return { left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom };
+    };
+    const style = getComputedStyle(element);
+    const tagRoot = element.querySelector(".modal-tags");
+    return {
+      clientWidth: element.clientWidth,
+      scrollWidth: element.scrollWidth,
+      overflowX: style.overflowX,
+      overflowY: style.overflowY,
+      overscrollX: style.overscrollBehaviorX,
+      scrollbarWidth: style.scrollbarWidth,
+      boxShadow: style.boxShadow,
+      flexWrap: getComputedStyle(tagRoot).flexWrap,
+      slot: bounds(element),
+      tags: [...tagRoot.children].map(bounds)
+    };
+  });
+  expect(narrowLayout.scrollWidth).toBeGreaterThan(narrowLayout.clientWidth);
+  expect(narrowLayout.overflowX).toBe("auto");
+  expect(narrowLayout.overflowY).toBe("hidden");
+  expect(narrowLayout.overscrollX).toBe("contain");
+  expect(narrowLayout.scrollbarWidth).toBe("none");
+  expect(narrowLayout.boxShadow).toBe("none");
+  expect(narrowLayout.flexWrap).toBe("nowrap");
+  expect(new Set(narrowLayout.tags.map(tag => Math.round(tag.top))).size).toBe(1);
+  expect(new Set(narrowLayout.tags.map(tag => Math.round(tag.bottom))).size).toBe(1);
+  expect(narrowLayout.tags.every(tag => tag.top >= narrowLayout.slot.top - 1 && tag.bottom <= narrowLayout.slot.bottom + 1)).toBe(true);
+
+  await slot.evaluate(element => { element.scrollLeft = element.scrollWidth; });
+  await expect.poll(async () => slot.evaluate(element => element.scrollLeft)).toBeGreaterThan(0);
+  const lastTagVisible = await slot.evaluate(element => {
+    const slotRect = element.getBoundingClientRect();
+    const tagRect = element.querySelector(".modal-tags > :last-child").getBoundingClientRect();
+    return tagRect.left >= slotRect.left - 1 && tagRect.right <= slotRect.right + 1;
+  });
+  expect(lastTagVisible).toBe(true);
+
+  await slot.evaluate(element => { element.scrollLeft = 0; });
+  await tags.last().focus();
+  await expect.poll(async () => slot.evaluate(element => element.scrollLeft)).toBeGreaterThan(0);
+  await expect(page.locator(".modal-tag-popover")).toBeVisible();
+  const focusedTagVisible = await slot.evaluate(element => {
+    const slotRect = element.getBoundingClientRect();
+    const tagRect = element.querySelector(".modal-tags > :last-child").getBoundingClientRect();
+    return tagRect.left >= slotRect.left - 1 && tagRect.right <= slotRect.right + 1;
+  });
+  expect(focusedTagVisible).toBe(true);
+
+  await page.reload();
+  await expect(page.locator("#detailModal")).toBeVisible();
+  const reloadedSlot = page.locator("#detailModal .modal-slot-tags");
+  const firstTag = reloadedSlot.locator(".modal-tag-info").first();
+  await firstTag.focus();
+  await expect(page.locator(".modal-tag-popover")).toBeVisible();
+  await reloadedSlot.evaluate(element => { element.scrollLeft = 12; });
+  await expect.poll(async () => page.evaluate(() => {
+    const tag = document.querySelector("#detailModal .modal-tag-info");
+    const popover = document.querySelector(".modal-tag-popover");
+    if (!tag || !popover) return Number.POSITIVE_INFINITY;
+    return Math.abs(parseFloat(popover.style.left) - Math.max(14, tag.getBoundingClientRect().left));
+  })).toBeLessThanOrEqual(1);
+
+  if (testInfo.project.name === "desktop") {
+    await page.setViewportSize({ width: 1200, height: 800 });
+    await page.reload();
+    await expect(page.locator("#detailModal")).toBeVisible();
+    await expect.poll(async () => page.locator("#detailModal .modal-slot-tags").evaluate(element => ({
+      clientWidth: element.clientWidth,
+      scrollWidth: element.scrollWidth,
+      scrollLeft: element.scrollLeft
+    }))).toEqual(expect.objectContaining({ scrollLeft: 0 }));
+    const wideLayout = await page.locator("#detailModal .modal-slot-tags").evaluate(element => ({
+      clientWidth: element.clientWidth,
+      scrollWidth: element.scrollWidth
+    }));
+    expect(wideLayout.scrollWidth).toBeLessThanOrEqual(wideLayout.clientWidth + 1);
+  }
+});
+
 test("modal tags follow the shared category-first order and use terminal punctuation", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "shared tag order only needs one browser");
   const cases = [
