@@ -178,7 +178,9 @@ class ModalController {
     document.body.classList.add("is-modal-open");
     this.modal.showModal();
     this.syncViewportMetrics();
-    scheduleScrollAffordances(this.contentRoot || document);
+    const scrollRoot = this.contentRoot || document;
+    requestAnimationFrame(() => bindScrollAffordances(scrollRoot));
+    scheduleScrollAffordances(scrollRoot);
   }
 
   close() {

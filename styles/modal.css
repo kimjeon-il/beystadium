@@ -886,7 +886,11 @@ dialog[open] .product-modal-name {
 }
 
 .mounted-link > span {
-  white-space: nowrap;
+  min-width: 0;
+  white-space: normal;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  line-height: 1.15;
 }
 
 dialog[open] .modal-art {

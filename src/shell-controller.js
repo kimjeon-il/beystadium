@@ -2,7 +2,7 @@ import { appState } from "#app/state";
 import { BeystadiumDataStore } from "#app/data-store";
 import { navigateToRoute } from "#app/navigation";
 import { defaultReleaseSeries, setSortDropdownLabel } from "#app/release-core";
-import { bindScrollAffordance, bindScrollAffordances, clearScrollAffordance, clearScrollAffordances, scheduleScrollAffordances } from "#app/scroll-affordance";
+import { bindScrollAffordances, clearScrollAffordance, clearScrollAffordances, scheduleScrollAffordances } from "#app/scroll-affordance";
 import {
   activeAppPanel,
   clearSearchInputs,
@@ -121,7 +121,6 @@ const syncCatalogDropdownScrollbarCompensation = dropdown => {
 const scheduleCatalogDropdownScrollbarCompensation = dropdown => {
   if (!dropdown) return;
   requestAnimationFrame(() => {
-    bindScrollAffordance(catalogDropdownMenu(dropdown));
     if (!dropdown.classList.contains("search-scope")) syncCatalogDropdownScrollbarCompensation(dropdown);
   });
 };
@@ -129,7 +128,6 @@ const closeCatalogDropdown = dropdown => {
   if (!dropdown) return;
   dropdown.classList.remove("is-dropdown-entering");
   clearCatalogDropdownScrollbarCompensation(dropdown);
-  clearScrollAffordance(catalogDropdownMenu(dropdown));
   dropdown.removeAttribute("open");
   dropdown.querySelector(":scope > summary")?.setAttribute("aria-expanded", "false");
 };
@@ -276,7 +274,6 @@ document.addEventListener("toggle", event => {
   if (!dropdown.open) {
     dropdown.classList.remove("is-dropdown-entering");
     clearCatalogDropdownScrollbarCompensation(dropdown);
-    clearScrollAffordance(catalogDropdownMenu(dropdown));
     return;
   }
   closeOpenCatalogDropdowns(dropdown);

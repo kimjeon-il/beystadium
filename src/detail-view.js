@@ -166,11 +166,18 @@ const beyDetailPartIds = item => {
     .sort((a, b) => a.order - b.order || a.index - b.index)
     .map(entry => entry.partId);
 };
+const mountedPartTypeLabelMarkup = part => {
+  const label = partMountedTypeLabel(part);
+  const escapedLabel = escapeHtml(label);
+  return part?.xBladeRole && label.endsWith("블레이드")
+    ? escapedLabel.replace(/블레이드$/, "<wbr>블레이드")
+    : escapedLabel;
+};
 const beyPartSection = (title, partIds, region, className = "") => {
   const links = (partIds || []).map(partId => {
     const part = catalogCoreItemsById.get(partId);
     if (!part) return "";
-    return `<a class="ui-list-link mounted-link" href="#${part.id}" data-part-id="${part.id}"><span>${partMountedTypeLabel(part)}</span><strong>${appServices.itemDisplayName(part, region)}</strong><b>→</b></a>`;
+    return `<a class="ui-list-link mounted-link" href="#${part.id}" data-part-id="${part.id}"><span>${mountedPartTypeLabelMarkup(part)}</span><strong>${appServices.itemDisplayName(part, region)}</strong><b>→</b></a>`;
   }).filter(Boolean).join("");
   if (!links) return "";
   const classes = ["modal-section", "mounted-parts", className].filter(Boolean).join(" ");

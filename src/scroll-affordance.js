@@ -1,5 +1,4 @@
 const scrollAffordanceSelector = [
-  ".catalog-dropdown-menu",
   ".catalog-search-help-popover",
   ".modal-scroll-area",
   ".modal-section-scroll",

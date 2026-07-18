@@ -303,7 +303,7 @@ a,
   border: var(--border-subtle);
   border-radius: var(--radius-floating);
   background: var(--ui-surface-raised);
-  box-shadow: var(--shadow-floating), var(--scroll-below-shadow, 0 0 transparent);
+  box-shadow: var(--shadow-floating);
   scrollbar-width: thin;
   scrollbar-color: var(--ui-line) transparent;
   transform-origin: top center;

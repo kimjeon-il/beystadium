@@ -1152,15 +1152,16 @@ test("scroll affordances appear only while internal content remains below", asyn
   await page.goto("/#toy-catalog?scope=bey&series=x");
   await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
   const seriesMenu = page.locator("#catalogSeriesFilter > .catalog-dropdown-menu");
-  await page.locator("#catalogSeriesFilter > summary").click();
-  await expect(seriesMenu).toHaveClass(/has-scroll-content-below/);
+  await page.locator("#catalogSeriesFilter > summary").evaluate(element => element.click());
+  await expect(seriesMenu).not.toHaveClass(/has-scroll-content-below/);
   const activeDropdownState = await seriesMenu.evaluate(element => ({
     clientHeight: element.clientHeight,
     scrollHeight: element.scrollHeight,
     shadow: getComputedStyle(element).boxShadow
   }));
   expect(activeDropdownState.scrollHeight).toBeGreaterThan(activeDropdownState.clientHeight + 2);
-  expect(activeDropdownState.shadow).toContain("inset");
+  expect(activeDropdownState.shadow).not.toBe("none");
+  expect(activeDropdownState.shadow).not.toContain("inset");
 
   await seriesMenu.evaluate(element => { element.scrollTop = element.scrollHeight; });
   await expect(seriesMenu).not.toHaveClass(/has-scroll-content-below/);
@@ -1168,13 +1169,13 @@ test("scroll affordances appear only while internal content remains below", asyn
   expect(bottomShadow).not.toContain("inset");
 
   await seriesMenu.evaluate(element => { element.scrollTop = 0; });
-  await expect(seriesMenu).toHaveClass(/has-scroll-content-below/);
-  await page.locator("#catalogSeriesFilter > summary").click();
+  await expect(seriesMenu).not.toHaveClass(/has-scroll-content-below/);
+  await page.locator("#catalogSeriesFilter > summary").evaluate(element => element.click());
   await expect(seriesMenu).not.toHaveClass(/has-scroll-content-below/);
 
   await page.setViewportSize({ width: 1280, height: 900 });
   const searchScopeMenu = page.locator("#catalogSearchScope > .catalog-dropdown-menu");
-  await page.locator("#catalogSearchScope > summary").click();
+  await page.locator("#catalogSearchScope > summary").evaluate(element => element.click());
   await expect(searchScopeMenu).not.toHaveClass(/has-scroll-content-below/);
   const shortMenuState = await searchScopeMenu.evaluate(element => ({
     clientHeight: element.clientHeight,
@@ -1974,6 +1975,46 @@ test("mounted part names use the restored compact label column", async ({ page }
 
   await links.first().click();
   await expect(page).toHaveURL(/#PART-METAL-FIGHT-FACE-PERSEUS$/);
+  expect(errors).toEqual([]);
+});
+
+test("long X blade role labels wrap without overlapping mounted part names", async ({ page }) => {
+  const errors = consoleErrors(page);
+  const routes = [
+    "BEY-X-CX-01-DRAN-BRAVE-S-6-60V",
+    "BEY-X-CX-13-BAHAMUT-BLITZ-BK-1-50I"
+  ];
+
+  for (const id of routes) {
+    await page.goto(`/#${id}`);
+    await expect(page.locator("#detailModal")).toBeVisible();
+    const links = page.locator("#detailModal .mounted-parts:not(.bundled-parts) .mounted-link");
+    const rows = await links.evaluateAll(elements => elements.map(element => {
+      const label = element.querySelector("span");
+      const name = element.querySelector("strong");
+      const labelRange = document.createRange();
+      const nameRange = document.createRange();
+      labelRange.selectNodeContents(label);
+      nameRange.selectNodeContents(name);
+      const labelRect = labelRange.getBoundingClientRect();
+      const nameRect = nameRange.getBoundingClientRect();
+      return {
+        label: label.textContent,
+        firstColumn: Number.parseFloat(getComputedStyle(element).gridTemplateColumns),
+        labelRight: labelRect.right,
+        nameLeft: nameRect.left,
+        nameLineCount: nameRange.getClientRects().length,
+        breakCount: label.querySelectorAll("wbr").length
+      };
+    }));
+
+    rows.forEach(row => {
+      expect(row.firstColumn).toBe(84);
+      expect(row.labelRight).toBeLessThanOrEqual(row.nameLeft);
+      expect(row.nameLineCount).toBe(1);
+      if (row.label.endsWith("블레이드")) expect(row.breakCount).toBe(1);
+    });
+  }
   expect(errors).toEqual([]);
 });
 

@@ -1,4 +1,4 @@
-const styleVersion = "20260717-dead-code-cleanup";
+const styleVersion = "20260719-dropdown-shadow-mounted-label";
 const styleOrder = ["page", "collection", "table", "release", "anime", "catalog", "search", "modal"];
 const styleFiles = Object.fromEntries(styleOrder.map(key => [key, `./styles/${key}.css?v=${styleVersion}`]));
 const stylePromises = new Map();
