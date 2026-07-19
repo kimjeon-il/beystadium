@@ -13,6 +13,7 @@
     "test:ids": "node --test tests/x-bey-id.test.mjs",
     "test:address-ids": "node --test tests/address-id.test.mjs",
     "test:product-ids": "node --test tests/product-id.test.mjs",
+    "test:anime-episodes": "node --test tests/anime-episodes.test.mjs",
     "test:burst-random-boosters": "node --test tests/burst-random-boosters.test.mjs",
     "test:burst-random-layers": "node --test tests/burst-random-layers.test.mjs",
     "test:burst-remake-sets": "node --test tests/burst-remake-sets.test.mjs",
@@ -24,7 +25,7 @@
     "test:x-kr-bey-details": "node --test tests/x-kr-bey-details.test.mjs",
     "test:data": "node scripts/validate-data.mjs",
     "test:smoke": "playwright test",
-    "check": "pnpm lint:js && pnpm audit:app && pnpm data:check && pnpm test:data && pnpm test:search && pnpm test:ids && pnpm test:address-ids && pnpm test:product-ids && pnpm test:burst-random-boosters && pnpm test:burst-random-layers && pnpm test:burst-remake-sets && pnpm test:x-tool-products && pnpm test:x-part-products && pnpm test:x-set-products && pnpm test:x-random-boosters && pnpm test:x-jp-part-details && pnpm test:x-kr-bey-details && pnpm test:smoke"
+    "check": "pnpm lint:js && pnpm audit:app && pnpm data:check && pnpm test:data && pnpm test:search && pnpm test:ids && pnpm test:address-ids && pnpm test:product-ids && pnpm test:anime-episodes && pnpm test:burst-random-boosters && pnpm test:burst-random-layers && pnpm test:burst-remake-sets && pnpm test:x-tool-products && pnpm test:x-part-products && pnpm test:x-set-products && pnpm test:x-random-boosters && pnpm test:x-jp-part-details && pnpm test:x-kr-bey-details && pnpm test:smoke"
   },
   "devDependencies": {
     "@eslint/js": "^9.31.0",

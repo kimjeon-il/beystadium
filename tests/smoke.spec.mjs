@@ -2145,6 +2145,37 @@ test("long part descriptions use an accessible chevron expander", async ({ page 
   expect(errors).toEqual([]);
 });
 
+test("초제트 방영목록은 51개 회차와 검색·상세 주소를 제공한다", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "초제트 방영목록은 데스크톱 대표 화면에서 확인합니다.");
+  const errors = consoleErrors(page);
+
+  await page.goto("/#anime-episode");
+  await page.locator(".anime-episode-controls .table-list-dropdown summary").click();
+  await page.locator('[data-anime-season="burst-cho-z"]').click();
+
+  const rows = page.locator(".anime-episode-row");
+  await expect(rows).toHaveCount(51);
+  await expect(rows.first().locator("td").nth(0)).toHaveText("1화");
+  await expect(rows.first().locator(".anime-episode-title")).toHaveText("이게 바로 초제트 베이야!");
+  await expect(rows.first().locator(".anime-air-date-full")).toHaveText("2018년 6월 18일");
+  await expect(rows.last().locator("td").nth(0)).toHaveText("51화");
+  await expect(rows.last().locator(".anime-episode-title")).toHaveText("유대감! 서아진 대 강산!!");
+  await expect(rows.last().locator(".anime-air-date-full")).toHaveText("2019년 6월 3일");
+
+  await page.locator("#animeEpisodeSearchInput").fill("전율! 데드그랑의 함정!!");
+  await expect(page.locator(".anime-episode-row")).toHaveCount(1);
+  await expect(page.locator(".anime-episode-title")).toHaveText("전율! 데드그랑의 함정!!");
+
+  await page.locator("#animeEpisodeSearchInput").fill("");
+  await page.locator(".anime-episode-row").first().click();
+  await expect(page).toHaveURL(/#BURST-CHO-Z-EPISODE-1$/);
+  await expect(page.locator("#detailModal .product-modal-name")).toHaveText("1화 이게 바로 초제트 베이야!");
+  await page.locator("#detailModal .modal-back[data-back-anime-episodes]").click();
+  await expect(page.locator('[data-anime-season="burst-cho-z"].active')).toHaveCount(1);
+  await expect(page.locator(".anime-episode-row")).toHaveCount(51);
+  expect(errors).toEqual([]);
+});
+
 test("episode modal matches the rare bey get shell and preserves contextual back navigation", async ({ page }) => {
   const errors = consoleErrors(page);
   const shellGeometry = async () => {

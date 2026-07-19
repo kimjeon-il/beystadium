@@ -7,7 +7,7 @@ import { productItems } from "../data/source/products.mjs";
 import { rareBeyGetItems } from "../data/source/rare-bey-get.mjs";
 import { bookItems, gameItems, toolsItems } from "../data/source/secondary.mjs";
 
-const VERSION = "20260717-x-kr-release-dates-prices";
+const VERSION = "20260719-burst-cho-z-episodes";
 const SERIES_SLUGS = {
   "metal fight": "metal-fight",
   burst: "burst",
@@ -25,6 +25,7 @@ const ANIME_EPISODE_PREFIXES = {
   "metal-fight-zerog": "METAL-FIGHT-ZEROG-EPISODE",
   burst: "BURST-EPISODE",
   "burst-god": "BURST-GOD-EPISODE",
+  "burst-cho-z": "BURST-CHO-Z-EPISODE",
   "beyblade-x": "BEYBLADE-X-EPISODE",
   "beyblade-x-2": "BEYBLADE-X-2-EPISODE"
 };

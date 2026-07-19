@@ -186,7 +186,7 @@ const BeystadiumDataStore = (() => {
   const initialize = async () => {
     clearError();
     try {
-      indexData = await fetchJson("./data/runtime/index.json?v=20260717-x-kr-release-dates-prices");
+      indexData = await fetchJson("./data/runtime/index.json?v=20260719-burst-cho-z-episodes");
       if (detailHashOnBoot()) await ensureRegistry();
       document.querySelector("[data-load-retry]")?.addEventListener("click", () => window.location.reload());
       return true;
