@@ -2310,6 +2310,43 @@ test("modal tags use one free horizontal scroll row when space is narrow", async
   expect(new Set(narrowLayout.tags.map(tag => Math.round(tag.bottom))).size).toBe(1);
   expect(narrowLayout.tags.every(tag => tag.top >= narrowLayout.slot.top - 1 && tag.bottom <= narrowLayout.slot.bottom + 1)).toBe(true);
 
+  const wheelBehavior = await slot.evaluate(element => {
+    const dispatchWheel = deltaY => {
+      const event = new window.WheelEvent("wheel", { bubbles: true, cancelable: true, deltaY });
+      const dispatched = element.dispatchEvent(event);
+      return { defaultPrevented: event.defaultPrevented, dispatched };
+    };
+    element.scrollLeft = 0;
+    const forward = dispatchWheel(120);
+    const afterForward = element.scrollLeft;
+    element.scrollLeft = element.scrollWidth;
+    const atEnd = element.scrollLeft;
+    const outward = dispatchWheel(120);
+    return { forward, afterForward, atEnd, afterOutward: element.scrollLeft, outward };
+  });
+  expect(wheelBehavior.forward).toEqual({ defaultPrevented: true, dispatched: false });
+  expect(wheelBehavior.afterForward).toBeGreaterThan(0);
+  expect(wheelBehavior.outward).toEqual({ defaultPrevented: false, dispatched: true });
+  expect(wheelBehavior.afterOutward).toBe(wheelBehavior.atEnd);
+
+  if (testInfo.project.name === "desktop") {
+    await slot.evaluate(element => { element.scrollLeft = 0; });
+    await slot.hover();
+    await page.mouse.wheel(0, 120);
+    await expect.poll(async () => slot.evaluate(element => element.scrollLeft)).toBeGreaterThan(0);
+
+    const modalScrollArea = page.locator("#detailModal .modal-scroll-area");
+    await page.setViewportSize({ width: narrowWidth, height: 500 });
+    await expect.poll(async () => modalScrollArea.evaluate(element => element.scrollHeight - element.clientHeight)).toBeGreaterThan(0);
+    await modalScrollArea.evaluate(element => { element.scrollTop = 0; });
+    await slot.evaluate(element => { element.scrollLeft = element.scrollWidth; });
+    await slot.hover();
+    await page.mouse.wheel(0, 120);
+    await expect.poll(async () => modalScrollArea.evaluate(element => element.scrollTop)).toBeGreaterThan(0);
+    await page.setViewportSize({ width: narrowWidth, height: 800 });
+    await modalScrollArea.evaluate(element => { element.scrollTop = 0; });
+  }
+
   await slot.evaluate(element => { element.scrollLeft = element.scrollWidth; });
   await expect.poll(async () => slot.evaluate(element => element.scrollLeft)).toBeGreaterThan(0);
   const lastTagVisible = await slot.evaluate(element => {
@@ -2334,7 +2371,7 @@ test("modal tags use one free horizontal scroll row when space is narrow", async
   await expect(page.locator("#detailModal")).toBeVisible();
   const reloadedSlot = page.locator("#detailModal .modal-slot-tags");
   const firstTag = reloadedSlot.locator(".modal-tag-info").first();
-  await firstTag.focus();
+  await firstTag.click();
   await expect(page.locator(".modal-tag-popover")).toBeVisible();
   await reloadedSlot.evaluate(element => { element.scrollLeft = 12; });
   await expect.poll(async () => page.evaluate(() => {
@@ -2345,9 +2382,50 @@ test("modal tags use one free horizontal scroll row when space is narrow", async
   })).toBeLessThanOrEqual(1);
 
   if (testInfo.project.name === "desktop") {
+    const popoverLayout = () => page.evaluate(() => {
+      const tag = document.querySelector("#detailModal .modal-tag-info");
+      const popover = document.querySelector(".modal-tag-popover");
+      if (!tag || !popover) return null;
+      const margin = 14;
+      const gap = 8;
+      const viewport = window.visualViewport;
+      const viewportLeft = viewport?.offsetLeft || 0;
+      const viewportTop = viewport?.offsetTop || 0;
+      const viewportWidth = viewport?.width || window.innerWidth;
+      const viewportHeight = viewport?.height || window.innerHeight;
+      const tagRect = tag.getBoundingClientRect();
+      const popoverRect = popover.getBoundingClientRect();
+      const minLeft = viewportLeft + margin;
+      const minTop = viewportTop + margin;
+      const maxLeft = viewportLeft + viewportWidth - margin - popoverRect.width;
+      const maxTop = viewportTop + viewportHeight - margin - popoverRect.height;
+      let expectedLeft = Math.min(tagRect.left, maxLeft);
+      let expectedTop = tagRect.bottom + gap;
+      if (expectedTop > maxTop) expectedTop = tagRect.top - popoverRect.height - gap;
+      expectedLeft = Math.max(minLeft, Math.min(expectedLeft, maxLeft));
+      expectedTop = Math.max(minTop, Math.min(expectedTop, maxTop));
+      return {
+        expanded: tag.getAttribute("aria-expanded"),
+        describedBy: tag.getAttribute("aria-describedby") || "",
+        leftError: Math.abs(parseFloat(popover.style.left) - expectedLeft),
+        topError: Math.abs(parseFloat(popover.style.top) - expectedTop),
+        withinViewport: popoverRect.left >= minLeft - 1
+          && popoverRect.right <= viewportLeft + viewportWidth - margin + 1
+          && popoverRect.top >= minTop - 1
+          && popoverRect.bottom <= viewportTop + viewportHeight - margin + 1
+      };
+    });
+
     await page.setViewportSize({ width: 1200, height: 800 });
-    await page.reload();
     await expect(page.locator("#detailModal")).toBeVisible();
+    await expect.poll(async () => (await popoverLayout())?.leftError ?? Number.POSITIVE_INFINITY).toBeLessThanOrEqual(1);
+    await expect.poll(async () => (await popoverLayout())?.topError ?? Number.POSITIVE_INFINITY).toBeLessThanOrEqual(1);
+    const resizedPopover = await popoverLayout();
+    expect(resizedPopover).toEqual(expect.objectContaining({
+      expanded: "true",
+      withinViewport: true
+    }));
+    expect(resizedPopover.describedBy).toMatch(/^modal-tag-popover-/);
     await expect.poll(async () => page.locator("#detailModal .modal-slot-tags").evaluate(element => ({
       clientWidth: element.clientWidth,
       scrollWidth: element.scrollWidth,
@@ -2358,6 +2436,20 @@ test("modal tags use one free horizontal scroll row when space is narrow", async
       scrollWidth: element.scrollWidth
     }));
     expect(wideLayout.scrollWidth).toBeLessThanOrEqual(wideLayout.clientWidth + 1);
+    const wideWheelBehavior = await page.locator("#detailModal .modal-slot-tags").evaluate(element => {
+      const event = new window.WheelEvent("wheel", { bubbles: true, cancelable: true, deltaY: 120 });
+      const dispatched = element.dispatchEvent(event);
+      return { defaultPrevented: event.defaultPrevented, dispatched, scrollLeft: element.scrollLeft };
+    });
+    expect(wideWheelBehavior).toEqual({ defaultPrevented: false, dispatched: true, scrollLeft: 0 });
+
+    await page.setViewportSize({ width: narrowWidth, height: 720 });
+    await expect.poll(async () => (await popoverLayout())?.leftError ?? Number.POSITIVE_INFINITY).toBeLessThanOrEqual(1);
+    await expect.poll(async () => (await popoverLayout())?.topError ?? Number.POSITIVE_INFINITY).toBeLessThanOrEqual(1);
+    expect(await popoverLayout()).toEqual(expect.objectContaining({
+      expanded: "true",
+      withinViewport: true
+    }));
   }
 });
 

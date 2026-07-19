@@ -1,7 +1,7 @@
 import { appState } from "#app/state";
 import { partItems } from "#app/data-store";
 import { zeroGBottomStartIndex } from "#app/catalog-model";
-import { cleanupModelViewer, closeModalTagPopover } from "#app/detail-view";
+import { cleanupModelViewer, closeModalTagPopover, positionModalTagPopover } from "#app/detail-view";
 import { clearActiveDetailModalContext, clearModalContext, currentPageScrollY, rememberModalContext, restorePageScroll, validScrollY } from "#app/modal-context";
 import { clearModalOriginRoute, navigateToRoute } from "#app/navigation";
 import { escapeAttributeValue } from "#app/release-core";
@@ -159,6 +159,7 @@ class ModalController {
       this.syncViewportMetrics();
       this.scheduleDescriptionMeasure(this.contentRoot || document);
       scheduleScrollAffordances(this.contentRoot || document);
+      if (appState.activeModalTagButton?.isConnected) positionModalTagPopover(appState.activeModalTagButton);
     });
   }
 

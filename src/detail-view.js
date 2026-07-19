@@ -88,14 +88,23 @@ function positionModalTagPopover(button) {
   if (!modalTagPopover) return;
   const margin = 14;
   const gap = 8;
+  const viewport = window.visualViewport;
+  const viewportLeft = viewport?.offsetLeft || 0;
+  const viewportTop = viewport?.offsetTop || 0;
+  const viewportWidth = viewport?.width || window.innerWidth;
+  const viewportHeight = viewport?.height || window.innerHeight;
+  const minLeft = viewportLeft + margin;
+  const minTop = viewportTop + margin;
   const buttonRect = button.getBoundingClientRect();
   const popoverRect = modalTagPopover.getBoundingClientRect();
   let left = buttonRect.left;
   let top = buttonRect.bottom + gap;
-  if (left + popoverRect.width > window.innerWidth - margin) left = window.innerWidth - margin - popoverRect.width;
-  if (top + popoverRect.height > window.innerHeight - margin) top = buttonRect.top - popoverRect.height - gap;
-  modalTagPopover.style.left = `${Math.max(margin, left)}px`;
-  modalTagPopover.style.top = `${Math.max(margin, top)}px`;
+  const maxLeft = viewportLeft + viewportWidth - margin - popoverRect.width;
+  const maxTop = viewportTop + viewportHeight - margin - popoverRect.height;
+  if (left > maxLeft) left = maxLeft;
+  if (top > maxTop) top = buttonRect.top - popoverRect.height - gap;
+  modalTagPopover.style.left = `${Math.max(minLeft, Math.min(left, maxLeft))}px`;
+  modalTagPopover.style.top = `${Math.max(minTop, Math.min(top, maxTop))}px`;
 }
 
 function revealModalTag(button) {
@@ -108,6 +117,23 @@ function revealModalTag(button) {
   } else if (buttonRect.right > scrollerRect.right) {
     scroller.scrollLeft += buttonRect.right - scrollerRect.right;
   }
+}
+
+function scrollModalTagsWithWheel(scroller, event) {
+  if (event.ctrlKey) return;
+  const maxScrollLeft = Math.max(0, scroller.scrollWidth - scroller.clientWidth);
+  if (maxScrollLeft < 1) return;
+  const rawDelta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
+  const delta = event.deltaMode === 1
+    ? rawDelta * 16
+    : event.deltaMode === 2
+      ? rawDelta * scroller.clientWidth
+      : rawDelta;
+  if (!delta) return;
+  const nextScrollLeft = Math.min(maxScrollLeft, Math.max(0, scroller.scrollLeft + delta));
+  if (Math.abs(nextScrollLeft - scroller.scrollLeft) < 0.5) return;
+  event.preventDefault();
+  scroller.scrollLeft = nextScrollLeft;
 }
 
 function openModalTagPopover(button, { pinned = false } = {}) {
@@ -141,7 +167,7 @@ function bindModalTagPopovers(scope = document) {
       if (isHoverPointer(event)) openModalTagPopover(button);
     });
     button.addEventListener("pointerleave", event => {
-      if (isHoverPointer(event) && !modalTagPinned) closeModalTagPopover();
+      if (isHoverPointer(event) && !modalTagPinned && document.activeElement !== button) closeModalTagPopover();
     });
     button.addEventListener("focus", () => {
       focusOpened = true;
@@ -167,6 +193,7 @@ function bindModalTagPopovers(scope = document) {
   });
   scope.querySelectorAll(".modal-slot-tags").forEach(scroller => {
     let positionFrame = 0;
+    scroller.addEventListener("wheel", event => scrollModalTagsWithWheel(scroller, event), { passive: false });
     scroller.addEventListener("scroll", () => {
       const button = appState.activeModalTagButton;
       if (!modalTagPopover || !button || !scroller.contains(button)) return;
