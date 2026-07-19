@@ -507,7 +507,7 @@ const animeInfo = {
     { no: "8화", season: "burst-gachi", titles: { kr: "뜨거운 열기! 베이 카니발!", jp: "" }, airDates: { kr: "2019-08-12", jp: "" }, note: "" },
     { no: "9화", season: "burst-gachi", titles: { kr: "올인! 저지먼트 조커!", jp: "" }, airDates: { kr: "2019-08-19", jp: "" }, note: "" },
     { no: "10화", season: "burst-gachi", titles: { kr: "4강! 진검 승부!", jp: "" }, airDates: { kr: "2019-08-26", jp: "" }, note: "" },
-    { no: "11화", season: "burst-gachi", titles: { kr: "정면승부 대 트릭", jp: "" }, airDates: { kr: "2019-09-02", jp: "" }, note: "" },
+    { no: "11화", season: "burst-gachi", titles: { kr: "정면승부 대 트릭!", jp: "" }, airDates: { kr: "2019-09-02", jp: "" }, note: "" },
     { no: "12화", season: "burst-gachi", titles: { kr: "중량급, 츠바이 롱기누스!", jp: "" }, airDates: { kr: "2019-09-09", jp: "" }, note: "" },
     { no: "13화", season: "burst-gachi", titles: { kr: "쏠 수 있어, 진검 슛!", jp: "" }, airDates: { kr: "2019-09-16", jp: "" }, note: "" },
     { no: "14화", season: "burst-gachi", titles: { kr: "진검 슛 작렬! 골드 터보!", jp: "" }, airDates: { kr: "2019-09-23", jp: "" }, note: "" },

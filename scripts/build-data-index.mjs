@@ -7,7 +7,7 @@ import { productItems } from "../data/source/products.mjs";
 import { rareBeyGetItems } from "../data/source/rare-bey-get.mjs";
 import { bookItems, gameItems, toolsItems } from "../data/source/secondary.mjs";
 
-const VERSION = "20260719-burst-gachi-episodes";
+const VERSION = "20260719-burst-gachi-episode-11-title";
 const SERIES_SLUGS = {
   "metal fight": "metal-fight",
   burst: "burst",
