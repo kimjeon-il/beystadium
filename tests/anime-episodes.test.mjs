@@ -62,7 +62,62 @@ const expectedChoZEpisodes = [
   ["유대감! 서아진 대 강산!!", "2019-06-03"]
 ];
 
-const expectedRows = expectedChoZEpisodes.map(([title, airDate], index) => [
+const expectedGachiEpisodes = [
+  ["진검 베이! 에이스 드래곤!", "2019-06-24"],
+  ["멋진데! 무신 아수라!", "2019-07-01"],
+  ["저게 말이 돼? 위저드 파브닐!", "2019-07-08"],
+  ["불꽃의 그랜드 드래곤!", "2019-07-15"],
+  ["드래곤 대 파브닐!", "2019-07-22"],
+  ["초고속! 그랜드 비트!", "2019-07-29"],
+  ["강산한테 도전!", "2019-08-05"],
+  ["뜨거운 열기! 베이 카니발!", "2019-08-12"],
+  ["올인! 저지먼트 조커!", "2019-08-19"],
+  ["4강! 진검 승부!", "2019-08-26"],
+  ["정면승부 대 트릭", "2019-09-02"],
+  ["중량급, 츠바이 롱기누스!", "2019-09-09"],
+  ["쏠 수 있어, 진검 슛!", "2019-09-16"],
+  ["진검 슛 작렬! 골드 터보!", "2019-09-23"],
+  ["데미안 대 델타!", "2019-09-30"],
+  ["악마의 베이, 디아볼로스!", "2019-10-07"],
+  ["비약, 헤븐 페가수스!", "2019-10-14"],
+  ["위험한 아트! 드레드 바하무트!", "2019-10-21"],
+  ["섬광! 샤이닝 크로스!", "2019-10-28"],
+  ["진검 소년 대 신의 아들!", "2019-11-04"],
+  ["천공의 대결!", "2019-11-11"],
+  ["나와라, 6! 배틀 저니!", "2019-11-18"],
+  ["돌아! 달려! 정상을 향해서!", "2019-11-25"],
+  ["격돌 GT3!", "2019-12-02"],
+  ["챔피언한테 도전!", "2019-12-09"],
+  ["진검 승부! 데미안 대 서아진!", "2019-12-16"],
+  ["빛나라! 나의 골드 터보!", "2019-12-23"],
+  ["초제트! 서아진 대 델타!", "2019-12-30"],
+  ["기습! 헬의 왕, 아더!", "2020-01-06"],
+  ["파괴의 베이, 아포칼립스!", "2020-01-13"],
+  ["탄생! 임페리얼 드래곤!", "2020-01-20"],
+  ["헬 타워의 대결!", "2020-01-27"],
+  ["제네시스 발동!", "2020-02-03"],
+  ["디아볼로스의 역습!", "2020-02-10"],
+  ["드래곤 대 아포칼립스!", "2020-02-17"],
+  ["무한 록 시스템! 깰 수 있을까?", "2020-02-24"],
+  ["드래곤 대 제네시스!", "2020-03-02"],
+  ["찬란한 빛! 슈페리얼 터보!", "2020-03-09"],
+  ["디아볼로스의 부활!", "2020-03-16"],
+  ["빛나라! 마스터 스매시!", "2020-03-23"],
+  ["신세계! 빅뱅 제네시스!", "2020-03-30"],
+  ["스피드 더블 스타디움!", "2020-04-06"],
+  ["빛나라! 아수라!", "2020-04-13"],
+  ["진검승부! wbba. VS 헬!!", "2020-04-20"],
+  ["드래곤, 최고의 각성!", "2020-04-27"],
+  ["검은 회오리 드레드 자이로!", "2020-05-04"],
+  ["불꽃 튀는 더블 배틀!", "2020-05-11"],
+  ["최강의 방정식!", "2020-05-18"],
+  ["환상의 더블 배틀", "2020-05-25"],
+  ["이게 빅토리즈야!", "2020-06-01"],
+  ["진한 우정! 마스터 드래곤!", "2020-06-08"],
+  ["진검승부! 데미안 대 로니!", "2020-06-15"]
+];
+
+const expectedRows = episodes => episodes.map(([title, airDate], index) => [
   String(index + 1) + "화",
   title,
   "",
@@ -78,16 +133,19 @@ const episodeTuple = episode => [
   episode.airDates.jp,
   episode.note
 ];
-const expectedIds = expectedChoZEpisodes.map((_, index) => "BURST-CHO-Z-EPISODE-" + (index + 1));
+const expectedChoZRows = expectedRows(expectedChoZEpisodes);
+const expectedGachiRows = expectedRows(expectedGachiEpisodes);
+const expectedChoZIds = expectedChoZEpisodes.map((_, index) => "BURST-CHO-Z-EPISODE-" + (index + 1));
+const expectedGachiIds = expectedGachiEpisodes.map((_, index) => "BURST-GACHI-EPISODE-" + (index + 1));
 
 test("초제트 방영목록 51건은 제공된 회차·제목·날짜 순서를 유지한다", () => {
   const episodes = animeInfo.episodes.filter(episode => episode.season === "burst-cho-z");
   assert.equal(episodes.length, 51);
-  assert.deepEqual(episodes.map(episodeTuple), expectedRows);
+  assert.deepEqual(episodes.map(episodeTuple), expectedChoZRows);
 
   const firstIndex = animeInfo.episodes.findIndex(episode => episode.season === "burst-cho-z");
   assert.equal(animeInfo.episodes[firstIndex - 1].season, "burst-god");
-  assert.equal(animeInfo.episodes[firstIndex + episodes.length].season, "beyblade-x");
+  assert.equal(animeInfo.episodes[firstIndex + episodes.length].season, "burst-gachi");
 });
 
 test("초제트 에피소드 주소·검색·레지스트리가 1화부터 51화까지 생성된다", () => {
@@ -95,12 +153,40 @@ test("초제트 에피소드 주소·검색·레지스트리가 1화부터 51화
   const searchEntries = runtimeSearch.search.filter(entry => entry[4] === "burst-cho-z");
   const registryEntries = runtimeRegistry.items.filter(([id]) => id.startsWith("BURST-CHO-Z-EPISODE-"));
 
-  assert.equal(runtimeAnime.episodes.length, 574);
-  assert.equal(runtimeSearch.search.length, 574);
-  assert.equal(runtimeRegistry.items.length, 3391);
-  assert.deepEqual(runtimeEpisodes.map(episodeTuple), expectedRows);
-  assert.deepEqual(searchEntries.map(entry => entry[1]), expectedIds);
-  assert.deepEqual(searchEntries.map(entry => [entry[3], entry[5], entry[6], entry[7], entry[8], entry[9]]), expectedRows);
-  assert.deepEqual(registryEntries.map(([id]) => id), expectedIds);
+  assert.deepEqual(runtimeEpisodes.map(episodeTuple), expectedChoZRows);
+  assert.deepEqual(searchEntries.map(entry => entry[1]), expectedChoZIds);
+  assert.deepEqual(searchEntries.map(entry => [entry[3], entry[5], entry[6], entry[7], entry[8], entry[9]]), expectedChoZRows);
+  assert.deepEqual(registryEntries.map(([id]) => id), expectedChoZIds);
+  assert.ok(runtimeRegistry.items.some(([id]) => id === "BEYBLADE-X-EPISODE-1"));
+});
+
+test("진검 방영목록 52건은 교정된 공백과 제공된 날짜 순서를 유지한다", () => {
+  const episodes = animeInfo.episodes.filter(episode => episode.season === "burst-gachi");
+  assert.equal(episodes.length, 52);
+  assert.deepEqual(episodes.map(episodeTuple), expectedGachiRows);
+
+  const firstIndex = animeInfo.episodes.findIndex(episode => episode.season === "burst-gachi");
+  assert.equal(animeInfo.episodes[firstIndex - 1].season, "burst-cho-z");
+  assert.equal(animeInfo.episodes[firstIndex + episodes.length].season, "beyblade-x");
+  assert.deepEqual(episodes.slice(11, 13).map(episode => episode.titles.kr), [
+    "중량급, 츠바이 롱기누스!",
+    "쏠 수 있어, 진검 슛!"
+  ]);
+  assert.equal(episodes[16].titles.kr, "비약, 헤븐 페가수스!");
+  assert.equal(episodes[31].airDates.kr, "2020-01-27");
+});
+
+test("진검 에피소드 주소·검색·레지스트리가 1화부터 52화까지 생성된다", () => {
+  const runtimeEpisodes = runtimeAnime.episodes.filter(episode => episode.season === "burst-gachi");
+  const searchEntries = runtimeSearch.search.filter(entry => entry[4] === "burst-gachi");
+  const registryEntries = runtimeRegistry.items.filter(([id]) => id.startsWith("BURST-GACHI-EPISODE-"));
+
+  assert.equal(runtimeAnime.episodes.length, 626);
+  assert.equal(runtimeSearch.search.length, 626);
+  assert.equal(runtimeRegistry.items.length, 3443);
+  assert.deepEqual(runtimeEpisodes.map(episodeTuple), expectedGachiRows);
+  assert.deepEqual(searchEntries.map(entry => entry[1]), expectedGachiIds);
+  assert.deepEqual(searchEntries.map(entry => [entry[3], entry[5], entry[6], entry[7], entry[8], entry[9]]), expectedGachiRows);
+  assert.deepEqual(registryEntries.map(([id]) => id), expectedGachiIds);
   assert.ok(runtimeRegistry.items.some(([id]) => id === "BEYBLADE-X-EPISODE-1"));
 });
