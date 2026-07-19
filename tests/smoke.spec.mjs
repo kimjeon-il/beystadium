@@ -2211,7 +2211,7 @@ test("진검 방영목록은 52개 회차와 교정된 검색·상세 주소를 
   expect(errors).toEqual([]);
 });
 
-test("슈퍼킹 방영목록은 52개 회차와 빈 제목 회차·상세 주소를 제공한다", async ({ page }, testInfo) => {
+test("슈퍼킹 방영목록은 52개 한국판 제목과 검색·상세 주소를 제공한다", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "슈퍼킹 방영목록은 데스크톱 대표 화면에서 확인합니다.");
   const errors = consoleErrors(page);
 
@@ -2230,20 +2230,20 @@ test("슈퍼킹 방영목록은 52개 회차와 빈 제목 회차·상세 주소
   await expect(rows.first().locator(".anime-air-date-full")).toHaveText("2020년 7월 1일");
   await expect(rows.nth(15).locator(".anime-air-date-full")).toHaveText("2020년 10월 21일");
   await expect(rows.nth(45).locator("td").nth(0)).toHaveText("46화");
-  await expect(rows.nth(45).locator(".anime-episode-title")).toHaveText("");
+  await expect(rows.nth(45).locator(".anime-episode-title")).toHaveText("몰아치는 레이징 템페스트!");
   await expect(rows.nth(45).locator(".anime-air-date-full")).toHaveText("2021년 5월 19일");
   await expect(rows.last().locator("td").nth(0)).toHaveText("52화");
   await expect(rows.last().locator(".anime-episode-title")).toHaveText("한계돌파! 우리들의 플레어!");
   await expect(rows.last().locator(".anime-air-date-full")).toHaveText("2021년 6월 30일");
 
-  await page.locator("#animeEpisodeSearchInput").fill("하이페리온! 헬리오스! 한계 돌파!");
+  await page.locator("#animeEpisodeSearchInput").fill("하이페리온! 헬리오스! 한계돌파!");
   await expect(page.locator(".anime-episode-row")).toHaveCount(1);
-  await expect(page.locator(".anime-episode-title")).toHaveText("하이페리온! 헬리오스! 한계 돌파!");
+  await expect(page.locator(".anime-episode-title")).toHaveText("하이페리온! 헬리오스! 한계돌파!");
 
   await page.locator("#animeEpisodeSearchInput").fill("");
   await rows.nth(45).click();
   await expect(page).toHaveURL(/#BURST-SUPERKING-EPISODE-46$/);
-  await expect(page.locator("#detailModal .product-modal-name")).toHaveText("46화");
+  await expect(page.locator("#detailModal .product-modal-name")).toHaveText("46화 몰아치는 레이징 템페스트!");
   await page.locator("#detailModal .modal-back[data-back-anime-episodes]").click();
   await expect(page.locator('[data-anime-season="burst-superking"].active')).toHaveCount(1);
   await expect(page.locator(".anime-episode-row")).toHaveCount(52);
