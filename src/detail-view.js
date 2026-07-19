@@ -123,17 +123,20 @@ function scrollModalTagsWithWheel(scroller, event) {
   if (event.ctrlKey) return;
   const maxScrollLeft = Math.max(0, scroller.scrollWidth - scroller.clientWidth);
   if (maxScrollLeft < 1) return;
-  const rawDelta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
+  const horizontalInput = Math.abs(event.deltaX) > Math.abs(event.deltaY);
+  const rawDelta = horizontalInput ? event.deltaX : event.deltaY;
   const delta = event.deltaMode === 1
     ? rawDelta * 16
     : event.deltaMode === 2
       ? rawDelta * scroller.clientWidth
       : rawDelta;
   if (!delta) return;
+  const smooth = !horizontalInput && !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const nextScrollLeft = Math.min(maxScrollLeft, Math.max(0, scroller.scrollLeft + delta));
   if (Math.abs(nextScrollLeft - scroller.scrollLeft) < 0.5) return;
   event.preventDefault();
-  scroller.scrollLeft = nextScrollLeft;
+  if (smooth) scroller.scrollTo({ left: nextScrollLeft, behavior: "smooth" });
+  else scroller.scrollLeft = nextScrollLeft;
 }
 
 function openModalTagPopover(button, { pinned = false } = {}) {

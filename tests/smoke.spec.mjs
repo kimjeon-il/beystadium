@@ -2310,24 +2310,97 @@ test("modal tags use one free horizontal scroll row when space is narrow", async
   expect(new Set(narrowLayout.tags.map(tag => Math.round(tag.bottom))).size).toBe(1);
   expect(narrowLayout.tags.every(tag => tag.top >= narrowLayout.slot.top - 1 && tag.bottom <= narrowLayout.slot.bottom + 1)).toBe(true);
 
-  const wheelBehavior = await slot.evaluate(element => {
-    const dispatchWheel = deltaY => {
-      const event = new window.WheelEvent("wheel", { bubbles: true, cancelable: true, deltaY });
-      const dispatched = element.dispatchEvent(event);
-      return { defaultPrevented: event.defaultPrevented, dispatched };
-    };
+  const smoothWheelBehavior = await slot.evaluate(element => new Promise(resolve => {
+    const positions = [];
+    const onScroll = () => positions.push(element.scrollLeft);
     element.scrollLeft = 0;
-    const forward = dispatchWheel(120);
-    const afterForward = element.scrollLeft;
+    element.addEventListener("scroll", onScroll);
+    const event = new window.WheelEvent("wheel", { bubbles: true, cancelable: true, deltaY: 120 });
+    const dispatched = element.dispatchEvent(event);
+    const immediate = element.scrollLeft;
+    setTimeout(() => {
+      element.removeEventListener("scroll", onScroll);
+      resolve({
+        defaultPrevented: event.defaultPrevented,
+        dispatched,
+        immediate,
+        maxScrollLeft: element.scrollWidth - element.clientWidth,
+        positions,
+        settled: element.scrollLeft
+      });
+    }, 300);
+  }));
+  expect(smoothWheelBehavior.defaultPrevented).toBe(true);
+  expect(smoothWheelBehavior.dispatched).toBe(false);
+  expect(smoothWheelBehavior.immediate).toBeLessThan(smoothWheelBehavior.maxScrollLeft);
+  expect(smoothWheelBehavior.positions.some(position => position > 0 && position < smoothWheelBehavior.maxScrollLeft)).toBe(true);
+  expect(smoothWheelBehavior.settled).toBe(smoothWheelBehavior.maxScrollLeft);
+
+  const repeatedWheelTarget = await slot.evaluate(element => new Promise(resolve => {
+    element.scrollLeft = 0;
+    const targets = [];
+    const originalScrollTo = element.scrollTo.bind(element);
+    element.scrollTo = options => {
+      targets.push(options.left);
+      originalScrollTo(options);
+    };
+    const dispatchWheel = () => element.dispatchEvent(new window.WheelEvent("wheel", {
+      bubbles: true,
+      cancelable: true,
+      deltaY: 30
+    }));
+    setTimeout(() => {
+      dispatchWheel();
+      setTimeout(() => {
+        dispatchWheel();
+        setTimeout(() => {
+          element.scrollTo = originalScrollTo;
+          resolve({ scrollLeft: element.scrollLeft, targets });
+        }, 300);
+      }, 32);
+    }, 50);
+  }));
+  expect(repeatedWheelTarget.targets).toHaveLength(2);
+  expect(repeatedWheelTarget.targets[1]).toBeGreaterThan(repeatedWheelTarget.targets[0]);
+  expect(repeatedWheelTarget.scrollLeft).toBe(repeatedWheelTarget.targets[1]);
+
+  const horizontalWheelBehavior = await slot.evaluate(element => {
+    element.scrollLeft = 0;
+    const event = new window.WheelEvent("wheel", { bubbles: true, cancelable: true, deltaX: 30 });
+    const dispatched = element.dispatchEvent(event);
+    return { defaultPrevented: event.defaultPrevented, dispatched, scrollLeft: element.scrollLeft };
+  });
+  expect(horizontalWheelBehavior).toEqual({ defaultPrevented: true, dispatched: false, scrollLeft: 30 });
+
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  const reducedMotionWheelBehavior = await slot.evaluate(element => {
+    element.scrollLeft = 0;
+    const event = new window.WheelEvent("wheel", { bubbles: true, cancelable: true, deltaY: 120 });
+    const dispatched = element.dispatchEvent(event);
+    return {
+      defaultPrevented: event.defaultPrevented,
+      dispatched,
+      maxScrollLeft: element.scrollWidth - element.clientWidth,
+      scrollLeft: element.scrollLeft
+    };
+  });
+  expect(reducedMotionWheelBehavior).toEqual(expect.objectContaining({
+    defaultPrevented: true,
+    dispatched: false,
+    scrollLeft: reducedMotionWheelBehavior.maxScrollLeft
+  }));
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+
+  const edgeWheelBehavior = await slot.evaluate(element => {
     element.scrollLeft = element.scrollWidth;
     const atEnd = element.scrollLeft;
-    const outward = dispatchWheel(120);
-    return { forward, afterForward, atEnd, afterOutward: element.scrollLeft, outward };
+    const event = new window.WheelEvent("wheel", { bubbles: true, cancelable: true, deltaY: 120 });
+    const dispatched = element.dispatchEvent(event);
+    return { defaultPrevented: event.defaultPrevented, dispatched, atEnd, afterOutward: element.scrollLeft };
   });
-  expect(wheelBehavior.forward).toEqual({ defaultPrevented: true, dispatched: false });
-  expect(wheelBehavior.afterForward).toBeGreaterThan(0);
-  expect(wheelBehavior.outward).toEqual({ defaultPrevented: false, dispatched: true });
-  expect(wheelBehavior.afterOutward).toBe(wheelBehavior.atEnd);
+  expect(edgeWheelBehavior.defaultPrevented).toBe(false);
+  expect(edgeWheelBehavior.dispatched).toBe(true);
+  expect(edgeWheelBehavior.afterOutward).toBe(edgeWheelBehavior.atEnd);
 
   if (testInfo.project.name === "desktop") {
     await slot.evaluate(element => { element.scrollLeft = 0; });
@@ -2373,7 +2446,11 @@ test("modal tags use one free horizontal scroll row when space is narrow", async
   const firstTag = reloadedSlot.locator(".modal-tag-info").first();
   await firstTag.click();
   await expect(page.locator(".modal-tag-popover")).toBeVisible();
-  await reloadedSlot.evaluate(element => { element.scrollLeft = 12; });
+  await reloadedSlot.evaluate(element => {
+    element.scrollLeft = 0;
+    element.dispatchEvent(new window.WheelEvent("wheel", { bubbles: true, cancelable: true, deltaY: 30 }));
+  });
+  await expect.poll(async () => reloadedSlot.evaluate(element => element.scrollLeft)).toBe(30);
   await expect.poll(async () => page.evaluate(() => {
     const tag = document.querySelector("#detailModal .modal-tag-info");
     const popover = document.querySelector(".modal-tag-popover");
