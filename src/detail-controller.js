@@ -1,7 +1,7 @@
 import { isAnimeEpisodeHash } from "#app/anime-core";
 import { appState } from "#app/state";
 import { bookItems, bookItemsById, catalogCoreItems, catalogCoreItemsById, gameItems, gameItemsById, productItems, productItemsById, toolsItems, toolsItemsById } from "#app/data-store";
-import { codedPartNameTypes, compareToolsItemsByFirstRelease, findCatalogItemById, modalArtMarkup, partCategory, partKoName, productCompositionItems, productLineupIds, productSerialNumber, visibleCatalogCoreItems, visibleToolsItems } from "#app/catalog-model";
+import { compareToolsItemsByFirstRelease, findCatalogItemById, isCodedPartName, modalArtMarkup, partCategory, partKoName, productCompositionItems, productLineupIds, productSerialNumber, visibleCatalogCoreItems, visibleToolsItems } from "#app/catalog-model";
 import { beyDetailSections, beyModalTags, bindModalTagPopovers, cleanupModelViewer, closeModalTagPopover, initModelViewer, modalInfoSlot, modalScrollArea, modalTagGroup, partModalTags } from "#app/detail-view";
 import { openAnimeEpisodeDetail, openCategoryReleaseDetail } from "#app/feature-loaders";
 import { bindModalDescriptionExpanders, cancelModalViewportSync, clearModalLockStyles, closeModalSession, finishModalOpen, modal, modalBackButtonMarkup, modalController, partStats, queueModalStepDirection, queueModalTransition, routeIfNeeded, scheduleModalDescriptionMeasure, setModalContent } from "#app/modal-controller";
@@ -107,7 +107,7 @@ function modalTitle(text, extraClass = "") {
   return `<h3 class="${className}">${text}</h3>`;
 }
 function detailHeading(item, options = {}) {
-  if (codedPartNameTypes.includes(item.type)) {
+  if (isCodedPartName(item)) {
     const numericTrack = item.type === "track" && /^\d+$/.test(item.name);
     const koName = partKoName(item);
     const displayName = itemDisplayName(item, options.region);

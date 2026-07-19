@@ -59,14 +59,18 @@ const catalogCardTitle = (label, title, className = "") => {
     </h3>`;
 };
 const codedPartNameTypes = ["track", "bottom", "4dbottom", "disk", "coredisk", "frame", "dbdisk", "dbarmor", "driver", "bit", "superkingchassis"];
+const codedXBladeRoles = new Set(["assistBlade", "overBlade"]);
+const isCodedPartName = item => codedPartNameTypes.includes(item?.type) || (
+  item?.series === "x" && codedXBladeRoles.has(item?.xBladeRole)
+);
 const partKoName = item => {
-  if (!codedPartNameTypes.includes(item.type)) return "";
+  if (!isCodedPartName(item)) return "";
   const detail = item.sub || "";
   return detail.includes("높이") ? "" : detail;
 };
 const wheelTypes = ["wheel", "clearwheel", "4dclearwheel", "lightwheel", "metalwheel", "4dmetalwheel", "chromewheel", "crystalwheel"];
 const cardInfo = item => {
-  if (codedPartNameTypes.includes(item.type)) {
+  if (isCodedPartName(item)) {
     const fullEn = item.type === "track" && /^\d+$/.test(item.name) ? "&nbsp;" : item.en;
     return `${catalogCardTitle(catalogCardTypeLabel(item), item.name, "code-name")}<p class="card-full-en">${fullEn}</p><p class="card-full-ko">${partKoName(item) || "&nbsp;"}</p>`;
   }
@@ -388,9 +392,9 @@ export {
   catalogRenderKey,
   catalogSortOptions,
   catalogVisibleItemsCache,
-  codedPartNameTypes,
   compareToolsItemsByFirstRelease,
   findCatalogItemById,
+  isCodedPartName,
   modalArtMarkup,
   partCategory,
   partKoName,

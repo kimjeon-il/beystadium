@@ -1919,6 +1919,45 @@ test("Accel parts, UX-10 composition, and search use the canonical Korean spelli
   expect(errors).toEqual([]);
 });
 
+test("X over and assist blade codes use their Korean full names in details", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "coded part names are shared by desktop and mobile layouts");
+  const errors = consoleErrors(page);
+
+  await page.goto(`/#toy-catalog?scope=parts&series=x&q=${encodeURIComponent("슬래시")}`);
+  const slashCard = page.locator('#catalogGrid .catalog-card[data-id="PART-X-BLADE-ASSIST-BLADE-SLASH"]');
+  await expect(slashCard).toBeVisible();
+  await expect(slashCard.locator(".card-name")).toHaveClass(/code-name/);
+  await expect(slashCard.locator(".catalog-card-title")).toHaveText("S");
+  await expect(slashCard.locator(".card-full-en")).toHaveText("Slash");
+  await expect(slashCard.locator(".card-full-ko")).toHaveText("슬래시");
+
+  const codedCases = [
+    ["PART-X-BLADE-ASSIST-BLADE-SLASH", "슬래시"],
+    ["PART-X-BLADE-OVER-BLADE-BRAKE", "브레이크"],
+    ["PART-X-BLADE-ASSIST-BLADE-ODD", "오드"],
+    ["PART-X-BIT-A", "액셀"],
+    ["PART-METAL-FIGHT-TRACK-CLAW-145", "클로145"]
+  ];
+  for (const [id, name] of codedCases) {
+    await page.goto("about:blank");
+    await page.goto(`/#${id}`);
+    await expect(page.locator("#detailModal .modal-name")).toHaveText(name);
+  }
+
+  const properNameCases = [
+    ["PART-X-BLADE-LOCK-CHIP-DRAN", "드랜"],
+    ["PART-X-BLADE-MAIN-BLADE-BRAVE", "브레이브"],
+    ["PART-X-BLADE-MAIN-BLADE-BLITZ", "블리츠"]
+  ];
+  for (const [id, name] of properNameCases) {
+    await page.goto("about:blank");
+    await page.goto(`/#${id}`);
+    await expect(page.locator("#detailModal .modal-name")).toHaveText(name);
+  }
+
+  expect(errors).toEqual([]);
+});
+
 test("X gold part products link to their base parts", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "part product data is shared by desktop and mobile layouts");
   const errors = consoleErrors(page);

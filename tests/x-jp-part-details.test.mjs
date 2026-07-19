@@ -136,3 +136,17 @@ test("생성된 X 검색 레코드에 새 한국어 설명을 포함한다", () 
 
   assert.equal(decoded.item.desc, "사다리꼴 형태의 6개 날로 상대의 공격을 흘려보내면서 카운터를 가한다.");
 });
+
+test("오버·어시스트블레이드 23종은 약칭과 한글 풀네임을 함께 기록한다", () => {
+  const roleCounts = { overBlade: 5, assistBlade: 18 };
+
+  for (const [role, count] of Object.entries(roleCounts)) {
+    const parts = partItems.filter(part => part.series === "x" && part.xBladeRole === role);
+    assert.equal(parts.length, count, `${role} 부품 수가 일치해야 합니다.`);
+    for (const part of parts) {
+      assert.match(part.name, /^[A-Za-z]+$/, `${part.id}는 알파벳 약칭을 사용해야 합니다.`);
+      assert.match(part.en, /^[A-Za-z]+$/, `${part.id}는 영문 풀네임을 가져야 합니다.`);
+      assert.match(part.sub, /[가-힣]/, `${part.id}는 한글 풀네임을 가져야 합니다.`);
+    }
+  }
+});
