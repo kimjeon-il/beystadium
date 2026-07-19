@@ -2501,28 +2501,37 @@ test("modal tags use one free horizontal scroll row when space is narrow", async
   expect(new Set(narrowLayout.tags.map(tag => Math.round(tag.bottom))).size).toBe(1);
   expect(narrowLayout.tags.every(tag => tag.top >= narrowLayout.slot.top - 1 && tag.bottom <= narrowLayout.slot.bottom + 1)).toBe(true);
 
-  const smoothWheelBehavior = await slot.evaluate(element => {
+  const smoothWheelBehavior = await slot.evaluate(element => new Promise(resolve => {
+    const positions = [];
+    const onScroll = () => positions.push(element.scrollLeft);
     element.scrollLeft = 0;
+    element.addEventListener("scroll", onScroll);
     const event = new window.WheelEvent("wheel", { bubbles: true, cancelable: true, deltaY: 120 });
     const dispatched = element.dispatchEvent(event);
     const immediate = element.scrollLeft;
-    return {
-      defaultPrevented: event.defaultPrevented,
-      dispatched,
-      immediate,
-      maxScrollLeft: element.scrollWidth - element.clientWidth
+    const maxScrollLeft = element.scrollWidth - element.clientWidth;
+    const waitForEndpoint = deadline => {
+      if (Math.abs(maxScrollLeft - element.scrollLeft) <= 1 || performance.now() >= deadline) {
+        element.removeEventListener("scroll", onScroll);
+        resolve({
+          defaultPrevented: event.defaultPrevented,
+          dispatched,
+          immediate,
+          maxScrollLeft,
+          positions,
+          settled: element.scrollLeft
+        });
+        return;
+      }
+      requestAnimationFrame(() => waitForEndpoint(deadline));
     };
-  });
+    requestAnimationFrame(() => waitForEndpoint(performance.now() + 1_000));
+  }));
   expect(smoothWheelBehavior.defaultPrevented).toBe(true);
   expect(smoothWheelBehavior.dispatched).toBe(false);
   expect(smoothWheelBehavior.immediate).toBeLessThan(smoothWheelBehavior.maxScrollLeft);
-  const smoothScrollPositions = [];
-  await expect.poll(async () => {
-    const position = await slot.evaluate(element => element.scrollLeft);
-    smoothScrollPositions.push(position);
-    return Math.abs(smoothWheelBehavior.maxScrollLeft - position);
-  }, { timeout: 1_000 }).toBeLessThanOrEqual(1);
-  expect(smoothScrollPositions.some(position => position > 0 && position < smoothWheelBehavior.maxScrollLeft)).toBe(true);
+  expect(Math.abs(smoothWheelBehavior.maxScrollLeft - smoothWheelBehavior.settled)).toBeLessThanOrEqual(1);
+  expect(smoothWheelBehavior.positions.some(position => position > 0 && position < smoothWheelBehavior.maxScrollLeft)).toBe(true);
 
   const repeatedWheelTarget = await slot.evaluate(element => new Promise(resolve => {
     element.scrollLeft = 0;
@@ -2537,20 +2546,24 @@ test("modal tags use one free horizontal scroll row when space is narrow", async
       cancelable: true,
       deltaY: 30
     }));
-    setTimeout(() => {
-      dispatchWheel();
-      setTimeout(() => {
+    const waitForFirstScrollFrame = deadline => {
+      if (element.scrollLeft > 0 || performance.now() >= deadline) {
         dispatchWheel();
-        setTimeout(() => {
-          element.scrollTo = originalScrollTo;
-          resolve({ scrollLeft: element.scrollLeft, targets });
-        }, 300);
-      }, 32);
-    }, 50);
+        element.scrollTo = originalScrollTo;
+        resolve({ targets });
+        return;
+      }
+      requestAnimationFrame(() => waitForFirstScrollFrame(deadline));
+    };
+    dispatchWheel();
+    requestAnimationFrame(() => waitForFirstScrollFrame(performance.now() + 1_000));
   }));
   expect(repeatedWheelTarget.targets).toHaveLength(2);
   expect(repeatedWheelTarget.targets[1]).toBeGreaterThan(repeatedWheelTarget.targets[0]);
-  expect(repeatedWheelTarget.scrollLeft).toBe(repeatedWheelTarget.targets[1]);
+  await expect.poll(async () => {
+    const position = await slot.evaluate(element => element.scrollLeft);
+    return Math.abs(repeatedWheelTarget.targets[1] - position);
+  }, { timeout: 1_000 }).toBeLessThanOrEqual(1);
 
   const horizontalWheelBehavior = await slot.evaluate(element => {
     element.scrollLeft = 0;
