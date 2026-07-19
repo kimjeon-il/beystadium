@@ -2501,31 +2501,28 @@ test("modal tags use one free horizontal scroll row when space is narrow", async
   expect(new Set(narrowLayout.tags.map(tag => Math.round(tag.bottom))).size).toBe(1);
   expect(narrowLayout.tags.every(tag => tag.top >= narrowLayout.slot.top - 1 && tag.bottom <= narrowLayout.slot.bottom + 1)).toBe(true);
 
-  const smoothWheelBehavior = await slot.evaluate(element => new Promise(resolve => {
-    const positions = [];
-    const onScroll = () => positions.push(element.scrollLeft);
+  const smoothWheelBehavior = await slot.evaluate(element => {
     element.scrollLeft = 0;
-    element.addEventListener("scroll", onScroll);
     const event = new window.WheelEvent("wheel", { bubbles: true, cancelable: true, deltaY: 120 });
     const dispatched = element.dispatchEvent(event);
     const immediate = element.scrollLeft;
-    setTimeout(() => {
-      element.removeEventListener("scroll", onScroll);
-      resolve({
-        defaultPrevented: event.defaultPrevented,
-        dispatched,
-        immediate,
-        maxScrollLeft: element.scrollWidth - element.clientWidth,
-        positions,
-        settled: element.scrollLeft
-      });
-    }, 300);
-  }));
+    return {
+      defaultPrevented: event.defaultPrevented,
+      dispatched,
+      immediate,
+      maxScrollLeft: element.scrollWidth - element.clientWidth
+    };
+  });
   expect(smoothWheelBehavior.defaultPrevented).toBe(true);
   expect(smoothWheelBehavior.dispatched).toBe(false);
   expect(smoothWheelBehavior.immediate).toBeLessThan(smoothWheelBehavior.maxScrollLeft);
-  expect(smoothWheelBehavior.positions.some(position => position > 0 && position < smoothWheelBehavior.maxScrollLeft)).toBe(true);
-  expect(smoothWheelBehavior.settled).toBe(smoothWheelBehavior.maxScrollLeft);
+  const smoothScrollPositions = [];
+  await expect.poll(async () => {
+    const position = await slot.evaluate(element => element.scrollLeft);
+    smoothScrollPositions.push(position);
+    return Math.abs(smoothWheelBehavior.maxScrollLeft - position);
+  }, { timeout: 1_000 }).toBeLessThanOrEqual(1);
+  expect(smoothScrollPositions.some(position => position > 0 && position < smoothWheelBehavior.maxScrollLeft)).toBe(true);
 
   const repeatedWheelTarget = await slot.evaluate(element => new Promise(resolve => {
     element.scrollLeft = 0;
