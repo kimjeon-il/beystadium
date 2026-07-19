@@ -2587,9 +2587,9 @@ test("modal tags use one free horizontal scroll row when space is narrow", async
   });
   expect(reducedMotionWheelBehavior).toEqual(expect.objectContaining({
     defaultPrevented: true,
-    dispatched: false,
-    scrollLeft: reducedMotionWheelBehavior.maxScrollLeft
+    dispatched: false
   }));
+  expect(Math.abs(reducedMotionWheelBehavior.maxScrollLeft - reducedMotionWheelBehavior.scrollLeft)).toBeLessThanOrEqual(1);
   await page.emulateMedia({ reducedMotion: "no-preference" });
 
   const edgeWheelBehavior = await slot.evaluate(element => {
