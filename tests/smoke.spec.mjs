@@ -2211,6 +2211,49 @@ test("진검 방영목록은 52개 회차와 교정된 검색·상세 주소를 
   expect(errors).toEqual([]);
 });
 
+test("슈퍼킹 방영목록은 52개 회차와 빈 제목 회차·상세 주소를 제공한다", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "슈퍼킹 방영목록은 데스크톱 대표 화면에서 확인합니다.");
+  const errors = consoleErrors(page);
+
+  await page.goto("/#anime-episode");
+  const seasonDropdownSummary = page.locator(".anime-episode-controls .table-list-dropdown summary");
+  await expect(seasonDropdownSummary).toBeVisible();
+  await seasonDropdownSummary.evaluate(summary => {
+    summary.closest("details").open = true;
+  });
+  await page.locator('[data-anime-season="burst-superking"]').click();
+
+  const rows = page.locator(".anime-episode-row");
+  await expect(rows).toHaveCount(52);
+  await expect(rows.first().locator("td").nth(0)).toHaveText("1화");
+  await expect(rows.first().locator(".anime-episode-title")).toHaveText("베이블레이드 혁명!");
+  await expect(rows.first().locator(".anime-air-date-full")).toHaveText("2020년 7월 1일");
+  await expect(rows.nth(15).locator(".anime-air-date-full")).toHaveText("2020년 10월 21일");
+  await expect(rows.nth(45).locator("td").nth(0)).toHaveText("46화");
+  await expect(rows.nth(45).locator(".anime-episode-title")).toHaveText("");
+  await expect(rows.nth(45).locator(".anime-air-date-full")).toHaveText("2021년 5월 19일");
+  await expect(rows.last().locator("td").nth(0)).toHaveText("52화");
+  await expect(rows.last().locator(".anime-episode-title")).toHaveText("한계돌파! 우리들의 플레어!");
+  await expect(rows.last().locator(".anime-air-date-full")).toHaveText("2021년 6월 30일");
+
+  await page.locator("#animeEpisodeSearchInput").fill("하이페리온! 헬리오스! 한계 돌파!");
+  await expect(page.locator(".anime-episode-row")).toHaveCount(1);
+  await expect(page.locator(".anime-episode-title")).toHaveText("하이페리온! 헬리오스! 한계 돌파!");
+
+  await page.locator("#animeEpisodeSearchInput").fill("");
+  await rows.nth(45).click();
+  await expect(page).toHaveURL(/#BURST-SUPERKING-EPISODE-46$/);
+  await expect(page.locator("#detailModal .product-modal-name")).toHaveText("46화");
+  await page.locator("#detailModal .modal-back[data-back-anime-episodes]").click();
+  await expect(page.locator('[data-anime-season="burst-superking"].active')).toHaveCount(1);
+  await expect(page.locator(".anime-episode-row")).toHaveCount(52);
+
+  await page.locator(".anime-episode-row").first().click();
+  await expect(page).toHaveURL(/#BURST-SUPERKING-EPISODE-1$/);
+  await expect(page.locator("#detailModal .product-modal-name")).toHaveText("1화 베이블레이드 혁명!");
+  expect(errors).toEqual([]);
+});
+
 test("episode modal matches the rare bey get shell and preserves contextual back navigation", async ({ page }) => {
   const errors = consoleErrors(page);
   const shellGeometry = async () => {

@@ -7,7 +7,7 @@ import { productItems } from "../data/source/products.mjs";
 import { rareBeyGetItems } from "../data/source/rare-bey-get.mjs";
 import { bookItems, gameItems, toolsItems } from "../data/source/secondary.mjs";
 
-const VERSION = "20260719-burst-gachi-episode-11-title";
+const VERSION = "20260719-burst-superking-episodes";
 const SERIES_SLUGS = {
   "metal fight": "metal-fight",
   burst: "burst",
@@ -27,6 +27,7 @@ const ANIME_EPISODE_PREFIXES = {
   "burst-god": "BURST-GOD-EPISODE",
   "burst-cho-z": "BURST-CHO-Z-EPISODE",
   "burst-gachi": "BURST-GACHI-EPISODE",
+  "burst-superking": "BURST-SUPERKING-EPISODE",
   "beyblade-x": "BEYBLADE-X-EPISODE",
   "beyblade-x-2": "BEYBLADE-X-2-EPISODE"
 };

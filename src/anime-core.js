@@ -61,6 +61,7 @@ const animeEpisodeHashPrefixes = {
   "burst-god": "BURST-GOD-EPISODE",
   "burst-cho-z": "BURST-CHO-Z-EPISODE",
   "burst-gachi": "BURST-GACHI-EPISODE",
+  "burst-superking": "BURST-SUPERKING-EPISODE",
   "beyblade-x": "BEYBLADE-X-EPISODE",
   "beyblade-x-2": "BEYBLADE-X-2-EPISODE"
 };
