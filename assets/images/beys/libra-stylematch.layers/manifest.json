@@ -1,0 +1,427 @@
+{
+  "schema_version": 1,
+  "master": "libra-stylematch-master.psd",
+  "exchange_format": "full_canvas_rgba_png",
+  "canvas": {
+    "width": 1452,
+    "height": 1440
+  },
+  "source": {
+    "file": "dkcjn91-632bfe50-9e4e-4e8d-a06f-a5b1494d71e7.png",
+    "sha256": "1A3F1BDEEC7B561723B1F866190577255BA6AD516D0A398AE86178CA8B4A3977",
+    "alpha_policy": "exact"
+  },
+  "style_reference": {
+    "file": "flame-libra.png",
+    "sha256": "EBA4D320770DC7389DAC4FB1934D7AE65C03F4E2C44756D6E9E2F180F3A61446"
+  },
+  "psd": {
+    "mode": "RGB_with_user_layer_masks",
+    "layer_names": "ASCII",
+    "flattened_preview_layer": false,
+    "physical_part_groups": true
+  },
+  "generation_policy": {
+    "generated_geometry_alpha_text_background_used": false,
+    "generated_material_usage": "low_frequency_luminance_only_inside_final_masks",
+    "generated_linework_usage": "support_test_only"
+  },
+  "layers": [
+    {
+      "order_bottom_to_top": 0,
+      "file": "00_00_PRESERVED_SOURCE__00_ORIGINAL_PIXELS.png",
+      "layer": "00_PRESERVED_SOURCE__00_ORIGINAL_PIXELS",
+      "canvas": [
+        1452,
+        1440
+      ],
+      "mode": "RGBA",
+      "blend_mode": "normal",
+      "alpha_is_mask": true
+    },
+    {
+      "order_bottom_to_top": 1,
+      "file": "01_10_FLAME_METAL_WHEEL__10_SHADOW_REFLECTION.png",
+      "layer": "10_FLAME_METAL_WHEEL__10_SHADOW_REFLECTION",
+      "canvas": [
+        1452,
+        1440
+      ],
+      "mode": "RGBA",
+      "blend_mode": "normal",
+      "alpha_is_mask": true
+    },
+    {
+      "order_bottom_to_top": 2,
+      "file": "02_10_FLAME_METAL_WHEEL__20_BASE_MIDTONE.png",
+      "layer": "10_FLAME_METAL_WHEEL__20_BASE_MIDTONE",
+      "canvas": [
+        1452,
+        1440
+      ],
+      "mode": "RGBA",
+      "blend_mode": "normal",
+      "alpha_is_mask": true
+    },
+    {
+      "order_bottom_to_top": 3,
+      "file": "03_10_FLAME_METAL_WHEEL__30_MID_LIGHT.png",
+      "layer": "10_FLAME_METAL_WHEEL__30_MID_LIGHT",
+      "canvas": [
+        1452,
+        1440
+      ],
+      "mode": "RGBA",
+      "blend_mode": "normal",
+      "alpha_is_mask": true
+    },
+    {
+      "order_bottom_to_top": 4,
+      "file": "04_10_FLAME_METAL_WHEEL__40_BROAD_HIGHLIGHT.png",
+      "layer": "10_FLAME_METAL_WHEEL__40_BROAD_HIGHLIGHT",
+      "canvas": [
+        1452,
+        1440
+      ],
+      "mode": "RGBA",
+      "blend_mode": "normal",
+      "alpha_is_mask": true
+    },
+    {
+      "order_bottom_to_top": 5,
+      "file": "05_10_FLAME_METAL_WHEEL__50_NARROW_REFLECTION.png",
+      "layer": "10_FLAME_METAL_WHEEL__50_NARROW_REFLECTION",
+      "canvas": [
+        1452,
+        1440
+      ],
+      "mode": "RGBA",
+      "blend_mode": "normal",
+      "alpha_is_mask": true
+    },
+    {
+      "order_bottom_to_top": 6,
+      "file": "06_10_FLAME_METAL_WHEEL__70_MAJOR_BOUNDARY_4PX.png",
+      "layer": "10_FLAME_METAL_WHEEL__70_MAJOR_BOUNDARY_4PX",
+      "canvas": [
+        1452,
+        1440
+      ],
+      "mode": "RGBA",
+      "blend_mode": "normal",
+      "alpha_is_mask": true
+    },
+    {
+      "order_bottom_to_top": 7,
+      "file": "07_10_FLAME_METAL_WHEEL__71_STRUCTURE_LINE_3PX.png",
+      "layer": "10_FLAME_METAL_WHEEL__71_STRUCTURE_LINE_3PX",
+      "canvas": [
+        1452,
+        1440
+      ],
+      "mode": "RGBA",
+      "blend_mode": "normal",
+      "alpha_is_mask": true
+    },
+    {
+      "order_bottom_to_top": 8,
+      "file": "08_10_FLAME_METAL_WHEEL__72_FINE_LINE_2PX.png",
+      "layer": "10_FLAME_METAL_WHEEL__72_FINE_LINE_2PX",
+      "canvas": [
+        1452,
+        1440
+      ],
+      "mode": "RGBA",
+      "blend_mode": "normal",
+      "alpha_is_mask": true
+    },
+    {
+      "order_bottom_to_top": 9,
+      "file": "09_15_YELLOW_INTERNAL_PARTS__10_BEVEL_SHADOW.png",
+      "layer": "15_YELLOW_INTERNAL_PARTS__10_BEVEL_SHADOW",
+      "canvas": [
+        1452,
+        1440
+      ],
+      "mode": "RGBA",
+      "blend_mode": "normal",
+      "alpha_is_mask": true
+    },
+    {
+      "order_bottom_to_top": 10,
+      "file": "10_15_YELLOW_INTERNAL_PARTS__20_BASE_COLOR.png",
+      "layer": "15_YELLOW_INTERNAL_PARTS__20_BASE_COLOR",
+      "canvas": [
+        1452,
+        1440
+      ],
+      "mode": "RGBA",
+      "blend_mode": "normal",
+      "alpha_is_mask": true
+    },
+    {
+      "order_bottom_to_top": 11,
+      "file": "11_15_YELLOW_INTERNAL_PARTS__30_BEVEL_MID_LIGHT.png",
+      "layer": "15_YELLOW_INTERNAL_PARTS__30_BEVEL_MID_LIGHT",
+      "canvas": [
+        1452,
+        1440
+      ],
+      "mode": "RGBA",
+      "blend_mode": "normal",
+      "alpha_is_mask": true
+    },
+    {
+      "order_bottom_to_top": 12,
+      "file": "12_15_YELLOW_INTERNAL_PARTS__40_BEVEL_HIGHLIGHT.png",
+      "layer": "15_YELLOW_INTERNAL_PARTS__40_BEVEL_HIGHLIGHT",
+      "canvas": [
+        1452,
+        1440
+      ],
+      "mode": "RGBA",
+      "blend_mode": "normal",
+      "alpha_is_mask": true
+    },
+    {
+      "order_bottom_to_top": 13,
+      "file": "13_15_YELLOW_INTERNAL_PARTS__70_MAJOR_BOUNDARY_4PX.png",
+      "layer": "15_YELLOW_INTERNAL_PARTS__70_MAJOR_BOUNDARY_4PX",
+      "canvas": [
+        1452,
+        1440
+      ],
+      "mode": "RGBA",
+      "blend_mode": "normal",
+      "alpha_is_mask": true
+    },
+    {
+      "order_bottom_to_top": 14,
+      "file": "14_15_YELLOW_INTERNAL_PARTS__71_STRUCTURE_LINE_3PX.png",
+      "layer": "15_YELLOW_INTERNAL_PARTS__71_STRUCTURE_LINE_3PX",
+      "canvas": [
+        1452,
+        1440
+      ],
+      "mode": "RGBA",
+      "blend_mode": "normal",
+      "alpha_is_mask": true
+    },
+    {
+      "order_bottom_to_top": 15,
+      "file": "15_15_YELLOW_INTERNAL_PARTS__72_FINE_LINE_2PX.png",
+      "layer": "15_YELLOW_INTERNAL_PARTS__72_FINE_LINE_2PX",
+      "canvas": [
+        1452,
+        1440
+      ],
+      "mode": "RGBA",
+      "blend_mode": "normal",
+      "alpha_is_mask": true
+    },
+    {
+      "order_bottom_to_top": 16,
+      "file": "16_20_LIBRA_CLEAR_WHEEL__10_DEEP_COLOR_CONCENTRATION.png",
+      "layer": "20_LIBRA_CLEAR_WHEEL__10_DEEP_COLOR_CONCENTRATION",
+      "canvas": [
+        1452,
+        1440
+      ],
+      "mode": "RGBA",
+      "blend_mode": "normal",
+      "alpha_is_mask": true
+    },
+    {
+      "order_bottom_to_top": 17,
+      "file": "17_20_LIBRA_CLEAR_WHEEL__20_TRANSMISSION_SHADOW.png",
+      "layer": "20_LIBRA_CLEAR_WHEEL__20_TRANSMISSION_SHADOW",
+      "canvas": [
+        1452,
+        1440
+      ],
+      "mode": "RGBA",
+      "blend_mode": "normal",
+      "alpha_is_mask": true
+    },
+    {
+      "order_bottom_to_top": 18,
+      "file": "18_20_LIBRA_CLEAR_WHEEL__30_TINTED_TRANSMISSION.png",
+      "layer": "20_LIBRA_CLEAR_WHEEL__30_TINTED_TRANSMISSION",
+      "canvas": [
+        1452,
+        1440
+      ],
+      "mode": "RGBA",
+      "blend_mode": "normal",
+      "alpha_is_mask": true
+    },
+    {
+      "order_bottom_to_top": 19,
+      "file": "19_20_LIBRA_CLEAR_WHEEL__40_MID_LIGHT.png",
+      "layer": "20_LIBRA_CLEAR_WHEEL__40_MID_LIGHT",
+      "canvas": [
+        1452,
+        1440
+      ],
+      "mode": "RGBA",
+      "blend_mode": "normal",
+      "alpha_is_mask": true
+    },
+    {
+      "order_bottom_to_top": 20,
+      "file": "20_20_LIBRA_CLEAR_WHEEL__50_BRIGHT_SURFACE.png",
+      "layer": "20_LIBRA_CLEAR_WHEEL__50_BRIGHT_SURFACE",
+      "canvas": [
+        1452,
+        1440
+      ],
+      "mode": "RGBA",
+      "blend_mode": "normal",
+      "alpha_is_mask": true
+    },
+    {
+      "order_bottom_to_top": 21,
+      "file": "21_20_LIBRA_CLEAR_WHEEL__60_EDGE_REFLECTION.png",
+      "layer": "20_LIBRA_CLEAR_WHEEL__60_EDGE_REFLECTION",
+      "canvas": [
+        1452,
+        1440
+      ],
+      "mode": "RGBA",
+      "blend_mode": "normal",
+      "alpha_is_mask": true
+    },
+    {
+      "order_bottom_to_top": 22,
+      "file": "22_20_LIBRA_CLEAR_WHEEL__70_MAJOR_BOUNDARY_4PX.png",
+      "layer": "20_LIBRA_CLEAR_WHEEL__70_MAJOR_BOUNDARY_4PX",
+      "canvas": [
+        1452,
+        1440
+      ],
+      "mode": "RGBA",
+      "blend_mode": "normal",
+      "alpha_is_mask": true
+    },
+    {
+      "order_bottom_to_top": 23,
+      "file": "23_20_LIBRA_CLEAR_WHEEL__71_STRUCTURE_LINE_3PX.png",
+      "layer": "20_LIBRA_CLEAR_WHEEL__71_STRUCTURE_LINE_3PX",
+      "canvas": [
+        1452,
+        1440
+      ],
+      "mode": "RGBA",
+      "blend_mode": "normal",
+      "alpha_is_mask": true
+    },
+    {
+      "order_bottom_to_top": 24,
+      "file": "24_20_LIBRA_CLEAR_WHEEL__72_FINE_LINE_2PX.png",
+      "layer": "20_LIBRA_CLEAR_WHEEL__72_FINE_LINE_2PX",
+      "canvas": [
+        1452,
+        1440
+      ],
+      "mode": "RGBA",
+      "blend_mode": "normal",
+      "alpha_is_mask": true
+    },
+    {
+      "order_bottom_to_top": 25,
+      "file": "25_30_FACE_BOLT__10_BEVEL_SHADOW.png",
+      "layer": "30_FACE_BOLT__10_BEVEL_SHADOW",
+      "canvas": [
+        1452,
+        1440
+      ],
+      "mode": "RGBA",
+      "blend_mode": "normal",
+      "alpha_is_mask": true
+    },
+    {
+      "order_bottom_to_top": 26,
+      "file": "26_30_FACE_BOLT__20_BASE_COLOR.png",
+      "layer": "30_FACE_BOLT__20_BASE_COLOR",
+      "canvas": [
+        1452,
+        1440
+      ],
+      "mode": "RGBA",
+      "blend_mode": "normal",
+      "alpha_is_mask": true
+    },
+    {
+      "order_bottom_to_top": 27,
+      "file": "27_30_FACE_BOLT__30_BEVEL_MID_LIGHT.png",
+      "layer": "30_FACE_BOLT__30_BEVEL_MID_LIGHT",
+      "canvas": [
+        1452,
+        1440
+      ],
+      "mode": "RGBA",
+      "blend_mode": "normal",
+      "alpha_is_mask": true
+    },
+    {
+      "order_bottom_to_top": 28,
+      "file": "28_30_FACE_BOLT__40_BEVEL_HIGHLIGHT.png",
+      "layer": "30_FACE_BOLT__40_BEVEL_HIGHLIGHT",
+      "canvas": [
+        1452,
+        1440
+      ],
+      "mode": "RGBA",
+      "blend_mode": "normal",
+      "alpha_is_mask": true
+    },
+    {
+      "order_bottom_to_top": 29,
+      "file": "29_30_FACE_BOLT__70_MAJOR_BOUNDARY_4PX.png",
+      "layer": "30_FACE_BOLT__70_MAJOR_BOUNDARY_4PX",
+      "canvas": [
+        1452,
+        1440
+      ],
+      "mode": "RGBA",
+      "blend_mode": "normal",
+      "alpha_is_mask": true
+    },
+    {
+      "order_bottom_to_top": 30,
+      "file": "30_30_FACE_BOLT__71_STRUCTURE_LINE_3PX.png",
+      "layer": "30_FACE_BOLT__71_STRUCTURE_LINE_3PX",
+      "canvas": [
+        1452,
+        1440
+      ],
+      "mode": "RGBA",
+      "blend_mode": "normal",
+      "alpha_is_mask": true
+    },
+    {
+      "order_bottom_to_top": 31,
+      "file": "31_30_FACE_BOLT__72_FINE_LINE_2PX.png",
+      "layer": "30_FACE_BOLT__72_FINE_LINE_2PX",
+      "canvas": [
+        1452,
+        1440
+      ],
+      "mode": "RGBA",
+      "blend_mode": "normal",
+      "alpha_is_mask": true
+    },
+    {
+      "order_bottom_to_top": 32,
+      "file": "32_40_PROTECTED_ARTWORK__10_SOURCE_RGBA_EXACT.png",
+      "layer": "40_PROTECTED_ARTWORK__10_SOURCE_RGBA_EXACT",
+      "canvas": [
+        1452,
+        1440
+      ],
+      "mode": "RGBA",
+      "blend_mode": "normal",
+      "alpha_is_mask": true
+    }
+  ]
+}

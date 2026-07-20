@@ -1,0 +1,90 @@
+{
+  "phase": "prepare",
+  "source": "C:\\Users\\taeeu\\OneDrive\\문서\\GitHub\\beystadium\\assets\\images\\beys\\dkcjn91-632bfe50-9e4e-4e8d-a06f-a5b1494d71e7.png",
+  "style_reference": "C:\\Users\\taeeu\\OneDrive\\문서\\GitHub\\beystadium\\assets\\images\\beys\\flame-libra.png",
+  "size": [
+    1452,
+    1440
+  ],
+  "alpha_bbox": [
+    36,
+    31,
+    1416,
+    1416
+  ],
+  "mask_pixels": {
+    "FLAME_METAL_WHEEL": 579598,
+    "YELLOW_INTERNAL_PARTS": 14882,
+    "LIBRA_CLEAR_WHEEL": 664875,
+    "FACE_BOLT": 16669,
+    "PROTECTED_ARTWORK": 193520,
+    "PRESERVED_SOURCE": 15586,
+    "EDITABLE": 1276024,
+    "VISIBLE": 1485130,
+    "TRANSPARENT": 605750
+  },
+  "mask_overlaps": {
+    "FLAME_METAL_WHEEL__YELLOW_INTERNAL_PARTS": 0,
+    "FLAME_METAL_WHEEL__LIBRA_CLEAR_WHEEL": 0,
+    "FLAME_METAL_WHEEL__FACE_BOLT": 0,
+    "FLAME_METAL_WHEEL__PROTECTED_ARTWORK": 0,
+    "YELLOW_INTERNAL_PARTS__LIBRA_CLEAR_WHEEL": 0,
+    "YELLOW_INTERNAL_PARTS__FACE_BOLT": 0,
+    "YELLOW_INTERNAL_PARTS__PROTECTED_ARTWORK": 0,
+    "LIBRA_CLEAR_WHEEL__FACE_BOLT": 0,
+    "LIBRA_CLEAR_WHEEL__PROTECTED_ARTWORK": 0,
+    "FACE_BOLT__PROTECTED_ARTWORK": 0
+  },
+  "line_pixels": {
+    "COMMON": 134618,
+    "MAJOR_4PX": 45608,
+    "STRUCTURE_3PX": 47604,
+    "FINE_2PX": 41406
+  },
+  "candidate_report": {
+    "metal-linework": {
+      "path": "C:\\Users\\taeeu\\OneDrive\\문서\\GitHub\\beystadium\\tmp\\imagegen\\libra-stylematch\\candidates\\metal-linework.png",
+      "exists": false,
+      "new_line_pixels_adopted": 0,
+      "final_geometry_source_registered": true,
+      "reason": "candidate_missing_source_linework_retained"
+    },
+    "clear-linework": {
+      "path": "C:\\Users\\taeeu\\OneDrive\\문서\\GitHub\\beystadium\\tmp\\imagegen\\libra-stylematch\\candidates\\clear-linework.png",
+      "exists": false,
+      "new_line_pixels_adopted": 0,
+      "final_geometry_source_registered": true,
+      "reason": "candidate_missing_source_linework_retained"
+    }
+  },
+  "stage1_alpha_exact": true,
+  "stage2_alpha_exact": true,
+  "psd": {
+    "stage1": {
+      "path": "C:\\Users\\taeeu\\OneDrive\\문서\\GitHub\\beystadium\\assets\\images\\beys\\libra-stylematch-01-masks.psd",
+      "size": [
+        1452,
+        1440
+      ],
+      "layer_names_ascii": true,
+      "pixel_layers": 16,
+      "user_mask_layers": 16,
+      "max_channel_delta": 1,
+      "channels_over_1": 0,
+      "alpha_exact": true
+    },
+    "stage2": {
+      "path": "C:\\Users\\taeeu\\OneDrive\\문서\\GitHub\\beystadium\\assets\\images\\beys\\libra-stylematch-02-linework.psd",
+      "size": [
+        1452,
+        1440
+      ],
+      "layer_names_ascii": true,
+      "pixel_layers": 28,
+      "user_mask_layers": 28,
+      "max_channel_delta": 1,
+      "channels_over_1": 0,
+      "alpha_exact": true
+    }
+  }
+}
