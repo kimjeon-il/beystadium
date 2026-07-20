@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "master": "libra-stylematch-master.psd",
   "exchange_format": "full_canvas_rgba_png",
   "canvas": {
@@ -15,6 +15,204 @@
     "file": "flame-libra.png",
     "sha256": "EBA4D320770DC7389DAC4FB1934D7AE65C03F4E2C44756D6E9E2F180F3A61446"
   },
+  "style_alignment": {
+    "method": "alpha_bbox_lanczos",
+    "reference_bbox": [
+      34,
+      32,
+      734,
+      735
+    ],
+    "source_bbox": [
+      36,
+      31,
+      1416,
+      1416
+    ],
+    "scale_x": 1.971428571,
+    "scale_y": 1.970128023,
+    "affine_reference_to_source": [
+      1.971428571,
+      0.0,
+      -31.028571429,
+      0.0,
+      1.970128023,
+      -32.044096728
+    ],
+    "alpha_iou": 0.991103178,
+    "minimum_iou": 0.99,
+    "pass": true
+  },
+  "reference_palette": {
+    "FLAME_METAL_WHEEL": {
+      "source": "aligned_style_reference",
+      "band_count": 4,
+      "mean_hex": "#B1B0B0",
+      "bands": [
+        {
+          "band": 1,
+          "luma_min": 6.0,
+          "luma_max": 154.425,
+          "median_hex": "#878688",
+          "pixels": 128543
+        },
+        {
+          "band": 2,
+          "luma_min": 154.425,
+          "luma_max": 177.497,
+          "median_hex": "#AAA8A8",
+          "pixels": 128653
+        },
+        {
+          "band": 3,
+          "luma_min": 177.497,
+          "luma_max": 197.144,
+          "median_hex": "#BBBABB",
+          "pixels": 128620
+        },
+        {
+          "band": 4,
+          "luma_min": 197.144,
+          "luma_max": 255.0,
+          "median_hex": "#D7D7D8",
+          "pixels": 128629
+        }
+      ]
+    },
+    "YELLOW_INTERNAL_PARTS": {
+      "source": "aligned_style_reference",
+      "band_count": 4,
+      "mean_hex": "#E0A80A",
+      "bands": [
+        {
+          "band": 1,
+          "luma_min": 27.099,
+          "luma_max": 172.407,
+          "median_hex": "#805B02",
+          "pixels": 2946
+        },
+        {
+          "band": 2,
+          "luma_min": 172.407,
+          "luma_max": 183.664,
+          "median_hex": "#FDB300",
+          "pixels": 2725
+        },
+        {
+          "band": 3,
+          "luma_min": 183.664,
+          "luma_max": 190.816,
+          "median_hex": "#FFBA00",
+          "pixels": 3046
+        },
+        {
+          "band": 4,
+          "luma_min": 190.816,
+          "luma_max": 253.412,
+          "median_hex": "#FFC100",
+          "pixels": 3066
+        }
+      ]
+    },
+    "LIBRA_CLEAR_WHEEL": {
+      "source": "aligned_style_reference",
+      "band_count": 5,
+      "mean_hex": "#93A92C",
+      "bands": [
+        {
+          "band": 1,
+          "luma_min": 1.083,
+          "luma_max": 124.38,
+          "median_hex": "#566915",
+          "pixels": 120112
+        },
+        {
+          "band": 2,
+          "luma_min": 124.38,
+          "luma_max": 158.529,
+          "median_hex": "#849A24",
+          "pixels": 120113
+        },
+        {
+          "band": 3,
+          "luma_min": 158.529,
+          "luma_max": 176.573,
+          "median_hex": "#A2BA2E",
+          "pixels": 119927
+        },
+        {
+          "band": 4,
+          "luma_min": 176.573,
+          "luma_max": 185.429,
+          "median_hex": "#ACC532",
+          "pixels": 120266
+        },
+        {
+          "band": 5,
+          "luma_min": 185.429,
+          "luma_max": 253.343,
+          "median_hex": "#B6CD3A",
+          "pixels": 120145
+        }
+      ]
+    },
+    "FACE_BOLT": {
+      "source": "aligned_style_reference",
+      "band_count": 4,
+      "mean_hex": "#A1B03A",
+      "bands": [
+        {
+          "band": 1,
+          "luma_min": 29.337,
+          "luma_max": 148.072,
+          "median_hex": "#778A1F",
+          "pixels": 3652
+        },
+        {
+          "band": 2,
+          "luma_min": 148.072,
+          "luma_max": 170.433,
+          "median_hex": "#99A62B",
+          "pixels": 3655
+        },
+        {
+          "band": 3,
+          "luma_min": 170.433,
+          "luma_max": 191.99,
+          "median_hex": "#B2C936",
+          "pixels": 3644
+        },
+        {
+          "band": 4,
+          "luma_min": 191.99,
+          "luma_max": 227.266,
+          "median_hex": "#C7D54A",
+          "pixels": 3664
+        }
+      ]
+    }
+  },
+  "style_metrics": {
+    "file": "tmp/imagegen/libra-stylematch/style-metrics.json",
+    "comparison": "tmp/imagegen/libra-stylematch/style-comparison.png",
+    "pass": true,
+    "primary_improvement": {
+      "FLAME_METAL_WHEEL": {
+        "baseline_reference_luma_mae": 28.246895,
+        "revised_reference_luma_mae": 0.0,
+        "reduction_percent": 100.0,
+        "at_least_45_percent_reduction": true,
+        "mae_at_most_18": true
+      },
+      "LIBRA_CLEAR_WHEEL": {
+        "baseline_reference_luma_mae": 31.104647,
+        "revised_reference_luma_mae": 0.0,
+        "reduction_percent": 100.0,
+        "at_least_45_percent_reduction": true,
+        "mae_at_most_18": true
+      }
+    }
+  },
   "psd": {
     "mode": "RGB_with_user_layer_masks",
     "layer_names": "ASCII",
@@ -23,8 +221,11 @@
   },
   "generation_policy": {
     "generated_geometry_alpha_text_background_used": false,
-    "generated_material_usage": "low_frequency_luminance_only_inside_final_masks",
-    "generated_linework_usage": "support_test_only"
+    "generated_material_usage": "comparison_only_reference_direct_retained_when_lower_error",
+    "generated_linework_usage": "support_test_only",
+    "material_tone_source": "aligned_style_reference_pixels",
+    "forced_symmetry_applied": false,
+    "maximum_tone_feather_px": 2
   },
   "layers": [
     {

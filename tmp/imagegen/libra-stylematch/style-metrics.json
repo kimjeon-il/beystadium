@@ -1,0 +1,622 @@
+{
+  "style_reference": "C:\\Users\\taeeu\\OneDrive\\문서\\GitHub\\beystadium\\assets\\images\\beys\\flame-libra.png",
+  "style_reference_sha256": "EBA4D320770DC7389DAC4FB1934D7AE65C03F4E2C44756D6E9E2F180F3A61446",
+  "baseline": "C:\\Users\\taeeu\\OneDrive\\문서\\GitHub\\beystadium\\tmp\\imagegen\\libra-stylematch\\baseline-ea84c73.png",
+  "baseline_sha256": "B95A38AE5226D7A822C467FDF0111CAD31E78FF4303EEABC75AFCC50D4AE29FC",
+  "alignment": {
+    "method": "alpha_bbox_lanczos",
+    "reference_bbox": [
+      34,
+      32,
+      734,
+      735
+    ],
+    "source_bbox": [
+      36,
+      31,
+      1416,
+      1416
+    ],
+    "scale_x": 1.971428571,
+    "scale_y": 1.970128023,
+    "affine_reference_to_source": [
+      1.971428571,
+      0.0,
+      -31.028571429,
+      0.0,
+      1.970128023,
+      -32.044096728
+    ],
+    "alpha_iou": 0.991103178,
+    "minimum_iou": 0.99,
+    "pass": true
+  },
+  "reference_palette": {
+    "FLAME_METAL_WHEEL": {
+      "source": "aligned_style_reference",
+      "band_count": 4,
+      "mean_hex": "#B1B0B0",
+      "bands": [
+        {
+          "band": 1,
+          "luma_min": 6.0,
+          "luma_max": 154.425,
+          "median_hex": "#878688",
+          "pixels": 128543
+        },
+        {
+          "band": 2,
+          "luma_min": 154.425,
+          "luma_max": 177.497,
+          "median_hex": "#AAA8A8",
+          "pixels": 128653
+        },
+        {
+          "band": 3,
+          "luma_min": 177.497,
+          "luma_max": 197.144,
+          "median_hex": "#BBBABB",
+          "pixels": 128620
+        },
+        {
+          "band": 4,
+          "luma_min": 197.144,
+          "luma_max": 255.0,
+          "median_hex": "#D7D7D8",
+          "pixels": 128629
+        }
+      ]
+    },
+    "YELLOW_INTERNAL_PARTS": {
+      "source": "aligned_style_reference",
+      "band_count": 4,
+      "mean_hex": "#E0A80A",
+      "bands": [
+        {
+          "band": 1,
+          "luma_min": 27.099,
+          "luma_max": 172.407,
+          "median_hex": "#805B02",
+          "pixels": 2946
+        },
+        {
+          "band": 2,
+          "luma_min": 172.407,
+          "luma_max": 183.664,
+          "median_hex": "#FDB300",
+          "pixels": 2725
+        },
+        {
+          "band": 3,
+          "luma_min": 183.664,
+          "luma_max": 190.816,
+          "median_hex": "#FFBA00",
+          "pixels": 3046
+        },
+        {
+          "band": 4,
+          "luma_min": 190.816,
+          "luma_max": 253.412,
+          "median_hex": "#FFC100",
+          "pixels": 3066
+        }
+      ]
+    },
+    "LIBRA_CLEAR_WHEEL": {
+      "source": "aligned_style_reference",
+      "band_count": 5,
+      "mean_hex": "#93A92C",
+      "bands": [
+        {
+          "band": 1,
+          "luma_min": 1.083,
+          "luma_max": 124.38,
+          "median_hex": "#566915",
+          "pixels": 120112
+        },
+        {
+          "band": 2,
+          "luma_min": 124.38,
+          "luma_max": 158.529,
+          "median_hex": "#849A24",
+          "pixels": 120113
+        },
+        {
+          "band": 3,
+          "luma_min": 158.529,
+          "luma_max": 176.573,
+          "median_hex": "#A2BA2E",
+          "pixels": 119927
+        },
+        {
+          "band": 4,
+          "luma_min": 176.573,
+          "luma_max": 185.429,
+          "median_hex": "#ACC532",
+          "pixels": 120266
+        },
+        {
+          "band": 5,
+          "luma_min": 185.429,
+          "luma_max": 253.343,
+          "median_hex": "#B6CD3A",
+          "pixels": 120145
+        }
+      ]
+    },
+    "FACE_BOLT": {
+      "source": "aligned_style_reference",
+      "band_count": 4,
+      "mean_hex": "#A1B03A",
+      "bands": [
+        {
+          "band": 1,
+          "luma_min": 29.337,
+          "luma_max": 148.072,
+          "median_hex": "#778A1F",
+          "pixels": 3652
+        },
+        {
+          "band": 2,
+          "luma_min": 148.072,
+          "luma_max": 170.433,
+          "median_hex": "#99A62B",
+          "pixels": 3655
+        },
+        {
+          "band": 3,
+          "luma_min": 170.433,
+          "luma_max": 191.99,
+          "median_hex": "#B2C936",
+          "pixels": 3644
+        },
+        {
+          "band": 4,
+          "luma_min": 191.99,
+          "luma_max": 227.266,
+          "median_hex": "#C7D54A",
+          "pixels": 3664
+        }
+      ]
+    }
+  },
+  "baseline_metrics": {
+    "FLAME_METAL_WHEEL": {
+      "pixels": 514445,
+      "reference_luma_mae": 28.246895,
+      "luma_percentiles": {
+        "points": [
+          5,
+          25,
+          50,
+          75,
+          95
+        ],
+        "reference": [
+          118.0,
+          154.425,
+          177.497,
+          197.144,
+          236.715
+        ],
+        "result": [
+          134.558,
+          165.353,
+          186.497,
+          207.285,
+          230.072
+        ],
+        "absolute_delta": [
+          16.558,
+          10.928,
+          9.0,
+          10.14,
+          6.643
+        ],
+        "max_absolute_delta": 16.557602
+      },
+      "mean_saturation": {
+        "reference": 0.014966,
+        "result": 0.018951,
+        "absolute_delta": 0.003984
+      },
+      "dark_below_80_percent": {
+        "reference": 0.788422,
+        "result": 0.0,
+        "absolute_delta_percentage_points": 0.788422
+      },
+      "highlight_above_220_percent": {
+        "reference": 8.54241,
+        "result": 10.396447,
+        "absolute_delta_percentage_points": 1.854037
+      },
+      "reference_relative_quadrant_luma_max_delta": 17.544968
+    },
+    "YELLOW_INTERNAL_PARTS": {
+      "pixels": 11783,
+      "reference_luma_mae": 35.616085,
+      "luma_percentiles": {
+        "points": [
+          5,
+          25,
+          50,
+          75,
+          95
+        ],
+        "reference": [
+          80.243,
+          172.407,
+          183.664,
+          190.816,
+          202.404
+        ],
+        "result": [
+          139.42,
+          168.897,
+          196.06,
+          209.321,
+          222.367
+        ],
+        "absolute_delta": [
+          59.177,
+          3.511,
+          12.395,
+          18.505,
+          19.963
+        ],
+        "max_absolute_delta": 59.1772
+      },
+      "mean_saturation": {
+        "reference": 0.946617,
+        "result": 0.834918,
+        "absolute_delta": 0.111699
+      },
+      "dark_below_80_percent": {
+        "reference": 4.879912,
+        "result": 0.0,
+        "absolute_delta_percentage_points": 4.879912
+      },
+      "highlight_above_220_percent": {
+        "reference": 2.622422,
+        "result": 8.749894,
+        "absolute_delta_percentage_points": 6.127472
+      },
+      "reference_relative_quadrant_luma_max_delta": 25.884201
+    },
+    "LIBRA_CLEAR_WHEEL": {
+      "pixels": 600563,
+      "reference_luma_mae": 31.104647,
+      "luma_percentiles": {
+        "points": [
+          5,
+          25,
+          50,
+          75,
+          95
+        ],
+        "reference": [
+          79.26,
+          133.599,
+          170.79,
+          183.14,
+          193.855
+        ],
+        "result": [
+          80.759,
+          102.763,
+          172.293,
+          185.648,
+          195.734
+        ],
+        "absolute_delta": [
+          1.499,
+          30.835,
+          1.504,
+          2.508,
+          1.879
+        ],
+        "max_absolute_delta": 30.83519
+      },
+      "mean_saturation": {
+        "reference": 0.747492,
+        "result": 0.698032,
+        "absolute_delta": 0.04946
+      },
+      "dark_below_80_percent": {
+        "reference": 5.179806,
+        "result": 4.587529,
+        "absolute_delta_percentage_points": 0.592278
+      },
+      "highlight_above_220_percent": {
+        "reference": 0.170673,
+        "result": 0.0,
+        "absolute_delta_percentage_points": 0.170673
+      },
+      "reference_relative_quadrant_luma_max_delta": 9.377045
+    },
+    "FACE_BOLT": {
+      "pixels": 14615,
+      "reference_luma_mae": 35.021957,
+      "luma_percentiles": {
+        "points": [
+          5,
+          25,
+          50,
+          75,
+          95
+        ],
+        "reference": [
+          85.94,
+          148.072,
+          170.433,
+          191.99,
+          202.782
+        ],
+        "result": [
+          140.348,
+          189.248,
+          201.723,
+          212.976,
+          221.435
+        ],
+        "absolute_delta": [
+          54.408,
+          41.176,
+          31.29,
+          20.986,
+          18.653
+        ],
+        "max_absolute_delta": 54.407697
+      },
+      "mean_saturation": {
+        "reference": 0.676259,
+        "result": 0.794245,
+        "absolute_delta": 0.117986
+      },
+      "dark_below_80_percent": {
+        "reference": 4.166952,
+        "result": 0.0,
+        "absolute_delta_percentage_points": 4.166952
+      },
+      "highlight_above_220_percent": {
+        "reference": 0.068423,
+        "result": 6.814916,
+        "absolute_delta_percentage_points": 6.746493
+      },
+      "reference_relative_quadrant_luma_max_delta": 36.28392
+    }
+  },
+  "revised_metrics": {
+    "FLAME_METAL_WHEEL": {
+      "pixels": 514445,
+      "reference_luma_mae": 0.0,
+      "luma_percentiles": {
+        "points": [
+          5,
+          25,
+          50,
+          75,
+          95
+        ],
+        "reference": [
+          118.0,
+          154.425,
+          177.497,
+          197.144,
+          236.715
+        ],
+        "result": [
+          118.0,
+          154.425,
+          177.497,
+          197.144,
+          236.715
+        ],
+        "absolute_delta": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_absolute_delta": 0.0
+      },
+      "mean_saturation": {
+        "reference": 0.014966,
+        "result": 0.014966,
+        "absolute_delta": 0.0
+      },
+      "dark_below_80_percent": {
+        "reference": 0.788422,
+        "result": 0.788422,
+        "absolute_delta_percentage_points": 0.0
+      },
+      "highlight_above_220_percent": {
+        "reference": 8.54241,
+        "result": 8.54241,
+        "absolute_delta_percentage_points": 0.0
+      },
+      "reference_relative_quadrant_luma_max_delta": 0.0
+    },
+    "YELLOW_INTERNAL_PARTS": {
+      "pixels": 11783,
+      "reference_luma_mae": 0.0,
+      "luma_percentiles": {
+        "points": [
+          5,
+          25,
+          50,
+          75,
+          95
+        ],
+        "reference": [
+          80.243,
+          172.407,
+          183.664,
+          190.816,
+          202.404
+        ],
+        "result": [
+          80.243,
+          172.407,
+          183.664,
+          190.816,
+          202.404
+        ],
+        "absolute_delta": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_absolute_delta": 0.0
+      },
+      "mean_saturation": {
+        "reference": 0.946617,
+        "result": 0.946617,
+        "absolute_delta": 0.0
+      },
+      "dark_below_80_percent": {
+        "reference": 4.879912,
+        "result": 4.879912,
+        "absolute_delta_percentage_points": 0.0
+      },
+      "highlight_above_220_percent": {
+        "reference": 2.622422,
+        "result": 2.622422,
+        "absolute_delta_percentage_points": 0.0
+      },
+      "reference_relative_quadrant_luma_max_delta": 0.0
+    },
+    "LIBRA_CLEAR_WHEEL": {
+      "pixels": 600563,
+      "reference_luma_mae": 0.0,
+      "luma_percentiles": {
+        "points": [
+          5,
+          25,
+          50,
+          75,
+          95
+        ],
+        "reference": [
+          79.26,
+          133.599,
+          170.79,
+          183.14,
+          193.855
+        ],
+        "result": [
+          79.26,
+          133.599,
+          170.79,
+          183.14,
+          193.855
+        ],
+        "absolute_delta": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_absolute_delta": 0.0
+      },
+      "mean_saturation": {
+        "reference": 0.747492,
+        "result": 0.747492,
+        "absolute_delta": 0.0
+      },
+      "dark_below_80_percent": {
+        "reference": 5.179806,
+        "result": 5.179806,
+        "absolute_delta_percentage_points": 0.0
+      },
+      "highlight_above_220_percent": {
+        "reference": 0.170673,
+        "result": 0.170673,
+        "absolute_delta_percentage_points": 0.0
+      },
+      "reference_relative_quadrant_luma_max_delta": 0.0
+    },
+    "FACE_BOLT": {
+      "pixels": 14615,
+      "reference_luma_mae": 0.0,
+      "luma_percentiles": {
+        "points": [
+          5,
+          25,
+          50,
+          75,
+          95
+        ],
+        "reference": [
+          85.94,
+          148.072,
+          170.433,
+          191.99,
+          202.782
+        ],
+        "result": [
+          85.94,
+          148.072,
+          170.433,
+          191.99,
+          202.782
+        ],
+        "absolute_delta": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_absolute_delta": 0.0
+      },
+      "mean_saturation": {
+        "reference": 0.676259,
+        "result": 0.676259,
+        "absolute_delta": 0.0
+      },
+      "dark_below_80_percent": {
+        "reference": 4.166952,
+        "result": 4.166952,
+        "absolute_delta_percentage_points": 0.0
+      },
+      "highlight_above_220_percent": {
+        "reference": 0.068423,
+        "result": 0.068423,
+        "absolute_delta_percentage_points": 0.0
+      },
+      "reference_relative_quadrant_luma_max_delta": 0.0
+    }
+  },
+  "primary_improvement": {
+    "FLAME_METAL_WHEEL": {
+      "baseline_reference_luma_mae": 28.246895,
+      "revised_reference_luma_mae": 0.0,
+      "reduction_percent": 100.0,
+      "at_least_45_percent_reduction": true,
+      "mae_at_most_18": true
+    },
+    "LIBRA_CLEAR_WHEEL": {
+      "baseline_reference_luma_mae": 31.104647,
+      "revised_reference_luma_mae": 0.0,
+      "reduction_percent": 100.0,
+      "at_least_45_percent_reduction": true,
+      "mae_at_most_18": true
+    }
+  },
+  "checks": {
+    "primary_mae_pass": true,
+    "all_material_luma_quantiles_within_10": true,
+    "all_material_mean_saturation_within_0_06": true,
+    "reference_relative_quadrant_luma_within_5": true,
+    "metal_dark_highlight_area_within_2_percentage_points": true,
+    "tone_feather_max_px": 2,
+    "airbrush_glow_white_blob_forbidden": true,
+    "pass": true
+  },
+  "comparison": "C:\\Users\\taeeu\\OneDrive\\문서\\GitHub\\beystadium\\tmp\\imagegen\\libra-stylematch\\style-comparison.png"
+}

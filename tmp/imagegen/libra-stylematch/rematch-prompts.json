@@ -1,0 +1,26 @@
+{
+  "mode": "built_in_imagegen",
+  "use_case": "style-transfer",
+  "inputs": {
+    "image_1": {
+      "role": "edit_target_and_geometry_authority",
+      "file": "assets/images/beys/dkcjn91-632bfe50-9e4e-4e8d-a06f-a5b1494d71e7.png"
+    },
+    "image_2": {
+      "role": "sole_style_reference",
+      "file": "assets/images/beys/flame-libra.png"
+    }
+  },
+  "candidates": [
+    {
+      "file": "candidates/metal-rematch-candidate.png",
+      "prompt": "Use case: style-transfer\nAsset type: isolated Beyblade material-tone candidate\nInput images: Image 1 is the edit target and absolute authority for geometry; Image 2 is the sole style reference.\nPrimary request: render only the visible FLAME METAL WHEEL from Image 1: the outer silver metal wheel, the exposed gray frame beneath the clear wheel, and gray connectors. Match Image 2's restrained illustrated cel-shading, gray palette, narrow controlled highlights, and crisp dark-gray boundary contrast.\nComposition/framing: preserve Image 1's exact front-view orientation, placement, scale, silhouette, holes, grooves, tips, and part boundaries.\nScene/backdrop: replace every non-target pixel with perfectly flat solid #ff00ff.\nConstraints: do not change or redraw geometry; no new lines; no text; no stickers; no green or yellow parts; no background; no glow; no airbrushing; no wide white light bands; no black bloom; no asymmetrical lighting; no watermark. Keep the target metal fully separated from the magenta background with crisp edges."
+    },
+    {
+      "file": "candidates/clear-rematch-candidate.png",
+      "prompt": "Use case: style-transfer\nAsset type: isolated Beyblade material-tone candidate\nInput images: Image 1 is the edit target and absolute authority for geometry; Image 2 is the sole style reference.\nPrimary request: render only the visible LIBRA CLEAR WHEEL from Image 1: the yellow-green annular wheel, four mounts, slots, teeth, and the 12/6 o'clock flame ornaments. Match Image 2's muted olive yellow-green palette, restrained translucent-plastic illustration, discrete cel-shaded tone bands, and crisp dark-olive internal boundaries.\nComposition/framing: preserve Image 1's exact front-view orientation, placement, scale, silhouette, holes, grooves, and part boundaries.\nScene/backdrop: replace every non-target pixel with perfectly flat solid #ff00ff.\nConstraints: do not change or redraw geometry; no new lines; no text; preserve no sticker pixels in this candidate; no metal or yellow face bolt; no background; no fluorescent lime; no white glow; no airbrushing; no broad blurred highlights; no black bloom; no asymmetrical lighting; no watermark. Keep the target clear-wheel pixels fully separated from the magenta background with crisp edges."
+    }
+  ],
+  "adoption_policy": "comparison_only; adopt no geometry, alpha, text, or background; adopt tone only when it reduces aligned-reference error and all fixed-rule checks pass",
+  "result": "both candidates rejected because direct aligned-reference transfer had lower error"
+}

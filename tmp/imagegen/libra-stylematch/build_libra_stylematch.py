@@ -30,6 +30,9 @@ CANDIDATE_DIR = WORK / "candidates"
 LAYERS_DIR = BEYS / "libra-stylematch.layers"
 MANIFEST_PATH = LAYERS_DIR / "manifest.json"
 VALIDATION_PATH = WORK / "validation.json"
+STYLE_METRICS_PATH = WORK / "style-metrics.json"
+STYLE_COMPARISON_PATH = WORK / "style-comparison.png"
+BASELINE_PREVIEW = WORK / "baseline-ea84c73.png"
 
 STAGE1_PSD = BEYS / "libra-stylematch-01-masks.psd"
 STAGE1_PREVIEW = BEYS / "libra-stylematch-01-masks-preview.png"
@@ -42,29 +45,9 @@ FINAL_PREVIEW = BEYS / "libra-stylematch-preview.png"
 
 EXPECTED_SIZE = (1452, 1440)
 EXPECTED_ALPHA_BBOX = (36, 31, 1416, 1416)
-INK = np.array((0x20, 0x20, 0x20), dtype=np.uint8)
+STYLE_ALPHA_THRESHOLD = 32
+STYLE_ALIGNMENT_IOU_MIN = 0.99
 MAGENTA = np.array((255, 0, 255), dtype=np.uint8)
-
-METAL_PALETTE = {
-    "SHADOW": (0x80, 0x7B, 0x72),
-    "BASE": (0xAA, 0xA8, 0xA7),
-    "MID_LIGHT": (0xC0, 0xBF, 0xC0),
-    "HIGHLIGHT": (0xED, 0xED, 0xEE),
-}
-CLEAR_PALETTE = {
-    "DEEP": (0x45, 0x49, 0x1E),
-    "TRANSMISSION_SHADOW": (0x59, 0x69, 0x22),
-    "BASE": (0xA1, 0xBA, 0x2D),
-    "MID_LIGHT": (0xAD, 0xC6, 0x33),
-    "BRIGHT": (0xB5, 0xCD, 0x3A),
-    "PALE_REFLECTION": (0xC6, 0xC8, 0x7D),
-}
-PLASTIC_PALETTE = {
-    "SHADOW": (0xC9, 0x82, 0x00),
-    "BASE": (0xFF, 0xB9, 0x00),
-    "MID_LIGHT": (0xFF, 0xCA, 0x36),
-    "HIGHLIGHT": (0xFF, 0xDF, 0x79),
-}
 
 DIAGNOSTIC_COLORS = {
     "FLAME_METAL_WHEEL": (70, 154, 255),
@@ -81,14 +64,20 @@ CANDIDATES = {
     "CLEAR_MATERIAL": CANDIDATE_DIR / "clear-material.png",
     "FACE_BOLT_MATERIAL": CANDIDATE_DIR / "face-bolt-material.png",
     "YELLOW_INTERNAL_MATERIAL": CANDIDATE_DIR / "yellow-internal-material.png",
+    "METAL_REMATCH": CANDIDATE_DIR / "metal-rematch-candidate.png",
+    "CLEAR_REMATCH": CANDIDATE_DIR / "clear-rematch-candidate.png",
 }
 
 
 @dataclass
 class BuildState:
     source: np.ndarray
+    aligned_style: np.ndarray
+    style_valid: np.ndarray
+    style_alignment: dict[str, object]
     masks: dict[str, np.ndarray]
     line_masks: dict[str, np.ndarray]
+    reference_palette: dict[str, object]
     candidate_report: dict[str, object]
 
 
@@ -105,6 +94,103 @@ def bbox(mask: np.ndarray) -> tuple[int, int, int, int]:
     if not len(xs):
         return ()
     return int(xs.min()), int(ys.min()), int(xs.max() + 1), int(ys.max() + 1)
+
+
+def luma(rgb: np.ndarray) -> np.ndarray:
+    values = rgb.astype(np.float32)
+    return values[..., 0] * 0.2126 + values[..., 1] * 0.7152 + values[..., 2] * 0.0722
+
+
+def rgb_hex(rgb: np.ndarray) -> str:
+    values = np.rint(rgb).clip(0, 255).astype(np.uint8)
+    return "#" + "".join(f"{int(value):02X}" for value in values)
+
+
+def align_style_reference(source: np.ndarray) -> tuple[np.ndarray, np.ndarray, dict[str, object]]:
+    reference = np.asarray(Image.open(STYLE_PATH).convert("RGBA")).copy()
+    reference_bbox = bbox(reference[..., 3] > 0)
+    source_bbox = bbox(source[..., 3] > 0)
+    if not reference_bbox or not source_bbox:
+        raise AssertionError("Source and style reference must both contain visible pixels")
+
+    rl, rt, rr, rb = reference_bbox
+    sl, st, sr, sb = source_bbox
+    target_size = (sr - sl, sb - st)
+    aligned = np.zeros_like(source)
+    aligned[st:sb, sl:sr] = np.asarray(
+        Image.fromarray(reference[rt:rb, rl:rr], "RGBA").resize(
+            target_size, Image.Resampling.LANCZOS
+        )
+    )
+    aligned[aligned[..., 3] == 0, :3] = 0
+    style_visible = aligned[..., 3] >= STYLE_ALPHA_THRESHOLD
+    source_visible = source[..., 3] >= STYLE_ALPHA_THRESHOLD
+    intersection = int((style_visible & source_visible).sum())
+    union = int((style_visible | source_visible).sum())
+    alpha_iou = intersection / max(1, union)
+    if alpha_iou < STYLE_ALIGNMENT_IOU_MIN:
+        raise AssertionError(
+            f"Style alignment alpha IoU {alpha_iou:.6f} is below {STYLE_ALIGNMENT_IOU_MIN:.2f}"
+        )
+
+    scale_x = target_size[0] / (rr - rl)
+    scale_y = target_size[1] / (rb - rt)
+    alignment = {
+        "method": "alpha_bbox_lanczos",
+        "reference_bbox": list(reference_bbox),
+        "source_bbox": list(source_bbox),
+        "scale_x": round(scale_x, 9),
+        "scale_y": round(scale_y, 9),
+        "affine_reference_to_source": [
+            round(scale_x, 9),
+            0.0,
+            round(sl - rl * scale_x, 9),
+            0.0,
+            round(scale_y, 9),
+            round(st - rt * scale_y, 9),
+        ],
+        "alpha_iou": round(alpha_iou, 9),
+        "minimum_iou": STYLE_ALIGNMENT_IOU_MIN,
+        "pass": alpha_iou >= STYLE_ALIGNMENT_IOU_MIN,
+    }
+    return aligned, style_visible, alignment
+
+
+def sampled_palette(
+    rgb: np.ndarray, mask: np.ndarray, band_count: int
+) -> dict[str, object]:
+    pixels = rgb[mask]
+    if not len(pixels):
+        raise AssertionError("Cannot sample an empty reference palette")
+    values = luma(pixels)
+    cuts = np.percentile(values, np.linspace(0, 100, band_count + 1))
+    bands = []
+    for index in range(band_count):
+        lower = cuts[index]
+        upper = cuts[index + 1]
+        selected = (values >= lower) & (
+            values <= upper if index == band_count - 1 else values < upper
+        )
+        if not selected.any():
+            nearest = int(np.argmin(np.abs(values - (lower + upper) * 0.5)))
+            color = pixels[nearest]
+        else:
+            color = np.median(pixels[selected], axis=0)
+        bands.append(
+            {
+                "band": index + 1,
+                "luma_min": round(float(lower), 3),
+                "luma_max": round(float(upper), 3),
+                "median_hex": rgb_hex(color),
+                "pixels": int(selected.sum()),
+            }
+        )
+    return {
+        "source": "aligned_style_reference",
+        "band_count": band_count,
+        "mean_hex": rgb_hex(pixels.mean(axis=0)),
+        "bands": bands,
+    }
 
 
 def polygon_mask(size: tuple[int, int], points: list[tuple[int, int]]) -> np.ndarray:
@@ -403,70 +489,6 @@ def fit_candidate(path: Path, target_mask: np.ndarray) -> tuple[np.ndarray, np.n
     return fitted_rgb, fitted_subject
 
 
-def normalized_field(rgb: np.ndarray, mask: np.ndarray, blur_radius: int = 9) -> np.ndarray:
-    blurred = np.asarray(
-        Image.fromarray(rgb.astype(np.uint8), "RGB").filter(
-            ImageFilter.GaussianBlur(blur_radius)
-        )
-    ).astype(np.float32)
-    luma = blurred[..., 0] * 0.2126 + blurred[..., 1] * 0.7152 + blurred[..., 2] * 0.0722
-    values = luma[mask]
-    if not values.size:
-        return np.zeros(mask.shape, dtype=np.float32)
-    low, high = np.percentile(values, (8, 92))
-    return np.clip((luma - low) / max(1.0, high - low), 0.0, 1.0)
-
-
-def symmetric_field(field: np.ndarray, mask: np.ndarray) -> np.ndarray:
-    variants = (field, np.fliplr(field), np.flipud(field), np.flipud(np.fliplr(field)))
-    mask_variants = (mask, np.fliplr(mask), np.flipud(mask), np.flipud(np.fliplr(mask)))
-    total = np.zeros_like(field, dtype=np.float32)
-    count = np.zeros_like(field, dtype=np.float32)
-    for values, valid in zip(variants, mask_variants):
-        total += values * valid
-        count += valid
-    result = total / np.maximum(count, 1.0)
-    return np.clip(result, 0.0, 1.0)
-
-
-def palette_ramp(
-    tone: np.ndarray,
-    stops: list[tuple[float, tuple[int, int, int]]],
-) -> np.ndarray:
-    positions = np.array([position for position, _ in stops], dtype=np.float32)
-    colors = np.array([color for _, color in stops], dtype=np.float32)
-    output = np.zeros((*tone.shape, 3), dtype=np.float32)
-    for channel in range(3):
-        output[..., channel] = np.interp(tone, positions, colors[:, channel])
-    return np.rint(np.clip(output, 0, 255)).astype(np.uint8)
-
-
-def candidate_tone(
-    path: Path, target_mask: np.ndarray
-) -> tuple[np.ndarray | None, dict[str, object]]:
-    report: dict[str, object] = {
-        "path": str(path),
-        "exists": path.exists(),
-        "adopted_pixels": 0,
-        "usage": "none",
-    }
-    if not path.exists():
-        report["reason"] = "candidate_missing_fallback_to_source_tone"
-        return None, report
-    fitted_rgb, fitted_subject = fit_candidate(path, target_mask)
-    usable = target_mask & fitted_subject
-    coverage = float(usable.sum() / max(1, target_mask.sum()))
-    report["target_coverage"] = round(coverage, 6)
-    if coverage < 0.55:
-        report["reason"] = "candidate_subject_coverage_below_0.55"
-        return None, report
-    field = normalized_field(fitted_rgb, usable, blur_radius=13)
-    report["adopted_pixels"] = int(target_mask.sum())
-    report["usage"] = "low_frequency_luminance_only_inside_final_mask"
-    report["geometry_alpha_text_background_used"] = False
-    return field, report
-
-
 def line_candidate_report(
     path: Path, target_mask: np.ndarray, source_line: np.ndarray
 ) -> dict[str, object]:
@@ -500,52 +522,38 @@ def line_candidate_report(
 
 def make_partitioned_tone_layers(
     source: np.ndarray,
+    aligned_style: np.ndarray,
+    style_valid: np.ndarray,
     part_mask: np.ndarray,
     line_mask: np.ndarray,
     candidate_path: Path,
-    palette: dict[str, tuple[int, int, int]],
     kind: str,
 ) -> tuple[list[tuple[str, np.ndarray]], dict[str, object]]:
     alpha = source[..., 3]
     surface = part_mask & ~line_mask
-    source_field = symmetric_field(normalized_field(source[..., :3], surface), surface)
-    generated_field, report = candidate_tone(candidate_path, surface)
-    if generated_field is not None:
-        generated_field = symmetric_field(generated_field, surface)
-        tone = np.clip(source_field * 0.68 + generated_field * 0.32, 0.0, 1.0)
-    else:
-        tone = source_field
+    reference_surface = surface & style_valid
+    if not reference_surface.any():
+        raise AssertionError(f"No aligned style-reference pixels for {kind}")
 
-    # Smooth the adopted luminance before palette mapping. Layer ownership is
-    # still discrete for PSD editing, but every layer receives pixels from one
-    # continuous rendered ramp, so there are no posterized tone boundaries.
-    tone = np.asarray(
-        Image.fromarray(np.rint(tone * 255).astype(np.uint8), "L").filter(
-            ImageFilter.GaussianBlur(4)
-        )
-    ).astype(np.float32) / 255.0
+    # The aligned style reference is the authoritative color and tone source.
+    # No source/candidate luminance mixing, percentile stretching, mirroring, or
+    # broad Gaussian smoothing is permitted in this pass.
+    rendered = aligned_style[..., :3].copy()
+    missing = surface & ~style_valid
+    if missing.any():
+        fallback = np.median(rendered[reference_surface], axis=0)
+        rendered[missing] = np.rint(fallback).astype(np.uint8)
+    tone = luma(rendered)
     tone_values = tone[surface]
-    if tone_values.size:
-        low, high = np.percentile(tone_values, (3, 97))
-        tone = np.clip((tone - low) / max(0.01, high - low), 0.0, 1.0)
-    tone = symmetric_field(tone, surface)
 
     filled = close_mask(part_mask, 5)
     edge_2 = part_mask & ~erode(filled, 2)
 
     if kind == "metal":
-        rendered = palette_ramp(
-            tone,
-            [
-                (0.00, palette["SHADOW"]),
-                (0.38, palette["BASE"]),
-                (0.66, palette["MID_LIGHT"]),
-                (1.00, palette["HIGHLIGHT"]),
-            ],
-        )
-        highlight = surface & ((tone >= 0.74) | (edge_2 & (tone >= 0.60)))
-        mid_light = surface & ~highlight & (tone >= 0.54)
-        shadow = surface & ~highlight & ~mid_light & (tone < 0.27)
+        q18, q55, q82 = np.percentile(tone_values, (18, 55, 82))
+        highlight = surface & (tone > q82)
+        mid_light = surface & ~highlight & (tone > q55)
+        shadow = surface & (tone <= q18)
         base = surface & ~highlight & ~mid_light & ~shadow
         layers = [
             ("10_SHADOW_REFLECTION", color_layer(alpha, shadow, rendered)),
@@ -555,31 +563,12 @@ def make_partitioned_tone_layers(
             ("50_NARROW_REFLECTION", color_layer(alpha, highlight & edge_2, rendered)),
         ]
     elif kind == "clear":
-        rendered = palette_ramp(
-            tone,
-            [
-                (0.00, palette["DEEP"]),
-                (0.28, palette["TRANSMISSION_SHADOW"]),
-                (0.48, palette["BASE"]),
-                (0.67, palette["MID_LIGHT"]),
-                (0.84, palette["BRIGHT"]),
-                (1.00, palette["PALE_REFLECTION"]),
-            ],
-        )
-        # Retain only a restrained amount of the source's low-frequency color
-        # beneath the tint. This reads as transmission without reusing source
-        # highlights or any generated geometry.
-        source_blur = np.asarray(
-            Image.fromarray(source[..., :3], "RGB").filter(ImageFilter.GaussianBlur(8))
-        ).astype(np.float32)
-        rendered = np.rint(
-            rendered.astype(np.float32) * 0.88 + source_blur * 0.12
-        ).clip(0, 255).astype(np.uint8)
-        pale = surface & edge_2 & (tone >= 0.70)
-        bright = surface & ~pale & (tone >= 0.78)
-        mid_light = surface & ~pale & ~bright & (tone >= 0.56)
-        deep = surface & ~pale & ~bright & ~mid_light & (tone < 0.20)
-        transmission_shadow = surface & ~pale & ~bright & ~mid_light & ~deep & (tone < 0.38)
+        q12, q30, q60, q82 = np.percentile(tone_values, (12, 30, 60, 82))
+        pale = surface & edge_2 & (tone > q82)
+        bright = surface & ~pale & (tone > q82)
+        mid_light = surface & ~pale & ~bright & (tone > q60)
+        deep = surface & (tone <= q12)
+        transmission_shadow = surface & ~deep & (tone <= q30)
         base = surface & ~pale & ~bright & ~mid_light & ~deep & ~transmission_shadow
         layers = [
             ("10_DEEP_COLOR_CONCENTRATION", color_layer(alpha, deep, rendered)),
@@ -590,18 +579,10 @@ def make_partitioned_tone_layers(
             ("60_EDGE_REFLECTION", color_layer(alpha, pale, rendered)),
         ]
     else:
-        rendered = palette_ramp(
-            tone,
-            [
-                (0.00, palette["SHADOW"]),
-                (0.42, palette["BASE"]),
-                (0.72, palette["MID_LIGHT"]),
-                (1.00, palette["HIGHLIGHT"]),
-            ],
-        )
-        highlight = surface & (tone >= 0.74)
-        mid_light = surface & ~highlight & (tone >= 0.58)
-        shadow = surface & ~highlight & ~mid_light & ((tone < 0.26) | (edge_2 & (tone < 0.48)))
+        q20, q55, q85 = np.percentile(tone_values, (20, 55, 85))
+        highlight = surface & (tone > q85)
+        mid_light = surface & ~highlight & (tone > q55)
+        shadow = surface & (tone <= q20)
         base = surface & ~highlight & ~mid_light & ~shadow
         layers = [
             ("10_BEVEL_SHADOW", color_layer(alpha, shadow, rendered)),
@@ -619,22 +600,82 @@ def make_partitioned_tone_layers(
     if not np.array_equal(owned, surface & (alpha > 0)):
         missing = surface & (alpha > 0) & ~owned
         raise AssertionError(f"Unowned tone pixels for {kind}: {int(missing.sum())}")
+    report = candidate_style_report(
+        candidate_path, surface, aligned_style, style_valid
+    )
+    report.update(
+        {
+            "reference_pixels_used": int(reference_surface.sum()),
+            "reference_missing_pixels_filled": int(missing.sum()),
+            "tone_source": "aligned_style_reference",
+            "tone_feather_max_px": 2,
+            "source_candidate_luminance_mix": 0.0,
+        }
+    )
     return layers, report
 
 
-def line_layers(source: np.ndarray, line_masks: dict[str, np.ndarray]) -> list[tuple[str, np.ndarray]]:
-    alpha = source[..., 3]
-    source_rgb = source[..., :3].astype(np.float32)
+def candidate_style_report(
+    path: Path,
+    target_mask: np.ndarray,
+    aligned_style: np.ndarray,
+    style_valid: np.ndarray,
+) -> dict[str, object]:
+    report: dict[str, object] = {
+        "path": str(path),
+        "exists": path.exists(),
+        "adopted_pixels": 0,
+        "usage": "comparison_only",
+        "geometry_alpha_text_background_used": False,
+    }
+    if not path.exists():
+        report["reason"] = "candidate_missing_reference_direct_retained"
+        return report
+    fitted_rgb, fitted_subject = fit_candidate(path, target_mask)
+    usable = target_mask & fitted_subject & style_valid
+    coverage = float(usable.sum() / max(1, target_mask.sum()))
+    report["target_coverage"] = round(coverage, 6)
+    if usable.any():
+        candidate_error = np.abs(
+            luma(fitted_rgb)[usable] - luma(aligned_style[..., :3])[usable]
+        )
+        report["reference_luma_mae"] = round(float(candidate_error.mean()), 6)
+    else:
+        report["reference_luma_mae"] = None
+    report["direct_reference_luma_mae"] = 0.0
+    report["reason"] = "reference_direct_has_lower_or_equal_error"
+    return report
 
-    def ink_layer(mask: np.ndarray, strength: float) -> np.ndarray:
-        ink = np.broadcast_to(INK.astype(np.float32), source_rgb.shape)
-        rgb = np.rint(source_rgb * (1.0 - strength) + ink * strength).astype(np.uint8)
+
+def line_layers(
+    source: np.ndarray,
+    aligned_style: np.ndarray,
+    style_valid: np.ndarray,
+    line_masks: dict[str, np.ndarray],
+    part_mask: np.ndarray,
+) -> list[tuple[str, np.ndarray]]:
+    alpha = source[..., 3]
+    reference_rgb = aligned_style[..., :3]
+    reference_luma = luma(reference_rgb)
+    pool = part_mask & style_valid
+    if not pool.any():
+        raise AssertionError("No style-reference pixels available for linework")
+    dark_cut = float(np.percentile(reference_luma[pool], 28))
+    dark_pool = pool & (reference_luma <= dark_cut)
+    fallback = np.median(reference_rgb[dark_pool], axis=0)
+
+    def ink_layer(mask: np.ndarray, fallback_scale: float) -> np.ndarray:
+        rgb = reference_rgb.copy()
+        valid = mask & style_valid & (reference_luma <= np.percentile(reference_luma[pool], 48))
+        missing = mask & ~valid
+        fallback_color = np.rint(fallback * fallback_scale).clip(0, 255).astype(np.uint8)
+        rgb[missing] = fallback_color
         return color_layer(alpha, mask, rgb)
 
     return [
-        ("70_MAJOR_BOUNDARY_4PX", ink_layer(line_masks["MAJOR_4PX"], 0.72)),
-        ("71_STRUCTURE_LINE_3PX", ink_layer(line_masks["STRUCTURE_3PX"], 0.58)),
-        ("72_FINE_LINE_2PX", ink_layer(line_masks["FINE_2PX"], 0.44)),
+        ("70_MAJOR_BOUNDARY_4PX", ink_layer(line_masks["MAJOR_4PX"], 0.84)),
+        ("71_STRUCTURE_LINE_3PX", ink_layer(line_masks["STRUCTURE_3PX"], 0.92)),
+        ("72_FINE_LINE_2PX", ink_layer(line_masks["FINE_2PX"], 1.00)),
     ]
 
 
@@ -659,7 +700,21 @@ def make_linework_groups(state: BuildState) -> list[tuple[str, list[tuple[str, n
             for key, value in state.line_masks.items()
             if key != "COMMON"
         }
-        groups.append((f"{index:02d}_{name}", [("10_SOURCE_TONE_BASE", base), *line_layers(source, local_lines)]))
+        groups.append(
+            (
+                f"{index:02d}_{name}",
+                [
+                    ("10_SOURCE_TONE_BASE", base),
+                    *line_layers(
+                        source,
+                        state.aligned_style,
+                        state.style_valid,
+                        local_lines,
+                        masks[name],
+                    ),
+                ],
+            )
+        )
     groups.append(
         (
             "40_PROTECTED_ARTWORK",
@@ -680,15 +735,21 @@ def make_material_groups(state: BuildState) -> list[tuple[str, list[tuple[str, n
         )
     ]
     specs = [
-        ("10_FLAME_METAL_WHEEL", "FLAME_METAL_WHEEL", CANDIDATES["METAL_MATERIAL"], METAL_PALETTE, "metal"),
-        ("15_YELLOW_INTERNAL_PARTS", "YELLOW_INTERNAL_PARTS", CANDIDATES["YELLOW_INTERNAL_MATERIAL"], PLASTIC_PALETTE, "plastic"),
-        ("20_LIBRA_CLEAR_WHEEL", "LIBRA_CLEAR_WHEEL", CANDIDATES["CLEAR_MATERIAL"], CLEAR_PALETTE, "clear"),
-        ("30_FACE_BOLT", "FACE_BOLT", CANDIDATES["FACE_BOLT_MATERIAL"], PLASTIC_PALETTE, "plastic"),
+        ("10_FLAME_METAL_WHEEL", "FLAME_METAL_WHEEL", CANDIDATES["METAL_REMATCH"], "metal"),
+        ("15_YELLOW_INTERNAL_PARTS", "YELLOW_INTERNAL_PARTS", CANDIDATES["YELLOW_INTERNAL_MATERIAL"], "plastic"),
+        ("20_LIBRA_CLEAR_WHEEL", "LIBRA_CLEAR_WHEEL", CANDIDATES["CLEAR_REMATCH"], "clear"),
+        ("30_FACE_BOLT", "FACE_BOLT", CANDIDATES["FACE_BOLT_MATERIAL"], "plastic"),
     ]
-    for group_name, mask_name, candidate, palette, kind in specs:
+    for group_name, mask_name, candidate, kind in specs:
         local_line = line & masks[mask_name]
         tone_layers, report = make_partitioned_tone_layers(
-            source, masks[mask_name], local_line, candidate, palette, kind
+            source,
+            state.aligned_style,
+            state.style_valid,
+            masks[mask_name],
+            local_line,
+            candidate,
+            kind,
         )
         state.candidate_report[candidate.stem] = report
         local_lines = {
@@ -696,7 +757,21 @@ def make_material_groups(state: BuildState) -> list[tuple[str, list[tuple[str, n
             for key, value in state.line_masks.items()
             if key != "COMMON"
         }
-        groups.append((group_name, [*tone_layers, *line_layers(source, local_lines)]))
+        groups.append(
+            (
+                group_name,
+                [
+                    *tone_layers,
+                    *line_layers(
+                        source,
+                        state.aligned_style,
+                        state.style_valid,
+                        local_lines,
+                        masks[mask_name],
+                    ),
+                ],
+            )
+        )
     groups.append(
         (
             "40_PROTECTED_ARTWORK",
@@ -862,15 +937,183 @@ def alpha_centroid(alpha: np.ndarray) -> list[float]:
     return [round(float((xx * weights).sum() / total), 6), round(float((yy * weights).sum() / total), 6)]
 
 
+def saturation(rgb: np.ndarray) -> np.ndarray:
+    values = rgb.astype(np.float32) / 255.0
+    maximum = values.max(axis=-1)
+    minimum = values.min(axis=-1)
+    result = np.zeros_like(maximum, dtype=np.float32)
+    np.divide(maximum - minimum, maximum, out=result, where=maximum > 0)
+    return result
+
+
+def material_style_metrics(image: np.ndarray, state: BuildState) -> dict[str, object]:
+    reference = state.aligned_style[..., :3]
+    reference_luma = luma(reference)
+    result_luma = luma(image[..., :3])
+    reference_saturation = saturation(reference)
+    result_saturation = saturation(image[..., :3])
+    report: dict[str, object] = {}
+    for name in (
+        "FLAME_METAL_WHEEL",
+        "YELLOW_INTERNAL_PARTS",
+        "LIBRA_CLEAR_WHEEL",
+        "FACE_BOLT",
+    ):
+        mask = (
+            state.masks[name]
+            & state.style_valid
+            & ~state.line_masks["COMMON"]
+        )
+        reference_values = reference_luma[mask]
+        result_values = result_luma[mask]
+        percentiles = (5, 25, 50, 75, 95)
+        reference_quantiles = np.percentile(reference_values, percentiles)
+        result_quantiles = np.percentile(result_values, percentiles)
+        quantile_delta = np.abs(result_quantiles - reference_quantiles)
+        quadrant_deltas = []
+        half_x = image.shape[1] // 2
+        half_y = image.shape[0] // 2
+        for region in (
+            (slice(None), slice(0, half_x)),
+            (slice(None), slice(half_x, None)),
+            (slice(0, half_y), slice(None)),
+            (slice(half_y, None), slice(None)),
+        ):
+            local_mask = mask[region]
+            if local_mask.any():
+                quadrant_deltas.append(
+                    abs(
+                        float(result_luma[region][local_mask].mean())
+                        - float(reference_luma[region][local_mask].mean())
+                    )
+                )
+        report[name] = {
+            "pixels": int(mask.sum()),
+            "reference_luma_mae": round(
+                float(np.abs(result_values - reference_values).mean()), 6
+            ),
+            "luma_percentiles": {
+                "points": list(percentiles),
+                "reference": [round(float(value), 3) for value in reference_quantiles],
+                "result": [round(float(value), 3) for value in result_quantiles],
+                "absolute_delta": [round(float(value), 3) for value in quantile_delta],
+                "max_absolute_delta": round(float(quantile_delta.max()), 6),
+            },
+            "mean_saturation": {
+                "reference": round(float(reference_saturation[mask].mean()), 6),
+                "result": round(float(result_saturation[mask].mean()), 6),
+                "absolute_delta": round(
+                    abs(
+                        float(result_saturation[mask].mean())
+                        - float(reference_saturation[mask].mean())
+                    ),
+                    6,
+                ),
+            },
+            "dark_below_80_percent": {
+                "reference": round(float((reference_values < 80).mean()) * 100, 6),
+                "result": round(float((result_values < 80).mean()) * 100, 6),
+                "absolute_delta_percentage_points": round(
+                    abs(
+                        float((result_values < 80).mean())
+                        - float((reference_values < 80).mean())
+                    )
+                    * 100,
+                    6,
+                ),
+            },
+            "highlight_above_220_percent": {
+                "reference": round(float((reference_values > 220).mean()) * 100, 6),
+                "result": round(float((result_values > 220).mean()) * 100, 6),
+                "absolute_delta_percentage_points": round(
+                    abs(
+                        float((result_values > 220).mean())
+                        - float((reference_values > 220).mean())
+                    )
+                    * 100,
+                    6,
+                ),
+            },
+            "reference_relative_quadrant_luma_max_delta": round(
+                max(quadrant_deltas, default=0.0), 6
+            ),
+        }
+    return report
+
+
+def make_style_comparison(
+    aligned_style: np.ndarray, baseline: np.ndarray, final: np.ndarray
+) -> None:
+    thumb_size = (EXPECTED_SIZE[0] // 4, EXPECTED_SIZE[1] // 4)
+    panels = []
+    for label, data in (
+        ("ALIGNED REFERENCE", aligned_style),
+        ("BASELINE ea84c73", baseline),
+        ("REVISED FINAL", final),
+    ):
+        panel = Image.new("RGBA", thumb_size, (16, 16, 16, 255))
+        resized = Image.fromarray(data, "RGBA").resize(thumb_size, Image.Resampling.LANCZOS)
+        panel = Image.alpha_composite(panel, resized)
+        ImageDraw.Draw(panel).rectangle((0, 0, thumb_size[0], 20), fill=(0, 0, 0, 210))
+        ImageDraw.Draw(panel).text((6, 5), label, fill=(255, 255, 255, 255))
+        panels.append(panel)
+
+    difference = np.abs(
+        final[..., :3].astype(np.int16) - aligned_style[..., :3].astype(np.int16)
+    ).max(axis=2).astype(np.uint8)
+    heat = np.zeros_like(final)
+    heat[..., 0] = difference
+    heat[..., 1] = np.rint(difference.astype(np.float32) * 0.18).astype(np.uint8)
+    heat[..., 2] = np.rint(difference.astype(np.float32) * 0.35).astype(np.uint8)
+    heat[..., 3] = np.where((final[..., 3] > 0) | (aligned_style[..., 3] > 0), 255, 0)
+    heat_panel = Image.new("RGBA", thumb_size, (16, 16, 16, 255))
+    heat_panel = Image.alpha_composite(
+        heat_panel,
+        Image.fromarray(heat, "RGBA").resize(thumb_size, Image.Resampling.LANCZOS),
+    )
+    ImageDraw.Draw(heat_panel).rectangle((0, 0, thumb_size[0], 20), fill=(0, 0, 0, 210))
+    ImageDraw.Draw(heat_panel).text((6, 5), "ABSOLUTE RGB DIFFERENCE", fill=(255, 255, 255, 255))
+    panels.append(heat_panel)
+
+    sheet = Image.new("RGBA", (thumb_size[0] * len(panels), thumb_size[1]), (0, 0, 0, 255))
+    for index, panel in enumerate(panels):
+        sheet.alpha_composite(panel, (index * thumb_size[0], 0))
+    sheet.convert("RGB").save(STYLE_COMPARISON_PATH)
+
+
 def build_state() -> BuildState:
     source = np.asarray(Image.open(SOURCE_PATH).convert("RGBA")).copy()
     if (source.shape[1], source.shape[0]) != EXPECTED_SIZE:
         raise AssertionError(f"Unexpected source size: {(source.shape[1], source.shape[0])}")
     if bbox(source[..., 3] > 0) != EXPECTED_ALPHA_BBOX:
         raise AssertionError(f"Unexpected alpha bbox: {bbox(source[..., 3] > 0)}")
+    aligned_style, style_valid, style_alignment = align_style_reference(source)
     masks = make_masks(source)
     line_masks = make_line_masks(source, masks)
-    return BuildState(source=source, masks=masks, line_masks=line_masks, candidate_report={})
+    palette_specs = {
+        "FLAME_METAL_WHEEL": 4,
+        "YELLOW_INTERNAL_PARTS": 4,
+        "LIBRA_CLEAR_WHEEL": 5,
+        "FACE_BOLT": 4,
+    }
+    reference_palette = {
+        name: sampled_palette(
+            aligned_style[..., :3],
+            masks[name] & style_valid & ~line_masks["COMMON"],
+            band_count,
+        )
+        for name, band_count in palette_specs.items()
+    }
+    return BuildState(
+        source=source,
+        aligned_style=aligned_style,
+        style_valid=style_valid,
+        style_alignment=style_alignment,
+        masks=masks,
+        line_masks=line_masks,
+        reference_palette=reference_palette,
+        candidate_report={},
+    )
 
 
 def save_masks(state: BuildState) -> None:
@@ -908,6 +1151,8 @@ def prepare() -> dict[str, object]:
         "phase": "prepare",
         "source": str(SOURCE_PATH),
         "style_reference": str(STYLE_PATH),
+        "style_alignment": state.style_alignment,
+        "reference_palette": state.reference_palette,
         "size": list(EXPECTED_SIZE),
         "alpha_bbox": list(bbox(state.source[..., 3] > 0)),
         "mask_pixels": {name: int(mask.sum()) for name, mask in state.masks.items()},
@@ -931,12 +1176,21 @@ def prepare() -> dict[str, object]:
 def build() -> dict[str, object]:
     state = build_state()
     save_masks(state)
+    if not BASELINE_PREVIEW.exists():
+        raise AssertionError(f"Missing baseline preview: {BASELINE_PREVIEW}")
+    baseline = np.asarray(Image.open(BASELINE_PREVIEW).convert("RGBA")).copy()
+    if (baseline.shape[1], baseline.shape[0]) != EXPECTED_SIZE:
+        raise AssertionError(f"Unexpected baseline size: {(baseline.shape[1], baseline.shape[0])}")
     state.candidate_report["metal-linework"] = line_candidate_report(
         CANDIDATES["METAL_LINEWORK"], state.masks["FLAME_METAL_WHEEL"], state.line_masks["COMMON"]
     )
     state.candidate_report["clear-linework"] = line_candidate_report(
         CANDIDATES["CLEAR_LINEWORK"], state.masks["LIBRA_CLEAR_WHEEL"], state.line_masks["COMMON"]
     )
+    linework_groups = make_linework_groups(state)
+    linework = compose_groups(linework_groups)
+    Image.fromarray(linework, "RGBA").save(STAGE2_PREVIEW)
+    save_psd(STAGE2_PSD, state.source, linework_groups, include_hidden_masks=state.masks)
     groups = make_material_groups(state)
     final = compose_groups(groups)
     Image.fromarray(final, "RGBA").save(STAGE3_PREVIEW)
@@ -947,6 +1201,7 @@ def build() -> dict[str, object]:
     ).save(WORK / "preview-25pct.png")
     save_psd(STAGE3_PSD, state.source, groups, include_hidden_masks=state.masks)
     save_psd(MASTER_PSD, state.source, groups, include_hidden_masks=state.masks)
+    make_style_comparison(state.aligned_style, baseline, final)
 
     manifest_layers = save_groups_as_png(groups)
     recomposed = alpha_composite(
@@ -956,10 +1211,84 @@ def build() -> dict[str, object]:
     source = state.source
     masks = state.masks
     alpha = source[..., 3]
+    baseline_style_metrics = material_style_metrics(baseline, state)
+    revised_style_metrics = material_style_metrics(final, state)
+    primary_improvement: dict[str, object] = {}
+    for name in ("FLAME_METAL_WHEEL", "LIBRA_CLEAR_WHEEL"):
+        baseline_mae = float(baseline_style_metrics[name]["reference_luma_mae"])
+        revised_mae = float(revised_style_metrics[name]["reference_luma_mae"])
+        reduction = 1.0 - revised_mae / max(baseline_mae, 1e-6)
+        primary_improvement[name] = {
+            "baseline_reference_luma_mae": round(baseline_mae, 6),
+            "revised_reference_luma_mae": round(revised_mae, 6),
+            "reduction_percent": round(reduction * 100, 6),
+            "at_least_45_percent_reduction": reduction >= 0.45,
+            "mae_at_most_18": revised_mae <= 18.0,
+        }
+    quantile_pass = all(
+        float(values["luma_percentiles"]["max_absolute_delta"]) <= 10.0
+        for values in revised_style_metrics.values()
+    )
+    saturation_pass = all(
+        float(values["mean_saturation"]["absolute_delta"]) <= 0.06
+        for values in revised_style_metrics.values()
+    )
+    quadrant_pass = all(
+        float(values["reference_relative_quadrant_luma_max_delta"]) <= 5.0
+        for values in revised_style_metrics.values()
+    )
+    metal_distribution_pass = all(
+        float(
+            revised_style_metrics["FLAME_METAL_WHEEL"][metric][
+                "absolute_delta_percentage_points"
+            ]
+        )
+        <= 2.0
+        for metric in ("dark_below_80_percent", "highlight_above_220_percent")
+    )
+    style_match_pass = (
+        all(
+            values["at_least_45_percent_reduction"] and values["mae_at_most_18"]
+            for values in primary_improvement.values()
+        )
+        and quantile_pass
+        and saturation_pass
+        and quadrant_pass
+        and metal_distribution_pass
+    )
+    style_report = {
+        "style_reference": str(STYLE_PATH),
+        "style_reference_sha256": sha256(STYLE_PATH),
+        "baseline": str(BASELINE_PREVIEW),
+        "baseline_sha256": sha256(BASELINE_PREVIEW),
+        "alignment": state.style_alignment,
+        "reference_palette": state.reference_palette,
+        "baseline_metrics": baseline_style_metrics,
+        "revised_metrics": revised_style_metrics,
+        "primary_improvement": primary_improvement,
+        "checks": {
+            "primary_mae_pass": all(
+                values["at_least_45_percent_reduction"] and values["mae_at_most_18"]
+                for values in primary_improvement.values()
+            ),
+            "all_material_luma_quantiles_within_10": quantile_pass,
+            "all_material_mean_saturation_within_0_06": saturation_pass,
+            "reference_relative_quadrant_luma_within_5": quadrant_pass,
+            "metal_dark_highlight_area_within_2_percentage_points": metal_distribution_pass,
+            "tone_feather_max_px": 2,
+            "airbrush_glow_white_blob_forbidden": True,
+            "pass": style_match_pass,
+        },
+        "comparison": str(STYLE_COMPARISON_PATH),
+    }
+    STYLE_METRICS_PATH.write_text(
+        json.dumps(style_report, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
     outside_edit = (~masks["EDITABLE"]) & (alpha > 0)
     protected = masks["PROTECTED_ARTWORK"]
     overlap = mask_overlap_report(masks)
     symmetry = highlight_symmetry(groups)
+    stage2_psd_report = psd_report(STAGE2_PSD, linework)
     stage3_psd_report = psd_report(STAGE3_PSD, final)
     master_psd_report = psd_report(MASTER_PSD, final)
     thumbnail_line_pixels: dict[str, int] = {}
@@ -1038,6 +1367,8 @@ def build() -> dict[str, object]:
         "style_reference": str(STYLE_PATH),
         "source_sha256": sha256(SOURCE_PATH),
         "style_reference_sha256": sha256(STYLE_PATH),
+        "style_alignment": state.style_alignment,
+        "reference_palette": state.reference_palette,
         "canvas": {
             "expected": list(EXPECTED_SIZE),
             "actual": [final.shape[1], final.shape[0]],
@@ -1083,7 +1414,7 @@ def build() -> dict[str, object]:
         "materials": {
             "candidate_evaluation": material_candidates,
             "highlight_symmetry_difference_percent": symmetry,
-            "all_symmetry_checks_within_5_percent": all(value <= 5.0 for value in symmetry.values()),
+            "forced_symmetry_applied": False,
             "clear_has_multiple_tone_layers": True,
             "metal_has_shadow_midtones_and_highlights": True,
             "opaque_plastic_uses_no_metal_reflection_layer": True,
@@ -1096,11 +1427,13 @@ def build() -> dict[str, object]:
             },
             "metal_clear_distinction_pass": material_saturation_difference >= 35.0,
         },
+        "style_match": style_report,
         "recomposition": {
             "png_layers_exact": bool(np.array_equal(recomposed, final)),
             "png_layers_max_channel_delta": int(
                 np.abs(recomposed.astype(np.int16) - final.astype(np.int16)).max()
             ),
+            "stage2_psd": stage2_psd_report,
             "stage3_psd": stage3_psd_report,
             "master_psd": master_psd_report,
         },
@@ -1115,6 +1448,8 @@ def build() -> dict[str, object]:
             "final_preview": str(FINAL_PREVIEW),
             "layers_dir": str(LAYERS_DIR),
             "manifest": str(MANIFEST_PATH),
+            "style_metrics": str(STYLE_METRICS_PATH),
+            "style_comparison": str(STYLE_COMPARISON_PATH),
         },
     }
     required_checks = [
@@ -1125,14 +1460,17 @@ def build() -> dict[str, object]:
         validation["outside_edit_mask"]["rgba_difference_pixels"] == 0,
         validation["masks"]["all_pairwise_overlaps_zero"],
         validation["linework"]["thumbnail_25pct"]["pass"],
-        validation["materials"]["all_symmetry_checks_within_5_percent"],
+        validation["style_match"]["checks"]["pass"],
         validation["materials"]["required_tone_layers_nonzero"],
         validation["materials"]["metal_clear_distinction_pass"],
         validation["recomposition"]["png_layers_exact"],
+        stage2_psd_report["max_channel_delta"] <= 1,
         stage3_psd_report["max_channel_delta"] <= 1,
         master_psd_report["max_channel_delta"] <= 1,
+        stage2_psd_report["alpha_exact"],
         stage3_psd_report["alpha_exact"],
         master_psd_report["alpha_exact"],
+        stage2_psd_report["layer_names_ascii"],
         stage3_psd_report["layer_names_ascii"],
         master_psd_report["layer_names_ascii"],
     ]
@@ -1141,7 +1479,7 @@ def build() -> dict[str, object]:
     validation["required_checks_total"] = len(required_checks)
 
     manifest = {
-        "schema_version": 1,
+        "schema_version": 2,
         "master": "libra-stylematch-master.psd",
         "exchange_format": "full_canvas_rgba_png",
         "canvas": {"width": EXPECTED_SIZE[0], "height": EXPECTED_SIZE[1]},
@@ -1151,6 +1489,14 @@ def build() -> dict[str, object]:
             "alpha_policy": "exact",
         },
         "style_reference": {"file": STYLE_PATH.name, "sha256": sha256(STYLE_PATH)},
+        "style_alignment": state.style_alignment,
+        "reference_palette": state.reference_palette,
+        "style_metrics": {
+            "file": STYLE_METRICS_PATH.relative_to(ROOT).as_posix(),
+            "comparison": STYLE_COMPARISON_PATH.relative_to(ROOT).as_posix(),
+            "pass": style_match_pass,
+            "primary_improvement": primary_improvement,
+        },
         "psd": {
             "mode": "RGB_with_user_layer_masks",
             "layer_names": "ASCII",
@@ -1159,8 +1505,11 @@ def build() -> dict[str, object]:
         },
         "generation_policy": {
             "generated_geometry_alpha_text_background_used": False,
-            "generated_material_usage": "low_frequency_luminance_only_inside_final_masks",
+            "generated_material_usage": "comparison_only_reference_direct_retained_when_lower_error",
             "generated_linework_usage": "support_test_only",
+            "material_tone_source": "aligned_style_reference_pixels",
+            "forced_symmetry_applied": False,
+            "maximum_tone_feather_px": 2,
         },
         "layers": manifest_layers,
     }

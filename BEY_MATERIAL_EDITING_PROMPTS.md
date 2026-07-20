@@ -716,6 +716,17 @@ bey_specific:
     alpha_policy: "preserve"
     progress_policy: "자동 검증 통과 시 최종 단계까지 진행"
 
+  style_authority:
+    alignment_method: "alpha_bbox_lanczos"
+    minimum_alpha_iou: 0.99
+    palette_source: "aligned_style_reference"
+    line_color_source: "aligned_style_reference"
+    tonal_structure: "reference_cel_bands"
+    source_or_generated_tone_mix: 0
+    force_mirrored_lighting: false
+    maximum_tone_feather_px: 2
+    stop_if_reference_missing_or_alignment_fails: true
+
   linework:
     major_boundary_px: 4
     structure_line_px: 3
@@ -723,6 +734,8 @@ bey_specific:
     alignment_tolerance_px: 4
     connection_tolerance_px: 12
     line_color: "#202020"
+    line_geometry_source: "source_image"
+    line_color_and_contrast_source: "aligned_style_reference"
 
   lighting:
     direction: "front_center"
@@ -730,6 +743,8 @@ bey_specific:
     corresponding_highlight_mean_difference_max_percent: 5
     asymmetric_highlight: false
     local_white_light_blob: false
+    reference_relative_quadrant_luma_max_delta: 5
+    broad_airbrush_or_glow: false
 
   parts:
     - id: "FLAME_METAL_WHEEL"
@@ -738,6 +753,7 @@ bey_specific:
       stack_order: 10
       base_color: "#AAA8A7"
       line_color: "#202020"
+      palette_priority: "aligned_style_reference_then_fallback"
       palette:
         shadow: "#807B72"
         midtone_dark: "#AAA8A7"
@@ -759,6 +775,7 @@ bey_specific:
       stack_order: 15
       base_color: "#FFB900"
       line_color: "#202020"
+      palette_priority: "aligned_style_reference_then_fallback"
       detail_reference: "none"
       included_regions:
         - "네 방향 타원형 개구부에서 보이는 노란 하부 부품"
@@ -773,6 +790,7 @@ bey_specific:
       stack_order: 20
       base_color: "#A1BA2D"
       line_color: "#202020"
+      palette_priority: "aligned_style_reference_then_fallback"
       palette:
         deep_surface: "#45491E"
         transmission_shadow: "#596922"
@@ -799,6 +817,7 @@ bey_specific:
       stack_order: 30
       base_color: "#FFB900"
       line_color: "#202020"
+      palette_priority: "aligned_style_reference_then_fallback"
       detail_reference: "none"
       included_regions:
         - "중앙 노란 육각형 본체"
@@ -885,9 +904,22 @@ bey_specific:
     - "클리어휠이 불투명 단색이거나 허용된 하부 부품이 전혀 보이지 않음"
     - "금속과 불투명 플라스틱의 반사 차이를 식별할 수 없음"
     - "좌우·상하 비대칭 하이라이트나 국소적인 흰색 빛 얼룩이 발생함"
+    - "참고본에 없는 넓은 흰색 광택 띠·에어브러시·글로우·검은 번짐이 발생함"
+    - "참고 이미지가 메타데이터에만 기록되고 실제 팔레트·명암·선 대비 계산에 사용되지 않음"
     - "금지된 중앙 링·내부 패널·개구부·브리지·불꽃 조형이 추가 디테일에 들어옴"
     - "보호 픽셀·원본 알파·외곽·구멍 중 하나라도 원본과 다름"
     - "수정 마스크 밖 픽셀이 변경됨"
+
+  style_validation:
+    primary_parts: ["FLAME_METAL_WHEEL", "LIBRA_CLEAR_WHEEL"]
+    reference_luma_mae_reduction_min_percent: 45
+    reference_luma_mae_max: 18
+    material_luma_percentile_delta_max: 10
+    material_mean_saturation_delta_max: 0.06
+    metal_dark_highlight_area_delta_max_percentage_points: 2
+    reference_relative_quadrant_luma_max_delta: 5
+    generated_candidates: "comparison_only"
+    generated_candidate_adoption: "only_if_reference_error_decreases_and_all_fixed_rules_pass"
 
   output:
     stage1_psd: "assets/images/beys/libra-stylematch-01-masks.psd"
@@ -901,4 +933,7 @@ bey_specific:
     layers_dir: "assets/images/beys/libra-stylematch.layers/"
     candidate_dir: "tmp/imagegen/libra-stylematch/"
     validation: "tmp/imagegen/libra-stylematch/validation.json"
+    style_metrics: "tmp/imagegen/libra-stylematch/style-metrics.json"
+    style_comparison: "tmp/imagegen/libra-stylematch/style-comparison.png"
+    manifest_schema_version: 2
 ```
