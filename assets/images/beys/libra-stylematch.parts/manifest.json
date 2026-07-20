@@ -1,0 +1,222 @@
+{
+  "schema_version": 1,
+  "bundle": "libra_stylematch_physical_parts",
+  "canvas": {
+    "width": 1452,
+    "height": 1440
+  },
+  "exchange_format": "full_canvas_rgba_png",
+  "source_final": {
+    "file": "assets/images/beys/libra-stylematch-preview.png",
+    "sha256": "f3dc5eaf6a4418908b1d0cb3f94cb46dcbc84adc44bef3bec3c0ddbe2d9e5060",
+    "pixel_policy": "exact_current_final_pixels"
+  },
+  "layer_order": "bottom_to_top",
+  "parts": [
+    {
+      "order_bottom_to_top": 0,
+      "name": "TRACK",
+      "file": "01_TRACK.png",
+      "canvas": {
+        "width": 1452,
+        "height": 1440
+      },
+      "mode": "RGBA",
+      "blend_mode": "normal",
+      "base_mask_pixels": 14882,
+      "preserved_source_pixels_assigned": 214,
+      "final_mask_pixels": 15096,
+      "sha256": "f20c8bb6239616ac31c6cedf7b03d4b88ea447ee4c04dda3871c61e4c851850e"
+    },
+    {
+      "order_bottom_to_top": 1,
+      "name": "METAL_WHEEL",
+      "file": "02_METAL_WHEEL.png",
+      "canvas": {
+        "width": 1452,
+        "height": 1440
+      },
+      "mode": "RGBA",
+      "blend_mode": "normal",
+      "base_mask_pixels": 579598,
+      "preserved_source_pixels_assigned": 2508,
+      "final_mask_pixels": 582106,
+      "sha256": "10d2741fbef25aff2a5568c391f470dc2650cca13083de1faa8b7a89869ea935"
+    },
+    {
+      "order_bottom_to_top": 2,
+      "name": "CLEAR_WHEEL",
+      "file": "03_CLEAR_WHEEL.png",
+      "canvas": {
+        "width": 1452,
+        "height": 1440
+      },
+      "mode": "RGBA",
+      "blend_mode": "normal",
+      "base_mask_pixels": 664875,
+      "preserved_source_pixels_assigned": 8713,
+      "final_mask_pixels": 673588,
+      "sha256": "557e74d6750934cb832f26b2dac979d8e3e6bb213ad1519540b0b5a8a3711c01"
+    },
+    {
+      "order_bottom_to_top": 3,
+      "name": "FACE_AND_STICKER",
+      "file": "04_FACE_AND_STICKER.png",
+      "canvas": {
+        "width": 1452,
+        "height": 1440
+      },
+      "mode": "RGBA",
+      "blend_mode": "normal",
+      "base_mask_pixels": 210189,
+      "preserved_source_pixels_assigned": 4151,
+      "final_mask_pixels": 214340,
+      "sha256": "97ace6a89750643d2fd6d995aecf7ab0ef266dc70650331bb9af6a1936697e75"
+    }
+  ],
+  "residual_assignment": {
+    "source_mask": "PRESERVED_SOURCE",
+    "method": "iterative_1px_8_connected_nearest",
+    "tie_priority": [
+      "FACE_AND_STICKER",
+      "CLEAR_WHEEL",
+      "METAL_WHEEL",
+      "TRACK"
+    ],
+    "iterations": 3,
+    "total_pixels": 15586,
+    "assigned_pixels_by_part": {
+      "TRACK": 214,
+      "METAL_WHEEL": 2508,
+      "CLEAR_WHEEL": 8713,
+      "FACE_AND_STICKER": 4151
+    }
+  },
+  "psd": {
+    "file": "libra-stylematch-parts.psd",
+    "sha256": "9bd552a0daed29b83d125ede95c4a589215a874f9ed24517c19d6f22dd9cc6f7",
+    "canvas": {
+      "width": 1452,
+      "height": 1440
+    },
+    "root_layer_names_bottom_to_top": [
+      "TRACK",
+      "METAL_WHEEL",
+      "CLEAR_WHEEL",
+      "FACE_AND_STICKER"
+    ],
+    "pixel_layer_count": 4,
+    "group_count": 0,
+    "all_layer_names_ascii": true,
+    "max_channel_delta": 1,
+    "channels_over_1": 0,
+    "alpha_exact": true
+  },
+  "existing_layers_snapshot": {
+    "path": "assets/images/beys/libra-stylematch.layers",
+    "before": {
+      "file_count": 34,
+      "aggregate_sha256": "da610c4c131f7e832997597dbcf7dc83f2ae72aa44a93e2cc4e1fe923f6d4e1d",
+      "files": {
+        "00_00_PRESERVED_SOURCE__00_ORIGINAL_PIXELS.png": "0b06cac2d5fd36b744a396a8081379457a975c049e66b28ac3d7a44fa968f8b1",
+        "01_10_FLAME_METAL_WHEEL__10_SHADOW_REFLECTION.png": "db2f0da997106ca5ee4ef81efa858b6776d3dbd5507a163fd9e04c132d4c03c9",
+        "02_10_FLAME_METAL_WHEEL__20_BASE_MIDTONE.png": "64f72b5ff57c2bb8a706f5cee538d3fb65e8cabcc8c4ca8a0218ce6efbdd9156",
+        "03_10_FLAME_METAL_WHEEL__30_MID_LIGHT.png": "3c62a4d01fa14cb4b8362c8990c3aafb8d2e2f3d029bf91a57d3b31776221fe0",
+        "04_10_FLAME_METAL_WHEEL__40_BROAD_HIGHLIGHT.png": "0112bb3fcfa0c510a30a0a91db98b128bce8a37657bcec340b95570603011594",
+        "05_10_FLAME_METAL_WHEEL__50_NARROW_REFLECTION.png": "3bb45f401ae242f5ea18327b839fa9c9947f7e45606adca805381afbfa7dd787",
+        "06_10_FLAME_METAL_WHEEL__70_MAJOR_BOUNDARY_4PX.png": "5594f1acfe3c7a8b1363fe138ba15fdfa12177b192cc047ce526d18993da415a",
+        "07_10_FLAME_METAL_WHEEL__71_STRUCTURE_LINE_3PX.png": "92440959389b4b578c20c5453fd49cc877f5bfae4f727f540e01254ecf3c4d95",
+        "08_10_FLAME_METAL_WHEEL__72_FINE_LINE_2PX.png": "b2b9b1495bfdb0663e3ffa4f5f01d5d5c5ce472cc3721cbbca7c650734dedec3",
+        "09_15_YELLOW_INTERNAL_PARTS__10_BEVEL_SHADOW.png": "ac6af4d3152ca32f33010104c86759ecaa5fa9b78a9d382789589dff944a713c",
+        "10_15_YELLOW_INTERNAL_PARTS__20_BASE_COLOR.png": "3ccfbd69f4c190aa416689047b3aa3291bfd3e2ff66d1226c55a174279c73718",
+        "11_15_YELLOW_INTERNAL_PARTS__30_BEVEL_MID_LIGHT.png": "26ada88321d8f060e04e3d388af91bf5f970a0ccb33082a8195bd541e7b69a17",
+        "12_15_YELLOW_INTERNAL_PARTS__40_BEVEL_HIGHLIGHT.png": "2cbb52d14f6fd94fcd28b7d3da84201349fb931d5df3f61062c8647401d7c740",
+        "13_15_YELLOW_INTERNAL_PARTS__70_MAJOR_BOUNDARY_4PX.png": "551732b80309022cce06d58e26e0659faf962eaa5a6237a5c544d853471e586c",
+        "14_15_YELLOW_INTERNAL_PARTS__71_STRUCTURE_LINE_3PX.png": "19cd8bf56f1d19a031a9269b7643dc2c9c8d288eeafdedda1ee14ca7939a47b7",
+        "15_15_YELLOW_INTERNAL_PARTS__72_FINE_LINE_2PX.png": "1b042d1f7ebbe3d1427dc8813be351dc4b37eeee43e9faa48d0154ce987a6b36",
+        "16_20_LIBRA_CLEAR_WHEEL__10_DEEP_COLOR_CONCENTRATION.png": "c18449f598023f4365adc224b06abbd9f46288f3c26efb0b3a06b72dfa90aa1f",
+        "17_20_LIBRA_CLEAR_WHEEL__20_TRANSMISSION_SHADOW.png": "52329af0db9c581ca7a77ef702873e958153b9e27b1905ecc204923371089a67",
+        "18_20_LIBRA_CLEAR_WHEEL__30_TINTED_TRANSMISSION.png": "9d52e635e9f78d0aa0ef79b776a6f3234b897daeb5f19ede86df21560f8e4121",
+        "19_20_LIBRA_CLEAR_WHEEL__40_MID_LIGHT.png": "bb5fbbba54670d9ba7d87e824199b53da99b8017a63698a179f1829718438b36",
+        "20_20_LIBRA_CLEAR_WHEEL__50_BRIGHT_SURFACE.png": "7a100ccade4f4a5bbfc98da5aa5883be68c173a5c0265ff64542558cc02a88fe",
+        "21_20_LIBRA_CLEAR_WHEEL__60_EDGE_REFLECTION.png": "f279efecaabac3a8080c101da6941434d57f24e0edf63db694643eeffdcb3e2a",
+        "22_20_LIBRA_CLEAR_WHEEL__70_MAJOR_BOUNDARY_4PX.png": "bd29b5e98083600f5c209244f141fcdc2c7e0c7fb3c1f58207a604e8ab2b8e9c",
+        "23_20_LIBRA_CLEAR_WHEEL__71_STRUCTURE_LINE_3PX.png": "070cf945a010022394e47b5d19806656dcdbb0e04bb64b5b39962643e1a27444",
+        "24_20_LIBRA_CLEAR_WHEEL__72_FINE_LINE_2PX.png": "eed49f91e73e56f2f527bc8a01fe7f7604c00a2d6c6bce3dc9e2d56f9ee2adef",
+        "25_30_FACE_BOLT__10_BEVEL_SHADOW.png": "fd4de8397013d90127e56364558047f97facd782ccb7104d9a506ed25db192fc",
+        "26_30_FACE_BOLT__20_BASE_COLOR.png": "682d6301a10d1f9e78ab4884c88fe338049aa51f3d35c71aeb1ffcf2ea78cf41",
+        "27_30_FACE_BOLT__30_BEVEL_MID_LIGHT.png": "3de8b3893f647ff6ed2d689dd0c97948962b80203bad07ea4167abcb26ae4504",
+        "28_30_FACE_BOLT__40_BEVEL_HIGHLIGHT.png": "80d1032adadabf51f74e9c5c218e56529172a21fedef7719345033743c0461a3",
+        "29_30_FACE_BOLT__70_MAJOR_BOUNDARY_4PX.png": "4bb5df939dbe7f4bee2e3dedc125ca4b881116859866813898a519a378f06ddf",
+        "30_30_FACE_BOLT__71_STRUCTURE_LINE_3PX.png": "a58eb0b1e08eedc75f3eef98bb556f72d0a2df6832c5888972343c32a29a218e",
+        "31_30_FACE_BOLT__72_FINE_LINE_2PX.png": "a58eb0b1e08eedc75f3eef98bb556f72d0a2df6832c5888972343c32a29a218e",
+        "32_40_PROTECTED_ARTWORK__10_SOURCE_RGBA_EXACT.png": "0ffc9c1160f04e81bdc64e1c29e7032d342d6d0f294acb160450fdb2be03543c",
+        "manifest.json": "f031251d91c089dc08ed9c7c36d404070e34b9996d82063eff36e7c61ace24a4"
+      }
+    },
+    "after": {
+      "file_count": 34,
+      "aggregate_sha256": "da610c4c131f7e832997597dbcf7dc83f2ae72aa44a93e2cc4e1fe923f6d4e1d",
+      "files": {
+        "00_00_PRESERVED_SOURCE__00_ORIGINAL_PIXELS.png": "0b06cac2d5fd36b744a396a8081379457a975c049e66b28ac3d7a44fa968f8b1",
+        "01_10_FLAME_METAL_WHEEL__10_SHADOW_REFLECTION.png": "db2f0da997106ca5ee4ef81efa858b6776d3dbd5507a163fd9e04c132d4c03c9",
+        "02_10_FLAME_METAL_WHEEL__20_BASE_MIDTONE.png": "64f72b5ff57c2bb8a706f5cee538d3fb65e8cabcc8c4ca8a0218ce6efbdd9156",
+        "03_10_FLAME_METAL_WHEEL__30_MID_LIGHT.png": "3c62a4d01fa14cb4b8362c8990c3aafb8d2e2f3d029bf91a57d3b31776221fe0",
+        "04_10_FLAME_METAL_WHEEL__40_BROAD_HIGHLIGHT.png": "0112bb3fcfa0c510a30a0a91db98b128bce8a37657bcec340b95570603011594",
+        "05_10_FLAME_METAL_WHEEL__50_NARROW_REFLECTION.png": "3bb45f401ae242f5ea18327b839fa9c9947f7e45606adca805381afbfa7dd787",
+        "06_10_FLAME_METAL_WHEEL__70_MAJOR_BOUNDARY_4PX.png": "5594f1acfe3c7a8b1363fe138ba15fdfa12177b192cc047ce526d18993da415a",
+        "07_10_FLAME_METAL_WHEEL__71_STRUCTURE_LINE_3PX.png": "92440959389b4b578c20c5453fd49cc877f5bfae4f727f540e01254ecf3c4d95",
+        "08_10_FLAME_METAL_WHEEL__72_FINE_LINE_2PX.png": "b2b9b1495bfdb0663e3ffa4f5f01d5d5c5ce472cc3721cbbca7c650734dedec3",
+        "09_15_YELLOW_INTERNAL_PARTS__10_BEVEL_SHADOW.png": "ac6af4d3152ca32f33010104c86759ecaa5fa9b78a9d382789589dff944a713c",
+        "10_15_YELLOW_INTERNAL_PARTS__20_BASE_COLOR.png": "3ccfbd69f4c190aa416689047b3aa3291bfd3e2ff66d1226c55a174279c73718",
+        "11_15_YELLOW_INTERNAL_PARTS__30_BEVEL_MID_LIGHT.png": "26ada88321d8f060e04e3d388af91bf5f970a0ccb33082a8195bd541e7b69a17",
+        "12_15_YELLOW_INTERNAL_PARTS__40_BEVEL_HIGHLIGHT.png": "2cbb52d14f6fd94fcd28b7d3da84201349fb931d5df3f61062c8647401d7c740",
+        "13_15_YELLOW_INTERNAL_PARTS__70_MAJOR_BOUNDARY_4PX.png": "551732b80309022cce06d58e26e0659faf962eaa5a6237a5c544d853471e586c",
+        "14_15_YELLOW_INTERNAL_PARTS__71_STRUCTURE_LINE_3PX.png": "19cd8bf56f1d19a031a9269b7643dc2c9c8d288eeafdedda1ee14ca7939a47b7",
+        "15_15_YELLOW_INTERNAL_PARTS__72_FINE_LINE_2PX.png": "1b042d1f7ebbe3d1427dc8813be351dc4b37eeee43e9faa48d0154ce987a6b36",
+        "16_20_LIBRA_CLEAR_WHEEL__10_DEEP_COLOR_CONCENTRATION.png": "c18449f598023f4365adc224b06abbd9f46288f3c26efb0b3a06b72dfa90aa1f",
+        "17_20_LIBRA_CLEAR_WHEEL__20_TRANSMISSION_SHADOW.png": "52329af0db9c581ca7a77ef702873e958153b9e27b1905ecc204923371089a67",
+        "18_20_LIBRA_CLEAR_WHEEL__30_TINTED_TRANSMISSION.png": "9d52e635e9f78d0aa0ef79b776a6f3234b897daeb5f19ede86df21560f8e4121",
+        "19_20_LIBRA_CLEAR_WHEEL__40_MID_LIGHT.png": "bb5fbbba54670d9ba7d87e824199b53da99b8017a63698a179f1829718438b36",
+        "20_20_LIBRA_CLEAR_WHEEL__50_BRIGHT_SURFACE.png": "7a100ccade4f4a5bbfc98da5aa5883be68c173a5c0265ff64542558cc02a88fe",
+        "21_20_LIBRA_CLEAR_WHEEL__60_EDGE_REFLECTION.png": "f279efecaabac3a8080c101da6941434d57f24e0edf63db694643eeffdcb3e2a",
+        "22_20_LIBRA_CLEAR_WHEEL__70_MAJOR_BOUNDARY_4PX.png": "bd29b5e98083600f5c209244f141fcdc2c7e0c7fb3c1f58207a604e8ab2b8e9c",
+        "23_20_LIBRA_CLEAR_WHEEL__71_STRUCTURE_LINE_3PX.png": "070cf945a010022394e47b5d19806656dcdbb0e04bb64b5b39962643e1a27444",
+        "24_20_LIBRA_CLEAR_WHEEL__72_FINE_LINE_2PX.png": "eed49f91e73e56f2f527bc8a01fe7f7604c00a2d6c6bce3dc9e2d56f9ee2adef",
+        "25_30_FACE_BOLT__10_BEVEL_SHADOW.png": "fd4de8397013d90127e56364558047f97facd782ccb7104d9a506ed25db192fc",
+        "26_30_FACE_BOLT__20_BASE_COLOR.png": "682d6301a10d1f9e78ab4884c88fe338049aa51f3d35c71aeb1ffcf2ea78cf41",
+        "27_30_FACE_BOLT__30_BEVEL_MID_LIGHT.png": "3de8b3893f647ff6ed2d689dd0c97948962b80203bad07ea4167abcb26ae4504",
+        "28_30_FACE_BOLT__40_BEVEL_HIGHLIGHT.png": "80d1032adadabf51f74e9c5c218e56529172a21fedef7719345033743c0461a3",
+        "29_30_FACE_BOLT__70_MAJOR_BOUNDARY_4PX.png": "4bb5df939dbe7f4bee2e3dedc125ca4b881116859866813898a519a378f06ddf",
+        "30_30_FACE_BOLT__71_STRUCTURE_LINE_3PX.png": "a58eb0b1e08eedc75f3eef98bb556f72d0a2df6832c5888972343c32a29a218e",
+        "31_30_FACE_BOLT__72_FINE_LINE_2PX.png": "a58eb0b1e08eedc75f3eef98bb556f72d0a2df6832c5888972343c32a29a218e",
+        "32_40_PROTECTED_ARTWORK__10_SOURCE_RGBA_EXACT.png": "0ffc9c1160f04e81bdc64e1c29e7032d342d6d0f294acb160450fdb2be03543c",
+        "manifest.json": "f031251d91c089dc08ed9c7c36d404070e34b9996d82063eff36e7c61ace24a4"
+      }
+    },
+    "unchanged": true
+  },
+  "validation": {
+    "png_count": 4,
+    "png_files_exact": true,
+    "all_png_rgba_1452x1440": true,
+    "pairwise_overlap_pixels": {
+      "TRACK__METAL_WHEEL": 0,
+      "TRACK__CLEAR_WHEEL": 0,
+      "TRACK__FACE_AND_STICKER": 0,
+      "METAL_WHEEL__CLEAR_WHEEL": 0,
+      "METAL_WHEEL__FACE_AND_STICKER": 0,
+      "CLEAR_WHEEL__FACE_AND_STICKER": 0
+    },
+    "pairwise_disjoint": true,
+    "union_equals_final_alpha": true,
+    "recomposition_max_channel_delta": 0,
+    "recomposition_changed_channels": 0,
+    "psd_pixel_layer_count": 4,
+    "psd_group_count": 0,
+    "psd_names_ascii": true,
+    "psd_max_channel_delta": 1,
+    "existing_layers_unchanged": true,
+    "status": "pass"
+  }
+}
