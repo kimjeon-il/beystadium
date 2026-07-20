@@ -1,0 +1,148 @@
+{
+  "alignment": {
+    "clear_reference": {
+      "file": "참고-리브라휠.png",
+      "role": "external_geometry_only",
+      "reference_anchors": [
+        [
+          121.0,
+          119.0
+        ],
+        [
+          392.0,
+          119.0
+        ],
+        [
+          392.0,
+          399.0
+        ],
+        [
+          121.0,
+          399.0
+        ]
+      ],
+      "target_anchors": [
+        [
+          441.0,
+          342.0
+        ],
+        [
+          1011.0,
+          342.0
+        ],
+        [
+          1011.0,
+          1098.0
+        ],
+        [
+          441.0,
+          1098.0
+        ]
+      ],
+      "affine_reference_to_target": [
+        [
+          2.103321033,
+          -0.0,
+          186.498154982
+        ],
+        [
+          0.0,
+          2.7,
+          20.7
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "anchor_rms_px": 0.0,
+      "aligned_mask_bbox": [
+        233,
+        142,
+        1234,
+        1338
+      ]
+    },
+    "metal_reference": {
+      "file": "참고-플레임휠.jpg",
+      "role": "outer_and_visible_internal_geometry",
+      "reference_anchors": [
+        [
+          1512.0,
+          920.0
+        ],
+        [
+          2862.0,
+          2300.0
+        ],
+        [
+          1512.0,
+          3680.0
+        ],
+        [
+          162.0,
+          2300.0
+        ]
+      ],
+      "target_anchors": [
+        [
+          726.0,
+          31.0
+        ],
+        [
+          1416.0,
+          723.5
+        ],
+        [
+          726.0,
+          1416.0
+        ],
+        [
+          36.0,
+          723.5
+        ]
+      ],
+      "affine_reference_to_target": [
+        [
+          0.511111111,
+          0.0,
+          -46.8
+        ],
+        [
+          -0.0,
+          0.501811594,
+          -430.666666667
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "anchor_rms_px": 0.0,
+      "rear_to_front_policy": "topology_only_no_text_or_surface_transfer"
+    }
+  },
+  "geometry": {
+    "clear_external": {
+      "approved_reference_edge_pixels": 716,
+      "changed_boundary_pixels": 823,
+      "added_clear_pixels": 332,
+      "removed_clear_pixels": 491,
+      "edge_coverage_within_4px": 1.0
+    },
+    "metal_visible_internal": {
+      "physical_mask_pixels": 118305,
+      "trace_edge_pixels": 7313,
+      "major_4px_pixels": 11023,
+      "structure_3px_pixels": 2393,
+      "edge_coverage_within_4px": 1.0,
+      "topology": "annular_plate_four_radial_supports_four_diagonal_rounded_cutouts"
+    },
+    "overlap": {
+      "metal_clear_pixels": 118637,
+      "policy": "intentional_physical_stack"
+    }
+  }
+}

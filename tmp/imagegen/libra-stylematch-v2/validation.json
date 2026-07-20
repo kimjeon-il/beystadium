@@ -1,0 +1,93 @@
+{
+  "status": "pass",
+  "canvas": [
+    1452,
+    1440
+  ],
+  "source_alpha_bbox": [
+    36,
+    31,
+    1416,
+    1416
+  ],
+  "final_alpha_bbox": [
+    36,
+    31,
+    1416,
+    1416
+  ],
+  "alpha_exact": true,
+  "protected_rgba_max_delta": 0,
+  "protected_rgba_changed_channels": 0,
+  "track_rgba_max_delta": 0,
+  "face_and_sticker_rgba_max_delta": 0,
+  "clear_anchor_rms_px": 0.0,
+  "metal_anchor_rms_px": 0.0,
+  "clear_external_edge_coverage_within_4px": 1.0,
+  "metal_internal_edge_coverage_within_4px": 1.0,
+  "clear_boundary_changed_pixels": 823,
+  "metal_internal_visible_pixels": 118305,
+  "declared_metal_clear_overlap_pixels": 118637,
+  "forbidden_overlap_pixels": {
+    "TRACK__METAL": 0,
+    "TRACK__CLEAR": 0,
+    "TRACK__FACE": 0,
+    "METAL__FACE": 0,
+    "CLEAR__FACE": 0
+  },
+  "parts_png_count": 4,
+  "parts_png_files": [
+    "01_TRACK.png",
+    "02_METAL_WHEEL.png",
+    "03_CLEAR_WHEEL.png",
+    "04_FACE_AND_STICKER.png"
+  ],
+  "parts_recomposition_max_channel_delta": 0,
+  "effect_layers_recomposition_max_channel_delta": 0,
+  "parts_psd": {
+    "file": "libra-stylematch-v2-parts.psd",
+    "sha256": "59517b73c965db8c73e7ce0a03f14ef866bbcdf3d3a89c410e63e9e4894cf2f6",
+    "size": [
+      1452,
+      1440
+    ],
+    "root_layer_names_bottom_to_top": [
+      "TRACK",
+      "METAL_WHEEL",
+      "CLEAR_WHEEL",
+      "FACE_AND_STICKER"
+    ],
+    "visible_pixel_layers": 4,
+    "expected_visible_pixel_layers": 4,
+    "all_names_ascii": true,
+    "max_channel_delta": 1,
+    "channels_over_1": 0,
+    "alpha_exact": false
+  },
+  "master_psd": {
+    "file": "libra-stylematch-v2-master.psd",
+    "sha256": "99d670849f62389c653bc430c59bd88d96512262ec262354fc9a72a5b0a8a29d",
+    "size": [
+      1452,
+      1440
+    ],
+    "root_layer_names_bottom_to_top": [
+      "00_TRACK",
+      "10_METAL_WHEEL",
+      "20_CLEAR_WHEEL",
+      "30_FACE_AND_STICKER",
+      "90_MASKS"
+    ],
+    "visible_pixel_layers": 26,
+    "expected_visible_pixel_layers": null,
+    "all_names_ascii": true,
+    "max_channel_delta": 1,
+    "channels_over_1": 0,
+    "alpha_exact": false
+  },
+  "v1_and_references_unchanged": true,
+  "candidate_policy": {
+    "clear_candidate": "comparison_only_not_adopted_global_geometry_and_protected_pixels_changed",
+    "metal_candidate": "comparison_only_rejected_eight_slot_topology_and_generated_background"
+  }
+}

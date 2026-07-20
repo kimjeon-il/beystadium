@@ -37,6 +37,8 @@
 
 - 원본 캔버스, 중심, 크기, 회전, 여백, 실루엣, 비율과 조립 위치를 변경하지 않는다.
 - 홈, 구멍, 톱니, 두께, 부품 경계와 외곽선을 임의로 추가·삭제·이동하지 않는다.
+- `task_mode: reference_geometry_correction`이 명시된 작업은 임의 수정이 아니다. 이 모드에서는 전체 조립체의 캔버스·알파·실루엣·실제 구멍·조립 위치를 고정한 상태에서, 전용규칙의 `geometry_edit_roi`와 `reference_permissions`가 함께 허용한 내부 부품 경계만 교정할 수 있다.
+- `reference_geometry_correction`에서도 허용 작업영역 밖의 부품 경계, 보호 픽셀과 전체 외곽은 범용 고정규칙으로 유지한다. 전용규칙이 이 범위를 넓히거나 생략할 수 없다.
 - 원본이 RGBA라면 모든 알파값과 반투명 가장자리 알파를 픽셀 단위로 보존한다.
 - 완전 투명 픽셀의 RGB는 `(0, 0, 0)`으로 정리하되 알파는 변경하지 않는다.
 - 원본에 알파가 없다면 배경 분리를 독립 단계로 수행한다. 승인된 알파를 이후 모든 단계의 절대 기준으로 고정한다.
@@ -698,9 +700,9 @@ Apply only the properties written in the Bey-specific material override. Do not 
 - 재시도할 때 범용 고정 프롬프트와 통과한 전용규칙은 변경하지 않는다.
 - 실패 항목 하나만 수정하고 다른 부품·레이어·마스크에는 의도적인 변경을 가하지 않는다.
 
-## 부록: 활성 베이 전용규칙 — 리브라 스타일 교정
+## 부록 A: 보존된 베이 전용규칙 — 리브라 스타일 교정 V1
 
-> 이 블록은 현재 `LIBRA_STYLEMATCH_01` 작업에서 사용하는 활성 전용규칙이다. 아래 부품명, 좌표, 색상, 참고 허용 범위와 실패 조건은 리브라 전용이며 다른 베이에 적용하지 않는다. 이 전용규칙은 범용 기본규칙만 덮어쓸 수 있고 범용 고정규칙은 덮어쓸 수 없다.
+> 이 블록은 기존 `LIBRA_STYLEMATCH_01` 산출물의 재현을 위해 보존한다. 현재 활성 작업은 부록 B의 V2 규칙이다. 아래 부품명, 좌표, 색상, 참고 허용 범위와 실패 조건은 리브라 전용이며 다른 베이에 적용하지 않는다.
 
 ```yaml
 bey_specific:
@@ -935,5 +937,150 @@ bey_specific:
     validation: "tmp/imagegen/libra-stylematch/validation.json"
     style_metrics: "tmp/imagegen/libra-stylematch/style-metrics.json"
     style_comparison: "tmp/imagegen/libra-stylematch/style-comparison.png"
+    manifest_schema_version: 2
+```
+
+## 부록 B: 활성 베이 전용규칙 — 리브라 조형 참고 V2
+
+> 이 블록은 `LIBRA_STYLEMATCH_02` 전용이다. `참고-리브라휠.png`는 클리어휠 외부조형만, `참고-플레임휠.jpg`는 외부와 조립 상태에서 보이는 내부 메탈 구조까지 제공한다. 두 참고 이미지의 색·조명·문자·표면 손상은 사용할 수 없다.
+
+```yaml
+bey_specific:
+  identity:
+    bey_id: "LIBRA_STYLEMATCH_02"
+    name: "리브라 조형 참고 V2"
+    task_mode: "reference_geometry_correction"
+    source_image: "assets/images/beys/dkcjn91-632bfe50-9e4e-4e8d-a06f-a5b1494d71e7.png"
+    style_reference: "assets/images/beys/flame-libra.png"
+    width: 1452
+    height: 1440
+    source_alpha_bbox: [36, 31, 1416, 1416]
+    alpha_policy: "preserve_exact"
+    output_policy: "new_v2_files_do_not_replace_v1"
+
+  fixed_assembly:
+    preserve_exact:
+      - "전체 캔버스와 모든 알파값"
+      - "전체 조립체 외곽 실루엣"
+      - "원본 알파 0인 외부 배경과 네 실제 구멍"
+      - "중심·크기·회전·조립 위치"
+      - "중앙 페이스 볼트와 Libra 스티커"
+      - "상단과 하단 남색·노란색 인쇄"
+      - "TRACK 가시 픽셀"
+
+  geometry_edit_roi:
+    include:
+      - "V1 METAL_WHEEL과 CLEAR_WHEEL의 합집합"
+      - "클리어/메탈 공용 경계의 7px 이내 밴드"
+      - "클리어휠 아래에서 원본 알파가 255인 내부 가시 영역"
+    exclude:
+      - "TRACK"
+      - "FACE_AND_STICKER"
+      - "보호 인쇄"
+      - "원본 알파가 0인 모든 픽셀"
+
+  reference_permissions:
+    - target_part: "CLEAR_WHEEL"
+      reference: "assets/images/beys/참고-리브라휠.png"
+      role: "external_geometry_only"
+      alignment: "four_mount_centers_and_outer_annular_profile"
+      allowed_details:
+        - "외곽 환형 밴드의 윤곽과 단차"
+        - "세로 슬롯과 가장자리 톱니"
+        - "네 고정부의 외곽·면 분할·원형 홈"
+        - "전체 알파를 바꾸지 않는 클리어/메탈 부품 경계 교정"
+      forbidden_details:
+        - "중앙 링"
+        - "내부 브리지와 내부 개구부"
+        - "참고 이미지의 중앙 패널과 새 불꽃 장식"
+        - "참고 이미지의 녹색·조명·재질"
+
+    - target_part: "METAL_WHEEL"
+      reference: "assets/images/beys/참고-플레임휠.jpg"
+      role: "outer_and_visible_internal_geometry"
+      alignment: "outer_circle_and_12_3_6_9_tip_anchors_rear_to_front"
+      allowed_details:
+        - "외곽 날·팁·능선·단차"
+        - "클리어휠 아래에서 보이는 환형 내부판"
+        - "네 방향 방사형 지지부와 네 대각선 곡선형 개구부 경계"
+        - "정면 조립 상태에서 실제로 보이는 내부 링 단차"
+      forbidden_details:
+        - "페이스 볼트 아래의 중앙 보어"
+        - "BEYBLADE 각인과 모든 새 문자"
+        - "흠집·마모·주조 노이즈·얼룩"
+        - "사진 배경·원근·후면 조명"
+
+  physical_parts:
+    stack_order_bottom_to_top:
+      - "TRACK"
+      - "METAL_WHEEL"
+      - "CLEAR_WHEEL"
+      - "FACE_AND_STICKER"
+    overlap_policy:
+      allowed:
+        - "METAL_WHEEL__CLEAR_WHEEL"
+      forbidden:
+        - "TRACK__METAL_WHEEL"
+        - "TRACK__CLEAR_WHEEL"
+        - "TRACK__FACE_AND_STICKER"
+        - "METAL_WHEEL__FACE_AND_STICKER"
+        - "CLEAR_WHEEL__FACE_AND_STICKER"
+
+  linework:
+    major_boundary_px: 4
+    structure_line_px: 3
+    fine_line_px: 2
+    alignment_tolerance_px: 4
+    color_source: "aligned_style_reference"
+    geometry_source: "approved_reference_trace_inside_geometry_edit_roi"
+
+  materials:
+    METAL_WHEEL:
+      material: "metal"
+      palette: ["#807B72", "#AAA8A7", "#C0BFC0", "#EDEDEE"]
+      photo_texture_transfer: false
+    CLEAR_WHEEL:
+      material: "clear_plastic"
+      palette: ["#45491E", "#596922", "#A1BA2D", "#ADC633", "#B5CD3A", "#C6C87D"]
+      physical_transmission: "show_METAL_WHEEL_below"
+    TRACK:
+      material: "opaque_plastic"
+      source_pixels_exact: true
+    FACE_AND_STICKER:
+      material: "opaque_plastic_and_sticker_print"
+      source_pixels_exact: true
+
+  generated_candidates:
+    mode: "comparison_only"
+    final_alpha_or_text_usage: false
+    clear_candidate: "reject_if_global_geometry_or_protected_pixels_change"
+    metal_candidate: "reject_if_topology_is_not_four_direction_or_background_is_generated"
+
+  validation:
+    anchor_rms_px_max: 4
+    clear_external_edge_coverage_within_4px_min: 0.90
+    metal_internal_edge_coverage_within_4px_min: 0.85
+    protected_rgba_delta_max: 0
+    alpha_delta_max: 0
+    parts_png_recomposition_delta_max: 0
+    psd_channel_delta_max: 1
+    v1_hashes_must_remain_unchanged: true
+
+  failure_conditions:
+    - "클리어 참고의 중앙 링·브리지·내부 개구부가 들어옴"
+    - "메탈 참고의 중앙 보어·각인·흠집·사진 질감이 들어옴"
+    - "메탈 내부 구조가 네 실제 구멍이나 보호 영역을 침범함"
+    - "네 방향 내부판·방사형 지지부가 아닌 임의 다중 슬롯 구조가 생성됨"
+    - "전체 알파·외곽·구멍·조립 위치 중 하나가 달라짐"
+    - "TRACK·FACE_AND_STICKER 원본 픽셀이 달라짐"
+    - "허용되지 않은 부품 조합이 중첩됨"
+
+  output:
+    stage_prefix: "assets/images/beys/libra-stylematch-v2"
+    master_psd: "assets/images/beys/libra-stylematch-v2-master.psd"
+    final_preview: "assets/images/beys/libra-stylematch-v2-preview.png"
+    layers_dir: "assets/images/beys/libra-stylematch-v2.layers/"
+    parts_dir: "assets/images/beys/libra-stylematch-v2.parts/"
+    candidate_dir: "tmp/imagegen/libra-stylematch-v2/"
     manifest_schema_version: 2
 ```

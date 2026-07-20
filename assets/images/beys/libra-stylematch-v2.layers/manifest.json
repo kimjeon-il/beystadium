@@ -1,0 +1,345 @@
+{
+  "schema_version": 2,
+  "bey_id": "LIBRA_STYLEMATCH_02",
+  "canvas": {
+    "width": 1452,
+    "height": 1440
+  },
+  "source": {
+    "file": "dkcjn91-632bfe50-9e4e-4e8d-a06f-a5b1494d71e7.png",
+    "sha256": "1a3f1bdeec7b561723b1f866190577255ba6ad516d0a398ae86178ca8b4a3977"
+  },
+  "style_reference": {
+    "file": "flame-libra.png",
+    "sha256": "eba4d320770dc7389dac4fb1934d7ae65c03f4e2c44756d6e9e2f180f3a61446"
+  },
+  "geometry_references": {
+    "clear_reference": {
+      "file": "참고-리브라휠.png",
+      "role": "external_geometry_only",
+      "reference_anchors": [
+        [
+          121.0,
+          119.0
+        ],
+        [
+          392.0,
+          119.0
+        ],
+        [
+          392.0,
+          399.0
+        ],
+        [
+          121.0,
+          399.0
+        ]
+      ],
+      "target_anchors": [
+        [
+          441.0,
+          342.0
+        ],
+        [
+          1011.0,
+          342.0
+        ],
+        [
+          1011.0,
+          1098.0
+        ],
+        [
+          441.0,
+          1098.0
+        ]
+      ],
+      "affine_reference_to_target": [
+        [
+          2.103321033,
+          -0.0,
+          186.498154982
+        ],
+        [
+          0.0,
+          2.7,
+          20.7
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "anchor_rms_px": 0.0,
+      "aligned_mask_bbox": [
+        233,
+        142,
+        1234,
+        1338
+      ]
+    },
+    "metal_reference": {
+      "file": "참고-플레임휠.jpg",
+      "role": "outer_and_visible_internal_geometry",
+      "reference_anchors": [
+        [
+          1512.0,
+          920.0
+        ],
+        [
+          2862.0,
+          2300.0
+        ],
+        [
+          1512.0,
+          3680.0
+        ],
+        [
+          162.0,
+          2300.0
+        ]
+      ],
+      "target_anchors": [
+        [
+          726.0,
+          31.0
+        ],
+        [
+          1416.0,
+          723.5
+        ],
+        [
+          726.0,
+          1416.0
+        ],
+        [
+          36.0,
+          723.5
+        ]
+      ],
+      "affine_reference_to_target": [
+        [
+          0.511111111,
+          0.0,
+          -46.8
+        ],
+        [
+          -0.0,
+          0.501811594,
+          -430.666666667
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "anchor_rms_px": 0.0,
+      "rear_to_front_policy": "topology_only_no_text_or_surface_transfer"
+    }
+  },
+  "geometry_metrics": {
+    "clear_external": {
+      "approved_reference_edge_pixels": 716,
+      "changed_boundary_pixels": 823,
+      "added_clear_pixels": 332,
+      "removed_clear_pixels": 491,
+      "edge_coverage_within_4px": 1.0
+    },
+    "metal_visible_internal": {
+      "physical_mask_pixels": 118305,
+      "trace_edge_pixels": 7313,
+      "major_4px_pixels": 11023,
+      "structure_3px_pixels": 2393,
+      "edge_coverage_within_4px": 1.0,
+      "topology": "annular_plate_four_radial_supports_four_diagonal_rounded_cutouts"
+    },
+    "overlap": {
+      "metal_clear_pixels": 118637,
+      "policy": "intentional_physical_stack"
+    }
+  },
+  "stacking_model": {
+    "type": "physical_stack_with_declared_overlap",
+    "order_bottom_to_top": [
+      "TRACK",
+      "METAL_WHEEL",
+      "CLEAR_WHEEL",
+      "FACE_AND_STICKER"
+    ],
+    "allowed_overlap": [
+      "METAL_WHEEL__CLEAR_WHEEL"
+    ]
+  },
+  "candidate_usage": {
+    "clear_candidate": "comparison_only_not_adopted_global_geometry_and_protected_pixels_changed",
+    "metal_candidate": "comparison_only_rejected_eight_slot_topology_and_generated_background"
+  },
+  "validation": {
+    "status": "pass",
+    "canvas": [
+      1452,
+      1440
+    ],
+    "source_alpha_bbox": [
+      36,
+      31,
+      1416,
+      1416
+    ],
+    "final_alpha_bbox": [
+      36,
+      31,
+      1416,
+      1416
+    ],
+    "alpha_exact": true,
+    "protected_rgba_max_delta": 0,
+    "protected_rgba_changed_channels": 0,
+    "track_rgba_max_delta": 0,
+    "face_and_sticker_rgba_max_delta": 0,
+    "clear_anchor_rms_px": 0.0,
+    "metal_anchor_rms_px": 0.0,
+    "clear_external_edge_coverage_within_4px": 1.0,
+    "metal_internal_edge_coverage_within_4px": 1.0,
+    "clear_boundary_changed_pixels": 823,
+    "metal_internal_visible_pixels": 118305,
+    "declared_metal_clear_overlap_pixels": 118637,
+    "forbidden_overlap_pixels": {
+      "TRACK__METAL": 0,
+      "TRACK__CLEAR": 0,
+      "TRACK__FACE": 0,
+      "METAL__FACE": 0,
+      "CLEAR__FACE": 0
+    },
+    "parts_png_count": 4,
+    "parts_png_files": [
+      "01_TRACK.png",
+      "02_METAL_WHEEL.png",
+      "03_CLEAR_WHEEL.png",
+      "04_FACE_AND_STICKER.png"
+    ],
+    "parts_recomposition_max_channel_delta": 0,
+    "effect_layers_recomposition_max_channel_delta": 0,
+    "parts_psd": {
+      "file": "libra-stylematch-v2-parts.psd",
+      "sha256": "59517b73c965db8c73e7ce0a03f14ef866bbcdf3d3a89c410e63e9e4894cf2f6",
+      "size": [
+        1452,
+        1440
+      ],
+      "root_layer_names_bottom_to_top": [
+        "TRACK",
+        "METAL_WHEEL",
+        "CLEAR_WHEEL",
+        "FACE_AND_STICKER"
+      ],
+      "visible_pixel_layers": 4,
+      "expected_visible_pixel_layers": 4,
+      "all_names_ascii": true,
+      "max_channel_delta": 1,
+      "channels_over_1": 0,
+      "alpha_exact": false
+    },
+    "master_psd": {
+      "file": "libra-stylematch-v2-master.psd",
+      "sha256": "99d670849f62389c653bc430c59bd88d96512262ec262354fc9a72a5b0a8a29d",
+      "size": [
+        1452,
+        1440
+      ],
+      "root_layer_names_bottom_to_top": [
+        "00_TRACK",
+        "10_METAL_WHEEL",
+        "20_CLEAR_WHEEL",
+        "30_FACE_AND_STICKER",
+        "90_MASKS"
+      ],
+      "visible_pixel_layers": 26,
+      "expected_visible_pixel_layers": null,
+      "all_names_ascii": true,
+      "max_channel_delta": 1,
+      "channels_over_1": 0,
+      "alpha_exact": false
+    },
+    "v1_and_references_unchanged": true,
+    "candidate_policy": {
+      "clear_candidate": "comparison_only_not_adopted_global_geometry_and_protected_pixels_changed",
+      "metal_candidate": "comparison_only_rejected_eight_slot_topology_and_generated_background"
+    }
+  },
+  "exchange_format": "full_canvas_rgba_effect_png",
+  "master_psd": "libra-stylematch-v2-master.psd",
+  "layers": [
+    {
+      "order_bottom_to_top": 0,
+      "name": "00_TRACK__10_SOURCE_EXACT",
+      "file": "00_00_TRACK__10_SOURCE_EXACT.png",
+      "sha256": "f20c8bb6239616ac31c6cedf7b03d4b88ea447ee4c04dda3871c61e4c851850e",
+      "pixels": 15096
+    },
+    {
+      "order_bottom_to_top": 1,
+      "name": "10_METAL_WHEEL__10_EXISTING_OUTER",
+      "file": "01_10_METAL_WHEEL__10_EXISTING_OUTER.png",
+      "sha256": "10d2741fbef25aff2a5568c391f470dc2650cca13083de1faa8b7a89869ea935",
+      "pixels": 582106
+    },
+    {
+      "order_bottom_to_top": 2,
+      "name": "10_METAL_WHEEL__20_INTERNAL_SHADOW",
+      "file": "02_10_METAL_WHEEL__20_INTERNAL_SHADOW.png",
+      "sha256": "60b7870943be135bf489a3938f976f5c667ced43daba14d68ec91f4961a3454e",
+      "pixels": 29489
+    },
+    {
+      "order_bottom_to_top": 3,
+      "name": "10_METAL_WHEEL__30_INTERNAL_MIDTONE",
+      "file": "03_10_METAL_WHEEL__30_INTERNAL_MIDTONE.png",
+      "sha256": "67f4a8b9bd57ebbf5eaeda91c3b92b01b0e5abfc7535c3ce0f1d8d5d859c4683",
+      "pixels": 28104
+    },
+    {
+      "order_bottom_to_top": 4,
+      "name": "10_METAL_WHEEL__40_INTERNAL_HIGHLIGHT",
+      "file": "04_10_METAL_WHEEL__40_INTERNAL_HIGHLIGHT.png",
+      "sha256": "79f4f512230d272e85aa7e691aee2ef2ae5168d129881d28c2593ae8eea4137e",
+      "pixels": 47787
+    },
+    {
+      "order_bottom_to_top": 5,
+      "name": "10_METAL_WHEEL__70_MAJOR_AND_STRUCTURE_LINES",
+      "file": "05_10_METAL_WHEEL__70_MAJOR_AND_STRUCTURE_LINES.png",
+      "sha256": "21cbbb3ed6ad37e01ed66bbe29844f9c95386487f77dd1d1072ec0438a8bc866",
+      "pixels": 13416
+    },
+    {
+      "order_bottom_to_top": 6,
+      "name": "20_CLEAR_WHEEL__10_VISIBLE_BASE",
+      "file": "06_20_CLEAR_WHEEL__10_VISIBLE_BASE.png",
+      "sha256": "0f26bcfb78a256a4e3700f7885b60a8bc76aee64365c8c00966cb9bfeeec8122",
+      "pixels": 554792
+    },
+    {
+      "order_bottom_to_top": 7,
+      "name": "20_CLEAR_WHEEL__30_TINTED_TRANSMISSION",
+      "file": "07_20_CLEAR_WHEEL__30_TINTED_TRANSMISSION.png",
+      "sha256": "82a1a8b4add8db2c96b517302bc1b856e7880e7f4dd1685491ed696053023c20",
+      "pixels": 118637
+    },
+    {
+      "order_bottom_to_top": 8,
+      "name": "20_CLEAR_WHEEL__70_REFERENCE_STRUCTURE_LINE",
+      "file": "08_20_CLEAR_WHEEL__70_REFERENCE_STRUCTURE_LINE.png",
+      "sha256": "a58eb0b1e08eedc75f3eef98bb556f72d0a2df6832c5888972343c32a29a218e",
+      "pixels": 0
+    },
+    {
+      "order_bottom_to_top": 9,
+      "name": "30_FACE_AND_STICKER__10_SOURCE_EXACT",
+      "file": "09_30_FACE_AND_STICKER__10_SOURCE_EXACT.png",
+      "sha256": "97ace6a89750643d2fd6d995aecf7ab0ef266dc70650331bb9af6a1936697e75",
+      "pixels": 214340
+    }
+  ]
+}
