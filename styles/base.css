@@ -24,10 +24,12 @@
   --ui-line: light-dark(#cfd6df, #303a48);
   --ui-text: light-dark(#101827, #f3f6fa);
   --ui-muted: light-dark(#667386, #a8b3c2);
+  --ui-control-text-muted: light-dark(#5b6779, #a8b3c2);
   --ui-accent: light-dark(#334155, #d7dee8);
   --ui-brand-bg: light-dark(#475569, #2f3b4d);
   --ui-brand-text: #f3f6fa;
   --ui-surface-raised: light-dark(#ffffff, #1a222d);
+  --ui-scrim: rgba(17, 24, 39, 0.58);
   --ui-surface-glass: light-dark(color-mix(in srgb, #f7f9fc 86%, transparent), color-mix(in srgb, #151b23 88%, transparent));
   --ui-stroke-subtle: light-dark(color-mix(in srgb, #cfd6df 72%, transparent), color-mix(in srgb, #3a4656 76%, transparent));
   --ui-elevation-1: 0 1px 2px light-dark(rgba(16, 24, 39, 0.08), rgba(0, 0, 0, 0.22)), 0 8px 20px light-dark(rgba(16, 24, 39, 0.07), rgba(0, 0, 0, 0.18));
@@ -462,9 +464,8 @@ dialog[open] .modal-scroll-area::-webkit-scrollbar-corner,
   top: 1px;
   width: 11px;
   height: 11px;
-  border: 2px solid var(--ui-accent);
+  border: 2px solid var(--ui-muted);
   border-radius: 50%;
-  border-color: var(--ui-muted);
 }
 
 .search-box .search-icon::after,

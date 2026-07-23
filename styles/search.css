@@ -289,7 +289,7 @@
   padding: 7px 11px;
   border-radius: var(--ui-radius);
   background: var(--ui-control);
-  color: var(--ui-muted);
+  color: var(--ui-control-text-muted);
   font-size: var(--font-sm);
   font-weight: var(--font-weight-regular);
   white-space: nowrap;

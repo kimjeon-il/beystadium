@@ -887,6 +887,88 @@ test("persistent selections use the existing neutral highlight in light and dark
   }
 });
 
+test("secondary control text and modal colors use accessible semantic tokens", async ({ page }, testInfo) => {
+  const controlColorState = locator => locator.evaluate(element => {
+    const parseRgb = value => (value.match(/[\d.]+/g) || []).slice(0, 3).map(Number);
+    const luminance = value => {
+      const channels = parseRgb(value).map(channel => channel / 255)
+        .map(channel => channel <= .03928 ? channel / 12.92 : ((channel + .055) / 1.055) ** 2.4);
+      return .2126 * channels[0] + .7152 * channels[1] + .0722 * channels[2];
+    };
+    const contrast = (foreground, background) => {
+      const foregroundLuminance = luminance(foreground);
+      const backgroundLuminance = luminance(background);
+      return (Math.max(foregroundLuminance, backgroundLuminance) + .05)
+        / (Math.min(foregroundLuminance, backgroundLuminance) + .05);
+    };
+    const probe = document.createElement("i");
+    probe.style.cssText = "position:fixed;background:var(--ui-control);color:var(--ui-control-text-muted)";
+    const hoverProbe = document.createElement("i");
+    hoverProbe.style.cssText = "position:fixed;background:var(--ui-control-hover);color:var(--ui-control-text-active)";
+    document.body.append(probe, hoverProbe);
+    const style = getComputedStyle(element);
+    const state = {
+      background: style.backgroundColor,
+      color: style.color,
+      contrast: contrast(style.color, style.backgroundColor),
+      tokenBackground: getComputedStyle(probe).backgroundColor,
+      tokenColor: getComputedStyle(probe).color,
+      hoverBackground: getComputedStyle(hoverProbe).backgroundColor,
+      hoverColor: getComputedStyle(hoverProbe).color
+    };
+    probe.remove();
+    hoverProbe.remove();
+    return state;
+  });
+
+  for (const colorScheme of ["light", "dark"]) {
+    await page.emulateMedia({ colorScheme, reducedMotion: "reduce" });
+    await page.goto("/#toy-catalog?scope=all&series=all&sort=latest&page=1");
+    const pageButton = page.locator(".catalog-pagination-nav .catalog-page-button:not(.active)").first();
+    await expect(pageButton).toBeVisible();
+    const pageButtonColors = await controlColorState(pageButton);
+    expect(pageButtonColors.background).toBe(pageButtonColors.tokenBackground);
+    expect(pageButtonColors.color).toBe(pageButtonColors.tokenColor);
+    expect(pageButtonColors.contrast).toBeGreaterThanOrEqual(4.5);
+
+    if (testInfo.project.name === "desktop") {
+      await pageButton.hover();
+      await expect(pageButton).toHaveCSS("background-color", pageButtonColors.hoverBackground);
+      await expect(pageButton).toHaveCSS("color", pageButtonColors.hoverColor);
+    }
+
+    await page.goto(`/#search?q=${encodeURIComponent("드래곤")}&scope=bey`);
+    const searchSummary = page.locator(".search-results-summary");
+    await expect(searchSummary).toBeVisible();
+    const searchSummaryColors = await controlColorState(searchSummary);
+    expect(searchSummaryColors.background).toBe(searchSummaryColors.tokenBackground);
+    expect(searchSummaryColors.color).toBe(searchSummaryColors.tokenColor);
+    expect(searchSummaryColors.contrast).toBeGreaterThanOrEqual(4.5);
+
+    await page.goto("/#PART-METAL-FIGHT-FACE-PEGASIS");
+    await expect(page.locator("#detailModal")).toBeVisible();
+    await expect(page.locator("#detailModal .stat-fill").first()).toBeVisible();
+    const modalColors = await page.evaluate(() => {
+      const scrimProbe = document.createElement("i");
+      scrimProbe.style.cssText = "position:fixed;background:var(--ui-scrim)";
+      const accentProbe = document.createElement("i");
+      accentProbe.style.cssText = "position:fixed;background:var(--ui-accent)";
+      document.body.append(scrimProbe, accentProbe);
+      const state = {
+        accent: getComputedStyle(accentProbe).backgroundColor,
+        scrim: getComputedStyle(scrimProbe).backgroundColor,
+        overlay: getComputedStyle(document.querySelector(".modal-overlay")).backgroundColor,
+        statFill: getComputedStyle(document.querySelector("#detailModal .stat-fill")).backgroundColor
+      };
+      scrimProbe.remove();
+      accentProbe.remove();
+      return state;
+    });
+    expect(modalColors.overlay).toBe(modalColors.scrim);
+    expect(modalColors.statFill).toBe(modalColors.accent);
+  }
+});
+
 test("dropdown chevrons share the same open and close rotation", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "motion coverage only needs one browser");
   await page.goto("/#toy-catalog?scope=bey&series=x");

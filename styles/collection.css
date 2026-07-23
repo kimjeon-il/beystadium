@@ -212,7 +212,7 @@
   min-height: 34px;
   padding: 0 11px;
   background: var(--ui-control);
-  color: var(--ui-muted);
+  color: var(--ui-control-text-muted);
   font-size: var(--font-sm);
   font-weight: var(--font-weight-medium);
   transition: var(--transition-control);

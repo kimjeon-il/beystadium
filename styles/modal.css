@@ -244,7 +244,7 @@ dialog[open] {
   place-items: center;
   background: transparent;
   --stat-track-bg: color-mix(in srgb, var(--ui-control) 82%, var(--ui-text) 18%);
-  --stat-fill-bg: color-mix(in srgb, var(--ui-accent) 92%, #2563eb 8%);
+  --stat-fill-bg: var(--ui-accent);
   --stat-label-column-width: 5.5em;
   --modal-section-padding: var(--space-5);
   --modal-section-row-height: 36px;
@@ -299,7 +299,7 @@ body.is-modal-open:not(.is-overview) .topbar {
   width: var(--modal-viewport-width, 100vw);
   height: var(--modal-viewport-height, 100vh);
   z-index: 0;
-  background: rgba(17, 24, 39, 0.58);
+  background: var(--ui-scrim);
   pointer-events: auto;
   animation: var(--motion-preset-fade-in);
 }
