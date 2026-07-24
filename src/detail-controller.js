@@ -20,8 +20,6 @@ const hiddenModelViewerItemIds = new Set([
 ]);
 const shouldShowModelViewer = item =>
   Boolean(item?.model) && !hiddenModelViewerItemIds.has(item.id);
-const shouldShowCatalogArt = item =>
-  Boolean(item?.series === "x" && item?.image) || shouldShowModelViewer(item);
 
 const detailBackButton = (backId, backProductId, backRelease, backRegion) => {
   if (backId) {
@@ -175,10 +173,9 @@ function openDetail(id, options = {}) {
   const visibleCoreItems = visibleCatalogCoreItems();
   const stepItems = visibleCoreItems.some(entry => entry.id === item.id) ? visibleCoreItems : catalogCoreItems;
   const hasModel = shouldShowModelViewer(item);
-  const hasArt = shouldShowCatalogArt(item);
-  const modalContentRoot = setModalContent(`${modalStepButtons(stepItems, item.id, "item")}<div class="modal-inner ${hasArt ? "modal-inner--model" : "modal-inner--content"}">
+  const modalContentRoot = setModalContent(`${modalStepButtons(stepItems, item.id, "item")}<div class="modal-inner ${hasModel ? "modal-inner--model" : "modal-inner--content"}">
     ${detailBackButton(detailOptions.backId, detailOptions.backProductId, detailOptions.backRelease, detailRegion)}
-    ${hasArt ? `<div class="modal-art">${modalArtMarkup(item)}</div>` : ""}
+    ${hasModel ? `<div class="modal-art">${modalArtMarkup(item)}</div>` : ""}
     <div class="modal-info ${item.type === "bey" ? "bey-modal-info" : "part-modal-info"}">
     ${modalScrollArea(`${detailHeading(item, detailOptions)}
     ${slot}<div class="modal-body-block">${body}</div>`)}</div></div>`);

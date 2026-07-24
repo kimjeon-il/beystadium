@@ -3243,7 +3243,7 @@ test("open detail modal follows viewport resize in both directions", async ({ pa
 
   const wideLayout = await snapshotModalLayout();
   expectViewportFit(wideLayout);
-  expect(wideLayout.columnCount).toBe(2);
+  expect(wideLayout.columnCount).toBe(1);
   expect(wideLayout.inner.width).toBe(720);
 
   await page.setViewportSize({ width: 900, height: 800 });
@@ -3259,7 +3259,7 @@ test("open detail modal follows viewport resize in both directions", async ({ pa
   await expect.poll(async () => (await snapshotModalLayout()).storedViewportWidth).toBe(1440);
   const restoredLayout = await snapshotModalLayout();
   expectViewportFit(restoredLayout);
-  expect(restoredLayout.columnCount).toBe(2);
+  expect(restoredLayout.columnCount).toBe(1);
   expect(restoredLayout.inner.width).toBe(720);
   expect(page.url()).toBe(initialUrl);
   expect(restoredLayout.title).toBe(initialTitle?.trim());
@@ -3386,7 +3386,7 @@ test("failed route stylesheet exposes a retry that recovers the page", async ({ 
   await expect(status).toBeHidden();
 });
 
-test("X catalog images load lazily with transparent detail art", async ({ page }) => {
+test("X catalog images load lazily without adding a detail art pane", async ({ page }) => {
   const failedImages = [];
   page.on("response", response => {
     if (response.url().includes("/assets/images/x/") && !response.ok()) {
@@ -3401,14 +3401,7 @@ test("X catalog images load lazily with transparent detail art", async ({ page }
   await expect(cardImage).toHaveAttribute("loading", "lazy");
   await expect(cardImage).toHaveAttribute("decoding", "async");
   await expect.poll(() => cardImage.evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);
-
-  await card.locator(".catalog-card-action").click();
-  await expect(page.locator("#detailModal")).toBeVisible();
-  const detailImage = page.locator("#detailModal .modal-art > .bey-image");
-  await expect(detailImage).toBeVisible();
-  const detailGeometry = await detailImage.evaluate(image => {
-    const imageRect = image.getBoundingClientRect();
-    const artRect = image.parentElement.getBoundingClientRect();
+  const imageGeometry = await cardImage.evaluate(image => {
     const canvas = document.createElement("canvas");
     canvas.width = image.naturalWidth;
     canvas.height = image.naturalHeight;
@@ -3423,13 +3416,16 @@ test("X catalog images load lazily with transparent detail art", async ({ page }
     return {
       naturalWidth: image.naturalWidth,
       naturalHeight: image.naturalHeight,
-      fitsArt: imageRect.width <= artRect.width && imageRect.height <= artRect.height,
       corners
     };
   });
-  expect(detailGeometry.naturalWidth).toBeGreaterThan(0);
-  expect(detailGeometry.naturalHeight).toBeGreaterThan(0);
-  expect(detailGeometry.fitsArt).toBe(true);
-  expect(detailGeometry.corners).toEqual([0, 0, 0, 0]);
+  expect(imageGeometry.naturalWidth).toBeGreaterThan(0);
+  expect(imageGeometry.naturalHeight).toBeGreaterThan(0);
+  expect(imageGeometry.corners).toEqual([0, 0, 0, 0]);
+
+  await card.locator(".catalog-card-action").click();
+  await expect(page.locator("#detailModal")).toBeVisible();
+  await expect(page.locator("#detailModal .modal-inner--content")).toBeVisible();
+  await expect(page.locator("#detailModal .modal-art")).toHaveCount(0);
   expect(failedImages).toEqual([]);
 });
