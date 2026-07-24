@@ -5,11 +5,20 @@ import path from "node:path";
 
 import { beyItems, partItems } from "../data/source/catalog.mjs";
 import { xImageMappings, xImageUnavailable } from "../data/source/x-images.mjs";
+import { xImageReview } from "../data/source/x-image-review.mjs";
 
 const REPORT_ARG = process.argv.find(argument => argument.startsWith("--report="));
 const REPORT_PATH = REPORT_ARG?.slice("--report=".length) || "";
 const xItems = [...beyItems, ...partItems].filter(item => item.series === "x");
 const xIds = new Set(xItems.map(item => item.id));
+const expectedCorrectedSources = {
+  "BEY-X-BX-37-BEAR-SCRATCH-5-60F": "02_product_components/061_bx37/03_BX37_03@1.png",
+  "PART-X-BLADE-BEAR-SCRATCH": "02_product_components/061_bx37/04_BX37_04@1.png",
+  "BEY-X-BX-48-02-SHARK-EDGE-4-70E": "02_product_components/119_bx48/04_BX48_04@1.png",
+  "BEY-X-BX-48-03-MAMMOTH-TUSK-7-60S": "02_product_components/119_bx48/03_BX48_03@1.png",
+  "BEY-X-BX-48-04-HELLS-SCYTHE-3-85GB": "02_product_components/119_bx48/06_BX48_06@1.png",
+  "BEY-X-BX-48-05-DRAN-BUSTER-2-80Q": "02_product_components/119_bx48/05_BX48_05@1.png"
+};
 
 function uniqueValues(values, label) {
   assert.equal(new Set(values).size, values.length, `${label} contains duplicates`);
@@ -46,6 +55,7 @@ async function validateOutputs() {
   uniqueValues(xImageMappings.map(entry => entry.id), "mapping IDs");
   uniqueValues(xImageMappings.map(entry => entry.image), "mapping output paths");
   uniqueValues(xImageUnavailable.map(entry => entry.id), "unavailable IDs");
+  uniqueValues(xImageReview.map(entry => entry.id), "reviewed mapping IDs");
 
   const accountedIds = [
     ...xImageMappings.map(entry => entry.id),
@@ -55,11 +65,17 @@ async function validateOutputs() {
   assert.deepEqual(new Set(accountedIds), xIds, "every X Bey and part must be mapped or unavailable");
   assert.equal(xImageMappings.length, 441);
   assert.equal(xImageUnavailable.length, 24);
+  assert.equal(xImageReview.length, xImageMappings.length);
+  const mappingById = new Map(xImageMappings.map(entry => [entry.id, entry]));
+  for (const [id, sourcePath] of Object.entries(expectedCorrectedSources)) {
+    assert.equal(mappingById.get(id)?.sourcePath, sourcePath, `${id} uses the wrong official image`);
+  }
 
   for (const entry of xImageUnavailable) {
     assert.ok(entry.reason?.trim(), `${entry.id} needs an unavailable reason`);
   }
 
+  const reviewById = new Map(xImageReview.map(entry => [entry.id, entry]));
   for (const entry of xImageMappings) {
     assert.match(entry.sourceSha256, /^[a-f0-9]{64}$/);
     assert.ok(entry.sourcePath || entry.sourceUrl, `${entry.id} needs source provenance`);
@@ -69,6 +85,18 @@ async function validateOutputs() {
     const info = webpInfo(bytes);
     assert.ok(info.width > 0 && info.height > 0, `${entry.id} has invalid dimensions`);
     assert.ok(info.hasAlpha, `${entry.id} does not advertise an alpha channel`);
+
+    const review = reviewById.get(entry.id);
+    assert.ok(review, `${entry.id} has not been visually reviewed`);
+    assert.equal(review.image, entry.image, `${entry.id} reviewed output path changed`);
+    assert.equal(
+      review.sourcePath || review.sourceUrl,
+      entry.sourcePath || entry.sourceUrl,
+      `${entry.id} reviewed source changed`
+    );
+    assert.equal(review.sourceSha256, entry.sourceSha256, `${entry.id} reviewed source hash changed`);
+    const outputSha256 = createHash("sha256").update(bytes).digest("hex");
+    assert.equal(outputSha256, review.outputSha256, `${entry.id} output no longer matches its review`);
   }
 }
 

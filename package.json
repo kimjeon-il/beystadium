@@ -23,6 +23,8 @@
     "test:x-random-boosters": "node --test tests/x-random-boosters.test.mjs",
     "test:x-jp-part-details": "node --test tests/x-jp-part-details.test.mjs",
     "test:x-kr-bey-details": "node --test tests/x-kr-bey-details.test.mjs",
+    "x-images:review": "node scripts/record-x-image-review.mjs",
+    "x-images:review:report": "node scripts/build-x-image-review-report.mjs",
     "test:x-images": "node scripts/validate-x-images.mjs",
     "test:data": "node scripts/validate-data.mjs",
     "test:smoke": "playwright test",

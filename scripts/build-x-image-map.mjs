@@ -5,6 +5,7 @@ import path from "node:path";
 
 import { beyItems, partItems } from "../data/source/catalog.mjs";
 import { productItems } from "../data/source/products.mjs";
+import { xImageReview } from "../data/source/x-image-review.mjs";
 
 const SPECIAL_PRODUCT_IDS = {
   "bx00-es": "PRODUCT-X-BX-00-XTREME-STADIUM-LIGHT-PACKAGE",
@@ -170,9 +171,15 @@ const SOURCE_INDEX_OVERRIDES = {
   "BEY-X-BX-46-GORE-TACKLE-7-70T": ["bx46", 1],
   "BEY-X-BX-46-COBALT-DRAKE-9-60R": ["bx46", 2],
   "BEY-X-BX-37-BEAR-SCRATCH-5-60F": ["bx37", 3],
+  "PART-X-BLADE-BEAR-SCRATCH": ["bx37", 4],
   "PART-X-BLADE-GORE-TACKLE": ["bx46", 3],
   "PART-X-RATCHET-7-70": ["ux10", 10],
   "PART-X-BIT-R": ["bx20", 5],
+
+  "BEY-X-BX-48-02-SHARK-EDGE-4-70E": ["bx48", 4],
+  "BEY-X-BX-48-03-MAMMOTH-TUSK-7-60S": ["bx48", 3],
+  "BEY-X-BX-48-04-HELLS-SCYTHE-3-85GB": ["bx48", 6],
+  "BEY-X-BX-48-05-DRAN-BUSTER-2-80Q": ["bx48", 5],
 
   "BEY-X-CX-11-EMPEROR-MIGHT-H-OP": ["cx11", 1],
   "BEY-X-CX-11-SHARK-GILL-5-60FB": ["cx11", 9],
@@ -269,6 +276,10 @@ const xBeys = beyItems.filter(item => item.series === "x");
 const xParts = partItems.filter(item => item.series === "x");
 const itemById = new Map([...xBeys, ...xParts].map(item => [item.id, item]));
 const productById = new Map(productItems.filter(item => item.series === "x").map(item => [item.id, item]));
+const reviewedById = new Map(xImageReview.map(entry => [entry.id, entry]));
+if (reviewedById.size !== xImageReview.length) {
+  throw new Error("Duplicate reviewed X image mapping IDs");
+}
 
 function parseCsv(text) {
   const rows = [];
@@ -546,9 +557,43 @@ async function main() {
       image: outputRelative(item)
     });
   }
+  for (const review of xImageReview) {
+    const item = itemById.get(review.id);
+    if (!item) throw new Error(`Unknown reviewed X image item: ${review.id}`);
+    const expectedImage = outputRelative(item);
+    if (review.image !== expectedImage) {
+      throw new Error(`${review.id}: reviewed output path changed`);
+    }
+    const source = review.sourcePath || review.sourceUrl;
+    if (!source) throw new Error(`${review.id}: reviewed source is missing`);
+    const filePath = review.sourcePath
+      ? path.join(SOURCE_ROOT, ...review.sourcePath.split("/"))
+      : await downloadOfficialSource(review.id, review.sourceUrl);
+    await stat(filePath);
+    const sourceSha256 = await sha256(filePath);
+    if (sourceSha256 !== review.sourceSha256) {
+      throw new Error(`${review.id}: reviewed source SHA-256 changed`);
+    }
+    selected.set(review.id, {
+      id: review.id,
+      kind: item.type === "bey" ? "bey" : "part",
+      productId: "",
+      slug: "reviewed-source",
+      limited: false,
+      source,
+      ...(review.sourceUrl ? { sourceFile: filePath } : {}),
+      sourceSha256,
+      image: review.image,
+      ...(review.sourceCrop ? { sourceCrop: review.sourceCrop } : {}),
+      ...(review.sourceExcludeRects ? { sourceExcludeRects: review.sourceExcludeRects } : {}),
+      ...(review.sourceClearPoints ? { sourceClearPoints: review.sourceClearPoints } : {}),
+      ...(review.keepLargestComponent ? { keepLargestComponent: true } : {})
+    });
+  }
   const selectedEntries = [...selected.values()]
     .map(entry => {
-      const sourceClearPoints = SOURCE_CLEAR_POINTS[entry.id]
+      const sourceClearPoints = entry.sourceClearPoints
+        ?? SOURCE_CLEAR_POINTS[entry.id]
         ?? (entry.id.startsWith("PART-X-RATCHET-") ? [[293, 354]] : undefined);
       return {
         ...entry,
@@ -557,6 +602,9 @@ async function main() {
     })
     .sort((left, right) => left.id.localeCompare(right.id));
   const mappedIds = new Set(selectedEntries.map(entry => entry.id));
+  const unreviewedIds = selectedEntries
+    .filter(entry => !reviewedById.has(entry.id))
+    .map(entry => entry.id);
   const missingBeys = xBeys.filter(item => !mappedIds.has(item.id)).map(item => item.id);
   const missingParts = xParts.filter(item => !mappedIds.has(item.id)).map(item => item.id);
   const report = {
@@ -566,10 +614,13 @@ async function main() {
       parts: xParts.length,
       mappedBeys: selectedEntries.filter(entry => entry.kind === "bey").length,
       mappedParts: selectedEntries.filter(entry => entry.kind === "part").length,
+      reviewedMappings: selectedEntries.length - unreviewedIds.length,
+      unreviewedMappings: unreviewedIds.length,
       missingBeys: missingBeys.length,
       missingParts: missingParts.length
     },
     selected: selectedEntries,
+    unreviewedIds,
     missingBeys,
     missingParts,
     pages
@@ -580,6 +631,9 @@ async function main() {
     await writeFile(OUTPUT_PATH, `${JSON.stringify(report, null, 2)}\n`);
   }
   if (EMIT_SOURCE) {
+    if (unreviewedIds.length) {
+      throw new Error(`Unreviewed X image mappings: ${unreviewedIds.join(", ")}`);
+    }
     const unavailable = [...missingBeys, ...missingParts].map(id => {
       const reason = UNAVAILABLE_REASONS[id];
       if (!reason) throw new Error(`Missing unavailable-image reason: ${id}`);
