@@ -2437,15 +2437,33 @@ test("static details use a rounded single-column layout without a photo pane", a
   expect(errors).toEqual([]);
 });
 
-test("3D model details retain their dedicated art pane", async ({ page }, testInfo) => {
+test("hidden 3D model details use the shared content modal while retaining their source data", async ({ page }, testInfo) => {
   await page.goto("/#PART-METAL-FIGHT-BOTTOM-BALL");
   await expect(page.locator("#detailModal")).toBeVisible();
-  const shell = page.locator("#detailModal .modal-inner--model");
+  const shell = page.locator("#detailModal .modal-inner--content");
   await expect(shell).toBeVisible();
-  await expect(shell.locator(".modal-art .model-viewer")).toHaveCount(1);
-  const columnCount = await shell.evaluate(element =>
-    getComputedStyle(element).gridTemplateColumns.split(" ").filter(Boolean).length);
-  expect(columnCount).toBe(testInfo.project.name === "desktop" ? 2 : 1);
+  await expect(shell.locator(".modal-art, .model-viewer")).toHaveCount(0);
+  const layout = await shell.evaluate(element => {
+    const rect = element.getBoundingClientRect();
+    return {
+      width: Math.round(rect.width),
+      height: Math.round(rect.height),
+      columns: getComputedStyle(element).gridTemplateColumns.split(" ").filter(Boolean).length
+    };
+  });
+  expect(layout.columns).toBe(1);
+  if (testInfo.project.name === "desktop") {
+    expect(Math.abs(layout.width - 720)).toBeLessThanOrEqual(1);
+    expect(Math.abs(layout.height - 620)).toBeLessThanOrEqual(1);
+  }
+
+  const response = await page.request.get("/data/runtime/series/metal-fight.json");
+  expect(response.ok()).toBe(true);
+  const data = await response.json();
+  const ballBottom = data.partItems.find(item => item.id === "PART-METAL-FIGHT-BOTTOM-BALL");
+  expect(ballBottom.model).toBe("assets/models/BO_B.obj");
+  const modelResponse = await page.request.get(`/${ballBottom.model}`);
+  expect(modelResponse.ok()).toBe(true);
 });
 
 test("regional product and linked card images appear in rounded previews", async ({ page }, testInfo) => {
@@ -2670,7 +2688,7 @@ test("DB 방영목록은 52개 한국판 제목과 검색·상세 주소를 제�
   expect(errors).toEqual([]);
 });
 
-test("episode modal matches the rare bey get shell and preserves contextual back navigation", async ({ page }) => {
+test("episode modal matches the rare bey get shell and preserves contextual back navigation", async ({ page }, testInfo) => {
   const errors = consoleErrors(page);
   const shellGeometry = async () => {
     await page.locator("#detailModal .modal-stage").evaluate(stage =>
@@ -2685,6 +2703,10 @@ test("episode modal matches the rare bey get shell and preserves contextual back
   await expect(page.locator("#detailModal")).toBeVisible();
   await expect(page.locator("#detailModal .rare-bey-get-list")).toBeVisible();
   const rareGeometry = await shellGeometry();
+  if (testInfo.project.name === "desktop") {
+    expect(Math.abs(rareGeometry.shell.width - 720)).toBeLessThanOrEqual(1);
+    expect(Math.abs(rareGeometry.shell.height - 620)).toBeLessThanOrEqual(1);
+  }
 
   await page.goto("/#anime-episode");
   const episodeRow = page.locator(".anime-episode-row").first();

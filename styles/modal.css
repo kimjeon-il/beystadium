@@ -261,7 +261,7 @@ dialog[open] {
   --modal-vw: var(--modal-viewport-width, 100vw);
   --modal-vh: var(--modal-viewport-height, 100vh);
   --modal-edge-gap: 48px;
-  --modal-w: min(980px, calc(var(--modal-vw) - var(--modal-edge-gap)));
+  --modal-w: min(720px, calc(var(--modal-vw) - var(--modal-edge-gap)));
   --modal-h: min(620px, calc(var(--modal-vh) - var(--modal-edge-gap)));
   --modal-gutter: 45px;
   --modal-close-offset: 18px;
@@ -1227,13 +1227,13 @@ dialog[open] .modal-step {
 }
 
 dialog[open] .modal-step-prev {
-  left: calc((var(--modal-vw, 100vw) - var(--modal-w, min(980px, calc(100vw - 48px)))) / 2 + var(--modal-step-start-offset));
+  left: calc((var(--modal-vw, 100vw) - var(--modal-w, min(720px, calc(100vw - 48px)))) / 2 + var(--modal-step-start-offset));
   right: auto;
 }
 
 dialog[open] .modal-step-next {
   left: auto;
-  right: calc((var(--modal-vw, 100vw) - var(--modal-w, min(980px, calc(100vw - 48px)))) / 2 + var(--modal-step-end-offset));
+  right: calc((var(--modal-vw, 100vw) - var(--modal-w, min(720px, calc(100vw - 48px)))) / 2 + var(--modal-step-end-offset));
 }
 
 dialog[open] .modal-step::before,
@@ -1433,7 +1433,6 @@ dialog[open] .modal-info:not(.product-modal-info) .modal-name {
 }
 
 dialog[open][data-modal-layout="content"] {
-  --modal-w: min(720px, calc(var(--modal-vw) - var(--modal-edge-gap)));
   --modal-inner-columns: minmax(0, 1fr);
   --modal-inner-rows: minmax(0, 1fr);
   --modal-info-align-self: stretch;

@@ -15,6 +15,12 @@ import { partDisplayTypeLabel, typeLabels } from "#app/ui-core";
 
 initializeImageLinkPreviews();
 
+const hiddenModelViewerItemIds = new Set([
+  "PART-METAL-FIGHT-BOTTOM-BALL"
+]);
+const shouldShowModelViewer = item =>
+  Boolean(item?.model) && !hiddenModelViewerItemIds.has(item.id);
+
 const detailBackButton = (backId, backProductId, backRelease, backRegion) => {
   if (backId) {
     return modalBackButtonMarkup({ backId, backProductId, backRelease, region: backRegion, label: "베이로 돌아가기" });
@@ -166,7 +172,7 @@ function openDetail(id, options = {}) {
   const body = item.type === "bey" ? beyDetailSections(item, detailRegion) : partStats(item);
   const visibleCoreItems = visibleCatalogCoreItems();
   const stepItems = visibleCoreItems.some(entry => entry.id === item.id) ? visibleCoreItems : catalogCoreItems;
-  const hasModel = Boolean(item.model);
+  const hasModel = shouldShowModelViewer(item);
   const modalContentRoot = setModalContent(`${modalStepButtons(stepItems, item.id, "item")}<div class="modal-inner ${hasModel ? "modal-inner--model" : "modal-inner--content"}">
     ${detailBackButton(detailOptions.backId, detailOptions.backProductId, detailOptions.backRelease, detailRegion)}
     ${hasModel ? `<div class="modal-art">${modalArtMarkup(item)}</div>` : ""}
@@ -189,7 +195,7 @@ function openDetail(id, options = {}) {
   bindModalDescriptionExpanders(modalContentRoot);
   finishModalOpen({ contextKind: "item", contextId: item.id, contextOptions: detailOptions, root: modalContentRoot });
   scheduleModalDescriptionMeasure(modalContentRoot);
-  if (item.model) requestAnimationFrame(initModelViewer);
+  if (hasModel) requestAnimationFrame(initModelViewer);
 }
 function productHeader(item, region = appState.activeReleaseRegion) {
   return modalTitle(productDisplayName(item, region), "product-modal-name");

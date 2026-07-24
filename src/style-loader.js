@@ -1,4 +1,4 @@
-const styleVersion = "20260724-card-image-link-preview";
+const styleVersion = "20260724-modal-size-model-visibility";
 const styleOrder = ["page", "collection", "table", "release", "anime", "catalog", "search", "modal"];
 const styleFiles = Object.fromEntries(styleOrder.map(key => [key, `./styles/${key}.css?v=${styleVersion}`]));
 const stylePromises = new Map();
