@@ -234,7 +234,7 @@ const beyPartSection = (title, partIds, region, className = "") => {
   const links = (partIds || []).map(partId => {
     const part = catalogCoreItemsById.get(partId);
     if (!part) return "";
-    return `<a class="ui-list-link mounted-link" href="#${part.id}" data-part-id="${part.id}"><span>${mountedPartTypeLabelMarkup(part)}</span><strong>${appServices.itemDisplayName(part, region)}</strong><b>→</b></a>`;
+    return `<a class="ui-list-link mounted-link" href="#${part.id}" data-part-id="${part.id}" data-image-preview-id="${part.id}"><span>${mountedPartTypeLabelMarkup(part)}</span><strong>${appServices.itemDisplayName(part, region)}</strong><b>→</b></a>`;
   }).filter(Boolean).join("");
   if (!links) return "";
   const classes = ["modal-section", "mounted-parts", className].filter(Boolean).join(" ");

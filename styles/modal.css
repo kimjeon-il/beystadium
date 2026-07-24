@@ -1431,4 +1431,12 @@ dialog[open] .modal-info:not(.product-modal-info) .modal-name {
     text-overflow: ellipsis;
   }
 }
+
+dialog[open][data-modal-layout="content"] {
+  --modal-w: min(720px, calc(var(--modal-vw) - var(--modal-edge-gap)));
+  --modal-inner-columns: minmax(0, 1fr);
+  --modal-inner-rows: minmax(0, 1fr);
+  --modal-info-align-self: stretch;
+  --modal-info-height: 100%;
+}
 }

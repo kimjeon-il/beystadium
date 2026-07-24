@@ -2,6 +2,7 @@ import { appState } from "#app/state";
 import { partItems } from "#app/data-store";
 import { zeroGBottomStartIndex } from "#app/catalog-model";
 import { cleanupModelViewer, closeModalTagPopover, positionModalTagPopover } from "#app/detail-view";
+import { hideLinkImagePreview } from "#app/image-preview";
 import { clearActiveDetailModalContext, clearModalContext, currentPageScrollY, rememberModalContext, restorePageScroll, validScrollY } from "#app/modal-context";
 import { clearModalOriginRoute, navigateToRoute } from "#app/navigation";
 import { escapeAttributeValue } from "#app/release-core";
@@ -186,11 +187,13 @@ class ModalController {
 
   close() {
     const targetScrollY = validScrollY(this.scrollY);
+    hideLinkImagePreview();
     this.cancelDescriptionMeasure();
     if (this.modal?.open) this.modal.close();
     this.cancelViewportSync();
     clearScrollAffordances(this.contentRoot || document);
     this.modal?.removeAttribute("data-modal-transition");
+    this.modal?.removeAttribute("data-modal-layout");
     restorePageScroll(targetScrollY);
     this.clearLockStyles();
     restorePageScroll(targetScrollY);
@@ -229,11 +232,16 @@ class ModalController {
       takeModalTransition();
       return root;
     }
+    hideLinkImagePreview();
     root.innerHTML = html;
     bindScrollAffordances(root);
     const { transition, origin } = takeModalTransition();
     const modalInner = root.querySelector(".modal-inner");
-    if (this.modal) this.modal.dataset.modalTransition = transition;
+    if (this.modal) {
+      this.modal.dataset.modalTransition = transition;
+      if (modalInner?.classList.contains("modal-inner--content")) this.modal.dataset.modalLayout = "content";
+      else this.modal.removeAttribute("data-modal-layout");
+    }
     this.setTransitionOrigin(origin, modalInner);
     modalInner?.classList.add(modalTransitionClass(transition));
     this.playStageMotion(transition);

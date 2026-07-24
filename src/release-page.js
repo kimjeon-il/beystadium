@@ -3,8 +3,11 @@ import { appState } from "#app/state";
 import { rememberModalContext } from "#app/modal-context";
 import { matchesSearchText } from "#app/search-engine";
 import { productItems } from "#app/data-store";
+import { initializeImageLinkPreviews } from "#app/image-preview";
 import { TableListController, compareProductReleaseOrder, defaultReleaseSeries, escapeAttributeValue, escapeHtml, priceLabel, productDisplayName, productRelease, productReleasedInRegion, productSerialNumber, releaseBadgeLabel, releaseBadgeSearchText, releaseBadges, releaseControls, releaseDateCompactLabel, releaseDateLabel, releaseDateSortValue, releaseKindSortValue, releasePriceSortValue, releaseRegionLabels, releaseSeriesForRegion, releaseSeriesLabels, responsiveDateSpans, sortDropdownMarkup, tableListPageMarkup, tableListTableMarkup } from "#app/release-core";
 import { bindActionRows } from "#app/ui-core";
+
+initializeImageLinkPreviews();
 
 const releaseSortableColumns = {
   no: "번호",
@@ -141,7 +144,7 @@ const productReleaseTableRows = (region = appState.activeReleaseRegion, series =
     const productName = productDisplayName(item, region);
     return `<tr class="table-list-row release-product-row" data-product-id="${item.id}" data-release-region="${region}">
     <td>${release.no || ""}</td>
-    <td><span class="release-product-cell"><button class="table-list-row-action table-list-primary-text release-product-link" type="button">${escapeHtml(productName)}</button>${releaseBadgesMarkup(item, region)}</span></td>
+    <td><span class="release-product-cell"><button class="table-list-row-action table-list-primary-text release-product-link" type="button" data-image-preview-product-id="${item.id}" data-image-preview-region="${region}">${escapeHtml(productName)}</button>${releaseBadgesMarkup(item, region)}</span></td>
     <td>${release.kind || ""}</td>
     <td>${responsiveDateSpans("release-date-full", "release-date-compact", releaseDateLabel(releaseDate), releaseDateCompactLabel(releaseDate))}</td>
     <td>${priceLabel(release.price, region)}</td>

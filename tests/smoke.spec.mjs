@@ -9,6 +9,19 @@ const consoleErrors = page => {
   return errors;
 };
 
+const injectRegionalProductPreviewImages = async page => {
+  await page.route("**/data/runtime/series/metal-fight.json*", async route => {
+    const response = await route.fetch();
+    const payload = await response.json();
+    const product = payload.productItems?.find(item => item.id === "PRODUCT-METAL-FIGHT-BB-28");
+    if (product?.releases?.kr && product?.releases?.jp) {
+      product.releases.kr.image = "assets/images/beys/storm-pegasis.png";
+      product.releases.jp.image = "assets/images/beys/storm-pegasis-stardust.png";
+    }
+    await route.fulfill({ response, json: payload });
+  });
+};
+
 const expectFocusIndicator = async locator => {
   const readIndicator = element => {
     const style = getComputedStyle(element);
@@ -1458,6 +1471,7 @@ test("search help shows only its summary when the full guide does not fit", asyn
 test("mobile modal scroll affordance stays above opaque detail sections", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "mobile", "mobile modal layering coverage");
   const errors = consoleErrors(page);
+  await page.setViewportSize({ width: 393, height: 600 });
   await page.goto("/#PART-BURST-DBLAYER-GREATEST-RAPHAEL");
   await expect(page.locator("#detailModal")).toBeVisible();
 
@@ -2242,7 +2256,7 @@ test("long X blade role labels wrap without overlapping mounted part names", asy
   expect(errors).toEqual([]);
 });
 
-test("release detail back button stays at the modal photo corner", async ({ page }) => {
+test("release detail back button stays at the modal shell corner", async ({ page }) => {
   const errors = consoleErrors(page);
   await page.goto("/#toy-release");
   const releaseLink = page.locator(".release-product-link").first();
@@ -2398,6 +2412,113 @@ test("초제트 방영목록은 51개 회차와 검색·상세 주소를 제공�
   await expect(page.locator('[data-anime-season="burst-cho-z"].active')).toHaveCount(1);
   await expect(page.locator(".anime-episode-row")).toHaveCount(51);
   expect(errors).toEqual([]);
+});
+
+test("static details use a rounded single-column layout without a photo pane", async ({ page }, testInfo) => {
+  const errors = consoleErrors(page);
+  await page.goto("/#BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF");
+  await expect(page.locator("#detailModal")).toBeVisible();
+
+  const shell = page.locator("#detailModal .modal-inner--content");
+  await expect(shell).toBeVisible();
+  await expect(shell.locator(".modal-art")).toHaveCount(0);
+  const layout = await shell.evaluate(element => {
+    const rect = element.getBoundingClientRect();
+    const style = getComputedStyle(element);
+    return {
+      width: Math.round(rect.width),
+      columns: style.gridTemplateColumns.split(" ").filter(Boolean).length,
+      radius: style.borderTopLeftRadius
+    };
+  });
+  expect(layout.columns).toBe(1);
+  expect(layout.radius).toBe("24px");
+  if (testInfo.project.name === "desktop") expect(Math.abs(layout.width - 720)).toBeLessThanOrEqual(1);
+  expect(errors).toEqual([]);
+});
+
+test("3D model details retain their dedicated art pane", async ({ page }, testInfo) => {
+  await page.goto("/#PART-METAL-FIGHT-BOTTOM-BALL");
+  await expect(page.locator("#detailModal")).toBeVisible();
+  const shell = page.locator("#detailModal .modal-inner--model");
+  await expect(shell).toBeVisible();
+  await expect(shell.locator(".modal-art .model-viewer")).toHaveCount(1);
+  const columnCount = await shell.evaluate(element =>
+    getComputedStyle(element).gridTemplateColumns.split(" ").filter(Boolean).length);
+  expect(columnCount).toBe(testInfo.project.name === "desktop" ? 2 : 1);
+});
+
+test("regional product and linked card images appear in rounded previews", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "pointer preview coverage only needs one fine-pointer browser");
+  const errors = consoleErrors(page);
+  await injectRegionalProductPreviewImages(page);
+  await page.goto("/#toy-release");
+  await page.locator(".release-list-page .table-list-dropdown summary").click();
+  await page.locator('[data-release-series="metal fight"]').click();
+  await page.locator("#releaseSearchInput").fill("BB-28");
+
+  const releaseLink = page.locator('.release-product-row[data-product-id="PRODUCT-METAL-FIGHT-BB-28"] .release-product-link');
+  await releaseLink.hover();
+  const preview = page.locator(".link-image-preview");
+  await expect(preview).toBeVisible();
+  await expect(preview.locator("img")).toHaveAttribute("src", "assets/images/beys/storm-pegasis.png");
+  const previewLayout = await preview.evaluate(element => {
+    const rect = element.getBoundingClientRect();
+    const imageStyle = getComputedStyle(element.querySelector("img"));
+    const style = getComputedStyle(element);
+    return {
+      width: Math.round(rect.width),
+      height: Math.round(rect.height),
+      radius: style.borderTopLeftRadius,
+      imageRadius: imageStyle.borderTopLeftRadius,
+      pointerEvents: style.pointerEvents,
+      insideViewport: rect.left >= 12 && rect.top >= 12
+        && rect.right <= window.innerWidth - 12 && rect.bottom <= window.innerHeight - 12
+    };
+  });
+  expect(previewLayout).toEqual({
+    width: 184,
+    height: 184,
+    radius: "12px",
+    imageRadius: "12px",
+    pointerEvents: "none",
+    insideViewport: true
+  });
+
+  await releaseLink.click();
+  await expect(page.locator("#detailModal .modal-inner--content")).toBeVisible();
+  const compositionLink = page.locator('#detailModal .composition-link[data-target-id="BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF"]');
+  await compositionLink.hover();
+  await expect(preview).toBeVisible();
+  await expect(preview.locator("img")).toHaveAttribute("src", "assets/images/beys/storm-pegasis.png");
+
+  const noImageLink = page.locator('#detailModal .composition-link[data-target-id="TOOLS-METAL-FIGHT-TOOL"]');
+  await noImageLink.hover();
+  await expect(preview).toBeHidden();
+
+  await page.locator("#modalClose").click();
+  await page.locator('[data-release-region="jp"]').click();
+  await page.locator("#releaseSearchInput").fill("BB-28");
+  const japaneseLink = page.locator('.release-product-row[data-product-id="PRODUCT-METAL-FIGHT-BB-28"] .release-product-link');
+  await japaneseLink.focus();
+  await expect(preview).toBeVisible();
+  await expect(preview.locator("img")).toHaveAttribute("src", "assets/images/beys/storm-pegasis-stardust.png");
+  await page.keyboard.press("Escape");
+  await expect(preview).toBeHidden();
+  await expect(page.locator("#detailModal")).not.toBeVisible();
+  expect(errors).toEqual([]);
+});
+
+test("touch activation opens details without leaving an image preview", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "mobile", "touch behavior only needs the mobile project");
+  await injectRegionalProductPreviewImages(page);
+  await page.goto("/#toy-release");
+  await page.locator(".release-list-page .table-list-dropdown summary").tap();
+  await page.locator('[data-release-series="metal fight"]').tap();
+  await page.locator("#releaseSearchInput").fill("BB-28");
+  await page.locator('.release-product-row[data-product-id="PRODUCT-METAL-FIGHT-BB-28"] .release-product-link').tap();
+  await expect(page.locator("#detailModal")).toBeVisible();
+  await expect(page.locator(".link-image-preview")).toBeHidden();
 });
 
 test("진검 방영목록은 52개 회차와 교정된 검색·상세 주소를 제공한다", async ({ page }, testInfo) => {
@@ -3100,7 +3221,8 @@ test("open detail modal follows viewport resize in both directions", async ({ pa
 
   const wideLayout = await snapshotModalLayout();
   expectViewportFit(wideLayout);
-  expect(wideLayout.columnCount).toBe(2);
+  expect(wideLayout.columnCount).toBe(1);
+  expect(wideLayout.inner.width).toBe(720);
 
   await page.setViewportSize({ width: 900, height: 800 });
   await expect.poll(async () => (await snapshotModalLayout()).storedViewportWidth).toBe(900);
@@ -3115,7 +3237,8 @@ test("open detail modal follows viewport resize in both directions", async ({ pa
   await expect.poll(async () => (await snapshotModalLayout()).storedViewportWidth).toBe(1440);
   const restoredLayout = await snapshotModalLayout();
   expectViewportFit(restoredLayout);
-  expect(restoredLayout.columnCount).toBe(2);
+  expect(restoredLayout.columnCount).toBe(1);
+  expect(restoredLayout.inner.width).toBe(720);
   expect(page.url()).toBe(initialUrl);
   expect(restoredLayout.title).toBe(initialTitle?.trim());
 
