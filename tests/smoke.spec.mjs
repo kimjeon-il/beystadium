@@ -373,6 +373,109 @@ test("anime character layout is independent of prior catalog navigation", async 
   await catalogContext.close();
 });
 
+test("anime character profile cards keep optional roles and overflow beys readable", async ({ page }, testInfo) => {
+  await page.goto("/#anime-character?season=beyblade-x");
+  const grid = page.locator("#animeCharacterGrid");
+  const groupedCard = page.locator('[data-anime-character-card="나다운"]');
+  const rolelessCard = page.locator('[data-anime-character-card="태 사장"]');
+  await expect(groupedCard).toBeVisible();
+  await expect(rolelessCard).toBeVisible();
+  await expect(groupedCard.locator(".anime-character-role")).toHaveText("팀 페르소나");
+  await expect(rolelessCard.locator(".anime-character-role")).toHaveCount(0);
+
+  const cardLayout = await grid.evaluate(element => {
+    const cards = [...element.querySelectorAll(".anime-character-card")];
+    const heights = cards.map(card => card.getBoundingClientRect().height);
+    return {
+      columnCount: getComputedStyle(element).gridTemplateColumns.split(" ").filter(Boolean).length,
+      heightSpread: Math.max(...heights) - Math.min(...heights),
+      overflowX: element.scrollWidth - element.clientWidth
+    };
+  });
+  expect(cardLayout.heightSpread).toBeLessThanOrEqual(1);
+  expect(cardLayout.overflowX).toBeLessThanOrEqual(1);
+  if (testInfo.project.name === "desktop") expect(cardLayout.columnCount).toBeGreaterThanOrEqual(3);
+  else expect(cardLayout.columnCount).toBe(1);
+
+  const beyList = groupedCard.locator("[data-anime-character-bey-list]");
+  const moreButton = groupedCard.locator("[data-anime-character-bey-more]");
+  await expect(moreButton).toBeVisible();
+  const beyLayout = await beyList.evaluate(element => {
+    const chips = [...element.querySelectorAll("[data-anime-character-bey-chip]")];
+    const visibleChips = chips.filter(chip => !chip.hidden);
+    const rowTops = [...new Set(visibleChips.map(chip => Math.round(chip.offsetTop)))];
+    const more = element.querySelector("[data-anime-character-bey-more]");
+    const beys = JSON.parse(element.dataset.animeCharacterBeys || "[]");
+    return {
+      total: beys.length,
+      visible: visibleChips.length,
+      hidden: chips.filter(chip => chip.hidden).length,
+      hiddenCount: Number(more?.dataset.hiddenCount || 0),
+      rows: rowTops.length
+    };
+  });
+  expect(beyLayout.total).toBe(8);
+  expect(beyLayout.rows).toBeLessThanOrEqual(2);
+  expect(beyLayout.hidden).toBeGreaterThan(0);
+  expect(beyLayout.hiddenCount).toBe(beyLayout.hidden);
+  expect(beyLayout.visible + beyLayout.hidden).toBe(beyLayout.total);
+
+  await moreButton.click();
+  const popover = page.locator("#animeCharacterBeyPopover");
+  await expect(popover).toBeVisible();
+  await expect(popover.locator("strong")).toHaveText("나다운의 사용 베이");
+  await expect(popover.locator(".anime-character-bey-popover__chip")).toHaveCount(8);
+  await expect(moreButton).toHaveAttribute("aria-expanded", "true");
+  await expect(moreButton).toHaveAttribute("aria-controls", "animeCharacterBeyPopover");
+  await expect(moreButton).toHaveAttribute("aria-describedby", "animeCharacterBeyPopover");
+
+  const originalViewport = page.viewportSize();
+  await page.setViewportSize({
+    width: Math.min(originalViewport?.width || 420, 420),
+    height: Math.min(originalViewport?.height || 720, 720)
+  });
+  await expect.poll(() => popover.evaluate(element => {
+    const rect = element.getBoundingClientRect();
+    const viewport = window.visualViewport;
+    const left = viewport?.offsetLeft || 0;
+    const top = viewport?.offsetTop || 0;
+    const width = viewport?.width || window.innerWidth;
+    const height = viewport?.height || window.innerHeight;
+    return rect.left >= left + 13
+      && rect.right <= left + width - 13
+      && rect.top >= top + 13
+      && rect.bottom <= top + height - 13;
+  })).toBe(true);
+
+  await moreButton.press("Escape");
+  await expect(popover).toHaveCount(0);
+  await expect(moreButton).toHaveAttribute("aria-expanded", "false");
+  await expect(moreButton).not.toHaveAttribute("aria-controls");
+  await expect(moreButton).not.toHaveAttribute("aria-describedby");
+
+  await moreButton.click();
+  await expect(page.locator("#animeCharacterBeyPopover")).toBeVisible();
+  await page.locator('[data-anime-character-season="all"]').evaluate(element => element.click());
+  await expect(page.locator("#animeCharacterBeyPopover")).toHaveCount(0);
+
+  for (const colorScheme of ["light", "dark"]) {
+    await page.emulateMedia({ colorScheme, reducedMotion: "reduce" });
+    const colors = await rolelessCard.evaluate(element => {
+      const cardStyle = getComputedStyle(element);
+      const chipStyle = getComputedStyle(element.querySelector(".anime-character-bey-chip"));
+      return {
+        cardBackground: cardStyle.backgroundColor,
+        cardText: cardStyle.color,
+        chipBackground: chipStyle.backgroundColor,
+        chipText: chipStyle.color
+      };
+    });
+    expect(colors.cardBackground).not.toBe("rgba(0, 0, 0, 0)");
+    expect(colors.cardText).not.toBe(colors.cardBackground);
+    expect(colors.chipText).not.toBe(colors.chipBackground);
+  }
+});
+
 test("episode and release table styles are independent of navigation order", async ({ browser }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "layout order coverage only needs one browser");
 

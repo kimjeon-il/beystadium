@@ -12,7 +12,7 @@ import {
 import { renderCategoryCollection, renderPagination, scrollGridIntoView } from "#app/collection-view";
 import { animeSearchQuery, createSearchRecord, matchSearchRecord, matchesSearchText, prepareCatalogSearchQuery, searchFieldsFromValues } from "#app/search-engine";
 import { animeInfo } from "#app/data-store";
-import { TableListController, animeAirDateCompactLabel, animeAirDateLabel, escapeHtml, responsiveDateSpans, tableListControlsMarkup, tableListDropdownMarkup, tableListPageMarkup, tableListTableMarkup } from "#app/release-core";
+import { TableListController, animeAirDateCompactLabel, animeAirDateLabel, escapeAttributeValue, escapeHtml, responsiveDateSpans, tableListControlsMarkup, tableListDropdownMarkup, tableListPageMarkup, tableListTableMarkup } from "#app/release-core";
 import { appServices, registerAppServices } from "#app/services";
 import { normalizeRoute } from "#app/route-parser";
 import { navigateToRoute } from "#app/navigation";
@@ -23,9 +23,15 @@ if (!appState.activeAnimeSeason) appState.activeAnimeSeason = defaultAnimeSeason
 
 const ANIME_PAGE_SIZE = 40;
 const SEARCH_RENDER_DELAY = 100;
+const ANIME_CHARACTER_BEY_POPOVER_ID = "animeCharacterBeyPopover";
 let initialized = false;
 let animeRenderTimer = 0;
 let animeRenderFrame = 0;
+let animeCharacterLayoutFrame = 0;
+let animeCharacterPopoverFrame = 0;
+let animeCharacterBeyPopover = null;
+let activeAnimeCharacterBeyButton = null;
+let animeCharacterResizeObserver = null;
 const animeRenderKey = () => [
   typeof appState.activeAnimeCharacterSeason === "string" ? appState.activeAnimeCharacterSeason : "all",
   animeSearchQuery()
@@ -149,14 +155,192 @@ function renderAnimeCharacterSeasonFilter() {
   });
 }
 
+const animeCharacterGrid = () => document.querySelector("#animeCharacterGrid");
+const animeCharacterBeyLists = () =>
+  [...(animeCharacterGrid()?.querySelectorAll("[data-anime-character-bey-list]") || [])];
+
+function closeAnimeCharacterBeyPopover() {
+  if (activeAnimeCharacterBeyButton) {
+    activeAnimeCharacterBeyButton.setAttribute("aria-expanded", "false");
+    activeAnimeCharacterBeyButton.removeAttribute("aria-describedby");
+    activeAnimeCharacterBeyButton.removeAttribute("aria-controls");
+  }
+  animeCharacterBeyPopover?.remove();
+  animeCharacterBeyPopover = null;
+  activeAnimeCharacterBeyButton = null;
+}
+
+function positionAnimeCharacterBeyPopover() {
+  if (!animeCharacterBeyPopover || !activeAnimeCharacterBeyButton?.isConnected) {
+    closeAnimeCharacterBeyPopover();
+    return;
+  }
+  const margin = 14;
+  const gap = 8;
+  const viewport = window.visualViewport;
+  const viewportLeft = viewport?.offsetLeft || 0;
+  const viewportTop = viewport?.offsetTop || 0;
+  const viewportWidth = viewport?.width || window.innerWidth;
+  const viewportHeight = viewport?.height || window.innerHeight;
+  const minLeft = viewportLeft + margin;
+  const minTop = viewportTop + margin;
+  const buttonRect = activeAnimeCharacterBeyButton.getBoundingClientRect();
+  const popoverRect = animeCharacterBeyPopover.getBoundingClientRect();
+  const maxLeft = Math.max(minLeft, viewportLeft + viewportWidth - margin - popoverRect.width);
+  const maxTop = Math.max(minTop, viewportTop + viewportHeight - margin - popoverRect.height);
+  const left = Math.max(minLeft, Math.min(buttonRect.left, maxLeft));
+  let top = buttonRect.bottom + gap;
+  if (top > maxTop) top = buttonRect.top - popoverRect.height - gap;
+  animeCharacterBeyPopover.style.left = `${left}px`;
+  animeCharacterBeyPopover.style.top = `${Math.max(minTop, Math.min(top, maxTop))}px`;
+}
+
+const scheduleAnimeCharacterPopoverPosition = () => {
+  if (animeCharacterPopoverFrame) cancelAnimationFrame(animeCharacterPopoverFrame);
+  animeCharacterPopoverFrame = requestAnimationFrame(() => {
+    animeCharacterPopoverFrame = 0;
+    positionAnimeCharacterBeyPopover();
+  });
+};
+
+function openAnimeCharacterBeyPopover(button) {
+  const list = button.closest("[data-anime-character-bey-list]");
+  if (!list) return;
+  let beys = [];
+  try {
+    beys = JSON.parse(list.dataset.animeCharacterBeys || "[]");
+  } catch {
+    beys = [];
+  }
+  if (!Array.isArray(beys) || !beys.length) return;
+  const name = list.dataset.animeCharacterName || "등장인물";
+  closeAnimeCharacterBeyPopover();
+  animeCharacterBeyPopover = document.createElement("div");
+  animeCharacterBeyPopover.id = ANIME_CHARACTER_BEY_POPOVER_ID;
+  animeCharacterBeyPopover.className = "anime-character-bey-popover";
+  animeCharacterBeyPopover.setAttribute("role", "tooltip");
+  animeCharacterBeyPopover.innerHTML = `<strong>${escapeHtml(name)}의 사용 베이</strong>
+    <div class="anime-character-bey-popover__list">${beys.map(bey =>
+    `<span class="anime-character-bey-popover__chip">${escapeHtml(bey)}</span>`).join("")}</div>`;
+  document.body.appendChild(animeCharacterBeyPopover);
+  activeAnimeCharacterBeyButton = button;
+  button.setAttribute("aria-expanded", "true");
+  button.setAttribute("aria-controls", ANIME_CHARACTER_BEY_POPOVER_ID);
+  button.setAttribute("aria-describedby", ANIME_CHARACTER_BEY_POPOVER_ID);
+  positionAnimeCharacterBeyPopover();
+}
+
+function fitAnimeCharacterBeyList(list) {
+  const chips = [...list.querySelectorAll("[data-anime-character-bey-chip]")];
+  const moreButton = list.querySelector("[data-anime-character-bey-more]");
+  if (!moreButton) return;
+  chips.forEach(chip => { chip.hidden = false; });
+  moreButton.hidden = true;
+  moreButton.textContent = "";
+  moreButton.removeAttribute("data-hidden-count");
+  if (!chips.length || list.clientWidth < 1 || list.clientHeight < 1) return;
+
+  const listBottom = list.getBoundingClientRect().top + list.clientHeight + .5;
+  const overflowing = chips.filter(chip => chip.getBoundingClientRect().bottom > listBottom);
+  overflowing.forEach(chip => { chip.hidden = true; });
+  let hiddenCount = overflowing.length;
+  if (!hiddenCount) return;
+
+  moreButton.hidden = false;
+  const visibleChips = () => chips.filter(chip => !chip.hidden);
+  const updateMoreButton = () => {
+    moreButton.textContent = `+${hiddenCount}`;
+    moreButton.dataset.hiddenCount = String(hiddenCount);
+    const name = list.dataset.animeCharacterName || "등장인물";
+    moreButton.setAttribute("aria-label", `${name}의 숨겨진 사용 베이 ${hiddenCount}개 보기`);
+  };
+  updateMoreButton();
+  while (moreButton.getBoundingClientRect().bottom > listBottom && visibleChips().length) {
+    visibleChips().at(-1).hidden = true;
+    hiddenCount += 1;
+    updateMoreButton();
+  }
+}
+
+const fitAnimeCharacterBeyLists = () => {
+  animeCharacterBeyLists().forEach(fitAnimeCharacterBeyList);
+  if (activeAnimeCharacterBeyButton) positionAnimeCharacterBeyPopover();
+};
+
+const scheduleAnimeCharacterBeyLayout = () => {
+  if (animeCharacterLayoutFrame) cancelAnimationFrame(animeCharacterLayoutFrame);
+  animeCharacterLayoutFrame = requestAnimationFrame(() => {
+    animeCharacterLayoutFrame = 0;
+    fitAnimeCharacterBeyLists();
+  });
+};
+
+function initializeAnimeCharacterCards() {
+  const grid = animeCharacterGrid();
+  if (!grid || grid.dataset.animeCharacterCardsBound) return;
+  grid.dataset.animeCharacterCardsBound = "true";
+  grid.addEventListener("click", event => {
+    const button = event.target.closest("[data-anime-character-bey-more]");
+    if (!button || !grid.contains(button)) return;
+    event.preventDefault();
+    event.stopPropagation();
+    if (button === activeAnimeCharacterBeyButton && animeCharacterBeyPopover) {
+      closeAnimeCharacterBeyPopover();
+      return;
+    }
+    openAnimeCharacterBeyPopover(button);
+  });
+  document.addEventListener("pointerdown", event => {
+    if (!activeAnimeCharacterBeyButton || activeAnimeCharacterBeyButton.contains(event.target)) return;
+    closeAnimeCharacterBeyPopover();
+  });
+  document.addEventListener("focusin", event => {
+    if (!activeAnimeCharacterBeyButton || event.target === activeAnimeCharacterBeyButton) return;
+    closeAnimeCharacterBeyPopover();
+  });
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && animeCharacterBeyPopover) closeAnimeCharacterBeyPopover();
+  });
+  window.addEventListener("hashchange", closeAnimeCharacterBeyPopover);
+  window.addEventListener("resize", scheduleAnimeCharacterBeyLayout, { passive: true });
+  window.addEventListener("scroll", scheduleAnimeCharacterPopoverPosition, { passive: true, capture: true });
+  window.visualViewport?.addEventListener("resize", scheduleAnimeCharacterBeyLayout, { passive: true });
+  window.visualViewport?.addEventListener("scroll", scheduleAnimeCharacterPopoverPosition, { passive: true });
+  if (typeof ResizeObserver === "function") {
+    animeCharacterResizeObserver = new ResizeObserver(scheduleAnimeCharacterBeyLayout);
+    animeCharacterResizeObserver.observe(grid);
+  }
+  document.fonts?.ready.then(scheduleAnimeCharacterBeyLayout);
+}
+
 const animeCharacterCardMarkup = character => {
-  const name = character?.name || character?.title || "";
-  const beys = Array.isArray(character?.beys) ? character.beys.filter(Boolean).join(" / ") : "";
-  const detail = character?.desc || character?.role || "";
-  return `<article class="category-card anime-character-card">
-    <h3>${escapeHtml(name)}</h3>
-    ${beys ? `<small>${escapeHtml(beys)}</small>` : ""}
-    ${detail ? `<p>${escapeHtml(detail)}</p>` : ""}
+  const name = String(character?.name || character?.title || "").trim();
+  const role = String(character?.role || "").trim();
+  const description = String(character?.desc || "").trim();
+  const beys = Array.isArray(character?.beys)
+    ? character.beys.map(bey => String(bey || "").trim()).filter(Boolean)
+    : [];
+  const beyChips = beys.map(bey =>
+    `<span class="anime-character-bey-chip" data-anime-character-bey-chip>${escapeHtml(bey)}</span>`).join("");
+  return `<article class="category-card anime-character-card" data-anime-character-card="${escapeAttributeValue(name)}">
+    <header class="anime-character-card__header">
+      <h3>${escapeHtml(name)}</h3>
+      ${role ? `<span class="anime-character-role">${escapeHtml(role)}</span>` : ""}
+    </header>
+    ${description ? `<p class="anime-character-summary">${escapeHtml(description)}</p>` : ""}
+    <div class="anime-character-beys">
+      <span class="anime-character-beys__label">사용 베이</span>
+      <div class="anime-character-bey-list${beys.length ? "" : " is-empty"}"
+        data-anime-character-bey-list
+        data-anime-character-name="${escapeAttributeValue(name)}"
+        data-anime-character-beys="${escapeAttributeValue(JSON.stringify(beys))}">
+        ${beyChips || `<span class="anime-character-bey-empty">등록 정보 없음</span>`}
+        <button class="anime-character-bey-more" type="button"
+          data-anime-character-bey-more
+          aria-expanded="false"
+          hidden></button>
+      </div>
+    </div>
   </article>`;
 };
 const animeCharacterSearchFields = character => [
@@ -194,10 +378,12 @@ const animeCharacterCollectionConfig = {
   setCurrentPage: page => { appState.currentAnimePage = page; },
   cardTemplate: animeCharacterCardMarkup,
   emptyMarkup: () => `<p class="anime-page-empty panel-empty-state">${animeSearchQuery() ? "검색결과가 없습니다." : "등록된 등장인물 및 베이 정보가 없습니다."}</p>`,
+  afterRender: scheduleAnimeCharacterBeyLayout,
   renderPagination: renderAnimePagination
 };
 
 function renderAnimePage() {
+  closeAnimeCharacterBeyPopover();
   renderAnimeCharacterSeasonFilter();
   renderCategoryCollection(animeCharacterCollectionConfig);
 }
@@ -303,6 +489,7 @@ const initializeAnimeFeature = () => {
   if (initialized) return;
   initialized = true;
   initializeSearchHelpController();
+  initializeAnimeCharacterCards();
   appServices.bindSearchInput(animeSearch, ".anime-search-box", {
     onInput: () => {
       appState.currentAnimePage = 1;
