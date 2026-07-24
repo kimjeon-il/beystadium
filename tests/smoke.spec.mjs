@@ -3243,7 +3243,7 @@ test("open detail modal follows viewport resize in both directions", async ({ pa
 
   const wideLayout = await snapshotModalLayout();
   expectViewportFit(wideLayout);
-  expect(wideLayout.columnCount).toBe(1);
+  expect(wideLayout.columnCount).toBe(2);
   expect(wideLayout.inner.width).toBe(720);
 
   await page.setViewportSize({ width: 900, height: 800 });
@@ -3259,7 +3259,7 @@ test("open detail modal follows viewport resize in both directions", async ({ pa
   await expect.poll(async () => (await snapshotModalLayout()).storedViewportWidth).toBe(1440);
   const restoredLayout = await snapshotModalLayout();
   expectViewportFit(restoredLayout);
-  expect(restoredLayout.columnCount).toBe(1);
+  expect(restoredLayout.columnCount).toBe(2);
   expect(restoredLayout.inner.width).toBe(720);
   expect(page.url()).toBe(initialUrl);
   expect(restoredLayout.title).toBe(initialTitle?.trim());
@@ -3384,4 +3384,52 @@ test("failed route stylesheet exposes a retry that recovers the page", async ({ 
   await expect(page.locator("html")).not.toHaveClass(/route-booting/);
   await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
   await expect(status).toBeHidden();
+});
+
+test("X catalog images load lazily with transparent detail art", async ({ page }) => {
+  const failedImages = [];
+  page.on("response", response => {
+    if (response.url().includes("/assets/images/x/") && !response.ok()) {
+      failedImages.push(`${response.status()} ${response.url()}`);
+    }
+  });
+
+  await page.goto(`/#toy-catalog?scope=bey&series=x&q=${encodeURIComponent("드랜소드 3-60F")}`);
+  const card = page.locator('#catalogGrid .catalog-card[data-id="BEY-X-BX-01-DRAN-SWORD-3-60F"]');
+  await expect(card).toBeVisible();
+  const cardImage = card.locator(".bey-image");
+  await expect(cardImage).toHaveAttribute("loading", "lazy");
+  await expect(cardImage).toHaveAttribute("decoding", "async");
+  await expect.poll(() => cardImage.evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);
+
+  await card.locator(".catalog-card-action").click();
+  await expect(page.locator("#detailModal")).toBeVisible();
+  const detailImage = page.locator("#detailModal .modal-art > .bey-image");
+  await expect(detailImage).toBeVisible();
+  const detailGeometry = await detailImage.evaluate(image => {
+    const imageRect = image.getBoundingClientRect();
+    const artRect = image.parentElement.getBoundingClientRect();
+    const canvas = document.createElement("canvas");
+    canvas.width = image.naturalWidth;
+    canvas.height = image.naturalHeight;
+    const context = canvas.getContext("2d", { willReadFrequently: true });
+    context.drawImage(image, 0, 0);
+    const corners = [
+      [0, 0],
+      [canvas.width - 1, 0],
+      [0, canvas.height - 1],
+      [canvas.width - 1, canvas.height - 1]
+    ].map(([x, y]) => context.getImageData(x, y, 1, 1).data[3]);
+    return {
+      naturalWidth: image.naturalWidth,
+      naturalHeight: image.naturalHeight,
+      fitsArt: imageRect.width <= artRect.width && imageRect.height <= artRect.height,
+      corners
+    };
+  });
+  expect(detailGeometry.naturalWidth).toBeGreaterThan(0);
+  expect(detailGeometry.naturalHeight).toBeGreaterThan(0);
+  expect(detailGeometry.fitsArt).toBe(true);
+  expect(detailGeometry.corners).toEqual([0, 0, 0, 0]);
+  expect(failedImages).toEqual([]);
 });

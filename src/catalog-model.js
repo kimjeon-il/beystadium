@@ -42,7 +42,7 @@ const zeroGBottomStartIndex = () => partItems.findIndex(item => item.id === "PAR
 const findCatalogItemById = id => catalogCoreItemsById.get(id) || toolsItemsById.get(id) || bookItemsById.get(id) || gameItemsById.get(id) || productItemsById.get(id) || null;
 
 const cardVisualMarkup = item => item.image
-  ? `<img class="bey-image" src="${item.image}" alt="${item.name}">`
+  ? `<img class="bey-image" src="${item.image}" alt="${item.name}" loading="lazy" decoding="async">`
   : "";
 const modalArtMarkup = item => item.model
   ? `<div class="model-viewer" data-model="${item.model}"><p>3D 모델 로딩 중</p></div>`
