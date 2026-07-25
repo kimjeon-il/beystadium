@@ -1342,6 +1342,47 @@ test("table action rows preserve pointer and native keyboard activation", async 
   expect(errors).toEqual([]);
 });
 
+test("touch table rows suppress native text selection without changing activation", async ({ page }, testInfo) => {
+  const errors = consoleErrors(page);
+  const routes = [
+    ["/#toy-release", ".release-product-row"],
+    ["/#anime-episode", ".anime-episode-row"]
+  ];
+
+  for (const [route, rowSelector] of routes) {
+    await page.goto(route);
+    const row = page.locator(rowSelector).first();
+    const action = row.locator(".table-list-row-action");
+    await expect(row).toBeVisible();
+
+    const interactionStyles = await row.evaluate(element => {
+      const rowStyle = getComputedStyle(element);
+      const actionStyle = getComputedStyle(element.querySelector(".table-list-row-action"));
+      return {
+        rowUserSelect: rowStyle.userSelect,
+        actionUserSelect: actionStyle.userSelect,
+        touchAction: rowStyle.touchAction
+      };
+    });
+
+    if (testInfo.project.name === "mobile") {
+      expect(interactionStyles.rowUserSelect).toBe("none");
+      expect(interactionStyles.actionUserSelect).toBe("none");
+      expect(interactionStyles.touchAction).not.toBe("none");
+      await action.tap();
+    } else {
+      expect(interactionStyles.rowUserSelect).not.toBe("none");
+      expect(interactionStyles.actionUserSelect).not.toBe("none");
+      await action.focus();
+      await action.press("Enter");
+    }
+
+    await expect(page.locator("#detailModal")).toBeVisible();
+  }
+
+  expect(errors).toEqual([]);
+});
+
 test("scroll affordances appear only while internal content remains below", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "scroll position coverage only needs one browser");
   const errors = consoleErrors(page);

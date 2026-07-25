@@ -1,4 +1,4 @@
-const styleVersion = "20260725-x-part-color-previews";
+const styleVersion = "20260725-mobile-table-selection";
 const styleOrder = ["page", "collection", "table", "release", "anime", "catalog", "search", "modal"];
 const styleFiles = Object.fromEntries(styleOrder.map(key => [key, `./styles/${key}.css?v=${styleVersion}`]));
 const stylePromises = new Map();
