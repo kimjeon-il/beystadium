@@ -76,7 +76,11 @@ test("25th anniversary Dran Sword has a dedicated BX-00 Bey entry", () => {
     spin: "right",
     desc: "",
     parts: ["PART-X-BLADE-DRAN-SWORD", "PART-X-RATCHET-3-60", "PART-X-BIT-F"],
-    image: "assets/images/x/beys/bey-x-bx-00-dran-sword-3-60f.webp"
+    image: "assets/images/x/beys/bey-x-bx-00-dran-sword-3-60f.webp",
+    partPreviewImages: {
+      "PART-X-BLADE-DRAN-SWORD":
+        "assets/images/x/part-previews/bey-x-bx-00-dran-sword-3-60f/part-x-blade-dran-sword.webp"
+    }
   });
 
   const anniversary = productsById.get("PRODUCT-X-BX-00-BEYBLADE-25TH-ANNIVERSARY-SET");

@@ -2,7 +2,10 @@ import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 import { beyItems, partItems } from "../data/source/catalog.mjs";
-import { xPartPreviewMappings } from "../data/source/x-part-previews.mjs";
+import {
+  xPartPreviewMappings,
+  xPartPreviewUnavailable
+} from "../data/source/x-part-previews.mjs";
 
 const OUTPUT_PATH = path.resolve(".cache/x-part-preview-review/index.html");
 const xBeys = beyItems.filter(item => item.series === "x");
@@ -19,11 +22,12 @@ const escapeHtml = value => String(value || "")
   .replaceAll(">", "&gt;")
   .replaceAll("\"", "&quot;");
 const itemTitle = item => [item?.name, item?.sub, item?.en].filter(Boolean).join(" · ");
-const imageCard = (item, image, label, source = "") => `
+const imageCard = (item, image, label, source = "", sourceKind = "") => `
   <article class="item-card">
     <div class="image-frame"><img src="../../${escapeHtml(image)}" alt=""></div>
     <strong>${escapeHtml(label)} · ${escapeHtml(itemTitle(item))}</strong>
     <code>${escapeHtml(item?.id)}</code>
+    ${sourceKind ? `<small>${escapeHtml(sourceKind)}</small>` : ""}
     ${source ? `<small>${escapeHtml(source)}</small>` : ""}
   </article>`;
 
@@ -39,11 +43,30 @@ const sections = xBeys
           itemById.get(entry.partId),
           entry.image,
           "장착 부품",
-          entry.sourceUrl
+          entry.sourceUrl,
+          entry.sourceKind
         )).join("")}
       </div>
     </section>
   `).join("");
+const unavailableRows = xPartPreviewUnavailable
+  .map(entry => {
+    const bey = itemById.get(entry.beyId);
+    const part = itemById.get(entry.partId);
+    return `<tr>
+      <td>${escapeHtml(itemTitle(bey))}<br><code>${escapeHtml(entry.beyId)}</code></td>
+      <td>${escapeHtml(itemTitle(part))}<br><code>${escapeHtml(entry.partId)}</code></td>
+      <td>${escapeHtml(entry.reason)}</td>
+      <td>${escapeHtml(entry.evidenceUrl)}</td>
+    </tr>`;
+  })
+  .join("");
+const sourceKindCounts = Object.entries(
+  xPartPreviewMappings.reduce((counts, entry) => {
+    counts[entry.sourceKind] = (counts[entry.sourceKind] || 0) + 1;
+    return counts;
+  }, {})
+).map(([sourceKind, count]) => `${escapeHtml(sourceKind)} ${count}건`).join(" · ");
 
 const html = `<!doctype html>
 <html lang="ko">
@@ -75,17 +98,30 @@ const html = `<!doctype html>
     }
     strong, code, small { overflow-wrap: anywhere; }
     code, small { font-size: 11px; }
+    table { width: 100%; border-collapse: collapse; background: white; }
+    th, td { padding: 8px; border: 1px solid #d8dbe1; text-align: left; vertical-align: top; }
+    th { position: sticky; top: 104px; background: #f6f7f9; }
   </style>
 </head>
 <body data-background="checker">
   <header>
     <h1>X 색상별 부품 미리보기 검수표</h1>
-    <p>${xPartPreviewMappings.length}개 공식 색상 매핑</p>
+    <p>${xPartPreviewMappings.length}개 공식 색상 매핑 · ${xPartPreviewUnavailable.length}개 공식 확인 불가</p>
+    <p>${sourceKindCounts}</p>
     <button type="button" data-bg="white">흰색</button>
     <button type="button" data-bg="black">검은색</button>
     <button type="button" data-bg="checker">체커보드</button>
   </header>
-  <main>${sections}</main>
+  <main>
+    ${sections}
+    <section>
+      <h2>공식 확인 불가</h2>
+      <table>
+        <thead><tr><th>베이</th><th>부품</th><th>사유</th><th>공식 근거</th></tr></thead>
+        <tbody>${unavailableRows}</tbody>
+      </table>
+    </section>
+  </main>
   <script>
     document.addEventListener("click", event => {
       const background = event.target.closest("[data-bg]")?.dataset.bg;

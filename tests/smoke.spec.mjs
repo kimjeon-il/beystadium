@@ -2574,6 +2574,11 @@ test("X mounted part previews fit portrait bits and use each Bey's official colo
   );
 
   await page.goto("/#BEY-X-BX-48-03-MAMMOTH-TUSK-7-60S");
+  const mammothBlade = page.locator('#detailModal .mounted-link[data-part-id="PART-X-BLADE-MAMMOTH-TUSK"]');
+  await expect(mammothBlade).toHaveAttribute(
+    "data-image-preview-src",
+    "assets/images/x/beys/bey-x-bx-48-03-mammoth-tusk-7-60s.webp"
+  );
   const unavailablePreview = page.locator('#detailModal .mounted-link[data-part-id="PART-X-BIT-S"]');
   await expect(unavailablePreview).not.toHaveAttribute("data-image-preview-src", /.+/);
   await expect(unavailablePreview).not.toHaveAttribute("data-image-preview-id", /.+/);
@@ -2581,6 +2586,12 @@ test("X mounted part previews fit portrait bits and use each Bey's official colo
   await expect(preview).toBeHidden();
   await unavailablePreview.click();
   await expect(page).toHaveURL(/#PART-X-BIT-S$/);
+
+  await page.goto("/#BEY-X-CX-09-SOL-ECLIPSE-D-5-70TK");
+  await expect(page.locator('#detailModal .mounted-link[data-part-id="PART-X-RATCHET-5-70"]')).toHaveAttribute(
+    "data-image-preview-src",
+    "assets/images/x/part-previews/bey-x-cx-09-sol-eclipse-d-5-70tk/part-x-ratchet-5-70.webp"
+  );
   expect(errors).toEqual([]);
 });
 

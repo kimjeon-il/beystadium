@@ -14,6 +14,17 @@ if TOOLS_PATH.exists():
 import numpy as np
 from PIL import Image
 
+VERIFIED_PERSPECTIVE_VARIANTS = {
+    (
+        "BEY-X-CX-00-TIGA-RAGE-FT-3-60T",
+        "PART-X-BLADE-OVER-BLADE-FLOW",
+    ),
+    (
+        "BEY-X-CX-00-EVA-BRAVE-A-1-70V",
+        "PART-X-BIT-V",
+    ),
+}
+
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
@@ -97,28 +108,44 @@ def main() -> int:
             "image": entry["image"],
             "score": round(score, 5),
             "aspectRatio": round(aspect_ratio, 5),
+            "verifiedPerspectiveVariant": (
+                entry["beyId"],
+                entry["partId"],
+            ) in VERIFIED_PERSPECTIVE_VARIANTS,
         })
 
     results.sort(key=lambda entry: (entry["score"], -entry["aspectRatio"]))
-    outliers = [
+    threshold_outliers = [
         entry
         for entry in results
         if entry["score"] < args.threshold or entry["aspectRatio"] > args.max_aspect_ratio
+    ]
+    outliers = [
+        entry
+        for entry in threshold_outliers
+        if not entry["verifiedPerspectiveVariant"]
+    ]
+    verified_perspective_variants = [
+        entry
+        for entry in threshold_outliers
+        if entry["verifiedPerspectiveVariant"]
     ]
     payload = {
         "threshold": args.threshold,
         "maxAspectRatio": args.max_aspect_ratio,
         "total": len(results),
         "outliers": outliers,
+        "verifiedPerspectiveVariants": verified_perspective_variants,
         "results": results,
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(
         f"Compared {len(results)} contextual previews; "
-        f"{len(payload['outliers'])} outside IoU/aspect thresholds"
+        f"{len(outliers)} unexpected and "
+        f"{len(verified_perspective_variants)} verified perspective variants"
     )
-    for entry in payload["outliers"][:30]:
+    for entry in outliers[:30]:
         print(
             f"{entry['score']:.5f} aspect={entry['aspectRatio']:.3f} "
             f"{entry['beyId']} {entry['partId']}"

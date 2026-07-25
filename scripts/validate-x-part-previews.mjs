@@ -59,8 +59,36 @@ uniqueValues(unavailableKeys, "X unavailable part previews");
 uniqueValues([...mappedKeys, ...unavailableKeys], "accounted X part preview contexts");
 assert.deepEqual(new Set([...mappedKeys, ...unavailableKeys]), new Set(contextKeys));
 assert.equal(contexts.length, 767);
-assert.equal(xPartPreviewMappings.length, 244);
-assert.equal(xPartPreviewUnavailable.length, 523);
+assert.equal(xPartPreviewMappings.length, 502);
+assert.equal(xPartPreviewUnavailable.length, 265);
+assert.deepEqual(
+  Object.fromEntries([...new Set(xPartPreviewMappings.map(entry => entry.sourceKind))]
+    .sort()
+    .map(sourceKind => [
+      sourceKind,
+      xPartPreviewMappings.filter(entry => entry.sourceKind === sourceKind).length
+    ])),
+  {
+    "official-assembled-bey-view": 66,
+    "official-individual": 436
+  }
+);
+assert.deepEqual(
+  Object.fromEntries([...new Set(xPartPreviewUnavailable.map(entry => entry.reason))]
+    .sort()
+    .map(reason => [
+      reason,
+      xPartPreviewUnavailable.filter(entry => entry.reason === reason).length
+    ])),
+  {
+    "official-assembled-view-cannot-isolate-split-blade-part": 48,
+    "official-assembled-view-does-not-show-isolated-part": 165,
+    "official-bey-image-unavailable": 15,
+    "official-individual-part-images-unavailable": 29,
+    "official-part-sequence-is-not-one-to-one-with-catalog-components": 3,
+    "official-product-page-unresolved": 5
+  }
+);
 
 const mappingByContext = new Map(
   xPartPreviewMappings.map(entry => [contextKey(entry.beyId, entry.partId), entry])
@@ -75,7 +103,21 @@ const expectedOfficialSources = {
   [contextKey("BEY-X-UX-15-SHARK-SCALE-4-50UF", "PART-X-BIT-UF")]:
     "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX15_05@1.png",
   [contextKey("BEY-X-CX-13-BAHAMUT-BLITZ-BK-1-50I", "PART-X-BLADE-LOCK-CHIP-BAHAMUT")]:
-    "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/CX13_03@1.png"
+    "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/CX13_03@1.png",
+  [contextKey("BEY-X-BX-14-01-SHARK-EDGE-3-60LF", "PART-X-BIT-LF")]:
+    "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX14_09@1.png",
+  [contextKey("BEY-X-CX-00-EVA-BRUSH-T-2-70A", "PART-X-BIT-A")]:
+    "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG57_21@1.png",
+  [contextKey("BEY-X-BX-00-STORM-SPRIGGAN-2-70M", "PART-X-BIT-M")]:
+    "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG21_03@1.png",
+  [contextKey("BEY-X-BX-37-BEAR-SCRATCH-5-60F", "PART-X-BIT-F")]:
+    "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX37_06@1.png",
+  [contextKey("BEY-X-UX-19-BULLET-GRIFFON-H", "PART-X-BIT-H")]:
+    "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX19_05@1.png",
+  [contextKey("BEY-X-CX-09-SOL-ECLIPSE-D-5-70TK", "PART-X-BLADE-LOCK-CHIP-SOL")]:
+    "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/CX09_06@1.png",
+  [contextKey("BEY-X-CX-00-TIGA-RAGE-FT-3-60T", "PART-X-BLADE-OVER-BLADE-FLOW")]:
+    "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG70_07@1.png"
 };
 for (const [key, sourceUrl] of Object.entries(expectedOfficialSources)) {
   assert.equal(mappingByContext.get(key)?.sourceUrl, sourceUrl, `${key} uses the wrong official source`);
@@ -95,8 +137,24 @@ for (const entry of xPartPreviewMappings) {
     `${entry.partId} is not mounted on ${entry.beyId}`
   );
   assert.equal(bey.partPreviewImages?.[entry.partId], entry.image);
-  assert.match(entry.sourceUrl, /^https:\/\/beyblade\.takaratomy\.co\.jp\/beyblade-x\/lineup\/_image\//);
+  assert.ok(
+    ["official-individual", "official-assembled-bey-view", "official-color-derived"]
+      .includes(entry.sourceKind),
+    `${contextKey(entry.beyId, entry.partId)} has an invalid source kind`
+  );
+  assert.match(entry.sourceUrl, /^https:\/\/beyblade\.takaratomy\.co\.jp\//);
+  if (entry.sourcePath) {
+    assert.match(entry.sourcePath, /^02_product_components\//);
+  }
   assert.match(entry.sourceSha256, /^[a-f0-9]{64}$/);
+  assert.ok(entry.shapeSource?.trim());
+  assert.match(entry.shapeSourceSha256, /^[a-f0-9]{64}$/);
+  assert.ok(entry.colorEvidence?.trim());
+  assert.match(entry.colorEvidenceSha256, /^[a-f0-9]{64}$/);
+  assert.ok(entry.transform);
+  if (entry.sourceKind === "official-color-derived") {
+    assert.notEqual(entry.transform, "none");
+  }
   assert.match(entry.outputSha256, /^[a-f0-9]{64}$/);
 
   const bytes = await readFile(path.resolve(entry.image));
@@ -110,9 +168,23 @@ for (const entry of xPartPreviewUnavailable) {
   const bey = beyById.get(entry.beyId);
   assert.ok(bey, `${entry.beyId} is not an X Bey`);
   assert.ok(partById.has(entry.partId), `${entry.partId} is not an X part`);
+  assert.equal(entry.sourceKind, "unavailable");
   assert.ok(entry.reason?.trim(), `${contextKey(entry.beyId, entry.partId)} needs a reason`);
+  if (entry.evidenceUrl) {
+    assert.match(entry.evidenceUrl, /^https:\/\/beyblade\.takaratomy\.co\.jp\//);
+  }
   assert.equal(bey.partPreviewImages?.[entry.partId], undefined);
 }
+
+const mammothBlade = mappingByContext.get(contextKey(
+  "BEY-X-BX-48-03-MAMMOTH-TUSK-7-60S",
+  "PART-X-BLADE-MAMMOTH-TUSK"
+));
+assert.equal(mammothBlade?.sourceKind, "official-assembled-bey-view");
+assert.equal(
+  mammothBlade?.image,
+  "assets/images/x/beys/bey-x-bx-48-03-mammoth-tusk-7-60s.webp"
+);
 
 console.log(
   `X part previews: ${xPartPreviewMappings.length} mapped, `
