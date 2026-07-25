@@ -6,6 +6,7 @@ import path from "node:path";
 import { beyItems, partItems } from "../data/source/catalog.mjs";
 import { productItems } from "../data/source/products.mjs";
 import { xImageReview } from "../data/source/x-image-review.mjs";
+import { xCatalogImagePath } from "./x-image-paths.mjs";
 
 const SPECIAL_PRODUCT_IDS = {
   "bx00-es": "PRODUCT-X-BX-00-XTREME-STADIUM-LIGHT-PACKAGE",
@@ -339,8 +340,7 @@ function sourceRelative(filePath) {
 }
 
 function outputRelative(item) {
-  const directory = item.type === "bey" ? "beys" : "parts";
-  return `assets/images/x/${directory}/${item.id.toLowerCase()}.webp`;
+  return xCatalogImagePath(item);
 }
 
 async function sha256(filePath) {

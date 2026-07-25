@@ -1,11 +1,12 @@
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
-import { readFile, stat } from "node:fs/promises";
+import { readdir, readFile, stat } from "node:fs/promises";
 import path from "node:path";
 
 import { beyItems, partItems } from "../data/source/catalog.mjs";
 import { xImageMappings, xImageUnavailable } from "../data/source/x-images.mjs";
 import { xImageReview } from "../data/source/x-image-review.mjs";
+import { xCatalogImagePath } from "./x-image-paths.mjs";
 
 const REPORT_ARG = process.argv.find(argument => argument.startsWith("--report="));
 const REPORT_PATH = REPORT_ARG?.slice("--report=".length) || "";
@@ -51,6 +52,19 @@ function webpInfo(bytes) {
   return { width, height, hasAlpha };
 }
 
+async function webpFiles(directory) {
+  const files = [];
+  for (const entry of await readdir(directory, { withFileTypes: true })) {
+    const entryPath = path.join(directory, entry.name);
+    if (entry.isDirectory()) {
+      files.push(...await webpFiles(entryPath));
+    } else if (entry.isFile() && entry.name.endsWith(".webp")) {
+      files.push(entryPath);
+    }
+  }
+  return files;
+}
+
 async function validateOutputs() {
   uniqueValues(xImageMappings.map(entry => entry.id), "mapping IDs");
   uniqueValues(xImageMappings.map(entry => entry.image), "mapping output paths");
@@ -77,13 +91,19 @@ async function validateOutputs() {
 
   const reviewById = new Map(xImageReview.map(entry => [entry.id, entry]));
   for (const entry of xImageMappings) {
+    const item = xItems.find(candidate => candidate.id === entry.id);
+    assert.equal(entry.image, xCatalogImagePath(item), `${entry.id} uses the wrong image layout`);
     assert.match(entry.sourceSha256, /^[a-f0-9]{64}$/);
     assert.ok(entry.sourcePath || entry.sourceUrl, `${entry.id} needs source provenance`);
-    assert.equal(xItems.find(item => item.id === entry.id)?.image, entry.image);
+    assert.equal(item?.image, entry.image);
     const bytes = await readFile(path.resolve(entry.image));
     assert.ok(bytes.length > 500, `${entry.id} output is unexpectedly small`);
     const info = webpInfo(bytes);
-    assert.ok(info.width > 0 && info.height > 0, `${entry.id} has invalid dimensions`);
+    assert.deepEqual(
+      [info.width, info.height],
+      [448, 448],
+      `${entry.id} does not use the fixed X image canvas`
+    );
     assert.ok(info.hasAlpha, `${entry.id} does not advertise an alpha channel`);
 
     const review = reviewById.get(entry.id);
@@ -98,6 +118,14 @@ async function validateOutputs() {
     const outputSha256 = createHash("sha256").update(bytes).digest("hex");
     assert.equal(outputSha256, review.outputSha256, `${entry.id} output no longer matches its review`);
   }
+
+  const files = await webpFiles(path.resolve("assets/images/x"));
+  assert.equal(files.length, 667, "X image file count changed");
+  assert.equal(
+    files.some(file => file.includes(`${path.sep}part-previews${path.sep}`)),
+    false,
+    "legacy X part preview directory remains"
+  );
 }
 
 async function validateSourceHashes() {

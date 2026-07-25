@@ -6,13 +6,17 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import math
 import os
 from pathlib import Path
 import sys
 
 import numpy as np
 from PIL import Image, ImageDraw
+
+
+CANVAS_SIZE = 448
+MIN_MARGIN = 6
+MAX_FOREGROUND_SIZE = CANVAS_SIZE - MIN_MARGIN * 2
 
 
 def parse_args() -> argparse.Namespace:
@@ -69,7 +73,7 @@ def decontaminate_fringe(rgb: np.ndarray, alpha: np.ndarray) -> np.ndarray:
     return np.clip(corrected, 0, 255).astype(np.uint8)
 
 
-def crop_with_padding(image: Image.Image, alpha: np.ndarray) -> Image.Image:
+def center_on_fixed_canvas(image: Image.Image, alpha: np.ndarray) -> Image.Image:
     nonempty = np.argwhere(alpha > 3)
     if nonempty.size == 0:
         raise ValueError("empty foreground mask")
@@ -77,7 +81,10 @@ def crop_with_padding(image: Image.Image, alpha: np.ndarray) -> Image.Image:
     y_max, x_max = nonempty.max(axis=0)
     width = int(x_max - x_min + 1)
     height = int(y_max - y_min + 1)
-    padding = max(2, math.ceil(max(width, height) * 0.06))
+    if width > MAX_FOREGROUND_SIZE or height > MAX_FOREGROUND_SIZE:
+        raise ValueError(
+            f"foreground {width}x{height} exceeds {MAX_FOREGROUND_SIZE}px"
+        )
     foreground = image.crop((
         int(x_min),
         int(y_min),
@@ -86,10 +93,16 @@ def crop_with_padding(image: Image.Image, alpha: np.ndarray) -> Image.Image:
     ))
     result = Image.new(
         "RGBA",
-        (foreground.width + padding * 2, foreground.height + padding * 2),
+        (CANVAS_SIZE, CANVAS_SIZE),
         (0, 0, 0, 0),
     )
-    result.alpha_composite(foreground, (padding, padding))
+    result.paste(
+        foreground,
+        (
+            (CANVAS_SIZE - foreground.width) // 2,
+            (CANVAS_SIZE - foreground.height) // 2,
+        ),
+    )
     return result
 
 
@@ -141,14 +154,14 @@ def process_image(
     rgb = np.asarray(original)
     corrected_rgb = decontaminate_fringe(rgb, alpha)
     rgba = np.dstack((corrected_rgb, alpha))
-    result = crop_with_padding(Image.fromarray(rgba, "RGBA"), alpha)
+    result = center_on_fixed_canvas(Image.fromarray(rgba, "RGBA"), alpha)
     destination.parent.mkdir(parents=True, exist_ok=True)
     result.save(
         destination,
         format="WEBP",
         lossless=True,
         quality=100,
-        method=6,
+        method=4,
         exact=True,
     )
 
@@ -177,6 +190,10 @@ def validate_entries(report: dict, entries: list[dict], output_root: Path) -> in
         with Image.open(destination) as image:
             rgba = image.convert("RGBA")
             alpha = np.asarray(rgba.getchannel("A"))
+            if rgba.size != (CANVAS_SIZE, CANVAS_SIZE):
+                raise ValueError(
+                    f"{entry['id']}: expected {CANVAS_SIZE}x{CANVAS_SIZE}, got {rgba.size}"
+                )
         if alpha.max() == 0:
             raise ValueError(f"{entry['id']}: empty foreground mask")
         if any(alpha[y, x] != 0 for x, y in (
@@ -195,8 +212,10 @@ def validate_entries(report: dict, entries: list[dict], output_root: Path) -> in
             int(alpha.shape[1] - x_max - 1),
             int(alpha.shape[0] - y_max - 1),
         )
-        if min(margins) < 2:
+        if min(margins) < MIN_MARGIN:
             raise ValueError(f"{entry['id']}: insufficient transparent padding {margins}")
+        if abs(margins[0] - margins[2]) > 1 or abs(margins[1] - margins[3]) > 1:
+            raise ValueError(f"{entry['id']}: foreground is not centered {margins}")
         print(f"[{index}/{len(entries)}] valid {entry['id']}", flush=True)
     print(f"validated {len(entries)} transparent X images")
     return 0

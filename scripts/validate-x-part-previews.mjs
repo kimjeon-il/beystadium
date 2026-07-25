@@ -8,6 +8,7 @@ import {
   xPartPreviewMappings,
   xPartPreviewUnavailable
 } from "../data/source/x-part-previews.mjs";
+import { xPartPreviewImagePath } from "./x-image-paths.mjs";
 
 const xBeys = beyItems.filter(item => item.series === "x");
 const partById = new Map(partItems.filter(item => item.series === "x").map(item => [item.id, item]));
@@ -124,9 +125,10 @@ for (const [key, sourceUrl] of Object.entries(expectedOfficialSources)) {
 }
 
 const contextualOutputPaths = xPartPreviewMappings
-  .map(entry => entry.image)
-  .filter(image => image.startsWith("assets/images/x/part-previews/"));
+  .filter(entry => entry.image === xPartPreviewImagePath(entry.beyId, entry.partId))
+  .map(entry => entry.image);
 uniqueValues(contextualOutputPaths, "contextual part preview output paths");
+assert.equal(contextualOutputPaths.length, 226);
 
 for (const entry of xPartPreviewMappings) {
   const bey = beyById.get(entry.beyId);
@@ -138,9 +140,17 @@ for (const entry of xPartPreviewMappings) {
   );
   assert.equal(bey.partPreviewImages?.[entry.partId], entry.image);
   assert.ok(
-    ["official-individual", "official-assembled-bey-view", "official-color-derived"]
+    ["official-individual", "official-assembled-bey-view"]
       .includes(entry.sourceKind),
     `${contextKey(entry.beyId, entry.partId)} has an invalid source kind`
+  );
+  assert.ok(
+    new Set([
+      xPartPreviewImagePath(entry.beyId, entry.partId),
+      bey.image,
+      partById.get(entry.partId)?.image
+    ]).has(entry.image),
+    `${contextKey(entry.beyId, entry.partId)} uses an unexpected image path`
   );
   assert.match(entry.sourceUrl, /^https:\/\/beyblade\.takaratomy\.co\.jp\//);
   if (entry.sourcePath) {
@@ -151,16 +161,17 @@ for (const entry of xPartPreviewMappings) {
   assert.match(entry.shapeSourceSha256, /^[a-f0-9]{64}$/);
   assert.ok(entry.colorEvidence?.trim());
   assert.match(entry.colorEvidenceSha256, /^[a-f0-9]{64}$/);
-  assert.ok(entry.transform);
-  if (entry.sourceKind === "official-color-derived") {
-    assert.notEqual(entry.transform, "none");
-  }
+  assert.equal("transform" in entry, false);
   assert.match(entry.outputSha256, /^[a-f0-9]{64}$/);
 
   const bytes = await readFile(path.resolve(entry.image));
   assert.equal(createHash("sha256").update(bytes).digest("hex"), entry.outputSha256);
   const info = webpInfo(bytes);
-  assert.ok(info.width > 0 && info.height > 0, `${entry.image} has invalid dimensions`);
+  assert.deepEqual(
+    [info.width, info.height],
+    [448, 448],
+    `${entry.image} does not use the fixed X image canvas`
+  );
   assert.ok(info.hasAlpha, `${entry.image} does not advertise an alpha channel`);
 }
 
@@ -183,7 +194,7 @@ const mammothBlade = mappingByContext.get(contextKey(
 assert.equal(mammothBlade?.sourceKind, "official-assembled-bey-view");
 assert.equal(
   mammothBlade?.image,
-  "assets/images/x/beys/bey-x-bx-48-03-mammoth-tusk-7-60s.webp"
+  "assets/images/x/beys/bey-x-bx-48-03-mammoth-tusk-7-60s/main.webp"
 );
 
 console.log(

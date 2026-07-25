@@ -25,6 +25,7 @@
     "test:x-kr-bey-details": "node --test tests/x-kr-bey-details.test.mjs",
     "x-images:review": "node scripts/record-x-image-review.mjs",
     "x-images:review:report": "node scripts/build-x-image-review-report.mjs",
+    "x-images:recanvas": "python scripts/recanvas-x-images.py",
     "x-part-previews:build": "node scripts/build-x-part-preview-map.mjs --write",
     "x-part-previews:emit": "node scripts/build-x-part-preview-map.mjs --emit-source",
     "x-part-previews:audit": "python scripts/audit-x-part-preview-similarity.py",

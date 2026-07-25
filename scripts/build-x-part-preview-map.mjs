@@ -5,6 +5,7 @@ import path from "node:path";
 
 import { beyItems, partItems } from "../data/source/catalog.mjs";
 import { xImageMappings } from "../data/source/x-images.mjs";
+import { xPartPreviewImagePath } from "./x-image-paths.mjs";
 
 const args = new Set(process.argv.slice(2));
 const WRITE = args.has("--write");
@@ -125,8 +126,7 @@ const sourceFolderName = entry => {
   return path.posix.basename(path.posix.dirname(entry.sourcePath));
 };
 const contextKey = (beyId, partId) => `${beyId}::${partId}`;
-const outputPath = (beyId, partId) =>
-  `assets/images/x/part-previews/${beyId.toLowerCase()}/${partId.toLowerCase()}.webp`;
+const outputPath = xPartPreviewImagePath;
 const hasCustomBladeParts = bey => (bey.parts || []).some(partId => itemById.get(partId)?.xBladeRole);
 const officialPageUrl = slug => `${OFFICIAL_LINEUP_ROOT}/${slug}.html`;
 const officialImageUrl = fileName => `${OFFICIAL_IMAGE_ROOT}/${fileName}`;
@@ -382,7 +382,6 @@ async function discover() {
       shapeSourceSha256: entry.shapeSourceSha256 || entry.sourceSha256,
       colorEvidence: entry.colorEvidence || entry.sourceUrl,
       colorEvidenceSha256: entry.colorEvidenceSha256 || entry.sourceSha256,
-      transform: entry.transform || "none",
       reuseRepresentative,
       reuseExistingImage
     };
@@ -541,13 +540,19 @@ async function emitSource() {
   const report = JSON.parse(await readFile(OUTPUT_REPORT_PATH, "utf8"));
   const mappings = [];
   for (const entry of report.mappings) {
-    const output = path.resolve(entry.image);
+    let image = outputPath(entry.beyId, entry.partId);
+    if (entry.reuseRepresentative) image = imageMappingById.get(entry.partId)?.image;
+    if (entry.reuseExistingImage) image = imageMappingById.get(entry.beyId)?.image;
+    if (!image) {
+      throw new Error(`${contextKey(entry.beyId, entry.partId)} has no output image`);
+    }
+    const output = path.resolve(image);
     await stat(output);
     const outputSha256 = sha256(await readFile(output));
     mappings.push({
       beyId: entry.beyId,
       partId: entry.partId,
-      image: entry.image,
+      image,
       sourceKind: entry.sourceKind,
       sourceUrl: entry.sourceUrl,
       sourcePath: entry.sourcePath,
@@ -556,7 +561,6 @@ async function emitSource() {
       shapeSourceSha256: entry.shapeSourceSha256,
       colorEvidence: entry.colorEvidence,
       colorEvidenceSha256: entry.colorEvidenceSha256,
-      transform: entry.transform,
       outputSha256
     });
   }

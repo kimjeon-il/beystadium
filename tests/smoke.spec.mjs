@@ -2536,7 +2536,7 @@ test("X mounted part previews fit portrait bits and use each Bey's official colo
   const originalTaper = page.locator('#detailModal .mounted-link[data-part-id="PART-X-BIT-T"]');
   await expect(originalTaper).toHaveAttribute(
     "data-image-preview-src",
-    "assets/images/x/parts/part-x-bit-t.webp"
+    "assets/images/x/parts/bit/part-x-bit-t.webp"
   );
   await originalTaper.hover();
   await expect(preview).toBeVisible();
@@ -2557,27 +2557,27 @@ test("X mounted part previews fit portrait bits and use each Bey's official colo
   });
   expect(fit.frameWidth).toBe(184);
   expect(fit.frameHeight).toBe(184);
-  expect(fit.imageWidth).toBeLessThanOrEqual(168);
-  expect(fit.imageHeight).toBeLessThanOrEqual(168);
+  expect(fit.imageWidth).toBe(168);
+  expect(fit.imageHeight).toBe(168);
   expect(Math.min(fit.leftInset, fit.topInset, fit.rightInset, fit.bottomInset)).toBeGreaterThanOrEqual(7);
 
   await page.goto("/#BEY-X-BX-08-KNIGHT-SHIELD-4-80T");
   const alternateTaper = page.locator('#detailModal .mounted-link[data-part-id="PART-X-BIT-T"]');
   await expect(alternateTaper).toHaveAttribute(
     "data-image-preview-src",
-    "assets/images/x/part-previews/bey-x-bx-08-knight-shield-4-80t/part-x-bit-t.webp"
+    "assets/images/x/beys/bey-x-bx-08-knight-shield-4-80t/parts/part-x-bit-t.webp"
   );
   await alternateTaper.hover();
   await expect(preview.locator("img")).toHaveAttribute(
     "src",
-    "assets/images/x/part-previews/bey-x-bx-08-knight-shield-4-80t/part-x-bit-t.webp"
+    "assets/images/x/beys/bey-x-bx-08-knight-shield-4-80t/parts/part-x-bit-t.webp"
   );
 
   await page.goto("/#BEY-X-BX-48-03-MAMMOTH-TUSK-7-60S");
   const mammothBlade = page.locator('#detailModal .mounted-link[data-part-id="PART-X-BLADE-MAMMOTH-TUSK"]');
   await expect(mammothBlade).toHaveAttribute(
     "data-image-preview-src",
-    "assets/images/x/beys/bey-x-bx-48-03-mammoth-tusk-7-60s.webp"
+    "assets/images/x/beys/bey-x-bx-48-03-mammoth-tusk-7-60s/main.webp"
   );
   const unavailablePreview = page.locator('#detailModal .mounted-link[data-part-id="PART-X-BIT-S"]');
   await expect(unavailablePreview).not.toHaveAttribute("data-image-preview-src", /.+/);
@@ -2590,7 +2590,7 @@ test("X mounted part previews fit portrait bits and use each Bey's official colo
   await page.goto("/#BEY-X-CX-09-SOL-ECLIPSE-D-5-70TK");
   await expect(page.locator('#detailModal .mounted-link[data-part-id="PART-X-RATCHET-5-70"]')).toHaveAttribute(
     "data-image-preview-src",
-    "assets/images/x/part-previews/bey-x-cx-09-sol-eclipse-d-5-70tk/part-x-ratchet-5-70.webp"
+    "assets/images/x/beys/bey-x-cx-09-sol-eclipse-d-5-70tk/parts/part-x-ratchet-5-70.webp"
   );
   expect(errors).toEqual([]);
 });
@@ -2603,7 +2603,7 @@ test("X mounted part color links remain touch-safe on mobile", async ({ page }, 
   const alternateTaper = page.locator('#detailModal .mounted-link[data-part-id="PART-X-BIT-T"]');
   await expect(alternateTaper).toHaveAttribute(
     "data-image-preview-src",
-    "assets/images/x/part-previews/bey-x-bx-08-knight-shield-4-80t/part-x-bit-t.webp"
+    "assets/images/x/beys/bey-x-bx-08-knight-shield-4-80t/parts/part-x-bit-t.webp"
   );
   await alternateTaper.tap();
   await expect(page).toHaveURL(/#PART-X-BIT-T$/);
@@ -3496,8 +3496,15 @@ test("X catalog images load lazily without adding a detail art pane", async ({ p
       naturalHeight: image.naturalHeight
     };
   });
-  expect(imageGeometry.naturalWidth).toBeGreaterThan(0);
-  expect(imageGeometry.naturalHeight).toBeGreaterThan(0);
+  expect(imageGeometry.naturalWidth).toBe(448);
+  expect(imageGeometry.naturalHeight).toBe(448);
+  const renderedGeometry = await cardImage.evaluate(image => {
+    const rect = image.getBoundingClientRect();
+    return { width: Math.round(rect.width), height: Math.round(rect.height) };
+  });
+  expect(renderedGeometry.width).toBe(renderedGeometry.height);
+  expect(renderedGeometry.width).toBeGreaterThan(0);
+  expect(renderedGeometry.width).toBeLessThanOrEqual(112);
 
   await card.locator(".catalog-card-action").evaluate(button => button.click());
   await expect(page.locator("#detailModal")).toBeVisible();
