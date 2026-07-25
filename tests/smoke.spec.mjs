@@ -2527,6 +2527,79 @@ test("regional product and linked card images appear in rounded previews", async
   expect(errors).toEqual([]);
 });
 
+test("X mounted part previews fit portrait bits and use each Bey's official colors", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "pointer preview coverage only needs one fine-pointer browser");
+  const errors = consoleErrors(page);
+  const preview = page.locator(".link-image-preview");
+
+  await page.goto("/#BEY-X-BX-02-HELLS-SCYTHE-4-60T");
+  const originalTaper = page.locator('#detailModal .mounted-link[data-part-id="PART-X-BIT-T"]');
+  await expect(originalTaper).toHaveAttribute(
+    "data-image-preview-src",
+    "assets/images/x/parts/part-x-bit-t.webp"
+  );
+  await originalTaper.hover();
+  await expect(preview).toBeVisible();
+  await expect.poll(async () => Math.round((await preview.boundingBox()).width)).toBe(184);
+  const fit = await preview.evaluate(element => {
+    const frame = element.getBoundingClientRect();
+    const image = element.querySelector("img").getBoundingClientRect();
+    return {
+      frameWidth: Math.round(frame.width),
+      frameHeight: Math.round(frame.height),
+      imageWidth: Math.round(image.width),
+      imageHeight: Math.round(image.height),
+      leftInset: image.left - frame.left,
+      topInset: image.top - frame.top,
+      rightInset: frame.right - image.right,
+      bottomInset: frame.bottom - image.bottom
+    };
+  });
+  expect(fit.frameWidth).toBe(184);
+  expect(fit.frameHeight).toBe(184);
+  expect(fit.imageWidth).toBeLessThanOrEqual(168);
+  expect(fit.imageHeight).toBeLessThanOrEqual(168);
+  expect(Math.min(fit.leftInset, fit.topInset, fit.rightInset, fit.bottomInset)).toBeGreaterThanOrEqual(7);
+
+  await page.goto("/#BEY-X-BX-08-KNIGHT-SHIELD-4-80T");
+  const alternateTaper = page.locator('#detailModal .mounted-link[data-part-id="PART-X-BIT-T"]');
+  await expect(alternateTaper).toHaveAttribute(
+    "data-image-preview-src",
+    "assets/images/x/part-previews/bey-x-bx-08-knight-shield-4-80t/part-x-bit-t.webp"
+  );
+  await alternateTaper.hover();
+  await expect(preview.locator("img")).toHaveAttribute(
+    "src",
+    "assets/images/x/part-previews/bey-x-bx-08-knight-shield-4-80t/part-x-bit-t.webp"
+  );
+
+  await page.goto("/#BEY-X-BX-48-03-MAMMOTH-TUSK-7-60S");
+  const unavailablePreview = page.locator('#detailModal .mounted-link[data-part-id="PART-X-BIT-S"]');
+  await expect(unavailablePreview).not.toHaveAttribute("data-image-preview-src", /.+/);
+  await expect(unavailablePreview).not.toHaveAttribute("data-image-preview-id", /.+/);
+  await unavailablePreview.hover();
+  await expect(preview).toBeHidden();
+  await unavailablePreview.click();
+  await expect(page).toHaveURL(/#PART-X-BIT-S$/);
+  expect(errors).toEqual([]);
+});
+
+test("X mounted part color links remain touch-safe on mobile", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "mobile", "touch behavior only needs the mobile project");
+  const errors = consoleErrors(page);
+
+  await page.goto("/#BEY-X-BX-08-KNIGHT-SHIELD-4-80T");
+  const alternateTaper = page.locator('#detailModal .mounted-link[data-part-id="PART-X-BIT-T"]');
+  await expect(alternateTaper).toHaveAttribute(
+    "data-image-preview-src",
+    "assets/images/x/part-previews/bey-x-bx-08-knight-shield-4-80t/part-x-bit-t.webp"
+  );
+  await alternateTaper.tap();
+  await expect(page).toHaveURL(/#PART-X-BIT-T$/);
+  await expect(page.locator(".link-image-preview")).toBeHidden();
+  expect(errors).toEqual([]);
+});
+
 test("touch activation opens details without leaving an image preview", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "mobile", "touch behavior only needs the mobile project");
   await injectRegionalProductPreviewImages(page);

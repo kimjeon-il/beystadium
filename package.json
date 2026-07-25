@@ -25,10 +25,15 @@
     "test:x-kr-bey-details": "node --test tests/x-kr-bey-details.test.mjs",
     "x-images:review": "node scripts/record-x-image-review.mjs",
     "x-images:review:report": "node scripts/build-x-image-review-report.mjs",
+    "x-part-previews:build": "node scripts/build-x-part-preview-map.mjs --write",
+    "x-part-previews:emit": "node scripts/build-x-part-preview-map.mjs --emit-source",
+    "x-part-previews:audit": "python scripts/audit-x-part-preview-similarity.py",
+    "x-part-previews:review:report": "node scripts/build-x-part-preview-review-report.mjs",
     "test:x-images": "node scripts/validate-x-images.mjs",
+    "test:x-part-previews": "node scripts/validate-x-part-previews.mjs",
     "test:data": "node scripts/validate-data.mjs",
     "test:smoke": "playwright test",
-    "check": "pnpm lint:js && pnpm audit:app && pnpm data:check && pnpm test:data && pnpm test:search && pnpm test:ids && pnpm test:address-ids && pnpm test:product-ids && pnpm test:anime-episodes && pnpm test:burst-random-boosters && pnpm test:burst-random-layers && pnpm test:burst-remake-sets && pnpm test:x-tool-products && pnpm test:x-part-products && pnpm test:x-set-products && pnpm test:x-random-boosters && pnpm test:x-jp-part-details && pnpm test:x-kr-bey-details && pnpm test:x-images && pnpm test:smoke"
+    "check": "pnpm lint:js && pnpm audit:app && pnpm data:check && pnpm test:data && pnpm test:search && pnpm test:ids && pnpm test:address-ids && pnpm test:product-ids && pnpm test:anime-episodes && pnpm test:burst-random-boosters && pnpm test:burst-random-layers && pnpm test:burst-remake-sets && pnpm test:x-tool-products && pnpm test:x-part-products && pnpm test:x-set-products && pnpm test:x-random-boosters && pnpm test:x-jp-part-details && pnpm test:x-kr-bey-details && pnpm test:x-images && pnpm test:x-part-previews && pnpm test:smoke"
   },
   "devDependencies": {
     "@eslint/js": "^9.31.0",

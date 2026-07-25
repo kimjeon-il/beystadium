@@ -1,7 +1,7 @@
 import { bookItemsById, catalogCoreItemsById, gameItemsById, productItemsById, toolsItemsById } from "#app/data-store";
 import { releaseRegionLabels } from "#app/release-core";
 
-const previewSelector = "[data-image-preview-id], [data-image-preview-product-id]";
+const previewSelector = "[data-image-preview-src], [data-image-preview-id], [data-image-preview-product-id]";
 const fineHover = window.matchMedia("(hover: hover) and (pointer: fine)");
 const failedSources = new Set();
 const previewGap = 12;
@@ -25,6 +25,8 @@ const previewItemById = id => catalogCoreItemsById.get(id)
   || gameItemsById.get(id)
   || null;
 const previewSourceForAnchor = anchor => {
+  const explicitSource = anchor?.dataset.imagePreviewSrc;
+  if (explicitSource) return explicitSource;
   const productId = anchor?.dataset.imagePreviewProductId;
   if (productId) {
     const region = anchor.dataset.imagePreviewRegion;

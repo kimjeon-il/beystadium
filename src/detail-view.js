@@ -230,11 +230,19 @@ const mountedPartTypeLabelMarkup = part => {
     ? escapedLabel.replace(/블레이드$/, "<wbr>블레이드")
     : escapedLabel;
 };
-const beyPartSection = (title, partIds, region, className = "") => {
+const beyPartPreviewAttribute = (bey, part) => {
+  if (bey?.series !== "x") {
+    return ` data-image-preview-id="${escapeAttributeValue(part.id)}"`;
+  }
+  const source = bey.partPreviewImages?.[part.id];
+  return source ? ` data-image-preview-src="${escapeAttributeValue(source)}"` : "";
+};
+const beyPartSection = (title, bey, partIds, region, className = "") => {
   const links = (partIds || []).map(partId => {
     const part = catalogCoreItemsById.get(partId);
     if (!part) return "";
-    return `<a class="ui-list-link mounted-link" href="#${part.id}" data-part-id="${part.id}" data-image-preview-id="${part.id}"><span>${mountedPartTypeLabelMarkup(part)}</span><strong>${appServices.itemDisplayName(part, region)}</strong><b>→</b></a>`;
+    const previewAttribute = beyPartPreviewAttribute(bey, part);
+    return `<a class="ui-list-link mounted-link" href="#${part.id}" data-part-id="${part.id}"${previewAttribute}><span>${mountedPartTypeLabelMarkup(part)}</span><strong>${appServices.itemDisplayName(part, region)}</strong><b>→</b></a>`;
   }).filter(Boolean).join("");
   if (!links) return "";
   const classes = ["modal-section", "mounted-parts", className].filter(Boolean).join(" ");
@@ -243,8 +251,8 @@ const beyPartSection = (title, partIds, region, className = "") => {
 
 function beyDetailSections(item, region) {
   const detailPartIds = beyDetailPartIds(item);
-  const mounted = beyPartSection("구성", detailPartIds, region);
-  const bundled = beyPartSection("동봉 부품", item.bundledParts, region, "bundled-parts");
+  const mounted = beyPartSection("구성", item, detailPartIds, region);
+  const bundled = beyPartSection("동봉 부품", item, item.bundledParts, region, "bundled-parts");
   return `${mounted}${bundled}`;
 }
 
