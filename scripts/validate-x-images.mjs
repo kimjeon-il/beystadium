@@ -10,6 +10,8 @@ import { xCatalogImagePath } from "./x-image-paths.mjs";
 
 const REPORT_ARG = process.argv.find(argument => argument.startsWith("--report="));
 const REPORT_PATH = REPORT_ARG?.slice("--report=".length) || "";
+const ALPHA_REVIEW_PATH = path.resolve("data/source/x-image-alpha-review.json");
+const ALPHA_REVIEW_VERSION = "20260726-x-alpha-edge-refinement";
 const xItems = [...beyItems, ...partItems].filter(item => item.series === "x");
 const xIds = new Set(xItems.map(item => item.id));
 const expectedCorrectedSources = {
@@ -126,6 +128,37 @@ async function validateOutputs() {
     false,
     "legacy X part preview directory remains"
   );
+
+  const alphaReview = JSON.parse(await readFile(ALPHA_REVIEW_PATH, "utf8"));
+  assert.equal(alphaReview.version, ALPHA_REVIEW_VERSION);
+  assert.equal(alphaReview.canvasSize, 448);
+  assert.equal(alphaReview.files.length, files.length);
+  uniqueValues(alphaReview.files.map(entry => entry.image), "alpha review image paths");
+  const filePaths = files
+    .map(file => path.relative(process.cwd(), file).split(path.sep).join("/"))
+    .sort();
+  assert.deepEqual(
+    alphaReview.files.map(entry => entry.image).sort(),
+    filePaths,
+    "alpha review does not cover the current X image set"
+  );
+  for (const entry of alphaReview.files) {
+    assert.match(entry.outputSha256, /^[a-f0-9]{64}$/);
+    assert.ok(entry.alphaLevels >= 16, `${entry.image} has a quantized alpha edge`);
+    assert.ok(entry.partialPixels > 0, `${entry.image} has a binary alpha edge`);
+    assert.ok(entry.foregroundPixels > entry.partialPixels, `${entry.image} has no solid foreground`);
+    assert.equal(entry.bbox.length, 4);
+    assert.equal(entry.margins.length, 4);
+    assert.ok(Math.min(...entry.margins) >= 6, `${entry.image} has insufficient padding`);
+    assert.ok(entry.bbox[2] - entry.bbox[0] <= 436, `${entry.image} is too wide`);
+    assert.ok(entry.bbox[3] - entry.bbox[1] <= 436, `${entry.image} is too tall`);
+    const bytes = await readFile(path.resolve(entry.image));
+    assert.equal(
+      createHash("sha256").update(bytes).digest("hex"),
+      entry.outputSha256,
+      `${entry.image} no longer matches its alpha review`
+    );
+  }
 }
 
 async function validateSourceHashes() {

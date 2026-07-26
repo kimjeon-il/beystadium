@@ -4,11 +4,15 @@
 from __future__ import annotations
 
 import argparse
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import hashlib
 import json
 import os
 from pathlib import Path
+import re
 import sys
+from urllib.parse import urlparse
+from urllib.request import Request, urlopen
 
 import numpy as np
 from PIL import Image, ImageDraw
@@ -17,6 +21,7 @@ from PIL import Image, ImageDraw
 CANVAS_SIZE = 448
 MIN_MARGIN = 6
 MAX_FOREGROUND_SIZE = CANVAS_SIZE - MIN_MARGIN * 2
+OFFICIAL_IMAGE_ROOT = "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image"
 
 
 def parse_args() -> argparse.Namespace:
@@ -33,6 +38,22 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--shard-count", type=int, default=1)
     parser.add_argument("--overwrite", action="store_true")
     parser.add_argument("--validate-only", action="store_true")
+    parser.add_argument(
+        "--prefetch-only",
+        action="store_true",
+        help="download and verify official sources without processing images",
+    )
+    parser.add_argument(
+        "--current-layout",
+        action="store_true",
+        help="write to the current Bey-centered X image layout",
+    )
+    parser.add_argument(
+        "--source-cache",
+        type=Path,
+        default=Path(".cache/x-alpha-sources"),
+        help="download cache used when the original local source is unavailable",
+    )
     return parser.parse_args()
 
 
@@ -45,32 +66,6 @@ def load_rembg(model_name: str):
             "to PYTHONPATH before running this script."
         ) from error
     return new_session(model_name), remove
-
-
-def decontaminate_fringe(rgb: np.ndarray, alpha: np.ndarray) -> np.ndarray:
-    """Remove pale source-background bleed only from partially transparent pixels."""
-    height, width = rgb.shape[:2]
-    border = max(4, min(height, width) // 24)
-    samples = np.concatenate(
-        (
-            rgb[:border].reshape(-1, 3),
-            rgb[-border:].reshape(-1, 3),
-            rgb[:, :border].reshape(-1, 3),
-            rgb[:, -border:].reshape(-1, 3),
-        ),
-        axis=0,
-    )
-    background = np.median(samples.astype(np.float32), axis=0)
-    normalized_alpha = alpha.astype(np.float32) / 255.0
-    fringe = (normalized_alpha > 0.05) & (normalized_alpha < 0.92)
-    safe_alpha = np.maximum(normalized_alpha[..., None], 0.08)
-    foreground = (
-        rgb.astype(np.float32)
-        - (1.0 - normalized_alpha[..., None]) * background
-    ) / safe_alpha
-    corrected = rgb.astype(np.float32)
-    corrected[fringe] = foreground[fringe]
-    return np.clip(corrected, 0, 255).astype(np.uint8)
 
 
 def center_on_fixed_canvas(image: Image.Image, alpha: np.ndarray) -> Image.Image:
@@ -119,17 +114,31 @@ def process_image(
     original = Image.open(source).convert("RGB")
     if source_crop:
         original = original.crop(tuple(source_crop))
-    mask_image = remove(
-        original,
-        session=session,
-        only_mask=True,
-        alpha_matting=True,
-        alpha_matting_foreground_threshold=235,
-        alpha_matting_background_threshold=12,
-        alpha_matting_erode_size=8,
-        post_process_mask=True,
-    ).convert("L")
-    alpha = np.asarray(mask_image).copy()
+    try:
+        removed = remove(
+            original,
+            session=session,
+            alpha_matting=True,
+            alpha_matting_foreground_threshold=235,
+            alpha_matting_background_threshold=12,
+            alpha_matting_erode_size=8,
+            post_process_mask=True,
+        ).convert("RGBA")
+    except MemoryError:
+        # A few soft, transparent bits create an excessively large unknown
+        # region for closed-form matting. Narrow only that region while keeping
+        # the same segmentation model and original source pixels.
+        removed = remove(
+            original,
+            session=session,
+            alpha_matting=True,
+            alpha_matting_foreground_threshold=220,
+            alpha_matting_background_threshold=35,
+            alpha_matting_erode_size=4,
+            post_process_mask=True,
+        ).convert("RGBA")
+    rgba = np.asarray(removed).copy()
+    alpha = rgba[:, :, 3].copy()
     for left, top, right, bottom in source_exclude_rects or ():
         alpha[top:bottom, left:right] = 0
     for x, y in source_clear_points or ():
@@ -151,9 +160,8 @@ def process_image(
         keep = (labels == largest_label).astype(np.uint8)
         keep = cv2.dilate(keep, np.ones((9, 9), np.uint8), iterations=1)
         alpha = np.where(keep, alpha, 0).astype(np.uint8)
-    rgb = np.asarray(original)
-    corrected_rgb = decontaminate_fringe(rgb, alpha)
-    rgba = np.dstack((corrected_rgb, alpha))
+    alpha[alpha <= 8] = 0
+    rgba[:, :, 3] = alpha
     result = center_on_fixed_canvas(Image.fromarray(rgba, "RGBA"), alpha)
     destination.parent.mkdir(parents=True, exist_ok=True)
     result.save(
@@ -166,15 +174,88 @@ def process_image(
     )
 
 
-def source_path(report: dict, entry: dict) -> Path:
-    return (
-        Path(entry["sourceFile"])
-        if entry.get("sourceFile")
-        else Path(report["sourceRoot"]) / Path(entry["source"])
-    )
+def source_url(entry: dict) -> str:
+    source = entry.get("sourceUrl") or entry.get("source") or ""
+    if source.startswith(("http://", "https://")):
+        return source
+    file_name = re.sub(r"^\d+_", "", Path(source).name)
+    if not file_name:
+        raise ValueError(f"{entry['id']}: source URL cannot be resolved")
+    return f"{OFFICIAL_IMAGE_ROOT}/{file_name}"
 
 
-def validate_entries(report: dict, entries: list[dict], output_root: Path) -> int:
+def source_path(
+    report: dict,
+    entry: dict,
+    source_cache: Path,
+) -> Path:
+    local_candidates = []
+    if entry.get("sourceFile"):
+        local_candidates.append(Path(entry["sourceFile"]))
+    source = entry.get("source") or ""
+    if source and not source.startswith(("http://", "https://")):
+        local_candidates.append(Path(report["sourceRoot"]) / Path(source))
+    for candidate in local_candidates:
+        if candidate.exists():
+            return candidate
+
+    url = source_url(entry)
+    parsed_name = Path(urlparse(url).path).name
+    cache_name = f"{entry['sourceSha256'][:16]}-{parsed_name}"
+    cached = source_cache / cache_name
+    if cached.exists():
+        digest = hashlib.sha256(cached.read_bytes()).hexdigest()
+        if digest == entry["sourceSha256"]:
+            return cached
+        cached.unlink()
+    request = Request(url, headers={"User-Agent": "beystadium-image-alpha-refinement/1.0"})
+    with urlopen(request, timeout=30) as response:
+        source_bytes = response.read()
+    digest = hashlib.sha256(source_bytes).hexdigest()
+    if digest != entry["sourceSha256"]:
+        raise ValueError(f"{entry['id']}: downloaded source SHA-256 changed")
+    source_cache.mkdir(parents=True, exist_ok=True)
+    temporary = cached.with_name(f"{cached.name}.{os.getpid()}.tmp")
+    temporary.write_bytes(source_bytes)
+    os.replace(temporary, cached)
+    return cached
+
+
+def current_image_path(entry: dict) -> Path:
+    item_id = entry["id"]
+    if "::" in item_id:
+        bey_id, part_id = item_id.split("::", 1)
+        return (
+            Path("assets/images/x/beys")
+            / bey_id.lower()
+            / "parts"
+            / f"{part_id.lower()}.webp"
+        )
+    if item_id.startswith("BEY-X-"):
+        return Path("assets/images/x/beys") / item_id.lower() / "main.webp"
+    if item_id.startswith("PART-X-"):
+        for part_type in ("blade", "ratchet", "bit"):
+            if item_id.startswith(f"PART-X-{part_type.upper()}-"):
+                return (
+                    Path("assets/images/x/parts")
+                    / part_type
+                    / f"{item_id.lower()}.webp"
+                )
+    raise ValueError(f"{item_id}: current X image path cannot be resolved")
+
+
+def destination_path(entry: dict, output_root: Path, current_layout: bool) -> Path:
+    relative_path = current_image_path(entry) if current_layout else Path(entry["image"])
+    return output_root / relative_path
+
+
+def validate_entries(
+    report: dict,
+    entries: list[dict],
+    output_root: Path,
+    source_cache: Path,
+    current_layout: bool,
+) -> int:
     ids = [entry["id"] for entry in entries]
     outputs = [entry["image"] for entry in entries]
     if len(ids) != len(set(ids)):
@@ -182,11 +263,11 @@ def validate_entries(report: dict, entries: list[dict], output_root: Path) -> in
     if len(outputs) != len(set(outputs)):
         raise ValueError("duplicate output paths")
     for index, entry in enumerate(entries, start=1):
-        source = source_path(report, entry)
+        source = source_path(report, entry, source_cache)
         digest = hashlib.sha256(source.read_bytes()).hexdigest()
         if digest != entry["sourceSha256"]:
             raise ValueError(f"{entry['id']}: source SHA-256 changed")
-        destination = output_root / Path(entry["image"])
+        destination = destination_path(entry, output_root, current_layout)
         with Image.open(destination) as image:
             rgba = image.convert("RGBA")
             alpha = np.asarray(rgba.getchannel("A"))
@@ -241,15 +322,42 @@ def main() -> int:
     if missing_ids:
         raise SystemExit(f"IDs not present in mapping report: {sorted(missing_ids)}")
 
+    args.source_cache = args.source_cache.resolve()
+    if args.prefetch_only:
+        failures = []
+        with ThreadPoolExecutor(max_workers=8) as executor:
+            future_by_entry = {
+                executor.submit(source_path, report, entry, args.source_cache): entry
+                for entry in entries
+            }
+            for index, future in enumerate(as_completed(future_by_entry), start=1):
+                entry = future_by_entry[future]
+                try:
+                    future.result()
+                    print(f"[{index}/{len(entries)}] cached {entry['id']}", flush=True)
+                except Exception as error:
+                    failures.append((entry["id"], str(error)))
+                    print(f"[{index}/{len(entries)}] failed {entry['id']}: {error}", flush=True)
+        if failures:
+            for item_id, message in failures:
+                print(f"{item_id}: {message}", file=sys.stderr)
+            return 1
+        return 0
     if args.validate_only:
-        return validate_entries(report, entries, args.output_root)
+        return validate_entries(
+            report,
+            entries,
+            args.output_root,
+            args.source_cache,
+            args.current_layout,
+        )
 
     os.environ.setdefault("U2NET_HOME", str(Path(".cache/rembg-models").resolve()))
     session, remove = load_rembg(args.model)
     failures: list[tuple[str, str]] = []
     for index, entry in enumerate(entries, start=1):
-        source = source_path(report, entry)
-        destination = args.output_root / Path(entry["image"])
+        source = source_path(report, entry, args.source_cache)
+        destination = destination_path(entry, args.output_root, args.current_layout)
         if destination.exists() and not args.overwrite:
             print(f"[{index}/{len(entries)}] skip {entry['id']}", flush=True)
             continue

@@ -186,7 +186,7 @@ const BeystadiumDataStore = (() => {
   const initialize = async () => {
     clearError();
     try {
-      indexData = await fetchJson("./data/runtime/index.json?v=20260725-x-image-layout-448");
+      indexData = await fetchJson("./data/runtime/index.json?v=20260726-x-alpha-edge-refinement");
       if (detailHashOnBoot()) await ensureRegistry();
       document.querySelector("[data-load-retry]")?.addEventListener("click", () => window.location.reload());
       return true;
