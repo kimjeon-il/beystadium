@@ -17,6 +17,8 @@ let openTimer = 0;
 let requestToken = 0;
 let positionFrame = 0;
 let lastInputMethod = "keyboard";
+let activePreviewMode = "";
+let touchCloseWatcher = null;
 
 const previewAnchorFrom = target => target?.closest?.(previewSelector) || null;
 const previewItemById = id => catalogCoreItemsById.get(id)
@@ -106,12 +108,35 @@ function schedulePreviewPosition() {
   positionFrame = requestAnimationFrame(positionLinkImagePreview);
 }
 
+function clearTouchCloseWatcher() {
+  const watcher = touchCloseWatcher;
+  touchCloseWatcher = null;
+  watcher?.destroy?.();
+}
+
+function startTouchCloseWatcher() {
+  clearTouchCloseWatcher();
+  if (typeof window.CloseWatcher !== "function") return;
+  try {
+    const watcher = new window.CloseWatcher();
+    touchCloseWatcher = watcher;
+    watcher.addEventListener("close", () => {
+      if (touchCloseWatcher === watcher) touchCloseWatcher = null;
+      hideLinkImagePreview();
+    }, { once: true });
+  } catch {
+    touchCloseWatcher = null;
+  }
+}
+
 function hideLinkImagePreview() {
   clearTimeout(openTimer);
   openTimer = 0;
   requestToken += 1;
   activeAnchor = null;
   activeSource = "";
+  activePreviewMode = "";
+  clearTouchCloseWatcher();
   if (positionFrame) cancelAnimationFrame(positionFrame);
   positionFrame = 0;
   if (!previewElement) return;
@@ -144,20 +169,32 @@ function loadLinkImagePreview(anchor, source, token) {
   loader.src = source;
 }
 
-function showLinkImagePreview(anchor, { delay = hoverDelay } = {}) {
+function showLinkImagePreview(anchor, { delay = hoverDelay, mode = "pointer" } = {}) {
   const source = previewSourceForAnchor(anchor);
   if (!source || failedSources.has(source)) {
     hideLinkImagePreview();
-    return;
+    return false;
   }
   clearTimeout(openTimer);
   activeAnchor = anchor;
   activeSource = source;
+  activePreviewMode = mode;
+  if (mode === "touch") startTouchCloseWatcher();
+  else clearTouchCloseWatcher();
   const token = ++requestToken;
   openTimer = window.setTimeout(() => {
     openTimer = 0;
     loadLinkImagePreview(anchor, source, token);
   }, delay);
+  return true;
+}
+
+function handlePreviewScroll() {
+  if (activePreviewMode === "touch") {
+    hideLinkImagePreview();
+    return;
+  }
+  schedulePreviewPosition();
 }
 
 function initializeImageLinkPreviews() {
@@ -167,12 +204,13 @@ function initializeImageLinkPreviews() {
     lastInputMethod = event.pointerType === "touch" ? "touch" : "pointer";
   }, true);
   document.addEventListener("pointerover", event => {
-    if (!fineHover.matches) return;
+    if (!fineHover.matches || event.pointerType === "touch") return;
     const anchor = previewAnchorFrom(event.target);
     if (!anchor || anchor.contains(event.relatedTarget)) return;
     showLinkImagePreview(anchor);
   }, true);
   document.addEventListener("pointerout", event => {
+    if (!fineHover.matches || event.pointerType === "touch") return;
     const anchor = previewAnchorFrom(event.target);
     if (!anchor || anchor !== activeAnchor || anchor.contains(event.relatedTarget)) return;
     if (anchor.contains(document.activeElement)) return;
@@ -189,7 +227,25 @@ function initializeImageLinkPreviews() {
     if (fineHover.matches && anchor.matches(":hover")) return;
     hideLinkImagePreview();
   }, true);
-  document.addEventListener("click", hideLinkImagePreview, true);
+  document.addEventListener("click", event => {
+    const anchor = previewAnchorFrom(event.target);
+    if (lastInputMethod !== "touch" || !anchor) {
+      hideLinkImagePreview();
+      return;
+    }
+    const source = previewSourceForAnchor(anchor);
+    if (!source || failedSources.has(source)) {
+      hideLinkImagePreview();
+      return;
+    }
+    if (activePreviewMode === "touch" && anchor === activeAnchor && source === activeSource) {
+      hideLinkImagePreview();
+      return;
+    }
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    showLinkImagePreview(anchor, { delay: 0, mode: "touch" });
+  }, true);
   document.addEventListener("keydown", event => {
     if (event.key === "Tab" || event.key.startsWith("Arrow")) lastInputMethod = "keyboard";
     if (event.key !== "Escape" || !previewElement || previewElement.hidden) return;
@@ -197,10 +253,10 @@ function initializeImageLinkPreviews() {
     event.stopImmediatePropagation();
     hideLinkImagePreview();
   }, true);
-  document.addEventListener("scroll", schedulePreviewPosition, { capture: true, passive: true });
+  document.addEventListener("scroll", handlePreviewScroll, { capture: true, passive: true });
   window.addEventListener("resize", schedulePreviewPosition, { passive: true });
   window.visualViewport?.addEventListener("resize", schedulePreviewPosition, { passive: true });
-  window.visualViewport?.addEventListener("scroll", schedulePreviewPosition, { passive: true });
+  window.visualViewport?.addEventListener("scroll", handlePreviewScroll, { passive: true });
 }
 
 export {

@@ -2636,9 +2636,10 @@ test("X mounted part previews fit portrait bits and use each Bey's official colo
   expect(errors).toEqual([]);
 });
 
-test("X mounted part color links remain touch-safe on mobile", async ({ page }, testInfo) => {
+test("X mounted part color links preview before touch navigation", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "mobile", "touch behavior only needs the mobile project");
   const errors = consoleErrors(page);
+  const preview = page.locator(".link-image-preview");
 
   await page.goto("/#BEY-X-BX-08-KNIGHT-SHIELD-4-80T");
   const alternateTaper = page.locator('#detailModal .mounted-link[data-part-id="PART-X-BIT-T"]');
@@ -2647,21 +2648,65 @@ test("X mounted part color links remain touch-safe on mobile", async ({ page }, 
     "assets/images/x/beys/bey-x-bx-08-knight-shield-4-80t/parts/part-x-bit-t.webp"
   );
   await alternateTaper.tap();
+  await expect(page).toHaveURL(/#BEY-X-BX-08-KNIGHT-SHIELD-4-80T$/);
+  await expect(preview).toBeVisible();
+  await expect(preview.locator("img")).toHaveAttribute(
+    "src",
+    "assets/images/x/beys/bey-x-bx-08-knight-shield-4-80t/parts/part-x-bit-t.webp"
+  );
+  await alternateTaper.tap();
   await expect(page).toHaveURL(/#PART-X-BIT-T$/);
-  await expect(page.locator(".link-image-preview")).toBeHidden();
+  await expect(preview).toBeHidden();
+
+  await page.goto("/#BEY-X-BX-48-03-MAMMOTH-TUSK-7-60S");
+  const unavailablePreview = page.locator('#detailModal .mounted-link[data-part-id="PART-X-BIT-S"]');
+  await expect(unavailablePreview).not.toHaveAttribute("data-image-preview-src", /.+/);
+  await expect(unavailablePreview).not.toHaveAttribute("data-image-preview-id", /.+/);
+  await unavailablePreview.tap();
+  await expect(page).toHaveURL(/#PART-X-BIT-S$/);
+  await expect(preview).toBeHidden();
+
+  await page.goto("/#BEY-X-BX-08-KNIGHT-SHIELD-4-80T");
+  await page.locator('#detailModal .mounted-link[data-part-id="PART-X-BIT-T"]').click();
+  await expect(page).toHaveURL(/#PART-X-BIT-T$/);
+  await expect(preview).toBeHidden();
   expect(errors).toEqual([]);
 });
 
-test("touch activation opens details without leaving an image preview", async ({ page }, testInfo) => {
+test("touch release links close previews on outside input and open details on the second tap", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "mobile", "touch behavior only needs the mobile project");
   await injectRegionalProductPreviewImages(page);
   await page.goto("/#toy-release");
   await page.locator(".release-list-page .table-list-dropdown summary").tap();
   await page.locator('[data-release-series="metal fight"]').tap();
   await page.locator("#releaseSearchInput").fill("BB-28");
-  await page.locator('.release-product-row[data-product-id="PRODUCT-METAL-FIGHT-BB-28"] .release-product-link').tap();
+  const releaseLink = page.locator('.release-product-row[data-product-id="PRODUCT-METAL-FIGHT-BB-28"] .release-product-link');
+  const preview = page.locator(".link-image-preview");
+  const releaseUrl = page.url();
+
+  await releaseLink.tap();
+  expect(page.url()).toBe(releaseUrl);
+  await expect(preview).toBeVisible();
+  await expect(preview.locator("img")).toHaveAttribute("src", "assets/images/beys/storm-pegasis.png");
+  await page.locator("#releaseSearchInput").tap();
+  await expect(preview).toBeHidden();
+
+  await releaseLink.tap();
+  await expect(preview).toBeVisible();
+  await page.keyboard.press("Escape");
+  await expect(preview).toBeHidden();
+  expect(page.url()).toBe(releaseUrl);
+
+  await releaseLink.tap();
+  await expect(preview).toBeVisible();
+  await page.evaluate(() => document.dispatchEvent(new Event("scroll")));
+  await expect(preview).toBeHidden();
+
+  await releaseLink.tap();
+  await expect(preview).toBeVisible();
+  await releaseLink.tap();
   await expect(page.locator("#detailModal")).toBeVisible();
-  await expect(page.locator(".link-image-preview")).toBeHidden();
+  await expect(preview).toBeHidden();
 });
 
 test("진검 방영목록은 52개 회차와 교정된 검색·상세 주소를 제공한다", async ({ page }, testInfo) => {
