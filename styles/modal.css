@@ -663,7 +663,7 @@ dialog[open] .product-modal-name {
 
 .mounted-parts {
   --composition-row-height: var(--modal-section-row-height);
-  --composition-visible-rows: var(--composition-visible-rows-default, 6);
+  --composition-visible-rows: var(--composition-visible-rows-default, 8);
   --composition-list-max-height: var(--composition-list-max-height-default, calc(var(--composition-row-height) * var(--composition-visible-rows)));
   --modal-row-arrow-column: 26px;
   --modal-row-x-padding: var(--modal-section-content-inset);
@@ -698,7 +698,7 @@ dialog[open] .product-modal-name {
 
 .product-composition {
   --composition-row-height: var(--modal-section-row-height);
-  --composition-visible-rows: var(--composition-visible-rows-default, 6);
+  --composition-visible-rows: var(--composition-visible-rows-default, 8);
   --composition-list-max-height: var(--composition-list-max-height-default, calc(var(--composition-row-height) * var(--composition-visible-rows)));
   --modal-row-arrow-column: 26px;
   --modal-row-x-padding: var(--modal-section-content-inset);
@@ -1390,7 +1390,7 @@ dialog[open] {
     --modal-art-height: 100%;
     --modal-art-max-height: none;
     --modal-art-padding: 0;
-    --composition-list-max-height-default: min(calc(var(--composition-row-height) * var(--composition-visible-rows)), 34dvh);
+    --composition-list-max-height-default: min(calc(var(--composition-row-height) * var(--composition-visible-rows)), 45dvh);
     --model-viewer-width: min(100%, clamp(420px, 58vw, 520px));
     --model-viewer-height: min(52vh, clamp(420px, 58vw, 520px));
     --model-viewer-min-height: clamp(280px, 32vh, 300px);
@@ -1417,12 +1417,7 @@ dialog[open] .part-modal-info {
     bottom: -10px;
   }
 
-dialog[open] {
-    --composition-visible-rows-default: 5;
-    --composition-list-max-height-default: min(calc(var(--composition-row-height) * var(--composition-visible-rows)), 30dvh);
-  }
-
-dialog[open] .modal-info:not(.product-modal-info) .modal-name {
+  dialog[open] .modal-info:not(.product-modal-info) .modal-name {
     --modal-title-lines: 1;
     min-width: 0;
     flex-wrap: nowrap;

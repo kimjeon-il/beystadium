@@ -2478,6 +2478,58 @@ test("static details use a rounded single-column layout without a photo pane", a
   expect(errors).toEqual([]);
 });
 
+test("composition sections use eight safe rows before internal scrolling", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "representative viewport coverage only needs one browser project");
+  const errors = consoleErrors(page);
+  const viewports = [
+    { width: 1280, height: 720 },
+    { width: 768, height: 650 },
+    { width: 393, height: 727 },
+    { width: 360, height: 640 }
+  ];
+
+  for (const viewport of viewports) {
+    await page.setViewportSize(viewport);
+    await page.goto("/#BEY-X-CX-13-BAHAMUT-BLITZ-BK-1-50I");
+    const mountedList = page.locator("#detailModal .mounted-parts-list");
+    await expect(mountedList.locator(".mounted-link")).toHaveCount(6);
+    const mountedLayout = await mountedList.evaluate(element => {
+      const scrollArea = element.closest(".modal-scroll-area");
+      return {
+        clientHeight: element.clientHeight,
+        scrollHeight: element.scrollHeight,
+        outerClientHeight: scrollArea.clientHeight,
+        outerScrollHeight: scrollArea.scrollHeight
+      };
+    });
+    expect(mountedLayout.scrollHeight).toBeLessThanOrEqual(mountedLayout.clientHeight + 1);
+    expect(mountedLayout.outerScrollHeight).toBeLessThanOrEqual(mountedLayout.outerClientHeight + 1);
+
+    await page.goto("/#PRODUCT-X-UX-10");
+    const productList = page.locator("#detailModal .product-composition-list");
+    await expect(productList.locator(".product-composition-item")).toHaveCount(11);
+    const productLayout = await productList.evaluate(element => {
+      const rows = Array.from(element.children);
+      const listRect = element.getBoundingClientRect();
+      const scrollArea = element.closest(".modal-scroll-area");
+      return {
+        clientHeight: element.clientHeight,
+        scrollHeight: element.scrollHeight,
+        outerClientHeight: scrollArea.clientHeight,
+        outerScrollHeight: scrollArea.scrollHeight,
+        eighthVisible: rows[7].getBoundingClientRect().bottom <= listRect.bottom + 1,
+        ninthClipped: rows[8].getBoundingClientRect().bottom > listRect.bottom + 1
+      };
+    });
+    expect(productLayout.clientHeight).toBe(288);
+    expect(productLayout.scrollHeight).toBeGreaterThan(productLayout.clientHeight);
+    expect(productLayout.outerScrollHeight).toBeLessThanOrEqual(productLayout.outerClientHeight + 1);
+    expect(productLayout.eighthVisible).toBe(true);
+    expect(productLayout.ninthClipped).toBe(true);
+  }
+  expect(errors).toEqual([]);
+});
+
 test("hidden 3D model details use the shared content modal while retaining their source data", async ({ page }, testInfo) => {
   await page.goto("/#PART-METAL-FIGHT-BOTTOM-BALL");
   await expect(page.locator("#detailModal")).toBeVisible();
