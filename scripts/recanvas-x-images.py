@@ -190,13 +190,13 @@ def main() -> int:
     migrations = discover_migrations(root)
     if not migrations:
         count = validate_current_layout(root)
-        if count != 667:
-            raise ValueError(f"expected 667 X images, found {count}")
+        if count != 908:
+            raise ValueError(f"expected 908 X images, found {count}")
         if args.write:
             remove_empty_legacy_preview_root(root)
         return 0
-    if len(migrations) != 667:
-        raise ValueError(f"expected 667 legacy X images, found {len(migrations)}")
+    if len(migrations) != 908:
+        raise ValueError(f"expected 908 legacy X images, found {len(migrations)}")
     with tempfile.TemporaryDirectory(prefix="beystadium-x-images-") as temp_directory:
         staging_root = Path(temp_directory)
         def prepare(migration: Migration) -> Migration:

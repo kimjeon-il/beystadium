@@ -1,3 +1,4 @@
+import { Buffer } from "node:buffer";
 import { access, readFile, readdir } from "node:fs/promises";
 import { dirname, extname, relative, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
@@ -27,7 +28,9 @@ const FORBIDDEN_MONOLITHS = [
   "scripts/build-app-runtime.mjs"
 ];
 
-const byteSize = async file => (await readFile(fromRoot(file))).byteLength;
+const byteSize = async file => Buffer.byteLength(
+  (await readFile(fromRoot(file), "utf8")).replace(/\r\n/g, "\n")
+);
 const exists = async file => {
   try {
     await access(fromRoot(file));
