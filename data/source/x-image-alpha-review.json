@@ -1,5 +1,5 @@
 {
-  "version": "20260726-x-all-color-part-previews",
+  "version": "20260726-x-alpha-edge-refinement",
   "canvasSize": 448,
   "files": [
     {
@@ -364,44 +364,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-croco-crunch-2-60q/parts/part-x-bit-q.webp",
-      "outputSha256": "53924fa5c2519e4acda632477c9fe4fc0efc83ba44fba01e0a5bbfd3f9abab50",
-      "alphaLevels": 249,
-      "partialPixels": 4547,
-      "foregroundPixels": 31487,
-      "bbox": [
-        138,
-        82,
-        310,
-        366
-      ],
-      "margins": [
-        138,
-        82,
-        138,
-        82
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-croco-crunch-2-60q/parts/part-x-ratchet-2-60.webp",
-      "outputSha256": "1012ff5b2e0253dbd9778fb7dd1044cc042e043fae4248381033ec3a0d498ea3",
-      "alphaLevels": 255,
-      "partialPixels": 4858,
-      "foregroundPixels": 92698,
-      "bbox": [
-        45,
-        57,
-        402,
-        391
-      ],
-      "margins": [
-        45,
-        57,
-        46,
-        57
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-bx-00-darth-vader-4-60p/main.webp",
       "outputSha256": "598b315e4a33a3f4913a2b8ab2cc598d424031ff683c59ceb65ab9a095309a2b",
       "alphaLevels": 256,
@@ -478,44 +440,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-draciel-shield-7-60d/parts/part-x-bit-d.webp",
-      "outputSha256": "b2bfe1c02573602f7e8b6f763bf82fcd00805b9af15334212021a8bf823d8cb9",
-      "alphaLevels": 252,
-      "partialPixels": 4468,
-      "foregroundPixels": 32781,
-      "bbox": [
-        137,
-        80,
-        310,
-        368
-      ],
-      "margins": [
-        137,
-        80,
-        138,
-        80
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-draciel-shield-7-60d/parts/part-x-ratchet-7-60.webp",
-      "outputSha256": "523829330e032bc981ae1c17f88cd2fe1851ea3c13ec6ce0d8e13d86ccfe6947",
-      "alphaLevels": 252,
-      "partialPixels": 4101,
-      "foregroundPixels": 78768,
-      "bbox": [
-        55,
-        67,
-        392,
-        381
-      ],
-      "margins": [
-        55,
-        67,
-        56,
-        67
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-bx-00-dragoon-storm-4-60ra/main.webp",
       "outputSha256": "fc696462805f46205502c06490679cfd3b041e5deeb633197a01ea128bae8614",
       "alphaLevels": 256,
@@ -532,25 +456,6 @@
         77,
         45,
         78
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-dragoon-storm-4-60ra/parts/part-x-bit-ra.webp",
-      "outputSha256": "0b9005aa15843ed1cc36d45f34423bde81fcadfc80160ae1d182b78243d66944",
-      "alphaLevels": 249,
-      "partialPixels": 2911,
-      "foregroundPixels": 32115,
-      "bbox": [
-        125,
-        100,
-        322,
-        348
-      ],
-      "margins": [
-        125,
-        100,
-        126,
-        100
       ]
     },
     {
@@ -573,25 +478,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-dragoon-storm-4-60ra/parts/part-x-ratchet-4-60.webp",
-      "outputSha256": "6584fe7b6f39fc11a94fc6332f4332d6995afce31fabf3b86a7f4bc1798072f4",
-      "alphaLevels": 251,
-      "partialPixels": 5497,
-      "foregroundPixels": 78742,
-      "bbox": [
-        59,
-        75,
-        388,
-        372
-      ],
-      "margins": [
-        59,
-        75,
-        60,
-        76
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-bx-00-dran-dagger-2-80gp/main.webp",
       "outputSha256": "12007a6ac676436780e8dda76f24b090abe6a01f2e3f82767259b702c6db3424",
       "alphaLevels": 255,
@@ -608,44 +494,6 @@
         69,
         38,
         69
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-dran-dagger-2-80gp/parts/part-x-bit-gp.webp",
-      "outputSha256": "7f75b855f6408d916e7d67e2af6bab2a1677e8f37dd987dc3b62bdf6be6e8310",
-      "alphaLevels": 253,
-      "partialPixels": 2498,
-      "foregroundPixels": 32932,
-      "bbox": [
-        136,
-        80,
-        311,
-        367
-      ],
-      "margins": [
-        136,
-        80,
-        137,
-        81
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-dran-dagger-2-80gp/parts/part-x-ratchet-2-80.webp",
-      "outputSha256": "211c42ca89375a3fb9514b530421b01752541d55a7821a1cd06cfbe62eac325b",
-      "alphaLevels": 256,
-      "partialPixels": 7066,
-      "foregroundPixels": 98166,
-      "bbox": [
-        45,
-        56,
-        402,
-        391
-      ],
-      "margins": [
-        45,
-        56,
-        46,
-        57
       ]
     },
     {
@@ -744,25 +592,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-dran-sword-3-60f/parts/part-x-bit-f.webp",
-      "outputSha256": "337f4e36e2dbfab2873cde1f777ac499192f87cbfaf3374b2b4000338513cb35",
-      "alphaLevels": 244,
-      "partialPixels": 2426,
-      "foregroundPixels": 28949,
-      "bbox": [
-        142,
-        85,
-        305,
-        363
-      ],
-      "margins": [
-        142,
-        85,
-        143,
-        85
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-bx-00-dran-sword-3-60f/parts/part-x-blade-dran-sword.webp",
       "outputSha256": "7adf7c7994da948ab6bd201c0984b20d8562464f0fb94799704287690d5eefc2",
       "alphaLevels": 256,
@@ -782,25 +611,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-dran-sword-3-60f/parts/part-x-ratchet-3-60.webp",
-      "outputSha256": "b600a1a9f5e98aaa9a3cb7960162602b8b06f46af2cbdbc8ed09c747249371aa",
-      "alphaLevels": 243,
-      "partialPixels": 3497,
-      "foregroundPixels": 77614,
-      "bbox": [
-        51,
-        74,
-        397,
-        373
-      ],
-      "margins": [
-        51,
-        74,
-        51,
-        75
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-bx-00-dranzer-spiral-3-80t/main.webp",
       "outputSha256": "5bba477624df83d1ef1275bdcd332ea398060a42d7be8ab10647d8808c0eb775",
       "alphaLevels": 256,
@@ -817,44 +627,6 @@
         27,
         39,
         28
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-dranzer-spiral-3-80t/parts/part-x-bit-t.webp",
-      "outputSha256": "a6eb3032a8b0b63dab188ac2295fb22e4590b48096e962b4ba0aa94ce89174b2",
-      "alphaLevels": 228,
-      "partialPixels": 3248,
-      "foregroundPixels": 28966,
-      "bbox": [
-        142,
-        88,
-        305,
-        360
-      ],
-      "margins": [
-        142,
-        88,
-        143,
-        88
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-dranzer-spiral-3-80t/parts/part-x-ratchet-3-80.webp",
-      "outputSha256": "5a69702d684b719e70a3843eafed864f167375143a3b8767b3382c68952e4945",
-      "alphaLevels": 255,
-      "partialPixels": 5848,
-      "foregroundPixels": 81563,
-      "bbox": [
-        49,
-        71,
-        399,
-        376
-      ],
-      "margins": [
-        49,
-        71,
-        49,
-        72
       ]
     },
     {
@@ -950,63 +722,6 @@
         66,
         46,
         66
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-hells-scythe-3-80f/parts/part-x-bit-f.webp",
-      "outputSha256": "e7a7ae0954cde570bdad4d6ad9f70979363a7e46d14a783776f27134d3e6d19a",
-      "alphaLevels": 244,
-      "partialPixels": 2426,
-      "foregroundPixels": 28949,
-      "bbox": [
-        142,
-        85,
-        305,
-        363
-      ],
-      "margins": [
-        142,
-        85,
-        143,
-        85
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-hells-scythe-3-80f/parts/part-x-blade-hells-scythe.webp",
-      "outputSha256": "f41c40d2e777636d6f6346e4b016910c0930d68d99d27e8e86c80600d6a5c9a6",
-      "alphaLevels": 256,
-      "partialPixels": 6472,
-      "foregroundPixels": 90461,
-      "bbox": [
-        49,
-        58,
-        399,
-        390
-      ],
-      "margins": [
-        49,
-        58,
-        49,
-        58
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-hells-scythe-3-80f/parts/part-x-ratchet-3-80.webp",
-      "outputSha256": "70cf7b18d4182e214dd09bd707334e5cb8bbc7ddf9b8a902fd285d8918e9e681",
-      "alphaLevels": 255,
-      "partialPixels": 5848,
-      "foregroundPixels": 81563,
-      "bbox": [
-        49,
-        71,
-        399,
-        376
-      ],
-      "margins": [
-        49,
-        71,
-        49,
-        72
       ]
     },
     {
@@ -1466,44 +1181,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-ninja-knife-4-60lf/parts/part-x-bit-lf.webp",
-      "outputSha256": "54b4c46142462a4026df29d2b433822b66efe3b4aff5492012e7a2b4b6c3007f",
-      "alphaLevels": 238,
-      "partialPixels": 1985,
-      "foregroundPixels": 15072,
-      "bbox": [
-        164,
-        128,
-        283,
-        320
-      ],
-      "margins": [
-        164,
-        128,
-        165,
-        128
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-ninja-knife-4-60lf/parts/part-x-ratchet-4-60.webp",
-      "outputSha256": "5ef6b9efce41a84cd50022c6c7b196906d9d637e0dffe1dba56c5fa67f560856",
-      "alphaLevels": 251,
-      "partialPixels": 5497,
-      "foregroundPixels": 78742,
-      "bbox": [
-        59,
-        75,
-        388,
-        372
-      ],
-      "margins": [
-        59,
-        75,
-        60,
-        76
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-bx-00-optimus-primal-3-60f/main.webp",
       "outputSha256": "6f9fffa4c29af84dfa793b50db80df246c3aa527e27e7072ac151d8261313207",
       "alphaLevels": 256,
@@ -1691,63 +1368,6 @@
         64,
         45,
         64
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-phoenix-soar-9-80db/parts/part-x-bit-db.webp",
-      "outputSha256": "2d9c1997e4004218fbdd3cb8207fb899f339670c67fd57334ac35440a66006aa",
-      "alphaLevels": 256,
-      "partialPixels": 10280,
-      "foregroundPixels": 49558,
-      "bbox": [
-        81,
-        90,
-        366,
-        358
-      ],
-      "margins": [
-        81,
-        90,
-        82,
-        90
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-phoenix-soar-9-80db/parts/part-x-blade-phoenix-soar.webp",
-      "outputSha256": "a21e6cca66dff14ade05aee606b5fb8490c21a953dfd7986648934f18c098c5f",
-      "alphaLevels": 243,
-      "partialPixels": 3179,
-      "foregroundPixels": 69012,
-      "bbox": [
-        64,
-        73,
-        383,
-        375
-      ],
-      "margins": [
-        64,
-        73,
-        65,
-        73
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-phoenix-soar-9-80db/parts/part-x-ratchet-9-80.webp",
-      "outputSha256": "19d78eb3d6b4358067b9e68ccd51c2a597e8f8dcb6fa798f4c3571614a5f23dc",
-      "alphaLevels": 256,
-      "partialPixels": 6010,
-      "foregroundPixels": 86483,
-      "bbox": [
-        44,
-        64,
-        403,
-        383
-      ],
-      "margins": [
-        44,
-        64,
-        45,
-        65
       ]
     },
     {
@@ -2112,25 +1732,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-storm-pegasis-3-70ra/parts/part-x-bit-ra.webp",
-      "outputSha256": "d33820fdf090b8158fc3c98ec39f286fe867f8760b5cb73d4fd0d38a6264f208",
-      "alphaLevels": 249,
-      "partialPixels": 2911,
-      "foregroundPixels": 32115,
-      "bbox": [
-        125,
-        100,
-        322,
-        348
-      ],
-      "margins": [
-        125,
-        100,
-        126,
-        100
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-bx-00-storm-pegasis-3-70ra/parts/part-x-blade-storm-pegasis.webp",
       "outputSha256": "cbe376967a6d903357cbb5e14c002fa7ea775cc50f8993c7addefb77fe2a651e",
       "alphaLevels": 256,
@@ -2147,25 +1748,6 @@
         45,
         45,
         46
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-storm-pegasis-3-70ra/parts/part-x-ratchet-3-70.webp",
-      "outputSha256": "1c7d42fae58ad1a9524d05bac4bc3a8ec615b62b04ea323170d1adf51be93fd0",
-      "alphaLevels": 254,
-      "partialPixels": 6464,
-      "foregroundPixels": 88618,
-      "bbox": [
-        43,
-        61,
-        404,
-        387
-      ],
-      "margins": [
-        43,
-        61,
-        44,
-        61
       ]
     },
     {
@@ -2489,44 +2071,6 @@
         64,
         47,
         64
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-victory-valkyrie-2-60ra/parts/part-x-bit-ra.webp",
-      "outputSha256": "25569d98ee039e45c9e2db1e374fc7231d731475769a95102638360badc79027",
-      "alphaLevels": 249,
-      "partialPixels": 2911,
-      "foregroundPixels": 32115,
-      "bbox": [
-        125,
-        100,
-        322,
-        348
-      ],
-      "margins": [
-        125,
-        100,
-        126,
-        100
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-victory-valkyrie-2-60ra/parts/part-x-ratchet-2-60.webp",
-      "outputSha256": "46fa607a2e5b772e70ce5dd8018749f7d1772aeaf6779c991ce14b44275c4b35",
-      "alphaLevels": 255,
-      "partialPixels": 4858,
-      "foregroundPixels": 92698,
-      "bbox": [
-        45,
-        57,
-        402,
-        391
-      ],
-      "margins": [
-        45,
-        57,
-        46,
-        57
       ]
     },
     {
@@ -3252,44 +2796,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-14-02-shark-edge-4-80n/parts/part-x-bit-n.webp",
-      "outputSha256": "000713bda4e8dd1580ed9b30595f27df3a39aaf47bc2a28746d3ec72830890bd",
-      "alphaLevels": 234,
-      "partialPixels": 3312,
-      "foregroundPixels": 27368,
-      "bbox": [
-        141,
-        93,
-        306,
-        354
-      ],
-      "margins": [
-        141,
-        93,
-        142,
-        94
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-14-02-shark-edge-4-80n/parts/part-x-ratchet-4-80.webp",
-      "outputSha256": "7b1661e707ed0c456cf91abdef7012c2143039eb76c62574d8d181e0df5af9cc",
-      "alphaLevels": 254,
-      "partialPixels": 5012,
-      "foregroundPixels": 79750,
-      "bbox": [
-        59,
-        75,
-        388,
-        373
-      ],
-      "margins": [
-        59,
-        75,
-        60,
-        75
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-bx-14-03-dran-sword-3-80b/main.webp",
       "outputSha256": "d9487262b8a77f0a46174246b3f9f9859ef971ff969f31c4b02d483d3a8a4fe9",
       "alphaLevels": 256,
@@ -3306,44 +2812,6 @@
         37,
         44,
         37
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-14-03-dran-sword-3-80b/parts/part-x-bit-b.webp",
-      "outputSha256": "66f9ab13851e0067045683f281072e8ce8633a6b5939336aa4a91ad8a4c06b6f",
-      "alphaLevels": 234,
-      "partialPixels": 4339,
-      "foregroundPixels": 28842,
-      "bbox": [
-        141,
-        88,
-        306,
-        360
-      ],
-      "margins": [
-        141,
-        88,
-        142,
-        88
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-14-03-dran-sword-3-80b/parts/part-x-ratchet-3-80.webp",
-      "outputSha256": "3596837c4e1c98153f3c90f46c1b15fc35fb13505ef733fba13894d7932f5d44",
-      "alphaLevels": 255,
-      "partialPixels": 5848,
-      "foregroundPixels": 81563,
-      "bbox": [
-        49,
-        71,
-        399,
-        376
-      ],
-      "margins": [
-        49,
-        71,
-        49,
-        72
       ]
     },
     {
@@ -3366,44 +2834,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-14-04-hells-scythe-4-80lf/parts/part-x-bit-lf.webp",
-      "outputSha256": "0ac5395127a46eeded3d7d8bfc8d09b16379b8d7127c4e954291d1d1aa8a25c1",
-      "alphaLevels": 238,
-      "partialPixels": 1985,
-      "foregroundPixels": 15072,
-      "bbox": [
-        164,
-        128,
-        283,
-        320
-      ],
-      "margins": [
-        164,
-        128,
-        165,
-        128
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-14-04-hells-scythe-4-80lf/parts/part-x-ratchet-4-80.webp",
-      "outputSha256": "19ff9f72aa6cffbb37104321e1695798e01adc36b9c06e882a6460c1fcdac642",
-      "alphaLevels": 254,
-      "partialPixels": 5012,
-      "foregroundPixels": 79750,
-      "bbox": [
-        59,
-        75,
-        388,
-        373
-      ],
-      "margins": [
-        59,
-        75,
-        60,
-        75
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-bx-14-05-knight-shield-4-60lf/main.webp",
       "outputSha256": "58f1c4878f4d2da81d1918fdb98c99871db26d5979c13be4dceaa1193753e02a",
       "alphaLevels": 256,
@@ -3423,44 +2853,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-14-05-knight-shield-4-60lf/parts/part-x-bit-lf.webp",
-      "outputSha256": "2d7f325c4b0366ee8321224236eff45370a694422fbbca3bbef77b2ae9d3c72c",
-      "alphaLevels": 238,
-      "partialPixels": 1985,
-      "foregroundPixels": 15072,
-      "bbox": [
-        164,
-        128,
-        283,
-        320
-      ],
-      "margins": [
-        164,
-        128,
-        165,
-        128
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-14-05-knight-shield-4-60lf/parts/part-x-ratchet-4-60.webp",
-      "outputSha256": "c0518ac19e41d06da92928de50230ca47b8f45add78acd7cab26d3046e156bfd",
-      "alphaLevels": 251,
-      "partialPixels": 5497,
-      "foregroundPixels": 78742,
-      "bbox": [
-        59,
-        75,
-        388,
-        372
-      ],
-      "margins": [
-        59,
-        75,
-        60,
-        76
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-bx-14-06-wizard-arrow-3-60t/main.webp",
       "outputSha256": "dce91598e708bb1970eaf92da04bf14a343ce43ed9e9de55965ff1172c975a96",
       "alphaLevels": 256,
@@ -3477,44 +2869,6 @@
         45,
         40,
         45
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-14-06-wizard-arrow-3-60t/parts/part-x-bit-t.webp",
-      "outputSha256": "fb204d5b2746583a62d8d179601dfa2c98eafa4aaee411ce48cc74fdd12a1e3d",
-      "alphaLevels": 228,
-      "partialPixels": 3248,
-      "foregroundPixels": 28966,
-      "bbox": [
-        142,
-        88,
-        305,
-        360
-      ],
-      "margins": [
-        142,
-        88,
-        143,
-        88
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-14-06-wizard-arrow-3-60t/parts/part-x-ratchet-3-60.webp",
-      "outputSha256": "64f81d3465ac026ed9a368845f45085946bbd928324de0b81897d3feb227d400",
-      "alphaLevels": 243,
-      "partialPixels": 3497,
-      "foregroundPixels": 77614,
-      "bbox": [
-        51,
-        74,
-        397,
-        373
-      ],
-      "margins": [
-        51,
-        74,
-        51,
-        75
       ]
     },
     {
@@ -3575,44 +2929,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-16-02-viper-tail-4-60f/parts/part-x-bit-f.webp",
-      "outputSha256": "06bc7d33ffceeb77a34bb07d878798957a84c5017e1eddbc23e5182664975b9f",
-      "alphaLevels": 244,
-      "partialPixels": 2426,
-      "foregroundPixels": 28949,
-      "bbox": [
-        142,
-        85,
-        305,
-        363
-      ],
-      "margins": [
-        142,
-        85,
-        143,
-        85
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-16-02-viper-tail-4-60f/parts/part-x-ratchet-4-60.webp",
-      "outputSha256": "89655c7f77a151dad1021bd4f18d8459b1ed1b5e561e5975fa7f1b4caf51a1cb",
-      "alphaLevels": 251,
-      "partialPixels": 5497,
-      "foregroundPixels": 78742,
-      "bbox": [
-        59,
-        75,
-        388,
-        372
-      ],
-      "margins": [
-        59,
-        75,
-        60,
-        76
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-bx-16-03-viper-tail-3-80hn/main.webp",
       "outputSha256": "c7562603f50966d45339f839bf4b778bc0209652eba1975a5eab73869dcf49ce",
       "alphaLevels": 256,
@@ -3629,44 +2945,6 @@
         41,
         43,
         41
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-16-03-viper-tail-3-80hn/parts/part-x-bit-hn.webp",
-      "outputSha256": "e44e30a68d8f326b142d2e7e4207526c1b278416b970863f8330112417dcc3fc",
-      "alphaLevels": 248,
-      "partialPixels": 4408,
-      "foregroundPixels": 27195,
-      "bbox": [
-        144,
-        92,
-        303,
-        356
-      ],
-      "margins": [
-        144,
-        92,
-        145,
-        92
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-16-03-viper-tail-3-80hn/parts/part-x-ratchet-3-80.webp",
-      "outputSha256": "4671de37239aca71d2fb123717b03dd78c1da8f09651c4749b3cea54e5e3a059",
-      "alphaLevels": 255,
-      "partialPixels": 5848,
-      "foregroundPixels": 81563,
-      "bbox": [
-        49,
-        71,
-        399,
-        376
-      ],
-      "margins": [
-        49,
-        71,
-        49,
-        72
       ]
     },
     {
@@ -3689,44 +2967,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-17-dran-sword-3-60f/parts/part-x-bit-f.webp",
-      "outputSha256": "32597b7b6b40ada47d388ef02828179ca9cfc9cfca8296515649844a9076186b",
-      "alphaLevels": 244,
-      "partialPixels": 2426,
-      "foregroundPixels": 28949,
-      "bbox": [
-        142,
-        85,
-        305,
-        363
-      ],
-      "margins": [
-        142,
-        85,
-        143,
-        85
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-17-dran-sword-3-60f/parts/part-x-ratchet-3-60.webp",
-      "outputSha256": "fc6ab6d0131ff6ac4465ab8bd893d401980c84f062e3054b99faed93c3044617",
-      "alphaLevels": 243,
-      "partialPixels": 3497,
-      "foregroundPixels": 77614,
-      "bbox": [
-        51,
-        74,
-        397,
-        373
-      ],
-      "margins": [
-        51,
-        74,
-        51,
-        75
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-bx-17-wizard-arrow-4-80b/main.webp",
       "outputSha256": "47ab2980a885623a4a87c0a1bb4c4dd391a5d1e840bf96a0b6cfa20940e312be",
       "alphaLevels": 256,
@@ -3743,44 +2983,6 @@
         40,
         45,
         40
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-17-wizard-arrow-4-80b/parts/part-x-bit-b.webp",
-      "outputSha256": "ce39f7f0576b6321bf6a8d9cc94a87f1a2f0d8204d76d6271dbdd9a88951fbf3",
-      "alphaLevels": 234,
-      "partialPixels": 4339,
-      "foregroundPixels": 28842,
-      "bbox": [
-        141,
-        88,
-        306,
-        360
-      ],
-      "margins": [
-        141,
-        88,
-        142,
-        88
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-17-wizard-arrow-4-80b/parts/part-x-ratchet-4-80.webp",
-      "outputSha256": "09c8d9f46c639c711a2fdbcbefeeef43aec0dfed388726e2b495e4251e146436",
-      "alphaLevels": 254,
-      "partialPixels": 5012,
-      "foregroundPixels": 79750,
-      "bbox": [
-        59,
-        75,
-        388,
-        373
-      ],
-      "margins": [
-        59,
-        75,
-        60,
-        75
       ]
     },
     {
@@ -4354,25 +3556,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-24-01-wyvern-gale-5-80gb/parts/part-x-ratchet-5-80.webp",
-      "outputSha256": "8b380e3819bf45915434dfec89bfb6c781c60dba6d2618b140951783db8a6127",
-      "alphaLevels": 238,
-      "partialPixels": 4018,
-      "foregroundPixels": 74716,
-      "bbox": [
-        54,
-        72,
-        394,
-        376
-      ],
-      "margins": [
-        54,
-        72,
-        54,
-        72
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-bx-24-02-wyvern-gale-3-60t/main.webp",
       "outputSha256": "784e228254b33fd7862ca56f0a2ff7bd3df685a4842b41d3ac34ef25b2991226",
       "alphaLevels": 256,
@@ -4389,44 +3572,6 @@
         52,
         54,
         53
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-24-02-wyvern-gale-3-60t/parts/part-x-bit-t.webp",
-      "outputSha256": "92573817055e8aa39f588f8e704a12111d41c5e0bff9118daad63ca65a47d774",
-      "alphaLevels": 228,
-      "partialPixels": 3248,
-      "foregroundPixels": 28966,
-      "bbox": [
-        142,
-        88,
-        305,
-        360
-      ],
-      "margins": [
-        142,
-        88,
-        143,
-        88
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-24-02-wyvern-gale-3-60t/parts/part-x-ratchet-3-60.webp",
-      "outputSha256": "cbbe513c71206675fc4b1d01d1971e0c3fd574a7fe1481d3c9aaa6d02ca9542e",
-      "alphaLevels": 243,
-      "partialPixels": 3497,
-      "foregroundPixels": 77614,
-      "bbox": [
-        51,
-        74,
-        397,
-        373
-      ],
-      "margins": [
-        51,
-        74,
-        51,
-        75
       ]
     },
     {
@@ -4449,44 +3594,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-24-03-knight-lance-4-60gb/parts/part-x-bit-gb.webp",
-      "outputSha256": "3f3618ce27c85ba61cfd078c74a6a23fe7a20c7292f05532f61d440e9238f86e",
-      "alphaLevels": 253,
-      "partialPixels": 3344,
-      "foregroundPixels": 32143,
-      "bbox": [
-        137,
-        80,
-        310,
-        368
-      ],
-      "margins": [
-        137,
-        80,
-        138,
-        80
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-24-03-knight-lance-4-60gb/parts/part-x-ratchet-4-60.webp",
-      "outputSha256": "b3be36f834243837958f0f2a39a54d82da7bbd1af520681018ed0d9d4bdc617a",
-      "alphaLevels": 251,
-      "partialPixels": 5497,
-      "foregroundPixels": 78742,
-      "bbox": [
-        59,
-        75,
-        388,
-        372
-      ],
-      "margins": [
-        59,
-        75,
-        60,
-        76
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-bx-24-04-viper-tail-5-60f/main.webp",
       "outputSha256": "aa80c6fcf25281edb8b4e82f118509415398729c5a2f5191a840202726931f68",
       "alphaLevels": 254,
@@ -4503,44 +3610,6 @@
         52,
         54,
         52
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-24-04-viper-tail-5-60f/parts/part-x-bit-f.webp",
-      "outputSha256": "a03253c516e0a2c49e77d8e570448fcb84cf0a3f7e187187bcae6464daa28a85",
-      "alphaLevels": 244,
-      "partialPixels": 2426,
-      "foregroundPixels": 28949,
-      "bbox": [
-        142,
-        85,
-        305,
-        363
-      ],
-      "margins": [
-        142,
-        85,
-        143,
-        85
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-24-04-viper-tail-5-60f/parts/part-x-ratchet-5-60.webp",
-      "outputSha256": "237195dfad9135b01fb5d1724c997b4aeecb228c557f875ee2c35ccd66a0d2e6",
-      "alphaLevels": 252,
-      "partialPixels": 4933,
-      "foregroundPixels": 75443,
-      "bbox": [
-        53,
-        70,
-        395,
-        377
-      ],
-      "margins": [
-        53,
-        70,
-        53,
-        71
       ]
     },
     {
@@ -4563,44 +3632,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-24-05-leon-claw-3-80hn/parts/part-x-bit-hn.webp",
-      "outputSha256": "d96e27cba5504339f41b25928f7a46803418ed723f4ae4238d58132e84401d3d",
-      "alphaLevels": 248,
-      "partialPixels": 4408,
-      "foregroundPixels": 27195,
-      "bbox": [
-        144,
-        92,
-        303,
-        356
-      ],
-      "margins": [
-        144,
-        92,
-        145,
-        92
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-24-05-leon-claw-3-80hn/parts/part-x-ratchet-3-80.webp",
-      "outputSha256": "374751086fb2912a408c74e557044fd1919b220f86835cedb72aa22fc0b0d071",
-      "alphaLevels": 255,
-      "partialPixels": 5848,
-      "foregroundPixels": 81563,
-      "bbox": [
-        49,
-        71,
-        399,
-        376
-      ],
-      "margins": [
-        49,
-        71,
-        49,
-        72
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-bx-24-06-wizard-arrow-4-80gb/main.webp",
       "outputSha256": "d1f297a4bcad171ad11145698d6e29d717c5d058db3e16453525528af48f6adc",
       "alphaLevels": 243,
@@ -4617,44 +3648,6 @@
         58,
         51,
         58
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-24-06-wizard-arrow-4-80gb/parts/part-x-bit-gb.webp",
-      "outputSha256": "8b2814f1f21bbaed2abb73cd6ec322ba292d712bce7c156ae580d8fcfd017c38",
-      "alphaLevels": 253,
-      "partialPixels": 3344,
-      "foregroundPixels": 32143,
-      "bbox": [
-        137,
-        80,
-        310,
-        368
-      ],
-      "margins": [
-        137,
-        80,
-        138,
-        80
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-24-06-wizard-arrow-4-80gb/parts/part-x-ratchet-4-80.webp",
-      "outputSha256": "21add683f1d2b34643cac63ffb50d769106e8744b42ccabd9e03cce5b2a51a07",
-      "alphaLevels": 254,
-      "partialPixels": 5012,
-      "foregroundPixels": 79750,
-      "bbox": [
-        59,
-        75,
-        388,
-        373
-      ],
-      "margins": [
-        59,
-        75,
-        60,
-        75
       ]
     },
     {
@@ -4791,44 +3784,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-27-02-sphinx-cowl-4-80ht/parts/part-x-bit-ht.webp",
-      "outputSha256": "29afa5059c87412fec6e051f7c956cac9ed1abee99817bc1398d738c5f5b461d",
-      "alphaLevels": 248,
-      "partialPixels": 3300,
-      "foregroundPixels": 36228,
-      "bbox": [
-        131,
-        75,
-        316,
-        373
-      ],
-      "margins": [
-        131,
-        75,
-        132,
-        75
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-27-02-sphinx-cowl-4-80ht/parts/part-x-ratchet-4-80.webp",
-      "outputSha256": "f6b24bd90ed6214933ea7f6e6fcebe7c8e6a8f35636ed5ab32e85aa7b1990867",
-      "alphaLevels": 254,
-      "partialPixels": 5012,
-      "foregroundPixels": 79750,
-      "bbox": [
-        59,
-        75,
-        388,
-        373
-      ],
-      "margins": [
-        59,
-        75,
-        60,
-        75
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-bx-27-03-sphinx-cowl-5-60o/main.webp",
       "outputSha256": "e7c8a0f70e5347e10b2e73f88e73d47819a2ee590437a625c56c517a646e4e1d",
       "alphaLevels": 256,
@@ -4845,44 +3800,6 @@
         45,
         48,
         45
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-27-03-sphinx-cowl-5-60o/parts/part-x-bit-o.webp",
-      "outputSha256": "6233cbd389a76396696f45a5a0f255858c93a65509c0c5b50832eebfc42a7c16",
-      "alphaLevels": 224,
-      "partialPixels": 2745,
-      "foregroundPixels": 28501,
-      "bbox": [
-        143,
-        80,
-        304,
-        367
-      ],
-      "margins": [
-        143,
-        80,
-        144,
-        81
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-27-03-sphinx-cowl-5-60o/parts/part-x-ratchet-5-60.webp",
-      "outputSha256": "c94e08e9d79eab178f12dc2ad8da11ac7a87922dce848afad80845a015a183de",
-      "alphaLevels": 252,
-      "partialPixels": 4933,
-      "foregroundPixels": 75443,
-      "bbox": [
-        53,
-        70,
-        395,
-        377
-      ],
-      "margins": [
-        53,
-        70,
-        53,
-        71
       ]
     },
     {
@@ -4943,44 +3860,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-31-02-tyranno-beat-3-60s/parts/part-x-bit-s.webp",
-      "outputSha256": "a97bacf4b1e1a87db78ccbc34cbc7851341b2100222e99cecdef0266933790a4",
-      "alphaLevels": 255,
-      "partialPixels": 4896,
-      "foregroundPixels": 30808,
-      "bbox": [
-        138,
-        84,
-        310,
-        364
-      ],
-      "margins": [
-        138,
-        84,
-        138,
-        84
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-31-02-tyranno-beat-3-60s/parts/part-x-ratchet-3-60.webp",
-      "outputSha256": "e765b63db0a5c0291b708af623fe7ae083fdec3bdd835e8a4c7ab4f5bd862092",
-      "alphaLevels": 243,
-      "partialPixels": 3497,
-      "foregroundPixels": 77614,
-      "bbox": [
-        51,
-        74,
-        397,
-        373
-      ],
-      "margins": [
-        51,
-        74,
-        51,
-        75
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-bx-31-03-hells-chain-9-80o/main.webp",
       "outputSha256": "5c37c36e38c6c51f7472250785cf7a0230ff69c464fefb11fe5e9c04797b792c",
       "alphaLevels": 256,
@@ -4997,44 +3876,6 @@
         58,
         66,
         59
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-31-03-hells-chain-9-80o/parts/part-x-bit-o.webp",
-      "outputSha256": "c4440aa2ef4cebcc4af8de86948f0825e40f2a5be1aff08074c902b44b6041d2",
-      "alphaLevels": 224,
-      "partialPixels": 2745,
-      "foregroundPixels": 28501,
-      "bbox": [
-        143,
-        80,
-        304,
-        367
-      ],
-      "margins": [
-        143,
-        80,
-        144,
-        81
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-31-03-hells-chain-9-80o/parts/part-x-ratchet-9-80.webp",
-      "outputSha256": "0d59339659d5743f159772b3b3ac2f5d3982833ecb540fb5e724437fc6ea7103",
-      "alphaLevels": 256,
-      "partialPixels": 6010,
-      "foregroundPixels": 86483,
-      "bbox": [
-        44,
-        64,
-        403,
-        383
-      ],
-      "margins": [
-        44,
-        64,
-        45,
-        65
       ]
     },
     {
@@ -5057,44 +3898,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-31-04-dran-dagger-4-70p/parts/part-x-bit-p.webp",
-      "outputSha256": "b4b2e9d065555a8bc030eb35fd2b7f768e37f7db3184dd0fb595700be4991aa3",
-      "alphaLevels": 254,
-      "partialPixels": 4522,
-      "foregroundPixels": 30817,
-      "bbox": [
-        142,
-        81,
-        305,
-        367
-      ],
-      "margins": [
-        142,
-        81,
-        143,
-        81
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-31-04-dran-dagger-4-70p/parts/part-x-ratchet-4-70.webp",
-      "outputSha256": "c6d3becd21214d6e2629d99ba88d4ca48e2fc9c7bcf515abbd5943144b6571c1",
-      "alphaLevels": 247,
-      "partialPixels": 3389,
-      "foregroundPixels": 79594,
-      "bbox": [
-        46,
-        64,
-        401,
-        384
-      ],
-      "margins": [
-        46,
-        64,
-        47,
-        64
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-bx-31-05-shark-edge-1-60q/main.webp",
       "outputSha256": "560ad0b97b10acb21ec3ff64c86a5327d78dc82b7046c336f73dd5df6c9c5d94",
       "alphaLevels": 256,
@@ -5114,44 +3917,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-31-05-shark-edge-1-60q/parts/part-x-bit-q.webp",
-      "outputSha256": "1c250b725e9ade8c424ee7994170529b0f57f95ef8d6989a3f776b461e65333c",
-      "alphaLevels": 249,
-      "partialPixels": 4547,
-      "foregroundPixels": 31487,
-      "bbox": [
-        138,
-        82,
-        310,
-        366
-      ],
-      "margins": [
-        138,
-        82,
-        138,
-        82
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-31-05-shark-edge-1-60q/parts/part-x-ratchet-1-60.webp",
-      "outputSha256": "76412f7823010921424df75e0924e7427320a7d14633ef2907bca2c2b0b27569",
-      "alphaLevels": 253,
-      "partialPixels": 3003,
-      "foregroundPixels": 92264,
-      "bbox": [
-        47,
-        57,
-        401,
-        391
-      ],
-      "margins": [
-        47,
-        57,
-        47,
-        57
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-bx-31-06-rhino-horn-5-80q/main.webp",
       "outputSha256": "9599d4bcffd5fec84dd8f82953ae22799d6e9ea74ff95b8117bdf2809dbed870",
       "alphaLevels": 256,
@@ -5168,44 +3933,6 @@
         67,
         67,
         67
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-31-06-rhino-horn-5-80q/parts/part-x-bit-q.webp",
-      "outputSha256": "1c3911903c6c1e4575f81e37aa64e3eda17379008ff14d124dc6cda4e574284b",
-      "alphaLevels": 249,
-      "partialPixels": 4547,
-      "foregroundPixels": 31487,
-      "bbox": [
-        138,
-        82,
-        310,
-        366
-      ],
-      "margins": [
-        138,
-        82,
-        138,
-        82
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-31-06-rhino-horn-5-80q/parts/part-x-ratchet-5-80.webp",
-      "outputSha256": "c616155925813f847a93061b98e756743f07532c71bfbff1494056c5cdaa58a1",
-      "alphaLevels": 238,
-      "partialPixels": 4018,
-      "foregroundPixels": 74716,
-      "bbox": [
-        54,
-        72,
-        394,
-        376
-      ],
-      "margins": [
-        54,
-        72,
-        54,
-        72
       ]
     },
     {
@@ -5285,25 +4012,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-35-01-black-turtle-4-60d/parts/part-x-ratchet-4-60.webp",
-      "outputSha256": "d5c32972c43439dc20928205e7d3dbd32d61d88237d622422edff9e8e36917ef",
-      "alphaLevels": 251,
-      "partialPixels": 5497,
-      "foregroundPixels": 78742,
-      "bbox": [
-        59,
-        75,
-        388,
-        372
-      ],
-      "margins": [
-        59,
-        75,
-        60,
-        76
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-bx-35-02-black-turtle-9-80b/main.webp",
       "outputSha256": "fc39ca0112224b82c68fd16ffba48195858ceb59f3bcda5cf76823556d36e3bf",
       "alphaLevels": 256,
@@ -5323,44 +4031,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-35-02-black-turtle-9-80b/parts/part-x-bit-b.webp",
-      "outputSha256": "6f270e941b3c4125d1cca0601670dfc799312ff9980066e803b26f19957e500e",
-      "alphaLevels": 234,
-      "partialPixels": 4339,
-      "foregroundPixels": 28842,
-      "bbox": [
-        141,
-        88,
-        306,
-        360
-      ],
-      "margins": [
-        141,
-        88,
-        142,
-        88
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-35-02-black-turtle-9-80b/parts/part-x-ratchet-9-80.webp",
-      "outputSha256": "332f7728257b71079028da56897b5ba6c06ce0174e33c6680ec1911c83524e9b",
-      "alphaLevels": 256,
-      "partialPixels": 6010,
-      "foregroundPixels": 86483,
-      "bbox": [
-        44,
-        64,
-        403,
-        383
-      ],
-      "margins": [
-        44,
-        64,
-        45,
-        65
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-bx-35-03-unicorn-sting-3-70d/main.webp",
       "outputSha256": "1827bc4c406f24b12c7af217de8986e49d916b3539328bb983877b72d0bfc31e",
       "alphaLevels": 253,
@@ -5376,44 +4046,6 @@
         56,
         60,
         56,
-        61
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-35-03-unicorn-sting-3-70d/parts/part-x-bit-d.webp",
-      "outputSha256": "98dfce948d42e2f4a00d94bd42f132281f62ea32db772091bc5e4e954db5cc7a",
-      "alphaLevels": 252,
-      "partialPixels": 4468,
-      "foregroundPixels": 32781,
-      "bbox": [
-        137,
-        80,
-        310,
-        368
-      ],
-      "margins": [
-        137,
-        80,
-        138,
-        80
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-35-03-unicorn-sting-3-70d/parts/part-x-ratchet-3-70.webp",
-      "outputSha256": "b4b122e5257404318c9a81ba6ca55ac348d3c8627f809a8c6bdd4f3424d33178",
-      "alphaLevels": 254,
-      "partialPixels": 6464,
-      "foregroundPixels": 88618,
-      "bbox": [
-        43,
-        61,
-        404,
-        387
-      ],
-      "margins": [
-        43,
-        61,
-        44,
         61
       ]
     },
@@ -5437,44 +4069,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-35-04-wizard-rod-1-60r/parts/part-x-bit-r.webp",
-      "outputSha256": "44a64f0f498527f5613dbf3fe5e3dc318e524183b54f4ce76b5a7bcb2407788c",
-      "alphaLevels": 251,
-      "partialPixels": 2857,
-      "foregroundPixels": 31147,
-      "bbox": [
-        137,
-        78,
-        310,
-        370
-      ],
-      "margins": [
-        137,
-        78,
-        138,
-        78
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-35-04-wizard-rod-1-60r/parts/part-x-ratchet-1-60.webp",
-      "outputSha256": "e9e3e5136c44b732e8cdb3bc1589b74487992071ee83af987d000918595f3325",
-      "alphaLevels": 253,
-      "partialPixels": 3003,
-      "foregroundPixels": 92264,
-      "bbox": [
-        47,
-        57,
-        401,
-        391
-      ],
-      "margins": [
-        47,
-        57,
-        47,
-        57
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-bx-35-05-phoenix-soar-5-80h/main.webp",
       "outputSha256": "601108a97d1e0795e84042b0068d7578ee62ae313fa2f6cc0ea7db5d144d2d02",
       "alphaLevels": 247,
@@ -5494,44 +4088,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-35-05-phoenix-soar-5-80h/parts/part-x-bit-h.webp",
-      "outputSha256": "a624ed13ce3338429eb020a472f4bc3cdce18d7a763cc58357fca0e6e9df2221",
-      "alphaLevels": 242,
-      "partialPixels": 3086,
-      "foregroundPixels": 32784,
-      "bbox": [
-        137,
-        83,
-        311,
-        365
-      ],
-      "margins": [
-        137,
-        83,
-        137,
-        83
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-35-05-phoenix-soar-5-80h/parts/part-x-ratchet-5-80.webp",
-      "outputSha256": "04173570bdace41027fbadf950056ef683f27cf0c92b527765b85fad304e13ce",
-      "alphaLevels": 238,
-      "partialPixels": 4018,
-      "foregroundPixels": 74716,
-      "bbox": [
-        54,
-        72,
-        394,
-        376
-      ],
-      "margins": [
-        54,
-        72,
-        54,
-        72
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-bx-35-06-viper-tail-5-70d/main.webp",
       "outputSha256": "7df94d63c4418662bb3a87d75e37e18ce95cfc6b7487a610b90484befabb6311",
       "alphaLevels": 256,
@@ -5548,44 +4104,6 @@
         52,
         57,
         52
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-35-06-viper-tail-5-70d/parts/part-x-bit-d.webp",
-      "outputSha256": "63f7561b11c736de1a12b4d7f04bc3efb6b8d4e9bea452e5cab6b5772bf8f062",
-      "alphaLevels": 252,
-      "partialPixels": 4468,
-      "foregroundPixels": 32781,
-      "bbox": [
-        137,
-        80,
-        310,
-        368
-      ],
-      "margins": [
-        137,
-        80,
-        138,
-        80
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-35-06-viper-tail-5-70d/parts/part-x-ratchet-5-70.webp",
-      "outputSha256": "bb62857551f2af79f6dec0d9cf1ba5e99722e87c5a9e6ef0ae34b9fda54f8339",
-      "alphaLevels": 256,
-      "partialPixels": 7590,
-      "foregroundPixels": 85132,
-      "bbox": [
-        45,
-        61,
-        402,
-        386
-      ],
-      "margins": [
-        45,
-        61,
-        46,
-        62
       ]
     },
     {
@@ -5665,44 +4183,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-36-02-whale-wave-4-70hn/parts/part-x-bit-hn.webp",
-      "outputSha256": "c8b129975e06a8e9992422c3e81e1c51684f19031a5484c908994628dbcf6ff5",
-      "alphaLevels": 248,
-      "partialPixels": 4408,
-      "foregroundPixels": 27195,
-      "bbox": [
-        144,
-        92,
-        303,
-        356
-      ],
-      "margins": [
-        144,
-        92,
-        145,
-        92
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-36-02-whale-wave-4-70hn/parts/part-x-ratchet-4-70.webp",
-      "outputSha256": "00002485a5f1eff05c64397f293317d660154b73c0bda80b09780a93df4ed98e",
-      "alphaLevels": 247,
-      "partialPixels": 3389,
-      "foregroundPixels": 79594,
-      "bbox": [
-        46,
-        64,
-        401,
-        384
-      ],
-      "margins": [
-        46,
-        64,
-        47,
-        64
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-bx-36-03-whale-wave-3-80gb/main.webp",
       "outputSha256": "0aecb0ac6d8b9f20e5475a7e32f48fead29763d7d34d7dbcfbdb7403f219cc90",
       "alphaLevels": 255,
@@ -5719,44 +4199,6 @@
         43,
         43,
         43
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-36-03-whale-wave-3-80gb/parts/part-x-bit-gb.webp",
-      "outputSha256": "d3766aaf1b60d800f944a1919b3ab1b02a602bc8cc37cc9d4d5be6cbaec2dabf",
-      "alphaLevels": 253,
-      "partialPixels": 3344,
-      "foregroundPixels": 32143,
-      "bbox": [
-        137,
-        80,
-        310,
-        368
-      ],
-      "margins": [
-        137,
-        80,
-        138,
-        80
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-36-03-whale-wave-3-80gb/parts/part-x-ratchet-3-80.webp",
-      "outputSha256": "7622825953a2dc34223f487f386f89b28609010ca244d04482c04753192f26eb",
-      "alphaLevels": 255,
-      "partialPixels": 5848,
-      "foregroundPixels": 81563,
-      "bbox": [
-        49,
-        71,
-        399,
-        376
-      ],
-      "margins": [
-        49,
-        71,
-        49,
-        72
       ]
     },
     {
@@ -5874,44 +4316,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-39-02-shelter-drake-5-70o/parts/part-x-bit-o.webp",
-      "outputSha256": "c06673c16f42fed07d7d6bc7e9143ac14dfff9f3f82028399e2ccb43ad47f544",
-      "alphaLevels": 224,
-      "partialPixels": 2745,
-      "foregroundPixels": 28501,
-      "bbox": [
-        143,
-        80,
-        304,
-        367
-      ],
-      "margins": [
-        143,
-        80,
-        144,
-        81
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-39-02-shelter-drake-5-70o/parts/part-x-ratchet-5-70.webp",
-      "outputSha256": "7454d395de186d2f79c153d6bb5e9d113d1b1fc05cb14b3f3730a31b7a5f7423",
-      "alphaLevels": 256,
-      "partialPixels": 7590,
-      "foregroundPixels": 85132,
-      "bbox": [
-        45,
-        61,
-        402,
-        386
-      ],
-      "margins": [
-        45,
-        61,
-        46,
-        62
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-bx-39-03-shelter-drake-3-60d/main.webp",
       "outputSha256": "efd69a5f52df4163969e5b7a437cfd3eedcccc11c9b0830d97490f6e2c0ba042",
       "alphaLevels": 254,
@@ -5928,44 +4332,6 @@
         26,
         46,
         27
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-39-03-shelter-drake-3-60d/parts/part-x-bit-d.webp",
-      "outputSha256": "df51bfed87dc10bbbdd0bd6c6917202eb3626b8afc805fa5176efc69e7aaf586",
-      "alphaLevels": 252,
-      "partialPixels": 4468,
-      "foregroundPixels": 32781,
-      "bbox": [
-        137,
-        80,
-        310,
-        368
-      ],
-      "margins": [
-        137,
-        80,
-        138,
-        80
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-39-03-shelter-drake-3-60d/parts/part-x-ratchet-3-60.webp",
-      "outputSha256": "51f82568b5bf57f95b966ff27ed545b2b2c0680a4eccf59a2d285da9602ce68c",
-      "alphaLevels": 243,
-      "partialPixels": 3497,
-      "foregroundPixels": 77614,
-      "bbox": [
-        51,
-        74,
-        397,
-        373
-      ],
-      "margins": [
-        51,
-        74,
-        51,
-        75
       ]
     },
     {
@@ -6197,44 +4563,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-48-01-cobalt-dragoon-9-80f/parts/part-x-bit-f.webp",
-      "outputSha256": "872be1cce5fe31413fce737c8d49896d0a1074e2a4dc6add63b5a5d70a737ebb",
-      "alphaLevels": 244,
-      "partialPixels": 2426,
-      "foregroundPixels": 28949,
-      "bbox": [
-        142,
-        85,
-        305,
-        363
-      ],
-      "margins": [
-        142,
-        85,
-        143,
-        85
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-48-01-cobalt-dragoon-9-80f/parts/part-x-ratchet-9-80.webp",
-      "outputSha256": "38829b8e47971eb1691460e90976e7bf089c9eb58658880d028d2aa7db87ac46",
-      "alphaLevels": 256,
-      "partialPixels": 6010,
-      "foregroundPixels": 86483,
-      "bbox": [
-        44,
-        64,
-        403,
-        383
-      ],
-      "margins": [
-        44,
-        64,
-        45,
-        65
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-bx-48-02-shark-edge-4-70e/main.webp",
       "outputSha256": "41d35a68cc2222de7e38a7e12f4b85c3c7f799144f4f1dff383efefa334c7efe",
       "alphaLevels": 256,
@@ -6251,44 +4579,6 @@
         40,
         46,
         40
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-48-02-shark-edge-4-70e/parts/part-x-bit-e.webp",
-      "outputSha256": "b4f81d8ed1e96e3a827a838b0c79566f05b4a590db0d28b38a43e24e2929e913",
-      "alphaLevels": 254,
-      "partialPixels": 4659,
-      "foregroundPixels": 42934,
-      "bbox": [
-        103,
-        84,
-        344,
-        363
-      ],
-      "margins": [
-        103,
-        84,
-        104,
-        85
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-48-02-shark-edge-4-70e/parts/part-x-ratchet-4-70.webp",
-      "outputSha256": "a90a49cf1d3afd05fe4b5acbcbff44cf0b927a4c25f2d2b63a4c1d10206a32b6",
-      "alphaLevels": 247,
-      "partialPixels": 3389,
-      "foregroundPixels": 79594,
-      "bbox": [
-        46,
-        64,
-        401,
-        384
-      ],
-      "margins": [
-        46,
-        64,
-        47,
-        64
       ]
     },
     {
@@ -6311,44 +4601,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-48-03-mammoth-tusk-7-60s/parts/part-x-bit-s.webp",
-      "outputSha256": "98f4d17ed747dbaf6946a7eef0e01bde73632bf7890a9b68f876b6e6ecd4c44c",
-      "alphaLevels": 255,
-      "partialPixels": 4896,
-      "foregroundPixels": 30808,
-      "bbox": [
-        138,
-        84,
-        310,
-        364
-      ],
-      "margins": [
-        138,
-        84,
-        138,
-        84
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-48-03-mammoth-tusk-7-60s/parts/part-x-ratchet-7-60.webp",
-      "outputSha256": "dc3e197ca8f192f754d2e5a4a9d9f2c3a5a5ba3aa4f401909e582df03274a8bb",
-      "alphaLevels": 252,
-      "partialPixels": 4101,
-      "foregroundPixels": 78768,
-      "bbox": [
-        55,
-        67,
-        392,
-        381
-      ],
-      "margins": [
-        55,
-        67,
-        56,
-        67
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-bx-48-04-hells-scythe-3-85gb/main.webp",
       "outputSha256": "4a0c3947d628e4d44bef53a9679091f50e4e42bf3cead11f926a09374dad851f",
       "alphaLevels": 256,
@@ -6368,44 +4620,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-48-04-hells-scythe-3-85gb/parts/part-x-bit-gb.webp",
-      "outputSha256": "a91d5a611a98248ecbc0fa82e3f8488da0a8590f6f3745e6136fc999cd9da3e1",
-      "alphaLevels": 253,
-      "partialPixels": 3344,
-      "foregroundPixels": 32143,
-      "bbox": [
-        137,
-        80,
-        310,
-        368
-      ],
-      "margins": [
-        137,
-        80,
-        138,
-        80
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-48-04-hells-scythe-3-85gb/parts/part-x-ratchet-3-85.webp",
-      "outputSha256": "d376e2ca248d41422d9ac4b3f4bb8072c301d3d5099c703a044796ede351d45f",
-      "alphaLevels": 256,
-      "partialPixels": 7794,
-      "foregroundPixels": 86751,
-      "bbox": [
-        45,
-        61,
-        402,
-        386
-      ],
-      "margins": [
-        45,
-        61,
-        46,
-        62
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-bx-48-05-dran-buster-2-80q/main.webp",
       "outputSha256": "719719869a66e6677321408dea054773f046f1affb65b804e865d2ce69a6a511",
       "alphaLevels": 255,
@@ -6422,44 +4636,6 @@
         46,
         46,
         46
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-48-05-dran-buster-2-80q/parts/part-x-bit-q.webp",
-      "outputSha256": "91169018729af50e96ff3d13cd6bba884eab90c200b164ddf6dd8fd5bd69a718",
-      "alphaLevels": 249,
-      "partialPixels": 4547,
-      "foregroundPixels": 31487,
-      "bbox": [
-        138,
-        82,
-        310,
-        366
-      ],
-      "margins": [
-        138,
-        82,
-        138,
-        82
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-48-05-dran-buster-2-80q/parts/part-x-ratchet-2-80.webp",
-      "outputSha256": "d5f49b8e29517a00b297b751624826a58c3941e91c4333c1af8d8fee939ea448",
-      "alphaLevels": 256,
-      "partialPixels": 7066,
-      "foregroundPixels": 98166,
-      "bbox": [
-        45,
-        56,
-        402,
-        391
-      ],
-      "margins": [
-        45,
-        56,
-        46,
-        57
       ]
     },
     {
@@ -6539,44 +4715,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-50-02-heavens-ring-6-60tp/parts/part-x-bit-tp.webp",
-      "outputSha256": "296aaca1a46e38b68801468d296fba6516e43047237746c6ddf10b0a839408db",
-      "alphaLevels": 255,
-      "partialPixels": 5323,
-      "foregroundPixels": 36535,
-      "bbox": [
-        120,
-        83,
-        327,
-        364
-      ],
-      "margins": [
-        120,
-        83,
-        121,
-        84
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-50-02-heavens-ring-6-60tp/parts/part-x-ratchet-6-60.webp",
-      "outputSha256": "d8445596582115bd2d18604854d2680040a6a28ed41d89767b4f114d0635bb82",
-      "alphaLevels": 256,
-      "partialPixels": 5709,
-      "foregroundPixels": 84889,
-      "bbox": [
-        44,
-        63,
-        404,
-        385
-      ],
-      "margins": [
-        44,
-        63,
-        44,
-        63
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-bx-50-03-impact-drake-7-55fb/main.webp",
       "outputSha256": "a4dc0b07f0f65e34e3efa63d238a5bb0ad718fa9c684d30785ecda44d186c7e4",
       "alphaLevels": 256,
@@ -6593,44 +4731,6 @@
         43,
         43,
         43
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-50-03-impact-drake-7-55fb/parts/part-x-bit-fb.webp",
-      "outputSha256": "b960bf078374074aa5f663762cca05b16395bba08499ace07ab6e67ce0df71dc",
-      "alphaLevels": 248,
-      "partialPixels": 2944,
-      "foregroundPixels": 32377,
-      "bbox": [
-        133,
-        83,
-        314,
-        365
-      ],
-      "margins": [
-        133,
-        83,
-        134,
-        83
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-50-03-impact-drake-7-55fb/parts/part-x-ratchet-7-55.webp",
-      "outputSha256": "2ec78cbec3daf72418fa62120fe2b69ce9203f42cc6844b67df2e3eecf220473",
-      "alphaLevels": 255,
-      "partialPixels": 5851,
-      "foregroundPixels": 34278,
-      "bbox": [
-        110,
-        119,
-        337,
-        328
-      ],
-      "margins": [
-        110,
-        119,
-        111,
-        120
       ]
     },
     {
@@ -6653,44 +4753,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-50-04-ghost-circle-m-85ds/parts/part-x-bit-ds.webp",
-      "outputSha256": "c2e087509385c6aba35a7ce56e7145298d4d3d6a4f5ca78faad200031d6e0596",
-      "alphaLevels": 255,
-      "partialPixels": 4892,
-      "foregroundPixels": 53670,
-      "bbox": [
-        75,
-        85,
-        373,
-        362
-      ],
-      "margins": [
-        75,
-        85,
-        75,
-        86
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-50-04-ghost-circle-m-85ds/parts/part-x-ratchet-m-85.webp",
-      "outputSha256": "4f7baec37aa1d43aff0653473013274b5ad3245523d5284df498960abb98c8e6",
-      "alphaLevels": 256,
-      "partialPixels": 6563,
-      "foregroundPixels": 89881,
-      "bbox": [
-        45,
-        60,
-        402,
-        387
-      ],
-      "margins": [
-        45,
-        60,
-        46,
-        61
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-bx-50-05-wolf-flame-d-9-65l/main.webp",
       "outputSha256": "6d4589aac1b57e1d1111cb4edce66ccc062d91e1bfc13e25c5722ff879a4f865",
       "alphaLevels": 256,
@@ -6707,101 +4769,6 @@
         41,
         44,
         42
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-50-05-wolf-flame-d-9-65l/parts/part-x-bit-l.webp",
-      "outputSha256": "be06f36d7c71b9019b0127fd7b23ba9fea3035754b8fc5744aa76d1ab9b896f4",
-      "alphaLevels": 254,
-      "partialPixels": 3945,
-      "foregroundPixels": 34893,
-      "bbox": [
-        136,
-        79,
-        311,
-        368
-      ],
-      "margins": [
-        136,
-        79,
-        137,
-        80
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-50-05-wolf-flame-d-9-65l/parts/part-x-blade-assist-blade-dual.webp",
-      "outputSha256": "a78cc689cbe8efc7076731c4180f4766f69886bdffcc351fbd8189ce030cc8fa",
-      "alphaLevels": 256,
-      "partialPixels": 7796,
-      "foregroundPixels": 104083,
-      "bbox": [
-        46,
-        40,
-        402,
-        407
-      ],
-      "margins": [
-        46,
-        40,
-        46,
-        41
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-50-05-wolf-flame-d-9-65l/parts/part-x-blade-lock-chip-wolf.webp",
-      "outputSha256": "df3a5305b7be85d8cd61fee7e0dc1e0a46caf9442d2865933e0099229a13feef",
-      "alphaLevels": 236,
-      "partialPixels": 2358,
-      "foregroundPixels": 23076,
-      "bbox": [
-        133,
-        133,
-        314,
-        315
-      ],
-      "margins": [
-        133,
-        133,
-        134,
-        133
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-50-05-wolf-flame-d-9-65l/parts/part-x-blade-main-blade-flame.webp",
-      "outputSha256": "452c11eff02bd29500eac81afd81f43d5ac9b6b46d8ccc84387aab5809b1f78b",
-      "alphaLevels": 256,
-      "partialPixels": 8296,
-      "foregroundPixels": 99921,
-      "bbox": [
-        43,
-        42,
-        405,
-        405
-      ],
-      "margins": [
-        43,
-        42,
-        43,
-        43
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-50-05-wolf-flame-d-9-65l/parts/part-x-ratchet-9-65.webp",
-      "outputSha256": "b299606b229b280e505cc508f01ea655c2ebe054f6b838bf5223499470959cec",
-      "alphaLevels": 256,
-      "partialPixels": 7532,
-      "foregroundPixels": 84818,
-      "bbox": [
-        44,
-        65,
-        404,
-        383
-      ],
-      "margins": [
-        44,
-        65,
-        44,
-        65
       ]
     },
     {
@@ -6824,101 +4791,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-50-06-kerberos-reaper-b-0-80wb/parts/part-x-bit-wb.webp",
-      "outputSha256": "3d22062ae6672eb5e01feaee7869e4f04c7a945233bcf3b3c54b017ef0be62b3",
-      "alphaLevels": 253,
-      "partialPixels": 3208,
-      "foregroundPixels": 36501,
-      "bbox": [
-        132,
-        74,
-        315,
-        374
-      ],
-      "margins": [
-        132,
-        74,
-        133,
-        74
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-50-06-kerberos-reaper-b-0-80wb/parts/part-x-blade-assist-blade-bumper.webp",
-      "outputSha256": "7bc949b2be6929d570cadafe598e9707e730f2ea0fafd5ba95e1032969256d57",
-      "alphaLevels": 256,
-      "partialPixels": 7440,
-      "foregroundPixels": 99441,
-      "bbox": [
-        46,
-        41,
-        402,
-        407
-      ],
-      "margins": [
-        46,
-        41,
-        46,
-        41
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-50-06-kerberos-reaper-b-0-80wb/parts/part-x-blade-lock-chip-kerberos.webp",
-      "outputSha256": "15ab506c6609a29092a3a11a8e76d288af605b82841cb2e74e540cce50a74421",
-      "alphaLevels": 240,
-      "partialPixels": 2264,
-      "foregroundPixels": 22268,
-      "bbox": [
-        135,
-        135,
-        313,
-        313
-      ],
-      "margins": [
-        135,
-        135,
-        135,
-        135
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-50-06-kerberos-reaper-b-0-80wb/parts/part-x-blade-main-blade-reaper.webp",
-      "outputSha256": "a1624f3b22f32c44fcecc333241a95d0f7556449721a7d919868d50af1fd6107",
-      "alphaLevels": 256,
-      "partialPixels": 7348,
-      "foregroundPixels": 93674,
-      "bbox": [
-        43,
-        44,
-        404,
-        404
-      ],
-      "margins": [
-        43,
-        44,
-        44,
-        44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-50-06-kerberos-reaper-b-0-80wb/parts/part-x-ratchet-0-80.webp",
-      "outputSha256": "d85845a7f6b98273a18a19c920acfe6c468b6ad20cd0d7776679f8aba0cbbfed",
-      "alphaLevels": 253,
-      "partialPixels": 4663,
-      "foregroundPixels": 79816,
-      "bbox": [
-        55,
-        70,
-        393,
-        377
-      ],
-      "margins": [
-        55,
-        70,
-        55,
-        71
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-cx-00-bugs-antlers-b-2-60d/main.webp",
       "outputSha256": "950491e38006a8a16e48e039735ca8022490ab0663020242e4b09f5d1ce3ebc1",
       "alphaLevels": 254,
@@ -6935,63 +4807,6 @@
         43,
         45,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-00-bugs-antlers-b-2-60d/parts/part-x-bit-d.webp",
-      "outputSha256": "40c8a78d8f8f69b672f3fc8a0a4298d28fa834b652a9ac933efab4ace6fdb4c0",
-      "alphaLevels": 252,
-      "partialPixels": 4468,
-      "foregroundPixels": 32781,
-      "bbox": [
-        137,
-        80,
-        310,
-        368
-      ],
-      "margins": [
-        137,
-        80,
-        138,
-        80
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-00-bugs-antlers-b-2-60d/parts/part-x-blade-assist-blade-bumper.webp",
-      "outputSha256": "2889f367de6f9442217bcb19691f16b85df241e2d0f50a44da6691ae1d565dcc",
-      "alphaLevels": 256,
-      "partialPixels": 7440,
-      "foregroundPixels": 99441,
-      "bbox": [
-        46,
-        41,
-        402,
-        407
-      ],
-      "margins": [
-        46,
-        41,
-        46,
-        41
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-00-bugs-antlers-b-2-60d/parts/part-x-ratchet-2-60.webp",
-      "outputSha256": "2f9554d0d379b65dd650aa3937006b58a5558482cd728c552b9203f94e9ca21b",
-      "alphaLevels": 255,
-      "partialPixels": 4858,
-      "foregroundPixels": 92698,
-      "bbox": [
-        45,
-        57,
-        402,
-        391
-      ],
-      "margins": [
-        45,
-        57,
-        46,
-        57
       ]
     },
     {
@@ -7014,63 +4829,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-00-drake-brave-g-4-70i/parts/part-x-bit-i.webp",
-      "outputSha256": "d097f3875771cc6a5f44a872ebb23457ccc88152768955dbb9f5c0ddf7d1e36f",
-      "alphaLevels": 250,
-      "partialPixels": 3305,
-      "foregroundPixels": 35343,
-      "bbox": [
-        132,
-        81,
-        315,
-        366
-      ],
-      "margins": [
-        132,
-        81,
-        133,
-        82
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-00-drake-brave-g-4-70i/parts/part-x-blade-main-blade-brave.webp",
-      "outputSha256": "8e66abd9b22b964491daffb242e4ce1d5d13c5d29510ff1aea1dfad92503956f",
-      "alphaLevels": 256,
-      "partialPixels": 7497,
-      "foregroundPixels": 95380,
-      "bbox": [
-        44,
-        40,
-        403,
-        408
-      ],
-      "margins": [
-        44,
-        40,
-        45,
-        40
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-00-drake-brave-g-4-70i/parts/part-x-ratchet-4-70.webp",
-      "outputSha256": "3bac5631cf05ea532e43e3d54852d49a8fe894d96834184023be09118152c931",
-      "alphaLevels": 247,
-      "partialPixels": 3389,
-      "foregroundPixels": 79594,
-      "bbox": [
-        46,
-        64,
-        401,
-        384
-      ],
-      "margins": [
-        46,
-        64,
-        47,
-        64
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-cx-00-dran-brave-s-6-60v/main.webp",
       "outputSha256": "db119a4df385c81a5c13b84ce96ec7c11537a27eb6238031a1c0554c98beddab",
       "alphaLevels": 255,
@@ -7087,101 +4845,6 @@
         41,
         46,
         41
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-00-dran-brave-s-6-60v/parts/part-x-bit-v.webp",
-      "outputSha256": "cbf11d1289e6947c771f1c7732c8ab476a5ed5418fc133738664a165e2be8b2d",
-      "alphaLevels": 255,
-      "partialPixels": 3226,
-      "foregroundPixels": 31616,
-      "bbox": [
-        138,
-        82,
-        310,
-        365
-      ],
-      "margins": [
-        138,
-        82,
-        138,
-        83
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-00-dran-brave-s-6-60v/parts/part-x-blade-assist-blade-slash.webp",
-      "outputSha256": "a7adbe3e71e7d865cd418062ce852ca48f4e3d588d199784585baa02dc7912b5",
-      "alphaLevels": 256,
-      "partialPixels": 4683,
-      "foregroundPixels": 94635,
-      "bbox": [
-        46,
-        45,
-        402,
-        403
-      ],
-      "margins": [
-        46,
-        45,
-        46,
-        45
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-00-dran-brave-s-6-60v/parts/part-x-blade-lock-chip-dran.webp",
-      "outputSha256": "85a3a501b60dcfe0d21084cf2f577c649b60114e7468e7580b1a2bdd9723a50d",
-      "alphaLevels": 254,
-      "partialPixels": 2828,
-      "foregroundPixels": 14122,
-      "bbox": [
-        152,
-        158,
-        296,
-        290
-      ],
-      "margins": [
-        152,
-        158,
-        152,
-        158
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-00-dran-brave-s-6-60v/parts/part-x-blade-main-blade-brave.webp",
-      "outputSha256": "9ead2117cf573a4c517d60b124b53571ae18fc23ebc7611f65b3a7e866dbe0d5",
-      "alphaLevels": 256,
-      "partialPixels": 7497,
-      "foregroundPixels": 95380,
-      "bbox": [
-        44,
-        40,
-        403,
-        408
-      ],
-      "margins": [
-        44,
-        40,
-        45,
-        40
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-00-dran-brave-s-6-60v/parts/part-x-ratchet-6-60.webp",
-      "outputSha256": "6676abebc567942086cceb9ce74c40166dd9bec15c8a5d8817fe5decdf70201e",
-      "alphaLevels": 256,
-      "partialPixels": 5709,
-      "foregroundPixels": 84889,
-      "bbox": [
-        44,
-        63,
-        404,
-        385
-      ],
-      "margins": [
-        44,
-        63,
-        44,
-        63
       ]
     },
     {
@@ -7527,63 +5190,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-00-hornet-port-r-7-60t/parts/part-x-bit-t.webp",
-      "outputSha256": "bb4f9be6c4fe9ef947fd5be875116244802a859343bbf27b484fc6e4a96173a8",
-      "alphaLevels": 228,
-      "partialPixels": 3248,
-      "foregroundPixels": 28966,
-      "bbox": [
-        142,
-        88,
-        305,
-        360
-      ],
-      "margins": [
-        142,
-        88,
-        143,
-        88
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-00-hornet-port-r-7-60t/parts/part-x-blade-assist-blade-round.webp",
-      "outputSha256": "314fcdd9e15f6bb164266277670e06dc608b4d7252616fc7673fb431b94f16dd",
-      "alphaLevels": 256,
-      "partialPixels": 10927,
-      "foregroundPixels": 76821,
-      "bbox": [
-        46,
-        46,
-        402,
-        402
-      ],
-      "margins": [
-        46,
-        46,
-        46,
-        46
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-00-hornet-port-r-7-60t/parts/part-x-ratchet-7-60.webp",
-      "outputSha256": "12f48da089a2774bbb351445ed21d5a5688607a8f20b340a2aafba3487ee6141",
-      "alphaLevels": 252,
-      "partialPixels": 4101,
-      "foregroundPixels": 78768,
-      "bbox": [
-        55,
-        67,
-        392,
-        381
-      ],
-      "margins": [
-        55,
-        67,
-        56,
-        67
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-cx-00-kraken-riggle-s-3-70o/main.webp",
       "outputSha256": "da0d7e3d136906c57f1279ba53c6b77faba9154522f32307d0c568782a91b1be",
       "alphaLevels": 254,
@@ -7600,63 +5206,6 @@
         48,
         46,
         48
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-00-kraken-riggle-s-3-70o/parts/part-x-bit-o.webp",
-      "outputSha256": "7d5680ff6f00d8aa128c8a9656d09d40db5ebbcc53f0840a11f6c61cde0c5153",
-      "alphaLevels": 224,
-      "partialPixels": 2745,
-      "foregroundPixels": 28501,
-      "bbox": [
-        143,
-        80,
-        304,
-        367
-      ],
-      "margins": [
-        143,
-        80,
-        144,
-        81
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-00-kraken-riggle-s-3-70o/parts/part-x-blade-assist-blade-slash.webp",
-      "outputSha256": "61cae864012602c2ade19165bc1547d8a1736ac2a18620c904c1232dfccbab00",
-      "alphaLevels": 256,
-      "partialPixels": 4683,
-      "foregroundPixels": 94635,
-      "bbox": [
-        46,
-        45,
-        402,
-        403
-      ],
-      "margins": [
-        46,
-        45,
-        46,
-        45
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-00-kraken-riggle-s-3-70o/parts/part-x-ratchet-3-70.webp",
-      "outputSha256": "3e54b75d34c88531880863b9c95ea8f2aa7dc484bb90873317ad20b15ecf7635",
-      "alphaLevels": 254,
-      "partialPixels": 6464,
-      "foregroundPixels": 88618,
-      "bbox": [
-        43,
-        61,
-        404,
-        387
-      ],
-      "margins": [
-        43,
-        61,
-        44,
-        61
       ]
     },
     {
@@ -7793,25 +5342,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-00-tiga-rage-ft-3-60t/parts/part-x-blade-main-blade-rage.webp",
-      "outputSha256": "029c213caa7118a581d7f23f319d452deddce078d6a08106715f5e409f341df9",
-      "alphaLevels": 256,
-      "partialPixels": 5884,
-      "foregroundPixels": 66837,
-      "bbox": [
-        82,
-        65,
-        366,
-        382
-      ],
-      "margins": [
-        82,
-        65,
-        82,
-        66
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-cx-00-tiga-rage-ft-3-60t/parts/part-x-blade-over-blade-flow.webp",
       "outputSha256": "12d63bdbb85c332b28d4eebcde0c8e7a30b8a61dd28b2bf1d956180802d418e4",
       "alphaLevels": 256,
@@ -7866,63 +5396,6 @@
         126,
         116,
         126
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-00-valkyrie-bolt-s-4-70v/parts/part-x-bit-v.webp",
-      "outputSha256": "c15ce63ed3835f6e003dd4d87db955b045c12c36e13bbde8f3767cc089758f5f",
-      "alphaLevels": 255,
-      "partialPixels": 3226,
-      "foregroundPixels": 31616,
-      "bbox": [
-        138,
-        82,
-        310,
-        365
-      ],
-      "margins": [
-        138,
-        82,
-        138,
-        83
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-00-valkyrie-bolt-s-4-70v/parts/part-x-blade-assist-blade-slash.webp",
-      "outputSha256": "f58ec52d4977fad59f9090160cf4f6d63986e5c289cee5b6d220b5af7aba1326",
-      "alphaLevels": 256,
-      "partialPixels": 4683,
-      "foregroundPixels": 94635,
-      "bbox": [
-        46,
-        45,
-        402,
-        403
-      ],
-      "margins": [
-        46,
-        45,
-        46,
-        45
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-00-valkyrie-bolt-s-4-70v/parts/part-x-ratchet-4-70.webp",
-      "outputSha256": "ac5f83e22e91dcf58b84276409625353e8ac2d77ed0acf123bb2507e7501c6fc",
-      "alphaLevels": 247,
-      "partialPixels": 3389,
-      "foregroundPixels": 79594,
-      "bbox": [
-        46,
-        64,
-        401,
-        384
-      ],
-      "margins": [
-        46,
-        64,
-        47,
-        64
       ]
     },
     {
@@ -8116,101 +5589,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-04-dran-brave-s-6-60v/parts/part-x-bit-v.webp",
-      "outputSha256": "afbd6f001b95c6a7f30d36d16351e32563f254e15309b3e7e16f56c9965eb427",
-      "alphaLevels": 255,
-      "partialPixels": 3226,
-      "foregroundPixels": 31616,
-      "bbox": [
-        138,
-        82,
-        310,
-        365
-      ],
-      "margins": [
-        138,
-        82,
-        138,
-        83
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-04-dran-brave-s-6-60v/parts/part-x-blade-assist-blade-slash.webp",
-      "outputSha256": "69adf9e6bd4202f4cbb9900e9fe3141773a5f57d3b70d39afd0fd1a988b8d2b2",
-      "alphaLevels": 256,
-      "partialPixels": 4683,
-      "foregroundPixels": 94635,
-      "bbox": [
-        46,
-        45,
-        402,
-        403
-      ],
-      "margins": [
-        46,
-        45,
-        46,
-        45
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-04-dran-brave-s-6-60v/parts/part-x-blade-lock-chip-dran.webp",
-      "outputSha256": "3fa76fc9c637a5524e0813c5dbdd887f489cd1b6e5d1c400c12649db5b59e6a0",
-      "alphaLevels": 254,
-      "partialPixels": 2828,
-      "foregroundPixels": 14122,
-      "bbox": [
-        152,
-        158,
-        296,
-        290
-      ],
-      "margins": [
-        152,
-        158,
-        152,
-        158
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-04-dran-brave-s-6-60v/parts/part-x-blade-main-blade-brave.webp",
-      "outputSha256": "4338b54ab861ec0d64f660e9d3ca2368fc561759d6876acaf9ae117a40f39a6f",
-      "alphaLevels": 256,
-      "partialPixels": 7497,
-      "foregroundPixels": 95380,
-      "bbox": [
-        44,
-        40,
-        403,
-        408
-      ],
-      "margins": [
-        44,
-        40,
-        45,
-        40
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-04-dran-brave-s-6-60v/parts/part-x-ratchet-6-60.webp",
-      "outputSha256": "77d413e1c957b3046b9f998822f9ec791aeee4adfa0d3d65a10513ade8c05d1e",
-      "alphaLevels": 256,
-      "partialPixels": 5709,
-      "foregroundPixels": 84889,
-      "bbox": [
-        44,
-        63,
-        404,
-        385
-      ],
-      "margins": [
-        44,
-        63,
-        44,
-        63
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-cx-04-perseus-dark-b-6-80w/main.webp",
       "outputSha256": "63ccfc5b3067dc6bcc5f816444e4643b0c84855cfaedd125945eb29f2d214e97",
       "alphaLevels": 256,
@@ -8227,101 +5605,6 @@
         60,
         52,
         60
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-04-perseus-dark-b-6-80w/parts/part-x-bit-w.webp",
-      "outputSha256": "bb1ba0326678cb22ee7c695a06c6273ee2be5c857f07a4c3a3acbbb0de63cac9",
-      "alphaLevels": 256,
-      "partialPixels": 5328,
-      "foregroundPixels": 28986,
-      "bbox": [
-        137,
-        88,
-        310,
-        359
-      ],
-      "margins": [
-        137,
-        88,
-        138,
-        89
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-04-perseus-dark-b-6-80w/parts/part-x-blade-assist-blade-bumper.webp",
-      "outputSha256": "ab33c8bdf064118c2d41bdbbf12f42cc58a311e65f58107d469fb7da4fd7cc46",
-      "alphaLevels": 256,
-      "partialPixels": 7440,
-      "foregroundPixels": 99441,
-      "bbox": [
-        46,
-        41,
-        402,
-        407
-      ],
-      "margins": [
-        46,
-        41,
-        46,
-        41
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-04-perseus-dark-b-6-80w/parts/part-x-blade-lock-chip-perseus.webp",
-      "outputSha256": "5d3b0e6323cddd95eebe5aa636745cc579d4ee60df99aeb0a7097e36a5ec20a7",
-      "alphaLevels": 233,
-      "partialPixels": 2307,
-      "foregroundPixels": 20382,
-      "bbox": [
-        139,
-        139,
-        309,
-        308
-      ],
-      "margins": [
-        139,
-        139,
-        139,
-        140
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-04-perseus-dark-b-6-80w/parts/part-x-blade-main-blade-dark.webp",
-      "outputSha256": "8616359454f75ef86c9d0fe13187c2061da7b58a35ba6944aebe6fb6f1989556",
-      "alphaLevels": 256,
-      "partialPixels": 5921,
-      "foregroundPixels": 93422,
-      "bbox": [
-        45,
-        51,
-        402,
-        396
-      ],
-      "margins": [
-        45,
-        51,
-        46,
-        52
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-04-perseus-dark-b-6-80w/parts/part-x-ratchet-6-80.webp",
-      "outputSha256": "f7f41786ec0d8c67bf56077d56eb92fb3f812ccbb6ddde9cc20023822cfa617b",
-      "alphaLevels": 255,
-      "partialPixels": 4759,
-      "foregroundPixels": 85805,
-      "bbox": [
-        46,
-        63,
-        402,
-        384
-      ],
-      "margins": [
-        46,
-        63,
-        46,
-        64
       ]
     },
     {
@@ -8420,63 +5703,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-05-02-rhino-reaper-c-4-55d/parts/part-x-bit-d.webp",
-      "outputSha256": "7e8d5d22a4f3b4ff6796a9619dd489a52ac920abfe580e8938170e9c73ead7e6",
-      "alphaLevels": 252,
-      "partialPixels": 4468,
-      "foregroundPixels": 32781,
-      "bbox": [
-        137,
-        80,
-        310,
-        368
-      ],
-      "margins": [
-        137,
-        80,
-        138,
-        80
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-05-02-rhino-reaper-c-4-55d/parts/part-x-blade-main-blade-reaper.webp",
-      "outputSha256": "bfcc08d4f994f54d0b8e9adb509bcba922421e9e79a0c25de0a5a6a94806de0b",
-      "alphaLevels": 256,
-      "partialPixels": 7348,
-      "foregroundPixels": 93674,
-      "bbox": [
-        43,
-        44,
-        404,
-        404
-      ],
-      "margins": [
-        43,
-        44,
-        44,
-        44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-05-02-rhino-reaper-c-4-55d/parts/part-x-ratchet-4-55.webp",
-      "outputSha256": "be9006caead265a94653b8772a7a9bcc2277ff19a5be8234cb0c065d4e09d93b",
-      "alphaLevels": 256,
-      "partialPixels": 5101,
-      "foregroundPixels": 81901,
-      "bbox": [
-        46,
-        64,
-        402,
-        383
-      ],
-      "margins": [
-        46,
-        64,
-        46,
-        65
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-cx-05-03-hells-arc-t-3-85o/main.webp",
       "outputSha256": "eadc6a5cb4346cabf83bb864a3ca355c8c899855138d573ab484dae77b087750",
       "alphaLevels": 253,
@@ -8493,101 +5719,6 @@
         51,
         45,
         52
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-05-03-hells-arc-t-3-85o/parts/part-x-bit-o.webp",
-      "outputSha256": "854e2b928514b86d17c180bf3a6ef4a65e4d12ad46f2dee826bfeec4ff26c14d",
-      "alphaLevels": 224,
-      "partialPixels": 2745,
-      "foregroundPixels": 28501,
-      "bbox": [
-        143,
-        80,
-        304,
-        367
-      ],
-      "margins": [
-        143,
-        80,
-        144,
-        81
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-05-03-hells-arc-t-3-85o/parts/part-x-blade-assist-blade-turn.webp",
-      "outputSha256": "712fa255bc627ec3443972f619de82b512021a2e257546aadc0c2b2de2d7d4af",
-      "alphaLevels": 256,
-      "partialPixels": 7042,
-      "foregroundPixels": 59599,
-      "bbox": [
-        46,
-        86,
-        402,
-        361
-      ],
-      "margins": [
-        46,
-        86,
-        46,
-        87
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-05-03-hells-arc-t-3-85o/parts/part-x-blade-lock-chip-hells.webp",
-      "outputSha256": "507214160120391f770ddd6bb2387c0e6b3813a06983fe45745e9e4659229b84",
-      "alphaLevels": 234,
-      "partialPixels": 2386,
-      "foregroundPixels": 21093,
-      "bbox": [
-        137,
-        138,
-        311,
-        310
-      ],
-      "margins": [
-        137,
-        138,
-        137,
-        138
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-05-03-hells-arc-t-3-85o/parts/part-x-blade-main-blade-arc.webp",
-      "outputSha256": "0ca60a8012c7786a73742548e5cc4d2b16013578708876f73dd0a5491fbd637b",
-      "alphaLevels": 256,
-      "partialPixels": 9266,
-      "foregroundPixels": 92557,
-      "bbox": [
-        45,
-        50,
-        403,
-        398
-      ],
-      "margins": [
-        45,
-        50,
-        45,
-        50
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-05-03-hells-arc-t-3-85o/parts/part-x-ratchet-3-85.webp",
-      "outputSha256": "5bb6ea678a42779469fad3b2c0e3b4e6e73237a43f33a084fb8188b6cf8ab117",
-      "alphaLevels": 256,
-      "partialPixels": 7794,
-      "foregroundPixels": 86751,
-      "bbox": [
-        45,
-        61,
-        402,
-        386
-      ],
-      "margins": [
-        45,
-        61,
-        46,
-        62
       ]
     },
     {
@@ -8610,44 +5741,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-05-04-leon-crest-9-80k/parts/part-x-bit-k.webp",
-      "outputSha256": "fc32f637248101dd61c044a82b043f70ffc965d8aa6689cad7154d6469355233",
-      "alphaLevels": 255,
-      "partialPixels": 3674,
-      "foregroundPixels": 32247,
-      "bbox": [
-        137,
-        83,
-        310,
-        365
-      ],
-      "margins": [
-        137,
-        83,
-        138,
-        83
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-05-04-leon-crest-9-80k/parts/part-x-ratchet-9-80.webp",
-      "outputSha256": "331bcb61da121ebd3400cbbc8ae4da8046f3e5e9301a82590d5c228214ab1e8b",
-      "alphaLevels": 256,
-      "partialPixels": 6010,
-      "foregroundPixels": 86483,
-      "bbox": [
-        44,
-        64,
-        403,
-        383
-      ],
-      "margins": [
-        44,
-        64,
-        45,
-        65
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-cx-05-05-phoenix-rudder-4-70lf/main.webp",
       "outputSha256": "df462ef53bb31cd7bf0f86d3aa40115bc88c62e936507dc64404d39e0d16e987",
       "alphaLevels": 256,
@@ -8667,44 +5760,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-05-05-phoenix-rudder-4-70lf/parts/part-x-bit-lf.webp",
-      "outputSha256": "8b318bf636c2e195b0d6c6a1b4feb5c4d64c13963e96537c7b116747d0a46225",
-      "alphaLevels": 238,
-      "partialPixels": 1985,
-      "foregroundPixels": 15072,
-      "bbox": [
-        164,
-        128,
-        283,
-        320
-      ],
-      "margins": [
-        164,
-        128,
-        165,
-        128
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-05-05-phoenix-rudder-4-70lf/parts/part-x-ratchet-4-70.webp",
-      "outputSha256": "43a52a29a9a967e70efea964ec720c5cb75efaa4fb81ee983c528b412e69976d",
-      "alphaLevels": 247,
-      "partialPixels": 3389,
-      "foregroundPixels": 79594,
-      "bbox": [
-        46,
-        64,
-        401,
-        384
-      ],
-      "margins": [
-        46,
-        64,
-        47,
-        64
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-cx-05-06-whale-wave-7-60k/main.webp",
       "outputSha256": "54660318ca18bafd9e4f37ff6ee36c60ea9475fb222eb0dd2a0cdd678033235c",
       "alphaLevels": 256,
@@ -8721,44 +5776,6 @@
         44,
         43,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-05-06-whale-wave-7-60k/parts/part-x-bit-k.webp",
-      "outputSha256": "4881defbdcc050ac77840eaea01a4be682beec58af51988b44765939acb2ec35",
-      "alphaLevels": 255,
-      "partialPixels": 3674,
-      "foregroundPixels": 32247,
-      "bbox": [
-        137,
-        83,
-        310,
-        365
-      ],
-      "margins": [
-        137,
-        83,
-        138,
-        83
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-05-06-whale-wave-7-60k/parts/part-x-ratchet-7-60.webp",
-      "outputSha256": "edc280319a660d69f78a76d57c394fccd8919692e16aa4ed479ffc5cfd68ecc1",
-      "alphaLevels": 252,
-      "partialPixels": 4101,
-      "foregroundPixels": 78768,
-      "bbox": [
-        55,
-        67,
-        392,
-        381
-      ],
-      "margins": [
-        55,
-        67,
-        56,
-        67
       ]
     },
     {
@@ -8819,101 +5836,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-06-02-fox-brush-j-0-80db/parts/part-x-bit-db.webp",
-      "outputSha256": "2a6c79fffe0fc1ca590ea6334b7a8a43412a08f6e5cc1c58afa9567043935889",
-      "alphaLevels": 256,
-      "partialPixels": 10280,
-      "foregroundPixels": 49558,
-      "bbox": [
-        81,
-        90,
-        366,
-        358
-      ],
-      "margins": [
-        81,
-        90,
-        82,
-        90
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-06-02-fox-brush-j-0-80db/parts/part-x-blade-assist-blade-jagi.webp",
-      "outputSha256": "16e54a2b33b3890a92dd4ca05f95a2d408602b72c5ea4cb7a18e8d148341a37b",
-      "alphaLevels": 256,
-      "partialPixels": 6844,
-      "foregroundPixels": 95938,
-      "bbox": [
-        45,
-        46,
-        403,
-        402
-      ],
-      "margins": [
-        45,
-        46,
-        45,
-        46
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-06-02-fox-brush-j-0-80db/parts/part-x-blade-lock-chip-fox.webp",
-      "outputSha256": "28121416408376e85760475d1d047453d9bf260dff0f715853d456a5f448d13a",
-      "alphaLevels": 253,
-      "partialPixels": 3233,
-      "foregroundPixels": 22829,
-      "bbox": [
-        135,
-        133,
-        312,
-        314
-      ],
-      "margins": [
-        135,
-        133,
-        136,
-        134
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-06-02-fox-brush-j-0-80db/parts/part-x-blade-main-blade-brush.webp",
-      "outputSha256": "65f9df5f36480e75721435511b89df68042cbc663c43d41ce2ff92a22b19f871",
-      "alphaLevels": 256,
-      "partialPixels": 7988,
-      "foregroundPixels": 94616,
-      "bbox": [
-        44,
-        36,
-        404,
-        411
-      ],
-      "margins": [
-        44,
-        36,
-        44,
-        37
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-06-02-fox-brush-j-0-80db/parts/part-x-ratchet-0-80.webp",
-      "outputSha256": "bc8caf3ba9b18e8b9ace4039f67e89dc39a8a4ada5830bcd9f35e7c72d4b0ff4",
-      "alphaLevels": 253,
-      "partialPixels": 4663,
-      "foregroundPixels": 79816,
-      "bbox": [
-        55,
-        70,
-        393,
-        377
-      ],
-      "margins": [
-        55,
-        70,
-        55,
-        71
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-cx-06-03-fox-brush-j-2-60u/main.webp",
       "outputSha256": "2ca70e1c5975b5b0fd9736b72b525af4ab305a049d5970511b9d110a3c0d05d6",
       "alphaLevels": 256,
@@ -8930,101 +5852,6 @@
         36,
         44,
         36
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-06-03-fox-brush-j-2-60u/parts/part-x-bit-u.webp",
-      "outputSha256": "f7b3518ce9d2d380d1d05bc04650bc407097c3a918c46f422575e1ead1c66922",
-      "alphaLevels": 250,
-      "partialPixels": 2631,
-      "foregroundPixels": 33221,
-      "bbox": [
-        135,
-        83,
-        313,
-        364
-      ],
-      "margins": [
-        135,
-        83,
-        135,
-        84
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-06-03-fox-brush-j-2-60u/parts/part-x-blade-assist-blade-jagi.webp",
-      "outputSha256": "931bca098e8c4bb49498d68decd86460d9ccb9b31bd62e7d8a30df773d152473",
-      "alphaLevels": 256,
-      "partialPixels": 6844,
-      "foregroundPixels": 95938,
-      "bbox": [
-        45,
-        46,
-        403,
-        402
-      ],
-      "margins": [
-        45,
-        46,
-        45,
-        46
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-06-03-fox-brush-j-2-60u/parts/part-x-blade-lock-chip-fox.webp",
-      "outputSha256": "c9886c1c26b5302c8bfb1621a0e4b3dcd4cd8ad425d0c3e43c0b002cbbcfc69d",
-      "alphaLevels": 253,
-      "partialPixels": 3233,
-      "foregroundPixels": 22829,
-      "bbox": [
-        135,
-        133,
-        312,
-        314
-      ],
-      "margins": [
-        135,
-        133,
-        136,
-        134
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-06-03-fox-brush-j-2-60u/parts/part-x-blade-main-blade-brush.webp",
-      "outputSha256": "ac00dbbb0b689434e64646675fbf042921f6f7b2df7e444bfffdf4290e4aaa7f",
-      "alphaLevels": 256,
-      "partialPixels": 7988,
-      "foregroundPixels": 94616,
-      "bbox": [
-        44,
-        36,
-        404,
-        411
-      ],
-      "margins": [
-        44,
-        36,
-        44,
-        37
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-06-03-fox-brush-j-2-60u/parts/part-x-ratchet-2-60.webp",
-      "outputSha256": "e333aa44f6623142e8fd74adc1c56b4f4e68921324c1549d05bee71b422342da",
-      "alphaLevels": 255,
-      "partialPixels": 4858,
-      "foregroundPixels": 92698,
-      "bbox": [
-        45,
-        57,
-        402,
-        391
-      ],
-      "margins": [
-        45,
-        57,
-        46,
-        57
       ]
     },
     {
@@ -9104,63 +5931,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-08-02-whale-flame-m-3-85ht/parts/part-x-bit-ht.webp",
-      "outputSha256": "b8ebf951bebfbeb20d0e7060b0203a6eefaf4c9fc9e075171a5dc4cc2cf92580",
-      "alphaLevels": 248,
-      "partialPixels": 3300,
-      "foregroundPixels": 36228,
-      "bbox": [
-        131,
-        75,
-        316,
-        373
-      ],
-      "margins": [
-        131,
-        75,
-        132,
-        75
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-08-02-whale-flame-m-3-85ht/parts/part-x-blade-main-blade-flame.webp",
-      "outputSha256": "348ce9fdb886369f87d54c7a08dae375f7b3fddbba58ec0783105633abf5f3a6",
-      "alphaLevels": 256,
-      "partialPixels": 8296,
-      "foregroundPixels": 99921,
-      "bbox": [
-        43,
-        42,
-        405,
-        405
-      ],
-      "margins": [
-        43,
-        42,
-        43,
-        43
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-08-02-whale-flame-m-3-85ht/parts/part-x-ratchet-3-85.webp",
-      "outputSha256": "cdebd00190761904597327a4a7164618c514e55323c5717ae7d4088bc8503758",
-      "alphaLevels": 256,
-      "partialPixels": 7794,
-      "foregroundPixels": 86751,
-      "bbox": [
-        45,
-        61,
-        402,
-        386
-      ],
-      "margins": [
-        45,
-        61,
-        46,
-        62
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-cx-08-03-kerberos-dark-w-1-60f/main.webp",
       "outputSha256": "c905cbd942cfa9f6883efbf822c245999c1265f47449e7025323addec5d8e80b",
       "alphaLevels": 256,
@@ -9177,101 +5947,6 @@
         52,
         44,
         52
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-08-03-kerberos-dark-w-1-60f/parts/part-x-bit-f.webp",
-      "outputSha256": "239086e3a7d29d5846de42f81dd655535c260353c1d304bfc0ce349d4b8449bb",
-      "alphaLevels": 244,
-      "partialPixels": 2426,
-      "foregroundPixels": 28949,
-      "bbox": [
-        142,
-        85,
-        305,
-        363
-      ],
-      "margins": [
-        142,
-        85,
-        143,
-        85
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-08-03-kerberos-dark-w-1-60f/parts/part-x-blade-assist-blade-wheel.webp",
-      "outputSha256": "52305502af140c1efe8c680903ef74bf808c50167f38b2df9aef05b68f1ae099",
-      "alphaLevels": 253,
-      "partialPixels": 5521,
-      "foregroundPixels": 100332,
-      "bbox": [
-        45,
-        46,
-        403,
-        402
-      ],
-      "margins": [
-        45,
-        46,
-        45,
-        46
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-08-03-kerberos-dark-w-1-60f/parts/part-x-blade-lock-chip-kerberos.webp",
-      "outputSha256": "aa5c1282c2b87b6e6b36195eb7bd3ec46b18f8a8ecfcfac42132c191874ff9ce",
-      "alphaLevels": 240,
-      "partialPixels": 2264,
-      "foregroundPixels": 22268,
-      "bbox": [
-        135,
-        135,
-        313,
-        313
-      ],
-      "margins": [
-        135,
-        135,
-        135,
-        135
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-08-03-kerberos-dark-w-1-60f/parts/part-x-blade-main-blade-dark.webp",
-      "outputSha256": "141bd4972239d733a4e2f5cff6a11397c77d9358172ed47ab5bb3339bf185ae9",
-      "alphaLevels": 256,
-      "partialPixels": 5921,
-      "foregroundPixels": 93422,
-      "bbox": [
-        45,
-        51,
-        402,
-        396
-      ],
-      "margins": [
-        45,
-        51,
-        46,
-        52
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-08-03-kerberos-dark-w-1-60f/parts/part-x-ratchet-1-60.webp",
-      "outputSha256": "cf85cf5b7ad51d8317df391bdbb238f2beccf6a193fe8fadde744f0233bd5c40",
-      "alphaLevels": 253,
-      "partialPixels": 3003,
-      "foregroundPixels": 92264,
-      "bbox": [
-        47,
-        57,
-        401,
-        391
-      ],
-      "margins": [
-        47,
-        57,
-        47,
-        57
       ]
     },
     {
@@ -9294,44 +5969,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-08-04-dran-buster-5-80mn/parts/part-x-bit-mn.webp",
-      "outputSha256": "260e536c67738fe26ca9dc36b4f989145c874cf8b414cbef6cb215dbe9b324c3",
-      "alphaLevels": 238,
-      "partialPixels": 3764,
-      "foregroundPixels": 33062,
-      "bbox": [
-        134,
-        74,
-        314,
-        373
-      ],
-      "margins": [
-        134,
-        74,
-        134,
-        75
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-08-04-dran-buster-5-80mn/parts/part-x-ratchet-5-80.webp",
-      "outputSha256": "b54c42e81adca3a059400653081ee8ec1397d3e93e028c4598135f8dc9b71d62",
-      "alphaLevels": 238,
-      "partialPixels": 4018,
-      "foregroundPixels": 74716,
-      "bbox": [
-        54,
-        72,
-        394,
-        376
-      ],
-      "margins": [
-        54,
-        72,
-        54,
-        72
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-cx-08-05-black-turtle-7-70wb/main.webp",
       "outputSha256": "08d37639a4cba5ea9726d5a397f70d0f020584606801a0d2070db22c7291975a",
       "alphaLevels": 256,
@@ -9351,44 +5988,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-08-05-black-turtle-7-70wb/parts/part-x-bit-wb.webp",
-      "outputSha256": "71a605ea9431619a2606f888e6d9e905971a944a93c131c39df81c34bc5953ac",
-      "alphaLevels": 253,
-      "partialPixels": 3208,
-      "foregroundPixels": 36501,
-      "bbox": [
-        132,
-        74,
-        315,
-        374
-      ],
-      "margins": [
-        132,
-        74,
-        133,
-        74
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-08-05-black-turtle-7-70wb/parts/part-x-ratchet-7-70.webp",
-      "outputSha256": "704905ccb6ae68c8ccab1c3063eb1eb70f627be7162a6baa4000cd1588f33ccc",
-      "alphaLevels": 255,
-      "partialPixels": 6951,
-      "foregroundPixels": 94048,
-      "bbox": [
-        47,
-        57,
-        401,
-        390
-      ],
-      "margins": [
-        47,
-        57,
-        47,
-        58
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-cx-08-06-cobalt-dragoon-4-55wb/main.webp",
       "outputSha256": "c370c5efdae653da2287faed0c6138b575ac043ca589194111c72a31dfdda786",
       "alphaLevels": 256,
@@ -9405,44 +6004,6 @@
         45,
         45,
         46
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-08-06-cobalt-dragoon-4-55wb/parts/part-x-bit-wb.webp",
-      "outputSha256": "983172b086d06c84e570d8b95f8335e31909bb79d350c81f73eb62d892488752",
-      "alphaLevels": 253,
-      "partialPixels": 3208,
-      "foregroundPixels": 36501,
-      "bbox": [
-        132,
-        74,
-        315,
-        374
-      ],
-      "margins": [
-        132,
-        74,
-        133,
-        74
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-08-06-cobalt-dragoon-4-55wb/parts/part-x-ratchet-4-55.webp",
-      "outputSha256": "1726a84900b1df8e8c7fcdd2ab292cf8ab02101706430e5662077152aa08a497",
-      "alphaLevels": 256,
-      "partialPixels": 5101,
-      "foregroundPixels": 81901,
-      "bbox": [
-        46,
-        64,
-        402,
-        383
-      ],
-      "margins": [
-        46,
-        64,
-        46,
-        65
       ]
     },
     {
@@ -9940,25 +6501,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-17-01-unicorn-delta-po-3-60gu/parts/part-x-ratchet-3-60.webp",
-      "outputSha256": "1ee92f06e71622bb6c759351c704372d699fcbda10e5375977b34bfbf3d339da",
-      "alphaLevels": 243,
-      "partialPixels": 3497,
-      "foregroundPixels": 77614,
-      "bbox": [
-        51,
-        74,
-        397,
-        373
-      ],
-      "margins": [
-        51,
-        74,
-        51,
-        75
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-cx-17-02-unicorn-delta-po-1-80gr/main.webp",
       "outputSha256": "cc49c0992f2bbd6b95b17242f72e97b1768187a60dc629b6bffbaf1b4cc35e25",
       "alphaLevels": 255,
@@ -9975,120 +6517,6 @@
         44,
         45,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-17-02-unicorn-delta-po-1-80gr/parts/part-x-bit-gr.webp",
-      "outputSha256": "0240e0104b39fa44f90927bbd65543bad44a9ccd3aab6e5e17256070bffca43a",
-      "alphaLevels": 254,
-      "partialPixels": 3203,
-      "foregroundPixels": 32279,
-      "bbox": [
-        137,
-        81,
-        311,
-        367
-      ],
-      "margins": [
-        137,
-        81,
-        137,
-        81
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-17-02-unicorn-delta-po-1-80gr/parts/part-x-blade-assist-blade-odd.webp",
-      "outputSha256": "26c7169c4316b6d86d7d2939aad6ee15849f95c3409cd5ce4e3b40d7c7e2ba13",
-      "alphaLevels": 256,
-      "partialPixels": 6333,
-      "foregroundPixels": 90448,
-      "bbox": [
-        46,
-        46,
-        402,
-        401
-      ],
-      "margins": [
-        46,
-        46,
-        46,
-        47
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-17-02-unicorn-delta-po-1-80gr/parts/part-x-blade-lock-chip-unicorn.webp",
-      "outputSha256": "822dad94478be8e5473356d4f33cf61e55ebe798b84267b9740113ebad3451c5",
-      "alphaLevels": 230,
-      "partialPixels": 2552,
-      "foregroundPixels": 21926,
-      "bbox": [
-        136,
-        135,
-        312,
-        312
-      ],
-      "margins": [
-        136,
-        135,
-        136,
-        136
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-17-02-unicorn-delta-po-1-80gr/parts/part-x-blade-main-blade-delta.webp",
-      "outputSha256": "2da6004332ce7a5e3fbc18b9449a8c6218eadecc9aa8155268b909f6d51b3d2a",
-      "alphaLevels": 256,
-      "partialPixels": 4548,
-      "foregroundPixels": 88634,
-      "bbox": [
-        46,
-        64,
-        402,
-        384
-      ],
-      "margins": [
-        46,
-        64,
-        46,
-        64
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-17-02-unicorn-delta-po-1-80gr/parts/part-x-blade-over-blade-peak.webp",
-      "outputSha256": "4fe5fd81f8939a80aa7674e5effc3078658d39c1ac518172d307ab68dfd4ff53",
-      "alphaLevels": 256,
-      "partialPixels": 7769,
-      "foregroundPixels": 70024,
-      "bbox": [
-        44,
-        44,
-        404,
-        404
-      ],
-      "margins": [
-        44,
-        44,
-        44,
-        44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-17-02-unicorn-delta-po-1-80gr/parts/part-x-ratchet-1-80.webp",
-      "outputSha256": "b98342265f14e97d0ec036d8852daf0055ae3c78038ffde235538fc9602a7a98",
-      "alphaLevels": 252,
-      "partialPixels": 4674,
-      "foregroundPixels": 73714,
-      "bbox": [
-        66,
-        72,
-        381,
-        375
-      ],
-      "margins": [
-        66,
-        72,
-        67,
-        73
       ]
     },
     {
@@ -10111,44 +6539,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-17-03-warrior-saber-9-65lo/parts/part-x-bit-lo.webp",
-      "outputSha256": "0dc55192cadc7b4e9d537eed2fa4152e368d2474ddc13b4bf8de6b647bcabd38",
-      "alphaLevels": 254,
-      "partialPixels": 3001,
-      "foregroundPixels": 33664,
-      "bbox": [
-        131,
-        82,
-        317,
-        365
-      ],
-      "margins": [
-        131,
-        82,
-        131,
-        83
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-17-03-warrior-saber-9-65lo/parts/part-x-ratchet-9-65.webp",
-      "outputSha256": "8c088fd1643ceda1e9cd963862e3e774c5b52932a508099315c5854249a2dc04",
-      "alphaLevels": 256,
-      "partialPixels": 7532,
-      "foregroundPixels": 84818,
-      "bbox": [
-        44,
-        65,
-        404,
-        383
-      ],
-      "margins": [
-        44,
-        65,
-        44,
-        65
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-cx-17-04-hells-hammer-3-85gu/main.webp",
       "outputSha256": "d50420983f826e920e4721284d9177c4f1641e93614cf4e2104b0144b43c8195",
       "alphaLevels": 256,
@@ -10165,44 +6555,6 @@
         46,
         44,
         47
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-17-04-hells-hammer-3-85gu/parts/part-x-bit-gu.webp",
-      "outputSha256": "05ab773f1130ae5bb05649a42218faf18cb485e79e7e9ee44a04d11255402b39",
-      "alphaLevels": 256,
-      "partialPixels": 4269,
-      "foregroundPixels": 37327,
-      "bbox": [
-        133,
-        73,
-        315,
-        375
-      ],
-      "margins": [
-        133,
-        73,
-        133,
-        73
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-17-04-hells-hammer-3-85gu/parts/part-x-ratchet-3-85.webp",
-      "outputSha256": "8969f721a4d37ab564e68bba0ca27aa4d77157489ca88862c9cfeff886db1d5a",
-      "alphaLevels": 256,
-      "partialPixels": 7794,
-      "foregroundPixels": 86751,
-      "bbox": [
-        45,
-        61,
-        402,
-        386
-      ],
-      "margins": [
-        45,
-        61,
-        46,
-        62
       ]
     },
     {
@@ -10225,44 +6577,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-17-05-tyranno-beat-3-60n/parts/part-x-bit-n.webp",
-      "outputSha256": "e870a6aad7f9048d14838a57d8f43f820f56ba85233b4831d375de8b7af00f1b",
-      "alphaLevels": 234,
-      "partialPixels": 3312,
-      "foregroundPixels": 27368,
-      "bbox": [
-        141,
-        93,
-        306,
-        354
-      ],
-      "margins": [
-        141,
-        93,
-        142,
-        94
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-17-05-tyranno-beat-3-60n/parts/part-x-ratchet-3-60.webp",
-      "outputSha256": "d212eb31abc538bf0a0082bb6ede96d27fe14efcfcb19e24d95be9c08dd401fa",
-      "alphaLevels": 243,
-      "partialPixels": 3497,
-      "foregroundPixels": 77614,
-      "bbox": [
-        51,
-        74,
-        397,
-        373
-      ],
-      "margins": [
-        51,
-        74,
-        51,
-        75
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-cx-17-06-crimson-garuda-7-80gu/main.webp",
       "outputSha256": "8d9f344668c0896e5617c81ede9361a64e20526dc8aaa0854faa881c4147eaa8",
       "alphaLevels": 256,
@@ -10279,44 +6593,6 @@
         35,
         44,
         36
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-17-06-crimson-garuda-7-80gu/parts/part-x-bit-gu.webp",
-      "outputSha256": "fdf20145cd4db423dd172b550a6be72fd91ff4d26731fc8224e9eb6cf4ef6347",
-      "alphaLevels": 256,
-      "partialPixels": 4269,
-      "foregroundPixels": 37327,
-      "bbox": [
-        133,
-        73,
-        315,
-        375
-      ],
-      "margins": [
-        133,
-        73,
-        133,
-        73
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-17-06-crimson-garuda-7-80gu/parts/part-x-ratchet-7-80.webp",
-      "outputSha256": "e09973da5c5d69915273f5c0940ccfc8b20a7ff3bf8b60bf63e9a34edac5029b",
-      "alphaLevels": 256,
-      "partialPixels": 4929,
-      "foregroundPixels": 87741,
-      "bbox": [
-        46,
-        61,
-        402,
-        386
-      ],
-      "margins": [
-        46,
-        61,
-        46,
-        62
       ]
     },
     {
@@ -10396,120 +6672,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-18-02-brachio-whip-ow-5-70nr/parts/part-x-bit-nr.webp",
-      "outputSha256": "9dd55e273dea35bc5d1aa1881ae16eb33bc891c754e1410a26d3a769a9c78133",
-      "alphaLevels": 236,
-      "partialPixels": 3008,
-      "foregroundPixels": 30688,
-      "bbox": [
-        135,
-        85,
-        312,
-        362
-      ],
-      "margins": [
-        135,
-        85,
-        136,
-        86
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-18-02-brachio-whip-ow-5-70nr/parts/part-x-blade-assist-blade-wheel.webp",
-      "outputSha256": "4c5528da9c29641f4588dd7fdf29d49ac44c3ab0e856fb1ed9fd606c5487886a",
-      "alphaLevels": 253,
-      "partialPixels": 5521,
-      "foregroundPixels": 100332,
-      "bbox": [
-        45,
-        46,
-        403,
-        402
-      ],
-      "margins": [
-        45,
-        46,
-        45,
-        46
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-18-02-brachio-whip-ow-5-70nr/parts/part-x-blade-lock-chip-brachio.webp",
-      "outputSha256": "a21fbffa1275c8f8888dec9145a9149274e7465990b711864764714bfc7d6aa9",
-      "alphaLevels": 241,
-      "partialPixels": 1963,
-      "foregroundPixels": 23005,
-      "bbox": [
-        132,
-        134,
-        316,
-        314
-      ],
-      "margins": [
-        132,
-        134,
-        132,
-        134
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-18-02-brachio-whip-ow-5-70nr/parts/part-x-blade-main-blade-whip.webp",
-      "outputSha256": "8543339440d18594eb22419d6276b2b37058e5ff4e4f64fd689b392ee6fb2941",
-      "alphaLevels": 256,
-      "partialPixels": 11105,
-      "foregroundPixels": 80590,
-      "bbox": [
-        46,
-        48,
-        402,
-        399
-      ],
-      "margins": [
-        46,
-        48,
-        46,
-        49
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-18-02-brachio-whip-ow-5-70nr/parts/part-x-blade-over-blade-outer.webp",
-      "outputSha256": "97646db33c5b8e2f79114c8141b50c7795ba4496cadcc5e116181b9ff1a31b4e",
-      "alphaLevels": 256,
-      "partialPixels": 7091,
-      "foregroundPixels": 72925,
-      "bbox": [
-        42,
-        44,
-        405,
-        403
-      ],
-      "margins": [
-        42,
-        44,
-        43,
-        45
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-18-02-brachio-whip-ow-5-70nr/parts/part-x-ratchet-5-70.webp",
-      "outputSha256": "8e47483c5ca20fc30b4593286f478e4562d60f133ad8e6cc07c962babce0425d",
-      "alphaLevels": 256,
-      "partialPixels": 7590,
-      "foregroundPixels": 85132,
-      "bbox": [
-        45,
-        61,
-        402,
-        386
-      ],
-      "margins": [
-        45,
-        61,
-        46,
-        62
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-cx-18-03-brachio-whip-ow-5-70nr/main.webp",
       "outputSha256": "e74a438628dae89e00c7f17464378f7942cc31644131ebffe5220d59e77a1847",
       "alphaLevels": 256,
@@ -10526,120 +6688,6 @@
         43,
         43,
         43
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-18-03-brachio-whip-ow-5-70nr/parts/part-x-bit-nr.webp",
-      "outputSha256": "a23f9f3a2dd347ebddef1f9de4eac0686a79516e910d20bbcf19b8075480032d",
-      "alphaLevels": 236,
-      "partialPixels": 3008,
-      "foregroundPixels": 30688,
-      "bbox": [
-        135,
-        85,
-        312,
-        362
-      ],
-      "margins": [
-        135,
-        85,
-        136,
-        86
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-18-03-brachio-whip-ow-5-70nr/parts/part-x-blade-assist-blade-wheel.webp",
-      "outputSha256": "65c5a29cdd2a8b94fd1a403db1cec9d5936073fa4387538ada2d3058e62b2c5a",
-      "alphaLevels": 253,
-      "partialPixels": 5521,
-      "foregroundPixels": 100332,
-      "bbox": [
-        45,
-        46,
-        403,
-        402
-      ],
-      "margins": [
-        45,
-        46,
-        45,
-        46
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-18-03-brachio-whip-ow-5-70nr/parts/part-x-blade-lock-chip-brachio.webp",
-      "outputSha256": "2e7ed09af720673b0bce35404fdd13cee00261a39594439c048081e0eb3589b5",
-      "alphaLevels": 241,
-      "partialPixels": 1963,
-      "foregroundPixels": 23005,
-      "bbox": [
-        132,
-        134,
-        316,
-        314
-      ],
-      "margins": [
-        132,
-        134,
-        132,
-        134
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-18-03-brachio-whip-ow-5-70nr/parts/part-x-blade-main-blade-whip.webp",
-      "outputSha256": "a3580ec85ca1d6b63a44b7abe4f0ebc97c7bd19c8ea03c01b776376bc2b310da",
-      "alphaLevels": 256,
-      "partialPixels": 11105,
-      "foregroundPixels": 80590,
-      "bbox": [
-        46,
-        48,
-        402,
-        399
-      ],
-      "margins": [
-        46,
-        48,
-        46,
-        49
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-18-03-brachio-whip-ow-5-70nr/parts/part-x-blade-over-blade-outer.webp",
-      "outputSha256": "979148762ff6b7107b6ab34c56538658363e9f961c882641d6fea26ef84a62ab",
-      "alphaLevels": 256,
-      "partialPixels": 7091,
-      "foregroundPixels": 72925,
-      "bbox": [
-        42,
-        44,
-        405,
-        403
-      ],
-      "margins": [
-        42,
-        44,
-        43,
-        45
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-18-03-brachio-whip-ow-5-70nr/parts/part-x-ratchet-5-70.webp",
-      "outputSha256": "f49712cad6a5aafee9c8f557a6108473b5141dae4989b7e9b1fd65f0d0b8fcd7",
-      "alphaLevels": 256,
-      "partialPixels": 7590,
-      "foregroundPixels": 85132,
-      "bbox": [
-        45,
-        61,
-        402,
-        386
-      ],
-      "margins": [
-        45,
-        61,
-        46,
-        62
       ]
     },
     {
@@ -11194,63 +7242,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-00-warrior-saber-2-70l/parts/part-x-bit-l.webp",
-      "outputSha256": "80ad8b3175cfe64744b9940796063c86f1d4e8fec811f0723cd55255ab210d0a",
-      "alphaLevels": 254,
-      "partialPixels": 3945,
-      "foregroundPixels": 34893,
-      "bbox": [
-        136,
-        79,
-        311,
-        368
-      ],
-      "margins": [
-        136,
-        79,
-        137,
-        80
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-00-warrior-saber-2-70l/parts/part-x-blade-warrior-saber.webp",
-      "outputSha256": "fa6f074c870c5d9787f5256ef008a155a4b45fce64e7c771cecba50bd2d8120b",
-      "alphaLevels": 255,
-      "partialPixels": 6155,
-      "foregroundPixels": 90857,
-      "bbox": [
-        47,
-        56,
-        401,
-        392
-      ],
-      "margins": [
-        47,
-        56,
-        47,
-        56
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-00-warrior-saber-2-70l/parts/part-x-ratchet-2-70.webp",
-      "outputSha256": "0a418a4d4d0a81b1a05954d9e8ffc2d27fab55c763ac8d0f499425ace8550837",
-      "alphaLevels": 256,
-      "partialPixels": 5842,
-      "foregroundPixels": 89729,
-      "bbox": [
-        45,
-        63,
-        402,
-        384
-      ],
-      "margins": [
-        45,
-        63,
-        46,
-        64
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-ux-00-warrior-saber-5-60k/main.webp",
       "outputSha256": "115f0c977e6627141ba4c23d0df4eca671d56bd92797c86e3898c32d8732f8d8",
       "alphaLevels": 256,
@@ -11384,44 +7375,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-04-dran-buster-1-60a/parts/part-x-bit-a.webp",
-      "outputSha256": "11b8d18c22368aed9a5abc23ffbfc722a11a9d159e95288421358275f1ccd9ad",
-      "alphaLevels": 246,
-      "partialPixels": 2334,
-      "foregroundPixels": 32203,
-      "bbox": [
-        137,
-        86,
-        310,
-        361
-      ],
-      "margins": [
-        137,
-        86,
-        138,
-        87
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-04-dran-buster-1-60a/parts/part-x-ratchet-1-60.webp",
-      "outputSha256": "1cd327e645a992bcb494441e69254df04f629e5d6670a9d0fe1359c0c29ccbea",
-      "alphaLevels": 253,
-      "partialPixels": 3003,
-      "foregroundPixels": 92264,
-      "bbox": [
-        47,
-        57,
-        401,
-        391
-      ],
-      "margins": [
-        47,
-        57,
-        47,
-        57
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-ux-04-wizard-rod-5-70db/main.webp",
       "outputSha256": "92b34447ff08bb019a55b4c631522df9dbe1cb0bdf4c6efa160982959af661a8",
       "alphaLevels": 256,
@@ -11438,44 +7391,6 @@
         38,
         45,
         38
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-04-wizard-rod-5-70db/parts/part-x-bit-db.webp",
-      "outputSha256": "eb30751b8e986a35fd8d4237335df8c45968e0da56afeee2e308e699800f13a0",
-      "alphaLevels": 256,
-      "partialPixels": 10280,
-      "foregroundPixels": 49558,
-      "bbox": [
-        81,
-        90,
-        366,
-        358
-      ],
-      "margins": [
-        81,
-        90,
-        82,
-        90
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-04-wizard-rod-5-70db/parts/part-x-ratchet-5-70.webp",
-      "outputSha256": "b44b3f11ce00c878c4b72ad45a04c02e819901a06b4c64d1f4a63c7125e6a7be",
-      "alphaLevels": 256,
-      "partialPixels": 7590,
-      "foregroundPixels": 85132,
-      "bbox": [
-        45,
-        61,
-        402,
-        386
-      ],
-      "margins": [
-        45,
-        61,
-        46,
-        62
       ]
     },
     {
@@ -11517,44 +7432,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-05-02-ninja-shadow-9-60lf/parts/part-x-bit-lf.webp",
-      "outputSha256": "100b9334d9cd4a25620f4f7d8343c52a8c1322ffa71768c3cd6cdc7aa43edfd5",
-      "alphaLevels": 238,
-      "partialPixels": 1985,
-      "foregroundPixels": 15072,
-      "bbox": [
-        164,
-        128,
-        283,
-        320
-      ],
-      "margins": [
-        164,
-        128,
-        165,
-        128
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-05-02-ninja-shadow-9-60lf/parts/part-x-ratchet-9-60.webp",
-      "outputSha256": "58407069e19142fb2adac620210c628c757086dd91ccb503b3c093c0d61aec40",
-      "alphaLevels": 252,
-      "partialPixels": 3328,
-      "foregroundPixels": 79344,
-      "bbox": [
-        53,
-        67,
-        395,
-        380
-      ],
-      "margins": [
-        53,
-        67,
-        53,
-        68
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-ux-05-03-ninja-shadow-3-70gp/main.webp",
       "outputSha256": "6d056d4d74528add888bf23fbd6db5532d154454beb592b2bf24fa8382a60a2d",
       "alphaLevels": 256,
@@ -11571,44 +7448,6 @@
         47,
         53,
         48
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-05-03-ninja-shadow-3-70gp/parts/part-x-bit-gp.webp",
-      "outputSha256": "032f661f6fd2db747a5244273e950dcb06eebc49455343b14b7822f36c107a37",
-      "alphaLevels": 253,
-      "partialPixels": 2498,
-      "foregroundPixels": 32932,
-      "bbox": [
-        136,
-        80,
-        311,
-        367
-      ],
-      "margins": [
-        136,
-        80,
-        137,
-        81
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-05-03-ninja-shadow-3-70gp/parts/part-x-ratchet-3-70.webp",
-      "outputSha256": "24fe1dc8bd3f6c2acc5ebe2481dcc6cc4da04404de588948edd24406c3207ca7",
-      "alphaLevels": 254,
-      "partialPixels": 6464,
-      "foregroundPixels": 88618,
-      "bbox": [
-        43,
-        61,
-        404,
-        387
-      ],
-      "margins": [
-        43,
-        61,
-        44,
-        61
       ]
     },
     {
@@ -11992,44 +7831,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-12-02-ghost-circle-4-60h/parts/part-x-bit-h.webp",
-      "outputSha256": "c485bbb438ec7bc0c33e8dbc2b5a333c65305a471919ed3df84df83bd16942fe",
-      "alphaLevels": 242,
-      "partialPixels": 3086,
-      "foregroundPixels": 32784,
-      "bbox": [
-        137,
-        83,
-        311,
-        365
-      ],
-      "margins": [
-        137,
-        83,
-        137,
-        83
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-12-02-ghost-circle-4-60h/parts/part-x-ratchet-4-60.webp",
-      "outputSha256": "ca1a128d86d7b8da14d42f775de2515c856840bb34fac8001e89f5102c588626",
-      "alphaLevels": 251,
-      "partialPixels": 5497,
-      "foregroundPixels": 78742,
-      "bbox": [
-        59,
-        75,
-        388,
-        372
-      ],
-      "margins": [
-        59,
-        75,
-        60,
-        76
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-ux-12-03-leon-claw-0-80e/main.webp",
       "outputSha256": "34f40cc68bcfc207713be185413602706fc142147dc28d3f8da324715572d55f",
       "alphaLevels": 256,
@@ -12046,44 +7847,6 @@
         43,
         44,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-12-03-leon-claw-0-80e/parts/part-x-bit-e.webp",
-      "outputSha256": "3f17214e66d64c4fb987b77b3d682f32240df02746c5cf1cf6d772af498de64e",
-      "alphaLevels": 254,
-      "partialPixels": 4659,
-      "foregroundPixels": 42934,
-      "bbox": [
-        103,
-        84,
-        344,
-        363
-      ],
-      "margins": [
-        103,
-        84,
-        104,
-        85
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-12-03-leon-claw-0-80e/parts/part-x-ratchet-0-80.webp",
-      "outputSha256": "96bc150a7b0bc7c8244ac0069b563f401463cdfa7a69b4c924e2280f87e7a47d",
-      "alphaLevels": 253,
-      "partialPixels": 4663,
-      "foregroundPixels": 79816,
-      "bbox": [
-        55,
-        70,
-        393,
-        377
-      ],
-      "margins": [
-        55,
-        70,
-        55,
-        71
       ]
     },
     {
@@ -12106,44 +7869,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-12-04-phoenix-feather-2-60n/parts/part-x-bit-n.webp",
-      "outputSha256": "b33d05338e89ce6966ed4495d24fc34e11b99b2748ab56cc32933e1222a25025",
-      "alphaLevels": 234,
-      "partialPixels": 3312,
-      "foregroundPixels": 27368,
-      "bbox": [
-        141,
-        93,
-        306,
-        354
-      ],
-      "margins": [
-        141,
-        93,
-        142,
-        94
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-12-04-phoenix-feather-2-60n/parts/part-x-ratchet-2-60.webp",
-      "outputSha256": "cc86ce15b0deb30b2d5ab1d139bf61a3505bdc6b3ac1e8b147be1e2c5598e458",
-      "alphaLevels": 255,
-      "partialPixels": 4858,
-      "foregroundPixels": 92698,
-      "bbox": [
-        45,
-        57,
-        402,
-        391
-      ],
-      "margins": [
-        45,
-        57,
-        46,
-        57
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-ux-12-05-ninja-shadow-3-80f/main.webp",
       "outputSha256": "41edf97e5bd80f3c029ce67b08f824588d1d03fb97143d141179a1fc82ed25ab",
       "alphaLevels": 256,
@@ -12163,44 +7888,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-12-05-ninja-shadow-3-80f/parts/part-x-bit-f.webp",
-      "outputSha256": "38cc50d5b61383fd7922581544ae4d87055249c158535b8bdee8f240c1c50b8e",
-      "alphaLevels": 244,
-      "partialPixels": 2426,
-      "foregroundPixels": 28949,
-      "bbox": [
-        142,
-        85,
-        305,
-        363
-      ],
-      "margins": [
-        142,
-        85,
-        143,
-        85
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-12-05-ninja-shadow-3-80f/parts/part-x-ratchet-3-80.webp",
-      "outputSha256": "18b1e2b70859debdcbbf3125d415a48fa441ce46d9c7880ed92109e5cf2ba6c1",
-      "alphaLevels": 255,
-      "partialPixels": 5848,
-      "foregroundPixels": 81563,
-      "bbox": [
-        49,
-        71,
-        399,
-        376
-      ],
-      "margins": [
-        49,
-        71,
-        49,
-        72
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-ux-12-06-wyvern-gale-0-80c/main.webp",
       "outputSha256": "5da4a91b4463a6967365b99d2f77512bdaf0cea00d64108fc25bf97faa693570",
       "alphaLevels": 256,
@@ -12217,44 +7904,6 @@
         44,
         46,
         45
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-12-06-wyvern-gale-0-80c/parts/part-x-bit-c.webp",
-      "outputSha256": "0d2014d43dfb4b06bc4175173609f4747c936d95c71b0ac4b6b2f46192197d20",
-      "alphaLevels": 251,
-      "partialPixels": 2799,
-      "foregroundPixels": 35223,
-      "bbox": [
-        132,
-        73,
-        315,
-        374
-      ],
-      "margins": [
-        132,
-        73,
-        133,
-        74
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-12-06-wyvern-gale-0-80c/parts/part-x-ratchet-0-80.webp",
-      "outputSha256": "6013a2134aca4191faded7da347ddecbfc3b72195531a7831d147a87517cb722",
-      "alphaLevels": 253,
-      "partialPixels": 4663,
-      "foregroundPixels": 79816,
-      "bbox": [
-        55,
-        70,
-        393,
-        377
-      ],
-      "margins": [
-        55,
-        70,
-        55,
-        71
       ]
     },
     {
@@ -12562,44 +8211,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-16-02-clock-mirage-9-65b/parts/part-x-bit-b.webp",
-      "outputSha256": "b92e423597423321d84dd643361be84afcad92adae884097cf967b459b532224",
-      "alphaLevels": 234,
-      "partialPixels": 4339,
-      "foregroundPixels": 28842,
-      "bbox": [
-        141,
-        88,
-        306,
-        360
-      ],
-      "margins": [
-        141,
-        88,
-        142,
-        88
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-16-02-clock-mirage-9-65b/parts/part-x-ratchet-9-65.webp",
-      "outputSha256": "c4d29ff6a15dd6d2cca8337c9ba5eb11a446c712632f852b2dd0fed457e70fb1",
-      "alphaLevels": 256,
-      "partialPixels": 7532,
-      "foregroundPixels": 84818,
-      "bbox": [
-        44,
-        65,
-        404,
-        383
-      ],
-      "margins": [
-        44,
-        65,
-        44,
-        65
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-ux-16-03-clock-mirage-9-65b/main.webp",
       "outputSha256": "16d4f6f98a831f7a7c93ea8aabe41f38e5b6863887a92f6664dfb701614d299a",
       "alphaLevels": 256,
@@ -12616,44 +8227,6 @@
         43,
         44,
         43
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-16-03-clock-mirage-9-65b/parts/part-x-bit-b.webp",
-      "outputSha256": "7cd7f418b0028bc699e1b982e7ebee71b57ba037db01505c017cab6f6ac5b737",
-      "alphaLevels": 234,
-      "partialPixels": 4339,
-      "foregroundPixels": 28842,
-      "bbox": [
-        141,
-        88,
-        306,
-        360
-      ],
-      "margins": [
-        141,
-        88,
-        142,
-        88
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-16-03-clock-mirage-9-65b/parts/part-x-ratchet-9-65.webp",
-      "outputSha256": "f0b687f713dc42947058b6e9ff2f5374d7fe6c71ce128a627785d646766e841f",
-      "alphaLevels": 256,
-      "partialPixels": 7532,
-      "foregroundPixels": 84818,
-      "bbox": [
-        44,
-        65,
-        404,
-        383
-      ],
-      "margins": [
-        44,
-        65,
-        44,
-        65
       ]
     },
     {
@@ -12752,44 +8325,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-18-02-mummy-curse-4-60c/parts/part-x-bit-c.webp",
-      "outputSha256": "10a30bea62e84d622fd914f1531b5db9740016b4b0019fbf2707119344f69398",
-      "alphaLevels": 251,
-      "partialPixels": 2799,
-      "foregroundPixels": 35223,
-      "bbox": [
-        132,
-        73,
-        315,
-        374
-      ],
-      "margins": [
-        132,
-        73,
-        133,
-        74
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-18-02-mummy-curse-4-60c/parts/part-x-ratchet-4-60.webp",
-      "outputSha256": "d86944778676a5ac7e620f9929773a7c7266cc43bf685041bc740addb8f40fff",
-      "alphaLevels": 251,
-      "partialPixels": 5497,
-      "foregroundPixels": 78742,
-      "bbox": [
-        59,
-        75,
-        388,
-        372
-      ],
-      "margins": [
-        59,
-        75,
-        60,
-        76
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-ux-18-03-pegasus-brush-m-3-85w/main.webp",
       "outputSha256": "be74f1d286083d0096808fc5433f8974acd281e382ac87a29b1356f602ba8f3a",
       "alphaLevels": 256,
@@ -12806,82 +8341,6 @@
         55,
         64,
         55
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-18-03-pegasus-brush-m-3-85w/parts/part-x-bit-w.webp",
-      "outputSha256": "abd82970bb81dbbfc408bb595f44e196e22fe0b606ffa9b43318d52e7c757006",
-      "alphaLevels": 256,
-      "partialPixels": 5328,
-      "foregroundPixels": 28986,
-      "bbox": [
-        137,
-        88,
-        310,
-        359
-      ],
-      "margins": [
-        137,
-        88,
-        138,
-        89
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-18-03-pegasus-brush-m-3-85w/parts/part-x-blade-lock-chip-pegasus.webp",
-      "outputSha256": "a716c53cce6e2ff1dd248b58e903ba6ff361cb0ddc51f76619c7ec06bb99bab5",
-      "alphaLevels": 231,
-      "partialPixels": 1888,
-      "foregroundPixels": 22805,
-      "bbox": [
-        134,
-        134,
-        314,
-        314
-      ],
-      "margins": [
-        134,
-        134,
-        134,
-        134
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-18-03-pegasus-brush-m-3-85w/parts/part-x-blade-main-blade-brush.webp",
-      "outputSha256": "c9b284cee7c5245ee9ddc92403b09e0dbc96bd1c8826c8adcc5cae3b86acd574",
-      "alphaLevels": 256,
-      "partialPixels": 7988,
-      "foregroundPixels": 94616,
-      "bbox": [
-        44,
-        36,
-        404,
-        411
-      ],
-      "margins": [
-        44,
-        36,
-        44,
-        37
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-18-03-pegasus-brush-m-3-85w/parts/part-x-ratchet-3-85.webp",
-      "outputSha256": "4c943138dd19ec03a19b2850886d1469a67cf64dc3f6d506b6f13b3500491fff",
-      "alphaLevels": 256,
-      "partialPixels": 7794,
-      "foregroundPixels": 86751,
-      "bbox": [
-        45,
-        61,
-        402,
-        386
-      ],
-      "margins": [
-        45,
-        61,
-        46,
-        62
       ]
     },
     {
@@ -12904,82 +8363,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-18-04-sol-brave-c-9-70tp/parts/part-x-bit-tp.webp",
-      "outputSha256": "6f5be19701378345da5e1a4afb0cd931e0e503de75a707f4da7b61f0b8d83a3b",
-      "alphaLevels": 255,
-      "partialPixels": 5323,
-      "foregroundPixels": 36535,
-      "bbox": [
-        120,
-        83,
-        327,
-        364
-      ],
-      "margins": [
-        120,
-        83,
-        121,
-        84
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-18-04-sol-brave-c-9-70tp/parts/part-x-blade-lock-chip-sol.webp",
-      "outputSha256": "3a13dc900a7d58738d40e1bd4515fc06e8d1baf11a7a52964515d4246871f967",
-      "alphaLevels": 251,
-      "partialPixels": 3712,
-      "foregroundPixels": 21815,
-      "bbox": [
-        137,
-        137,
-        310,
-        311
-      ],
-      "margins": [
-        137,
-        137,
-        138,
-        137
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-18-04-sol-brave-c-9-70tp/parts/part-x-blade-main-blade-brave.webp",
-      "outputSha256": "377dbdc063a4eb40bed63077efc2073454080ebc53680210bc2ccd0f0e90173d",
-      "alphaLevels": 256,
-      "partialPixels": 7497,
-      "foregroundPixels": 95380,
-      "bbox": [
-        44,
-        40,
-        403,
-        408
-      ],
-      "margins": [
-        44,
-        40,
-        45,
-        40
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-18-04-sol-brave-c-9-70tp/parts/part-x-ratchet-9-70.webp",
-      "outputSha256": "f7c54a9a85c999635237c95a0d7fa7aa8890a8a559fc08138aaffefd7e924aa3",
-      "alphaLevels": 256,
-      "partialPixels": 4353,
-      "foregroundPixels": 84778,
-      "bbox": [
-        47,
-        64,
-        401,
-        384
-      ],
-      "margins": [
-        47,
-        64,
-        47,
-        64
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-ux-18-05-dran-dagger-7-55g/main.webp",
       "outputSha256": "e85c1d4941811e1095d75fa101afbcd82e99ebcd89e9b884b546462e8c656be7",
       "alphaLevels": 256,
@@ -12999,44 +8382,6 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-18-05-dran-dagger-7-55g/parts/part-x-bit-g.webp",
-      "outputSha256": "1606376848368a2de39692551111e46173fbeed2db029385826b7a64ee12469e",
-      "alphaLevels": 240,
-      "partialPixels": 3841,
-      "foregroundPixels": 35759,
-      "bbox": [
-        133,
-        74,
-        315,
-        374
-      ],
-      "margins": [
-        133,
-        74,
-        133,
-        74
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-18-05-dran-dagger-7-55g/parts/part-x-ratchet-7-55.webp",
-      "outputSha256": "ada4297212b100f4ccd5f99abde3f73c3d0f96970cfb6bacb63b186b928da534",
-      "alphaLevels": 255,
-      "partialPixels": 5851,
-      "foregroundPixels": 34278,
-      "bbox": [
-        110,
-        119,
-        337,
-        328
-      ],
-      "margins": [
-        110,
-        119,
-        111,
-        120
-      ]
-    },
-    {
       "image": "assets/images/x/beys/bey-x-ux-18-06-pearl-tiger-4-80lr/main.webp",
       "outputSha256": "254444a8bb40dd798fcae81558aec92748566cad6b172fcf1c792221ab31036d",
       "alphaLevels": 256,
@@ -13053,44 +8398,6 @@
         56,
         60,
         57
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-18-06-pearl-tiger-4-80lr/parts/part-x-bit-lr.webp",
-      "outputSha256": "11775d5350137faee4f9ee234159ba4af9f5a1d2cb30778b837e0e8ed4bc2417",
-      "alphaLevels": 254,
-      "partialPixels": 2902,
-      "foregroundPixels": 33569,
-      "bbox": [
-        133,
-        79,
-        314,
-        368
-      ],
-      "margins": [
-        133,
-        79,
-        134,
-        80
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-18-06-pearl-tiger-4-80lr/parts/part-x-ratchet-4-80.webp",
-      "outputSha256": "1dd6000517c71bf4dacb1ec2c199af6a9591e2d3e4e3a4b3c01d19d510a55981",
-      "alphaLevels": 254,
-      "partialPixels": 5012,
-      "foregroundPixels": 79750,
-      "bbox": [
-        59,
-        75,
-        388,
-        373
-      ],
-      "margins": [
-        59,
-        75,
-        60,
-        75
       ]
     },
     {

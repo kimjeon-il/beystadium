@@ -14,9 +14,6 @@ const xBeys = beyItems.filter(item => item.series === "x");
 const partById = new Map(partItems.filter(item => item.series === "x").map(item => [item.id, item]));
 const beyById = new Map(xBeys.map(item => [item.id, item]));
 const contextKey = (beyId, partId) => `${beyId}::${partId}`;
-const derivationManifest = JSON.parse(
-  await readFile(path.resolve("data/source/x-part-preview-color-derivations.json"), "utf8")
-);
 
 function uniqueValues(values, label) {
   assert.equal(values.length, new Set(values).size, `duplicate ${label}`);
@@ -63,8 +60,8 @@ uniqueValues(unavailableKeys, "X unavailable part previews");
 uniqueValues([...mappedKeys, ...unavailableKeys], "accounted X part preview contexts");
 assert.deepEqual(new Set([...mappedKeys, ...unavailableKeys]), new Set(contextKeys));
 assert.equal(contexts.length, 767);
-assert.equal(xPartPreviewMappings.length, 749);
-assert.equal(xPartPreviewUnavailable.length, 18);
+assert.equal(xPartPreviewMappings.length, 502);
+assert.equal(xPartPreviewUnavailable.length, 265);
 assert.deepEqual(
   Object.fromEntries([...new Set(xPartPreviewMappings.map(entry => entry.sourceKind))]
     .sort()
@@ -73,7 +70,6 @@ assert.deepEqual(
       xPartPreviewMappings.filter(entry => entry.sourceKind === sourceKind).length
     ])),
   {
-    "color-derived": 247,
     "official-assembled-bey-view": 66,
     "official-individual": 436
   }
@@ -86,26 +82,13 @@ assert.deepEqual(
       xPartPreviewUnavailable.filter(entry => entry.reason === reason).length
     ])),
   {
-    "official-isolated-shape-source-unavailable": 18
+    "official-assembled-view-cannot-isolate-split-blade-part": 48,
+    "official-assembled-view-does-not-show-isolated-part": 165,
+    "official-bey-image-unavailable": 15,
+    "official-individual-part-images-unavailable": 29,
+    "official-part-sequence-is-not-one-to-one-with-catalog-components": 3,
+    "official-product-page-unresolved": 5
   }
-);
-
-assert.equal(derivationManifest.version, "20260726-x-all-color-part-previews");
-assert.equal(derivationManifest.derivations.length, 247);
-assert.equal(derivationManifest.remainingUnavailable.length, 18);
-uniqueValues(
-  derivationManifest.derivations.map(entry => contextKey(entry.beyId, entry.partId)),
-  "X color-derived preview contexts"
-);
-assert.deepEqual(
-  new Set(derivationManifest.derivations.map(entry => contextKey(entry.beyId, entry.partId))),
-  new Set(xPartPreviewMappings
-    .filter(entry => entry.sourceKind === "color-derived")
-    .map(entry => contextKey(entry.beyId, entry.partId)))
-);
-assert.deepEqual(
-  new Set(derivationManifest.remainingUnavailable.map(entry => contextKey(entry.beyId, entry.partId))),
-  new Set(unavailableKeys)
 );
 
 const mappingByContext = new Map(
@@ -145,7 +128,7 @@ const contextualOutputPaths = xPartPreviewMappings
   .filter(entry => entry.image === xPartPreviewImagePath(entry.beyId, entry.partId))
   .map(entry => entry.image);
 uniqueValues(contextualOutputPaths, "contextual part preview output paths");
-assert.equal(contextualOutputPaths.length, 473);
+assert.equal(contextualOutputPaths.length, 226);
 
 for (const entry of xPartPreviewMappings) {
   const bey = beyById.get(entry.beyId);
@@ -157,7 +140,7 @@ for (const entry of xPartPreviewMappings) {
   );
   assert.equal(bey.partPreviewImages?.[entry.partId], entry.image);
   assert.ok(
-    ["official-individual", "official-assembled-bey-view", "color-derived"]
+    ["official-individual", "official-assembled-bey-view"]
       .includes(entry.sourceKind),
     `${contextKey(entry.beyId, entry.partId)} has an invalid source kind`
   );
@@ -180,20 +163,6 @@ for (const entry of xPartPreviewMappings) {
   assert.match(entry.colorEvidenceSha256, /^[a-f0-9]{64}$/);
   assert.equal("transform" in entry, false);
   assert.match(entry.outputSha256, /^[a-f0-9]{64}$/);
-
-  if (entry.sourceKind === "color-derived") {
-    const derivation = derivationManifest.derivations.find(candidate =>
-      candidate.beyId === entry.beyId && candidate.partId === entry.partId
-    );
-    assert.ok(derivation, `${contextKey(entry.beyId, entry.partId)} lacks derivation provenance`);
-    assert.equal(derivation.outputImage, entry.image);
-    assert.equal(derivation.shapeSourceSha256, entry.shapeSourceSha256);
-    assert.equal(derivation.colorEvidenceSha256, entry.colorEvidenceSha256);
-    assert.equal(derivation.outputSha256, entry.outputSha256);
-    assert.equal(derivation.mask.alpha, "preserved-byte-for-byte");
-    assert.ok(derivation.targetPalette.length >= 1);
-    assert.ok(derivation.regions.length >= 1);
-  }
 
   const bytes = await readFile(path.resolve(entry.image));
   assert.equal(createHash("sha256").update(bytes).digest("hex"), entry.outputSha256);

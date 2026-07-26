@@ -9,21 +9,6 @@ const consoleErrors = page => {
   return errors;
 };
 
-const dispatchPointerOver = locator => locator.evaluate(element => {
-  element.dispatchEvent(new window.PointerEvent("pointerover", {
-    bubbles: true,
-    pointerType: "mouse"
-  }));
-});
-
-const dispatchPointerClick = (locator, pointerType) => locator.evaluate((element, inputType) => {
-  element.dispatchEvent(new window.PointerEvent("pointerdown", {
-    bubbles: true,
-    pointerType: inputType
-  }));
-  element.click();
-}, pointerType);
-
 const injectRegionalProductPreviewImages = async page => {
   await page.route("**/data/runtime/series/metal-fight.json*", async route => {
     const response = await route.fetch();
@@ -2087,7 +2072,7 @@ test("X set products render Bey, part, tool, and quantity compositions", async (
     await expect(compositionLinks).toHaveCount(entry.count);
     const targetLink = compositionLinks.nth(entry.targetIndex || 0);
     await expect(targetLink).toHaveAttribute("data-target-id", entry.targetId);
-    await targetLink.evaluate(element => element.click());
+    await targetLink.click();
     await expect(page).toHaveURL(new RegExp(`#${entry.targetId}$`));
     await expectModalBackAtShellTopLeft(page.locator("#detailModal .modal-back"));
   }
@@ -2646,19 +2631,21 @@ test("X mounted part previews fit portrait bits and use each Bey's official colo
     "data-image-preview-src",
     "assets/images/x/parts/bit/part-x-bit-t.webp"
   );
-  await dispatchPointerOver(originalTaper);
+  await originalTaper.hover();
   await expect(preview).toBeVisible();
+  await expect.poll(async () => Math.round((await preview.boundingBox()).width)).toBe(184);
   const fit = await preview.evaluate(element => {
-    const image = element.querySelector("img");
+    const frame = element.getBoundingClientRect();
+    const image = element.querySelector("img").getBoundingClientRect();
     return {
-      frameWidth: element.offsetWidth,
-      frameHeight: element.offsetHeight,
-      imageWidth: image.offsetWidth,
-      imageHeight: image.offsetHeight,
-      leftInset: image.offsetLeft,
-      topInset: image.offsetTop,
-      rightInset: element.offsetWidth - image.offsetLeft - image.offsetWidth,
-      bottomInset: element.offsetHeight - image.offsetTop - image.offsetHeight
+      frameWidth: Math.round(frame.width),
+      frameHeight: Math.round(frame.height),
+      imageWidth: Math.round(image.width),
+      imageHeight: Math.round(image.height),
+      leftInset: image.left - frame.left,
+      topInset: image.top - frame.top,
+      rightInset: frame.right - image.right,
+      bottomInset: frame.bottom - image.bottom
     };
   });
   expect(fit.frameWidth).toBe(184);
@@ -2673,7 +2660,7 @@ test("X mounted part previews fit portrait bits and use each Bey's official colo
     "data-image-preview-src",
     "assets/images/x/beys/bey-x-bx-08-knight-shield-4-80t/parts/part-x-bit-t.webp"
   );
-  await dispatchPointerOver(alternateTaper);
+  await alternateTaper.hover();
   await expect(preview.locator("img")).toHaveAttribute(
     "src",
     "assets/images/x/beys/bey-x-bx-08-knight-shield-4-80t/parts/part-x-bit-t.webp"
@@ -2685,27 +2672,13 @@ test("X mounted part previews fit portrait bits and use each Bey's official colo
     "data-image-preview-src",
     "assets/images/x/beys/bey-x-bx-48-03-mammoth-tusk-7-60s/main.webp"
   );
-  const mammothSpike = page.locator('#detailModal .mounted-link[data-part-id="PART-X-BIT-S"]');
-  await expect(mammothSpike).toHaveAttribute(
-    "data-image-preview-src",
-    "assets/images/x/beys/bey-x-bx-48-03-mammoth-tusk-7-60s/parts/part-x-bit-s.webp"
-  );
-  await dispatchPointerOver(mammothSpike);
-  await expect(preview.locator("img")).toHaveAttribute(
-    "src",
-    "assets/images/x/beys/bey-x-bx-48-03-mammoth-tusk-7-60s/parts/part-x-bit-s.webp"
-  );
-  await mammothSpike.evaluate(element => element.click());
-  await expect(page).toHaveURL(/#PART-X-BIT-S$/);
-
-  await page.goto("/#BEY-X-CX-00-BUGS-ANTLERS-B-2-60D");
-  const unavailablePreview = page.locator(
-    '#detailModal .mounted-link[data-part-id="PART-X-BLADE-LOCK-CHIP-BUGS"]'
-  );
+  const unavailablePreview = page.locator('#detailModal .mounted-link[data-part-id="PART-X-BIT-S"]');
   await expect(unavailablePreview).not.toHaveAttribute("data-image-preview-src", /.+/);
   await expect(unavailablePreview).not.toHaveAttribute("data-image-preview-id", /.+/);
-  await dispatchPointerOver(unavailablePreview);
+  await unavailablePreview.hover();
   await expect(preview).toBeHidden();
+  await unavailablePreview.click();
+  await expect(page).toHaveURL(/#PART-X-BIT-S$/);
 
   await page.goto("/#BEY-X-CX-09-SOL-ECLIPSE-D-5-70TK");
   await expect(page.locator('#detailModal .mounted-link[data-part-id="PART-X-RATCHET-5-70"]')).toHaveAttribute(
@@ -2726,48 +2699,27 @@ test("X mounted part color links preview before touch navigation", async ({ page
     "data-image-preview-src",
     "assets/images/x/beys/bey-x-bx-08-knight-shield-4-80t/parts/part-x-bit-t.webp"
   );
-  await dispatchPointerClick(alternateTaper, "touch");
+  await alternateTaper.tap();
   await expect(page).toHaveURL(/#BEY-X-BX-08-KNIGHT-SHIELD-4-80T$/);
   await expect(preview).toBeVisible();
   await expect(preview.locator("img")).toHaveAttribute(
     "src",
     "assets/images/x/beys/bey-x-bx-08-knight-shield-4-80t/parts/part-x-bit-t.webp"
   );
-  await dispatchPointerClick(alternateTaper, "touch");
+  await alternateTaper.tap();
   await expect(page).toHaveURL(/#PART-X-BIT-T$/);
   await expect(preview).toBeHidden();
 
   await page.goto("/#BEY-X-BX-48-03-MAMMOTH-TUSK-7-60S");
-  const mammothSpike = page.locator('#detailModal .mounted-link[data-part-id="PART-X-BIT-S"]');
-  await expect(mammothSpike).toHaveAttribute(
-    "data-image-preview-src",
-    "assets/images/x/beys/bey-x-bx-48-03-mammoth-tusk-7-60s/parts/part-x-bit-s.webp"
-  );
-  await dispatchPointerClick(mammothSpike, "touch");
-  await expect(page).toHaveURL(/#BEY-X-BX-48-03-MAMMOTH-TUSK-7-60S$/);
-  await expect(preview.locator("img")).toHaveAttribute(
-    "src",
-    "assets/images/x/beys/bey-x-bx-48-03-mammoth-tusk-7-60s/parts/part-x-bit-s.webp"
-  );
-  await dispatchPointerClick(mammothSpike, "touch");
+  const unavailablePreview = page.locator('#detailModal .mounted-link[data-part-id="PART-X-BIT-S"]');
+  await expect(unavailablePreview).not.toHaveAttribute("data-image-preview-src", /.+/);
+  await expect(unavailablePreview).not.toHaveAttribute("data-image-preview-id", /.+/);
+  await unavailablePreview.tap();
   await expect(page).toHaveURL(/#PART-X-BIT-S$/);
   await expect(preview).toBeHidden();
 
-  await page.goto("/#BEY-X-CX-00-BUGS-ANTLERS-B-2-60D");
-  const unavailablePreview = page.locator(
-    '#detailModal .mounted-link[data-part-id="PART-X-BLADE-LOCK-CHIP-BUGS"]'
-  );
-  await expect(unavailablePreview).not.toHaveAttribute("data-image-preview-src", /.+/);
-  await expect(unavailablePreview).not.toHaveAttribute("data-image-preview-id", /.+/);
-  await dispatchPointerClick(unavailablePreview, "touch");
-  await expect(page).toHaveURL(/#PART-X-BLADE-LOCK-CHIP-BUGS$/);
-  await expect(preview).toBeHidden();
-
   await page.goto("/#BEY-X-BX-08-KNIGHT-SHIELD-4-80T");
-  await dispatchPointerClick(
-    page.locator('#detailModal .mounted-link[data-part-id="PART-X-BIT-T"]'),
-    "mouse"
-  );
+  await page.locator('#detailModal .mounted-link[data-part-id="PART-X-BIT-T"]').click();
   await expect(page).toHaveURL(/#PART-X-BIT-T$/);
   await expect(preview).toBeHidden();
   expect(errors).toEqual([]);
