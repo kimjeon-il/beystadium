@@ -1,6 +1,6 @@
 import { animeDisplayRegion, animeEpisodeTitle, animeSeasonLabels, episodeHashId } from "#app/anime-core";
 import { appState } from "#app/state";
-import { BeystadiumDataStore, searchIndexItems } from "#app/data-store";
+import { animeInfo, BeystadiumDataStore, searchIndexItems } from "#app/data-store";
 import {
   animeAirDateLabel,
   escapeAttributeValue,
@@ -14,6 +14,7 @@ import {
   seriesLabels
 } from "#app/release-core";
 import { appServices } from "#app/services";
+import { navigateToRoute } from "#app/navigation";
 import {
   catalogItemSearchFields,
   compareScoredSearchResults,
@@ -95,6 +96,13 @@ const animeSearchFields = episode => [
   ...searchFieldsFromValues("category", [animeSeasonLabels[episode.season], episode.season]),
   ...searchFieldsFromValues("description", [episode.note])
 ];
+const animeCharacterSearchFields = character => [
+  ...searchFieldsFromValues("primaryName", [character?.name, character?.title]),
+  ...searchFieldsFromValues("alias", [character?.jpName, character?.en]),
+  ...searchFieldsFromValues("category", [character?.season, character?.role]),
+  ...searchFieldsFromValues("composition", [Array.isArray(character?.beys) ? character.beys.join(" ") : ""]),
+  ...searchFieldsFromValues("description", [character?.desc])
+];
 let searchResultRecordCache = null;
 let searchResultRecordListCache = null;
 const SEARCH_RESULT_ITEMS_CACHE_LIMIT = 64;
@@ -141,6 +149,7 @@ const mainSearchRecordSources = () => {
     { key: "product", kind: "product", items: items.product, fields: productSearchFields },
     { key: "manga", kind: "book", items: items.book, fields: bookSearchFields },
     { key: "game", kind: "game", items: items.game, fields: gameSearchFields },
+    { key: "character", kind: "character", items: animeInfo.characters || [], fields: animeCharacterSearchFields },
     { key: "anime", kind: "anime", items: items.anime, fields: animeSearchFields, extra: (episode, index) => ({ index }) }
   ];
 };
@@ -165,11 +174,15 @@ const searchResultRenderKey = (scope, query) => [
 const searchResultRecordLists = () => {
   if (searchResultRecordListCache) return searchResultRecordListCache;
   const records = searchResultRecords();
+  const catalogBeys = records.catalog.filter(record => record.entry.item?.type === "bey");
+  const catalogParts = records.catalog.filter(record => record.entry.item?.type !== "bey");
   searchResultRecordListCache = {
-    all: [...records.catalog, ...records.tools, ...records.product, ...records.manga, ...records.game, ...records.anime],
-    bey: records.catalog,
+    all: [...records.catalog, ...records.tools, ...records.product, ...records.character, ...records.manga, ...records.game, ...records.anime],
+    bey: catalogBeys,
+    parts: catalogParts,
     tools: records.tools,
     product: records.product,
+    character: records.character,
     manga: records.manga,
     anime: records.anime
   };
@@ -224,6 +237,7 @@ const searchResultType = entry => {
   if (entry.kind === "product") return "제품";
   if (entry.kind === "book") return "도서";
   if (entry.kind === "game") return "게임";
+  if (entry.kind === "character") return "인물";
   if (entry.kind === "anime") return "애니";
   return partDetailTypeLabel(entry.item) || "베이";
 };
@@ -231,6 +245,7 @@ const searchResultTitle = entry => {
   if (entry.kind === "tools") return entry.item.name;
   if (entry.kind === "product") return productDisplayName(entry.item, appState.activeReleaseRegion);
   if (entry.kind === "book" || entry.kind === "game") return entry.item.name;
+  if (entry.kind === "character") return entry.item.name || entry.item.title || "";
   if (entry.kind === "anime") return animeEpisodeTitle(entry.item, animeDisplayRegion);
   const suffix = entry.item.type === "bey" && entry.item.sub ? ` ${entry.item.sub}` : "";
   return `${entry.item.name}${suffix}`;
@@ -259,6 +274,11 @@ const searchResultSnippet = entry => {
   if (entry.kind === "book") return [entry.item.category, entry.item.desc].filter(Boolean).join(" · ") || "도서 정보를 확인할 수 있습니다.";
   if (entry.kind === "game") return [entry.item.category, entry.item.desc].filter(Boolean).join(" · ") || "게임 정보를 확인할 수 있습니다.";
   if (entry.kind === "anime") return searchAnimeEpisodeSnippet(entry.item) || "애니 회차 정보를 확인할 수 있습니다.";
+  if (entry.kind === "character") {
+    return [entry.item.role, ...(Array.isArray(entry.item.beys) ? entry.item.beys : []), entry.item.desc]
+      .filter(Boolean)
+      .join(" · ") || "등장인물 정보를 확인할 수 있습니다.";
+  }
   const labels = itemAttributeLabels(entry.item).slice(0, 4);
   const parts = [
     entry.item.productNo,
@@ -274,6 +294,7 @@ const searchResultAttributes = entry => {
   if (entry.kind === "product") return `data-product-id="${escapeAttributeValue(entry.item.id)}"`;
   if (entry.kind === "book") return `data-book-id="${escapeAttributeValue(entry.item.id)}"`;
   if (entry.kind === "game") return `data-game-id="${escapeAttributeValue(entry.item.id)}"`;
+  if (entry.kind === "character") return `data-anime-character-query="${escapeAttributeValue(entry.item.name || entry.item.title || "")}"`;
   if (entry.kind === "anime") return `data-anime-episode-id="${escapeAttributeValue(episodeHashId(entry.index))}"`;
   return `data-id="${escapeAttributeValue(entry.item.id)}"`;
 };
@@ -308,6 +329,7 @@ const searchResultPageButtons = (currentPage, totalPages) => {
     ${start > 1 ? `<button class="ui-button search-results-page-button" type="button" data-search-results-page="1">1</button>${start > 2 ? `<span class="search-results-page-gap">…</span>` : ""}` : ""}
     ${pageButtons}
     ${end < totalPages ? `${end < totalPages - 1 ? `<span class="search-results-page-gap">…</span>` : ""}<button class="ui-button search-results-page-button" type="button" data-search-results-page="${totalPages}">${totalPages}</button>` : ""}
+    <span class="pagination-status" aria-label="${currentPage}/${totalPages} 페이지">${currentPage}/${totalPages}</span>
     <button class="ui-button search-results-page-step" type="button" data-search-results-page="${currentPage + 1}" ${currentPage >= totalPages ? "disabled" : ""}>다음</button>
   </nav>`;
 };
@@ -328,6 +350,12 @@ const bindSearchResultControls = gridRoot => {
   if (!gridRoot || gridRoot.dataset.searchResultControlsBound) return;
   gridRoot.dataset.searchResultControlsBound = "true";
   gridRoot.addEventListener("click", event => {
+    const characterButton = event.target.closest("[data-anime-character-query]");
+    if (characterButton && gridRoot.contains(characterButton)) {
+      event.preventDefault();
+      navigateToRoute({ type: "category-anime", season: "all", query: characterButton.dataset.animeCharacterQuery || "" });
+      return;
+    }
     const pageButton = event.target.closest("[data-search-results-page]");
     if (!pageButton || pageButton.disabled || !gridRoot.contains(pageButton)) return;
     event.preventDefault();
@@ -497,7 +525,11 @@ class SearchPreviewController {
     if (!button) return;
     this.syncToGlobal();
     closeAllSearchPreviews();
-    openCatalogCard(button);
+    if (button.dataset.animeCharacterQuery !== undefined) {
+      navigateToRoute({ type: "category-anime", season: "all", query: button.dataset.animeCharacterQuery || "" });
+    } else {
+      openCatalogCard(button);
+    }
     appServices.setMobileDrawerOpen(false);
   }
 
