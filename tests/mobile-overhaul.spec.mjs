@@ -88,6 +88,29 @@ test.describe("mobile-first navigation and content", () => {
     await expect(page.locator("#mobileTopbarTitle")).toHaveText("완구 도감");
     await expect(page.locator("#mobileCatalogFilterOpen")).toBeVisible();
 
+    await page.locator("#catalogSearchInput").focus();
+    const controlStyles = await page.evaluate(() => {
+      const searchBox = document.querySelector(".catalog-search-box");
+      const scope = document.querySelector("#catalogSearchScope > summary");
+      const help = document.querySelector("#catalogSearchHelpButton");
+      const activeTab = document.querySelector('.mobile-bottom-nav > button[aria-current="page"]');
+      const marker = getComputedStyle(activeTab, "::before");
+      return {
+        focusShadow: getComputedStyle(searchBox).boxShadow,
+        scopeBackground: getComputedStyle(scope).backgroundColor,
+        helpBackground: getComputedStyle(help).backgroundColor,
+        markerWidth: marker.width,
+        markerHeight: marker.height,
+        markerOpacity: marker.opacity
+      };
+    });
+    expect(controlStyles.focusShadow).toContain("inset");
+    expect(controlStyles.scopeBackground).toBe("rgba(0, 0, 0, 0)");
+    expect(controlStyles.helpBackground).toBe("rgba(0, 0, 0, 0)");
+    expect(controlStyles.markerWidth).toBe("28px");
+    expect(controlStyles.markerHeight).toBe("3px");
+    expect(controlStyles.markerOpacity).toBe("1");
+
     const columns = await page.locator("#catalogGrid").evaluate(element =>
       getComputedStyle(element).gridTemplateColumns.split(" ").filter(Boolean).length
     );
