@@ -223,17 +223,18 @@ test.describe("mobile-first navigation and content", () => {
     await expect(dialog).toBeHidden();
     await expect(page.locator('[data-app-panel="release"].active')).toBeVisible();
 
-    await page.goto("/");
-    await page.evaluate(() => sessionStorage.clear());
-    await page.goto("/#BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF");
-    await expect(dialog).toBeVisible();
-    const fallbackBack = dialog.locator("#modalMobileBack");
+    const directPage = await page.context().newPage();
+    await directPage.goto("/#BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF");
+    const directDialog = directPage.locator("#detailModal");
+    await expect(directDialog).toBeVisible();
+    const fallbackBack = directDialog.locator("#modalMobileBack");
     await expect(fallbackBack).toBeVisible();
-    await expect(dialog.locator("#modalContent .modal-back")).toHaveCount(0);
+    await expect(directDialog.locator("#modalContent .modal-back")).toHaveCount(0);
     await fallbackBack.tap();
-    await expect(dialog).toBeHidden();
-    await expect(page).toHaveURL(/#toy-catalog\?scope=bey/);
-    await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
+    await expect(directDialog).toBeHidden();
+    await expect(directPage).toHaveURL(/#toy-catalog\?scope=bey/);
+    await expect(directPage.locator("#catalogGrid .catalog-card").first()).toBeVisible();
+    await directPage.close();
     expect(errors).toEqual([]);
   });
 });
