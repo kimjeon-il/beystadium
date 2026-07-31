@@ -5,7 +5,8 @@
 .overview-quick-links,
 .mobile-row-meta,
 .release-image-preview-button,
-.mobile-filter-sheet {
+.mobile-filter-sheet,
+.modal-mobile-back {
   display: none;
 }
 
@@ -291,15 +292,18 @@
 
   .mobile-bottom-nav > button::before {
     content: "";
-    position: absolute;
-    top: 2px;
-    left: 50%;
+    position: relative;
+    z-index: 0;
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
+    justify-self: center;
     width: 46px;
     height: 26px;
     border-radius: var(--radius-pill);
     background: var(--ui-accent);
     opacity: 0;
-    transform: translateX(-50%) scaleX(.55);
+    transform: scaleX(.55);
     transform-origin: center;
     transition: opacity var(--motion-standard) var(--ease-standard), transform var(--motion-standard) var(--ease-emphasized);
   }
@@ -307,6 +311,8 @@
   .mobile-bottom-nav > button svg {
     position: relative;
     z-index: 1;
+    grid-column: 1;
+    grid-row: 1;
     width: 22px;
     height: 22px;
     fill: none;
@@ -314,6 +320,11 @@
     stroke-width: 1.8;
     stroke-linecap: round;
     stroke-linejoin: round;
+  }
+
+  .mobile-bottom-nav > button > span {
+    grid-column: 1;
+    grid-row: 2;
   }
 
   .mobile-bottom-nav > button.active,
@@ -325,7 +336,7 @@
   .mobile-bottom-nav > button.active::before,
   .mobile-bottom-nav > button[aria-current="page"]::before {
     opacity: 1;
-    transform: translateX(-50%) scaleX(1);
+    transform: scaleX(1);
   }
 
   .mobile-bottom-nav > button:focus-visible {
@@ -1103,6 +1114,14 @@
 
   #detailModal[open] .modal-tags > * {
     min-width: 96px;
+  }
+
+  #detailModal[open] .modal-mobile-back {
+    display: grid;
+  }
+
+  #detailModal[open] #modalContent .modal-back {
+    display: none;
   }
 
   #detailModal[open] .modal-close,
