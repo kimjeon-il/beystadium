@@ -230,7 +230,8 @@ test.describe("mobile-first navigation and content", () => {
     await expect(dialog.locator("#modalContent .modal-back")).toHaveCount(0);
     await fallbackBack.tap();
     await expect(dialog).toBeHidden();
-    await expect(page.locator('[data-app-panel="catalog"].active')).toBeVisible();
+    await expect(page).toHaveURL(/#toy-catalog\?scope=bey/);
+    await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
     expect(errors).toEqual([]);
   });
 });
