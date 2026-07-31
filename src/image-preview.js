@@ -49,6 +49,8 @@ function ensurePreviewElement(anchor) {
     previewElement.setAttribute("aria-hidden", "true");
     previewImage = document.createElement("img");
     previewImage.alt = "";
+    previewImage.width = 240;
+    previewImage.height = 240;
     previewImage.decoding = "async";
     previewElement.append(previewImage);
   }
@@ -229,7 +231,12 @@ function initializeImageLinkPreviews() {
   }, true);
   document.addEventListener("click", event => {
     const anchor = previewAnchorFrom(event.target);
-    if (lastInputMethod !== "touch" || !anchor) {
+    if (!anchor) {
+      hideLinkImagePreview();
+      return;
+    }
+    const explicitPreviewTrigger = anchor.classList.contains("image-preview-trigger");
+    if (!explicitPreviewTrigger) {
       hideLinkImagePreview();
       return;
     }
