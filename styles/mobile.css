@@ -292,10 +292,10 @@
   .mobile-bottom-nav > button::before {
     content: "";
     position: absolute;
-    top: 1px;
+    top: 2px;
     left: 50%;
-    width: 34px;
-    height: 28px;
+    width: 46px;
+    height: 26px;
     border-radius: var(--radius-pill);
     background: transparent;
     transform: translateX(-50%);
@@ -407,6 +407,57 @@
     height: 44px;
     min-height: 44px;
     max-height: 44px;
+  }
+
+  .catalog-search-box .search-scope > summary,
+  .catalog-search-box .catalog-search-help-button {
+    isolation: isolate;
+    background: transparent;
+  }
+
+  .catalog-search-box .search-scope > summary::before,
+  .catalog-search-box .catalog-search-help-button::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    transition: var(--transition-control);
+  }
+
+  .catalog-search-box .search-scope > summary::before {
+    inset: 4px 0;
+    border-radius: calc(var(--radius-control-sm) - 2px);
+    background: var(--ui-control);
+  }
+
+  .catalog-search-box .catalog-search-help-button::before {
+    left: 50%;
+    top: 50%;
+    width: 36px;
+    height: 36px;
+    border-radius: calc(var(--radius-control-sm) - 2px);
+    background: transparent;
+    transform: translate(-50%, -50%);
+  }
+
+  .catalog-search-box .search-scope > summary:hover,
+  .catalog-search-box .search-scope > summary:focus-visible,
+  .catalog-search-box .search-scope[open] > summary,
+  .catalog-search-box .catalog-search-help-button:hover,
+  .catalog-search-box .catalog-search-help-button:focus-visible,
+  .catalog-search-box .catalog-search-help-button[aria-expanded="true"] {
+    background: transparent;
+    box-shadow: none;
+    transform: none;
+  }
+
+  .catalog-search-box .search-scope > summary:hover::before,
+  .catalog-search-box .search-scope > summary:focus-visible::before,
+  .catalog-search-box .search-scope[open] > summary::before,
+  .catalog-search-box .catalog-search-help-button:hover::before,
+  .catalog-search-box .catalog-search-help-button:focus-visible::before,
+  .catalog-search-box .catalog-search-help-button[aria-expanded="true"]::before {
+    background: var(--ui-control-hover);
   }
 
   .category-card,
