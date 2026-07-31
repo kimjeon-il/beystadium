@@ -69,6 +69,7 @@ const paginationButtons = ({ currentPage, totalPages, dataAttr, buttonClass, ste
     ${start > 1 ? `<button class="ui-button ${buttonClass}" type="button" ${dataAttr}="1">1</button>${start > 2 ? `<span class="catalog-page-gap">…</span>` : ""}` : ""}
     ${pageButtons}
     ${end < totalPages ? `${end < totalPages - 1 ? `<span class="catalog-page-gap">…</span>` : ""}<button class="ui-button ${buttonClass}" type="button" ${dataAttr}="${totalPages}">${totalPages}</button>` : ""}
+    <span class="pagination-status" role="status" aria-label="${currentPage}/${totalPages} 페이지">${currentPage}/${totalPages}</span>
     <button class="ui-button ${stepClass}" type="button" ${dataAttr}="${currentPage + 1}" ${currentPage >= totalPages ? "disabled" : ""}>다음</button>
   </nav>`;
 };

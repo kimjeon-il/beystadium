@@ -246,7 +246,7 @@ const globalSearchQuery = () => (globalSearch?.value || mobileDrawerSearch?.valu
 const catalogSearchQuery = () => catalogSearch?.value.trim() || "";
 const animeSearchQuery = () => animeSearch?.value.trim() || "";
 
-const searchScopeValues = ["all", "bey", "tools", "product", "manga", "anime"];
+const searchScopeValues = ["all", "bey", "parts", "tools", "product", "character", "manga", "anime"];
 const normalizeSearchScope = scope => searchScopeValues.includes(scope) ? scope : "all";
 
 const itemAttributeLabels = item => [

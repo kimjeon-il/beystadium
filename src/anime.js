@@ -121,7 +121,7 @@ const animeEpisodeControls = () => tableListControlsMarkup({
     activeValue: appState.activeAnimeSeason,
     dataAttr: "data-anime-season"
   },
-  search: { id: "animeEpisodeSearchInput", value: appState.activeAnimeEpisodeQuery }
+  search: { id: "animeEpisodeSearchInput", value: appState.activeAnimeEpisodeQuery, placeholder: "방영목록에서 검색" }
 });
 const animeCharacterSeasonLabel = () =>
   appState.activeAnimeCharacterSeason === animeCharacterAllSeason ? "전체 시리즈" : animeSeasonLabels[appState.activeAnimeCharacterSeason] || "전체 시리즈";
@@ -409,7 +409,7 @@ const animeEpisodeRowsMarkup = visibleRows => {
     const airDate = episode.airDates?.[animeDisplayRegion] || "";
     return `<tr class="table-list-row anime-episode-row" data-anime-episode-index="${index}">
     <td>${escapeHtml(episode.no || "")}</td>
-    <td><button class="table-list-row-action table-list-primary-text anime-episode-title" type="button">${escapeHtml(episode.titles?.[animeDisplayRegion] || "")}</button></td>
+    <td><button class="table-list-row-action table-list-primary-text anime-episode-title" type="button">${escapeHtml(episode.titles?.[animeDisplayRegion] || "")}</button><span class="mobile-row-meta"><span>${escapeHtml(animeAirDateCompactLabel(airDate))}</span></span></td>
     <td>${responsiveDateSpans("anime-air-date-full", "anime-air-date-compact", animeAirDateLabel(airDate), animeAirDateCompactLabel(airDate))}</td>
   </tr>`;
   }).join("");

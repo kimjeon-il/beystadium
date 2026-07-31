@@ -213,10 +213,10 @@ const tableListPageMarkup = ({ className = "", attrs = "", controlsMarkup = "", 
     ${metaMarkup}
     ${tableListSectionMarkup(tableMarkup)}
   </div>`;
-const tableListSearchBoxMarkup = ({ id, value = "", className = "" } = {}) =>
+const tableListSearchBoxMarkup = ({ id, value = "", className = "", placeholder = "검색어를 입력해주세요." } = {}) =>
   `<div class="${tableListClassName("search-box", "table-list-search-box", className)}" role="search">
     <span class="search-icon" aria-hidden="true"></span>
-    <input id="${escapeAttributeValue(id)}" type="search" placeholder="검색어를 입력해주세요." value="${escapeAttributeValue(value)}" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none">
+    <input id="${escapeAttributeValue(id)}" type="search" placeholder="${escapeAttributeValue(placeholder)}" data-search-placeholder="${escapeAttributeValue(placeholder)}" value="${escapeAttributeValue(value)}" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none">
   </div>`;
 const tableListDropdownMarkup = ({ label = "", entries = [], activeValue = "", dataAttr = "", className = "" } = {}) => `<details class="${tableListClassName("catalog-dropdown", "table-list-dropdown", className)}">
   <summary><b class="catalog-dropdown-value">${escapeHtml(label)}</b></summary>
@@ -283,7 +283,7 @@ const releaseControls = () => tableListControlsMarkup({
     activeValue: appState.activeReleaseSeries,
     dataAttr: "data-release-series"
   },
-  search: { id: "releaseSearchInput", value: appState.activeReleaseQuery }
+  search: { id: "releaseSearchInput", value: appState.activeReleaseQuery, placeholder: "발매목록에서 검색" }
 });
 const sortDropdownLabelParts = label => {
   const rawLabel = String(label || "").trim();

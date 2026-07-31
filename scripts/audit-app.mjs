@@ -8,12 +8,13 @@ const fromRoot = file => resolve(root, file);
 const HOME_TEXT_FILES = [
   "index.html",
   "styles/base.css",
+  "styles/mobile.css",
   "favicon.svg",
   "src/bootstrap.js",
   "src/data-store.js",
   "data/runtime/index.json"
 ];
-const HOME_TEXT_LIMIT = 100_000;
+const HOME_TEXT_LIMIT = 140_000;
 const BASE_CSS_LIMIT = 60_000;
 const CSS_IMPORTANT_LIMIT = 80;
 const SOURCE_LINE_LIMIT = 1_000;
@@ -27,6 +28,21 @@ const FORBIDDEN_MONOLITHS = [
   "styles.css",
   "scripts/build-app-runtime.mjs"
 ];
+const MOBILE_OVERHAUL_VERSION = "20260731-mobile-overhaul";
+const MOBILE_OVERHAUL_IMPORTS = {
+  "#app/data-store": "src/data-store.js",
+  "#app/ui-core": "src/ui-core.js",
+  "#app/release-core": "src/release-core.js",
+  "#app/search-engine": "src/search-engine.js",
+  "#app/catalog-model": "src/catalog-model.js",
+  "#app/collection-view": "src/collection-view.js",
+  "#app/search-feature": "src/search-feature.js",
+  "#app/image-preview": "src/image-preview.js",
+  "#app/style-loader": "src/style-loader.js",
+  "#app/shell-controller": "src/shell-controller.js",
+  "#app/release-page": "src/release-page.js",
+  "#app/anime": "src/anime.js"
+};
 
 const byteSize = async file => Buffer.byteLength(
   (await readFile(fromRoot(file), "utf8")).replace(/\r\n/g, "\n")
@@ -51,10 +67,24 @@ for (const [alias, target] of Object.entries(importMap)) {
   const file = projectPath(target);
   if (!(await exists(file))) throw new Error(`Import-map target is missing: ${alias} -> ${file}`);
 }
+for (const file of ["styles/base.css", "styles/mobile.css"]) {
+  if (!indexHtml.includes(`./${file}?v=${MOBILE_OVERHAUL_VERSION}`)) {
+    throw new Error(`Mobile overhaul cache version is missing: ${file}`);
+  }
+}
+for (const [alias, file] of Object.entries(MOBILE_OVERHAUL_IMPORTS)) {
+  if (importMap[alias] !== `./${file}?v=${MOBILE_OVERHAUL_VERSION}`) {
+    throw new Error(`Mobile overhaul import cache version is missing: ${alias}`);
+  }
+}
 
 const styleLoaderUrl = `${pathToFileURL(fromRoot("src/style-loader.js")).href}?audit=${Date.now()}`;
 const { routeStyleManifest, styleFiles } = await import(styleLoaderUrl);
-const stylesheetFiles = ["styles/base.css", ...Object.values(styleFiles).map(projectPath)];
+const styleLoaderSource = await readFile(fromRoot("src/style-loader.js"), "utf8");
+if (!styleLoaderSource.includes(`const styleVersion = "${MOBILE_OVERHAUL_VERSION}";`)) {
+  throw new Error("Route stylesheet cache version is missing or inconsistent.");
+}
+const stylesheetFiles = ["styles/base.css", "styles/mobile.css", ...Object.values(styleFiles).map(projectPath)];
 for (const file of stylesheetFiles) {
   if (!(await exists(file))) throw new Error(`Style manifest target is missing: ${file}`);
 }
@@ -64,7 +94,7 @@ for (const [route, keys] of Object.entries(routeStyleManifest)) {
     if (!styleKeys.has(key)) throw new Error(`Unknown style key in route manifest: ${route} -> ${key}`);
   }
 }
-const expectedLayerOrder = "@layer base, page, collection, table, release, anime, catalog, search, modal;";
+const expectedLayerOrder = "@layer base, page, collection, table, release, anime, catalog, search, modal, mobile;";
 const baseStylesheet = await readFile(fromRoot("styles/base.css"), "utf8");
 if (!baseStylesheet.startsWith(expectedLayerOrder)) throw new Error("Global CSS layer order is missing or changed.");
 for (const [key, target] of Object.entries(styleFiles)) {

@@ -102,7 +102,14 @@ const BeystadiumDataStore = (() => {
   };
   const hydrate = (map, item) => {
     const current = map.get(item.id) || {};
+    const releases = current.releases && item.releases
+      ? Object.fromEntries(
+        [...new Set([...Object.keys(current.releases), ...Object.keys(item.releases)])]
+          .map(region => [region, { ...(current.releases[region] || {}), ...(item.releases[region] || {}) }])
+      )
+      : item.releases || current.releases;
     Object.assign(current, item);
+    if (releases) current.releases = releases;
     map.set(item.id, current);
     return current;
   };
@@ -271,10 +278,11 @@ const BeystadiumDataStore = (() => {
   const ensureSearch = async scope => {
     const key = String(scope || "all").toLowerCase();
     if (key === "anime") return ensureSearchChunk("anime");
+    if (key === "character") return ensureChunk("anime");
     if (key === "manga" || key === "game" || key === "common") return ensureSearchChunk("common");
     const seriesReady = await Promise.all([...SERIES_KEYS].map(ensureSearchChunk));
     if (key !== "all") return seriesReady.every(Boolean);
-    const extraReady = await Promise.all([ensureSearchChunk("common"), ensureSearchChunk("anime")]);
+    const extraReady = await Promise.all([ensureSearchChunk("common"), ensureSearchChunk("anime"), ensureChunk("anime")]);
     return [...seriesReady, ...extraReady].every(Boolean);
   };
   const ensureItem = async id => {
