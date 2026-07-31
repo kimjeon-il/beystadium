@@ -40,6 +40,44 @@ test.describe("mobile-first navigation and content", () => {
     expect(errors).toEqual([]);
   });
 
+  test("mobile search and active-tab highlights stay contained", async ({ page }) => {
+    await page.goto("/");
+    await page.locator(".mobile-bottom-nav [data-category-catalog-open]").click();
+
+    const activeTab = page.locator(".mobile-bottom-nav [data-category-catalog-open]");
+    const tabIndicator = await activeTab.evaluate(element => {
+      const style = getComputedStyle(element, "::before");
+      return {
+        width: Number.parseFloat(style.width),
+        height: Number.parseFloat(style.height)
+      };
+    });
+    expect(tabIndicator).toEqual({ width: 46, height: 26 });
+
+    const scope = page.locator("#catalogSearchScope > summary");
+    await scope.focus();
+    await expect(scope).toBeFocused();
+
+    const searchHighlight = await scope.evaluate(element => {
+      const help = document.querySelector(".catalog-search-box .catalog-search-help-button");
+      const scopeStyle = getComputedStyle(element);
+      const scopeSurface = getComputedStyle(element, "::before");
+      const helpSurface = getComputedStyle(help, "::before");
+      return {
+        scopeShadow: scopeStyle.boxShadow,
+        scopeSurfaceHeight: Number.parseFloat(scopeSurface.height),
+        helpSurfaceWidth: Number.parseFloat(helpSurface.width),
+        helpSurfaceHeight: Number.parseFloat(helpSurface.height)
+      };
+    });
+    expect(searchHighlight).toEqual({
+      scopeShadow: "none",
+      scopeSurfaceHeight: 36,
+      helpSurfaceWidth: 36,
+      helpSurfaceHeight: 36
+    });
+  });
+
   test("catalog uses two columns and applies the filter sheet", async ({ page }) => {
     const errors = consoleErrors(page);
     await page.goto("/");
