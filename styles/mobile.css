@@ -393,7 +393,7 @@
   .catalog-query-row:has(.catalog-filter-chips:not(.is-empty)) > .catalog-query-actions {
     grid-column: 1;
     width: 100%;
-    margin: 2px calc(var(--query-action-edge-offset) * -1) 0 0;
+    margin: 2px 0 0;
     justify-content: space-between;
     justify-self: stretch;
   }
@@ -798,7 +798,7 @@
 
   .mobile-filter-options button {
     appearance: none;
-    min-height: 40px;
+    min-height: 44px;
     padding: 0 13px;
     border: var(--border-subtle);
     border-radius: var(--radius-pill);
@@ -956,6 +956,10 @@
   }
 
   #detailModal[open] .modal-inner--content .modal-info {
+    padding-top: calc(var(--mobile-topbar-height) + 14px);
+  }
+
+  #detailModal[open] .modal-inner--rare-bey-get-list .modal-info {
     padding-top: calc(var(--mobile-topbar-height) + 14px);
   }
 
