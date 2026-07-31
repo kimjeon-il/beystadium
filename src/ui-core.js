@@ -51,14 +51,14 @@ const searchResultsSearch = document.querySelector("#searchResultsSearchInput");
 const searchInputRoot = input => input?.closest(".overview-search, .search-box");
 const searchClearButton = input => searchInputRoot(input)?.querySelector(".search-clear");
 const searchPlaceholderInputs = () => [globalSearch, mobileDrawerSearch, overviewSearch, searchResultsSearch, catalogSearch, animeSearch].filter(Boolean);
-const searchPlaceholderText = width => {
-  if (width >= 156) return "검색어를 입력해주세요.";
+const searchPlaceholderText = (input, width) => {
+  if (width >= 156) return input?.dataset.searchPlaceholder || "검색어를 입력해주세요.";
   return "검색어 입력";
 };
 function syncSearchInputPlaceholder(input) {
   if (!input) return;
   const width = input.clientWidth || input.getBoundingClientRect?.().width || 0;
-  input.placeholder = searchPlaceholderText(width);
+  input.placeholder = searchPlaceholderText(input, width);
 }
 function syncSearchPlaceholders() {
   searchPlaceholderInputs().forEach(syncSearchInputPlaceholder);
@@ -118,7 +118,9 @@ const sidebarRouteTargets = [
   { attribute: "data-category-catalog-open", section: "catalog" },
   { attribute: "data-category-release-open", section: "release" },
   { attribute: "data-category-anime-episodes-open", section: "anime-episodes" },
-  { attribute: "data-category-anime-open", section: "anime" }
+  { attribute: "data-category-anime-open", section: "anime" },
+  { attribute: "data-mobile-media-open", section: "media" },
+  { attribute: "data-mobile-search-open", section: "all" }
 ];
 const sidebarCurrentButtonSelector = sidebarRouteTargets.map(({ attribute }) => `[${attribute}]`).join(", ");
 const getSidebarRoots = () => Array.from(document.querySelectorAll("[data-sidebar-root]"));
@@ -128,10 +130,11 @@ const getNavigationRoots = () => [
 ];
 const getSidebarButtonSection = button => sidebarRouteTargets.find(({ attribute }) => button.hasAttribute(attribute))?.section || "";
 const normalizeSidebarSection = section => {
-  if (["catalog", "bey", "tools"].includes(section)) return "catalog";
-  return ["overview", "release", "anime", "anime-episodes"].includes(section) ? section : "";
+  if (["catalog", "bey", "parts", "tools"].includes(section)) return "catalog";
+  return ["overview", "all", "release", "anime", "anime-episodes"].includes(section) ? section : "";
 };
 const isNavigationButtonCurrent = (button, currentSection) => {
+  if (button.hasAttribute("data-mobile-media-open")) return ["anime", "anime-episodes"].includes(currentSection);
   return getSidebarButtonSection(button) === currentSection;
 };
 const setSidebarButtonCurrent = (button, active) => {
