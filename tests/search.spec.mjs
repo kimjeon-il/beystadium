@@ -35,7 +35,7 @@ test("real search data keeps representative result IDs and ordering", async ({ p
       route: `/#search?q=${encodeURIComponent("스톰 페가시스")}&scope=bey`,
       query: "스톰 페가시스",
       scope: "bey",
-      totalCount: 11,
+      totalCount: 9,
       expectedIds: [
         "BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF",
         "BEY-METAL-FIGHT-BB-32-STORM-PEGASIS-105RF",
@@ -44,14 +44,20 @@ test("real search data keeps representative result IDs and ordering", async ({ p
         "BEY-BURST-B-00-STORM-PEGASIS-10-G-QC-DASH",
         "BEY-BURST-B-140-02-STORM-PEGASIS-10-G-QC-DASH",
         "BEY-BURST-B-151-05-STORM-PEGASIS-HR-AT",
-        "BEY-X-BX-00-STORM-PEGASIS-3-70RA",
-        "PART-BURST-LAYER-STORM-PEGASIS",
-        "PART-X-BLADE-STORM-PEGASIS"
+        "BEY-BURST-B-176-07-STORM-PEGASIS-DR-HS",
+        "BEY-X-BX-00-STORM-PEGASIS-3-70RA"
       ],
-      orderedGroups: [
-        ["BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF", "BEY-METAL-FIGHT-BB-32-STORM-PEGASIS-105RF", "BEY-METAL-FIGHT-BB-44-STORM-PEGASIS-100RF", "BEY-BURST-B-00-STORM-PEGASIS-HR-L-DASH", "BEY-BURST-B-00-STORM-PEGASIS-10-G-QC-DASH", "BEY-BURST-B-140-02-STORM-PEGASIS-10-G-QC-DASH", "BEY-BURST-B-151-05-STORM-PEGASIS-HR-AT"],
-        ["PART-X-BLADE-STORM-PEGASIS", "BEY-X-BX-00-STORM-PEGASIS-3-70RA", "PART-BURST-LAYER-STORM-PEGASIS"]
-      ]
+      orderedGroups: [[
+        "BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF",
+        "BEY-METAL-FIGHT-BB-32-STORM-PEGASIS-105RF",
+        "BEY-METAL-FIGHT-BB-44-STORM-PEGASIS-100RF",
+        "BEY-BURST-B-00-STORM-PEGASIS-HR-L-DASH",
+        "BEY-BURST-B-00-STORM-PEGASIS-10-G-QC-DASH",
+        "BEY-BURST-B-140-02-STORM-PEGASIS-10-G-QC-DASH",
+        "BEY-BURST-B-151-05-STORM-PEGASIS-HR-AT",
+        "BEY-BURST-B-176-07-STORM-PEGASIS-DR-HS",
+        "BEY-X-BX-00-STORM-PEGASIS-3-70RA"
+      ]]
     },
     {
       route: "/#search?q=BX-01&scope=all",
@@ -70,7 +76,7 @@ test("real search data keeps representative result IDs and ordering", async ({ p
       route: `/#search?q=${encodeURIComponent("ㅅㅌㅍㄱㅅㅅ")}&scope=bey`,
       query: "ㅅㅌㅍㄱㅅㅅ",
       scope: "bey",
-      totalCount: 11,
+      totalCount: 9,
       expectedIds: [
         "BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF",
         "BEY-METAL-FIGHT-BB-32-STORM-PEGASIS-105RF",
@@ -80,13 +86,19 @@ test("real search data keeps representative result IDs and ordering", async ({ p
         "BEY-BURST-B-140-02-STORM-PEGASIS-10-G-QC-DASH",
         "BEY-BURST-B-151-05-STORM-PEGASIS-HR-AT",
         "BEY-BURST-B-176-07-STORM-PEGASIS-DR-HS",
-        "BEY-X-BX-00-STORM-PEGASIS-3-70RA",
-        "PART-X-BLADE-STORM-PEGASIS"
+        "BEY-X-BX-00-STORM-PEGASIS-3-70RA"
       ],
-      orderedGroups: [
-        ["BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF", "BEY-METAL-FIGHT-BB-32-STORM-PEGASIS-105RF", "BEY-METAL-FIGHT-BB-44-STORM-PEGASIS-100RF", "BEY-BURST-B-00-STORM-PEGASIS-HR-L-DASH", "BEY-BURST-B-00-STORM-PEGASIS-10-G-QC-DASH", "BEY-BURST-B-140-02-STORM-PEGASIS-10-G-QC-DASH", "BEY-BURST-B-151-05-STORM-PEGASIS-HR-AT", "BEY-BURST-B-176-07-STORM-PEGASIS-DR-HS"],
-        ["BEY-X-BX-00-STORM-PEGASIS-3-70RA", "PART-X-BLADE-STORM-PEGASIS"]
-      ]
+      orderedGroups: [[
+        "BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF",
+        "BEY-METAL-FIGHT-BB-32-STORM-PEGASIS-105RF",
+        "BEY-METAL-FIGHT-BB-44-STORM-PEGASIS-100RF",
+        "BEY-BURST-B-00-STORM-PEGASIS-HR-L-DASH",
+        "BEY-BURST-B-00-STORM-PEGASIS-10-G-QC-DASH",
+        "BEY-BURST-B-140-02-STORM-PEGASIS-10-G-QC-DASH",
+        "BEY-BURST-B-151-05-STORM-PEGASIS-HR-AT",
+        "BEY-BURST-B-176-07-STORM-PEGASIS-DR-HS",
+        "BEY-X-BX-00-STORM-PEGASIS-3-70RA"
+      ]]
     },
     {
       route: `/#search?q=${encodeURIComponent("스톰 페가시스 105RF")}&scope=product`,
@@ -132,7 +144,7 @@ test("chassis search tags keep exact result IDs and ordering", async ({ page }, 
   ];
 
   for (const [query, expectedIds] of cases) {
-    await page.goto(`/#search?q=${encodeURIComponent(query)}&scope=bey`);
+    await page.goto(`/#search?q=${encodeURIComponent(query)}&scope=parts`);
     await expect(page.locator("#globalCount")).toHaveText(String(expectedIds.length));
     await expect.poll(() => resultIds(page)).toEqual(expectedIds);
   }
@@ -140,7 +152,7 @@ test("chassis search tags keep exact result IDs and ordering", async ({ page }, 
 
 test("Judgement search uses the corrected English spelling and addresses", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "The same search data is shared by desktop and mobile layouts.");
-  await page.goto(`/#search?q=${encodeURIComponent("Judgement")}&scope=bey`);
+  await page.goto(`/#search?q=${encodeURIComponent("Judgement")}&scope=all`);
   await expect.poll(() => resultIds(page)).toEqual(expect.arrayContaining([
     "PART-BURST-GACHIBASE-JUDGEMENT",
     "PART-BURST-GACHILAYER-JUDGEMENT-ASHURA-METSU",
