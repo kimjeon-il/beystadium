@@ -10,6 +10,11 @@ const consoleErrors = page => {
 };
 
 const injectRegionalProductPreviewImages = async page => {
+  await page.route("**/assets/images/beys/storm-pegasis*.png", route => route.fulfill({
+    status: 200,
+    contentType: "image/svg+xml",
+    body: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><rect width="32" height="32" fill="#94a3b8"/></svg>'
+  }));
   await page.route("**/data/runtime/series/metal-fight.json*", async route => {
     const response = await route.fetch();
     const payload = await response.json();
@@ -61,18 +66,32 @@ const expectModalBackAtShellTopLeft = async backButton => {
   await expect(backButton).toBeVisible();
   const geometry = await backButton.evaluate(button => {
     const shell = button.closest(".modal-inner");
+    const rect = button.getBoundingClientRect();
     return {
+      compact: window.matchMedia("(max-width: 39.999rem)").matches,
       parentIsShell: button.parentElement === shell,
       offsetParentIsShell: button.offsetParent === shell,
       left: Math.round(button.offsetLeft),
-      top: Math.round(button.offsetTop)
+      top: Math.round(button.offsetTop),
+      viewportLeft: Math.round(rect.left),
+      viewportTop: Math.round(rect.top),
+      position: getComputedStyle(button).position
     };
   });
-  expect(geometry).toEqual({
+  if (geometry.compact) {
+    expect(geometry.parentIsShell).toBe(true);
+    expect(geometry.position).toBe("fixed");
+    expect(geometry.viewportLeft).toBe(6);
+    expect(geometry.viewportTop).toBe(6);
+    return;
+  }
+  expect(geometry).toMatchObject({
+    compact: false,
     parentIsShell: true,
     offsetParentIsShell: true,
     left: 18,
-    top: 18
+    top: 18,
+    position: "absolute"
   });
 };
 
@@ -156,7 +175,7 @@ test("runtime data is loaded by route instead of during home boot", async ({ pag
   expect(moduleRequests).toContain("/src/data-store.js");
   expect(moduleRequests).not.toContain("/src/app-entry.js");
   expect(moduleRequests).not.toContain("/src/router.js");
-  expect(styleRequests).toEqual(["/styles/base.css"]);
+  expect(styleRequests).toEqual(["/styles/base.css", "/styles/mobile.css"]);
 
   await page.goto("/#toy-release");
   await expect(page.locator(".release-product-row").first()).toBeVisible();
@@ -778,16 +797,13 @@ test("search results own live search controls", async ({ page }, testInfo) => {
     await expect(page.locator("#searchResultsSearchInput")).toHaveValue("드랜소드");
   } else {
     await page.goto("/");
-    await page.locator("#menuButton").click();
-    await expect(page.locator("#mobileDrawer")).toBeVisible();
-    await page.locator("#mobileDrawerSearchInput").click();
-    await expect(page.locator("#mobileDrawerSearchInput")).toHaveAttribute("data-search-input-bound", "true");
-    await page.locator("#mobileDrawerSearchInput").fill("페가시스");
-    await page.locator("#mobileDrawerSearchInput").press("Enter");
+    await page.locator(".mobile-bottom-nav [data-mobile-search-open]").click();
     await expect(page.locator('[data-app-panel="all"].active')).toBeVisible();
     await expect(page.locator("#searchResultsSearchInput")).toBeFocused();
+    await page.locator("#searchResultsSearchInput").fill("페가시스");
+    await page.locator("#searchResultsSearchInput").press("Enter");
     await expect(page.locator("#searchResultsSearchInput")).toHaveValue("페가시스");
-    await expect(page.locator("#mobileDrawer")).toBeHidden();
+    await expect(page.locator(".mobile-bottom-nav [data-mobile-search-open]")).toHaveClass(/active/);
   }
 
   await page.goto(`/#toy-catalog?scope=bey&series=x&q=${encodeURIComponent("공격형")}`);
@@ -917,13 +933,13 @@ test("persistent selections use the existing neutral highlight in light and dark
     await page.emulateMedia({ colorScheme, reducedMotion: "reduce" });
     await page.goto(`/#toy-catalog?scope=all&series=all&sort=latest&page=1&q=${encodeURIComponent("공격형")}`);
     await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
-    await expect(page.locator(".catalog-pagination-nav .ui-button.active")).toBeVisible();
+    await expect(page.locator(
+      testInfo.project.name === "mobile"
+        ? ".catalog-pagination-nav .pagination-status"
+        : ".catalog-pagination-nav .ui-button.active"
+    )).toBeVisible();
     await expect(page.locator('[data-catalog-filter-chips="catalog"] .active-query-chip')).toBeVisible();
     if (testInfo.project.name === "desktop") await page.mouse.move(1, 1);
-    if (testInfo.project.name === "mobile") {
-      await page.locator("#menuButton").click();
-      await expect(page.locator("#mobileDrawer")).toBeVisible();
-    }
     const colors = await page.evaluate(() => ({
       ...(() => {
         const probe = document.createElement("i");
@@ -1233,20 +1249,22 @@ test("keyboard focus indicators stay visible across interface surfaces", async (
     await page.goto("/#toy-catalog?scope=bey&series=x");
     await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
 
-    await expectFocusIndicator(page.locator(mobile ? "#menuButton" : ".topbar > .brand"));
+    await expectFocusIndicator(page.locator(mobile ? ".mobile-bottom-nav [data-category-catalog-open]" : ".topbar > .brand"));
     await expectFocusIndicator(page.locator("#catalogGrid .catalog-card-action").first());
     await expectFocusIndicator(page.locator("#toTop"));
 
-    const seriesFilter = page.locator("#catalogSeriesFilter");
-    await seriesFilter.locator("summary").click();
-    await expect(seriesFilter.locator(".ui-dropdown-item").first()).toBeVisible();
-    await expectFocusIndicator(seriesFilter.locator(".ui-dropdown-item").first());
-    await seriesFilter.locator("summary").click();
-
     if (mobile) {
-      await page.locator("#menuButton").click();
-      await expect(page.locator("#mobileDrawer")).toHaveAttribute("aria-hidden", "false");
-      await expectFocusIndicator(page.locator(".mobile-drawer-close"));
+      await page.locator("#mobileCatalogFilterOpen").click();
+      await expect(page.locator("#mobileCatalogFilters")).toBeVisible();
+      await expectFocusIndicator(page.locator(".mobile-filter-sheet__close"));
+      await page.keyboard.press("Escape");
+      await expect(page.locator("#mobileCatalogFilters")).toBeHidden();
+    } else {
+      const seriesFilter = page.locator("#catalogSeriesFilter");
+      await seriesFilter.locator("summary").click();
+      await expect(seriesFilter.locator(".ui-dropdown-item").first()).toBeVisible();
+      await expectFocusIndicator(seriesFilter.locator(".ui-dropdown-item").first());
+      await seriesFilter.locator("summary").click();
     }
 
     await page.goto("/#toy-release");
@@ -1509,59 +1527,37 @@ test("search help shows only its summary when the full guide does not fit", asyn
   expect(errors).toEqual([]);
 });
 
-test("mobile modal scroll affordance stays above opaque detail sections", async ({ page }, testInfo) => {
-  test.skip(testInfo.project.name !== "mobile", "mobile modal layering coverage");
+test("mobile detail uses one outer scroll instead of nested section scrollers", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "mobile", "mobile detail scroll coverage");
   const errors = consoleErrors(page);
   await page.setViewportSize({ width: 393, height: 600 });
-  await page.goto("/#PART-BURST-DBLAYER-GREATEST-RAPHAEL");
+  await page.goto("/#PRODUCT-X-UX-10");
   await expect(page.locator("#detailModal")).toBeVisible();
 
-  const scrollArea = page.locator("#detailModal .part-modal-info .modal-scroll-area");
-  const overlayHost = page.locator("#detailModal .part-modal-info");
-  await expect(scrollArea).toHaveClass(/has-scroll-content-below/);
-  await expect(overlayHost).toHaveClass(/has-scroll-overlay/);
-  await expect.poll(() => overlayHost.evaluate(element => getComputedStyle(element, "::after").opacity)).toBe("1");
+  const scrollArea = page.locator("#detailModal .product-modal-info .modal-scroll-area");
+  const overlayHost = page.locator("#detailModal .product-modal-info");
   const layerState = await scrollArea.evaluate(element => {
     const host = element.closest(".modal-info");
-    const hostRect = host.getBoundingClientRect();
-    const scrollRect = element.getBoundingClientRect();
-    const statRect = host.querySelector(".stat-block").getBoundingClientRect();
+    const stage = element.closest(".modal-stage");
     const overlay = getComputedStyle(host, "::after");
-    const overlayBottom = hostRect.bottom - parseFloat(overlay.bottom);
-    const overlayTop = overlayBottom - parseFloat(overlay.height);
     return {
-      hostPosition: getComputedStyle(host).position,
-      overlayBottom,
-      overlayOpacity: overlay.opacity,
-      overlayPointerEvents: overlay.pointerEvents,
-      overlayShadow: overlay.boxShadow,
-      overlayTop,
-      overlayZIndex: overlay.zIndex,
-      scrollBottom: scrollRect.bottom,
-      scrollShadow: getComputedStyle(element).boxShadow,
-      shadowToken: overlay.getPropertyValue("--scroll-below-shadow"),
-      statBottom: statRect.bottom,
-      statTop: statRect.top
+      hostOverflow: getComputedStyle(host).overflow,
+      overlayDisplay: overlay.display,
+      scrollAreaMaxHeight: getComputedStyle(element).maxHeight,
+      scrollAreaOverflow: getComputedStyle(element).overflow,
+      stageClientHeight: stage.clientHeight,
+      stageOverflowY: getComputedStyle(stage).overflowY,
+      stageScrollHeight: stage.scrollHeight
     };
   });
-  expect(layerState.hostPosition).toBe("relative");
-  expect(layerState.overlayOpacity).toBe("1");
-  expect(layerState.overlayPointerEvents).toBe("none");
-  expect(layerState.overlayShadow).toContain("inset");
-  expect(layerState.overlayZIndex).toBe("5");
-  expect(layerState.scrollShadow).not.toContain("inset");
-  expect(layerState.shadowToken).toContain("28%");
-  expect(Math.abs(layerState.overlayBottom - layerState.scrollBottom)).toBeLessThanOrEqual(1);
-  expect(layerState.overlayTop).toBeLessThan(layerState.statBottom);
-  expect(layerState.overlayBottom).toBeGreaterThan(layerState.statTop);
-
-  await scrollArea.evaluate(element => { element.scrollTop = element.scrollHeight; });
   await expect(scrollArea).not.toHaveClass(/has-scroll-content-below/);
   await expect(overlayHost).not.toHaveClass(/has-scroll-overlay/);
-  await expect.poll(() => overlayHost.evaluate(element => getComputedStyle(element, "::after").opacity)).toBe("0");
-  await scrollArea.evaluate(element => { element.scrollTop = 0; });
-  await expect(scrollArea).toHaveClass(/has-scroll-content-below/);
-  await expect(overlayHost).toHaveClass(/has-scroll-overlay/);
+  expect(layerState.hostOverflow).toBe("visible");
+  expect(layerState.overlayDisplay).toBe("none");
+  expect(layerState.scrollAreaMaxHeight).toBe("none");
+  expect(layerState.scrollAreaOverflow).toBe("visible");
+  expect(layerState.stageOverflowY).toBe("auto");
+  expect(layerState.stageScrollHeight).toBeGreaterThan(layerState.stageClientHeight);
   expect(errors).toEqual([]);
 });
 
@@ -2473,12 +2469,12 @@ test("static details use a rounded single-column layout without a photo pane", a
     };
   });
   expect(layout.columns).toBe(1);
-  expect(layout.radius).toBe("24px");
+  expect(layout.radius).toBe(testInfo.project.name === "mobile" ? "0px" : "24px");
   if (testInfo.project.name === "desktop") expect(Math.abs(layout.width - 720)).toBeLessThanOrEqual(1);
   expect(errors).toEqual([]);
 });
 
-test("composition sections use eight safe rows before internal scrolling", async ({ page }, testInfo) => {
+test("composition sections use internal desktop scrolling and one outer mobile scroll", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "representative viewport coverage only needs one browser project");
   const errors = consoleErrors(page);
   const viewports = [
@@ -2521,11 +2517,19 @@ test("composition sections use eight safe rows before internal scrolling", async
         ninthClipped: rows[8].getBoundingClientRect().bottom > listRect.bottom + 1
       };
     });
-    expect(productLayout.clientHeight).toBe(288);
-    expect(productLayout.scrollHeight).toBeGreaterThan(productLayout.clientHeight);
-    expect(productLayout.outerScrollHeight).toBeLessThanOrEqual(productLayout.outerClientHeight + 1);
-    expect(productLayout.eighthVisible).toBe(true);
-    expect(productLayout.ninthClipped).toBe(true);
+    if (viewport.width <= 639) {
+      expect(productLayout.clientHeight).toBe(productLayout.scrollHeight);
+      expect(productLayout.clientHeight).toBeGreaterThan(288);
+      expect(productLayout.outerScrollHeight).toBe(productLayout.outerClientHeight);
+      expect(productLayout.eighthVisible).toBe(true);
+      expect(productLayout.ninthClipped).toBe(false);
+    } else {
+      expect(productLayout.clientHeight).toBe(288);
+      expect(productLayout.scrollHeight).toBeGreaterThan(productLayout.clientHeight);
+      expect(productLayout.outerScrollHeight).toBeLessThanOrEqual(productLayout.outerClientHeight + 1);
+      expect(productLayout.eighthVisible).toBe(true);
+      expect(productLayout.ninthClipped).toBe(true);
+    }
   }
   expect(errors).toEqual([]);
 });
@@ -2702,7 +2706,7 @@ test("X mounted part previews fit portrait bits and use each Bey's official colo
   expect(errors).toEqual([]);
 });
 
-test("X mounted part color links preview before touch navigation", async ({ page }, testInfo) => {
+test("X mounted part links navigate on the first touch", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "mobile", "touch behavior only needs the mobile project");
   const errors = consoleErrors(page);
   const preview = page.locator(".link-image-preview");
@@ -2714,13 +2718,6 @@ test("X mounted part color links preview before touch navigation", async ({ page
     "assets/images/x/beys/bey-x-bx-08-knight-shield-4-80t/parts/part-x-bit-t.webp"
   );
   await alternateTaper.tap();
-  await expect(page).toHaveURL(/#BEY-X-BX-08-KNIGHT-SHIELD-4-80T$/);
-  await expect(preview).toBeVisible();
-  await expect(preview.locator("img")).toHaveAttribute(
-    "src",
-    "assets/images/x/beys/bey-x-bx-08-knight-shield-4-80t/parts/part-x-bit-t.webp"
-  );
-  await alternateTaper.tap();
   await expect(page).toHaveURL(/#PART-X-BIT-T$/);
   await expect(preview).toBeHidden();
 
@@ -2728,12 +2725,6 @@ test("X mounted part color links preview before touch navigation", async ({ page
   const mammothSpike = page.locator('#detailModal .mounted-link[data-part-id="PART-X-BIT-S"]');
   await expect(mammothSpike).toHaveAttribute(
     "data-image-preview-src",
-    "assets/images/x/beys/bey-x-bx-48-03-mammoth-tusk-7-60s/parts/part-x-bit-s.webp"
-  );
-  await mammothSpike.tap();
-  await expect(page).toHaveURL(/#BEY-X-BX-48-03-MAMMOTH-TUSK-7-60S$/);
-  await expect(preview.locator("img")).toHaveAttribute(
-    "src",
     "assets/images/x/beys/bey-x-bx-48-03-mammoth-tusk-7-60s/parts/part-x-bit-s.webp"
   );
   await mammothSpike.tap();
@@ -2749,45 +2740,40 @@ test("X mounted part color links preview before touch navigation", async ({ page
   await unavailablePreview.tap();
   await expect(page).toHaveURL(/#PART-X-BLADE-LOCK-CHIP-BUGS$/);
   await expect(preview).toBeHidden();
-
-  await page.goto("/#BEY-X-BX-08-KNIGHT-SHIELD-4-80T");
-  await page.locator('#detailModal .mounted-link[data-part-id="PART-X-BIT-T"]').click();
-  await expect(page).toHaveURL(/#PART-X-BIT-T$/);
-  await expect(preview).toBeHidden();
   expect(errors).toEqual([]);
 });
 
-test("touch release links close previews on outside input and open details on the second tap", async ({ page }, testInfo) => {
+test("touch release rows separate image previews from one-tap detail navigation", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "mobile", "touch behavior only needs the mobile project");
   await injectRegionalProductPreviewImages(page);
   await page.goto("/#toy-release");
   await page.locator(".release-list-page .table-list-dropdown summary").tap();
   await page.locator('[data-release-series="metal fight"]').tap();
   await page.locator("#releaseSearchInput").fill("BB-28");
-  const releaseLink = page.locator('.release-product-row[data-product-id="PRODUCT-METAL-FIGHT-BB-28"] .release-product-link');
+  const releaseRow = page.locator('.release-product-row[data-product-id="PRODUCT-METAL-FIGHT-BB-28"]');
+  const releaseLink = releaseRow.locator(".release-product-link");
+  const previewButton = releaseRow.locator(".release-image-preview-button");
   const preview = page.locator(".link-image-preview");
   const releaseUrl = page.url();
 
-  await releaseLink.tap();
+  await previewButton.tap();
   expect(page.url()).toBe(releaseUrl);
   await expect(preview).toBeVisible();
   await expect(preview.locator("img")).toHaveAttribute("src", "assets/images/beys/storm-pegasis.png");
   await page.locator("#releaseSearchInput").tap();
   await expect(preview).toBeHidden();
 
-  await releaseLink.tap();
+  await previewButton.tap();
   await expect(preview).toBeVisible();
   await page.keyboard.press("Escape");
   await expect(preview).toBeHidden();
   expect(page.url()).toBe(releaseUrl);
 
-  await releaseLink.tap();
+  await previewButton.tap();
   await expect(preview).toBeVisible();
   await page.evaluate(() => document.dispatchEvent(new Event("scroll")));
   await expect(preview).toBeHidden();
 
-  await releaseLink.tap();
-  await expect(preview).toBeVisible();
   await releaseLink.tap();
   await expect(page.locator("#detailModal")).toBeVisible();
   await expect(preview).toBeHidden();
@@ -3537,21 +3523,18 @@ test("open detail modal follows viewport resize in both directions", async ({ pa
   expect(errors).toEqual([]);
 });
 
-test("mobile drawer opens and exposes category navigation", async ({ page }, testInfo) => {
+test("mobile bottom navigation exposes the five primary destinations", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "mobile", "mobile-only behavior");
   const errors = consoleErrors(page);
   await page.goto("/");
-  await page.locator("#menuButton").click();
-  await expect(page.locator("#mobileDrawer")).toHaveAttribute("aria-hidden", "false");
-  await expect(page.locator("[data-category-catalog-open]").last()).toBeVisible();
-  await expect(page.locator("#mobileDrawer [data-sidebar-home]")).toHaveCSS("color", "rgb(16, 24, 39)");
-  const currentMenuColors = await page.locator("#mobileDrawer [data-sidebar-home]").evaluate(element => ({
-    text: getComputedStyle(element).color,
-    marker: getComputedStyle(element, "::before").backgroundColor,
-    icon: getComputedStyle(element.querySelector(".sidebar-button__icon")).color
-  }));
-  expect(currentMenuColors.marker).toBe(currentMenuColors.icon);
-  expect(currentMenuColors.marker).not.toBe(currentMenuColors.text);
+  const navigation = page.locator(".mobile-bottom-nav");
+  await expect(navigation).toBeVisible();
+  await expect(navigation.locator(":scope > button")).toHaveCount(5);
+  await expect(navigation.locator("[data-sidebar-home]")).toHaveClass(/active/);
+  await navigation.locator("[data-category-catalog-open]").click();
+  await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
+  await expect(navigation.locator("[data-category-catalog-open]")).toHaveClass(/active/);
+  await expect(page.locator("#mobileDrawer")).toBeHidden();
   expect(errors).toEqual([]);
 });
 
