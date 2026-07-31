@@ -190,9 +190,9 @@ test.describe("mobile-first navigation and content", () => {
     await expect(shell).toBeVisible();
     await expect(dialog.locator(".product-composition-item").first()).toBeVisible();
 
-    const mobileBack = dialog.locator("#modalMobileBack");
-    await expect(mobileBack).toBeVisible();
-    const backGeometry = await mobileBack.evaluate(element => {
+    const contextualBack = dialog.locator(".modal-back[data-back-release]");
+    await expect(contextualBack).toBeVisible();
+    const backGeometry = await contextualBack.evaluate(element => {
       const rect = element.getBoundingClientRect();
       return {
         left: Math.round(rect.left),
@@ -219,9 +219,18 @@ test.describe("mobile-first navigation and content", () => {
     expect(geometry.shellOverflow).toBe("visible");
     expect(geometry.innerOverflow).toBe("visible");
 
-    await mobileBack.tap();
+    await contextualBack.tap();
     await expect(dialog).toBeHidden();
     await expect(page.locator('[data-app-panel="release"].active')).toBeVisible();
+
+    await page.goto("/#BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF");
+    await expect(dialog).toBeVisible();
+    const fallbackBack = dialog.locator("#modalMobileBack");
+    await expect(fallbackBack).toBeVisible();
+    await expect(dialog.locator("#modalContent .modal-back")).toHaveCount(0);
+    await fallbackBack.tap();
+    await expect(dialog).toBeHidden();
+    await expect(page.locator('[data-app-panel="catalog"].active')).toBeVisible();
     expect(errors).toEqual([]);
   });
 });
