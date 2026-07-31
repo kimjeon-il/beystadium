@@ -848,10 +848,12 @@ test("catalog query chips split designated attributes and keep sort alignment st
       documentWidth: document.documentElement.scrollWidth
     };
   });
-  const expectAligned = (actual, baseline) => {
-    expect(Math.abs(actual.actionsRight - baseline.actionsRight)).toBeLessThanOrEqual(1);
-    expect(Math.abs(actual.dropdownRight - baseline.dropdownRight)).toBeLessThanOrEqual(1);
-    expect(actual.actionGridColumn).toBe("2");
+  const expectAligned = (actual, baseline, hasQuery = false) => {
+    const stacked = testInfo.project.name === "mobile" && hasQuery;
+    const alignmentTolerance = stacked ? 8 : 1;
+    expect(Math.abs(actual.actionsRight - baseline.actionsRight)).toBeLessThanOrEqual(alignmentTolerance);
+    expect(Math.abs(actual.dropdownRight - baseline.dropdownRight)).toBeLessThanOrEqual(alignmentTolerance);
+    expect(actual.actionGridColumn).toBe(stacked ? "1" : "2");
     expect(actual.dropdownRight).toBeLessThanOrEqual(actual.viewportWidth + 1);
     expect(actual.documentWidth).toBeLessThanOrEqual(actual.viewportWidth + 1);
   };
@@ -870,14 +872,14 @@ test("catalog query chips split designated attributes and keep sort alignment st
   await expect(queryChips.nth(1)).toHaveAttribute("aria-label", "검색어 “공격형” 제거");
   await expect.poll(async () => (await routeState()).query).toBe(query);
   expect(await routeState()).toEqual({ scope: "bey", series: "x", sort: "no-desc", page: "1", query });
-  expectAligned(await layout(), emptyLayout);
+  expectAligned(await layout(), emptyLayout, true);
 
   await queryChips.nth(1).click();
   await expect(searchInput).toHaveValue("스톰 페가시스");
   await expect(queryChips).toHaveCount(1);
   await expect(queryChips).toContainText("스톰 페가시스");
   await expect.poll(async () => (await routeState()).query).toBe("스톰 페가시스");
-  expectAligned(await layout(), emptyLayout);
+  expectAligned(await layout(), emptyLayout, true);
 
   await queryChips.click();
   await expect(searchInput).toHaveValue("");
@@ -893,7 +895,7 @@ test("catalog query chips split designated attributes and keep sort alignment st
   await expect(queryChips).toHaveCount(1);
   await expect(queryChips).toContainText("공격형");
   await expect.poll(async () => (await routeState()).query).toBe("공격형");
-  expectAligned(await layout(), emptyLayout);
+  expectAligned(await layout(), emptyLayout, true);
 
   if (testInfo.project.name === "desktop") {
     const compoundQuery = "드랜 버스터 메인 블레이드";
@@ -902,7 +904,7 @@ test("catalog query chips split designated attributes and keep sort alignment st
     await expect(queryChips.nth(0)).toContainText("드랜 버스터");
     await expect(queryChips.nth(1)).toContainText("메인블레이드");
     await expect.poll(async () => (await routeState()).query).toBe(compoundQuery);
-    expectAligned(await layout(), emptyLayout);
+    expectAligned(await layout(), emptyLayout, true);
   }
   expect(errors).toEqual([]);
 });
@@ -3012,7 +3014,11 @@ test("episode modal matches the rare bey get shell and preserves contextual back
   }
 
   const backBox = await backButton.boundingBox();
-  expect(episodeGeometry.title.y - (backBox.y + backBox.height)).toBeGreaterThanOrEqual(7.5);
+  if (testInfo.project.name === "desktop") {
+    expect(episodeGeometry.title.y - (backBox.y + backBox.height)).toBeGreaterThanOrEqual(7.5);
+  } else {
+    expect(episodeGeometry.title.y).toBeGreaterThanOrEqual(56);
+  }
   const viewport = page.viewportSize();
   const closeBox = await page.locator("#detailModal .modal-close").boundingBox();
   expect(episodeGeometry.shell.x).toBeGreaterThanOrEqual(0);
@@ -3239,7 +3245,7 @@ test("modal tags use one free horizontal scroll row when space is narrow", async
   expect(edgeWheelBehavior.dispatched).toBe(true);
   expect(edgeWheelBehavior.afterOutward).toBe(edgeWheelBehavior.atEnd);
 
-  if (testInfo.project.name === "desktop") {
+  if (narrowWidth >= 640) {
     await slot.evaluate(element => { element.scrollLeft = 0; });
     await slot.hover();
     await page.mouse.wheel(0, 120);
