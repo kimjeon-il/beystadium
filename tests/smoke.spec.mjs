@@ -1227,7 +1227,7 @@ test("shared interface controls keep tokenized sizes and timings", async ({ page
   expect(catalogControls.searchScope[1]).toBe(mobile ? 44 : 32);
   expect(catalogControls.dropdownItem[1]).toBe(mobile ? 44 : 38);
   expect(catalogControls.toTop).toEqual([44, 44]);
-  expect(catalogControls.drawerClose).toEqual([44, 44]);
+  expect(catalogControls.drawerClose).toEqual(mobile ? [0, 0] : [44, 44]);
   expect(catalogControls.dropdownMotion).toEqual(["0.16s", "0.16s"]);
   expect(catalogControls.menuMotion).toEqual(["0.16s", "0.16s"]);
   expect(catalogControls.menuLineMotion).toEqual(["0.18s", "0.18s", "0.16s", "0.18s"]);
