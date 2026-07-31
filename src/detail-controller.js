@@ -523,6 +523,16 @@ function closeDetail() {
   navigateToRoute(targetRoute, { replace: true, preserveScroll: true, preserveSearch: true });
   restorePageScroll(targetScrollY);
 }
+const modalMobileBack = document.querySelector("#modalMobileBack");
+modalMobileBack?.addEventListener("click", event => {
+  event.preventDefault();
+  const contextualBack = document.querySelector("#modalContent .modal-back");
+  if (contextualBack) {
+    contextualBack.click();
+    return;
+  }
+  closeDetail();
+});
 document.querySelector("#modalClose").addEventListener("click", closeDetail);
 document.querySelector("[data-modal-overlay]")?.addEventListener("click", closeDetail);
 modal.addEventListener("cancel", event => {
