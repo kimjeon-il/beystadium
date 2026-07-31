@@ -20,7 +20,8 @@
       type="font/woff2"
       crossorigin
     >
-    <link rel="stylesheet" href="./styles/base.css?v=20260726-x-alpha-edge-refinement" data-style-key="base">
+    <link rel="stylesheet" href="./styles/base.css?v=20260731-mobile-overhaul" data-style-key="base">
+    <link rel="stylesheet" href="./styles/mobile.css?v=20260731-mobile-overhaul" data-style-key="mobile">
   </head>
   <body class="is-overview" data-active-panel="overview">
     <div class="data-load-status" id="dataLoadStatus" role="status" aria-live="polite" hidden>
@@ -29,6 +30,14 @@
       <button type="button" data-load-retry hidden>다시 시도</button>
     </div>
     <header class="topbar">
+      <div class="mobile-topbar" aria-label="현재 화면">
+        <button class="mobile-topbar-back" id="mobileTopbarBack" type="button" aria-label="이전 화면으로 이동" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m14.5 5-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <strong class="mobile-topbar-title" id="mobileTopbarTitle">베이 아카이브</strong>
+      </div>
       <a class="brand" href="#" data-sidebar-home aria-label="홈으로 이동">
         <span class="brand-mark" aria-hidden="true">B</span>
         <span>베이 아카이브</span>
@@ -57,10 +66,12 @@
             <div class="catalog-dropdown-menu">
               <button type="button" class="ui-dropdown-item active" data-global-search-scope="all">전체</button>
               <button type="button" class="ui-dropdown-item" data-global-search-scope="bey">베이</button>
+              <button type="button" class="ui-dropdown-item" data-global-search-scope="parts">부품</button>
               <button type="button" class="ui-dropdown-item" data-global-search-scope="tools">장비</button>
               <button type="button" class="ui-dropdown-item" data-global-search-scope="product">제품</button>
+              <button type="button" class="ui-dropdown-item" data-global-search-scope="character">인물</button>
               <button type="button" class="ui-dropdown-item" data-global-search-scope="manga">만화</button>
-              <button type="button" class="ui-dropdown-item" data-global-search-scope="anime">애니</button>
+              <button type="button" class="ui-dropdown-item" data-global-search-scope="anime">방영</button>
             </div>
           </details>
           <span class="search-icon" aria-hidden="true"></span>
@@ -86,10 +97,12 @@
           <div class="catalog-dropdown-menu">
             <button type="button" class="ui-dropdown-item active" data-mobile-drawer-search-scope="all">전체</button>
             <button type="button" class="ui-dropdown-item" data-mobile-drawer-search-scope="bey">베이</button>
+            <button type="button" class="ui-dropdown-item" data-mobile-drawer-search-scope="parts">부품</button>
             <button type="button" class="ui-dropdown-item" data-mobile-drawer-search-scope="tools">장비</button>
             <button type="button" class="ui-dropdown-item" data-mobile-drawer-search-scope="product">제품</button>
+            <button type="button" class="ui-dropdown-item" data-mobile-drawer-search-scope="character">인물</button>
             <button type="button" class="ui-dropdown-item" data-mobile-drawer-search-scope="manga">만화</button>
-            <button type="button" class="ui-dropdown-item" data-mobile-drawer-search-scope="anime">애니</button>
+            <button type="button" class="ui-dropdown-item" data-mobile-drawer-search-scope="anime">방영</button>
           </div>
         </details>
         <span class="search-icon" aria-hidden="true"></span>
@@ -178,14 +191,34 @@
                     <div class="catalog-dropdown-menu">
                       <button type="button" class="ui-dropdown-item active" data-overview-search-scope="all">전체</button>
                       <button type="button" class="ui-dropdown-item" data-overview-search-scope="bey">베이</button>
+                      <button type="button" class="ui-dropdown-item" data-overview-search-scope="parts">부품</button>
                       <button type="button" class="ui-dropdown-item" data-overview-search-scope="tools">장비</button>
                       <button type="button" class="ui-dropdown-item" data-overview-search-scope="product">제품</button>
+                      <button type="button" class="ui-dropdown-item" data-overview-search-scope="character">인물</button>
                       <button type="button" class="ui-dropdown-item" data-overview-search-scope="manga">만화</button>
-                      <button type="button" class="ui-dropdown-item" data-overview-search-scope="anime">애니</button>
+                      <button type="button" class="ui-dropdown-item" data-overview-search-scope="anime">방영</button>
                     </div>
                   </details>
                   <span class="search-icon" aria-hidden="true"></span>
                   <input id="overviewSearchInput" type="search" placeholder="검색어를 입력해주세요." autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none">
+                </div>
+                <div class="overview-quick-links" aria-label="빠른 찾기">
+                  <button type="button" data-category-catalog-open data-catalog-scope="bey">
+                    <span class="overview-quick-links__icon" aria-hidden="true">B</span>
+                    <span>베이 찾기</span>
+                  </button>
+                  <button type="button" data-category-catalog-open data-catalog-scope="parts">
+                    <span class="overview-quick-links__icon" aria-hidden="true">P</span>
+                    <span>부품 찾기</span>
+                  </button>
+                  <button type="button" data-category-release-open>
+                    <span class="overview-quick-links__icon" aria-hidden="true">R</span>
+                    <span>제품 찾기</span>
+                  </button>
+                  <button type="button" data-category-anime-episodes-open>
+                    <span class="overview-quick-links__icon" aria-hidden="true">E</span>
+                    <span>회차 찾기</span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -227,18 +260,24 @@
                     <details class="search-scope catalog-dropdown" id="catalogSearchScope" data-scope="all" aria-label="완구 검색 범위">
                       <summary><b class="catalog-dropdown-value">전체</b></summary>
                       <div class="catalog-dropdown-menu">
-                        <button type="button" class="ui-dropdown-item active" data-catalog-search-scope="all">전체</button>
-                        <button type="button" class="ui-dropdown-item" data-catalog-search-scope="bey">베이</button>
-                        <button type="button" class="ui-dropdown-item" data-catalog-search-scope="parts">부품</button>
-                        <button type="button" class="ui-dropdown-item" data-catalog-search-scope="tools">장비</button>
+                      <button type="button" class="ui-dropdown-item active" data-catalog-search-scope="all">전체</button>
+                      <button type="button" class="ui-dropdown-item" data-catalog-search-scope="bey">베이</button>
+                      <button type="button" class="ui-dropdown-item" data-catalog-search-scope="parts">부품</button>
+                      <button type="button" class="ui-dropdown-item" data-catalog-search-scope="tools">장비</button>
                       </div>
                     </details>
                     <span class="search-icon" aria-hidden="true"></span>
-                    <input id="catalogSearchInput" type="search" placeholder="검색어를 입력해주세요." autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none">
+                    <input id="catalogSearchInput" type="search" placeholder="완구 도감에서 검색" data-search-placeholder="완구 도감에서 검색" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none">
                     <button type="button" class="catalog-search-help-button" id="catalogSearchHelpButton" aria-label="상세검색 도움말" aria-expanded="false" aria-controls="catalogSearchHelpPopover">?</button>
                   </div>
                 </div>
               </div>
+              <button class="mobile-catalog-filter-button" id="mobileCatalogFilterOpen" type="button" aria-haspopup="dialog" aria-controls="mobileCatalogFilters">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 6h16M7 12h10M10 18h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+                <span>필터</span>
+              </button>
             </div>
             <div class="catalog-search-help-popover" id="catalogSearchHelpPopover" role="tooltip" hidden>
               <strong>상세검색</strong>
@@ -294,7 +333,7 @@
               <div class="unified-search catalog-local-search anime-local-search">
                 <div class="search-box global-search-box catalog-search-box anime-search-box">
                   <span class="search-icon" aria-hidden="true"></span>
-                  <input id="animeSearchInput" type="search" placeholder="검색어를 입력해주세요." autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none">
+                  <input id="animeSearchInput" type="search" placeholder="등장인물에서 검색" data-search-placeholder="등장인물에서 검색" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none">
                   <button type="button" class="catalog-search-help-button anime-search-help-button" id="animeSearchHelpButton" aria-label="상세검색 도움말" aria-expanded="false" aria-controls="animeSearchHelpPopover">?</button>
                 </div>
               </div>
@@ -337,6 +376,95 @@
       </div>
     </dialog>
 
+    <section class="mobile-filter-sheet" id="mobileCatalogFilters" role="dialog" aria-modal="true" aria-labelledby="mobileCatalogFiltersTitle" hidden>
+      <button class="mobile-filter-sheet__scrim" type="button" data-mobile-filter-close tabindex="-1" aria-label="필터 닫기"></button>
+      <div class="mobile-filter-sheet__panel">
+        <header class="mobile-filter-sheet__header">
+          <h2 id="mobileCatalogFiltersTitle">완구 도감 필터</h2>
+          <button class="mobile-filter-sheet__close" type="button" data-mobile-filter-close aria-label="필터 닫기">×</button>
+        </header>
+        <div class="mobile-filter-sheet__body">
+          <fieldset class="mobile-filter-group" data-mobile-filter-group="series">
+            <legend>세대</legend>
+            <div class="mobile-filter-options">
+              <button type="button" data-mobile-filter-series="all">전체</button>
+              <button type="button" data-mobile-filter-series="topblade">탑블레이드</button>
+              <button type="button" data-mobile-filter-series="metal fight">메탈 파이트</button>
+              <button type="button" data-mobile-filter-series="burst">버스트</button>
+              <button type="button" data-mobile-filter-series="x">X</button>
+            </div>
+          </fieldset>
+          <fieldset class="mobile-filter-group" data-mobile-filter-group="scope">
+            <legend>분류</legend>
+            <div class="mobile-filter-options">
+              <button type="button" data-mobile-filter-scope="all">전체</button>
+              <button type="button" data-mobile-filter-scope="bey">베이</button>
+              <button type="button" data-mobile-filter-scope="parts">부품</button>
+              <button type="button" data-mobile-filter-scope="tools">장비</button>
+            </div>
+          </fieldset>
+          <fieldset class="mobile-filter-group" data-mobile-filter-group="system">
+            <legend>시스템·라인</legend>
+            <div class="mobile-filter-options">
+              <button type="button" data-mobile-filter-query="">전체</button>
+              <button type="button" data-mobile-filter-query="하이브리드">하이브리드</button>
+              <button type="button" data-mobile-filter-query="4D">4D</button>
+              <button type="button" data-mobile-filter-query="싱크롬">싱크롬</button>
+              <button type="button" data-mobile-filter-query="베이직라인">베이직라인</button>
+              <button type="button" data-mobile-filter-query="유니크라인">유니크라인</button>
+              <button type="button" data-mobile-filter-query="커스텀라인">커스텀라인</button>
+            </div>
+          </fieldset>
+          <fieldset class="mobile-filter-group" data-mobile-filter-group="type">
+            <legend>타입</legend>
+            <div class="mobile-filter-options">
+              <button type="button" data-mobile-filter-query="">전체</button>
+              <button type="button" data-mobile-filter-query="공격형">공격형</button>
+              <button type="button" data-mobile-filter-query="방어형">방어형</button>
+              <button type="button" data-mobile-filter-query="지구형">지구형</button>
+              <button type="button" data-mobile-filter-query="균형형">균형형</button>
+            </div>
+          </fieldset>
+          <fieldset class="mobile-filter-group" data-mobile-filter-group="spin">
+            <legend>회전</legend>
+            <div class="mobile-filter-options">
+              <button type="button" data-mobile-filter-query="">전체</button>
+              <button type="button" data-mobile-filter-query="우회전">우회전</button>
+              <button type="button" data-mobile-filter-query="좌회전">좌회전</button>
+              <button type="button" data-mobile-filter-query="양회전">양회전</button>
+            </div>
+          </fieldset>
+        </div>
+        <footer class="mobile-filter-sheet__actions">
+          <button class="mobile-filter-reset" type="button" data-mobile-filter-reset>초기화</button>
+          <button class="mobile-filter-apply" type="button" data-mobile-filter-apply>필터 적용</button>
+        </footer>
+      </div>
+    </section>
+
+    <nav class="mobile-bottom-nav" data-sidebar-root aria-label="모바일 주 메뉴">
+      <button class="active" type="button" data-sidebar-home aria-current="page">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 11 12 4.7 19.5 11v8.2h-15zM9.5 19.2v-5h5v5" /></svg>
+        <span>홈</span>
+      </button>
+      <button type="button" data-category-catalog-open>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5h5.5v6H5zM13.5 4.5H19v6h-5.5zM5 13.5h5.5v6H5zM13.5 13.5H19v6h-5.5z" /></svg>
+        <span>도감</span>
+      </button>
+      <button type="button" data-category-release-open>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.8h12v16.4H6zM9 8h6M9 12h6M9 16h4" /></svg>
+        <span>발매</span>
+      </button>
+      <button type="button" data-mobile-media-open>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16v11H4zM9.5 9.2l5 2.8-5 2.8z" /></svg>
+        <span>미디어</span>
+      </button>
+      <button type="button" data-mobile-search-open>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="5.8" /><path d="m15 15 4.5 4.5" /></svg>
+        <span>검색</span>
+      </button>
+    </nav>
+
     <button class="to-top" id="toTop" type="button" aria-label="맨 위로 이동">↑</button>
   <script type="importmap">
     {
@@ -345,33 +473,33 @@
         "#app/services": "./src/app-services.js?v=20260714-scroll-affordance-overlay",
         "#app/markup-core": "./src/markup-core.js?v=20260714-scroll-affordance-overlay",
         "#app/anime-core": "./src/anime-core.js?v=20260720-burst-airdate-notes",
-        "#app/data-store": "./src/data-store.js?v=20260726-x-material-previews",
+        "#app/data-store": "./src/data-store.js?v=20260731-mobile-overhaul",
         "#app/search-data-decoder": "./src/search-data-decoder.js?v=20260720-burst-airdate-notes",
-        "#app/ui-core": "./src/ui-core.js?v=20260717-modal-tag-order-copy",
-        "#app/release-core": "./src/release-core.js?v=20260717-dead-code-cleanup",
+        "#app/ui-core": "./src/ui-core.js?v=20260731-mobile-overhaul",
+        "#app/release-core": "./src/release-core.js?v=20260731-mobile-overhaul",
         "#app/scroll-affordance": "./src/scroll-affordance.js?v=20260719-dropdown-shadow-mounted-label",
         "#app/search-core": "./src/search-core.js?v=20260717-dead-code-cleanup",
-        "#app/search-engine": "./src/search-engine.js?v=20260720-burst-airdate-notes",
-        "#app/catalog-model": "./src/catalog-model.js?v=20260726-x-material-previews",
-        "#app/collection-view": "./src/collection-view.js?v=20260716-html5-conformance",
+        "#app/search-engine": "./src/search-engine.js?v=20260731-mobile-overhaul",
+        "#app/catalog-model": "./src/catalog-model.js?v=20260731-mobile-overhaul",
+        "#app/collection-view": "./src/collection-view.js?v=20260731-mobile-overhaul",
         "#app/catalog-view": "./src/catalog-view.js?v=20260717-dead-code-cleanup",
         "#app/route-parser": "./src/route-parser.js?v=20260714-scroll-affordance-overlay",
         "#app/navigation": "./src/navigation.js?v=20260714-scroll-affordance-overlay",
-        "#app/search-feature": "./src/search-feature.js?v=20260716-html5-conformance",
+        "#app/search-feature": "./src/search-feature.js?v=20260731-mobile-overhaul",
         "#app/search-controller": "./src/search-controller.js?v=20260714-scroll-affordance-overlay",
         "#app/search-help-controller": "./src/search-help-controller.js?v=20260717-dead-code-cleanup",
         "#app/detail-view": "./src/detail-view.js?v=20260726-x-material-previews",
-        "#app/image-preview": "./src/image-preview.js?v=20260726-touch-image-previews",
+        "#app/image-preview": "./src/image-preview.js?v=20260731-mobile-overhaul",
         "#app/modal-context": "./src/modal-context.js?v=20260714-scroll-affordance-overlay",
-        "#app/style-loader": "./src/style-loader.js?v=20260726-composition-eight-rows",
+        "#app/style-loader": "./src/style-loader.js?v=20260731-mobile-overhaul",
         "#app/feature-loaders": "./src/feature-loaders.js?v=20260717-dead-code-cleanup",
-        "#app/shell-controller": "./src/shell-controller.js?v=20260719-dropdown-shadow-mounted-label",
+        "#app/shell-controller": "./src/shell-controller.js?v=20260731-mobile-overhaul",
         "#app/catalog-feature": "./src/catalog-feature.js?v=20260716-html5-conformance",
         "#app/modal-controller": "./src/modal-controller.js?v=20260724-card-image-link-preview",
         "#app/detail-controller": "./src/detail-controller.js?v=20260724-x-card-images-only",
         "#app/route-controller": "./src/route-controller.js?v=20260717-modal-scroll-restore",
-        "#app/release-page": "./src/release-page.js?v=20260724-card-image-link-preview",
-        "#app/anime": "./src/anime.js?v=20260724-anime-character-profile-cards",
+        "#app/release-page": "./src/release-page.js?v=20260731-mobile-overhaul",
+        "#app/anime": "./src/anime.js?v=20260731-mobile-overhaul",
         "#app/anime-detail": "./src/anime-detail.js?v=20260714-scroll-affordance-overlay",
         "#app/router": "./src/router.js?v=20260714-scroll-affordance-overlay",
         "#app/entry": "./src/app-entry.js?v=20260717-dead-code-cleanup"
