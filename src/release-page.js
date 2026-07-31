@@ -142,12 +142,17 @@ const productReleaseTableRows = (region = appState.activeReleaseRegion, series =
     const release = productRelease(item, region);
     const releaseDate = release.releaseDate || release.release;
     const productName = productDisplayName(item, region);
+    const formattedPrice = priceLabel(release.price, region);
+    const mobileMeta = [release.kind, releaseDateCompactLabel(releaseDate), formattedPrice].filter(Boolean);
+    const imagePreviewButton = item.releases?.[region]?.image
+      ? `<button class="release-image-preview-button image-preview-trigger" type="button" data-image-preview-product-id="${item.id}" data-image-preview-region="${region}" aria-label="${escapeAttributeValue(`${productName} 제품 이미지 미리보기`)}">이미지</button>`
+      : "";
     return `<tr class="table-list-row release-product-row" data-product-id="${item.id}" data-release-region="${region}">
-    <td>${release.no || ""}</td>
-    <td><span class="release-product-cell"><button class="table-list-row-action table-list-primary-text release-product-link" type="button" data-image-preview-product-id="${item.id}" data-image-preview-region="${region}">${escapeHtml(productName)}</button>${releaseBadgesMarkup(item, region)}</span></td>
+    <td>${escapeHtml(release.no || "")}</td>
+    <td><span class="release-product-cell"><button class="table-list-row-action table-list-primary-text release-product-link" type="button" data-image-preview-product-id="${item.id}" data-image-preview-region="${region}">${escapeHtml(productName)}</button>${imagePreviewButton}${releaseBadgesMarkup(item, region)}<span class="mobile-row-meta">${mobileMeta.map(value => `<span>${escapeHtml(value)}</span>`).join("")}</span></span></td>
     <td>${release.kind || ""}</td>
     <td>${responsiveDateSpans("release-date-full", "release-date-compact", releaseDateLabel(releaseDate), releaseDateCompactLabel(releaseDate))}</td>
-    <td>${priceLabel(release.price, region)}</td>
+    <td>${formattedPrice}</td>
   </tr>`;
   }).join("");
   return rows || `<tr class="table-list-empty-row"><td colspan="5">검색 결과가 없습니다.</td></tr>`;
