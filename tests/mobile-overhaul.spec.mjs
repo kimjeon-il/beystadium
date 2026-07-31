@@ -223,6 +223,8 @@ test.describe("mobile-first navigation and content", () => {
     await expect(dialog).toBeHidden();
     await expect(page.locator('[data-app-panel="release"].active')).toBeVisible();
 
+    await page.goto("/");
+    await page.evaluate(() => sessionStorage.clear());
     await page.goto("/#BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF");
     await expect(dialog).toBeVisible();
     const fallbackBack = dialog.locator("#modalMobileBack");
