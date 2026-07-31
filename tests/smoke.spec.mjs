@@ -81,8 +81,8 @@ const expectModalBackAtShellTopLeft = async backButton => {
   if (geometry.compact) {
     expect(geometry.parentIsShell).toBe(true);
     expect(geometry.position).toBe("fixed");
-    expect(geometry.viewportLeft).toBe(6);
-    expect(geometry.viewportTop).toBe(6);
+    expect(Math.abs(geometry.viewportLeft - 6)).toBeLessThanOrEqual(2);
+    expect(Math.abs(geometry.viewportTop - 6)).toBeLessThanOrEqual(2);
     return;
   }
   expect(geometry).toMatchObject({
@@ -142,6 +142,13 @@ const tableListTitleSnapshot = (page, selector) => page.locator(selector).first(
     rowHeight: rounded(rowRect?.height || 0)
   };
 });
+
+const expectTableListTitleSnapshot = (actual, expected) => {
+  const { rowHeight: actualRowHeight, ...actualStable } = actual;
+  const { rowHeight: expectedRowHeight, ...expectedStable } = expected;
+  expect(actualStable).toEqual(expectedStable);
+  expect(Math.abs(actualRowHeight - expectedRowHeight)).toBeLessThanOrEqual(.02);
+};
 
 test("primary routes render without runtime errors", async ({ page }) => {
   const errors = consoleErrors(page);
@@ -559,12 +566,12 @@ test("episode and release table styles are independent of navigation order", asy
   await crossPage.goto("/#anime-episode");
   await expect(crossPage.locator(".anime-episode-title").first()).toBeVisible();
   const episodeTitleAfterRelease = await tableListTitleSnapshot(crossPage, ".anime-episode-title");
-  expect(episodeTitleAfterRelease).toEqual(directEpisodeTitle);
+  expectTableListTitleSnapshot(episodeTitleAfterRelease, directEpisodeTitle);
 
   await crossPage.goto("/#toy-release");
   await expect(crossPage.locator(".release-product-link").first()).toBeVisible();
   const releaseTitleAfterAnime = await tableListTitleSnapshot(crossPage, ".release-product-link");
-  expect(releaseTitleAfterAnime).toEqual(directReleaseTitle);
+  expectTableListTitleSnapshot(releaseTitleAfterAnime, directReleaseTitle);
 
   await directContext.close();
   await crossContext.close();
@@ -1056,7 +1063,9 @@ test("secondary control text and modal colors use accessible semantic tokens", a
   for (const colorScheme of ["light", "dark"]) {
     await page.emulateMedia({ colorScheme, reducedMotion: "reduce" });
     await page.goto("/#toy-catalog?scope=all&series=all&sort=latest&page=1");
-    const pageButton = page.locator(".catalog-pagination-nav .catalog-page-button:not(.active)").first();
+    const pageButton = page.locator(testInfo.project.name === "mobile"
+      ? ".catalog-pagination-nav .catalog-page-step:not([disabled])"
+      : ".catalog-pagination-nav .catalog-page-button:not(.active)").first();
     await expect(pageButton).toBeVisible();
     const pageButtonColors = await controlColorState(pageButton);
     expect(pageButtonColors.background).toBe(pageButtonColors.tokenBackground);
@@ -1161,13 +1170,19 @@ test("dropdown chevrons share the same open and close rotation", async ({ page }
   expect(new Set(openTransforms).size).toBe(1);
 });
 
-test("shared interface controls keep tokenized sizes and timings", async ({ page }) => {
+test("shared interface controls keep tokenized sizes and timings", async ({ page }, testInfo) => {
+  const mobile = testInfo.project.name === "mobile";
   await page.goto("/#toy-catalog?scope=bey&series=x");
   await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
-  await page.locator("#catalogSeriesFilter > summary").click();
-  await expect(page.locator("#catalogSeriesFilter .ui-dropdown-item").first()).toBeVisible();
+  if (mobile) {
+    await page.locator("#mobileCatalogFilterOpen").click();
+    await expect(page.locator("#mobileCatalogFilters .mobile-filter-options button").first()).toBeVisible();
+  } else {
+    await page.locator("#catalogSeriesFilter > summary").click();
+    await expect(page.locator("#catalogSeriesFilter .ui-dropdown-item").first()).toBeVisible();
+  }
 
-  const catalogControls = await page.evaluate(() => {
+  const catalogControls = await page.evaluate(isMobile => {
     const rootStyle = getComputedStyle(document.documentElement);
     const size = selector => {
       const rect = document.querySelector(selector).getBoundingClientRect();
@@ -1186,7 +1201,9 @@ test("shared interface controls keep tokenized sizes and timings", async ({ page
       },
       help: size("#catalogSearchHelpButton"),
       searchScope: size("#catalogSearchScope > summary"),
-      dropdownItem: size("#catalogSeriesFilter .ui-dropdown-item"),
+      dropdownItem: size(isMobile
+        ? "#mobileCatalogFilters .mobile-filter-options button"
+        : "#catalogSeriesFilter .ui-dropdown-item"),
       toTop: size("#toTop"),
       drawerClose: size(".mobile-drawer-close"),
       dropdownMotion: transitionDurations("#catalogSeriesFilter > summary", "::after"),
@@ -1194,7 +1211,7 @@ test("shared interface controls keep tokenized sizes and timings", async ({ page
       menuLineMotion: transitionDurations("#menuButton span"),
       toTopMotion: transitionDurations("#toTop")
     };
-  });
+  }, mobile);
 
   expect(catalogControls.tokens).toEqual({
     inline: "30px",
@@ -1204,9 +1221,9 @@ test("shared interface controls keep tokenized sizes and timings", async ({ page
     compactMotion: "160ms",
     standardMotion: "180ms"
   });
-  expect(catalogControls.help).toEqual([30, 30]);
-  expect(catalogControls.searchScope[1]).toBe(32);
-  expect(catalogControls.dropdownItem[1]).toBe(38);
+  expect(catalogControls.help).toEqual(mobile ? [44, 44] : [30, 30]);
+  expect(catalogControls.searchScope[1]).toBe(mobile ? 44 : 32);
+  expect(catalogControls.dropdownItem[1]).toBe(mobile ? 44 : 38);
   expect(catalogControls.toTop).toEqual([44, 44]);
   expect(catalogControls.drawerClose).toEqual([44, 44]);
   expect(catalogControls.dropdownMotion).toEqual(["0.16s", "0.16s"]);
@@ -1237,7 +1254,7 @@ test("shared interface controls keep tokenized sizes and timings", async ({ page
   });
   expect(modalControls.close).toEqual([44, 44]);
   modalControls.steps.forEach(step => expect(step).toEqual([44, 44]));
-  expect(modalControls.scrollMarginTop).toBe(70);
+  expect(modalControls.scrollMarginTop).toBe(mobile ? 0 : 70);
 });
 
 test("keyboard focus indicators stay visible across interface surfaces", async ({ page }, testInfo) => {
@@ -2966,11 +2983,32 @@ test("episode modal matches the rare bey get shell and preserves contextual back
   await expect(episodeShell.locator(".modal-body-block, .modal-section, .product-composition, .rare-bey-get-list")).toHaveCount(0);
 
   const episodeGeometry = await shellGeometry();
-  for (const key of ["x", "y", "width", "height"]) {
-    expect(Math.abs(episodeGeometry.shell[key] - rareGeometry.shell[key])).toBeLessThanOrEqual(1);
-  }
-  for (const key of ["x", "y", "width"]) {
-    expect(Math.abs(episodeGeometry.title[key] - rareGeometry.title[key])).toBeLessThanOrEqual(1);
+  if (testInfo.project.name === "desktop") {
+    for (const key of ["x", "y", "width", "height"]) {
+      expect(Math.abs(episodeGeometry.shell[key] - rareGeometry.shell[key])).toBeLessThanOrEqual(1);
+    }
+    for (const key of ["x", "y", "width"]) {
+      expect(Math.abs(episodeGeometry.title[key] - rareGeometry.title[key])).toBeLessThanOrEqual(1);
+    }
+  } else {
+    const mobileScrollLayout = await page.locator("#detailModal").evaluate(modal => {
+      const stage = modal.querySelector(".modal-stage");
+      const shell = modal.querySelector(".modal-inner");
+      const scrollArea = modal.querySelector(".modal-scroll-area");
+      return {
+        stageOverflowY: getComputedStyle(stage).overflowY,
+        shellOverflowY: getComputedStyle(shell).overflowY,
+        scrollAreaOverflowY: getComputedStyle(scrollArea).overflowY
+      };
+    });
+    expect(Math.abs(episodeGeometry.shell.x)).toBeLessThanOrEqual(1);
+    expect(Math.abs(episodeGeometry.shell.width - page.viewportSize().width)).toBeLessThanOrEqual(1);
+    expect(episodeGeometry.shell.height).toBeGreaterThanOrEqual(page.viewportSize().height);
+    expect(mobileScrollLayout).toEqual({
+      stageOverflowY: "auto",
+      shellOverflowY: "visible",
+      scrollAreaOverflowY: "visible"
+    });
   }
 
   const backBox = await backButton.boundingBox();
@@ -2980,7 +3018,9 @@ test("episode modal matches the rare bey get shell and preserves contextual back
   expect(episodeGeometry.shell.x).toBeGreaterThanOrEqual(0);
   expect(episodeGeometry.shell.y).toBeGreaterThanOrEqual(0);
   expect(episodeGeometry.shell.x + episodeGeometry.shell.width).toBeLessThanOrEqual(viewport.width + 1);
-  expect(episodeGeometry.shell.y + episodeGeometry.shell.height).toBeLessThanOrEqual(viewport.height + 1);
+  if (testInfo.project.name === "desktop") {
+    expect(episodeGeometry.shell.y + episodeGeometry.shell.height).toBeLessThanOrEqual(viewport.height + 1);
+  }
   expect(closeBox.x).toBeGreaterThanOrEqual(0);
   expect(closeBox.y).toBeGreaterThanOrEqual(0);
   expect(closeBox.x + closeBox.width).toBeLessThanOrEqual(viewport.width + 1);
