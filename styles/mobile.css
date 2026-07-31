@@ -393,7 +393,7 @@
   .catalog-query-row:has(.catalog-filter-chips:not(.is-empty)) > .catalog-query-actions {
     grid-column: 1;
     width: 100%;
-    margin: 2px 0 0;
+    margin: 2px calc(var(--query-action-edge-offset) * -1) 0 0;
     justify-content: space-between;
     justify-self: stretch;
   }
@@ -401,6 +401,12 @@
   .catalog-filter-chips > .ui-chip-button,
   .active-query-chip {
     min-height: 36px;
+  }
+
+  #catalogSearchScope > summary {
+    height: 44px;
+    min-height: 44px;
+    max-height: 44px;
   }
 
   .category-card,
@@ -1013,6 +1019,10 @@
   #detailModal[open] .mounted-link,
   #detailModal[open] .ui-list-link {
     min-height: 44px;
+  }
+
+  #detailModal[open] .modal-tags > * {
+    min-width: 96px;
   }
 
   #detailModal[open] .modal-close,
