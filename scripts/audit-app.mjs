@@ -29,6 +29,7 @@ const FORBIDDEN_MONOLITHS = [
   "scripts/build-app-runtime.mjs"
 ];
 const MOBILE_OVERHAUL_VERSION = "20260731-mobile-overhaul";
+const MOBILE_STYLES_VERSION = "20260731-mobile-controls-fix";
 const MOBILE_OVERHAUL_IMPORTS = {
   "#app/data-store": "src/data-store.js",
   "#app/ui-core": "src/ui-core.js",
@@ -67,10 +68,11 @@ for (const [alias, target] of Object.entries(importMap)) {
   const file = projectPath(target);
   if (!(await exists(file))) throw new Error(`Import-map target is missing: ${alias} -> ${file}`);
 }
-for (const file of ["styles/base.css", "styles/mobile.css"]) {
-  if (!indexHtml.includes(`./${file}?v=${MOBILE_OVERHAUL_VERSION}`)) {
-    throw new Error(`Mobile overhaul cache version is missing: ${file}`);
-  }
+if (!indexHtml.includes(`./styles/base.css?v=${MOBILE_OVERHAUL_VERSION}`)) {
+  throw new Error("Mobile overhaul cache version is missing: styles/base.css");
+}
+if (!indexHtml.includes(`./styles/mobile.css?v=${MOBILE_STYLES_VERSION}`)) {
+  throw new Error("Mobile control fix cache version is missing: styles/mobile.css");
 }
 for (const [alias, file] of Object.entries(MOBILE_OVERHAUL_IMPORTS)) {
   if (importMap[alias] !== `./${file}?v=${MOBILE_OVERHAUL_VERSION}`) {
