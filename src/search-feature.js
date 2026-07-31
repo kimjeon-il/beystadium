@@ -329,7 +329,7 @@ const searchResultPageButtons = (currentPage, totalPages) => {
     ${start > 1 ? `<button class="ui-button search-results-page-button" type="button" data-search-results-page="1">1</button>${start > 2 ? `<span class="search-results-page-gap">…</span>` : ""}` : ""}
     ${pageButtons}
     ${end < totalPages ? `${end < totalPages - 1 ? `<span class="search-results-page-gap">…</span>` : ""}<button class="ui-button search-results-page-button" type="button" data-search-results-page="${totalPages}">${totalPages}</button>` : ""}
-    <span class="pagination-status" aria-label="${currentPage}/${totalPages} 페이지">${currentPage}/${totalPages}</span>
+    <span class="pagination-status" role="status" aria-label="${currentPage}/${totalPages} 페이지">${currentPage}/${totalPages}</span>
     <button class="ui-button search-results-page-step" type="button" data-search-results-page="${currentPage + 1}" ${currentPage >= totalPages ? "disabled" : ""}>다음</button>
   </nav>`;
 };
