@@ -21,7 +21,7 @@
       crossorigin
     >
     <link rel="stylesheet" href="./styles/base.css?v=20260731-mobile-highlight-fix" data-style-key="base">
-    <link rel="stylesheet" href="./styles/mobile.css?v=20260731-mobile-highlight-fix" data-style-key="mobile">
+    <link rel="stylesheet" href="./styles/mobile.css?v=20260801-mobile-nav-back-fix" data-style-key="mobile">
   </head>
   <body class="is-overview" data-active-panel="overview">
     <div class="data-load-status" id="dataLoadStatus" role="status" aria-live="polite" hidden>
@@ -371,6 +371,7 @@
     <dialog id="detailModal">
       <div class="modal-overlay" data-modal-overlay></div>
       <div class="modal-stage">
+        <button class="ui-icon-button modal-mobile-back" id="modalMobileBack" type="button" aria-label="이전 상세 또는 목록으로 돌아가기">←</button>
         <button class="ui-icon-button modal-close" id="modalClose" aria-label="상세 닫기">×</button>
         <div id="modalContent"></div>
       </div>
@@ -496,7 +497,7 @@
         "#app/shell-controller": "./src/shell-controller.js?v=20260731-mobile-highlight-fix",
         "#app/catalog-feature": "./src/catalog-feature.js?v=20260716-html5-conformance",
         "#app/modal-controller": "./src/modal-controller.js?v=20260724-card-image-link-preview",
-        "#app/detail-controller": "./src/detail-controller.js?v=20260724-x-card-images-only",
+        "#app/detail-controller": "./src/detail-controller.js?v=20260801-mobile-nav-back-fix",
         "#app/route-controller": "./src/route-controller.js?v=20260717-modal-scroll-restore",
         "#app/release-page": "./src/release-page.js?v=20260731-mobile-highlight-fix",
         "#app/anime": "./src/anime.js?v=20260731-mobile-highlight-fix",

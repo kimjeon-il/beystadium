@@ -29,6 +29,7 @@ const FORBIDDEN_MONOLITHS = [
   "scripts/build-app-runtime.mjs"
 ];
 const MOBILE_OVERHAUL_VERSION = "20260731-mobile-highlight-fix";
+const MOBILE_STYLES_VERSION = "20260801-mobile-nav-back-fix";
 const MOBILE_OVERHAUL_IMPORTS = {
   "#app/data-store": "src/data-store.js",
   "#app/ui-core": "src/ui-core.js",

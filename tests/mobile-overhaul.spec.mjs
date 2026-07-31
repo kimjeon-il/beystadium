@@ -47,12 +47,22 @@ test.describe("mobile-first navigation and content", () => {
     const activeTab = page.locator(".mobile-bottom-nav [data-category-catalog-open]");
     const tabIndicator = await activeTab.evaluate(element => {
       const style = getComputedStyle(element, "::before");
+      const iconStyle = getComputedStyle(element.querySelector("svg"));
       return {
         width: Number.parseFloat(style.width),
-        height: Number.parseFloat(style.height)
+        height: Number.parseFloat(style.height),
+        position: style.position,
+        markerGridRow: style.gridRowStart,
+        iconGridRow: iconStyle.gridRowStart
       };
     });
-    expect(tabIndicator).toEqual({ width: 46, height: 26 });
+    expect(tabIndicator).toEqual({
+      width: 46,
+      height: 26,
+      position: "relative",
+      markerGridRow: "1",
+      iconGridRow: "1"
+    });
 
     const scope = page.locator("#catalogSearchScope > summary");
     await scope.focus();
@@ -107,8 +117,8 @@ test.describe("mobile-first navigation and content", () => {
     expect(controlStyles.focusShadow).toContain("inset");
     expect(controlStyles.scopeBackground).toBe("rgba(0, 0, 0, 0)");
     expect(controlStyles.helpBackground).toBe("rgba(0, 0, 0, 0)");
-    expect(controlStyles.markerWidth).toBe("28px");
-    expect(controlStyles.markerHeight).toBe("3px");
+    expect(controlStyles.markerWidth).toBe("46px");
+    expect(controlStyles.markerHeight).toBe("26px");
     expect(controlStyles.markerOpacity).toBe("1");
 
     const columns = await page.locator("#catalogGrid").evaluate(element =>
@@ -180,6 +190,19 @@ test.describe("mobile-first navigation and content", () => {
     await expect(shell).toBeVisible();
     await expect(dialog.locator(".product-composition-item").first()).toBeVisible();
 
+    const contextualBack = dialog.locator(".modal-back[data-back-release]");
+    await expect(contextualBack).toBeVisible();
+    const backGeometry = await contextualBack.evaluate(element => {
+      const rect = element.getBoundingClientRect();
+      return {
+        left: Math.round(rect.left),
+        top: Math.round(rect.top),
+        width: Math.round(rect.width),
+        height: Math.round(rect.height)
+      };
+    });
+    expect(backGeometry).toEqual({ left: 6, top: 6, width: 44, height: 44 });
+
     const geometry = await shell.evaluate(element => {
       const rect = element.getBoundingClientRect();
       const scrollArea = element.querySelector(".modal-scroll-area");
@@ -195,6 +218,19 @@ test.describe("mobile-first navigation and content", () => {
     expect(geometry.width).toBeGreaterThanOrEqual(geometry.viewportWidth - 1);
     expect(geometry.shellOverflow).toBe("visible");
     expect(geometry.innerOverflow).toBe("visible");
+
+    await contextualBack.tap();
+    await expect(dialog).toBeHidden();
+    await expect(page.locator('[data-app-panel="release"].active')).toBeVisible();
+
+    await page.goto("/#BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF");
+    await expect(dialog).toBeVisible();
+    const fallbackBack = dialog.locator("#modalMobileBack");
+    await expect(fallbackBack).toBeVisible();
+    await expect(dialog.locator("#modalContent .modal-back")).toHaveCount(0);
+    await fallbackBack.tap();
+    await expect(dialog).toBeHidden();
+    await expect(page.locator('[data-app-panel="catalog"].active')).toBeVisible();
     expect(errors).toEqual([]);
   });
 });
