@@ -413,6 +413,7 @@
   .catalog-search-box .catalog-search-help-button {
     isolation: isolate;
     background: transparent;
+    box-shadow: none;
   }
 
   .catalog-search-box .search-scope > summary::before,
