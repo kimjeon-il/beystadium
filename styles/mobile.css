@@ -1120,11 +1120,12 @@
     display: grid;
   }
 
-  #detailModal[open] #modalContent .modal-back {
+  #detailModal[open]:has(#modalContent .modal-back) .modal-mobile-back {
     display: none;
   }
 
   #detailModal[open] .modal-close,
+  #detailModal[open] .modal-mobile-back,
   #detailModal[open] .modal-back,
   #detailModal[open] .icon-back-button {
     position: fixed;
@@ -1134,6 +1135,7 @@
     height: 44px;
   }
 
+  #detailModal[open] .modal-mobile-back,
   #detailModal[open] .modal-back,
   #detailModal[open] .icon-back-button {
     left: 6px;
