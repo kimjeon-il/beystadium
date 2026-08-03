@@ -48,21 +48,25 @@ test.describe("mobile-first navigation and content", () => {
     const activeTab = page.locator(".mobile-bottom-nav [data-category-catalog-open]");
     const tabIndicator = await activeTab.evaluate(element => {
       const style = getComputedStyle(element, "::before");
-      const iconStyle = getComputedStyle(element.querySelector("svg"));
+      const probe = document.createElement("i");
+      probe.style.cssText = "position:fixed;background:var(--ui-control-hover)";
+      document.body.append(probe);
+      const expectedBackground = getComputedStyle(probe).backgroundColor;
+      probe.remove();
       return {
         width: Number.parseFloat(style.width),
         height: Number.parseFloat(style.height),
         position: style.position,
-        markerGridRow: style.gridRowStart,
-        iconGridRow: iconStyle.gridRowStart
+        background: style.backgroundColor,
+        expectedBackground
       };
     });
     expect(tabIndicator).toEqual({
-      width: 36,
-      height: 28,
-      position: "relative",
-      markerGridRow: "1",
-      iconGridRow: "1"
+      width: 44,
+      height: 44,
+      position: "absolute",
+      background: tabIndicator.expectedBackground,
+      expectedBackground: tabIndicator.expectedBackground
     });
 
     await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
@@ -75,19 +79,51 @@ test.describe("mobile-first navigation and content", () => {
       const scopeStyle = getComputedStyle(element);
       const scopeSurface = getComputedStyle(element, "::before");
       const helpSurface = getComputedStyle(help, "::before");
+      const searchBox = element.closest(".catalog-search-box");
+      const scopeControl = element.closest(".search-scope");
       return {
         scopeShadow: scopeStyle.boxShadow,
         scopeSurfaceHeight: Number.parseFloat(scopeSurface.height),
         helpSurfaceWidth: Number.parseFloat(helpSurface.width),
-        helpSurfaceHeight: Number.parseFloat(helpSurface.height)
+        helpSurfaceHeight: Number.parseFloat(helpSurface.height),
+        scopeHeight: scopeControl.getBoundingClientRect().height,
+        summaryHeight: element.getBoundingClientRect().height,
+        scopeCenterOffset: (scopeControl.getBoundingClientRect().top + scopeControl.getBoundingClientRect().height / 2)
+          - (searchBox.getBoundingClientRect().top + searchBox.getBoundingClientRect().height / 2),
+        summaryCenterOffset: (element.getBoundingClientRect().top + element.getBoundingClientRect().height / 2)
+          - (searchBox.getBoundingClientRect().top + searchBox.getBoundingClientRect().height / 2)
       };
     });
-    expect(searchHighlight).toEqual({
-      scopeShadow: "none",
-      scopeSurfaceHeight: 36,
-      helpSurfaceWidth: 36,
-      helpSurfaceHeight: 36
+    expect(searchHighlight.scopeShadow).toBe("none");
+    expect(searchHighlight.scopeSurfaceHeight).toBe(36);
+    expect(searchHighlight.helpSurfaceWidth).toBe(36);
+    expect(searchHighlight.helpSurfaceHeight).toBe(36);
+    expect(searchHighlight.scopeHeight).toBe(44);
+    expect(searchHighlight.summaryHeight).toBe(44);
+    expect(searchHighlight.scopeCenterOffset).toBeCloseTo(0, 5);
+    expect(searchHighlight.summaryCenterOffset).toBeCloseTo(0, 5);
+
+    await scope.click();
+    await expect(page.locator("#catalogSearchScope")).toHaveAttribute("open", "");
+    const menuSpacing = await page.locator("#catalogSearchScope > .catalog-dropdown-menu").evaluate(menu => {
+      const items = [...menu.querySelectorAll("button")];
+      const centers = items.map(item => {
+        const rect = item.getBoundingClientRect();
+        return rect.top + rect.height / 2;
+      });
+      return {
+        gap: Number.parseFloat(getComputedStyle(menu).gap),
+        paddingTop: Number.parseFloat(getComputedStyle(menu).paddingTop),
+        paddingBottom: Number.parseFloat(getComputedStyle(menu).paddingBottom),
+        itemHeights: items.map(item => item.getBoundingClientRect().height),
+        centerSteps: centers.slice(1).map((center, index) => center - centers[index])
+      };
     });
+    expect(menuSpacing.gap).toBe(0);
+    expect(menuSpacing.paddingTop).toBe(4);
+    expect(menuSpacing.paddingBottom).toBe(4);
+    expect(menuSpacing.itemHeights.every(height => height >= 44)).toBe(true);
+    expect(menuSpacing.centerSteps.every(step => Math.abs(step - 44) < .01)).toBe(true);
   });
 
   test("catalog uses two columns and applies the filter sheet", async ({ page }) => {
@@ -120,8 +156,8 @@ test.describe("mobile-first navigation and content", () => {
     expect(controlStyles.focusShadow).not.toContain("inset");
     expect(controlStyles.scopeBackground).toBe("rgba(0, 0, 0, 0)");
     expect(controlStyles.helpBackground).toBe("rgba(0, 0, 0, 0)");
-    expect(controlStyles.markerWidth).toBe("36px");
-    expect(controlStyles.markerHeight).toBe("28px");
+    expect(controlStyles.markerWidth).toBe("44px");
+    expect(controlStyles.markerHeight).toBe("44px");
     expect(controlStyles.markerOpacity).toBe("1");
 
     const columns = await page.locator("#catalogGrid").evaluate(element =>
@@ -287,9 +323,48 @@ test.describe("mobile-first navigation and content", () => {
     expect(layout.shellRight).toBeGreaterThanOrEqual(8);
     expect(layout.shellRight).toBeLessThanOrEqual(12);
     expect(layout.shellRadius).toBe(24);
-    expect(layout.markerWidth).toBe(36);
-    expect(layout.markerHeight).toBe(28);
+    expect(layout.markerWidth).toBe(44);
+    expect(layout.markerHeight).toBe(44);
   });
+});
+
+test("phone navigation uses one common hover and current surface", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "pointer hover is verified in one desktop browser");
+  await page.setViewportSize({ width: 474, height: 800 });
+
+  for (const colorScheme of ["light", "dark"]) {
+    await page.emulateMedia({ colorScheme, reducedMotion: "reduce" });
+    await page.goto("/");
+    const currentTab = page.locator(".mobile-bottom-nav [data-sidebar-home]");
+    const hoverTab = page.locator(".mobile-bottom-nav [data-category-catalog-open]");
+    await expect(currentTab).toBeVisible();
+    await hoverTab.hover();
+
+    const surfaces = await page.evaluate(() => {
+      const current = document.querySelector(".mobile-bottom-nav [data-sidebar-home]");
+      const hovered = document.querySelector(".mobile-bottom-nav [data-category-catalog-open]");
+      const currentSurface = getComputedStyle(current, "::before");
+      const hoverSurface = getComputedStyle(hovered, "::before");
+      return {
+        currentWidth: Number.parseFloat(currentSurface.width),
+        currentHeight: Number.parseFloat(currentSurface.height),
+        currentBackground: currentSurface.backgroundColor,
+        currentOpacity: currentSurface.opacity,
+        hoverWidth: Number.parseFloat(hoverSurface.width),
+        hoverHeight: Number.parseFloat(hoverSurface.height),
+        hoverBackground: hoverSurface.backgroundColor,
+        hoverOpacity: hoverSurface.opacity
+      };
+    });
+
+    expect(surfaces.currentWidth).toBe(44);
+    expect(surfaces.currentHeight).toBe(44);
+    expect(surfaces.hoverWidth).toBe(44);
+    expect(surfaces.hoverHeight).toBe(44);
+    expect(surfaces.hoverBackground).toBe(surfaces.currentBackground);
+    expect(surfaces.currentOpacity).toBe("1");
+    expect(surfaces.hoverOpacity).toBe("1");
+  }
 });
 
 test("tablet keeps brand search and menu without the phone tab bar", async ({ page }, testInfo) => {

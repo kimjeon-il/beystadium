@@ -28,7 +28,7 @@ const FORBIDDEN_MONOLITHS = [
   "styles.css",
   "scripts/build-app-runtime.mjs"
 ];
-const MOBILE_STYLE_VERSION = "20260803-mobile-ui-harmony";
+const MOBILE_STYLE_VERSION = "20260803-mobile-control-alignment";
 const MOBILE_OVERHAUL_IMPORT_VERSION = "20260731-mobile-highlight-fix";
 const MOBILE_OVERHAUL_IMPORTS = {
   "#app/data-store": "src/data-store.js",

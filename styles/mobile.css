@@ -323,20 +323,19 @@
 
   .mobile-bottom-nav > button::before {
     content: "";
-    position: relative;
+    position: absolute;
     z-index: 0;
-    grid-column: 1;
-    grid-row: 1;
-    align-self: center;
-    justify-self: center;
-    width: 36px;
-    height: 28px;
-    border-radius: var(--radius-pill);
+    left: 50%;
+    top: 50%;
+    width: var(--icon-control-size);
+    height: var(--icon-control-size);
+    border-radius: var(--radius-control);
     background: var(--ui-control-hover);
     opacity: 0;
-    transform: scaleX(.55);
+    transform: translate(-50%, -50%) scale(.82);
     transform-origin: center;
     transition: opacity var(--motion-standard) var(--ease-standard), transform var(--motion-standard) var(--ease-emphasized);
+    pointer-events: none;
   }
 
   .mobile-bottom-nav > button svg {
@@ -354,6 +353,8 @@
   }
 
   .mobile-bottom-nav > button > span {
+    position: relative;
+    z-index: 1;
     grid-column: 1;
     grid-row: 2;
   }
@@ -365,18 +366,32 @@
   }
 
   .mobile-bottom-nav > button.active::before,
-  .mobile-bottom-nav > button[aria-current="page"]::before {
+  .mobile-bottom-nav > button[aria-current="page"]::before,
+  .mobile-bottom-nav > button:focus-visible::before,
+  .mobile-bottom-nav > button:active::before {
     opacity: 1;
-    transform: scaleX(1);
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .mobile-bottom-nav > button:focus-visible,
+  .mobile-bottom-nav > button:active {
+    color: var(--ui-control-text-active);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .mobile-bottom-nav > button:hover {
+      color: var(--ui-control-text-active);
+    }
+
+    .mobile-bottom-nav > button:hover::before {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
   }
 
   .mobile-bottom-nav > button:focus-visible {
     outline: 0;
     box-shadow: var(--ui-focus-ring);
-  }
-
-  .mobile-bottom-nav > button:active {
-    background: color-mix(in srgb, var(--ui-control) 68%, transparent);
   }
 
   .catalog-control-bar,
@@ -400,6 +415,9 @@
   }
 
   .catalog-search-box {
+    --search-scope-height: var(--icon-control-size);
+    --search-scope-summary-height: var(--icon-control-size);
+    --search-scope-menu-offset: calc((var(--compact-search-height) - var(--icon-control-size)) / 2);
     --search-scope-summary-bg: transparent;
     --search-scope-summary-hover-bg: var(--ui-control);
     border-radius: 14px;
@@ -469,10 +487,12 @@
   }
 
   #catalogSearchScope > summary {
-    height: 44px;
-    min-height: 44px;
-    max-height: 44px;
     border-radius: 9px;
+  }
+
+  .catalog-search-box .search-scope > .catalog-dropdown-menu {
+    gap: 0;
+    padding: 4px 8px;
   }
 
   .catalog-search-box .search-scope > summary,
