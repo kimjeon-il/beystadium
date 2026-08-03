@@ -3164,8 +3164,8 @@ test("modal tags use one free horizontal scroll row when space is narrow", async
     const event = new window.WheelEvent("wheel", { bubbles: true, cancelable: true, deltaY: 120 });
     const dispatched = element.dispatchEvent(event);
     const immediate = element.scrollLeft;
-    const maxScrollLeft = element.scrollWidth - element.clientWidth;
     const waitForEndpoint = deadline => {
+      const maxScrollLeft = element.scrollWidth - element.clientWidth;
       if (Math.abs(maxScrollLeft - element.scrollLeft) <= 1 || performance.now() >= deadline) {
         element.removeEventListener("scroll", onScroll);
         resolve({
