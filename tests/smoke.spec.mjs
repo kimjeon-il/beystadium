@@ -3121,6 +3121,7 @@ test("modal tags use one free horizontal scroll row when space is narrow", async
   await page.setViewportSize({ width: narrowWidth, height: 800 });
   await page.goto("/#PART-X-BLADE-DRAN-SWORD");
   await expect(page.locator("#detailModal")).toBeVisible();
+  await page.evaluate(async () => { await document.fonts?.ready; });
 
   const slot = page.locator("#detailModal .modal-slot-tags");
   const tags = slot.locator(".modal-tags > *");
