@@ -20,8 +20,8 @@
       type="font/woff2"
       crossorigin
     >
-    <link rel="stylesheet" href="./styles/base.css?v=20260731-mobile-highlight-fix" data-style-key="base">
-    <link rel="stylesheet" href="./styles/mobile.css?v=20260801-mobile-nav-back-fix" data-style-key="mobile">
+    <link rel="stylesheet" href="./styles/base.css?v=20260803-mobile-ui-harmony" data-style-key="base">
+    <link rel="stylesheet" href="./styles/mobile.css?v=20260803-mobile-ui-harmony" data-style-key="mobile">
   </head>
   <body class="is-overview" data-active-panel="overview">
     <div class="data-load-status" id="dataLoadStatus" role="status" aria-live="polite" hidden>
@@ -204,19 +204,27 @@
                 </div>
                 <div class="overview-quick-links" role="group" aria-label="빠른 찾기">
                   <button type="button" data-category-catalog-open data-catalog-scope="bey">
-                    <span class="overview-quick-links__icon" aria-hidden="true">B</span>
+                    <span class="overview-quick-links__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24"><path d="M5 4.5h5.5v6H5zM13.5 4.5H19v6h-5.5zM5 13.5h5.5v6H5zM13.5 13.5H19v6h-5.5z" /></svg>
+                    </span>
                     <span>베이 찾기</span>
                   </button>
                   <button type="button" data-category-catalog-open data-catalog-scope="parts">
-                    <span class="overview-quick-links__icon" aria-hidden="true">P</span>
+                    <span class="overview-quick-links__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24"><path d="M9.1 4.1h5.8l.6 2.2h-7zM4.5 8.8h15l1.2 1.1v2.8l-1.2 1.1h-15l-1.2-1.1V9.9zM9.7 16.3h4.6v1.8L12 20.8l-2.3-2.7z" /></svg>
+                    </span>
                     <span>부품 찾기</span>
                   </button>
                   <button type="button" data-category-release-open>
-                    <span class="overview-quick-links__icon" aria-hidden="true">R</span>
+                    <span class="overview-quick-links__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24"><path d="M6 3.8h12v16.4H6zM9 8h6M9 12h6M9 16h4" /></svg>
+                    </span>
                     <span>제품 찾기</span>
                   </button>
                   <button type="button" data-category-anime-episodes-open>
-                    <span class="overview-quick-links__icon" aria-hidden="true">E</span>
+                    <span class="overview-quick-links__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24"><path d="M4 6.5h16v11H4zM9.5 9.2l5 2.8-5 2.8z" /></svg>
+                    </span>
                     <span>회차 찾기</span>
                   </button>
                 </div>

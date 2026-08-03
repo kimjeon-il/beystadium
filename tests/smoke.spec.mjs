@@ -80,9 +80,12 @@ const expectModalBackAtShellTopLeft = async backButton => {
   });
   if (geometry.compact) {
     expect(geometry.parentIsShell).toBe(true);
-    expect(geometry.position).toBe("fixed");
-    expect(Math.abs(geometry.viewportLeft - 6)).toBeLessThanOrEqual(2);
-    expect(Math.abs(geometry.viewportTop - 6)).toBeLessThanOrEqual(2);
+    expect(geometry.offsetParentIsShell).toBe(true);
+    expect(geometry.position).toBe("absolute");
+    expect(geometry.left).toBe(10);
+    expect(geometry.top).toBe(10);
+    expect(Math.abs(geometry.viewportLeft - 19)).toBeLessThanOrEqual(2);
+    expect(Math.abs(geometry.viewportTop - 19)).toBeLessThanOrEqual(2);
     return;
   }
   expect(geometry).toMatchObject({
@@ -1256,7 +1259,7 @@ test("shared interface controls keep tokenized sizes and timings", async ({ page
   });
   expect(modalControls.close).toEqual([44, 44]);
   modalControls.steps.forEach(step => expect(step).toEqual([44, 44]));
-  expect(modalControls.scrollMarginTop).toBe(mobile ? 0 : 70);
+  expect(modalControls.scrollMarginTop).toBe(mobile ? 62 : 70);
 });
 
 test("keyboard focus indicators stay visible across interface surfaces", async ({ page }, testInfo) => {
@@ -1546,7 +1549,7 @@ test("search help shows only its summary when the full guide does not fit", asyn
   expect(errors).toEqual([]);
 });
 
-test("mobile detail uses one outer scroll instead of nested section scrollers", async ({ page }, testInfo) => {
+test("mobile detail uses one internal modal scroll without nested section scrollers", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "mobile", "mobile detail scroll coverage");
   const errors = consoleErrors(page);
   await page.setViewportSize({ width: 393, height: 600 });
@@ -1563,20 +1566,23 @@ test("mobile detail uses one outer scroll instead of nested section scrollers", 
       hostOverflow: getComputedStyle(host).overflow,
       overlayDisplay: overlay.display,
       scrollAreaMaxHeight: getComputedStyle(element).maxHeight,
-      scrollAreaOverflow: getComputedStyle(element).overflow,
+      scrollAreaOverflowY: getComputedStyle(element).overflowY,
+      scrollAreaClientHeight: element.clientHeight,
+      scrollAreaScrollHeight: element.scrollHeight,
       stageClientHeight: stage.clientHeight,
       stageOverflowY: getComputedStyle(stage).overflowY,
       stageScrollHeight: stage.scrollHeight
     };
   });
-  await expect(scrollArea).not.toHaveClass(/has-scroll-content-below/);
-  await expect(overlayHost).not.toHaveClass(/has-scroll-overlay/);
-  expect(layerState.hostOverflow).toBe("visible");
-  expect(layerState.overlayDisplay).toBe("none");
+  await expect(scrollArea).toHaveClass(/has-scroll-content-below/);
+  await expect(overlayHost).toHaveClass(/has-scroll-overlay/);
+  expect(layerState.hostOverflow).toBe("hidden");
+  expect(layerState.overlayDisplay).toBe("block");
   expect(layerState.scrollAreaMaxHeight).toBe("none");
-  expect(layerState.scrollAreaOverflow).toBe("visible");
-  expect(layerState.stageOverflowY).toBe("auto");
-  expect(layerState.stageScrollHeight).toBeGreaterThan(layerState.stageClientHeight);
+  expect(layerState.scrollAreaOverflowY).toBe("auto");
+  expect(layerState.scrollAreaScrollHeight).toBeGreaterThan(layerState.scrollAreaClientHeight);
+  expect(layerState.stageOverflowY).toBe("visible");
+  expect(layerState.stageScrollHeight).toBeLessThanOrEqual(layerState.stageClientHeight + 1);
   expect(errors).toEqual([]);
 });
 
@@ -2488,12 +2494,12 @@ test("static details use a rounded single-column layout without a photo pane", a
     };
   });
   expect(layout.columns).toBe(1);
-  expect(layout.radius).toBe(testInfo.project.name === "mobile" ? "0px" : "24px");
+  expect(layout.radius).toBe("24px");
   if (testInfo.project.name === "desktop") expect(Math.abs(layout.width - 720)).toBeLessThanOrEqual(1);
   expect(errors).toEqual([]);
 });
 
-test("composition sections use internal desktop scrolling and one outer mobile scroll", async ({ page }, testInfo) => {
+test("composition sections use nested desktop scrolling and one modal-body mobile scroll", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "representative viewport coverage only needs one browser project");
   const errors = consoleErrors(page);
   const viewports = [
@@ -2518,7 +2524,9 @@ test("composition sections use internal desktop scrolling and one outer mobile s
       };
     });
     expect(mountedLayout.scrollHeight).toBeLessThanOrEqual(mountedLayout.clientHeight + 1);
-    expect(mountedLayout.outerScrollHeight).toBeLessThanOrEqual(mountedLayout.outerClientHeight + 1);
+    if (viewport.width > 639) {
+      expect(mountedLayout.outerScrollHeight).toBeLessThanOrEqual(mountedLayout.outerClientHeight + 1);
+    }
 
     await page.goto("/#PRODUCT-X-UX-10");
     const productList = page.locator("#detailModal .product-composition-list");
@@ -2539,7 +2547,7 @@ test("composition sections use internal desktop scrolling and one outer mobile s
     if (viewport.width <= 639) {
       expect(productLayout.clientHeight).toBe(productLayout.scrollHeight);
       expect(productLayout.clientHeight).toBeGreaterThan(288);
-      expect(productLayout.outerScrollHeight).toBe(productLayout.outerClientHeight);
+      expect(productLayout.outerScrollHeight).toBeGreaterThan(productLayout.outerClientHeight);
       expect(productLayout.eighthVisible).toBe(true);
       expect(productLayout.ninthClipped).toBe(false);
     } else {
@@ -3003,13 +3011,18 @@ test("episode modal matches the rare bey get shell and preserves contextual back
         scrollAreaOverflowY: getComputedStyle(scrollArea).overflowY
       };
     });
-    expect(Math.abs(episodeGeometry.shell.x)).toBeLessThanOrEqual(1);
-    expect(Math.abs(episodeGeometry.shell.width - page.viewportSize().width)).toBeLessThanOrEqual(1);
-    expect(episodeGeometry.shell.height).toBeGreaterThanOrEqual(page.viewportSize().height);
+    const viewport = page.viewportSize();
+    const rightGap = viewport.width - episodeGeometry.shell.x - episodeGeometry.shell.width;
+    expect(episodeGeometry.shell.x).toBeGreaterThanOrEqual(8);
+    expect(episodeGeometry.shell.x).toBeLessThanOrEqual(12);
+    expect(rightGap).toBeGreaterThanOrEqual(8);
+    expect(rightGap).toBeLessThanOrEqual(12);
+    expect(episodeGeometry.shell.height).toBeGreaterThanOrEqual(viewport.height - 24);
+    expect(episodeGeometry.shell.height).toBeLessThanOrEqual(viewport.height - 16);
     expect(mobileScrollLayout).toEqual({
-      stageOverflowY: "auto",
-      shellOverflowY: "visible",
-      scrollAreaOverflowY: "visible"
+      stageOverflowY: "visible",
+      shellOverflowY: "hidden",
+      scrollAreaOverflowY: "auto"
     });
   }
 

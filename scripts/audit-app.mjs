@@ -28,8 +28,8 @@ const FORBIDDEN_MONOLITHS = [
   "styles.css",
   "scripts/build-app-runtime.mjs"
 ];
-const MOBILE_OVERHAUL_VERSION = "20260731-mobile-highlight-fix";
-const MOBILE_STYLES_VERSION = "20260801-mobile-nav-back-fix";
+const MOBILE_STYLE_VERSION = "20260803-mobile-ui-harmony";
+const MOBILE_OVERHAUL_IMPORT_VERSION = "20260731-mobile-highlight-fix";
 const MOBILE_OVERHAUL_IMPORTS = {
   "#app/data-store": "src/data-store.js",
   "#app/ui-core": "src/ui-core.js",
@@ -68,14 +68,14 @@ for (const [alias, target] of Object.entries(importMap)) {
   const file = projectPath(target);
   if (!(await exists(file))) throw new Error(`Import-map target is missing: ${alias} -> ${file}`);
 }
-if (!indexHtml.includes(`./styles/base.css?v=${MOBILE_OVERHAUL_VERSION}`)) {
+if (!indexHtml.includes(`./styles/base.css?v=${MOBILE_STYLE_VERSION}`)) {
   throw new Error("Mobile overhaul cache version is missing: styles/base.css");
 }
-if (!indexHtml.includes(`./styles/mobile.css?v=${MOBILE_STYLES_VERSION}`)) {
+if (!indexHtml.includes(`./styles/mobile.css?v=${MOBILE_STYLE_VERSION}`)) {
   throw new Error("Mobile control fix cache version is missing: styles/mobile.css");
 }
 for (const [alias, file] of Object.entries(MOBILE_OVERHAUL_IMPORTS)) {
-  if (importMap[alias] !== `./${file}?v=${MOBILE_OVERHAUL_VERSION}`) {
+  if (importMap[alias] !== `./${file}?v=${MOBILE_OVERHAUL_IMPORT_VERSION}`) {
     throw new Error(`Mobile overhaul import cache version is missing: ${alias}`);
   }
 }
@@ -83,7 +83,7 @@ for (const [alias, file] of Object.entries(MOBILE_OVERHAUL_IMPORTS)) {
 const styleLoaderUrl = `${pathToFileURL(fromRoot("src/style-loader.js")).href}?audit=${Date.now()}`;
 const { routeStyleManifest, styleFiles } = await import(styleLoaderUrl);
 const styleLoaderSource = await readFile(fromRoot("src/style-loader.js"), "utf8");
-if (!styleLoaderSource.includes(`const styleVersion = "${MOBILE_OVERHAUL_VERSION}";`)) {
+if (!styleLoaderSource.includes(`const styleVersion = "${MOBILE_STYLE_VERSION}";`)) {
   throw new Error("Route stylesheet cache version is missing or inconsistent.");
 }
 const stylesheetFiles = ["styles/base.css", "styles/mobile.css", ...Object.values(styleFiles).map(projectPath)];

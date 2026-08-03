@@ -1,4 +1,4 @@
-const styleVersion = "20260731-mobile-highlight-fix";
+const styleVersion = "20260803-mobile-ui-harmony";
 const styleOrder = ["page", "collection", "table", "release", "anime", "catalog", "search", "modal"];
 const styleFiles = Object.fromEntries(styleOrder.map(key => [key, `./styles/${key}.css?v=${styleVersion}`]));
 const stylePromises = new Map();
