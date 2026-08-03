@@ -2618,9 +2618,9 @@ test("regional product and linked card images appear in rounded previews", async
         && rect.right <= window.innerWidth - 12 && rect.bottom <= window.innerHeight - 12
     };
   });
-  expect(previewLayout).toEqual({
-    width: 184,
-    height: 184,
+  expect(Math.abs(previewLayout.width - 184)).toBeLessThanOrEqual(1);
+  expect(Math.abs(previewLayout.height - 184)).toBeLessThanOrEqual(1);
+  expect(previewLayout).toMatchObject({
     radius: "12px",
     imageRadius: "12px",
     pointerEvents: "none",

@@ -132,7 +132,10 @@ function scrollModalTagsWithWheel(scroller, event) {
       : rawDelta;
   if (!delta) return;
   const smooth = !horizontalInput && !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const nextScrollLeft = Math.min(maxScrollLeft, Math.max(0, scroller.scrollLeft + delta));
+  const edgeSnapDistance = 8;
+  let nextScrollLeft = Math.min(maxScrollLeft, Math.max(0, scroller.scrollLeft + delta));
+  if (delta > 0 && maxScrollLeft - nextScrollLeft <= edgeSnapDistance) nextScrollLeft = maxScrollLeft;
+  if (delta < 0 && nextScrollLeft <= edgeSnapDistance) nextScrollLeft = 0;
   if (Math.abs(nextScrollLeft - scroller.scrollLeft) < 0.5) return;
   event.preventDefault();
   if (smooth) scroller.scrollTo({ left: nextScrollLeft, behavior: "smooth" });
