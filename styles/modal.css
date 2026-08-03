@@ -1455,14 +1455,6 @@ dialog[open] .part-modal-info {
 }
 
 @media (max-width: 39.999rem) {
-.modal-info-slot.has-description .modal-description-region {
-    --modal-description-padding-y: var(--space-3);
-  }
-
-.modal-info-slot.has-description .modal-description-toggle {
-    bottom: -10px;
-  }
-
   dialog[open] .modal-info:not(.product-modal-info) .modal-name {
     --modal-title-lines: 1;
     min-width: 0;

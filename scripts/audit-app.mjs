@@ -28,7 +28,7 @@ const FORBIDDEN_MONOLITHS = [
   "styles.css",
   "scripts/build-app-runtime.mjs"
 ];
-const MOBILE_STYLE_VERSION = "20260803-mobile-touch-hover-title-layout";
+const MOBILE_STYLE_VERSION = "20260803-mobile-full-desktop-parity";
 const MOBILE_OVERHAUL_IMPORT_VERSION = "20260731-mobile-highlight-fix";
 const MOBILE_RELEASE_IMPORT_VERSION = "20260803-mobile-desktop-style-parity";
 const MOBILE_UPDATED_IMPORT_VERSIONS = {

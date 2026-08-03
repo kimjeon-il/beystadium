@@ -43,6 +43,9 @@ test.describe("mobile-first navigation and content", () => {
         ),
         heroAlignment: getComputedStyle(document.querySelector(".overview-hero h1")).textAlign,
         searchHeight: document.querySelector(".overview-search").getBoundingClientRect().height,
+        searchScopeHeight: document.querySelector("#overviewSearchScope > summary").getBoundingClientRect().height,
+        searchRadius: getComputedStyle(document.querySelector(".overview-search")).borderRadius,
+        searchScopeRadius: getComputedStyle(document.querySelector("#overviewSearchScope > summary")).borderRadius,
         quickLinkRadius: quickLinkStyle.borderRadius,
         expectedRadius: probeStyle.borderRadius,
         quickLinkBackground: quickLinkStyle.backgroundColor,
@@ -55,6 +58,9 @@ test.describe("mobile-first navigation and content", () => {
     expect(layout.minimumTarget).toBeGreaterThanOrEqual(44);
     expect(layout.heroAlignment).toBe("center");
     expect(layout.searchHeight).toBeCloseTo(62, 3);
+    expect(layout.searchScopeHeight).toBeCloseTo(44, 3);
+    expect(layout.searchRadius).toBe("12px");
+    expect(layout.searchScopeRadius).toBe("10px");
     expect(layout.quickLinkRadius).toBe(layout.expectedRadius);
     expect(layout.quickLinkBackground).toBe(layout.expectedBackground);
     expect(errors).toEqual([]);
@@ -88,7 +94,7 @@ test.describe("mobile-first navigation and content", () => {
         inactiveBackground: inactiveStyle.backgroundColor
       };
     });
-    expect(tabSurface.height).toBeGreaterThanOrEqual(44);
+    expect(tabSurface.height).toBeCloseTo(44, 3);
     expect(tabSurface.background).toBe(tabSurface.expectedBackground);
     expect(tabSurface.radius).toBe(tabSurface.expectedRadius);
     expect(tabSurface.markerDisplay).toBe("none");
@@ -99,18 +105,41 @@ test.describe("mobile-first navigation and content", () => {
     await scope.focus();
     await expect(scope).toBeFocused();
 
+    for (const width of [352, 393, 430, 442]) {
+      await page.setViewportSize({ width, height: 800 });
+      const sizing = await page.evaluate(() => {
+        const searchBox = document.querySelector(".catalog-search-box");
+        const summary = document.querySelector("#catalogSearchScope > summary");
+        const help = document.querySelector(".catalog-search-box .catalog-search-help-button");
+        return {
+          searchHeight: searchBox.getBoundingClientRect().height,
+          searchRadius: getComputedStyle(searchBox).borderRadius,
+          borderWidth: getComputedStyle(searchBox).borderTopWidth,
+          summaryHeight: summary.getBoundingClientRect().height,
+          summaryRadius: getComputedStyle(summary).borderRadius,
+          helpWidth: help.getBoundingClientRect().width,
+          helpHeight: help.getBoundingClientRect().height
+        };
+      });
+      expect(sizing.searchHeight).toBeCloseTo(48, 3);
+      expect(sizing.searchRadius).toBe("12px");
+      expect(sizing.borderWidth).toBe("1px");
+      expect(sizing.summaryHeight).toBeCloseTo(32, 3);
+      expect(sizing.summaryRadius).toBe("10px");
+      expect(sizing.helpWidth).toBeCloseTo(30, 3);
+      expect(sizing.helpHeight).toBeCloseTo(30, 3);
+    }
+
     const searchHighlight = await scope.evaluate(element => {
       const help = document.querySelector(".catalog-search-box .catalog-search-help-button");
       const scopeStyle = getComputedStyle(element);
-      const scopeSurface = getComputedStyle(element, "::before");
-      const helpSurface = getComputedStyle(help, "::before");
       const searchBox = element.closest(".catalog-search-box");
       const scopeControl = element.closest(".search-scope");
       return {
         scopeShadow: scopeStyle.boxShadow,
-        scopeSurfaceHeight: Number.parseFloat(scopeSurface.height),
-        helpSurfaceWidth: Number.parseFloat(helpSurface.width),
-        helpSurfaceHeight: Number.parseFloat(helpSurface.height),
+        searchHeight: searchBox.getBoundingClientRect().height,
+        helpWidth: help.getBoundingClientRect().width,
+        helpHeight: help.getBoundingClientRect().height,
         scopeHeight: scopeControl.getBoundingClientRect().height,
         summaryHeight: element.getBoundingClientRect().height,
         scopeCenterOffset: (scopeControl.getBoundingClientRect().top + scopeControl.getBoundingClientRect().height / 2)
@@ -119,12 +148,12 @@ test.describe("mobile-first navigation and content", () => {
           - (searchBox.getBoundingClientRect().top + searchBox.getBoundingClientRect().height / 2)
       };
     });
-    expect(searchHighlight.scopeShadow).toBe("none");
-    expect(searchHighlight.scopeSurfaceHeight).toBe(32);
-    expect(searchHighlight.helpSurfaceWidth).toBe(30);
-    expect(searchHighlight.helpSurfaceHeight).toBe(30);
-    expect(searchHighlight.scopeHeight).toBe(44);
-    expect(searchHighlight.summaryHeight).toBe(44);
+    expect(searchHighlight.scopeShadow).not.toBe("none");
+    expect(searchHighlight.searchHeight).toBe(48);
+    expect(searchHighlight.helpWidth).toBe(30);
+    expect(searchHighlight.helpHeight).toBe(30);
+    expect(searchHighlight.scopeHeight).toBe(32);
+    expect(searchHighlight.summaryHeight).toBe(32);
     expect(searchHighlight.scopeCenterOffset).toBeCloseTo(0, 5);
     expect(searchHighlight.summaryCenterOffset).toBeCloseTo(0, 5);
 
@@ -144,11 +173,21 @@ test.describe("mobile-first navigation and content", () => {
         centerSteps: centers.slice(1).map((center, index) => center - centers[index])
       };
     });
-    expect(menuSpacing.gap).toBe(0);
-    expect(menuSpacing.paddingTop).toBe(4);
-    expect(menuSpacing.paddingBottom).toBe(4);
-    expect(menuSpacing.itemHeights.every(height => height >= 44)).toBe(true);
-    expect(menuSpacing.centerSteps.every(step => Math.abs(step - 44) < .01)).toBe(true);
+    expect(menuSpacing.gap).toBe(4);
+    expect(menuSpacing.paddingTop).toBe(8);
+    expect(menuSpacing.paddingBottom).toBe(8);
+    expect(menuSpacing.itemHeights.every(height => Math.abs(height - 32) < .01)).toBe(true);
+    expect(menuSpacing.centerSteps.every(step => Math.abs(step - 36) < .01)).toBe(true);
+
+    await page.keyboard.press("Escape");
+    await page.locator("#catalogSearchInput").fill("드랜");
+    const clear = page.locator(".catalog-search-box .search-clear");
+    await expect(clear).toBeVisible();
+    const clearSize = await clear.evaluate(element => {
+      const rect = element.getBoundingClientRect();
+      return [rect.width, rect.height];
+    });
+    expect(clearSize).toEqual([30, 30]);
   });
 
   test("catalog uses two columns and applies the filter sheet", async ({ page }) => {
@@ -169,24 +208,30 @@ test.describe("mobile-first navigation and content", () => {
       const help = document.querySelector("#catalogSearchHelpButton");
       const activeTab = document.querySelector('.mobile-bottom-nav > button[aria-current="page"]');
       const probe = document.createElement("i");
-      probe.style.cssText = "position:fixed;background:var(--ui-control-hover)";
+      probe.style.cssText = "position:fixed;background:var(--ui-control-hover);color:var(--ui-text)";
+      const controlProbe = document.createElement("i");
+      controlProbe.style.cssText = "position:fixed;background:var(--ui-control)";
       document.body.append(probe);
+      document.body.append(controlProbe);
       const expectedActiveBackground = getComputedStyle(probe).backgroundColor;
+      const expectedScopeBackground = getComputedStyle(controlProbe).backgroundColor;
       probe.remove();
+      controlProbe.remove();
       return {
         focusShadow: getComputedStyle(searchBox).boxShadow,
         scopeBackground: getComputedStyle(scope).backgroundColor,
         helpBackground: getComputedStyle(help).backgroundColor,
-        activeBackground: getComputedStyle(activeTab).backgroundColor,
-        expectedActiveBackground,
+        expectedScopeBackground,
+        activeBackground: getComputedStyle(activeTab).backgroundColor.match(/[\d.]+/g)?.slice(0, 3),
+        expectedActiveBackground: expectedActiveBackground.match(/[\d.]+/g)?.slice(0, 3),
         markerDisplay: getComputedStyle(activeTab, "::before").display
       };
     });
     expect(controlStyles.focusShadow).not.toBe("none");
     expect(controlStyles.focusShadow).not.toContain("inset");
-    expect(controlStyles.scopeBackground).toBe("rgba(0, 0, 0, 0)");
+    expect(controlStyles.scopeBackground).toBe(controlStyles.expectedScopeBackground);
     expect(controlStyles.helpBackground).toBe("rgba(0, 0, 0, 0)");
-    expect(controlStyles.activeBackground).toBe(controlStyles.expectedActiveBackground);
+    expect(controlStyles.activeBackground).toEqual(controlStyles.expectedActiveBackground);
     expect(controlStyles.markerDisplay).toBe("none");
 
     const columns = await page.locator("#catalogGrid").evaluate(element =>
@@ -197,6 +242,13 @@ test.describe("mobile-first navigation and content", () => {
     await expect(firstCard.locator(".bey-image")).toHaveAttribute("height", "240");
     await expect(firstCard.locator(".bey-image")).toHaveAttribute("sizes", /max-width: 639px/);
     await expect(page.locator(".catalog-pagination-nav .pagination-status")).toBeVisible();
+    const paginationSize = await page.locator(".catalog-pagination-nav").evaluate(element => {
+      const button = [...element.querySelectorAll(".ui-button")].find(candidate => getComputedStyle(candidate).display !== "none");
+      const rect = button.getBoundingClientRect();
+      return { width: rect.width, height: rect.height };
+    });
+    expect(paginationSize.width).toBeGreaterThanOrEqual(38);
+    expect(paginationSize.height).toBeCloseTo(34, 3);
 
     const cardParity = await firstCard.evaluate(element => {
       const style = getComputedStyle(element);
@@ -220,6 +272,22 @@ test.describe("mobile-first navigation and content", () => {
     const sheet = page.locator("#mobileCatalogFilters");
     await expect(sheet).toBeVisible();
     await expect(sheet.locator(".mobile-filter-sheet__close")).toBeFocused();
+    const sheetControls = await sheet.evaluate(element => {
+      const panelStyle = getComputedStyle(element.querySelector(".mobile-filter-sheet__panel"));
+      const optionRect = element.querySelector(".mobile-filter-options .ui-dropdown-item").getBoundingClientRect();
+      const actionRect = element.querySelector(".mobile-filter-sheet__actions .ui-button").getBoundingClientRect();
+      const closeRect = element.querySelector(".mobile-filter-sheet__close").getBoundingClientRect();
+      return {
+        animationName: panelStyle.animationName,
+        optionHeight: optionRect.height,
+        actionHeight: actionRect.height,
+        closeSize: [closeRect.width, closeRect.height]
+      };
+    });
+    expect(sheetControls.animationName).not.toBe("mobile-sheet-enter");
+    expect(sheetControls.optionHeight).toBeCloseTo(38, 3);
+    expect(sheetControls.actionHeight).toBeCloseTo(38, 3);
+    expect(sheetControls.closeSize).toEqual([44, 44]);
     await page.keyboard.press("Shift+Tab");
     await expect(sheet.locator("[data-mobile-filter-apply]")).toBeFocused();
     await sheet.locator('[data-mobile-filter-query="공격형"]').click();
@@ -233,6 +301,7 @@ test.describe("mobile-first navigation and content", () => {
       const probeStyle = getComputedStyle(probe);
       const result = {
         background: style.backgroundColor,
+        height: element.getBoundingClientRect().height,
         borderWidth: style.borderTopWidth,
         radius: style.borderRadius,
         expectedRadius: probeStyle.borderRadius,
@@ -244,6 +313,7 @@ test.describe("mobile-first navigation and content", () => {
       return result;
     });
     expect(selectedFilterStyle.background).toBe("rgba(0, 0, 0, 0)");
+    expect(selectedFilterStyle.height).toBeCloseTo(38, 3);
     expect(selectedFilterStyle.borderWidth).toBe("0px");
     expect(selectedFilterStyle.radius).toBe(selectedFilterStyle.expectedRadius);
     expect(selectedFilterStyle.surfaceBackground).toBe(selectedFilterStyle.expectedSurfaceBackground);
@@ -269,6 +339,7 @@ test.describe("mobile-first navigation and content", () => {
       probe.style.cssText = "position:fixed;background:var(--ui-surface-raised);border-radius:var(--radius-card)";
       document.body.append(probe);
       const probeStyle = getComputedStyle(probe);
+      const metaStyle = getComputedStyle(element.querySelector(".mobile-row-meta"));
       const result = {
         sectionBackground: sectionStyle.backgroundColor,
         expectedSectionBackground: probeStyle.backgroundColor,
@@ -277,7 +348,12 @@ test.describe("mobile-first navigation and content", () => {
         rowShadow: rowStyle.boxShadow,
         rowRadius: rowStyle.borderRadius,
         expectedRowRadius: probeStyle.borderRadius,
-        titleWeight: titleStyle.fontWeight
+        titleWeight: titleStyle.fontWeight,
+        rowMinHeight: rowStyle.minHeight,
+        metaColor: metaStyle.color,
+        metaFontSize: metaStyle.fontSize,
+        expectedMetaColor: probeStyle.color,
+        expectedMetaFontSize: probeStyle.fontSize
       };
       probe.remove();
       return result;
@@ -288,6 +364,9 @@ test.describe("mobile-first navigation and content", () => {
     expect(releaseSurface.rowShadow).toBe("none");
     expect(releaseSurface.rowRadius).toBe(releaseSurface.expectedRowRadius);
     expect(Number(releaseSurface.titleWeight)).toBeLessThanOrEqual(500);
+    expect(releaseSurface.rowMinHeight).toBe("auto");
+    expect(releaseSurface.metaColor).toBe(releaseSurface.expectedMetaColor);
+    expect(releaseSurface.metaFontSize).toBe(releaseSurface.expectedMetaFontSize);
 
     await page.goto("/#anime-episode");
     const episodeRow = page.locator(".anime-episode-row").first();
@@ -370,11 +449,13 @@ test.describe("mobile-first navigation and content", () => {
     const resultSurface = await firstResult.evaluate(element => ({
       background: getComputedStyle(element).backgroundColor,
       borderWidth: getComputedStyle(element).borderTopWidth,
-      padding: getComputedStyle(element).padding
+      padding: getComputedStyle(element).padding,
+      minHeight: getComputedStyle(element).minHeight
     }));
     expect(resultSurface.background).toBe("rgba(0, 0, 0, 0)");
     expect(resultSurface.borderWidth).toBe("0px");
     expect(resultSurface.padding).toBe("11px 10px");
+    expect(resultSurface.minHeight).toBe("auto");
     expect(errors).toEqual([]);
   });
 
@@ -491,7 +572,7 @@ test.describe("mobile-first navigation and content", () => {
     expect(layout.shellRight).toBeLessThanOrEqual(12);
     expect(layout.shellRadius).toBe(24);
     expect(layout.activeBackground).toBe(layout.expectedActiveBackground);
-    expect(layout.activeTargetMinHeight).toBeGreaterThanOrEqual(44);
+    expect(layout.activeTargetMinHeight).toBe(44);
   });
 });
 
@@ -506,6 +587,11 @@ test("phone navigation uses one common hover and current surface", async ({ page
     const hoverTab = page.locator(".mobile-bottom-nav [data-category-catalog-open]");
     await expect(currentTab).toBeVisible();
     await hoverTab.hover();
+    await expect.poll(() => page.evaluate(() => {
+      const current = document.querySelector(".mobile-bottom-nav [data-sidebar-home]");
+      const hovered = document.querySelector(".mobile-bottom-nav [data-category-catalog-open]");
+      return getComputedStyle(hovered).backgroundColor === getComputedStyle(current).backgroundColor;
+    })).toBe(true);
 
     const surfaces = await page.evaluate(() => {
       const current = document.querySelector(".mobile-bottom-nav [data-sidebar-home]");
@@ -523,8 +609,8 @@ test("phone navigation uses one common hover and current surface", async ({ page
       };
     });
 
-    expect(surfaces.currentHeight).toBeGreaterThanOrEqual(44);
-    expect(surfaces.hoverHeight).toBeGreaterThanOrEqual(44);
+    expect(surfaces.currentHeight).toBeCloseTo(44, 3);
+    expect(surfaces.hoverHeight).toBeCloseTo(44, 3);
     expect(surfaces.hoverBackground).toBe(surfaces.currentBackground);
     expect(surfaces.hoverRadius).toBe(surfaces.currentRadius);
     expect(surfaces.markerDisplay).toBe("none");

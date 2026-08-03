@@ -1,4 +1,4 @@
-const styleVersion = "20260803-mobile-touch-hover-title-layout";
+const styleVersion = "20260803-mobile-full-desktop-parity";
 const styleOrder = ["page", "collection", "table", "release", "anime", "catalog", "search", "modal"];
 const styleFiles = Object.fromEntries(styleOrder.map(key => [key, `./styles/${key}.css?v=${styleVersion}`]));
 const stylePromises = new Map();

@@ -1226,9 +1226,9 @@ test("shared interface controls keep tokenized sizes and timings", async ({ page
     compactMotion: "160ms",
     standardMotion: "180ms"
   });
-  expect(catalogControls.help).toEqual(mobile ? [44, 44] : [30, 30]);
-  expect(catalogControls.searchScope[1]).toBe(mobile ? 44 : 32);
-  expect(catalogControls.dropdownItem[1]).toBe(mobile ? 44 : 38);
+  expect(catalogControls.help).toEqual([30, 30]);
+  expect(catalogControls.searchScope[1]).toBe(32);
+  expect(catalogControls.dropdownItem[1]).toBe(38);
   expect(catalogControls.toTop).toEqual([44, 44]);
   expect(catalogControls.drawerClose).toEqual(mobile ? [0, 0] : [44, 44]);
   expect(catalogControls.dropdownMotion).toEqual(["0.16s", "0.16s"]);
@@ -2790,6 +2790,8 @@ test("touch release rows separate image previews from one-tap detail navigation"
     const meta = element.querySelector(".mobile-row-meta").getBoundingClientRect();
     const cellRect = cell.getBoundingClientRect();
     return {
+      previewWidth: previewButton.width,
+      previewHeight: previewButton.height,
       titleRight: title.right,
       previewLeft: previewButton.left,
       contentBottom: Math.max(title.bottom, previewButton.bottom),
@@ -2800,6 +2802,8 @@ test("touch release rows separate image previews from one-tap detail navigation"
       cellRight: cellRect.right
     };
   });
+  expect(previewLayout.previewWidth).toBeCloseTo(30, 3);
+  expect(previewLayout.previewHeight).toBeCloseTo(30, 3);
   expect(previewLayout.titleRight).toBeLessThanOrEqual(previewLayout.previewLeft + 1);
   expect(previewLayout.metaTop).toBeGreaterThanOrEqual(previewLayout.contentBottom - 1);
   expect(previewLayout.metaLeft).toBeGreaterThanOrEqual(previewLayout.cellLeft - 1);
@@ -2808,17 +2812,19 @@ test("touch release rows separate image previews from one-tap detail navigation"
   await previewButton.tap();
   expect(page.url()).toBe(releaseUrl);
   await expect(preview).toBeVisible();
+  await expect.poll(() => preview.evaluate(element => Math.round(element.getBoundingClientRect().width))).toBe(184);
+  await expect.poll(() => preview.evaluate(element => Math.round(element.getBoundingClientRect().height))).toBe(184);
   await expect(preview.locator("img")).toHaveAttribute("src", "assets/images/beys/storm-pegasis.png");
   await page.locator("#releaseSearchInput").tap();
   await expect(preview).toBeHidden();
 
-  await previewButton.tap();
+  await previewButton.evaluate(button => button.click());
   await expect(preview).toBeVisible();
   await page.keyboard.press("Escape");
   await expect(preview).toBeHidden();
   expect(page.url()).toBe(releaseUrl);
 
-  await previewButton.tap();
+  await previewButton.evaluate(button => button.click());
   await expect(preview).toBeVisible();
   await page.evaluate(() => document.dispatchEvent(new Event("scroll")));
   await expect(preview).toBeHidden();
@@ -3139,7 +3145,7 @@ test("modal tag popovers follow the active pointer type", async ({ page }, testI
 });
 
 test("modal tags use one free horizontal scroll row when space is narrow", async ({ page }, testInfo) => {
-  const narrowWidth = testInfo.project.name === "mobile" ? 393 : 360;
+  const narrowWidth = testInfo.project.name === "mobile" ? 352 : 360;
   await page.setViewportSize({ width: narrowWidth, height: 800 });
   await page.goto("/#PART-X-BLADE-DRAN-SWORD");
   await expect(page.locator("#detailModal")).toBeVisible();
@@ -3165,7 +3171,7 @@ test("modal tags use one free horizontal scroll row when space is narrow", async
       boxShadow: style.boxShadow,
       flexWrap: getComputedStyle(tagRoot).flexWrap,
       slot: bounds(element),
-      tags: [...tagRoot.children].map(bounds)
+      tags: [...tagRoot.children].map(node => ({ ...bounds(node), width: node.getBoundingClientRect().width }))
     };
   });
   expect(narrowLayout.scrollWidth).toBeGreaterThan(narrowLayout.clientWidth);
@@ -3175,6 +3181,7 @@ test("modal tags use one free horizontal scroll row when space is narrow", async
   expect(narrowLayout.scrollbarWidth).toBe("none");
   expect(narrowLayout.boxShadow).toBe("none");
   expect(narrowLayout.flexWrap).toBe("nowrap");
+  expect(narrowLayout.tags.some(tag => tag.width < 96)).toBe(true);
   expect(new Set(narrowLayout.tags.map(tag => Math.round(tag.top))).size).toBe(1);
   expect(new Set(narrowLayout.tags.map(tag => Math.round(tag.bottom))).size).toBe(1);
   expect(narrowLayout.tags.every(tag => tag.top >= narrowLayout.slot.top - 1 && tag.bottom <= narrowLayout.slot.bottom + 1)).toBe(true);
