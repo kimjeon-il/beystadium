@@ -538,6 +538,27 @@ test.describe("mobile-first navigation and content", () => {
     expect(errors).toEqual([]);
   });
 
+  test("mobile modal backdrop shares the card surface across widths and themes", async ({ page }) => {
+    for (const colorScheme of ["light", "dark"]) {
+      await page.emulateMedia({ colorScheme });
+      for (const width of [393, 430]) {
+        await page.setViewportSize({ width, height: width === 393 ? 852 : 932 });
+        await page.goto("/#PART-METAL-FIGHT-FACE-PEGASIS");
+
+        const dialog = page.locator("#detailModal");
+        await expect(dialog).toBeVisible();
+        const colors = await dialog.evaluate(element => ({
+          overlay: getComputedStyle(element.querySelector(".modal-overlay")).backgroundColor,
+          shell: getComputedStyle(element.querySelector(".modal-inner")).backgroundColor
+        }));
+        expect(colors.overlay).toBe(colors.shell);
+
+        await dialog.locator(".modal-overlay").click({ position: { x: 2, y: 2 } });
+        await expect(dialog).toBeHidden();
+      }
+    }
+  });
+
   test("wider phones retain the harmonized shell without horizontal overflow", async ({ page }) => {
     await page.setViewportSize({ width: 430, height: 932 });
     await page.goto("/#toy-release");

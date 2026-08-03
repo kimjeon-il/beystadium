@@ -1097,20 +1097,24 @@ test("secondary control text and modal colors use accessible semantic tokens", a
     const modalColors = await page.evaluate(() => {
       const scrimProbe = document.createElement("i");
       scrimProbe.style.cssText = "position:fixed;background:var(--ui-scrim)";
+      const surfaceProbe = document.createElement("i");
+      surfaceProbe.style.cssText = "position:fixed;background:var(--ui-surface-raised)";
       const accentProbe = document.createElement("i");
       accentProbe.style.cssText = "position:fixed;background:var(--ui-accent)";
-      document.body.append(scrimProbe, accentProbe);
+      document.body.append(scrimProbe, surfaceProbe, accentProbe);
       const state = {
         accent: getComputedStyle(accentProbe).backgroundColor,
         scrim: getComputedStyle(scrimProbe).backgroundColor,
+        surface: getComputedStyle(surfaceProbe).backgroundColor,
         overlay: getComputedStyle(document.querySelector(".modal-overlay")).backgroundColor,
         statFill: getComputedStyle(document.querySelector("#detailModal .stat-fill")).backgroundColor
       };
       scrimProbe.remove();
+      surfaceProbe.remove();
       accentProbe.remove();
       return state;
     });
-    expect(modalColors.overlay).toBe(modalColors.scrim);
+    expect(modalColors.overlay).toBe(testInfo.project.name === "mobile" ? modalColors.surface : modalColors.scrim);
     expect(modalColors.statFill).toBe(modalColors.accent);
   }
 });

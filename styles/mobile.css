@@ -830,6 +830,7 @@
 
   #detailModal[open] .modal-overlay {
     display: block;
+    background: var(--ui-surface-raised);
   }
 
   #detailModal[open] .modal-inner,
