@@ -28,16 +28,35 @@ test.describe("mobile-first navigation and content", () => {
     await expect(page.locator('[data-global-search-scope="parts"]')).toHaveCount(1);
     await expect(page.locator('[data-global-search-scope="character"]')).toHaveCount(1);
 
-    const layout = await page.evaluate(() => ({
-      documentWidth: document.documentElement.scrollWidth,
-      viewportWidth: document.documentElement.clientWidth,
-      minimumTarget: Math.min(
-        ...[...document.querySelectorAll(".mobile-bottom-nav > button")]
-          .map(element => element.getBoundingClientRect().height)
-      )
-    }));
+    const layout = await page.evaluate(() => {
+      const probe = document.createElement("i");
+      probe.style.cssText = "position:fixed;border-radius:var(--radius-card);background:var(--ui-surface-raised)";
+      document.body.append(probe);
+      const probeStyle = getComputedStyle(probe);
+      const quickLinkStyle = getComputedStyle(document.querySelector(".overview-quick-links > button"));
+      const result = {
+        documentWidth: document.documentElement.scrollWidth,
+        viewportWidth: document.documentElement.clientWidth,
+        minimumTarget: Math.min(
+          ...[...document.querySelectorAll(".mobile-bottom-nav > button")]
+            .map(element => element.getBoundingClientRect().height)
+        ),
+        heroAlignment: getComputedStyle(document.querySelector(".overview-hero h1")).textAlign,
+        searchHeight: document.querySelector(".overview-search").getBoundingClientRect().height,
+        quickLinkRadius: quickLinkStyle.borderRadius,
+        expectedRadius: probeStyle.borderRadius,
+        quickLinkBackground: quickLinkStyle.backgroundColor,
+        expectedBackground: probeStyle.backgroundColor
+      };
+      probe.remove();
+      return result;
+    });
     expect(layout.documentWidth).toBeLessThanOrEqual(layout.viewportWidth + 1);
     expect(layout.minimumTarget).toBeGreaterThanOrEqual(44);
+    expect(layout.heroAlignment).toBe("center");
+    expect(layout.searchHeight).toBeCloseTo(62, 3);
+    expect(layout.quickLinkRadius).toBe(layout.expectedRadius);
+    expect(layout.quickLinkBackground).toBe(layout.expectedBackground);
     expect(errors).toEqual([]);
   });
 
@@ -46,28 +65,34 @@ test.describe("mobile-first navigation and content", () => {
     await page.locator(".mobile-bottom-nav [data-category-catalog-open]").click();
 
     const activeTab = page.locator(".mobile-bottom-nav [data-category-catalog-open]");
-    const tabIndicator = await activeTab.evaluate(element => {
-      const style = getComputedStyle(element, "::before");
+    await expect(activeTab).toHaveAttribute("aria-current", "page");
+    await page.waitForTimeout(250);
+    const tabSurface = await activeTab.evaluate(element => {
+      const style = getComputedStyle(element);
+      const marker = getComputedStyle(element, "::before");
+      const inactiveStyle = getComputedStyle(document.querySelector(".mobile-bottom-nav [data-sidebar-home]"));
       const probe = document.createElement("i");
-      probe.style.cssText = "position:fixed;background:var(--ui-control-hover)";
+      probe.style.cssText = "position:fixed;background:var(--ui-control-hover);border-radius:var(--radius-control)";
       document.body.append(probe);
-      const expectedBackground = getComputedStyle(probe).backgroundColor;
+      const probeStyle = getComputedStyle(probe);
+      const expectedBackground = probeStyle.backgroundColor;
+      const expectedRadius = probeStyle.borderRadius;
       probe.remove();
       return {
-        width: Number.parseFloat(style.width),
-        height: Number.parseFloat(style.height),
-        position: style.position,
+        height: element.getBoundingClientRect().height,
         background: style.backgroundColor,
-        expectedBackground
+        expectedBackground,
+        radius: style.borderRadius,
+        expectedRadius,
+        markerDisplay: marker.display,
+        inactiveBackground: inactiveStyle.backgroundColor
       };
     });
-    expect(tabIndicator).toEqual({
-      width: 44,
-      height: 44,
-      position: "absolute",
-      background: tabIndicator.expectedBackground,
-      expectedBackground: tabIndicator.expectedBackground
-    });
+    expect(tabSurface.height).toBeGreaterThanOrEqual(44);
+    expect(tabSurface.background).toBe(tabSurface.expectedBackground);
+    expect(tabSurface.radius).toBe(tabSurface.expectedRadius);
+    expect(tabSurface.markerDisplay).toBe("none");
+    expect(tabSurface.inactiveBackground).toBe("rgba(0, 0, 0, 0)");
 
     await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
     const scope = page.locator("#catalogSearchScope > summary");
@@ -95,9 +120,9 @@ test.describe("mobile-first navigation and content", () => {
       };
     });
     expect(searchHighlight.scopeShadow).toBe("none");
-    expect(searchHighlight.scopeSurfaceHeight).toBe(36);
-    expect(searchHighlight.helpSurfaceWidth).toBe(36);
-    expect(searchHighlight.helpSurfaceHeight).toBe(36);
+    expect(searchHighlight.scopeSurfaceHeight).toBe(32);
+    expect(searchHighlight.helpSurfaceWidth).toBe(30);
+    expect(searchHighlight.helpSurfaceHeight).toBe(30);
     expect(searchHighlight.scopeHeight).toBe(44);
     expect(searchHighlight.summaryHeight).toBe(44);
     expect(searchHighlight.scopeCenterOffset).toBeCloseTo(0, 5);
@@ -130,6 +155,7 @@ test.describe("mobile-first navigation and content", () => {
     const errors = consoleErrors(page);
     await page.goto("/");
     await page.locator(".mobile-bottom-nav [data-category-catalog-open]").click();
+    await page.waitForTimeout(250);
 
     const firstCard = page.locator("#catalogGrid .catalog-card").first();
     await expect(firstCard).toBeVisible();
@@ -142,23 +168,26 @@ test.describe("mobile-first navigation and content", () => {
       const scope = document.querySelector("#catalogSearchScope > summary");
       const help = document.querySelector("#catalogSearchHelpButton");
       const activeTab = document.querySelector('.mobile-bottom-nav > button[aria-current="page"]');
-      const marker = getComputedStyle(activeTab, "::before");
+      const probe = document.createElement("i");
+      probe.style.cssText = "position:fixed;background:var(--ui-control-hover)";
+      document.body.append(probe);
+      const expectedActiveBackground = getComputedStyle(probe).backgroundColor;
+      probe.remove();
       return {
         focusShadow: getComputedStyle(searchBox).boxShadow,
         scopeBackground: getComputedStyle(scope).backgroundColor,
         helpBackground: getComputedStyle(help).backgroundColor,
-        markerWidth: marker.width,
-        markerHeight: marker.height,
-        markerOpacity: marker.opacity
+        activeBackground: getComputedStyle(activeTab).backgroundColor,
+        expectedActiveBackground,
+        markerDisplay: getComputedStyle(activeTab, "::before").display
       };
     });
     expect(controlStyles.focusShadow).not.toBe("none");
     expect(controlStyles.focusShadow).not.toContain("inset");
     expect(controlStyles.scopeBackground).toBe("rgba(0, 0, 0, 0)");
     expect(controlStyles.helpBackground).toBe("rgba(0, 0, 0, 0)");
-    expect(controlStyles.markerWidth).toBe("44px");
-    expect(controlStyles.markerHeight).toBe("44px");
-    expect(controlStyles.markerOpacity).toBe("1");
+    expect(controlStyles.activeBackground).toBe(controlStyles.expectedActiveBackground);
+    expect(controlStyles.markerDisplay).toBe("none");
 
     const columns = await page.locator("#catalogGrid").evaluate(element =>
       getComputedStyle(element).gridTemplateColumns.split(" ").filter(Boolean).length
@@ -169,6 +198,24 @@ test.describe("mobile-first navigation and content", () => {
     await expect(firstCard.locator(".bey-image")).toHaveAttribute("sizes", /max-width: 639px/);
     await expect(page.locator(".catalog-pagination-nav .pagination-status")).toBeVisible();
 
+    const cardParity = await firstCard.evaluate(element => {
+      const style = getComputedStyle(element);
+      const imageStyle = getComputedStyle(element.querySelector(".bey-image"));
+      const titleStyle = getComputedStyle(element.querySelector(".catalog-card-title"));
+      return {
+        minHeight: Number.parseFloat(style.minHeight),
+        imageMaxWidth: imageStyle.maxWidth,
+        titleWhiteSpace: titleStyle.whiteSpace,
+        radius: style.borderRadius,
+        shadow: style.boxShadow
+      };
+    });
+    expect(cardParity.minHeight).toBe(132);
+    expect(cardParity.imageMaxWidth).toBe("min(78%, 112px)");
+    expect(cardParity.titleWhiteSpace).toBe("nowrap");
+    expect(cardParity.radius).toBe("12px");
+    expect(cardParity.shadow).not.toBe("");
+
     await page.locator("#mobileCatalogFilterOpen").click();
     const sheet = page.locator("#mobileCatalogFilters");
     await expect(sheet).toBeVisible();
@@ -176,13 +223,31 @@ test.describe("mobile-first navigation and content", () => {
     await page.keyboard.press("Shift+Tab");
     await expect(sheet.locator("[data-mobile-filter-apply]")).toBeFocused();
     await sheet.locator('[data-mobile-filter-query="공격형"]').click();
-    const selectedFilterStyle = await sheet.locator('[data-mobile-filter-query="공격형"]').evaluate(element => ({
-      background: getComputedStyle(element).backgroundColor,
-      foreground: getComputedStyle(element).color,
-      pageBackground: getComputedStyle(document.body).backgroundColor
-    }));
-    expect(selectedFilterStyle.background).not.toBe(selectedFilterStyle.foreground);
-    expect(selectedFilterStyle.background).not.toBe(selectedFilterStyle.pageBackground);
+    await page.waitForTimeout(250);
+    const selectedFilterStyle = await sheet.locator('[data-mobile-filter-query="공격형"]').evaluate(element => {
+      const style = getComputedStyle(element);
+      const surface = getComputedStyle(element, "::before");
+      const probe = document.createElement("i");
+      probe.style.cssText = "position:fixed;background:var(--ui-control-hover);border-radius:var(--radius-control-sm)";
+      document.body.append(probe);
+      const probeStyle = getComputedStyle(probe);
+      const result = {
+        background: style.backgroundColor,
+        borderWidth: style.borderTopWidth,
+        radius: style.borderRadius,
+        expectedRadius: probeStyle.borderRadius,
+        surfaceBackground: surface.backgroundColor,
+        expectedSurfaceBackground: probeStyle.backgroundColor,
+        surfaceOpacity: surface.opacity
+      };
+      probe.remove();
+      return result;
+    });
+    expect(selectedFilterStyle.background).toBe("rgba(0, 0, 0, 0)");
+    expect(selectedFilterStyle.borderWidth).toBe("0px");
+    expect(selectedFilterStyle.radius).toBe(selectedFilterStyle.expectedRadius);
+    expect(selectedFilterStyle.surfaceBackground).toBe(selectedFilterStyle.expectedSurfaceBackground);
+    expect(selectedFilterStyle.surfaceOpacity).toBe("1");
     await sheet.locator("[data-mobile-filter-apply]").click();
     await expect(sheet).toBeHidden();
     await expect(page.locator("#catalogSearchInput")).toHaveValue(/공격형/);
@@ -196,6 +261,33 @@ test.describe("mobile-first navigation and content", () => {
     await expect(releaseRow).toBeVisible();
     await expect(releaseRow.locator(".mobile-row-meta")).toBeVisible();
     await expect(releaseRow.locator(".mobile-row-meta")).not.toHaveText("");
+    const releaseSurface = await releaseRow.evaluate(element => {
+      const sectionStyle = getComputedStyle(element.closest(".table-list-section"));
+      const rowStyle = getComputedStyle(element);
+      const titleStyle = getComputedStyle(element.querySelector(".table-list-primary-text"));
+      const probe = document.createElement("i");
+      probe.style.cssText = "position:fixed;background:var(--ui-surface-raised);border-radius:var(--radius-card)";
+      document.body.append(probe);
+      const probeStyle = getComputedStyle(probe);
+      const result = {
+        sectionBackground: sectionStyle.backgroundColor,
+        expectedSectionBackground: probeStyle.backgroundColor,
+        sectionBorderWidth: sectionStyle.borderTopWidth,
+        rowBackground: rowStyle.backgroundColor,
+        rowShadow: rowStyle.boxShadow,
+        rowRadius: rowStyle.borderRadius,
+        expectedRowRadius: probeStyle.borderRadius,
+        titleWeight: titleStyle.fontWeight
+      };
+      probe.remove();
+      return result;
+    });
+    expect(releaseSurface.sectionBackground).toBe(releaseSurface.expectedSectionBackground);
+    expect(releaseSurface.sectionBorderWidth).toBe("1px");
+    expect(releaseSurface.rowBackground).toBe("rgba(0, 0, 0, 0)");
+    expect(releaseSurface.rowShadow).toBe("none");
+    expect(releaseSurface.rowRadius).toBe(releaseSurface.expectedRowRadius);
+    expect(Number(releaseSurface.titleWeight)).toBeLessThanOrEqual(500);
 
     await page.goto("/#anime-episode");
     const episodeRow = page.locator(".anime-episode-row").first();
@@ -216,6 +308,18 @@ test.describe("mobile-first navigation and content", () => {
     await expect(page.locator("#mobileTopbarBack")).toBeVisible();
     await expect(input).toBeFocused();
     await expect(page.locator("#searchResultsSearchScope")).toBeVisible();
+    await input.fill("페가시스");
+    await input.press("Enter");
+    const firstResult = page.locator(".search-results-list .search-result-item").first();
+    await expect(firstResult).toBeVisible();
+    const resultSurface = await firstResult.evaluate(element => ({
+      background: getComputedStyle(element).backgroundColor,
+      borderWidth: getComputedStyle(element).borderTopWidth,
+      padding: getComputedStyle(element).padding
+    }));
+    expect(resultSurface.background).toBe("rgba(0, 0, 0, 0)");
+    expect(resultSurface.borderWidth).toBe("0px");
+    expect(resultSurface.padding).toBe("11px 10px");
     expect(errors).toEqual([]);
   });
 
@@ -263,7 +367,8 @@ test.describe("mobile-first navigation and content", () => {
         innerOverflow: scrollArea ? getComputedStyle(scrollArea).overflowY : "visible",
         radius: Number.parseFloat(getComputedStyle(element).borderTopLeftRadius),
         shadow: getComputedStyle(element).boxShadow,
-        overlayDisplay: getComputedStyle(document.querySelector("#detailModal .modal-overlay")).display
+        overlayDisplay: getComputedStyle(document.querySelector("#detailModal .modal-overlay")).display,
+        sectionPadding: getComputedStyle(element.querySelector(".modal-info")).getPropertyValue("--modal-section-padding").trim()
       };
     });
     expect(geometry.left).toBe(8);
@@ -275,6 +380,7 @@ test.describe("mobile-first navigation and content", () => {
     expect(geometry.radius).toBe(24);
     expect(geometry.shadow).not.toBe("none");
     expect(geometry.overlayDisplay).toBe("block");
+    expect(geometry.sectionPadding).toBe("20px");
 
     await contextualBack.tap();
     await expect(dialog).toBeHidden();
@@ -305,15 +411,21 @@ test.describe("mobile-first navigation and content", () => {
 
     const layout = await page.evaluate(() => {
       const shell = document.querySelector("#detailModal .modal-inner").getBoundingClientRect();
-      const activeMarker = getComputedStyle(document.querySelector('.mobile-bottom-nav > button[aria-current="page"]'), "::before");
+      const activeTab = document.querySelector('.mobile-bottom-nav > button[aria-current="page"]');
+      const probe = document.createElement("i");
+      probe.style.cssText = "position:fixed;background:var(--ui-control-hover)";
+      document.body.append(probe);
+      const expectedActiveBackground = getComputedStyle(probe).backgroundColor;
+      probe.remove();
       return {
         documentWidth: document.documentElement.scrollWidth,
         viewportWidth: document.documentElement.clientWidth,
         shellLeft: Math.round(shell.left),
         shellRight: Math.round(window.innerWidth - shell.right),
         shellRadius: Number.parseFloat(getComputedStyle(document.querySelector("#detailModal .modal-inner")).borderTopLeftRadius),
-        markerWidth: Number.parseFloat(activeMarker.width),
-        markerHeight: Number.parseFloat(activeMarker.height)
+        activeBackground: getComputedStyle(activeTab).backgroundColor,
+        expectedActiveBackground,
+        activeTargetMinHeight: Number.parseFloat(getComputedStyle(activeTab).minHeight)
       };
     });
 
@@ -323,8 +435,8 @@ test.describe("mobile-first navigation and content", () => {
     expect(layout.shellRight).toBeGreaterThanOrEqual(8);
     expect(layout.shellRight).toBeLessThanOrEqual(12);
     expect(layout.shellRadius).toBe(24);
-    expect(layout.markerWidth).toBe(44);
-    expect(layout.markerHeight).toBe(44);
+    expect(layout.activeBackground).toBe(layout.expectedActiveBackground);
+    expect(layout.activeTargetMinHeight).toBeGreaterThanOrEqual(44);
   });
 });
 
@@ -343,27 +455,24 @@ test("phone navigation uses one common hover and current surface", async ({ page
     const surfaces = await page.evaluate(() => {
       const current = document.querySelector(".mobile-bottom-nav [data-sidebar-home]");
       const hovered = document.querySelector(".mobile-bottom-nav [data-category-catalog-open]");
-      const currentSurface = getComputedStyle(current, "::before");
-      const hoverSurface = getComputedStyle(hovered, "::before");
+      const currentSurface = getComputedStyle(current);
+      const hoverSurface = getComputedStyle(hovered);
       return {
-        currentWidth: Number.parseFloat(currentSurface.width),
-        currentHeight: Number.parseFloat(currentSurface.height),
+        currentHeight: current.getBoundingClientRect().height,
         currentBackground: currentSurface.backgroundColor,
-        currentOpacity: currentSurface.opacity,
-        hoverWidth: Number.parseFloat(hoverSurface.width),
-        hoverHeight: Number.parseFloat(hoverSurface.height),
+        currentRadius: currentSurface.borderRadius,
+        hoverHeight: hovered.getBoundingClientRect().height,
         hoverBackground: hoverSurface.backgroundColor,
-        hoverOpacity: hoverSurface.opacity
+        hoverRadius: hoverSurface.borderRadius,
+        markerDisplay: getComputedStyle(current, "::before").display
       };
     });
 
-    expect(surfaces.currentWidth).toBe(44);
-    expect(surfaces.currentHeight).toBe(44);
-    expect(surfaces.hoverWidth).toBe(44);
-    expect(surfaces.hoverHeight).toBe(44);
+    expect(surfaces.currentHeight).toBeGreaterThanOrEqual(44);
+    expect(surfaces.hoverHeight).toBeGreaterThanOrEqual(44);
     expect(surfaces.hoverBackground).toBe(surfaces.currentBackground);
-    expect(surfaces.currentOpacity).toBe("1");
-    expect(surfaces.hoverOpacity).toBe("1");
+    expect(surfaces.hoverRadius).toBe(surfaces.currentRadius);
+    expect(surfaces.markerDisplay).toBe("none");
   }
 });
 

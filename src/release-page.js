@@ -145,7 +145,7 @@ const productReleaseTableRows = (region = appState.activeReleaseRegion, series =
     const formattedPrice = priceLabel(release.price, region);
     const mobileMeta = [release.kind, releaseDateCompactLabel(releaseDate), formattedPrice].filter(Boolean);
     const imagePreviewButton = item.releases?.[region]?.image
-      ? `<button class="release-image-preview-button image-preview-trigger" type="button" data-image-preview-product-id="${item.id}" data-image-preview-region="${region}" aria-label="${escapeAttributeValue(`${productName} 제품 이미지 미리보기`)}">이미지</button>`
+      ? `<button class="ui-icon-button release-image-preview-button image-preview-trigger" type="button" data-image-preview-product-id="${item.id}" data-image-preview-region="${region}" aria-label="${escapeAttributeValue(`${productName} 제품 이미지 미리보기`)}">이미지</button>`
       : "";
     return `<tr class="table-list-row release-product-row" data-product-id="${item.id}" data-release-region="${region}">
     <td>${escapeHtml(release.no || "")}</td>

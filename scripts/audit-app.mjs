@@ -28,8 +28,12 @@ const FORBIDDEN_MONOLITHS = [
   "styles.css",
   "scripts/build-app-runtime.mjs"
 ];
-const MOBILE_STYLE_VERSION = "20260803-mobile-control-alignment";
+const MOBILE_STYLE_VERSION = "20260803-mobile-desktop-style-parity";
 const MOBILE_OVERHAUL_IMPORT_VERSION = "20260731-mobile-highlight-fix";
+const MOBILE_UPDATED_IMPORT_VERSIONS = {
+  "#app/style-loader": MOBILE_STYLE_VERSION,
+  "#app/release-page": MOBILE_STYLE_VERSION
+};
 const MOBILE_OVERHAUL_IMPORTS = {
   "#app/data-store": "src/data-store.js",
   "#app/ui-core": "src/ui-core.js",
@@ -75,7 +79,8 @@ if (!indexHtml.includes(`./styles/mobile.css?v=${MOBILE_STYLE_VERSION}`)) {
   throw new Error("Mobile control fix cache version is missing: styles/mobile.css");
 }
 for (const [alias, file] of Object.entries(MOBILE_OVERHAUL_IMPORTS)) {
-  if (importMap[alias] !== `./${file}?v=${MOBILE_OVERHAUL_IMPORT_VERSION}`) {
+  const expectedVersion = MOBILE_UPDATED_IMPORT_VERSIONS[alias] || MOBILE_OVERHAUL_IMPORT_VERSION;
+  if (importMap[alias] !== `./${file}?v=${expectedVersion}`) {
     throw new Error(`Mobile overhaul import cache version is missing: ${alias}`);
   }
 }
