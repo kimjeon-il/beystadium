@@ -70,6 +70,7 @@
   --space-5: 20px;
   --space-6: 24px;
   --touch-target-min: 44px;
+  --topbar-height: 72px;
   --inline-icon-control-size: 30px;
   --control-height-compact: 32px;
   --control-height-default: 38px;
@@ -703,8 +704,8 @@ main {
   box-sizing: border-box;
   width: 100%;
   max-width: none;
-  height: 72px;
-  min-height: 72px;
+  height: var(--topbar-height);
+  min-height: var(--topbar-height);
   padding: 0 var(--topbar-content-inset);
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
@@ -876,7 +877,7 @@ body[data-active-panel="all"] .topbar-search {
   --catalog-card-padding: clamp(10px, 1.1vw, 16px);
   --catalog-card-badge-padding: 0 clamp(6px, .6vw, 8px);
   --catalog-card-badge-font-size: var(--font-xs);
-  min-height: calc(100vh - 72px);
+  min-height: calc(100vh - var(--topbar-height));
   padding: 56px 7vw 100px;
   padding-left: var(--page-gutter);
   padding-right: var(--page-gutter);
@@ -1434,7 +1435,7 @@ html.route-booting .to-top {
 }
 
 body.is-overview .app-shell {
-  min-height: calc(100svh - 72px);
+  min-height: calc(100svh - var(--topbar-height));
   padding-top: 0;
   padding-bottom: 0;
   display: grid;
@@ -1936,11 +1937,11 @@ body.menu-open .mobile-drawer {
   }
 
 .app-shell {
-    min-height: calc(100vh - 72px);
+    min-height: calc(100vh - var(--topbar-height));
   }
 
 body.is-overview .app-shell {
-    min-height: calc(100svh - 72px);
+    min-height: calc(100svh - var(--topbar-height));
   }
 }
 
@@ -2115,13 +2116,8 @@ body.is-overview .app-shell {
 @media (max-width: 63.999rem) {
 .topbar {
     width: auto;
-    max-width: none;
     padding: 0 var(--page-gutter);
-    display: grid;
     grid-template-columns: var(--topbar-side-size) minmax(0, 1fr);
-    justify-content: stretch;
-    margin: 0;
-    background: var(--ui-surface-glass);
   }
 
 .topbar-primary-nav {

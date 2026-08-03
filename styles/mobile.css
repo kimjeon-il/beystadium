@@ -17,8 +17,8 @@
 @media (min-width: 40rem) and (max-width: 63.999rem) {
   .topbar {
     padding-inline: clamp(18px, 3vw, 30px);
-    grid-template-columns: auto minmax(220px, 1fr) var(--topbar-side-size);
-    gap: clamp(14px, 2vw, 24px);
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: clamp(8px, 1.5vw, 18px);
   }
 
   .topbar > .brand {
@@ -26,20 +26,25 @@
     grid-column: 1;
   }
 
+  .topbar-primary-nav {
+    grid-column: 2;
+    justify-self: end;
+    display: flex;
+    gap: clamp(0px, .8vw, var(--space-2));
+  }
+
+  .topbar-primary-button {
+    padding-inline: clamp(6px, 1vw, 14px);
+  }
+
   .topbar-search,
   body.is-overview .topbar-search,
   body[data-active-panel="all"] .topbar-search {
-    width: 100%;
-    max-width: 520px;
-    display: flex;
-    grid-column: 2;
-    justify-self: center;
+    display: none;
   }
 
   .topbar .menu-button {
-    display: inline-flex;
-    grid-column: 3;
-    justify-self: end;
+    display: none;
   }
 
   .app-shell {
@@ -51,7 +56,7 @@
 @media (max-width: 39.999rem) {
   :root {
     --page-gutter: 12px;
-    --mobile-topbar-height: 56px;
+    --mobile-topbar-height: var(--topbar-height);
     --mobile-nav-height: 64px;
     --mobile-safe-bottom: env(safe-area-inset-bottom, 0px);
   }
@@ -98,7 +103,7 @@
   .mobile-topbar-back {
     position: absolute;
     left: 6px;
-    top: 6px;
+    top: calc((var(--mobile-topbar-height) - var(--icon-control-size)) / 2);
     width: 44px;
     height: 44px;
   }

@@ -287,7 +287,8 @@ test.describe("mobile-first navigation and content", () => {
     expect(sheetControls.animationName).not.toBe("mobile-sheet-enter");
     expect(sheetControls.optionHeight).toBeCloseTo(38, 3);
     expect(sheetControls.actionHeight).toBeCloseTo(38, 3);
-    expect(sheetControls.closeSize).toEqual([44, 44]);
+    expect(sheetControls.closeSize[0]).toBeCloseTo(44, 3);
+    expect(sheetControls.closeSize[1]).toBeCloseTo(44, 3);
     await page.keyboard.press("Shift+Tab");
     await expect(sheet.locator("[data-mobile-filter-apply]")).toBeFocused();
     await sheet.locator('[data-mobile-filter-query="공격형"]').click();
@@ -672,19 +673,111 @@ test("touch layouts ignore decorative hover without losing persistent states", a
   expect(errors).toEqual([]);
 });
 
-test("tablet keeps brand search and menu without the phone tab bar", async ({ page }, testInfo) => {
-  test.skip(testInfo.project.name !== "desktop", "one tablet viewport is sufficient");
-  await page.setViewportSize({ width: 768, height: 1024 });
-  await page.goto("/");
+test("topbar stays 72px and uses the desktop menu from 640px", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "responsive viewport matrix only needs one browser project");
 
-  await expect(page.locator(".topbar > .brand")).toBeVisible();
-  await expect(page.locator(".topbar-search")).toBeVisible();
-  await expect(page.locator("#menuButton")).toBeVisible();
-  await expect(page.locator(".mobile-bottom-nav")).toBeHidden();
+  for (const width of [360, 393, 639, 640, 768, 785, 1023, 1024, 1280]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto("/#toy-catalog");
 
-  const bounds = await page.evaluate(() => ({
-    documentWidth: document.documentElement.scrollWidth,
-    viewportWidth: document.documentElement.clientWidth
-  }));
-  expect(bounds.documentWidth).toBeLessThanOrEqual(bounds.viewportWidth + 1);
+    const topbar = page.locator(".topbar");
+    await expect(topbar).toBeVisible();
+    await expect(topbar).toHaveCSS("height", "72px");
+
+    const brand = page.locator(".topbar > .brand");
+    const primaryNav = page.locator(".topbar-primary-nav");
+    const topbarSearch = page.locator(".topbar-search");
+    const menuButton = page.locator("#menuButton");
+
+    if (width < 640) {
+      await expect(page.locator(".mobile-topbar")).toBeVisible();
+      await expect(brand).toBeHidden();
+      await expect(primaryNav).toBeHidden();
+      await expect(topbarSearch).toBeHidden();
+      await expect(menuButton).toBeHidden();
+      await expect(page.locator(".mobile-bottom-nav")).toBeVisible();
+
+      const mobileAlignment = await page.evaluate(() => {
+        const bar = document.querySelector(".topbar").getBoundingClientRect();
+        const title = document.querySelector(".mobile-topbar-title").getBoundingClientRect();
+        const back = document.querySelector(".mobile-topbar-back");
+        const backRect = back.hidden ? null : back.getBoundingClientRect();
+        return {
+          titleCenterOffset: Math.abs((title.top + title.height / 2) - (bar.top + bar.height / 2)),
+          backCenterOffset: backRect
+            ? Math.abs((backRect.top + backRect.height / 2) - (bar.top + bar.height / 2))
+            : 0
+        };
+      });
+      expect(mobileAlignment.titleCenterOffset).toBeLessThanOrEqual(1);
+      expect(mobileAlignment.backCenterOffset).toBeLessThanOrEqual(1);
+    } else {
+      await expect(page.locator(".mobile-topbar")).toBeHidden();
+      await expect(brand).toBeVisible();
+      await expect(primaryNav).toBeVisible();
+      await expect(primaryNav.locator(".topbar-primary-button")).toHaveCount(5);
+      await expect(menuButton).toBeHidden();
+      await expect(page.locator(".mobile-bottom-nav")).toBeHidden();
+
+      if (width < 1024) {
+        await expect(topbarSearch).toBeHidden();
+      } else {
+        await expect(topbarSearch).toBeVisible();
+      }
+
+      const spacing = await page.evaluate(() => {
+        const topbarRect = document.querySelector(".topbar").getBoundingClientRect();
+        const brandRect = document.querySelector(".topbar > .brand").getBoundingClientRect();
+        const navRect = document.querySelector(".topbar-primary-nav").getBoundingClientRect();
+        const lastButtonRect = document.querySelector(".topbar-primary-button:last-child").getBoundingClientRect();
+        return {
+          brandNavGap: navRect.left - brandRect.right,
+          lastButtonOverflow: lastButtonRect.right - topbarRect.right
+        };
+      });
+      expect(spacing.brandNavGap).toBeGreaterThanOrEqual(-1);
+      expect(spacing.lastButtonOverflow).toBeLessThanOrEqual(1);
+    }
+
+    const bounds = await page.evaluate(() => ({
+      documentWidth: document.documentElement.scrollWidth,
+      viewportWidth: document.documentElement.clientWidth
+    }));
+    expect(bounds.documentWidth).toBeLessThanOrEqual(bounds.viewportWidth + 1);
+  }
+});
+
+test("tablet primary menu keeps desktop active and focus states", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "tablet state comparison only needs one browser project");
+  await page.setViewportSize({ width: 785, height: 900 });
+
+  for (const colorScheme of ["light", "dark"]) {
+    await page.emulateMedia({ colorScheme });
+    await page.goto("/#toy-catalog");
+
+    const activeButton = page.locator(".topbar .topbar-primary-button[data-category-catalog-open]");
+    await expect(activeButton).toHaveClass(/active/);
+    await page.waitForTimeout(250);
+    const activeColors = await activeButton.evaluate(element => {
+      const probe = document.createElement("i");
+      probe.style.cssText = "position:fixed;background:var(--ui-control-hover);color:var(--ui-control-text-active)";
+      document.body.append(probe);
+      const actual = getComputedStyle(element);
+      const expected = getComputedStyle(probe);
+      const result = {
+        background: actual.backgroundColor,
+        expectedBackground: expected.backgroundColor,
+        color: actual.color,
+        expectedColor: expected.color
+      };
+      probe.remove();
+      return result;
+    });
+    expect(activeColors.background).toBe(activeColors.expectedBackground);
+    expect(activeColors.color).toBe(activeColors.expectedColor);
+
+    const focusButton = page.locator(".topbar .topbar-primary-button[data-category-release-open]");
+    await focusButton.focus();
+    expect(await focusButton.evaluate(element => getComputedStyle(element).boxShadow)).not.toBe("none");
+  }
 });
