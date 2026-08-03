@@ -152,9 +152,7 @@
   box-shadow: var(--shadow-rest);
 }
 
-.catalog-card:hover,
 .catalog-card:has(.catalog-card-action:focus-visible),
-.product-card:hover,
 .product-card:has(.catalog-card-action:focus-visible){
   transform: none;
   background: var(--ui-surface-raised);
@@ -218,9 +216,7 @@
   transition: var(--transition-control);
 }
 
-.search-results-pagination .ui-button:hover,
 .search-results-pagination .ui-button:focus-visible,
-.catalog-pagination-nav .ui-button:hover,
 .catalog-pagination-nav .ui-button:focus-visible {
   background: var(--ui-control-hover);
   color: var(--ui-control-text-active);
@@ -248,7 +244,24 @@
   font-size: var(--font-sm);
 }
 
-@media (prefers-reduced-motion: reduce) {
+@media (hover: hover) and (pointer: fine) {
+  .catalog-card:hover,
+  .product-card:hover {
+    transform: none;
+    background: var(--ui-surface-raised);
+    border-color: color-mix(in srgb, var(--ui-accent) 22%, var(--ui-stroke-subtle));
+    box-shadow: var(--shadow-hover);
+  }
+
+  .search-results-pagination .ui-button:hover,
+  .catalog-pagination-nav .ui-button:hover {
+    background: var(--ui-control-hover);
+    color: var(--ui-control-text-active);
+    box-shadow: var(--shadow-hover);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) and (hover: hover) and (pointer: fine) {
   .catalog-card:hover,
   .product-card:hover {
     transform: none;

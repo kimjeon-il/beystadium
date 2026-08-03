@@ -69,9 +69,9 @@ dialog[open] .icon-back-button{
   transition: var(--transition-control);
 }
 
-dialog[open] .modal-back:not(:hover),
-dialog[open] .icon-back-button:not(:hover),
-dialog[open] #modalClose.modal-close:not(:hover){
+dialog[open] .modal-back:not(:focus-visible),
+dialog[open] .icon-back-button:not(:focus-visible),
+dialog[open] #modalClose.modal-close:not(:focus-visible){
   background: transparent;
   background-color: transparent;
   background-image: none;
@@ -79,15 +79,15 @@ dialog[open] #modalClose.modal-close:not(:hover){
   box-shadow: var(--shadow-rest);
 }
 
-dialog[open] .modal-back:hover,
-dialog[open] .icon-back-button:hover,
-dialog[open] #modalClose.modal-close:hover{
+dialog[open] .modal-back:focus-visible,
+dialog[open] .icon-back-button:focus-visible,
+dialog[open] #modalClose.modal-close:focus-visible{
   background: var(--ui-control-hover);
   background-color: var(--ui-control-hover);
   background-image: none;
   border-radius: var(--radius-control);
   color: var(--ui-control-text-active);
-  box-shadow: var(--shadow-hover);
+  box-shadow: var(--ui-focus-ring), var(--shadow-hover);
 }
 
 .modal-art {
@@ -178,7 +178,6 @@ dialog[open] #modalClose.modal-close {
   cursor: pointer;
 }
 
-.modal-tags > .modal-tag-info:hover,
 .modal-tags > .modal-tag-info[aria-expanded="true"] {
   background: color-mix(in srgb, var(--ui-text) 92%, var(--ui-surface) 8%);
   color: var(--ui-surface);
@@ -628,14 +627,12 @@ dialog[open] .product-modal-name {
   display: none;
 }
 
-.modal-description-toggle:hover,
 .modal-description-toggle:focus-visible {
   background: transparent;
   color: var(--ui-text);
   outline: 0;
 }
 
-.modal-description-toggle:hover::after,
 .modal-description-toggle:focus-visible::after {
   background: var(--ui-control-hover);
 }
@@ -928,10 +925,6 @@ dialog[open] .modal-art > .bey-image {
   filter: drop-shadow(0 0 20px color-mix(in srgb, var(--ui-text) 26%, transparent));
 }
 
-.mounted-link:hover > :last-child {
-  transform: none;
-}
-
 .modal-art::before,
 .modal-art::after {
   content: none;
@@ -1112,7 +1105,6 @@ dialog[open] .modal-art > .bey-image {
   line-height: 1;
 }
 
-.ui-chip-button.rare-bey-get-chip:hover,
 .ui-chip-button.rare-bey-get-chip:focus-visible {
   background: var(--ui-control-hover);
   color: var(--ui-text);
@@ -1315,17 +1307,6 @@ dialog[open] .modal-step-next::after {
   pointer-events: none;
 }
 
-.ui-list-link:hover,
-.product-composition-item:hover,
-.mounted-link:hover {
-  background: var(--ui-control);
-  color: var(--ui-text);
-  box-shadow: none;
-  filter: none;
-  transform: none;
-}
-
-.product-composition .product-composition-item:hover,
 .product-composition .product-composition-item:focus-visible {
   background: var(--ui-control-hover);
   color: var(--ui-text);
@@ -1337,7 +1318,6 @@ dialog[open] .modal-step-next::after {
   box-shadow: var(--ui-focus-ring);
 }
 
-.mounted-parts .mounted-link:hover,
 .mounted-parts .mounted-link:focus-visible {
   background: transparent;
   color: var(--ui-text);
@@ -1348,12 +1328,78 @@ dialog[open] .modal-step-next::after {
   display: none;
 }
 
-.product-composition .product-composition-item:hover::before,
 .product-composition .product-composition-item:focus-visible::before,
-.mounted-parts .mounted-link:hover::before,
 .mounted-parts .mounted-link:focus-visible::before {
   opacity: 1;
   transform: scale(1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  dialog[open] .modal-back:hover,
+  dialog[open] .icon-back-button:hover,
+  dialog[open] #modalClose.modal-close:hover {
+    background: var(--ui-control-hover);
+    background-color: var(--ui-control-hover);
+    background-image: none;
+    border-radius: var(--radius-control);
+    color: var(--ui-control-text-active);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .modal-tags > .modal-tag-info:hover {
+    background: color-mix(in srgb, var(--ui-text) 92%, var(--ui-surface) 8%);
+    color: var(--ui-surface);
+    border-color: transparent;
+    box-shadow: none;
+    outline: 0;
+  }
+
+  .modal-description-toggle:hover {
+    background: transparent;
+    color: var(--ui-text);
+    outline: 0;
+  }
+
+  .modal-description-toggle:hover::after {
+    background: var(--ui-control-hover);
+  }
+
+  .mounted-link:hover > :last-child {
+    transform: none;
+  }
+
+  .ui-chip-button.rare-bey-get-chip:hover {
+    background: var(--ui-control-hover);
+    color: var(--ui-text);
+    border-color: color-mix(in srgb, var(--ui-line) 70%, var(--ui-text) 30%);
+    box-shadow: var(--shadow-rest);
+  }
+
+  .ui-list-link:hover,
+  .product-composition-item:hover,
+  .mounted-link:hover {
+    background: var(--ui-control);
+    color: var(--ui-text);
+    box-shadow: none;
+    filter: none;
+    transform: none;
+  }
+
+  .product-composition .product-composition-item:hover {
+    background: var(--ui-control-hover);
+    color: var(--ui-text);
+  }
+
+  .mounted-parts .mounted-link:hover {
+    background: transparent;
+    color: var(--ui-text);
+  }
+
+  .product-composition .product-composition-item:hover::before,
+  .mounted-parts .mounted-link:hover::before {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

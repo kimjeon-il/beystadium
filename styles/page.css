@@ -93,7 +93,6 @@
   transition: var(--transition-control);
 }
 
-.active-query-chip:hover,
 .active-query-chip:focus-visible,
 .active-query-chip:active {
   background: var(--ui-control-hover);
@@ -221,10 +220,16 @@
 }
 
 .list-sort-dropdown.search-scope.catalog-dropdown summary,
-.list-sort-dropdown.search-scope.catalog-dropdown summary:hover,
 .list-sort-dropdown.search-scope.catalog-dropdown summary:focus-visible,
 .list-sort-dropdown.search-scope.catalog-dropdown[open] summary {
   border-radius: var(--catalog-pill-radius);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .active-query-chip:hover {
+    background: var(--ui-control-hover);
+    color: var(--ui-control-text-active);
+  }
 }
 
 .list-sort-dropdown.search-scope.catalog-dropdown summary b {

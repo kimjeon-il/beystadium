@@ -147,11 +147,17 @@
   transition: var(--transition-control);
 }
 
-.anime-character-bey-more:hover,
 .anime-character-bey-more:focus-visible,
 .anime-character-bey-more[aria-expanded="true"] {
   border-color: var(--ui-line);
   background: var(--ui-control-hover);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .anime-character-bey-more:hover {
+    border-color: var(--ui-line);
+    background: var(--ui-control-hover);
+  }
 }
 
 .anime-character-bey-more:focus-visible {

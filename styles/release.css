@@ -70,7 +70,6 @@
   cursor: pointer;
 }
 
-.release-sort-button:hover,
 .release-sort-button:focus-visible {
   color: var(--ui-text);
   background: transparent;
@@ -106,7 +105,6 @@
   pointer-events: none;
 }
 
-.release-sort-button:hover .release-sort-mark,
 .release-sort-button:focus-visible .release-sort-mark {
   color: var(--ui-text);
   opacity: 1;
@@ -128,10 +126,6 @@
   font-weight: var(--font-weight-medium);
 }
 
-.release-product-link:hover {
-  color: var(--ui-text);
-}
-
 .release-product-cell {
   display: inline-flex;
   align-items: center;
@@ -139,6 +133,23 @@
   gap: 8px;
   min-width: 0;
   vertical-align: middle;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .release-sort-button:hover {
+    color: var(--ui-text);
+    background: transparent;
+    outline: 0;
+  }
+
+  .release-sort-button:hover .release-sort-mark {
+    color: var(--ui-text);
+    opacity: 1;
+  }
+
+  .release-product-link:hover {
+    color: var(--ui-text);
+  }
 }
 
 .release-badges {

@@ -28,11 +28,12 @@ const FORBIDDEN_MONOLITHS = [
   "styles.css",
   "scripts/build-app-runtime.mjs"
 ];
-const MOBILE_STYLE_VERSION = "20260803-mobile-desktop-style-parity";
+const MOBILE_STYLE_VERSION = "20260803-mobile-touch-hover-title-layout";
 const MOBILE_OVERHAUL_IMPORT_VERSION = "20260731-mobile-highlight-fix";
+const MOBILE_RELEASE_IMPORT_VERSION = "20260803-mobile-desktop-style-parity";
 const MOBILE_UPDATED_IMPORT_VERSIONS = {
   "#app/style-loader": MOBILE_STYLE_VERSION,
-  "#app/release-page": MOBILE_STYLE_VERSION
+  "#app/release-page": MOBILE_RELEASE_IMPORT_VERSION
 };
 const MOBILE_OVERHAUL_IMPORTS = {
   "#app/data-store": "src/data-store.js",
@@ -111,6 +112,38 @@ for (const [key, target] of Object.entries(styleFiles)) {
 for (const file of stylesheetFiles) {
   const stylesheet = await readFile(fromRoot(file), "utf8");
   if (FORBIDDEN_HIGHLIGHT_PATTERN.test(stylesheet)) throw new Error(`Stylesheet contains a retired Fluent selection color or token: ${file}`);
+}
+
+const unscopedHoverSelectors = [];
+for (const file of stylesheetFiles) {
+  const stylesheet = (await readFile(fromRoot(file), "utf8")).replace(/\/\*[\s\S]*?\*\//g, "");
+  const stack = [];
+  let cursor = 0;
+  for (let index = 0; index < stylesheet.length; index += 1) {
+    const character = stylesheet[index];
+    if (character === "{") {
+      const header = stylesheet.slice(cursor, index).trim();
+      const parentAllowsHover = stack.at(-1)?.allowsHover ?? false;
+      const allowsHover = parentAllowsHover || (
+        header.startsWith("@media")
+        && header.includes("(hover: hover)")
+        && header.includes("(pointer: fine)")
+      );
+      const isExemptBrowserPseudo = header.includes("::-webkit-scrollbar-thumb:hover")
+        || header.includes(":-webkit-autofill:hover");
+      if (header.includes(":hover") && !allowsHover && !isExemptBrowserPseudo) {
+        unscopedHoverSelectors.push(`${file}: ${header.replace(/\s+/g, " ")}`);
+      }
+      stack.push({ allowsHover });
+      cursor = index + 1;
+    } else if (character === "}") {
+      stack.pop();
+      cursor = index + 1;
+    }
+  }
+}
+if (unscopedHoverSelectors.length) {
+  throw new Error(`Touch-visible hover selectors must be fine-pointer scoped:\n${unscopedHoverSelectors.join("\n")}`);
 }
 
 const sizes = await Promise.all(HOME_TEXT_FILES.map(async file => [file, await byteSize(file)]));

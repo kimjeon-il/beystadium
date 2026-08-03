@@ -2333,7 +2333,7 @@ test("release detail back button stays at the modal shell corner", async ({ page
   expect(errors).toEqual([]);
 });
 
-test("long part descriptions use an accessible chevron expander", async ({ page }) => {
+test("long part descriptions use an accessible chevron expander", async ({ page }, testInfo) => {
   const errors = consoleErrors(page);
   await page.goto("/#PART-BURST-DBLAYER-GREATEST-RAPHAEL");
   await expect(page.locator("#detailModal")).toBeVisible();
@@ -2417,7 +2417,7 @@ test("long part descriptions use an accessible chevron expander", async ({ page 
   });
   expect(hoveredGeometry.backgroundColor).toBe("rgba(0, 0, 0, 0)");
   await expect.poll(() => toggle.evaluate(element => getComputedStyle(element, "::after").backgroundColor))
-    .toBe(hoverColor);
+    .toBe(testInfo.project.name === "mobile" ? "rgba(0, 0, 0, 0)" : hoverColor);
 
   await toggle.focus();
   await page.keyboard.press("Enter");
@@ -2782,6 +2782,28 @@ test("touch release rows separate image previews from one-tap detail navigation"
   const previewButton = releaseRow.locator(".release-image-preview-button");
   const preview = page.locator(".link-image-preview");
   const releaseUrl = page.url();
+
+  const previewLayout = await releaseRow.evaluate(element => {
+    const cell = element.querySelector(".release-product-cell");
+    const title = element.querySelector(".release-product-link").getBoundingClientRect();
+    const previewButton = element.querySelector(".release-image-preview-button").getBoundingClientRect();
+    const meta = element.querySelector(".mobile-row-meta").getBoundingClientRect();
+    const cellRect = cell.getBoundingClientRect();
+    return {
+      titleRight: title.right,
+      previewLeft: previewButton.left,
+      contentBottom: Math.max(title.bottom, previewButton.bottom),
+      metaTop: meta.top,
+      metaLeft: meta.left,
+      metaRight: meta.right,
+      cellLeft: cellRect.left,
+      cellRight: cellRect.right
+    };
+  });
+  expect(previewLayout.titleRight).toBeLessThanOrEqual(previewLayout.previewLeft + 1);
+  expect(previewLayout.metaTop).toBeGreaterThanOrEqual(previewLayout.contentBottom - 1);
+  expect(previewLayout.metaLeft).toBeGreaterThanOrEqual(previewLayout.cellLeft - 1);
+  expect(previewLayout.metaRight).toBeLessThanOrEqual(previewLayout.cellRight + 1);
 
   await previewButton.tap();
   expect(page.url()).toBe(releaseUrl);

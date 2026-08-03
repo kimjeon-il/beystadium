@@ -270,7 +270,6 @@ a,
   transform: translateY(-40%) rotate(225deg);
 }
 
-.catalog-dropdown summary:hover,
 .catalog-dropdown summary:focus,
 .catalog-dropdown summary:focus-visible,
 .catalog-dropdown summary:active,
@@ -546,9 +545,7 @@ dialog[open] .modal-scroll-area::-webkit-scrollbar-corner,
   transform: translate(-50%, -50%) rotate(-45deg);
 }
 
-.search-clear:hover,
 .search-clear:focus-visible,
-.catalog-search-help-button:hover,
 .catalog-search-help-button:focus-visible,
 .catalog-search-help-button[aria-expanded="true"] {
   background: var(--ui-control-hover);
@@ -633,7 +630,6 @@ dialog[open] .modal-scroll-area::-webkit-scrollbar-corner,
   right: var(--search-scope-arrow-right, 11px);
 }
 
-.search-scope.catalog-dropdown summary:hover,
 .search-scope.catalog-dropdown summary:focus-visible,
 .search-scope.catalog-dropdown[open] summary {
   background: var(--search-scope-summary-hover-bg, var(--search-scope-summary-bg, var(--ui-control)));
@@ -748,7 +744,6 @@ main {
   transition: var(--transition-control);
 }
 
-.topbar-menu-button:hover,
 .topbar-menu-button:focus-visible {
   background: var(--ui-control-hover);
   color: var(--ui-text);
@@ -826,7 +821,6 @@ body[data-active-panel="all"] .topbar-search {
   transition: var(--transition-control);
 }
 
-.topbar-primary-button:not(:disabled):hover,
 .topbar-primary-button:not(:disabled):focus-visible {
   background: var(--ui-control-hover);
   color: var(--ui-text);
@@ -1010,7 +1004,6 @@ button.icon-back-button {
   transform: translateY(0);
 }
 
-.to-top:hover,
 .to-top:focus-visible {
   background: var(--ui-control-hover);
   color: var(--ui-control-text-active);
@@ -1189,9 +1182,7 @@ html.route-booting .to-top {
   transition: var(--transition-control);
 }
 
-.ui-button:hover,
 .ui-button:focus-visible,
-.ui-icon-button:hover,
 .ui-icon-button:focus-visible {
   background: var(--ui-control-hover);
   color: var(--ui-control-text-active);
@@ -1203,12 +1194,10 @@ html.route-booting .to-top {
   color: var(--ui-control-text-active);
 }
 
-.ui-button:not(:disabled):not([aria-disabled="true"]):hover,
 .ui-button:not(:disabled):not([aria-disabled="true"]):focus-visible {
   transform: none;
 }
 
-.ui-icon-button:not(:disabled):not([aria-disabled="true"]):hover,
 .ui-icon-button:not(:disabled):not([aria-disabled="true"]):focus-visible {
   transform: translateY(var(--hover-lift-y));
 }
@@ -1289,7 +1278,6 @@ html.route-booting .to-top {
   transition: var(--transition-control);
 }
 
-.ui-tab-button:not(.sidebar-button):hover,
 .ui-tab-button:not(.sidebar-button):focus-visible {
   background: var(--ui-control-hover);
   color: var(--ui-control-text-active);
@@ -1301,7 +1289,6 @@ html.route-booting .to-top {
   color: var(--ui-control-text-active);
 }
 
-.ui-tab-button:not(.sidebar-button):hover,
 .ui-tab-button:not(.sidebar-button):focus-visible {
   transform: none;
 }
@@ -1349,9 +1336,7 @@ html.route-booting .to-top {
   pointer-events: none;
 }
 
-.ui-dropdown-item:hover,
 .ui-dropdown-item:focus-visible,
-.catalog-dropdown-menu button:hover,
 .catalog-dropdown-menu button:focus-visible {
   background: transparent;
   color: var(--ui-control-text-active);
@@ -1363,10 +1348,8 @@ html.route-booting .to-top {
   color: var(--ui-control-text-active);
 }
 
-.ui-dropdown-item:hover::before,
 .ui-dropdown-item:focus-visible::before,
 .ui-dropdown-item.active::before,
-.catalog-dropdown-menu button:hover::before,
 .catalog-dropdown-menu button:focus-visible::before,
 .catalog-dropdown-menu button.active::before {
   opacity: 1;
@@ -1620,7 +1603,6 @@ body.is-overview .app-shell {
     0 var(--menu-button-line-gap) 0 0 var(--ui-text);
 }
 
-.menu-button:hover,
 .menu-button:focus-visible {
   background: var(--ui-control-hover);
   box-shadow: var(--shadow-hover);
@@ -1850,21 +1832,17 @@ body.menu-open .mobile-drawer {
   --sidebar-button-font-weight: var(--sidebar-child-button-font-weight);
 }
 
-.sidebar-root .sidebar-button:not(:disabled):not([aria-disabled="true"]):hover,
 .sidebar-root .sidebar-button:not(:disabled):not([aria-disabled="true"]):focus-visible,
-.mobile-drawer-close:hover,
 .mobile-drawer-close:focus-visible {
   background: var(--sidebar-hover-bg);
   color: var(--ui-text);
   box-shadow: var(--shadow-hover);
 }
 
-.sidebar-root .sidebar-button:not(:disabled):not([aria-disabled="true"]):hover,
 .sidebar-root .sidebar-button:not(:disabled):not([aria-disabled="true"]):focus-visible {
   transform: none;
 }
 
-.mobile-drawer-close:hover,
 .mobile-drawer-close:focus-visible {
   transform: translateY(var(--hover-lift-y));
 }
@@ -1966,6 +1944,80 @@ body.is-overview .app-shell {
   }
 }
 
+@media (hover: hover) and (pointer: fine) {
+  .catalog-dropdown summary:hover {
+    border-radius: var(--radius-control);
+    background: var(--ui-surface-raised);
+    background-clip: padding-box;
+    outline: 0;
+    box-shadow: var(--shadow-hover);
+  }
+
+  .search-clear:hover,
+  .catalog-search-help-button:hover {
+    background: var(--ui-control-hover);
+    color: var(--ui-control-text-active);
+    outline: 0;
+    transform: translateY(var(--hover-lift-y));
+  }
+
+  .search-scope.catalog-dropdown summary:hover{background:var(--search-scope-summary-hover-bg,var(--search-scope-summary-bg,var(--ui-control)))}
+
+  .topbar-menu-button:hover {
+    background: var(--ui-control-hover);
+    color: var(--ui-text);
+    box-shadow: var(--shadow-hover);
+    transform: translateY(var(--hover-lift-y));
+  }
+
+  .topbar-primary-button:not(:disabled):hover {
+    background: var(--ui-control-hover);
+    color: var(--ui-text);
+    box-shadow: var(--shadow-hover);
+    transform: none;
+  }
+
+  .to-top:hover,
+  .ui-button:hover,
+  .ui-icon-button:hover,
+  .ui-tab-button:not(.sidebar-button):hover {
+    background: var(--ui-control-hover);
+    color: var(--ui-control-text-active);
+  }
+
+  .ui-button:not(:disabled):not([aria-disabled="true"]):hover,
+  .ui-tab-button:not(.sidebar-button):hover{transform:none}
+
+  .ui-icon-button:not(:disabled):not([aria-disabled="true"]):hover,
+  .mobile-drawer-close:hover{transform:translateY(var(--hover-lift-y))}
+
+  .ui-dropdown-item:hover,
+  .catalog-dropdown-menu button:hover {
+    background: transparent;
+    color: var(--ui-control-text-active);
+  }
+
+  .ui-dropdown-item:hover::before,
+  .catalog-dropdown-menu button:hover::before {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .menu-button:hover {
+    background: var(--ui-control-hover);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .sidebar-root .sidebar-button:not(:disabled):not([aria-disabled="true"]):hover,
+  .mobile-drawer-close:hover {
+    background: var(--sidebar-hover-bg);
+    color: var(--ui-text);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .sidebar-root .sidebar-button:not(:disabled):not([aria-disabled="true"]):hover{transform:none}
+}
+
 @media (prefers-reduced-motion: reduce) {
 *,
   *::before,
@@ -1981,25 +2033,30 @@ body.is-overview .app-shell {
     animation: none;
   }
 
-.topbar-menu-button:hover,
   .topbar-menu-button:focus-visible,
-  .topbar-primary-button:not(:disabled):hover,
   .topbar-primary-button:not(:disabled):focus-visible,
-  .search-clear:hover,
   .search-clear:focus-visible,
-  .catalog-search-help-button:hover,
   .catalog-search-help-button:focus-visible,
   .catalog-search-help-button[aria-expanded="true"],
-  .ui-button:not(:disabled):not([aria-disabled="true"]):hover,
   .ui-button:not(:disabled):not([aria-disabled="true"]):focus-visible,
-  .ui-icon-button:not(:disabled):not([aria-disabled="true"]):hover,
   .ui-icon-button:not(:disabled):not([aria-disabled="true"]):focus-visible,
-  .ui-tab-button:not(.sidebar-button):hover,
   .ui-tab-button:not(.sidebar-button):focus-visible,
-  .sidebar-root .sidebar-button:not(:disabled):not([aria-disabled="true"]):hover,
   .sidebar-root .sidebar-button:not(:disabled):not([aria-disabled="true"]):focus-visible,
-  .mobile-drawer-close:hover,
   .mobile-drawer-close:focus-visible {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) and (hover: hover) and (pointer: fine) {
+  .topbar-menu-button:hover,
+  .topbar-primary-button:not(:disabled):hover,
+  .search-clear:hover,
+  .catalog-search-help-button:hover,
+  .ui-button:not(:disabled):not([aria-disabled="true"]):hover,
+  .ui-icon-button:not(:disabled):not([aria-disabled="true"]):hover,
+  .ui-tab-button:not(.sidebar-button):hover,
+  .sidebar-root .sidebar-button:not(:disabled):not([aria-disabled="true"]):hover,
+  .mobile-drawer-close:hover {
     transform: none;
   }
 }

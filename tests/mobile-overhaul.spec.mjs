@@ -297,6 +297,61 @@ test.describe("mobile-first navigation and content", () => {
     expect(errors).toEqual([]);
   });
 
+  test("release titles use the full mobile width before wrapping", async ({ page }) => {
+    const errors = consoleErrors(page);
+    await page.goto("/#toy-release");
+    await page.locator(".release-list-page .table-list-dropdown summary").tap();
+    await page.locator('[data-release-series="x"]').tap();
+    await page.locator("#releaseSearchInput").fill("BX-27");
+
+    const row = page.locator('.release-product-row[data-product-id="PRODUCT-X-BX-27"]');
+    await expect(row).toBeVisible();
+
+    for (const width of [352, 393, 430, 442]) {
+      await page.setViewportSize({ width, height: 800 });
+      const layout = await row.evaluate(element => {
+        const cell = element.querySelector(".release-product-cell");
+        const title = element.querySelector(".release-product-link");
+        const meta = element.querySelector(".mobile-row-meta");
+        const cellRect = cell.getBoundingClientRect();
+        const titleRect = title.getBoundingClientRect();
+        const metaRect = meta.getBoundingClientRect();
+        const columns = getComputedStyle(cell).gridTemplateColumns.split(" ").map(Number.parseFloat);
+        const lineHeight = Number.parseFloat(getComputedStyle(title).lineHeight);
+        return {
+          cellWidth: cellRect.width,
+          titleWidth: titleRect.width,
+          titleRight: titleRect.right,
+          cellRight: cellRect.right,
+          titleBottom: titleRect.bottom,
+          metaTop: metaRect.top,
+          metaRight: metaRect.right,
+          columns,
+          titleLines: Math.round(titleRect.height / lineHeight),
+          metaGridRowStart: getComputedStyle(meta).gridRowStart,
+          metaGridColumnStart: getComputedStyle(meta).gridColumnStart,
+          metaGridColumnEnd: getComputedStyle(meta).gridColumnEnd,
+          metaJustify: getComputedStyle(meta).justifyContent,
+          previewCount: cell.querySelectorAll(".release-image-preview-button").length
+        };
+      });
+
+      expect(layout.previewCount).toBe(0);
+      expect(layout.columns[1]).toBeCloseTo(0, 1);
+      expect(layout.titleWidth).toBeCloseTo(layout.cellWidth, 1);
+      expect(layout.titleRight).toBeCloseTo(layout.cellRight, 1);
+      expect(layout.metaRight).toBeLessThanOrEqual(layout.cellRight + 1);
+      expect(layout.metaTop).toBeGreaterThanOrEqual(layout.titleBottom - 1);
+      expect(layout.metaGridRowStart).toBe("auto");
+      expect(layout.metaGridColumnStart).toBe("1");
+      expect(layout.metaGridColumnEnd).toBe("-1");
+      expect(layout.metaJustify).toBe("flex-end");
+      if (width === 442) expect(layout.titleLines).toBe(1);
+    }
+
+    expect(errors).toEqual([]);
+  });
+
   test("search opens as a focused full-screen destination", async ({ page }) => {
     const errors = consoleErrors(page);
     await page.goto("/");
@@ -474,6 +529,61 @@ test("phone navigation uses one common hover and current surface", async ({ page
     expect(surfaces.hoverRadius).toBe(surfaces.currentRadius);
     expect(surfaces.markerDisplay).toBe("none");
   }
+});
+
+test("touch layouts ignore decorative hover without losing persistent states", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "mobile", "touch hover behavior only needs the mobile project");
+  const errors = consoleErrors(page);
+  const visualState = locator => locator.evaluate(element => {
+    const style = getComputedStyle(element);
+    return {
+      background: style.backgroundColor,
+      borderColor: style.borderColor,
+      boxShadow: style.boxShadow,
+      color: style.color,
+      transform: style.transform
+    };
+  });
+
+  await page.goto("/");
+  expect(await page.evaluate(() => ({
+    hoverNone: matchMedia("(hover: none)").matches,
+    coarse: matchMedia("(pointer: coarse)").matches
+  }))).toEqual({ hoverNone: true, coarse: true });
+
+  const inactiveNav = page.locator(".mobile-bottom-nav [data-category-catalog-open]");
+  const navRest = await visualState(inactiveNav);
+  await inactiveNav.hover();
+  expect(await visualState(inactiveNav)).toEqual(navRest);
+
+  await page.goto("/#toy-catalog");
+  const card = page.locator("#catalogGrid .catalog-card").first();
+  await expect(card).toBeVisible();
+  const cardRest = await visualState(card);
+  await card.hover();
+  expect(await visualState(card)).toEqual(cardRest);
+
+  await page.goto("/#toy-release");
+  const releaseCell = page.locator(".release-product-row").first().locator("td").nth(1);
+  await expect(releaseCell).toBeVisible();
+  const cellRest = await visualState(releaseCell);
+  await releaseCell.hover();
+  expect(await visualState(releaseCell)).toEqual(cellRest);
+
+  await page.goto(`/#search?q=${encodeURIComponent("드래곤")}&scope=bey`);
+  const result = page.locator(".search-results-list .search-result-item").first();
+  await expect(result).toBeVisible();
+  const resultRest = await visualState(result);
+  await result.hover();
+  expect(await visualState(result)).toEqual(resultRest);
+
+  await page.goto("/#BEY-X-BX-02-HELLS-SCYTHE-4-60T");
+  const closeButton = page.locator("#modalClose");
+  await expect(closeButton).toBeVisible();
+  const closeRest = await visualState(closeButton);
+  await closeButton.hover();
+  expect(await visualState(closeButton)).toEqual(closeRest);
+  expect(errors).toEqual([]);
 });
 
 test("tablet keeps brand search and menu without the phone tab bar", async ({ page }, testInfo) => {
