@@ -69,6 +69,12 @@ class ModalController {
     return Math.round(clientWidth || innerWidth || this.getViewportSize().width || 0);
   }
 
+  getScrollbarCenterShift() {
+    const innerWidth = window.innerWidth || 0;
+    const clientWidth = document.documentElement.clientWidth || innerWidth;
+    return Math.max(0, innerWidth - clientWidth) / 2;
+  }
+
   cancelViewportSync() {
     if (!this.viewportSyncFrame) return;
     cancelAnimationFrame(this.viewportSyncFrame);
@@ -140,6 +146,7 @@ class ModalController {
     document.body.style.removeProperty("--modal-lock-width");
     document.body.style.removeProperty("--modal-viewport-width");
     document.body.style.removeProperty("--modal-viewport-height");
+    document.body.style.removeProperty("--modal-scrollbar-center-shift");
     document.body.style.removeProperty("--modal-scroll-lock-top");
   }
 
@@ -149,6 +156,7 @@ class ModalController {
     document.body.style.setProperty("--modal-viewport-width", `${width}px`);
     document.body.style.setProperty("--modal-viewport-height", `${height}px`);
     document.body.style.setProperty("--modal-lock-width", `${this.getLockWidth()}px`);
+    document.body.style.setProperty("--modal-scrollbar-center-shift", `${this.getScrollbarCenterShift()}px`);
   }
 
   scheduleViewportSync() {

@@ -28,12 +28,13 @@ const FORBIDDEN_MONOLITHS = [
   "styles.css",
   "scripts/build-app-runtime.mjs"
 ];
-const MOBILE_STYLE_VERSION = "20260804-modal-two-stage-back-parity";
+const MOBILE_STYLE_VERSION = "20260804-mobile-modal-scrollbar-centering";
 const MOBILE_OVERHAUL_IMPORT_VERSION = "20260731-mobile-highlight-fix";
 const MOBILE_RELEASE_IMPORT_VERSION = "20260804-mobile-release-badge-adjacent-stable";
 const MOBILE_SHELL_IMPORT_VERSION = "20260804-topbar-search-surface-parity";
 const MOBILE_UPDATED_IMPORT_VERSIONS = {
   "#app/style-loader": MOBILE_STYLE_VERSION,
+  "#app/modal-controller": MOBILE_STYLE_VERSION,
   "#app/shell-controller": MOBILE_SHELL_IMPORT_VERSION,
   "#app/release-page": MOBILE_RELEASE_IMPORT_VERSION
 };
@@ -47,6 +48,7 @@ const MOBILE_OVERHAUL_IMPORTS = {
   "#app/search-feature": "src/search-feature.js",
   "#app/image-preview": "src/image-preview.js",
   "#app/style-loader": "src/style-loader.js",
+  "#app/modal-controller": "src/modal-controller.js",
   "#app/shell-controller": "src/shell-controller.js",
   "#app/release-page": "src/release-page.js",
   "#app/anime": "src/anime.js"

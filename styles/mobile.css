@@ -927,6 +927,10 @@
     box-shadow: none;
   }
 
+  #detailModal[open] #modalContent {
+    left: var(--modal-scrollbar-center-shift, 0px);
+  }
+
   #detailModal[open] .modal-info,
   #detailModal[open] .part-modal-info,
   #detailModal[open] .product-modal-info {
@@ -980,6 +984,18 @@
   #detailModal[open] .modal-step {
     width: 44px;
     height: 44px;
+  }
+
+  #detailModal[open] .modal-close {
+    right: calc((var(--modal-vw) - var(--modal-w)) / 2 + var(--modal-close-offset) - var(--modal-scrollbar-center-shift, 0px));
+  }
+
+  #detailModal[open] .modal-step-prev {
+    left: calc((var(--modal-vw) - var(--modal-w)) / 2 + var(--modal-step-start-offset) + var(--modal-scrollbar-center-shift, 0px));
+  }
+
+  #detailModal[open] .modal-step-next {
+    right: calc((var(--modal-vw) - var(--modal-w)) / 2 + var(--modal-step-end-offset) - var(--modal-scrollbar-center-shift, 0px));
   }
 
   #detailModal[open] .model-viewer {

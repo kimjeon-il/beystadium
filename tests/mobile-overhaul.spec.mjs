@@ -653,6 +653,71 @@ test.describe("mobile-first navigation and content", () => {
     }
   });
 
+  test("mobile modal centers against the full window including a classic scrollbar", async ({ page }) => {
+    await page.setViewportSize({ width: 519, height: 818 });
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await page.goto("/#BEY-X-BX-02-HELLS-SCYTHE-4-60T");
+
+    const dialog = page.locator("#detailModal");
+    await expect(dialog).toBeVisible();
+    await page.evaluate(() => {
+      document.body.style.setProperty("--modal-viewport-width", "504px");
+      document.body.style.setProperty("--modal-scrollbar-center-shift", "7.5px");
+    });
+
+    const geometry = await dialog.evaluate(element => {
+      const rect = selector => element.querySelector(selector)?.getBoundingClientRect() || null;
+      const shell = rect(".modal-inner");
+      const section = rect(".modal-section");
+      const close = rect("#modalClose");
+      const previous = rect(".modal-step-prev");
+      const next = rect(".modal-step-next");
+      const syntheticScrollbarWidth = (Number.parseFloat(document.body.style.getPropertyValue("--modal-scrollbar-center-shift")) || 0) * 2;
+      return {
+        shellLeft: shell.left,
+        shellRight: window.innerWidth - shell.right,
+        sectionLeft: section.left,
+        sectionRight: window.innerWidth - section.right,
+        closeInset: shell.right - close.right,
+        previousInset: previous.left - shell.left,
+        nextInset: shell.right - (next.right - syntheticScrollbarWidth)
+      };
+    });
+
+    expect(geometry.shellLeft).toBeCloseTo(geometry.shellRight, 1);
+    expect(geometry.sectionLeft).toBeCloseTo(geometry.sectionRight, 1);
+    expect(geometry.closeInset).toBeCloseTo(11, 1);
+    expect(geometry.previousInset).toBeCloseTo(11, 1);
+    expect(geometry.nextInset).toBeCloseTo(11, 1);
+
+    await page.goto("/#toy-release");
+    const releaseLink = page.locator(".release-product-link").first();
+    await expect(releaseLink).toBeVisible();
+    await releaseLink.tap();
+    await page.evaluate(() => {
+      document.body.style.setProperty("--modal-viewport-width", "504px");
+      document.body.style.setProperty("--modal-scrollbar-center-shift", "7.5px");
+    });
+    const backInset = await dialog.evaluate(element => {
+      const shell = element.querySelector(".modal-inner").getBoundingClientRect();
+      const back = element.querySelector(".modal-back").getBoundingClientRect();
+      return back.left - shell.left;
+    });
+    expect(backInset).toBeCloseTo(11, 1);
+
+    await page.setViewportSize({ width: 430, height: 932 });
+    await expect.poll(() => page.evaluate(() => ({
+      actual: Number.parseFloat(document.body.style.getPropertyValue("--modal-scrollbar-center-shift")) || 0,
+      expected: Math.max(0, window.innerWidth - document.documentElement.clientWidth) / 2
+    }))).toEqual({ actual: 0, expected: 0 });
+
+    await page.setViewportSize({ width: 640, height: 900 });
+    const before = await dialog.locator(".modal-inner").boundingBox();
+    await page.evaluate(() => document.body.style.setProperty("--modal-scrollbar-center-shift", "7.5px"));
+    const after = await dialog.locator(".modal-inner").boundingBox();
+    expect(after).toEqual(before);
+  });
+
   test("mobile and general widths share contextual back presentation and rules", async ({ page }) => {
     const snapshots = [];
     for (const width of [393, 1024]) {
