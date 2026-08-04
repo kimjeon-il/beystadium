@@ -434,6 +434,7 @@ test.describe("mobile-first navigation and content", () => {
 
   test("release badges sit beside titles and wrap only when the mobile row is narrow", async ({ page }) => {
     const errors = consoleErrors(page);
+    await page.route("https://cdn.jsdelivr.net/**", route => route.abort());
     await page.goto("/#toy-release");
     await page.locator(".release-list-page .table-list-dropdown summary").tap();
     await page.locator('[data-release-series="x"]').tap();

@@ -1,4 +1,4 @@
-const styleVersion = "20260804-mobile-release-badge-adjacent";
+const styleVersion = "20260804-mobile-release-badge-adjacent-stable";
 const styleOrder = ["page", "collection", "table", "release", "anime", "catalog", "search", "modal"];
 const styleFiles = Object.fromEntries(styleOrder.map(key => [key, `./styles/${key}.css?v=${styleVersion}`]));
 const stylePromises = new Map();

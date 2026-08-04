@@ -586,6 +586,11 @@
     transition: background-color var(--motion-standard) var(--ease-standard), color var(--motion-standard) var(--ease-standard);
   }
 
+  .release-table tbody .table-list-row {
+    grid-template-columns: minmax(58px, auto) minmax(0, 1fr);
+    column-gap: 8px;
+  }
+
   @media (hover: hover) and (pointer: fine) {
     .release-table tbody .table-list-row:hover,
     .anime-episode-table tbody .table-list-row:hover {
