@@ -694,10 +694,10 @@ test("touch layouts ignore decorative hover without losing persistent states", a
   expect(errors).toEqual([]);
 });
 
-test("topbar stays 72px and uses the desktop menu from 640px", async ({ page }, testInfo) => {
+test("topbar stays 72px and keeps search available from 640px", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "responsive viewport matrix only needs one browser project");
 
-  for (const width of [360, 393, 639, 640, 768, 785, 1023, 1024, 1280]) {
+  for (const width of [360, 393, 639, 640, 709, 799, 800, 900, 1023, 1024, 1280]) {
     await page.setViewportSize({ width, height: 900 });
     await page.goto("/#toy-catalog");
 
@@ -708,6 +708,7 @@ test("topbar stays 72px and uses the desktop menu from 640px", async ({ page }, 
     const brand = page.locator(".topbar > .brand");
     const primaryNav = page.locator(".topbar-primary-nav");
     const topbarSearch = page.locator(".topbar-search");
+    const topbarSearchToggle = page.locator("#topbarSearchToggle");
     const menuButton = page.locator("#menuButton");
 
     if (width < 640) {
@@ -715,6 +716,7 @@ test("topbar stays 72px and uses the desktop menu from 640px", async ({ page }, 
       await expect(brand).toBeHidden();
       await expect(primaryNav).toBeHidden();
       await expect(topbarSearch).toBeHidden();
+      await expect(topbarSearchToggle).toBeHidden();
       await expect(menuButton).toBeHidden();
       await expect(page.locator(".mobile-bottom-nav")).toBeVisible();
 
@@ -740,24 +742,31 @@ test("topbar stays 72px and uses the desktop menu from 640px", async ({ page }, 
       await expect(menuButton).toBeHidden();
       await expect(page.locator(".mobile-bottom-nav")).toBeHidden();
 
-      if (width < 1024) {
+      if (width < 800) {
         await expect(topbarSearch).toBeHidden();
+        await expect(topbarSearchToggle).toBeVisible();
       } else {
         await expect(topbarSearch).toBeVisible();
+        await expect(topbarSearchToggle).toBeHidden();
       }
 
       const spacing = await page.evaluate(() => {
         const topbarRect = document.querySelector(".topbar").getBoundingClientRect();
         const brandRect = document.querySelector(".topbar > .brand").getBoundingClientRect();
         const navRect = document.querySelector(".topbar-primary-nav").getBoundingClientRect();
-        const lastButtonRect = document.querySelector(".topbar-primary-button:last-child").getBoundingClientRect();
+        const rightControl = window.innerWidth < 800
+          ? document.querySelector("#topbarSearchToggle")
+          : document.querySelector(".topbar-search");
+        const rightControlRect = rightControl.getBoundingClientRect();
         return {
           brandNavGap: navRect.left - brandRect.right,
-          lastButtonOverflow: lastButtonRect.right - topbarRect.right
+          navControlGap: rightControlRect.left - navRect.right,
+          rightControlOverflow: rightControlRect.right - topbarRect.right
         };
       });
       expect(spacing.brandNavGap).toBeGreaterThanOrEqual(-1);
-      expect(spacing.lastButtonOverflow).toBeLessThanOrEqual(1);
+      expect(spacing.navControlGap).toBeGreaterThanOrEqual(-1);
+      expect(spacing.rightControlOverflow).toBeLessThanOrEqual(1);
     }
 
     const bounds = await page.evaluate(() => ({
@@ -765,6 +774,79 @@ test("topbar stays 72px and uses the desktop menu from 640px", async ({ page }, 
       viewportWidth: document.documentElement.clientWidth
     }));
     expect(bounds.documentWidth).toBeLessThanOrEqual(bounds.viewportWidth + 1);
+  }
+});
+
+test("compact tablet search opens below the topbar and follows keyboard dismissal", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "compact topbar behavior only needs one browser project");
+  await page.setViewportSize({ width: 709, height: 900 });
+  await page.goto("/#toy-catalog");
+
+  const toggle = page.locator("#topbarSearchToggle");
+  const search = page.locator("#topbarSearch");
+  const input = page.locator("#globalSearchInput");
+  await toggle.click();
+  await expect(toggle).toHaveAttribute("aria-expanded", "true");
+  await expect(search).toBeVisible();
+  await expect(input).toBeFocused();
+  await page.waitForTimeout(250);
+
+  const openLayout = await page.evaluate(() => {
+    const bar = document.querySelector(".topbar").getBoundingClientRect();
+    const searchBox = document.querySelector("#topbarSearch").getBoundingClientRect();
+    return {
+      topbarHeight: bar.height,
+      searchGap: searchBox.top - bar.bottom,
+      searchRightOverflow: searchBox.right - window.innerWidth
+    };
+  });
+  expect(openLayout.topbarHeight).toBe(72);
+  expect(openLayout.searchGap).toBeGreaterThanOrEqual(7);
+  expect(openLayout.searchRightOverflow).toBeLessThanOrEqual(0);
+
+  await page.keyboard.press("Escape");
+  await expect(toggle).toHaveAttribute("aria-expanded", "false");
+  await expect(search).toBeHidden();
+  await expect(toggle).toBeFocused();
+
+  await toggle.click();
+  await page.locator("main").click({ position: { x: 4, y: 100 } });
+  await expect(search).toBeHidden();
+
+  await toggle.click();
+  await page.setViewportSize({ width: 800, height: 900 });
+  await expect(toggle).toBeHidden();
+  await expect(toggle).toHaveAttribute("aria-expanded", "false");
+  await expect(search).toBeVisible();
+});
+
+test("topbar uses one opaque surface across responsive widths", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "responsive surface comparison only needs one browser project");
+
+  for (const colorScheme of ["light", "dark"]) {
+    await page.emulateMedia({ colorScheme });
+    const backgrounds = [];
+    for (const width of [393, 709, 800, 1024]) {
+      await page.setViewportSize({ width, height: 900 });
+      await page.goto("/#toy-catalog");
+      const surface = await page.locator(".topbar").evaluate(element => {
+        const probe = document.createElement("i");
+        probe.style.cssText = "position:fixed;background:var(--ui-topbar-bg)";
+        document.body.append(probe);
+        const actual = getComputedStyle(element);
+        const expectedBackground = getComputedStyle(probe).backgroundColor;
+        probe.remove();
+        return {
+          background: actual.backgroundColor,
+          expectedBackground,
+          backdropFilter: actual.backdropFilter
+        };
+      });
+      expect(surface.background).toBe(surface.expectedBackground);
+      expect(surface.backdropFilter).toBe("none");
+      backgrounds.push(surface.background);
+    }
+    expect(new Set(backgrounds).size).toBe(1);
   }
 });
 

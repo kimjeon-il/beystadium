@@ -20,8 +20,8 @@
       type="font/woff2"
       crossorigin
     >
-    <link rel="stylesheet" href="./styles/base.css?v=20260804-mobile-modal-unified-surface" data-style-key="base">
-    <link rel="stylesheet" href="./styles/mobile.css?v=20260804-mobile-modal-unified-surface" data-style-key="mobile">
+    <link rel="stylesheet" href="./styles/base.css?v=20260804-topbar-search-surface-parity" data-style-key="base">
+    <link rel="stylesheet" href="./styles/mobile.css?v=20260804-topbar-search-surface-parity" data-style-key="mobile">
   </head>
   <body class="is-overview" data-active-panel="overview">
     <div class="data-load-status" id="dataLoadStatus" role="status" aria-live="polite" hidden>
@@ -59,7 +59,7 @@
           연재목록
         </button>
       </nav>
-      <div class="unified-search topbar-search" role="search">
+      <div class="unified-search topbar-search" id="topbarSearch" role="search">
         <div class="search-box global-search-box topbar-search-box">
           <details class="search-scope catalog-dropdown" id="globalSearchScope" data-scope="all" aria-label="검색 범위">
             <summary><b class="catalog-dropdown-value">전체</b></summary>
@@ -78,6 +78,9 @@
           <input id="globalSearchInput" type="search" placeholder="검색어를 입력해주세요." autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" aria-autocomplete="none">
         </div>
       </div>
+      <button class="ui-icon-button topbar-search-toggle" id="topbarSearchToggle" type="button" aria-label="검색창 열기" aria-controls="topbarSearch" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="5.8" /><path d="m15 15 4.5 4.5" /></svg>
+      </button>
       <button class="menu-button topbar-menu-button" id="menuButton" type="button" aria-label="메뉴 열기" aria-controls="mobileDrawer" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -500,9 +503,9 @@
         "#app/detail-view": "./src/detail-view.js?v=20260803-modal-tag-wheel-edge",
         "#app/image-preview": "./src/image-preview.js?v=20260731-mobile-highlight-fix",
         "#app/modal-context": "./src/modal-context.js?v=20260714-scroll-affordance-overlay",
-        "#app/style-loader": "./src/style-loader.js?v=20260804-mobile-modal-unified-surface",
+        "#app/style-loader": "./src/style-loader.js?v=20260804-topbar-search-surface-parity",
         "#app/feature-loaders": "./src/feature-loaders.js?v=20260717-dead-code-cleanup",
-        "#app/shell-controller": "./src/shell-controller.js?v=20260731-mobile-highlight-fix",
+        "#app/shell-controller": "./src/shell-controller.js?v=20260804-topbar-search-surface-parity",
         "#app/catalog-feature": "./src/catalog-feature.js?v=20260716-html5-conformance",
         "#app/modal-controller": "./src/modal-controller.js?v=20260724-card-image-link-preview",
         "#app/detail-controller": "./src/detail-controller.js?v=20260801-mobile-nav-back-fix",

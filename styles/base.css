@@ -30,6 +30,7 @@
   --ui-brand-text: #f3f6fa;
   --ui-surface-raised: light-dark(#ffffff, #1a222d);
   --ui-scrim: rgba(17, 24, 39, 0.58);
+  --ui-topbar-bg: light-dark(#f6f8fb, #131a22);
   --ui-surface-glass: light-dark(color-mix(in srgb, #f7f9fc 86%, transparent), color-mix(in srgb, #151b23 88%, transparent));
   --ui-stroke-subtle: light-dark(color-mix(in srgb, #cfd6df 72%, transparent), color-mix(in srgb, #3a4656 76%, transparent));
   --ui-elevation-1: 0 1px 2px light-dark(rgba(16, 24, 39, 0.08), rgba(0, 0, 0, 0.22)), 0 8px 20px light-dark(rgba(16, 24, 39, 0.07), rgba(0, 0, 0, 0.18));
@@ -713,13 +714,11 @@ main {
   gap: clamp(18px, 3vw, 36px);
   justify-content: stretch;
   margin: 0;
-  background: var(--ui-surface-glass);
+  background: var(--ui-topbar-bg);
   background-image: none;
   color: var(--ui-text);
   border-bottom: var(--border-subtle);
   box-shadow: var(--shadow-hover);
-  backdrop-filter: blur(18px) saturate(145%);
-  -webkit-backdrop-filter: blur(18px) saturate(145%);
   isolation: isolate;
   overflow: visible;
 }

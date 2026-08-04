@@ -33,8 +33,12 @@ const mobileCatalogFilters = document.querySelector("#mobileCatalogFilters");
 const catalogSeriesFilter = document.querySelector("#catalogSeriesFilter");
 const catalogSearchScope = document.querySelector("#catalogSearchScope");
 const catalogSearchInput = document.querySelector("#catalogSearchInput");
+const topbar = document.querySelector(".topbar");
+const topbarSearch = document.querySelector("#topbarSearch");
+const topbarSearchToggle = document.querySelector("#topbarSearchToggle");
 const mobileDrawerMediaQuery = window.matchMedia("(max-width: 63.999rem)");
 const compactMobileMediaQuery = window.matchMedia("(max-width: 39.999rem)");
+const compactTopbarSearchMediaQuery = window.matchMedia("(min-width: 40rem) and (max-width: 49.999rem)");
 const mobileDrawerIsOpen = () => document.body.classList.contains("menu-open");
 const isMobileDrawerMode = () => mobileDrawerMediaQuery.matches;
 const currentMenuTrigger = () => menuButton;
@@ -49,6 +53,21 @@ const mobilePanelTitles = {
 let mobileNavigationDepth = 0;
 let mobileFilterTrigger = null;
 
+const compactTopbarSearchIsOpen = () => topbar?.classList.contains("is-compact-search-open");
+const setCompactTopbarSearchOpen = (open, { restoreFocus = false } = {}) => {
+  const nextOpen = Boolean(open && compactTopbarSearchMediaQuery.matches);
+  topbar?.classList.toggle("is-compact-search-open", nextOpen);
+  topbarSearchToggle?.setAttribute("aria-expanded", String(nextOpen));
+  topbarSearchToggle?.setAttribute("aria-label", nextOpen ? "검색창 닫기" : "검색창 열기");
+  if (nextOpen) {
+    closeOpenCatalogDropdowns();
+    requestAnimationFrame(() => document.querySelector("#globalSearchInput")?.focus({ preventScroll: true }));
+  } else {
+    topbarSearch?.querySelectorAll(".catalog-dropdown[open]").forEach(closeCatalogDropdown);
+    if (restoreFocus && topbarSearchToggle?.offsetParent !== null) topbarSearchToggle.focus({ preventScroll: true });
+  }
+};
+
 const syncMobileTopbar = section => {
   if (mobileTopbarTitle) mobileTopbarTitle.textContent = mobilePanelTitles[section] || "베이 아카이브";
   if (mobileTopbarBack) mobileTopbarBack.hidden = section === "overview";
@@ -59,6 +78,7 @@ const syncMobileTopbar = section => {
 };
 
 const activateAppPanel = section => {
+  setCompactTopbarSearchOpen(false);
   document.querySelectorAll(".app-panel").forEach(panel => panel.classList.toggle("active", panel.dataset.appPanel === section));
   document.body.dataset.activePanel = section;
   document.body.classList.toggle("is-overview", section === "overview");
@@ -339,6 +359,7 @@ const bindSearchInput = (input, containerSelector, {
 
 const syncNavigationMode = () => {
   if (!isMobileDrawerMode()) setMobileDrawerOpen(false);
+  if (!compactTopbarSearchMediaQuery.matches) setCompactTopbarSearchOpen(false);
   syncMenuButtonMode();
 };
 const updateToTop = () => toTop?.classList.toggle("show", window.scrollY > 300);
@@ -402,6 +423,11 @@ menuButton?.addEventListener("click", event => {
   event.stopPropagation();
   if (isMobileDrawerMode()) setMobileDrawerOpen(!mobileDrawerIsOpen());
 });
+topbarSearchToggle?.addEventListener("click", event => {
+  event.preventDefault();
+  event.stopPropagation();
+  setCompactTopbarSearchOpen(!compactTopbarSearchIsOpen());
+});
 mobileDrawerClose?.addEventListener("click", event => {
   event.preventDefault();
   setMobileDrawerOpen(false);
@@ -418,6 +444,7 @@ document.addEventListener("click", event => {
     return;
   }
   if (!event.target.closest(".catalog-dropdown")) closeOpenCatalogDropdowns();
+  if (compactTopbarSearchIsOpen() && !event.target.closest(".topbar-search")) setCompactTopbarSearchOpen(false);
   if (!event.target.closest(".topbar") && !event.target.closest(".mobile-drawer")) setMobileDrawerOpen(false);
 });
 document.addEventListener("keydown", event => {
@@ -439,6 +466,11 @@ document.addEventListener("keydown", event => {
       toggleCatalogDropdown(dropdown);
       return;
     }
+  }
+  if (event.key === "Escape" && compactTopbarSearchIsOpen()) {
+    event.preventDefault();
+    setCompactTopbarSearchOpen(false, { restoreFocus: true });
+    return;
   }
   if (event.key === "Escape" && document.body.classList.contains("menu-open")) setMobileDrawerOpen(false);
   if (event.key === "Escape" && !mobileCatalogFilters?.hidden) setMobileFilterSheetOpen(false);
