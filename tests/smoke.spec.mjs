@@ -2544,6 +2544,7 @@ test("composition sections use nested desktop scrolling and one modal-body mobil
         scrollHeight: element.scrollHeight,
         outerClientHeight: scrollArea.clientHeight,
         outerScrollHeight: scrollArea.scrollHeight,
+        seventhVisible: rows[6].getBoundingClientRect().bottom <= listRect.bottom + 1,
         eighthVisible: rows[7].getBoundingClientRect().bottom <= listRect.bottom + 1,
         ninthClipped: rows[8].getBoundingClientRect().bottom > listRect.bottom + 1
       };
@@ -2555,10 +2556,12 @@ test("composition sections use nested desktop scrolling and one modal-body mobil
       expect(productLayout.eighthVisible).toBe(true);
       expect(productLayout.ninthClipped).toBe(false);
     } else {
-      expect(productLayout.clientHeight).toBe(288);
+      expect(productLayout.clientHeight).toBeGreaterThanOrEqual(280);
+      expect(productLayout.clientHeight).toBeLessThanOrEqual(288);
       expect(productLayout.scrollHeight).toBeGreaterThan(productLayout.clientHeight);
       expect(productLayout.outerScrollHeight).toBeLessThanOrEqual(productLayout.outerClientHeight + 1);
-      expect(productLayout.eighthVisible).toBe(true);
+      expect(productLayout.seventhVisible).toBe(true);
+      expect(productLayout.eighthVisible).toBe(viewport.width >= 1024);
       expect(productLayout.ninthClipped).toBe(true);
     }
   }

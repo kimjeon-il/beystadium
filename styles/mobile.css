@@ -6,7 +6,6 @@
 .mobile-row-meta,
 .release-image-preview-button,
 .mobile-filter-sheet,
-.modal-mobile-back,
 .topbar-search-toggle {
   display: none;
 }
@@ -967,21 +966,6 @@
   #detailModal[open] .mounted-link,
   #detailModal[open] .ui-list-link {
     min-height: 44px;
-  }
-
-  #detailModal[open] .modal-mobile-back {
-    position: absolute;
-    top: calc((var(--modal-vh) - var(--modal-h)) / 2 + var(--modal-close-offset));
-    left: calc((var(--modal-vw) - var(--modal-w)) / 2 + var(--modal-close-offset));
-    z-index: 320;
-    width: 44px;
-    height: 44px;
-    display: grid;
-    pointer-events: auto;
-  }
-
-  #detailModal[open]:has(#modalContent .modal-back) .modal-mobile-back {
-    display: none;
   }
 
   #detailModal[open] .modal-back,

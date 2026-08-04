@@ -595,15 +595,112 @@ test.describe("mobile-first navigation and content", () => {
     await directPage.goto("/#BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF");
     const directDialog = directPage.locator("#detailModal");
     await expect(directDialog).toBeVisible();
-    const fallbackBack = directDialog.locator("#modalMobileBack");
-    await expect(fallbackBack).toBeVisible();
+    await expect(directDialog.locator("#modalMobileBack")).toHaveCount(0);
     await expect(directDialog.locator("#modalContent .modal-back")).toHaveCount(0);
-    await fallbackBack.tap();
+    await directDialog.locator("#modalClose").tap();
     await expect(directDialog).toBeHidden();
     await expect(directPage).toHaveURL(/#toy-catalog\?scope=bey/);
     await expect(directPage.locator("#catalogGrid .catalog-card").first()).toBeVisible();
     await directPage.close();
     expect(errors).toEqual([]);
+  });
+
+  test("modal switches directly between mobile and general width rules", async ({ page }) => {
+    for (const width of [639, 640, 768, 1023, 1024]) {
+      const height = 900;
+      await page.setViewportSize({ width, height });
+      await page.goto("/#PART-METAL-FIGHT-FACE-PEGASIS");
+
+      const dialog = page.locator("#detailModal");
+      await expect(dialog).toBeVisible();
+      await expect(dialog.locator("#modalMobileBack")).toHaveCount(0);
+      await expect(dialog.locator(".modal-back")).toHaveCount(0);
+      const appearance = await dialog.locator(".modal-inner").evaluate(element => {
+        const rect = element.getBoundingClientRect();
+        const style = getComputedStyle(element);
+        return {
+          left: Math.round(rect.left),
+          top: Math.round(rect.top),
+          width: Math.round(rect.width),
+          height: Math.round(rect.height),
+          viewportWidth: document.documentElement.clientWidth,
+          viewportHeight: document.documentElement.clientHeight,
+          borderWidth: Number.parseFloat(style.borderTopWidth),
+          radius: Number.parseFloat(style.borderTopLeftRadius),
+          shadow: style.boxShadow
+        };
+      });
+
+      if (width < 640) {
+        expect(appearance.left).toBe(8);
+        expect(appearance.top).toBe(8);
+        expect(appearance.width).toBe(appearance.viewportWidth - 16);
+        expect(appearance.height).toBe(appearance.viewportHeight - 16);
+        expect(appearance.borderWidth).toBe(0);
+        expect(appearance.radius).toBe(0);
+        expect(appearance.shadow).toBe("none");
+      } else {
+        const expectedWidth = Math.min(720, appearance.viewportWidth - 48);
+        const expectedHeight = Math.min(620, appearance.viewportHeight - 48);
+        expect(appearance.width).toBe(expectedWidth);
+        expect(appearance.height).toBe(expectedHeight);
+        expect(appearance.left).toBe(Math.round((appearance.viewportWidth - expectedWidth) / 2));
+        expect(appearance.top).toBe(Math.round((appearance.viewportHeight - expectedHeight) / 2));
+        expect(appearance.borderWidth).toBeGreaterThan(0);
+        expect(appearance.radius).toBe(24);
+        expect(appearance.shadow).not.toBe("none");
+      }
+    }
+  });
+
+  test("mobile and general widths share contextual back presentation and rules", async ({ page }) => {
+    const snapshots = [];
+    for (const width of [393, 1024]) {
+      await page.setViewportSize({ width, height: 900 });
+      await page.goto("/#toy-release");
+      const releaseLink = page.locator(".release-product-link").first();
+      await expect(releaseLink).toBeVisible();
+      await releaseLink.click();
+
+      const dialog = page.locator("#detailModal");
+      const back = dialog.locator(".modal-back[data-back-release]");
+      await expect(dialog.locator("#modalMobileBack")).toHaveCount(0);
+      await expect(back).toBeVisible();
+      const rest = await back.evaluate(element => {
+        const rect = element.getBoundingClientRect();
+        const style = getComputedStyle(element);
+        return {
+          width: Math.round(rect.width),
+          height: Math.round(rect.height),
+          background: style.backgroundColor,
+          color: style.color,
+          radius: style.borderRadius,
+          shadow: style.boxShadow,
+          fontSize: style.fontSize,
+          fontWeight: style.fontWeight,
+          label: element.getAttribute("aria-label")
+        };
+      });
+      await page.keyboard.press("Tab");
+      await back.focus();
+      await page.waitForTimeout(250);
+      const focus = await back.evaluate(element => ({
+        focusVisible: element.matches(":focus-visible"),
+        background: getComputedStyle(element).backgroundColor,
+        color: getComputedStyle(element).color,
+        shadow: getComputedStyle(element).boxShadow
+      }));
+      snapshots.push({ rest, focus });
+      await back.click();
+      await expect(page.locator('[data-app-panel="release"].active')).toBeVisible();
+    }
+
+    expect(snapshots[0].rest).toEqual(snapshots[1].rest);
+    expect(snapshots[0].focus).toEqual(snapshots[1].focus);
+    expect(snapshots[0].rest.width).toBe(44);
+    expect(snapshots[0].rest.height).toBe(44);
+    expect(snapshots[0].focus.focusVisible).toBe(true);
+    expect(snapshots[0].focus.shadow).not.toBe(snapshots[0].rest.shadow);
   });
 
   test("mobile modal backdrop shares the card surface across widths and themes", async ({ page }) => {
@@ -831,6 +928,7 @@ test("touch layouts ignore decorative hover without losing persistent states", a
   await page.goto("/#BEY-X-BX-02-HELLS-SCYTHE-4-60T");
   const closeButton = page.locator("#modalClose");
   await expect(closeButton).toBeVisible();
+  await page.waitForTimeout(250);
   const closeRest = await visualState(closeButton);
   await closeButton.hover();
   expect(await visualState(closeButton)).toEqual(closeRest);

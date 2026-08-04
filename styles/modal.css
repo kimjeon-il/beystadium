@@ -1420,7 +1420,7 @@ dialog[open] .modal-step-next::after {
   }
 }
 
-@media (max-width: 63.999rem) {
+@media (max-width: 39.999rem) {
 dialog[open] {
     --modal-edge-gap: clamp(18px, 3.2vw, 28px);
     --modal-h: calc(var(--modal-vh) - var(--modal-edge-gap));
