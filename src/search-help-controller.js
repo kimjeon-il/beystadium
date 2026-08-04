@@ -1,5 +1,4 @@
-import { appState } from "#app/state";
-import { closeOpenCatalogDropdowns } from "#app/shell-controller";
+import { closeOpenCatalogDropdowns, closeSearchPreviews } from "#app/shell-controller";
 import { bindScrollAffordance, clearScrollAffordance, scheduleScrollAffordances } from "#app/scroll-affordance";
 import {
   animeSearchHelpButton,
@@ -17,10 +16,6 @@ let initialized = false;
 const rootPixelValue = (name, fallback) => {
   const value = Number.parseFloat(getComputedStyle(document.documentElement).getPropertyValue(name));
   return Number.isFinite(value) ? value : fallback;
-};
-const closeSearchPreviews = () => {
-  document.querySelectorAll(".search-preview").forEach(preview => { preview.hidden = true; });
-  appState.activeSearchPreview = null;
 };
 const clamp = (value, min, max) => Math.min(Math.max(value, min), Math.max(min, max));
 const resetSearchHelpPopoverLayout = popover => {

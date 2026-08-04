@@ -556,8 +556,6 @@ registerAppServices({
 
 
 export {
-  bindCatalogModalBack,
-  closeDetail,
   itemDisplayName,
   openBookDetail,
   openDetail,

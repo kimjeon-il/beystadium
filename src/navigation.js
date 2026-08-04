@@ -74,6 +74,11 @@ function navigateToRoute(route, { replace = false, apply = true, preserveScroll 
   result?.catch?.(error => console.error(error));
   return result;
 }
+const routeIfNeeded = route => {
+  if (appState.applyingRoute) return false;
+  navigateToRoute(route);
+  return true;
+};
 
 export {
   appliedRouteKey,
@@ -82,6 +87,7 @@ export {
   getModalCloseRoute,
   navigateToRoute,
   rememberPrimaryRoute,
+  routeIfNeeded,
   stabilizePrimaryRouteScroll,
   syncModalOriginRoute
 };

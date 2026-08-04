@@ -515,6 +515,5 @@ export {
   openCategoryAnimePage,
   openCategoryAnimeEpisodesDetail,
   restoreStoredAnimeOrigin,
-  syncAnimeRouteHash,
-  renderAnimePage
+  syncAnimeRouteHash
 };

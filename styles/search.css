@@ -216,11 +216,8 @@
 .search-preview-all:focus-visible {
   background: var(--ui-control-hover);
   outline: 0;
-  transform: none;
-}
-
-.search-preview-all:focus-visible {
   box-shadow: var(--ui-focus-ring);
+  transform: none;
 }
 
 .search-preview-all span {

@@ -6,7 +6,7 @@ import {
   catalogVisibleItemsCache,
   prepareCatalogSortMetadata
 } from "#app/catalog-model";
-import { renderCatalogItems, scrollCatalogGridIntoView, syncCatalogScopeState } from "#app/catalog-view";
+import { renderCatalogItems, scrollCatalogGridIntoView } from "#app/catalog-view";
 import { navigateToRoute } from "#app/navigation";
 import { defaultCatalogSort, normalizeCatalogRouteSort, normalizeRoute } from "#app/route-parser";
 import {
@@ -27,7 +27,7 @@ import {
   setDropdownOption
 } from "#app/shell-controller";
 import {
-  activeAppPanel,
+  activeAppPanelName,
   catalogSearch,
   catalogSearchScope,
   catalogSeriesFilter,
@@ -45,18 +45,13 @@ let initialized = false;
 let catalogRenderTimer = 0;
 let catalogRenderFrame = 0;
 
-const activeAppPanelName = () => activeAppPanel()?.dataset.appPanel || "";
 const syncGlobalSearchScopePeers = scope => {
   setGlobalSearchScope(scope);
   setMobileDrawerSearchScope(scope);
   setOverviewSearchScope(scope);
 };
-const refreshCatalogResults = () => {
-  renderCatalogItems();
-  syncCatalogScopeState({ updateCount: false });
-};
 const refreshCatalogState = () => {
-  refreshCatalogResults();
+  renderCatalogItems();
   renderCatalogFilterChips();
 };
 const cancelCatalogRender = () => {
@@ -230,8 +225,6 @@ export {
   initializeCatalogFeature,
   openCategoryCatalog,
   prepareCatalogSortMetadata,
-  refreshCatalogState,
-  renderCatalogFilterChips,
   restoreStoredCatalogOrigin,
   syncCatalogRouteHash
 };

@@ -78,13 +78,7 @@ const productSearchFields = item => {
     ])
   ];
 };
-const bookSearchFields = item => [
-  ...searchFieldsFromValues("primaryName", [item.name]),
-  ...searchFieldsFromValues("alias", [item.en]),
-  ...searchFieldsFromValues("category", [item.category]),
-  ...searchFieldsFromValues("description", [item.desc])
-];
-const gameSearchFields = item => [
+const secondarySearchFields = item => [
   ...searchFieldsFromValues("primaryName", [item.name]),
   ...searchFieldsFromValues("alias", [item.en]),
   ...searchFieldsFromValues("category", [item.category]),
@@ -110,6 +104,7 @@ const SEARCH_RESULT_MARKUP_CACHE_LIMIT = 32;
 const SEARCH_RESULTS_PAGE_SIZE = 10;
 const SEARCH_HASH_UPDATE_DELAY = 180;
 const SEARCH_RENDER_DELAY = 100;
+const emptySearchRecordExtra = Object.freeze({});
 const searchResultItemsCache = new Map();
 const searchResultMarkupCache = new Map();
 const cacheSearchResultItems = (key, result) => {
@@ -126,9 +121,14 @@ const cacheSearchResultMarkup = (key, result) => {
   searchResultMarkupCache.set(key, result);
   return result;
 };
-const mainSearchRecord = (kind, item, fields, order, extra = {}) => createSearchRecord(kind, item, fields, order, extra);
-const createMainSearchRecords = ({ items, kind, fields = catalogItemSearchFields, extra = () => ({}) }, sourceIndex = 0) =>
-  items.map((item, index) => mainSearchRecord(kind, item, fields(item, index), (sourceIndex * 100000) + index, extra(item, index)));
+const createMainSearchRecords = ({ items, kind, fields = catalogItemSearchFields, extra }, sourceIndex = 0) =>
+  items.map((item, index) => createSearchRecord(
+    kind,
+    item,
+    fields(item, index),
+    (sourceIndex * 100000) + index,
+    extra ? extra(item, index) : emptySearchRecordExtra
+  ));
 const groupedSearchIndexItems = () => {
   const groups = {
     "catalog-item": [],
@@ -147,8 +147,8 @@ const mainSearchRecordSources = () => {
     { key: "catalog", kind: "catalog-item", items: items["catalog-item"], fields: catalogItemSearchFields },
     { key: "tools", kind: "tools", items: items.tools, fields: toolsSearchFields },
     { key: "product", kind: "product", items: items.product, fields: productSearchFields },
-    { key: "manga", kind: "book", items: items.book, fields: bookSearchFields },
-    { key: "game", kind: "game", items: items.game, fields: gameSearchFields },
+    { key: "manga", kind: "book", items: items.book, fields: secondarySearchFields },
+    { key: "game", kind: "game", items: items.game, fields: secondarySearchFields },
     { key: "character", kind: "character", items: animeInfo.characters || [], fields: animeCharacterSearchFields },
     { key: "anime", kind: "anime", items: items.anime, fields: animeSearchFields, extra: (episode, index) => ({ index }) }
   ];
@@ -188,10 +188,13 @@ const searchResultRecordLists = () => {
   };
   return searchResultRecordListCache;
 };
-const searchResultRecordList = scope => searchResultRecordLists()[normalizeSearchScope(scope)] || searchResultRecordLists().all;
+const searchResultRecordList = scope => {
+  const recordLists = searchResultRecordLists();
+  return recordLists[normalizeSearchScope(scope)] || recordLists.all;
+};
 const scoredSearchResult = (record, preparedQuery) => {
   const match = matchSearchRecord(record, preparedQuery);
-  if (match.matched && searchQueryFrom(preparedQuery).isEmpty) return { record, score: 0, entry: record.entry };
+  if (match.matched && preparedQuery.isEmpty) return { record, score: 0, entry: record.entry };
   return match.matched && match.score > 0 ? { record, score: match.score, entry: record.entry } : null;
 };
 const insertLimitedSearchResult = (results, result, limit) => {

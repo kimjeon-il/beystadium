@@ -14,6 +14,7 @@ const catalogSearchHelpPopover = document.querySelector("#catalogSearchHelpPopov
 const animeSearch = document.querySelector("#animeSearchInput");
 const animeSearchHelpButton = document.querySelector("#animeSearchHelpButton");
 const animeSearchHelpPopover = document.querySelector("#animeSearchHelpPopover");
+const activeAppPanelName = () => activeAppPanel()?.dataset.appPanel || "";
 const globalSearchScopeValue = () => globalSearchScope?.dataset.scope || "all";
 const mobileDrawerSearchScopeValue = () => mobileDrawerSearchScope?.dataset.scope || "all";
 const overviewSearchScopeValue = () => overviewSearchScope?.dataset.scope || "all";
@@ -485,6 +486,7 @@ const queryChipMarkup = queryOrEntries => {
 
 export {
   activeAppPanel,
+  activeAppPanelName,
   animeSearch,
   animeSearchHelpButton,
   animeSearchHelpPopover,

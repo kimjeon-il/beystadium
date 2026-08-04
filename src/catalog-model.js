@@ -38,7 +38,12 @@ const catalogSourceOrder = item => {
   const coreOrder = catalogCoreItemOrder.get(item);
   return coreOrder !== undefined ? coreOrder : Number.MAX_SAFE_INTEGER;
 };
-const zeroGBottomStartIndex = () => partItems.findIndex(item => item.id === "PART-METAL-FIGHT-BOTTOM-CIRCLE-FLAT");
+const zeroGBottomId = "PART-METAL-FIGHT-BOTTOM-CIRCLE-FLAT";
+let zeroGBottomIndex = null;
+const zeroGBottomStartIndex = () => {
+  if (zeroGBottomIndex === null) zeroGBottomIndex = partItems.findIndex(item => item.id === zeroGBottomId);
+  return zeroGBottomIndex;
+};
 const findCatalogItemById = id => catalogCoreItemsById.get(id) || toolsItemsById.get(id) || bookItemsById.get(id) || gameItemsById.get(id) || productItemsById.get(id) || null;
 
 const cardVisualMarkup = item => item.image
@@ -58,9 +63,9 @@ const catalogCardTitle = (label, title, className = "") => {
       <span class="catalog-card-title">${title}</span>
     </h3>`;
 };
-const codedPartNameTypes = ["track", "bottom", "4dbottom", "disk", "coredisk", "frame", "dbdisk", "dbarmor", "driver", "bit", "superkingchassis"];
+const codedPartNameTypes = new Set(["track", "bottom", "4dbottom", "disk", "coredisk", "frame", "dbdisk", "dbarmor", "driver", "bit", "superkingchassis"]);
 const codedXBladeRoles = new Set(["assistBlade", "overBlade"]);
-const isCodedPartName = item => codedPartNameTypes.includes(item?.type) || (
+const isCodedPartName = item => codedPartNameTypes.has(item?.type) || (
   item?.series === "x" && codedXBladeRoles.has(item?.xBladeRole)
 );
 const partKoName = item => {
@@ -68,7 +73,7 @@ const partKoName = item => {
   const detail = item.sub || "";
   return detail.includes("높이") ? "" : detail;
 };
-const wheelTypes = ["wheel", "clearwheel", "4dclearwheel", "lightwheel", "metalwheel", "4dmetalwheel", "chromewheel", "crystalwheel"];
+const namedPartTypes = new Set(["face", "stoneface", "wheel", "clearwheel", "4dclearwheel", "lightwheel", "metalwheel", "4dmetalwheel", "chromewheel", "crystalwheel"]);
 const cardInfo = item => {
   if (isCodedPartName(item)) {
     const fullEn = item.type === "track" && /^\d+$/.test(item.name) ? "&nbsp;" : item.en;
@@ -79,10 +84,7 @@ const cardInfo = item => {
     const suffix = combo ? ` ${combo}` : "";
     return `${catalogCardTitle(catalogCardTypeLabel(item), `${item.name}${suffix}`)}<p class="card-full-en">${item.en}${suffix}</p><p class="card-full-ko">&nbsp;</p>`;
   }
-  if (wheelTypes.includes(item.type)) {
-    return `${catalogCardTitle(catalogCardTypeLabel(item), item.name)}<p class="card-full-en">${item.en}</p><p class="card-full-ko">&nbsp;</p>`;
-  }
-  if (["face", "stoneface"].includes(item.type)) {
+  if (namedPartTypes.has(item.type)) {
     return `${catalogCardTitle(catalogCardTypeLabel(item), item.name)}<p class="card-full-en">${item.en}</p><p class="card-full-ko">&nbsp;</p>`;
   }
   return `${catalogCardTitle(catalogCardTypeLabel(item), item.name)}<p class="card-en">${item.en}</p>`;
@@ -299,14 +301,12 @@ const catalogSortOptions = [
   { value: "oldest", label: "오래된순", compare: compareCatalogItemsByOldest }
 ];
 const activeCatalogSortOption = () => catalogSortOptions.find(option => option.value === appState.activeCatalogSort) || catalogSortOptions[2];
-const compareCatalogItemsByActiveSort = (a, b) => activeCatalogSortOption().compare(a, b);
-const catalogHasSearchQuery = () => Boolean(catalogSearchQuery());
-const catalogHasSeriesFilter = () => appState.selectedCatalogSeries !== "all";
-const catalogItemMatchesSeries = item => !catalogHasSeriesFilter() || item?.series === appState.selectedCatalogSeries;
-const catalogUsesDefaultBrowseSet = query => !appState.selectedCatalogKind && (query ? query.isEmpty : !catalogHasSearchQuery());
+const catalogItemMatchesSeries = item => appState.selectedCatalogSeries === "all" || item?.series === appState.selectedCatalogSeries;
+const catalogUsesDefaultBrowseSet = query => !appState.selectedCatalogKind && query.isEmpty;
 const CATALOG_VISIBLE_ITEMS_CACHE_LIMIT = 48;
 const catalogVisibleItemsCache = new Map();
 const invalidateCatalogDerivedCaches = () => {
+  zeroGBottomIndex = null;
   firstReleaseMetaMapsCache = null;
   catalogProductNumberKeyCache = new WeakMap();
   catalogVisibleItemsCache.clear();
@@ -330,19 +330,13 @@ const cacheCatalogVisibleItems = (key, factory) => {
   return items;
 };
 const catalogVisibleCacheKey = bucket => `${bucket}|${catalogRenderKey()}`;
-const sortCatalogEntries = entries => entries
-  .sort((a, b) => compareCatalogItemsByActiveSort(a.item, b.item))
-  .map(entry => entry.item);
+const sortCatalogItems = items => items.sort(activeCatalogSortOption().compare);
 const visibleCatalogSubsetItems = ({ bucket, items, includeItem }) =>
   cacheCatalogVisibleItems(catalogVisibleCacheKey(bucket), () => {
     const query = prepareCatalogSearchQuery(catalogSearchQuery());
-    return sortCatalogEntries(items
-      .map(item => {
-        if (!includeItem(item, query)) return null;
-        const score = query.isEmpty ? 0 : catalogListSearchScore(item, query);
-        return query.isEmpty || score > 0 ? { item, score } : null;
-      })
-      .filter(Boolean));
+    return sortCatalogItems(items.filter(item =>
+      includeItem(item, query) && (query.isEmpty || catalogListSearchScore(item, query) > 0)
+    ));
   });
 const visibleToolsItems = () => visibleCatalogSubsetItems({
   bucket: "tools",
@@ -366,15 +360,9 @@ const visibleCatalogCoreItems = () => visibleCatalogSubsetItems({
 });
 const visibleCatalogItems = () => {
   const cacheKey = catalogVisibleCacheKey("all");
-  return cacheCatalogVisibleItems(cacheKey, () => {
-    const query = prepareCatalogSearchQuery(catalogSearchQuery());
-    return sortCatalogEntries([...visibleCatalogCoreItems(), ...visibleToolsItems()]
-    .map(item => {
-      const score = query.isEmpty ? 0 : catalogListSearchScore(item, query);
-      return query.isEmpty || score > 0 ? { item, score } : null;
-    })
-    .filter(Boolean));
-  });
+  return cacheCatalogVisibleItems(cacheKey, () =>
+    sortCatalogItems([...visibleCatalogCoreItems(), ...visibleToolsItems()])
+  );
 };
 
 const catalogRenderKey = () => [

@@ -106,6 +106,8 @@
 
 .active-query-chip__remove {
   flex: 0 0 auto;
+  font-size: 1.1em;
+  line-height: 1;
   white-space: nowrap;
 }
 
@@ -114,11 +116,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.active-query-chip__remove {
-  font-size: 1.1em;
-  line-height: 1;
 }
 
 .catalog-control-bar {

@@ -13,6 +13,11 @@ const releaseSeriesLabels = {
   burst: "베이블레이드 버스트",
   x: "베이블레이드 X"
 };
+const releaseSeriesOrderValues = Object.freeze(Object.keys(releaseSeriesLabels));
+const productDisplayFallbackRegionValues = Object.freeze({
+  kr: Object.freeze(["kr", "jp"]),
+  jp: Object.freeze(["jp", "kr"])
+});
 const RARE_BEY_GET_BADGE = "rare-bey-get";
 const releaseBadgeDefinitions = {
   [RARE_BEY_GET_BADGE]: {
@@ -25,18 +30,18 @@ const releaseBadgeSearchTerms = badge => {
   const definition = releaseBadgeDefinitions[badge];
   return definition ? [definition.label, ...(definition.aliases || [])].filter(Boolean) : [];
 };
-const rareBeyGetEntries = () =>
-  typeof rareBeyGetItems !== "undefined" && Array.isArray(rareBeyGetItems) ? rareBeyGetItems : [];
 const rareBeyGetEntryProductIds = entry => {
   const singleProductId = entry?.productId ? [entry.productId] : [];
   const groupedProductIds = Array.isArray(entry?.productIds) ? entry.productIds : [];
   return [...new Set([...singleProductId, ...groupedProductIds].filter(Boolean))];
 };
 const rareBeyGetEntryRegion = entry => releaseRegionLabels[entry?.region] ? entry.region : "";
-const rareBeyGetEntryMatchesProduct = (entry, item, region = appState.activeReleaseRegion) =>
-  rareBeyGetEntryProductIds(entry).includes(item.id) && (!rareBeyGetEntryRegion(entry) || rareBeyGetEntryRegion(entry) === region);
+const rareBeyGetEntryMatchesProduct = (entry, item, region = appState.activeReleaseRegion) => {
+  const entryRegion = rareBeyGetEntryRegion(entry);
+  return rareBeyGetEntryProductIds(entry).includes(item.id) && (!entryRegion || entryRegion === region);
+};
 const rareBeyGetEntryForProduct = (item, region = appState.activeReleaseRegion) =>
-  rareBeyGetEntries().find(entry => rareBeyGetEntryMatchesProduct(entry, item, region)) || null;
+  rareBeyGetItems.find(entry => rareBeyGetEntryMatchesProduct(entry, item, region)) || null;
 const releaseBadges = (item, region = appState.activeReleaseRegion) => {
   const release = productRelease(item, region);
   const explicitBadges = Array.isArray(release.badges) ? release.badges : [];
@@ -58,7 +63,7 @@ const rareBeyGetListEntryMatchesContext = (entry, { region = appState.activeRele
   return !series || products.some(product => product.series === series);
 };
 const visibleRareBeyGetEntries = ({ region = appState.activeReleaseRegion, series = appState.activeReleaseSeries } = {}) =>
-  rareBeyGetEntries()
+  rareBeyGetItems
     .filter(entry => rareBeyGetListEntryMatchesContext(entry, { region, series }))
     .slice()
     .sort((a, b) => {
@@ -88,7 +93,8 @@ const blankProductRelease = () => ({
   price: "",
   composition: []
 });
-const productRelease = (item, region = appState.activeReleaseRegion) => {
+let productReleaseCache = new WeakMap();
+const resolveProductRelease = (item, region) => {
   const base = baseProductRelease(item);
   const blank = blankProductRelease();
   if (!item.releases) return region === "kr" ? base : blank;
@@ -98,9 +104,19 @@ const productRelease = (item, region = appState.activeReleaseRegion) => {
   const merged = { ...(region === "kr" ? base : blank), ...release, status: release.status || "released" };
   return { ...merged, kind: normalizeProductKind(merged.kind) };
 };
+const productRelease = (item, region = appState.activeReleaseRegion) => {
+  let releasesByRegion = productReleaseCache.get(item);
+  if (!releasesByRegion) {
+    releasesByRegion = new Map();
+    productReleaseCache.set(item, releasesByRegion);
+  }
+  if (!releasesByRegion.has(region)) releasesByRegion.set(region, resolveProductRelease(item, region));
+  return releasesByRegion.get(region);
+};
+window.addEventListener("beystadium:data-loaded", () => { productReleaseCache = new WeakMap(); });
 const productReleaseValue = (item, key, region = appState.activeReleaseRegion) => productRelease(item, region)[key] || "";
 const productReleasedInRegion = (item, region = appState.activeReleaseRegion) => productRelease(item, region).status !== "unreleased";
-const releaseSeriesOrder = () => Object.keys(releaseSeriesLabels);
+const releaseSeriesOrder = () => releaseSeriesOrderValues;
 const releaseSeriesHasProducts = (series, region = appState.activeReleaseRegion) => releaseSeriesLabels[series] && productItems.some(item =>
   !item.lineupOnly && item.series === series && productReleasedInRegion(item, region)
 );
@@ -110,7 +126,7 @@ const defaultReleaseSeries = (region = appState.activeReleaseRegion) => [...rele
 const releaseSeriesForRegion = (series, region = appState.activeReleaseRegion) =>
   releaseSeriesHasProducts(series, region) ? series : defaultReleaseSeries(region);
 const productDisplayFallbackRegions = (region = "kr") =>
-  [region, "kr", "jp"].filter((value, index, values) => releaseRegionLabels[value] && values.indexOf(value) === index);
+  productDisplayFallbackRegionValues[region] || productDisplayFallbackRegionValues.kr;
 const productDisplayRegion = (item, region = "kr") =>
   productDisplayFallbackRegions(region).find(candidate => productReleasedInRegion(item, candidate)) || region;
 const productDisplayRelease = (item, region = "kr") => productRelease(item, productDisplayRegion(item, region));

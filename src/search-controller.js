@@ -13,16 +13,14 @@ import {
 import { globalSearchQuery } from "#app/search-engine";
 import { activatePrimarySection, bindSearchInput, setMobileDrawerOpen } from "#app/shell-controller";
 import {
-  activeAppPanel,
+  activeAppPanelName,
   globalSearch,
   globalSearchScope,
   globalSearchScopeValue,
   mobileDrawerSearch,
   mobileDrawerSearchScope,
-  mobileDrawerSearchScopeValue,
   overviewSearch,
   overviewSearchScope,
-  overviewSearchScopeValue,
   searchResultsSearch,
   searchResultsSearchScope,
   searchResultsSearchScopeValue,
@@ -41,7 +39,6 @@ let focusResultsSearchOnOpen = false;
 
 const globalSearchInputs = () => [globalSearch, mobileDrawerSearch, overviewSearch, searchResultsSearch].filter(Boolean);
 
-const activeAppPanelName = () => activeAppPanel()?.dataset.appPanel || "";
 const updateGlobalSearchHash = () => {
   if (searchHashUpdateTimer) clearTimeout(searchHashUpdateTimer);
   searchHashUpdateTimer = 0;
@@ -87,15 +84,9 @@ const syncGlobalSearchScopePeers = scope => {
   setOverviewSearchScope(scope);
   setSearchResultsSearchScope(scope);
 };
-const inputScope = input => {
-  if (input === overviewSearch) return overviewSearchScopeValue();
-  if (input === mobileDrawerSearch) return mobileDrawerSearchScopeValue();
-  if (input === searchResultsSearch) return searchResultsSearchScopeValue();
-  return globalSearchScopeValue();
-};
 const syncInputToPeers = input => {
   syncGlobalSearchInputPeers(input);
-  syncGlobalSearchScopePeers(inputScope(input));
+  syncGlobalSearchScopePeers(searchPreviewScopeValue(input));
 };
 const ensureSearchResultsScopeOptions = () => {
   const menu = searchResultsSearchScope?.querySelector(".catalog-dropdown-menu");

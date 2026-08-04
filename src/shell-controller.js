@@ -4,7 +4,7 @@ import { navigateToRoute } from "#app/navigation";
 import { defaultReleaseSeries, setSortDropdownLabel } from "#app/release-core";
 import { bindScrollAffordances, clearScrollAffordance, clearScrollAffordances, scheduleScrollAffordances } from "#app/scroll-affordance";
 import {
-  activeAppPanel,
+  activeAppPanelName,
   clearSearchInputs,
   dropdownSummaryText,
   getNavigationRoots,
@@ -23,7 +23,6 @@ import {
 
 const filterButtonAttrs = ["data-release-series", "data-anime-season", "data-catalog-sort", "data-release-sort-option"];
 const filterButtonAttr = button => filterButtonAttrs.find(attr => button.hasAttribute(attr));
-const activeAppPanelName = () => activeAppPanel()?.dataset.appPanel || "";
 const mobileTopbarBack = document.querySelector("#mobileTopbarBack");
 const mobileTopbarTitle = document.querySelector("#mobileTopbarTitle");
 const mobileBottomNav = document.querySelector(".mobile-bottom-nav");
@@ -503,6 +502,7 @@ export {
   categoryRouteFromTrigger,
   closeCatalogDropdown,
   closeOpenCatalogDropdowns,
+  closeSearchPreviews,
   closeSearchHelpPopovers,
   setDropdownOption,
   setMobileDrawerOpen

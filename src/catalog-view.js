@@ -38,11 +38,6 @@ const updateCatalogCount = visibleItems => {
   countRoot?.removeAttribute("aria-hidden");
   count.textContent = Array.isArray(visibleItems) ? visibleItems.length : visibleCatalogItems().length;
 };
-const syncCatalogScopeState = ({ updateCount = true } = {}) => {
-  const panel = document.querySelector('.app-panel[data-app-panel="catalog"]');
-  if (panel) panel.dataset.catalogScope = appState.selectedCatalogKind || "all";
-  if (updateCount) updateCatalogCount();
-};
 const catalogItemCard = item => `
     <article class="category-card catalog-card${item.type === "bey" ? " bey-card" : ""}" data-id="${item.id}">
       ${catalogCardActionMarkup(item)}
@@ -69,6 +64,5 @@ const renderCatalogItems = () => renderCategoryCollection(catalogCollectionConfi
 
 export {
   renderCatalogItems,
-  scrollCatalogGridIntoView,
-  syncCatalogScopeState
+  scrollCatalogGridIntoView
 };

@@ -1007,9 +1007,8 @@ button.icon-back-button {
 .to-top:focus-visible {
   background: var(--ui-control-hover);
   color: var(--ui-control-text-active);
+  box-shadow: var(--ui-focus-ring);
 }
-
-.to-top:focus-visible{box-shadow:var(--ui-focus-ring)}
 
 .bey-image {
   display: block;
@@ -1186,6 +1185,7 @@ html.route-booting .to-top {
 .ui-icon-button:focus-visible {
   background: var(--ui-control-hover);
   color: var(--ui-control-text-active);
+  box-shadow: var(--ui-focus-ring);
 }
 
 .ui-button.active,
@@ -1200,11 +1200,6 @@ html.route-booting .to-top {
 
 .ui-icon-button:not(:disabled):not([aria-disabled="true"]):focus-visible {
   transform: translateY(var(--hover-lift-y));
-}
-
-.ui-button:focus-visible,
-.ui-icon-button:focus-visible {
-  box-shadow: var(--ui-focus-ring);
 }
 
 .ui-button:active {
@@ -1281,16 +1276,13 @@ html.route-booting .to-top {
 .ui-tab-button:not(.sidebar-button):focus-visible {
   background: var(--ui-control-hover);
   color: var(--ui-control-text-active);
+  transform: none;
 }
 
 .ui-tab-button:not(.sidebar-button).active,
 .ui-tab-button:not(.sidebar-button)[aria-selected="true"] {
   background: var(--ui-control-hover);
   color: var(--ui-control-text-active);
-}
-
-.ui-tab-button:not(.sidebar-button):focus-visible {
-  transform: none;
 }
 
 :is(.ui-card-button,.ui-chip-button,.ui-tab-button:not(.sidebar-button),.ui-dropdown-item,.catalog-dropdown-menu button):focus-visible{outline:0;box-shadow:var(--ui-focus-ring)}
@@ -1605,10 +1597,8 @@ body.is-overview .app-shell {
 
 .menu-button:focus-visible {
   background: var(--ui-control-hover);
-  box-shadow: var(--shadow-hover);
+  box-shadow: var(--ui-focus-ring), var(--shadow-hover);
 }
-
-.menu-button:focus-visible{box-shadow:var(--ui-focus-ring),var(--shadow-hover)}
 
 body.menu-open .menu-button {
   background: var(--ui-control-hover);
@@ -1697,6 +1687,9 @@ body.menu-open .mobile-drawer {
 }
 
 .mobile-drawer .sidebar-nav {
+  --sidebar-button-shadow-bleed: 10px;
+  margin-inline: calc(var(--sidebar-button-shadow-bleed) * -1);
+  padding-inline: var(--sidebar-button-shadow-bleed);
   scrollbar-gutter: auto;
 }
 
@@ -1760,12 +1753,6 @@ body.menu-open .mobile-drawer {
   scrollbar-width: thin;
   scrollbar-color: var(--ui-line) transparent;
   box-shadow: var(--scroll-below-shadow, none);
-}
-
-.mobile-drawer .sidebar-nav {
-  --sidebar-button-shadow-bleed: 10px;
-  margin-inline: calc(var(--sidebar-button-shadow-bleed) * -1);
-  padding-inline: var(--sidebar-button-shadow-bleed);
 }
 
 .sidebar-root .sidebar-section {
@@ -1836,7 +1823,6 @@ body.menu-open .mobile-drawer {
 .mobile-drawer-close:focus-visible {
   background: var(--sidebar-hover-bg);
   color: var(--ui-text);
-  box-shadow: var(--shadow-hover);
 }
 
 .sidebar-root .sidebar-button:not(:disabled):not([aria-disabled="true"]):focus-visible {

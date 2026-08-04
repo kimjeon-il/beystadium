@@ -4,7 +4,7 @@ import { zeroGBottomStartIndex } from "#app/catalog-model";
 import { cleanupModelViewer, closeModalTagPopover, positionModalTagPopover } from "#app/detail-view";
 import { hideLinkImagePreview } from "#app/image-preview";
 import { clearActiveDetailModalContext, clearModalContext, currentPageScrollY, rememberModalContext, restorePageScroll, validScrollY } from "#app/modal-context";
-import { clearModalOriginRoute, navigateToRoute } from "#app/navigation";
+import { clearModalOriginRoute, routeIfNeeded } from "#app/navigation";
 import { escapeAttributeValue } from "#app/release-core";
 import { bindScrollAffordances, clearScrollAffordances, scheduleScrollAffordances } from "#app/scroll-affordance";
 import { playEnterAnimation } from "#app/ui-core";
@@ -292,11 +292,6 @@ function closeModalSession({ clearContext = true, clearOrigin = true } = {}) {
   if (modal?.open) closeModal();
   else if (shouldRestoreModalScroll) restorePageScroll(modalController.scrollY);
 }
-function routeIfNeeded(route) {
-  if (appState.applyingRoute) return false;
-  navigateToRoute(route);
-  return true;
-}
 function setModalContent(html) {
   return modalController.setContent(html);
 }
@@ -445,7 +440,6 @@ export {
   bindModalDescriptionExpanders,
   cancelModalViewportSync,
   clearModalLockStyles,
-  closeModal,
   closeModalSession,
   finishModalOpen,
   modal,
@@ -456,6 +450,5 @@ export {
   queueModalTransition,
   routeIfNeeded,
   scheduleModalDescriptionMeasure,
-  scheduleModalViewportSync,
   setModalContent
 };

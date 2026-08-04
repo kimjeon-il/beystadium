@@ -29,6 +29,7 @@ import {
   currentPathWithSearch,
   navigateToRoute,
   rememberPrimaryRoute,
+  routeIfNeeded,
   stabilizePrimaryRouteScroll,
   syncModalOriginRoute
 } from "#app/navigation";
@@ -44,11 +45,6 @@ import {
 import { ensureStyles, routeStyleManifest } from "#app/style-loader";
 
 const routeApplyOptions = (route = {}) => ({ ...(route.options || {}), updateHash: false });
-const routeIfNeeded = route => {
-  if (appState.applyingRoute) return false;
-  navigateToRoute(route);
-  return true;
-};
 const isAnimeEpisodeDetailHash = id => /(?:^|-)EPISODE-\d+$/.test(String(id || ""));
 const catalogDetailFallbackScope = id => catalogCoreItemsById.get(id)?.type === "bey" ? "bey" : "parts";
 const searchFallbackRouteForItem = item => ({ type: "search", query: item?.name || "", scope: "all" });

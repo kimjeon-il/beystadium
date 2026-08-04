@@ -74,9 +74,6 @@
   color: var(--ui-text);
   background: transparent;
   outline: 0;
-}
-
-.release-sort-button:focus-visible {
   box-shadow: var(--ui-focus-ring);
 }
 
