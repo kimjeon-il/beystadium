@@ -568,6 +568,7 @@ test.describe("mobile-first navigation and content", () => {
         viewportHeight: document.documentElement.clientHeight,
         shellOverflow: getComputedStyle(element).overflow,
         innerOverflow: scrollArea ? getComputedStyle(scrollArea).overflowY : "visible",
+        borderWidth: Number.parseFloat(getComputedStyle(element).borderTopWidth),
         radius: Number.parseFloat(getComputedStyle(element).borderTopLeftRadius),
         shadow: getComputedStyle(element).boxShadow,
         overlayDisplay: getComputedStyle(document.querySelector("#detailModal .modal-overlay")).display,
@@ -580,8 +581,9 @@ test.describe("mobile-first navigation and content", () => {
     expect(geometry.height).toBe(geometry.viewportHeight - 16);
     expect(geometry.shellOverflow).toBe("hidden");
     expect(geometry.innerOverflow).toBe("auto");
-    expect(geometry.radius).toBe(24);
-    expect(geometry.shadow).not.toBe("none");
+    expect(geometry.borderWidth).toBe(0);
+    expect(geometry.radius).toBe(0);
+    expect(geometry.shadow).toBe("none");
     expect(geometry.overlayDisplay).toBe("block");
     expect(geometry.sectionPadding).toBe("20px");
 
@@ -613,15 +615,46 @@ test.describe("mobile-first navigation and content", () => {
 
         const dialog = page.locator("#detailModal");
         await expect(dialog).toBeVisible();
-        const colors = await dialog.evaluate(element => ({
-          overlay: getComputedStyle(element.querySelector(".modal-overlay")).backgroundColor,
-          shell: getComputedStyle(element.querySelector(".modal-inner")).backgroundColor
-        }));
-        expect(colors.overlay).toBe(colors.shell);
+        const appearance = await dialog.evaluate(element => {
+          const shellStyle = getComputedStyle(element.querySelector(".modal-inner"));
+          return {
+            overlay: getComputedStyle(element.querySelector(".modal-overlay")).backgroundColor,
+            shell: shellStyle.backgroundColor,
+            borderWidth: Number.parseFloat(shellStyle.borderTopWidth),
+            radius: Number.parseFloat(shellStyle.borderTopLeftRadius),
+            shadow: shellStyle.boxShadow
+          };
+        });
+        expect(appearance.overlay).toBe(appearance.shell);
+        expect(appearance.borderWidth).toBe(0);
+        expect(appearance.radius).toBe(0);
+        expect(appearance.shadow).toBe("none");
 
         await dialog.locator(".modal-overlay").click({ position: { x: 2, y: 2 } });
         await expect(dialog).toBeHidden();
       }
+
+      await page.setViewportSize({ width: 640, height: 900 });
+      await page.goto("/#PART-METAL-FIGHT-FACE-PEGASIS");
+      const desktopAppearance = await page.locator("#detailModal").evaluate(element => {
+        const shellStyle = getComputedStyle(element.querySelector(".modal-inner"));
+        const probe = document.createElement("i");
+        probe.style.cssText = "position:fixed;background:var(--ui-scrim)";
+        document.body.append(probe);
+        const scrim = getComputedStyle(probe).backgroundColor;
+        probe.remove();
+        return {
+          overlay: getComputedStyle(element.querySelector(".modal-overlay")).backgroundColor,
+          scrim,
+          borderWidth: Number.parseFloat(shellStyle.borderTopWidth),
+          radius: Number.parseFloat(shellStyle.borderTopLeftRadius),
+          shadow: shellStyle.boxShadow
+        };
+      });
+      expect(desktopAppearance.overlay).toBe(desktopAppearance.scrim);
+      expect(desktopAppearance.borderWidth).toBeGreaterThan(0);
+      expect(desktopAppearance.radius).toBe(24);
+      expect(desktopAppearance.shadow).not.toBe("none");
     }
   });
 
@@ -658,7 +691,7 @@ test.describe("mobile-first navigation and content", () => {
     expect(layout.shellLeft).toBeLessThanOrEqual(12);
     expect(layout.shellRight).toBeGreaterThanOrEqual(8);
     expect(layout.shellRight).toBeLessThanOrEqual(12);
-    expect(layout.shellRadius).toBe(24);
+    expect(layout.shellRadius).toBe(0);
     expect(layout.activeBackground).toBe(layout.expectedActiveBackground);
     expect(layout.activeTargetMinHeight).toBe(44);
   });

@@ -82,8 +82,8 @@ const expectModalBackAtShellTopLeft = async backButton => {
     expect(geometry.parentIsShell).toBe(true);
     expect(geometry.offsetParentIsShell).toBe(true);
     expect(geometry.position).toBe("absolute");
-    expect(geometry.left).toBe(10);
-    expect(geometry.top).toBe(10);
+    expect(geometry.left).toBe(11);
+    expect(geometry.top).toBe(11);
     expect(Math.abs(geometry.viewportLeft - 19)).toBeLessThanOrEqual(2);
     expect(Math.abs(geometry.viewportTop - 19)).toBeLessThanOrEqual(2);
     return;
@@ -1263,7 +1263,7 @@ test("shared interface controls keep tokenized sizes and timings", async ({ page
   });
   expect(modalControls.close).toEqual([44, 44]);
   modalControls.steps.forEach(step => expect(step).toEqual([44, 44]));
-  expect(modalControls.scrollMarginTop).toBe(mobile ? 62 : 70);
+  expect(modalControls.scrollMarginTop).toBe(mobile ? 63 : 70);
 });
 
 test("keyboard focus indicators stay visible across interface surfaces", async ({ page }, testInfo) => {
@@ -2480,7 +2480,7 @@ test("초제트 방영목록은 51개 회차와 검색·상세 주소를 제공�
   expect(errors).toEqual([]);
 });
 
-test("static details use a rounded single-column layout without a photo pane", async ({ page }, testInfo) => {
+test("static details use a single-column layout without a photo pane", async ({ page }, testInfo) => {
   const errors = consoleErrors(page);
   await page.goto("/#BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF");
   await expect(page.locator("#detailModal")).toBeVisible();
@@ -2498,7 +2498,7 @@ test("static details use a rounded single-column layout without a photo pane", a
     };
   });
   expect(layout.columns).toBe(1);
-  expect(layout.radius).toBe("24px");
+  expect(layout.radius).toBe(testInfo.project.name === "mobile" ? "0px" : "24px");
   if (testInfo.project.name === "desktop") expect(Math.abs(layout.width - 720)).toBeLessThanOrEqual(1);
   expect(errors).toEqual([]);
 });

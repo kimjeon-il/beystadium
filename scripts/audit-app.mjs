@@ -28,7 +28,7 @@ const FORBIDDEN_MONOLITHS = [
   "styles.css",
   "scripts/build-app-runtime.mjs"
 ];
-const MOBILE_STYLE_VERSION = "20260804-mobile-release-badge-adjacent-stable";
+const MOBILE_STYLE_VERSION = "20260804-mobile-modal-seamless-surface";
 const MOBILE_OVERHAUL_IMPORT_VERSION = "20260731-mobile-highlight-fix";
 const MOBILE_RELEASE_IMPORT_VERSION = "20260804-mobile-release-badge-adjacent-stable";
 const MOBILE_SHELL_IMPORT_VERSION = "20260804-topbar-search-surface-parity";

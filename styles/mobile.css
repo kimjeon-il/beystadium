@@ -898,7 +898,7 @@
     --modal-w: min(720px, calc(var(--modal-vw) - var(--modal-edge-gap)));
     --modal-h: calc(var(--modal-vh) - var(--modal-edge-gap));
     --modal-gutter: 4px;
-    --modal-close-offset: 10px;
+    --modal-close-offset: 11px;
     --modal-scrollbar-inset: 12px;
     --modal-scrollbar-x-shift: 0px;
     --modal-scroll-start: calc(var(--modal-close-offset) + var(--icon-control-size) + 8px);
@@ -923,6 +923,9 @@
     min-height: 0;
     max-height: var(--modal-h);
     overflow: hidden;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
   }
 
   #detailModal[open] .modal-info,
