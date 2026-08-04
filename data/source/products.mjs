@@ -9461,15 +9461,15 @@
         kind: "스타터",
         releaseDate: "2026-07-21",
         price: "19900",
-        composition: [{ name: "불릿그리폰H", quantity: "1개", target: "BEY-X-UX-19-BULLET-GRIFFON-H" }]
+        composition: [{ name: "불릿그리폰 H", quantity: "1개", target: "BEY-X-UX-19-BULLET-GRIFFON-H" }]
       },
       jp: {
         no: "UX-19",
-        name: "불릿그리폰H",
+        name: "불릿그리폰 H",
         kind: "스타터",
         releaseDate: "2026-04-25",
         price: "2600",
-        composition: [{ name: "불릿그리폰H", quantity: "1개", target: "BEY-X-UX-19-BULLET-GRIFFON-H" }]
+        composition: [{ name: "불릿그리폰 H", quantity: "1개", target: "BEY-X-UX-19-BULLET-GRIFFON-H" }]
       }
     }
   },
@@ -9708,11 +9708,11 @@
       },
       jp: {
         no: "UX-20",
-        name: "글로리왈큐레LF",
+        name: "글로리왈큐레 LF",
         kind: "스타터",
         releaseDate: "2026-07-11",
         price: "2700",
-        composition: [{ name: "글로리왈큐레LF", quantity: "1개", target: "BEY-X-UX-20-GLORY-VALKYRIE-LF" }]
+        composition: [{ name: "글로리왈큐레 LF", quantity: "1개", target: "BEY-X-UX-20-GLORY-VALKYRIE-LF" }]
       }
     }
   },

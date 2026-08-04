@@ -44,3 +44,27 @@ test("all X Bey IDs follow the canonical rule without collisions", () => {
   assert.equal(new Set(expectedIds).size, xBeys.length);
   assert.equal(xBeys.some(item => /-(?:JP-\d+|ASIA)-/.test(item.id)), false);
 });
+
+test("X Bey names separate a directly mounted Bit from the Blade name", () => {
+  const directBitBeys = xBeys.filter((item) => {
+    const parts = item.parts.map((partId) => partsById.get(partId));
+    return parts.some((part) => part?.type === "bit")
+      && !parts.some((part) => part?.type === "ratchet");
+  });
+
+  for (const bey of directBitBeys) {
+    const bit = bey.parts.map((partId) => partsById.get(partId)).find((part) => part?.type === "bit");
+    for (const name of [bey.name, bey.jpName].filter(Boolean)) {
+      assert.ok(name.endsWith(` ${bit.name}`), `${bey.id}: ${name}`);
+    }
+  }
+
+  assert.equal(byId.get("BEY-X-UX-19-BULLET-GRIFFON-H").name, "불릿그리폰 H");
+  assert.deepEqual(
+    [
+      byId.get("BEY-X-UX-20-GLORY-VALKYRIE-LF").name,
+      byId.get("BEY-X-UX-20-GLORY-VALKYRIE-LF").jpName
+    ],
+    ["글로리발키리 LF", "글로리왈큐레 LF"]
+  );
+});

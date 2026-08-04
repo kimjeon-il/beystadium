@@ -193,7 +193,7 @@ const BeystadiumDataStore = (() => {
   const initialize = async () => {
     clearError();
     try {
-      indexData = await fetchJson("./data/runtime/index.json?v=20260726-x-material-previews");
+      indexData = await fetchJson("./data/runtime/index.json?v=20260805-x-bey-bit-spacing");
       if (detailHashOnBoot()) await ensureRegistry();
       document.querySelector("[data-load-retry]")?.addEventListener("click", () => window.location.reload());
       return true;

@@ -2141,7 +2141,7 @@ test("X 한국 발매목록은 기존 제품명과 보강된 출시 정보를 �
   const cases = [
     ["UX-16", "PRODUCT-X-UX-16", "랜덤부스터 클락미라지 셀렉트", "2025년 12월", "₩15,900"],
     ["CX-16", "PRODUCT-X-CX-16", "스타트 대시 세트 C", "2026년 4월", "₩70,900"],
-    ["UX-19", "PRODUCT-X-UX-19", "불릿그리폰H", "2026년 7월", "₩19,900"]
+    ["UX-19", "PRODUCT-X-UX-19", "불릿그리폰 H", "2026년 7월", "₩19,900"]
   ];
 
   for (const [query, productId, name, date, price] of cases) {

@@ -32,7 +32,7 @@ const koreanReleaseProducts = Object.freeze({
 
 const japaneseFallbackProductNames = Object.freeze({
   "PRODUCT-X-BX-46": "배틀 엔트리 세트∞",
-  "PRODUCT-X-UX-19": "불릿그리폰H",
+  "PRODUCT-X-UX-19": "불릿그리폰 H",
   "PRODUCT-X-CX-17": "랜덤부스터 Vol.10"
 });
 
