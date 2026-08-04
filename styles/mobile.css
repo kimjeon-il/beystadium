@@ -592,12 +592,22 @@
       background: var(--ui-control-hover);
       color: var(--ui-text);
     }
+
+    .release-table tbody .table-list-row:hover td,
+    .anime-episode-table tbody .table-list-row:hover td {
+      background: transparent;
+    }
   }
 
   .release-table tbody .table-list-row:has(.table-list-row-action:focus-visible),
   .anime-episode-table tbody .table-list-row:has(.table-list-row-action:focus-visible) {
     background: var(--ui-control-hover);
     color: var(--ui-text);
+  }
+
+  .release-table tbody .table-list-row:has(.table-list-row-action:focus-visible) td,
+  .anime-episode-table tbody .table-list-row:has(.table-list-row-action:focus-visible) td {
+    background: transparent;
   }
 
   .release-table tbody td,

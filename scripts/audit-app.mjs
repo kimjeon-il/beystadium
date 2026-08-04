@@ -28,12 +28,13 @@ const FORBIDDEN_MONOLITHS = [
   "styles.css",
   "scripts/build-app-runtime.mjs"
 ];
-const MOBILE_STYLE_VERSION = "20260804-topbar-search-surface-parity";
+const MOBILE_STYLE_VERSION = "20260804-mobile-row-highlight-single-surface";
 const MOBILE_OVERHAUL_IMPORT_VERSION = "20260731-mobile-highlight-fix";
 const MOBILE_RELEASE_IMPORT_VERSION = "20260803-mobile-desktop-style-parity";
+const MOBILE_SHELL_IMPORT_VERSION = "20260804-topbar-search-surface-parity";
 const MOBILE_UPDATED_IMPORT_VERSIONS = {
   "#app/style-loader": MOBILE_STYLE_VERSION,
-  "#app/shell-controller": MOBILE_STYLE_VERSION,
+  "#app/shell-controller": MOBILE_SHELL_IMPORT_VERSION,
   "#app/release-page": MOBILE_RELEASE_IMPORT_VERSION
 };
 const MOBILE_OVERHAUL_IMPORTS = {

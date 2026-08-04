@@ -672,7 +672,11 @@ test("touch layouts ignore decorative hover without losing persistent states", a
   expect(await visualState(card)).toEqual(cardRest);
 
   await page.goto("/#toy-release");
-  const releaseCell = page.locator(".release-product-row").first().locator("td").nth(1);
+  const releaseRow = page.locator(".release-product-row").first();
+  const rowRest = await visualState(releaseRow);
+  await releaseRow.hover();
+  expect(await visualState(releaseRow)).toEqual(rowRest);
+  const releaseCell = releaseRow.locator("td").nth(1);
   await expect(releaseCell).toBeVisible();
   const cellRest = await visualState(releaseCell);
   await releaseCell.hover();
@@ -692,6 +696,79 @@ test("touch layouts ignore decorative hover without losing persistent states", a
   await closeButton.hover();
   expect(await visualState(closeButton)).toEqual(closeRest);
   expect(errors).toEqual([]);
+});
+
+test("mobile table rows use one parent highlight surface", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "fine-pointer responsive comparison only needs one browser project");
+  const tableCases = [
+    { route: "#toy-release", rowSelector: ".release-product-row" },
+    { route: "#anime-episode", rowSelector: ".anime-episode-row" }
+  ];
+  const highlightState = row => row.evaluate(element => {
+    const probe = document.createElement("i");
+    probe.style.cssText = "position:fixed;background:var(--ui-control-hover)";
+    document.body.append(probe);
+    const visibleCells = [...element.querySelectorAll("td")].filter(cell => getComputedStyle(cell).display !== "none");
+    const result = {
+      rowBackground: getComputedStyle(element).backgroundColor,
+      rowRadius: getComputedStyle(element).borderRadius,
+      rowOutlineWidth: getComputedStyle(element).outlineWidth,
+      expectedBackground: getComputedStyle(probe).backgroundColor,
+      cellBackgrounds: visibleCells.map(cell => getComputedStyle(cell).backgroundColor)
+    };
+    probe.remove();
+    return result;
+  });
+  const sameRgb = (actual, expected) =>
+    actual.match(/[\d.]+/g)?.slice(0, 3).join(",") === expected.match(/[\d.]+/g)?.slice(0, 3).join(",");
+
+  for (const width of [393, 430]) {
+    await page.setViewportSize({ width, height: 852 });
+    for (const { route, rowSelector } of tableCases) {
+      await page.goto(`/${route}`);
+      const row = page.locator(rowSelector).first();
+      await expect(row).toBeVisible();
+      await page.mouse.move(0, 0);
+
+      const rest = await highlightState(row);
+      expect(rest.rowBackground).toBe("rgba(0, 0, 0, 0)");
+      expect(rest.cellBackgrounds.every(background => background === "rgba(0, 0, 0, 0)")).toBe(true);
+
+      await row.hover();
+      await expect.poll(async () => {
+        const state = await highlightState(row);
+        return {
+          rowHighlighted: sameRgb(state.rowBackground, state.expectedBackground),
+          cellsTransparent: state.cellBackgrounds.every(background => background === "rgba(0, 0, 0, 0)")
+        };
+      }).toEqual({ rowHighlighted: true, cellsTransparent: true });
+
+      await page.mouse.move(0, 0);
+      const action = row.locator(".table-list-row-action");
+      await action.focus();
+      await expect(action).toBeFocused();
+      const focused = await highlightState(row);
+      expect(sameRgb(focused.rowBackground, focused.expectedBackground)).toBe(true);
+      expect(focused.cellBackgrounds.every(background => background === "rgba(0, 0, 0, 0)")).toBe(true);
+      expect(Number.parseFloat(focused.rowRadius)).toBeGreaterThan(0);
+      expect(Number.parseFloat(focused.rowOutlineWidth)).toBeGreaterThan(0);
+    }
+  }
+
+  await page.setViewportSize({ width: 800, height: 900 });
+  for (const { route, rowSelector } of tableCases) {
+    await page.goto(`/${route}`);
+    const row = page.locator(rowSelector).first();
+    await expect(row).toBeVisible();
+    await row.hover();
+    await expect.poll(async () => {
+      const state = await highlightState(row);
+      return {
+        rowTransparent: state.rowBackground === "rgba(0, 0, 0, 0)",
+        cellsHighlighted: state.cellBackgrounds.every(background => sameRgb(background, state.expectedBackground))
+      };
+    }).toEqual({ rowTransparent: true, cellsHighlighted: true });
+  }
 });
 
 test("topbar stays 72px and keeps search available from 640px", async ({ page }, testInfo) => {
