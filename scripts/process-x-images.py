@@ -110,10 +110,19 @@ def process_image(
     source_exclude_rects: list[list[int]] | None = None,
     source_clear_points: list[list[int]] | None = None,
     keep_largest_component: bool = False,
+    source_scale: float = 1.0,
 ) -> None:
     original = Image.open(source).convert("RGB")
     if source_crop:
         original = original.crop(tuple(source_crop))
+    if source_scale != 1.0:
+        original = original.resize(
+            (
+                round(original.width * source_scale),
+                round(original.height * source_scale),
+            ),
+            Image.Resampling.LANCZOS,
+        )
     try:
         removed = remove(
             original,
@@ -371,6 +380,7 @@ def main() -> int:
                 entry.get("sourceExcludeRects"),
                 entry.get("sourceClearPoints"),
                 entry.get("keepLargestComponent", False),
+                entry.get("sourceScale", 1.0),
             )
             print(f"[{index}/{len(entries)}] wrote {entry['id']}", flush=True)
         except Exception as error:  # keep the batch auditable

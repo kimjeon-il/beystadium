@@ -76,7 +76,7 @@ test("25th anniversary Dran Sword has a dedicated BX-00 Bey entry", () => {
     spin: "right",
     desc: "",
     parts: ["PART-X-BLADE-DRAN-SWORD", "PART-X-RATCHET-3-60", "PART-X-BIT-F"],
-    image: "assets/images/x/beys/bey-x-bx-00-dran-sword-3-60f/main.webp",
+    image: "assets/images/x/beys/bey-x-bx-00-dran-sword-3-60f/parts/part-x-blade-dran-sword.webp",
     partPreviewImages: {
       "PART-X-BIT-F":
         "assets/images/x/beys/bey-x-bx-00-dran-sword-3-60f/parts/part-x-bit-f.webp",

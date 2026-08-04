@@ -11,7 +11,7 @@ import { xCatalogImagePath } from "./x-image-paths.mjs";
 const REPORT_ARG = process.argv.find(argument => argument.startsWith("--report="));
 const REPORT_PATH = REPORT_ARG?.slice("--report=".length) || "";
 const ALPHA_REVIEW_PATH = path.resolve("data/source/x-image-alpha-review.json");
-const ALPHA_REVIEW_VERSION = "20260726-x-material-previews";
+const ALPHA_REVIEW_VERSION = "20260805-x-bey-primary-fronts";
 const xItems = [...beyItems, ...partItems].filter(item => item.series === "x");
 const xIds = new Set(xItems.map(item => item.id));
 const expectedCorrectedSources = {
@@ -97,7 +97,7 @@ async function validateOutputs() {
     assert.equal(entry.image, xCatalogImagePath(item), `${entry.id} uses the wrong image layout`);
     assert.match(entry.sourceSha256, /^[a-f0-9]{64}$/);
     assert.ok(entry.sourcePath || entry.sourceUrl, `${entry.id} needs source provenance`);
-    assert.equal(item?.image, entry.image);
+    if (item?.type !== "bey") assert.equal(item?.image, entry.image);
     const bytes = await readFile(path.resolve(entry.image));
     assert.ok(bytes.length > 500, `${entry.id} output is unexpectedly small`);
     const info = webpInfo(bytes);
@@ -122,7 +122,7 @@ async function validateOutputs() {
   }
 
   const files = await webpFiles(path.resolve("assets/images/x"));
-  assert.equal(files.length, 908, "X image file count changed");
+  assert.equal(files.length, 920, "X image file count changed");
   assert.equal(
     files.some(file => file.includes(`${path.sep}part-previews${path.sep}`)),
     false,

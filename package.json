@@ -27,6 +27,7 @@
     "x-images:review:report": "node scripts/build-x-image-review-report.mjs",
     "x-images:alpha-review": "python scripts/record-x-image-alpha-review.py",
     "x-images:recanvas": "python scripts/recanvas-x-images.py",
+    "x-bey-primary-images:build": "python scripts/process-x-images.py --report data/source/x-bey-primary-images.json --output-root . --source-cache .cache/x-alpha-sources",
     "x-part-previews:build": "node scripts/build-x-part-preview-map.mjs --write",
     "x-part-previews:emit": "node scripts/build-x-part-preview-map.mjs --emit-source",
     "x-part-previews:audit": "python scripts/audit-x-part-preview-similarity.py",
@@ -35,10 +36,11 @@
     "x-material-part-previews:apply": "node scripts/apply-x-material-part-preview-derivations.mjs",
     "test:x-material-part-previews": "node scripts/validate-x-material-part-previews.mjs",
     "test:x-images": "node scripts/validate-x-images.mjs",
+    "test:x-bey-primary-images": "node scripts/validate-x-bey-primary-images.mjs",
     "test:x-part-previews": "node scripts/validate-x-part-previews.mjs",
     "test:data": "node scripts/validate-data.mjs",
     "test:smoke": "playwright test",
-    "check": "pnpm lint:js && pnpm audit:app && pnpm data:check && pnpm test:data && pnpm test:search && pnpm test:ids && pnpm test:address-ids && pnpm test:product-ids && pnpm test:anime-episodes && pnpm test:burst-random-boosters && pnpm test:burst-random-layers && pnpm test:burst-remake-sets && pnpm test:x-tool-products && pnpm test:x-part-products && pnpm test:x-set-products && pnpm test:x-random-boosters && pnpm test:x-jp-part-details && pnpm test:x-kr-bey-details && pnpm test:x-images && pnpm test:x-material-part-previews && pnpm test:x-part-previews && pnpm test:smoke"
+    "check": "pnpm lint:js && pnpm audit:app && pnpm data:check && pnpm test:data && pnpm test:search && pnpm test:ids && pnpm test:address-ids && pnpm test:product-ids && pnpm test:anime-episodes && pnpm test:burst-random-boosters && pnpm test:burst-random-layers && pnpm test:burst-remake-sets && pnpm test:x-tool-products && pnpm test:x-part-products && pnpm test:x-set-products && pnpm test:x-random-boosters && pnpm test:x-jp-part-details && pnpm test:x-kr-bey-details && pnpm test:x-images && pnpm test:x-material-part-previews && pnpm test:x-part-previews && pnpm test:x-bey-primary-images && pnpm test:smoke"
   },
   "devDependencies": {
     "@eslint/js": "^9.31.0",

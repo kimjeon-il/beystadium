@@ -2737,6 +2737,20 @@ test("X mounted part previews fit portrait bits and use each Bey's official colo
     "data-image-preview-src",
     "assets/images/x/beys/bey-x-cx-09-sol-eclipse-d-5-70tk/parts/part-x-ratchet-5-70.webp"
   );
+
+  await page.goto("/#PRODUCT-X-CX-11");
+  const emperorComposition = page.locator(
+    '#detailModal .composition-link[data-target-id="BEY-X-CX-11-EMPEROR-MIGHT-H-OP"]'
+  );
+  await expect(emperorComposition).toHaveAttribute(
+    "data-image-preview-id",
+    "BEY-X-CX-11-EMPEROR-MIGHT-H-OP"
+  );
+  await emperorComposition.hover();
+  await expect(preview.locator("img")).toHaveAttribute(
+    "src",
+    "assets/images/x/beys/bey-x-cx-11-emperor-might-h-op/front.webp"
+  );
   expect(errors).toEqual([]);
 });
 
@@ -3719,7 +3733,7 @@ test("failed route stylesheet exposes a retry that recovers the page", async ({ 
   await expect(status).toBeHidden();
 });
 
-test("X catalog images load lazily without adding a detail art pane", async ({ page }) => {
+test("X catalog cards use top-view primary images without adding a detail art pane", async ({ page }) => {
   test.setTimeout(60_000);
   const failedImages = [];
   page.on("response", response => {
@@ -3734,6 +3748,10 @@ test("X catalog images load lazily without adding a detail art pane", async ({ p
   const cardImage = card.locator(".bey-image");
   await expect(cardImage).toHaveAttribute("loading", "lazy");
   await expect(cardImage).toHaveAttribute("decoding", "async");
+  await expect(cardImage).toHaveAttribute(
+    "src",
+    "assets/images/x/parts/blade/part-x-blade-dran-sword.webp"
+  );
   await cardImage.evaluate(image => {
     image.scrollIntoView({ block: "center" });
     image.loading = "eager";
@@ -3759,5 +3777,32 @@ test("X catalog images load lazily without adding a detail art pane", async ({ p
   await expect(page.locator("#detailModal")).toBeVisible();
   await expect(page.locator("#detailModal .modal-inner--content")).toBeVisible();
   await expect(page.locator("#detailModal .modal-art")).toHaveCount(0);
+
+  const primaryImages = [
+    [
+      "BEY-X-BX-00-01-LIGHTNING-L-DRAGO-UPPER-1-60F",
+      "라이트닝 엘드라고 1-60F (어퍼형)",
+      "assets/images/x/beys/bey-x-bx-00-01-lightning-l-drago-upper-1-60f/parts/part-x-blade-lightning-l-drago-upper.webp"
+    ],
+    [
+      "BEY-X-CX-11-EMPEROR-MIGHT-H-OP",
+      "엠퍼러 마이트H Op",
+      "assets/images/x/beys/bey-x-cx-11-emperor-might-h-op/front.webp"
+    ],
+    [
+      "BEY-X-CX-00-VALKYRIE-BOLT-S-4-70V",
+      "발키리언 볼트S 4-70V",
+      "assets/images/x/beys/bey-x-cx-00-valkyrie-bolt-s-4-70v/front.webp"
+    ],
+    [
+      "BEY-X-CX-01-DRAN-BRAVE-S-6-60V",
+      "드랜 브레이브S 6-60V",
+      "assets/images/x/beys/bey-x-cx-01-dran-brave-s-6-60v/main.webp"
+    ]
+  ];
+  for (const [id, query, image] of primaryImages) {
+    await page.goto(`/#toy-catalog?scope=bey&series=x&q=${encodeURIComponent(query)}`);
+    await expect(page.locator(`#catalogGrid .catalog-card[data-id="${id}"] .bey-image`)).toHaveAttribute("src", image);
+  }
   expect(failedImages).toEqual([]);
 });
