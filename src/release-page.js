@@ -149,7 +149,7 @@ const productReleaseTableRows = (region = appState.activeReleaseRegion, series =
       : "";
     return `<tr class="table-list-row release-product-row" data-product-id="${item.id}" data-release-region="${region}">
     <td>${escapeHtml(release.no || "")}</td>
-    <td><span class="release-product-cell"><button class="table-list-row-action table-list-primary-text release-product-link" type="button" data-image-preview-product-id="${item.id}" data-image-preview-region="${region}">${escapeHtml(productName)}</button>${imagePreviewButton}${releaseBadgesMarkup(item, region)}<span class="mobile-row-meta">${mobileMeta.map(value => `<span>${escapeHtml(value)}</span>`).join("")}</span></span></td>
+    <td><span class="release-product-cell"><span class="release-product-heading"><button class="table-list-row-action table-list-primary-text release-product-link" type="button" data-image-preview-product-id="${item.id}" data-image-preview-region="${region}">${escapeHtml(productName)}</button>${releaseBadgesMarkup(item, region)}</span>${imagePreviewButton}<span class="mobile-row-meta">${mobileMeta.map(value => `<span>${escapeHtml(value)}</span>`).join("")}</span></span></td>
     <td>${release.kind || ""}</td>
     <td>${responsiveDateSpans("release-date-full", "release-date-compact", releaseDateLabel(releaseDate), releaseDateCompactLabel(releaseDate))}</td>
     <td>${formattedPrice}</td>

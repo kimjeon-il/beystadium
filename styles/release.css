@@ -135,6 +135,10 @@
   vertical-align: middle;
 }
 
+.release-product-heading {
+  display: contents;
+}
+
 @media (hover: hover) and (pointer: fine) {
   .release-sort-button:hover {
     color: var(--ui-text);

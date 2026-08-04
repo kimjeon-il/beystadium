@@ -671,30 +671,33 @@
 
   .release-product-cell {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto auto;
+    grid-template-columns: minmax(0, 1fr) auto;
     align-items: start;
     gap: 6px;
   }
 
-  .release-product-cell:not(:has(.release-image-preview-button)),
-  .release-product-cell:not(:has(.release-badges)) {
-    grid-template-columns: minmax(0, 1fr) auto;
-  }
-
-  .release-product-cell:not(:has(.release-image-preview-button)):not(:has(.release-badges)) {
+  .release-product-cell:not(:has(.release-image-preview-button)) {
     grid-template-columns: minmax(0, 1fr);
     column-gap: 0;
   }
 
-  .release-badges {
-    grid-column: 2;
+  .release-product-heading {
+    min-width: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 6px;
+    grid-column: 1;
     grid-row: 1;
   }
 
   .release-product-link {
     min-width: 0;
-    grid-column: 1;
-    grid-row: 1;
+    flex: 0 1 auto;
+  }
+
+  .release-product-heading:not(:has(.release-badges)) .release-product-link {
+    flex: 1 1 auto;
   }
 
   .release-product-cell > .mobile-row-meta {
@@ -711,13 +714,9 @@
     min-height: var(--inline-icon-control-size);
     margin: -4px -4px -4px 0;
     display: inline-flex;
-    grid-column: 3;
+    grid-column: 2;
     grid-row: 1;
     font-size: 0;
-  }
-
-  .release-product-cell:not(:has(.release-badges)) .release-image-preview-button {
-    grid-column: 2;
   }
 
   .release-image-preview-button::before {

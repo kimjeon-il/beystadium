@@ -432,7 +432,7 @@ test.describe("mobile-first navigation and content", () => {
     expect(errors).toEqual([]);
   });
 
-  test("release badges stay beside titles when the mobile row has room", async ({ page }) => {
+  test("release badges sit beside titles and wrap only when the mobile row is narrow", async ({ page }) => {
     const errors = consoleErrors(page);
     await page.goto("/#toy-release");
     await page.locator(".release-list-page .table-list-dropdown summary").tap();
@@ -442,40 +442,56 @@ test.describe("mobile-first navigation and content", () => {
     const row = page.locator('.release-product-row[data-product-id="PRODUCT-X-BX-00-HELLS-SCYTHE-4-60T-GOLD"]');
     await expect(row).toBeVisible();
 
-    for (const width of [393, 430]) {
+    for (const width of [352, 430]) {
       await page.setViewportSize({ width, height: 800 });
       const layout = await row.evaluate(element => {
         const cell = element.querySelector(".release-product-cell");
+        const heading = element.querySelector(".release-product-heading");
         const title = element.querySelector(".release-product-link");
         const badges = element.querySelector(".release-badges");
         const meta = element.querySelector(".mobile-row-meta");
         const cellRect = cell.getBoundingClientRect();
+        const headingRect = heading.getBoundingClientRect();
         const titleRect = title.getBoundingClientRect();
         const badgeRect = badges.getBoundingClientRect();
         const metaRect = meta.getBoundingClientRect();
         return {
           cellRight: cellRect.right,
+          headingLeft: headingRect.left,
+          headingRight: headingRect.right,
+          headingDisplay: getComputedStyle(heading).display,
+          headingFlexWrap: getComputedStyle(heading).flexWrap,
+          titleLeft: titleRect.left,
           titleRight: titleRect.right,
           titleTop: titleRect.top,
           titleBottom: titleRect.bottom,
+          titleCenter: titleRect.top + titleRect.height / 2,
           badgeLeft: badgeRect.left,
           badgeRight: badgeRect.right,
           badgeTop: badgeRect.top,
           badgeBottom: badgeRect.bottom,
-          badgeGridColumnStart: getComputedStyle(badges).gridColumnStart,
-          badgeGridRowStart: getComputedStyle(badges).gridRowStart,
+          badgeCenter: badgeRect.top + badgeRect.height / 2,
+          badgeWhiteSpace: getComputedStyle(element.querySelector(".release-badge")).whiteSpace,
           metaTop: metaRect.top,
           previewCount: cell.querySelectorAll(".release-image-preview-button").length
         };
       });
 
       expect(layout.previewCount).toBe(0);
-      expect(layout.badgeGridColumnStart).toBe("2");
-      expect(layout.badgeGridRowStart).toBe("1");
-      expect(layout.badgeTop).toBeCloseTo(layout.titleTop, 1);
-      expect(layout.badgeLeft).toBeGreaterThanOrEqual(layout.titleRight + 5);
+      expect(layout.headingDisplay).toBe("flex");
+      expect(layout.headingFlexWrap).toBe("wrap");
+      expect(layout.badgeWhiteSpace).toBe("nowrap");
       expect(layout.badgeRight).toBeLessThanOrEqual(layout.cellRight + 1);
+      expect(layout.badgeRight).toBeLessThanOrEqual(layout.headingRight + 1);
       expect(layout.metaTop).toBeGreaterThanOrEqual(Math.max(layout.titleBottom, layout.badgeBottom) - 1);
+      if (width === 430) {
+        expect(Math.abs(layout.badgeCenter - layout.titleCenter)).toBeLessThanOrEqual(0.5);
+        expect(layout.badgeLeft - layout.titleRight).toBeCloseTo(6, 1);
+      } else {
+        expect(layout.badgeTop).toBeGreaterThanOrEqual(layout.titleBottom + 3);
+        expect(layout.badgeLeft).toBeCloseTo(layout.headingLeft, 1);
+        expect(layout.titleLeft).toBeCloseTo(layout.headingLeft, 1);
+      }
     }
 
     expect(errors).toEqual([]);
@@ -645,6 +661,46 @@ test.describe("mobile-first navigation and content", () => {
     expect(layout.activeBackground).toBe(layout.expectedActiveBackground);
     expect(layout.activeTargetMinHeight).toBe(44);
   });
+});
+
+test("desktop release title group preserves the existing inline layout", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "desktop layout only needs one browser project");
+  const errors = consoleErrors(page);
+  await page.setViewportSize({ width: 1024, height: 900 });
+  await page.goto("/#toy-release");
+  await page.locator(".release-list-page .table-list-dropdown summary").click();
+  await page.locator('[data-release-series="x"]').click();
+  await page.locator("#releaseSearchInput").fill("BXG-03");
+
+  const row = page.locator('.release-product-row[data-product-id="PRODUCT-X-BX-00-HELLS-SCYTHE-4-60T-GOLD"]');
+  await expect(row).toBeVisible();
+  const layout = await row.evaluate(element => {
+    const cell = element.querySelector(".release-product-cell");
+    const heading = element.querySelector(".release-product-heading");
+    const titleRect = element.querySelector(".release-product-link").getBoundingClientRect();
+    const badgeRect = element.querySelector(".release-badges").getBoundingClientRect();
+    return {
+      cellDisplay: getComputedStyle(cell).display,
+      cellGap: Number.parseFloat(getComputedStyle(cell).columnGap),
+      headingDisplay: getComputedStyle(heading).display,
+      badgeGap: badgeRect.left - titleRect.right,
+      titleCenter: titleRect.top + titleRect.height / 2,
+      badgeCenter: badgeRect.top + badgeRect.height / 2,
+      metaDisplay: getComputedStyle(element.querySelector(".mobile-row-meta")).display,
+      previewDisplay: element.querySelector(".release-image-preview-button")
+        ? getComputedStyle(element.querySelector(".release-image-preview-button")).display
+        : "missing"
+    };
+  });
+
+  expect(layout.cellDisplay).toBe("inline-flex");
+  expect(layout.cellGap).toBeCloseTo(8, 1);
+  expect(layout.headingDisplay).toBe("contents");
+  expect(layout.badgeGap).toBeCloseTo(8, 1);
+  expect(layout.badgeCenter).toBeCloseTo(layout.titleCenter, 1);
+  expect(layout.metaDisplay).toBe("none");
+  expect(layout.previewDisplay).toBe("missing");
+  expect(errors).toEqual([]);
 });
 
 test("phone navigation uses one common hover and current surface", async ({ page }, testInfo) => {
