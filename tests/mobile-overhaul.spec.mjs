@@ -417,7 +417,7 @@ test.describe("mobile-first navigation and content", () => {
       });
 
       expect(layout.previewCount).toBe(0);
-      expect(layout.columns[1]).toBeCloseTo(0, 1);
+      expect(layout.columns).toHaveLength(1);
       expect(layout.titleWidth).toBeCloseTo(layout.cellWidth, 1);
       expect(layout.titleRight).toBeCloseTo(layout.cellRight, 1);
       expect(layout.metaRight).toBeLessThanOrEqual(layout.cellRight + 1);
@@ -427,6 +427,55 @@ test.describe("mobile-first navigation and content", () => {
       expect(layout.metaGridColumnEnd).toBe("-1");
       expect(layout.metaJustify).toBe("flex-end");
       if (width === 442) expect(layout.titleLines).toBe(1);
+    }
+
+    expect(errors).toEqual([]);
+  });
+
+  test("release badges stay beside titles when the mobile row has room", async ({ page }) => {
+    const errors = consoleErrors(page);
+    await page.goto("/#toy-release");
+    await page.locator(".release-list-page .table-list-dropdown summary").tap();
+    await page.locator('[data-release-series="x"]').tap();
+    await page.locator("#releaseSearchInput").fill("BXG-03");
+
+    const row = page.locator('.release-product-row[data-product-id="PRODUCT-X-BX-00-HELLS-SCYTHE-4-60T-GOLD"]');
+    await expect(row).toBeVisible();
+
+    for (const width of [393, 430]) {
+      await page.setViewportSize({ width, height: 800 });
+      const layout = await row.evaluate(element => {
+        const cell = element.querySelector(".release-product-cell");
+        const title = element.querySelector(".release-product-link");
+        const badges = element.querySelector(".release-badges");
+        const meta = element.querySelector(".mobile-row-meta");
+        const cellRect = cell.getBoundingClientRect();
+        const titleRect = title.getBoundingClientRect();
+        const badgeRect = badges.getBoundingClientRect();
+        const metaRect = meta.getBoundingClientRect();
+        return {
+          cellRight: cellRect.right,
+          titleRight: titleRect.right,
+          titleTop: titleRect.top,
+          titleBottom: titleRect.bottom,
+          badgeLeft: badgeRect.left,
+          badgeRight: badgeRect.right,
+          badgeTop: badgeRect.top,
+          badgeBottom: badgeRect.bottom,
+          badgeGridColumnStart: getComputedStyle(badges).gridColumnStart,
+          badgeGridRowStart: getComputedStyle(badges).gridRowStart,
+          metaTop: metaRect.top,
+          previewCount: cell.querySelectorAll(".release-image-preview-button").length
+        };
+      });
+
+      expect(layout.previewCount).toBe(0);
+      expect(layout.badgeGridColumnStart).toBe("2");
+      expect(layout.badgeGridRowStart).toBe("1");
+      expect(layout.badgeTop).toBeCloseTo(layout.titleTop, 1);
+      expect(layout.badgeLeft).toBeGreaterThanOrEqual(layout.titleRight + 5);
+      expect(layout.badgeRight).toBeLessThanOrEqual(layout.cellRight + 1);
+      expect(layout.metaTop).toBeGreaterThanOrEqual(Math.max(layout.titleBottom, layout.badgeBottom) - 1);
     }
 
     expect(errors).toEqual([]);
