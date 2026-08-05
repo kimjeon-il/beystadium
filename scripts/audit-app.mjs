@@ -32,9 +32,9 @@ const MOBILE_STYLE_VERSION = "20260804-mobile-modal-scrollbar-centering";
 const MOBILE_OVERHAUL_IMPORT_VERSION = "20260731-mobile-highlight-fix";
 const MOBILE_RELEASE_IMPORT_VERSION = "20260804-mobile-release-badge-adjacent-stable";
 const MOBILE_SHELL_IMPORT_VERSION = "20260804-topbar-search-surface-parity";
-const X_VALKYRION_IMPORT_VERSION = "20260805-x-valkyrion-korean-name";
+const X_DATA_IMPORT_VERSION = "20260805-x-bey-front-angle-correction";
 const MOBILE_UPDATED_IMPORT_VERSIONS = {
-  "#app/data-store": X_VALKYRION_IMPORT_VERSION,
+  "#app/data-store": X_DATA_IMPORT_VERSION,
   "#app/style-loader": MOBILE_STYLE_VERSION,
   "#app/modal-controller": MOBILE_STYLE_VERSION,
   "#app/shell-controller": MOBILE_SHELL_IMPORT_VERSION,

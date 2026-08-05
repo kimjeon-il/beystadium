@@ -3786,7 +3786,7 @@ test("X catalog cards use top-view primary images without adding a detail art pa
   await expect(cardImage).toHaveAttribute("decoding", "async");
   await expect(cardImage).toHaveAttribute(
     "src",
-    "assets/images/x/parts/blade/part-x-blade-dran-sword.webp"
+    "assets/images/x/beys/bey-x-bx-01-dran-sword-3-60f/front.webp"
   );
   await cardImage.evaluate(image => {
     image.scrollIntoView({ block: "center" });
@@ -3818,7 +3818,17 @@ test("X catalog cards use top-view primary images without adding a detail art pa
     [
       "BEY-X-BX-00-01-LIGHTNING-L-DRAGO-UPPER-1-60F",
       "라이트닝 엘드라고 1-60F (어퍼형)",
-      "assets/images/x/beys/bey-x-bx-00-01-lightning-l-drago-upper-1-60f/parts/part-x-blade-lightning-l-drago-upper.webp"
+      "assets/images/x/beys/bey-x-bx-00-01-lightning-l-drago-upper-1-60f/front.webp"
+    ],
+    [
+      "BEY-X-BX-50-01-HEAVENS-RING-0-80DS",
+      "헤븐즈링 0-80DS",
+      "assets/images/x/beys/bey-x-bx-50-01-heavens-ring-0-80ds/front.webp"
+    ],
+    [
+      "BEY-X-BX-31-01-TYRANNO-BEAT-4-70Q",
+      "티라노비트 4-70Q",
+      "assets/images/x/beys/bey-x-bx-31-01-tyranno-beat-4-70q/front.webp"
     ],
     [
       "BEY-X-CX-11-EMPEROR-MIGHT-H-OP",

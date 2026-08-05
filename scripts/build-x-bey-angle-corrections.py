@@ -1,0 +1,156 @@
+#!/usr/bin/env python3
+"""Build deterministic front-view corrections for official X Bey renders."""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+from pathlib import Path
+
+import numpy as np
+from PIL import Image
+
+
+CANVAS_SIZE = 448
+MIN_MARGIN = 6
+SCALE_Y = 1.08
+METHOD = "premultiplied-alpha-vertical-affine"
+DEFAULT_CONFIG = Path("data/source/x-bey-angle-corrections.json")
+HEAVENS_RING_ID = "BEY-X-BX-50-01-HEAVENS-RING-0-80DS"
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG)
+    parser.add_argument("--initialize-from-audit", type=Path)
+    parser.add_argument("--write-metadata", action="store_true")
+    return parser.parse_args()
+
+
+def sha256(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def alpha_bbox(rgba: np.ndarray) -> tuple[int, int, int, int]:
+    points = np.argwhere(rgba[:, :, 3] > 3)
+    if points.size == 0:
+        raise ValueError("empty foreground")
+    top, left = points.min(axis=0)
+    bottom, right = points.max(axis=0) + 1
+    return int(left), int(top), int(right), int(bottom)
+
+
+def transform_premultiplied(rgba: np.ndarray, pivot_y: float, scale_y: float) -> np.ndarray:
+    source = rgba.astype(np.float32)
+    alpha = source[:, :, 3:4] / 255.0
+    premultiplied = np.concatenate((source[:, :, :3] * alpha, source[:, :, 3:4]), axis=2)
+    image = Image.fromarray(np.clip(np.rint(premultiplied), 0, 255).astype(np.uint8), "RGBA")
+    inverse_scale = 1.0 / scale_y
+    transformed = image.transform(
+        image.size,
+        Image.Transform.AFFINE,
+        (1.0, 0.0, 0.0, 0.0, inverse_scale, pivot_y * (1.0 - inverse_scale)),
+        resample=Image.Resampling.BICUBIC,
+        fillcolor=(0, 0, 0, 0),
+    )
+    result = np.asarray(transformed).astype(np.float32)
+    result_alpha = result[:, :, 3:4]
+    safe_alpha = np.maximum(result_alpha / 255.0, 1.0 / 255.0)
+    result[:, :, :3] = np.where(
+        result_alpha > 0,
+        result[:, :, :3] / safe_alpha,
+        0,
+    )
+    return np.clip(np.rint(result), 0, 255).astype(np.uint8)
+
+
+def build_entry(entry: dict) -> dict:
+    source_path = Path(entry["sourceImage"])
+    output_path = Path(entry["image"])
+    if sha256(source_path) != entry["sourceOutputSha256"]:
+        raise ValueError(f"{entry['id']}: source WebP hash changed")
+
+    with Image.open(source_path) as image:
+        rgba = np.asarray(image.convert("RGBA"))
+    if rgba.shape != (CANVAS_SIZE, CANVAS_SIZE, 4):
+        raise ValueError(f"{entry['id']}: source is not {CANVAS_SIZE}x{CANVAS_SIZE}")
+    _, top, _, bottom = alpha_bbox(rgba)
+    pivot_y = round((top + bottom - 1) / 2, 3)
+    if "pivotY" in entry and entry["pivotY"] != pivot_y:
+        raise ValueError(f"{entry['id']}: stored pivot changed")
+
+    corrected = transform_premultiplied(rgba, pivot_y, entry["scaleY"])
+    left, top, right, bottom = alpha_bbox(corrected)
+    margins = [left, top, CANVAS_SIZE - right, CANVAS_SIZE - bottom]
+    if min(margins) < MIN_MARGIN:
+        raise ValueError(f"{entry['id']}: corrected output clips the canvas: {margins}")
+
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    Image.fromarray(corrected, "RGBA").save(
+        output_path,
+        format="WEBP",
+        lossless=True,
+        quality=100,
+        method=4,
+        exact=True,
+    )
+    entry["pivotY"] = pivot_y
+    digest = sha256(output_path)
+    if "outputSha256" in entry and entry["outputSha256"] != digest:
+        raise ValueError(f"{entry['id']}: corrected output hash changed")
+    entry["outputSha256"] = digest
+    return entry
+
+
+def initialize_config(audit_path: Path) -> dict:
+    audit = json.loads(audit_path.read_text(encoding="utf-8"))
+    entries = []
+    for item in audit["items"]:
+        if item["classification"] != "official-mounted-blade-top" or item["id"] == HEAVENS_RING_ID:
+            continue
+        entries.append({
+            "id": item["id"],
+            "sourceImage": item["image"],
+            "image": f"assets/images/x/beys/{item['id'].lower()}/front.webp",
+            "sourceKind": "official-angle-corrected",
+            "sourceUrl": item["sourceUrl"],
+            "sourceSha256": item["sourceSha256"],
+            "sourceOutputSha256": item["outputSha256"],
+            "method": METHOD,
+            "scaleY": SCALE_Y,
+        })
+    if len(entries) != 106:
+        raise ValueError(f"expected 106 angle corrections, found {len(entries)}")
+    return {
+        "version": "20260805-x-bey-front-angle-correction",
+        "method": METHOD,
+        "entries": entries,
+    }
+
+
+def main() -> int:
+    args = parse_args()
+    config = (
+        initialize_config(args.initialize_from_audit)
+        if args.initialize_from_audit
+        else json.loads(args.config.read_text(encoding="utf-8"))
+    )
+    if config["version"] != "20260805-x-bey-front-angle-correction":
+        raise ValueError("unexpected correction config version")
+    if config["method"] != METHOD:
+        raise ValueError("unexpected correction method")
+
+    config["entries"] = [build_entry(entry) for entry in config["entries"]]
+    if args.initialize_from_audit or args.write_metadata:
+        args.config.parent.mkdir(parents=True, exist_ok=True)
+        args.config.write_text(
+            f"{json.dumps(config, ensure_ascii=False, indent=2)}\n",
+            encoding="utf-8",
+        )
+    print(f"Built {len(config['entries'])} deterministic X Bey angle corrections")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

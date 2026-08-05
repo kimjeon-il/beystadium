@@ -1,8 +1,8 @@
 {
-  "version": "20260805-x-bey-primary-fronts-v2",
+  "version": "20260805-x-bey-front-angle-correction",
   "sourceRoot": "",
   "policy": [
-    "official-mounted-blade-top",
+    "official-angle-corrected",
     "official-assembled-front",
     "verified-existing-front",
     "temporary-side"
@@ -146,6 +146,15 @@
       "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXA02_13@1.png",
       "sourceSha256": "141beff38e8e15c84c3bf25f3568a9edcab9ab77a703a0a3fda44de7f019da62",
       "outputSha256": "36471c340af90f8afe2f61385325fead60b35ddeb3e67c7b44356c100270fbcd"
+    },
+    {
+      "id": "BEY-X-BX-50-01-HEAVENS-RING-0-80DS",
+      "image": "assets/images/x/beys/bey-x-bx-50-01-heavens-ring-0-80ds/front.webp",
+      "sourceKind": "official-assembled-front",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX50_02@1.png",
+      "sourceSha256": "6e0319328ea2222d5d92fec53adb5a3d362b3eb1007677685d31ca5fd52f4902",
+      "alphaMatting": false,
+      "outputSha256": "7c4072bf0a01614c6f39846d938710fc42aee02f573863b24f39a155f9ede487"
     }
   ],
   "verifiedMain": [

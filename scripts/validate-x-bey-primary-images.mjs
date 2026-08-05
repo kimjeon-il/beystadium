@@ -6,20 +6,20 @@ import path from "node:path";
 import { beyItems } from "../data/source/catalog.mjs";
 import {
   bladePartIds,
+  xBeyAngleCorrectionConfig,
   xBeyPrimaryImageConfig
 } from "../data/source/x-bey-primary-images.mjs";
 import { xImageMappings } from "../data/source/x-images.mjs";
-import { xPartPreviewMappings } from "../data/source/x-part-previews.mjs";
 
 const REPORT_ARG = process.argv.find(argument => argument.startsWith("--report="));
 const REPORT_PATH = REPORT_ARG?.slice("--report=".length) || "";
 const OFFICIAL_IMAGE_ROOT = "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image";
 const xImageById = new Map(xImageMappings.map(entry => [entry.id, entry]));
-const partPreviewByKey = new Map(
-  xPartPreviewMappings.map(entry => [`${entry.beyId}::${entry.partId}`, entry])
-);
 const officialFrontById = new Map(
   xBeyPrimaryImageConfig.selected.map(entry => [entry.id, entry])
+);
+const angleCorrectionById = new Map(
+  xBeyAngleCorrectionConfig.entries.map(entry => [entry.id, entry])
 );
 const verifiedMainById = new Map(
   xBeyPrimaryImageConfig.verifiedMain.map(entry => [entry.id, entry])
@@ -79,14 +79,21 @@ async function outputAudit(image) {
 
 uniqueValues(xBeyPrimaryImageConfig.selected.map(entry => entry.id), "official front IDs");
 uniqueValues(xBeyPrimaryImageConfig.selected.map(entry => entry.image), "official front paths");
+uniqueValues(xBeyAngleCorrectionConfig.entries.map(entry => entry.id), "angle correction IDs");
+uniqueValues(xBeyAngleCorrectionConfig.entries.map(entry => entry.image), "angle correction paths");
 uniqueValues(xBeyPrimaryImageConfig.verifiedMain.map(entry => entry.id), "verified main IDs");
 uniqueValues(xBeyPrimaryImageConfig.temporarySideImages.map(entry => entry.id), "temporary side IDs");
 uniqueValues([
   ...officialFrontById.keys(),
+  ...angleCorrectionById.keys(),
   ...verifiedMainById.keys(),
   ...temporarySideById.keys()
 ], "explicit primary image classifications");
-assert.equal(xBeyPrimaryImageConfig.selected.length, 17);
+assert.equal(xBeyPrimaryImageConfig.version, "20260805-x-bey-front-angle-correction");
+assert.equal(xBeyAngleCorrectionConfig.version, xBeyPrimaryImageConfig.version);
+assert.equal(xBeyAngleCorrectionConfig.method, "premultiplied-alpha-vertical-affine");
+assert.equal(xBeyPrimaryImageConfig.selected.length, 18);
+assert.equal(xBeyAngleCorrectionConfig.entries.length, 106);
 assert.equal(xBeyPrimaryImageConfig.verifiedMain.length, 95);
 
 for (const entry of xBeyPrimaryImageConfig.selected) {
@@ -100,6 +107,22 @@ for (const entry of xBeyPrimaryImageConfig.selected) {
   }
   if (entry.sourceScale) assert.ok(entry.sourceScale > 0);
 }
+for (const entry of xBeyAngleCorrectionConfig.entries) {
+  assert.equal(entry.sourceKind, "official-angle-corrected");
+  assert.equal(entry.method, xBeyAngleCorrectionConfig.method);
+  assert.equal(entry.scaleY, 1.08);
+  assert.ok(Number.isFinite(entry.pivotY));
+  assert.match(entry.sourceUrl, /^https:\/\/beyblade\.takaratomy\.co\.jp\//);
+  assert.match(entry.sourceSha256, /^[a-f0-9]{64}$/);
+  assert.match(entry.sourceOutputSha256, /^[a-f0-9]{64}$/);
+  assert.match(entry.outputSha256, /^[a-f0-9]{64}$/);
+  assert.notEqual(entry.sourceImage, entry.image);
+  assert.equal(
+    createHash("sha256").update(await readFile(path.resolve(entry.sourceImage))).digest("hex"),
+    entry.sourceOutputSha256,
+    `${entry.id}: correction source output hash changed`
+  );
+}
 for (const entry of xBeyPrimaryImageConfig.verifiedMain) {
   assert.equal(entry.view, "front-top");
   assert.equal(entry.sourceRef, "x-images");
@@ -111,7 +134,7 @@ for (const entry of xBeyPrimaryImageConfig.temporarySideImages) {
 
 const audit = [];
 const counts = {
-  officialMountedBladeTop: 0,
+  officialAngleCorrected: 0,
   officialAssembledFront: 0,
   verifiedExistingFront: 0,
   temporarySide: 0
@@ -129,6 +152,11 @@ for (const item of xBeys) {
     provenance = officialFrontById.get(item.id);
     assert.equal(item.image, provenance.image, `${item.id}: official assembled front is not primary`);
     counts.officialAssembledFront += 1;
+  } else if (angleCorrectionById.has(item.id)) {
+    classification = "official-angle-corrected";
+    provenance = angleCorrectionById.get(item.id);
+    assert.equal(item.image, provenance.image, `${item.id}: corrected front is not primary`);
+    counts.officialAngleCorrected += 1;
   } else if (verifiedMainById.has(item.id)) {
     classification = "verified-existing-front";
     provenance = xImageById.get(item.id);
@@ -144,21 +172,11 @@ for (const item of xBeys) {
     exceptionReason = exception.reason;
     counts.temporarySide += 1;
   } else {
-    assert.equal(bladeIds.length, 1, `${item.id}: primary viewpoint is not classified`);
-    classification = "official-mounted-blade-top";
-    provenance = partPreviewByKey.get(`${item.id}::${bladeIds[0]}`);
-    assert.ok(provenance, `${item.id}: mounted blade provenance is missing`);
-    assert.equal(
-      provenance.sourceKind,
-      "official-individual",
-      `${item.id}: assembled blade image needs an explicit viewpoint classification`
-    );
-    assert.equal(item.image, provenance.image, `${item.id}: mounted blade top view is not primary`);
-    counts.officialMountedBladeTop += 1;
+    assert.fail(`${item.id}: primary viewpoint is not explicitly classified (${bladeIds.length} blade parts)`);
   }
 
   const outputSha256 = await outputAudit(item.image);
-  if (classification === "official-assembled-front") {
+  if (classification === "official-assembled-front" || classification === "official-angle-corrected") {
     assert.equal(outputSha256, provenance.outputSha256, `${item.id}: front output hash changed`);
   }
   audit.push({
@@ -173,8 +191,8 @@ for (const item of xBeys) {
 }
 
 assert.deepEqual(counts, {
-  officialMountedBladeTop: 107,
-  officialAssembledFront: 17,
+  officialAngleCorrected: 106,
+  officialAssembledFront: 18,
   verifiedExistingFront: 95,
   temporarySide: 0
 });

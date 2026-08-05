@@ -15,7 +15,7 @@ from urllib.parse import urlparse
 from urllib.request import Request, urlopen
 
 import numpy as np
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFilter
 
 
 CANVAS_SIZE = 448
@@ -111,6 +111,7 @@ def process_image(
     source_clear_points: list[list[int]] | None = None,
     keep_largest_component: bool = False,
     source_scale: float = 1.0,
+    alpha_matting: bool = True,
 ) -> None:
     original = Image.open(source).convert("RGB")
     if source_crop:
@@ -123,31 +124,44 @@ def process_image(
             ),
             Image.Resampling.LANCZOS,
         )
-    try:
+    if not alpha_matting:
         removed = remove(
             original,
             session=session,
-            alpha_matting=True,
-            alpha_matting_foreground_threshold=235,
-            alpha_matting_background_threshold=12,
-            alpha_matting_erode_size=8,
+            alpha_matting=False,
             post_process_mask=True,
         ).convert("RGBA")
-    except MemoryError:
-        # A few soft, transparent bits create an excessively large unknown
-        # region for closed-form matting. Narrow only that region while keeping
-        # the same segmentation model and original source pixels.
-        removed = remove(
-            original,
-            session=session,
-            alpha_matting=True,
-            alpha_matting_foreground_threshold=220,
-            alpha_matting_background_threshold=35,
-            alpha_matting_erode_size=4,
-            post_process_mask=True,
-        ).convert("RGBA")
+    else:
+        try:
+            removed = remove(
+                original,
+                session=session,
+                alpha_matting=True,
+                alpha_matting_foreground_threshold=235,
+                alpha_matting_background_threshold=12,
+                alpha_matting_erode_size=8,
+                post_process_mask=True,
+            ).convert("RGBA")
+        except MemoryError:
+            # A few soft, transparent bits create an excessively large unknown
+            # region for closed-form matting. Narrow only that region while keeping
+            # the same segmentation model and original source pixels.
+            removed = remove(
+                original,
+                session=session,
+                alpha_matting=True,
+                alpha_matting_foreground_threshold=220,
+                alpha_matting_background_threshold=35,
+                alpha_matting_erode_size=4,
+                post_process_mask=True,
+            ).convert("RGBA")
     rgba = np.asarray(removed).copy()
     alpha = rgba[:, :, 3].copy()
+    if not alpha_matting:
+        softened = np.asarray(
+            Image.fromarray(alpha).filter(ImageFilter.GaussianBlur(radius=0.65))
+        )
+        alpha = np.minimum(alpha, softened)
     for left, top, right, bottom in source_exclude_rects or ():
         alpha[top:bottom, left:right] = 0
     for x, y in source_clear_points or ():
@@ -381,6 +395,7 @@ def main() -> int:
                 entry.get("sourceClearPoints"),
                 entry.get("keepLargestComponent", False),
                 entry.get("sourceScale", 1.0),
+                entry.get("alphaMatting", True),
             )
             print(f"[{index}/{len(entries)}] wrote {entry['id']}", flush=True)
         except Exception as error:  # keep the batch auditable
