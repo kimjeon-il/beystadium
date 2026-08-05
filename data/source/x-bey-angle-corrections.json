@@ -1,5 +1,5 @@
 {
-  "version": "20260805-x-bey-front-angle-correction",
+  "version": "20260805-x-bey-supplied-front-images",
   "method": "premultiplied-alpha-vertical-affine",
   "entries": [
     {
@@ -601,19 +601,6 @@
       "outputSha256": "1555187264ed5c8e107f31a1aaaf1d9dc7b5bd9f2a10a90e354590173fab7bd6"
     },
     {
-      "id": "BEY-X-BX-49-DRAN-STRIKE-4-50FF",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-dran-strike.webp",
-      "image": "assets/images/x/beys/bey-x-bx-49-dran-strike-4-50ff/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX49_02@1.png",
-      "sourceSha256": "1d0cf49ef2b2f8b2f54e831a8c699fb97ef557eef625c28da14d42fd01052935",
-      "sourceOutputSha256": "f07cb16bd3e20321f934ae69e9141f2b53c387f0b9f186fbce2ed8032e5f635b",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.5,
-      "outputSha256": "d6351321358fdd330f72a18f82427ae740a839bd60c71fab6b204576fcfe9483"
-    },
-    {
       "id": "BEY-X-UX-00-WARRIOR-SABER-5-60K",
       "sourceImage": "assets/images/x/beys/bey-x-ux-00-warrior-saber-5-60k/parts/part-x-blade-warrior-saber.webp",
       "image": "assets/images/x/beys/bey-x-ux-00-warrior-saber-5-60k/front.webp",
@@ -638,19 +625,6 @@
       "scaleY": 1.08,
       "pivotY": 223.0,
       "outputSha256": "2253d9de528784f0df6feb59da01f0642a1271b37e5bc1cc9c903a91a092c995"
-    },
-    {
-      "id": "BEY-X-UX-20-GLORY-VALKYRIE-LF",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-glory-valkyrie.webp",
-      "image": "assets/images/x/beys/bey-x-ux-20-glory-valkyrie-lf/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX20_02@1.png",
-      "sourceSha256": "801fa98c1d58f0a9977ed97ddba13a658534134d6eab013e62ce5fe5aed28d26",
-      "sourceOutputSha256": "5a3dfeda4cde01846f0b3547805b5d45ea220a2884cdd7bb16196aacd6f3227c",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.0,
-      "outputSha256": "7c7c21ede5c9e7417d402b7c003642af20b7c7819d4042cd89bea908a662a3ee"
     },
     {
       "id": "BEY-X-BX-07-DRAN-SWORD-3-60F",

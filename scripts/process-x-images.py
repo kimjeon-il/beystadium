@@ -112,6 +112,7 @@ def process_image(
     keep_largest_component: bool = False,
     source_scale: float = 1.0,
     alpha_matting: bool = True,
+    preserve_source_pixels: bool = False,
 ) -> None:
     original = Image.open(source).convert("RGB")
     if source_crop:
@@ -184,7 +185,10 @@ def process_image(
         keep = cv2.dilate(keep, np.ones((9, 9), np.uint8), iterations=1)
         alpha = np.where(keep, alpha, 0).astype(np.uint8)
     alpha[alpha <= 8] = 0
-    rgba[:, :, 3] = alpha
+    if preserve_source_pixels:
+        rgba = np.dstack((np.asarray(original), alpha))
+    else:
+        rgba[:, :, 3] = alpha
     result = center_on_fixed_canvas(Image.fromarray(rgba, "RGBA"), alpha)
     destination.parent.mkdir(parents=True, exist_ok=True)
     result.save(
@@ -320,6 +324,28 @@ def validate_entries(
             raise ValueError(f"{entry['id']}: insufficient transparent padding {margins}")
         if abs(margins[0] - margins[2]) > 1 or abs(margins[1] - margins[3]) > 1:
             raise ValueError(f"{entry['id']}: foreground is not centered {margins}")
+        if entry.get("sourceForegroundBox"):
+            if entry.get("sourceCrop") or entry.get("sourceScale", 1.0) != 1.0:
+                raise ValueError(
+                    f"{entry['id']}: source pixel audit requires an uncropped 1:1 source"
+                )
+            source_left, source_top, source_right, source_bottom = entry[
+                "sourceForegroundBox"
+            ]
+            with Image.open(source) as source_image:
+                source_rgb = np.asarray(source_image.convert("RGB"))[
+                    source_top:source_bottom,
+                    source_left:source_right,
+                ]
+            output_rgba = np.asarray(rgba)
+            output_crop = output_rgba[y_min:y_max + 1, x_min:x_max + 1]
+            if output_crop.shape[:2] != source_rgb.shape[:2]:
+                raise ValueError(
+                    f"{entry['id']}: source foreground box no longer matches output"
+                )
+            visible = output_crop[:, :, 3] > 3
+            if not np.array_equal(output_crop[:, :, :3][visible], source_rgb[visible]):
+                raise ValueError(f"{entry['id']}: source foreground RGB changed")
         print(f"[{index}/{len(entries)}] valid {entry['id']}", flush=True)
     print(f"validated {len(entries)} transparent X images")
     return 0
@@ -376,7 +402,7 @@ def main() -> int:
         )
 
     os.environ.setdefault("U2NET_HOME", str(Path(".cache/rembg-models").resolve()))
-    session, remove = load_rembg(args.model)
+    model_sessions = {}
     failures: list[tuple[str, str]] = []
     for index, entry in enumerate(entries, start=1):
         source = source_path(report, entry, args.source_cache)
@@ -385,6 +411,10 @@ def main() -> int:
             print(f"[{index}/{len(entries)}] skip {entry['id']}", flush=True)
             continue
         try:
+            model_name = entry.get("segmentationModel", args.model)
+            if model_name not in model_sessions:
+                model_sessions[model_name] = load_rembg(model_name)
+            session, remove = model_sessions[model_name]
             process_image(
                 source,
                 destination,
@@ -396,6 +426,7 @@ def main() -> int:
                 entry.get("keepLargestComponent", False),
                 entry.get("sourceScale", 1.0),
                 entry.get("alphaMatting", True),
+                entry.get("preserveSourcePixels", False),
             )
             print(f"[{index}/{len(entries)}] wrote {entry['id']}", flush=True)
         except Exception as error:  # keep the batch auditable

@@ -1,5 +1,5 @@
 {
-  "version": "20260805-x-bey-front-angle-correction",
+  "version": "20260805-x-bey-supplied-front-images",
   "canvasSize": 448,
   "files": [
     {
@@ -7889,21 +7889,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-49-dran-strike-4-50ff/front.webp",
-      "outputSha256": "d6351321358fdd330f72a18f82427ae740a839bd60c71fab6b204576fcfe9483",
-      "alphaLevels": 256,
-      "partialPixels": 8539,
-      "foregroundPixels": 93980,
+      "outputSha256": "4307693ff0fdda0b70d7ed8a144b0ba1c3863db0e1c15b664c98cbe0447e64a6",
+      "alphaLevels": 36,
+      "partialPixels": 2432,
+      "foregroundPixels": 88621,
       "bbox": [
-        42,
-        37,
-        406,
-        410
+        46,
+        48,
+        402,
+        399
       ],
       "margins": [
-        42,
-        37,
-        42,
-        38
+        46,
+        48,
+        46,
+        49
       ]
     },
     {
@@ -15356,21 +15356,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-ux-20-glory-valkyrie-lf/front.webp",
-      "outputSha256": "7c7c21ede5c9e7417d402b7c003642af20b7c7819d4042cd89bea908a662a3ee",
-      "alphaLevels": 256,
-      "partialPixels": 7313,
-      "foregroundPixels": 110160,
+      "outputSha256": "35176408c7aaa160704dc83043fadebeea69ba9955455cdbde970420b9ee8f3a",
+      "alphaLevels": 20,
+      "partialPixels": 2257,
+      "foregroundPixels": 102518,
       "bbox": [
-        44,
-        31,
-        405,
-        417
+        46,
+        37,
+        401,
+        411
       ],
       "margins": [
-        44,
-        31,
-        43,
-        31
+        46,
+        37,
+        47,
+        37
       ]
     },
     {

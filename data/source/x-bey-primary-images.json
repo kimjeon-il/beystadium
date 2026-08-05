@@ -1,5 +1,5 @@
 {
-  "version": "20260805-x-bey-front-angle-correction",
+  "version": "20260805-x-bey-supplied-front-images",
   "sourceRoot": "",
   "policy": [
     "official-angle-corrected",
@@ -155,6 +155,32 @@
       "sourceSha256": "6e0319328ea2222d5d92fec53adb5a3d362b3eb1007677685d31ca5fd52f4902",
       "alphaMatting": false,
       "outputSha256": "7c4072bf0a01614c6f39846d938710fc42aee02f573863b24f39a155f9ede487"
+    },
+    {
+      "id": "BEY-X-BX-49-DRAN-STRIKE-4-50FF",
+      "image": "assets/images/x/beys/bey-x-bx-49-dran-strike-4-50ff/front.webp",
+      "sourceKind": "official-assembled-front",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX49_01@1.png",
+      "sourceSha256": "390cedff58474dad8b2f0190cbabd25fdaaef9a6c7803861a1f7621945e3fc2d",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true,
+      "sourceForegroundBox": [115, 179, 471, 530],
+      "outputSha256": "4307693ff0fdda0b70d7ed8a144b0ba1c3863db0e1c15b664c98cbe0447e64a6"
+    },
+    {
+      "id": "BEY-X-UX-20-GLORY-VALKYRIE-LF",
+      "image": "assets/images/x/beys/bey-x-ux-20-glory-valkyrie-lf/front.webp",
+      "sourceKind": "official-assembled-front",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX20_01@1.png",
+      "sourceSha256": "be1e0b2bacecc0a1a5dd4e96aaada15de3f3d0fcce087979d7262219b7d85cc6",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true,
+      "sourceForegroundBox": [116, 168, 471, 542],
+      "outputSha256": "35176408c7aaa160704dc83043fadebeea69ba9955455cdbde970420b9ee8f3a"
     }
   ],
   "verifiedMain": [

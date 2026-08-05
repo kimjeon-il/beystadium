@@ -89,12 +89,25 @@ uniqueValues([
   ...verifiedMainById.keys(),
   ...temporarySideById.keys()
 ], "explicit primary image classifications");
-assert.equal(xBeyPrimaryImageConfig.version, "20260805-x-bey-front-angle-correction");
+assert.equal(xBeyPrimaryImageConfig.version, "20260805-x-bey-supplied-front-images");
 assert.equal(xBeyAngleCorrectionConfig.version, xBeyPrimaryImageConfig.version);
 assert.equal(xBeyAngleCorrectionConfig.method, "premultiplied-alpha-vertical-affine");
-assert.equal(xBeyPrimaryImageConfig.selected.length, 18);
-assert.equal(xBeyAngleCorrectionConfig.entries.length, 106);
+assert.equal(xBeyPrimaryImageConfig.selected.length, 20);
+assert.equal(xBeyAngleCorrectionConfig.entries.length, 104);
 assert.equal(xBeyPrimaryImageConfig.verifiedMain.length, 95);
+
+const suppliedFronts = new Map([
+  ["BEY-X-BX-49-DRAN-STRIKE-4-50FF", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX49_01@1.png",
+    sourceSha256: "390cedff58474dad8b2f0190cbabd25fdaaef9a6c7803861a1f7621945e3fc2d",
+    sourceForegroundBox: [115, 179, 471, 530]
+  }],
+  ["BEY-X-UX-20-GLORY-VALKYRIE-LF", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX20_01@1.png",
+    sourceSha256: "be1e0b2bacecc0a1a5dd4e96aaada15de3f3d0fcce087979d7262219b7d85cc6",
+    sourceForegroundBox: [116, 168, 471, 542]
+  }]
+]);
 
 for (const entry of xBeyPrimaryImageConfig.selected) {
   assert.equal(entry.sourceKind, "official-assembled-front");
@@ -106,6 +119,19 @@ for (const entry of xBeyPrimaryImageConfig.selected) {
     assert.ok(entry.sourceCrop.every(Number.isInteger));
   }
   if (entry.sourceScale) assert.ok(entry.sourceScale > 0);
+}
+for (const [id, expected] of suppliedFronts) {
+  const entry = officialFrontById.get(id);
+  assert.ok(entry, `${id}: supplied official front is missing`);
+  assert.equal(entry.sourceKind, "official-assembled-front");
+  assert.equal(entry.sourceUrl, expected.sourceUrl);
+  assert.equal(entry.sourceSha256, expected.sourceSha256);
+  assert.equal(entry.segmentationModel, "u2netp");
+  assert.equal(entry.alphaMatting, false);
+  assert.equal(entry.keepLargestComponent, true);
+  assert.equal(entry.preserveSourcePixels, true);
+  assert.deepEqual(entry.sourceForegroundBox, expected.sourceForegroundBox);
+  assert.ok(!angleCorrectionById.has(id), `${id}: still classified as angle-corrected`);
 }
 for (const entry of xBeyAngleCorrectionConfig.entries) {
   assert.equal(entry.sourceKind, "official-angle-corrected");
@@ -191,8 +217,8 @@ for (const item of xBeys) {
 }
 
 assert.deepEqual(counts, {
-  officialAngleCorrected: 106,
-  officialAssembledFront: 18,
+  officialAngleCorrected: 104,
+  officialAssembledFront: 20,
   verifiedExistingFront: 95,
   temporarySide: 0
 });

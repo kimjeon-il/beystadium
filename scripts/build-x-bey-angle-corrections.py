@@ -18,6 +18,11 @@ SCALE_Y = 1.08
 METHOD = "premultiplied-alpha-vertical-affine"
 DEFAULT_CONFIG = Path("data/source/x-bey-angle-corrections.json")
 HEAVENS_RING_ID = "BEY-X-BX-50-01-HEAVENS-RING-0-80DS"
+SUPPLIED_FRONT_IDS = {
+    "BEY-X-BX-49-DRAN-STRIKE-4-50FF",
+    "BEY-X-UX-20-GLORY-VALKYRIE-LF",
+}
+CONFIG_VERSION = "20260805-x-bey-supplied-front-images"
 
 
 def parse_args() -> argparse.Namespace:
@@ -107,7 +112,11 @@ def initialize_config(audit_path: Path) -> dict:
     audit = json.loads(audit_path.read_text(encoding="utf-8"))
     entries = []
     for item in audit["items"]:
-        if item["classification"] != "official-mounted-blade-top" or item["id"] == HEAVENS_RING_ID:
+        if (
+            item["classification"] != "official-mounted-blade-top"
+            or item["id"] == HEAVENS_RING_ID
+            or item["id"] in SUPPLIED_FRONT_IDS
+        ):
             continue
         entries.append({
             "id": item["id"],
@@ -120,10 +129,10 @@ def initialize_config(audit_path: Path) -> dict:
             "method": METHOD,
             "scaleY": SCALE_Y,
         })
-    if len(entries) != 106:
-        raise ValueError(f"expected 106 angle corrections, found {len(entries)}")
+    if len(entries) != 104:
+        raise ValueError(f"expected 104 angle corrections, found {len(entries)}")
     return {
-        "version": "20260805-x-bey-front-angle-correction",
+        "version": CONFIG_VERSION,
         "method": METHOD,
         "entries": entries,
     }
@@ -136,7 +145,7 @@ def main() -> int:
         if args.initialize_from_audit
         else json.loads(args.config.read_text(encoding="utf-8"))
     )
-    if config["version"] != "20260805-x-bey-front-angle-correction":
+    if config["version"] != CONFIG_VERSION:
         raise ValueError("unexpected correction config version")
     if config["method"] != METHOD:
         raise ValueError("unexpected correction method")
