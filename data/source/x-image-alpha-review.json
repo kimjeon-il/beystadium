@@ -1,5 +1,5 @@
 {
-  "version": "20260806-x-bey-supplied-front-images-ux06-08",
+  "version": "20260806-x-bey-supplied-front-images-bx38-bxg31",
   "canvasSize": 448,
   "files": [
     {
@@ -7167,21 +7167,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-38-crimson-garuda-4-70tp/front.webp",
-      "outputSha256": "f6f5ef0cf3431340cd837ced9315c3de08db3f3d190df2a86ae5adc043420472",
-      "alphaLevels": 256,
-      "partialPixels": 10285,
-      "foregroundPixels": 102762,
+      "outputSha256": "141e46c17cbab1a1e2862b037b4a3bdf7637497dbac6ffcbbb26e15014aaab12",
+      "alphaLevels": 29,
+      "partialPixels": 2358,
+      "foregroundPixels": 98607,
       "bbox": [
-        45,
-        38,
-        403,
-        410
+        48,
+        40,
+        400,
+        408
       ],
       "margins": [
-        45,
-        38,
-        45,
-        38
+        48,
+        40,
+        48,
+        40
       ]
     },
     {
@@ -12410,6 +12410,25 @@
       ]
     },
     {
+      "image": "assets/images/x/beys/bey-x-ux-00-dran-buster-1-60a/front.webp",
+      "outputSha256": "38248a3fb15b2eedc45881b4ee20a4f0e057d5a0a50fa198ec022a3e4306d8e6",
+      "alphaLevels": 26,
+      "partialPixels": 2305,
+      "foregroundPixels": 92115,
+      "bbox": [
+        48,
+        42,
+        399,
+        406
+      ],
+      "margins": [
+        48,
+        42,
+        49,
+        42
+      ]
+    },
+    {
       "image": "assets/images/x/beys/bey-x-ux-00-dran-buster-1-60a/main.webp",
       "outputSha256": "d4edcb272af5b8b490fcebe86a82ac5b9792eec46ee242d9afff151335c5878f",
       "alphaLevels": 256,
@@ -12468,21 +12487,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-ux-00-dran-buster-3-70n/front.webp",
-      "outputSha256": "4ab59f635a1c1440140365cc069b74729bca06374f018fbd6355e8d26d670c63",
-      "alphaLevels": 256,
-      "partialPixels": 9641,
-      "foregroundPixels": 101602,
+      "outputSha256": "c6ac920cbd563b57449e6abb4ebc690a7ea9b2f492a4aae8c40bbfe7323f2ac3",
+      "alphaLevels": 26,
+      "partialPixels": 2431,
+      "foregroundPixels": 94213,
       "bbox": [
-        45,
-        33,
-        403,
-        415
+        49,
+        39,
+        399,
+        409
       ],
       "margins": [
-        45,
-        33,
-        45,
-        33
+        49,
+        39,
+        49,
+        39
       ]
     },
     {
@@ -12563,21 +12582,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-ux-00-dran-dagger-9-60lf/front.webp",
-      "outputSha256": "f4d5fecb076c909ac82bf57eaf12ef696e8133f0461d95819c30f3ad3bde0fa8",
-      "alphaLevels": 256,
-      "partialPixels": 9782,
-      "foregroundPixels": 100329,
+      "outputSha256": "746636d4305a3d0ce0ca4e066c496af581a5461ff12b3ec5452009abd31c8c99",
+      "alphaLevels": 20,
+      "partialPixels": 2181,
+      "foregroundPixels": 90497,
       "bbox": [
+        50,
         45,
-        36,
-        403,
-        411
+        398,
+        402
       ],
       "margins": [
+        50,
         45,
-        36,
-        45,
-        37
+        50,
+        46
       ]
     },
     {
@@ -13893,21 +13912,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-ux-09-warrior-saber-2-70l/front.webp",
-      "outputSha256": "a4c2383de502aa998474a4c5afdb3d6ae3f6bd748a2f43b1cc4b3ea8c48875f4",
-      "alphaLevels": 256,
-      "partialPixels": 6823,
-      "foregroundPixels": 97878,
+      "outputSha256": "1d280d650694aa1fcff432887334de04cb9fea3f129ac33e2d99d322584400c4",
+      "alphaLevels": 28,
+      "partialPixels": 2405,
+      "foregroundPixels": 99461,
       "bbox": [
-        47,
-        42,
-        401,
-        405
+        46,
+        41,
+        402,
+        407
       ],
       "margins": [
-        47,
-        42,
-        47,
-        43
+        46,
+        41,
+        46,
+        41
       ]
     },
     {
@@ -13931,20 +13950,20 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-ux-10-knight-mail-3-85bs/front.webp",
-      "outputSha256": "7405d7a5a88efe6abe4aa7c2a37f77b0ded62b89596d256e7b4db54488dc1846",
-      "alphaLevels": 256,
-      "partialPixels": 8945,
-      "foregroundPixels": 97704,
+      "outputSha256": "cb513a2023bb1fbbc18eab1fea18bb86adeffb1375259c3ce47d25d6fd6a60eb",
+      "alphaLevels": 19,
+      "partialPixels": 2157,
+      "foregroundPixels": 93027,
       "bbox": [
-        45,
-        49,
-        402,
+        48,
+        48,
+        399,
         399
       ],
       "margins": [
-        45,
+        48,
+        48,
         49,
-        46,
         49
       ]
     },

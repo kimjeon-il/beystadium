@@ -1,5 +1,5 @@
 {
-  "version": "20260806-x-bey-supplied-front-images-ux06-08",
+  "version": "20260806-x-bey-supplied-front-images-bx38-bxg31",
   "method": "premultiplied-alpha-vertical-affine",
   "entries": [
     {
@@ -14,32 +14,6 @@
       "scaleY": 1.08,
       "pivotY": 223.5,
       "outputSha256": "250876c532c119dcdb50befc46b26e90e56af0f86f0799f7cc9cbfaf9e6c5644"
-    },
-    {
-      "id": "BEY-X-BX-38-CRIMSON-GARUDA-4-70TP",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-crimson-garuda.webp",
-      "image": "assets/images/x/beys/bey-x-bx-38-crimson-garuda-4-70tp/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX38_02@1.png",
-      "sourceSha256": "d899b2f2d10490a98e4713ce3a9418b8ccf98218a3f6e6b0520b0831f8b634ca",
-      "sourceOutputSha256": "11c915c1db02984113d8127d503ac332b5b3d8cb64ed21f92e4a233dcbd05362",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.5,
-      "outputSha256": "f6f5ef0cf3431340cd837ced9315c3de08db3f3d190df2a86ae5adc043420472"
-    },
-    {
-      "id": "BEY-X-UX-09-WARRIOR-SABER-2-70L",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-warrior-saber.webp",
-      "image": "assets/images/x/beys/bey-x-ux-09-warrior-saber-2-70l/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX09_02@1.png",
-      "sourceSha256": "23af4e24bff3b984fdfccca3d86028074867fb6c808287cc3f9ab70861a9935a",
-      "sourceOutputSha256": "b304eb64ae7370ab1666912cb70c4b6b50480621dd43eb919dda374ef93cb0f5",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.5,
-      "outputSha256": "a4c2383de502aa998474a4c5afdb3d6ae3f6bd748a2f43b1cc4b3ea8c48875f4"
     },
     {
       "id": "BEY-X-BX-00-MAMMOTH-TUSK-2-80E",
@@ -289,32 +263,6 @@
       "outputSha256": "aa460ce88e1201c816deeedf5428c0211fb02e41d8d17a5a07a9041a9494f9c9"
     },
     {
-      "id": "BEY-X-UX-00-DRAN-DAGGER-9-60LF",
-      "sourceImage": "assets/images/x/beys/bey-x-ux-00-dran-dagger-9-60lf/parts/part-x-blade-dran-dagger.webp",
-      "image": "assets/images/x/beys/bey-x-ux-00-dran-dagger-9-60lf/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXA02_06@1.png",
-      "sourceSha256": "45fc70c3f1c7310b8767162b26af3bdaef2e952b6587e8d5eb9b8fe3d95dd958",
-      "sourceOutputSha256": "450f66157acf5eacf2f570b0b951c03313fa917c00659824e0040bb9b31cbbfb",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223,
-      "outputSha256": "f4d5fecb076c909ac82bf57eaf12ef696e8133f0461d95819c30f3ad3bde0fa8"
-    },
-    {
-      "id": "BEY-X-UX-00-DRAN-BUSTER-3-70N",
-      "sourceImage": "assets/images/x/beys/bey-x-ux-00-dran-buster-3-70n/parts/part-x-blade-dran-buster.webp",
-      "image": "assets/images/x/beys/bey-x-ux-00-dran-buster-3-70n/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXA02_10@1.png",
-      "sourceSha256": "7e828373f4df60cbcfd7a146acfbd41687cd7c0bb5c0eb1f01739cea23e675eb",
-      "sourceOutputSha256": "0951ad2f19af870375db2c2edf0d7f378236fee7a8bc1e2881b30d469534f4ba",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223,
-      "outputSha256": "4ab59f635a1c1440140365cc069b74729bca06374f018fbd6355e8d26d670c63"
-    },
-    {
       "id": "BEY-X-UX-00-HELLS-HAMMER-3-70H",
       "sourceImage": "assets/images/x/beys/bey-x-ux-00-hells-hammer-3-70h/parts/part-x-blade-hells-hammer.webp",
       "image": "assets/images/x/beys/bey-x-ux-00-hells-hammer-3-70h/front.webp",
@@ -456,19 +404,6 @@
       "scaleY": 1.08,
       "pivotY": 223.5,
       "outputSha256": "2569d7647572ff044d91d7a853b507e7c88fc26fc2a5d2ded2538ce8ca8f873f"
-    },
-    {
-      "id": "BEY-X-UX-10-KNIGHT-MAIL-3-85BS",
-      "sourceImage": "assets/images/x/beys/bey-x-ux-10-knight-mail-3-85bs/parts/part-x-blade-knight-mail.webp",
-      "image": "assets/images/x/beys/bey-x-ux-10-knight-mail-3-85bs/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX10_03@1.png",
-      "sourceSha256": "9176f577e4ffd7d8e8d76eb04afc5d38fd12546feaf5f3b8ce438351a832493a",
-      "sourceOutputSha256": "02961517a1dae061a1b37d2b8d0e54486f133f46efba3164a3c365e2947164da",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.5,
-      "outputSha256": "7405d7a5a88efe6abe4aa7c2a37f77b0ded62b89596d256e7b4db54488dc1846"
     },
     {
       "id": "BEY-X-BX-00-DRAN-SWORD-3-60F",

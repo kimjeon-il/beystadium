@@ -89,12 +89,12 @@ uniqueValues([
   ...verifiedMainById.keys(),
   ...temporarySideById.keys()
 ], "explicit primary image classifications");
-assert.equal(xBeyPrimaryImageConfig.version, "20260806-x-bey-supplied-front-images-ux06-08");
+assert.equal(xBeyPrimaryImageConfig.version, "20260806-x-bey-supplied-front-images-bx38-bxg31");
 assert.equal(xBeyAngleCorrectionConfig.version, xBeyPrimaryImageConfig.version);
 assert.equal(xBeyAngleCorrectionConfig.method, "premultiplied-alpha-vertical-affine");
-assert.equal(xBeyPrimaryImageConfig.selected.length, 75);
-assert.equal(xBeyAngleCorrectionConfig.entries.length, 54);
-assert.equal(xBeyPrimaryImageConfig.verifiedMain.length, 90);
+assert.equal(xBeyPrimaryImageConfig.selected.length, 81);
+assert.equal(xBeyAngleCorrectionConfig.entries.length, 49);
+assert.equal(xBeyPrimaryImageConfig.verifiedMain.length, 89);
 
 const suppliedFronts = new Map([
   ["BEY-X-BX-00-01-LIGHTNING-L-DRAGO-UPPER-1-60F", {
@@ -373,9 +373,33 @@ const suppliedFronts = new Map([
   ["BEY-X-UX-08-SILVER-WOLF-3-80FB", {
     sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX08_01@1.png",
     sourceSha256: "2b13fe9a4a7e69ecea37341c51049b8a0193ba448d1f737cf10519eca6722f38"
+  }],
+  ["BEY-X-BX-38-CRIMSON-GARUDA-4-70TP", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX38_01@1.png",
+    sourceSha256: "592f76c72cac1bd2f071d0ee67095be1529764d30a302dc16ad62c01db65b52a"
+  }],
+  ["BEY-X-UX-09-WARRIOR-SABER-2-70L", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX09_01@1.png",
+    sourceSha256: "4abfed8bc336de9de72ab0525c7d55bb4fab7f61aad83d57aa92dde407df038a"
+  }],
+  ["BEY-X-UX-10-KNIGHT-MAIL-3-85BS", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX10_02@1.png",
+    sourceSha256: "eeecd3166e9692224ecab1f75ee2657efa2b377632fe77289d130b1f78b36e01"
+  }],
+  ["BEY-X-UX-00-DRAN-DAGGER-9-60LF", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXA02_05@1.png",
+    sourceSha256: "9ef9ce0ba69faa5b95373e1b7f5d0827fc1ad41e572c668b6dba0861bd077726"
+  }],
+  ["BEY-X-UX-00-DRAN-BUSTER-3-70N", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXA02_09@1.png",
+    sourceSha256: "378f19ec51d04465545bf9d341fbfd83adaf97ec6617cf765a8fd155949a51d3"
+  }],
+  ["BEY-X-UX-00-DRAN-BUSTER-1-60A", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG31_01@1.png",
+    sourceSha256: "c8abdbe7246faf747e6347b57696c9f7a1e48d55110299f2870d886fe5c38c8c"
   }]
 ]);
-assert.equal(suppliedFronts.size, 57);
+assert.equal(suppliedFronts.size, 63);
 
 const correctedWizardMapping = xImageById.get("BEY-X-BX-17-WIZARD-ARROW-4-80B");
 assert.ok(correctedWizardMapping, "BX-17 Wizard Arrow source mapping is missing");
@@ -555,9 +579,9 @@ for (const item of xBeys) {
 }
 
 assert.deepEqual(counts, {
-  officialAngleCorrected: 54,
-  officialAssembledFront: 75,
-  verifiedExistingFront: 90,
+  officialAngleCorrected: 49,
+  officialAssembledFront: 81,
+  verifiedExistingFront: 89,
   temporarySide: 0
 });
 

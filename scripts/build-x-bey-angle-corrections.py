@@ -59,10 +59,14 @@ SUPPLIED_FRONT_IDS = {
     "BEY-X-BX-35-01-BLACK-TURTLE-4-60D",
     "BEY-X-BX-36-01-WHALE-WAVE-5-80E",
     "BEY-X-BX-37-BEAR-SCRATCH-5-60F",
+    "BEY-X-BX-38-CRIMSON-GARUDA-4-70TP",
     "BEY-X-BX-49-DRAN-STRIKE-4-50FF",
     "BEY-X-UX-00-SCORPIO-SPEAR-0-70Z",
     "BEY-X-UX-00-WARRIOR-SABER-5-60K",
     "BEY-X-UX-00-AERO-PEGASUS-3-70A",
+    "BEY-X-UX-00-DRAN-BUSTER-1-60A",
+    "BEY-X-UX-00-DRAN-BUSTER-3-70N",
+    "BEY-X-UX-00-DRAN-DAGGER-9-60LF",
     "BEY-X-UX-01-DRAN-BUSTER-1-60A",
     "BEY-X-UX-02-HELLS-HAMMER-3-70H",
     "BEY-X-UX-03-WIZARD-ROD-5-70DB",
@@ -73,10 +77,12 @@ SUPPLIED_FRONT_IDS = {
     "BEY-X-UX-07-SPHINX-COWL-1-80GF",
     "BEY-X-UX-07-WYVERN-GALE-2-60S",
     "BEY-X-UX-08-SILVER-WOLF-3-80FB",
+    "BEY-X-UX-09-WARRIOR-SABER-2-70L",
+    "BEY-X-UX-10-KNIGHT-MAIL-3-85BS",
     "BEY-X-UX-19-BULLET-GRIFFON-H",
     "BEY-X-UX-20-GLORY-VALKYRIE-LF",
 }
-CONFIG_VERSION = "20260806-x-bey-supplied-front-images-ux06-08"
+CONFIG_VERSION = "20260806-x-bey-supplied-front-images-bx38-bxg31"
 
 
 def parse_args() -> argparse.Namespace:
@@ -183,8 +189,8 @@ def initialize_config(audit_path: Path) -> dict:
             "method": METHOD,
             "scaleY": SCALE_Y,
         })
-    if len(entries) != 54:
-        raise ValueError(f"expected 54 angle corrections, found {len(entries)}")
+    if len(entries) != 49:
+        raise ValueError(f"expected 49 angle corrections, found {len(entries)}")
     return {
         "version": CONFIG_VERSION,
         "method": METHOD,
