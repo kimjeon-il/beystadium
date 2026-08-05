@@ -19,6 +19,10 @@ METHOD = "premultiplied-alpha-vertical-affine"
 DEFAULT_CONFIG = Path("data/source/x-bey-angle-corrections.json")
 HEAVENS_RING_ID = "BEY-X-BX-50-01-HEAVENS-RING-0-80DS"
 SUPPLIED_FRONT_IDS = {
+    "BEY-X-BX-00-01-LIGHTNING-L-DRAGO-UPPER-1-60F",
+    "BEY-X-BX-00-02-LIGHTNING-L-DRAGO-BARRAGE-1-60F",
+    "BEY-X-BX-00-COBALT-DRAGOON-2-60C",
+    "BEY-X-BX-00-COBALT-DRAKE-4-60F",
     "BEY-X-BX-00-HELLS-CHAIN-5-60HT",
     "BEY-X-BX-00-LEON-CLAW-5-60P",
     "BEY-X-BX-00-SHARK-EDGE-5-60GF",
@@ -53,18 +57,26 @@ SUPPLIED_FRONT_IDS = {
     "BEY-X-BX-33-PEARL-TIGER-3-60U",
     "BEY-X-BX-34-COBALT-DRAGOON-2-60C",
     "BEY-X-BX-35-01-BLACK-TURTLE-4-60D",
+    "BEY-X-BX-36-01-WHALE-WAVE-5-80E",
+    "BEY-X-BX-37-BEAR-SCRATCH-5-60F",
     "BEY-X-BX-49-DRAN-STRIKE-4-50FF",
     "BEY-X-UX-00-SCORPIO-SPEAR-0-70Z",
     "BEY-X-UX-00-WARRIOR-SABER-5-60K",
+    "BEY-X-UX-00-AERO-PEGASUS-3-70A",
     "BEY-X-UX-01-DRAN-BUSTER-1-60A",
     "BEY-X-UX-02-HELLS-HAMMER-3-70H",
     "BEY-X-UX-03-WIZARD-ROD-5-70DB",
     "BEY-X-UX-04-WIZARD-ROD-5-70DB",
     "BEY-X-UX-05-01-NINJA-SHADOW-1-80MN",
+    "BEY-X-UX-06-LEON-CREST-7-60GN",
+    "BEY-X-UX-07-PHOENIX-RUDDER-9-70G",
+    "BEY-X-UX-07-SPHINX-COWL-1-80GF",
+    "BEY-X-UX-07-WYVERN-GALE-2-60S",
+    "BEY-X-UX-08-SILVER-WOLF-3-80FB",
     "BEY-X-UX-19-BULLET-GRIFFON-H",
     "BEY-X-UX-20-GLORY-VALKYRIE-LF",
 }
-CONFIG_VERSION = "20260805-x-bey-supplied-front-images-ux01-bx35"
+CONFIG_VERSION = "20260806-x-bey-supplied-front-images-ux06-08"
 
 
 def parse_args() -> argparse.Namespace:
@@ -171,8 +183,8 @@ def initialize_config(audit_path: Path) -> dict:
             "method": METHOD,
             "scaleY": SCALE_Y,
         })
-    if len(entries) != 91:
-        raise ValueError(f"expected 91 angle corrections, found {len(entries)}")
+    if len(entries) != 54:
+        raise ValueError(f"expected 54 angle corrections, found {len(entries)}")
     return {
         "version": CONFIG_VERSION,
         "method": METHOD,
