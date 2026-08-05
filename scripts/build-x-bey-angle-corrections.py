@@ -19,10 +19,18 @@ METHOD = "premultiplied-alpha-vertical-affine"
 DEFAULT_CONFIG = Path("data/source/x-bey-angle-corrections.json")
 HEAVENS_RING_ID = "BEY-X-BX-50-01-HEAVENS-RING-0-80DS"
 SUPPLIED_FRONT_IDS = {
+    "BEY-X-BX-01-DRAN-SWORD-3-60F",
+    "BEY-X-BX-02-HELLS-SCYTHE-4-60T",
+    "BEY-X-BX-03-WIZARD-ARROW-4-80B",
+    "BEY-X-BX-04-KNIGHT-SHIELD-3-80N",
+    "BEY-X-BX-05-WIZARD-ARROW-4-80B",
     "BEY-X-BX-49-DRAN-STRIKE-4-50FF",
+    "BEY-X-UX-00-SCORPIO-SPEAR-0-70Z",
+    "BEY-X-UX-00-WARRIOR-SABER-5-60K",
+    "BEY-X-UX-19-BULLET-GRIFFON-H",
     "BEY-X-UX-20-GLORY-VALKYRIE-LF",
 }
-CONFIG_VERSION = "20260805-x-bey-supplied-front-images"
+CONFIG_VERSION = "20260805-x-bey-supplied-front-images-expanded"
 
 
 def parse_args() -> argparse.Namespace:
@@ -129,8 +137,8 @@ def initialize_config(audit_path: Path) -> dict:
             "method": METHOD,
             "scaleY": SCALE_Y,
         })
-    if len(entries) != 104:
-        raise ValueError(f"expected 104 angle corrections, found {len(entries)}")
+    if len(entries) != 96:
+        raise ValueError(f"expected 96 angle corrections, found {len(entries)}")
     return {
         "version": CONFIG_VERSION,
         "method": METHOD,

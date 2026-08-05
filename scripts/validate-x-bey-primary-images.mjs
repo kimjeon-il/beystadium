@@ -89,14 +89,45 @@ uniqueValues([
   ...verifiedMainById.keys(),
   ...temporarySideById.keys()
 ], "explicit primary image classifications");
-assert.equal(xBeyPrimaryImageConfig.version, "20260805-x-bey-supplied-front-images");
+assert.equal(xBeyPrimaryImageConfig.version, "20260805-x-bey-supplied-front-images-expanded");
 assert.equal(xBeyAngleCorrectionConfig.version, xBeyPrimaryImageConfig.version);
 assert.equal(xBeyAngleCorrectionConfig.method, "premultiplied-alpha-vertical-affine");
-assert.equal(xBeyPrimaryImageConfig.selected.length, 20);
-assert.equal(xBeyAngleCorrectionConfig.entries.length, 104);
-assert.equal(xBeyPrimaryImageConfig.verifiedMain.length, 95);
+assert.equal(xBeyPrimaryImageConfig.selected.length, 29);
+assert.equal(xBeyAngleCorrectionConfig.entries.length, 96);
+assert.equal(xBeyPrimaryImageConfig.verifiedMain.length, 94);
 
 const suppliedFronts = new Map([
+  ["BEY-X-BX-00-DRANZER-SPIRAL-3-80T", {
+    sourceUrl: "https://www.takaratomyasia.com/en/toys/beyblade-x/x-over-project/bx-00-booster-dranzerspiral-3-80t",
+    sourceFile: "data/source/x-bey-front-sources/bey-x-bx-00-dranzer-spiral-3-80t.png",
+    sourceSha256: "9735358d4b0719abc98935c03a68a7677498ceb581045055e98fb62e39c4413c",
+    sourceForegroundBox: [128, 187, 460, 521]
+  }],
+  ["BEY-X-BX-01-DRAN-SWORD-3-60F", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX01_01@1.png",
+    sourceSha256: "82aaa884854fe2c381798c35d91caaf768e141951f870833c9a278eda653ed0f",
+    sourceForegroundBox: [118, 177, 467, 536]
+  }],
+  ["BEY-X-BX-02-HELLS-SCYTHE-4-60T", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX02_01@1.png",
+    sourceSha256: "9f5120004f7793286cee2532028d5fcea17ee5f3978febe122cc4821e358fd02",
+    sourceForegroundBox: [120, 182, 465, 528]
+  }],
+  ["BEY-X-BX-03-WIZARD-ARROW-4-80B", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX03_01@1.png",
+    sourceSha256: "3889aa28bdfe23a1ce75e3feb452223e075da03948ac5307937909e60a49290f",
+    sourceForegroundBox: [122, 189, 463, 519]
+  }],
+  ["BEY-X-BX-04-KNIGHT-SHIELD-3-80N", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX04_01@1.png",
+    sourceSha256: "89d90ff31b74af37aa6e8020a16e7462ff8123db72b7fae4f402ad9642d16d0b",
+    sourceForegroundBox: [120, 184, 462, 526]
+  }],
+  ["BEY-X-BX-05-WIZARD-ARROW-4-80B", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX05_01@1.png",
+    sourceSha256: "742f51399f2808e4c99d2a0bbecb68fd87550c6e769f19d3d6b658e94a0d3c73",
+    sourceForegroundBox: [123, 186, 464, 517]
+  }],
   ["BEY-X-BX-49-DRAN-STRIKE-4-50FF", {
     sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX49_01@1.png",
     sourceSha256: "390cedff58474dad8b2f0190cbabd25fdaaef9a6c7803861a1f7621945e3fc2d",
@@ -106,12 +137,31 @@ const suppliedFronts = new Map([
     sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX20_01@1.png",
     sourceSha256: "be1e0b2bacecc0a1a5dd4e96aaada15de3f3d0fcce087979d7262219b7d85cc6",
     sourceForegroundBox: [116, 168, 471, 542]
+  }],
+  ["BEY-X-UX-19-BULLET-GRIFFON-H", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX19_01@1.png",
+    sourceSha256: "ba2ce482b3e334aa62777ea7857b0550f8c4488ec39d01c37227c040c272e7d8",
+    sourceForegroundBox: [115, 177, 471, 531]
+  }],
+  ["BEY-X-UX-00-SCORPIO-SPEAR-0-70Z", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG61_01@1.png",
+    sourceSha256: "ada44b9a1889c292a9cba5abf4f2d705bcc58c138b5f1ec93f2e74ad0a5aab64",
+    sourceForegroundBox: [117, 180, 471, 529]
+  }],
+  ["BEY-X-UX-00-WARRIOR-SABER-5-60K", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG54_01@1.png",
+    sourceSha256: "24f8bb1987440612b1bd17aa9cfbc57860d31f7e1543fcae24d130217e6770a9",
+    sourceForegroundBox: [115, 173, 471, 537]
   }]
 ]);
+assert.equal(suppliedFronts.size, 11);
 
 for (const entry of xBeyPrimaryImageConfig.selected) {
   assert.equal(entry.sourceKind, "official-assembled-front");
-  assert.match(entry.sourceUrl, /^https:\/\/beyblade\.takaratomy\.co\.jp\//);
+  assert.match(
+    entry.sourceUrl,
+    /^https:\/\/(?:beyblade\.takaratomy\.co\.jp|www\.takaratomyasia\.com)\//
+  );
   assert.match(entry.sourceSha256, /^[a-f0-9]{64}$/);
   assert.match(entry.outputSha256, /^[a-f0-9]{64}$/);
   if (entry.sourceCrop) {
@@ -126,6 +176,14 @@ for (const [id, expected] of suppliedFronts) {
   assert.equal(entry.sourceKind, "official-assembled-front");
   assert.equal(entry.sourceUrl, expected.sourceUrl);
   assert.equal(entry.sourceSha256, expected.sourceSha256);
+  if (expected.sourceFile) {
+    assert.equal(entry.sourceFile, expected.sourceFile);
+    assert.equal(
+      createHash("sha256").update(await readFile(path.resolve(entry.sourceFile))).digest("hex"),
+      expected.sourceSha256,
+      `${id}: supplied source file hash changed`
+    );
+  }
   assert.equal(entry.segmentationModel, "u2netp");
   assert.equal(entry.alphaMatting, false);
   assert.equal(entry.keepLargestComponent, true);
@@ -217,9 +275,9 @@ for (const item of xBeys) {
 }
 
 assert.deepEqual(counts, {
-  officialAngleCorrected: 104,
-  officialAssembledFront: 20,
-  verifiedExistingFront: 95,
+  officialAngleCorrected: 96,
+  officialAssembledFront: 29,
+  verifiedExistingFront: 94,
   temporarySide: 0
 });
 

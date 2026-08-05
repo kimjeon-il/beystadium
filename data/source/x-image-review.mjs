@@ -93,9 +93,9 @@ const xImageReview = [
   {
     "id": "BEY-X-BX-00-DRANZER-SPIRAL-3-80T",
     "image": "assets/images/x/beys/bey-x-bx-00-dranzer-spiral-3-80t/main.webp",
-    "sourcePath": "02_product_components/054_bx00-ds3/01_BXG15_01@1.png",
-    "sourceSha256": "76fcfbce08225df9718edd2c939e7b2c2d512f9dfa57819c8d0c3e0549e33054",
-    "outputSha256": "5bba477624df83d1ef1275bdcd332ea398060a42d7be8ab10647d8808c0eb775"
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-dranzer-spiral-3-80t.png",
+    "sourceSha256": "9735358d4b0719abc98935c03a68a7677498ceb581045055e98fb62e39c4413c",
+    "outputSha256": "ba6a9196137c8d414fa4dfd7b390a77b937fd76f7f30e874ebc5987501fda20f"
   },
   {
     "id": "BEY-X-BX-00-DRIGER-SLASH-4-80P",

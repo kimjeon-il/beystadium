@@ -177,10 +177,13 @@ for (const entry of xPartPreviewMappings) {
   );
   assert.match(
     entry.sourceUrl,
-    /^https:\/\/(?:beyblade\.takaratomy\.co\.jp|beyblade\.phstudy\.org)\//
+    /^https:\/\/(?:beyblade\.takaratomy\.co\.jp|www\.takaratomyasia\.com|beyblade\.phstudy\.org)\//
   );
   if (entry.sourcePath) {
-    assert.match(entry.sourcePath, /^02_product_components\//);
+    assert.match(
+      entry.sourcePath,
+      /^(?:02_product_components\/|data\/source\/x-bey-front-sources\/)/
+    );
   }
   assert.match(entry.sourceSha256, /^[a-f0-9]{64}$/);
   assert.ok(entry.shapeSource?.trim());

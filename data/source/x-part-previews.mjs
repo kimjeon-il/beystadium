@@ -541,14 +541,14 @@ const xPartPreviewMappings = [
     "partId": "PART-X-BLADE-DRANZER-SPIRAL",
     "image": "assets/images/x/beys/bey-x-bx-00-dranzer-spiral-3-80t/main.webp",
     "sourceKind": "official-assembled-bey-view",
-    "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG15_01@1.png",
-    "sourcePath": "02_product_components/054_bx00-ds3/01_BXG15_01@1.png",
-    "sourceSha256": "76fcfbce08225df9718edd2c939e7b2c2d512f9dfa57819c8d0c3e0549e33054",
-    "shapeSource": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG15_01@1.png",
-    "shapeSourceSha256": "76fcfbce08225df9718edd2c939e7b2c2d512f9dfa57819c8d0c3e0549e33054",
-    "colorEvidence": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG15_01@1.png",
-    "colorEvidenceSha256": "76fcfbce08225df9718edd2c939e7b2c2d512f9dfa57819c8d0c3e0549e33054",
-    "outputSha256": "5bba477624df83d1ef1275bdcd332ea398060a42d7be8ab10647d8808c0eb775"
+    "sourceUrl": "https://www.takaratomyasia.com/en/toys/beyblade-x/x-over-project/bx-00-booster-dranzerspiral-3-80t",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-dranzer-spiral-3-80t.png",
+    "sourceSha256": "9735358d4b0719abc98935c03a68a7677498ceb581045055e98fb62e39c4413c",
+    "shapeSource": "data/source/x-bey-front-sources/bey-x-bx-00-dranzer-spiral-3-80t.png",
+    "shapeSourceSha256": "9735358d4b0719abc98935c03a68a7677498ceb581045055e98fb62e39c4413c",
+    "colorEvidence": "https://www.takaratomyasia.com/en/toys/beyblade-x/x-over-project/bx-00-booster-dranzerspiral-3-80t",
+    "colorEvidenceSha256": "9735358d4b0719abc98935c03a68a7677498ceb581045055e98fb62e39c4413c",
+    "outputSha256": "ba6a9196137c8d414fa4dfd7b390a77b937fd76f7f30e874ebc5987501fda20f"
   },
   {
     "beyId": "BEY-X-BX-00-DRANZER-SPIRAL-3-80T",
