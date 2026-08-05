@@ -1,5 +1,5 @@
 {
-  "version": "20260805-x-bey-supplied-front-images-expanded",
+  "version": "20260805-x-bey-supplied-front-images-bx06-08",
   "canvasSize": 448,
   "files": [
     {
@@ -3500,21 +3500,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-06-knight-shield-3-80n/front.webp",
-      "outputSha256": "8d74c2540948abd1154f91c7e3a42273e8db71c3699767c86767f913e725b97d",
-      "alphaLevels": 256,
-      "partialPixels": 9413,
-      "foregroundPixels": 104324,
+      "outputSha256": "d91a31046329871283e9618d65842dcc55051b0388101b68239a6f9725d904d5",
+      "alphaLevels": 31,
+      "partialPixels": 2668,
+      "foregroundPixels": 89515,
       "bbox": [
-        45,
-        35,
-        403,
-        412
+        53,
+        53,
+        394,
+        395
       ],
       "margins": [
-        45,
-        35,
-        45,
-        36
+        53,
+        53,
+        54,
+        53
       ]
     },
     {
@@ -3595,21 +3595,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-07-dran-sword-3-60f/front.webp",
-      "outputSha256": "29e6fdc46f401ef96f75b4a8fc84b4c430a1ce14f4b20309517e630d6e1ee4ab",
-      "alphaLevels": 256,
-      "partialPixels": 9235,
-      "foregroundPixels": 97832,
+      "outputSha256": "6fe019af7a6735556e9db909a156c8a656b0bb7b48156de2607cff004c9dcd1e",
+      "alphaLevels": 32,
+      "partialPixels": 2776,
+      "foregroundPixels": 90037,
       "bbox": [
-        46,
-        35,
-        401,
-        413
+        50,
+        45,
+        398,
+        403
       ],
       "margins": [
-        46,
-        35,
-        47,
-        35
+        50,
+        45,
+        50,
+        45
       ]
     },
     {
@@ -3690,21 +3690,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-08-hells-scythe-3-80b/front.webp",
-      "outputSha256": "e3c77e9c827f9871b98e523f0d5b3e2c3a22fbc0d08d5bdf12e49824c656cabe",
-      "alphaLevels": 256,
-      "partialPixels": 7912,
-      "foregroundPixels": 99526,
+      "outputSha256": "24370034d5a5468735ee70dab76d8f121323f5fc792cab2984ef345af654bb56",
+      "alphaLevels": 32,
+      "partialPixels": 2514,
+      "foregroundPixels": 89297,
       "bbox": [
-        47,
-        43,
-        400,
-        404
+        53,
+        52,
+        395,
+        395
       ],
       "margins": [
-        47,
-        43,
-        48,
-        44
+        53,
+        52,
+        53,
+        53
       ]
     },
     {
@@ -3785,21 +3785,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-08-knight-shield-4-80t/front.webp",
-      "outputSha256": "7fb63324bdf9891aa4eb1c301a3240dfcac40a5ce80be77950aea60d71f4be52",
-      "alphaLevels": 256,
-      "partialPixels": 8243,
-      "foregroundPixels": 101606,
+      "outputSha256": "6e34b07cc64a16bbc15344cb4d9f3d7ce1a184de5b11486297206521c9bdcfd4",
+      "alphaLevels": 28,
+      "partialPixels": 2570,
+      "foregroundPixels": 89120,
       "bbox": [
-        46,
-        38,
-        401,
-        410
+        54,
+        54,
+        394,
+        394
       ],
       "margins": [
-        46,
-        38,
-        47,
-        38
+        54,
+        54,
+        54,
+        54
       ]
     },
     {
@@ -3880,21 +3880,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-08-wizard-arrow-4-60n/front.webp",
-      "outputSha256": "cd9a35223c2db184bc9f9896fe381c45847dd5448486e0f479a3fec6a2f10e2f",
-      "alphaLevels": 256,
-      "partialPixels": 8135,
-      "foregroundPixels": 98419,
+      "outputSha256": "2734a72469d45ef12de2fe9fd96800ce9f73827ca490474473b04847c55e151b",
+      "alphaLevels": 25,
+      "partialPixels": 2172,
+      "foregroundPixels": 88038,
       "bbox": [
-        45,
-        47,
-        403,
-        400
+        53,
+        58,
+        395,
+        390
       ],
       "margins": [
-        45,
-        47,
-        45,
-        48
+        53,
+        58,
+        53,
+        58
       ]
     },
     {

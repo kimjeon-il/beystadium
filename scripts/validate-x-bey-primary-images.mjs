@@ -89,11 +89,11 @@ uniqueValues([
   ...verifiedMainById.keys(),
   ...temporarySideById.keys()
 ], "explicit primary image classifications");
-assert.equal(xBeyPrimaryImageConfig.version, "20260805-x-bey-supplied-front-images-expanded");
+assert.equal(xBeyPrimaryImageConfig.version, "20260805-x-bey-supplied-front-images-bx06-08");
 assert.equal(xBeyAngleCorrectionConfig.version, xBeyPrimaryImageConfig.version);
 assert.equal(xBeyAngleCorrectionConfig.method, "premultiplied-alpha-vertical-affine");
-assert.equal(xBeyPrimaryImageConfig.selected.length, 29);
-assert.equal(xBeyAngleCorrectionConfig.entries.length, 96);
+assert.equal(xBeyPrimaryImageConfig.selected.length, 34);
+assert.equal(xBeyAngleCorrectionConfig.entries.length, 91);
 assert.equal(xBeyPrimaryImageConfig.verifiedMain.length, 94);
 
 const suppliedFronts = new Map([
@@ -128,6 +128,31 @@ const suppliedFronts = new Map([
     sourceSha256: "742f51399f2808e4c99d2a0bbecb68fd87550c6e769f19d3d6b658e94a0d3c73",
     sourceForegroundBox: [123, 186, 464, 517]
   }],
+  ["BEY-X-BX-06-KNIGHT-SHIELD-3-80N", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX06_01@1.png",
+    sourceSha256: "02399f77e33e4952716cf3be1beca55dc16e14c798fb20820952c628b42c239f",
+    sourceForegroundBox: [122, 182, 463, 524]
+  }],
+  ["BEY-X-BX-07-DRAN-SWORD-3-60F", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX07_01@1.png",
+    sourceSha256: "d19097c0e1c428f511b1fd2a1a45e86a745da9bbda23efaa43b3165e5ebbe27a",
+    sourceForegroundBox: [118, 179, 466, 537]
+  }],
+  ["BEY-X-BX-08-HELLS-SCYTHE-3-80B", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX08_y_01@1.png",
+    sourceSha256: "964f1d57883b1053cd33af6653d151f49dc573f03f270fcd92b564acb9e686b7",
+    sourceForegroundBox: [122, 183, 464, 526]
+  }],
+  ["BEY-X-BX-08-WIZARD-ARROW-4-60N", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX08_g_01@1.png",
+    sourceSha256: "7d8d23c84bc2cdcfe2d236e7a127a56c99182283e62dc9858398ae4ad6bea3d8",
+    sourceForegroundBox: [122, 189, 464, 521]
+  }],
+  ["BEY-X-BX-08-KNIGHT-SHIELD-4-80T", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX08_r_01@1.png",
+    sourceSha256: "02b2945537fcccb1ead2aaa2804f3a661d2b05292841163956a23084d9372fb8",
+    sourceForegroundBox: [123, 185, 463, 525]
+  }],
   ["BEY-X-BX-49-DRAN-STRIKE-4-50FF", {
     sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX49_01@1.png",
     sourceSha256: "390cedff58474dad8b2f0190cbabd25fdaaef9a6c7803861a1f7621945e3fc2d",
@@ -154,7 +179,7 @@ const suppliedFronts = new Map([
     sourceForegroundBox: [115, 173, 471, 537]
   }]
 ]);
-assert.equal(suppliedFronts.size, 11);
+assert.equal(suppliedFronts.size, 16);
 
 for (const entry of xBeyPrimaryImageConfig.selected) {
   assert.equal(entry.sourceKind, "official-assembled-front");
@@ -275,8 +300,8 @@ for (const item of xBeys) {
 }
 
 assert.deepEqual(counts, {
-  officialAngleCorrected: 96,
-  officialAssembledFront: 29,
+  officialAngleCorrected: 91,
+  officialAssembledFront: 34,
   verifiedExistingFront: 94,
   temporarySide: 0
 });

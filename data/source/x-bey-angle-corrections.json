@@ -1,20 +1,7 @@
 {
-  "version": "20260805-x-bey-supplied-front-images-expanded",
+  "version": "20260805-x-bey-supplied-front-images-bx06-08",
   "method": "premultiplied-alpha-vertical-affine",
   "entries": [
-    {
-      "id": "BEY-X-BX-06-KNIGHT-SHIELD-3-80N",
-      "sourceImage": "assets/images/x/beys/bey-x-bx-06-knight-shield-3-80n/parts/part-x-blade-knight-shield.webp",
-      "image": "assets/images/x/beys/bey-x-bx-06-knight-shield-3-80n/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX06_02@1.png",
-      "sourceSha256": "f7a1788e95a3dac2709252810d749e3d97ee34ac1ac1f9afaae5a60e46f2a0f5",
-      "sourceOutputSha256": "a0725fe65ebc9734af24a49792d7e81b020af7107b3360a700ef5e829e183dcf",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.0,
-      "outputSha256": "8d74c2540948abd1154f91c7e3a42273e8db71c3699767c86767f913e725b97d"
-    },
     {
       "id": "BEY-X-BX-13-KNIGHT-LANCE-4-80HN",
       "sourceImage": "assets/images/x/parts/blade/part-x-blade-knight-lance.webp",
@@ -521,58 +508,6 @@
       "scaleY": 1.08,
       "pivotY": 223.0,
       "outputSha256": "2253d9de528784f0df6feb59da01f0642a1271b37e5bc1cc9c903a91a092c995"
-    },
-    {
-      "id": "BEY-X-BX-07-DRAN-SWORD-3-60F",
-      "sourceImage": "assets/images/x/beys/bey-x-bx-07-dran-sword-3-60f/parts/part-x-blade-dran-sword.webp",
-      "image": "assets/images/x/beys/bey-x-bx-07-dran-sword-3-60f/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX07_02@1.png",
-      "sourceSha256": "8a318f506ac990965e12b1d9905144cb37c4dca3d61d679bd2c71a2e8421f270",
-      "sourceOutputSha256": "8e66a5adb148c880ce4d10a3f905e7551c3131b67de8f7cfbb8ba063a76b5d64",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.5,
-      "outputSha256": "29e6fdc46f401ef96f75b4a8fc84b4c430a1ce14f4b20309517e630d6e1ee4ab"
-    },
-    {
-      "id": "BEY-X-BX-08-HELLS-SCYTHE-3-80B",
-      "sourceImage": "assets/images/x/beys/bey-x-bx-08-hells-scythe-3-80b/parts/part-x-blade-hells-scythe.webp",
-      "image": "assets/images/x/beys/bey-x-bx-08-hells-scythe-3-80b/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX08_y_02@1.png",
-      "sourceSha256": "2be99d28fce44e5011340c52233419bd8acd751e1bd11a80f69b19c4a9756a49",
-      "sourceOutputSha256": "e7be10e92f30f3a4cac7e18768e4bb6c9f4dd4b3656750ac1ca52811f7498db6",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.0,
-      "outputSha256": "e3c77e9c827f9871b98e523f0d5b3e2c3a22fbc0d08d5bdf12e49824c656cabe"
-    },
-    {
-      "id": "BEY-X-BX-08-WIZARD-ARROW-4-60N",
-      "sourceImage": "assets/images/x/beys/bey-x-bx-08-wizard-arrow-4-60n/parts/part-x-blade-wizard-arrow.webp",
-      "image": "assets/images/x/beys/bey-x-bx-08-wizard-arrow-4-60n/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX08_g_02@1.png",
-      "sourceSha256": "9dcf615885da73e262e20b4ce9e74f8405124100acc4c58b4c4fc357cfe78e4f",
-      "sourceOutputSha256": "1b3c1d16716ecff01c9ffef782438216dbfb6c4e7143d63a314bdb5a4516c448",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.5,
-      "outputSha256": "cd9a35223c2db184bc9f9896fe381c45847dd5448486e0f479a3fec6a2f10e2f"
-    },
-    {
-      "id": "BEY-X-BX-08-KNIGHT-SHIELD-4-80T",
-      "sourceImage": "assets/images/x/beys/bey-x-bx-08-knight-shield-4-80t/parts/part-x-blade-knight-shield.webp",
-      "image": "assets/images/x/beys/bey-x-bx-08-knight-shield-4-80t/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX08_r_02@1.png",
-      "sourceSha256": "c8ae91fda55fc51d82d8bf5159148100a376c9b000c523765ef7fbb620452022",
-      "sourceOutputSha256": "0cf10f353a57781b99e1e33475d4c9f80c8edaae490a6e622d88fd853701c5b4",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.5,
-      "outputSha256": "7fb63324bdf9891aa4eb1c301a3240dfcac40a5ce80be77950aea60d71f4be52"
     },
     {
       "id": "BEY-X-BX-20-DRAN-DAGGER-4-60R",

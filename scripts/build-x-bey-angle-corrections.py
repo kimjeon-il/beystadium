@@ -24,13 +24,18 @@ SUPPLIED_FRONT_IDS = {
     "BEY-X-BX-03-WIZARD-ARROW-4-80B",
     "BEY-X-BX-04-KNIGHT-SHIELD-3-80N",
     "BEY-X-BX-05-WIZARD-ARROW-4-80B",
+    "BEY-X-BX-06-KNIGHT-SHIELD-3-80N",
+    "BEY-X-BX-07-DRAN-SWORD-3-60F",
+    "BEY-X-BX-08-HELLS-SCYTHE-3-80B",
+    "BEY-X-BX-08-KNIGHT-SHIELD-4-80T",
+    "BEY-X-BX-08-WIZARD-ARROW-4-60N",
     "BEY-X-BX-49-DRAN-STRIKE-4-50FF",
     "BEY-X-UX-00-SCORPIO-SPEAR-0-70Z",
     "BEY-X-UX-00-WARRIOR-SABER-5-60K",
     "BEY-X-UX-19-BULLET-GRIFFON-H",
     "BEY-X-UX-20-GLORY-VALKYRIE-LF",
 }
-CONFIG_VERSION = "20260805-x-bey-supplied-front-images-expanded"
+CONFIG_VERSION = "20260805-x-bey-supplied-front-images-bx06-08"
 
 
 def parse_args() -> argparse.Namespace:
@@ -137,8 +142,8 @@ def initialize_config(audit_path: Path) -> dict:
             "method": METHOD,
             "scaleY": SCALE_Y,
         })
-    if len(entries) != 96:
-        raise ValueError(f"expected 96 angle corrections, found {len(entries)}")
+    if len(entries) != 91:
+        raise ValueError(f"expected 91 angle corrections, found {len(entries)}")
     return {
         "version": CONFIG_VERSION,
         "method": METHOD,
