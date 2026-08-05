@@ -11,10 +11,12 @@ import { xCatalogImagePath } from "./x-image-paths.mjs";
 const REPORT_ARG = process.argv.find(argument => argument.startsWith("--report="));
 const REPORT_PATH = REPORT_ARG?.slice("--report=".length) || "";
 const ALPHA_REVIEW_PATH = path.resolve("data/source/x-image-alpha-review.json");
-const ALPHA_REVIEW_VERSION = "20260806-x-bey-supplied-front-images-bx39-cx04";
+const ALPHA_REVIEW_VERSION = "20260806-x-bx31-image-swap";
 const xItems = [...beyItems, ...partItems].filter(item => item.series === "x");
 const xIds = new Set(xItems.map(item => item.id));
 const expectedCorrectedSources = {
+  "BEY-X-BX-31-03-HELLS-CHAIN-9-80O": "02_product_components/041_bx31/04_BX31_04@1.png",
+  "BEY-X-BX-31-04-DRAN-DAGGER-4-70P": "02_product_components/041_bx31/03_BX31_03@1.png",
   "BEY-X-BX-37-BEAR-SCRATCH-5-60F": "02_product_components/061_bx37/03_BX37_03@1.png",
   "PART-X-BLADE-BEAR-SCRATCH": "02_product_components/061_bx37/04_BX37_04@1.png",
   "BEY-X-BX-48-02-SHARK-EDGE-4-70E": "02_product_components/119_bx48/04_BX48_04@1.png",

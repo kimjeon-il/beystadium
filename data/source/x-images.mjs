@@ -514,14 +514,14 @@ const xImageMappings = [
   {
     "id": "BEY-X-BX-31-03-HELLS-CHAIN-9-80O",
     "image": "assets/images/x/beys/bey-x-bx-31-03-hells-chain-9-80o/main.webp",
-    "sourcePath": "02_product_components/041_bx31/03_BX31_03@1.png",
-    "sourceSha256": "9b149d956937dfd5e560c6e601b40efcbf217044b39073505b05649a33cc0e7c"
+    "sourcePath": "02_product_components/041_bx31/04_BX31_04@1.png",
+    "sourceSha256": "465ce17c9b94f46ad6c2350f5e8fd96cc9494b4908169a45adfee7120997dcde"
   },
   {
     "id": "BEY-X-BX-31-04-DRAN-DAGGER-4-70P",
     "image": "assets/images/x/beys/bey-x-bx-31-04-dran-dagger-4-70p/main.webp",
-    "sourcePath": "02_product_components/041_bx31/04_BX31_04@1.png",
-    "sourceSha256": "465ce17c9b94f46ad6c2350f5e8fd96cc9494b4908169a45adfee7120997dcde"
+    "sourcePath": "02_product_components/041_bx31/03_BX31_03@1.png",
+    "sourceSha256": "9b149d956937dfd5e560c6e601b40efcbf217044b39073505b05649a33cc0e7c"
   },
   {
     "id": "BEY-X-BX-31-05-SHARK-EDGE-1-60Q",

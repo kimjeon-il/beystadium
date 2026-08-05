@@ -14,7 +14,7 @@ from PIL import Image
 CANVAS_SIZE = 448
 MIN_MARGIN = 6
 MAX_FOREGROUND_SIZE = CANVAS_SIZE - MIN_MARGIN * 2
-REVIEW_VERSION = "20260806-x-bey-supplied-front-images-bx39-cx04"
+REVIEW_VERSION = "20260806-x-bx31-image-swap"
 
 
 def parse_args() -> argparse.Namespace:

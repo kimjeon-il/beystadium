@@ -1,5 +1,5 @@
 {
-  "version": "20260806-x-bey-supplied-front-images-bx39-cx04",
+  "version": "20260806-x-bx31-image-swap",
   "canvasSize": 448,
   "files": [
     {
@@ -6236,21 +6236,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-31-03-hells-chain-9-80o/main.webp",
-      "outputSha256": "5c37c36e38c6c51f7472250785cf7a0230ff69c464fefb11fe5e9c04797b792c",
+      "outputSha256": "b6ce7c92d3c3813da3ec5d4ce35608bf855b440782f33b2e726c5a5d301f84ea",
       "alphaLevels": 256,
-      "partialPixels": 10084,
-      "foregroundPixels": 75075,
+      "partialPixels": 8219,
+      "foregroundPixels": 84324,
       "bbox": [
-        66,
         58,
-        382,
-        389
+        59,
+        390,
+        388
       ],
       "margins": [
-        66,
         58,
-        66,
-        59
+        59,
+        58,
+        60
       ]
     },
     {
@@ -6293,21 +6293,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-31-04-dran-dagger-4-70p/main.webp",
-      "outputSha256": "b6ce7c92d3c3813da3ec5d4ce35608bf855b440782f33b2e726c5a5d301f84ea",
+      "outputSha256": "5c37c36e38c6c51f7472250785cf7a0230ff69c464fefb11fe5e9c04797b792c",
       "alphaLevels": 256,
-      "partialPixels": 8219,
-      "foregroundPixels": 84324,
+      "partialPixels": 10084,
+      "foregroundPixels": 75075,
       "bbox": [
+        66,
         58,
-        59,
-        390,
-        388
+        382,
+        389
       ],
       "margins": [
+        66,
         58,
-        59,
-        58,
-        60
+        66,
+        59
       ]
     },
     {
