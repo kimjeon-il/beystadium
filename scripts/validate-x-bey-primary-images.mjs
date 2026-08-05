@@ -85,9 +85,9 @@ uniqueValues([
   ...officialFrontById.keys(),
   ...verifiedMainById.keys(),
   ...temporarySideById.keys()
-], "split blade classifications");
-assert.equal(xBeyPrimaryImageConfig.selected.length, 12);
-assert.equal(xBeyPrimaryImageConfig.verifiedMain.length, 33);
+], "explicit primary image classifications");
+assert.equal(xBeyPrimaryImageConfig.selected.length, 17);
+assert.equal(xBeyPrimaryImageConfig.verifiedMain.length, 95);
 
 for (const entry of xBeyPrimaryImageConfig.selected) {
   assert.equal(entry.sourceKind, "official-assembled-front");
@@ -99,6 +99,10 @@ for (const entry of xBeyPrimaryImageConfig.selected) {
     assert.ok(entry.sourceCrop.every(Number.isInteger));
   }
   if (entry.sourceScale) assert.ok(entry.sourceScale > 0);
+}
+for (const entry of xBeyPrimaryImageConfig.verifiedMain) {
+  assert.equal(entry.view, "front-top");
+  assert.equal(entry.sourceRef, "x-images");
 }
 for (const entry of xBeyPrimaryImageConfig.temporarySideImages) {
   assert.ok(entry.reason?.trim(), `${entry.id}: temporary side view needs a reason`);
@@ -120,13 +124,7 @@ for (const item of xBeys) {
   let classification;
   let provenance;
   let exceptionReason = "";
-  if (bladeIds.length === 1) {
-    classification = "official-mounted-blade-top";
-    provenance = partPreviewByKey.get(`${item.id}::${bladeIds[0]}`);
-    assert.ok(provenance, `${item.id}: mounted blade provenance is missing`);
-    assert.equal(item.image, provenance.image, `${item.id}: mounted blade top view is not primary`);
-    counts.officialMountedBladeTop += 1;
-  } else if (officialFrontById.has(item.id)) {
+  if (officialFrontById.has(item.id)) {
     classification = "official-assembled-front";
     provenance = officialFrontById.get(item.id);
     assert.equal(item.image, provenance.image, `${item.id}: official assembled front is not primary`);
@@ -137,15 +135,26 @@ for (const item of xBeys) {
     assert.ok(provenance, `${item.id}: existing main provenance is missing`);
     assert.equal(item.image, provenance.image, `${item.id}: verified main path changed`);
     counts.verifiedExistingFront += 1;
-  } else {
+  } else if (temporarySideById.has(item.id)) {
     classification = "temporary-side";
     const exception = temporarySideById.get(item.id);
-    assert.ok(exception, `${item.id}: primary viewpoint is not classified`);
     provenance = xImageById.get(item.id);
     assert.ok(provenance, `${item.id}: temporary side provenance is missing`);
     assert.equal(item.image, provenance.image, `${item.id}: temporary side path changed`);
     exceptionReason = exception.reason;
     counts.temporarySide += 1;
+  } else {
+    assert.equal(bladeIds.length, 1, `${item.id}: primary viewpoint is not classified`);
+    classification = "official-mounted-blade-top";
+    provenance = partPreviewByKey.get(`${item.id}::${bladeIds[0]}`);
+    assert.ok(provenance, `${item.id}: mounted blade provenance is missing`);
+    assert.equal(
+      provenance.sourceKind,
+      "official-individual",
+      `${item.id}: assembled blade image needs an explicit viewpoint classification`
+    );
+    assert.equal(item.image, provenance.image, `${item.id}: mounted blade top view is not primary`);
+    counts.officialMountedBladeTop += 1;
   }
 
   const outputSha256 = await outputAudit(item.image);
@@ -164,9 +173,9 @@ for (const item of xBeys) {
 }
 
 assert.deepEqual(counts, {
-  officialMountedBladeTop: 174,
-  officialAssembledFront: 12,
-  verifiedExistingFront: 33,
+  officialMountedBladeTop: 107,
+  officialAssembledFront: 17,
+  verifiedExistingFront: 95,
   temporarySide: 0
 });
 

@@ -14,7 +14,7 @@ from PIL import Image
 CANVAS_SIZE = 448
 MIN_MARGIN = 6
 MAX_FOREGROUND_SIZE = CANVAS_SIZE - MIN_MARGIN * 2
-REVIEW_VERSION = "20260805-x-bey-primary-fronts"
+REVIEW_VERSION = "20260805-x-bey-primary-fronts-v2"
 
 
 def parse_args() -> argparse.Namespace:
@@ -73,8 +73,8 @@ def alpha_stats(path: Path) -> dict:
 def main() -> int:
     args = parse_args()
     files = sorted(args.root.rglob("*.webp"))
-    if len(files) != 920:
-        raise ValueError(f"expected 920 X images, found {len(files)}")
+    if len(files) != 925:
+        raise ValueError(f"expected 925 X images, found {len(files)}")
     review = {
         "version": REVIEW_VERSION,
         "canvasSize": CANVAS_SIZE,

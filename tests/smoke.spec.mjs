@@ -2738,19 +2738,55 @@ test("X mounted part previews fit portrait bits and use each Bey's official colo
     "assets/images/x/beys/bey-x-cx-09-sol-eclipse-d-5-70tk/parts/part-x-ratchet-5-70.webp"
   );
 
-  await page.goto("/#PRODUCT-X-CX-11");
-  const emperorComposition = page.locator(
-    '#detailModal .composition-link[data-target-id="BEY-X-CX-11-EMPEROR-MIGHT-H-OP"]'
-  );
-  await expect(emperorComposition).toHaveAttribute(
-    "data-image-preview-id",
-    "BEY-X-CX-11-EMPEROR-MIGHT-H-OP"
-  );
-  await emperorComposition.hover();
-  await expect(preview.locator("img")).toHaveAttribute(
-    "src",
-    "assets/images/x/beys/bey-x-cx-11-emperor-might-h-op/front.webp"
-  );
+  const compositionPrimaryImages = [
+    [
+      "PRODUCT-X-CX-11",
+      "BEY-X-CX-11-EMPEROR-MIGHT-H-OP",
+      "assets/images/x/beys/bey-x-cx-11-emperor-might-h-op/front.webp"
+    ],
+    [
+      "PRODUCT-X-BX-00-DRAN-DAGGER-2-80GP-BLACK-GIANTS",
+      "BEY-X-BX-00-DRAN-DAGGER-2-80GP",
+      "assets/images/x/beys/bey-x-bx-00-dran-dagger-2-80gp/front.webp"
+    ],
+    [
+      "PRODUCT-X-BX-17",
+      "BEY-X-BX-17-DRAN-SWORD-3-60F",
+      "assets/images/x/beys/bey-x-bx-17-dran-sword-3-60f/front.webp"
+    ],
+    [
+      "PRODUCT-X-UX-04",
+      "BEY-X-UX-04-DRAN-BUSTER-1-60A",
+      "assets/images/x/beys/bey-x-ux-04-dran-buster-1-60a/front.webp"
+    ],
+    [
+      "PRODUCT-X-BX-48",
+      "BEY-X-BX-48-01-COBALT-DRAGOON-9-80F",
+      "assets/images/x/beys/bey-x-bx-48-01-cobalt-dragoon-9-80f/front.webp"
+    ],
+    [
+      "PRODUCT-X-UX-00-ASIA-SPECIAL-DRAN-DECK-SET",
+      "BEY-X-UX-00-DRAN-SWORD-4-80DB",
+      "assets/images/x/beys/bey-x-ux-00-dran-sword-4-80db/front.webp"
+    ]
+  ];
+  for (const [productId, beyId, image] of compositionPrimaryImages) {
+    if (productId === "PRODUCT-X-BX-48") {
+      await page.goto("/#toy-release");
+      await page.locator('button[data-release-region="jp"]').click();
+      await page.locator("#releaseSearchInput").fill("BX-48");
+      await page.locator(`.release-product-row[data-product-id="${productId}"]`).click();
+      await page.locator("#detailModal .product-lineup-trigger").click();
+    } else {
+      await page.goto(`/#${productId}`);
+    }
+    const composition = page.locator(
+      `#detailModal .composition-link[data-target-id="${beyId}"]`
+    );
+    await expect(composition).toHaveAttribute("data-image-preview-id", beyId);
+    await composition.hover();
+    await expect(preview.locator("img")).toHaveAttribute("src", image);
+  }
   expect(errors).toEqual([]);
 });
 
@@ -3798,6 +3834,31 @@ test("X catalog cards use top-view primary images without adding a detail art pa
       "BEY-X-CX-01-DRAN-BRAVE-S-6-60V",
       "드랜 브레이브S 6-60V",
       "assets/images/x/beys/bey-x-cx-01-dran-brave-s-6-60v/main.webp"
+    ],
+    [
+      "BEY-X-BX-00-DRAN-DAGGER-2-80GP",
+      "드란대거 2-80GP",
+      "assets/images/x/beys/bey-x-bx-00-dran-dagger-2-80gp/front.webp"
+    ],
+    [
+      "BEY-X-BX-17-DRAN-SWORD-3-60F",
+      "드랜소드 3-60F",
+      "assets/images/x/beys/bey-x-bx-17-dran-sword-3-60f/front.webp"
+    ],
+    [
+      "BEY-X-UX-04-DRAN-BUSTER-1-60A",
+      "드랜버스터 1-60A",
+      "assets/images/x/beys/bey-x-ux-04-dran-buster-1-60a/front.webp"
+    ],
+    [
+      "BEY-X-BX-48-01-COBALT-DRAGOON-9-80F",
+      "코발트드래군 9-80F",
+      "assets/images/x/beys/bey-x-bx-48-01-cobalt-dragoon-9-80f/front.webp"
+    ],
+    [
+      "BEY-X-UX-00-DRAN-SWORD-4-80DB",
+      "드랜소드 4-80DB",
+      "assets/images/x/beys/bey-x-ux-00-dran-sword-4-80db/front.webp"
     ]
   ];
   for (const [id, query, image] of primaryImages) {

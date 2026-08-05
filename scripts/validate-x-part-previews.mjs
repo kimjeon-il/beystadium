@@ -8,11 +8,13 @@ import {
   xPartPreviewMappings,
   xPartPreviewUnavailable
 } from "../data/source/x-part-previews.mjs";
+import { xImageMappings } from "../data/source/x-images.mjs";
 import { xPartPreviewImagePath } from "./x-image-paths.mjs";
 
 const xBeys = beyItems.filter(item => item.series === "x");
 const partById = new Map(partItems.filter(item => item.series === "x").map(item => [item.id, item]));
 const beyById = new Map(xBeys.map(item => [item.id, item]));
+const originalBeyImageById = new Map(xImageMappings.map(entry => [entry.id, entry.image]));
 const contextKey = (beyId, partId) => `${beyId}::${partId}`;
 const derivationManifest = JSON.parse(
   await readFile(path.resolve("data/source/x-part-preview-color-derivations.json"), "utf8")
@@ -161,12 +163,16 @@ for (const entry of xPartPreviewMappings) {
       .includes(entry.sourceKind),
     `${contextKey(entry.beyId, entry.partId)} has an invalid source kind`
   );
+  const expectedImagePaths = new Set([
+    xPartPreviewImagePath(entry.beyId, entry.partId),
+    bey.image,
+    partById.get(entry.partId)?.image
+  ]);
+  if (entry.sourceKind === "official-assembled-bey-view") {
+    expectedImagePaths.add(originalBeyImageById.get(entry.beyId));
+  }
   assert.ok(
-    new Set([
-      xPartPreviewImagePath(entry.beyId, entry.partId),
-      bey.image,
-      partById.get(entry.partId)?.image
-    ]).has(entry.image),
+    expectedImagePaths.has(entry.image),
     `${contextKey(entry.beyId, entry.partId)} uses an unexpected image path`
   );
   assert.match(

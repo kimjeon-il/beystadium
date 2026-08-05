@@ -1,5 +1,5 @@
 {
-  "version": "20260805-x-bey-primary-fronts",
+  "version": "20260805-x-bey-primary-fronts-v2",
   "canvasSize": 448,
   "files": [
     {
@@ -589,6 +589,25 @@
         75,
         60,
         76
+      ]
+    },
+    {
+      "image": "assets/images/x/beys/bey-x-bx-00-dran-dagger-2-80gp/front.webp",
+      "outputSha256": "72225d82c1f639e2842000662207abb3fb893d6c4cfdb290706e8a3eb681abfd",
+      "alphaLevels": 247,
+      "partialPixels": 3195,
+      "foregroundPixels": 85925,
+      "bbox": [
+        56,
+        47,
+        392,
+        401
+      ],
+      "margins": [
+        56,
+        47,
+        56,
+        47
       ]
     },
     {
@@ -3632,6 +3651,25 @@
       ]
     },
     {
+      "image": "assets/images/x/beys/bey-x-bx-17-dran-sword-3-60f/front.webp",
+      "outputSha256": "bd471806b48b851328ba51f40d2b90154a9aa3d3e1a7cef770e2e07fe6086712",
+      "alphaLevels": 248,
+      "partialPixels": 8874,
+      "foregroundPixels": 95982,
+      "bbox": [
+        45,
+        40,
+        403,
+        408
+      ],
+      "margins": [
+        45,
+        40,
+        45,
+        40
+      ]
+    },
+    {
       "image": "assets/images/x/beys/bey-x-bx-17-dran-sword-3-60f/main.webp",
       "outputSha256": "a6fe8afed52e0ac39a5b0945df166d2ec9abc0b4e8cef00331cc5d72710b6b6a",
       "alphaLevels": 256,
@@ -6137,6 +6175,25 @@
         65,
         46,
         65
+      ]
+    },
+    {
+      "image": "assets/images/x/beys/bey-x-bx-48-01-cobalt-dragoon-9-80f/front.webp",
+      "outputSha256": "13fce2aeca1629f08617feebd0d943acd5c242558c0d6eb222beae3d1c4d9ae7",
+      "alphaLevels": 248,
+      "partialPixels": 5274,
+      "foregroundPixels": 89286,
+      "bbox": [
+        46,
+        45,
+        401,
+        403
+      ],
+      "margins": [
+        46,
+        45,
+        47,
+        45
       ]
     },
     {
@@ -11004,6 +11061,25 @@
       ]
     },
     {
+      "image": "assets/images/x/beys/bey-x-ux-00-dran-sword-4-80db/front.webp",
+      "outputSha256": "36471c340af90f8afe2f61385325fead60b35ddeb3e67c7b44356c100270fbcd",
+      "alphaLevels": 248,
+      "partialPixels": 4831,
+      "foregroundPixels": 94791,
+      "bbox": [
+        46,
+        39,
+        401,
+        408
+      ],
+      "margins": [
+        46,
+        39,
+        47,
+        40
+      ]
+    },
+    {
       "image": "assets/images/x/beys/bey-x-ux-00-dran-sword-4-80db/main.webp",
       "outputSha256": "5eccc116eb89f76d99c08dda0a061bae44b30b2964d14d924199b25bcd9f3f91",
       "alphaLevels": 256,
@@ -11457,6 +11533,25 @@
         44,
         45,
         45
+      ]
+    },
+    {
+      "image": "assets/images/x/beys/bey-x-ux-04-dran-buster-1-60a/front.webp",
+      "outputSha256": "b9bc887c0a301d0bf7e346ae8a59df5f4e72aae8ba90e11b1e00d2767c04561b",
+      "alphaLevels": 248,
+      "partialPixels": 8076,
+      "foregroundPixels": 95527,
+      "bbox": [
+        46,
+        38,
+        401,
+        410
+      ],
+      "margins": [
+        46,
+        38,
+        47,
+        38
       ]
     },
     {
