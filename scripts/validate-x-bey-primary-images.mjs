@@ -89,12 +89,12 @@ uniqueValues([
   ...verifiedMainById.keys(),
   ...temporarySideById.keys()
 ], "explicit primary image classifications");
-assert.equal(xBeyPrimaryImageConfig.version, "20260806-x-bey-supplied-front-images-bx38-bxg31");
+assert.equal(xBeyPrimaryImageConfig.version, "20260806-x-bey-supplied-front-images-bx39-cx04");
 assert.equal(xBeyAngleCorrectionConfig.version, xBeyPrimaryImageConfig.version);
 assert.equal(xBeyAngleCorrectionConfig.method, "premultiplied-alpha-vertical-affine");
-assert.equal(xBeyPrimaryImageConfig.selected.length, 81);
-assert.equal(xBeyAngleCorrectionConfig.entries.length, 49);
-assert.equal(xBeyPrimaryImageConfig.verifiedMain.length, 89);
+assert.equal(xBeyPrimaryImageConfig.selected.length, 99);
+assert.equal(xBeyAngleCorrectionConfig.entries.length, 38);
+assert.equal(xBeyPrimaryImageConfig.verifiedMain.length, 82);
 
 const suppliedFronts = new Map([
   ["BEY-X-BX-00-01-LIGHTNING-L-DRAGO-UPPER-1-60F", {
@@ -397,9 +397,81 @@ const suppliedFronts = new Map([
   ["BEY-X-UX-00-DRAN-BUSTER-1-60A", {
     sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG31_01@1.png",
     sourceSha256: "c8abdbe7246faf747e6347b57696c9f7a1e48d55110299f2870d886fe5c38c8c"
+  }],
+  ["BEY-X-BX-00-DRAGOON-STORM-4-60RA", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG00_01@1.png",
+    sourceSha256: "296cc54364a78d1f8a709a4a847dde52fb968832ce673484db3ace54c806baf7"
+  }],
+  ["BEY-X-BX-00-DRAN-SWORD-3-60F", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG00_07@1.png",
+    sourceSha256: "883969dfd3773c5197ca810b982616d98b5e4bfc516dac6cf2650ad5c0894218"
+  }],
+  ["BEY-X-BX-00-MAMMOTH-TUSK-2-80E", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG32_01@1.png",
+    sourceSha256: "29de3c39c56bc2a985b8dbb8dd5f4527cdd23acefa52ccd7f318fa8f88805cf3"
+  }],
+  ["BEY-X-BX-00-PHOENIX-SOAR-9-60GF", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG35_01@1.png",
+    sourceSha256: "14d7dd7c9889e7a8c79501a8ed0cb14ffee2e60a4c09d95391f322d2c77a07fe"
+  }],
+  ["BEY-X-BX-00-STORM-PEGASIS-3-70RA", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG00_03@1.png",
+    sourceSha256: "eab3be32fb4cc62f6158840cfea16720e97e336fcb3acd55ce031a2e42883c9c"
+  }],
+  ["BEY-X-BX-00-VICTORY-VALKYRIE-2-60RA", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG00_05@1.png",
+    sourceSha256: "21a86b0a5ce145bc7649193f8ccc89629199639bfa30982628fa8418fcec72b6"
+  }],
+  ["BEY-X-BX-39-01-SHELTER-DRAKE-7-80GP", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX39_02@1.png",
+    sourceSha256: "79d884b52546da1eeb7fdf45e46283602f3e9ae3df18aeededf712ce3851238d"
+  }],
+  ["BEY-X-BX-39-02-SHELTER-DRAKE-5-70O", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX39_03@1.png",
+    sourceSha256: "9c146d9309cf674697d06a74e72ab640b1a62ede999164d40b0feef711e247a9"
+  }],
+  ["BEY-X-BX-39-03-SHELTER-DRAKE-3-60D", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX39_04@1.png",
+    sourceSha256: "3797571b7b287d6708e17fa300ac194ba25e47c4ba462326439dd7b2abbb3476"
+  }],
+  ["BEY-X-CX-01-DRAN-BRAVE-S-6-60V", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/CX01_01@1.png",
+    sourceSha256: "4f30ab3fd9b2d43bddfdb889b10770126c990d0926de4325fcc5fd1e993d5a4d"
+  }],
+  ["BEY-X-CX-02-WIZARD-ARC-R-4-55LO", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/CX02_01@1.png",
+    sourceSha256: "abf3e07cfc6ac02b893b80def1c8790e2ced30ba23a6a4be9517ee8305b898c8"
+  }],
+  ["BEY-X-CX-03-PERSEUS-DARK-B-6-80W", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/CX03_01@1.png",
+    sourceSha256: "6c5c9f1fc0c3601529b511649fcc888fc33c3ca1ba4f88977b9ad7b63fdd015e"
+  }],
+  ["BEY-X-CX-04-DRAN-BRAVE-S-6-60V", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/CX04_01@1.png",
+    sourceSha256: "1a76cda10cf047ef1fa62c63ac8ed452193c7813f5da29751ed978abfcf4e835"
+  }],
+  ["BEY-X-CX-04-PERSEUS-DARK-B-6-80W", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/CX04_02@1.png",
+    sourceSha256: "f6728b3ee85ea99e5ee1597eca05ff976ccd990c9098c5a5c52356d097e8ea82"
+  }],
+  ["BEY-X-UX-00-HELLS-HAMMER-3-70H", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG19_02@1.png",
+    sourceSha256: "f5d72d3e24018c79f9b8e93a7b0bd712447e78a0ab4b17e76b55b0fe6c0f66bf"
+  }],
+  ["BEY-X-UX-11-IMPACT-DRAKE-9-60LR", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX11_01@1.png",
+    sourceSha256: "2e7f1d54e13d1f8c9d979f73c24bbd20be6246dbfc26b900a397cabd9ddb2ec9"
+  }],
+  ["BEY-X-UX-12-01-GHOST-CIRCLE-0-80GB", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX12_02@1.png",
+    sourceSha256: "89da29cd3241509c5db43292506b4d11d7747de440418bae56afd3187747ccc4"
+  }],
+  ["BEY-X-UX-13-GOLEM-ROCK-1-60UN", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX13_01@1.png",
+    sourceSha256: "259ac937e826666811c8bf8d0233ad1a0de8e3614d61a5f610506a60b950df9b"
   }]
 ]);
-assert.equal(suppliedFronts.size, 63);
+assert.equal(suppliedFronts.size, 81);
 
 const correctedWizardMapping = xImageById.get("BEY-X-BX-17-WIZARD-ARROW-4-80B");
 assert.ok(correctedWizardMapping, "BX-17 Wizard Arrow source mapping is missing");
@@ -579,9 +651,9 @@ for (const item of xBeys) {
 }
 
 assert.deepEqual(counts, {
-  officialAngleCorrected: 49,
-  officialAssembledFront: 81,
-  verifiedExistingFront: 89,
+  officialAngleCorrected: 38,
+  officialAssembledFront: 99,
+  verifiedExistingFront: 82,
   temporarySide: 0
 });
 

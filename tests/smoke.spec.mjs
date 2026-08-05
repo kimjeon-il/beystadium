@@ -3846,7 +3846,7 @@ test("X catalog cards use top-view primary images without adding a detail art pa
     [
       "BEY-X-CX-01-DRAN-BRAVE-S-6-60V",
       "드랜 브레이브S 6-60V",
-      "assets/images/x/beys/bey-x-cx-01-dran-brave-s-6-60v/main.webp"
+      "assets/images/x/beys/bey-x-cx-01-dran-brave-s-6-60v/front.webp"
     ],
     [
       "BEY-X-BX-00-DRAN-DAGGER-2-80GP",

@@ -1,5 +1,5 @@
 {
-  "version": "20260806-x-bey-supplied-front-images-bx38-bxg31",
+  "version": "20260806-x-bey-supplied-front-images-bx39-cx04",
   "canvasSize": 448,
   "files": [
     {
@@ -631,21 +631,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-dragoon-storm-4-60ra/front.webp",
-      "outputSha256": "f6f08c42ffb57403b427408da488d4079badbe4dddf4cb9f8c2adcdca1a7efc9",
-      "alphaLevels": 256,
-      "partialPixels": 7770,
-      "foregroundPixels": 102512,
+      "outputSha256": "0f9a1e5fb471f44f96d83f6dc7ce6e5bb52f676596b6a84858fb01f4992fc438",
+      "alphaLevels": 24,
+      "partialPixels": 2541,
+      "foregroundPixels": 92492,
       "bbox": [
-        45,
-        29,
-        402,
-        417
+        47,
+        47,
+        401,
+        401
       ],
       "margins": [
-        45,
-        29,
-        46,
-        31
+        47,
+        47,
+        47,
+        47
       ]
     },
     {
@@ -897,21 +897,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-dran-sword-3-60f/front.webp",
-      "outputSha256": "6447bf3f02fbe9105bd9c18a8eb3a97fbdba5091cd5f38de98c32a8da46960c4",
-      "alphaLevels": 256,
-      "partialPixels": 8042,
-      "foregroundPixels": 104522,
+      "outputSha256": "462872791f44bd73e18f7286460a98c990b52306e89b225c46c787953ec597c3",
+      "alphaLevels": 42,
+      "partialPixels": 2869,
+      "foregroundPixels": 94706,
       "bbox": [
-        43,
-        23,
-        405,
-        424
+        45,
+        40,
+        402,
+        408
       ],
       "margins": [
-        43,
-        23,
-        43,
-        24
+        45,
+        40,
+        46,
+        40
       ]
     },
     {
@@ -1581,21 +1581,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-mammoth-tusk-2-80e/front.webp",
-      "outputSha256": "bac2ff8e2b26d69967d36be8c42fcd21f30f850dec9ce170946cfb0d409b12db",
-      "alphaLevels": 254,
-      "partialPixels": 8719,
-      "foregroundPixels": 100571,
+      "outputSha256": "502eee20566b7efa29d13d11ef2ee325bee7e8a2b26d8d577741fb6f6368cac5",
+      "alphaLevels": 23,
+      "partialPixels": 2185,
+      "foregroundPixels": 95311,
       "bbox": [
-        43,
-        44,
-        405,
-        404
+        48,
+        47,
+        400,
+        400
       ],
       "margins": [
-        43,
-        44,
-        43,
-        44
+        48,
+        47,
+        48,
+        48
       ]
     },
     {
@@ -1999,21 +1999,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-phoenix-soar-9-60gf/front.webp",
-      "outputSha256": "cce9ca5d2ca88accc6c0f804a2aff746a57f2d665f369900724a0acc73933716",
-      "alphaLevels": 254,
-      "partialPixels": 4643,
-      "foregroundPixels": 93320,
+      "outputSha256": "672d4f9ef5665abb8f6cea2531fde69e9e9f23c49d9c8e10cea045162aeaaabb",
+      "alphaLevels": 29,
+      "partialPixels": 2404,
+      "foregroundPixels": 91914,
       "bbox": [
         46,
         44,
         402,
-        404
+        403
       ],
       "margins": [
         46,
         44,
         46,
-        44
+        45
       ]
     },
     {
@@ -2607,21 +2607,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-storm-pegasis-3-70ra/front.webp",
-      "outputSha256": "2253d9de528784f0df6feb59da01f0642a1271b37e5bc1cc9c903a91a092c995",
-      "alphaLevels": 255,
-      "partialPixels": 8488,
-      "foregroundPixels": 104522,
+      "outputSha256": "569e55718ce5baadfec5da5ede557d46ee1e8b090e90ca27fa0e0ee37fe65030",
+      "alphaLevels": 38,
+      "partialPixels": 2744,
+      "foregroundPixels": 94615,
       "bbox": [
         45,
-        30,
+        48,
         403,
-        416
+        400
       ],
       "margins": [
         45,
-        30,
+        48,
         45,
-        32
+        48
       ]
     },
     {
@@ -3101,21 +3101,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-victory-valkyrie-2-60ra/front.webp",
-      "outputSha256": "79bc8533d5480f5e53407b35e721020133af158b8adbf618e76bd7a2724de1e3",
-      "alphaLevels": 256,
-      "partialPixels": 6774,
-      "foregroundPixels": 99968,
+      "outputSha256": "36a23dd79df6c3d27c7c29e9d4cea1264ac4cf4d35646057399603e25df1089b",
+      "alphaLevels": 36,
+      "partialPixels": 2555,
+      "foregroundPixels": 91453,
       "bbox": [
-        43,
-        37,
-        404,
-        410
+        46,
+        51,
+        401,
+        397
       ],
       "margins": [
-        43,
-        37,
-        44,
-        38
+        46,
+        51,
+        47,
+        51
       ]
     },
     {
@@ -7205,21 +7205,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-39-01-shelter-drake-7-80gp/front.webp",
-      "outputSha256": "cc2ef3c914a1c7b30218b00d306ddb0d9a6ecdca96637e06ccacc04837cf9d36",
-      "alphaLevels": 256,
-      "partialPixels": 9532,
-      "foregroundPixels": 119653,
+      "outputSha256": "ff353401f4168cc0feee49c056a4a17d05ce836e45355f0a5d1bb1ae91610dc3",
+      "alphaLevels": 23,
+      "partialPixels": 2403,
+      "foregroundPixels": 107790,
       "bbox": [
-        37,
-        18,
-        411,
-        429
+        46,
+        28,
+        402,
+        419
       ],
       "margins": [
-        37,
-        18,
-        37,
-        19
+        46,
+        28,
+        46,
+        29
       ]
     },
     {
@@ -7239,6 +7239,25 @@
         67,
         47,
         67
+      ]
+    },
+    {
+      "image": "assets/images/x/beys/bey-x-bx-39-02-shelter-drake-5-70o/front.webp",
+      "outputSha256": "46d878ce6c41857b7ab628e510d81fa0dbd2d193208bc7358a53fe6750faac5b",
+      "alphaLevels": 20,
+      "partialPixels": 2368,
+      "foregroundPixels": 107935,
+      "bbox": [
+        46,
+        28,
+        402,
+        419
+      ],
+      "margins": [
+        46,
+        28,
+        46,
+        29
       ]
     },
     {
@@ -7296,6 +7315,25 @@
         61,
         46,
         62
+      ]
+    },
+    {
+      "image": "assets/images/x/beys/bey-x-bx-39-03-shelter-drake-3-60d/front.webp",
+      "outputSha256": "5b28df943f2e08c8bfd4e0fb90d07ad096e7e44e9d621c1d54124e3205985241",
+      "alphaLevels": 24,
+      "partialPixels": 2374,
+      "foregroundPixels": 107930,
+      "bbox": [
+        46,
+        28,
+        402,
+        419
+      ],
+      "margins": [
+        46,
+        28,
+        46,
+        29
       ]
     },
     {
@@ -9560,6 +9598,25 @@
       ]
     },
     {
+      "image": "assets/images/x/beys/bey-x-cx-01-dran-brave-s-6-60v/front.webp",
+      "outputSha256": "09897fee37a56f83b370163970fe94edb2bbddba70608eb89c2af46a10a07b8c",
+      "alphaLevels": 28,
+      "partialPixels": 2532,
+      "foregroundPixels": 97519,
+      "bbox": [
+        46,
+        42,
+        402,
+        406
+      ],
+      "margins": [
+        46,
+        42,
+        46,
+        42
+      ]
+    },
+    {
       "image": "assets/images/x/beys/bey-x-cx-01-dran-brave-s-6-60v/main.webp",
       "outputSha256": "80b7c975ea1100fa65d006a9f47bd62965b0aae1400b5a9fd261ee04a45dfb49",
       "alphaLevels": 256,
@@ -9576,6 +9633,25 @@
         39,
         44,
         40
+      ]
+    },
+    {
+      "image": "assets/images/x/beys/bey-x-cx-02-wizard-arc-r-4-55lo/front.webp",
+      "outputSha256": "6795e6de5a495a933aa0e6e45be29f67e68d7e9eda4daf539d7c833a7d033727",
+      "alphaLevels": 18,
+      "partialPixels": 2173,
+      "foregroundPixels": 93509,
+      "bbox": [
+        46,
+        53,
+        402,
+        394
+      ],
+      "margins": [
+        46,
+        53,
+        46,
+        54
       ]
     },
     {
@@ -9598,6 +9674,25 @@
       ]
     },
     {
+      "image": "assets/images/x/beys/bey-x-cx-03-perseus-dark-b-6-80w/front.webp",
+      "outputSha256": "03b1be31a7d90d7c2477f12b812d498c30a1ca9c1edf4e22ddfd79679db9d182",
+      "alphaLevels": 17,
+      "partialPixels": 2170,
+      "foregroundPixels": 94625,
+      "bbox": [
+        46,
+        54,
+        402,
+        394
+      ],
+      "margins": [
+        46,
+        54,
+        46,
+        54
+      ]
+    },
+    {
       "image": "assets/images/x/beys/bey-x-cx-03-perseus-dark-b-6-80w/main.webp",
       "outputSha256": "0b2f82d57990da24e2132ec3680537c6a8952d903aa937ce89b6bba54a67a757",
       "alphaLevels": 256,
@@ -9613,6 +9708,25 @@
         45,
         51,
         46,
+        52
+      ]
+    },
+    {
+      "image": "assets/images/x/beys/bey-x-cx-04-dran-brave-s-6-60v/front.webp",
+      "outputSha256": "b89279af4df2afd83ddcf7d43f4565c554d9af561069f1a292cf3a13428e7a1a",
+      "alphaLevels": 25,
+      "partialPixels": 2217,
+      "foregroundPixels": 87574,
+      "bbox": [
+        55,
+        52,
+        393,
+        396
+      ],
+      "margins": [
+        55,
+        52,
+        55,
         52
       ]
     },
@@ -9728,6 +9842,25 @@
         63,
         44,
         63
+      ]
+    },
+    {
+      "image": "assets/images/x/beys/bey-x-cx-04-perseus-dark-b-6-80w/front.webp",
+      "outputSha256": "1999fef64027ac6ac81a89c27f528436e0dcf664b45ddafd6d5e70b3ef5fd9c4",
+      "alphaLevels": 17,
+      "partialPixels": 2050,
+      "foregroundPixels": 84522,
+      "bbox": [
+        55,
+        63,
+        392,
+        384
+      ],
+      "margins": [
+        55,
+        63,
+        56,
+        64
       ]
     },
     {
@@ -12772,21 +12905,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-ux-00-hells-hammer-3-70h/front.webp",
-      "outputSha256": "f928b484a32986fe59b7a9067a452a948c8121b62ab36eeca321fea4a53ed4a7",
-      "alphaLevels": 256,
-      "partialPixels": 4938,
-      "foregroundPixels": 96657,
+      "outputSha256": "81233c2f1eb102d478792c76affafc21cd835a946d8f4571eb8ae33f8a757dd2",
+      "alphaLevels": 24,
+      "partialPixels": 2185,
+      "foregroundPixels": 93302,
       "bbox": [
-        45,
-        43,
-        402,
-        405
+        47,
+        48,
+        400,
+        399
       ],
       "margins": [
-        45,
-        43,
-        46,
-        43
+        47,
+        48,
+        48,
+        49
       ]
     },
     {
@@ -14007,21 +14140,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-ux-11-impact-drake-9-60lr/front.webp",
-      "outputSha256": "dc0c03524ccfe1294bcb8aaf68b4a90763aa24076cba32ca37aaf09fcc8a4169",
-      "alphaLevels": 256,
-      "partialPixels": 9650,
-      "foregroundPixels": 94145,
+      "outputSha256": "e18f86e6e16922f6fcb3b93b1aaae15ab82072107221f71d7bae581f33a2049b",
+      "alphaLevels": 24,
+      "partialPixels": 2294,
+      "foregroundPixels": 88461,
       "bbox": [
-        43,
-        42,
-        405,
-        404
+        47,
+        47,
+        401,
+        401
       ],
       "margins": [
-        43,
-        42,
-        43,
-        44
+        47,
+        47,
+        47,
+        47
       ]
     },
     {
@@ -14064,21 +14197,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-ux-12-01-ghost-circle-0-80gb/front.webp",
-      "outputSha256": "98ef4ad2af52d77825a089f821621802ecda7b51d1759223e85ee0c9784a609a",
-      "alphaLevels": 256,
-      "partialPixels": 6649,
-      "foregroundPixels": 102060,
+      "outputSha256": "3ebd990866e7bbec2072e58c207f160a58f552a35e5c0ae28b15d14f06387f9b",
+      "alphaLevels": 16,
+      "partialPixels": 2166,
+      "foregroundPixels": 97508,
       "bbox": [
-        45,
-        42,
-        403,
-        406
+        47,
+        48,
+        401,
+        400
       ],
       "margins": [
-        45,
-        42,
-        45,
-        42
+        47,
+        48,
+        47,
+        48
       ]
     },
     {
@@ -14406,21 +14539,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-ux-13-golem-rock-1-60un/front.webp",
-      "outputSha256": "62a014810ae88cb71c456c59107c14206894554a2110387635ba828decd38189",
-      "alphaLevels": 255,
-      "partialPixels": 6356,
-      "foregroundPixels": 96250,
+      "outputSha256": "8abfc69c86387e8d1b5a56a4b27bef1ef9e15bd6959820a6f8da524f367595ce",
+      "alphaLevels": 22,
+      "partialPixels": 2156,
+      "foregroundPixels": 93971,
       "bbox": [
-        44,
         46,
-        403,
-        400
+        53,
+        402,
+        395
       ],
       "margins": [
-        44,
         46,
-        45,
-        48
+        53,
+        46,
+        53
       ]
     },
     {

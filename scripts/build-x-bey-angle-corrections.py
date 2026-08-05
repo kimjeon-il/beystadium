@@ -79,10 +79,28 @@ SUPPLIED_FRONT_IDS = {
     "BEY-X-UX-08-SILVER-WOLF-3-80FB",
     "BEY-X-UX-09-WARRIOR-SABER-2-70L",
     "BEY-X-UX-10-KNIGHT-MAIL-3-85BS",
+    "BEY-X-BX-00-DRAGOON-STORM-4-60RA",
+    "BEY-X-BX-00-DRAN-SWORD-3-60F",
+    "BEY-X-BX-00-MAMMOTH-TUSK-2-80E",
+    "BEY-X-BX-00-PHOENIX-SOAR-9-60GF",
+    "BEY-X-BX-00-STORM-PEGASIS-3-70RA",
+    "BEY-X-BX-00-VICTORY-VALKYRIE-2-60RA",
+    "BEY-X-BX-39-01-SHELTER-DRAKE-7-80GP",
+    "BEY-X-BX-39-02-SHELTER-DRAKE-5-70O",
+    "BEY-X-BX-39-03-SHELTER-DRAKE-3-60D",
+    "BEY-X-CX-01-DRAN-BRAVE-S-6-60V",
+    "BEY-X-CX-02-WIZARD-ARC-R-4-55LO",
+    "BEY-X-CX-03-PERSEUS-DARK-B-6-80W",
+    "BEY-X-CX-04-DRAN-BRAVE-S-6-60V",
+    "BEY-X-CX-04-PERSEUS-DARK-B-6-80W",
+    "BEY-X-UX-00-HELLS-HAMMER-3-70H",
+    "BEY-X-UX-11-IMPACT-DRAKE-9-60LR",
+    "BEY-X-UX-12-01-GHOST-CIRCLE-0-80GB",
+    "BEY-X-UX-13-GOLEM-ROCK-1-60UN",
     "BEY-X-UX-19-BULLET-GRIFFON-H",
     "BEY-X-UX-20-GLORY-VALKYRIE-LF",
 }
-CONFIG_VERSION = "20260806-x-bey-supplied-front-images-bx38-bxg31"
+CONFIG_VERSION = "20260806-x-bey-supplied-front-images-bx39-cx04"
 
 
 def parse_args() -> argparse.Namespace:
@@ -189,8 +207,8 @@ def initialize_config(audit_path: Path) -> dict:
             "method": METHOD,
             "scaleY": SCALE_Y,
         })
-    if len(entries) != 49:
-        raise ValueError(f"expected 49 angle corrections, found {len(entries)}")
+    if len(entries) != 38:
+        raise ValueError(f"expected 38 angle corrections, found {len(entries)}")
     return {
         "version": CONFIG_VERSION,
         "method": METHOD,

@@ -1,5 +1,5 @@
 {
-  "version": "20260806-x-bey-supplied-front-images-bx38-bxg31",
+  "version": "20260806-x-bey-supplied-front-images-bx39-cx04",
   "sourceRoot": "",
   "policy": [
     "official-angle-corrected",
@@ -1195,6 +1195,222 @@
         542
       ],
       "outputSha256": "35176408c7aaa160704dc83043fadebeea69ba9955455cdbde970420b9ee8f3a"
+    },
+    {
+      "id": "BEY-X-BX-00-DRAGOON-STORM-4-60RA",
+      "image": "assets/images/x/beys/bey-x-bx-00-dragoon-storm-4-60ra/front.webp",
+      "sourceKind": "official-assembled-front",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG00_01@1.png",
+      "sourceSha256": "296cc54364a78d1f8a709a4a847dde52fb968832ce673484db3ace54c806baf7",
+      "outputSha256": "0f9a1e5fb471f44f96d83f6dc7ce6e5bb52f676596b6a84858fb01f4992fc438",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true
+    },
+    {
+      "id": "BEY-X-BX-00-DRAN-SWORD-3-60F",
+      "image": "assets/images/x/beys/bey-x-bx-00-dran-sword-3-60f/front.webp",
+      "sourceKind": "official-assembled-front",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG00_07@1.png",
+      "sourceSha256": "883969dfd3773c5197ca810b982616d98b5e4bfc516dac6cf2650ad5c0894218",
+      "outputSha256": "462872791f44bd73e18f7286460a98c990b52306e89b225c46c787953ec597c3",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true
+    },
+    {
+      "id": "BEY-X-BX-00-MAMMOTH-TUSK-2-80E",
+      "image": "assets/images/x/beys/bey-x-bx-00-mammoth-tusk-2-80e/front.webp",
+      "sourceKind": "official-assembled-front",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG32_01@1.png",
+      "sourceSha256": "29de3c39c56bc2a985b8dbb8dd5f4527cdd23acefa52ccd7f318fa8f88805cf3",
+      "outputSha256": "502eee20566b7efa29d13d11ef2ee325bee7e8a2b26d8d577741fb6f6368cac5",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true
+    },
+    {
+      "id": "BEY-X-BX-00-PHOENIX-SOAR-9-60GF",
+      "image": "assets/images/x/beys/bey-x-bx-00-phoenix-soar-9-60gf/front.webp",
+      "sourceKind": "official-assembled-front",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG35_01@1.png",
+      "sourceSha256": "14d7dd7c9889e7a8c79501a8ed0cb14ffee2e60a4c09d95391f322d2c77a07fe",
+      "outputSha256": "672d4f9ef5665abb8f6cea2531fde69e9e9f23c49d9c8e10cea045162aeaaabb",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true
+    },
+    {
+      "id": "BEY-X-BX-00-STORM-PEGASIS-3-70RA",
+      "image": "assets/images/x/beys/bey-x-bx-00-storm-pegasis-3-70ra/front.webp",
+      "sourceKind": "official-assembled-front",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG00_03@1.png",
+      "sourceSha256": "eab3be32fb4cc62f6158840cfea16720e97e336fcb3acd55ce031a2e42883c9c",
+      "outputSha256": "569e55718ce5baadfec5da5ede557d46ee1e8b090e90ca27fa0e0ee37fe65030",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true
+    },
+    {
+      "id": "BEY-X-BX-00-VICTORY-VALKYRIE-2-60RA",
+      "image": "assets/images/x/beys/bey-x-bx-00-victory-valkyrie-2-60ra/front.webp",
+      "sourceKind": "official-assembled-front",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG00_05@1.png",
+      "sourceSha256": "21a86b0a5ce145bc7649193f8ccc89629199639bfa30982628fa8418fcec72b6",
+      "outputSha256": "36a23dd79df6c3d27c7c29e9d4cea1264ac4cf4d35646057399603e25df1089b",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true
+    },
+    {
+      "id": "BEY-X-BX-39-01-SHELTER-DRAKE-7-80GP",
+      "image": "assets/images/x/beys/bey-x-bx-39-01-shelter-drake-7-80gp/front.webp",
+      "sourceKind": "official-assembled-front",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX39_02@1.png",
+      "sourceSha256": "79d884b52546da1eeb7fdf45e46283602f3e9ae3df18aeededf712ce3851238d",
+      "outputSha256": "ff353401f4168cc0feee49c056a4a17d05ce836e45355f0a5d1bb1ae91610dc3",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true
+    },
+    {
+      "id": "BEY-X-BX-39-02-SHELTER-DRAKE-5-70O",
+      "image": "assets/images/x/beys/bey-x-bx-39-02-shelter-drake-5-70o/front.webp",
+      "sourceKind": "official-assembled-front",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX39_03@1.png",
+      "sourceSha256": "9c146d9309cf674697d06a74e72ab640b1a62ede999164d40b0feef711e247a9",
+      "outputSha256": "46d878ce6c41857b7ab628e510d81fa0dbd2d193208bc7358a53fe6750faac5b",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true
+    },
+    {
+      "id": "BEY-X-BX-39-03-SHELTER-DRAKE-3-60D",
+      "image": "assets/images/x/beys/bey-x-bx-39-03-shelter-drake-3-60d/front.webp",
+      "sourceKind": "official-assembled-front",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX39_04@1.png",
+      "sourceSha256": "3797571b7b287d6708e17fa300ac194ba25e47c4ba462326439dd7b2abbb3476",
+      "outputSha256": "5b28df943f2e08c8bfd4e0fb90d07ad096e7e44e9d621c1d54124e3205985241",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true
+    },
+    {
+      "id": "BEY-X-CX-01-DRAN-BRAVE-S-6-60V",
+      "image": "assets/images/x/beys/bey-x-cx-01-dran-brave-s-6-60v/front.webp",
+      "sourceKind": "official-assembled-front",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/CX01_01@1.png",
+      "sourceSha256": "4f30ab3fd9b2d43bddfdb889b10770126c990d0926de4325fcc5fd1e993d5a4d",
+      "outputSha256": "09897fee37a56f83b370163970fe94edb2bbddba70608eb89c2af46a10a07b8c",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true
+    },
+    {
+      "id": "BEY-X-CX-02-WIZARD-ARC-R-4-55LO",
+      "image": "assets/images/x/beys/bey-x-cx-02-wizard-arc-r-4-55lo/front.webp",
+      "sourceKind": "official-assembled-front",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/CX02_01@1.png",
+      "sourceSha256": "abf3e07cfc6ac02b893b80def1c8790e2ced30ba23a6a4be9517ee8305b898c8",
+      "outputSha256": "6795e6de5a495a933aa0e6e45be29f67e68d7e9eda4daf539d7c833a7d033727",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true
+    },
+    {
+      "id": "BEY-X-CX-03-PERSEUS-DARK-B-6-80W",
+      "image": "assets/images/x/beys/bey-x-cx-03-perseus-dark-b-6-80w/front.webp",
+      "sourceKind": "official-assembled-front",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/CX03_01@1.png",
+      "sourceSha256": "6c5c9f1fc0c3601529b511649fcc888fc33c3ca1ba4f88977b9ad7b63fdd015e",
+      "outputSha256": "03b1be31a7d90d7c2477f12b812d498c30a1ca9c1edf4e22ddfd79679db9d182",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true
+    },
+    {
+      "id": "BEY-X-CX-04-DRAN-BRAVE-S-6-60V",
+      "image": "assets/images/x/beys/bey-x-cx-04-dran-brave-s-6-60v/front.webp",
+      "sourceKind": "official-assembled-front",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/CX04_01@1.png",
+      "sourceSha256": "1a76cda10cf047ef1fa62c63ac8ed452193c7813f5da29751ed978abfcf4e835",
+      "outputSha256": "b89279af4df2afd83ddcf7d43f4565c554d9af561069f1a292cf3a13428e7a1a",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true
+    },
+    {
+      "id": "BEY-X-CX-04-PERSEUS-DARK-B-6-80W",
+      "image": "assets/images/x/beys/bey-x-cx-04-perseus-dark-b-6-80w/front.webp",
+      "sourceKind": "official-assembled-front",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/CX04_02@1.png",
+      "sourceSha256": "f6728b3ee85ea99e5ee1597eca05ff976ccd990c9098c5a5c52356d097e8ea82",
+      "outputSha256": "1999fef64027ac6ac81a89c27f528436e0dcf664b45ddafd6d5e70b3ef5fd9c4",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true
+    },
+    {
+      "id": "BEY-X-UX-00-HELLS-HAMMER-3-70H",
+      "image": "assets/images/x/beys/bey-x-ux-00-hells-hammer-3-70h/front.webp",
+      "sourceKind": "official-assembled-front",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG19_02@1.png",
+      "sourceSha256": "f5d72d3e24018c79f9b8e93a7b0bd712447e78a0ab4b17e76b55b0fe6c0f66bf",
+      "outputSha256": "81233c2f1eb102d478792c76affafc21cd835a946d8f4571eb8ae33f8a757dd2",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true
+    },
+    {
+      "id": "BEY-X-UX-11-IMPACT-DRAKE-9-60LR",
+      "image": "assets/images/x/beys/bey-x-ux-11-impact-drake-9-60lr/front.webp",
+      "sourceKind": "official-assembled-front",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX11_01@1.png",
+      "sourceSha256": "2e7f1d54e13d1f8c9d979f73c24bbd20be6246dbfc26b900a397cabd9ddb2ec9",
+      "outputSha256": "e18f86e6e16922f6fcb3b93b1aaae15ab82072107221f71d7bae581f33a2049b",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true
+    },
+    {
+      "id": "BEY-X-UX-12-01-GHOST-CIRCLE-0-80GB",
+      "image": "assets/images/x/beys/bey-x-ux-12-01-ghost-circle-0-80gb/front.webp",
+      "sourceKind": "official-assembled-front",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX12_02@1.png",
+      "sourceSha256": "89da29cd3241509c5db43292506b4d11d7747de440418bae56afd3187747ccc4",
+      "outputSha256": "3ebd990866e7bbec2072e58c207f160a58f552a35e5c0ae28b15d14f06387f9b",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true
+    },
+    {
+      "id": "BEY-X-UX-13-GOLEM-ROCK-1-60UN",
+      "image": "assets/images/x/beys/bey-x-ux-13-golem-rock-1-60un/front.webp",
+      "sourceKind": "official-assembled-front",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX13_01@1.png",
+      "sourceSha256": "259ac937e826666811c8bf8d0233ad1a0de8e3614d61a5f610506a60b950df9b",
+      "outputSha256": "8abfc69c86387e8d1b5a56a4b27bef1ef9e15bd6959820a6f8da524f367595ce",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true
     }
   ],
   "verifiedMain": [
@@ -1359,16 +1575,6 @@
       "sourceRef": "x-images"
     },
     {
-      "id": "BEY-X-BX-39-02-SHELTER-DRAKE-5-70O",
-      "view": "front-top",
-      "sourceRef": "x-images"
-    },
-    {
-      "id": "BEY-X-BX-39-03-SHELTER-DRAKE-3-60D",
-      "view": "front-top",
-      "sourceRef": "x-images"
-    },
-    {
       "id": "BEY-X-UX-16-02-CLOCK-MIRAGE-9-65B",
       "view": "front-top",
       "sourceRef": "x-images"
@@ -1479,21 +1685,6 @@
       "sourceRef": "x-images"
     },
     {
-      "id": "BEY-X-CX-01-DRAN-BRAVE-S-6-60V",
-      "view": "front-top",
-      "sourceRef": "x-images"
-    },
-    {
-      "id": "BEY-X-CX-02-WIZARD-ARC-R-4-55LO",
-      "view": "front-top",
-      "sourceRef": "x-images"
-    },
-    {
-      "id": "BEY-X-CX-03-PERSEUS-DARK-B-6-80W",
-      "view": "front-top",
-      "sourceRef": "x-images"
-    },
-    {
       "id": "BEY-X-CX-07-PEGASUS-BLAST-A-TR",
       "view": "front-top",
       "sourceRef": "x-images"
@@ -1560,16 +1751,6 @@
     },
     {
       "id": "BEY-X-CX-00-TIGA-RAGE-FT-3-60T",
-      "view": "front-top",
-      "sourceRef": "x-images"
-    },
-    {
-      "id": "BEY-X-CX-04-DRAN-BRAVE-S-6-60V",
-      "view": "front-top",
-      "sourceRef": "x-images"
-    },
-    {
-      "id": "BEY-X-CX-04-PERSEUS-DARK-B-6-80W",
       "view": "front-top",
       "sourceRef": "x-images"
     },
