@@ -1,5 +1,5 @@
 {
-  "version": "20260806-x-bx31-image-swap",
+  "version": "20260806-x-bx20-front-image-correction",
   "canvasSize": 448,
   "files": [
     {
@@ -4849,40 +4849,40 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-20-dran-dagger-4-60r/front.webp",
-      "outputSha256": "4ee000bfef8d9e3211224e93aa904b1067cae3a7da2a2d0c26fba70e768b2526",
-      "alphaLevels": 256,
-      "partialPixels": 8414,
-      "foregroundPixels": 97339,
+      "outputSha256": "0ba88a298bb8dc5dee95b5fa228ccddb094051951a7e62f134e613cc3c505f4a",
+      "alphaLevels": 29,
+      "partialPixels": 2569,
+      "foregroundPixels": 87306,
       "bbox": [
-        48,
-        33,
-        400,
-        415
+        54,
+        45,
+        394,
+        402
       ],
       "margins": [
-        48,
-        33,
-        48,
-        33
+        54,
+        45,
+        54,
+        46
       ]
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-20-dran-dagger-4-60r/main.webp",
-      "outputSha256": "09ac0becb5057e82c38bb6762f7db5d46ba9156cc0d8a8e4b33df821a06ebc93",
-      "alphaLevels": 256,
-      "partialPixels": 6976,
-      "foregroundPixels": 77269,
+      "outputSha256": "0ba88a298bb8dc5dee95b5fa228ccddb094051951a7e62f134e613cc3c505f4a",
+      "alphaLevels": 29,
+      "partialPixels": 2569,
+      "foregroundPixels": 87306,
       "bbox": [
-        31,
-        73,
-        416,
-        375
+        54,
+        45,
+        394,
+        402
       ],
       "margins": [
-        31,
-        73,
-        32,
-        73
+        54,
+        45,
+        54,
+        46
       ]
     },
     {
@@ -4906,40 +4906,40 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-20-knight-shield-5-80t/front.webp",
-      "outputSha256": "0cad019f1eb73b9f2b65c638dbcec525c5ae3ebd68e0f9ea80fe81157125b049",
-      "alphaLevels": 256,
-      "partialPixels": 7044,
-      "foregroundPixels": 97688,
+      "outputSha256": "891e87ceedb6e1738af3cedc8b4dee467b8fca14b2d1ecec3ea617cc1a91c6ae",
+      "alphaLevels": 38,
+      "partialPixels": 2656,
+      "foregroundPixels": 96118,
       "bbox": [
-        44,
-        32,
-        403,
-        415
+        48,
+        47,
+        399,
+        400
       ],
       "margins": [
-        44,
-        32,
-        45,
-        33
+        48,
+        47,
+        49,
+        48
       ]
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-20-knight-shield-5-80t/main.webp",
-      "outputSha256": "f4f0eb44aebf950a58fdf5a9047bde1b44caee1447ca459cfe95e9d32dcb5287",
-      "alphaLevels": 256,
-      "partialPixels": 7558,
-      "foregroundPixels": 92537,
+      "outputSha256": "891e87ceedb6e1738af3cedc8b4dee467b8fca14b2d1ecec3ea617cc1a91c6ae",
+      "alphaLevels": 38,
+      "partialPixels": 2656,
+      "foregroundPixels": 96118,
       "bbox": [
+        48,
         47,
-        42,
-        401,
-        406
+        399,
+        400
       ],
       "margins": [
+        48,
         47,
-        42,
-        47,
-        42
+        49,
+        48
       ]
     },
     {
@@ -5001,39 +5001,39 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-20-shark-edge-3-80f/front.webp",
-      "outputSha256": "aa460ce88e1201c816deeedf5428c0211fb02e41d8d17a5a07a9041a9494f9c9",
-      "alphaLevels": 256,
-      "partialPixels": 7746,
-      "foregroundPixels": 98041,
+      "outputSha256": "de531e61051548d8f035228dd57f98f655cc336c21aee297f51de1c367631201",
+      "alphaLevels": 23,
+      "partialPixels": 2212,
+      "foregroundPixels": 88764,
       "bbox": [
-        49,
-        41,
-        399,
-        405
+        50,
+        44,
+        397,
+        404
       ],
       "margins": [
-        49,
-        41,
-        49,
-        43
+        50,
+        44,
+        51,
+        44
       ]
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-20-shark-edge-3-80f/main.webp",
-      "outputSha256": "4eb42b53993143485c83a2b34b3eb2b781a629df634c7380a3d3a3924403f383",
-      "alphaLevels": 256,
-      "partialPixels": 9089,
-      "foregroundPixels": 100512,
+      "outputSha256": "de531e61051548d8f035228dd57f98f655cc336c21aee297f51de1c367631201",
+      "alphaLevels": 23,
+      "partialPixels": 2212,
+      "foregroundPixels": 88764,
       "bbox": [
-        45,
+        50,
         44,
-        403,
+        397,
         404
       ],
       "margins": [
-        45,
+        50,
         44,
-        45,
+        51,
         44
       ]
     },

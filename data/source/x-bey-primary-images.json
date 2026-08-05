@@ -1,5 +1,5 @@
 {
-  "version": "20260806-x-bey-supplied-front-images-bx39-cx04",
+  "version": "20260806-x-bey-supplied-front-images-bx20-correction",
   "sourceRoot": "",
   "policy": [
     "official-angle-corrected",
@@ -488,6 +488,48 @@
         523
       ],
       "outputSha256": "6dbb44621979446c13dfe98cc331481a094357be7c8e2f3da53c936a3b196953"
+    },
+    {
+      "id": "BEY-X-BX-20-DRAN-DAGGER-4-60R",
+      "image": "assets/images/x/beys/bey-x-bx-20-dran-dagger-4-60r/front.webp",
+      "sourceKind": "official-assembled-front",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX20_b_01@1.png",
+      "sourceSha256": "831b58ddb219011cff57de4d70eee102e5c6d6bbd315990af54e54df16c47078",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true,
+      "sourceClearPoints": [[0, 0]],
+      "sourceForegroundBox": [119, 176, 459, 533],
+      "outputSha256": "0ba88a298bb8dc5dee95b5fa228ccddb094051951a7e62f134e613cc3c505f4a"
+    },
+    {
+      "id": "BEY-X-BX-20-KNIGHT-SHIELD-5-80T",
+      "image": "assets/images/x/beys/bey-x-bx-20-knight-shield-5-80t/front.webp",
+      "sourceKind": "official-assembled-front",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX20_p_01@1.png",
+      "sourceSha256": "8df350c13e115774e79e00d80e1f574ff485d2495833c7e7061a2145d0195e00",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true,
+      "sourceClearPoints": [[0, 0]],
+      "sourceForegroundBox": [117, 181, 468, 534],
+      "outputSha256": "891e87ceedb6e1738af3cedc8b4dee467b8fca14b2d1ecec3ea617cc1a91c6ae"
+    },
+    {
+      "id": "BEY-X-BX-20-SHARK-EDGE-3-80F",
+      "image": "assets/images/x/beys/bey-x-bx-20-shark-edge-3-80f/front.webp",
+      "sourceKind": "official-assembled-front",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX20_g_01@1.png",
+      "sourceSha256": "46015ec92c41462254e62bde982222726b67afa2c5ae150a208351f88ffed6f2",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true,
+      "sourceClearPoints": [[0, 0]],
+      "sourceForegroundBox": [117, 174, 464, 534],
+      "outputSha256": "de531e61051548d8f035228dd57f98f655cc336c21aee297f51de1c367631201"
     },
     {
       "id": "BEY-X-BX-21-HELLS-CHAIN-5-60HT",

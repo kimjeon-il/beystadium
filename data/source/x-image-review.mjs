@@ -457,23 +457,23 @@ const xImageReview = [
   {
     "id": "BEY-X-BX-20-DRAN-DAGGER-4-60R",
     "image": "assets/images/x/beys/bey-x-bx-20-dran-dagger-4-60r/main.webp",
-    "sourcePath": "02_product_components/023_bx20/01_BX20_b@1.png",
-    "sourceSha256": "230ef16ccb6aec978618edd0e6f484f1156c190425558a0d0668536a292ecb8c",
-    "outputSha256": "09ac0becb5057e82c38bb6762f7db5d46ba9156cc0d8a8e4b33df821a06ebc93"
+    "sourcePath": "02_product_components/023_bx20/02_BX20_b_01@1.png",
+    "sourceSha256": "831b58ddb219011cff57de4d70eee102e5c6d6bbd315990af54e54df16c47078",
+    "outputSha256": "0ba88a298bb8dc5dee95b5fa228ccddb094051951a7e62f134e613cc3c505f4a"
   },
   {
     "id": "BEY-X-BX-20-KNIGHT-SHIELD-5-80T",
     "image": "assets/images/x/beys/bey-x-bx-20-knight-shield-5-80t/main.webp",
-    "sourcePath": "02_product_components/023_bx20/06_BX20_g_01@1.png",
-    "sourceSha256": "46015ec92c41462254e62bde982222726b67afa2c5ae150a208351f88ffed6f2",
-    "outputSha256": "f4f0eb44aebf950a58fdf5a9047bde1b44caee1447ca459cfe95e9d32dcb5287"
+    "sourcePath": "02_product_components/023_bx20/10_BX20_p_01@1.png",
+    "sourceSha256": "8df350c13e115774e79e00d80e1f574ff485d2495833c7e7061a2145d0195e00",
+    "outputSha256": "891e87ceedb6e1738af3cedc8b4dee467b8fca14b2d1ecec3ea617cc1a91c6ae"
   },
   {
     "id": "BEY-X-BX-20-SHARK-EDGE-3-80F",
     "image": "assets/images/x/beys/bey-x-bx-20-shark-edge-3-80f/main.webp",
-    "sourcePath": "02_product_components/023_bx20/10_BX20_p_01@1.png",
-    "sourceSha256": "8df350c13e115774e79e00d80e1f574ff485d2495833c7e7061a2145d0195e00",
-    "outputSha256": "4eb42b53993143485c83a2b34b3eb2b781a629df634c7380a3d3a3924403f383"
+    "sourcePath": "02_product_components/023_bx20/06_BX20_g_01@1.png",
+    "sourceSha256": "46015ec92c41462254e62bde982222726b67afa2c5ae150a208351f88ffed6f2",
+    "outputSha256": "de531e61051548d8f035228dd57f98f655cc336c21aee297f51de1c367631201"
   },
   {
     "id": "BEY-X-BX-21-HELLS-CHAIN-5-60HT",

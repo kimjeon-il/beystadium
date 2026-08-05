@@ -394,20 +394,20 @@ const xImageMappings = [
   {
     "id": "BEY-X-BX-20-DRAN-DAGGER-4-60R",
     "image": "assets/images/x/beys/bey-x-bx-20-dran-dagger-4-60r/main.webp",
-    "sourcePath": "02_product_components/023_bx20/01_BX20_b@1.png",
-    "sourceSha256": "230ef16ccb6aec978618edd0e6f484f1156c190425558a0d0668536a292ecb8c"
+    "sourcePath": "02_product_components/023_bx20/02_BX20_b_01@1.png",
+    "sourceSha256": "831b58ddb219011cff57de4d70eee102e5c6d6bbd315990af54e54df16c47078"
   },
   {
     "id": "BEY-X-BX-20-KNIGHT-SHIELD-5-80T",
     "image": "assets/images/x/beys/bey-x-bx-20-knight-shield-5-80t/main.webp",
-    "sourcePath": "02_product_components/023_bx20/06_BX20_g_01@1.png",
-    "sourceSha256": "46015ec92c41462254e62bde982222726b67afa2c5ae150a208351f88ffed6f2"
+    "sourcePath": "02_product_components/023_bx20/10_BX20_p_01@1.png",
+    "sourceSha256": "8df350c13e115774e79e00d80e1f574ff485d2495833c7e7061a2145d0195e00"
   },
   {
     "id": "BEY-X-BX-20-SHARK-EDGE-3-80F",
     "image": "assets/images/x/beys/bey-x-bx-20-shark-edge-3-80f/main.webp",
-    "sourcePath": "02_product_components/023_bx20/10_BX20_p_01@1.png",
-    "sourceSha256": "8df350c13e115774e79e00d80e1f574ff485d2495833c7e7061a2145d0195e00"
+    "sourcePath": "02_product_components/023_bx20/06_BX20_g_01@1.png",
+    "sourceSha256": "46015ec92c41462254e62bde982222726b67afa2c5ae150a208351f88ffed6f2"
   },
   {
     "id": "BEY-X-BX-21-HELLS-CHAIN-5-60HT",

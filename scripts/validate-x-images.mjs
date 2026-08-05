@@ -11,10 +11,13 @@ import { xCatalogImagePath } from "./x-image-paths.mjs";
 const REPORT_ARG = process.argv.find(argument => argument.startsWith("--report="));
 const REPORT_PATH = REPORT_ARG?.slice("--report=".length) || "";
 const ALPHA_REVIEW_PATH = path.resolve("data/source/x-image-alpha-review.json");
-const ALPHA_REVIEW_VERSION = "20260806-x-bx31-image-swap";
+const ALPHA_REVIEW_VERSION = "20260806-x-bx20-front-image-correction";
 const xItems = [...beyItems, ...partItems].filter(item => item.series === "x");
 const xIds = new Set(xItems.map(item => item.id));
 const expectedCorrectedSources = {
+  "BEY-X-BX-20-DRAN-DAGGER-4-60R": "02_product_components/023_bx20/02_BX20_b_01@1.png",
+  "BEY-X-BX-20-KNIGHT-SHIELD-5-80T": "02_product_components/023_bx20/10_BX20_p_01@1.png",
+  "BEY-X-BX-20-SHARK-EDGE-3-80F": "02_product_components/023_bx20/06_BX20_g_01@1.png",
   "BEY-X-BX-31-03-HELLS-CHAIN-9-80O": "02_product_components/041_bx31/04_BX31_04@1.png",
   "BEY-X-BX-31-04-DRAN-DAGGER-4-70P": "02_product_components/041_bx31/03_BX31_03@1.png",
   "BEY-X-BX-37-BEAR-SCRATCH-5-60F": "02_product_components/061_bx37/03_BX37_03@1.png",

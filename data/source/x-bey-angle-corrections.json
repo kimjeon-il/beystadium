@@ -1,5 +1,5 @@
 {
-  "version": "20260806-x-bey-supplied-front-images-bx39-cx04",
+  "version": "20260806-x-bey-supplied-front-images-bx20-correction",
   "method": "premultiplied-alpha-vertical-affine",
   "entries": [
     {
@@ -144,45 +144,6 @@
       "scaleY": 1.08,
       "pivotY": 223.0,
       "outputSha256": "9ff3910266cddd829fef544d3f64e3716dea04ab9b92bcc26fdf0b889a8ba9d7"
-    },
-    {
-      "id": "BEY-X-BX-20-DRAN-DAGGER-4-60R",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-dran-dagger.webp",
-      "image": "assets/images/x/beys/bey-x-bx-20-dran-dagger-4-60r/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX20_b_02@1.png",
-      "sourceSha256": "ed04bc3efe7178cb633f047ba3e384bce06e53846ad93db15ba290ae1d25eed2",
-      "sourceOutputSha256": "fe3bb6ae54c4a585d447852d0a22ba6d8bad3728ab7bdbafd23424b70af37ffe",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.5,
-      "outputSha256": "4ee000bfef8d9e3211224e93aa904b1067cae3a7da2a2d0c26fba70e768b2526"
-    },
-    {
-      "id": "BEY-X-BX-20-KNIGHT-SHIELD-5-80T",
-      "sourceImage": "assets/images/x/beys/bey-x-bx-20-knight-shield-5-80t/parts/part-x-blade-knight-shield.webp",
-      "image": "assets/images/x/beys/bey-x-bx-20-knight-shield-5-80t/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX20_g_02@1.png",
-      "sourceSha256": "f465b8eb66d33b392df593e260057fd3c7fdec6269b104c4fbb56fd5eab56369",
-      "sourceOutputSha256": "0f3fb3fa0e89f05395bd3c7dc37d0bb49b64576ff460d12f61b43fc957d295b1",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.0,
-      "outputSha256": "0cad019f1eb73b9f2b65c638dbcec525c5ae3ebd68e0f9ea80fe81157125b049"
-    },
-    {
-      "id": "BEY-X-BX-20-SHARK-EDGE-3-80F",
-      "sourceImage": "assets/images/x/beys/bey-x-bx-20-shark-edge-3-80f/parts/part-x-blade-shark-edge.webp",
-      "image": "assets/images/x/beys/bey-x-bx-20-shark-edge-3-80f/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX20_p_02@1.png",
-      "sourceSha256": "9b796bdfdc9d5a51c65b96b00b10f310ac221894de0b998814b3d9248ace0b45",
-      "sourceOutputSha256": "8d9c15861cac62f8c0cc6cf45468067991cd0a68fec3ed8cadc28ba3fd8c5f06",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.0,
-      "outputSha256": "aa460ce88e1201c816deeedf5428c0211fb02e41d8d17a5a07a9041a9494f9c9"
     },
     {
       "id": "BEY-X-UX-15-SHARK-SCALE-4-50UF",
