@@ -109,7 +109,7 @@ const xImageReview = [
     "image": "assets/images/x/beys/bey-x-bx-00-hells-chain-5-60ht/main.webp",
     "sourcePath": "02_product_components/042_bx00-hch/01_BXG08_01@1.png",
     "sourceSha256": "47ee3ad302529fccadd72be012598dea1b822ebe7e1a2389c4633de21c995200",
-    "outputSha256": "8864cb2ee3c6f65412beb4d947c96ea9f8f5208e6b723c71c363dc081eb4c269"
+    "outputSha256": "b12c07e0f399b98d662eed8dd9d2c77177712e5d145df57fc2b4460752e15f82"
   },
   {
     "id": "BEY-X-BX-00-HELLS-SCYTHE-4-60T",
@@ -130,7 +130,7 @@ const xImageReview = [
     "image": "assets/images/x/beys/bey-x-bx-00-leon-claw-5-60p/main.webp",
     "sourcePath": "02_product_components/031_bx00-lc/01_BXG05_01@1.png",
     "sourceSha256": "c748f374831977e37244762fc8cef603780e3a47ea789a16ed908ff5671ce02c",
-    "outputSha256": "969ab4c4a5247f3a63709b607f851697d44c0daf12c011496cfaa501a2ec431a"
+    "outputSha256": "59cb33d4e58f4234cf3031e6c8b7d2356f012534deada2f5803c1502528672de"
   },
   {
     "id": "BEY-X-BX-00-LUKE-SKYWALKER-4-80B",
@@ -207,7 +207,7 @@ const xImageReview = [
     "image": "assets/images/x/beys/bey-x-bx-00-shark-edge-5-60gf/main.webp",
     "sourcePath": "02_product_components/032_bx00-se/01_BXG06_01@1.png",
     "sourceSha256": "21cd3a6501da1f9418c442424ab1a3bf81b142ebe1b68ecb0af7491d0fbcf01f",
-    "outputSha256": "ffbd2be3c4cda5d2bb969813a55b312b0e24d579f969c373884f66019debe389"
+    "outputSha256": "0b1351cebca53565584f353ca6016535eb8fdeb6f413539afa561bb0c669adaa"
   },
   {
     "id": "BEY-X-BX-00-SPIDER-MAN-3-60F",
@@ -585,7 +585,7 @@ const xImageReview = [
     "image": "assets/images/x/beys/bey-x-bx-31-01-tyranno-beat-4-70q/main.webp",
     "sourcePath": "02_product_components/041_bx31/01_BX31_01@1.png",
     "sourceSha256": "7d20ed7c4fe22c061b19670620d9bd523a3e95b35f49d00e714f6e1b47f25a84",
-    "outputSha256": "f85f5f252e6d42bea2410516c4fddedc763d3bb6de0da0d41c2761dd1ede80ab"
+    "outputSha256": "99f1663122b0102750b3754b4af1d9a094cd438a6f22a23a565ace417fbf3e3f"
   },
   {
     "id": "BEY-X-BX-31-02-TYRANNO-BEAT-3-60S",
@@ -627,21 +627,21 @@ const xImageReview = [
     "image": "assets/images/x/beys/bey-x-bx-33-pearl-tiger-3-60u/main.webp",
     "sourcePath": "02_product_components/045_bx33/01_BX33_01@1.png",
     "sourceSha256": "20d79eafa547a2cae1145970e4a53684d43e395d65a9152fe4e4fcbfe2c319de",
-    "outputSha256": "0ee8d45363752625ced7ed66c388b424cd383f72e5204088fc10064ffb4b7268"
+    "outputSha256": "0742aa31c3d14269365399bdd9d0295bbd7ea75e08b9dbaf791e3beb3b55a0d9"
   },
   {
     "id": "BEY-X-BX-34-COBALT-DRAGOON-2-60C",
     "image": "assets/images/x/beys/bey-x-bx-34-cobalt-dragoon-2-60c/main.webp",
     "sourcePath": "02_product_components/047_bx34/01_BX34_01@1.png",
     "sourceSha256": "21ab6c3c9cdcc498c70a3a0bebcd19f4b4f0ba5cc10e751b137d084f4a6eedf4",
-    "outputSha256": "af6052e7e937d0b2abfbbe1edae23d9f1e72f8f5edae49fbe52d9faa495c3027"
+    "outputSha256": "4bbba69c03dcc3ef6f0201f96b832709d0fd00ffcb12b5c9d40a1deec9e1fa25"
   },
   {
     "id": "BEY-X-BX-35-01-BLACK-TURTLE-4-60D",
     "image": "assets/images/x/beys/bey-x-bx-35-01-black-turtle-4-60d/main.webp",
-    "sourcePath": "02_product_components/048_bx35/01_BX35_01@1.png",
-    "sourceSha256": "d20659766d53d15645b4c2c28456085677460a5ef4449019c77f1a2580c8fac3",
-    "outputSha256": "1f8a8ec03e6a670ae1858f474e42ac4783f9bf2f642a8d8497a8345b0e599700"
+    "sourcePath": "02_product_components/048_bx35/02_BX35_02@1.png",
+    "sourceSha256": "8a1ebcbeaaa79bca5746642cd394fecefeb062e9b67abb6ea96379d3b8b200d7",
+    "outputSha256": "f648725c1c65f9f9d2ac74f810f533acb9c9ae4bf554d9bb48a72c2b9a1daea1"
   },
   {
     "id": "BEY-X-BX-35-02-BLACK-TURTLE-9-80B",
@@ -1284,21 +1284,21 @@ const xImageReview = [
     "image": "assets/images/x/beys/bey-x-ux-01-dran-buster-1-60a/main.webp",
     "sourcePath": "02_product_components/036_ux01/01_UX01_01@1.png",
     "sourceSha256": "8facf3c1200b79d73f811c43594681028cf5031e4d6c1255f1add82091006792",
-    "outputSha256": "0860aa340c92bfad46078e98d535e5e38e8f1644385b72c7b0637924a579fdaf"
+    "outputSha256": "3bce6679ecc39a329d8acbf5ac274dd4aa1676e68976caeee2649e034cb10e76"
   },
   {
     "id": "BEY-X-UX-02-HELLS-HAMMER-3-70H",
     "image": "assets/images/x/beys/bey-x-ux-02-hells-hammer-3-70h/main.webp",
     "sourcePath": "02_product_components/037_ux02/01_UX02_01@1.png",
     "sourceSha256": "22d131b4034ede2d037d69aaccc323a7c91677e1b37af6788f2e47b81b281f8d",
-    "outputSha256": "3b3b03c31c21d9cd2e9a060620525806e9e32fff7d82c2b1e40835ed6bec392a"
+    "outputSha256": "a7ea931ecf23e268a5a1a4a18084226da71cc44ed423848a4d46e2688bd76c6e"
   },
   {
     "id": "BEY-X-UX-03-WIZARD-ROD-5-70DB",
     "image": "assets/images/x/beys/bey-x-ux-03-wizard-rod-5-70db/main.webp",
     "sourcePath": "02_product_components/038_ux03/01_UX03_01@1.png",
     "sourceSha256": "cad73cd518db90ead3fbd8d5d37c0d261bd78a235d35d9ed2c9648462519db6a",
-    "outputSha256": "6d97a93d0cb5bcf66a70524f0c9717754dcaefbed5580d0c14c4954ac50ce5db"
+    "outputSha256": "5313a2e234853c075a166b7b103680837250c8470082964716693b211e250032"
   },
   {
     "id": "BEY-X-UX-04-DRAN-BUSTER-1-60A",
@@ -1310,16 +1310,16 @@ const xImageReview = [
   {
     "id": "BEY-X-UX-04-WIZARD-ROD-5-70DB",
     "image": "assets/images/x/beys/bey-x-ux-04-wizard-rod-5-70db/main.webp",
-    "sourcePath": "02_product_components/039_ux04/02_UX04_02@1.png",
-    "sourceSha256": "dd4e9ea00d7b92cbce77d583171650d12f21956bab457dea38e925a2a5ef9237",
-    "outputSha256": "92b34447ff08bb019a55b4c631522df9dbe1cb0bdf4c6efa160982959af661a8"
+    "sourcePath": "02_product_components/039_ux04/04_UX04_04@1.png",
+    "sourceSha256": "3252eec1bcb692d6c9fb77d553d7ba4370547ef3af75787b0d18fb9cd1e6af2c",
+    "outputSha256": "4feefae7259dd6d5f9d91858d9fec86dbb66adaf31f76cb585ca6f8af7b6660d"
   },
   {
     "id": "BEY-X-UX-05-01-NINJA-SHADOW-1-80MN",
     "image": "assets/images/x/beys/bey-x-ux-05-01-ninja-shadow-1-80mn/main.webp",
-    "sourcePath": "02_product_components/043_ux05/01_UX05_01@1.png",
-    "sourceSha256": "9e1cfdfdf836a94c37f0d92edc4b6be0f1c5808c421c506b9a855bb45a96e1ed",
-    "outputSha256": "26790625524c986a903708d3aba44fd7d5e00920698c4b2d96dcd3470fa1f5c4"
+    "sourcePath": "02_product_components/043_ux05/02_UX05_02@1.png",
+    "sourceSha256": "608ecbf5748abd8f5aeef41769fe20315da84dd81f9e3d144a62a161a6acc29b",
+    "outputSha256": "9e46ac63454f5847a570e84ba183d4eee12111a7f925f49a45c1e9d478ce4cd1"
   },
   {
     "id": "BEY-X-UX-05-02-NINJA-SHADOW-9-60LF",

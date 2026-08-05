@@ -9546,14 +9546,14 @@ const xPartPreviewMappings = [
     "partId": "PART-X-BLADE-WIZARD-ROD",
     "image": "assets/images/x/beys/bey-x-ux-04-wizard-rod-5-70db/main.webp",
     "sourceKind": "official-assembled-bey-view",
-    "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX04_02@1.png",
-    "sourcePath": "02_product_components/039_ux04/02_UX04_02@1.png",
-    "sourceSha256": "dd4e9ea00d7b92cbce77d583171650d12f21956bab457dea38e925a2a5ef9237",
-    "shapeSource": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX04_02@1.png",
-    "shapeSourceSha256": "dd4e9ea00d7b92cbce77d583171650d12f21956bab457dea38e925a2a5ef9237",
-    "colorEvidence": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX04_02@1.png",
-    "colorEvidenceSha256": "dd4e9ea00d7b92cbce77d583171650d12f21956bab457dea38e925a2a5ef9237",
-    "outputSha256": "92b34447ff08bb019a55b4c631522df9dbe1cb0bdf4c6efa160982959af661a8"
+    "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX04_04@1.png",
+    "sourcePath": "02_product_components/039_ux04/04_UX04_04@1.png",
+    "sourceSha256": "3252eec1bcb692d6c9fb77d553d7ba4370547ef3af75787b0d18fb9cd1e6af2c",
+    "shapeSource": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX04_04@1.png",
+    "shapeSourceSha256": "3252eec1bcb692d6c9fb77d553d7ba4370547ef3af75787b0d18fb9cd1e6af2c",
+    "colorEvidence": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX04_04@1.png",
+    "colorEvidenceSha256": "3252eec1bcb692d6c9fb77d553d7ba4370547ef3af75787b0d18fb9cd1e6af2c",
+    "outputSha256": "4feefae7259dd6d5f9d91858d9fec86dbb66adaf31f76cb585ca6f8af7b6660d"
   },
   {
     "beyId": "BEY-X-UX-04-WIZARD-ROD-5-70DB",

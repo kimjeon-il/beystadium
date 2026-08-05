@@ -550,8 +550,8 @@ const xImageMappings = [
   {
     "id": "BEY-X-BX-35-01-BLACK-TURTLE-4-60D",
     "image": "assets/images/x/beys/bey-x-bx-35-01-black-turtle-4-60d/main.webp",
-    "sourcePath": "02_product_components/048_bx35/01_BX35_01@1.png",
-    "sourceSha256": "d20659766d53d15645b4c2c28456085677460a5ef4449019c77f1a2580c8fac3"
+    "sourcePath": "02_product_components/048_bx35/02_BX35_02@1.png",
+    "sourceSha256": "8a1ebcbeaaa79bca5746642cd394fecefeb062e9b67abb6ea96379d3b8b200d7"
   },
   {
     "id": "BEY-X-BX-35-02-BLACK-TURTLE-9-80B",
@@ -1126,14 +1126,14 @@ const xImageMappings = [
   {
     "id": "BEY-X-UX-04-WIZARD-ROD-5-70DB",
     "image": "assets/images/x/beys/bey-x-ux-04-wizard-rod-5-70db/main.webp",
-    "sourcePath": "02_product_components/039_ux04/02_UX04_02@1.png",
-    "sourceSha256": "dd4e9ea00d7b92cbce77d583171650d12f21956bab457dea38e925a2a5ef9237"
+    "sourcePath": "02_product_components/039_ux04/04_UX04_04@1.png",
+    "sourceSha256": "3252eec1bcb692d6c9fb77d553d7ba4370547ef3af75787b0d18fb9cd1e6af2c"
   },
   {
     "id": "BEY-X-UX-05-01-NINJA-SHADOW-1-80MN",
     "image": "assets/images/x/beys/bey-x-ux-05-01-ninja-shadow-1-80mn/main.webp",
-    "sourcePath": "02_product_components/043_ux05/01_UX05_01@1.png",
-    "sourceSha256": "9e1cfdfdf836a94c37f0d92edc4b6be0f1c5808c421c506b9a855bb45a96e1ed"
+    "sourcePath": "02_product_components/043_ux05/02_UX05_02@1.png",
+    "sourceSha256": "608ecbf5748abd8f5aeef41769fe20315da84dd81f9e3d144a62a161a6acc29b"
   },
   {
     "id": "BEY-X-UX-05-02-NINJA-SHADOW-9-60LF",

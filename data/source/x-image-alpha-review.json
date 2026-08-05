@@ -1,5 +1,5 @@
 {
-  "version": "20260805-x-bey-supplied-front-images-bx17-27",
+  "version": "20260805-x-bey-supplied-front-images-ux01-bx35",
   "canvasSize": 448,
   "files": [
     {
@@ -1125,39 +1125,39 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-hells-chain-5-60ht/front.webp",
-      "outputSha256": "b958da4891bf74b9b29385c9de0a5bc86923de0ef54fbb59c7b17aaa171d9ea7",
-      "alphaLevels": 256,
-      "partialPixels": 5854,
-      "foregroundPixels": 98405,
-      "bbox": [
-        46,
-        39,
-        401,
-        408
-      ],
-      "margins": [
-        46,
-        39,
-        47,
-        40
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-hells-chain-5-60ht/main.webp",
-      "outputSha256": "8864cb2ee3c6f65412beb4d947c96ea9f8f5208e6b723c71c363dc081eb4c269",
-      "alphaLevels": 256,
-      "partialPixels": 5624,
-      "foregroundPixels": 97197,
+      "outputSha256": "b12c07e0f399b98d662eed8dd9d2c77177712e5d145df57fc2b4460752e15f82",
+      "alphaLevels": 17,
+      "partialPixels": 2177,
+      "foregroundPixels": 96009,
       "bbox": [
         47,
-        47,
-        401,
+        48,
+        400,
         400
       ],
       "margins": [
         47,
+        48,
+        48,
+        48
+      ]
+    },
+    {
+      "image": "assets/images/x/beys/bey-x-bx-00-hells-chain-5-60ht/main.webp",
+      "outputSha256": "b12c07e0f399b98d662eed8dd9d2c77177712e5d145df57fc2b4460752e15f82",
+      "alphaLevels": 17,
+      "partialPixels": 2177,
+      "foregroundPixels": 96009,
+      "bbox": [
         47,
+        48,
+        400,
+        400
+      ],
+      "margins": [
         47,
+        48,
+        48,
         48
       ]
     },
@@ -1410,39 +1410,39 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-leon-claw-5-60p/front.webp",
-      "outputSha256": "0dfed10983dbcc5de3129d89155dde1b717967c07fec276371472fe4b7dced2b",
-      "alphaLevels": 255,
-      "partialPixels": 5528,
-      "foregroundPixels": 100922,
+      "outputSha256": "59cb33d4e58f4234cf3031e6c8b7d2356f012534deada2f5803c1502528672de",
+      "alphaLevels": 30,
+      "partialPixels": 2257,
+      "foregroundPixels": 97410,
       "bbox": [
-        44,
-        37,
-        404,
-        411
+        45,
+        46,
+        402,
+        402
       ],
       "margins": [
-        44,
-        37,
-        44,
-        37
+        45,
+        46,
+        46,
+        46
       ]
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-leon-claw-5-60p/main.webp",
-      "outputSha256": "969ab4c4a5247f3a63709b607f851697d44c0daf12c011496cfaa501a2ec431a",
-      "alphaLevels": 255,
-      "partialPixels": 4410,
-      "foregroundPixels": 97345,
+      "outputSha256": "59cb33d4e58f4234cf3031e6c8b7d2356f012534deada2f5803c1502528672de",
+      "alphaLevels": 30,
+      "partialPixels": 2257,
+      "foregroundPixels": 97410,
       "bbox": [
-        44,
+        45,
         46,
-        404,
+        402,
         402
       ],
       "margins": [
-        44,
+        45,
         46,
-        44,
+        46,
         46
       ]
     },
@@ -2303,40 +2303,40 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-shark-edge-5-60gf/front.webp",
-      "outputSha256": "d7eb0d92ee43c741b90885a33b67548a6baa227ddbd1ddcc83d1e745df672807",
-      "alphaLevels": 256,
-      "partialPixels": 5630,
-      "foregroundPixels": 101330,
+      "outputSha256": "0b1351cebca53565584f353ca6016535eb8fdeb6f413539afa561bb0c669adaa",
+      "alphaLevels": 22,
+      "partialPixels": 2257,
+      "foregroundPixels": 91619,
       "bbox": [
-        44,
-        26,
-        403,
-        422
+        48,
+        41,
+        400,
+        406
       ],
       "margins": [
-        44,
-        26,
-        45,
-        26
+        48,
+        41,
+        48,
+        42
       ]
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-shark-edge-5-60gf/main.webp",
-      "outputSha256": "ffbd2be3c4cda5d2bb969813a55b312b0e24d579f969c373884f66019debe389",
-      "alphaLevels": 253,
-      "partialPixels": 4650,
-      "foregroundPixels": 92112,
+      "outputSha256": "0b1351cebca53565584f353ca6016535eb8fdeb6f413539afa561bb0c669adaa",
+      "alphaLevels": 22,
+      "partialPixels": 2257,
+      "foregroundPixels": 91619,
       "bbox": [
-        47,
+        48,
         41,
         400,
-        407
+        406
       ],
       "margins": [
-        47,
+        48,
         41,
         48,
-        41
+        42
       ]
     },
     {
@@ -6122,40 +6122,40 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-31-01-tyranno-beat-4-70q/front.webp",
-      "outputSha256": "7edacd7cafc801dd580f3c47e05c74969829e5823742e407c9e21c5e90df71f4",
-      "alphaLevels": 256,
-      "partialPixels": 8403,
-      "foregroundPixels": 72860,
+      "outputSha256": "99f1663122b0102750b3754b4af1d9a094cd438a6f22a23a565ace417fbf3e3f",
+      "alphaLevels": 31,
+      "partialPixels": 2904,
+      "foregroundPixels": 80433,
       "bbox": [
-        68,
-        69,
-        380,
-        379
+        57,
+        57,
+        391,
+        391
       ],
       "margins": [
-        68,
-        69,
-        68,
-        69
+        57,
+        57,
+        57,
+        57
       ]
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-31-01-tyranno-beat-4-70q/main.webp",
-      "outputSha256": "f85f5f252e6d42bea2410516c4fddedc763d3bb6de0da0d41c2761dd1ede80ab",
-      "alphaLevels": 256,
-      "partialPixels": 10462,
-      "foregroundPixels": 86073,
+      "outputSha256": "99f1663122b0102750b3754b4af1d9a094cd438a6f22a23a565ace417fbf3e3f",
+      "alphaLevels": 31,
+      "partialPixels": 2904,
+      "foregroundPixels": 80433,
       "bbox": [
-        53,
-        53,
-        394,
-        394
+        57,
+        57,
+        391,
+        391
       ],
       "margins": [
-        53,
-        53,
-        54,
-        54
+        57,
+        57,
+        57,
+        57
       ]
     },
     {
@@ -6464,40 +6464,40 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-33-pearl-tiger-3-60u/front.webp",
-      "outputSha256": "8de32ff44c5ee3d04b5af3d6b74b7718ad0a66234f788f2100178a09e0de78e4",
-      "alphaLevels": 256,
-      "partialPixels": 8860,
-      "foregroundPixels": 93302,
+      "outputSha256": "0742aa31c3d14269365399bdd9d0295bbd7ea75e08b9dbaf791e3beb3b55a0d9",
+      "alphaLevels": 35,
+      "partialPixels": 2858,
+      "foregroundPixels": 89988,
       "bbox": [
-        44,
-        45,
-        403,
+        46,
+        46,
+        402,
         401
       ],
       "margins": [
-        44,
-        45,
-        45,
+        46,
+        46,
+        46,
         47
       ]
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-33-pearl-tiger-3-60u/main.webp",
-      "outputSha256": "0ee8d45363752625ced7ed66c388b424cd383f72e5204088fc10064ffb4b7268",
-      "alphaLevels": 256,
-      "partialPixels": 7516,
-      "foregroundPixels": 92111,
+      "outputSha256": "0742aa31c3d14269365399bdd9d0295bbd7ea75e08b9dbaf791e3beb3b55a0d9",
+      "alphaLevels": 35,
+      "partialPixels": 2858,
+      "foregroundPixels": 89988,
       "bbox": [
-        44,
         46,
-        404,
-        402
+        46,
+        402,
+        401
       ],
       "margins": [
-        44,
         46,
-        44,
-        46
+        46,
+        46,
+        47
       ]
     },
     {
@@ -6521,78 +6521,78 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-34-cobalt-dragoon-2-60c/front.webp",
-      "outputSha256": "6b9df681428a51e853566e24f7eb64aea2686b8c588b27ffbd7e78ce8d4066e0",
-      "alphaLevels": 255,
-      "partialPixels": 7378,
-      "foregroundPixels": 91563,
+      "outputSha256": "4bbba69c03dcc3ef6f0201f96b832709d0fd00ffcb12b5c9d40a1deec9e1fa25",
+      "alphaLevels": 32,
+      "partialPixels": 2305,
+      "foregroundPixels": 87946,
       "bbox": [
-        43,
-        41,
-        404,
-        407
+        46,
+        45,
+        402,
+        402
       ],
       "margins": [
-        43,
-        41,
-        44,
-        41
+        46,
+        45,
+        46,
+        46
       ]
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-34-cobalt-dragoon-2-60c/main.webp",
-      "outputSha256": "af6052e7e937d0b2abfbbe1edae23d9f1e72f8f5edae49fbe52d9faa495c3027",
-      "alphaLevels": 256,
-      "partialPixels": 7033,
-      "foregroundPixels": 90263,
+      "outputSha256": "4bbba69c03dcc3ef6f0201f96b832709d0fd00ffcb12b5c9d40a1deec9e1fa25",
+      "alphaLevels": 32,
+      "partialPixels": 2305,
+      "foregroundPixels": 87946,
       "bbox": [
         46,
-        44,
+        45,
         402,
-        403
+        402
       ],
       "margins": [
         46,
-        44,
+        45,
         46,
-        45
+        46
       ]
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-35-01-black-turtle-4-60d/front.webp",
-      "outputSha256": "1a8e8968d3e2d061e37031407f8d823265b481b34de56182702a381828daa1f8",
-      "alphaLevels": 256,
-      "partialPixels": 8286,
-      "foregroundPixels": 77654,
+      "outputSha256": "f648725c1c65f9f9d2ac74f810f533acb9c9ae4bf554d9bb48a72c2b9a1daea1",
+      "alphaLevels": 24,
+      "partialPixels": 2168,
+      "foregroundPixels": 76802,
       "bbox": [
-        60,
+        59,
         60,
         388,
-        387
+        388
       ],
       "margins": [
+        59,
         60,
         60,
-        60,
-        61
+        60
       ]
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-35-01-black-turtle-4-60d/main.webp",
-      "outputSha256": "1f8a8ec03e6a670ae1858f474e42ac4783f9bf2f642a8d8497a8345b0e599700",
-      "alphaLevels": 256,
-      "partialPixels": 8018,
-      "foregroundPixels": 69940,
+      "outputSha256": "f648725c1c65f9f9d2ac74f810f533acb9c9ae4bf554d9bb48a72c2b9a1daea1",
+      "alphaLevels": 24,
+      "partialPixels": 2168,
+      "foregroundPixels": 76802,
       "bbox": [
-        54,
-        75,
-        394,
-        373
+        59,
+        60,
+        388,
+        388
       ],
       "margins": [
-        54,
-        75,
-        54,
-        75
+        59,
+        60,
+        60,
+        60
       ]
     },
     {
@@ -13152,115 +13152,115 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-ux-01-dran-buster-1-60a/front.webp",
-      "outputSha256": "e26d9fc2d18c401b2ec6902db37759080db9b0d60d13d235b40104720a9cf836",
-      "alphaLevels": 256,
-      "partialPixels": 10419,
-      "foregroundPixels": 97531,
+      "outputSha256": "3bce6679ecc39a329d8acbf5ac274dd4aa1676e68976caeee2649e034cb10e76",
+      "alphaLevels": 28,
+      "partialPixels": 2405,
+      "foregroundPixels": 91367,
       "bbox": [
-        44,
-        38,
-        403,
-        411
+        48,
+        41,
+        399,
+        406
       ],
       "margins": [
-        44,
-        38,
-        45,
-        37
+        48,
+        41,
+        49,
+        42
       ]
     },
     {
       "image": "assets/images/x/beys/bey-x-ux-01-dran-buster-1-60a/main.webp",
-      "outputSha256": "0860aa340c92bfad46078e98d535e5e38e8f1644385b72c7b0637924a579fdaf",
-      "alphaLevels": 251,
-      "partialPixels": 7777,
-      "foregroundPixels": 94256,
+      "outputSha256": "3bce6679ecc39a329d8acbf5ac274dd4aa1676e68976caeee2649e034cb10e76",
+      "alphaLevels": 28,
+      "partialPixels": 2405,
+      "foregroundPixels": 91367,
       "bbox": [
-        45,
-        40,
-        402,
-        408
+        48,
+        41,
+        399,
+        406
       ],
       "margins": [
-        45,
-        40,
-        46,
-        40
+        48,
+        41,
+        49,
+        42
       ]
     },
     {
       "image": "assets/images/x/beys/bey-x-ux-02-hells-hammer-3-70h/front.webp",
-      "outputSha256": "8977da84eaa0128818ada6fa25413e9797fa642f4d6e0728ae69c7f2a86d6b44",
-      "alphaLevels": 256,
-      "partialPixels": 8906,
-      "foregroundPixels": 98635,
+      "outputSha256": "a7ea931ecf23e268a5a1a4a18084226da71cc44ed423848a4d46e2688bd76c6e",
+      "alphaLevels": 35,
+      "partialPixels": 3350,
+      "foregroundPixels": 90767,
       "bbox": [
-        43,
-        43,
-        404,
-        404
+        46,
+        48,
+        401,
+        400
       ],
       "margins": [
-        43,
-        43,
-        44,
-        44
+        46,
+        48,
+        47,
+        48
       ]
     },
     {
       "image": "assets/images/x/beys/bey-x-ux-02-hells-hammer-3-70h/main.webp",
-      "outputSha256": "3b3b03c31c21d9cd2e9a060620525806e9e32fff7d82c2b1e40835ed6bec392a",
-      "alphaLevels": 256,
-      "partialPixels": 9634,
-      "foregroundPixels": 93896,
+      "outputSha256": "a7ea931ecf23e268a5a1a4a18084226da71cc44ed423848a4d46e2688bd76c6e",
+      "alphaLevels": 35,
+      "partialPixels": 3350,
+      "foregroundPixels": 90767,
       "bbox": [
-        45,
-        47,
-        402,
-        401
+        46,
+        48,
+        401,
+        400
       ],
       "margins": [
-        45,
-        47,
         46,
-        47
+        48,
+        47,
+        48
       ]
     },
     {
       "image": "assets/images/x/beys/bey-x-ux-03-wizard-rod-5-70db/front.webp",
-      "outputSha256": "6252f7cfc9f016120e1de12d6aee1dfdfadc4eb4d50518e70ababb18fc97ff84",
-      "alphaLevels": 256,
-      "partialPixels": 10919,
-      "foregroundPixels": 93164,
+      "outputSha256": "5313a2e234853c075a166b7b103680837250c8470082964716693b211e250032",
+      "alphaLevels": 35,
+      "partialPixels": 4448,
+      "foregroundPixels": 92703,
       "bbox": [
-        50,
-        49,
-        397,
-        399
+        46,
+        44,
+        401,
+        403
       ],
       "margins": [
-        50,
-        49,
-        51,
-        49
+        46,
+        44,
+        47,
+        45
       ]
     },
     {
       "image": "assets/images/x/beys/bey-x-ux-03-wizard-rod-5-70db/main.webp",
-      "outputSha256": "6d97a93d0cb5bcf66a70524f0c9717754dcaefbed5580d0c14c4954ac50ce5db",
-      "alphaLevels": 256,
-      "partialPixels": 12957,
-      "foregroundPixels": 97252,
+      "outputSha256": "5313a2e234853c075a166b7b103680837250c8470082964716693b211e250032",
+      "alphaLevels": 35,
+      "partialPixels": 4448,
+      "foregroundPixels": 92703,
       "bbox": [
+        46,
         44,
-        44,
-        403,
+        401,
         403
       ],
       "margins": [
+        46,
         44,
-        44,
-        45,
+        47,
         45
       ]
     },
@@ -13341,22 +13341,41 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-04-wizard-rod-5-70db/main.webp",
-      "outputSha256": "92b34447ff08bb019a55b4c631522df9dbe1cb0bdf4c6efa160982959af661a8",
-      "alphaLevels": 256,
-      "partialPixels": 9314,
-      "foregroundPixels": 96191,
+      "image": "assets/images/x/beys/bey-x-ux-04-wizard-rod-5-70db/front.webp",
+      "outputSha256": "4feefae7259dd6d5f9d91858d9fec86dbb66adaf31f76cb585ca6f8af7b6660d",
+      "alphaLevels": 39,
+      "partialPixels": 3658,
+      "foregroundPixels": 94226,
       "bbox": [
-        45,
-        38,
-        403,
-        410
+        47,
+        44,
+        401,
+        403
       ],
       "margins": [
-        45,
-        38,
-        45,
-        38
+        47,
+        44,
+        47,
+        45
+      ]
+    },
+    {
+      "image": "assets/images/x/beys/bey-x-ux-04-wizard-rod-5-70db/main.webp",
+      "outputSha256": "4feefae7259dd6d5f9d91858d9fec86dbb66adaf31f76cb585ca6f8af7b6660d",
+      "alphaLevels": 39,
+      "partialPixels": 3658,
+      "foregroundPixels": 94226,
+      "bbox": [
+        47,
+        44,
+        401,
+        403
+      ],
+      "margins": [
+        47,
+        44,
+        47,
+        45
       ]
     },
     {
@@ -13399,40 +13418,40 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-ux-05-01-ninja-shadow-1-80mn/front.webp",
-      "outputSha256": "ea6efbbc20ba841b9391570107aa9890d4ccf223e25951953bdfb69962186bf5",
-      "alphaLevels": 256,
-      "partialPixels": 8150,
-      "foregroundPixels": 106519,
+      "outputSha256": "9e46ac63454f5847a570e84ba183d4eee12111a7f925f49a45c1e9d478ce4cd1",
+      "alphaLevels": 18,
+      "partialPixels": 2089,
+      "foregroundPixels": 88864,
       "bbox": [
-        44,
-        29,
-        404,
-        420
+        57,
+        53,
+        391,
+        395
       ],
       "margins": [
-        44,
-        29,
-        44,
-        28
+        57,
+        53,
+        57,
+        53
       ]
     },
     {
       "image": "assets/images/x/beys/bey-x-ux-05-01-ninja-shadow-1-80mn/main.webp",
-      "outputSha256": "26790625524c986a903708d3aba44fd7d5e00920698c4b2d96dcd3470fa1f5c4",
-      "alphaLevels": 256,
-      "partialPixels": 6978,
-      "foregroundPixels": 99906,
+      "outputSha256": "9e46ac63454f5847a570e84ba183d4eee12111a7f925f49a45c1e9d478ce4cd1",
+      "alphaLevels": 18,
+      "partialPixels": 2089,
+      "foregroundPixels": 88864,
       "bbox": [
-        18,
-        51,
-        429,
-        397
+        57,
+        53,
+        391,
+        395
       ],
       "margins": [
-        18,
-        51,
-        19,
-        51
+        57,
+        53,
+        57,
+        53
       ]
     },
     {

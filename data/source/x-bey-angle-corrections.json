@@ -1,5 +1,5 @@
 {
-  "version": "20260805-x-bey-supplied-front-images-bx17-27",
+  "version": "20260805-x-bey-supplied-front-images-ux01-bx35",
   "method": "premultiplied-alpha-vertical-affine",
   "entries": [
     {
@@ -16,71 +16,6 @@
       "outputSha256": "c5f132f70a1e6e3f1046d619307e23da65bd4489e1349fc668c3376b34c1f9cc"
     },
     {
-      "id": "BEY-X-BX-00-LEON-CLAW-5-60P",
-      "sourceImage": "assets/images/x/beys/bey-x-bx-00-leon-claw-5-60p/parts/part-x-blade-leon-claw.webp",
-      "image": "assets/images/x/beys/bey-x-bx-00-leon-claw-5-60p/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG05_02@1.png",
-      "sourceSha256": "18e2089e344d635a556a781244970066b223f76e0f4986b3a8b688c319e48f5b",
-      "sourceOutputSha256": "d1da03387e4e29133e746775c0d483980453c0525fc6c5afe095ae4a6a255e41",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.5,
-      "outputSha256": "0dfed10983dbcc5de3129d89155dde1b717967c07fec276371472fe4b7dced2b"
-    },
-    {
-      "id": "BEY-X-BX-00-SHARK-EDGE-5-60GF",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-shark-edge.webp",
-      "image": "assets/images/x/beys/bey-x-bx-00-shark-edge-5-60gf/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG06_02@1.png",
-      "sourceSha256": "117b4087cd66922ec0307b7c29a2c771af7f101499169ccc506580265026d866",
-      "sourceOutputSha256": "b0a2e4817d998cbf08721610d4afd18fdf3d0cf0ecc1c9e080b7383675d8846e",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.5,
-      "outputSha256": "d7eb0d92ee43c741b90885a33b67548a6baa227ddbd1ddcc83d1e745df672807"
-    },
-    {
-      "id": "BEY-X-UX-01-DRAN-BUSTER-1-60A",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-dran-buster.webp",
-      "image": "assets/images/x/beys/bey-x-ux-01-dran-buster-1-60a/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX01_02@1.png",
-      "sourceSha256": "8a575ffbeb51f7235ed8d8f747e919fae65f811a414c91386559628f158c2d37",
-      "sourceOutputSha256": "e8c6226cee43ee1cfdff3aa52b665dde558385f3e8f7563ebff61b0f337c07a8",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.5,
-      "outputSha256": "e26d9fc2d18c401b2ec6902db37759080db9b0d60d13d235b40104720a9cf836"
-    },
-    {
-      "id": "BEY-X-UX-02-HELLS-HAMMER-3-70H",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-hells-hammer.webp",
-      "image": "assets/images/x/beys/bey-x-ux-02-hells-hammer-3-70h/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX02_02@1.png",
-      "sourceSha256": "31ae8b57c0864897174f0f11ea4666ae35bbd90c8e4f2242b2a9197c9022e889",
-      "sourceOutputSha256": "7f6d1819a8fd0aff00cccb35736da919d3ec14c673bc6ce307025831bfb37611",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.0,
-      "outputSha256": "8977da84eaa0128818ada6fa25413e9797fa642f4d6e0728ae69c7f2a86d6b44"
-    },
-    {
-      "id": "BEY-X-UX-03-WIZARD-ROD-5-70DB",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-wizard-rod.webp",
-      "image": "assets/images/x/beys/bey-x-ux-03-wizard-rod-5-70db/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX03_02@1.png",
-      "sourceSha256": "6fe6e8c471fa5fd03202b2fb6c73f25a891a57fa4e0ae833dc32681b8783bad3",
-      "sourceOutputSha256": "c3c0dad42e8aa8017f7ac200079e0bb5309a43e04efbd715db1f262294eb82ea",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.5,
-      "outputSha256": "6252f7cfc9f016120e1de12d6aee1dfdfadc4eb4d50518e70ababb18fc97ff84"
-    },
-    {
       "id": "BEY-X-BX-00-DRIGER-SLASH-4-80P",
       "sourceImage": "assets/images/x/parts/blade/part-x-blade-driger-slash.webp",
       "image": "assets/images/x/beys/bey-x-bx-00-driger-slash-4-80p/front.webp",
@@ -94,32 +29,6 @@
       "outputSha256": "250876c532c119dcdb50befc46b26e90e56af0f86f0799f7cc9cbfaf9e6c5644"
     },
     {
-      "id": "BEY-X-BX-00-HELLS-CHAIN-5-60HT",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-hells-chain.webp",
-      "image": "assets/images/x/beys/bey-x-bx-00-hells-chain-5-60ht/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG08_02@1.png",
-      "sourceSha256": "84cdeeb6d0fc9a5ee2766475f907bbc5f94ae3b598ae1a0c1de31b9fb4ecd8e3",
-      "sourceOutputSha256": "794d2f2354327c8b9fda264941981c9a9da55e8313826f59aea18671dee9fcec",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.0,
-      "outputSha256": "b958da4891bf74b9b29385c9de0a5bc86923de0ef54fbb59c7b17aaa171d9ea7"
-    },
-    {
-      "id": "BEY-X-BX-33-PEARL-TIGER-3-60U",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-pearl-tiger.webp",
-      "image": "assets/images/x/beys/bey-x-bx-33-pearl-tiger-3-60u/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX33_02@1.png",
-      "sourceSha256": "4a0def3fd1e6d5e78613c4b738da4228fa5a4585b22bb9bf745eace477883841",
-      "sourceOutputSha256": "2f05f6639401e34afed6d148b3a1df933a25a94cf1c4ebaeb77e3ee0c2cf061a",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.0,
-      "outputSha256": "8de32ff44c5ee3d04b5af3d6b74b7718ad0a66234f788f2100178a09e0de78e4"
-    },
-    {
       "id": "BEY-X-BX-00-COBALT-DRAGOON-2-60C",
       "sourceImage": "assets/images/x/beys/bey-x-bx-00-cobalt-dragoon-2-60c/parts/part-x-blade-cobalt-dragoon.webp",
       "image": "assets/images/x/beys/bey-x-bx-00-cobalt-dragoon-2-60c/front.webp",
@@ -131,19 +40,6 @@
       "scaleY": 1.08,
       "pivotY": 223.5,
       "outputSha256": "8c1c7e3e29f63d536e833d6aba33233c64d7be775df2c26bffe4ae8371a21438"
-    },
-    {
-      "id": "BEY-X-BX-34-COBALT-DRAGOON-2-60C",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-cobalt-dragoon.webp",
-      "image": "assets/images/x/beys/bey-x-bx-34-cobalt-dragoon-2-60c/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX34_02@1.png",
-      "sourceSha256": "8b9e4005113e32d2dbbdd2fec658505b76ba4524e33f345c27a5a1637a56de25",
-      "sourceOutputSha256": "aed2eeed345dce0a948f222941b95f255b1b33a1f6a65eb92d9662a1ca23da96",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.5,
-      "outputSha256": "6b9df681428a51e853566e24f7eb64aea2686b8c588b27ffbd7e78ce8d4066e0"
     },
     {
       "id": "BEY-X-UX-00-AERO-PEGASUS-3-70A",
@@ -627,32 +523,6 @@
       "outputSha256": "dda33e37a1f61f5c3b94332840cefdbf1a24fd6e5ba7c17b00ccb2a7bd2cc5d8"
     },
     {
-      "id": "BEY-X-BX-31-01-TYRANNO-BEAT-4-70Q",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-tyranno-beat.webp",
-      "image": "assets/images/x/beys/bey-x-bx-31-01-tyranno-beat-4-70q/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX31_07@1.png",
-      "sourceSha256": "4320273ec214b0a49d6bce5fb56e67a3570314d2b57ad7dc40418627960aaab9",
-      "sourceOutputSha256": "943f2b4c2023fff45399b404f3c4f46a46ebdb97f9893407c91e863ee26c13c8",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.5,
-      "outputSha256": "7edacd7cafc801dd580f3c47e05c74969829e5823742e407c9e21c5e90df71f4"
-    },
-    {
-      "id": "BEY-X-BX-35-01-BLACK-TURTLE-4-60D",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-black-turtle.webp",
-      "image": "assets/images/x/beys/bey-x-bx-35-01-black-turtle-4-60d/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX35_08@1.png",
-      "sourceSha256": "e9eb547b97ef6be7f102ed9589ca0efa52d2adae924d139755ed58c56603c331",
-      "sourceOutputSha256": "163f9ea597938575e906602e5973d9f11feb6d58ca9c3529d8fd3bc401e19e05",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.0,
-      "outputSha256": "1a8e8968d3e2d061e37031407f8d823265b481b34de56182702a381828daa1f8"
-    },
-    {
       "id": "BEY-X-BX-36-01-WHALE-WAVE-5-80E",
       "sourceImage": "assets/images/x/parts/blade/part-x-blade-whale-wave.webp",
       "image": "assets/images/x/beys/bey-x-bx-36-01-whale-wave-5-80e/front.webp",
@@ -664,19 +534,6 @@
       "scaleY": 1.08,
       "pivotY": 223.5,
       "outputSha256": "90fc42594b735ce75e9bc0b0a415cdf685fd84755cd8288e25be7f927f22fe4f"
-    },
-    {
-      "id": "BEY-X-UX-05-01-NINJA-SHADOW-1-80MN",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-ninja-shadow.webp",
-      "image": "assets/images/x/beys/bey-x-ux-05-01-ninja-shadow-1-80mn/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX05_05@1.png",
-      "sourceSha256": "3edc3a90f28a2c172f82a4ce5061e830227cc43a835093ec34e56fe497560629",
-      "sourceOutputSha256": "5659272adc4e327403205c1e7631fd5f3740721234cff26bc6027cb1e05fee21",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.5,
-      "outputSha256": "ea6efbbc20ba841b9391570107aa9890d4ccf223e25951953bdfb69962186bf5"
     },
     {
       "id": "BEY-X-UX-12-01-GHOST-CIRCLE-0-80GB",
