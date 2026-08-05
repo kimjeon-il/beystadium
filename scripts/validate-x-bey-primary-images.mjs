@@ -89,12 +89,12 @@ uniqueValues([
   ...verifiedMainById.keys(),
   ...temporarySideById.keys()
 ], "explicit primary image classifications");
-assert.equal(xBeyPrimaryImageConfig.version, "20260805-x-bey-supplied-front-images-bx06-08");
+assert.equal(xBeyPrimaryImageConfig.version, "20260805-x-bey-supplied-front-images-bx13-16");
 assert.equal(xBeyAngleCorrectionConfig.version, xBeyPrimaryImageConfig.version);
 assert.equal(xBeyAngleCorrectionConfig.method, "premultiplied-alpha-vertical-affine");
-assert.equal(xBeyPrimaryImageConfig.selected.length, 34);
-assert.equal(xBeyAngleCorrectionConfig.entries.length, 91);
-assert.equal(xBeyPrimaryImageConfig.verifiedMain.length, 94);
+assert.equal(xBeyPrimaryImageConfig.selected.length, 41);
+assert.equal(xBeyAngleCorrectionConfig.entries.length, 86);
+assert.equal(xBeyPrimaryImageConfig.verifiedMain.length, 92);
 
 const suppliedFronts = new Map([
   ["BEY-X-BX-00-DRANZER-SPIRAL-3-80T", {
@@ -177,9 +177,44 @@ const suppliedFronts = new Map([
     sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG54_01@1.png",
     sourceSha256: "24f8bb1987440612b1bd17aa9cfbc57860d31f7e1543fcae24d130217e6770a9",
     sourceForegroundBox: [115, 173, 471, 537]
+  }],
+  ["BEY-X-BX-13-KNIGHT-LANCE-4-80HN", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX13_01@1.png",
+    sourceSha256: "48814bf0c91b0e355a2d0ce6abb44739a1fe70b000f00ea47c26ecef101a05ac",
+    sourceForegroundBox: [118, 177, 473, 523]
+  }],
+  ["BEY-X-BX-14-01-SHARK-EDGE-3-60LF", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX14_01@1.png",
+    sourceSha256: "5ba06e3dcc451e98420cbaf541263c4a501354ec30959f205c8062c032e72549",
+    sourceForegroundBox: [117, 174, 469, 539]
+  }],
+  ["BEY-X-BX-00-HELLS-SCYTHE-4-60T", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG03_01@1.png",
+    sourceSha256: "3177f2ed2a7fd6ae07dc948f80c4b6fdf9b36590bb69f2d02bc740adcaba9318",
+    sourceForegroundBox: [117, 176, 471, 532]
+  }],
+  ["BEY-X-BX-15-LEON-CLAW-5-60P", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX15_01@1.png",
+    sourceSha256: "63e981509c33180c7304dd3ed856a7c0af35c6a8b3719c740149dad0d593fe2c",
+    sourceForegroundBox: [116, 184, 476, 543]
+  }],
+  ["BEY-X-BX-16-01-VIPER-TAIL-5-80O", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX16_02@1.png",
+    sourceSha256: "f830dce98b1724c15c82d3244e4bd0f145903965401a3b8393111908e87b2545",
+    sourceForegroundBox: [115, 184, 473, 545]
+  }],
+  ["BEY-X-BX-16-02-VIPER-TAIL-4-60F", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX16_03@1.png",
+    sourceSha256: "d7619acd70609fb6eb8a5bc1bb06bb9f8cc1fa8be99f385799a88d45809288ea",
+    sourceForegroundBox: [113, 184, 470, 543]
+  }],
+  ["BEY-X-BX-16-03-VIPER-TAIL-3-80HN", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX16_04@1.png",
+    sourceSha256: "e8b0cf46f6d9b908c72e3ab60d84ab31c4c626ba50ad91970c5d8c41801d2e5a",
+    sourceForegroundBox: [113, 184, 470, 543]
   }]
 ]);
-assert.equal(suppliedFronts.size, 16);
+assert.equal(suppliedFronts.size, 23);
 
 for (const entry of xBeyPrimaryImageConfig.selected) {
   assert.equal(entry.sourceKind, "official-assembled-front");
@@ -300,9 +335,9 @@ for (const item of xBeys) {
 }
 
 assert.deepEqual(counts, {
-  officialAngleCorrected: 91,
-  officialAssembledFront: 34,
-  verifiedExistingFront: 94,
+  officialAngleCorrected: 86,
+  officialAssembledFront: 41,
+  verifiedExistingFront: 92,
   temporarySide: 0
 });
 

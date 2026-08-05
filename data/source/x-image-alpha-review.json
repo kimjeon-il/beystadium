@@ -1,5 +1,5 @@
 {
-  "version": "20260805-x-bey-supplied-front-images-bx06-08",
+  "version": "20260805-x-bey-supplied-front-images-bx13-16",
   "canvasSize": 448,
   "files": [
     {
@@ -1239,21 +1239,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-hells-scythe-4-60t/front.webp",
-      "outputSha256": "01f72c2e7ecca41852a6c04d98b3a4c0918d52b7d67cd70bb18d36fe40e8ddfd",
-      "alphaLevels": 255,
-      "partialPixels": 4206,
-      "foregroundPixels": 99383,
+      "outputSha256": "27fecb310003796292ab29603b5d0cc797722a66c1ef95ed33ed53f831f5cd8a",
+      "alphaLevels": 36,
+      "partialPixels": 3098,
+      "foregroundPixels": 94452,
       "bbox": [
+        47,
         46,
-        41,
-        402,
-        406
+        401,
+        402
       ],
       "margins": [
+        47,
         46,
-        41,
-        46,
-        42
+        47,
+        46
       ]
     },
     {
@@ -3975,21 +3975,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-13-knight-lance-4-80hn/front.webp",
-      "outputSha256": "eedd81287ee8325b5df8d6992779156f59c5a6278bee38fcc03fb75a98e76fd4",
-      "alphaLevels": 256,
-      "partialPixels": 8366,
-      "foregroundPixels": 99987,
+      "outputSha256": "7f5e5322433f50b4b897cbe8459fd99a61da545e74158072e58f30c489d76d62",
+      "alphaLevels": 20,
+      "partialPixels": 2186,
+      "foregroundPixels": 94372,
       "bbox": [
-        48,
-        42,
-        400,
-        405
+        46,
+        51,
+        401,
+        397
       ],
       "margins": [
-        48,
-        42,
-        48,
-        43
+        46,
+        51,
+        47,
+        51
       ]
     },
     {
@@ -4032,21 +4032,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-14-01-shark-edge-3-60lf/front.webp",
-      "outputSha256": "565c3d03550593357c065c6d07fc2ddbfa7b930f7c226d5aac1755372730b38c",
-      "alphaLevels": 256,
-      "partialPixels": 8817,
-      "foregroundPixels": 98572,
+      "outputSha256": "377b9271f570615a2918d3f2e50785e9009ddd18778e0411c9de64dd85aa8aed",
+      "alphaLevels": 23,
+      "partialPixels": 2240,
+      "foregroundPixels": 91158,
       "bbox": [
-        45,
-        34,
-        402,
-        413
+        48,
+        41,
+        400,
+        406
       ],
       "margins": [
-        45,
-        34,
-        46,
-        35
+        48,
+        41,
+        48,
+        42
       ]
     },
     {
@@ -4412,21 +4412,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-15-leon-claw-5-60p/front.webp",
-      "outputSha256": "d7511d36142be28918d8b1823320c0066379060faa02d18df8de17608b012fd9",
-      "alphaLevels": 256,
-      "partialPixels": 9309,
-      "foregroundPixels": 104534,
+      "outputSha256": "c9e41bbee26493902264e214d539eadee7cfb7dcdab8e2f80b4609efb2c3bc79",
+      "alphaLevels": 20,
+      "partialPixels": 2308,
+      "foregroundPixels": 99160,
       "bbox": [
-        41,
-        34,
-        406,
-        414
+        44,
+        44,
+        404,
+        403
       ],
       "margins": [
-        41,
-        34,
-        42,
-        34
+        44,
+        44,
+        44,
+        45
       ]
     },
     {
@@ -4450,21 +4450,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-16-01-viper-tail-5-80o/front.webp",
-      "outputSha256": "8284ebcc83571771a7f01ba389a9eac416b15a041454ae8960d9742f83d063f5",
-      "alphaLevels": 256,
-      "partialPixels": 8614,
-      "foregroundPixels": 101065,
+      "outputSha256": "2f6961248be7c797f1caf62231dab05292b4f066face40ded4e75af6160fffe9",
+      "alphaLevels": 23,
+      "partialPixels": 2259,
+      "foregroundPixels": 97755,
       "bbox": [
-        42,
-        37,
-        405,
-        411
+        45,
+        43,
+        403,
+        404
       ],
       "margins": [
-        42,
-        37,
+        45,
         43,
-        37
+        45,
+        44
       ]
     },
     {
@@ -4484,6 +4484,25 @@
         72,
         39,
         72
+      ]
+    },
+    {
+      "image": "assets/images/x/beys/bey-x-bx-16-02-viper-tail-4-60f/front.webp",
+      "outputSha256": "04422664b5a488644e6e81dc3f941dee5dc20402d817db53b776f838376faf8b",
+      "alphaLevels": 25,
+      "partialPixels": 2250,
+      "foregroundPixels": 97298,
+      "bbox": [
+        45,
+        44,
+        402,
+        403
+      ],
+      "margins": [
+        45,
+        44,
+        46,
+        45
       ]
     },
     {
@@ -4541,6 +4560,25 @@
         75,
         60,
         76
+      ]
+    },
+    {
+      "image": "assets/images/x/beys/bey-x-bx-16-03-viper-tail-3-80hn/front.webp",
+      "outputSha256": "63e5e95e7d72774b9d0318f51201e83bcef5b37448f2df78d39ba4fc0fc13c01",
+      "alphaLevels": 26,
+      "partialPixels": 2248,
+      "foregroundPixels": 97308,
+      "bbox": [
+        45,
+        44,
+        402,
+        403
+      ],
+      "margins": [
+        45,
+        44,
+        46,
+        45
       ]
     },
     {

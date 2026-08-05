@@ -1,20 +1,7 @@
 {
-  "version": "20260805-x-bey-supplied-front-images-bx06-08",
+  "version": "20260805-x-bey-supplied-front-images-bx13-16",
   "method": "premultiplied-alpha-vertical-affine",
   "entries": [
-    {
-      "id": "BEY-X-BX-13-KNIGHT-LANCE-4-80HN",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-knight-lance.webp",
-      "image": "assets/images/x/beys/bey-x-bx-13-knight-lance-4-80hn/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX13_02@1.png",
-      "sourceSha256": "a68dc9c5416cd43c21d230bd2b3f71c80ad4b1bdc074e6b8e16a9840ac692d30",
-      "sourceOutputSha256": "3361ebf2b5cc3c7f4def0b4f25d410af6cf8a88fbdba82058072c493ccd6fffd",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.0,
-      "outputSha256": "eedd81287ee8325b5df8d6992779156f59c5a6278bee38fcc03fb75a98e76fd4"
-    },
     {
       "id": "BEY-X-BX-00-COBALT-DRAKE-4-60F",
       "sourceImage": "assets/images/x/parts/blade/part-x-blade-cobalt-drake.webp",
@@ -27,32 +14,6 @@
       "scaleY": 1.08,
       "pivotY": 223.5,
       "outputSha256": "c5f132f70a1e6e3f1046d619307e23da65bd4489e1349fc668c3376b34c1f9cc"
-    },
-    {
-      "id": "BEY-X-BX-00-HELLS-SCYTHE-4-60T",
-      "sourceImage": "assets/images/x/beys/bey-x-bx-00-hells-scythe-4-60t/parts/part-x-blade-hells-scythe.webp",
-      "image": "assets/images/x/beys/bey-x-bx-00-hells-scythe-4-60t/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG03_02@1.png",
-      "sourceSha256": "608555bb53e9fb28374ae7c9a15e943eb8b62a3f55c70fdd10a21c83c7b68b2f",
-      "sourceOutputSha256": "c046d08c759f992f96a02d4fe1750c4be6457b8c2a00a7ccf516f1b5bd88e989",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.0,
-      "outputSha256": "01f72c2e7ecca41852a6c04d98b3a4c0918d52b7d67cd70bb18d36fe40e8ddfd"
-    },
-    {
-      "id": "BEY-X-BX-15-LEON-CLAW-5-60P",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-leon-claw.webp",
-      "image": "assets/images/x/beys/bey-x-bx-15-leon-claw-5-60p/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX15_02@1.png",
-      "sourceSha256": "1ad5f4fde54d604c131c6bfb7917a097b6bc4ce3d77c8aea8ab1d79d767e3d40",
-      "sourceOutputSha256": "3542eb345a765ebf571ecdccf780073d232ed15cf457cef489addaab4602d3f9",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.0,
-      "outputSha256": "d7511d36142be28918d8b1823320c0066379060faa02d18df8de17608b012fd9"
     },
     {
       "id": "BEY-X-BX-19-RHINO-HORN-3-80S",
@@ -755,32 +716,6 @@
       "scaleY": 1.08,
       "pivotY": 223.5,
       "outputSha256": "dda33e37a1f61f5c3b94332840cefdbf1a24fd6e5ba7c17b00ccb2a7bd2cc5d8"
-    },
-    {
-      "id": "BEY-X-BX-14-01-SHARK-EDGE-3-60LF",
-      "sourceImage": "assets/images/x/beys/bey-x-bx-14-01-shark-edge-3-60lf/parts/part-x-blade-shark-edge.webp",
-      "image": "assets/images/x/beys/bey-x-bx-14-01-shark-edge-3-60lf/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX14_07@1.png",
-      "sourceSha256": "db2acf4993d6a33f84dbf734d75b9670e97b211e34f3882f6677020684b73bcf",
-      "sourceOutputSha256": "232d9acbcccc0c28bbfbab77b55ecd4b584164423ac21e01e20028f7b29507dc",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.0,
-      "outputSha256": "565c3d03550593357c065c6d07fc2ddbfa7b930f7c226d5aac1755372730b38c"
-    },
-    {
-      "id": "BEY-X-BX-16-01-VIPER-TAIL-5-80O",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-viper-tail.webp",
-      "image": "assets/images/x/beys/bey-x-bx-16-01-viper-tail-5-80o/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX16_05@1.png",
-      "sourceSha256": "baa364002cc6841d530c4063d785fb444dbdfc4c523678d17c3cc1b17bcb379d",
-      "sourceOutputSha256": "4062fd27cd1d309e37b9b3b72b542a791fd0a61ad45cc99f49adced827449262",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.5,
-      "outputSha256": "8284ebcc83571771a7f01ba389a9eac416b15a041454ae8960d9742f83d063f5"
     },
     {
       "id": "BEY-X-BX-24-01-WYVERN-GALE-5-80GB",
