@@ -27,7 +27,10 @@ const koreanReleaseProducts = Object.freeze({
   "PRODUCT-X-CX-16": ["CX-16", "스타트 대시 세트 C", "세트", "2026-04-24", "70900"],
   "PRODUCT-X-BX-00-STORM-SPRIGGAN-2-70M": ["BX-00", "스톰 스프리건 2-70M", "스타터", "2026-05-23", "19900"],
   "PRODUCT-X-UX-19": ["UX-19", undefined, "스타터", "2026-07-21", "19900"],
-  "PRODUCT-X-CX-17": ["CX-17", undefined, "랜덤부스터", "2026-07-21", "15900"]
+  "PRODUCT-X-CX-17": ["CX-17", undefined, "랜덤부스터", "2026-07-21", "15900"],
+  "PRODUCT-X-BX-51": ["BX-51", "스트링 런처 블랙 X 그린", "툴", "2026-08-21", ""],
+  "PRODUCT-X-CX-18": ["CX-18", "랜덤 부스터 브라키오 윕 셀렉트", "랜덤부스터", "2026-08-21", ""],
+  "PRODUCT-X-UX-20": ["UX-20", "글로리 발키리언LF", "스타터", "2026-08-21", ""]
 });
 
 const japaneseFallbackProductNames = Object.freeze({
@@ -51,8 +54,8 @@ test("한국 공식 성능 설명 12건을 정확한 X 베이에 적용한다", 
   );
 });
 
-test("국내 출시 제품 14건은 기존 이름과 확인된 날짜·가격·구성 순서를 유지한다", () => {
-  assert.equal(Object.keys(koreanReleaseProducts).length, 14);
+test("국내 출시 제품 17건은 공식 이름과 확인된 날짜·가격·구성 순서를 유지한다", () => {
+  assert.equal(Object.keys(koreanReleaseProducts).length, 17);
 
   for (const [id, [no, name, kind, releaseDate, price]] of Object.entries(koreanReleaseProducts)) {
     const product = productsById.get(id);
@@ -84,6 +87,15 @@ test("국내 출시 제품 14건은 기존 이름과 확인된 날짜·가격·�
       "BEY-X-CX-11-GOLEM-ROCK-M-85HN"
     ]
   );
+
+  assert.deepEqual(productsById.get("PRODUCT-X-UX-20").releases.kr.composition, [
+    { name: "글로리발키리언 LF", quantity: "1개", target: "BEY-X-UX-20-GLORY-VALKYRIE-LF" },
+    { name: "스트링런처", quantity: "1개", target: "TOOLS-X-STRING-LAUNCHER" }
+  ]);
+  assert.deepEqual(productsById.get("PRODUCT-X-UX-20").releases.jp.composition, [
+    { name: "글로리왈큐레 LF", quantity: "1개", target: "BEY-X-UX-20-GLORY-VALKYRIE-LF" },
+    { name: "스트링런처", quantity: "1개", target: "TOOLS-X-STRING-LAUNCHER" }
+  ]);
 });
 
 test("국내 발매 X 베이 중 공식 설명이 없는 항목은 빈 설명을 유지한다", () => {
@@ -94,8 +106,8 @@ test("국내 발매 X 베이 중 공식 설명이 없는 항목은 빈 설명을
   ].filter((id) => id.startsWith("BEY-X-"))));
   const describedIds = [...releasedBeyIds].filter((id) => beysById.get(id)?.desc);
 
-  assert.equal(releasedProducts.length, 97);
-  assert.equal(releasedBeyIds.size, 147);
+  assert.equal(releasedProducts.length, 100);
+  assert.equal(releasedBeyIds.size, 151);
   assert.deepEqual(describedIds.sort(), Object.keys(xKoreaBeyDescriptions).sort());
 
   for (const slot of ["02", "03", "04", "05", "06"]) {

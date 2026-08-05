@@ -45,6 +45,7 @@ const expectedLineups = {
 const productsById = new Map(productItems.map(item => [item.id, item]));
 const beysById = new Map(beyItems.map(item => [item.id, item]));
 const partsById = new Map(partItems.map(item => [item.id, item]));
+const koreanReleasedRandomBoosters = new Set(["PRODUCT-X-CX-17", "PRODUCT-X-CX-18"]);
 
 test("X random booster products expose exact regional lineups", () => {
   assert.deepEqual(xRandomBoosterLineups, expectedLineups);
@@ -56,7 +57,7 @@ test("X random booster products expose exact regional lineups", () => {
     assert.deepEqual(product.releases.jp.composition, [
       { name: "무작위 베이", quantity: "1개", target: lineup[0] }
     ], `${productId} jp composition`);
-    if (productId === "PRODUCT-X-CX-17") {
+    if (koreanReleasedRandomBoosters.has(productId)) {
       assert.deepEqual(product.releases.kr.composition, [
         { name: "무작위 베이", quantity: "1개", target: lineup[0] }
       ], `${productId} kr composition`);

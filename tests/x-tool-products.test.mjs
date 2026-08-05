@@ -15,7 +15,8 @@ const expectedProducts = new Map([
   ["PRODUCT-X-BX-29", ["커스텀그립", "TOOLS-X-CUSTOM-GRIP"]],
   ["PRODUCT-X-BX-30", ["커스텀그립", "TOOLS-X-CUSTOM-GRIP"]],
   ["PRODUCT-X-BX-00-CUSTOM-GRIP-CLEAR-BLACK", ["커스텀그립", "TOOLS-X-CUSTOM-GRIP"]],
-  ["PRODUCT-X-BX-32", ["와이드익스트림스타디움", "TOOLS-X-WIDE-XTREME-STADIUM"]]
+  ["PRODUCT-X-BX-32", ["와이드익스트림스타디움", "TOOLS-X-WIDE-XTREME-STADIUM"]],
+  ["PRODUCT-X-BX-51", ["스트링런처", "TOOLS-X-STRING-LAUNCHER"]]
 ]);
 const expectedJapaneseProducts = new Map([
   ["PRODUCT-X-BX-00-PHOENIX-FEATHER-BLADE", ["피닉스페더 블레이드", "TOOLS-X-PHOENIX-FEATHER-BLADE"]],
@@ -29,14 +30,13 @@ const expectedJapaneseProducts = new Map([
   ["PRODUCT-X-BX-42", ["러버커스텀그립", "TOOLS-X-RUBBER-CUSTOM-GRIP"]],
   ["PRODUCT-X-BX-43", ["기어케이스", "TOOLS-X-GEAR-CASE"]],
   ["PRODUCT-X-BX-47", ["스트링런처L", "TOOLS-X-STRING-LAUNCHER-L"]],
-  ["PRODUCT-X-BX-00-STRING-LAUNCHER-B4-STORE-LIMITED-COLOR", ["스트링런처", "TOOLS-X-STRING-LAUNCHER"]],
-  ["PRODUCT-X-BX-51", ["스트링런처", "TOOLS-X-STRING-LAUNCHER"]]
+  ["PRODUCT-X-BX-00-STRING-LAUNCHER-B4-STORE-LIMITED-COLOR", ["스트링런처", "TOOLS-X-STRING-LAUNCHER"]]
 ]);
 const productsById = new Map(productItems.map(item => [item.id, item]));
 const toolsById = new Map(toolsItems.map(item => [item.id, item]));
 
 test("requested X tool products contain exactly one matching tool in every release", () => {
-  assert.equal(expectedProducts.size, 11);
+  assert.equal(expectedProducts.size, 12);
   for (const [productId, [name, target]] of expectedProducts) {
     const product = productsById.get(productId);
     assert.ok(product, productId);
@@ -48,7 +48,7 @@ test("requested X tool products contain exactly one matching tool in every relea
 });
 
 test("requested Japanese-only X tool products contain one base equipment item", () => {
-  assert.equal(expectedJapaneseProducts.size, 13);
+  assert.equal(expectedJapaneseProducts.size, 12);
   for (const [productId, [name, target]] of expectedJapaneseProducts) {
     const product = productsById.get(productId);
     assert.ok(product, productId);

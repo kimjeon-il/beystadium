@@ -9568,7 +9568,13 @@
     series: "x",
     releases: {
       kr: {
-        status: "unreleased"
+        no: "BX-51",
+        name: "스트링 런처 블랙 X 그린",
+        sale: "일반 판매",
+        kind: "툴",
+        releaseDate: "2026-08-21",
+        price: "",
+        composition: [{ name: "스트링런처", quantity: "1개", target: "TOOLS-X-STRING-LAUNCHER" }]
       },
       jp: {
         no: "BX-51",
@@ -9585,7 +9591,13 @@
     series: "x",
     releases: {
       kr: {
-        status: "unreleased"
+        no: "CX-18",
+        name: "랜덤 부스터 브라키오 윕 셀렉트",
+        sale: "일반 판매",
+        kind: "랜덤부스터",
+        releaseDate: "2026-08-21",
+        price: "",
+        composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-X-CX-18-01-BRACHIO-WHIP-OW-5-70NR" }]
       },
       jp: {
         no: "CX-18",
@@ -9704,7 +9716,13 @@
     series: "x",
     releases: {
       kr: {
-        status: "unreleased"
+        no: "UX-20",
+        name: "글로리 발키리언LF",
+        sale: "일반 판매",
+        kind: "스타터",
+        releaseDate: "2026-08-21",
+        price: "",
+        composition: [{ name: "글로리발키리언 LF", quantity: "1개", target: "BEY-X-UX-20-GLORY-VALKYRIE-LF" }, { name: "스트링런처", quantity: "1개", target: "TOOLS-X-STRING-LAUNCHER" }]
       },
       jp: {
         no: "UX-20",
@@ -9712,7 +9730,7 @@
         kind: "스타터",
         releaseDate: "2026-07-11",
         price: "2700",
-        composition: [{ name: "글로리왈큐레 LF", quantity: "1개", target: "BEY-X-UX-20-GLORY-VALKYRIE-LF" }]
+        composition: [{ name: "글로리왈큐레 LF", quantity: "1개", target: "BEY-X-UX-20-GLORY-VALKYRIE-LF" }, { name: "스트링런처", quantity: "1개", target: "TOOLS-X-STRING-LAUNCHER" }]
       }
     }
   },
