@@ -443,9 +443,9 @@ const xImageReview = [
   {
     "id": "BEY-X-BX-17-WIZARD-ARROW-4-80B",
     "image": "assets/images/x/beys/bey-x-bx-17-wizard-arrow-4-80b/main.webp",
-    "sourcePath": "02_product_components/020_bx17/02_BX17_02@1.png",
-    "sourceSha256": "29e58f833def36b343304e5ec8295db45512729cbbd431320528c4d9d9387334",
-    "outputSha256": "47ab2980a885623a4a87c0a1bb4c4dd391a5d1e840bf96a0b6cfa20940e312be"
+    "sourcePath": "02_product_components/020_bx17/04_BX17_04@1.png",
+    "sourceSha256": "8033a9a10dbc4c3b5a959249920014c8ce82135652dcf1563d9e151fbbd4c6c5",
+    "outputSha256": "e3dea101d3d1df333b1d30a22088abbb414bbd1ec79efc9eaf15a4bd7eac7522"
   },
   {
     "id": "BEY-X-BX-19-RHINO-HORN-3-80S",

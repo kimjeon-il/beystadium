@@ -1,5 +1,5 @@
 {
-  "version": "20260805-x-bey-supplied-front-images-bx13-16",
+  "version": "20260805-x-bey-supplied-front-images-bx17-27",
   "canvasSize": 448,
   "files": [
     {
@@ -4715,21 +4715,40 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-17-wizard-arrow-4-80b/main.webp",
-      "outputSha256": "47ab2980a885623a4a87c0a1bb4c4dd391a5d1e840bf96a0b6cfa20940e312be",
-      "alphaLevels": 256,
-      "partialPixels": 9409,
-      "foregroundPixels": 96213,
+      "image": "assets/images/x/beys/bey-x-bx-17-wizard-arrow-4-80b/front.webp",
+      "outputSha256": "e3dea101d3d1df333b1d30a22088abbb414bbd1ec79efc9eaf15a4bd7eac7522",
+      "alphaLevels": 27,
+      "partialPixels": 2448,
+      "foregroundPixels": 107534,
       "bbox": [
-        45,
+        34,
         40,
-        403,
+        413,
         408
       ],
       "margins": [
-        45,
+        34,
         40,
-        45,
+        35,
+        40
+      ]
+    },
+    {
+      "image": "assets/images/x/beys/bey-x-bx-17-wizard-arrow-4-80b/main.webp",
+      "outputSha256": "e3dea101d3d1df333b1d30a22088abbb414bbd1ec79efc9eaf15a4bd7eac7522",
+      "alphaLevels": 27,
+      "partialPixels": 2448,
+      "foregroundPixels": 107534,
+      "bbox": [
+        34,
+        40,
+        413,
+        408
+      ],
+      "margins": [
+        34,
+        40,
+        35,
         40
       ]
     },
@@ -4773,21 +4792,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-19-rhino-horn-3-80s/front.webp",
-      "outputSha256": "a24b27cb29d84c66b6089fc161a57ce5fa79a550645d4075a12217b313e7cbbc",
-      "alphaLevels": 255,
-      "partialPixels": 5203,
-      "foregroundPixels": 99139,
+      "outputSha256": "6dbb44621979446c13dfe98cc331481a094357be7c8e2f3da53c936a3b196953",
+      "alphaLevels": 20,
+      "partialPixels": 2134,
+      "foregroundPixels": 83251,
       "bbox": [
-        43,
-        37,
-        404,
-        412
+        55,
+        55,
+        392,
+        393
       ],
       "margins": [
-        43,
-        37,
-        44,
-        36
+        55,
+        55,
+        56,
+        55
       ]
     },
     {
@@ -5077,21 +5096,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-21-hells-chain-5-60ht/front.webp",
-      "outputSha256": "343fc1cccbfa637bd0f69973f072192402f8bffbaa7900626de9d7a14c8e24f2",
-      "alphaLevels": 256,
-      "partialPixels": 5445,
-      "foregroundPixels": 97649,
+      "outputSha256": "cd36438d3b5a691090a4dc98718d79b98d04ab4e20e5f5978539404fc2efc1b5",
+      "alphaLevels": 18,
+      "partialPixels": 2158,
+      "foregroundPixels": 94967,
       "bbox": [
-        48,
-        40,
-        399,
-        406
+        47,
+        49,
+        400,
+        398
       ],
       "margins": [
-        48,
-        40,
+        47,
         49,
-        42
+        48,
+        50
       ]
     },
     {
@@ -5172,21 +5191,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-21-knight-lance-3-60lf/front.webp",
-      "outputSha256": "d28731b54f25151475da5a60b203a03081c0e358b19bcd27db1fede8b9c9e071",
-      "alphaLevels": 256,
-      "partialPixels": 8468,
-      "foregroundPixels": 89782,
+      "outputSha256": "967f7a64e529aeb336559e91068c5693e62aeef9fc71fd8bcdd4497cc0f229b5",
+      "alphaLevels": 21,
+      "partialPixels": 2152,
+      "foregroundPixels": 91263,
       "bbox": [
-        55,
-        52,
-        392,
-        396
+        50,
+        53,
+        398,
+        394
       ],
       "margins": [
-        55,
-        52,
-        56,
-        52
+        50,
+        53,
+        50,
+        54
       ]
     },
     {
@@ -5267,21 +5286,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-21-wizard-arrow-4-80n/front.webp",
-      "outputSha256": "5bbc07509b019f742f39bbf8a8b066db4d19cbc608502ac3a5f7eaba76e5ea6e",
-      "alphaLevels": 256,
-      "partialPixels": 8204,
-      "foregroundPixels": 91883,
+      "outputSha256": "6b200fafc5523fa5026798a51e61a762ba38056309279a6fd814c5e5f19b3b33",
+      "alphaLevels": 22,
+      "partialPixels": 2171,
+      "foregroundPixels": 83659,
       "bbox": [
-        51,
-        53,
-        396,
-        396
+        57,
+        61,
+        391,
+        386
       ],
       "margins": [
-        51,
-        53,
-        52,
-        52
+        57,
+        61,
+        57,
+        62
       ]
     },
     {
@@ -5362,21 +5381,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-22-dran-sword-3-60f/front.webp",
-      "outputSha256": "b181056ba7f50049362c3f750ceda49830de07e53f719e1fbda38b593b7d4605",
-      "alphaLevels": 256,
-      "partialPixels": 9285,
-      "foregroundPixels": 103939,
+      "outputSha256": "79db1befe2a734905feeb4944aa505c6321bc78531c74e2580980db16ad16cab",
+      "alphaLevels": 43,
+      "partialPixels": 3026,
+      "foregroundPixels": 87427,
       "bbox": [
-        41,
-        28,
-        407,
-        419
+        51,
+        46,
+        396,
+        401
       ],
       "margins": [
-        41,
-        28,
-        41,
-        29
+        51,
+        46,
+        52,
+        47
       ]
     },
     {
@@ -5457,21 +5476,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-23-phoenix-soar-9-60gf/front.webp",
-      "outputSha256": "e72afa4ddd2509d45a619176ba41283d49d2ec9e77092d5e99345ba0871b35fb",
-      "alphaLevels": 254,
-      "partialPixels": 3800,
-      "foregroundPixels": 74660,
+      "outputSha256": "9f3357a2a461c4de6e84d4e7cdb8f8247b813ffabdad813ffc3c3cdf24f9864f",
+      "alphaLevels": 31,
+      "partialPixels": 2476,
+      "foregroundPixels": 92649,
       "bbox": [
-        64,
-        60,
-        383,
-        388
+        45,
+        44,
+        403,
+        404
       ],
       "margins": [
-        64,
-        60,
-        65,
-        60
+        45,
+        44,
+        45,
+        44
       ]
     },
     {
@@ -5495,21 +5514,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-24-01-wyvern-gale-5-80gb/front.webp",
-      "outputSha256": "2923590546a0e38a0898809a1c44754cc162b9847e0ca0d14bc4d0e2de32df7d",
-      "alphaLevels": 254,
-      "partialPixels": 4458,
-      "foregroundPixels": 81187,
+      "outputSha256": "7e05894fefb5e5b0cea0b4463182b593b7ae820f27ea7a46cea0143d7586294d",
+      "alphaLevels": 27,
+      "partialPixels": 2456,
+      "foregroundPixels": 87970,
       "bbox": [
-        63,
-        57,
-        385,
-        390
+        53,
+        53,
+        394,
+        395
       ],
       "margins": [
-        63,
-        57,
-        63,
-        58
+        53,
+        53,
+        54,
+        53
       ]
     },
     {
@@ -5837,21 +5856,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-26-unicorn-sting-5-60gf/front.webp",
-      "outputSha256": "024177ddb3faf31a009eabd70d7a419b6111162c48683d872d538a36a2438210",
-      "alphaLevels": 256,
-      "partialPixels": 6594,
-      "foregroundPixels": 97724,
+      "outputSha256": "ecd6a7a782a6dd9b62ffa2ee9a0e465c821514d7cd1426dcf1697ff778d25b59",
+      "alphaLevels": 31,
+      "partialPixels": 2399,
+      "foregroundPixels": 83828,
       "bbox": [
-        44,
-        42,
-        405,
-        405
+        55,
+        58,
+        392,
+        390
       ],
       "margins": [
-        44,
-        42,
-        43,
-        43
+        55,
+        58,
+        56,
+        58
       ]
     },
     {
@@ -5913,21 +5932,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-27-01-sphinx-cowl-9-80gn/front.webp",
-      "outputSha256": "e8f6b373cb1c9c2b002f63c5e114af238ef13ae2bbc16e38da9892611539534f",
-      "alphaLevels": 256,
-      "partialPixels": 6599,
-      "foregroundPixels": 104122,
+      "outputSha256": "a2e59adb7045d9646d774231822731590e9ccf5a2ba6dfe6ed1388d85d567b02",
+      "alphaLevels": 22,
+      "partialPixels": 2232,
+      "foregroundPixels": 93543,
       "bbox": [
-        44,
-        30,
-        404,
-        416
+        52,
+        47,
+        396,
+        401
       ],
       "margins": [
-        44,
-        30,
-        44,
-        32
+        52,
+        47,
+        52,
+        47
       ]
     },
     {

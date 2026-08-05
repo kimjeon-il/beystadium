@@ -89,12 +89,12 @@ uniqueValues([
   ...verifiedMainById.keys(),
   ...temporarySideById.keys()
 ], "explicit primary image classifications");
-assert.equal(xBeyPrimaryImageConfig.version, "20260805-x-bey-supplied-front-images-bx13-16");
+assert.equal(xBeyPrimaryImageConfig.version, "20260805-x-bey-supplied-front-images-bx17-27");
 assert.equal(xBeyAngleCorrectionConfig.version, xBeyPrimaryImageConfig.version);
 assert.equal(xBeyAngleCorrectionConfig.method, "premultiplied-alpha-vertical-affine");
-assert.equal(xBeyPrimaryImageConfig.selected.length, 41);
-assert.equal(xBeyAngleCorrectionConfig.entries.length, 86);
-assert.equal(xBeyPrimaryImageConfig.verifiedMain.length, 92);
+assert.equal(xBeyPrimaryImageConfig.selected.length, 51);
+assert.equal(xBeyAngleCorrectionConfig.entries.length, 77);
+assert.equal(xBeyPrimaryImageConfig.verifiedMain.length, 91);
 
 const suppliedFronts = new Map([
   ["BEY-X-BX-00-DRANZER-SPIRAL-3-80T", {
@@ -212,9 +212,106 @@ const suppliedFronts = new Map([
     sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX16_04@1.png",
     sourceSha256: "e8b0cf46f6d9b908c72e3ab60d84ab31c4c626ba50ad91970c5d8c41801d2e5a",
     sourceForegroundBox: [113, 184, 470, 543]
+  }],
+  ["BEY-X-BX-17-WIZARD-ARROW-4-80B", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX17_04@1.png",
+    sourceSha256: "8033a9a10dbc4c3b5a959249920014c8ce82135652dcf1563d9e151fbbd4c6c5",
+    sourceForegroundBox: [105, 168, 484, 536]
+  }],
+  ["BEY-X-BX-19-RHINO-HORN-3-80S", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX19_01@1.png",
+    sourceSha256: "eeecf04e8d6f564b7b5f191065e364d9f52cc9c5027341e974be27c253628eb9",
+    sourceForegroundBox: [125, 185, 462, 523]
+  }],
+  ["BEY-X-BX-21-HELLS-CHAIN-5-60HT", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX21_p_01@1.png",
+    sourceSha256: "fadb4ffaf1cba95434cbb310d848fb3acb0eaa41ce00414a5b635febd8857c9c",
+    sourceForegroundBox: [119, 187, 472, 536]
+  }],
+  ["BEY-X-BX-21-KNIGHT-LANCE-3-60LF", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX21_y_01@1.png",
+    sourceSha256: "efbe5bfd488eeafb9d22443138053b65d8ff5a149d636c3b26fed41a325e5c0a",
+    sourceForegroundBox: [120, 184, 468, 525]
+  }],
+  ["BEY-X-BX-21-WIZARD-ARROW-4-80N", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX21_o_01@1.png",
+    sourceSha256: "6db2cd478b3a8c0b4787bb26673221837084c1b58b2f5e155bdda301649fcdd5",
+    sourceForegroundBox: [126, 194, 460, 519]
+  }],
+  ["BEY-X-BX-22-DRAN-SWORD-3-60F", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX22_01@1.png",
+    sourceSha256: "b079edd0d2ef52a2c9af4c26a4d589c3293e3ce8954579eb00f67c919c65e3e0",
+    sourceForegroundBox: [117, 175, 462, 530]
+  }],
+  ["BEY-X-BX-23-PHOENIX-SOAR-9-60GF", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX23_01@1.png",
+    sourceSha256: "65ae2fadab830d7deaecb30a18f0720d00e8f43b3df7de613ecbc082b7b208ff",
+    sourceForegroundBox: [114, 175, 472, 535]
+  }],
+  ["BEY-X-BX-24-01-WYVERN-GALE-5-80GB", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX24_01@1.png",
+    sourceSha256: "1fb5e01d5d74de3caa267c85ff924edaff53aa504b9391101fc1f021565c929e",
+    sourceForegroundBox: [123, 184, 464, 526]
+  }],
+  ["BEY-X-BX-26-UNICORN-STING-5-60GF", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX26_01@1.png",
+    sourceSha256: "dadb15876bda475a9b0407c6c1acf9cc4ba0b9e7995d0990259804d3aa1e6de7",
+    sourceForegroundBox: [124, 188, 461, 520]
+  }],
+  ["BEY-X-BX-27-01-SPHINX-COWL-9-80GN", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX27_02@1.png",
+    sourceSha256: "f1761fed5c29cc5497a55eca9a2e2ef4abd5c14a97a682578714381a3a602ac8",
+    sourceForegroundBox: [121, 178, 465, 532]
   }]
 ]);
-assert.equal(suppliedFronts.size, 23);
+assert.equal(suppliedFronts.size, 33);
+
+const correctedWizardMapping = xImageById.get("BEY-X-BX-17-WIZARD-ARROW-4-80B");
+assert.ok(correctedWizardMapping, "BX-17 Wizard Arrow source mapping is missing");
+assert.equal(
+  correctedWizardMapping.sourcePath,
+  "02_product_components/020_bx17/04_BX17_04@1.png"
+);
+assert.equal(
+  correctedWizardMapping.sourceSha256,
+  "8033a9a10dbc4c3b5a959249920014c8ce82135652dcf1563d9e151fbbd4c6c5"
+);
+assert.equal(
+  await outputAudit(correctedWizardMapping.image),
+  "e3dea101d3d1df333b1d30a22088abbb414bbd1ec79efc9eaf15a4bd7eac7522"
+);
+
+const preservedExistingFronts = new Map([
+  ["BEY-X-BX-17-DRAN-SWORD-3-60F", {
+    classification: "official-assembled-front",
+    sourcePath: "02_product_components/020_bx17/01_BX17_01@1.png",
+    sourceSha256: "cbb0830baadb1386ba59a71777336767fb9bae049ad7eb05af38d28783fca8a5",
+    outputSha256: "a6fe8afed52e0ac39a5b0945df166d2ec9abc0b4e8cef00331cc5d72710b6b6a"
+  }],
+  ["BEY-X-BX-27-02-SPHINX-COWL-4-80HT", {
+    classification: "verified-existing-front",
+    sourcePath: "02_product_components/030_bx27/03_BX27_03@1.png",
+    sourceSha256: "997f458f29cfa66f6169f58fb7e7c33a8f64c3064e61720169a4579e7794b5d4",
+    outputSha256: "efa1b103ea60f421da995764dab554c5fc77f6f5a2437d12d39e4c5fd1d98eb4"
+  }],
+  ["BEY-X-BX-27-03-SPHINX-COWL-5-60O", {
+    classification: "verified-existing-front",
+    sourcePath: "02_product_components/030_bx27/04_BX27_04@1.png",
+    sourceSha256: "432ae33d3179f05557ea7e20d8beb0346aa0b2a5aaf59d6c9ee90704f0ce97a0",
+    outputSha256: "e7c8a0f70e5347e10b2e73f88e73d47819a2ee590437a625c56c517a646e4e1d"
+  }]
+]);
+for (const [id, expected] of preservedExistingFronts) {
+  const classificationIsPreserved = expected.classification === "official-assembled-front"
+    ? officialFrontById.has(id)
+    : verifiedMainById.has(id);
+  assert.ok(classificationIsPreserved, `${id}: preserved front classification changed`);
+  const mapping = xImageById.get(id);
+  assert.ok(mapping, `${id}: preserved source mapping is missing`);
+  assert.equal(mapping.sourcePath, expected.sourcePath);
+  assert.equal(mapping.sourceSha256, expected.sourceSha256);
+  assert.equal(await outputAudit(mapping.image), expected.outputSha256);
+}
 
 for (const entry of xBeyPrimaryImageConfig.selected) {
   assert.equal(entry.sourceKind, "official-assembled-front");
@@ -335,9 +432,9 @@ for (const item of xBeys) {
 }
 
 assert.deepEqual(counts, {
-  officialAngleCorrected: 86,
-  officialAssembledFront: 41,
-  verifiedExistingFront: 92,
+  officialAngleCorrected: 77,
+  officialAssembledFront: 51,
+  verifiedExistingFront: 91,
   temporarySide: 0
 });
 

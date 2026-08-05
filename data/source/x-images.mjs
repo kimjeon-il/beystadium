@@ -382,8 +382,8 @@ const xImageMappings = [
   {
     "id": "BEY-X-BX-17-WIZARD-ARROW-4-80B",
     "image": "assets/images/x/beys/bey-x-bx-17-wizard-arrow-4-80b/main.webp",
-    "sourcePath": "02_product_components/020_bx17/02_BX17_02@1.png",
-    "sourceSha256": "29e58f833def36b343304e5ec8295db45512729cbbd431320528c4d9d9387334"
+    "sourcePath": "02_product_components/020_bx17/04_BX17_04@1.png",
+    "sourceSha256": "8033a9a10dbc4c3b5a959249920014c8ce82135652dcf1563d9e151fbbd4c6c5"
   },
   {
     "id": "BEY-X-BX-19-RHINO-HORN-3-80S",

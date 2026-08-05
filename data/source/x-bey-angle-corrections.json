@@ -1,5 +1,5 @@
 {
-  "version": "20260805-x-bey-supplied-front-images-bx13-16",
+  "version": "20260805-x-bey-supplied-front-images-bx17-27",
   "method": "premultiplied-alpha-vertical-affine",
   "entries": [
     {
@@ -16,45 +16,6 @@
       "outputSha256": "c5f132f70a1e6e3f1046d619307e23da65bd4489e1349fc668c3376b34c1f9cc"
     },
     {
-      "id": "BEY-X-BX-19-RHINO-HORN-3-80S",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-rhino-horn.webp",
-      "image": "assets/images/x/beys/bey-x-bx-19-rhino-horn-3-80s/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX19_02@1.png",
-      "sourceSha256": "90018a03265bca0b452252b882fa365e6adcf44a77f0997e0e55ebf26ab7f53b",
-      "sourceOutputSha256": "19cc178a7f914312ce19dcbf52ae830e347dbfb0da05facc53e0bcc77caa725e",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.5,
-      "outputSha256": "a24b27cb29d84c66b6089fc161a57ce5fa79a550645d4075a12217b313e7cbbc"
-    },
-    {
-      "id": "BEY-X-BX-22-DRAN-SWORD-3-60F",
-      "sourceImage": "assets/images/x/beys/bey-x-bx-22-dran-sword-3-60f/parts/part-x-blade-dran-sword.webp",
-      "image": "assets/images/x/beys/bey-x-bx-22-dran-sword-3-60f/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX22_02@1.png",
-      "sourceSha256": "61ebc4b5999e1195784397d13d455467910af773ff4b9844a8af924a59738652",
-      "sourceOutputSha256": "962cf92665a5147f60e08b1d2985953d982b46e4b68e230c14232d93a349f12f",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.0,
-      "outputSha256": "b181056ba7f50049362c3f750ceda49830de07e53f719e1fbda38b593b7d4605"
-    },
-    {
-      "id": "BEY-X-BX-23-PHOENIX-SOAR-9-60GF",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-phoenix-soar.webp",
-      "image": "assets/images/x/beys/bey-x-bx-23-phoenix-soar-9-60gf/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX23_02@1.png",
-      "sourceSha256": "be869bef8dc5ca60675aca68525a9674922b443b8c4255692f0ebcad1c6cf5cb",
-      "sourceOutputSha256": "48bbdea3abc0803168f9b021b5d90cc4f58d6237168886bf6e0e7450571a8042",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.5,
-      "outputSha256": "e72afa4ddd2509d45a619176ba41283d49d2ec9e77092d5e99345ba0871b35fb"
-    },
-    {
       "id": "BEY-X-BX-00-LEON-CLAW-5-60P",
       "sourceImage": "assets/images/x/beys/bey-x-bx-00-leon-claw-5-60p/parts/part-x-blade-leon-claw.webp",
       "image": "assets/images/x/beys/bey-x-bx-00-leon-claw-5-60p/front.webp",
@@ -66,19 +27,6 @@
       "scaleY": 1.08,
       "pivotY": 223.5,
       "outputSha256": "0dfed10983dbcc5de3129d89155dde1b717967c07fec276371472fe4b7dced2b"
-    },
-    {
-      "id": "BEY-X-BX-26-UNICORN-STING-5-60GF",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-unicorn-sting.webp",
-      "image": "assets/images/x/beys/bey-x-bx-26-unicorn-sting-5-60gf/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX26_02@1.png",
-      "sourceSha256": "62c101640752a5ff97e17138a377bd6f312a65aca190f2a6376a70bf109815bd",
-      "sourceOutputSha256": "06b8b905775fccdf969601b62359947b315b708a48cfe24fd6d735c0168f1df8",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.0,
-      "outputSha256": "024177ddb3faf31a009eabd70d7a419b6111162c48683d872d538a36a2438210"
     },
     {
       "id": "BEY-X-BX-00-SHARK-EDGE-5-60GF",
@@ -510,45 +458,6 @@
       "outputSha256": "aa460ce88e1201c816deeedf5428c0211fb02e41d8d17a5a07a9041a9494f9c9"
     },
     {
-      "id": "BEY-X-BX-21-HELLS-CHAIN-5-60HT",
-      "sourceImage": "assets/images/x/beys/bey-x-bx-21-hells-chain-5-60ht/parts/part-x-blade-hells-chain.webp",
-      "image": "assets/images/x/beys/bey-x-bx-21-hells-chain-5-60ht/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX21_p_02@1.png",
-      "sourceSha256": "d0caf66d5c220484fa122a35d717aca005c292a871fcf3f7bbe64aabf5ca6935",
-      "sourceOutputSha256": "91ad7c00b72a407504ba2636691cda80efe49060a03d8237741ad25b4d2781f2",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.0,
-      "outputSha256": "343fc1cccbfa637bd0f69973f072192402f8bffbaa7900626de9d7a14c8e24f2"
-    },
-    {
-      "id": "BEY-X-BX-21-WIZARD-ARROW-4-80N",
-      "sourceImage": "assets/images/x/beys/bey-x-bx-21-wizard-arrow-4-80n/parts/part-x-blade-wizard-arrow.webp",
-      "image": "assets/images/x/beys/bey-x-bx-21-wizard-arrow-4-80n/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX21_o_02@1.png",
-      "sourceSha256": "658b3498a44ac15b77ad362587c58fbfdd4e868888d98227a4719e1520677d7a",
-      "sourceOutputSha256": "b14eb226f0a8a8fee344a5f010a792371727683a7e669aac7eac0a52b24173aa",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.5,
-      "outputSha256": "5bbc07509b019f742f39bbf8a8b066db4d19cbc608502ac3a5f7eaba76e5ea6e"
-    },
-    {
-      "id": "BEY-X-BX-21-KNIGHT-LANCE-3-60LF",
-      "sourceImage": "assets/images/x/beys/bey-x-bx-21-knight-lance-3-60lf/parts/part-x-blade-knight-lance.webp",
-      "image": "assets/images/x/beys/bey-x-bx-21-knight-lance-3-60lf/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX21_y_02@1.png",
-      "sourceSha256": "a3649cc30e537be4e0d78064750f4d727f89678eb89eb60d64cc1b369da40fe4",
-      "sourceOutputSha256": "a445af5222745c4d8f86f07953443256d9c7fe58a79f129ec9eae1246eadca4b",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.5,
-      "outputSha256": "d28731b54f25151475da5a60b203a03081c0e358b19bcd27db1fede8b9c9e071"
-    },
-    {
       "id": "BEY-X-UX-00-DRAN-DAGGER-9-60LF",
       "sourceImage": "assets/images/x/beys/bey-x-ux-00-dran-dagger-9-60lf/parts/part-x-blade-dran-dagger.webp",
       "image": "assets/images/x/beys/bey-x-ux-00-dran-dagger-9-60lf/front.webp",
@@ -716,32 +625,6 @@
       "scaleY": 1.08,
       "pivotY": 223.5,
       "outputSha256": "dda33e37a1f61f5c3b94332840cefdbf1a24fd6e5ba7c17b00ccb2a7bd2cc5d8"
-    },
-    {
-      "id": "BEY-X-BX-24-01-WYVERN-GALE-5-80GB",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-wyvern-gale.webp",
-      "image": "assets/images/x/beys/bey-x-bx-24-01-wyvern-gale-5-80gb/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX24_07@1.png",
-      "sourceSha256": "b248b92df549b5cd9b28c79fa646c4aaaefaaece8b6801925ff36431352227e3",
-      "sourceOutputSha256": "c56a22bcf61b19dfed849af1e811d7a19b083b2a736bd04b224e09a3f17c2e89",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.0,
-      "outputSha256": "2923590546a0e38a0898809a1c44754cc162b9847e0ca0d14bc4d0e2de32df7d"
-    },
-    {
-      "id": "BEY-X-BX-27-01-SPHINX-COWL-9-80GN",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-sphinx-cowl.webp",
-      "image": "assets/images/x/beys/bey-x-bx-27-01-sphinx-cowl-9-80gn/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX27_05@1.png",
-      "sourceSha256": "28cafd7dd2d763d731c61b73aabbb11a710542d8d965c8b7885ed2a7675cf14f",
-      "sourceOutputSha256": "e86698c04da041f70481ec5ef21da4aa4fddc2ec408cdbd66b786a3d0f869b9e",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.0,
-      "outputSha256": "e8f6b373cb1c9c2b002f63c5e114af238ef13ae2bbc16e38da9892611539534f"
     },
     {
       "id": "BEY-X-BX-31-01-TYRANNO-BEAT-4-70Q",
