@@ -2646,21 +2646,6 @@
       "sourceRef": "x-images",
       "sourceKind": "verified-existing-front",
       "image": "assets/images/x/beys/bey-x-ux-12-03-leon-claw-0-80e/main.webp",
-      "preNormalizationSha256": "34f40cc68bcfc207713be185413602706fc142147dc28d3f8da324715572d55f",
-      "outputSha256": "12bf7fc3261f01e65e4cab88524dde8374e845bed5d215cc1c3d6ec8a58c742d",
-      "normalizedForegroundBox": [
-        44,
-        44,
-        403,
-        404
-      ]
-    },
-    {
-      "id": "BEY-X-UX-12-04-PHOENIX-FEATHER-2-60N",
-      "view": "front-top",
-      "sourceRef": "x-images",
-      "sourceKind": "verified-existing-front",
-      "image": "assets/images/x/beys/bey-x-ux-12-04-phoenix-feather-2-60n/main.webp",
       "preNormalizationSha256": "9884f6f98c2808d82da22e90d290146733115b258ba7b817d844a9360725a231",
       "outputSha256": "e8c593e5091957d777dbcf12ef91672ff69cd650317a1243474fb082f0c998d4",
       "normalizedForegroundBox": [
@@ -2671,17 +2656,32 @@
       ]
     },
     {
-      "id": "BEY-X-UX-12-05-NINJA-SHADOW-3-80F",
+      "id": "BEY-X-UX-12-04-PHOENIX-FEATHER-2-60N",
       "view": "front-top",
       "sourceRef": "x-images",
       "sourceKind": "verified-existing-front",
-      "image": "assets/images/x/beys/bey-x-ux-12-05-ninja-shadow-3-80f/main.webp",
+      "image": "assets/images/x/beys/bey-x-ux-12-04-phoenix-feather-2-60n/main.webp",
       "preNormalizationSha256": "41edf97e5bd80f3c029ce67b08f824588d1d03fb97143d141179a1fc82ed25ab",
       "outputSha256": "40f98d862d348c6572ad6102e982dbfe83b495f8ceb04f7cb450a45ec0d2c9f7",
       "normalizedForegroundBox": [
         45,
         44,
         402,
+        404
+      ]
+    },
+    {
+      "id": "BEY-X-UX-12-05-NINJA-SHADOW-3-80F",
+      "view": "front-top",
+      "sourceRef": "x-images",
+      "sourceKind": "verified-existing-front",
+      "image": "assets/images/x/beys/bey-x-ux-12-05-ninja-shadow-3-80f/main.webp",
+      "preNormalizationSha256": "34f40cc68bcfc207713be185413602706fc142147dc28d3f8da324715572d55f",
+      "outputSha256": "12bf7fc3261f01e65e4cab88524dde8374e845bed5d215cc1c3d6ec8a58c742d",
+      "normalizedForegroundBox": [
+        44,
+        44,
+        403,
         404
       ]
     },

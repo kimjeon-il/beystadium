@@ -1219,20 +1219,20 @@ const xImageMappings = [
   {
     "id": "BEY-X-UX-12-03-LEON-CLAW-0-80E",
     "image": "assets/images/x/beys/bey-x-ux-12-03-leon-claw-0-80e/main.webp",
-    "sourcePath": "02_product_components/070_ux12/04_UX12_04@1.png",
-    "sourceSha256": "e90e525a3d4eb6a59acd8784e821612a8b7bbbf9f450bc41c26b711555f67a10"
-  },
-  {
-    "id": "BEY-X-UX-12-04-PHOENIX-FEATHER-2-60N",
-    "image": "assets/images/x/beys/bey-x-ux-12-04-phoenix-feather-2-60n/main.webp",
     "sourcePath": "02_product_components/070_ux12/05_UX12_05@1.png",
     "sourceSha256": "72423e836e9f44d08d5c5a07e076998fd3b3d99d10a2eda5e0ee9cd2cf0d46c2"
   },
   {
-    "id": "BEY-X-UX-12-05-NINJA-SHADOW-3-80F",
-    "image": "assets/images/x/beys/bey-x-ux-12-05-ninja-shadow-3-80f/main.webp",
+    "id": "BEY-X-UX-12-04-PHOENIX-FEATHER-2-60N",
+    "image": "assets/images/x/beys/bey-x-ux-12-04-phoenix-feather-2-60n/main.webp",
     "sourcePath": "02_product_components/070_ux12/06_UX12_06@1.png",
     "sourceSha256": "5bafc71c4357960cf98feffd1fac4f98caa037430332c97e30d2b316b9d59c9f"
+  },
+  {
+    "id": "BEY-X-UX-12-05-NINJA-SHADOW-3-80F",
+    "image": "assets/images/x/beys/bey-x-ux-12-05-ninja-shadow-3-80f/main.webp",
+    "sourcePath": "02_product_components/070_ux12/04_UX12_04@1.png",
+    "sourceSha256": "e90e525a3d4eb6a59acd8784e821612a8b7bbbf9f450bc41c26b711555f67a10"
   },
   {
     "id": "BEY-X-UX-12-06-WYVERN-GALE-0-80C",

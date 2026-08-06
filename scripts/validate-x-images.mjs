@@ -15,6 +15,9 @@ const ALPHA_REVIEW_VERSION = "20260806-x-phoenix-wing-9-80db-front";
 const xItems = [...beyItems, ...partItems].filter(item => item.series === "x");
 const xIds = new Set(xItems.map(item => item.id));
 const expectedCorrectedSources = {
+  "BEY-X-UX-12-03-LEON-CLAW-0-80E": "02_product_components/070_ux12/05_UX12_05@1.png",
+  "BEY-X-UX-12-04-PHOENIX-FEATHER-2-60N": "02_product_components/070_ux12/06_UX12_06@1.png",
+  "BEY-X-UX-12-05-NINJA-SHADOW-3-80F": "02_product_components/070_ux12/04_UX12_04@1.png",
   "BEY-X-BX-20-DRAN-DAGGER-4-60R": "02_product_components/023_bx20/02_BX20_b_01@1.png",
   "BEY-X-BX-20-KNIGHT-SHIELD-5-80T": "02_product_components/023_bx20/10_BX20_p_01@1.png",
   "BEY-X-BX-20-SHARK-EDGE-3-80F": "02_product_components/023_bx20/06_BX20_g_01@1.png",

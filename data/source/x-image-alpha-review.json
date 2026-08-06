@@ -14330,21 +14330,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-ux-12-03-leon-claw-0-80e/main.webp",
-      "outputSha256": "12bf7fc3261f01e65e4cab88524dde8374e845bed5d215cc1c3d6ec8a58c742d",
-      "alphaLevels": 256,
-      "partialPixels": 7101,
-      "foregroundPixels": 98789,
+      "outputSha256": "e8c593e5091957d777dbcf12ef91672ff69cd650317a1243474fb082f0c998d4",
+      "alphaLevels": 255,
+      "partialPixels": 5990,
+      "foregroundPixels": 98702,
       "bbox": [
         44,
-        44,
-        403,
-        404
+        46,
+        404,
+        401
       ],
       "margins": [
         44,
+        46,
         44,
-        45,
-        44
+        47
       ]
     },
     {
@@ -14387,21 +14387,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-ux-12-04-phoenix-feather-2-60n/main.webp",
-      "outputSha256": "e8c593e5091957d777dbcf12ef91672ff69cd650317a1243474fb082f0c998d4",
-      "alphaLevels": 255,
-      "partialPixels": 5990,
-      "foregroundPixels": 98702,
+      "outputSha256": "40f98d862d348c6572ad6102e982dbfe83b495f8ceb04f7cb450a45ec0d2c9f7",
+      "alphaLevels": 256,
+      "partialPixels": 7961,
+      "foregroundPixels": 94793,
       "bbox": [
+        45,
         44,
-        46,
-        404,
-        401
+        402,
+        404
       ],
       "margins": [
+        45,
         44,
         46,
-        44,
-        47
+        44
       ]
     },
     {
@@ -14444,20 +14444,20 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-ux-12-05-ninja-shadow-3-80f/main.webp",
-      "outputSha256": "40f98d862d348c6572ad6102e982dbfe83b495f8ceb04f7cb450a45ec0d2c9f7",
+      "outputSha256": "12bf7fc3261f01e65e4cab88524dde8374e845bed5d215cc1c3d6ec8a58c742d",
       "alphaLevels": 256,
-      "partialPixels": 7961,
-      "foregroundPixels": 94793,
+      "partialPixels": 7101,
+      "foregroundPixels": 98789,
       "bbox": [
-        45,
         44,
-        402,
+        44,
+        403,
         404
       ],
       "margins": [
-        45,
         44,
-        46,
+        44,
+        45,
         44
       ]
     },
