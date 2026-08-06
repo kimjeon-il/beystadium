@@ -9569,7 +9569,7 @@
     releases: {
       kr: {
         no: "BX-51",
-        name: "스트링 런처 블랙 X 그린",
+        name: "스트링런처 블랙×그린",
         sale: "일반 판매",
         kind: "툴",
         releaseDate: "2026-08-21",
@@ -9592,7 +9592,7 @@
     releases: {
       kr: {
         no: "CX-18",
-        name: "랜덤 부스터 브라키오 윕 셀렉트",
+        name: "랜덤부스터 브라키오 윕 셀렉트",
         sale: "일반 판매",
         kind: "랜덤부스터",
         releaseDate: "2026-08-21",
