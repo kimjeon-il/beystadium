@@ -100,7 +100,7 @@ SUPPLIED_FRONT_IDS = {
     "BEY-X-UX-19-BULLET-GRIFFON-H",
     "BEY-X-UX-20-GLORY-VALKYRIE-LF",
 }
-CONFIG_VERSION = "20260806-x-front-bey-size-normalization"
+CONFIG_VERSION = "20260806-x-phoenix-wing-9-80db-front"
 
 
 def parse_args() -> argparse.Namespace:

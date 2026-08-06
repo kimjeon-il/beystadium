@@ -1,7 +1,7 @@
 import xBeyPrimaryImageConfig from "./x-bey-primary-images.json" with { type: "json" };
 import xBeyAngleCorrectionConfig from "./x-bey-angle-corrections.json" with { type: "json" };
 
-const officialFrontById = new Map(
+const selectedFrontById = new Map(
   xBeyPrimaryImageConfig.selected.map(entry => [entry.id, entry])
 );
 const verifiedMainById = new Map(
@@ -20,10 +20,10 @@ function applyXBeyPrimaryImages(items) {
   for (const item of items) {
     if (item.series !== "x" || item.type !== "bey" || !item.image) continue;
     const bladeIds = bladePartIds(item);
-    const officialFront = officialFrontById.get(item.id);
+    const selectedFront = selectedFrontById.get(item.id);
     const angleCorrection = angleCorrectionById.get(item.id);
     const classifications = [
-      Boolean(officialFront),
+      Boolean(selectedFront),
       Boolean(angleCorrection),
       verifiedMainById.has(item.id),
       temporarySideIds.has(item.id)
@@ -31,8 +31,8 @@ function applyXBeyPrimaryImages(items) {
     if (classifications > 1) {
       throw new Error(`${item.id}: primary image has conflicting viewpoint classifications`);
     }
-    if (officialFront) {
-      item.image = officialFront.image;
+    if (selectedFront) {
+      item.image = selectedFront.image;
       continue;
     }
     if (angleCorrection) {

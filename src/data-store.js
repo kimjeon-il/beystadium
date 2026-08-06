@@ -193,7 +193,7 @@ const BeystadiumDataStore = (() => {
   const initialize = async () => {
     clearError();
     try {
-      indexData = await fetchJson("./data/runtime/index.json?v=20260805-x-kr-august-releases");
+      indexData = await fetchJson("./data/runtime/index.json?v=20260806-x-phoenix-wing-9-80db-front");
       if (detailHashOnBoot()) await ensureRegistry();
       document.querySelector("[data-load-retry]")?.addEventListener("click", () => window.location.reload());
       return true;

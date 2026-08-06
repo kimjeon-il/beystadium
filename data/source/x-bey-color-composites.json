@@ -1,0 +1,78 @@
+{
+  "version": "20260806-x-phoenix-wing-9-80db-front",
+  "items": [
+    {
+      "id": "BEY-X-BX-00-PHOENIX-SOAR-9-80DB",
+      "sourceKind": "reference-color-composited-front",
+      "geometrySource": {
+        "sourcePath": "02_product_components/026_bx23/01_BX23_01@1.png",
+        "sha256": "65ae2fadab830d7deaecb30a18f0720d00e8f43b3df7de613ecbc082b7b208ff"
+      },
+      "geometryBase": {
+        "image": "assets/images/x/beys/bey-x-bx-23-phoenix-soar-9-60gf/front.webp",
+        "sha256": "bd86e7dc4f7a41fcb28786a0e14d7c3cf9ac109f401eb0b34c352414dbaa687a"
+      },
+      "colorReference": {
+        "label": "user-provided Phoenix Wing 9-80DB product photo",
+        "sha256": "f3ab47684fa2d762457685b68c43dca2972bffc0b0fd9b7bdba5989cd8b38266",
+        "repositoryCopy": false,
+        "referenceSwatches": {
+          "outerNavy": "#18205f",
+          "translucentLime": "#b9ec18",
+          "innerTeal": "#00a99b",
+          "emblemBlue": "#00aeef"
+        }
+      },
+      "output": "assets/images/x/beys/bey-x-bx-00-phoenix-soar-9-80db/front.webp",
+      "canvasSize": 448,
+      "targetForegroundSize": 360,
+      "alphaThreshold": 3,
+      "mask": {
+        "center": [224, 224],
+        "redHueUpper": 0.085,
+        "redHueLower": 0.965,
+        "redMinimumSaturation": 0.18,
+        "warmHueLower": 0.075,
+        "warmHueUpper": 0.19,
+        "warmMinimumSaturation": 0.16,
+        "emblemMaximumRadius": 70,
+        "innerTealMinimumRadius": 58,
+        "innerTealMaximumRadius": 105,
+        "outerLimeMinimumRadius": 105
+      },
+      "regions": {
+        "outerNavy": {
+          "hueDegrees": 230,
+          "saturationOffset": 0.7,
+          "saturationScale": 0.24,
+          "saturationMaximum": 0.94,
+          "valueOffset": 0.07,
+          "valueScale": 0.67
+        },
+        "innerTeal": {
+          "hueDegrees": 177,
+          "saturationOffset": 0.62,
+          "saturationScale": 0.28,
+          "saturationMaximum": 0.92,
+          "valueOffset": 0.08,
+          "valueScale": 0.86
+        },
+        "outerLime": {
+          "hueDegrees": 82,
+          "saturationOffset": 0.72,
+          "saturationScale": 0.24,
+          "saturationMaximum": 0.98,
+          "valueOffset": 0.14,
+          "valueScale": 0.86
+        },
+        "emblemBlue": {
+          "hueDegrees": 195,
+          "saturationOffset": 0.7,
+          "saturationScale": 0.25,
+          "saturationMaximum": 0.98
+        }
+      },
+      "outputSha256": "4ce70d77cb24d7365233ea46d81a1bfb98b186c372b3f1f8273d81047745a8b5"
+    }
+  ]
+}

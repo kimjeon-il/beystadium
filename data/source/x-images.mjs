@@ -164,6 +164,15 @@ const xImageMappings = [
     "sourceSha256": "14d7dd7c9889e7a8c79501a8ed0cb14ffee2e60a4c09d95391f322d2c77a07fe"
   },
   {
+    "id": "BEY-X-BX-00-PHOENIX-SOAR-9-80DB",
+    "image": "assets/images/x/beys/bey-x-bx-00-phoenix-soar-9-80db/front.webp",
+    "sourcePath": "02_product_components/026_bx23/01_BX23_01@1.png",
+    "sourceSha256": "65ae2fadab830d7deaecb30a18f0720d00e8f43b3df7de613ecbc082b7b208ff",
+    "sourceKind": "reference-color-composited-front",
+    "colorReferenceSha256": "f3ab47684fa2d762457685b68c43dca2972bffc0b0fd9b7bdba5989cd8b38266",
+    "compositeConfig": "data/source/x-bey-color-composites.json"
+  },
+  {
     "id": "BEY-X-BX-00-QUETZALCOATLUS-4-55D",
     "image": "assets/images/x/beys/bey-x-bx-00-quetzalcoatlus-4-55d/main.webp",
     "sourcePath": "02_product_components/101_bx00-jsq/06_BXG41_06@1.png",
@@ -2910,10 +2919,6 @@ const xImageMappings = [
 const xImageUnavailable = [
   {
     "id": "BEY-X-BX-00-HELLS-SCYTHE-3-80F",
-    "reason": "타카라토미·한국 공식 출처에 단독 제품 사진이 공개되지 않았다."
-  },
-  {
-    "id": "BEY-X-BX-00-PHOENIX-SOAR-9-80DB",
     "reason": "타카라토미·한국 공식 출처에 단독 제품 사진이 공개되지 않았다."
   },
   {

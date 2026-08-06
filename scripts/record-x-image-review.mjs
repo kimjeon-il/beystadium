@@ -23,7 +23,10 @@ for (const entry of xImageMappings) {
     ...(entry.sourceCrop ? { sourceCrop: entry.sourceCrop } : {}),
     ...(entry.sourceExcludeRects ? { sourceExcludeRects: entry.sourceExcludeRects } : {}),
     ...(entry.sourceClearPoints ? { sourceClearPoints: entry.sourceClearPoints } : {}),
-    ...(entry.keepLargestComponent ? { keepLargestComponent: true } : {})
+    ...(entry.keepLargestComponent ? { keepLargestComponent: true } : {}),
+    ...(entry.sourceKind ? { sourceKind: entry.sourceKind } : {}),
+    ...(entry.colorReferenceSha256 ? { colorReferenceSha256: entry.colorReferenceSha256 } : {}),
+    ...(entry.compositeConfig ? { compositeConfig: entry.compositeConfig } : {})
   });
 }
 

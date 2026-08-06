@@ -189,6 +189,16 @@ const xImageReview = [
     "outputSha256": "3ce6008773fc368375ffef985e67e74ebc37214da9bb4e57254a3d7351768bf8"
   },
   {
+    "id": "BEY-X-BX-00-PHOENIX-SOAR-9-80DB",
+    "image": "assets/images/x/beys/bey-x-bx-00-phoenix-soar-9-80db/front.webp",
+    "sourcePath": "02_product_components/026_bx23/01_BX23_01@1.png",
+    "sourceSha256": "65ae2fadab830d7deaecb30a18f0720d00e8f43b3df7de613ecbc082b7b208ff",
+    "outputSha256": "4ce70d77cb24d7365233ea46d81a1bfb98b186c372b3f1f8273d81047745a8b5",
+    "sourceKind": "reference-color-composited-front",
+    "colorReferenceSha256": "f3ab47684fa2d762457685b68c43dca2972bffc0b0fd9b7bdba5989cd8b38266",
+    "compositeConfig": "data/source/x-bey-color-composites.json"
+  },
+  {
     "id": "BEY-X-BX-00-QUETZALCOATLUS-4-55D",
     "image": "assets/images/x/beys/bey-x-bx-00-quetzalcoatlus-4-55d/main.webp",
     "sourcePath": "02_product_components/101_bx00-jsq/06_BXG41_06@1.png",

@@ -11,7 +11,7 @@ import { xCatalogImagePath } from "./x-image-paths.mjs";
 const REPORT_ARG = process.argv.find(argument => argument.startsWith("--report="));
 const REPORT_PATH = REPORT_ARG?.slice("--report=".length) || "";
 const ALPHA_REVIEW_PATH = path.resolve("data/source/x-image-alpha-review.json");
-const ALPHA_REVIEW_VERSION = "20260806-x-front-bey-size-normalization";
+const ALPHA_REVIEW_VERSION = "20260806-x-phoenix-wing-9-80db-front";
 const xItems = [...beyItems, ...partItems].filter(item => item.series === "x");
 const xIds = new Set(xItems.map(item => item.id));
 const expectedCorrectedSources = {
@@ -84,10 +84,20 @@ async function validateOutputs() {
   ];
   uniqueValues(accountedIds, "accounted X item IDs");
   assert.deepEqual(new Set(accountedIds), xIds, "every X Bey and part must be mapped or unavailable");
-  assert.equal(xImageMappings.length, 441);
-  assert.equal(xImageUnavailable.length, 24);
+  assert.equal(xImageMappings.length, 442);
+  assert.equal(xImageUnavailable.length, 23);
   assert.equal(xImageReview.length, xImageMappings.length);
   const mappingById = new Map(xImageMappings.map(entry => [entry.id, entry]));
+  const phoenixComposite = mappingById.get("BEY-X-BX-00-PHOENIX-SOAR-9-80DB");
+  assert.deepEqual(phoenixComposite, {
+    id: "BEY-X-BX-00-PHOENIX-SOAR-9-80DB",
+    image: "assets/images/x/beys/bey-x-bx-00-phoenix-soar-9-80db/front.webp",
+    sourcePath: "02_product_components/026_bx23/01_BX23_01@1.png",
+    sourceSha256: "65ae2fadab830d7deaecb30a18f0720d00e8f43b3df7de613ecbc082b7b208ff",
+    sourceKind: "reference-color-composited-front",
+    colorReferenceSha256: "f3ab47684fa2d762457685b68c43dca2972bffc0b0fd9b7bdba5989cd8b38266",
+    compositeConfig: "data/source/x-bey-color-composites.json"
+  });
   for (const [id, sourcePath] of Object.entries(expectedCorrectedSources)) {
     assert.equal(mappingById.get(id)?.sourcePath, sourcePath, `${id} uses the wrong official image`);
   }
@@ -99,7 +109,10 @@ async function validateOutputs() {
   const reviewById = new Map(xImageReview.map(entry => [entry.id, entry]));
   for (const entry of xImageMappings) {
     const item = xItems.find(candidate => candidate.id === entry.id);
-    assert.equal(entry.image, xCatalogImagePath(item), `${entry.id} uses the wrong image layout`);
+    const expectedImage = entry.sourceKind === "reference-color-composited-front"
+      ? `assets/images/x/beys/${entry.id.toLowerCase()}/front.webp`
+      : xCatalogImagePath(item);
+    assert.equal(entry.image, expectedImage, `${entry.id} uses the wrong image layout`);
     assert.match(entry.sourceSha256, /^[a-f0-9]{64}$/);
     assert.ok(entry.sourcePath || entry.sourceUrl, `${entry.id} needs source provenance`);
     if (item?.type !== "bey") assert.equal(item?.image, entry.image);
@@ -122,12 +135,23 @@ async function validateOutputs() {
       `${entry.id} reviewed source changed`
     );
     assert.equal(review.sourceSha256, entry.sourceSha256, `${entry.id} reviewed source hash changed`);
+    assert.equal(review.sourceKind, entry.sourceKind, `${entry.id} reviewed source kind changed`);
+    assert.equal(
+      review.colorReferenceSha256,
+      entry.colorReferenceSha256,
+      `${entry.id} reviewed color reference changed`
+    );
+    assert.equal(
+      review.compositeConfig,
+      entry.compositeConfig,
+      `${entry.id} reviewed composite config changed`
+    );
     const outputSha256 = createHash("sha256").update(bytes).digest("hex");
     assert.equal(outputSha256, review.outputSha256, `${entry.id} output no longer matches its review`);
   }
 
   const files = await webpFiles(path.resolve("assets/images/x"));
-  assert.equal(files.length, 1044, "X image file count changed");
+  assert.equal(files.length, 1045, "X image file count changed");
   assert.equal(
     files.some(file => file.includes(`${path.sep}part-previews${path.sep}`)),
     false,
@@ -175,7 +199,9 @@ async function validateSourceHashes() {
     assert.ok(selected, `${mapping.id} is missing from the local mapping report`);
     const source = selected.sourceFile
       ? path.resolve(selected.sourceFile)
-      : path.join(report.sourceRoot, ...selected.source.split("/"));
+      : selected.source.startsWith("data/source/")
+        ? path.resolve(selected.source)
+        : path.join(report.sourceRoot, ...selected.source.split("/"));
     await stat(source);
     const digest = createHash("sha256").update(await readFile(source)).digest("hex");
     assert.equal(digest, mapping.sourceSha256, `${mapping.id} source hash changed`);

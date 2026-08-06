@@ -405,6 +405,9 @@ def main() -> int:
     model_sessions = {}
     failures: list[tuple[str, str]] = []
     for index, entry in enumerate(entries, start=1):
+        if entry.get("sourceKind") == "reference-color-composited-front":
+            print(f"[{index}/{len(entries)}] preserve composite {entry['id']}", flush=True)
+            continue
         source = source_path(report, entry, args.source_cache)
         destination = destination_path(entry, args.output_root, args.current_layout)
         if destination.exists() and not args.overwrite:

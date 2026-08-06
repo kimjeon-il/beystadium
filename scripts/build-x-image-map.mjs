@@ -97,7 +97,6 @@ const OFFICIAL_SOURCE_OVERRIDES = {
 
 const UNAVAILABLE_REASONS = {
   "BEY-X-BX-00-HELLS-SCYTHE-3-80F": "타카라토미·한국 공식 출처에 단독 제품 사진이 공개되지 않았다.",
-  "BEY-X-BX-00-PHOENIX-SOAR-9-80DB": "타카라토미·한국 공식 출처에 단독 제품 사진이 공개되지 않았다.",
   "BEY-X-BX-00-NINJA-KNIFE-4-60LF": "공식 게임 특전 홍보 이미지에는 패키지와 합성된 사진만 있다.",
   "BEY-X-BX-00-CROCO-CRUNCH-2-60Q": "타카라토미 공식 목록에는 출시 정보만 있고 단독 제품 사진이 없다.",
   "BEY-X-UX-00-WARRIOR-SABER-2-70L": "공식 특장판 홍보 이미지에는 문자·책 표지와 합성된 사진만 있다.",
@@ -560,14 +559,18 @@ async function main() {
   for (const review of xImageReview) {
     const item = itemById.get(review.id);
     if (!item) throw new Error(`Unknown reviewed X image item: ${review.id}`);
-    const expectedImage = outputRelative(item);
+    const expectedImage = review.sourceKind === "reference-color-composited-front"
+      ? `assets/images/x/beys/${review.id.toLowerCase()}/front.webp`
+      : outputRelative(item);
     if (review.image !== expectedImage) {
       throw new Error(`${review.id}: reviewed output path changed`);
     }
     const source = review.sourcePath || review.sourceUrl;
     if (!source) throw new Error(`${review.id}: reviewed source is missing`);
     const filePath = review.sourcePath
-      ? path.join(SOURCE_ROOT, ...review.sourcePath.split("/"))
+      ? (review.sourcePath.startsWith("data/source/")
+        ? path.resolve(review.sourcePath)
+        : path.join(SOURCE_ROOT, ...review.sourcePath.split("/")))
       : await downloadOfficialSource(review.id, review.sourceUrl);
     await stat(filePath);
     const sourceSha256 = await sha256(filePath);
@@ -587,7 +590,10 @@ async function main() {
       ...(review.sourceCrop ? { sourceCrop: review.sourceCrop } : {}),
       ...(review.sourceExcludeRects ? { sourceExcludeRects: review.sourceExcludeRects } : {}),
       ...(review.sourceClearPoints ? { sourceClearPoints: review.sourceClearPoints } : {}),
-      ...(review.keepLargestComponent ? { keepLargestComponent: true } : {})
+      ...(review.keepLargestComponent ? { keepLargestComponent: true } : {}),
+      ...(review.sourceKind ? { sourceKind: review.sourceKind } : {}),
+      ...(review.colorReferenceSha256 ? { colorReferenceSha256: review.colorReferenceSha256 } : {}),
+      ...(review.compositeConfig ? { compositeConfig: review.compositeConfig } : {})
     });
   }
   const selectedEntries = [...selected.values()]
@@ -649,7 +655,10 @@ async function main() {
       ...(entry.sourceCrop ? { sourceCrop: entry.sourceCrop } : {}),
       ...(entry.sourceExcludeRects ? { sourceExcludeRects: entry.sourceExcludeRects } : {}),
       ...(entry.sourceClearPoints ? { sourceClearPoints: entry.sourceClearPoints } : {}),
-      ...(entry.keepLargestComponent ? { keepLargestComponent: true } : {})
+      ...(entry.keepLargestComponent ? { keepLargestComponent: true } : {}),
+      ...(entry.sourceKind ? { sourceKind: entry.sourceKind } : {}),
+      ...(entry.colorReferenceSha256 ? { colorReferenceSha256: entry.colorReferenceSha256 } : {}),
+      ...(entry.compositeConfig ? { compositeConfig: entry.compositeConfig } : {})
     }));
     const moduleSource = `const xImageMappings = ${JSON.stringify(mappings, null, 2)};\n\n`
       + `const xImageUnavailable = ${JSON.stringify(unavailable, null, 2)};\n\n`

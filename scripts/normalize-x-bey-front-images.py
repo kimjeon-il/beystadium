@@ -16,11 +16,15 @@ from PIL import Image
 
 CONFIG_PATH = Path("data/source/x-bey-primary-images.json")
 ANGLE_CONFIG_PATH = Path("data/source/x-bey-angle-corrections.json")
-CONFIG_VERSION = "20260806-x-front-bey-size-normalization"
+CONFIG_VERSION = "20260806-x-phoenix-wing-9-80db-front"
 CANVAS_SIZE = 448
 TARGET_FOREGROUND_SIZE = 360
 ALPHA_THRESHOLD = 3
-ELIGIBLE_SOURCE_KINDS = {"official-assembled-front", "verified-existing-front"}
+ELIGIBLE_SOURCE_KINDS = {
+    "official-assembled-front",
+    "reference-color-composited-front",
+    "verified-existing-front",
+}
 
 
 def parse_args() -> argparse.Namespace:
@@ -102,7 +106,10 @@ def normalized_image(source: Image.Image) -> tuple[Image.Image, list[int]]:
 def config_entries(config: dict) -> list[dict]:
     entries: list[dict] = []
     for entry in config["selected"]:
-        if entry.get("sourceKind") != "official-assembled-front":
+        if entry.get("sourceKind") not in {
+            "official-assembled-front",
+            "reference-color-composited-front",
+        }:
             raise ValueError(f"{entry['id']}: unexpected selected source kind")
         entries.append(entry)
     for entry in config["verifiedMain"]:
@@ -147,8 +154,8 @@ def main() -> int:
     validate_policy(config)
 
     entries = config_entries(config)
-    if len(entries) != 184:
-        raise ValueError(f"expected 184 front-view Beys, found {len(entries)}")
+    if len(entries) != 185:
+        raise ValueError(f"expected 185 front-view Beys, found {len(entries)}")
     ids = [entry["id"] for entry in entries]
     paths = [entry["image"] for entry in entries]
     if len(set(ids)) != len(ids) or len(set(paths)) != len(paths):
