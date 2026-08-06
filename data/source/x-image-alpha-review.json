@@ -3196,21 +3196,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-xeno-xcalibur-3-60gf/front.webp",
-      "outputSha256": "72031000b9bd1b48f2218222d2b9903a2d4731b683b3fc07c6cc7d8c6108c648",
-      "alphaLevels": 256,
-      "partialPixels": 5806,
-      "foregroundPixels": 107108,
+      "outputSha256": "98a5f9909946d71f6c7d3267715be771eed23d8e0e37c0e9504eaac8d52085c5",
+      "alphaLevels": 244,
+      "partialPixels": 3185,
+      "foregroundPixels": 90501,
       "bbox": [
-        46,
-        22,
-        402,
-        425
+        56,
+        44,
+        391,
+        404
       ],
       "margins": [
-        46,
-        22,
-        46,
-        23
+        56,
+        44,
+        57,
+        44
       ]
     },
     {
@@ -13817,101 +13817,6 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-ux-07-sphinx-cowl-1-80gf/front.webp",
-      "outputSha256": "9297b09c2ab637e166e70b0eb65bb5bbb3b748ab4237ac322260a8ed98a3700c",
-      "alphaLevels": 250,
-      "partialPixels": 4318,
-      "foregroundPixels": 98654,
-      "bbox": [
-        44,
-        45,
-        404,
-        402
-      ],
-      "margins": [
-        44,
-        45,
-        44,
-        46
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-07-sphinx-cowl-1-80gf/main.webp",
-      "outputSha256": "ece2597f83fea32bcbd6fb5f45ba80c76b9d31ba8dc345f6a8ce3b2e2bba02e0",
-      "alphaLevels": 255,
-      "partialPixels": 7183,
-      "foregroundPixels": 97563,
-      "bbox": [
-        46,
-        45,
-        402,
-        403
-      ],
-      "margins": [
-        46,
-        45,
-        46,
-        45
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-07-sphinx-cowl-1-80gf/parts/part-x-bit-gf.webp",
-      "outputSha256": "75bf37651a609a61339dc907b82582c39942e41feacb21e3186f026baddf2a46",
-      "alphaLevels": 251,
-      "partialPixels": 5721,
-      "foregroundPixels": 39333,
-      "bbox": [
-        125,
-        73,
-        323,
-        375
-      ],
-      "margins": [
-        125,
-        73,
-        125,
-        73
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-07-sphinx-cowl-1-80gf/parts/part-x-blade-sphinx-cowl.webp",
-      "outputSha256": "b5abdb20120a89b1060de7a1b9dc77d1f6e4c1993de25d4c4c7a60a133073308",
-      "alphaLevels": 256,
-      "partialPixels": 8775,
-      "foregroundPixels": 93941,
-      "bbox": [
-        43,
-        54,
-        405,
-        393
-      ],
-      "margins": [
-        43,
-        54,
-        43,
-        55
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-07-sphinx-cowl-1-80gf/parts/part-x-ratchet-1-80.webp",
-      "outputSha256": "17e4529210561e4ec21ef85147dac628ea7ee71a7573c1bada2480ba812b6550",
-      "alphaLevels": 256,
-      "partialPixels": 8139,
-      "foregroundPixels": 92573,
-      "bbox": [
-        44,
-        59,
-        403,
-        388
-      ],
-      "margins": [
-        44,
-        59,
-        45,
-        60
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-07-wyvern-gale-2-60s/front.webp",
       "outputSha256": "f210fb4634ec046f23620d65caa725b30118562ef4d4b69e88be1b8f87895bc8",
       "alphaLevels": 225,
       "partialPixels": 4028,
@@ -13930,7 +13835,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-07-wyvern-gale-2-60s/main.webp",
+      "image": "assets/images/x/beys/bey-x-ux-07-sphinx-cowl-1-80gf/main.webp",
       "outputSha256": "ebc88f0c34566f97dda15e2a2ecdd3bc4769f56592e7e5053255615f452780a2",
       "alphaLevels": 253,
       "partialPixels": 6016,
@@ -13949,7 +13854,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-07-wyvern-gale-2-60s/parts/part-x-bit-s.webp",
+      "image": "assets/images/x/beys/bey-x-ux-07-sphinx-cowl-1-80gf/parts/part-x-bit-gf.webp",
       "outputSha256": "6822578eb681b3341a78e0ae72c9d7ef99b3c8ab9aa817390d2a8f36f4ee10c2",
       "alphaLevels": 246,
       "partialPixels": 2758,
@@ -13968,7 +13873,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-07-wyvern-gale-2-60s/parts/part-x-blade-wyvern-gale.webp",
+      "image": "assets/images/x/beys/bey-x-ux-07-sphinx-cowl-1-80gf/parts/part-x-blade-sphinx-cowl.webp",
       "outputSha256": "3ba7d2100ca093d1a975667d3026cf87087eac3b260f984da7714ff441005f66",
       "alphaLevels": 255,
       "partialPixels": 6921,
@@ -13987,7 +13892,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-07-wyvern-gale-2-60s/parts/part-x-ratchet-2-60.webp",
+      "image": "assets/images/x/beys/bey-x-ux-07-sphinx-cowl-1-80gf/parts/part-x-ratchet-1-80.webp",
       "outputSha256": "553d7bce2122d99234e64f9bd7ffd7663f25847df3291507878318bf566dac93",
       "alphaLevels": 255,
       "partialPixels": 3816,
@@ -14003,6 +13908,101 @@
         50,
         50,
         50
+      ]
+    },
+    {
+      "image": "assets/images/x/beys/bey-x-ux-07-wyvern-gale-2-60s/front.webp",
+      "outputSha256": "9297b09c2ab637e166e70b0eb65bb5bbb3b748ab4237ac322260a8ed98a3700c",
+      "alphaLevels": 250,
+      "partialPixels": 4318,
+      "foregroundPixels": 98654,
+      "bbox": [
+        44,
+        45,
+        404,
+        402
+      ],
+      "margins": [
+        44,
+        45,
+        44,
+        46
+      ]
+    },
+    {
+      "image": "assets/images/x/beys/bey-x-ux-07-wyvern-gale-2-60s/main.webp",
+      "outputSha256": "ece2597f83fea32bcbd6fb5f45ba80c76b9d31ba8dc345f6a8ce3b2e2bba02e0",
+      "alphaLevels": 255,
+      "partialPixels": 7183,
+      "foregroundPixels": 97563,
+      "bbox": [
+        46,
+        45,
+        402,
+        403
+      ],
+      "margins": [
+        46,
+        45,
+        46,
+        45
+      ]
+    },
+    {
+      "image": "assets/images/x/beys/bey-x-ux-07-wyvern-gale-2-60s/parts/part-x-bit-s.webp",
+      "outputSha256": "75bf37651a609a61339dc907b82582c39942e41feacb21e3186f026baddf2a46",
+      "alphaLevels": 251,
+      "partialPixels": 5721,
+      "foregroundPixels": 39333,
+      "bbox": [
+        125,
+        73,
+        323,
+        375
+      ],
+      "margins": [
+        125,
+        73,
+        125,
+        73
+      ]
+    },
+    {
+      "image": "assets/images/x/beys/bey-x-ux-07-wyvern-gale-2-60s/parts/part-x-blade-wyvern-gale.webp",
+      "outputSha256": "b5abdb20120a89b1060de7a1b9dc77d1f6e4c1993de25d4c4c7a60a133073308",
+      "alphaLevels": 256,
+      "partialPixels": 8775,
+      "foregroundPixels": 93941,
+      "bbox": [
+        43,
+        54,
+        405,
+        393
+      ],
+      "margins": [
+        43,
+        54,
+        43,
+        55
+      ]
+    },
+    {
+      "image": "assets/images/x/beys/bey-x-ux-07-wyvern-gale-2-60s/parts/part-x-ratchet-2-60.webp",
+      "outputSha256": "17e4529210561e4ec21ef85147dac628ea7ee71a7573c1bada2480ba812b6550",
+      "alphaLevels": 256,
+      "partialPixels": 8139,
+      "foregroundPixels": 92573,
+      "bbox": [
+        44,
+        59,
+        403,
+        388
+      ],
+      "margins": [
+        44,
+        59,
+        45,
+        60
       ]
     },
     {

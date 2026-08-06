@@ -154,8 +154,8 @@ def main() -> int:
     validate_policy(config)
 
     entries = config_entries(config)
-    if len(entries) != 191:
-        raise ValueError(f"expected 191 front-view Beys, found {len(entries)}")
+    if len(entries) != 192:
+        raise ValueError(f"expected 192 front-view Beys, found {len(entries)}")
     ids = [entry["id"] for entry in entries]
     paths = [entry["image"] for entry in entries]
     if len(set(ids)) != len(ids) or len(set(paths)) != len(paths):

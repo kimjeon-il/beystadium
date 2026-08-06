@@ -106,15 +106,15 @@ assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
     "verified-existing-front"
   ]
 });
-assert.equal(xBeyPrimaryImageConfig.selected.length, 109);
-assert.equal(xBeyAngleCorrectionConfig.entries.length, 29);
+assert.equal(xBeyPrimaryImageConfig.selected.length, 110);
+assert.equal(xBeyAngleCorrectionConfig.entries.length, 28);
 assert.equal(xBeyPrimaryImageConfig.verifiedMain.length, 82);
 assert.equal(
   new Set([
     ...xBeyPrimaryImageConfig.selected.map(entry => entry.image),
     ...xBeyPrimaryImageConfig.verifiedMain.map(entry => entry.image)
   ]).size,
-  191,
+  192,
   "front-view normalization paths must be unique"
 );
 
@@ -400,12 +400,12 @@ const suppliedFronts = new Map([
     sourceSha256: "770d52ea2b8082beb864caf541d127480d99e140e9f8cd4dd6b40abbef21a7ab"
   }],
   ["BEY-X-UX-07-SPHINX-COWL-1-80GF", {
-    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX07_g_01@1.png",
-    sourceSha256: "daecb55fba3fbda1cfe623975141fe6890cfc3a32e05dc7e110549d49b7c3850"
-  }],
-  ["BEY-X-UX-07-WYVERN-GALE-2-60S", {
     sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX07_b_01@1.png",
     sourceSha256: "d21d64964869304285b5442dfb0fa79c4e5afc90178d8bde7ff03df6b1dfa90f"
+  }],
+  ["BEY-X-UX-07-WYVERN-GALE-2-60S", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX07_g_01@1.png",
+    sourceSha256: "daecb55fba3fbda1cfe623975141fe6890cfc3a32e05dc7e110549d49b7c3850"
   }],
   ["BEY-X-UX-08-SILVER-WOLF-3-80FB", {
     sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX08_01@1.png",
@@ -684,7 +684,7 @@ const normalizedEntries = [
   ...xBeyPrimaryImageConfig.selected,
   ...xBeyPrimaryImageConfig.verifiedMain
 ];
-assert.equal(normalizedEntries.length, 191);
+assert.equal(normalizedEntries.length, 192);
 for (const entry of normalizedEntries) {
   const review = alphaReviewByImage.get(entry.image);
   assert.ok(review, `${entry.id}: normalized image is missing from the alpha review`);
@@ -776,8 +776,8 @@ for (const item of xBeys) {
 }
 
 assert.deepEqual(counts, {
-  officialAngleCorrected: 29,
-  officialAssembledFront: 108,
+  officialAngleCorrected: 28,
+  officialAssembledFront: 109,
   referenceColorCompositedFront: 1,
   verifiedExistingFront: 82,
   temporarySide: 0

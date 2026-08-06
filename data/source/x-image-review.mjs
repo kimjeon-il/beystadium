@@ -1362,16 +1362,16 @@ const xImageReview = [
   {
     "id": "BEY-X-UX-07-SPHINX-COWL-1-80GF",
     "image": "assets/images/x/beys/bey-x-ux-07-sphinx-cowl-1-80gf/main.webp",
-    "sourcePath": "02_product_components/056_ux07/06_UX07_g_01@1.png",
-    "sourceSha256": "daecb55fba3fbda1cfe623975141fe6890cfc3a32e05dc7e110549d49b7c3850",
-    "outputSha256": "ece2597f83fea32bcbd6fb5f45ba80c76b9d31ba8dc345f6a8ce3b2e2bba02e0"
+    "sourcePath": "02_product_components/056_ux07/10_UX07_b_01@1.png",
+    "sourceSha256": "d21d64964869304285b5442dfb0fa79c4e5afc90178d8bde7ff03df6b1dfa90f",
+    "outputSha256": "ebc88f0c34566f97dda15e2a2ecdd3bc4769f56592e7e5053255615f452780a2"
   },
   {
     "id": "BEY-X-UX-07-WYVERN-GALE-2-60S",
     "image": "assets/images/x/beys/bey-x-ux-07-wyvern-gale-2-60s/main.webp",
-    "sourcePath": "02_product_components/056_ux07/10_UX07_b_01@1.png",
-    "sourceSha256": "d21d64964869304285b5442dfb0fa79c4e5afc90178d8bde7ff03df6b1dfa90f",
-    "outputSha256": "ebc88f0c34566f97dda15e2a2ecdd3bc4769f56592e7e5053255615f452780a2"
+    "sourcePath": "02_product_components/056_ux07/06_UX07_g_01@1.png",
+    "sourceSha256": "daecb55fba3fbda1cfe623975141fe6890cfc3a32e05dc7e110549d49b7c3850",
+    "outputSha256": "ece2597f83fea32bcbd6fb5f45ba80c76b9d31ba8dc345f6a8ce3b2e2bba02e0"
   },
   {
     "id": "BEY-X-UX-08-SILVER-WOLF-3-80FB",

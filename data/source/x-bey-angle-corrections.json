@@ -16,19 +16,6 @@
       "outputSha256": "250876c532c119dcdb50befc46b26e90e56af0f86f0799f7cc9cbfaf9e6c5644"
     },
     {
-      "id": "BEY-X-BX-00-XENO-XCALIBUR-3-60GF",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-xeno-xcalibur.webp",
-      "image": "assets/images/x/beys/bey-x-bx-00-xeno-xcalibur-3-60gf/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG13_02@1.png",
-      "sourceSha256": "0394705ee791173ec507a255255165b28f28cc581bdc6a88c4838b89a4aeff6b",
-      "sourceOutputSha256": "8f3b7a3d44894ad0b831c0a698c69ec525961c9f2cdcfa0ee8c07af21938744a",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.0,
-      "outputSha256": "72031000b9bd1b48f2218222d2b9903a2d4731b683b3fc07c6cc7d8c6108c648"
-    },
-    {
       "id": "BEY-X-UX-14-SCORPIO-SPEAR-0-70Z",
       "sourceImage": "assets/images/x/parts/blade/part-x-blade-scorpio-spear.webp",
       "image": "assets/images/x/beys/bey-x-ux-14-scorpio-spear-0-70z/front.webp",

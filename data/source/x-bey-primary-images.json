@@ -1701,25 +1701,6 @@
       "id": "BEY-X-UX-07-SPHINX-COWL-1-80GF",
       "image": "assets/images/x/beys/bey-x-ux-07-sphinx-cowl-1-80gf/front.webp",
       "sourceKind": "official-assembled-front",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX07_g_01@1.png",
-      "sourceSha256": "daecb55fba3fbda1cfe623975141fe6890cfc3a32e05dc7e110549d49b7c3850",
-      "outputSha256": "9297b09c2ab637e166e70b0eb65bb5bbb3b748ab4237ac322260a8ed98a3700c",
-      "segmentationModel": "u2netp",
-      "alphaMatting": false,
-      "keepLargestComponent": true,
-      "preserveSourcePixels": true,
-      "preNormalizationSha256": "892ff671a6768a2bbc0f1e17607e75c24bdb2ae20bba85d143b4b6f737fe0712",
-      "normalizedForegroundBox": [
-        44,
-        45,
-        404,
-        402
-      ]
-    },
-    {
-      "id": "BEY-X-UX-07-WYVERN-GALE-2-60S",
-      "image": "assets/images/x/beys/bey-x-ux-07-wyvern-gale-2-60s/front.webp",
-      "sourceKind": "official-assembled-front",
       "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX07_b_01@1.png",
       "sourceSha256": "d21d64964869304285b5442dfb0fa79c4e5afc90178d8bde7ff03df6b1dfa90f",
       "outputSha256": "f210fb4634ec046f23620d65caa725b30118562ef4d4b69e88be1b8f87895bc8",
@@ -1733,6 +1714,25 @@
         44,
         399,
         404
+      ]
+    },
+    {
+      "id": "BEY-X-UX-07-WYVERN-GALE-2-60S",
+      "image": "assets/images/x/beys/bey-x-ux-07-wyvern-gale-2-60s/front.webp",
+      "sourceKind": "official-assembled-front",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX07_g_01@1.png",
+      "sourceSha256": "daecb55fba3fbda1cfe623975141fe6890cfc3a32e05dc7e110549d49b7c3850",
+      "outputSha256": "9297b09c2ab637e166e70b0eb65bb5bbb3b748ab4237ac322260a8ed98a3700c",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true,
+      "preNormalizationSha256": "892ff671a6768a2bbc0f1e17607e75c24bdb2ae20bba85d143b4b6f737fe0712",
+      "normalizedForegroundBox": [
+        44,
+        45,
+        404,
+        402
       ]
     },
     {
@@ -1988,6 +1988,30 @@
         48,
         404,
         399
+      ]
+    },
+    {
+      "id": "BEY-X-BX-00-XENO-XCALIBUR-3-60GF",
+      "image": "assets/images/x/beys/bey-x-bx-00-xeno-xcalibur-3-60gf/front.webp",
+      "sourceKind": "official-assembled-front",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG13_01@1.png",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-xeno-xcalibur-3-60gf-official.png",
+      "sourceSha256": "2b3264bfa79001ba93b19ea694cde1bf470592d6c0bf719b850d4f2bf89c8282",
+      "outputSha256": "98a5f9909946d71f6c7d3267715be771eed23d8e0e37c0e9504eaac8d52085c5",
+      "backgroundRemoval": "connected-light-background",
+      "backgroundThreshold": 245,
+      "backgroundChroma": 12,
+      "foregroundErode": 1,
+      "targetForegroundSize": 360,
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true,
+      "preNormalizationSha256": "98a5f9909946d71f6c7d3267715be771eed23d8e0e37c0e9504eaac8d52085c5",
+      "normalizedForegroundBox": [
+        56,
+        44,
+        391,
+        404
       ]
     },
     {
