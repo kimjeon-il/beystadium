@@ -4,8 +4,8 @@ import xBeyAngleCorrectionConfig from "./x-bey-angle-corrections.json" with { ty
 const officialFrontById = new Map(
   xBeyPrimaryImageConfig.selected.map(entry => [entry.id, entry])
 );
-const verifiedMainIds = new Set(
-  xBeyPrimaryImageConfig.verifiedMain.map(entry => entry.id)
+const verifiedMainById = new Map(
+  xBeyPrimaryImageConfig.verifiedMain.map(entry => [entry.id, entry])
 );
 const temporarySideIds = new Set(
   xBeyPrimaryImageConfig.temporarySideImages.map(entry => entry.id)
@@ -25,7 +25,7 @@ function applyXBeyPrimaryImages(items) {
     const classifications = [
       Boolean(officialFront),
       Boolean(angleCorrection),
-      verifiedMainIds.has(item.id),
+      verifiedMainById.has(item.id),
       temporarySideIds.has(item.id)
     ].filter(Boolean).length;
     if (classifications > 1) {
@@ -39,7 +39,12 @@ function applyXBeyPrimaryImages(items) {
       item.image = angleCorrection.image;
       continue;
     }
-    if (verifiedMainIds.has(item.id) || temporarySideIds.has(item.id)) continue;
+    const verifiedMain = verifiedMainById.get(item.id);
+    if (verifiedMain) {
+      item.image = verifiedMain.image;
+      continue;
+    }
+    if (temporarySideIds.has(item.id)) continue;
     throw new Error(`${item.id}: primary image needs one explicit viewpoint classification (${bladeIds.length} blade parts)`);
   }
 }
