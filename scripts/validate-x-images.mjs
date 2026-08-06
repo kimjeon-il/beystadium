@@ -11,7 +11,7 @@ import { xCatalogImagePath } from "./x-image-paths.mjs";
 const REPORT_ARG = process.argv.find(argument => argument.startsWith("--report="));
 const REPORT_PATH = REPORT_ARG?.slice("--report=".length) || "";
 const ALPHA_REVIEW_PATH = path.resolve("data/source/x-image-alpha-review.json");
-const ALPHA_REVIEW_VERSION = "20260806-x-phoenix-wing-9-80db-front";
+const ALPHA_REVIEW_VERSION = "20260806-x-supplied-front-images-cx05-ux17";
 const xItems = [...beyItems, ...partItems].filter(item => item.series === "x");
 const xIds = new Set(xItems.map(item => item.id));
 const expectedCorrectedSources = {
@@ -28,7 +28,14 @@ const expectedCorrectedSources = {
   "BEY-X-BX-48-02-SHARK-EDGE-4-70E": "02_product_components/119_bx48/04_BX48_04@1.png",
   "BEY-X-BX-48-03-MAMMOTH-TUSK-7-60S": "02_product_components/119_bx48/03_BX48_03@1.png",
   "BEY-X-BX-48-04-HELLS-SCYTHE-3-85GB": "02_product_components/119_bx48/06_BX48_06@1.png",
-  "BEY-X-BX-48-05-DRAN-BUSTER-2-80Q": "02_product_components/119_bx48/05_BX48_05@1.png"
+  "BEY-X-BX-48-05-DRAN-BUSTER-2-80Q": "02_product_components/119_bx48/05_BX48_05@1.png",
+  "BEY-X-CX-05-01-HELLS-REAPER-T-4-70K": "02_product_components/087_cx05/02_CX05_02@1.png",
+  "BEY-X-UX-15-SHARK-SCALE-4-50UF": "02_product_components/106_ux15/02_UX15_02@1.png",
+  "BEY-X-BX-46-GORE-TACKLE-7-70T": "02_product_components/108_bx46/04_BX46_04@1.png",
+  "BEY-X-BX-46-COBALT-DRAKE-9-60R": "02_product_components/108_bx46/03_BX46_03@1.png",
+  "BEY-X-UX-16-01-CLOCK-MIRAGE-9-65B": "02_product_components/110_ux16/02_UX16_02@1.png",
+  "BEY-X-CX-11-SHARK-GILL-5-60FB": "02_product_components/112_cx11/08_CX11_08@1.png",
+  "BEY-X-CX-11-GOLEM-ROCK-M-85HN": "02_product_components/112_cx11/12_CX11_12@1.png"
 };
 
 function uniqueValues(values, label) {

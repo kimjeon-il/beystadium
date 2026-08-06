@@ -761,16 +761,16 @@ const xImageReview = [
   {
     "id": "BEY-X-BX-46-COBALT-DRAKE-9-60R",
     "image": "assets/images/x/beys/bey-x-bx-46-cobalt-drake-9-60r/main.webp",
-    "sourcePath": "02_product_components/108_bx46/02_BX46_02@1.png",
-    "sourceSha256": "8bd129b7bd75d7fca716efcfe52c09fc3ed9c0f435801589c386a6f3344d2915",
-    "outputSha256": "7e21e4d15df1a569cfd1b2d0fa2c55febf1fbb82caba706f08cbd128d41e5fe0"
+    "sourcePath": "02_product_components/108_bx46/03_BX46_03@1.png",
+    "sourceSha256": "fc396f27d8e51859c1c635874f64ae16ce94f67503b3971f4bedbb4521143355",
+    "outputSha256": "4254d11b11324eabc470b51fe793c44d23dceeaa99afa151e0898d0b6556c5e7"
   },
   {
     "id": "BEY-X-BX-46-GORE-TACKLE-7-70T",
     "image": "assets/images/x/beys/bey-x-bx-46-gore-tackle-7-70t/main.webp",
-    "sourcePath": "02_product_components/108_bx46/01_BX46_01@1.png",
-    "sourceSha256": "9585b3e6d6c7c5f11244b65ce17bd1a13678b59002f41dc652b21c30ec9aa690",
-    "outputSha256": "4c076d3a3a271ff487ea60ebcdce6dc63f4e3435f201d84d0621bb592ec7ce15"
+    "sourcePath": "02_product_components/108_bx46/04_BX46_04@1.png",
+    "sourceSha256": "99ec82afa6db14a7af6822b34d2e07097706f2067641195ba8c5cf0265431fe5",
+    "outputSha256": "a226f433f62676b0279bbecbccf09db0049f4f3a8f8c8af0954460ddfad05961"
   },
   {
     "id": "BEY-X-BX-48-01-COBALT-DRAGOON-9-80F",
@@ -984,9 +984,9 @@ const xImageReview = [
   {
     "id": "BEY-X-CX-05-01-HELLS-REAPER-T-4-70K",
     "image": "assets/images/x/beys/bey-x-cx-05-01-hells-reaper-t-4-70k/main.webp",
-    "sourcePath": "02_product_components/087_cx05/01_CX05_01@1.png",
-    "sourceSha256": "ef036fd67843f820d32f138bb5e70ba6ef48e6767ecc1f5de699a3a947fb94c1",
-    "outputSha256": "0a40b53f1711a080871091043a97ce5a813e609c6ae3aff2b7e8ccf551069588"
+    "sourcePath": "02_product_components/087_cx05/02_CX05_02@1.png",
+    "sourceSha256": "86312af7234cc685ac2edc787ca61d24c8f619b944af324dd31e63c817d82e61",
+    "outputSha256": "610008a46ec6d460be3ad842cd486460a234afc9e01230a572221d79845fadae"
   },
   {
     "id": "BEY-X-CX-05-02-RHINO-REAPER-C-4-55D",
@@ -1117,16 +1117,16 @@ const xImageReview = [
   {
     "id": "BEY-X-CX-11-GOLEM-ROCK-M-85HN",
     "image": "assets/images/x/beys/bey-x-cx-11-golem-rock-m-85hn/main.webp",
-    "sourcePath": "02_product_components/112_cx11/13_CX11_13@1.png",
-    "sourceSha256": "da50342fe92efd2b1fd1f5f10ce7dea29459007b7bd16acb0c9b2509dca66513",
-    "outputSha256": "6b22bc2e5170d27ad9430cf028aa88047d58b3f5153584c434e2f664a9a6178e"
+    "sourcePath": "02_product_components/112_cx11/12_CX11_12@1.png",
+    "sourceSha256": "a8693861a6085ad8bf2749004d5ca16bc3984a3bad4431f3a92286aa10fe89ee",
+    "outputSha256": "bb9a85ae1065e05994eed5d95250797a063988612c44326b035954ca4e8c1f3b"
   },
   {
     "id": "BEY-X-CX-11-SHARK-GILL-5-60FB",
     "image": "assets/images/x/beys/bey-x-cx-11-shark-gill-5-60fb/main.webp",
-    "sourcePath": "02_product_components/112_cx11/09_CX11_09@1.png",
-    "sourceSha256": "c8a34a60ea3cb58735922a380be2a948f1289107b0c82ee9ae4a356001773e3e",
-    "outputSha256": "5f3c244f5e5c82afcda44a4058b1e8d23521392be185d598f449d98eda6ab917"
+    "sourcePath": "02_product_components/112_cx11/08_CX11_08@1.png",
+    "sourceSha256": "2c72f2d009d80b41d0eceac876e40b21b0ab66ee049aac50aff097f1834f1fd2",
+    "outputSha256": "a46792d03e4033a4646166cb153817877377ca448491274ac2cb578f67b548b5"
   },
   {
     "id": "BEY-X-CX-12-PHOENIX-FLARE-Z-9-80WW",
@@ -1467,9 +1467,9 @@ const xImageReview = [
   {
     "id": "BEY-X-UX-15-SHARK-SCALE-4-50UF",
     "image": "assets/images/x/beys/bey-x-ux-15-shark-scale-4-50uf/main.webp",
-    "sourcePath": "02_product_components/106_ux15/01_UX15_01@1.png",
-    "sourceSha256": "bdd4313f482bbc3e29e3e93dfe66aee2f7599bf9e9b680cd63eb3a4b720b6326",
-    "outputSha256": "3bf67539eeecd3046fdfddfc96619c96d8caeed14f2f48c8ee9444ff4d7d1056"
+    "sourcePath": "02_product_components/106_ux15/02_UX15_02@1.png",
+    "sourceSha256": "79ff56e3ab08a4cebbcd0c22432fc2f4e490e5efaf51a1df81d7f898ad95adb7",
+    "outputSha256": "aea4dde1001a5e76d59b0cde8a11ba11903fb4bff0d8a99984fbaabfb1ddb740"
   },
   {
     "id": "BEY-X-UX-15-TYRANNO-ROAR-1-70L",
@@ -1481,9 +1481,9 @@ const xImageReview = [
   {
     "id": "BEY-X-UX-16-01-CLOCK-MIRAGE-9-65B",
     "image": "assets/images/x/beys/bey-x-ux-16-01-clock-mirage-9-65b/main.webp",
-    "sourcePath": "02_product_components/110_ux16/01_UX16_01@1.png",
-    "sourceSha256": "7213862ae24c1e01b69b26f0f1cf632a3a423a232bb5c21d00063001c62582cd",
-    "outputSha256": "f38158fce2a30bf7e23303cbeb6721ea45e32471165981ef7c36dcd4427117f3"
+    "sourcePath": "02_product_components/110_ux16/02_UX16_02@1.png",
+    "sourceSha256": "9ff73dc56f0f7e33e1378031c61ab2d191bc4ee52e253835c0fc88295a269df3",
+    "outputSha256": "3f6fb749373c3ffd3bc22ecc2afe3959d62ba0d83fe88c2f2d99fd0a462d3562"
   },
   {
     "id": "BEY-X-UX-16-02-CLOCK-MIRAGE-9-65B",

@@ -91,7 +91,7 @@ uniqueValues([
   ...verifiedMainById.keys(),
   ...temporarySideById.keys()
 ], "explicit primary image classifications");
-assert.equal(xBeyPrimaryImageConfig.version, "20260806-x-phoenix-wing-9-80db-front");
+assert.equal(xBeyPrimaryImageConfig.version, "20260806-x-supplied-front-images-cx05-ux17");
 assert.equal(xBeyAngleCorrectionConfig.version, xBeyPrimaryImageConfig.version);
 assert.equal(xBeyAngleCorrectionConfig.method, "premultiplied-alpha-vertical-affine");
 assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
@@ -106,15 +106,15 @@ assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
     "verified-existing-front"
   ]
 });
-assert.equal(xBeyPrimaryImageConfig.selected.length, 103);
-assert.equal(xBeyAngleCorrectionConfig.entries.length, 35);
+assert.equal(xBeyPrimaryImageConfig.selected.length, 109);
+assert.equal(xBeyAngleCorrectionConfig.entries.length, 29);
 assert.equal(xBeyPrimaryImageConfig.verifiedMain.length, 82);
 assert.equal(
   new Set([
     ...xBeyPrimaryImageConfig.selected.map(entry => entry.image),
     ...xBeyPrimaryImageConfig.verifiedMain.map(entry => entry.image)
   ]).size,
-  185,
+  191,
   "front-view normalization paths must be unique"
 );
 
@@ -506,9 +506,33 @@ const suppliedFronts = new Map([
   ["BEY-X-UX-13-GOLEM-ROCK-1-60UN", {
     sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX13_01@1.png",
     sourceSha256: "259ac937e826666811c8bf8d0233ad1a0de8e3614d61a5f610506a60b950df9b"
+  }],
+  ["BEY-X-UX-15-SHARK-SCALE-4-50UF", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX15_02@1.png",
+    sourceSha256: "79ff56e3ab08a4cebbcd0c22432fc2f4e490e5efaf51a1df81d7f898ad95adb7"
+  }],
+  ["BEY-X-BX-46-COBALT-DRAKE-9-60R", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX46_03@1.png",
+    sourceSha256: "fc396f27d8e51859c1c635874f64ae16ce94f67503b3971f4bedbb4521143355"
+  }],
+  ["BEY-X-BX-46-GORE-TACKLE-7-70T", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX46_04@1.png",
+    sourceSha256: "99ec82afa6db14a7af6822b34d2e07097706f2067641195ba8c5cf0265431fe5"
+  }],
+  ["BEY-X-UX-16-01-CLOCK-MIRAGE-9-65B", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX16_02@1.png",
+    sourceSha256: "9ff73dc56f0f7e33e1378031c61ab2d191bc4ee52e253835c0fc88295a269df3"
+  }],
+  ["BEY-X-CX-11-SHARK-GILL-5-60FB", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/CX11_08@1.png",
+    sourceSha256: "2c72f2d009d80b41d0eceac876e40b21b0ab66ee049aac50aff097f1834f1fd2"
+  }],
+  ["BEY-X-CX-11-GOLEM-ROCK-M-85HN", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/CX11_12@1.png",
+    sourceSha256: "a8693861a6085ad8bf2749004d5ca16bc3984a3bad4431f3a92286aa10fe89ee"
   }]
 ]);
-assert.equal(suppliedFronts.size, 84);
+assert.equal(suppliedFronts.size, 90);
 
 const correctedWizardMapping = xImageById.get("BEY-X-BX-17-WIZARD-ARROW-4-80B");
 assert.ok(correctedWizardMapping, "BX-17 Wizard Arrow source mapping is missing");
@@ -652,13 +676,13 @@ for (const entry of xBeyPrimaryImageConfig.temporarySideImages) {
 }
 
 const alphaReview = JSON.parse(await readFile(ALPHA_REVIEW_PATH, "utf8"));
-assert.equal(alphaReview.version, "20260806-x-phoenix-wing-9-80db-front");
+assert.equal(alphaReview.version, "20260806-x-supplied-front-images-cx05-ux17");
 const alphaReviewByImage = new Map(alphaReview.files.map(entry => [entry.image, entry]));
 const normalizedEntries = [
   ...xBeyPrimaryImageConfig.selected,
   ...xBeyPrimaryImageConfig.verifiedMain
 ];
-assert.equal(normalizedEntries.length, 185);
+assert.equal(normalizedEntries.length, 191);
 for (const entry of normalizedEntries) {
   const review = alphaReviewByImage.get(entry.image);
   assert.ok(review, `${entry.id}: normalized image is missing from the alpha review`);
@@ -750,8 +774,8 @@ for (const item of xBeys) {
 }
 
 assert.deepEqual(counts, {
-  officialAngleCorrected: 35,
-  officialAssembledFront: 102,
+  officialAngleCorrected: 29,
+  officialAssembledFront: 108,
   referenceColorCompositedFront: 1,
   verifiedExistingFront: 82,
   temporarySide: 0
