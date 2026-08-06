@@ -21,6 +21,8 @@ const expectedCorrectedSources = {
   "BEY-X-BX-20-DRAN-DAGGER-4-60R": "02_product_components/023_bx20/02_BX20_b_01@1.png",
   "BEY-X-BX-20-KNIGHT-SHIELD-5-80T": "02_product_components/023_bx20/10_BX20_p_01@1.png",
   "BEY-X-BX-20-SHARK-EDGE-3-80F": "02_product_components/023_bx20/06_BX20_g_01@1.png",
+  "BEY-X-BX-35-04-WIZARD-ROD-1-60R": "02_product_components/048_bx35/07_BX35_07@1.png",
+  "BEY-X-BX-35-06-VIPER-TAIL-5-70D": "02_product_components/048_bx35/05_BX35_05@1.png",
   "BEY-X-BX-31-03-HELLS-CHAIN-9-80O": "02_product_components/041_bx31/04_BX31_04@1.png",
   "BEY-X-BX-31-04-DRAN-DAGGER-4-70P": "02_product_components/041_bx31/03_BX31_03@1.png",
   "BEY-X-BX-37-BEAR-SCRATCH-5-60F": "02_product_components/061_bx37/03_BX37_03@1.png",

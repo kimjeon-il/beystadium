@@ -555,7 +555,9 @@ for (const [id, sourcePath, sourceSha256] of [
   ["BEY-X-BX-20-SHARK-EDGE-3-80F", "02_product_components/023_bx20/06_BX20_g_01@1.png", "46015ec92c41462254e62bde982222726b67afa2c5ae150a208351f88ffed6f2"],
   ["BEY-X-UX-04-WIZARD-ROD-5-70DB", "02_product_components/039_ux04/04_UX04_04@1.png", "3252eec1bcb692d6c9fb77d553d7ba4370547ef3af75787b0d18fb9cd1e6af2c"],
   ["BEY-X-UX-05-01-NINJA-SHADOW-1-80MN", "02_product_components/043_ux05/02_UX05_02@1.png", "608ecbf5748abd8f5aeef41769fe20315da84dd81f9e3d144a62a161a6acc29b"],
-  ["BEY-X-BX-35-01-BLACK-TURTLE-4-60D", "02_product_components/048_bx35/02_BX35_02@1.png", "8a1ebcbeaaa79bca5746642cd394fecefeb062e9b67abb6ea96379d3b8b200d7"]
+  ["BEY-X-BX-35-01-BLACK-TURTLE-4-60D", "02_product_components/048_bx35/02_BX35_02@1.png", "8a1ebcbeaaa79bca5746642cd394fecefeb062e9b67abb6ea96379d3b8b200d7"],
+  ["BEY-X-BX-35-04-WIZARD-ROD-1-60R", "02_product_components/048_bx35/07_BX35_07@1.png", "5cf281d4eb7bde8f99d8b6f5677ba74c505cd6ea44d564960a6fb0f6b70d1334"],
+  ["BEY-X-BX-35-06-VIPER-TAIL-5-70D", "02_product_components/048_bx35/05_BX35_05@1.png", "e6bb3975bce67d40b7a3d6a53fa757c2c88e3192b08598fe57ef7a3d46002540"]
 ]) {
   const mapping = xImageById.get(id);
   assert.ok(mapping, `${id}: source mapping is missing`);

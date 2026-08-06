@@ -670,9 +670,9 @@ const xImageReview = [
   {
     "id": "BEY-X-BX-35-04-WIZARD-ROD-1-60R",
     "image": "assets/images/x/beys/bey-x-bx-35-04-wizard-rod-1-60r/main.webp",
-    "sourcePath": "02_product_components/048_bx35/05_BX35_05@1.png",
-    "sourceSha256": "e6bb3975bce67d40b7a3d6a53fa757c2c88e3192b08598fe57ef7a3d46002540",
-    "outputSha256": "05af8a2b8eed50ceba94519866f01975b3cc0263a34d5f056281d0b35b25e49e"
+    "sourcePath": "02_product_components/048_bx35/07_BX35_07@1.png",
+    "sourceSha256": "5cf281d4eb7bde8f99d8b6f5677ba74c505cd6ea44d564960a6fb0f6b70d1334",
+    "outputSha256": "f0e35ce099e8808f0bfa72429ddde438baea9cb5f8e62e2900d68f125a605a1c"
   },
   {
     "id": "BEY-X-BX-35-05-PHOENIX-SOAR-5-80H",
@@ -684,9 +684,9 @@ const xImageReview = [
   {
     "id": "BEY-X-BX-35-06-VIPER-TAIL-5-70D",
     "image": "assets/images/x/beys/bey-x-bx-35-06-viper-tail-5-70d/main.webp",
-    "sourcePath": "02_product_components/048_bx35/07_BX35_07@1.png",
-    "sourceSha256": "5cf281d4eb7bde8f99d8b6f5677ba74c505cd6ea44d564960a6fb0f6b70d1334",
-    "outputSha256": "f0e35ce099e8808f0bfa72429ddde438baea9cb5f8e62e2900d68f125a605a1c"
+    "sourcePath": "02_product_components/048_bx35/05_BX35_05@1.png",
+    "sourceSha256": "e6bb3975bce67d40b7a3d6a53fa757c2c88e3192b08598fe57ef7a3d46002540",
+    "outputSha256": "05af8a2b8eed50ceba94519866f01975b3cc0263a34d5f056281d0b35b25e49e"
   },
   {
     "id": "BEY-X-BX-36-01-WHALE-WAVE-5-80E",

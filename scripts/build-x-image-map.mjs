@@ -172,6 +172,9 @@ const SOURCE_INDEX_OVERRIDES = {
   "PART-X-RATCHET-1-70": ["ux15", 8],
   "PART-X-BIT-UF": ["ux15", 5],
 
+  "BEY-X-BX-35-04-WIZARD-ROD-1-60R": ["bx35", 7],
+  "BEY-X-BX-35-06-VIPER-TAIL-5-70D": ["bx35", 5],
+
   "BEY-X-BX-46-GORE-TACKLE-7-70T": ["bx46", 4],
   "BEY-X-BX-46-COBALT-DRAKE-9-60R": ["bx46", 3],
   "BEY-X-BX-37-BEAR-SCRATCH-5-60F": ["bx37", 3],

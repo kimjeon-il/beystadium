@@ -6749,21 +6749,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-35-04-wizard-rod-1-60r/main.webp",
-      "outputSha256": "05af8a2b8eed50ceba94519866f01975b3cc0263a34d5f056281d0b35b25e49e",
+      "outputSha256": "f0e35ce099e8808f0bfa72429ddde438baea9cb5f8e62e2900d68f125a605a1c",
       "alphaLevels": 256,
-      "partialPixels": 7994,
-      "foregroundPixels": 97074,
+      "partialPixels": 17700,
+      "foregroundPixels": 94109,
       "bbox": [
+        48,
         44,
-        46,
-        404,
-        402
+        399,
+        404
       ],
       "margins": [
+        48,
         44,
-        46,
-        44,
-        46
+        49,
+        44
       ]
     },
     {
@@ -6863,21 +6863,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-35-06-viper-tail-5-70d/main.webp",
-      "outputSha256": "f0e35ce099e8808f0bfa72429ddde438baea9cb5f8e62e2900d68f125a605a1c",
+      "outputSha256": "05af8a2b8eed50ceba94519866f01975b3cc0263a34d5f056281d0b35b25e49e",
       "alphaLevels": 256,
-      "partialPixels": 17700,
-      "foregroundPixels": 94109,
+      "partialPixels": 7994,
+      "foregroundPixels": 97074,
       "bbox": [
-        48,
         44,
-        399,
-        404
+        46,
+        404,
+        402
       ],
       "margins": [
-        48,
         44,
-        49,
-        44
+        46,
+        44,
+        46
       ]
     },
     {

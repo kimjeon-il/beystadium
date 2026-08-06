@@ -2676,13 +2676,13 @@
       "sourceRef": "x-images",
       "sourceKind": "verified-existing-front",
       "image": "assets/images/x/beys/bey-x-bx-35-04-wizard-rod-1-60r/main.webp",
-      "preNormalizationSha256": "81196d713ae27000d594c3b0ee605dd94ff0ff05579a89275339be4c7a5315e1",
-      "outputSha256": "05af8a2b8eed50ceba94519866f01975b3cc0263a34d5f056281d0b35b25e49e",
+      "preNormalizationSha256": "7df94d63c4418662bb3a87d75e37e18ce95cfc6b7487a610b90484befabb6311",
+      "outputSha256": "f0e35ce099e8808f0bfa72429ddde438baea9cb5f8e62e2900d68f125a605a1c",
       "normalizedForegroundBox": [
+        48,
         44,
-        46,
-        404,
-        402
+        399,
+        404
       ]
     },
     {
@@ -2706,13 +2706,13 @@
       "sourceRef": "x-images",
       "sourceKind": "verified-existing-front",
       "image": "assets/images/x/beys/bey-x-bx-35-06-viper-tail-5-70d/main.webp",
-      "preNormalizationSha256": "7df94d63c4418662bb3a87d75e37e18ce95cfc6b7487a610b90484befabb6311",
-      "outputSha256": "f0e35ce099e8808f0bfa72429ddde438baea9cb5f8e62e2900d68f125a605a1c",
+      "preNormalizationSha256": "81196d713ae27000d594c3b0ee605dd94ff0ff05579a89275339be4c7a5315e1",
+      "outputSha256": "05af8a2b8eed50ceba94519866f01975b3cc0263a34d5f056281d0b35b25e49e",
       "normalizedForegroundBox": [
-        48,
         44,
-        399,
-        404
+        46,
+        404,
+        402
       ]
     },
     {
