@@ -7,7 +7,7 @@ import { productItems } from "../data/source/products.mjs";
 import { rareBeyGetItems } from "../data/source/rare-bey-get.mjs";
 import { bookItems, gameItems, toolsItems } from "../data/source/secondary.mjs";
 
-const VERSION = "20260807-x-front-image-corrections";
+const VERSION = "20260807-x-image-cache-refresh";
 const SERIES_SLUGS = {
   "metal fight": "metal-fight",
   burst: "burst",

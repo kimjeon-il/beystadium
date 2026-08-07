@@ -1,5 +1,7 @@
 import { expect, test } from "@playwright/test";
 
+const X_ASSET_CACHE_VERSION = "20260807-x-image-cache-refresh";
+
 const consoleErrors = page => {
   const errors = [];
   page.on("console", message => {
@@ -3789,7 +3791,7 @@ test("X catalog cards use top-view primary images without adding a detail art pa
   await expect(cardImage).toHaveAttribute("decoding", "async");
   await expect(cardImage).toHaveAttribute(
     "src",
-    "assets/images/x/beys/bey-x-bx-01-dran-sword-3-60f/front.webp"
+    `assets/images/x/beys/bey-x-bx-01-dran-sword-3-60f/front.webp?v=${X_ASSET_CACHE_VERSION}`
   );
   await cardImage.evaluate(image => {
     image.scrollIntoView({ block: "center" });
@@ -3876,7 +3878,7 @@ test("X catalog cards use top-view primary images without adding a detail art pa
   ];
   for (const [id, query, image] of primaryImages) {
     await page.goto(`/#toy-catalog?scope=bey&series=x&q=${encodeURIComponent(query)}`);
-    await expect(page.locator(`#catalogGrid .catalog-card[data-id="${id}"] .bey-image`)).toHaveAttribute("src", image);
+    await expect(page.locator(`#catalogGrid .catalog-card[data-id="${id}"] .bey-image`)).toHaveAttribute("src", `${image}?v=${X_ASSET_CACHE_VERSION}`);
   }
   expect(failedImages).toEqual([]);
 });

@@ -8,6 +8,16 @@ const bookItems = [];
 const gameItems = [];
 const animeInfo = { title: "", overview: [], characters: [], episodes: [] };
 const searchIndexItems = [];
+const X_ASSET_CACHE_VERSION = "20260807-x-image-cache-refresh";
+
+const versionAssetUrl = source => {
+  const value = String(source || "");
+  if (!/^(?:\.\/)?assets\//.test(value) || /[?&]v=/.test(value)) return value;
+  const hashIndex = value.indexOf("#");
+  const path = hashIndex >= 0 ? value.slice(0, hashIndex) : value;
+  const hash = hashIndex >= 0 ? value.slice(hashIndex) : "";
+  return `${path}${path.includes("?") ? "&" : "?"}v=${X_ASSET_CACHE_VERSION}${hash}`;
+};
 
 const catalogCoreItemsById = new Map();
 const productItemsById = new Map();
@@ -193,7 +203,7 @@ const BeystadiumDataStore = (() => {
   const initialize = async () => {
     clearError();
     try {
-      indexData = await fetchJson("./data/runtime/index.json?v=20260807-x-front-image-corrections");
+      indexData = await fetchJson(`./data/runtime/index.json?v=${X_ASSET_CACHE_VERSION}`);
       if (detailHashOnBoot()) await ensureRegistry();
       document.querySelector("[data-load-retry]")?.addEventListener("click", () => window.location.reload());
       return true;
@@ -344,5 +354,6 @@ export {
   toolsItemOrder,
   toolsItems,
   toolsItemsById,
+  versionAssetUrl,
   BeystadiumDataStore
 };

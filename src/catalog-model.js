@@ -10,7 +10,8 @@ import {
   productItemsById,
   toolsItemOrder,
   toolsItems,
-  toolsItemsById
+  toolsItemsById,
+  versionAssetUrl
 } from "#app/data-store";
 import {
   escapeAttributeValue,
@@ -47,7 +48,7 @@ const zeroGBottomStartIndex = () => {
 const findCatalogItemById = id => catalogCoreItemsById.get(id) || toolsItemsById.get(id) || bookItemsById.get(id) || gameItemsById.get(id) || productItemsById.get(id) || null;
 
 const cardVisualMarkup = item => item.image
-  ? `<img class="bey-image" src="${escapeAttributeValue(item.image)}" alt="${escapeAttributeValue(item.name || "")}" width="240" height="240" sizes="(max-width: 639px) calc((100vw - 44px) / 2), (max-width: 1023px) 28vw, 220px" loading="lazy" decoding="async">`
+  ? `<img class="bey-image" src="${escapeAttributeValue(versionAssetUrl(item.image))}" alt="${escapeAttributeValue(item.name || "")}" width="240" height="240" sizes="(max-width: 639px) calc((100vw - 44px) / 2), (max-width: 1023px) 28vw, 220px" loading="lazy" decoding="async">`
   : "";
 const modalArtMarkup = item => item.model
   ? `<div class="model-viewer" data-model="${item.model}"><p>3D 모델 로딩 중</p></div>`

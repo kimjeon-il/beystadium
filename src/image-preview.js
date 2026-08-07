@@ -1,4 +1,4 @@
-import { bookItemsById, catalogCoreItemsById, gameItemsById, productItemsById, toolsItemsById } from "#app/data-store";
+import { bookItemsById, catalogCoreItemsById, gameItemsById, productItemsById, toolsItemsById, versionAssetUrl } from "#app/data-store";
 import { releaseRegionLabels } from "#app/release-core";
 
 const previewSelector = "[data-image-preview-src], [data-image-preview-id], [data-image-preview-product-id]";
@@ -28,15 +28,15 @@ const previewItemById = id => catalogCoreItemsById.get(id)
   || null;
 const previewSourceForAnchor = anchor => {
   const explicitSource = anchor?.dataset.imagePreviewSrc;
-  if (explicitSource) return explicitSource;
+  if (explicitSource) return versionAssetUrl(explicitSource);
   const productId = anchor?.dataset.imagePreviewProductId;
   if (productId) {
     const region = anchor.dataset.imagePreviewRegion;
     if (!releaseRegionLabels[region]) return "";
-    return productItemsById.get(productId)?.releases?.[region]?.image || "";
+    return versionAssetUrl(productItemsById.get(productId)?.releases?.[region]?.image || "");
   }
   const itemId = anchor?.dataset.imagePreviewId;
-  return itemId ? previewItemById(itemId)?.image || "" : "";
+  return itemId ? versionAssetUrl(previewItemById(itemId)?.image || "") : "";
 };
 const previewHostForAnchor = anchor =>
   anchor?.closest?.("dialog[open]")?.querySelector(".modal-stage") || document.body;
