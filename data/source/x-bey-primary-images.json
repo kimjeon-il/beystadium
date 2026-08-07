@@ -1,5 +1,5 @@
 {
-  "version": "20260807-x-phoenix-wing-generated-front",
+  "version": "20260807-x-scorpio-spear-official-front",
   "sourceRoot": "",
   "policy": [
     "official-angle-corrected",
@@ -2017,6 +2017,31 @@
       ]
     },
     {
+      "id": "BEY-X-UX-14-SCORPIO-SPEAR-0-70Z",
+      "image": "assets/images/x/beys/bey-x-ux-14-scorpio-spear-0-70z/front.webp",
+      "sourceKind": "official-assembled-front",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX14_01@1.png",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-ux-14-scorpio-spear-0-70z-official.png",
+      "sourceSha256": "e4776150c63ec5a9266be91d2e5f636319a52034e72c2fedf9b599b548991055",
+      "outputSha256": "b6bc376b258a58e1bdaf623d8ab029fbcd12195f027a34d184eb5b7ca51a0d71",
+      "backgroundRemoval": "connected-light-background",
+      "backgroundThreshold": 215,
+      "backgroundChroma": 12,
+      "foregroundErode": 1,
+      "targetForegroundSize": 360,
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true,
+      "preNormalizationSha256": "b6bc376b258a58e1bdaf623d8ab029fbcd12195f027a34d184eb5b7ca51a0d71",
+      "normalizedForegroundBox": [
+        44,
+        45,
+        404,
+        402
+      ]
+    },
+    {
       "id": "BEY-X-BX-39-01-SHELTER-DRAKE-7-80GP",
       "image": "assets/images/x/beys/bey-x-bx-39-01-shelter-drake-7-80gp/front.webp",
       "sourceKind": "official-assembled-front",
@@ -2957,12 +2982,12 @@
       "sourceRef": "x-images",
       "sourceKind": "verified-existing-front",
       "image": "assets/images/x/beys/bey-x-cx-05-04-leon-crest-9-80k/main.webp",
-      "preNormalizationSha256": "2d8003b45b0a380153b68dc6d93524bd958e910163e196d5c98e4eb754e9fbcc",
-      "outputSha256": "0823b3ad08a59e724cf14c9b7da2026e7770ee2f02db2d814844921eb05b2846",
+      "preNormalizationSha256": "df462ef53bb31cd7bf0f86d3aa40115bc88c62e936507dc64404d39e0d16e987",
+      "outputSha256": "3b8a36a5432b6667891b4598f63c7eb561adb8d47d09c3c924382bbf9c305b9e",
       "normalizedForegroundBox": [
-        47,
+        45,
         44,
-        400,
+        403,
         404
       ]
     },
@@ -2972,12 +2997,12 @@
       "sourceRef": "x-images",
       "sourceKind": "verified-existing-front",
       "image": "assets/images/x/beys/bey-x-cx-05-05-phoenix-rudder-4-70lf/main.webp",
-      "preNormalizationSha256": "df462ef53bb31cd7bf0f86d3aa40115bc88c62e936507dc64404d39e0d16e987",
-      "outputSha256": "3b8a36a5432b6667891b4598f63c7eb561adb8d47d09c3c924382bbf9c305b9e",
+      "preNormalizationSha256": "2d8003b45b0a380153b68dc6d93524bd958e910163e196d5c98e4eb754e9fbcc",
+      "outputSha256": "0823b3ad08a59e724cf14c9b7da2026e7770ee2f02db2d814844921eb05b2846",
       "normalizedForegroundBox": [
-        45,
+        47,
         44,
-        403,
+        400,
         404
       ]
     },

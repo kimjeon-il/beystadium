@@ -97,6 +97,7 @@ SUPPLIED_FRONT_IDS = {
     "BEY-X-UX-11-IMPACT-DRAKE-9-60LR",
     "BEY-X-UX-12-01-GHOST-CIRCLE-0-80GB",
     "BEY-X-UX-13-GOLEM-ROCK-1-60UN",
+    "BEY-X-UX-14-SCORPIO-SPEAR-0-70Z",
     "BEY-X-UX-15-SHARK-SCALE-4-50UF",
     "BEY-X-BX-46-GORE-TACKLE-7-70T",
     "BEY-X-BX-46-COBALT-DRAKE-9-60R",
@@ -106,7 +107,7 @@ SUPPLIED_FRONT_IDS = {
     "BEY-X-UX-19-BULLET-GRIFFON-H",
     "BEY-X-UX-20-GLORY-VALKYRIE-LF",
 }
-CONFIG_VERSION = "20260807-x-phoenix-wing-generated-front"
+CONFIG_VERSION = "20260807-x-scorpio-spear-official-front"
 
 
 def parse_args() -> argparse.Namespace:

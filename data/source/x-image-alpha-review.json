@@ -1,5 +1,5 @@
 {
-  "version": "20260807-x-phoenix-wing-generated-front",
+  "version": "20260807-x-scorpio-spear-official-front",
   "canvasSize": 448,
   "files": [
     {
@@ -10283,20 +10283,20 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-cx-05-04-leon-crest-9-80k/main.webp",
-      "outputSha256": "0823b3ad08a59e724cf14c9b7da2026e7770ee2f02db2d814844921eb05b2846",
+      "outputSha256": "3b8a36a5432b6667891b4598f63c7eb561adb8d47d09c3c924382bbf9c305b9e",
       "alphaLevels": 256,
-      "partialPixels": 8101,
-      "foregroundPixels": 96818,
+      "partialPixels": 8873,
+      "foregroundPixels": 97028,
       "bbox": [
-        47,
+        45,
         44,
-        400,
+        403,
         404
       ],
       "margins": [
-        47,
+        45,
         44,
-        48,
+        45,
         44
       ]
     },
@@ -10340,20 +10340,20 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-cx-05-05-phoenix-rudder-4-70lf/main.webp",
-      "outputSha256": "3b8a36a5432b6667891b4598f63c7eb561adb8d47d09c3c924382bbf9c305b9e",
+      "outputSha256": "0823b3ad08a59e724cf14c9b7da2026e7770ee2f02db2d814844921eb05b2846",
       "alphaLevels": 256,
-      "partialPixels": 8873,
-      "foregroundPixels": 97028,
+      "partialPixels": 8101,
+      "foregroundPixels": 96818,
       "bbox": [
-        45,
+        47,
         44,
-        403,
+        400,
         404
       ],
       "margins": [
-        45,
+        47,
         44,
-        45,
+        48,
         44
       ]
     },
@@ -14615,21 +14615,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-ux-14-scorpio-spear-0-70z/front.webp",
-      "outputSha256": "f7bb3046373e96cddd423104ad2a8d4b43165649540e9ab1eb20c6c8eb2d554d",
-      "alphaLevels": 256,
-      "partialPixels": 8903,
-      "foregroundPixels": 100551,
+      "outputSha256": "b6bc376b258a58e1bdaf623d8ab029fbcd12195f027a34d184eb5b7ca51a0d71",
+      "alphaLevels": 252,
+      "partialPixels": 3952,
+      "foregroundPixels": 100475,
       "bbox": [
+        44,
         45,
-        39,
-        402,
-        408
+        404,
+        402
       ],
       "margins": [
+        44,
         45,
-        39,
-        46,
-        40
+        44,
+        46
       ]
     },
     {

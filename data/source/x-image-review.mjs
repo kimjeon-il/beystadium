@@ -1009,16 +1009,16 @@ const xImageReview = [
   {
     "id": "BEY-X-CX-05-04-LEON-CREST-9-80K",
     "image": "assets/images/x/beys/bey-x-cx-05-04-leon-crest-9-80k/main.webp",
-    "sourcePath": "02_product_components/087_cx05/05_CX05_05@1.png",
-    "sourceSha256": "ee91fb7e4fa138738907bb68c538aa3c99b71783e94a838375f6d7f666aec927",
-    "outputSha256": "0823b3ad08a59e724cf14c9b7da2026e7770ee2f02db2d814844921eb05b2846"
+    "sourcePath": "02_product_components/087_cx05/06_CX05_06@1.png",
+    "sourceSha256": "aef7b720ced1e0c034c10cc311b4b1403e8311f79a9a11f2c3b852906d381f60",
+    "outputSha256": "3b8a36a5432b6667891b4598f63c7eb561adb8d47d09c3c924382bbf9c305b9e"
   },
   {
     "id": "BEY-X-CX-05-05-PHOENIX-RUDDER-4-70LF",
     "image": "assets/images/x/beys/bey-x-cx-05-05-phoenix-rudder-4-70lf/main.webp",
-    "sourcePath": "02_product_components/087_cx05/06_CX05_06@1.png",
-    "sourceSha256": "aef7b720ced1e0c034c10cc311b4b1403e8311f79a9a11f2c3b852906d381f60",
-    "outputSha256": "3b8a36a5432b6667891b4598f63c7eb561adb8d47d09c3c924382bbf9c305b9e"
+    "sourcePath": "02_product_components/087_cx05/05_CX05_05@1.png",
+    "sourceSha256": "ee91fb7e4fa138738907bb68c538aa3c99b71783e94a838375f6d7f666aec927",
+    "outputSha256": "0823b3ad08a59e724cf14c9b7da2026e7770ee2f02db2d814844921eb05b2846"
   },
   {
     "id": "BEY-X-CX-05-06-WHALE-WAVE-7-60K",

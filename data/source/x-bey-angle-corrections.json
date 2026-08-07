@@ -1,5 +1,5 @@
 {
-  "version": "20260807-x-phoenix-wing-generated-front",
+  "version": "20260807-x-scorpio-spear-official-front",
   "method": "premultiplied-alpha-vertical-affine",
   "entries": [
     {
@@ -14,19 +14,6 @@
       "scaleY": 1.08,
       "pivotY": 223.5,
       "outputSha256": "250876c532c119dcdb50befc46b26e90e56af0f86f0799f7cc9cbfaf9e6c5644"
-    },
-    {
-      "id": "BEY-X-UX-14-SCORPIO-SPEAR-0-70Z",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-scorpio-spear.webp",
-      "image": "assets/images/x/beys/bey-x-ux-14-scorpio-spear-0-70z/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX14_02@1.png",
-      "sourceSha256": "0c21186dcc91927ad60f412423eabe780f71d5b4036370c5e37113d031cbe032",
-      "sourceOutputSha256": "3bf5b5671cf6266309c36100e9eed0074772867556828445800329713fde6db6",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.5,
-      "outputSha256": "f7bb3046373e96cddd423104ad2a8d4b43165649540e9ab1eb20c6c8eb2d554d"
     },
     {
       "id": "BEY-X-BX-44-TRICERA-PRESS-M-85BS",
