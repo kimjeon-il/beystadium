@@ -11,7 +11,7 @@ import { xCatalogImagePath } from "./x-image-paths.mjs";
 const REPORT_ARG = process.argv.find(argument => argument.startsWith("--report="));
 const REPORT_PATH = REPORT_ARG?.slice("--report=".length) || "";
 const ALPHA_REVIEW_PATH = path.resolve("data/source/x-image-alpha-review.json");
-const ALPHA_REVIEW_VERSION = "20260806-x-supplied-front-images-cx05-ux17";
+const ALPHA_REVIEW_VERSION = "20260807-x-phoenix-wing-generated-front";
 const xItems = [...beyItems, ...partItems].filter(item => item.series === "x");
 const xIds = new Set(xItems.map(item => item.id));
 const expectedCorrectedSources = {
@@ -104,11 +104,15 @@ async function validateOutputs() {
   assert.deepEqual(phoenixComposite, {
     id: "BEY-X-BX-00-PHOENIX-SOAR-9-80DB",
     image: "assets/images/x/beys/bey-x-bx-00-phoenix-soar-9-80db/front.webp",
-    sourcePath: "02_product_components/026_bx23/01_BX23_01@1.png",
-    sourceSha256: "65ae2fadab830d7deaecb30a18f0720d00e8f43b3df7de613ecbc082b7b208ff",
-    sourceKind: "reference-color-composited-front",
-    colorReferenceSha256: "f3ab47684fa2d762457685b68c43dca2972bffc0b0fd9b7bdba5989cd8b38266",
-    compositeConfig: "data/source/x-bey-color-composites.json"
+    sourcePath: "data/source/x-bey-front-sources/bey-x-bx-00-phoenix-soar-9-80db-generated.png",
+    sourceSha256: "5869ebe48c1ae08a595de7ff3ef6a552e51e0ea8a5c859de39f21b7f8fd7b7fe",
+    sourceKind: "user-approved-generated-front",
+    backgroundRemoval: "connected-light-background",
+    backgroundThreshold: 245,
+    backgroundChroma: 12,
+    foregroundErode: 2,
+    targetForegroundSize: 360,
+    preserveSourcePixels: true
   });
   for (const [id, sourcePath] of Object.entries(expectedCorrectedSources)) {
     assert.equal(mappingById.get(id)?.sourcePath, sourcePath, `${id} uses the wrong official image`);
@@ -121,7 +125,7 @@ async function validateOutputs() {
   const reviewById = new Map(xImageReview.map(entry => [entry.id, entry]));
   for (const entry of xImageMappings) {
     const item = xItems.find(candidate => candidate.id === entry.id);
-    const expectedImage = entry.sourceKind === "reference-color-composited-front"
+    const expectedImage = entry.sourceKind === "user-approved-generated-front"
       ? `assets/images/x/beys/${entry.id.toLowerCase()}/front.webp`
       : xCatalogImagePath(item);
     assert.equal(entry.image, expectedImage, `${entry.id} uses the wrong image layout`);
@@ -148,16 +152,16 @@ async function validateOutputs() {
     );
     assert.equal(review.sourceSha256, entry.sourceSha256, `${entry.id} reviewed source hash changed`);
     assert.equal(review.sourceKind, entry.sourceKind, `${entry.id} reviewed source kind changed`);
-    assert.equal(
-      review.colorReferenceSha256,
-      entry.colorReferenceSha256,
-      `${entry.id} reviewed color reference changed`
-    );
-    assert.equal(
-      review.compositeConfig,
-      entry.compositeConfig,
-      `${entry.id} reviewed composite config changed`
-    );
+    for (const field of [
+      "backgroundRemoval",
+      "backgroundThreshold",
+      "backgroundChroma",
+      "foregroundErode",
+      "targetForegroundSize",
+      "preserveSourcePixels"
+    ]) {
+      assert.equal(review[field], entry[field], `${entry.id} reviewed ${field} changed`);
+    }
     const outputSha256 = createHash("sha256").update(bytes).digest("hex");
     assert.equal(outputSha256, review.outputSha256, `${entry.id} output no longer matches its review`);
   }

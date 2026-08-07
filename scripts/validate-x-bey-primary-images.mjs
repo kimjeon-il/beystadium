@@ -35,6 +35,8 @@ function uniqueValues(values, label) {
 
 function sourceUrl(entry) {
   if (entry.sourceUrl) return entry.sourceUrl;
+  if (entry.sourceFile?.startsWith("data/source/")) return entry.sourceFile;
+  if (entry.sourcePath?.startsWith("data/source/")) return entry.sourcePath;
   const fileName = path.posix.basename(entry.sourcePath || "").replace(/^\d+_/, "");
   assert.ok(fileName, `${entry.id || entry.beyId}: source URL cannot be resolved`);
   return `${OFFICIAL_IMAGE_ROOT}/${fileName}`;
@@ -91,7 +93,7 @@ uniqueValues([
   ...verifiedMainById.keys(),
   ...temporarySideById.keys()
 ], "explicit primary image classifications");
-assert.equal(xBeyPrimaryImageConfig.version, "20260806-x-supplied-front-images-cx05-ux17");
+assert.equal(xBeyPrimaryImageConfig.version, "20260807-x-phoenix-wing-generated-front");
 assert.equal(xBeyAngleCorrectionConfig.version, xBeyPrimaryImageConfig.version);
 assert.equal(xBeyAngleCorrectionConfig.method, "premultiplied-alpha-vertical-affine");
 assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
@@ -102,7 +104,7 @@ assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
   resample: "lanczos",
   eligibleSourceKinds: [
     "official-assembled-front",
-    "reference-color-composited-front",
+    "user-approved-generated-front",
     "verified-existing-front"
   ]
 });
@@ -596,18 +598,24 @@ for (const [id, expected] of preservedExistingFronts) {
 }
 
 for (const entry of xBeyPrimaryImageConfig.selected) {
-  if (entry.sourceKind === "reference-color-composited-front") {
+  if (entry.sourceKind === "user-approved-generated-front") {
     assert.equal(entry.id, "BEY-X-BX-00-PHOENIX-SOAR-9-80DB");
-    assert.equal(entry.sourcePath, "02_product_components/026_bx23/01_BX23_01@1.png");
-    assert.equal(entry.sourceSha256, "65ae2fadab830d7deaecb30a18f0720d00e8f43b3df7de613ecbc082b7b208ff");
-    assert.equal(entry.geometryBaseImage, "assets/images/x/beys/bey-x-bx-23-phoenix-soar-9-60gf/front.webp");
-    assert.equal(entry.geometryBaseSha256, "bd86e7dc4f7a41fcb28786a0e14d7c3cf9ac109f401eb0b34c352414dbaa687a");
-    assert.equal(entry.colorReferenceSha256, "f3ab47684fa2d762457685b68c43dca2972bffc0b0fd9b7bdba5989cd8b38266");
-    assert.equal(entry.compositeConfig, "data/source/x-bey-color-composites.json");
-    assert.equal(await outputAudit(entry.geometryBaseImage), entry.geometryBaseSha256);
-    assert.match(entry.preNormalizationSha256, /^[a-f0-9]{64}$/);
-    assert.match(entry.outputSha256, /^[a-f0-9]{64}$/);
-    assert.equal(entry.normalizedForegroundBox.length, 4);
+    assert.equal(entry.sourceFile, "data/source/x-bey-front-sources/bey-x-bx-00-phoenix-soar-9-80db-generated.png");
+    assert.equal(entry.sourceSha256, "5869ebe48c1ae08a595de7ff3ef6a552e51e0ea8a5c859de39f21b7f8fd7b7fe");
+    assert.equal(
+      createHash("sha256").update(await readFile(path.resolve(entry.sourceFile))).digest("hex"),
+      entry.sourceSha256,
+      `${entry.id}: approved source hash changed`
+    );
+    assert.equal(entry.backgroundRemoval, "connected-light-background");
+    assert.equal(entry.backgroundThreshold, 245);
+    assert.equal(entry.backgroundChroma, 12);
+    assert.equal(entry.foregroundErode, 2);
+    assert.equal(entry.targetForegroundSize, 360);
+    assert.equal(entry.preserveSourcePixels, true);
+    assert.equal(entry.preNormalizationSha256, "8921c200df26d3068603f0f8aea452711f0d09f37b2ed3a792d660436f6b5489");
+    assert.equal(entry.outputSha256, "8921c200df26d3068603f0f8aea452711f0d09f37b2ed3a792d660436f6b5489");
+    assert.deepEqual(entry.normalizedForegroundBox, [44, 44, 403, 404]);
     continue;
   }
   assert.equal(entry.sourceKind, "official-assembled-front");
@@ -678,7 +686,7 @@ for (const entry of xBeyPrimaryImageConfig.temporarySideImages) {
 }
 
 const alphaReview = JSON.parse(await readFile(ALPHA_REVIEW_PATH, "utf8"));
-assert.equal(alphaReview.version, "20260806-x-supplied-front-images-cx05-ux17");
+assert.equal(alphaReview.version, "20260807-x-phoenix-wing-generated-front");
 const alphaReviewByImage = new Map(alphaReview.files.map(entry => [entry.image, entry]));
 const normalizedEntries = [
   ...xBeyPrimaryImageConfig.selected,
@@ -705,7 +713,7 @@ const audit = [];
 const counts = {
   officialAngleCorrected: 0,
   officialAssembledFront: 0,
-  referenceColorCompositedFront: 0,
+  userApprovedGeneratedFront: 0,
   verifiedExistingFront: 0,
   temporarySide: 0
 };
@@ -724,8 +732,8 @@ for (const item of xBeys) {
     if (classification === "official-assembled-front") {
       counts.officialAssembledFront += 1;
     } else {
-      assert.equal(classification, "reference-color-composited-front");
-      counts.referenceColorCompositedFront += 1;
+      assert.equal(classification, "user-approved-generated-front");
+      counts.userApprovedGeneratedFront += 1;
     }
   } else if (angleCorrectionById.has(item.id)) {
     classification = "official-angle-corrected";
@@ -754,7 +762,7 @@ for (const item of xBeys) {
   if (
     classification === "official-assembled-front"
     || classification === "official-angle-corrected"
-    || classification === "reference-color-composited-front"
+    || classification === "user-approved-generated-front"
   ) {
     assert.equal(outputSha256, provenance.outputSha256, `${item.id}: front output hash changed`);
   } else if (classification === "verified-existing-front") {
@@ -778,7 +786,7 @@ for (const item of xBeys) {
 assert.deepEqual(counts, {
   officialAngleCorrected: 28,
   officialAssembledFront: 109,
-  referenceColorCompositedFront: 1,
+  userApprovedGeneratedFront: 1,
   verifiedExistingFront: 82,
   temporarySide: 0
 });

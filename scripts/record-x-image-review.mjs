@@ -25,8 +25,12 @@ for (const entry of xImageMappings) {
     ...(entry.sourceClearPoints ? { sourceClearPoints: entry.sourceClearPoints } : {}),
     ...(entry.keepLargestComponent ? { keepLargestComponent: true } : {}),
     ...(entry.sourceKind ? { sourceKind: entry.sourceKind } : {}),
-    ...(entry.colorReferenceSha256 ? { colorReferenceSha256: entry.colorReferenceSha256 } : {}),
-    ...(entry.compositeConfig ? { compositeConfig: entry.compositeConfig } : {})
+    ...(entry.backgroundRemoval ? { backgroundRemoval: entry.backgroundRemoval } : {}),
+    ...(entry.backgroundThreshold ? { backgroundThreshold: entry.backgroundThreshold } : {}),
+    ...(entry.backgroundChroma ? { backgroundChroma: entry.backgroundChroma } : {}),
+    ...(entry.foregroundErode ? { foregroundErode: entry.foregroundErode } : {}),
+    ...(entry.targetForegroundSize ? { targetForegroundSize: entry.targetForegroundSize } : {}),
+    ...(entry.preserveSourcePixels ? { preserveSourcePixels: true } : {})
   });
 }
 

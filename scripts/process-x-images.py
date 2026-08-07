@@ -68,7 +68,35 @@ def load_rembg(model_name: str):
     return new_session(model_name), remove
 
 
-def center_on_fixed_canvas(image: Image.Image, alpha: np.ndarray) -> Image.Image:
+def resize_premultiplied(image: Image.Image, size: tuple[int, int]) -> Image.Image:
+    rgba = np.asarray(image.convert("RGBA"), dtype=np.float32)
+    alpha = rgba[:, :, 3:4] / 255.0
+    premultiplied = np.concatenate((rgba[:, :, :3] * alpha, rgba[:, :, 3:4]), axis=2)
+    encoded = Image.fromarray(
+        np.rint(premultiplied).clip(0, 255).astype(np.uint8),
+        "RGBA",
+    )
+    resized = np.asarray(encoded.resize(size, Image.Resampling.LANCZOS), dtype=np.float32)
+    resized_alpha = resized[:, :, 3:4]
+    rgb = np.zeros_like(resized[:, :, :3])
+    np.divide(
+        resized[:, :, :3] * 255.0,
+        resized_alpha,
+        out=rgb,
+        where=resized_alpha > 0,
+    )
+    straight = np.concatenate((rgb, resized_alpha), axis=2)
+    return Image.fromarray(
+        np.rint(straight).clip(0, 255).astype(np.uint8),
+        "RGBA",
+    )
+
+
+def center_on_fixed_canvas(
+    image: Image.Image,
+    alpha: np.ndarray,
+    target_foreground_size: int | None = None,
+) -> Image.Image:
     nonempty = np.argwhere(alpha > 3)
     if nonempty.size == 0:
         raise ValueError("empty foreground mask")
@@ -76,7 +104,9 @@ def center_on_fixed_canvas(image: Image.Image, alpha: np.ndarray) -> Image.Image
     y_max, x_max = nonempty.max(axis=0)
     width = int(x_max - x_min + 1)
     height = int(y_max - y_min + 1)
-    if width > MAX_FOREGROUND_SIZE or height > MAX_FOREGROUND_SIZE:
+    if not target_foreground_size and (
+        width > MAX_FOREGROUND_SIZE or height > MAX_FOREGROUND_SIZE
+    ):
         raise ValueError(
             f"foreground {width}x{height} exceeds {MAX_FOREGROUND_SIZE}px"
         )
@@ -86,6 +116,19 @@ def center_on_fixed_canvas(image: Image.Image, alpha: np.ndarray) -> Image.Image
         int(x_max) + 1,
         int(y_max) + 1,
     ))
+    if target_foreground_size:
+        scale = target_foreground_size / max(foreground.size)
+        foreground = resize_premultiplied(
+            foreground,
+            (
+                max(1, round(foreground.width * scale)),
+                max(1, round(foreground.height * scale)),
+            ),
+        )
+    if foreground.width > MAX_FOREGROUND_SIZE or foreground.height > MAX_FOREGROUND_SIZE:
+        raise ValueError(
+            f"foreground {foreground.width}x{foreground.height} exceeds {MAX_FOREGROUND_SIZE}px"
+        )
     result = Image.new(
         "RGBA",
         (CANVAS_SIZE, CANVAS_SIZE),
@@ -101,6 +144,51 @@ def center_on_fixed_canvas(image: Image.Image, alpha: np.ndarray) -> Image.Image
     return result
 
 
+def connected_light_background_alpha(
+    image: Image.Image,
+    threshold: int,
+    chroma_threshold: int,
+    erode_size: int,
+) -> np.ndarray:
+    import cv2
+
+    rgb = np.asarray(image.convert("RGB"))
+    minimum = rgb.min(axis=2)
+    chroma = rgb.max(axis=2) - minimum
+    foreground_seed = (
+        (minimum < threshold) | (chroma > chroma_threshold)
+    ).astype(np.uint8)
+    foreground_seed = cv2.morphologyEx(
+        foreground_seed,
+        cv2.MORPH_OPEN,
+        np.ones((3, 3), np.uint8),
+    )
+    foreground_seed = cv2.morphologyEx(
+        foreground_seed,
+        cv2.MORPH_CLOSE,
+        np.ones((5, 5), np.uint8),
+    )
+    component_count, labels, stats, _ = cv2.connectedComponentsWithStats(
+        foreground_seed,
+        connectivity=8,
+    )
+    if component_count < 2:
+        raise ValueError("connected-light extraction found no foreground")
+    largest_label = 1 + int(np.argmax(stats[1:, cv2.CC_STAT_AREA]))
+    mask = (labels == largest_label).astype(np.uint8)
+
+    # Preserve enclosed white highlights and translucent internal details. Only
+    # the bright field connected to the canvas boundary is treated as background.
+    flood = mask.copy()
+    flood_mask = np.zeros((mask.shape[0] + 2, mask.shape[1] + 2), np.uint8)
+    cv2.floodFill(flood, flood_mask, (0, 0), 1)
+    mask = np.maximum(mask, (flood == 0).astype(np.uint8))
+    if erode_size:
+        kernel_size = erode_size * 2 + 1
+        mask = cv2.erode(mask, np.ones((kernel_size, kernel_size), np.uint8))
+    return (mask * 255).astype(np.uint8)
+
+
 def process_image(
     source: Path,
     destination: Path,
@@ -113,6 +201,11 @@ def process_image(
     source_scale: float = 1.0,
     alpha_matting: bool = True,
     preserve_source_pixels: bool = False,
+    background_removal: str = "rembg",
+    background_threshold: int = 245,
+    background_chroma: int = 12,
+    foreground_erode: int = 0,
+    target_foreground_size: int | None = None,
 ) -> None:
     original = Image.open(source).convert("RGB")
     if source_crop:
@@ -125,7 +218,15 @@ def process_image(
             ),
             Image.Resampling.LANCZOS,
         )
-    if not alpha_matting:
+    if background_removal == "connected-light-background":
+        alpha = connected_light_background_alpha(
+            original,
+            background_threshold,
+            background_chroma,
+            foreground_erode,
+        )
+        rgba = np.dstack((np.asarray(original), alpha))
+    elif not alpha_matting:
         removed = remove(
             original,
             session=session,
@@ -156,13 +257,14 @@ def process_image(
                 alpha_matting_erode_size=4,
                 post_process_mask=True,
             ).convert("RGBA")
-    rgba = np.asarray(removed).copy()
-    alpha = rgba[:, :, 3].copy()
-    if not alpha_matting:
-        softened = np.asarray(
-            Image.fromarray(alpha).filter(ImageFilter.GaussianBlur(radius=0.65))
-        )
-        alpha = np.minimum(alpha, softened)
+    if background_removal != "connected-light-background":
+        rgba = np.asarray(removed).copy()
+        alpha = rgba[:, :, 3].copy()
+        if not alpha_matting:
+            softened = np.asarray(
+                Image.fromarray(alpha).filter(ImageFilter.GaussianBlur(radius=0.65))
+            )
+            alpha = np.minimum(alpha, softened)
     for left, top, right, bottom in source_exclude_rects or ():
         alpha[top:bottom, left:right] = 0
     for x, y in source_clear_points or ():
@@ -189,7 +291,11 @@ def process_image(
         rgba = np.dstack((np.asarray(original), alpha))
     else:
         rgba[:, :, 3] = alpha
-    result = center_on_fixed_canvas(Image.fromarray(rgba, "RGBA"), alpha)
+    result = center_on_fixed_canvas(
+        Image.fromarray(rgba, "RGBA"),
+        alpha,
+        target_foreground_size,
+    )
     destination.parent.mkdir(parents=True, exist_ok=True)
     result.save(
         destination,
@@ -221,6 +327,7 @@ def source_path(
         local_candidates.append(Path(entry["sourceFile"]))
     source = entry.get("source") or ""
     if source and not source.startswith(("http://", "https://")):
+        local_candidates.append(Path(source))
         local_candidates.append(Path(report["sourceRoot"]) / Path(source))
     for candidate in local_candidates:
         if candidate.exists():
@@ -405,19 +512,20 @@ def main() -> int:
     model_sessions = {}
     failures: list[tuple[str, str]] = []
     for index, entry in enumerate(entries, start=1):
-        if entry.get("sourceKind") == "reference-color-composited-front":
-            print(f"[{index}/{len(entries)}] preserve composite {entry['id']}", flush=True)
-            continue
         source = source_path(report, entry, args.source_cache)
         destination = destination_path(entry, args.output_root, args.current_layout)
         if destination.exists() and not args.overwrite:
             print(f"[{index}/{len(entries)}] skip {entry['id']}", flush=True)
             continue
         try:
-            model_name = entry.get("segmentationModel", args.model)
-            if model_name not in model_sessions:
-                model_sessions[model_name] = load_rembg(model_name)
-            session, remove = model_sessions[model_name]
+            background_removal = entry.get("backgroundRemoval", "rembg")
+            session = None
+            remove = None
+            if background_removal == "rembg":
+                model_name = entry.get("segmentationModel", args.model)
+                if model_name not in model_sessions:
+                    model_sessions[model_name] = load_rembg(model_name)
+                session, remove = model_sessions[model_name]
             process_image(
                 source,
                 destination,
@@ -430,6 +538,11 @@ def main() -> int:
                 entry.get("sourceScale", 1.0),
                 entry.get("alphaMatting", True),
                 entry.get("preserveSourcePixels", False),
+                background_removal,
+                entry.get("backgroundThreshold", 245),
+                entry.get("backgroundChroma", 12),
+                entry.get("foregroundErode", 0),
+                entry.get("targetForegroundSize"),
             )
             print(f"[{index}/{len(entries)}] wrote {entry['id']}", flush=True)
         except Exception as error:  # keep the batch auditable

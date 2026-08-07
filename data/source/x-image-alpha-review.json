@@ -1,5 +1,5 @@
 {
-  "version": "20260806-x-supplied-front-images-cx05-ux17",
+  "version": "20260807-x-phoenix-wing-generated-front",
   "canvasSize": 448,
   "files": [
     {
@@ -2094,18 +2094,18 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-phoenix-soar-9-80db/front.webp",
-      "outputSha256": "4ce70d77cb24d7365233ea46d81a1bfb98b186c372b3f1f8273d81047745a8b5",
-      "alphaLevels": 31,
-      "partialPixels": 2476,
-      "foregroundPixels": 92649,
+      "outputSha256": "8921c200df26d3068603f0f8aea452711f0d09f37b2ed3a792d660436f6b5489",
+      "alphaLevels": 253,
+      "partialPixels": 4001,
+      "foregroundPixels": 92990,
       "bbox": [
-        45,
+        44,
         44,
         403,
         404
       ],
       "margins": [
-        45,
+        44,
         44,
         45,
         44

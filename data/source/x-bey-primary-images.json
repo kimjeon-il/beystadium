@@ -1,10 +1,10 @@
 {
-  "version": "20260806-x-supplied-front-images-cx05-ux17",
+  "version": "20260807-x-phoenix-wing-generated-front",
   "sourceRoot": "",
   "policy": [
     "official-angle-corrected",
     "official-assembled-front",
-    "reference-color-composited-front",
+    "user-approved-generated-front",
     "verified-existing-front",
     "temporary-side"
   ],
@@ -1936,17 +1936,19 @@
     {
       "id": "BEY-X-BX-00-PHOENIX-SOAR-9-80DB",
       "image": "assets/images/x/beys/bey-x-bx-00-phoenix-soar-9-80db/front.webp",
-      "sourceKind": "reference-color-composited-front",
-      "sourcePath": "02_product_components/026_bx23/01_BX23_01@1.png",
-      "sourceSha256": "65ae2fadab830d7deaecb30a18f0720d00e8f43b3df7de613ecbc082b7b208ff",
-      "geometryBaseImage": "assets/images/x/beys/bey-x-bx-23-phoenix-soar-9-60gf/front.webp",
-      "geometryBaseSha256": "bd86e7dc4f7a41fcb28786a0e14d7c3cf9ac109f401eb0b34c352414dbaa687a",
-      "colorReferenceSha256": "f3ab47684fa2d762457685b68c43dca2972bffc0b0fd9b7bdba5989cd8b38266",
-      "compositeConfig": "data/source/x-bey-color-composites.json",
-      "preNormalizationSha256": "4ce70d77cb24d7365233ea46d81a1bfb98b186c372b3f1f8273d81047745a8b5",
-      "outputSha256": "4ce70d77cb24d7365233ea46d81a1bfb98b186c372b3f1f8273d81047745a8b5",
+      "sourceKind": "user-approved-generated-front",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-phoenix-soar-9-80db-generated.png",
+      "sourceSha256": "5869ebe48c1ae08a595de7ff3ef6a552e51e0ea8a5c859de39f21b7f8fd7b7fe",
+      "backgroundRemoval": "connected-light-background",
+      "backgroundThreshold": 245,
+      "backgroundChroma": 12,
+      "foregroundErode": 2,
+      "targetForegroundSize": 360,
+      "preserveSourcePixels": true,
+      "preNormalizationSha256": "8921c200df26d3068603f0f8aea452711f0d09f37b2ed3a792d660436f6b5489",
+      "outputSha256": "8921c200df26d3068603f0f8aea452711f0d09f37b2ed3a792d660436f6b5489",
       "normalizedForegroundBox": [
-        45,
+        44,
         44,
         403,
         404
@@ -3634,7 +3636,7 @@
     "resample": "lanczos",
       "eligibleSourceKinds": [
         "official-assembled-front",
-        "reference-color-composited-front",
+        "user-approved-generated-front",
         "verified-existing-front"
       ]
   }

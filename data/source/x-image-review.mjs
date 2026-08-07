@@ -191,12 +191,16 @@ const xImageReview = [
   {
     "id": "BEY-X-BX-00-PHOENIX-SOAR-9-80DB",
     "image": "assets/images/x/beys/bey-x-bx-00-phoenix-soar-9-80db/front.webp",
-    "sourcePath": "02_product_components/026_bx23/01_BX23_01@1.png",
-    "sourceSha256": "65ae2fadab830d7deaecb30a18f0720d00e8f43b3df7de613ecbc082b7b208ff",
-    "outputSha256": "4ce70d77cb24d7365233ea46d81a1bfb98b186c372b3f1f8273d81047745a8b5",
-    "sourceKind": "reference-color-composited-front",
-    "colorReferenceSha256": "f3ab47684fa2d762457685b68c43dca2972bffc0b0fd9b7bdba5989cd8b38266",
-    "compositeConfig": "data/source/x-bey-color-composites.json"
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-phoenix-soar-9-80db-generated.png",
+    "sourceSha256": "5869ebe48c1ae08a595de7ff3ef6a552e51e0ea8a5c859de39f21b7f8fd7b7fe",
+    "outputSha256": "8921c200df26d3068603f0f8aea452711f0d09f37b2ed3a792d660436f6b5489",
+    "sourceKind": "user-approved-generated-front",
+    "backgroundRemoval": "connected-light-background",
+    "backgroundThreshold": 245,
+    "backgroundChroma": 12,
+    "foregroundErode": 2,
+    "targetForegroundSize": 360,
+    "preserveSourcePixels": true
   },
   {
     "id": "BEY-X-BX-00-QUETZALCOATLUS-4-55D",

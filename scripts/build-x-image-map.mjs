@@ -569,7 +569,7 @@ async function main() {
   for (const review of xImageReview) {
     const item = itemById.get(review.id);
     if (!item) throw new Error(`Unknown reviewed X image item: ${review.id}`);
-    const expectedImage = review.sourceKind === "reference-color-composited-front"
+    const expectedImage = review.sourceKind === "user-approved-generated-front"
       ? `assets/images/x/beys/${review.id.toLowerCase()}/front.webp`
       : outputRelative(item);
     if (review.image !== expectedImage) {
@@ -602,8 +602,12 @@ async function main() {
       ...(review.sourceClearPoints ? { sourceClearPoints: review.sourceClearPoints } : {}),
       ...(review.keepLargestComponent ? { keepLargestComponent: true } : {}),
       ...(review.sourceKind ? { sourceKind: review.sourceKind } : {}),
-      ...(review.colorReferenceSha256 ? { colorReferenceSha256: review.colorReferenceSha256 } : {}),
-      ...(review.compositeConfig ? { compositeConfig: review.compositeConfig } : {})
+      ...(review.backgroundRemoval ? { backgroundRemoval: review.backgroundRemoval } : {}),
+      ...(review.backgroundThreshold ? { backgroundThreshold: review.backgroundThreshold } : {}),
+      ...(review.backgroundChroma ? { backgroundChroma: review.backgroundChroma } : {}),
+      ...(review.foregroundErode ? { foregroundErode: review.foregroundErode } : {}),
+      ...(review.targetForegroundSize ? { targetForegroundSize: review.targetForegroundSize } : {}),
+      ...(review.preserveSourcePixels ? { preserveSourcePixels: true } : {})
     });
   }
   const selectedEntries = [...selected.values()]
@@ -667,8 +671,12 @@ async function main() {
       ...(entry.sourceClearPoints ? { sourceClearPoints: entry.sourceClearPoints } : {}),
       ...(entry.keepLargestComponent ? { keepLargestComponent: true } : {}),
       ...(entry.sourceKind ? { sourceKind: entry.sourceKind } : {}),
-      ...(entry.colorReferenceSha256 ? { colorReferenceSha256: entry.colorReferenceSha256 } : {}),
-      ...(entry.compositeConfig ? { compositeConfig: entry.compositeConfig } : {})
+      ...(entry.backgroundRemoval ? { backgroundRemoval: entry.backgroundRemoval } : {}),
+      ...(entry.backgroundThreshold ? { backgroundThreshold: entry.backgroundThreshold } : {}),
+      ...(entry.backgroundChroma ? { backgroundChroma: entry.backgroundChroma } : {}),
+      ...(entry.foregroundErode ? { foregroundErode: entry.foregroundErode } : {}),
+      ...(entry.targetForegroundSize ? { targetForegroundSize: entry.targetForegroundSize } : {}),
+      ...(entry.preserveSourcePixels ? { preserveSourcePixels: true } : {})
     }));
     const moduleSource = `const xImageMappings = ${JSON.stringify(mappings, null, 2)};\n\n`
       + `const xImageUnavailable = ${JSON.stringify(unavailable, null, 2)};\n\n`

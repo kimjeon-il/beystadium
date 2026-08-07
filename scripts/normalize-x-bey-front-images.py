@@ -16,13 +16,13 @@ from PIL import Image
 
 CONFIG_PATH = Path("data/source/x-bey-primary-images.json")
 ANGLE_CONFIG_PATH = Path("data/source/x-bey-angle-corrections.json")
-CONFIG_VERSION = "20260806-x-supplied-front-images-cx05-ux17"
+CONFIG_VERSION = "20260807-x-phoenix-wing-generated-front"
 CANVAS_SIZE = 448
 TARGET_FOREGROUND_SIZE = 360
 ALPHA_THRESHOLD = 3
 ELIGIBLE_SOURCE_KINDS = {
     "official-assembled-front",
-    "reference-color-composited-front",
+    "user-approved-generated-front",
     "verified-existing-front",
 }
 
@@ -108,7 +108,7 @@ def config_entries(config: dict) -> list[dict]:
     for entry in config["selected"]:
         if entry.get("sourceKind") not in {
             "official-assembled-front",
-            "reference-color-composited-front",
+            "user-approved-generated-front",
         }:
             raise ValueError(f"{entry['id']}: unexpected selected source kind")
         entries.append(entry)
