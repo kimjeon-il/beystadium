@@ -2615,7 +2615,10 @@ test("regional product and linked card images appear in rounded previews", async
   await releaseLink.hover();
   const preview = page.locator(".link-image-preview");
   await expect(preview).toBeVisible();
-  await expect(preview.locator("img")).toHaveAttribute("src", "assets/images/beys/storm-pegasis.png");
+  await expect(preview.locator("img")).toHaveAttribute(
+    "src",
+    `assets/images/beys/storm-pegasis.png?v=${X_ASSET_CACHE_VERSION}`
+  );
   const previewLayout = await preview.evaluate(element => {
     const rect = element.getBoundingClientRect();
     const imageStyle = getComputedStyle(element.querySelector("img"));
@@ -2644,7 +2647,10 @@ test("regional product and linked card images appear in rounded previews", async
   const compositionLink = page.locator('#detailModal .composition-link[data-target-id="BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF"]');
   await compositionLink.hover();
   await expect(preview).toBeVisible();
-  await expect(preview.locator("img")).toHaveAttribute("src", "assets/images/beys/storm-pegasis.png");
+  await expect(preview.locator("img")).toHaveAttribute(
+    "src",
+    `assets/images/beys/storm-pegasis.png?v=${X_ASSET_CACHE_VERSION}`
+  );
 
   const noImageLink = page.locator('#detailModal .composition-link[data-target-id="TOOLS-METAL-FIGHT-TOOL"]');
   await noImageLink.hover();
@@ -2656,7 +2662,10 @@ test("regional product and linked card images appear in rounded previews", async
   const japaneseLink = page.locator('.release-product-row[data-product-id="PRODUCT-METAL-FIGHT-BB-28"] .release-product-link');
   await japaneseLink.focus();
   await expect(preview).toBeVisible();
-  await expect(preview.locator("img")).toHaveAttribute("src", "assets/images/beys/storm-pegasis-stardust.png");
+  await expect(preview.locator("img")).toHaveAttribute(
+    "src",
+    `assets/images/beys/storm-pegasis-stardust.png?v=${X_ASSET_CACHE_VERSION}`
+  );
   await page.keyboard.press("Escape");
   await expect(preview).toBeHidden();
   await expect(page.locator("#detailModal")).not.toBeVisible();
@@ -2706,7 +2715,7 @@ test("X mounted part previews fit portrait bits and use each Bey's official colo
   await alternateTaper.hover();
   await expect(preview.locator("img")).toHaveAttribute(
     "src",
-    "assets/images/x/beys/bey-x-bx-08-knight-shield-4-80t/parts/part-x-bit-t.webp"
+    `assets/images/x/beys/bey-x-bx-08-knight-shield-4-80t/parts/part-x-bit-t.webp?v=${X_ASSET_CACHE_VERSION}`
   );
 
   await page.goto("/#BEY-X-BX-48-03-MAMMOTH-TUSK-7-60S");
@@ -2723,7 +2732,7 @@ test("X mounted part previews fit portrait bits and use each Bey's official colo
   await mammothSpike.hover();
   await expect(preview.locator("img")).toHaveAttribute(
     "src",
-    "assets/images/x/beys/bey-x-bx-48-03-mammoth-tusk-7-60s/parts/part-x-bit-s.webp"
+    `assets/images/x/beys/bey-x-bx-48-03-mammoth-tusk-7-60s/parts/part-x-bit-s.webp?v=${X_ASSET_CACHE_VERSION}`
   );
   await mammothSpike.click();
   await expect(page).toHaveURL(/#PART-X-BIT-S$/);
@@ -2790,7 +2799,7 @@ test("X mounted part previews fit portrait bits and use each Bey's official colo
     );
     await expect(composition).toHaveAttribute("data-image-preview-id", beyId);
     await composition.hover();
-    await expect(preview.locator("img")).toHaveAttribute("src", image);
+    await expect(preview.locator("img")).toHaveAttribute("src", `${image}?v=${X_ASSET_CACHE_VERSION}`);
   }
   expect(errors).toEqual([]);
 });
@@ -2876,7 +2885,10 @@ test("touch release rows separate image previews from one-tap detail navigation"
   await expect(preview).toBeVisible();
   await expect.poll(() => preview.evaluate(element => Math.round(element.getBoundingClientRect().width))).toBe(184);
   await expect.poll(() => preview.evaluate(element => Math.round(element.getBoundingClientRect().height))).toBe(184);
-  await expect(preview.locator("img")).toHaveAttribute("src", "assets/images/beys/storm-pegasis.png");
+  await expect(preview.locator("img")).toHaveAttribute(
+    "src",
+    `assets/images/beys/storm-pegasis.png?v=${X_ASSET_CACHE_VERSION}`
+  );
   await page.locator("#releaseSearchInput").tap();
   await expect(preview).toBeHidden();
 
