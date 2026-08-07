@@ -1,5 +1,5 @@
 {
-  "version": "20260807-x-storm-spriggan-front-select-audit",
+  "version": "20260807-x-rock-leone-tricera-fronts",
   "method": "premultiplied-alpha-vertical-affine",
   "entries": [
     {
@@ -16,19 +16,6 @@
       "outputSha256": "250876c532c119dcdb50befc46b26e90e56af0f86f0799f7cc9cbfaf9e6c5644"
     },
     {
-      "id": "BEY-X-BX-44-TRICERA-PRESS-M-85BS",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-tricera-press.webp",
-      "image": "assets/images/x/beys/bey-x-bx-44-tricera-press-m-85bs/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX44_02@1.png",
-      "sourceSha256": "4706f9eb7f1f894d734604fea441068f54d3153daab7eeeacee16d71733e8082",
-      "sourceOutputSha256": "b09af1a35470a1a5083825dfb1b4e752836e07e095aa1b6df7593136df8834e8",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.5,
-      "outputSha256": "4b175b27d216cac84f0486934cf3c9bc526f1d0c704f38ad14a6739573920b2f"
-    },
-    {
       "id": "BEY-X-UX-00-KNIGHT-MAIL-3-85BS",
       "sourceImage": "assets/images/x/parts/blade/part-x-blade-knight-mail.webp",
       "image": "assets/images/x/beys/bey-x-ux-00-knight-mail-3-85bs/front.webp",
@@ -40,19 +27,6 @@
       "scaleY": 1.08,
       "pivotY": 223.0,
       "outputSha256": "ce972cd199c0c65a4065a8ebde3e43414adc38e060a793018dc3dca116d50246"
-    },
-    {
-      "id": "BEY-X-BX-00-ROCK-LEONE-6-80GN",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-rock-leone.webp",
-      "image": "assets/images/x/beys/bey-x-bx-00-rock-leone-6-80gn/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG20_02@1.png",
-      "sourceSha256": "28376c298151fa709ddfd8808c18e1af2209264d89cdbd9742a5e24546759bed",
-      "sourceOutputSha256": "40e1e79582e10b7733ddf0e92a76ae92ba67fca0e56011bac7496ab4b4d311bb",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.5,
-      "outputSha256": "29f2eaf7304faea5a0b538da5804102c1b0a5f349091dd7fb9d54b4c80d7b88a"
     },
     {
       "id": "BEY-X-BX-00-DRAN-SWORD-1-60V",

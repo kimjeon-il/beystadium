@@ -1,5 +1,5 @@
 {
-  "version": "20260807-x-storm-spriggan-front-select-audit",
+  "version": "20260807-x-rock-leone-tricera-fronts",
   "canvasSize": 448,
   "files": [
     {
@@ -2246,21 +2246,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-rock-leone-6-80gn/front.webp",
-      "outputSha256": "29f2eaf7304faea5a0b538da5804102c1b0a5f349091dd7fb9d54b4c80d7b88a",
-      "alphaLevels": 256,
-      "partialPixels": 6648,
-      "foregroundPixels": 101537,
+      "outputSha256": "b448e96c7c4ef2924e5b088976229401f2aec58eda14fa82c46283c2f10c4a46",
+      "alphaLevels": 183,
+      "partialPixels": 3911,
+      "foregroundPixels": 99123,
       "bbox": [
-        43,
-        40,
-        405,
-        408
+        47,
+        44,
+        401,
+        404
       ],
       "margins": [
-        43,
-        40,
-        43,
-        40
+        47,
+        44,
+        47,
+        44
       ]
     },
     {
@@ -7414,21 +7414,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-44-tricera-press-m-85bs/front.webp",
-      "outputSha256": "4b175b27d216cac84f0486934cf3c9bc526f1d0c704f38ad14a6739573920b2f",
-      "alphaLevels": 256,
-      "partialPixels": 9311,
-      "foregroundPixels": 99891,
+      "outputSha256": "1e26a9ae2ce71d1d55b259f87d131a04f45a878174f6cd9b0263e4beadac97d7",
+      "alphaLevels": 225,
+      "partialPixels": 3676,
+      "foregroundPixels": 96827,
       "bbox": [
+        45,
         44,
-        41,
         403,
-        407
+        404
       ],
       "margins": [
-        44,
-        41,
         45,
-        41
+        44,
+        45,
+        44
       ]
     },
     {

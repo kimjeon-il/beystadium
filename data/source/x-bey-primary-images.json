@@ -1,5 +1,5 @@
 {
-  "version": "20260807-x-storm-spriggan-front-select-audit",
+  "version": "20260807-x-rock-leone-tricera-fronts",
   "sourceRoot": "",
   "policy": [
     "official-angle-corrected",
@@ -2036,6 +2036,48 @@
         56,
         44,
         391,
+        404
+      ]
+    },
+    {
+      "id": "BEY-X-BX-00-ROCK-LEONE-6-80GN",
+      "image": "assets/images/x/beys/bey-x-bx-00-rock-leone-6-80gn/front.webp",
+      "sourceKind": "official-assembled-front",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG20_01@1.png",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-rock-leone-6-80gn-official.png",
+      "sourceSha256": "1ab28d221e968801d344a1b926edc2bb891459a0bdc0e028c36f8540e3967124",
+      "outputSha256": "b448e96c7c4ef2924e5b088976229401f2aec58eda14fa82c46283c2f10c4a46",
+      "targetForegroundSize": 360,
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true,
+      "preNormalizationSha256": "b448e96c7c4ef2924e5b088976229401f2aec58eda14fa82c46283c2f10c4a46",
+      "normalizedForegroundBox": [
+        47,
+        44,
+        401,
+        404
+      ]
+    },
+    {
+      "id": "BEY-X-BX-44-TRICERA-PRESS-M-85BS",
+      "image": "assets/images/x/beys/bey-x-bx-44-tricera-press-m-85bs/front.webp",
+      "sourceKind": "official-assembled-front",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX44_01@1.png",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-44-tricera-press-m-85bs-official.png",
+      "sourceSha256": "29e4f0eb3f95495ba0f8e503af7894dd09977d4d3647f74cd4c6498f5beb22fd",
+      "outputSha256": "1e26a9ae2ce71d1d55b259f87d131a04f45a878174f6cd9b0263e4beadac97d7",
+      "targetForegroundSize": 360,
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true,
+      "preNormalizationSha256": "1e26a9ae2ce71d1d55b259f87d131a04f45a878174f6cd9b0263e4beadac97d7",
+      "normalizedForegroundBox": [
+        45,
+        44,
+        403,
         404
       ]
     },
