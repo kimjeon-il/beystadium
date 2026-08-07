@@ -1,5 +1,5 @@
 {
-  "version": "20260807-x-scorpio-spear-official-front",
+  "version": "20260807-x-front-image-corrections",
   "method": "premultiplied-alpha-vertical-affine",
   "entries": [
     {
@@ -55,32 +55,6 @@
       "outputSha256": "29f2eaf7304faea5a0b538da5804102c1b0a5f349091dd7fb9d54b4c80d7b88a"
     },
     {
-      "id": "BEY-X-BX-45-WARRIOR-CALIBUR-6-70M",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-warrior-calibur.webp",
-      "image": "assets/images/x/beys/bey-x-bx-45-warrior-calibur-6-70m/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX45_02@1.png",
-      "sourceSha256": "6b58c9cf60bb56b123d48c2c7bd07ce296ea493db3165b7b6146c682bc328a4f",
-      "sourceOutputSha256": "7daa38d07ad46a0d70c27d0e934e7c80c9472142f483380a4fe654344d823731",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.5,
-      "outputSha256": "705ebf2903f919a6302da37a243231cd9b038f9a1eb2be4e9a10e5f0e07abb28"
-    },
-    {
-      "id": "BEY-X-UX-17-METEO-DRAGOON-3-70J",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-meteo-dragoon.webp",
-      "image": "assets/images/x/beys/bey-x-ux-17-meteo-dragoon-3-70j/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX17_02@1.png",
-      "sourceSha256": "7ca21acbe63d15056a88f727bfa16c51b1902b5cf9114dc4812c37897647bfba",
-      "sourceOutputSha256": "c59ebb0815ae620a61cebbfe369ee5fab7656f13ba7d38bf4ab083bbe4444cad",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.0,
-      "outputSha256": "3b8b8352bdb97c5d78789b490e7ae2f9d0aefae54179f336b13d7178ac71f235"
-    },
-    {
       "id": "BEY-X-BX-00-DRAN-SWORD-1-60V",
       "sourceImage": "assets/images/x/beys/bey-x-bx-00-dran-sword-1-60v/parts/part-x-blade-dran-sword.webp",
       "image": "assets/images/x/beys/bey-x-bx-00-dran-sword-1-60v/front.webp",
@@ -131,19 +105,6 @@
       "scaleY": 1.08,
       "pivotY": 223.5,
       "outputSha256": "84e477d37d5db14bccd5362190db53127938e029a922e3a2e99455488a10e262"
-    },
-    {
-      "id": "BEY-X-UX-18-01-MUMMY-CURSE-7-55W",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-mummy-curse.webp",
-      "image": "assets/images/x/beys/bey-x-ux-18-01-mummy-curse-7-55w/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX18_08@1.png",
-      "sourceSha256": "1f38ef4835899a73e4a2ccb78c57566304da75351553e216a10dab5a24376cba",
-      "sourceOutputSha256": "0cdf2d8412c6aa39592eb5b929f6451a9fba079e455246dea6d0af2ab248360e",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.5,
-      "outputSha256": "2569d7647572ff044d91d7a853b507e7c88fc26fc2a5d2ded2538ce8ca8f873f"
     },
     {
       "id": "BEY-X-BX-00-IRON-MAN-4-80B",

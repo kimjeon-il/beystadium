@@ -800,16 +800,16 @@ const xImageReview = [
   {
     "id": "BEY-X-BX-48-04-HELLS-SCYTHE-3-85GB",
     "image": "assets/images/x/beys/bey-x-bx-48-04-hells-scythe-3-85gb/main.webp",
-    "sourcePath": "02_product_components/119_bx48/06_BX48_06@1.png",
-    "sourceSha256": "0142ba173ab77cea616635622dbcd3ae52574ebdf4befaf945e30f0bb6c57c07",
-    "outputSha256": "0610d7ab11ed75c026db2fdec36147e36ef6a5b9a75cf07c387b25b354d83581"
+    "sourcePath": "02_product_components/119_bx48/05_BX48_05@1.png",
+    "sourceSha256": "a38566141fb0205b19583816eff14be25fdbc1e451f8f188a1d5e73394d87040",
+    "outputSha256": "6282549629aec1c314f6d96e1eb19c4548388b9ee022d97ee501b023c53bf597"
   },
   {
     "id": "BEY-X-BX-48-05-DRAN-BUSTER-2-80Q",
     "image": "assets/images/x/beys/bey-x-bx-48-05-dran-buster-2-80q/main.webp",
-    "sourcePath": "02_product_components/119_bx48/05_BX48_05@1.png",
-    "sourceSha256": "a38566141fb0205b19583816eff14be25fdbc1e451f8f188a1d5e73394d87040",
-    "outputSha256": "6282549629aec1c314f6d96e1eb19c4548388b9ee022d97ee501b023c53bf597"
+    "sourcePath": "02_product_components/119_bx48/06_BX48_06@1.png",
+    "sourceSha256": "0142ba173ab77cea616635622dbcd3ae52574ebdf4befaf945e30f0bb6c57c07",
+    "outputSha256": "0610d7ab11ed75c026db2fdec36147e36ef6a5b9a75cf07c387b25b354d83581"
   },
   {
     "id": "BEY-X-BX-49-DRAN-STRIKE-4-50FF",
@@ -1527,30 +1527,30 @@ const xImageReview = [
   {
     "id": "BEY-X-UX-18-03-PEGASUS-BRUSH-M-3-85W",
     "image": "assets/images/x/beys/bey-x-ux-18-03-pegasus-brush-m-3-85w/main.webp",
-    "sourcePath": "02_product_components/116_ux18/04_UX18_04@1.png",
-    "sourceSha256": "4b46df7767c6a52fb167c3e6c28e94d87b6037d671db08e6c3c9a796034dc4ac",
-    "outputSha256": "4de1e02fc46c9ee8164fcec1b2469cf3c49a5a113dc51288e85b5959d51f8aca"
-  },
-  {
-    "id": "BEY-X-UX-18-04-SOL-BRAVE-C-9-70TP",
-    "image": "assets/images/x/beys/bey-x-ux-18-04-sol-brave-c-9-70tp/main.webp",
-    "sourcePath": "02_product_components/116_ux18/05_UX18_05@1.png",
-    "sourceSha256": "ff951457d3444adc6eae73d2afe07f23cf3822aac6f4874c64d66a042bc9208e",
-    "outputSha256": "e5fa80bf5d57c9f726e463cfd77f4338d72c7d0f30f67fa9f5328222d7291d66"
-  },
-  {
-    "id": "BEY-X-UX-18-05-DRAN-DAGGER-7-55G",
-    "image": "assets/images/x/beys/bey-x-ux-18-05-dran-dagger-7-55g/main.webp",
     "sourcePath": "02_product_components/116_ux18/06_UX18_06@1.png",
     "sourceSha256": "303331e4298913f994525efbe1d1ab21f53729264c0eee74090047e447bc252e",
     "outputSha256": "ab4bf195ef42520cdfc2abad7fb11d6b645167cad3bc3ac87ca5bddf49505f91"
   },
   {
-    "id": "BEY-X-UX-18-06-PEARL-TIGER-4-80LR",
-    "image": "assets/images/x/beys/bey-x-ux-18-06-pearl-tiger-4-80lr/main.webp",
+    "id": "BEY-X-UX-18-04-SOL-BRAVE-C-9-70TP",
+    "image": "assets/images/x/beys/bey-x-ux-18-04-sol-brave-c-9-70tp/main.webp",
     "sourcePath": "02_product_components/116_ux18/07_UX18_07@1.png",
     "sourceSha256": "f6bbbd7467c470fedc0761e2290557d0a715b4bddc88040b332d0cfe7639bf30",
     "outputSha256": "e89622b73da4aef8788185a4e2897eee224425ef0b984f41a811670446c20a61"
+  },
+  {
+    "id": "BEY-X-UX-18-05-DRAN-DAGGER-7-55G",
+    "image": "assets/images/x/beys/bey-x-ux-18-05-dran-dagger-7-55g/main.webp",
+    "sourcePath": "02_product_components/116_ux18/04_UX18_04@1.png",
+    "sourceSha256": "4b46df7767c6a52fb167c3e6c28e94d87b6037d671db08e6c3c9a796034dc4ac",
+    "outputSha256": "4de1e02fc46c9ee8164fcec1b2469cf3c49a5a113dc51288e85b5959d51f8aca"
+  },
+  {
+    "id": "BEY-X-UX-18-06-PEARL-TIGER-4-80LR",
+    "image": "assets/images/x/beys/bey-x-ux-18-06-pearl-tiger-4-80lr/main.webp",
+    "sourcePath": "02_product_components/116_ux18/05_UX18_05@1.png",
+    "sourceSha256": "ff951457d3444adc6eae73d2afe07f23cf3822aac6f4874c64d66a042bc9208e",
+    "outputSha256": "e5fa80bf5d57c9f726e463cfd77f4338d72c7d0f30f67fa9f5328222d7291d66"
   },
   {
     "id": "BEY-X-UX-19-BULLET-GRIFFON-H",

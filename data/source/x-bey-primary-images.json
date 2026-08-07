@@ -1,5 +1,5 @@
 {
-  "version": "20260807-x-scorpio-spear-official-front",
+  "version": "20260807-x-front-image-corrections",
   "sourceRoot": "",
   "policy": [
     "official-angle-corrected",
@@ -1796,15 +1796,20 @@
       "id": "BEY-X-UX-15-HELLS-BRAVE-J-3-60GF",
       "image": "assets/images/x/beys/bey-x-ux-15-hells-brave-j-3-60gf/front.webp",
       "sourceKind": "official-assembled-front",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX15_11@1.png",
-      "sourceSha256": "4bb00eaeabb24193ddeb9a1a5040095e91453d7793b7a13b50f09d02c6187674",
-      "outputSha256": "86aa688612187014f1a5a02a2275f89e4bbab5ecd486a01e28d9652f60d9c77a",
-      "preNormalizationSha256": "1a66f921d94dbd1facd3191909746d6902b510283c95f1fd1b83d054ea4844ec",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX15_10@1.png",
+      "sourceSha256": "82ef65e52f797f7f771d5db4251cb14450eb2a1c2bba903abe973129e9dc29c8",
+      "outputSha256": "7e44dd5fa0d42ba8a0c4cb828f1676437127584a7a30a8212d3cd99807b50647",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true,
+      "targetForegroundSize": 360,
+      "preNormalizationSha256": "7e44dd5fa0d42ba8a0c4cb828f1676437127584a7a30a8212d3cd99807b50647",
       "normalizedForegroundBox": [
+        48,
         44,
-        50,
-        404,
-        398
+        400,
+        404
       ]
     },
     {
@@ -2418,6 +2423,66 @@
         404,
         397
       ]
+    },
+    {
+      "id": "BEY-X-BX-45-WARRIOR-CALIBUR-6-70M",
+      "image": "assets/images/x/beys/bey-x-bx-45-warrior-calibur-6-70m/front.webp",
+      "sourceKind": "official-assembled-front",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX45_01@1.png",
+      "sourceSha256": "e880e1b792fcac5f2d47856191a596d2792a2d9f8b5f8edd832df71b803f36d2",
+      "outputSha256": "7683955f5082f4a8d58128e41e9890f910fdfce77a9dc6cba5c57a3f05b94d7a",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true,
+      "targetForegroundSize": 360,
+      "preNormalizationSha256": "7683955f5082f4a8d58128e41e9890f910fdfce77a9dc6cba5c57a3f05b94d7a",
+      "normalizedForegroundBox": [
+        44,
+        48,
+        404,
+        399
+      ]
+    },
+    {
+      "id": "BEY-X-UX-17-METEO-DRAGOON-3-70J",
+      "image": "assets/images/x/beys/bey-x-ux-17-meteo-dragoon-3-70j/front.webp",
+      "sourceKind": "official-assembled-front",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX17_01@1.png",
+      "sourceSha256": "0a56cad3ebc596c18c3c12ac115d5a5c9af542782f7c814e9cec9054174f1297",
+      "outputSha256": "7d6895f8965b35a73cc69dd211e7fc77b2a92cac4eee7fd4c9153df0a01928e7",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true,
+      "targetForegroundSize": 360,
+      "preNormalizationSha256": "7d6895f8965b35a73cc69dd211e7fc77b2a92cac4eee7fd4c9153df0a01928e7",
+      "normalizedForegroundBox": [
+        51,
+        44,
+        396,
+        404
+      ]
+    },
+    {
+      "id": "BEY-X-UX-18-01-MUMMY-CURSE-7-55W",
+      "image": "assets/images/x/beys/bey-x-ux-18-01-mummy-curse-7-55w/front.webp",
+      "sourceKind": "official-assembled-front",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX18_02@1.png",
+      "sourceSha256": "b5c5e8ecece69d06fea387088db83f44d1372cfa7ccbc39546ff53bcce37e03e",
+      "outputSha256": "8c810f482172f336187e36d01e6ca21547695496b72785ccfd437d0654585f92",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true,
+      "targetForegroundSize": 360,
+      "preNormalizationSha256": "8c810f482172f336187e36d01e6ca21547695496b72785ccfd437d0654585f92",
+      "normalizedForegroundBox": [
+        44,
+        44,
+        403,
+        404
+      ]
     }
   ],
   "verifiedMain": [
@@ -2952,12 +3017,12 @@
       "sourceRef": "x-images",
       "sourceKind": "verified-existing-front",
       "image": "assets/images/x/beys/bey-x-ux-18-05-dran-dagger-7-55g/main.webp",
-      "preNormalizationSha256": "e85c1d4941811e1095d75fa101afbcd82e99ebcd89e9b884b546462e8c656be7",
-      "outputSha256": "ab4bf195ef42520cdfc2abad7fb11d6b645167cad3bc3ac87ca5bddf49505f91",
+      "preNormalizationSha256": "be74f1d286083d0096808fc5433f8974acd281e382ac87a29b1356f602ba8f3a",
+      "outputSha256": "4de1e02fc46c9ee8164fcec1b2469cf3c49a5a113dc51288e85b5959d51f8aca",
       "normalizedForegroundBox": [
-        46,
+        53,
         44,
-        402,
+        395,
         404
       ]
     },
@@ -2967,13 +3032,13 @@
       "sourceRef": "x-images",
       "sourceKind": "verified-existing-front",
       "image": "assets/images/x/beys/bey-x-ux-18-06-pearl-tiger-4-80lr/main.webp",
-      "preNormalizationSha256": "254444a8bb40dd798fcae81558aec92748566cad6b172fcf1c792221ab31036d",
-      "outputSha256": "e89622b73da4aef8788185a4e2897eee224425ef0b984f41a811670446c20a61",
+      "preNormalizationSha256": "376d2a0d5a3a917122d05e48ad231f234c9048b708740c9e5608968aecbbe301",
+      "outputSha256": "e5fa80bf5d57c9f726e463cfd77f4338d72c7d0f30f67fa9f5328222d7291d66",
       "normalizedForegroundBox": [
-        48,
         44,
-        400,
-        404
+        48,
+        404,
+        400
       ]
     },
     {
@@ -3102,12 +3167,12 @@
       "sourceRef": "x-images",
       "sourceKind": "verified-existing-front",
       "image": "assets/images/x/beys/bey-x-bx-48-04-hells-scythe-3-85gb/main.webp",
-      "preNormalizationSha256": "4a0c3947d628e4d44bef53a9679091f50e4e42bf3cead11f926a09374dad851f",
-      "outputSha256": "0610d7ab11ed75c026db2fdec36147e36ef6a5b9a75cf07c387b25b354d83581",
+      "preNormalizationSha256": "719719869a66e6677321408dea054773f046f1affb65b804e865d2ce69a6a511",
+      "outputSha256": "6282549629aec1c314f6d96e1eb19c4548388b9ee022d97ee501b023c53bf597",
       "normalizedForegroundBox": [
-        49,
         44,
-        398,
+        44,
+        404,
         404
       ]
     },
@@ -3117,12 +3182,12 @@
       "sourceRef": "x-images",
       "sourceKind": "verified-existing-front",
       "image": "assets/images/x/beys/bey-x-bx-48-05-dran-buster-2-80q/main.webp",
-      "preNormalizationSha256": "719719869a66e6677321408dea054773f046f1affb65b804e865d2ce69a6a511",
-      "outputSha256": "6282549629aec1c314f6d96e1eb19c4548388b9ee022d97ee501b023c53bf597",
+      "preNormalizationSha256": "4a0c3947d628e4d44bef53a9679091f50e4e42bf3cead11f926a09374dad851f",
+      "outputSha256": "0610d7ab11ed75c026db2fdec36147e36ef6a5b9a75cf07c387b25b354d83581",
       "normalizedForegroundBox": [
+        49,
         44,
-        44,
-        404,
+        398,
         404
       ]
     },
@@ -3447,12 +3512,12 @@
       "sourceRef": "x-images",
       "sourceKind": "verified-existing-front",
       "image": "assets/images/x/beys/bey-x-ux-18-03-pegasus-brush-m-3-85w/main.webp",
-      "preNormalizationSha256": "be74f1d286083d0096808fc5433f8974acd281e382ac87a29b1356f602ba8f3a",
-      "outputSha256": "4de1e02fc46c9ee8164fcec1b2469cf3c49a5a113dc51288e85b5959d51f8aca",
+      "preNormalizationSha256": "e85c1d4941811e1095d75fa101afbcd82e99ebcd89e9b884b546462e8c656be7",
+      "outputSha256": "ab4bf195ef42520cdfc2abad7fb11d6b645167cad3bc3ac87ca5bddf49505f91",
       "normalizedForegroundBox": [
-        53,
+        46,
         44,
-        395,
+        402,
         404
       ]
     },
@@ -3462,13 +3527,13 @@
       "sourceRef": "x-images",
       "sourceKind": "verified-existing-front",
       "image": "assets/images/x/beys/bey-x-ux-18-04-sol-brave-c-9-70tp/main.webp",
-      "preNormalizationSha256": "376d2a0d5a3a917122d05e48ad231f234c9048b708740c9e5608968aecbbe301",
-      "outputSha256": "e5fa80bf5d57c9f726e463cfd77f4338d72c7d0f30f67fa9f5328222d7291d66",
+      "preNormalizationSha256": "254444a8bb40dd798fcae81558aec92748566cad6b172fcf1c792221ab31036d",
+      "outputSha256": "e89622b73da4aef8788185a4e2897eee224425ef0b984f41a811670446c20a61",
       "normalizedForegroundBox": [
-        44,
         48,
-        404,
-        400
+        44,
+        400,
+        404
       ]
     },
     {

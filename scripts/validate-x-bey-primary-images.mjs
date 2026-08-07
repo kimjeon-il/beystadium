@@ -93,7 +93,7 @@ uniqueValues([
   ...verifiedMainById.keys(),
   ...temporarySideById.keys()
 ], "explicit primary image classifications");
-assert.equal(xBeyPrimaryImageConfig.version, "20260807-x-scorpio-spear-official-front");
+assert.equal(xBeyPrimaryImageConfig.version, "20260807-x-front-image-corrections");
 assert.equal(xBeyAngleCorrectionConfig.version, xBeyPrimaryImageConfig.version);
 assert.equal(xBeyAngleCorrectionConfig.method, "premultiplied-alpha-vertical-affine");
 assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
@@ -108,15 +108,15 @@ assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
     "verified-existing-front"
   ]
 });
-assert.equal(xBeyPrimaryImageConfig.selected.length, 111);
-assert.equal(xBeyAngleCorrectionConfig.entries.length, 27);
+assert.equal(xBeyPrimaryImageConfig.selected.length, 114);
+assert.equal(xBeyAngleCorrectionConfig.entries.length, 24);
 assert.equal(xBeyPrimaryImageConfig.verifiedMain.length, 82);
 assert.equal(
   new Set([
     ...xBeyPrimaryImageConfig.selected.map(entry => entry.image),
     ...xBeyPrimaryImageConfig.verifiedMain.map(entry => entry.image)
   ]).size,
-  193,
+  196,
   "front-view normalization paths must be unique"
 );
 
@@ -537,9 +537,25 @@ const suppliedFronts = new Map([
   ["BEY-X-CX-11-GOLEM-ROCK-M-85HN", {
     sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/CX11_12@1.png",
     sourceSha256: "a8693861a6085ad8bf2749004d5ca16bc3984a3bad4431f3a92286aa10fe89ee"
+  }],
+  ["BEY-X-BX-45-WARRIOR-CALIBUR-6-70M", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX45_01@1.png",
+    sourceSha256: "e880e1b792fcac5f2d47856191a596d2792a2d9f8b5f8edd832df71b803f36d2"
+  }],
+  ["BEY-X-UX-15-HELLS-BRAVE-J-3-60GF", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX15_10@1.png",
+    sourceSha256: "82ef65e52f797f7f771d5db4251cb14450eb2a1c2bba903abe973129e9dc29c8"
+  }],
+  ["BEY-X-UX-17-METEO-DRAGOON-3-70J", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX17_01@1.png",
+    sourceSha256: "0a56cad3ebc596c18c3c12ac115d5a5c9af542782f7c814e9cec9054174f1297"
+  }],
+  ["BEY-X-UX-18-01-MUMMY-CURSE-7-55W", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX18_02@1.png",
+    sourceSha256: "b5c5e8ecece69d06fea387088db83f44d1372cfa7ccbc39546ff53bcce37e03e"
   }]
 ]);
-assert.equal(suppliedFronts.size, 91);
+assert.equal(suppliedFronts.size, 95);
 
 const correctedWizardMapping = xImageById.get("BEY-X-BX-17-WIZARD-ARROW-4-80B");
 assert.ok(correctedWizardMapping, "BX-17 Wizard Arrow source mapping is missing");
@@ -691,13 +707,13 @@ for (const entry of xBeyPrimaryImageConfig.temporarySideImages) {
 }
 
 const alphaReview = JSON.parse(await readFile(ALPHA_REVIEW_PATH, "utf8"));
-assert.equal(alphaReview.version, "20260807-x-scorpio-spear-official-front");
+assert.equal(alphaReview.version, "20260807-x-front-image-corrections");
 const alphaReviewByImage = new Map(alphaReview.files.map(entry => [entry.image, entry]));
 const normalizedEntries = [
   ...xBeyPrimaryImageConfig.selected,
   ...xBeyPrimaryImageConfig.verifiedMain
 ];
-assert.equal(normalizedEntries.length, 193);
+assert.equal(normalizedEntries.length, 196);
 for (const entry of normalizedEntries) {
   const review = alphaReviewByImage.get(entry.image);
   assert.ok(review, `${entry.id}: normalized image is missing from the alpha review`);
@@ -789,8 +805,8 @@ for (const item of xBeys) {
 }
 
 assert.deepEqual(counts, {
-  officialAngleCorrected: 27,
-  officialAssembledFront: 110,
+  officialAngleCorrected: 24,
+  officialAssembledFront: 113,
   userApprovedGeneratedFront: 1,
   verifiedExistingFront: 82,
   temporarySide: 0
