@@ -1,5 +1,5 @@
 {
-  "version": "20260807-x-rock-leone-tricera-fronts",
+  "version": "20260807-x-knight-mail-front",
   "canvasSize": 448,
   "files": [
     {
@@ -13019,21 +13019,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-ux-00-knight-mail-3-85bs/front.webp",
-      "outputSha256": "ce972cd199c0c65a4065a8ebde3e43414adc38e060a793018dc3dca116d50246",
-      "alphaLevels": 256,
-      "partialPixels": 6238,
-      "foregroundPixels": 97055,
+      "outputSha256": "1d39310470d811532d3e8693e6e78830c69bd4ed76f48eb0b6e8a4b052cd89f3",
+      "alphaLevels": 207,
+      "partialPixels": 3405,
+      "foregroundPixels": 98842,
       "bbox": [
-        46,
-        48,
-        402,
-        399
+        44,
+        44,
+        403,
+        404
       ],
       "margins": [
-        46,
-        48,
-        46,
-        49
+        44,
+        44,
+        45,
+        44
       ]
     },
     {

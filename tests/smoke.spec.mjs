@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-const X_ASSET_CACHE_VERSION = "20260807-x-rock-leone-tricera-fronts";
+const X_ASSET_CACHE_VERSION = "20260807-x-knight-mail-front";
 
 const consoleErrors = page => {
   const errors = [];

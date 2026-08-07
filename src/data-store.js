@@ -8,7 +8,7 @@ const bookItems = [];
 const gameItems = [];
 const animeInfo = { title: "", overview: [], characters: [], episodes: [] };
 const searchIndexItems = [];
-const X_ASSET_CACHE_VERSION = "20260807-x-rock-leone-tricera-fronts";
+const X_ASSET_CACHE_VERSION = "20260807-x-knight-mail-front";
 
 const versionAssetUrl = source => {
   const value = String(source || "");

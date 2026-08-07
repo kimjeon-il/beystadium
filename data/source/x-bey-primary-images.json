@@ -1,5 +1,5 @@
 {
-  "version": "20260807-x-rock-leone-tricera-fronts",
+  "version": "20260807-x-knight-mail-front",
   "sourceRoot": "",
   "policy": [
     "official-angle-corrected",
@@ -2076,6 +2076,27 @@
       "preNormalizationSha256": "1e26a9ae2ce71d1d55b259f87d131a04f45a878174f6cd9b0263e4beadac97d7",
       "normalizedForegroundBox": [
         45,
+        44,
+        403,
+        404
+      ]
+    },
+    {
+      "id": "BEY-X-UX-00-KNIGHT-MAIL-3-85BS",
+      "image": "assets/images/x/beys/bey-x-ux-00-knight-mail-3-85bs/front.webp",
+      "sourceKind": "official-assembled-front",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG42_01@1.png",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-ux-00-knight-mail-3-85bs-official.png",
+      "sourceSha256": "0d40987bd0717c1e2e7040885b32aa8de327e38710356084dd55f6b6c76c52af",
+      "outputSha256": "1d39310470d811532d3e8693e6e78830c69bd4ed76f48eb0b6e8a4b052cd89f3",
+      "targetForegroundSize": 360,
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true,
+      "preNormalizationSha256": "1d39310470d811532d3e8693e6e78830c69bd4ed76f48eb0b6e8a4b052cd89f3",
+      "normalizedForegroundBox": [
+        44,
         44,
         403,
         404

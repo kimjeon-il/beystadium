@@ -93,7 +93,7 @@ uniqueValues([
   ...verifiedMainById.keys(),
   ...temporarySideById.keys()
 ], "explicit primary image classifications");
-assert.equal(xBeyPrimaryImageConfig.version, "20260807-x-rock-leone-tricera-fronts");
+assert.equal(xBeyPrimaryImageConfig.version, "20260807-x-knight-mail-front");
 assert.equal(xBeyAngleCorrectionConfig.version, xBeyPrimaryImageConfig.version);
 assert.equal(xBeyAngleCorrectionConfig.method, "premultiplied-alpha-vertical-affine");
 assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
@@ -108,15 +108,15 @@ assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
     "verified-existing-front"
   ]
 });
-assert.equal(xBeyPrimaryImageConfig.selected.length, 117);
-assert.equal(xBeyAngleCorrectionConfig.entries.length, 21);
+assert.equal(xBeyPrimaryImageConfig.selected.length, 118);
+assert.equal(xBeyAngleCorrectionConfig.entries.length, 20);
 assert.equal(xBeyPrimaryImageConfig.verifiedMain.length, 82);
 assert.equal(
   new Set([
     ...xBeyPrimaryImageConfig.selected.map(entry => entry.image),
     ...xBeyPrimaryImageConfig.verifiedMain.map(entry => entry.image)
   ]).size,
-  199,
+  200,
   "front-view normalization paths must be unique"
 );
 
@@ -524,6 +524,11 @@ const suppliedFronts = new Map([
     sourceFile: "data/source/x-bey-front-sources/bey-x-bx-44-tricera-press-m-85bs-official.png",
     sourceSha256: "29e4f0eb3f95495ba0f8e503af7894dd09977d4d3647f74cd4c6498f5beb22fd"
   }],
+  ["BEY-X-UX-00-KNIGHT-MAIL-3-85BS", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG42_01@1.png",
+    sourceFile: "data/source/x-bey-front-sources/bey-x-ux-00-knight-mail-3-85bs-official.png",
+    sourceSha256: "0d40987bd0717c1e2e7040885b32aa8de327e38710356084dd55f6b6c76c52af"
+  }],
   ["BEY-X-UX-15-SHARK-SCALE-4-50UF", {
     sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX15_02@1.png",
     sourceSha256: "79ff56e3ab08a4cebbcd0c22432fc2f4e490e5efaf51a1df81d7f898ad95adb7"
@@ -565,7 +570,7 @@ const suppliedFronts = new Map([
     sourceSha256: "b5c5e8ecece69d06fea387088db83f44d1372cfa7ccbc39546ff53bcce37e03e"
   }]
 ]);
-assert.equal(suppliedFronts.size, 97);
+assert.equal(suppliedFronts.size, 98);
 
 const correctedWizardMapping = xImageById.get("BEY-X-BX-17-WIZARD-ARROW-4-80B");
 assert.ok(correctedWizardMapping, "BX-17 Wizard Arrow source mapping is missing");
@@ -807,13 +812,13 @@ for (const entry of xBeyPrimaryImageConfig.temporarySideImages) {
 }
 
 const alphaReview = JSON.parse(await readFile(ALPHA_REVIEW_PATH, "utf8"));
-assert.equal(alphaReview.version, "20260807-x-rock-leone-tricera-fronts");
+assert.equal(alphaReview.version, "20260807-x-knight-mail-front");
 const alphaReviewByImage = new Map(alphaReview.files.map(entry => [entry.image, entry]));
 const normalizedEntries = [
   ...xBeyPrimaryImageConfig.selected,
   ...xBeyPrimaryImageConfig.verifiedMain
 ];
-assert.equal(normalizedEntries.length, 199);
+assert.equal(normalizedEntries.length, 200);
 for (const entry of normalizedEntries) {
   const review = alphaReviewByImage.get(entry.image);
   assert.ok(review, `${entry.id}: normalized image is missing from the alpha review`);
@@ -908,8 +913,8 @@ for (const item of xBeys) {
 }
 
 assert.deepEqual(counts, {
-  officialAngleCorrected: 21,
-  officialAssembledFront: 115,
+  officialAngleCorrected: 20,
+  officialAssembledFront: 116,
   userApprovedGeneratedFront: 1,
   verifiedExistingFront: 83,
   temporarySide: 0
