@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-const X_ASSET_CACHE_VERSION = "20260807-x-image-cache-refresh";
+const X_ASSET_CACHE_VERSION = "20260807-x-storm-spriggan-front-select-audit";
 
 const consoleErrors = page => {
   const errors = [];

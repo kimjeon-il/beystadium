@@ -16,7 +16,7 @@ const REPORT_PATH = REPORT_ARG?.slice("--report=".length) || "";
 const OFFICIAL_IMAGE_ROOT = "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image";
 const ALPHA_REVIEW_PATH = path.resolve("data/source/x-image-alpha-review.json");
 const xImageById = new Map(xImageMappings.map(entry => [entry.id, entry]));
-const officialFrontById = new Map(
+const selectedFrontById = new Map(
   xBeyPrimaryImageConfig.selected.map(entry => [entry.id, entry])
 );
 const angleCorrectionById = new Map(
@@ -80,20 +80,20 @@ async function outputAudit(image) {
   return createHash("sha256").update(bytes).digest("hex");
 }
 
-uniqueValues(xBeyPrimaryImageConfig.selected.map(entry => entry.id), "official front IDs");
-uniqueValues(xBeyPrimaryImageConfig.selected.map(entry => entry.image), "official front paths");
+uniqueValues(xBeyPrimaryImageConfig.selected.map(entry => entry.id), "selected front IDs");
+uniqueValues(xBeyPrimaryImageConfig.selected.map(entry => entry.image), "selected front paths");
 uniqueValues(xBeyAngleCorrectionConfig.entries.map(entry => entry.id), "angle correction IDs");
 uniqueValues(xBeyAngleCorrectionConfig.entries.map(entry => entry.image), "angle correction paths");
 uniqueValues(xBeyPrimaryImageConfig.verifiedMain.map(entry => entry.id), "verified main IDs");
 uniqueValues(xBeyPrimaryImageConfig.verifiedMain.map(entry => entry.image), "verified main paths");
 uniqueValues(xBeyPrimaryImageConfig.temporarySideImages.map(entry => entry.id), "temporary side IDs");
 uniqueValues([
-  ...officialFrontById.keys(),
+  ...selectedFrontById.keys(),
   ...angleCorrectionById.keys(),
   ...verifiedMainById.keys(),
   ...temporarySideById.keys()
 ], "explicit primary image classifications");
-assert.equal(xBeyPrimaryImageConfig.version, "20260807-x-front-image-corrections");
+assert.equal(xBeyPrimaryImageConfig.version, "20260807-x-storm-spriggan-front-select-audit");
 assert.equal(xBeyAngleCorrectionConfig.version, xBeyPrimaryImageConfig.version);
 assert.equal(xBeyAngleCorrectionConfig.method, "premultiplied-alpha-vertical-affine");
 assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
@@ -108,15 +108,15 @@ assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
     "verified-existing-front"
   ]
 });
-assert.equal(xBeyPrimaryImageConfig.selected.length, 114);
-assert.equal(xBeyAngleCorrectionConfig.entries.length, 24);
+assert.equal(xBeyPrimaryImageConfig.selected.length, 115);
+assert.equal(xBeyAngleCorrectionConfig.entries.length, 23);
 assert.equal(xBeyPrimaryImageConfig.verifiedMain.length, 82);
 assert.equal(
   new Set([
     ...xBeyPrimaryImageConfig.selected.map(entry => entry.image),
     ...xBeyPrimaryImageConfig.verifiedMain.map(entry => entry.image)
   ]).size,
-  196,
+  197,
   "front-view normalization paths must be unique"
 );
 
@@ -568,8 +568,8 @@ assert.equal(
   "8033a9a10dbc4c3b5a959249920014c8ce82135652dcf1563d9e151fbbd4c6c5"
 );
 assert.equal(
-  await outputAudit(officialFrontById.get("BEY-X-BX-17-WIZARD-ARROW-4-80B").image),
-  officialFrontById.get("BEY-X-BX-17-WIZARD-ARROW-4-80B").outputSha256
+  await outputAudit(selectedFrontById.get("BEY-X-BX-17-WIZARD-ARROW-4-80B").image),
+  selectedFrontById.get("BEY-X-BX-17-WIZARD-ARROW-4-80B").outputSha256
 );
 
 for (const [id, sourcePath, sourceSha256] of [
@@ -607,15 +607,82 @@ const preservedExistingFronts = new Map([
 ]);
 for (const [id, expected] of preservedExistingFronts) {
   const classificationIsPreserved = expected.classification === "official-assembled-front"
-    ? officialFrontById.has(id)
+    ? selectedFrontById.has(id)
     : verifiedMainById.has(id);
   assert.ok(classificationIsPreserved, `${id}: preserved front classification changed`);
   const mapping = xImageById.get(id);
   assert.ok(mapping, `${id}: preserved source mapping is missing`);
   assert.equal(mapping.sourcePath, expected.sourcePath);
   assert.equal(mapping.sourceSha256, expected.sourceSha256);
-  const normalized = officialFrontById.get(id) || verifiedMainById.get(id);
+  const normalized = selectedFrontById.get(id) || verifiedMainById.get(id);
   assert.equal(await outputAudit(normalized.image), normalized.outputSha256);
+}
+
+const randomBoosterSelectGroups = [
+  ["BX16", [
+    "BEY-X-BX-16-01-VIPER-TAIL-5-80O",
+    "BEY-X-BX-16-02-VIPER-TAIL-4-60F",
+    "BEY-X-BX-16-03-VIPER-TAIL-3-80HN"
+  ]],
+  ["BX27", [
+    "BEY-X-BX-27-01-SPHINX-COWL-9-80GN",
+    "BEY-X-BX-27-02-SPHINX-COWL-4-80HT",
+    "BEY-X-BX-27-03-SPHINX-COWL-5-60O"
+  ]],
+  ["UX05", [
+    "BEY-X-UX-05-01-NINJA-SHADOW-1-80MN",
+    "BEY-X-UX-05-02-NINJA-SHADOW-9-60LF",
+    "BEY-X-UX-05-03-NINJA-SHADOW-3-70GP"
+  ]],
+  ["BX36", [
+    "BEY-X-BX-36-01-WHALE-WAVE-5-80E",
+    "BEY-X-BX-36-02-WHALE-WAVE-4-70HN",
+    "BEY-X-BX-36-03-WHALE-WAVE-3-80GB"
+  ]],
+  ["BX39", [
+    "BEY-X-BX-39-01-SHELTER-DRAKE-7-80GP",
+    "BEY-X-BX-39-02-SHELTER-DRAKE-5-70O",
+    "BEY-X-BX-39-03-SHELTER-DRAKE-3-60D"
+  ]],
+  ["CX06", [
+    "BEY-X-CX-06-01-FOX-BRUSH-J-9-70GR",
+    "BEY-X-CX-06-02-FOX-BRUSH-J-0-80DB",
+    "BEY-X-CX-06-03-FOX-BRUSH-J-2-60U"
+  ]],
+  ["UX16", [
+    "BEY-X-UX-16-01-CLOCK-MIRAGE-9-65B",
+    "BEY-X-UX-16-02-CLOCK-MIRAGE-9-65B",
+    "BEY-X-UX-16-03-CLOCK-MIRAGE-9-65B"
+  ]],
+  ["CX18", [
+    "BEY-X-CX-18-01-BRACHIO-WHIP-OW-5-70NR",
+    "BEY-X-CX-18-02-BRACHIO-WHIP-OW-5-70NR",
+    "BEY-X-CX-18-03-BRACHIO-WHIP-OW-5-70NR"
+  ]]
+];
+assert.equal(randomBoosterSelectGroups.flatMap(([, ids]) => ids).length, 24);
+for (const [productCode, ids] of randomBoosterSelectGroups) {
+  ids.forEach((id, index) => {
+    const expectedFileName = `${productCode}_${String(index + 2).padStart(2, "0")}@1.png`;
+    const selected = selectedFrontById.get(id);
+    const verifiedMain = verifiedMainById.get(id);
+    assert.ok(selected || verifiedMain, `${id}: Select primary image classification is missing`);
+    if (selected) {
+      assert.equal(
+        path.posix.basename(new URL(selected.sourceUrl).pathname),
+        expectedFileName,
+        `${id}: Select front source order changed`
+      );
+      return;
+    }
+    const mapping = xImageById.get(id);
+    assert.ok(mapping, `${id}: Select main source mapping is missing`);
+    assert.equal(
+      path.posix.basename(mapping.sourcePath).replace(/^\d+_/, ""),
+      expectedFileName,
+      `${id}: Select main source order changed`
+    );
+  });
 }
 
 for (const entry of xBeyPrimaryImageConfig.selected) {
@@ -639,6 +706,29 @@ for (const entry of xBeyPrimaryImageConfig.selected) {
     assert.deepEqual(entry.normalizedForegroundBox, [44, 44, 403, 404]);
     continue;
   }
+  if (entry.sourceKind === "verified-existing-front") {
+    assert.equal(entry.id, "BEY-X-BX-00-STORM-SPRIGGAN-2-70M");
+    assert.equal(
+      entry.sourceUrl,
+      "https://beyblade.phstudy.org/images/site/Blade/BL-PRD-997351-00.png"
+    );
+    assert.equal(
+      entry.sourceFile,
+      "data/source/x-bey-front-sources/bey-x-bx-00-storm-spriggan-2-70m-verified.png"
+    );
+    assert.equal(entry.sourceSha256, "a5e056e8e1dc40b91998729123518bb521accac0d95af65af71fb3df57d9d6e9");
+    assert.equal(
+      createHash("sha256").update(await readFile(path.resolve(entry.sourceFile))).digest("hex"),
+      entry.sourceSha256,
+      `${entry.id}: verified source hash changed`
+    );
+    assert.equal(entry.normalizationInput, "source-file");
+    assert.equal(entry.preserveSourcePixels, true);
+    assert.equal(entry.preNormalizationSha256, "a5e056e8e1dc40b91998729123518bb521accac0d95af65af71fb3df57d9d6e9");
+    assert.equal(entry.outputSha256, "ed49be79c9a99719e1944ca77c0036e7b4dd33f51872424f53cd163b9e0c9696");
+    assert.deepEqual(entry.normalizedForegroundBox, [47, 44, 400, 404]);
+    continue;
+  }
   assert.equal(entry.sourceKind, "official-assembled-front");
   assert.match(
     entry.sourceUrl,
@@ -655,7 +745,7 @@ for (const entry of xBeyPrimaryImageConfig.selected) {
   if (entry.sourceScale) assert.ok(entry.sourceScale > 0);
 }
 for (const [id, expected] of suppliedFronts) {
-  const entry = officialFrontById.get(id);
+  const entry = selectedFrontById.get(id);
   assert.ok(entry, `${id}: supplied official front is missing`);
   assert.equal(entry.sourceKind, "official-assembled-front");
   assert.equal(entry.sourceUrl, expected.sourceUrl);
@@ -707,13 +797,13 @@ for (const entry of xBeyPrimaryImageConfig.temporarySideImages) {
 }
 
 const alphaReview = JSON.parse(await readFile(ALPHA_REVIEW_PATH, "utf8"));
-assert.equal(alphaReview.version, "20260807-x-front-image-corrections");
+assert.equal(alphaReview.version, "20260807-x-storm-spriggan-front-select-audit");
 const alphaReviewByImage = new Map(alphaReview.files.map(entry => [entry.image, entry]));
 const normalizedEntries = [
   ...xBeyPrimaryImageConfig.selected,
   ...xBeyPrimaryImageConfig.verifiedMain
 ];
-assert.equal(normalizedEntries.length, 196);
+assert.equal(normalizedEntries.length, 197);
 for (const entry of normalizedEntries) {
   const review = alphaReviewByImage.get(entry.image);
   assert.ok(review, `${entry.id}: normalized image is missing from the alpha review`);
@@ -746,15 +836,17 @@ for (const item of xBeys) {
   let classification;
   let provenance;
   let exceptionReason = "";
-  if (officialFrontById.has(item.id)) {
-    provenance = officialFrontById.get(item.id);
+  if (selectedFrontById.has(item.id)) {
+    provenance = selectedFrontById.get(item.id);
     classification = provenance.sourceKind;
     assert.equal(item.image, provenance.image, `${item.id}: selected front is not primary`);
     if (classification === "official-assembled-front") {
       counts.officialAssembledFront += 1;
-    } else {
-      assert.equal(classification, "user-approved-generated-front");
+    } else if (classification === "user-approved-generated-front") {
       counts.userApprovedGeneratedFront += 1;
+    } else {
+      assert.equal(classification, "verified-existing-front");
+      counts.verifiedExistingFront += 1;
     }
   } else if (angleCorrectionById.has(item.id)) {
     classification = "official-angle-corrected";
@@ -787,9 +879,10 @@ for (const item of xBeys) {
   ) {
     assert.equal(outputSha256, provenance.outputSha256, `${item.id}: front output hash changed`);
   } else if (classification === "verified-existing-front") {
+    const verifiedFront = selectedFrontById.get(item.id) || verifiedMainById.get(item.id);
     assert.equal(
       outputSha256,
-      verifiedMainById.get(item.id).outputSha256,
+      verifiedFront.outputSha256,
       `${item.id}: verified front output hash changed`
     );
   }
@@ -805,10 +898,10 @@ for (const item of xBeys) {
 }
 
 assert.deepEqual(counts, {
-  officialAngleCorrected: 24,
+  officialAngleCorrected: 23,
   officialAssembledFront: 113,
   userApprovedGeneratedFront: 1,
-  verifiedExistingFront: 82,
+  verifiedExistingFront: 83,
   temporarySide: 0
 });
 

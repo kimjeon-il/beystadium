@@ -1,5 +1,5 @@
 {
-  "version": "20260807-x-front-image-corrections",
+  "version": "20260807-x-storm-spriggan-front-select-audit",
   "method": "premultiplied-alpha-vertical-affine",
   "entries": [
     {
@@ -79,19 +79,6 @@
       "scaleY": 1.08,
       "pivotY": 223.5,
       "outputSha256": "db0f60b55a614229e4b786199131f50d056355cba380d1e81ccef31a7eebdd06"
-    },
-    {
-      "id": "BEY-X-BX-00-STORM-SPRIGGAN-2-70M",
-      "sourceImage": "assets/images/x/beys/bey-x-bx-00-storm-spriggan-2-70m/parts/part-x-blade-storm-spriggan.webp",
-      "image": "assets/images/x/beys/bey-x-bx-00-storm-spriggan-2-70m/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG21_01@1.png",
-      "sourceSha256": "ef6f54f1ccb9b46a6c64e47e884e336d9951c45f409b508a40513d7fc04b79b6",
-      "sourceOutputSha256": "e742920505b3df100420796cc6447d666b3052688f19bd62e59c758859ddb063",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.0,
-      "outputSha256": "9ff3910266cddd829fef544d3f64e3716dea04ab9b92bcc26fdf0b889a8ba9d7"
     },
     {
       "id": "BEY-X-UX-15-TYRANNO-ROAR-1-70L",

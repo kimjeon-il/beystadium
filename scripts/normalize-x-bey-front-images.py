@@ -16,7 +16,7 @@ from PIL import Image
 
 CONFIG_PATH = Path("data/source/x-bey-primary-images.json")
 ANGLE_CONFIG_PATH = Path("data/source/x-bey-angle-corrections.json")
-CONFIG_VERSION = "20260807-x-front-image-corrections"
+CONFIG_VERSION = "20260807-x-storm-spriggan-front-select-audit"
 CANVAS_SIZE = 448
 TARGET_FOREGROUND_SIZE = 360
 ALPHA_THRESHOLD = 3
@@ -74,9 +74,6 @@ def resize_premultiplied(image: Image.Image, size: tuple[int, int]) -> Image.Ima
 
 def normalized_image(source: Image.Image) -> tuple[Image.Image, list[int]]:
     rgba = source.convert("RGBA")
-    if rgba.size != (CANVAS_SIZE, CANVAS_SIZE):
-        raise ValueError(f"expected {CANVAS_SIZE}x{CANVAS_SIZE}, found {rgba.size}")
-
     crop = rgba.crop(foreground_box(rgba))
     for _ in range(4):
         width, height = crop.size
@@ -109,6 +106,7 @@ def config_entries(config: dict) -> list[dict]:
         if entry.get("sourceKind") not in {
             "official-assembled-front",
             "user-approved-generated-front",
+            "verified-existing-front",
         }:
             raise ValueError(f"{entry['id']}: unexpected selected source kind")
         entries.append(entry)
@@ -154,8 +152,8 @@ def main() -> int:
     validate_policy(config)
 
     entries = config_entries(config)
-    if len(entries) != 196:
-        raise ValueError(f"expected 196 front-view Beys, found {len(entries)}")
+    if len(entries) != 197:
+        raise ValueError(f"expected 197 front-view Beys, found {len(entries)}")
     ids = [entry["id"] for entry in entries]
     paths = [entry["image"] for entry in entries]
     if len(set(ids)) != len(ids) or len(set(paths)) != len(paths):
@@ -185,7 +183,13 @@ def main() -> int:
         if not args.write:
             raise ValueError(f"{entry['id']}: normalization metadata is missing; run with --write")
 
-        baseline_bytes = head_bytes(image_path)
+        if entry.get("normalizationInput") == "source-file":
+            source_file = entry.get("sourceFile")
+            if not source_file:
+                raise ValueError(f"{entry['id']}: source-file normalization needs sourceFile")
+            baseline_bytes = Path(source_file).read_bytes()
+        else:
+            baseline_bytes = head_bytes(image_path)
         entry["preNormalizationSha256"] = hashlib.sha256(baseline_bytes).hexdigest()
         with Image.open(io.BytesIO(baseline_bytes)) as image:
             result, box = normalized_image(image)

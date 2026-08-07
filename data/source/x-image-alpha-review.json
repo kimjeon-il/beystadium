@@ -1,5 +1,5 @@
 {
-  "version": "20260807-x-front-image-corrections",
+  "version": "20260807-x-storm-spriggan-front-select-audit",
   "canvasSize": 448,
   "files": [
     {
@@ -2721,21 +2721,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-storm-spriggan-2-70m/front.webp",
-      "outputSha256": "9ff3910266cddd829fef544d3f64e3716dea04ab9b92bcc26fdf0b889a8ba9d7",
+      "outputSha256": "ed49be79c9a99719e1944ca77c0036e7b4dd33f51872424f53cd163b9e0c9696",
       "alphaLevels": 256,
-      "partialPixels": 7759,
-      "foregroundPixels": 112098,
+      "partialPixels": 99959,
+      "foregroundPixels": 100083,
       "bbox": [
-        42,
-        27,
-        405,
-        420
+        47,
+        44,
+        400,
+        404
       ],
       "margins": [
-        42,
-        27,
-        43,
-        28
+        47,
+        44,
+        48,
+        44
       ]
     },
     {

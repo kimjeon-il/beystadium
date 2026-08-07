@@ -1,5 +1,5 @@
 {
-  "version": "20260807-x-front-image-corrections",
+  "version": "20260807-x-storm-spriggan-front-select-audit",
   "sourceRoot": "",
   "policy": [
     "official-angle-corrected",
@@ -1979,6 +1979,24 @@
       ]
     },
     {
+      "id": "BEY-X-BX-00-STORM-SPRIGGAN-2-70M",
+      "image": "assets/images/x/beys/bey-x-bx-00-storm-spriggan-2-70m/front.webp",
+      "sourceKind": "verified-existing-front",
+      "sourceUrl": "https://beyblade.phstudy.org/images/site/Blade/BL-PRD-997351-00.png",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-storm-spriggan-2-70m-verified.png",
+      "sourceSha256": "a5e056e8e1dc40b91998729123518bb521accac0d95af65af71fb3df57d9d6e9",
+      "normalizationInput": "source-file",
+      "preserveSourcePixels": true,
+      "preNormalizationSha256": "a5e056e8e1dc40b91998729123518bb521accac0d95af65af71fb3df57d9d6e9",
+      "outputSha256": "ed49be79c9a99719e1944ca77c0036e7b4dd33f51872424f53cd163b9e0c9696",
+      "normalizedForegroundBox": [
+        47,
+        44,
+        400,
+        404
+      ]
+    },
+    {
       "id": "BEY-X-BX-00-VICTORY-VALKYRIE-2-60RA",
       "image": "assets/images/x/beys/bey-x-bx-00-victory-valkyrie-2-60ra/front.webp",
       "sourceKind": "official-assembled-front",
@@ -3724,10 +3742,10 @@
     "targetForegroundSize": 360,
     "alphaThreshold": 3,
     "resample": "lanczos",
-      "eligibleSourceKinds": [
-        "official-assembled-front",
-        "user-approved-generated-front",
-        "verified-existing-front"
-      ]
+    "eligibleSourceKinds": [
+      "official-assembled-front",
+      "user-approved-generated-front",
+      "verified-existing-front"
+    ]
   }
 }

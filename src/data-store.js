@@ -8,7 +8,7 @@ const bookItems = [];
 const gameItems = [];
 const animeInfo = { title: "", overview: [], characters: [], episodes: [] };
 const searchIndexItems = [];
-const X_ASSET_CACHE_VERSION = "20260807-x-image-cache-refresh";
+const X_ASSET_CACHE_VERSION = "20260807-x-storm-spriggan-front-select-audit";
 
 const versionAssetUrl = source => {
   const value = String(source || "");
