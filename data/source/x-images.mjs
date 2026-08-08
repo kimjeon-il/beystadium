@@ -105,9 +105,12 @@ const xImageMappings = [
   },
   {
     "id": "BEY-X-BX-00-IRON-MAN-4-80B",
-    "image": "assets/images/x/beys/bey-x-bx-00-iron-man-4-80b/main.webp",
-    "sourcePath": "02_product_components/088_bx00-mit/03_BXG29_03@1.png",
-    "sourceSha256": "8110b71af31212ecfe79cfcbbdb733e3454972f1ba1798ff70de9a631dd683fa"
+    "image": "assets/images/x/beys/bey-x-bx-00-iron-man-4-80b/front.webp",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-iron-man-4-80b-generated.png",
+    "sourceSha256": "66c8a74562b04c42ab58c104283390b50d1b83a831a86a1df3610697503adcc2",
+    "sourceKind": "user-approved-generated-front",
+    "normalizationInput": "source-file",
+    "preserveSourcePixels": true
   },
   {
     "id": "BEY-X-BX-00-LEON-CLAW-5-60P",
@@ -232,9 +235,12 @@ const xImageMappings = [
   },
   {
     "id": "BEY-X-BX-00-THANOS-4-60P",
-    "image": "assets/images/x/beys/bey-x-bx-00-thanos-4-60p/main.webp",
-    "sourcePath": "02_product_components/088_bx00-mit/06_BXG29_06@1.png",
-    "sourceSha256": "e34b812fe20991ea0b22bbddc33b76fc87482b1462d2725eeb739b4769b01697"
+    "image": "assets/images/x/beys/bey-x-bx-00-thanos-4-60p/front.webp",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-thanos-4-60p-generated.png",
+    "sourceSha256": "128bff090ac184ea257b85ae00499dec8538e383a0c10aee4b21049000dea1ca",
+    "sourceKind": "user-approved-generated-front",
+    "normalizationInput": "source-file",
+    "preserveSourcePixels": true
   },
   {
     "id": "BEY-X-BX-00-THE-MANDALORIAN-3-60F",

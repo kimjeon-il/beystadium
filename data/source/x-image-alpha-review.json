@@ -1,5 +1,5 @@
 {
-  "version": "20260807-x-knight-mail-front",
+  "version": "20260808-x-variant-fronts-4",
   "canvasSize": 448,
   "files": [
     {
@@ -1334,21 +1334,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-iron-man-4-80b/front.webp",
-      "outputSha256": "f9e1476e48e5aaf596fd32488f4dce68bd357a258516943cd293b6897a3d6cc2",
+      "outputSha256": "4579c64cb5c2b07fdfdc1848a9e2ebec874078ddfeaf32b84fc1fa87e0865da2",
       "alphaLevels": 256,
-      "partialPixels": 11007,
-      "foregroundPixels": 103261,
+      "partialPixels": 5294,
+      "foregroundPixels": 100250,
       "bbox": [
         44,
-        37,
+        44,
         404,
-        410
+        403
       ],
       "margins": [
         44,
-        37,
         44,
-        38
+        44,
+        45
       ]
     },
     {
@@ -1771,21 +1771,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-mosasaurus-9-60u/front.webp",
-      "outputSha256": "56108d7e30f2f7ed480ebed26ae934f500a72f7249b44741ec11fadd75810876",
-      "alphaLevels": 256,
-      "partialPixels": 10574,
-      "foregroundPixels": 104261,
+      "outputSha256": "83ea201590bfa07578c8e782fea6b761a0b231210cbb2ac1b5cfb375d3e5972e",
+      "alphaLevels": 255,
+      "partialPixels": 4104,
+      "foregroundPixels": 95991,
       "bbox": [
-        43,
-        38,
-        405,
-        410
+        50,
+        44,
+        397,
+        404
       ],
       "margins": [
-        43,
-        38,
-        43,
-        38
+        50,
+        44,
+        51,
+        44
       ]
     },
     {
@@ -2816,21 +2816,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-t-rex-1-80gb/front.webp",
-      "outputSha256": "6cb639d54c9f23edd570a80af924cb5d656cfc836e7b347d3b8a4c907c7b4357",
-      "alphaLevels": 256,
-      "partialPixels": 9417,
-      "foregroundPixels": 99919,
+      "outputSha256": "3c57b4b15f141c132a42a3b04beee19dd5f319e199415bb154c6608b7d82af28",
+      "alphaLevels": 255,
+      "partialPixels": 4349,
+      "foregroundPixels": 94444,
       "bbox": [
-        42,
-        40,
-        406,
-        406
+        47,
+        44,
+        401,
+        404
       ],
       "margins": [
-        42,
-        40,
-        42,
-        42
+        47,
+        44,
+        47,
+        44
       ]
     },
     {
@@ -2892,21 +2892,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-thanos-4-60p/front.webp",
-      "outputSha256": "6bd983ba5f38e1a9d4f7e7aec9275779819db041fb3cb3f8b961d5406c1981c5",
-      "alphaLevels": 256,
-      "partialPixels": 8991,
-      "foregroundPixels": 100272,
+      "outputSha256": "734f1070dec41e4589b9a251dea49e4bd25309e5702b93996c720d0d8fcb91f1",
+      "alphaLevels": 235,
+      "partialPixels": 3221,
+      "foregroundPixels": 98649,
       "bbox": [
         44,
-        45,
+        48,
         404,
-        403
+        399
       ],
       "margins": [
         44,
-        45,
+        48,
         44,
-        45
+        49
       ]
     },
     {

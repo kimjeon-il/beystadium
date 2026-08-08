@@ -16,7 +16,7 @@ from PIL import Image
 
 CONFIG_PATH = Path("data/source/x-bey-primary-images.json")
 ANGLE_CONFIG_PATH = Path("data/source/x-bey-angle-corrections.json")
-CONFIG_VERSION = "20260807-x-knight-mail-front"
+CONFIG_VERSION = "20260808-x-variant-fronts-4"
 CANVAS_SIZE = 448
 TARGET_FOREGROUND_SIZE = 360
 ALPHA_THRESHOLD = 3
@@ -152,8 +152,8 @@ def main() -> int:
     validate_policy(config)
 
     entries = config_entries(config)
-    if len(entries) != 200:
-        raise ValueError(f"expected 200 front-view Beys, found {len(entries)}")
+    if len(entries) != 204:
+        raise ValueError(f"expected 204 front-view Beys, found {len(entries)}")
     ids = [entry["id"] for entry in entries]
     paths = [entry["image"] for entry in entries]
     if len(set(ids)) != len(ids) or len(set(paths)) != len(paths):

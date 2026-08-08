@@ -1,5 +1,5 @@
 {
-  "version": "20260807-x-knight-mail-front",
+  "version": "20260808-x-variant-fronts-4",
   "sourceRoot": "",
   "policy": [
     "official-angle-corrected",
@@ -1993,6 +1993,89 @@
         47,
         44,
         400,
+        404
+      ]
+    },
+    {
+      "id": "BEY-X-BX-00-IRON-MAN-4-80B",
+      "image": "assets/images/x/beys/bey-x-bx-00-iron-man-4-80b/front.webp",
+      "sourceKind": "user-approved-generated-front",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-iron-man-4-80b-generated.png",
+      "sourceSha256": "66c8a74562b04c42ab58c104283390b50d1b83a831a86a1df3610697503adcc2",
+      "normalizationInput": "source-file",
+      "preserveSourcePixels": true,
+      "processingMethod": "deterministic-cgi-material-and-sticker-composite",
+      "geometryAuthoritySha256": "22aede842139042a0281ea82a076ba7bed4c2a8cac5deb075a00f7d8ea908e3d",
+      "rawReferenceSha256": "05c3ab0d5158f1062c39bbaf569d2e3846973bdb39b679549b000ed5e8b1698d",
+      "styleAuthoritySha256": "0f8222b43ec4e280d261a8cf0a0ac334fad46a5efdea869a4c4ff0a9d05c8c2c",
+      "imageGenerationUsed": false,
+      "preNormalizationSha256": "66c8a74562b04c42ab58c104283390b50d1b83a831a86a1df3610697503adcc2",
+      "outputSha256": "4579c64cb5c2b07fdfdc1848a9e2ebec874078ddfeaf32b84fc1fa87e0865da2",
+      "normalizedForegroundBox": [
+        44,
+        44,
+        404,
+        403
+      ]
+    },
+    {
+      "id": "BEY-X-BX-00-THANOS-4-60P",
+      "image": "assets/images/x/beys/bey-x-bx-00-thanos-4-60p/front.webp",
+      "sourceKind": "user-approved-generated-front",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-thanos-4-60p-generated.png",
+      "sourceSha256": "128bff090ac184ea257b85ae00499dec8538e383a0c10aee4b21049000dea1ca",
+      "normalizationInput": "source-file",
+      "preserveSourcePixels": true,
+      "processingMethod": "deterministic-cgi-material-and-sticker-composite",
+      "geometryAuthoritySha256": "cdbe6b02806a4285ad5b34b36903fe7d2a9323a8561263fa590039852cc438e4",
+      "rawReferenceSha256": "a860a1c1b4de0635574fd8df4a023defb6e67e2bed87c0b743ab837b434bd288",
+      "styleAuthoritySha256": "19eb4313c8dd2e06f59b78d55e3bdda75c0aa11d6059cbff2c3fae7d1bdd8f40",
+      "imageGenerationUsed": false,
+      "preNormalizationSha256": "128bff090ac184ea257b85ae00499dec8538e383a0c10aee4b21049000dea1ca",
+      "outputSha256": "734f1070dec41e4589b9a251dea49e4bd25309e5702b93996c720d0d8fcb91f1",
+      "normalizedForegroundBox": [
+        44,
+        48,
+        404,
+        399
+      ]
+    },
+    {
+      "id": "BEY-X-BX-00-T-REX-1-80GB",
+      "image": "assets/images/x/beys/bey-x-bx-00-t-rex-1-80gb/front.webp",
+      "sourceKind": "verified-existing-front",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-t-rex-1-80gb-verified.png",
+      "sourceSha256": "a9c014fa1a30750801d5e3cc046b9f162eb2a588ea3b55e2d1293ca52f6092a4",
+      "normalizationInput": "source-file",
+      "preserveSourcePixels": true,
+      "rawReferenceSha256": "b180e53744897f8bdf264fc7131c6507c5512340017adf06e2334a0ad9174e27",
+      "imageGenerationUsed": false,
+      "preNormalizationSha256": "a9c014fa1a30750801d5e3cc046b9f162eb2a588ea3b55e2d1293ca52f6092a4",
+      "outputSha256": "3c57b4b15f141c132a42a3b04beee19dd5f319e199415bb154c6608b7d82af28",
+      "normalizedForegroundBox": [
+        47,
+        44,
+        401,
+        404
+      ]
+    },
+    {
+      "id": "BEY-X-BX-00-MOSASAURUS-9-60U",
+      "image": "assets/images/x/beys/bey-x-bx-00-mosasaurus-9-60u/front.webp",
+      "sourceKind": "verified-existing-front",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-mosasaurus-9-60u-verified.png",
+      "sourceSha256": "691bef673e992ec24b68387cfdbae9c3c09847be1a1b967a2e23ffbf9541ef1f",
+      "normalizationInput": "source-file",
+      "preserveSourcePixels": true,
+      "rawReferenceSha256": "b0142adf2c73a42ffc0799242aa0549ff7bdceed812c8fb31272042b2f6f0763",
+      "rotationWorkflow": "reference processed at 180 degrees and losslessly rotated back",
+      "imageGenerationUsed": false,
+      "preNormalizationSha256": "691bef673e992ec24b68387cfdbae9c3c09847be1a1b967a2e23ffbf9541ef1f",
+      "outputSha256": "83ea201590bfa07578c8e782fea6b761a0b231210cbb2ac1b5cfb375d3e5972e",
+      "normalizedForegroundBox": [
+        50,
+        44,
+        397,
         404
       ]
     },

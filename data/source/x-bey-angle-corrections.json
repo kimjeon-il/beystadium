@@ -1,5 +1,5 @@
 {
-  "version": "20260807-x-knight-mail-front",
+  "version": "20260808-x-variant-fronts-4",
   "method": "premultiplied-alpha-vertical-affine",
   "entries": [
     {
@@ -53,32 +53,6 @@
       "scaleY": 1.08,
       "pivotY": 223.5,
       "outputSha256": "84e477d37d5db14bccd5362190db53127938e029a922e3a2e99455488a10e262"
-    },
-    {
-      "id": "BEY-X-BX-00-IRON-MAN-4-80B",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-iron-man.webp",
-      "image": "assets/images/x/beys/bey-x-bx-00-iron-man-4-80b/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG29_03@1.png",
-      "sourceSha256": "8110b71af31212ecfe79cfcbbdb733e3454972f1ba1798ff70de9a631dd683fa",
-      "sourceOutputSha256": "3733a507daee56c8bc6021e43854410e463c901af168113cce421682148b7975",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.0,
-      "outputSha256": "f9e1476e48e5aaf596fd32488f4dce68bd357a258516943cd293b6897a3d6cc2"
-    },
-    {
-      "id": "BEY-X-BX-00-THANOS-4-60P",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-thanos.webp",
-      "image": "assets/images/x/beys/bey-x-bx-00-thanos-4-60p/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG29_06@1.png",
-      "sourceSha256": "e34b812fe20991ea0b22bbddc33b76fc87482b1462d2725eeb739b4769b01697",
-      "sourceOutputSha256": "c9518a0a3cc9be88c72a6d2d09fe3af3739b2c0c03e660031b52fa1c1a1c650f",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.0,
-      "outputSha256": "6bd983ba5f38e1a9d4f7e7aec9275779819db041fb3cb3f8b961d5406c1981c5"
     },
     {
       "id": "BEY-X-BX-00-SPIDER-MAN-3-60F",
@@ -209,32 +183,6 @@
       "scaleY": 1.08,
       "pivotY": 223.5,
       "outputSha256": "788677a6a566af7f6210879f31cbb1652ca0ede99981d766593ae4ae0162314a"
-    },
-    {
-      "id": "BEY-X-BX-00-T-REX-1-80GB",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-t-rex.webp",
-      "image": "assets/images/x/beys/bey-x-bx-00-t-rex-1-80gb/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG40_03@1.png",
-      "sourceSha256": "30b04e0035d3899d51d7c797c8fa8f27e50d71776ebf53eddd9a16f99c6ca0d4",
-      "sourceOutputSha256": "61d73beb9eb16628b3ab6a6d1282273a2b9e77ea60dfab78221158ea1f7f2af7",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.0,
-      "outputSha256": "6cb639d54c9f23edd570a80af924cb5d656cfc836e7b347d3b8a4c907c7b4357"
-    },
-    {
-      "id": "BEY-X-BX-00-MOSASAURUS-9-60U",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-mosasaurus.webp",
-      "image": "assets/images/x/beys/bey-x-bx-00-mosasaurus-9-60u/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG40_06@1.png",
-      "sourceSha256": "3c1d427f6a8558bef908ce97ee93cceb23e45cf2c33a732e27158f8b5b0c15d5",
-      "sourceOutputSha256": "adda178c62e0d3006dfe504254f2b1d4db779ab846d68a02be313fd06d247229",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.5,
-      "outputSha256": "56108d7e30f2f7ed480ebed26ae934f500a72f7249b44741ec11fadd75810876"
     },
     {
       "id": "BEY-X-BX-00-SPINOSAURUS-3-85A",

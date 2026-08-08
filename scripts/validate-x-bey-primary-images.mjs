@@ -93,7 +93,7 @@ uniqueValues([
   ...verifiedMainById.keys(),
   ...temporarySideById.keys()
 ], "explicit primary image classifications");
-assert.equal(xBeyPrimaryImageConfig.version, "20260807-x-knight-mail-front");
+assert.equal(xBeyPrimaryImageConfig.version, "20260808-x-variant-fronts-4");
 assert.equal(xBeyAngleCorrectionConfig.version, xBeyPrimaryImageConfig.version);
 assert.equal(xBeyAngleCorrectionConfig.method, "premultiplied-alpha-vertical-affine");
 assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
@@ -108,15 +108,15 @@ assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
     "verified-existing-front"
   ]
 });
-assert.equal(xBeyPrimaryImageConfig.selected.length, 118);
-assert.equal(xBeyAngleCorrectionConfig.entries.length, 20);
+assert.equal(xBeyPrimaryImageConfig.selected.length, 122);
+assert.equal(xBeyAngleCorrectionConfig.entries.length, 16);
 assert.equal(xBeyPrimaryImageConfig.verifiedMain.length, 82);
 assert.equal(
   new Set([
     ...xBeyPrimaryImageConfig.selected.map(entry => entry.image),
     ...xBeyPrimaryImageConfig.verifiedMain.map(entry => entry.image)
   ]).size,
-  200,
+  204,
   "front-view normalization paths must be unique"
 );
 
@@ -700,9 +700,61 @@ for (const [productCode, ids] of randomBoosterSelectGroups) {
   });
 }
 
+const approvedGeneratedFronts = new Map([
+  ["BEY-X-BX-00-IRON-MAN-4-80B", {
+    sourceFile: "data/source/x-bey-front-sources/bey-x-bx-00-iron-man-4-80b-generated.png",
+    sourceSha256: "66c8a74562b04c42ab58c104283390b50d1b83a831a86a1df3610697503adcc2",
+    processingMethod: "deterministic-cgi-material-and-sticker-composite",
+    geometryAuthoritySha256: "22aede842139042a0281ea82a076ba7bed4c2a8cac5deb075a00f7d8ea908e3d",
+    rawReferenceSha256: "05c3ab0d5158f1062c39bbaf569d2e3846973bdb39b679549b000ed5e8b1698d",
+    styleAuthoritySha256: "0f8222b43ec4e280d261a8cf0a0ac334fad46a5efdea869a4c4ff0a9d05c8c2c"
+  }],
+  ["BEY-X-BX-00-THANOS-4-60P", {
+    sourceFile: "data/source/x-bey-front-sources/bey-x-bx-00-thanos-4-60p-generated.png",
+    sourceSha256: "128bff090ac184ea257b85ae00499dec8538e383a0c10aee4b21049000dea1ca",
+    processingMethod: "deterministic-cgi-material-and-sticker-composite",
+    geometryAuthoritySha256: "cdbe6b02806a4285ad5b34b36903fe7d2a9323a8561263fa590039852cc438e4",
+    rawReferenceSha256: "a860a1c1b4de0635574fd8df4a023defb6e67e2bed87c0b743ab837b434bd288",
+    styleAuthoritySha256: "19eb4313c8dd2e06f59b78d55e3bdda75c0aa11d6059cbff2c3fae7d1bdd8f40"
+  }]
+]);
+const verifiedSuppliedFronts = new Map([
+  ["BEY-X-BX-00-T-REX-1-80GB", {
+    sourceFile: "data/source/x-bey-front-sources/bey-x-bx-00-t-rex-1-80gb-verified.png",
+    sourceSha256: "a9c014fa1a30750801d5e3cc046b9f162eb2a588ea3b55e2d1293ca52f6092a4",
+    rawReferenceSha256: "b180e53744897f8bdf264fc7131c6507c5512340017adf06e2334a0ad9174e27"
+  }],
+  ["BEY-X-BX-00-MOSASAURUS-9-60U", {
+    sourceFile: "data/source/x-bey-front-sources/bey-x-bx-00-mosasaurus-9-60u-verified.png",
+    sourceSha256: "691bef673e992ec24b68387cfdbae9c3c09847be1a1b967a2e23ffbf9541ef1f",
+    rawReferenceSha256: "b0142adf2c73a42ffc0799242aa0549ff7bdceed812c8fb31272042b2f6f0763"
+  }]
+]);
+
 for (const entry of xBeyPrimaryImageConfig.selected) {
   if (entry.sourceKind === "user-approved-generated-front") {
-    assert.equal(entry.id, "BEY-X-BX-00-PHOENIX-SOAR-9-80DB");
+    if (entry.id !== "BEY-X-BX-00-PHOENIX-SOAR-9-80DB") {
+      const expected = approvedGeneratedFronts.get(entry.id);
+      assert.ok(expected, `${entry.id}: generated front is not approved`);
+      assert.equal(entry.sourceFile, expected.sourceFile);
+      assert.equal(entry.sourceSha256, expected.sourceSha256);
+      assert.equal(
+        createHash("sha256").update(await readFile(path.resolve(entry.sourceFile))).digest("hex"),
+        entry.sourceSha256,
+        `${entry.id}: approved source hash changed`
+      );
+      assert.equal(entry.normalizationInput, "source-file");
+      assert.equal(entry.preserveSourcePixels, true);
+      assert.equal(entry.processingMethod, expected.processingMethod);
+      assert.equal(entry.geometryAuthoritySha256, expected.geometryAuthoritySha256);
+      assert.equal(entry.rawReferenceSha256, expected.rawReferenceSha256);
+      assert.equal(entry.styleAuthoritySha256, expected.styleAuthoritySha256);
+      assert.equal(entry.imageGenerationUsed, false);
+      assert.equal(entry.preNormalizationSha256, entry.sourceSha256);
+      assert.match(entry.outputSha256, /^[a-f0-9]{64}$/);
+      assert.equal(entry.normalizedForegroundBox.length, 4);
+      continue;
+    }
     assert.equal(entry.sourceFile, "data/source/x-bey-front-sources/bey-x-bx-00-phoenix-soar-9-80db-generated.png");
     assert.equal(entry.sourceSha256, "5869ebe48c1ae08a595de7ff3ef6a552e51e0ea8a5c859de39f21b7f8fd7b7fe");
     assert.equal(
@@ -722,7 +774,25 @@ for (const entry of xBeyPrimaryImageConfig.selected) {
     continue;
   }
   if (entry.sourceKind === "verified-existing-front") {
-    assert.equal(entry.id, "BEY-X-BX-00-STORM-SPRIGGAN-2-70M");
+    if (entry.id !== "BEY-X-BX-00-STORM-SPRIGGAN-2-70M") {
+      const expected = verifiedSuppliedFronts.get(entry.id);
+      assert.ok(expected, `${entry.id}: verified front is not approved`);
+      assert.equal(entry.sourceFile, expected.sourceFile);
+      assert.equal(entry.sourceSha256, expected.sourceSha256);
+      assert.equal(
+        createHash("sha256").update(await readFile(path.resolve(entry.sourceFile))).digest("hex"),
+        entry.sourceSha256,
+        `${entry.id}: verified source hash changed`
+      );
+      assert.equal(entry.normalizationInput, "source-file");
+      assert.equal(entry.preserveSourcePixels, true);
+      assert.equal(entry.rawReferenceSha256, expected.rawReferenceSha256);
+      assert.equal(entry.imageGenerationUsed, false);
+      assert.equal(entry.preNormalizationSha256, entry.sourceSha256);
+      assert.match(entry.outputSha256, /^[a-f0-9]{64}$/);
+      assert.equal(entry.normalizedForegroundBox.length, 4);
+      continue;
+    }
     assert.equal(
       entry.sourceUrl,
       "https://beyblade.phstudy.org/images/site/Blade/BL-PRD-997351-00.png"
@@ -812,13 +882,13 @@ for (const entry of xBeyPrimaryImageConfig.temporarySideImages) {
 }
 
 const alphaReview = JSON.parse(await readFile(ALPHA_REVIEW_PATH, "utf8"));
-assert.equal(alphaReview.version, "20260807-x-knight-mail-front");
+assert.equal(alphaReview.version, "20260808-x-variant-fronts-4");
 const alphaReviewByImage = new Map(alphaReview.files.map(entry => [entry.image, entry]));
 const normalizedEntries = [
   ...xBeyPrimaryImageConfig.selected,
   ...xBeyPrimaryImageConfig.verifiedMain
 ];
-assert.equal(normalizedEntries.length, 200);
+assert.equal(normalizedEntries.length, 204);
 for (const entry of normalizedEntries) {
   const review = alphaReviewByImage.get(entry.image);
   assert.ok(review, `${entry.id}: normalized image is missing from the alpha review`);
@@ -913,10 +983,10 @@ for (const item of xBeys) {
 }
 
 assert.deepEqual(counts, {
-  officialAngleCorrected: 20,
+  officialAngleCorrected: 16,
   officialAssembledFront: 116,
-  userApprovedGeneratedFront: 1,
-  verifiedExistingFront: 83,
+  userApprovedGeneratedFront: 3,
+  verifiedExistingFront: 85,
   temporarySide: 0
 });
 

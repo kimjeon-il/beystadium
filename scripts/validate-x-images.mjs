@@ -11,7 +11,7 @@ import { xCatalogImagePath } from "./x-image-paths.mjs";
 const REPORT_ARG = process.argv.find(argument => argument.startsWith("--report="));
 const REPORT_PATH = REPORT_ARG?.slice("--report=".length) || "";
 const ALPHA_REVIEW_PATH = path.resolve("data/source/x-image-alpha-review.json");
-const ALPHA_REVIEW_VERSION = "20260807-x-knight-mail-front";
+const ALPHA_REVIEW_VERSION = "20260808-x-variant-fronts-4";
 const xItems = [...beyItems, ...partItems].filter(item => item.series === "x");
 const xIds = new Set(xItems.map(item => item.id));
 const expectedCorrectedSources = {
@@ -114,6 +114,27 @@ async function validateOutputs() {
     targetForegroundSize: 360,
     preserveSourcePixels: true
   });
+  for (const [id, expected] of new Map([
+    ["BEY-X-BX-00-IRON-MAN-4-80B", {
+      image: "assets/images/x/beys/bey-x-bx-00-iron-man-4-80b/front.webp",
+      sourcePath: "data/source/x-bey-front-sources/bey-x-bx-00-iron-man-4-80b-generated.png",
+      sourceSha256: "66c8a74562b04c42ab58c104283390b50d1b83a831a86a1df3610697503adcc2"
+    }],
+    ["BEY-X-BX-00-THANOS-4-60P", {
+      image: "assets/images/x/beys/bey-x-bx-00-thanos-4-60p/front.webp",
+      sourcePath: "data/source/x-bey-front-sources/bey-x-bx-00-thanos-4-60p-generated.png",
+      sourceSha256: "128bff090ac184ea257b85ae00499dec8538e383a0c10aee4b21049000dea1ca"
+    }]
+  ])) {
+    const entry = mappingById.get(id);
+    assert.ok(entry, `${id}: generated front mapping is missing`);
+    assert.equal(entry.image, expected.image);
+    assert.equal(entry.sourcePath, expected.sourcePath);
+    assert.equal(entry.sourceSha256, expected.sourceSha256);
+    assert.equal(entry.sourceKind, "user-approved-generated-front");
+    assert.equal(entry.normalizationInput, "source-file");
+    assert.equal(entry.preserveSourcePixels, true);
+  }
   for (const [id, sourcePath] of Object.entries(expectedCorrectedSources)) {
     assert.equal(mappingById.get(id)?.sourcePath, sourcePath, `${id} uses the wrong official image`);
   }
@@ -158,7 +179,8 @@ async function validateOutputs() {
       "backgroundChroma",
       "foregroundErode",
       "targetForegroundSize",
-      "preserveSourcePixels"
+      "preserveSourcePixels",
+      "normalizationInput"
     ]) {
       assert.equal(review[field], entry[field], `${entry.id} reviewed ${field} changed`);
     }

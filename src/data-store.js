@@ -8,7 +8,7 @@ const bookItems = [];
 const gameItems = [];
 const animeInfo = { title: "", overview: [], characters: [], episodes: [] };
 const searchIndexItems = [];
-const X_ASSET_CACHE_VERSION = "20260807-x-knight-mail-front";
+const X_ASSET_CACHE_VERSION = "20260808-x-variant-fronts-4";
 
 const versionAssetUrl = source => {
   const value = String(source || "");
