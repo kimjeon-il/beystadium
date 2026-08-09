@@ -1,0 +1,112 @@
+{
+  "version": "20260809-x-spider-optimus-generated-fronts",
+  "toolMode": "approved ImageGen-derived variant fronts with deterministic local compositing; no CLI fallback",
+  "scope": "Spider-Man v33 A and Optimus Primal v35 A approved for site use",
+  "processing": {
+    "canvas": [
+      448,
+      448
+    ],
+    "targetLongEdge": 360,
+    "resample": "premultiplied-alpha-lanczos",
+    "output": "lossless-webp"
+  },
+  "jobs": [
+    {
+      "id": "BEY-X-BX-00-SPIDER-MAN-3-60F",
+      "targetName": "스파이더맨 3-60F",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-spider-man-3-60f-generated.png",
+      "sourceSha256": "576251729af9cf23672fc99b17b58a047caf88b8baf63d4e048a8316f7b696a6",
+      "finalOutputSha256": "b299fd8bc92ec5bdb807d141e2337220eb64fcd8960e3aeb384551c2d3f59ed1",
+      "processingMethod": "imagegen-variant-front-plus-deterministic-character-restoration",
+      "generationPromptAvailable": false,
+      "geometryAuthoritySha256": "b6c3e462da90ceeb02c8b1959c536e89bf1c899ce89b3f51b9ccfe6d52cfb9bf",
+      "rawReferenceSha256": "bb17995eba3ba224ae8aefe7101d88f589b8b31c98a149ab463399234a6aa1a8",
+      "styleAuthoritySha256": "ff75e0d1ec6eff87136775933e2de73406c45fa20d5af050fafab707c2ee359e",
+      "characterSourceSha256": "5fac71ff00fe19bb56be89b2ad99d84a0d693e7a1e4f98e7290b45958e75f6f1",
+      "restoration": {
+        "spatialTransform": "none",
+        "rotationDegrees": 0,
+        "translationPixels": [
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1
+        ],
+        "alphaMismatchPixels": 0,
+        "outsideAllowedMaskMismatchPixels": 0,
+        "medianHueDeltaDegrees": 0
+      },
+      "validation": {
+        "bbox": [
+          45,
+          44,
+          403,
+          404
+        ],
+        "longEdge": 360,
+        "center": [
+          223.5,
+          223.5
+        ],
+        "transparentCorners": true,
+        "greenResidualPixels": 0,
+        "deterministic": true
+      }
+    },
+    {
+      "id": "BEY-X-BX-00-OPTIMUS-PRIMAL-3-60F",
+      "targetName": "옵티머스 프라이멀 3-60F",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-optimus-primal-3-60f-generated.png",
+      "sourceSha256": "8b7cb5e0f41ec5a3b28d5cc20b3399cc9e6042bd8c535785119f4c30710c0136",
+      "finalOutputSha256": "4333c25d1a13507957912c49b9808f2a322e885dbc035010bb41c64b7c86023b",
+      "processingMethod": "imagegen-character-composite-plus-deterministic-gear-chip-hook-lock",
+      "generationPromptAvailable": false,
+      "geometryAuthoritySha256": "add68e47d710f7788c34e3c894d2a3dc0126afad80710b6ffcbea108b00adf40",
+      "styleAuthoritySha256": "add68e47d710f7788c34e3c894d2a3dc0126afad80710b6ffcbea108b00adf40",
+      "selectedCharacterFile": "data/source/x-bey-front-sources/bey-x-bx-00-optimus-primal-character-imagegen.png",
+      "selectedCharacterSha256": "c67da5a16b0f07c92ea3ce75ef5d4d1a41c536cf97aa7990c4d479c0920d937a",
+      "gearChipTemplateFile": "data/source/x-bey-front-sources/bey-x-bx-00-optimus-primal-gear-chip-template.png",
+      "gearChipTemplateSha256": "91c76f7ab92bf5049d7af98d1168bde60adb7c3f8e95f5c8960d160e83e2078c",
+      "characterNormalization": {
+        "sourceCircleCenter": [
+          635.5,
+          610.5
+        ],
+        "sourceCircleDiameter": 772,
+        "targetCenter": [
+          999.5,
+          999.5
+        ],
+        "targetDiameter": 1213,
+        "uniformScale": 1.5712435233160622,
+        "rotationDegrees": 0,
+        "recoloring": false,
+        "localWarp": false
+      },
+      "gearChipHookReview": {
+        "blackWhiteStructureMismatchPixels": 0,
+        "productBlueLimitedToAccentPanel": true,
+        "deterministic": true
+      },
+      "validation": {
+        "bbox": [
+          51,
+          44,
+          397,
+          404
+        ],
+        "longEdge": 360,
+        "center": [
+          223.5,
+          223.5
+        ],
+        "transparentCorners": true,
+        "greenResidualPixels": 0,
+        "deterministic": true
+      }
+    }
+  ]
+}

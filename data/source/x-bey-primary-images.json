@@ -1,5 +1,5 @@
 {
-  "version": "20260809-x-dran-cobalt-generated-fronts",
+  "version": "20260809-x-spider-optimus-generated-fronts",
   "sourceRoot": "",
   "policy": [
     "official-angle-corrected",
@@ -2055,6 +2055,55 @@
         47,
         44,
         401,
+        404
+      ]
+    },
+    {
+      "id": "BEY-X-BX-00-SPIDER-MAN-3-60F",
+      "image": "assets/images/x/beys/bey-x-bx-00-spider-man-3-60f/front.webp",
+      "sourceKind": "user-approved-generated-front",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-spider-man-3-60f-generated.png",
+      "sourceSha256": "576251729af9cf23672fc99b17b58a047caf88b8baf63d4e048a8316f7b696a6",
+      "normalizationInput": "source-file",
+      "preserveSourcePixels": true,
+      "processingMethod": "imagegen-variant-front-plus-deterministic-character-restoration",
+      "generationProvenanceFile": "data/source/x-bey-front-sources/x-spider-optimus-generated-fronts.json",
+      "geometryAuthoritySha256": "b6c3e462da90ceeb02c8b1959c536e89bf1c899ce89b3f51b9ccfe6d52cfb9bf",
+      "rawReferenceSha256": "bb17995eba3ba224ae8aefe7101d88f589b8b31c98a149ab463399234a6aa1a8",
+      "styleAuthoritySha256": "ff75e0d1ec6eff87136775933e2de73406c45fa20d5af050fafab707c2ee359e",
+      "characterSourceSha256": "5fac71ff00fe19bb56be89b2ad99d84a0d693e7a1e4f98e7290b45958e75f6f1",
+      "imageGenerationUsed": true,
+      "preNormalizationSha256": "576251729af9cf23672fc99b17b58a047caf88b8baf63d4e048a8316f7b696a6",
+      "outputSha256": "b299fd8bc92ec5bdb807d141e2337220eb64fcd8960e3aeb384551c2d3f59ed1",
+      "normalizedForegroundBox": [
+        45,
+        44,
+        403,
+        404
+      ]
+    },
+    {
+      "id": "BEY-X-BX-00-OPTIMUS-PRIMAL-3-60F",
+      "image": "assets/images/x/beys/bey-x-bx-00-optimus-primal-3-60f/front.webp",
+      "sourceKind": "user-approved-generated-front",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-optimus-primal-3-60f-generated.png",
+      "sourceSha256": "8b7cb5e0f41ec5a3b28d5cc20b3399cc9e6042bd8c535785119f4c30710c0136",
+      "normalizationInput": "source-file",
+      "preserveSourcePixels": true,
+      "processingMethod": "imagegen-character-composite-plus-deterministic-gear-chip-hook-lock",
+      "generationProvenanceFile": "data/source/x-bey-front-sources/x-spider-optimus-generated-fronts.json",
+      "geometryAuthoritySha256": "add68e47d710f7788c34e3c894d2a3dc0126afad80710b6ffcbea108b00adf40",
+      "rawReferenceSha256": "c67da5a16b0f07c92ea3ce75ef5d4d1a41c536cf97aa7990c4d479c0920d937a",
+      "styleAuthoritySha256": "add68e47d710f7788c34e3c894d2a3dc0126afad80710b6ffcbea108b00adf40",
+      "gearChipTemplateSha256": "91c76f7ab92bf5049d7af98d1168bde60adb7c3f8e95f5c8960d160e83e2078c",
+      "hookStructureMismatchPixels": 0,
+      "imageGenerationUsed": true,
+      "preNormalizationSha256": "8b7cb5e0f41ec5a3b28d5cc20b3399cc9e6042bd8c535785119f4c30710c0136",
+      "outputSha256": "4333c25d1a13507957912c49b9808f2a322e885dbc035010bb41c64b7c86023b",
+      "normalizedForegroundBox": [
+        51,
+        44,
+        397,
         404
       ]
     },

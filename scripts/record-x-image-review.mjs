@@ -30,6 +30,7 @@ for (const entry of xImageMappings) {
     ...(entry.backgroundChroma ? { backgroundChroma: entry.backgroundChroma } : {}),
     ...(entry.foregroundErode ? { foregroundErode: entry.foregroundErode } : {}),
     ...(entry.targetForegroundSize ? { targetForegroundSize: entry.targetForegroundSize } : {}),
+    ...(entry.normalizationInput ? { normalizationInput: entry.normalizationInput } : {}),
     ...(entry.preserveSourcePixels ? { preserveSourcePixels: true } : {})
   });
 }

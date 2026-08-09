@@ -25,10 +25,10 @@ const xImageReview = [
     "image": "assets/images/x/beys/bey-x-bx-00-cobalt-dragoon-9-60f/front.webp",
     "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-cobalt-dragoon-9-60f-generated.png",
     "sourceSha256": "a963b81463618f008883ea188f818be98500c1513c16bda8c7d2814cd50e166b",
+    "outputSha256": "0c02b54beecb85bf80a1eebf0bbc58aa8cee3883ea8c357c1cdf4c3eeea629ba",
     "sourceKind": "user-approved-generated-front",
     "normalizationInput": "source-file",
-    "preserveSourcePixels": true,
-    "outputSha256": "0c02b54beecb85bf80a1eebf0bbc58aa8cee3883ea8c357c1cdf4c3eeea629ba"
+    "preserveSourcePixels": true
   },
   {
     "id": "BEY-X-BX-00-COBALT-DRAKE-4-60F",
@@ -84,10 +84,10 @@ const xImageReview = [
     "image": "assets/images/x/beys/bey-x-bx-00-dran-sword-1-60v/front.webp",
     "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-dran-sword-1-60v-generated.png",
     "sourceSha256": "37070fde1767ad6b9b38e51a1b4bf3bbcc0905c1b544edc1207ee4c2b8f6e21c",
+    "outputSha256": "9f96beccb32fc00787f25743ea59ac2f346f9cdcb3d524a9f90112c1c5efdc9e",
     "sourceKind": "user-approved-generated-front",
     "normalizationInput": "source-file",
-    "preserveSourcePixels": true,
-    "outputSha256": "9f96beccb32fc00787f25743ea59ac2f346f9cdcb3d524a9f90112c1c5efdc9e"
+    "preserveSourcePixels": true
   },
   {
     "id": "BEY-X-BX-00-DRAN-SWORD-3-60F",
@@ -129,10 +129,10 @@ const xImageReview = [
     "image": "assets/images/x/beys/bey-x-bx-00-iron-man-4-80b/front.webp",
     "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-iron-man-4-80b-generated.png",
     "sourceSha256": "66c8a74562b04c42ab58c104283390b50d1b83a831a86a1df3610697503adcc2",
+    "outputSha256": "4579c64cb5c2b07fdfdc1848a9e2ebec874078ddfeaf32b84fc1fa87e0865da2",
     "sourceKind": "user-approved-generated-front",
     "normalizationInput": "source-file",
-    "preserveSourcePixels": true,
-    "outputSha256": "4579c64cb5c2b07fdfdc1848a9e2ebec874078ddfeaf32b84fc1fa87e0865da2"
+    "preserveSourcePixels": true
   },
   {
     "id": "BEY-X-BX-00-LEON-CLAW-5-60P",
@@ -178,10 +178,13 @@ const xImageReview = [
   },
   {
     "id": "BEY-X-BX-00-OPTIMUS-PRIMAL-3-60F",
-    "image": "assets/images/x/beys/bey-x-bx-00-optimus-primal-3-60f/main.webp",
-    "sourcePath": "02_product_components/094_bx00-tos/03_BXG37_03@1.png",
-    "sourceSha256": "08f4a48319d6cee35dc062aafdcd9c173b17bd3bb933da0f921c1d7a0f1c4b3a",
-    "outputSha256": "6f9fffa4c29af84dfa793b50db80df246c3aa527e27e7072ac151d8261313207"
+    "image": "assets/images/x/beys/bey-x-bx-00-optimus-primal-3-60f/front.webp",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-optimus-primal-3-60f-generated.png",
+    "sourceSha256": "8b7cb5e0f41ec5a3b28d5cc20b3399cc9e6042bd8c535785119f4c30710c0136",
+    "outputSha256": "4333c25d1a13507957912c49b9808f2a322e885dbc035010bb41c64b7c86023b",
+    "sourceKind": "user-approved-generated-front",
+    "normalizationInput": "source-file",
+    "preserveSourcePixels": true
   },
   {
     "id": "BEY-X-BX-00-OPTIMUS-PRIME-4-60P",
@@ -234,10 +237,13 @@ const xImageReview = [
   },
   {
     "id": "BEY-X-BX-00-SPIDER-MAN-3-60F",
-    "image": "assets/images/x/beys/bey-x-bx-00-spider-man-3-60f/main.webp",
-    "sourcePath": "02_product_components/089_bx00-msv/03_BXG30_03@1.png",
-    "sourceSha256": "6e27768037c2aad793209a0599796ec6a2271531156543ad859f100c4f7f6d69",
-    "outputSha256": "8210e6f9a266967d5859faebfe9af721b19ac80d6663e4da113cd3aafee74e90"
+    "image": "assets/images/x/beys/bey-x-bx-00-spider-man-3-60f/front.webp",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-spider-man-3-60f-generated.png",
+    "sourceSha256": "576251729af9cf23672fc99b17b58a047caf88b8baf63d4e048a8316f7b696a6",
+    "outputSha256": "b299fd8bc92ec5bdb807d141e2337220eb64fcd8960e3aeb384551c2d3f59ed1",
+    "sourceKind": "user-approved-generated-front",
+    "normalizationInput": "source-file",
+    "preserveSourcePixels": true
   },
   {
     "id": "BEY-X-BX-00-SPINOSAURUS-3-85A",
@@ -279,10 +285,10 @@ const xImageReview = [
     "image": "assets/images/x/beys/bey-x-bx-00-thanos-4-60p/front.webp",
     "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-thanos-4-60p-generated.png",
     "sourceSha256": "128bff090ac184ea257b85ae00499dec8538e383a0c10aee4b21049000dea1ca",
+    "outputSha256": "734f1070dec41e4589b9a251dea49e4bd25309e5702b93996c720d0d8fcb91f1",
     "sourceKind": "user-approved-generated-front",
     "normalizationInput": "source-file",
-    "preserveSourcePixels": true,
-    "outputSha256": "734f1070dec41e4589b9a251dea49e4bd25309e5702b93996c720d0d8fcb91f1"
+    "preserveSourcePixels": true
   },
   {
     "id": "BEY-X-BX-00-THE-MANDALORIAN-3-60F",

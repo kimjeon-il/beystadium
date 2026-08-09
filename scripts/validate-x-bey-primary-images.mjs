@@ -93,7 +93,7 @@ uniqueValues([
   ...verifiedMainById.keys(),
   ...temporarySideById.keys()
 ], "explicit primary image classifications");
-assert.equal(xBeyPrimaryImageConfig.version, "20260809-x-dran-cobalt-generated-fronts");
+assert.equal(xBeyPrimaryImageConfig.version, "20260809-x-spider-optimus-generated-fronts");
 assert.equal(xBeyAngleCorrectionConfig.version, xBeyPrimaryImageConfig.version);
 assert.equal(xBeyAngleCorrectionConfig.method, "premultiplied-alpha-vertical-affine");
 assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
@@ -108,15 +108,15 @@ assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
     "verified-existing-front"
   ]
 });
-assert.equal(xBeyPrimaryImageConfig.selected.length, 124);
-assert.equal(xBeyAngleCorrectionConfig.entries.length, 14);
+assert.equal(xBeyPrimaryImageConfig.selected.length, 126);
+assert.equal(xBeyAngleCorrectionConfig.entries.length, 12);
 assert.equal(xBeyPrimaryImageConfig.verifiedMain.length, 82);
 assert.equal(
   new Set([
     ...xBeyPrimaryImageConfig.selected.map(entry => entry.image),
     ...xBeyPrimaryImageConfig.verifiedMain.map(entry => entry.image)
   ]).size,
-  206,
+  208,
   "front-view normalization paths must be unique"
 );
 
@@ -744,15 +744,45 @@ const approvedGeneratedFronts = new Map([
     bitAuthoritySha256: "76ada5e602bcf13c8eb3b2a7611317a0dd55222d39d78230a211b619ea7a13b6",
     generationPromptSha256: "b9fb94d54763e1f7dc9fda3dea7e3ea7ec74465e66b6537854a7d66f5c05f67f",
     imageGenerationUsed: true
+  }],
+  ["BEY-X-BX-00-SPIDER-MAN-3-60F", {
+    sourceFile: "data/source/x-bey-front-sources/bey-x-bx-00-spider-man-3-60f-generated.png",
+    sourceSha256: "576251729af9cf23672fc99b17b58a047caf88b8baf63d4e048a8316f7b696a6",
+    processingMethod: "imagegen-variant-front-plus-deterministic-character-restoration",
+    generationProvenanceFile: "data/source/x-bey-front-sources/x-spider-optimus-generated-fronts.json",
+    geometryAuthoritySha256: "b6c3e462da90ceeb02c8b1959c536e89bf1c899ce89b3f51b9ccfe6d52cfb9bf",
+    rawReferenceSha256: "bb17995eba3ba224ae8aefe7101d88f589b8b31c98a149ab463399234a6aa1a8",
+    styleAuthoritySha256: "ff75e0d1ec6eff87136775933e2de73406c45fa20d5af050fafab707c2ee359e",
+    characterSourceSha256: "5fac71ff00fe19bb56be89b2ad99d84a0d693e7a1e4f98e7290b45958e75f6f1",
+    imageGenerationUsed: true
+  }],
+  ["BEY-X-BX-00-OPTIMUS-PRIMAL-3-60F", {
+    sourceFile: "data/source/x-bey-front-sources/bey-x-bx-00-optimus-primal-3-60f-generated.png",
+    sourceSha256: "8b7cb5e0f41ec5a3b28d5cc20b3399cc9e6042bd8c535785119f4c30710c0136",
+    processingMethod: "imagegen-character-composite-plus-deterministic-gear-chip-hook-lock",
+    generationProvenanceFile: "data/source/x-bey-front-sources/x-spider-optimus-generated-fronts.json",
+    geometryAuthoritySha256: "add68e47d710f7788c34e3c894d2a3dc0126afad80710b6ffcbea108b00adf40",
+    rawReferenceSha256: "c67da5a16b0f07c92ea3ce75ef5d4d1a41c536cf97aa7990c4d479c0920d937a",
+    styleAuthoritySha256: "add68e47d710f7788c34e3c894d2a3dc0126afad80710b6ffcbea108b00adf40",
+    gearChipTemplateSha256: "91c76f7ab92bf5049d7af98d1168bde60adb7c3f8e95f5c8960d160e83e2078c",
+    hookStructureMismatchPixels: 0,
+    imageGenerationUsed: true
   }]
 ]);
-const generatedFrontProvenance = JSON.parse(await readFile(
-  path.resolve("data/source/x-bey-front-sources/x-dran-cobalt-generated-fronts.json"),
-  "utf8"
-));
-const generatedFrontProvenanceById = new Map(
-  generatedFrontProvenance.jobs.map(entry => [entry.id, entry])
-);
+const generatedFrontProvenanceByFile = new Map();
+for (const provenanceFile of [
+  "data/source/x-bey-front-sources/x-dran-cobalt-generated-fronts.json",
+  "data/source/x-bey-front-sources/x-spider-optimus-generated-fronts.json"
+]) {
+  const provenance = JSON.parse(await readFile(path.resolve(provenanceFile), "utf8"));
+  generatedFrontProvenanceByFile.set(
+    provenanceFile,
+    {
+      provenance,
+      jobsById: new Map(provenance.jobs.map(entry => [entry.id, entry]))
+    }
+  );
+}
 const verifiedSuppliedFronts = new Map([
   ["BEY-X-BX-00-T-REX-1-80GB", {
     sourceFile: "data/source/x-bey-front-sources/bey-x-bx-00-t-rex-1-80gb-verified.png",
@@ -785,38 +815,61 @@ for (const entry of xBeyPrimaryImageConfig.selected) {
       assert.equal(entry.rawReferenceSha256, expected.rawReferenceSha256);
       assert.equal(entry.styleAuthoritySha256, expected.styleAuthoritySha256);
       assert.equal(entry.imageGenerationUsed, expected.imageGenerationUsed);
+      for (const field of [
+        "characterSourceSha256",
+        "gearChipTemplateSha256",
+        "hookStructureMismatchPixels"
+      ]) {
+        if (Object.hasOwn(expected, field)) assert.equal(entry[field], expected[field]);
+      }
       if (expected.imageGenerationUsed) {
-        assert.equal(
-          entry.generationProvenanceFile,
-          "data/source/x-bey-front-sources/x-dran-cobalt-generated-fronts.json"
-        );
-        assert.equal(entry.generationPromptSha256, expected.generationPromptSha256);
-        assert.equal(entry.bladeAuthoritySha256, expected.bladeAuthoritySha256);
-        assert.equal(entry.ratchetAuthoritySha256, expected.ratchetAuthoritySha256);
-        assert.equal(entry.bitAuthoritySha256, expected.bitAuthoritySha256);
-        assert.equal(entry.protectedCenterInnerRadius, 78);
-        assert.equal(entry.protectedCenterFeatherEndRadius, 86);
-        assert.equal(entry.greenResidualPixels, 0);
-        assert.equal(entry.protectedMismatchPixels, 0);
-        const provenance = generatedFrontProvenanceById.get(entry.id);
+        const provenanceFile = expected.generationProvenanceFile
+          || "data/source/x-bey-front-sources/x-dran-cobalt-generated-fronts.json";
+        assert.equal(entry.generationProvenanceFile, provenanceFile);
+        for (const field of [
+          "generationPromptSha256",
+          "bladeAuthoritySha256",
+          "ratchetAuthoritySha256",
+          "bitAuthoritySha256"
+        ]) {
+          if (Object.hasOwn(expected, field)) assert.equal(entry[field], expected[field]);
+        }
+        if (Object.hasOwn(expected, "generationPromptSha256")) {
+          assert.equal(entry.protectedCenterInnerRadius, 78);
+          assert.equal(entry.protectedCenterFeatherEndRadius, 86);
+          assert.equal(entry.greenResidualPixels, 0);
+          assert.equal(entry.protectedMismatchPixels, 0);
+        }
+        const provenanceSet = generatedFrontProvenanceByFile.get(provenanceFile);
+        assert.ok(provenanceSet, `${entry.id}: generated provenance file is not approved`);
+        const provenance = provenanceSet.jobsById.get(entry.id);
         assert.ok(provenance, `${entry.id}: generated provenance is missing`);
         assert.equal(provenance.sourceFile, entry.sourceFile);
         assert.equal(provenance.sourceSha256, entry.sourceSha256);
         assert.equal(provenance.finalOutputSha256, entry.outputSha256);
-        assert.deepEqual(provenance.normalizedForegroundBox, entry.normalizedForegroundBox);
-        assert.equal(provenance.promptSha256, entry.generationPromptSha256);
-        assert.equal(provenance.rawGeneratedSha256, entry.rawReferenceSha256);
-        const reconstructedPrompt = generatedFrontProvenance.promptTemplate
-          .replaceAll("{targetName}", provenance.targetName)
-          .replaceAll("{baseName}", provenance.baseName);
-        assert.equal(
-          createHash("sha256").update(reconstructedPrompt).digest("hex"),
-          provenance.promptSha256,
-          `${entry.id}: recorded prompt changed`
+        assert.deepEqual(
+          provenance.normalizedForegroundBox || provenance.validation?.bbox,
+          entry.normalizedForegroundBox
         );
+        if (Object.hasOwn(expected, "generationPromptSha256")) {
+          assert.equal(provenance.promptSha256, entry.generationPromptSha256);
+          assert.equal(provenance.rawGeneratedSha256, entry.rawReferenceSha256);
+          const reconstructedPrompt = provenanceSet.provenance.promptTemplate
+            .replaceAll("{targetName}", provenance.targetName)
+            .replaceAll("{baseName}", provenance.baseName);
+          assert.equal(
+            createHash("sha256").update(reconstructedPrompt).digest("hex"),
+            provenance.promptSha256,
+            `${entry.id}: recorded prompt changed`
+          );
+        }
         assert.equal(provenance.validation.greenResidualPixels, 0);
-        assert.equal(provenance.validation.protectedMismatchPixels, 0);
-        assert.equal(provenance.validation.componentCount, 1);
+        if (Object.hasOwn(provenance.validation, "protectedMismatchPixels")) {
+          assert.equal(provenance.validation.protectedMismatchPixels, 0);
+        }
+        if (Object.hasOwn(provenance.validation, "componentCount")) {
+          assert.equal(provenance.validation.componentCount, 1);
+        }
       }
       assert.equal(entry.preNormalizationSha256, entry.sourceSha256);
       assert.match(entry.outputSha256, /^[a-f0-9]{64}$/);
@@ -950,13 +1003,13 @@ for (const entry of xBeyPrimaryImageConfig.temporarySideImages) {
 }
 
 const alphaReview = JSON.parse(await readFile(ALPHA_REVIEW_PATH, "utf8"));
-assert.equal(alphaReview.version, "20260809-x-dran-cobalt-generated-fronts");
+assert.equal(alphaReview.version, "20260809-x-spider-optimus-generated-fronts");
 const alphaReviewByImage = new Map(alphaReview.files.map(entry => [entry.image, entry]));
 const normalizedEntries = [
   ...xBeyPrimaryImageConfig.selected,
   ...xBeyPrimaryImageConfig.verifiedMain
 ];
-assert.equal(normalizedEntries.length, 206);
+assert.equal(normalizedEntries.length, 208);
 for (const entry of normalizedEntries) {
   const review = alphaReviewByImage.get(entry.image);
   assert.ok(review, `${entry.id}: normalized image is missing from the alpha review`);
@@ -1051,9 +1104,9 @@ for (const item of xBeys) {
 }
 
 assert.deepEqual(counts, {
-  officialAngleCorrected: 14,
+  officialAngleCorrected: 12,
   officialAssembledFront: 116,
-  userApprovedGeneratedFront: 5,
+  userApprovedGeneratedFront: 7,
   verifiedExistingFront: 85,
   temporarySide: 0
 });

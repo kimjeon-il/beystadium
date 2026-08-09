@@ -607,6 +607,7 @@ async function main() {
       ...(review.backgroundChroma ? { backgroundChroma: review.backgroundChroma } : {}),
       ...(review.foregroundErode ? { foregroundErode: review.foregroundErode } : {}),
       ...(review.targetForegroundSize ? { targetForegroundSize: review.targetForegroundSize } : {}),
+      ...(review.normalizationInput ? { normalizationInput: review.normalizationInput } : {}),
       ...(review.preserveSourcePixels ? { preserveSourcePixels: true } : {})
     });
   }
@@ -676,6 +677,7 @@ async function main() {
       ...(entry.backgroundChroma ? { backgroundChroma: entry.backgroundChroma } : {}),
       ...(entry.foregroundErode ? { foregroundErode: entry.foregroundErode } : {}),
       ...(entry.targetForegroundSize ? { targetForegroundSize: entry.targetForegroundSize } : {}),
+      ...(entry.normalizationInput ? { normalizationInput: entry.normalizationInput } : {}),
       ...(entry.preserveSourcePixels ? { preserveSourcePixels: true } : {})
     }));
     const moduleSource = `const xImageMappings = ${JSON.stringify(mappings, null, 2)};\n\n`

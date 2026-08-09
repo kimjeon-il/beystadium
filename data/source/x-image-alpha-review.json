@@ -1,5 +1,5 @@
 {
-  "version": "20260809-x-dran-cobalt-generated-fronts",
+  "version": "20260809-x-spider-optimus-generated-fronts",
   "canvasSize": 448,
   "files": [
     {
@@ -1847,21 +1847,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-optimus-primal-3-60f/front.webp",
-      "outputSha256": "06f94347de360e27cc56be271e90366b583946bef1dff7cd758dec22a6eeca9f",
+      "outputSha256": "4333c25d1a13507957912c49b9808f2a322e885dbc035010bb41c64b7c86023b",
       "alphaLevels": 256,
-      "partialPixels": 10951,
-      "foregroundPixels": 88791,
+      "partialPixels": 79139,
+      "foregroundPixels": 89533,
       "bbox": [
-        53,
+        51,
         44,
-        394,
-        403
+        397,
+        404
       ],
       "margins": [
-        53,
+        51,
         44,
-        54,
-        45
+        51,
+        44
       ]
     },
     {
@@ -2398,21 +2398,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-spider-man-3-60f/front.webp",
-      "outputSha256": "81c65a9d5546091285e843b2b454e1641eef4a65d14271af3f6cc0157a1217f3",
+      "outputSha256": "b299fd8bc92ec5bdb807d141e2337220eb64fcd8960e3aeb384551c2d3f59ed1",
       "alphaLevels": 256,
-      "partialPixels": 9147,
-      "foregroundPixels": 100146,
+      "partialPixels": 86564,
+      "foregroundPixels": 97813,
       "bbox": [
+        45,
         44,
-        40,
-        404,
-        407
+        403,
+        404
       ],
       "margins": [
+        45,
         44,
-        40,
-        44,
-        41
+        45,
+        44
       ]
     },
     {

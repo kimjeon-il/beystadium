@@ -156,9 +156,12 @@ const xImageMappings = [
   },
   {
     "id": "BEY-X-BX-00-OPTIMUS-PRIMAL-3-60F",
-    "image": "assets/images/x/beys/bey-x-bx-00-optimus-primal-3-60f/main.webp",
-    "sourcePath": "02_product_components/094_bx00-tos/03_BXG37_03@1.png",
-    "sourceSha256": "08f4a48319d6cee35dc062aafdcd9c173b17bd3bb933da0f921c1d7a0f1c4b3a"
+    "image": "assets/images/x/beys/bey-x-bx-00-optimus-primal-3-60f/front.webp",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-optimus-primal-3-60f-generated.png",
+    "sourceSha256": "8b7cb5e0f41ec5a3b28d5cc20b3399cc9e6042bd8c535785119f4c30710c0136",
+    "sourceKind": "user-approved-generated-front",
+    "normalizationInput": "source-file",
+    "preserveSourcePixels": true
   },
   {
     "id": "BEY-X-BX-00-OPTIMUS-PRIME-4-60P",
@@ -205,9 +208,12 @@ const xImageMappings = [
   },
   {
     "id": "BEY-X-BX-00-SPIDER-MAN-3-60F",
-    "image": "assets/images/x/beys/bey-x-bx-00-spider-man-3-60f/main.webp",
-    "sourcePath": "02_product_components/089_bx00-msv/03_BXG30_03@1.png",
-    "sourceSha256": "6e27768037c2aad793209a0599796ec6a2271531156543ad859f100c4f7f6d69"
+    "image": "assets/images/x/beys/bey-x-bx-00-spider-man-3-60f/front.webp",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-spider-man-3-60f-generated.png",
+    "sourceSha256": "576251729af9cf23672fc99b17b58a047caf88b8baf63d4e048a8316f7b696a6",
+    "sourceKind": "user-approved-generated-front",
+    "normalizationInput": "source-file",
+    "preserveSourcePixels": true
   },
   {
     "id": "BEY-X-BX-00-SPINOSAURUS-3-85A",

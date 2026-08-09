@@ -1,5 +1,5 @@
 {
-  "version": "20260809-x-dran-cobalt-generated-fronts",
+  "version": "20260809-x-spider-optimus-generated-fronts",
   "method": "premultiplied-alpha-vertical-affine",
   "entries": [
     {
@@ -27,19 +27,6 @@
       "scaleY": 1.08,
       "pivotY": 223.5,
       "outputSha256": "84e477d37d5db14bccd5362190db53127938e029a922e3a2e99455488a10e262"
-    },
-    {
-      "id": "BEY-X-BX-00-SPIDER-MAN-3-60F",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-spider-man.webp",
-      "image": "assets/images/x/beys/bey-x-bx-00-spider-man-3-60f/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG30_03@1.png",
-      "sourceSha256": "6e27768037c2aad793209a0599796ec6a2271531156543ad859f100c4f7f6d69",
-      "sourceOutputSha256": "8210e6f9a266967d5859faebfe9af721b19ac80d6663e4da113cd3aafee74e90",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.0,
-      "outputSha256": "81c65a9d5546091285e843b2b454e1641eef4a65d14271af3f6cc0157a1217f3"
     },
     {
       "id": "BEY-X-BX-00-VENOM-3-80N",
@@ -131,19 +118,6 @@
       "scaleY": 1.08,
       "pivotY": 223.5,
       "outputSha256": "9da46f6e429744c5bf6973185af69ccb03c533fc463518f6185647f6a9b4ee00"
-    },
-    {
-      "id": "BEY-X-BX-00-OPTIMUS-PRIMAL-3-60F",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-optimus-primal.webp",
-      "image": "assets/images/x/beys/bey-x-bx-00-optimus-primal-3-60f/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG37_03@1.png",
-      "sourceSha256": "08f4a48319d6cee35dc062aafdcd9c173b17bd3bb933da0f921c1d7a0f1c4b3a",
-      "sourceOutputSha256": "6f9fffa4c29af84dfa793b50db80df246c3aa527e27e7072ac151d8261313207",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.5,
-      "outputSha256": "06f94347de360e27cc56be271e90366b583946bef1dff7cd758dec22a6eeca9f"
     },
     {
       "id": "BEY-X-BX-00-STARSCREAM-3-80N",

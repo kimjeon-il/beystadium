@@ -11,7 +11,7 @@ import { xCatalogImagePath } from "./x-image-paths.mjs";
 const REPORT_ARG = process.argv.find(argument => argument.startsWith("--report="));
 const REPORT_PATH = REPORT_ARG?.slice("--report=".length) || "";
 const ALPHA_REVIEW_PATH = path.resolve("data/source/x-image-alpha-review.json");
-const ALPHA_REVIEW_VERSION = "20260809-x-dran-cobalt-generated-fronts";
+const ALPHA_REVIEW_VERSION = "20260809-x-spider-optimus-generated-fronts";
 const xItems = [...beyItems, ...partItems].filter(item => item.series === "x");
 const xIds = new Set(xItems.map(item => item.id));
 const expectedCorrectedSources = {
@@ -134,6 +134,16 @@ async function validateOutputs() {
       image: "assets/images/x/beys/bey-x-bx-00-thanos-4-60p/front.webp",
       sourcePath: "data/source/x-bey-front-sources/bey-x-bx-00-thanos-4-60p-generated.png",
       sourceSha256: "128bff090ac184ea257b85ae00499dec8538e383a0c10aee4b21049000dea1ca"
+    }],
+    ["BEY-X-BX-00-SPIDER-MAN-3-60F", {
+      image: "assets/images/x/beys/bey-x-bx-00-spider-man-3-60f/front.webp",
+      sourcePath: "data/source/x-bey-front-sources/bey-x-bx-00-spider-man-3-60f-generated.png",
+      sourceSha256: "576251729af9cf23672fc99b17b58a047caf88b8baf63d4e048a8316f7b696a6"
+    }],
+    ["BEY-X-BX-00-OPTIMUS-PRIMAL-3-60F", {
+      image: "assets/images/x/beys/bey-x-bx-00-optimus-primal-3-60f/front.webp",
+      sourcePath: "data/source/x-bey-front-sources/bey-x-bx-00-optimus-primal-3-60f-generated.png",
+      sourceSha256: "8b7cb5e0f41ec5a3b28d5cc20b3399cc9e6042bd8c535785119f4c30710c0136"
     }]
   ])) {
     const entry = mappingById.get(id);
