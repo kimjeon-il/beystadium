@@ -22,6 +22,7 @@ SUPPLIED_FRONT_IDS = {
     "BEY-X-BX-00-01-LIGHTNING-L-DRAGO-UPPER-1-60F",
     "BEY-X-BX-00-02-LIGHTNING-L-DRAGO-BARRAGE-1-60F",
     "BEY-X-BX-00-COBALT-DRAGOON-2-60C",
+    "BEY-X-BX-00-COBALT-DRAGOON-9-60F",
     "BEY-X-BX-00-COBALT-DRAKE-4-60F",
     "BEY-X-BX-00-HELLS-CHAIN-5-60HT",
     "BEY-X-BX-00-LEON-CLAW-5-60P",
@@ -83,6 +84,7 @@ SUPPLIED_FRONT_IDS = {
     "BEY-X-UX-10-KNIGHT-MAIL-3-85BS",
     "BEY-X-BX-00-DRAGOON-STORM-4-60RA",
     "BEY-X-BX-00-DRAN-SWORD-3-60F",
+    "BEY-X-BX-00-DRAN-SWORD-1-60V",
     "BEY-X-BX-00-MAMMOTH-TUSK-2-80E",
     "BEY-X-BX-00-PHOENIX-SOAR-9-60GF",
     "BEY-X-BX-00-ROCK-LEONE-6-80GN",
@@ -113,7 +115,7 @@ SUPPLIED_FRONT_IDS = {
     "BEY-X-UX-19-BULLET-GRIFFON-H",
     "BEY-X-UX-20-GLORY-VALKYRIE-LF",
 }
-CONFIG_VERSION = "20260808-x-variant-fronts-4"
+CONFIG_VERSION = "20260809-x-dran-cobalt-generated-fronts"
 
 
 def parse_args() -> argparse.Namespace:
@@ -220,8 +222,8 @@ def initialize_config(audit_path: Path) -> dict:
             "method": METHOD,
             "scaleY": SCALE_Y,
         })
-    if len(entries) != 38:
-        raise ValueError(f"expected 38 angle corrections, found {len(entries)}")
+    if len(entries) != 36:
+        raise ValueError(f"expected 36 angle corrections, found {len(entries)}")
     return {
         "version": CONFIG_VERSION,
         "method": METHOD,

@@ -19,9 +19,12 @@ const xImageMappings = [
   },
   {
     "id": "BEY-X-BX-00-COBALT-DRAGOON-9-60F",
-    "image": "assets/images/x/beys/bey-x-bx-00-cobalt-dragoon-9-60f/main.webp",
-    "sourcePath": "02_product_components/122_bx00-cd_white/01_BXG53_01@1.png",
-    "sourceSha256": "7ffb5d2f7780b09b43ec0833545f5d95ddf0b20773e89f4e8ca692a1aede1b55"
+    "image": "assets/images/x/beys/bey-x-bx-00-cobalt-dragoon-9-60f/front.webp",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-cobalt-dragoon-9-60f-generated.png",
+    "sourceSha256": "a963b81463618f008883ea188f818be98500c1513c16bda8c7d2814cd50e166b",
+    "sourceKind": "user-approved-generated-front",
+    "normalizationInput": "source-file",
+    "preserveSourcePixels": true
   },
   {
     "id": "BEY-X-BX-00-COBALT-DRAKE-4-60F",
@@ -69,9 +72,12 @@ const xImageMappings = [
   },
   {
     "id": "BEY-X-BX-00-DRAN-SWORD-1-60V",
-    "image": "assets/images/x/beys/bey-x-bx-00-dran-sword-1-60v/main.webp",
-    "sourcePath": "02_product_components/121_bx00-ds_black/01_BXG52_01@1.png",
-    "sourceSha256": "b269ee2db4076b1ab33cc82f5ce90fa9e89cd220bf3feedc76d5b2fa4d9783b4"
+    "image": "assets/images/x/beys/bey-x-bx-00-dran-sword-1-60v/front.webp",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-dran-sword-1-60v-generated.png",
+    "sourceSha256": "37070fde1767ad6b9b38e51a1b4bf3bbcc0905c1b544edc1207ee4c2b8f6e21c",
+    "sourceKind": "user-approved-generated-front",
+    "normalizationInput": "source-file",
+    "preserveSourcePixels": true
   },
   {
     "id": "BEY-X-BX-00-DRAN-SWORD-3-60F",

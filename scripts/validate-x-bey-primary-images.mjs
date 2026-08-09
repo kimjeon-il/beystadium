@@ -93,7 +93,7 @@ uniqueValues([
   ...verifiedMainById.keys(),
   ...temporarySideById.keys()
 ], "explicit primary image classifications");
-assert.equal(xBeyPrimaryImageConfig.version, "20260808-x-variant-fronts-4");
+assert.equal(xBeyPrimaryImageConfig.version, "20260809-x-dran-cobalt-generated-fronts");
 assert.equal(xBeyAngleCorrectionConfig.version, xBeyPrimaryImageConfig.version);
 assert.equal(xBeyAngleCorrectionConfig.method, "premultiplied-alpha-vertical-affine");
 assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
@@ -108,15 +108,15 @@ assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
     "verified-existing-front"
   ]
 });
-assert.equal(xBeyPrimaryImageConfig.selected.length, 122);
-assert.equal(xBeyAngleCorrectionConfig.entries.length, 16);
+assert.equal(xBeyPrimaryImageConfig.selected.length, 124);
+assert.equal(xBeyAngleCorrectionConfig.entries.length, 14);
 assert.equal(xBeyPrimaryImageConfig.verifiedMain.length, 82);
 assert.equal(
   new Set([
     ...xBeyPrimaryImageConfig.selected.map(entry => entry.image),
     ...xBeyPrimaryImageConfig.verifiedMain.map(entry => entry.image)
   ]).size,
-  204,
+  206,
   "front-view normalization paths must be unique"
 );
 
@@ -707,7 +707,8 @@ const approvedGeneratedFronts = new Map([
     processingMethod: "deterministic-cgi-material-and-sticker-composite",
     geometryAuthoritySha256: "22aede842139042a0281ea82a076ba7bed4c2a8cac5deb075a00f7d8ea908e3d",
     rawReferenceSha256: "05c3ab0d5158f1062c39bbaf569d2e3846973bdb39b679549b000ed5e8b1698d",
-    styleAuthoritySha256: "0f8222b43ec4e280d261a8cf0a0ac334fad46a5efdea869a4c4ff0a9d05c8c2c"
+    styleAuthoritySha256: "0f8222b43ec4e280d261a8cf0a0ac334fad46a5efdea869a4c4ff0a9d05c8c2c",
+    imageGenerationUsed: false
   }],
   ["BEY-X-BX-00-THANOS-4-60P", {
     sourceFile: "data/source/x-bey-front-sources/bey-x-bx-00-thanos-4-60p-generated.png",
@@ -715,9 +716,43 @@ const approvedGeneratedFronts = new Map([
     processingMethod: "deterministic-cgi-material-and-sticker-composite",
     geometryAuthoritySha256: "cdbe6b02806a4285ad5b34b36903fe7d2a9323a8561263fa590039852cc438e4",
     rawReferenceSha256: "a860a1c1b4de0635574fd8df4a023defb6e67e2bed87c0b743ab837b434bd288",
-    styleAuthoritySha256: "19eb4313c8dd2e06f59b78d55e3bdda75c0aa11d6059cbff2c3fae7d1bdd8f40"
+    styleAuthoritySha256: "19eb4313c8dd2e06f59b78d55e3bdda75c0aa11d6059cbff2c3fae7d1bdd8f40",
+    imageGenerationUsed: false
+  }],
+  ["BEY-X-BX-00-DRAN-SWORD-1-60V", {
+    sourceFile: "data/source/x-bey-front-sources/bey-x-bx-00-dran-sword-1-60v-generated.png",
+    sourceSha256: "37070fde1767ad6b9b38e51a1b4bf3bbcc0905c1b544edc1207ee4c2b8f6e21c",
+    processingMethod: "imagegen-chroma-key-protected-center-composite",
+    geometryAuthoritySha256: "21a1f3ec92cc0ccca2c3767324199c22862aff7501c9d5ee23638836f393fcba",
+    rawReferenceSha256: "607998e1d3c80d5d3d5051e88b874c3912a8475021ddd86e923291290724c87a",
+    styleAuthoritySha256: "9bc5bd6d3372c026575df168aa258d8fae68dea7c6c72df92d0785b24772edd3",
+    bladeAuthoritySha256: "6661a70e0ab10b639b58dd40a328a83358ef5a8ba9b514cdc314a55d10245dbf",
+    ratchetAuthoritySha256: "23ba25a3e7a64d15725dddb1abe07573ea8c74f9558ecae84acfc375aac5c1de",
+    bitAuthoritySha256: "559cb40e5807b73e4881030cf4d29467e8b318b75ff8777e98e9feb53a30096e",
+    generationPromptSha256: "91687090458e80eac8a44b3fbeeb3173d17eb37952e8c0c6968e91198dae5c89",
+    imageGenerationUsed: true
+  }],
+  ["BEY-X-BX-00-COBALT-DRAGOON-9-60F", {
+    sourceFile: "data/source/x-bey-front-sources/bey-x-bx-00-cobalt-dragoon-9-60f-generated.png",
+    sourceSha256: "a963b81463618f008883ea188f818be98500c1513c16bda8c7d2814cd50e166b",
+    processingMethod: "imagegen-chroma-key-protected-center-composite",
+    geometryAuthoritySha256: "9161f0460172fdd4175afbe124b7eab8d60e1f3967c7de9fbfb3a2e45b46a173",
+    rawReferenceSha256: "39068f71a95caf19e301179f8aa9327931592179eef54772539d40487ba80a8a",
+    styleAuthoritySha256: "1d50a3bce9fc15244c87cf587dfeef93e776f32cd81efd53354bc142b0fc0097",
+    bladeAuthoritySha256: "ed114c1beaa434d6152e7175e4236f2eb5c4801101212d2f99f95375699464eb",
+    ratchetAuthoritySha256: "6a07de386eb81d8a70885a86fd0e3f4e537de10b86207a1ce51b108209d73492",
+    bitAuthoritySha256: "76ada5e602bcf13c8eb3b2a7611317a0dd55222d39d78230a211b619ea7a13b6",
+    generationPromptSha256: "b9fb94d54763e1f7dc9fda3dea7e3ea7ec74465e66b6537854a7d66f5c05f67f",
+    imageGenerationUsed: true
   }]
 ]);
+const generatedFrontProvenance = JSON.parse(await readFile(
+  path.resolve("data/source/x-bey-front-sources/x-dran-cobalt-generated-fronts.json"),
+  "utf8"
+));
+const generatedFrontProvenanceById = new Map(
+  generatedFrontProvenance.jobs.map(entry => [entry.id, entry])
+);
 const verifiedSuppliedFronts = new Map([
   ["BEY-X-BX-00-T-REX-1-80GB", {
     sourceFile: "data/source/x-bey-front-sources/bey-x-bx-00-t-rex-1-80gb-verified.png",
@@ -749,7 +784,40 @@ for (const entry of xBeyPrimaryImageConfig.selected) {
       assert.equal(entry.geometryAuthoritySha256, expected.geometryAuthoritySha256);
       assert.equal(entry.rawReferenceSha256, expected.rawReferenceSha256);
       assert.equal(entry.styleAuthoritySha256, expected.styleAuthoritySha256);
-      assert.equal(entry.imageGenerationUsed, false);
+      assert.equal(entry.imageGenerationUsed, expected.imageGenerationUsed);
+      if (expected.imageGenerationUsed) {
+        assert.equal(
+          entry.generationProvenanceFile,
+          "data/source/x-bey-front-sources/x-dran-cobalt-generated-fronts.json"
+        );
+        assert.equal(entry.generationPromptSha256, expected.generationPromptSha256);
+        assert.equal(entry.bladeAuthoritySha256, expected.bladeAuthoritySha256);
+        assert.equal(entry.ratchetAuthoritySha256, expected.ratchetAuthoritySha256);
+        assert.equal(entry.bitAuthoritySha256, expected.bitAuthoritySha256);
+        assert.equal(entry.protectedCenterInnerRadius, 78);
+        assert.equal(entry.protectedCenterFeatherEndRadius, 86);
+        assert.equal(entry.greenResidualPixels, 0);
+        assert.equal(entry.protectedMismatchPixels, 0);
+        const provenance = generatedFrontProvenanceById.get(entry.id);
+        assert.ok(provenance, `${entry.id}: generated provenance is missing`);
+        assert.equal(provenance.sourceFile, entry.sourceFile);
+        assert.equal(provenance.sourceSha256, entry.sourceSha256);
+        assert.equal(provenance.finalOutputSha256, entry.outputSha256);
+        assert.deepEqual(provenance.normalizedForegroundBox, entry.normalizedForegroundBox);
+        assert.equal(provenance.promptSha256, entry.generationPromptSha256);
+        assert.equal(provenance.rawGeneratedSha256, entry.rawReferenceSha256);
+        const reconstructedPrompt = generatedFrontProvenance.promptTemplate
+          .replaceAll("{targetName}", provenance.targetName)
+          .replaceAll("{baseName}", provenance.baseName);
+        assert.equal(
+          createHash("sha256").update(reconstructedPrompt).digest("hex"),
+          provenance.promptSha256,
+          `${entry.id}: recorded prompt changed`
+        );
+        assert.equal(provenance.validation.greenResidualPixels, 0);
+        assert.equal(provenance.validation.protectedMismatchPixels, 0);
+        assert.equal(provenance.validation.componentCount, 1);
+      }
       assert.equal(entry.preNormalizationSha256, entry.sourceSha256);
       assert.match(entry.outputSha256, /^[a-f0-9]{64}$/);
       assert.equal(entry.normalizedForegroundBox.length, 4);
@@ -882,13 +950,13 @@ for (const entry of xBeyPrimaryImageConfig.temporarySideImages) {
 }
 
 const alphaReview = JSON.parse(await readFile(ALPHA_REVIEW_PATH, "utf8"));
-assert.equal(alphaReview.version, "20260808-x-variant-fronts-4");
+assert.equal(alphaReview.version, "20260809-x-dran-cobalt-generated-fronts");
 const alphaReviewByImage = new Map(alphaReview.files.map(entry => [entry.image, entry]));
 const normalizedEntries = [
   ...xBeyPrimaryImageConfig.selected,
   ...xBeyPrimaryImageConfig.verifiedMain
 ];
-assert.equal(normalizedEntries.length, 204);
+assert.equal(normalizedEntries.length, 206);
 for (const entry of normalizedEntries) {
   const review = alphaReviewByImage.get(entry.image);
   assert.ok(review, `${entry.id}: normalized image is missing from the alpha review`);
@@ -983,9 +1051,9 @@ for (const item of xBeys) {
 }
 
 assert.deepEqual(counts, {
-  officialAngleCorrected: 16,
+  officialAngleCorrected: 14,
   officialAssembledFront: 116,
-  userApprovedGeneratedFront: 3,
+  userApprovedGeneratedFront: 5,
   verifiedExistingFront: 85,
   temporarySide: 0
 });

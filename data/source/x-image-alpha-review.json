@@ -1,5 +1,5 @@
 {
-  "version": "20260808-x-variant-fronts-4",
+  "version": "20260809-x-dran-cobalt-generated-fronts",
   "canvasSize": 448,
   "files": [
     {
@@ -289,21 +289,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-cobalt-dragoon-9-60f/front.webp",
-      "outputSha256": "db0f60b55a614229e4b786199131f50d056355cba380d1e81ccef31a7eebdd06",
+      "outputSha256": "0c02b54beecb85bf80a1eebf0bbc58aa8cee3883ea8c357c1cdf4c3eeea629ba",
       "alphaLevels": 255,
-      "partialPixels": 7082,
-      "foregroundPixels": 91970,
+      "partialPixels": 4338,
+      "foregroundPixels": 89710,
       "bbox": [
-        43,
-        41,
-        404,
-        407
+        47,
+        44,
+        401,
+        404
       ],
       "margins": [
-        43,
-        41,
+        47,
         44,
-        41
+        47,
+        44
       ]
     },
     {
@@ -802,21 +802,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-dran-sword-1-60v/front.webp",
-      "outputSha256": "8895d79b03ac98c2e492fe5a677abff3c7cb88443b77929e124e4256ff51d89f",
+      "outputSha256": "9f96beccb32fc00787f25743ea59ac2f346f9cdcb3d524a9f90112c1c5efdc9e",
       "alphaLevels": 256,
-      "partialPixels": 6329,
-      "foregroundPixels": 97448,
+      "partialPixels": 4626,
+      "foregroundPixels": 93677,
       "bbox": [
-        46,
-        37,
-        402,
-        410
+        48,
+        44,
+        399,
+        404
       ],
       "margins": [
-        46,
-        37,
-        46,
-        38
+        48,
+        44,
+        49,
+        44
       ]
     },
     {

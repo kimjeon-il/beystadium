@@ -11,7 +11,7 @@ import { xCatalogImagePath } from "./x-image-paths.mjs";
 const REPORT_ARG = process.argv.find(argument => argument.startsWith("--report="));
 const REPORT_PATH = REPORT_ARG?.slice("--report=".length) || "";
 const ALPHA_REVIEW_PATH = path.resolve("data/source/x-image-alpha-review.json");
-const ALPHA_REVIEW_VERSION = "20260808-x-variant-fronts-4";
+const ALPHA_REVIEW_VERSION = "20260809-x-dran-cobalt-generated-fronts";
 const xItems = [...beyItems, ...partItems].filter(item => item.series === "x");
 const xIds = new Set(xItems.map(item => item.id));
 const expectedCorrectedSources = {
@@ -115,6 +115,16 @@ async function validateOutputs() {
     preserveSourcePixels: true
   });
   for (const [id, expected] of new Map([
+    ["BEY-X-BX-00-COBALT-DRAGOON-9-60F", {
+      image: "assets/images/x/beys/bey-x-bx-00-cobalt-dragoon-9-60f/front.webp",
+      sourcePath: "data/source/x-bey-front-sources/bey-x-bx-00-cobalt-dragoon-9-60f-generated.png",
+      sourceSha256: "a963b81463618f008883ea188f818be98500c1513c16bda8c7d2814cd50e166b"
+    }],
+    ["BEY-X-BX-00-DRAN-SWORD-1-60V", {
+      image: "assets/images/x/beys/bey-x-bx-00-dran-sword-1-60v/front.webp",
+      sourcePath: "data/source/x-bey-front-sources/bey-x-bx-00-dran-sword-1-60v-generated.png",
+      sourceSha256: "37070fde1767ad6b9b38e51a1b4bf3bbcc0905c1b544edc1207ee4c2b8f6e21c"
+    }],
     ["BEY-X-BX-00-IRON-MAN-4-80B", {
       image: "assets/images/x/beys/bey-x-bx-00-iron-man-4-80b/front.webp",
       sourcePath: "data/source/x-bey-front-sources/bey-x-bx-00-iron-man-4-80b-generated.png",

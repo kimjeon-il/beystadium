@@ -1,0 +1,76 @@
+{
+  "version": "20260809-x-dran-cobalt-generated-fronts",
+  "toolMode": "built-in ImageGen; no CLI fallback",
+  "promptReconstruction": "Replace every {targetName} and {baseName} token in promptTemplate, preserving LF line endings and the final newline.",
+  "promptTemplate": "Use case: product-mockup\nAsset type: preview candidate for a Beyblade catalog front-view image\n\nInput images:\n- Image 1: the official assembled {targetName}; absolute authority for the target variant identity, colors, materials, rotation, and physically visible assembly.\n- Image 2: the existing true front view of {baseName}; authority only for a perfectly vertical camera, orthographic proportions, concentric alignment, and front-view assembly layout. Never copy its colors, emblem, or target-specific sculpt details.\n- Image 3: the official blade image of {targetName}; absolute authority for the target variant's exact blade silhouette, modified metal sculpt, plastic shapes, lobe count, attack points, gaps, grooves, notches, texture, printed artwork, and emblem.\n- Image 4: the official ratchet image of {targetName}; authority only for the correct ratchet structure and color.\n- Image 5: the official bit image of {targetName}; authority only for the correct bit structure and color.\n\nPrimary request:\nReconstruct the exact same {targetName} as a photorealistic official catalog product render viewed from a perfectly vertical 90-degree top-down orthographic camera. It must be the fully assembled Bey and must keep the target variant's exact rotational orientation from Image 1. Correct only viewpoint and perspective.\n\nScene/backdrop:\nA perfectly flat exact RGB #00ff00 chroma-key background. Every pixel outside the subject must be the same uniform #00ff00 with no shadow, gradient, texture, reflection, floor plane, glow, or lighting variation.\n\nComposition/framing:\nOne Bey only, centered, complete silhouette visible, generous even padding. Zero tilt, zero perspective, zero foreshortening. The circular assembly plane faces the camera exactly.\n\nStyle/medium:\nPhotorealistic official toy catalog render matching Images 1, 3, 4, and 5, with clean even lighting.\n\nNon-negotiable constraints:\n- Preserve Image 3's exact asymmetric clockwise or counterclockwise target blade design; do not replace it with the base blade from Image 2.\n- Preserve the exact count, placement, thickness, direction, and shape of every outer lobe, contact point, opening, ridge, groove, notch, and part boundary from the target variant.\n- Preserve every target-specific color division, material, translucent component, metal finish, central emblem, sticker, symbol, and printed mark.\n- Do not redesign, mirror, rotate, simplify, symmetrize, reinterpret, or invent any part.\n- Show one physically plausible fully assembled product. No exploded view and no underside parts visible beyond what a true top view permits.\n- No duplicated or missing blade sections, added parts, invented screws, extra text, or watermark.\n- No cast shadow, contact shadow, reflection, glow, motion effect, or background contamination.\n- Do not use #00ff00 anywhere on the Bey.\n",
+  "processing": {
+    "chromaKey": "border auto-key; soft matte; transparent 12; opaque 220; despill",
+    "canvas": [448, 448],
+    "targetLongEdge": 360,
+    "resample": "premultiplied-alpha-lanczos",
+    "protectedCenter": {
+      "innerRadius": 78,
+      "featherEndRadius": 86
+    }
+  },
+  "jobs": [
+    {
+      "id": "BEY-X-BX-00-DRAN-SWORD-1-60V",
+      "targetName": "드랜소드 1-60V",
+      "baseName": "드랜소드",
+      "promptSha256": "91687090458e80eac8a44b3fbeeb3173d17eb37952e8c0c6968e91198dae5c89",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-dran-sword-1-60v-generated.png",
+      "sourceSha256": "37070fde1767ad6b9b38e51a1b4bf3bbcc0905c1b544edc1207ee4c2b8f6e21c",
+      "finalOutputSha256": "9f96beccb32fc00787f25743ea59ac2f346f9cdcb3d524a9f90112c1c5efdc9e",
+      "normalizedForegroundBox": [48, 44, 399, 404],
+      "rawGeneratedSha256": "607998e1d3c80d5d3d5051e88b874c3912a8475021ddd86e923291290724c87a",
+      "referenceSha256": {
+        "assembledTarget": "9bc5bd6d3372c026575df168aa258d8fae68dea7c6c72df92d0785b24772edd3",
+        "baseTrueFront": "21a1f3ec92cc0ccca2c3767324199c22862aff7501c9d5ee23638836f393fcba",
+        "targetBlade": "6661a70e0ab10b639b58dd40a328a83358ef5a8ba9b514cdc314a55d10245dbf",
+        "targetRatchet": "23ba25a3e7a64d15725dddb1abe07573ea8c74f9558ecae84acfc375aac5c1de",
+        "targetBit": "559cb40e5807b73e4881030cf4d29467e8b318b75ff8777e98e9feb53a30096e"
+      },
+      "geometryReview": "passed-first-candidate",
+      "retryUsed": false,
+      "validation": {
+        "bbox": [48, 44, 399, 404],
+        "longEdge": 360,
+        "center": [223.5, 224],
+        "transparentCorners": true,
+        "greenResidualPixels": 0,
+        "protectedMismatchPixels": 0,
+        "componentCount": 1
+      }
+    },
+    {
+      "id": "BEY-X-BX-00-COBALT-DRAGOON-9-60F",
+      "targetName": "코발트드라군 9-60F",
+      "baseName": "코발트드라군",
+      "promptSha256": "b9fb94d54763e1f7dc9fda3dea7e3ea7ec74465e66b6537854a7d66f5c05f67f",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-cobalt-dragoon-9-60f-generated.png",
+      "sourceSha256": "a963b81463618f008883ea188f818be98500c1513c16bda8c7d2814cd50e166b",
+      "finalOutputSha256": "0c02b54beecb85bf80a1eebf0bbc58aa8cee3883ea8c357c1cdf4c3eeea629ba",
+      "normalizedForegroundBox": [47, 44, 401, 404],
+      "rawGeneratedSha256": "39068f71a95caf19e301179f8aa9327931592179eef54772539d40487ba80a8a",
+      "referenceSha256": {
+        "assembledTarget": "1d50a3bce9fc15244c87cf587dfeef93e776f32cd81efd53354bc142b0fc0097",
+        "baseTrueFront": "9161f0460172fdd4175afbe124b7eab8d60e1f3967c7de9fbfb3a2e45b46a173",
+        "targetBlade": "ed114c1beaa434d6152e7175e4236f2eb5c4801101212d2f99f95375699464eb",
+        "targetRatchet": "6a07de386eb81d8a70885a86fd0e3f4e537de10b86207a1ce51b108209d73492",
+        "targetBit": "76ada5e602bcf13c8eb3b2a7611317a0dd55222d39d78230a211b619ea7a13b6"
+      },
+      "geometryReview": "passed-first-candidate",
+      "retryUsed": false,
+      "validation": {
+        "bbox": [47, 44, 401, 404],
+        "longEdge": 360,
+        "center": [224, 224],
+        "transparentCorners": true,
+        "greenResidualPixels": 0,
+        "protectedMismatchPixels": 0,
+        "componentCount": 1
+      }
+    }
+  ]
+}

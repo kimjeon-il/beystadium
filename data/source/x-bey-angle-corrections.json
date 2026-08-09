@@ -1,5 +1,5 @@
 {
-  "version": "20260808-x-variant-fronts-4",
+  "version": "20260809-x-dran-cobalt-generated-fronts",
   "method": "premultiplied-alpha-vertical-affine",
   "entries": [
     {
@@ -14,32 +14,6 @@
       "scaleY": 1.08,
       "pivotY": 223.5,
       "outputSha256": "250876c532c119dcdb50befc46b26e90e56af0f86f0799f7cc9cbfaf9e6c5644"
-    },
-    {
-      "id": "BEY-X-BX-00-DRAN-SWORD-1-60V",
-      "sourceImage": "assets/images/x/beys/bey-x-bx-00-dran-sword-1-60v/parts/part-x-blade-dran-sword.webp",
-      "image": "assets/images/x/beys/bey-x-bx-00-dran-sword-1-60v/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG52_02@1.png",
-      "sourceSha256": "07d62b4f0c2c3ffd4a0f4b2f8120bfe3b449a0db92bfec442c10caacaf8001d1",
-      "sourceOutputSha256": "6661a70e0ab10b639b58dd40a328a83358ef5a8ba9b514cdc314a55d10245dbf",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.5,
-      "outputSha256": "8895d79b03ac98c2e492fe5a677abff3c7cb88443b77929e124e4256ff51d89f"
-    },
-    {
-      "id": "BEY-X-BX-00-COBALT-DRAGOON-9-60F",
-      "sourceImage": "assets/images/x/beys/bey-x-bx-00-cobalt-dragoon-9-60f/parts/part-x-blade-cobalt-dragoon.webp",
-      "image": "assets/images/x/beys/bey-x-bx-00-cobalt-dragoon-9-60f/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG53_02@1.png",
-      "sourceSha256": "f8bd0010f3e3652cbc3d774a0fa5394222c4f2c8f179f5af97c8b11298481774",
-      "sourceOutputSha256": "ed114c1beaa434d6152e7175e4236f2eb5c4801101212d2f99f95375699464eb",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.5,
-      "outputSha256": "db0f60b55a614229e4b786199131f50d056355cba380d1e81ccef31a7eebdd06"
     },
     {
       "id": "BEY-X-UX-15-TYRANNO-ROAR-1-70L",
