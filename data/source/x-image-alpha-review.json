@@ -1,5 +1,5 @@
 {
-  "version": "20260809-x-spider-optimus-generated-fronts",
+  "version": "20260809-x-tyranno-quetzal-generated-fronts",
   "canvasSize": 448,
   "files": [
     {
@@ -2170,21 +2170,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-quetzalcoatlus-4-55d/front.webp",
-      "outputSha256": "182d24a13ff05cf5f103ebaae4df1f3fcea124c8f50d90384d691af5a51cdcd4",
+      "outputSha256": "7ba932bf0d46d5a2bd9a38c52c2e4df21256381cdf501e98a75bc3f40ff9103d",
       "alphaLevels": 256,
-      "partialPixels": 9303,
-      "foregroundPixels": 107893,
+      "partialPixels": 96023,
+      "foregroundPixels": 98437,
       "bbox": [
         44,
-        27,
+        44,
         404,
-        420
+        404
       ],
       "margins": [
         44,
-        27,
         44,
-        28
+        44,
+        44
       ]
     },
     {
@@ -14843,21 +14843,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-ux-15-tyranno-roar-1-70l/front.webp",
-      "outputSha256": "84e477d37d5db14bccd5362190db53127938e029a922e3a2e99455488a10e262",
+      "outputSha256": "f2933b567e855ea59310bf65c49cd0ed3ab2ae7e5a0a8c427d61bca9724315a3",
       "alphaLevels": 256,
-      "partialPixels": 9982,
-      "foregroundPixels": 95541,
+      "partialPixels": 79950,
+      "foregroundPixels": 93963,
       "bbox": [
-        48,
-        43,
-        399,
-        405
+        47,
+        44,
+        400,
+        404
       ],
       "margins": [
+        47,
+        44,
         48,
-        43,
-        49,
-        43
+        44
       ]
     },
     {

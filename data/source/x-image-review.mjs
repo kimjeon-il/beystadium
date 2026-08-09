@@ -216,10 +216,13 @@ const xImageReview = [
   },
   {
     "id": "BEY-X-BX-00-QUETZALCOATLUS-4-55D",
-    "image": "assets/images/x/beys/bey-x-bx-00-quetzalcoatlus-4-55d/main.webp",
-    "sourcePath": "02_product_components/101_bx00-jsq/06_BXG41_06@1.png",
-    "sourceSha256": "30c509c58f1987b5ec92381ee834753209d5aa81da2977b87c1d5b44964988a9",
-    "outputSha256": "9f532c2acf34b439e06db614685ea10af74db67235bf4586aa4b47b99c80e1d1"
+    "image": "assets/images/x/beys/bey-x-bx-00-quetzalcoatlus-4-55d/front.webp",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-quetzalcoatlus-4-55d-generated.png",
+    "sourceSha256": "ba5e46a2ed7216866d17ad0cdd74e08c74e65524ad90dacd4ec9f04a7495bd49",
+    "outputSha256": "7ba932bf0d46d5a2bd9a38c52c2e4df21256381cdf501e98a75bc3f40ff9103d",
+    "sourceKind": "user-approved-generated-front",
+    "normalizationInput": "source-file",
+    "preserveSourcePixels": true
   },
   {
     "id": "BEY-X-BX-00-ROCK-LEONE-6-80GN",
@@ -1495,10 +1498,13 @@ const xImageReview = [
   },
   {
     "id": "BEY-X-UX-15-TYRANNO-ROAR-1-70L",
-    "image": "assets/images/x/beys/bey-x-ux-15-tyranno-roar-1-70l/main.webp",
-    "sourcePath": "02_product_components/106_ux15/06_UX15_06@1.png",
-    "sourceSha256": "55b23119da41b43b03559f719e12832153d0cebb3eb22fe2df4a7b9ec3188e9e",
-    "outputSha256": "9cfd3702b83ef9fbe8a9a390771dbbfbae9dc72e2cf90c6f0dc66ad5d22c0ee9"
+    "image": "assets/images/x/beys/bey-x-ux-15-tyranno-roar-1-70l/front.webp",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-ux-15-tyranno-roar-1-70l-generated.png",
+    "sourceSha256": "851a05a2b868c330801b2a7798537f4804548ceb838e78de4a431be8001610e6",
+    "outputSha256": "f2933b567e855ea59310bf65c49cd0ed3ab2ae7e5a0a8c427d61bca9724315a3",
+    "sourceKind": "user-approved-generated-front",
+    "normalizationInput": "source-file",
+    "preserveSourcePixels": true
   },
   {
     "id": "BEY-X-UX-16-01-CLOCK-MIRAGE-9-65B",

@@ -1,5 +1,5 @@
 {
-  "version": "20260809-x-spider-optimus-generated-fronts",
+  "version": "20260809-x-tyranno-quetzal-generated-fronts",
   "method": "premultiplied-alpha-vertical-affine",
   "entries": [
     {
@@ -14,19 +14,6 @@
       "scaleY": 1.08,
       "pivotY": 223.5,
       "outputSha256": "250876c532c119dcdb50befc46b26e90e56af0f86f0799f7cc9cbfaf9e6c5644"
-    },
-    {
-      "id": "BEY-X-UX-15-TYRANNO-ROAR-1-70L",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-tyranno-roar.webp",
-      "image": "assets/images/x/beys/bey-x-ux-15-tyranno-roar-1-70l/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX15_07@1.png",
-      "sourceSha256": "e9169fcae6930b3df77417a2c497757b15aeaf6633fbd7d6c08eba8d6c8af19d",
-      "sourceOutputSha256": "1881e2781840966e4559bbea18b63254f3a9e05d4dfdccf2052a51a9dbb2e005",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.5,
-      "outputSha256": "84e477d37d5db14bccd5362190db53127938e029a922e3a2e99455488a10e262"
     },
     {
       "id": "BEY-X-BX-00-VENOM-3-80N",
@@ -144,19 +131,6 @@
       "scaleY": 1.08,
       "pivotY": 223.0,
       "outputSha256": "57d8689f8c10014a6b76be8675fca5db67956e028f063f1d660e6cbf6504a84b"
-    },
-    {
-      "id": "BEY-X-BX-00-QUETZALCOATLUS-4-55D",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-quetzalcoatlus.webp",
-      "image": "assets/images/x/beys/bey-x-bx-00-quetzalcoatlus-4-55d/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG41_06@1.png",
-      "sourceSha256": "30c509c58f1987b5ec92381ee834753209d5aa81da2977b87c1d5b44964988a9",
-      "sourceOutputSha256": "9f532c2acf34b439e06db614685ea10af74db67235bf4586aa4b47b99c80e1d1",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.0,
-      "outputSha256": "182d24a13ff05cf5f103ebaae4df1f3fcea124c8f50d90384d691af5a51cdcd4"
     }
   ]
 }

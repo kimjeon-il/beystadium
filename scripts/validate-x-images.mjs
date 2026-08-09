@@ -11,7 +11,7 @@ import { xCatalogImagePath } from "./x-image-paths.mjs";
 const REPORT_ARG = process.argv.find(argument => argument.startsWith("--report="));
 const REPORT_PATH = REPORT_ARG?.slice("--report=".length) || "";
 const ALPHA_REVIEW_PATH = path.resolve("data/source/x-image-alpha-review.json");
-const ALPHA_REVIEW_VERSION = "20260809-x-spider-optimus-generated-fronts";
+const ALPHA_REVIEW_VERSION = "20260809-x-tyranno-quetzal-generated-fronts";
 const xItems = [...beyItems, ...partItems].filter(item => item.series === "x");
 const xIds = new Set(xItems.map(item => item.id));
 const expectedCorrectedSources = {
@@ -144,6 +144,16 @@ async function validateOutputs() {
       image: "assets/images/x/beys/bey-x-bx-00-optimus-primal-3-60f/front.webp",
       sourcePath: "data/source/x-bey-front-sources/bey-x-bx-00-optimus-primal-3-60f-generated.png",
       sourceSha256: "8b7cb5e0f41ec5a3b28d5cc20b3399cc9e6042bd8c535785119f4c30710c0136"
+    }],
+    ["BEY-X-UX-15-TYRANNO-ROAR-1-70L", {
+      image: "assets/images/x/beys/bey-x-ux-15-tyranno-roar-1-70l/front.webp",
+      sourcePath: "data/source/x-bey-front-sources/bey-x-ux-15-tyranno-roar-1-70l-generated.png",
+      sourceSha256: "851a05a2b868c330801b2a7798537f4804548ceb838e78de4a431be8001610e6"
+    }],
+    ["BEY-X-BX-00-QUETZALCOATLUS-4-55D", {
+      image: "assets/images/x/beys/bey-x-bx-00-quetzalcoatlus-4-55d/front.webp",
+      sourcePath: "data/source/x-bey-front-sources/bey-x-bx-00-quetzalcoatlus-4-55d-generated.png",
+      sourceSha256: "ba5e46a2ed7216866d17ad0cdd74e08c74e65524ad90dacd4ec9f04a7495bd49"
     }]
   ])) {
     const entry = mappingById.get(id);

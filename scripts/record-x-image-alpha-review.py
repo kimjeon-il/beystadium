@@ -14,7 +14,7 @@ from PIL import Image
 CANVAS_SIZE = 448
 MIN_MARGIN = 6
 MAX_FOREGROUND_SIZE = CANVAS_SIZE - MIN_MARGIN * 2
-REVIEW_VERSION = "20260809-x-spider-optimus-generated-fronts"
+REVIEW_VERSION = "20260809-x-tyranno-quetzal-generated-fronts"
 
 
 def parse_args() -> argparse.Namespace:

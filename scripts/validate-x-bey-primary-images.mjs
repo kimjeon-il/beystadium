@@ -93,7 +93,7 @@ uniqueValues([
   ...verifiedMainById.keys(),
   ...temporarySideById.keys()
 ], "explicit primary image classifications");
-assert.equal(xBeyPrimaryImageConfig.version, "20260809-x-spider-optimus-generated-fronts");
+assert.equal(xBeyPrimaryImageConfig.version, "20260809-x-tyranno-quetzal-generated-fronts");
 assert.equal(xBeyAngleCorrectionConfig.version, xBeyPrimaryImageConfig.version);
 assert.equal(xBeyAngleCorrectionConfig.method, "premultiplied-alpha-vertical-affine");
 assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
@@ -108,15 +108,15 @@ assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
     "verified-existing-front"
   ]
 });
-assert.equal(xBeyPrimaryImageConfig.selected.length, 126);
-assert.equal(xBeyAngleCorrectionConfig.entries.length, 12);
+assert.equal(xBeyPrimaryImageConfig.selected.length, 128);
+assert.equal(xBeyAngleCorrectionConfig.entries.length, 10);
 assert.equal(xBeyPrimaryImageConfig.verifiedMain.length, 82);
 assert.equal(
   new Set([
     ...xBeyPrimaryImageConfig.selected.map(entry => entry.image),
     ...xBeyPrimaryImageConfig.verifiedMain.map(entry => entry.image)
   ]).size,
-  208,
+  210,
   "front-view normalization paths must be unique"
 );
 
@@ -767,12 +767,33 @@ const approvedGeneratedFronts = new Map([
     gearChipTemplateSha256: "91c76f7ab92bf5049d7af98d1168bde60adb7c3f8e95f5c8960d160e83e2078c",
     hookStructureMismatchPixels: 0,
     imageGenerationUsed: true
+  }],
+  ["BEY-X-UX-15-TYRANNO-ROAR-1-70L", {
+    sourceFile: "data/source/x-bey-front-sources/bey-x-ux-15-tyranno-roar-1-70l-generated.png",
+    sourceSha256: "851a05a2b868c330801b2a7798537f4804548ceb838e78de4a431be8001610e6",
+    processingMethod: "imagegen-web-reference-front-with-source-sticker-restoration",
+    generationProvenanceFile: "data/source/x-bey-front-sources/x-tyranno-quetzal-generated-fronts.json",
+    geometryAuthoritySha256: "dade6965bc54b1d253fad33fd76fc16b6945c0882f479b78bd8f34eca58ff12a",
+    rawReferenceSha256: "f5ed58351e5962ccbef88fab9989ae56fa62987f98315dea59645fae0ffda4d4",
+    styleAuthoritySha256: "bd86e7dc4f7a41fcb28786a0e14d7c3cf9ac109f401eb0b34c352414dbaa687a",
+    imageGenerationUsed: true
+  }],
+  ["BEY-X-BX-00-QUETZALCOATLUS-4-55D", {
+    sourceFile: "data/source/x-bey-front-sources/bey-x-bx-00-quetzalcoatlus-4-55d-generated.png",
+    sourceSha256: "ba5e46a2ed7216866d17ad0cdd74e08c74e65524ad90dacd4ec9f04a7495bd49",
+    processingMethod: "imagegen-web-reference-front-with-deterministic-sticker-and-metal-refinement",
+    generationProvenanceFile: "data/source/x-bey-front-sources/x-tyranno-quetzal-generated-fronts.json",
+    geometryAuthoritySha256: "c59cf66a88643082b3f14b32afccd4e23ad98c66760ec33c25c4e6cf63f1dfb4",
+    rawReferenceSha256: "5776d2bb9ead336816b4ea47ca9467b0bf0e06f622c67110feca1ac489c6ac49",
+    styleAuthoritySha256: "da067758ef8958b73029c67f2a761b3f522f396885c4a7378edce6d3e2351fc9",
+    imageGenerationUsed: true
   }]
 ]);
 const generatedFrontProvenanceByFile = new Map();
 for (const provenanceFile of [
   "data/source/x-bey-front-sources/x-dran-cobalt-generated-fronts.json",
-  "data/source/x-bey-front-sources/x-spider-optimus-generated-fronts.json"
+  "data/source/x-bey-front-sources/x-spider-optimus-generated-fronts.json",
+  "data/source/x-bey-front-sources/x-tyranno-quetzal-generated-fronts.json"
 ]) {
   const provenance = JSON.parse(await readFile(path.resolve(provenanceFile), "utf8"));
   generatedFrontProvenanceByFile.set(
@@ -1003,13 +1024,13 @@ for (const entry of xBeyPrimaryImageConfig.temporarySideImages) {
 }
 
 const alphaReview = JSON.parse(await readFile(ALPHA_REVIEW_PATH, "utf8"));
-assert.equal(alphaReview.version, "20260809-x-spider-optimus-generated-fronts");
+assert.equal(alphaReview.version, "20260809-x-tyranno-quetzal-generated-fronts");
 const alphaReviewByImage = new Map(alphaReview.files.map(entry => [entry.image, entry]));
 const normalizedEntries = [
   ...xBeyPrimaryImageConfig.selected,
   ...xBeyPrimaryImageConfig.verifiedMain
 ];
-assert.equal(normalizedEntries.length, 208);
+assert.equal(normalizedEntries.length, 210);
 for (const entry of normalizedEntries) {
   const review = alphaReviewByImage.get(entry.image);
   assert.ok(review, `${entry.id}: normalized image is missing from the alpha review`);
@@ -1104,9 +1125,9 @@ for (const item of xBeys) {
 }
 
 assert.deepEqual(counts, {
-  officialAngleCorrected: 12,
+  officialAngleCorrected: 10,
   officialAssembledFront: 116,
-  userApprovedGeneratedFront: 7,
+  userApprovedGeneratedFront: 9,
   verifiedExistingFront: 85,
   temporarySide: 0
 });

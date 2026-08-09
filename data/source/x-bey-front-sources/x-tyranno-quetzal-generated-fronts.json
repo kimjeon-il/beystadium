@@ -1,0 +1,68 @@
+{
+  "version": "20260809-x-tyranno-quetzal-generated-fronts",
+  "toolMode": "approved built-in ImageGen-derived fronts with deterministic local refinement; no CLI fallback",
+  "scope": "Tyranno Roar v20 A and Quetzalcoatlus v20 A approved for site use",
+  "processing": {
+    "canvas": [448, 448],
+    "targetLongEdge": 360,
+    "resample": "premultiplied-alpha-lanczos",
+    "output": "lossless-webp"
+  },
+  "jobs": [
+    {
+      "id": "BEY-X-UX-15-TYRANNO-ROAR-1-70L",
+      "targetName": "티라노로어 1-70L",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-ux-15-tyranno-roar-1-70l-generated.png",
+      "sourceSha256": "851a05a2b868c330801b2a7798537f4804548ceb838e78de4a431be8001610e6",
+      "finalOutputSha256": "f2933b567e855ea59310bf65c49cd0ed3ab2ae7e5a0a8c427d61bca9724315a3",
+      "selectedPreview": "v20 A; byte-identical to the user-preferred v17 candidate",
+      "processingMethod": "imagegen-web-reference-front-with-source-sticker-restoration",
+      "internetReferenceUrl": "https://beyblade.phstudy.org/images/site/Blade/BL-PRD-982432-02.png",
+      "geometryAuthoritySha256": "dade6965bc54b1d253fad33fd76fc16b6945c0882f479b78bd8f34eca58ff12a",
+      "rawReferenceSha256": "f5ed58351e5962ccbef88fab9989ae56fa62987f98315dea59645fae0ffda4d4",
+      "styleAuthoritySha256": "bd86e7dc4f7a41fcb28786a0e14d7c3cf9ac109f401eb0b34c352414dbaa687a",
+      "officialMainSha256": "9cfd3702b83ef9fbe8a9a390771dbbfbae9dc72e2cf90c6f0dc66ad5d22c0ee9",
+      "validation": {
+        "bbox": [47, 44, 400, 404],
+        "longEdge": 360,
+        "center": [223.0, 223.5],
+        "transparentCorners": true,
+        "greenResidualPixels": 0,
+        "componentCount": 1,
+        "internetReferenceAlphaMismatchPixels": 0
+      }
+    },
+    {
+      "id": "BEY-X-BX-00-QUETZALCOATLUS-4-55D",
+      "targetName": "케찰코아틀루스 4-55D",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-quetzalcoatlus-4-55d-generated.png",
+      "sourceSha256": "ba5e46a2ed7216866d17ad0cdd74e08c74e65524ad90dacd4ec9f04a7495bd49",
+      "finalOutputSha256": "7ba932bf0d46d5a2bd9a38c52c2e4df21256381cdf501e98a75bc3f40ff9103d",
+      "selectedPreview": "v20 A; v19 A color grade with deterministic sticker restoration and metal smoothing",
+      "processingMethod": "imagegen-web-reference-front-with-deterministic-sticker-and-metal-refinement",
+      "internetReferenceUrl": "https://beyblade.phstudy.org/images/site/Blade/BL-PRD-989002-02.png",
+      "geometryAuthoritySha256": "c59cf66a88643082b3f14b32afccd4e23ad98c66760ec33c25c4e6cf63f1dfb4",
+      "rawReferenceSha256": "5776d2bb9ead336816b4ea47ca9467b0bf0e06f622c67110feca1ac489c6ac49",
+      "styleAuthoritySha256": "da067758ef8958b73029c67f2a761b3f522f396885c4a7378edce6d3e2351fc9",
+      "extraGeometryAuthoritySha256": "f000b78149f4d437da3909d851ce942a2f1a072b695e55c2bdefc0b30ea475cd",
+      "officialMainSha256": "9f532c2acf34b439e06db614685ea10af74db67235bf4586aa4b47b99c80e1d1",
+      "refinement": {
+        "stickerSourceSha256": "9f532c2acf34b439e06db614685ea10af74db67235bf4586aa4b47b99c80e1d1",
+        "stickerMismatchPixels": 0,
+        "metalNoiseReductionFromV17": 0.6573763275764666,
+        "strongMetalEdgeRetentionRatio": 1.0,
+        "outsideEditMaskRgbaMismatchPixels": 0,
+        "alphaMismatchPixels": 0
+      },
+      "validation": {
+        "bbox": [44, 44, 404, 404],
+        "longEdge": 360,
+        "center": [223.5, 223.5],
+        "transparentCorners": true,
+        "greenResidualPixels": 0,
+        "componentCount": 1,
+        "internetReferenceAlphaMismatchPixels": 0
+      }
+    }
+  ]
+}
