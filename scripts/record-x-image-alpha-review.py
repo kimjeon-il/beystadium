@@ -14,7 +14,7 @@ from PIL import Image
 CANVAS_SIZE = 448
 MIN_MARGIN = 6
 MAX_FOREGROUND_SIZE = CANVAS_SIZE - MIN_MARGIN * 2
-REVIEW_VERSION = "20260810-x-variant-generated-fronts-4"
+REVIEW_VERSION = "20260810-x-moff-gideon-gear-chip-vivid"
 
 
 def parse_args() -> argparse.Namespace:

@@ -169,8 +169,8 @@ const xImageReview = [
     "id": "BEY-X-BX-00-MOFF-GIDEON-3-80N",
     "image": "assets/images/x/beys/bey-x-bx-00-moff-gideon-3-80n/front.webp",
     "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-moff-gideon-3-80n-generated.png",
-    "sourceSha256": "80a5fb3677bb0ddecd84b381a01359b6bc882c9d48f559e0559cd5621634304b",
-    "outputSha256": "c81bd4cb121887171b7ff36872a08b54213732471d491f8523c45ec924ef3eb8",
+    "sourceSha256": "5f20e5ae975044a893ea6a727bc629d636d06597de1d98271450d840ad6f9ea8",
+    "outputSha256": "b2f8cd069592a14b667f581b02f04e23877e2a7dae8f081551a3de554a5a1c0d",
     "sourceKind": "user-approved-generated-front",
     "normalizationInput": "source-file",
     "preserveSourcePixels": true

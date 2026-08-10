@@ -8,7 +8,7 @@ const bookItems = [];
 const gameItems = [];
 const animeInfo = { title: "", overview: [], characters: [], episodes: [] };
 const searchIndexItems = [];
-const X_ASSET_CACHE_VERSION = "20260810-x-variant-generated-fronts-4";
+const X_ASSET_CACHE_VERSION = "20260810-x-moff-gideon-gear-chip-vivid";
 
 const versionAssetUrl = source => {
   const value = String(source || "");

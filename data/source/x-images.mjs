@@ -149,7 +149,7 @@ const xImageMappings = [
     "id": "BEY-X-BX-00-MOFF-GIDEON-3-80N",
     "image": "assets/images/x/beys/bey-x-bx-00-moff-gideon-3-80n/front.webp",
     "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-moff-gideon-3-80n-generated.png",
-    "sourceSha256": "80a5fb3677bb0ddecd84b381a01359b6bc882c9d48f559e0559cd5621634304b",
+    "sourceSha256": "5f20e5ae975044a893ea6a727bc629d636d06597de1d98271450d840ad6f9ea8",
     "sourceKind": "user-approved-generated-front",
     "normalizationInput": "source-file",
     "preserveSourcePixels": true

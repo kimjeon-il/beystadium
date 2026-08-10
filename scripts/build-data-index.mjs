@@ -7,7 +7,7 @@ import { productItems } from "../data/source/products.mjs";
 import { rareBeyGetItems } from "../data/source/rare-bey-get.mjs";
 import { bookItems, gameItems, toolsItems } from "../data/source/secondary.mjs";
 
-const VERSION = "20260810-x-variant-generated-fronts-4";
+const VERSION = "20260810-x-moff-gideon-gear-chip-vivid";
 const SERIES_SLUGS = {
   "metal fight": "metal-fight",
   burst: "burst",

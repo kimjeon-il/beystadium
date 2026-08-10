@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-const X_ASSET_CACHE_VERSION = "20260810-x-variant-generated-fronts-4";
+const X_ASSET_CACHE_VERSION = "20260810-x-moff-gideon-gear-chip-vivid";
 
 const consoleErrors = page => {
   const errors = [];

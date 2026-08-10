@@ -93,7 +93,7 @@ uniqueValues([
   ...verifiedMainById.keys(),
   ...temporarySideById.keys()
 ], "explicit primary image classifications");
-assert.equal(xBeyPrimaryImageConfig.version, "20260810-x-variant-generated-fronts-4");
+assert.equal(xBeyPrimaryImageConfig.version, "20260810-x-moff-gideon-gear-chip-vivid");
 assert.equal(xBeyAngleCorrectionConfig.version, xBeyPrimaryImageConfig.version);
 assert.equal(xBeyAngleCorrectionConfig.method, "premultiplied-alpha-vertical-affine");
 assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
@@ -790,11 +790,11 @@ const approvedGeneratedFronts = new Map([
   }],
   ["BEY-X-BX-00-MOFF-GIDEON-3-80N", {
     sourceFile: "data/source/x-bey-front-sources/bey-x-bx-00-moff-gideon-3-80n-generated.png",
-    sourceSha256: "80a5fb3677bb0ddecd84b381a01359b6bc882c9d48f559e0559cd5621634304b",
-    processingMethod: "imagegen-plastic-denoise-plus-deterministic-gear-chip-color",
-    generationProvenanceFile: "data/source/x-bey-front-sources/x-variant-generated-fronts-4.json",
+    sourceSha256: "5f20e5ae975044a893ea6a727bc629d636d06597de1d98271450d840ad6f9ea8",
+    processingMethod: "imagegen-low-frequency-color-transfer-plus-deterministic-pure-black-ring",
+    generationProvenanceFile: "data/source/x-bey-front-sources/x-moff-gideon-gear-chip-vivid.json",
     geometryAuthoritySha256: "80a5fb3677bb0ddecd84b381a01359b6bc882c9d48f559e0559cd5621634304b",
-    rawReferenceSha256: "87e33b996f2e647cd88ead75c5c5847968482dfef7133ef0d158ef1bc3c73fe9",
+    rawReferenceSha256: "6bdffb0ac4b57eedd4ec4e662d010ba50c7798b7d056cb5c41e556a0eeced16c",
     styleAuthoritySha256: "b0142adf2c73a42ffc0799242aa0549ff7bdceed812c8fb31272042b2f6f0763",
     imageGenerationUsed: true
   }],
@@ -834,7 +834,8 @@ for (const provenanceFile of [
   "data/source/x-bey-front-sources/x-dran-cobalt-generated-fronts.json",
   "data/source/x-bey-front-sources/x-spider-optimus-generated-fronts.json",
   "data/source/x-bey-front-sources/x-tyranno-quetzal-generated-fronts.json",
-  "data/source/x-bey-front-sources/x-variant-generated-fronts-4.json"
+  "data/source/x-bey-front-sources/x-variant-generated-fronts-4.json",
+  "data/source/x-bey-front-sources/x-moff-gideon-gear-chip-vivid.json"
 ]) {
   const provenance = JSON.parse(await readFile(path.resolve(provenanceFile), "utf8"));
   generatedFrontProvenanceByFile.set(
@@ -1065,7 +1066,7 @@ for (const entry of xBeyPrimaryImageConfig.temporarySideImages) {
 }
 
 const alphaReview = JSON.parse(await readFile(ALPHA_REVIEW_PATH, "utf8"));
-assert.equal(alphaReview.version, "20260810-x-variant-generated-fronts-4");
+assert.equal(alphaReview.version, "20260810-x-moff-gideon-gear-chip-vivid");
 const alphaReviewByImage = new Map(alphaReview.files.map(entry => [entry.image, entry]));
 const normalizedEntries = [
   ...xBeyPrimaryImageConfig.selected,

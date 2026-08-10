@@ -1,5 +1,5 @@
 {
-  "version": "20260810-x-variant-generated-fronts-4",
+  "version": "20260810-x-moff-gideon-gear-chip-vivid",
   "canvasSize": 448,
   "files": [
     {
@@ -1695,7 +1695,7 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-moff-gideon-3-80n/front.webp",
-      "outputSha256": "c81bd4cb121887171b7ff36872a08b54213732471d491f8523c45ec924ef3eb8",
+      "outputSha256": "b2f8cd069592a14b667f581b02f04e23877e2a7dae8f081551a3de554a5a1c0d",
       "alphaLevels": 252,
       "partialPixels": 2442,
       "foregroundPixels": 98545,

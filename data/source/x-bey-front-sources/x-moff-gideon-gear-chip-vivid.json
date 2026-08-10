@@ -1,0 +1,55 @@
+{
+  "version": "20260810-x-moff-gideon-gear-chip-vivid",
+  "toolMode": "built-in ImageGen color reference plus deterministic local frequency transfer and exact black-ring mask; no CLI fallback",
+  "jobs": [
+    {
+      "id": "BEY-X-BX-00-MOFF-GIDEON-3-80N",
+      "targetName": "모프 기디언 3-80N",
+      "parentSourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-moff-gideon-3-80n-generated-v1.png",
+      "parentSourceSha256": "80a5fb3677bb0ddecd84b381a01359b6bc882c9d48f559e0559cd5621634304b",
+      "imagegenReferenceFile": "data/source/x-bey-front-sources/bey-x-bx-00-moff-gideon-3-80n-gear-chip-color-reference.png",
+      "imagegenReferenceSha256": "6bdffb0ac4b57eedd4ec4e662d010ba50c7798b7d056cb5c41e556a0eeced16c",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-moff-gideon-3-80n-generated.png",
+      "sourceSha256": "5f20e5ae975044a893ea6a727bc629d636d06597de1d98271450d840ad6f9ea8",
+      "finalOutputSha256": "b2f8cd069592a14b667f581b02f04e23877e2a7dae8f081551a3de554a5a1c0d",
+      "processingMethod": "imagegen-low-frequency-color-transfer-plus-deterministic-pure-black-ring",
+      "prompt": "Use case: precise-object-edit\nPrimary request: Apply a clean catalog color grade only to the existing circular printed label at the exact center of Image 1. Remove the pale gray cast, deepen the existing black background, and make the existing colors visibly clearer with moderate saturation and local contrast.\nConstraints: Preserve the printed label content pixel-for-pixel in shape and placement. Do not alter, redraw, interpret, add, remove, rotate, resize, mirror, or replace any lines, marks, text, symbols, or imagery. Keep all pixels outside the circular center label unchanged, including the surrounding product, materials, boundaries, silhouette, scale, rotation, and flat green background. This is color and tone adjustment only.",
+      "promptSha256": "de292b45526acbd30ee3d2a10edde9968a9dec9b15a40c159359cd8fdfb8f1d7",
+      "normalization": {
+        "canvas": [448, 448],
+        "targetLongEdge": 360,
+        "resample": "premultiplied-alpha-lanczos",
+        "output": "lossless-webp",
+        "normalizedForegroundBox": [44, 44, 404, 404]
+      },
+      "gearChipEdit": {
+        "center": [223.5, 223.5],
+        "radius": 58,
+        "illustrationRadius": 34.5,
+        "blackRingRadii": [34, 50.5],
+        "imagegenColorMix": 0.3028411865234375,
+        "localContrast": 1.12,
+        "illustrationMeanSaturationGain": 0.2918718457221985,
+        "pureBlackRgb": [0, 0, 0],
+        "pureBlackPixels": 1632,
+        "pureBlackMismatchPixels": 0,
+        "spatialTransform": {
+          "translation": [0, 0],
+          "rotationDegrees": 0,
+          "scale": 1,
+          "warp": false
+        }
+      },
+      "validation": {
+        "outsideGearChipRgbaMismatchPixels": 0,
+        "alphaMismatchPixels": 0,
+        "bbox": [44, 44, 404, 404],
+        "longEdge": 360,
+        "center": [223.5, 223.5],
+        "transparentCorners": true,
+        "greenResidualPixels": 0,
+        "componentCount": 1
+      }
+    }
+  ]
+}

@@ -6,7 +6,7 @@
     {
       "id": "BEY-X-BX-00-MOFF-GIDEON-3-80N",
       "targetName": "모프 기디언 3-80N",
-      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-moff-gideon-3-80n-generated.png",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-moff-gideon-3-80n-generated-v1.png",
       "sourceSha256": "80a5fb3677bb0ddecd84b381a01359b6bc882c9d48f559e0559cd5621634304b",
       "finalOutputSha256": "c81bd4cb121887171b7ff36872a08b54213732471d491f8523c45ec924ef3eb8",
       "processingMethod": "imagegen-plastic-denoise-plus-deterministic-gear-chip-color",
