@@ -93,7 +93,7 @@ uniqueValues([
   ...verifiedMainById.keys(),
   ...temporarySideById.keys()
 ], "explicit primary image classifications");
-assert.equal(xBeyPrimaryImageConfig.version, "20260810-x-moff-gideon-gear-chip-vivid");
+assert.equal(xBeyPrimaryImageConfig.version, "20260810-x-dran-dagger-buster-image-swap");
 assert.equal(xBeyAngleCorrectionConfig.version, xBeyPrimaryImageConfig.version);
 assert.equal(xBeyAngleCorrectionConfig.method, "premultiplied-alpha-vertical-affine");
 assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
@@ -426,12 +426,12 @@ const suppliedFronts = new Map([
     sourceSha256: "eeecd3166e9692224ecab1f75ee2657efa2b377632fe77289d130b1f78b36e01"
   }],
   ["BEY-X-UX-00-DRAN-DAGGER-9-60LF", {
-    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXA02_05@1.png",
-    sourceSha256: "9ef9ce0ba69faa5b95373e1b7f5d0827fc1ad41e572c668b6dba0861bd077726"
-  }],
-  ["BEY-X-UX-00-DRAN-BUSTER-3-70N", {
     sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXA02_09@1.png",
     sourceSha256: "378f19ec51d04465545bf9d341fbfd83adaf97ec6617cf765a8fd155949a51d3"
+  }],
+  ["BEY-X-UX-00-DRAN-BUSTER-3-70N", {
+    sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXA02_05@1.png",
+    sourceSha256: "9ef9ce0ba69faa5b95373e1b7f5d0827fc1ad41e572c668b6dba0861bd077726"
   }],
   ["BEY-X-UX-00-DRAN-BUSTER-1-60A", {
     sourceUrl: "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG31_01@1.png",
@@ -1066,7 +1066,7 @@ for (const entry of xBeyPrimaryImageConfig.temporarySideImages) {
 }
 
 const alphaReview = JSON.parse(await readFile(ALPHA_REVIEW_PATH, "utf8"));
-assert.equal(alphaReview.version, "20260810-x-moff-gideon-gear-chip-vivid");
+assert.equal(alphaReview.version, "20260810-x-dran-dagger-buster-image-swap");
 const alphaReviewByImage = new Map(alphaReview.files.map(entry => [entry.image, entry]));
 const normalizedEntries = [
   ...xBeyPrimaryImageConfig.selected,

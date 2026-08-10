@@ -1106,14 +1106,14 @@ const xImageMappings = [
   {
     "id": "BEY-X-UX-00-DRAN-BUSTER-3-70N",
     "image": "assets/images/x/beys/bey-x-ux-00-dran-buster-3-70n/main.webp",
-    "sourcePath": "02_product_components/065_bxa02/09_BXA02_09@1.png",
-    "sourceSha256": "378f19ec51d04465545bf9d341fbfd83adaf97ec6617cf765a8fd155949a51d3"
+    "sourcePath": "02_product_components/065_bxa02/05_BXA02_05@1.png",
+    "sourceSha256": "9ef9ce0ba69faa5b95373e1b7f5d0827fc1ad41e572c668b6dba0861bd077726"
   },
   {
     "id": "BEY-X-UX-00-DRAN-DAGGER-9-60LF",
     "image": "assets/images/x/beys/bey-x-ux-00-dran-dagger-9-60lf/main.webp",
-    "sourcePath": "02_product_components/065_bxa02/05_BXA02_05@1.png",
-    "sourceSha256": "9ef9ce0ba69faa5b95373e1b7f5d0827fc1ad41e572c668b6dba0861bd077726"
+    "sourcePath": "02_product_components/065_bxa02/09_BXA02_09@1.png",
+    "sourceSha256": "378f19ec51d04465545bf9d341fbfd83adaf97ec6617cf765a8fd155949a51d3"
   },
   {
     "id": "BEY-X-UX-00-DRAN-SWORD-4-80DB",

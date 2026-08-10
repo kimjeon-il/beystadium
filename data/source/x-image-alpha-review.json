@@ -1,5 +1,5 @@
 {
-  "version": "20260810-x-moff-gideon-gear-chip-vivid",
+  "version": "20260810-x-dran-dagger-buster-image-swap",
   "canvasSize": 448,
   "files": [
     {
@@ -12639,40 +12639,40 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-ux-00-dran-buster-3-70n/front.webp",
-      "outputSha256": "55516b4cf802eafbc8705d734437b4dd196c9b154525dee888a0b02f00b04145",
-      "alphaLevels": 255,
-      "partialPixels": 4248,
-      "foregroundPixels": 90384,
+      "outputSha256": "9af7932e9d7080181eaa2fe7e1dab18b72e379a0b2adb1d46187dfacd1001f75",
+      "alphaLevels": 223,
+      "partialPixels": 3623,
+      "foregroundPixels": 92969,
       "bbox": [
-        53,
+        48,
         44,
-        394,
+        399,
         404
       ],
       "margins": [
-        53,
+        48,
         44,
-        54,
+        49,
         44
       ]
     },
     {
       "image": "assets/images/x/beys/bey-x-ux-00-dran-buster-3-70n/main.webp",
-      "outputSha256": "41566bdcafe4a95efcb1337431d5f162e764a3bff507a596c2bf7e7b55705ece",
-      "alphaLevels": 255,
-      "partialPixels": 6026,
-      "foregroundPixels": 96047,
+      "outputSha256": "7ac3685b471ed038b0222b47df1c170064a135c33c7f5ccc695dfe2afaee7ea8",
+      "alphaLevels": 256,
+      "partialPixels": 6853,
+      "foregroundPixels": 92842,
       "bbox": [
         47,
-        36,
-        401,
-        411
+        43,
+        400,
+        404
       ],
       "margins": [
         47,
-        36,
-        47,
-        37
+        43,
+        48,
+        44
       ]
     },
     {
@@ -12696,21 +12696,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-ux-00-dran-buster-3-70n/parts/part-x-blade-dran-buster.webp",
-      "outputSha256": "0951ad2f19af870375db2c2edf0d7f378236fee7a8bc1e2881b30d469534f4ba",
+      "outputSha256": "450f66157acf5eacf2f570b0b951c03313fa917c00659824e0040bb9b31cbbfb",
       "alphaLevels": 256,
-      "partialPixels": 8327,
-      "foregroundPixels": 94145,
+      "partialPixels": 8397,
+      "foregroundPixels": 92733,
       "bbox": [
         45,
-        47,
+        50,
         403,
-        400
+        397
       ],
       "margins": [
         45,
-        47,
+        50,
         45,
-        48
+        51
       ]
     },
     {
@@ -12734,40 +12734,40 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-ux-00-dran-dagger-9-60lf/front.webp",
-      "outputSha256": "9af7932e9d7080181eaa2fe7e1dab18b72e379a0b2adb1d46187dfacd1001f75",
-      "alphaLevels": 223,
-      "partialPixels": 3623,
-      "foregroundPixels": 92969,
+      "outputSha256": "55516b4cf802eafbc8705d734437b4dd196c9b154525dee888a0b02f00b04145",
+      "alphaLevels": 255,
+      "partialPixels": 4248,
+      "foregroundPixels": 90384,
       "bbox": [
-        48,
+        53,
         44,
-        399,
+        394,
         404
       ],
       "margins": [
-        48,
+        53,
         44,
-        49,
+        54,
         44
       ]
     },
     {
       "image": "assets/images/x/beys/bey-x-ux-00-dran-dagger-9-60lf/main.webp",
-      "outputSha256": "7ac3685b471ed038b0222b47df1c170064a135c33c7f5ccc695dfe2afaee7ea8",
-      "alphaLevels": 256,
-      "partialPixels": 6853,
-      "foregroundPixels": 92842,
+      "outputSha256": "41566bdcafe4a95efcb1337431d5f162e764a3bff507a596c2bf7e7b55705ece",
+      "alphaLevels": 255,
+      "partialPixels": 6026,
+      "foregroundPixels": 96047,
       "bbox": [
         47,
-        43,
-        400,
-        404
+        36,
+        401,
+        411
       ],
       "margins": [
         47,
-        43,
-        48,
-        44
+        36,
+        47,
+        37
       ]
     },
     {
@@ -12791,21 +12791,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-ux-00-dran-dagger-9-60lf/parts/part-x-blade-dran-dagger.webp",
-      "outputSha256": "450f66157acf5eacf2f570b0b951c03313fa917c00659824e0040bb9b31cbbfb",
+      "outputSha256": "0951ad2f19af870375db2c2edf0d7f378236fee7a8bc1e2881b30d469534f4ba",
       "alphaLevels": 256,
-      "partialPixels": 8397,
-      "foregroundPixels": 92733,
+      "partialPixels": 8327,
+      "foregroundPixels": 94145,
       "bbox": [
         45,
-        50,
+        47,
         403,
-        397
+        400
       ],
       "margins": [
         45,
-        50,
+        47,
         45,
-        51
+        48
       ]
     },
     {

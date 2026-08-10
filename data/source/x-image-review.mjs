@@ -1280,16 +1280,16 @@ const xImageReview = [
   {
     "id": "BEY-X-UX-00-DRAN-BUSTER-3-70N",
     "image": "assets/images/x/beys/bey-x-ux-00-dran-buster-3-70n/main.webp",
-    "sourcePath": "02_product_components/065_bxa02/09_BXA02_09@1.png",
-    "sourceSha256": "378f19ec51d04465545bf9d341fbfd83adaf97ec6617cf765a8fd155949a51d3",
-    "outputSha256": "41566bdcafe4a95efcb1337431d5f162e764a3bff507a596c2bf7e7b55705ece"
+    "sourcePath": "02_product_components/065_bxa02/05_BXA02_05@1.png",
+    "sourceSha256": "9ef9ce0ba69faa5b95373e1b7f5d0827fc1ad41e572c668b6dba0861bd077726",
+    "outputSha256": "7ac3685b471ed038b0222b47df1c170064a135c33c7f5ccc695dfe2afaee7ea8"
   },
   {
     "id": "BEY-X-UX-00-DRAN-DAGGER-9-60LF",
     "image": "assets/images/x/beys/bey-x-ux-00-dran-dagger-9-60lf/main.webp",
-    "sourcePath": "02_product_components/065_bxa02/05_BXA02_05@1.png",
-    "sourceSha256": "9ef9ce0ba69faa5b95373e1b7f5d0827fc1ad41e572c668b6dba0861bd077726",
-    "outputSha256": "7ac3685b471ed038b0222b47df1c170064a135c33c7f5ccc695dfe2afaee7ea8"
+    "sourcePath": "02_product_components/065_bxa02/09_BXA02_09@1.png",
+    "sourceSha256": "378f19ec51d04465545bf9d341fbfd83adaf97ec6617cf765a8fd155949a51d3",
+    "outputSha256": "41566bdcafe4a95efcb1337431d5f162e764a3bff507a596c2bf7e7b55705ece"
   },
   {
     "id": "BEY-X-UX-00-DRAN-SWORD-4-80DB",
