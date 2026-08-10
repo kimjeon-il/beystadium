@@ -1,5 +1,5 @@
 {
-  "version": "20260810-x-draciel-shield-angle",
+  "version": "20260810-x-nonfront-6-gear-chip-harmony",
   "canvasSize": 448,
   "files": [
     {
@@ -498,21 +498,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-darth-vader-4-60p/front.webp",
-      "outputSha256": "f61c00273d8cab85d39c81d926ab4e8dc34d7f1a62b859afc0ef4334ef94e22f",
-      "alphaLevels": 256,
-      "partialPixels": 10349,
-      "foregroundPixels": 107420,
+      "outputSha256": "f9d1cec355c8fcfd194be7ce4d1e159a4dd1e9b61dae0e21c3990afbb1dfe939",
+      "alphaLevels": 251,
+      "partialPixels": 2696,
+      "foregroundPixels": 97096,
       "bbox": [
         44,
-        32,
+        50,
         404,
-        416
+        397
       ],
       "margins": [
         44,
-        32,
+        50,
         44,
-        32
+        51
       ]
     },
     {
@@ -1049,21 +1049,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-driger-slash-4-80p/front.webp",
-      "outputSha256": "250876c532c119dcdb50befc46b26e90e56af0f86f0799f7cc9cbfaf9e6c5644",
+      "outputSha256": "f9b94223a075c55f3d2309f11e5d1a9f83c98bec47ebff8a7d67939eef4ada44",
       "alphaLevels": 256,
-      "partialPixels": 4496,
-      "foregroundPixels": 106053,
+      "partialPixels": 2534,
+      "foregroundPixels": 95700,
       "bbox": [
-        40,
-        32,
-        407,
-        416
+        48,
+        44,
+        399,
+        404
       ],
       "margins": [
-        40,
-        32,
-        41,
-        32
+        48,
+        44,
+        49,
+        44
       ]
     },
     {
@@ -1505,21 +1505,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-luke-skywalker-4-80b/front.webp",
-      "outputSha256": "1e72b28f3110473ccd986219941fd962511a28ee4343fbb42bbc8322b4170ccb",
-      "alphaLevels": 256,
-      "partialPixels": 8952,
-      "foregroundPixels": 107078,
+      "outputSha256": "72eb269863f2fd53849d75e752cb79048e72e3bd0982f9c2bff0ba28d16310b0",
+      "alphaLevels": 230,
+      "partialPixels": 3097,
+      "foregroundPixels": 94231,
       "bbox": [
-        43,
-        32,
-        404,
-        415
+        52,
+        44,
+        396,
+        404
       ],
       "margins": [
-        43,
-        32,
+        52,
         44,
-        33
+        52,
+        44
       ]
     },
     {
@@ -2474,21 +2474,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-spinosaurus-3-85a/front.webp",
-      "outputSha256": "57d8689f8c10014a6b76be8675fca5db67956e028f063f1d660e6cbf6504a84b",
-      "alphaLevels": 256,
-      "partialPixels": 9457,
-      "foregroundPixels": 100792,
+      "outputSha256": "3fc8496e3e73f719356663715df5cfbf0c0c2c8454fe559eacfb4e65257f082a",
+      "alphaLevels": 242,
+      "partialPixels": 2533,
+      "foregroundPixels": 94716,
       "bbox": [
-        43,
-        37,
-        405,
-        410
+        47,
+        44,
+        401,
+        404
       ],
       "margins": [
-        43,
-        37,
-        43,
-        38
+        47,
+        44,
+        47,
+        44
       ]
     },
     {
@@ -2968,19 +2968,19 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-the-mandalorian-3-60f/front.webp",
-      "outputSha256": "d45153797c4ce96dcc7aa59d54c97e925009dd66f97ba7b684bd5c9d93be5593",
-      "alphaLevels": 256,
-      "partialPixels": 9277,
-      "foregroundPixels": 100853,
+      "outputSha256": "24625a5c2d2d51e08e46611df087bd6043fcc49ce3e4dcd2816e9271517ccc26",
+      "alphaLevels": 251,
+      "partialPixels": 2561,
+      "foregroundPixels": 100167,
       "bbox": [
         44,
-        45,
+        44,
         404,
         403
       ],
       "margins": [
         44,
-        45,
+        44,
         44,
         45
       ]
@@ -3044,21 +3044,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-venom-3-80n/front.webp",
-      "outputSha256": "9a6c7ab1122a1b916fa952eb72c9dc44ac2fe2e20676e2e9a1205cd4239a1f29",
-      "alphaLevels": 256,
-      "partialPixels": 8559,
-      "foregroundPixels": 98798,
+      "outputSha256": "f6c78abf3c42e1d530b8ffaff0fe1821ef288834bbfb0a838ef676bfbc7e1360",
+      "alphaLevels": 241,
+      "partialPixels": 2604,
+      "foregroundPixels": 91716,
       "bbox": [
+        49,
         44,
-        36,
-        403,
-        412
+        399,
+        404
       ],
       "margins": [
+        49,
         44,
-        36,
-        45,
-        36
+        49,
+        44
       ]
     },
     {

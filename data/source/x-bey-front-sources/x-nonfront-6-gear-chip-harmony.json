@@ -1,0 +1,651 @@
+{
+  "version": "20260810-x-nonfront-6-gear-chip-harmony",
+  "toolMode": "existing ImageGen-derived geometry with deterministic local gear-chip RGB harmonization; no new ImageGen or CLI call",
+  "scope": "six final front views; v47 body pixels preserved and gear-chip colors harmonized",
+  "sourceManifest": "tmp/imagegen/x-nonfront-6-gear-chip-harmony-v48/manifest.json",
+  "sourceManifestSha256": "2f246b10cc4d7d2ef9605c51a8b063b44f73b081d6c6d34641e7c42951fd26ff",
+  "jobs": [
+    {
+      "id": "BEY-X-BX-00-DRIGER-SLASH-4-80P",
+      "targetName": "드라이거슬래시 4-80P",
+      "internetId": "BL-PRD-930341-00",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-driger-slash-4-80p-generated.png",
+      "sourceSha256": "ff3a74bcc9c3b7a96355ae0490e2f575c591b51a460ff08ecbc358c17fcb5ff2",
+      "finalOutputSha256": "f9b94223a075c55f3d2309f11e5d1a9f83c98bec47ebff8a7d67939eef4ada44",
+      "processingMethod": "imagegen-base-plus-deterministic-gear-chip-harmony",
+      "rawGeneratedSha256": "ea041b16c03a5070dd96b6b5f6a7fd930299eff09cd69c55e62c379fb071f8e8",
+      "geometryAuthoritySha256": "74c66925c1b30eb653f94c439b2453c337d0311d2df61b000b94442cf1b6a9c2",
+      "styleAuthoritySha256": "9b592570a9f4cc7d2222a5128610e6b09a38434532621c561a25f088805f03bc",
+      "gearChipAuthoritySha256": "b7e898236dc59990f1cca1cc9306bac1491b2ffb9b4659a35a66c13d4135dc53",
+      "normalization": {
+        "canvas": [
+          448,
+          448
+        ],
+        "targetLongEdge": 360,
+        "resample": "premultiplied-alpha-lanczos",
+        "output": "lossless-webp",
+        "normalizedForegroundBox": [
+          48,
+          44,
+          399,
+          404
+        ]
+      },
+      "gearChipColor": {
+        "center": [
+          224.0,
+          224.0
+        ],
+        "radius": 57.0,
+        "method": "same-coordinate HSV chroma/contrast harmonization",
+        "spatialTransform": {
+          "translation": [
+            0,
+            0
+          ],
+          "rotationDegrees": 0,
+          "scale": 1.0,
+          "warp": false
+        },
+        "editablePixels": 10402,
+        "restoredSupportPixels": 3,
+        "changedPixels": 10339,
+        "changedFraction": 0.993943,
+        "saturationGain": 1.08,
+        "contrastGain": 1.16,
+        "blackRingPixels": 37,
+        "whitePrintPixels": 516,
+        "chipSaturationBefore": [
+          0.26068,
+          0.75966,
+          0.99206
+        ],
+        "chipSaturationAfter": [
+          0.2776,
+          0.82043,
+          0.98
+        ],
+        "chipValueBefore": [
+          0.60784,
+          0.86275,
+          0.98431
+        ],
+        "chipValueAfter": [
+          0.57506,
+          0.87686,
+          1.0
+        ],
+        "bodySaturationReference": [
+          0.20833,
+          0.88564,
+          1.0
+        ],
+        "bodyValueReference": [
+          0.07843,
+          0.59216,
+          0.79608
+        ],
+        "maximumHueCoordinateShiftDegrees": 0.0,
+        "outsideMaskRgbaMismatchPixels": 0,
+        "alphaMismatchPixels": 0
+      },
+      "validation": {
+        "bbox": [
+          48,
+          44,
+          399,
+          404
+        ],
+        "longEdge": 360,
+        "center": [
+          223.0,
+          223.5
+        ],
+        "transparentCorners": true,
+        "alphaLevels": 256,
+        "partialPixels": 2534,
+        "greenResidualPixels": 0,
+        "componentCount": 1,
+        "outsideMaskRgbaMismatchPixels": 0,
+        "alphaMismatchPixels": 0,
+        "maximumHueCoordinateShiftDegrees": 0.0
+      }
+    },
+    {
+      "id": "BEY-X-BX-00-VENOM-3-80N",
+      "targetName": "베놈 3-80N",
+      "internetId": "BL-PRD-980858-02",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-venom-3-80n-generated.png",
+      "sourceSha256": "0e8a9e9627baa9a9bb82577289153e497664ab97c7499b692e80053449122710",
+      "finalOutputSha256": "f6c78abf3c42e1d530b8ffaff0fe1821ef288834bbfb0a838ef676bfbc7e1360",
+      "processingMethod": "imagegen-base-plus-deterministic-gear-chip-harmony",
+      "rawGeneratedSha256": "d468b2d9fc4dcf6fff2b74f8b931f7ec68ff3647959d04d6d4f2b5279b9def05",
+      "geometryAuthoritySha256": "8b2e13bdf4fede78f2a81adbeb22fa9aad93d62edf4f827a491309378148bfaf",
+      "styleAuthoritySha256": "8eb4f0562ce4f436e639eef2dc64b5e5668eda605599929d7251a63be29ba308",
+      "gearChipAuthoritySha256": "3b0316a8ad4b91f64144b7c3da580426f13054268c15283a69748a7ff2e74f1a",
+      "normalization": {
+        "canvas": [
+          448,
+          448
+        ],
+        "targetLongEdge": 360,
+        "resample": "premultiplied-alpha-lanczos",
+        "output": "lossless-webp",
+        "normalizedForegroundBox": [
+          49,
+          44,
+          399,
+          404
+        ]
+      },
+      "gearChipColor": {
+        "center": [
+          224.0,
+          221.0
+        ],
+        "radius": 64.0,
+        "method": "same-coordinate HSV chroma/contrast harmonization",
+        "spatialTransform": {
+          "translation": [
+            0,
+            0
+          ],
+          "rotationDegrees": 0,
+          "scale": 1.0,
+          "warp": false
+        },
+        "editablePixels": 12998,
+        "restoredSupportPixels": 87,
+        "changedPixels": 12660,
+        "changedFraction": 0.973996,
+        "saturationGain": 1.55,
+        "contrastGain": 1.16,
+        "blackRingPixels": 177,
+        "whitePrintPixels": 654,
+        "chipSaturationBefore": [
+          0.13821,
+          0.19672,
+          0.2963
+        ],
+        "chipSaturationAfter": [
+          0.2,
+          0.3,
+          0.45926
+        ],
+        "chipValueBefore": [
+          0.43922,
+          0.4902,
+          0.73333
+        ],
+        "chipValueAfter": [
+          0.43906,
+          0.4982,
+          0.77082
+        ],
+        "bodySaturationReference": [
+          0.22222,
+          0.41176,
+          1.0
+        ],
+        "bodyValueReference": [
+          0.03922,
+          0.16471,
+          0.70588
+        ],
+        "maximumHueCoordinateShiftDegrees": 0.0,
+        "outsideMaskRgbaMismatchPixels": 0,
+        "alphaMismatchPixels": 0
+      },
+      "validation": {
+        "bbox": [
+          49,
+          44,
+          399,
+          404
+        ],
+        "longEdge": 360,
+        "center": [
+          223.5,
+          223.5
+        ],
+        "transparentCorners": true,
+        "alphaLevels": 241,
+        "partialPixels": 2604,
+        "greenResidualPixels": 0,
+        "componentCount": 1,
+        "outsideMaskRgbaMismatchPixels": 0,
+        "alphaMismatchPixels": 0,
+        "maximumHueCoordinateShiftDegrees": 0.0
+      }
+    },
+    {
+      "id": "BEY-X-BX-00-LUKE-SKYWALKER-4-80B",
+      "targetName": "루크 스카이워커 4-80B",
+      "internetId": "BL-PRD-982340-01",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-luke-skywalker-4-80b-generated.png",
+      "sourceSha256": "2fc9b619352bd0a04f0c564d42b62f228ee2e854167a7fc18891281920a80b6b",
+      "finalOutputSha256": "72eb269863f2fd53849d75e752cb79048e72e3bd0982f9c2bff0ba28d16310b0",
+      "processingMethod": "imagegen-base-plus-deterministic-gear-chip-harmony",
+      "rawGeneratedSha256": "0f07f64e907c81d471abdc4963bad225241f9aca2e97a9141da5b11dde9282a3",
+      "geometryAuthoritySha256": "902e28f9b042fe929afa0790bc82705fa21adae0a9273f77bceb7e924203d6bd",
+      "styleAuthoritySha256": "173211dc38db5e4829ddeac6913030988df70f166e6201b25a4821bf1c7a63aa",
+      "gearChipAuthoritySha256": "bbc257fddf83a9fc2067d7bf935505036f2399a854671929e3c3c49b08029203",
+      "normalization": {
+        "canvas": [
+          448,
+          448
+        ],
+        "targetLongEdge": 360,
+        "resample": "premultiplied-alpha-lanczos",
+        "output": "lossless-webp",
+        "normalizedForegroundBox": [
+          52,
+          44,
+          396,
+          404
+        ]
+      },
+      "gearChipColor": {
+        "center": [
+          223.0,
+          225.0
+        ],
+        "radius": 64.0,
+        "method": "same-coordinate HSV chroma/contrast harmonization",
+        "spatialTransform": {
+          "translation": [
+            0,
+            0
+          ],
+          "rotationDegrees": 0,
+          "scale": 1.0,
+          "warp": false
+        },
+        "editablePixels": 12838,
+        "restoredSupportPixels": 247,
+        "changedPixels": 12792,
+        "changedFraction": 0.996417,
+        "saturationGain": 1.55,
+        "contrastGain": 1.16,
+        "blackRingPixels": 2522,
+        "whitePrintPixels": 153,
+        "chipSaturationBefore": [
+          0.16129,
+          0.26046,
+          0.33673
+        ],
+        "chipSaturationAfter": [
+          0.055,
+          0.35117,
+          0.52194
+        ],
+        "chipValueBefore": [
+          0.35686,
+          0.46275,
+          0.67059
+        ],
+        "chipValueAfter": [
+          0.27106,
+          0.47075,
+          0.71184
+        ],
+        "bodySaturationReference": [
+          0.59184,
+          0.89706,
+          1.0
+        ],
+        "bodyValueReference": [
+          0.17647,
+          0.47059,
+          0.8549
+        ],
+        "maximumHueCoordinateShiftDegrees": 0.0,
+        "outsideMaskRgbaMismatchPixels": 0,
+        "alphaMismatchPixels": 0
+      },
+      "validation": {
+        "bbox": [
+          52,
+          44,
+          396,
+          404
+        ],
+        "longEdge": 360,
+        "center": [
+          223.5,
+          223.5
+        ],
+        "transparentCorners": true,
+        "alphaLevels": 230,
+        "partialPixels": 3097,
+        "greenResidualPixels": 0,
+        "componentCount": 1,
+        "outsideMaskRgbaMismatchPixels": 0,
+        "alphaMismatchPixels": 0,
+        "maximumHueCoordinateShiftDegrees": 0.0
+      }
+    },
+    {
+      "id": "BEY-X-BX-00-DARTH-VADER-4-60P",
+      "targetName": "다스 베이더 4-60P",
+      "internetId": "BL-PRD-982340-02",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-darth-vader-4-60p-generated.png",
+      "sourceSha256": "2f41414e05b1ba330a5ab6e18edf7422f32364a55ad3cc369d0a45ecfaceb74b",
+      "finalOutputSha256": "f9d1cec355c8fcfd194be7ce4d1e159a4dd1e9b61dae0e21c3990afbb1dfe939",
+      "processingMethod": "imagegen-base-plus-deterministic-gear-chip-harmony",
+      "rawGeneratedSha256": "f9a8b72de0c39b5bdf9eb9008b1705f148d57d8b176490b56104b023a205e071",
+      "geometryAuthoritySha256": "2fe76b1ffa4064f32d2134272519a3ddccccad0a029c66634aaa8154ef667dab",
+      "styleAuthoritySha256": "2fa0990fc1f4f9fddd7352d8dcdbfd9003f07caa5524cba8a46a27ec85f7a85e",
+      "gearChipAuthoritySha256": "6bff829f1feaeb3463224611f956fdf4e72c83fe2e7efa1ae0ce5ea86632393d",
+      "normalization": {
+        "canvas": [
+          448,
+          448
+        ],
+        "targetLongEdge": 360,
+        "resample": "premultiplied-alpha-lanczos",
+        "output": "lossless-webp",
+        "normalizedForegroundBox": [
+          44,
+          50,
+          404,
+          397
+        ]
+      },
+      "gearChipColor": {
+        "center": [
+          223.0,
+          229.0
+        ],
+        "radius": 64.0,
+        "method": "same-coordinate HSV chroma/contrast harmonization",
+        "spatialTransform": {
+          "translation": [
+            0,
+            0
+          ],
+          "rotationDegrees": 0,
+          "scale": 1.0,
+          "warp": false
+        },
+        "editablePixels": 12792,
+        "restoredSupportPixels": 293,
+        "changedPixels": 12767,
+        "changedFraction": 0.998046,
+        "saturationGain": 1.55,
+        "contrastGain": 1.16,
+        "blackRingPixels": 2986,
+        "whitePrintPixels": 193,
+        "chipSaturationBefore": [
+          0.14729,
+          0.20721,
+          0.34942
+        ],
+        "chipSaturationAfter": [
+          0.055,
+          0.26724,
+          0.5416
+        ],
+        "chipValueBefore": [
+          0.37255,
+          0.44706,
+          0.62745
+        ],
+        "chipValueAfter": [
+          0.27106,
+          0.45506,
+          0.66431
+        ],
+        "bodySaturationReference": [
+          0.64286,
+          0.89919,
+          1.0
+        ],
+        "bodyValueReference": [
+          0.24314,
+          0.54902,
+          0.88235
+        ],
+        "maximumHueCoordinateShiftDegrees": 0.0,
+        "outsideMaskRgbaMismatchPixels": 0,
+        "alphaMismatchPixels": 0
+      },
+      "validation": {
+        "bbox": [
+          44,
+          50,
+          404,
+          397
+        ],
+        "longEdge": 360,
+        "center": [
+          223.5,
+          223.0
+        ],
+        "transparentCorners": true,
+        "alphaLevels": 251,
+        "partialPixels": 2696,
+        "greenResidualPixels": 0,
+        "componentCount": 1,
+        "outsideMaskRgbaMismatchPixels": 0,
+        "alphaMismatchPixels": 0,
+        "maximumHueCoordinateShiftDegrees": 0.0
+      }
+    },
+    {
+      "id": "BEY-X-BX-00-THE-MANDALORIAN-3-60F",
+      "targetName": "만달로리안 3-60F",
+      "internetId": "BL-PRD-982357-01",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-the-mandalorian-3-60f-generated.png",
+      "sourceSha256": "10682c91c6c17c01fa9d0de3023cb17fa0823c499853841ddb7b6d48b6d7960b",
+      "finalOutputSha256": "24625a5c2d2d51e08e46611df087bd6043fcc49ce3e4dcd2816e9271517ccc26",
+      "processingMethod": "imagegen-base-plus-deterministic-gear-chip-harmony",
+      "rawGeneratedSha256": "24e143c8eb7d8b82b522b510d74695ab66d70dc5e63085d88dfbee386a32b411",
+      "geometryAuthoritySha256": "c7e62a53cffa2187f3a6624e7fec3676e0067de2021f644d2041574171e5bf38",
+      "styleAuthoritySha256": "c70f97a620a26df4476ccd49e015748aa155bc4e0e861d90841ca31732c602b3",
+      "gearChipAuthoritySha256": "2f2b7fcfd55d8b4732cc8edb0f2b2407406f54007b7766ed8373988931fadbb7",
+      "normalization": {
+        "canvas": [
+          448,
+          448
+        ],
+        "targetLongEdge": 360,
+        "resample": "premultiplied-alpha-lanczos",
+        "output": "lossless-webp",
+        "normalizedForegroundBox": [
+          44,
+          44,
+          404,
+          403
+        ]
+      },
+      "gearChipColor": {
+        "center": [
+          223.0,
+          225.0
+        ],
+        "radius": 64.0,
+        "method": "same-coordinate HSV chroma/contrast harmonization",
+        "spatialTransform": {
+          "translation": [
+            0,
+            0
+          ],
+          "rotationDegrees": 0,
+          "scale": 1.0,
+          "warp": false
+        },
+        "editablePixels": 12907,
+        "restoredSupportPixels": 178,
+        "changedPixels": 12528,
+        "changedFraction": 0.970636,
+        "saturationGain": 1.55,
+        "contrastGain": 1.16,
+        "blackRingPixels": 2680,
+        "whitePrintPixels": 120,
+        "chipSaturationBefore": [
+          0.12844,
+          0.16495,
+          0.20968
+        ],
+        "chipSaturationAfter": [
+          0.05147,
+          0.20575,
+          0.31
+        ],
+        "chipValueBefore": [
+          0.38431,
+          0.48627,
+          0.61569
+        ],
+        "chipValueAfter": [
+          0.27953,
+          0.49427,
+          0.64439
+        ],
+        "bodySaturationReference": [
+          0.52632,
+          0.89362,
+          1.0
+        ],
+        "bodyValueReference": [
+          0.15686,
+          0.43529,
+          0.8549
+        ],
+        "maximumHueCoordinateShiftDegrees": 0.0,
+        "outsideMaskRgbaMismatchPixels": 0,
+        "alphaMismatchPixels": 0
+      },
+      "validation": {
+        "bbox": [
+          44,
+          44,
+          404,
+          403
+        ],
+        "longEdge": 360,
+        "center": [
+          223.5,
+          223.0
+        ],
+        "transparentCorners": true,
+        "alphaLevels": 251,
+        "partialPixels": 2561,
+        "greenResidualPixels": 0,
+        "componentCount": 1,
+        "outsideMaskRgbaMismatchPixels": 0,
+        "alphaMismatchPixels": 0,
+        "maximumHueCoordinateShiftDegrees": 0.0
+      }
+    },
+    {
+      "id": "BEY-X-BX-00-SPINOSAURUS-3-85A",
+      "targetName": "스피노사우루스 3-85A",
+      "internetId": "BL-PRD-989002-01",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-spinosaurus-3-85a-generated.png",
+      "sourceSha256": "823481fe80d28e237082304bf28bd1b379887af720c5ebb41a00fb4b75a42138",
+      "finalOutputSha256": "3fc8496e3e73f719356663715df5cfbf0c0c2c8454fe559eacfb4e65257f082a",
+      "processingMethod": "imagegen-base-plus-deterministic-gear-chip-harmony",
+      "rawGeneratedSha256": "b00e0ce20ff9a8f8a2337541778fc77c4953ff8955200b09054b6ff443b136e0",
+      "geometryAuthoritySha256": "03ede1f2a3a794b26d32b33dd422fb534def00174b0d93baa8693aa130a562a8",
+      "styleAuthoritySha256": "1656c31d82bf7b556f04a63447a4131259ba5eecd0e70744da7ca922b561ebf1",
+      "gearChipAuthoritySha256": "90d7525dcfb01b0f914e5b8f788731ef8f461f274be1f9779526fb7417a77109",
+      "normalization": {
+        "canvas": [
+          448,
+          448
+        ],
+        "targetLongEdge": 360,
+        "resample": "premultiplied-alpha-lanczos",
+        "output": "lossless-webp",
+        "normalizedForegroundBox": [
+          47,
+          44,
+          401,
+          404
+        ]
+      },
+      "gearChipColor": {
+        "center": [
+          226.0,
+          225.0
+        ],
+        "radius": 66.0,
+        "method": "same-coordinate HSV chroma/contrast harmonization",
+        "spatialTransform": {
+          "translation": [
+            0,
+            0
+          ],
+          "rotationDegrees": 0,
+          "scale": 1.0,
+          "warp": false
+        },
+        "editablePixels": 13776,
+        "restoredSupportPixels": 133,
+        "changedPixels": 13363,
+        "changedFraction": 0.97002,
+        "saturationGain": 1.55,
+        "contrastGain": 1.16,
+        "blackRingPixels": 488,
+        "whitePrintPixels": 690,
+        "chipSaturationBefore": [
+          0.14184,
+          0.24044,
+          0.36315
+        ],
+        "chipSaturationAfter": [
+          0.19891,
+          0.35874,
+          0.56288
+        ],
+        "chipValueBefore": [
+          0.43137,
+          0.53725,
+          0.73725
+        ],
+        "chipValueAfter": [
+          0.42243,
+          0.54525,
+          0.77082
+        ],
+        "bodySaturationReference": [
+          0.61111,
+          0.82828,
+          1.0
+        ],
+        "bodyValueReference": [
+          0.16078,
+          0.48627,
+          0.8902
+        ],
+        "maximumHueCoordinateShiftDegrees": 0.0,
+        "outsideMaskRgbaMismatchPixels": 0,
+        "alphaMismatchPixels": 0
+      },
+      "validation": {
+        "bbox": [
+          47,
+          44,
+          401,
+          404
+        ],
+        "longEdge": 360,
+        "center": [
+          223.5,
+          223.5
+        ],
+        "transparentCorners": true,
+        "alphaLevels": 242,
+        "partialPixels": 2533,
+        "greenResidualPixels": 0,
+        "componentCount": 1,
+        "outsideMaskRgbaMismatchPixels": 0,
+        "alphaMismatchPixels": 0,
+        "maximumHueCoordinateShiftDegrees": 0.0
+      }
+    }
+  ]
+}

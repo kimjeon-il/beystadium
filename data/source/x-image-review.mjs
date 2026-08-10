@@ -39,10 +39,13 @@ const xImageReview = [
   },
   {
     "id": "BEY-X-BX-00-DARTH-VADER-4-60P",
-    "image": "assets/images/x/beys/bey-x-bx-00-darth-vader-4-60p/main.webp",
-    "sourcePath": "02_product_components/090_bx00-sld/06_BXG33_06@1.png",
-    "sourceSha256": "528a7975a123d05ce66c99e745eeb11612b58d6ff0f11317eb7a89cb823e56a9",
-    "outputSha256": "598b315e4a33a3f4913a2b8ab2cc598d424031ff683c59ceb65ab9a095309a2b"
+    "image": "assets/images/x/beys/bey-x-bx-00-darth-vader-4-60p/front.webp",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-darth-vader-4-60p-generated.png",
+    "sourceSha256": "2f41414e05b1ba330a5ab6e18edf7422f32364a55ad3cc369d0a45ecfaceb74b",
+    "outputSha256": "f9d1cec355c8fcfd194be7ce4d1e159a4dd1e9b61dae0e21c3990afbb1dfe939",
+    "sourceKind": "user-approved-generated-front",
+    "normalizationInput": "source-file",
+    "preserveSourcePixels": true
   },
   {
     "id": "BEY-X-BX-00-DRACIEL-SHIELD-7-60D",
@@ -108,10 +111,13 @@ const xImageReview = [
   },
   {
     "id": "BEY-X-BX-00-DRIGER-SLASH-4-80P",
-    "image": "assets/images/x/beys/bey-x-bx-00-driger-slash-4-80p/main.webp",
-    "sourcePath": "02_product_components/040_bx00-drs/01_BXG04_01@1.png",
-    "sourceSha256": "ed7242bead9711e97d6efe32d26ef19bfa2df7ce978117cca788d7002cfc3c77",
-    "outputSha256": "39510fb47eb8069b7dbe3dfb9668ebd6bfdf5c5c4863ee37f2f779f31d390f0b"
+    "image": "assets/images/x/beys/bey-x-bx-00-driger-slash-4-80p/front.webp",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-driger-slash-4-80p-generated.png",
+    "sourceSha256": "ff3a74bcc9c3b7a96355ae0490e2f575c591b51a460ff08ecbc358c17fcb5ff2",
+    "outputSha256": "f9b94223a075c55f3d2309f11e5d1a9f83c98bec47ebff8a7d67939eef4ada44",
+    "sourceKind": "user-approved-generated-front",
+    "normalizationInput": "source-file",
+    "preserveSourcePixels": true
   },
   {
     "id": "BEY-X-BX-00-HELLS-CHAIN-5-60HT",
@@ -146,10 +152,13 @@ const xImageReview = [
   },
   {
     "id": "BEY-X-BX-00-LUKE-SKYWALKER-4-80B",
-    "image": "assets/images/x/beys/bey-x-bx-00-luke-skywalker-4-80b/main.webp",
-    "sourcePath": "02_product_components/090_bx00-sld/03_BXG33_03@1.png",
-    "sourceSha256": "6d9ac26f5f9559356587399cd68528b33b5b0175c20da154be4861086eef79b4",
-    "outputSha256": "5fe22fcf62dbe66f16a6bcffb0a044fa569a9cb3f01f56029c82f830551be4fb"
+    "image": "assets/images/x/beys/bey-x-bx-00-luke-skywalker-4-80b/front.webp",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-luke-skywalker-4-80b-generated.png",
+    "sourceSha256": "2fc9b619352bd0a04f0c564d42b62f228ee2e854167a7fc18891281920a80b6b",
+    "outputSha256": "72eb269863f2fd53849d75e752cb79048e72e3bd0982f9c2bff0ba28d16310b0",
+    "sourceKind": "user-approved-generated-front",
+    "normalizationInput": "source-file",
+    "preserveSourcePixels": true
   },
   {
     "id": "BEY-X-BX-00-MAMMOTH-TUSK-2-80E",
@@ -262,10 +271,13 @@ const xImageReview = [
   },
   {
     "id": "BEY-X-BX-00-SPINOSAURUS-3-85A",
-    "image": "assets/images/x/beys/bey-x-bx-00-spinosaurus-3-85a/main.webp",
-    "sourcePath": "02_product_components/101_bx00-jsq/03_BXG41_03@1.png",
-    "sourceSha256": "2b79ce99c39e85d1ee5e77b30693c1bd932e523cc9ad2a024c98ee2b85c4f07c",
-    "outputSha256": "492980f3daeeedae2e6e1438eea902d2631cff9ca270710432bfb91beaec2ed1"
+    "image": "assets/images/x/beys/bey-x-bx-00-spinosaurus-3-85a/front.webp",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-spinosaurus-3-85a-generated.png",
+    "sourceSha256": "823481fe80d28e237082304bf28bd1b379887af720c5ebb41a00fb4b75a42138",
+    "outputSha256": "3fc8496e3e73f719356663715df5cfbf0c0c2c8454fe559eacfb4e65257f082a",
+    "sourceKind": "user-approved-generated-front",
+    "normalizationInput": "source-file",
+    "preserveSourcePixels": true
   },
   {
     "id": "BEY-X-BX-00-STARSCREAM-3-80N",
@@ -310,17 +322,23 @@ const xImageReview = [
   },
   {
     "id": "BEY-X-BX-00-THE-MANDALORIAN-3-60F",
-    "image": "assets/images/x/beys/bey-x-bx-00-the-mandalorian-3-60f/main.webp",
-    "sourcePath": "02_product_components/091_bx00-smm/03_BXG34_03@1.png",
-    "sourceSha256": "3e2169a73f49ec70a64bb0e7f1c182cbbace1fa9c34e94c79bb66e235c2ee659",
-    "outputSha256": "58d9acb62ccb52b819bc74f5c2193e89fdadb6b8f4f0155c6ef419d33e27e4fe"
+    "image": "assets/images/x/beys/bey-x-bx-00-the-mandalorian-3-60f/front.webp",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-the-mandalorian-3-60f-generated.png",
+    "sourceSha256": "10682c91c6c17c01fa9d0de3023cb17fa0823c499853841ddb7b6d48b6d7960b",
+    "outputSha256": "24625a5c2d2d51e08e46611df087bd6043fcc49ce3e4dcd2816e9271517ccc26",
+    "sourceKind": "user-approved-generated-front",
+    "normalizationInput": "source-file",
+    "preserveSourcePixels": true
   },
   {
     "id": "BEY-X-BX-00-VENOM-3-80N",
-    "image": "assets/images/x/beys/bey-x-bx-00-venom-3-80n/main.webp",
-    "sourcePath": "02_product_components/089_bx00-msv/06_BXG30_06@1.png",
-    "sourceSha256": "a15ec183d5cf1eaf98e55566fbcc80ad056c39f35d36838abb7d7507c98d1a7f",
-    "outputSha256": "69e8d64a8cc6335262af96bda221e1b27aa0b0b9c1727a3eccb5ff28f6d7fc53"
+    "image": "assets/images/x/beys/bey-x-bx-00-venom-3-80n/front.webp",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-venom-3-80n-generated.png",
+    "sourceSha256": "0e8a9e9627baa9a9bb82577289153e497664ab97c7499b692e80053449122710",
+    "outputSha256": "f6c78abf3c42e1d530b8ffaff0fe1821ef288834bbfb0a838ef676bfbc7e1360",
+    "sourceKind": "user-approved-generated-front",
+    "normalizationInput": "source-file",
+    "preserveSourcePixels": true
   },
   {
     "id": "BEY-X-BX-00-VICTORY-VALKYRIE-2-60RA",

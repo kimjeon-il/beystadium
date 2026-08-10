@@ -16,7 +16,7 @@ from PIL import Image
 
 CONFIG_PATH = Path("data/source/x-bey-primary-images.json")
 ANGLE_CONFIG_PATH = Path("data/source/x-bey-angle-corrections.json")
-CONFIG_VERSION = "20260810-x-draciel-shield-angle"
+CONFIG_VERSION = "20260810-x-nonfront-6-gear-chip-harmony"
 CANVAS_SIZE = 448
 TARGET_FOREGROUND_SIZE = 360
 ALPHA_THRESHOLD = 3
@@ -152,8 +152,8 @@ def main() -> int:
     validate_policy(config)
 
     entries = config_entries(config)
-    if len(entries) != 214:
-        raise ValueError(f"expected 214 front-view Beys, found {len(entries)}")
+    if len(entries) != 220:
+        raise ValueError(f"expected 220 front-view Beys, found {len(entries)}")
     ids = [entry["id"] for entry in entries]
     paths = [entry["image"] for entry in entries]
     if len(set(ids)) != len(ids) or len(set(paths)) != len(paths):

@@ -1,5 +1,5 @@
 {
-  "version": "20260810-x-draciel-shield-angle",
+  "version": "20260810-x-nonfront-6-gear-chip-harmony",
   "sourceRoot": "",
   "policy": [
     "official-angle-corrected",
@@ -2919,6 +2919,150 @@
         44,
         44,
         403,
+        404
+      ]
+    },
+    {
+      "id": "BEY-X-BX-00-DRIGER-SLASH-4-80P",
+      "image": "assets/images/x/beys/bey-x-bx-00-driger-slash-4-80p/front.webp",
+      "sourceKind": "user-approved-generated-front",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-driger-slash-4-80p-generated.png",
+      "sourceSha256": "ff3a74bcc9c3b7a96355ae0490e2f575c591b51a460ff08ecbc358c17fcb5ff2",
+      "normalizationInput": "source-file",
+      "preserveSourcePixels": true,
+      "processingMethod": "imagegen-base-plus-deterministic-gear-chip-harmony",
+      "generationProvenanceFile": "data/source/x-bey-front-sources/x-nonfront-6-gear-chip-harmony.json",
+      "geometryAuthoritySha256": "74c66925c1b30eb653f94c439b2453c337d0311d2df61b000b94442cf1b6a9c2",
+      "rawReferenceSha256": "ea041b16c03a5070dd96b6b5f6a7fd930299eff09cd69c55e62c379fb071f8e8",
+      "styleAuthoritySha256": "9b592570a9f4cc7d2222a5128610e6b09a38434532621c561a25f088805f03bc",
+      "gearChipAuthoritySha256": "b7e898236dc59990f1cca1cc9306bac1491b2ffb9b4659a35a66c13d4135dc53",
+      "imageGenerationUsed": true,
+      "preNormalizationSha256": "ff3a74bcc9c3b7a96355ae0490e2f575c591b51a460ff08ecbc358c17fcb5ff2",
+      "outputSha256": "f9b94223a075c55f3d2309f11e5d1a9f83c98bec47ebff8a7d67939eef4ada44",
+      "normalizedForegroundBox": [
+        48,
+        44,
+        399,
+        404
+      ]
+    },
+    {
+      "id": "BEY-X-BX-00-VENOM-3-80N",
+      "image": "assets/images/x/beys/bey-x-bx-00-venom-3-80n/front.webp",
+      "sourceKind": "user-approved-generated-front",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-venom-3-80n-generated.png",
+      "sourceSha256": "0e8a9e9627baa9a9bb82577289153e497664ab97c7499b692e80053449122710",
+      "normalizationInput": "source-file",
+      "preserveSourcePixels": true,
+      "processingMethod": "imagegen-base-plus-deterministic-gear-chip-harmony",
+      "generationProvenanceFile": "data/source/x-bey-front-sources/x-nonfront-6-gear-chip-harmony.json",
+      "geometryAuthoritySha256": "8b2e13bdf4fede78f2a81adbeb22fa9aad93d62edf4f827a491309378148bfaf",
+      "rawReferenceSha256": "d468b2d9fc4dcf6fff2b74f8b931f7ec68ff3647959d04d6d4f2b5279b9def05",
+      "styleAuthoritySha256": "8eb4f0562ce4f436e639eef2dc64b5e5668eda605599929d7251a63be29ba308",
+      "gearChipAuthoritySha256": "3b0316a8ad4b91f64144b7c3da580426f13054268c15283a69748a7ff2e74f1a",
+      "imageGenerationUsed": true,
+      "preNormalizationSha256": "0e8a9e9627baa9a9bb82577289153e497664ab97c7499b692e80053449122710",
+      "outputSha256": "f6c78abf3c42e1d530b8ffaff0fe1821ef288834bbfb0a838ef676bfbc7e1360",
+      "normalizedForegroundBox": [
+        49,
+        44,
+        399,
+        404
+      ]
+    },
+    {
+      "id": "BEY-X-BX-00-LUKE-SKYWALKER-4-80B",
+      "image": "assets/images/x/beys/bey-x-bx-00-luke-skywalker-4-80b/front.webp",
+      "sourceKind": "user-approved-generated-front",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-luke-skywalker-4-80b-generated.png",
+      "sourceSha256": "2fc9b619352bd0a04f0c564d42b62f228ee2e854167a7fc18891281920a80b6b",
+      "normalizationInput": "source-file",
+      "preserveSourcePixels": true,
+      "processingMethod": "imagegen-base-plus-deterministic-gear-chip-harmony",
+      "generationProvenanceFile": "data/source/x-bey-front-sources/x-nonfront-6-gear-chip-harmony.json",
+      "geometryAuthoritySha256": "902e28f9b042fe929afa0790bc82705fa21adae0a9273f77bceb7e924203d6bd",
+      "rawReferenceSha256": "0f07f64e907c81d471abdc4963bad225241f9aca2e97a9141da5b11dde9282a3",
+      "styleAuthoritySha256": "173211dc38db5e4829ddeac6913030988df70f166e6201b25a4821bf1c7a63aa",
+      "gearChipAuthoritySha256": "bbc257fddf83a9fc2067d7bf935505036f2399a854671929e3c3c49b08029203",
+      "imageGenerationUsed": true,
+      "preNormalizationSha256": "2fc9b619352bd0a04f0c564d42b62f228ee2e854167a7fc18891281920a80b6b",
+      "outputSha256": "72eb269863f2fd53849d75e752cb79048e72e3bd0982f9c2bff0ba28d16310b0",
+      "normalizedForegroundBox": [
+        52,
+        44,
+        396,
+        404
+      ]
+    },
+    {
+      "id": "BEY-X-BX-00-DARTH-VADER-4-60P",
+      "image": "assets/images/x/beys/bey-x-bx-00-darth-vader-4-60p/front.webp",
+      "sourceKind": "user-approved-generated-front",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-darth-vader-4-60p-generated.png",
+      "sourceSha256": "2f41414e05b1ba330a5ab6e18edf7422f32364a55ad3cc369d0a45ecfaceb74b",
+      "normalizationInput": "source-file",
+      "preserveSourcePixels": true,
+      "processingMethod": "imagegen-base-plus-deterministic-gear-chip-harmony",
+      "generationProvenanceFile": "data/source/x-bey-front-sources/x-nonfront-6-gear-chip-harmony.json",
+      "geometryAuthoritySha256": "2fe76b1ffa4064f32d2134272519a3ddccccad0a029c66634aaa8154ef667dab",
+      "rawReferenceSha256": "f9a8b72de0c39b5bdf9eb9008b1705f148d57d8b176490b56104b023a205e071",
+      "styleAuthoritySha256": "2fa0990fc1f4f9fddd7352d8dcdbfd9003f07caa5524cba8a46a27ec85f7a85e",
+      "gearChipAuthoritySha256": "6bff829f1feaeb3463224611f956fdf4e72c83fe2e7efa1ae0ce5ea86632393d",
+      "imageGenerationUsed": true,
+      "preNormalizationSha256": "2f41414e05b1ba330a5ab6e18edf7422f32364a55ad3cc369d0a45ecfaceb74b",
+      "outputSha256": "f9d1cec355c8fcfd194be7ce4d1e159a4dd1e9b61dae0e21c3990afbb1dfe939",
+      "normalizedForegroundBox": [
+        44,
+        50,
+        404,
+        397
+      ]
+    },
+    {
+      "id": "BEY-X-BX-00-THE-MANDALORIAN-3-60F",
+      "image": "assets/images/x/beys/bey-x-bx-00-the-mandalorian-3-60f/front.webp",
+      "sourceKind": "user-approved-generated-front",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-the-mandalorian-3-60f-generated.png",
+      "sourceSha256": "10682c91c6c17c01fa9d0de3023cb17fa0823c499853841ddb7b6d48b6d7960b",
+      "normalizationInput": "source-file",
+      "preserveSourcePixels": true,
+      "processingMethod": "imagegen-base-plus-deterministic-gear-chip-harmony",
+      "generationProvenanceFile": "data/source/x-bey-front-sources/x-nonfront-6-gear-chip-harmony.json",
+      "geometryAuthoritySha256": "c7e62a53cffa2187f3a6624e7fec3676e0067de2021f644d2041574171e5bf38",
+      "rawReferenceSha256": "24e143c8eb7d8b82b522b510d74695ab66d70dc5e63085d88dfbee386a32b411",
+      "styleAuthoritySha256": "c70f97a620a26df4476ccd49e015748aa155bc4e0e861d90841ca31732c602b3",
+      "gearChipAuthoritySha256": "2f2b7fcfd55d8b4732cc8edb0f2b2407406f54007b7766ed8373988931fadbb7",
+      "imageGenerationUsed": true,
+      "preNormalizationSha256": "10682c91c6c17c01fa9d0de3023cb17fa0823c499853841ddb7b6d48b6d7960b",
+      "outputSha256": "24625a5c2d2d51e08e46611df087bd6043fcc49ce3e4dcd2816e9271517ccc26",
+      "normalizedForegroundBox": [
+        44,
+        44,
+        404,
+        403
+      ]
+    },
+    {
+      "id": "BEY-X-BX-00-SPINOSAURUS-3-85A",
+      "image": "assets/images/x/beys/bey-x-bx-00-spinosaurus-3-85a/front.webp",
+      "sourceKind": "user-approved-generated-front",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-spinosaurus-3-85a-generated.png",
+      "sourceSha256": "823481fe80d28e237082304bf28bd1b379887af720c5ebb41a00fb4b75a42138",
+      "normalizationInput": "source-file",
+      "preserveSourcePixels": true,
+      "processingMethod": "imagegen-base-plus-deterministic-gear-chip-harmony",
+      "generationProvenanceFile": "data/source/x-bey-front-sources/x-nonfront-6-gear-chip-harmony.json",
+      "geometryAuthoritySha256": "03ede1f2a3a794b26d32b33dd422fb534def00174b0d93baa8693aa130a562a8",
+      "rawReferenceSha256": "b00e0ce20ff9a8f8a2337541778fc77c4953ff8955200b09054b6ff443b136e0",
+      "styleAuthoritySha256": "1656c31d82bf7b556f04a63447a4131259ba5eecd0e70744da7ca922b561ebf1",
+      "gearChipAuthoritySha256": "90d7525dcfb01b0f914e5b8f788731ef8f461f274be1f9779526fb7417a77109",
+      "imageGenerationUsed": true,
+      "preNormalizationSha256": "823481fe80d28e237082304bf28bd1b379887af720c5ebb41a00fb4b75a42138",
+      "outputSha256": "3fc8496e3e73f719356663715df5cfbf0c0c2c8454fe559eacfb4e65257f082a",
+      "normalizedForegroundBox": [
+        47,
+        44,
+        401,
         404
       ]
     }

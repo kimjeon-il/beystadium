@@ -7,7 +7,7 @@ import { productItems } from "../data/source/products.mjs";
 import { rareBeyGetItems } from "../data/source/rare-bey-get.mjs";
 import { bookItems, gameItems, toolsItems } from "../data/source/secondary.mjs";
 
-const VERSION = "20260810-x-draciel-shield-angle";
+const VERSION = "20260810-x-nonfront-6-gear-chip-harmony";
 const SERIES_SLUGS = {
   "metal fight": "metal-fight",
   burst: "burst",

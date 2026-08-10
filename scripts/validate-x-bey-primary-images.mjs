@@ -93,7 +93,7 @@ uniqueValues([
   ...verifiedMainById.keys(),
   ...temporarySideById.keys()
 ], "explicit primary image classifications");
-assert.equal(xBeyPrimaryImageConfig.version, "20260810-x-draciel-shield-angle");
+assert.equal(xBeyPrimaryImageConfig.version, "20260810-x-nonfront-6-gear-chip-harmony");
 assert.equal(xBeyAngleCorrectionConfig.version, xBeyPrimaryImageConfig.version);
 assert.equal(xBeyAngleCorrectionConfig.method, "premultiplied-alpha-vertical-affine");
 assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
@@ -108,15 +108,15 @@ assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
     "verified-existing-front"
   ]
 });
-assert.equal(xBeyPrimaryImageConfig.selected.length, 133);
-assert.equal(xBeyAngleCorrectionConfig.entries.length, 6);
+assert.equal(xBeyPrimaryImageConfig.selected.length, 139);
+assert.equal(xBeyAngleCorrectionConfig.entries.length, 0);
 assert.equal(xBeyPrimaryImageConfig.verifiedMain.length, 81);
 assert.equal(
   new Set([
     ...xBeyPrimaryImageConfig.selected.map(entry => entry.image),
     ...xBeyPrimaryImageConfig.verifiedMain.map(entry => entry.image)
   ]).size,
-  214,
+  220,
   "front-view normalization paths must be unique"
 );
 
@@ -839,6 +839,66 @@ const approvedGeneratedFronts = new Map([
     rawReferenceSha256: "125e0a7b87e735a2a6eaa83b4d818dd9ad0505d047c45ad8591dab7a9d1f9e03",
     styleAuthoritySha256: "b0142adf2c73a42ffc0799242aa0549ff7bdceed812c8fb31272042b2f6f0763",
     imageGenerationUsed: true
+  }],
+  ["BEY-X-BX-00-DRIGER-SLASH-4-80P", {
+    sourceFile: "data/source/x-bey-front-sources/bey-x-bx-00-driger-slash-4-80p-generated.png",
+    sourceSha256: "ff3a74bcc9c3b7a96355ae0490e2f575c591b51a460ff08ecbc358c17fcb5ff2",
+    processingMethod: "imagegen-base-plus-deterministic-gear-chip-harmony",
+    generationProvenanceFile: "data/source/x-bey-front-sources/x-nonfront-6-gear-chip-harmony.json",
+    geometryAuthoritySha256: "74c66925c1b30eb653f94c439b2453c337d0311d2df61b000b94442cf1b6a9c2",
+    rawReferenceSha256: "ea041b16c03a5070dd96b6b5f6a7fd930299eff09cd69c55e62c379fb071f8e8",
+    styleAuthoritySha256: "9b592570a9f4cc7d2222a5128610e6b09a38434532621c561a25f088805f03bc",
+    imageGenerationUsed: true
+  }],
+  ["BEY-X-BX-00-VENOM-3-80N", {
+    sourceFile: "data/source/x-bey-front-sources/bey-x-bx-00-venom-3-80n-generated.png",
+    sourceSha256: "0e8a9e9627baa9a9bb82577289153e497664ab97c7499b692e80053449122710",
+    processingMethod: "imagegen-base-plus-deterministic-gear-chip-harmony",
+    generationProvenanceFile: "data/source/x-bey-front-sources/x-nonfront-6-gear-chip-harmony.json",
+    geometryAuthoritySha256: "8b2e13bdf4fede78f2a81adbeb22fa9aad93d62edf4f827a491309378148bfaf",
+    rawReferenceSha256: "d468b2d9fc4dcf6fff2b74f8b931f7ec68ff3647959d04d6d4f2b5279b9def05",
+    styleAuthoritySha256: "8eb4f0562ce4f436e639eef2dc64b5e5668eda605599929d7251a63be29ba308",
+    imageGenerationUsed: true
+  }],
+  ["BEY-X-BX-00-LUKE-SKYWALKER-4-80B", {
+    sourceFile: "data/source/x-bey-front-sources/bey-x-bx-00-luke-skywalker-4-80b-generated.png",
+    sourceSha256: "2fc9b619352bd0a04f0c564d42b62f228ee2e854167a7fc18891281920a80b6b",
+    processingMethod: "imagegen-base-plus-deterministic-gear-chip-harmony",
+    generationProvenanceFile: "data/source/x-bey-front-sources/x-nonfront-6-gear-chip-harmony.json",
+    geometryAuthoritySha256: "902e28f9b042fe929afa0790bc82705fa21adae0a9273f77bceb7e924203d6bd",
+    rawReferenceSha256: "0f07f64e907c81d471abdc4963bad225241f9aca2e97a9141da5b11dde9282a3",
+    styleAuthoritySha256: "173211dc38db5e4829ddeac6913030988df70f166e6201b25a4821bf1c7a63aa",
+    imageGenerationUsed: true
+  }],
+  ["BEY-X-BX-00-DARTH-VADER-4-60P", {
+    sourceFile: "data/source/x-bey-front-sources/bey-x-bx-00-darth-vader-4-60p-generated.png",
+    sourceSha256: "2f41414e05b1ba330a5ab6e18edf7422f32364a55ad3cc369d0a45ecfaceb74b",
+    processingMethod: "imagegen-base-plus-deterministic-gear-chip-harmony",
+    generationProvenanceFile: "data/source/x-bey-front-sources/x-nonfront-6-gear-chip-harmony.json",
+    geometryAuthoritySha256: "2fe76b1ffa4064f32d2134272519a3ddccccad0a029c66634aaa8154ef667dab",
+    rawReferenceSha256: "f9a8b72de0c39b5bdf9eb9008b1705f148d57d8b176490b56104b023a205e071",
+    styleAuthoritySha256: "2fa0990fc1f4f9fddd7352d8dcdbfd9003f07caa5524cba8a46a27ec85f7a85e",
+    imageGenerationUsed: true
+  }],
+  ["BEY-X-BX-00-THE-MANDALORIAN-3-60F", {
+    sourceFile: "data/source/x-bey-front-sources/bey-x-bx-00-the-mandalorian-3-60f-generated.png",
+    sourceSha256: "10682c91c6c17c01fa9d0de3023cb17fa0823c499853841ddb7b6d48b6d7960b",
+    processingMethod: "imagegen-base-plus-deterministic-gear-chip-harmony",
+    generationProvenanceFile: "data/source/x-bey-front-sources/x-nonfront-6-gear-chip-harmony.json",
+    geometryAuthoritySha256: "c7e62a53cffa2187f3a6624e7fec3676e0067de2021f644d2041574171e5bf38",
+    rawReferenceSha256: "24e143c8eb7d8b82b522b510d74695ab66d70dc5e63085d88dfbee386a32b411",
+    styleAuthoritySha256: "c70f97a620a26df4476ccd49e015748aa155bc4e0e861d90841ca31732c602b3",
+    imageGenerationUsed: true
+  }],
+  ["BEY-X-BX-00-SPINOSAURUS-3-85A", {
+    sourceFile: "data/source/x-bey-front-sources/bey-x-bx-00-spinosaurus-3-85a-generated.png",
+    sourceSha256: "823481fe80d28e237082304bf28bd1b379887af720c5ebb41a00fb4b75a42138",
+    processingMethod: "imagegen-base-plus-deterministic-gear-chip-harmony",
+    generationProvenanceFile: "data/source/x-bey-front-sources/x-nonfront-6-gear-chip-harmony.json",
+    geometryAuthoritySha256: "03ede1f2a3a794b26d32b33dd422fb534def00174b0d93baa8693aa130a562a8",
+    rawReferenceSha256: "b00e0ce20ff9a8f8a2337541778fc77c4953ff8955200b09054b6ff443b136e0",
+    styleAuthoritySha256: "1656c31d82bf7b556f04a63447a4131259ba5eecd0e70744da7ca922b561ebf1",
+    imageGenerationUsed: true
   }]
 ]);
 const generatedFrontProvenanceByFile = new Map();
@@ -848,7 +908,8 @@ for (const provenanceFile of [
   "data/source/x-bey-front-sources/x-tyranno-quetzal-generated-fronts.json",
   "data/source/x-bey-front-sources/x-variant-generated-fronts-4.json",
   "data/source/x-bey-front-sources/x-moff-gideon-gear-chip-vivid.json",
-  "data/source/x-bey-front-sources/x-draciel-shield-angle.json"
+  "data/source/x-bey-front-sources/x-draciel-shield-angle.json",
+  "data/source/x-bey-front-sources/x-nonfront-6-gear-chip-harmony.json"
 ]) {
   const provenance = JSON.parse(await readFile(path.resolve(provenanceFile), "utf8"));
   generatedFrontProvenanceByFile.set(
@@ -1081,13 +1142,13 @@ for (const entry of xBeyPrimaryImageConfig.temporarySideImages) {
 }
 
 const alphaReview = JSON.parse(await readFile(ALPHA_REVIEW_PATH, "utf8"));
-assert.equal(alphaReview.version, "20260810-x-draciel-shield-angle");
+assert.equal(alphaReview.version, "20260810-x-nonfront-6-gear-chip-harmony");
 const alphaReviewByImage = new Map(alphaReview.files.map(entry => [entry.image, entry]));
 const normalizedEntries = [
   ...xBeyPrimaryImageConfig.selected,
   ...xBeyPrimaryImageConfig.verifiedMain
 ];
-assert.equal(normalizedEntries.length, 214);
+assert.equal(normalizedEntries.length, 220);
 for (const entry of normalizedEntries) {
   const review = alphaReviewByImage.get(entry.image);
   assert.ok(review, `${entry.id}: normalized image is missing from the alpha review`);
@@ -1182,9 +1243,9 @@ for (const item of xBeys) {
 }
 
 assert.deepEqual(counts, {
-  officialAngleCorrected: 6,
+  officialAngleCorrected: 0,
   officialAssembledFront: 116,
-  userApprovedGeneratedFront: 14,
+  userApprovedGeneratedFront: 20,
   verifiedExistingFront: 84,
   temporarySide: 0
 });
