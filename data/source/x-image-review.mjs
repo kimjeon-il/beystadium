@@ -157,17 +157,23 @@ const xImageReview = [
   },
   {
     "id": "BEY-X-BX-00-MEGATRON-4-80B",
-    "image": "assets/images/x/beys/bey-x-bx-00-megatron-4-80b/main.webp",
-    "sourcePath": "02_product_components/093_bx00-tom/06_BXG36_06@1.png",
-    "sourceSha256": "c43122d1c3a7035a4865dedaa3b942a32ee5e543f765bc5fa5e505c3a2e464e9",
-    "outputSha256": "a0a107233f2f34d43e2a23a95dc9ebf0999ec807c124f15bb9d0b4bb0dc0d718"
+    "image": "assets/images/x/beys/bey-x-bx-00-megatron-4-80b/front.webp",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-megatron-4-80b-generated.png",
+    "sourceSha256": "11eb7bc0aa4b341f91ecd528ede8022e8f0b560908c5515acfca549661e6ce2b",
+    "outputSha256": "3e86ecfc47f23bfdd88651a4abaf85396ea58725d4be48f5c92478fe948b4616",
+    "sourceKind": "user-approved-generated-front",
+    "normalizationInput": "source-file",
+    "preserveSourcePixels": true
   },
   {
     "id": "BEY-X-BX-00-MOFF-GIDEON-3-80N",
-    "image": "assets/images/x/beys/bey-x-bx-00-moff-gideon-3-80n/main.webp",
-    "sourcePath": "02_product_components/091_bx00-smm/06_BXG34_06@1.png",
-    "sourceSha256": "7526dfd43123508384a13799cf2e7a9d9a93a86173e653ed435ea5d900162cc2",
-    "outputSha256": "3d6df15a9c2ab4870d68050c248e8e662fcca316a6716bd38bbb0b2107d2199d"
+    "image": "assets/images/x/beys/bey-x-bx-00-moff-gideon-3-80n/front.webp",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-moff-gideon-3-80n-generated.png",
+    "sourceSha256": "80a5fb3677bb0ddecd84b381a01359b6bc882c9d48f559e0559cd5621634304b",
+    "outputSha256": "c81bd4cb121887171b7ff36872a08b54213732471d491f8523c45ec924ef3eb8",
+    "sourceKind": "user-approved-generated-front",
+    "normalizationInput": "source-file",
+    "preserveSourcePixels": true
   },
   {
     "id": "BEY-X-BX-00-MOSASAURUS-9-60U",
@@ -188,10 +194,13 @@ const xImageReview = [
   },
   {
     "id": "BEY-X-BX-00-OPTIMUS-PRIME-4-60P",
-    "image": "assets/images/x/beys/bey-x-bx-00-optimus-prime-4-60p/main.webp",
-    "sourcePath": "02_product_components/093_bx00-tom/03_BXG36_03@1.png",
-    "sourceSha256": "33b4e9823d3365dc8fa0b3069067ade56449897a4cad30402018b56bd01d496d",
-    "outputSha256": "d40f6453a2e7dbb97d4c8ef057696551569302899adf905f12324f4fa0ff9c7d"
+    "image": "assets/images/x/beys/bey-x-bx-00-optimus-prime-4-60p/front.webp",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-optimus-prime-4-60p-generated.png",
+    "sourceSha256": "cf3ce974da6b4511c21fa198f33207e9473f5e45ffb7dc0bdd867b2fa67e74cf",
+    "outputSha256": "9fa5a7ab2cb4db2cdc941dee85134690cd51e3b18709bd8a33239e6574199ec9",
+    "sourceKind": "user-approved-generated-front",
+    "normalizationInput": "source-file",
+    "preserveSourcePixels": true
   },
   {
     "id": "BEY-X-BX-00-PHOENIX-SOAR-9-60GF",
@@ -257,10 +266,13 @@ const xImageReview = [
   },
   {
     "id": "BEY-X-BX-00-STARSCREAM-3-80N",
-    "image": "assets/images/x/beys/bey-x-bx-00-starscream-3-80n/main.webp",
-    "sourcePath": "02_product_components/094_bx00-tos/06_BXG37_06@1.png",
-    "sourceSha256": "99c7cb55ba7ba9207e66590cc1e4142d26a9502a2c78863b6b3329a211849129",
-    "outputSha256": "f6eaf374d627ec3b01d96fb62ac4f1d1661d230bab0c761dd658a6101133b45a"
+    "image": "assets/images/x/beys/bey-x-bx-00-starscream-3-80n/front.webp",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-starscream-3-80n-generated.png",
+    "sourceSha256": "78858b427b6e08726ca3358bcb966f70a745a06d7515a2d409ca379bdd457477",
+    "outputSha256": "692efe57456d49f5490a5edbdf8963370abcd64ae72f8e9677ebbf20e43bb2db",
+    "sourceKind": "user-approved-generated-front",
+    "normalizationInput": "source-file",
+    "preserveSourcePixels": true
   },
   {
     "id": "BEY-X-BX-00-STORM-PEGASIS-3-70RA",

@@ -1,0 +1,259 @@
+{
+  "version": "20260810-x-variant-generated-fronts-4",
+  "toolMode": "built-in ImageGen with deterministic local masking, chroma removal, and normalization; no CLI fallback",
+  "scope": "Moff Gideon plastic denoise and gear-chip color enhancement plus three unchanged approved candidates",
+  "jobs": [
+    {
+      "id": "BEY-X-BX-00-MOFF-GIDEON-3-80N",
+      "targetName": "모프 기디언 3-80N",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-moff-gideon-3-80n-generated.png",
+      "sourceSha256": "80a5fb3677bb0ddecd84b381a01359b6bc882c9d48f559e0559cd5621634304b",
+      "finalOutputSha256": "c81bd4cb121887171b7ff36872a08b54213732471d491f8523c45ec924ef3eb8",
+      "processingMethod": "imagegen-plastic-denoise-plus-deterministic-gear-chip-color",
+      "rawGeneratedSha256": "87e33b996f2e647cd88ead75c5c5847968482dfef7133ef0d158ef1bc3c73fe9",
+      "geometryAuthoritySha256": "80a5fb3677bb0ddecd84b381a01359b6bc882c9d48f559e0559cd5621634304b",
+      "styleAuthoritySha256": "b0142adf2c73a42ffc0799242aa0549ff7bdceed812c8fb31272042b2f6f0763",
+      "prompt": "Use case: precise-object-edit\nPrimary request: clean only the grainy/noisy surface of the purple translucent plastic and red translucent plastic; keep the central printed disc, silver metal, geometry, text, and green background unchanged.\nConstraints: preserve exact silhouette, proportions, rotation, grooves, holes, part boundaries, and printed artwork.",
+      "promptSha256": "3e5eba08d8d3fc0cdf05926c7e6776fe65bc7e4705fc1317c6b7e95f75aca5f5",
+      "normalization": {
+        "canvas": [
+          448,
+          448
+        ],
+        "targetLongEdge": 360,
+        "resample": "premultiplied-alpha-lanczos",
+        "output": "lossless-webp",
+        "normalizedForegroundBox": [
+          44,
+          44,
+          404,
+          404
+        ]
+      },
+      "alphaProcessing": {
+        "method": "automatic-border-chroma-removal",
+        "softMatte": true,
+        "transparentThreshold": 12,
+        "opaqueThreshold": 220,
+        "despill": true,
+        "keepLargestComponent": true,
+        "greenResidualPixels": 0,
+        "componentCount": 1
+      },
+      "editMasks": {
+        "plastic": {
+          "regions": [
+            "purple translucent plastic",
+            "red translucent plastic ring"
+          ],
+          "generatedArtworkOrTextAdopted": 0
+        },
+        "gearChipColor": {
+          "center": [
+            223.5,
+            223.5
+          ],
+          "radius": 58,
+          "minimumSaturation": 0.1,
+          "spatialTransform": {
+            "translation": [
+              0,
+              0
+            ],
+            "rotationDegrees": 0,
+            "scale": 1.0,
+            "warp": false
+          },
+          "meanChromaGain": 0.199619
+        }
+      },
+      "validation": {
+        "bbox": [
+          44,
+          44,
+          404,
+          404
+        ],
+        "longEdge": 360,
+        "center": [
+          223.5,
+          223.5
+        ],
+        "transparentCorners": true,
+        "greenResidualPixels": 0,
+        "componentCount": 1
+      }
+    },
+    {
+      "id": "BEY-X-BX-00-OPTIMUS-PRIME-4-60P",
+      "targetName": "옵티머스 프라임 4-60P",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-optimus-prime-4-60p-generated.png",
+      "sourceSha256": "cf3ce974da6b4511c21fa198f33207e9473f5e45ffb7dc0bdd867b2fa67e74cf",
+      "finalOutputSha256": "9fa5a7ab2cb4db2cdc941dee85134690cd51e3b18709bd8a33239e6574199ec9",
+      "processingMethod": "imagegen-full-bey-chroma-key-plus-deterministic-normalization",
+      "rawGeneratedSha256": "3ec15bb1462ca62ef11b7f74cb20dd2e2a1157ea67f3f592e808d4135c67016d",
+      "geometryAuthoritySha256": "cf3ce974da6b4511c21fa198f33207e9473f5e45ffb7dc0bdd867b2fa67e74cf",
+      "styleAuthoritySha256": "b0142adf2c73a42ffc0799242aa0549ff7bdceed812c8fb31272042b2f6f0763",
+      "prompt": "Use case: style-transfer\nAsset type: transparent Beyblade X catalog front preview\nPrimary request: Edit Image 1 only and re-render the entire assembled 옵티머스 프라임 4-60P, including the outer blade, all plastic, the complete gear-chip sticker, its surrounding plastic ring, and the foreground metal hooks, so every visible part has the clean Takara Tomy Beyblade X official CGI catalog finish.\nInput images: Image 1 is the exact edit target and absolute authority for geometry, rotation, scale, colors, gear-chip illustration, printed letters, and all part boundaries. Image 2 is the related official Beyblade X front render and is only a material/depth reference. Image 3 is the target product photo and is only a target-color/material-identity reference. Image 4 is the absolute official Takara Tomy CGI surface reference.\nComposition/framing: perfectly vertical top-down view; preserve Image 1 center, rotation, size, silhouette, blade count, attack points, gaps, holes, grooves, supports, and gear-chip position exactly.\nMaterials/textures: smooth dark-chrome metal planes with soft midtone gradients and narrow crisp white highlights; saturated transparent plastic with dark color-rich edges and internal depth; clean opaque plastic with shallow bevel shading; sharply printed gear-chip with richer color, even catalog lighting, and reduced photographic haze/noise.\nConstraints: visibly recolor and re-light the entire Bey, including the sticker, ring, and hooks. Preserve the exact original beast/character illustration, letters, symbols, black ring, border, direction, and relative placement. Do not replace, redraw, reinterpret, translate, mirror, rotate, resize, add, or remove any printed detail. Do not invent text or logos. Keep the background perfectly flat uniform #00ff00 with no shadow, reflection, gradient, halo, floor, or extra object.",
+      "promptSha256": "de2b1aedc861fe7a6f3b8dcaf39f547fe067264798bba9a0f6b869cb3d991962",
+      "normalization": {
+        "canvas": [
+          448,
+          448
+        ],
+        "targetLongEdge": 360,
+        "resample": "premultiplied-alpha-lanczos",
+        "output": "lossless-webp",
+        "normalizedForegroundBox": [
+          44,
+          44,
+          404,
+          403
+        ]
+      },
+      "alphaProcessing": {
+        "method": "automatic-border-chroma-removal",
+        "softMatte": true,
+        "transparentThreshold": 12,
+        "opaqueThreshold": 220,
+        "despill": true,
+        "keepLargestComponent": true,
+        "greenResidualPixels": 0,
+        "componentCount": 1
+      },
+      "editMasks": {
+        "approvedCandidatePixels": "unchanged except chroma removal and normalization"
+      },
+      "validation": {
+        "bbox": [
+          44,
+          44,
+          404,
+          403
+        ],
+        "longEdge": 360,
+        "center": [
+          223.5,
+          223.0
+        ],
+        "transparentCorners": true,
+        "greenResidualPixels": 0,
+        "componentCount": 1
+      }
+    },
+    {
+      "id": "BEY-X-BX-00-MEGATRON-4-80B",
+      "targetName": "메가트론 4-80B",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-megatron-4-80b-generated.png",
+      "sourceSha256": "11eb7bc0aa4b341f91ecd528ede8022e8f0b560908c5515acfca549661e6ce2b",
+      "finalOutputSha256": "3e86ecfc47f23bfdd88651a4abaf85396ea58725d4be48f5c92478fe948b4616",
+      "processingMethod": "imagegen-full-bey-chroma-key-plus-deterministic-normalization",
+      "rawGeneratedSha256": "ff8028e6ec5945350b6398f73b9ddc121177c898c3ef10feddc085857a8bf5cd",
+      "geometryAuthoritySha256": "11eb7bc0aa4b341f91ecd528ede8022e8f0b560908c5515acfca549661e6ce2b",
+      "styleAuthoritySha256": "b0142adf2c73a42ffc0799242aa0549ff7bdceed812c8fb31272042b2f6f0763",
+      "prompt": "Use case: style-transfer\nAsset type: transparent Beyblade X catalog front preview\nPrimary request: Edit Image 1 only and re-render the entire assembled 메가트론 4-80B, including the outer blade, all plastic, the complete gear-chip sticker, its surrounding plastic ring, and the foreground metal hooks, so every visible part has the clean Takara Tomy Beyblade X official CGI catalog finish.\nInput images: Image 1 is the exact edit target and absolute authority for geometry, rotation, scale, colors, gear-chip illustration, printed letters, and all part boundaries. Image 2 is the related official Beyblade X front render and is only a material/depth reference. Image 3 is the target product photo and is only a target-color/material-identity reference. Image 4 is the absolute official Takara Tomy CGI surface reference.\nComposition/framing: perfectly vertical top-down view; preserve Image 1 center, rotation, size, silhouette, blade count, attack points, gaps, holes, grooves, supports, and gear-chip position exactly.\nMaterials/textures: smooth dark-chrome metal planes with soft midtone gradients and narrow crisp white highlights; saturated transparent plastic with dark color-rich edges and internal depth; clean opaque plastic with shallow bevel shading; sharply printed gear-chip with richer color, even catalog lighting, and reduced photographic haze/noise.\nConstraints: visibly recolor and re-light the entire Bey, including the sticker, ring, and hooks. Preserve the exact original beast/character illustration, letters, symbols, black ring, border, direction, and relative placement. Do not replace, redraw, reinterpret, translate, mirror, rotate, resize, add, or remove any printed detail. Do not invent text or logos. Keep the background perfectly flat uniform #00ff00 with no shadow, reflection, gradient, halo, floor, or extra object.",
+      "promptSha256": "58c12a7f64a20de67e3ce541bae1f162f5ee8a3d5ba5ada5f862690e4ca53b9e",
+      "normalization": {
+        "canvas": [
+          448,
+          448
+        ],
+        "targetLongEdge": 360,
+        "resample": "premultiplied-alpha-lanczos",
+        "output": "lossless-webp",
+        "normalizedForegroundBox": [
+          44,
+          46,
+          404,
+          402
+        ]
+      },
+      "alphaProcessing": {
+        "method": "automatic-border-chroma-removal",
+        "softMatte": true,
+        "transparentThreshold": 12,
+        "opaqueThreshold": 220,
+        "despill": true,
+        "keepLargestComponent": true,
+        "greenResidualPixels": 0,
+        "componentCount": 1
+      },
+      "editMasks": {
+        "approvedCandidatePixels": "unchanged except chroma removal and normalization"
+      },
+      "validation": {
+        "bbox": [
+          44,
+          46,
+          404,
+          402
+        ],
+        "longEdge": 360,
+        "center": [
+          223.5,
+          223.5
+        ],
+        "transparentCorners": true,
+        "greenResidualPixels": 0,
+        "componentCount": 1
+      }
+    },
+    {
+      "id": "BEY-X-BX-00-STARSCREAM-3-80N",
+      "targetName": "스타스크림 3-80N",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-starscream-3-80n-generated.png",
+      "sourceSha256": "78858b427b6e08726ca3358bcb966f70a745a06d7515a2d409ca379bdd457477",
+      "finalOutputSha256": "692efe57456d49f5490a5edbdf8963370abcd64ae72f8e9677ebbf20e43bb2db",
+      "processingMethod": "imagegen-full-bey-chroma-key-plus-deterministic-normalization",
+      "rawGeneratedSha256": "125e0a7b87e735a2a6eaa83b4d818dd9ad0505d047c45ad8591dab7a9d1f9e03",
+      "geometryAuthoritySha256": "78858b427b6e08726ca3358bcb966f70a745a06d7515a2d409ca379bdd457477",
+      "styleAuthoritySha256": "b0142adf2c73a42ffc0799242aa0549ff7bdceed812c8fb31272042b2f6f0763",
+      "prompt": "Use case: style-transfer\nAsset type: transparent Beyblade X catalog front preview\nPrimary request: Edit Image 1 only and re-render the entire assembled 스타스크림 3-80N, including the outer blade, all plastic, the complete gear-chip sticker, its surrounding plastic ring, and the foreground metal hooks, so every visible part has the clean Takara Tomy Beyblade X official CGI catalog finish.\nInput images: Image 1 is the exact edit target and absolute authority for geometry, rotation, scale, colors, gear-chip illustration, printed letters, and all part boundaries. Image 2 is the related official Beyblade X front render and is only a material/depth reference. Image 3 is the target product photo and is only a target-color/material-identity reference. Image 4 is the absolute official Takara Tomy CGI surface reference.\nComposition/framing: perfectly vertical top-down view; preserve Image 1 center, rotation, size, silhouette, blade count, attack points, gaps, holes, grooves, supports, and gear-chip position exactly.\nMaterials/textures: smooth dark-chrome metal planes with soft midtone gradients and narrow crisp white highlights; saturated transparent plastic with dark color-rich edges and internal depth; clean opaque plastic with shallow bevel shading; sharply printed gear-chip with richer color, even catalog lighting, and reduced photographic haze/noise.\nConstraints: visibly recolor and re-light the entire Bey, including the sticker, ring, and hooks. Preserve the exact original beast/character illustration, letters, symbols, black ring, border, direction, and relative placement. Do not replace, redraw, reinterpret, translate, mirror, rotate, resize, add, or remove any printed detail. Do not invent text or logos. Keep the background perfectly flat uniform #00ff00 with no shadow, reflection, gradient, halo, floor, or extra object.",
+      "promptSha256": "a575e986761ce6d08b162e1d5855dfd99c112982f9273441dcc55651c3a6fc8e",
+      "normalization": {
+        "canvas": [
+          448,
+          448
+        ],
+        "targetLongEdge": 360,
+        "resample": "premultiplied-alpha-lanczos",
+        "output": "lossless-webp",
+        "normalizedForegroundBox": [
+          44,
+          48,
+          404,
+          399
+        ]
+      },
+      "alphaProcessing": {
+        "method": "automatic-border-chroma-removal",
+        "softMatte": true,
+        "transparentThreshold": 12,
+        "opaqueThreshold": 220,
+        "despill": true,
+        "keepLargestComponent": true,
+        "greenResidualPixels": 0,
+        "componentCount": 1
+      },
+      "editMasks": {
+        "approvedCandidatePixels": "unchanged except chroma removal and normalization"
+      },
+      "validation": {
+        "bbox": [
+          44,
+          48,
+          404,
+          399
+        ],
+        "longEdge": 360,
+        "center": [
+          223.5,
+          223.0
+        ],
+        "transparentCorners": true,
+        "greenResidualPixels": 0,
+        "componentCount": 1
+      }
+    }
+  ]
+}

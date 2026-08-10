@@ -1,5 +1,5 @@
 {
-  "version": "20260809-x-tyranno-quetzal-generated-fronts",
+  "version": "20260810-x-variant-generated-fronts-4",
   "sourceRoot": "",
   "policy": [
     "official-angle-corrected",
@@ -2803,6 +2803,98 @@
         44,
         403,
         404
+      ]
+    },
+    {
+      "id": "BEY-X-BX-00-MOFF-GIDEON-3-80N",
+      "image": "assets/images/x/beys/bey-x-bx-00-moff-gideon-3-80n/front.webp",
+      "sourceKind": "user-approved-generated-front",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-moff-gideon-3-80n-generated.png",
+      "sourceSha256": "80a5fb3677bb0ddecd84b381a01359b6bc882c9d48f559e0559cd5621634304b",
+      "normalizationInput": "source-file",
+      "preserveSourcePixels": true,
+      "processingMethod": "imagegen-plastic-denoise-plus-deterministic-gear-chip-color",
+      "generationProvenanceFile": "data/source/x-bey-front-sources/x-variant-generated-fronts-4.json",
+      "geometryAuthoritySha256": "80a5fb3677bb0ddecd84b381a01359b6bc882c9d48f559e0559cd5621634304b",
+      "rawReferenceSha256": "87e33b996f2e647cd88ead75c5c5847968482dfef7133ef0d158ef1bc3c73fe9",
+      "styleAuthoritySha256": "b0142adf2c73a42ffc0799242aa0549ff7bdceed812c8fb31272042b2f6f0763",
+      "imageGenerationUsed": true,
+      "preNormalizationSha256": "80a5fb3677bb0ddecd84b381a01359b6bc882c9d48f559e0559cd5621634304b",
+      "outputSha256": "c81bd4cb121887171b7ff36872a08b54213732471d491f8523c45ec924ef3eb8",
+      "normalizedForegroundBox": [
+        44,
+        44,
+        404,
+        404
+      ]
+    },
+    {
+      "id": "BEY-X-BX-00-OPTIMUS-PRIME-4-60P",
+      "image": "assets/images/x/beys/bey-x-bx-00-optimus-prime-4-60p/front.webp",
+      "sourceKind": "user-approved-generated-front",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-optimus-prime-4-60p-generated.png",
+      "sourceSha256": "cf3ce974da6b4511c21fa198f33207e9473f5e45ffb7dc0bdd867b2fa67e74cf",
+      "normalizationInput": "source-file",
+      "preserveSourcePixels": true,
+      "processingMethod": "imagegen-full-bey-chroma-key-plus-deterministic-normalization",
+      "generationProvenanceFile": "data/source/x-bey-front-sources/x-variant-generated-fronts-4.json",
+      "geometryAuthoritySha256": "cf3ce974da6b4511c21fa198f33207e9473f5e45ffb7dc0bdd867b2fa67e74cf",
+      "rawReferenceSha256": "3ec15bb1462ca62ef11b7f74cb20dd2e2a1157ea67f3f592e808d4135c67016d",
+      "styleAuthoritySha256": "b0142adf2c73a42ffc0799242aa0549ff7bdceed812c8fb31272042b2f6f0763",
+      "imageGenerationUsed": true,
+      "preNormalizationSha256": "cf3ce974da6b4511c21fa198f33207e9473f5e45ffb7dc0bdd867b2fa67e74cf",
+      "outputSha256": "9fa5a7ab2cb4db2cdc941dee85134690cd51e3b18709bd8a33239e6574199ec9",
+      "normalizedForegroundBox": [
+        44,
+        44,
+        404,
+        403
+      ]
+    },
+    {
+      "id": "BEY-X-BX-00-MEGATRON-4-80B",
+      "image": "assets/images/x/beys/bey-x-bx-00-megatron-4-80b/front.webp",
+      "sourceKind": "user-approved-generated-front",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-megatron-4-80b-generated.png",
+      "sourceSha256": "11eb7bc0aa4b341f91ecd528ede8022e8f0b560908c5515acfca549661e6ce2b",
+      "normalizationInput": "source-file",
+      "preserveSourcePixels": true,
+      "processingMethod": "imagegen-full-bey-chroma-key-plus-deterministic-normalization",
+      "generationProvenanceFile": "data/source/x-bey-front-sources/x-variant-generated-fronts-4.json",
+      "geometryAuthoritySha256": "11eb7bc0aa4b341f91ecd528ede8022e8f0b560908c5515acfca549661e6ce2b",
+      "rawReferenceSha256": "ff8028e6ec5945350b6398f73b9ddc121177c898c3ef10feddc085857a8bf5cd",
+      "styleAuthoritySha256": "b0142adf2c73a42ffc0799242aa0549ff7bdceed812c8fb31272042b2f6f0763",
+      "imageGenerationUsed": true,
+      "preNormalizationSha256": "11eb7bc0aa4b341f91ecd528ede8022e8f0b560908c5515acfca549661e6ce2b",
+      "outputSha256": "3e86ecfc47f23bfdd88651a4abaf85396ea58725d4be48f5c92478fe948b4616",
+      "normalizedForegroundBox": [
+        44,
+        46,
+        404,
+        402
+      ]
+    },
+    {
+      "id": "BEY-X-BX-00-STARSCREAM-3-80N",
+      "image": "assets/images/x/beys/bey-x-bx-00-starscream-3-80n/front.webp",
+      "sourceKind": "user-approved-generated-front",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-starscream-3-80n-generated.png",
+      "sourceSha256": "78858b427b6e08726ca3358bcb966f70a745a06d7515a2d409ca379bdd457477",
+      "normalizationInput": "source-file",
+      "preserveSourcePixels": true,
+      "processingMethod": "imagegen-full-bey-chroma-key-plus-deterministic-normalization",
+      "generationProvenanceFile": "data/source/x-bey-front-sources/x-variant-generated-fronts-4.json",
+      "geometryAuthoritySha256": "78858b427b6e08726ca3358bcb966f70a745a06d7515a2d409ca379bdd457477",
+      "rawReferenceSha256": "125e0a7b87e735a2a6eaa83b4d818dd9ad0505d047c45ad8591dab7a9d1f9e03",
+      "styleAuthoritySha256": "b0142adf2c73a42ffc0799242aa0549ff7bdceed812c8fb31272042b2f6f0763",
+      "imageGenerationUsed": true,
+      "preNormalizationSha256": "78858b427b6e08726ca3358bcb966f70a745a06d7515a2d409ca379bdd457477",
+      "outputSha256": "692efe57456d49f5490a5edbdf8963370abcd64ae72f8e9677ebbf20e43bb2db",
+      "normalizedForegroundBox": [
+        44,
+        48,
+        404,
+        399
       ]
     }
   ],

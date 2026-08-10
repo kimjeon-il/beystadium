@@ -1,5 +1,5 @@
 {
-  "version": "20260809-x-tyranno-quetzal-generated-fronts",
+  "version": "20260810-x-variant-generated-fronts-4",
   "method": "premultiplied-alpha-vertical-affine",
   "entries": [
     {
@@ -66,58 +66,6 @@
       "scaleY": 1.08,
       "pivotY": 223.0,
       "outputSha256": "d45153797c4ce96dcc7aa59d54c97e925009dd66f97ba7b684bd5c9d93be5593"
-    },
-    {
-      "id": "BEY-X-BX-00-MOFF-GIDEON-3-80N",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-moff-gideon.webp",
-      "image": "assets/images/x/beys/bey-x-bx-00-moff-gideon-3-80n/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG34_06@1.png",
-      "sourceSha256": "7526dfd43123508384a13799cf2e7a9d9a93a86173e653ed435ea5d900162cc2",
-      "sourceOutputSha256": "3d6df15a9c2ab4870d68050c248e8e662fcca316a6716bd38bbb0b2107d2199d",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.5,
-      "outputSha256": "9873ceea9a889ee2f47867ef982e885820acb7df6171a700294ac1ffe5112a25"
-    },
-    {
-      "id": "BEY-X-BX-00-OPTIMUS-PRIME-4-60P",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-optimus-prime.webp",
-      "image": "assets/images/x/beys/bey-x-bx-00-optimus-prime-4-60p/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG36_03@1.png",
-      "sourceSha256": "33b4e9823d3365dc8fa0b3069067ade56449897a4cad30402018b56bd01d496d",
-      "sourceOutputSha256": "d40f6453a2e7dbb97d4c8ef057696551569302899adf905f12324f4fa0ff9c7d",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.5,
-      "outputSha256": "9169f10d94ee82554272a361c8f16cdeaad8a919c5cc75b6e4abc030799af7af"
-    },
-    {
-      "id": "BEY-X-BX-00-MEGATRON-4-80B",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-megatron.webp",
-      "image": "assets/images/x/beys/bey-x-bx-00-megatron-4-80b/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG36_06@1.png",
-      "sourceSha256": "c43122d1c3a7035a4865dedaa3b942a32ee5e543f765bc5fa5e505c3a2e464e9",
-      "sourceOutputSha256": "a0a107233f2f34d43e2a23a95dc9ebf0999ec807c124f15bb9d0b4bb0dc0d718",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.5,
-      "outputSha256": "9da46f6e429744c5bf6973185af69ccb03c533fc463518f6185647f6a9b4ee00"
-    },
-    {
-      "id": "BEY-X-BX-00-STARSCREAM-3-80N",
-      "sourceImage": "assets/images/x/parts/blade/part-x-blade-starscream.webp",
-      "image": "assets/images/x/beys/bey-x-bx-00-starscream-3-80n/front.webp",
-      "sourceKind": "official-angle-corrected",
-      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG37_06@1.png",
-      "sourceSha256": "99c7cb55ba7ba9207e66590cc1e4142d26a9502a2c78863b6b3329a211849129",
-      "sourceOutputSha256": "f6eaf374d627ec3b01d96fb62ac4f1d1661d230bab0c761dd658a6101133b45a",
-      "method": "premultiplied-alpha-vertical-affine",
-      "scaleY": 1.08,
-      "pivotY": 223.5,
-      "outputSha256": "788677a6a566af7f6210879f31cbb1652ca0ede99981d766593ae4ae0162314a"
     },
     {
       "id": "BEY-X-BX-00-SPINOSAURUS-3-85A",

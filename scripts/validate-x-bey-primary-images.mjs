@@ -93,7 +93,7 @@ uniqueValues([
   ...verifiedMainById.keys(),
   ...temporarySideById.keys()
 ], "explicit primary image classifications");
-assert.equal(xBeyPrimaryImageConfig.version, "20260809-x-tyranno-quetzal-generated-fronts");
+assert.equal(xBeyPrimaryImageConfig.version, "20260810-x-variant-generated-fronts-4");
 assert.equal(xBeyAngleCorrectionConfig.version, xBeyPrimaryImageConfig.version);
 assert.equal(xBeyAngleCorrectionConfig.method, "premultiplied-alpha-vertical-affine");
 assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
@@ -108,15 +108,15 @@ assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
     "verified-existing-front"
   ]
 });
-assert.equal(xBeyPrimaryImageConfig.selected.length, 128);
-assert.equal(xBeyAngleCorrectionConfig.entries.length, 10);
+assert.equal(xBeyPrimaryImageConfig.selected.length, 132);
+assert.equal(xBeyAngleCorrectionConfig.entries.length, 6);
 assert.equal(xBeyPrimaryImageConfig.verifiedMain.length, 82);
 assert.equal(
   new Set([
     ...xBeyPrimaryImageConfig.selected.map(entry => entry.image),
     ...xBeyPrimaryImageConfig.verifiedMain.map(entry => entry.image)
   ]).size,
-  210,
+  214,
   "front-view normalization paths must be unique"
 );
 
@@ -787,13 +787,54 @@ const approvedGeneratedFronts = new Map([
     rawReferenceSha256: "5776d2bb9ead336816b4ea47ca9467b0bf0e06f622c67110feca1ac489c6ac49",
     styleAuthoritySha256: "da067758ef8958b73029c67f2a761b3f522f396885c4a7378edce6d3e2351fc9",
     imageGenerationUsed: true
+  }],
+  ["BEY-X-BX-00-MOFF-GIDEON-3-80N", {
+    sourceFile: "data/source/x-bey-front-sources/bey-x-bx-00-moff-gideon-3-80n-generated.png",
+    sourceSha256: "80a5fb3677bb0ddecd84b381a01359b6bc882c9d48f559e0559cd5621634304b",
+    processingMethod: "imagegen-plastic-denoise-plus-deterministic-gear-chip-color",
+    generationProvenanceFile: "data/source/x-bey-front-sources/x-variant-generated-fronts-4.json",
+    geometryAuthoritySha256: "80a5fb3677bb0ddecd84b381a01359b6bc882c9d48f559e0559cd5621634304b",
+    rawReferenceSha256: "87e33b996f2e647cd88ead75c5c5847968482dfef7133ef0d158ef1bc3c73fe9",
+    styleAuthoritySha256: "b0142adf2c73a42ffc0799242aa0549ff7bdceed812c8fb31272042b2f6f0763",
+    imageGenerationUsed: true
+  }],
+  ["BEY-X-BX-00-OPTIMUS-PRIME-4-60P", {
+    sourceFile: "data/source/x-bey-front-sources/bey-x-bx-00-optimus-prime-4-60p-generated.png",
+    sourceSha256: "cf3ce974da6b4511c21fa198f33207e9473f5e45ffb7dc0bdd867b2fa67e74cf",
+    processingMethod: "imagegen-full-bey-chroma-key-plus-deterministic-normalization",
+    generationProvenanceFile: "data/source/x-bey-front-sources/x-variant-generated-fronts-4.json",
+    geometryAuthoritySha256: "cf3ce974da6b4511c21fa198f33207e9473f5e45ffb7dc0bdd867b2fa67e74cf",
+    rawReferenceSha256: "3ec15bb1462ca62ef11b7f74cb20dd2e2a1157ea67f3f592e808d4135c67016d",
+    styleAuthoritySha256: "b0142adf2c73a42ffc0799242aa0549ff7bdceed812c8fb31272042b2f6f0763",
+    imageGenerationUsed: true
+  }],
+  ["BEY-X-BX-00-MEGATRON-4-80B", {
+    sourceFile: "data/source/x-bey-front-sources/bey-x-bx-00-megatron-4-80b-generated.png",
+    sourceSha256: "11eb7bc0aa4b341f91ecd528ede8022e8f0b560908c5515acfca549661e6ce2b",
+    processingMethod: "imagegen-full-bey-chroma-key-plus-deterministic-normalization",
+    generationProvenanceFile: "data/source/x-bey-front-sources/x-variant-generated-fronts-4.json",
+    geometryAuthoritySha256: "11eb7bc0aa4b341f91ecd528ede8022e8f0b560908c5515acfca549661e6ce2b",
+    rawReferenceSha256: "ff8028e6ec5945350b6398f73b9ddc121177c898c3ef10feddc085857a8bf5cd",
+    styleAuthoritySha256: "b0142adf2c73a42ffc0799242aa0549ff7bdceed812c8fb31272042b2f6f0763",
+    imageGenerationUsed: true
+  }],
+  ["BEY-X-BX-00-STARSCREAM-3-80N", {
+    sourceFile: "data/source/x-bey-front-sources/bey-x-bx-00-starscream-3-80n-generated.png",
+    sourceSha256: "78858b427b6e08726ca3358bcb966f70a745a06d7515a2d409ca379bdd457477",
+    processingMethod: "imagegen-full-bey-chroma-key-plus-deterministic-normalization",
+    generationProvenanceFile: "data/source/x-bey-front-sources/x-variant-generated-fronts-4.json",
+    geometryAuthoritySha256: "78858b427b6e08726ca3358bcb966f70a745a06d7515a2d409ca379bdd457477",
+    rawReferenceSha256: "125e0a7b87e735a2a6eaa83b4d818dd9ad0505d047c45ad8591dab7a9d1f9e03",
+    styleAuthoritySha256: "b0142adf2c73a42ffc0799242aa0549ff7bdceed812c8fb31272042b2f6f0763",
+    imageGenerationUsed: true
   }]
 ]);
 const generatedFrontProvenanceByFile = new Map();
 for (const provenanceFile of [
   "data/source/x-bey-front-sources/x-dran-cobalt-generated-fronts.json",
   "data/source/x-bey-front-sources/x-spider-optimus-generated-fronts.json",
-  "data/source/x-bey-front-sources/x-tyranno-quetzal-generated-fronts.json"
+  "data/source/x-bey-front-sources/x-tyranno-quetzal-generated-fronts.json",
+  "data/source/x-bey-front-sources/x-variant-generated-fronts-4.json"
 ]) {
   const provenance = JSON.parse(await readFile(path.resolve(provenanceFile), "utf8"));
   generatedFrontProvenanceByFile.set(
@@ -1024,13 +1065,13 @@ for (const entry of xBeyPrimaryImageConfig.temporarySideImages) {
 }
 
 const alphaReview = JSON.parse(await readFile(ALPHA_REVIEW_PATH, "utf8"));
-assert.equal(alphaReview.version, "20260809-x-tyranno-quetzal-generated-fronts");
+assert.equal(alphaReview.version, "20260810-x-variant-generated-fronts-4");
 const alphaReviewByImage = new Map(alphaReview.files.map(entry => [entry.image, entry]));
 const normalizedEntries = [
   ...xBeyPrimaryImageConfig.selected,
   ...xBeyPrimaryImageConfig.verifiedMain
 ];
-assert.equal(normalizedEntries.length, 210);
+assert.equal(normalizedEntries.length, 214);
 for (const entry of normalizedEntries) {
   const review = alphaReviewByImage.get(entry.image);
   assert.ok(review, `${entry.id}: normalized image is missing from the alpha review`);
@@ -1125,9 +1166,9 @@ for (const item of xBeys) {
 }
 
 assert.deepEqual(counts, {
-  officialAngleCorrected: 10,
+  officialAngleCorrected: 6,
   officialAssembledFront: 116,
-  userApprovedGeneratedFront: 9,
+  userApprovedGeneratedFront: 13,
   verifiedExistingFront: 85,
   temporarySide: 0
 });

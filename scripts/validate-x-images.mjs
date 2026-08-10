@@ -11,7 +11,7 @@ import { xCatalogImagePath } from "./x-image-paths.mjs";
 const REPORT_ARG = process.argv.find(argument => argument.startsWith("--report="));
 const REPORT_PATH = REPORT_ARG?.slice("--report=".length) || "";
 const ALPHA_REVIEW_PATH = path.resolve("data/source/x-image-alpha-review.json");
-const ALPHA_REVIEW_VERSION = "20260809-x-tyranno-quetzal-generated-fronts";
+const ALPHA_REVIEW_VERSION = "20260810-x-variant-generated-fronts-4";
 const xItems = [...beyItems, ...partItems].filter(item => item.series === "x");
 const xIds = new Set(xItems.map(item => item.id));
 const expectedCorrectedSources = {

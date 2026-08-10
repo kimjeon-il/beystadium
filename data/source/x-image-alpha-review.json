@@ -1,5 +1,5 @@
 {
-  "version": "20260809-x-tyranno-quetzal-generated-fronts",
+  "version": "20260810-x-variant-generated-fronts-4",
   "canvasSize": 448,
   "files": [
     {
@@ -1619,21 +1619,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-megatron-4-80b/front.webp",
-      "outputSha256": "9da46f6e429744c5bf6973185af69ccb03c533fc463518f6185647f6a9b4ee00",
-      "alphaLevels": 256,
-      "partialPixels": 8530,
-      "foregroundPixels": 90115,
+      "outputSha256": "3e86ecfc47f23bfdd88651a4abaf85396ea58725d4be48f5c92478fe948b4616",
+      "alphaLevels": 253,
+      "partialPixels": 4073,
+      "foregroundPixels": 98621,
       "bbox": [
-        53,
-        51,
-        394,
-        397
+        44,
+        46,
+        404,
+        402
       ],
       "margins": [
-        53,
-        51,
-        54,
-        51
+        44,
+        46,
+        44,
+        46
       ]
     },
     {
@@ -1695,10 +1695,10 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-moff-gideon-3-80n/front.webp",
-      "outputSha256": "9873ceea9a889ee2f47867ef982e885820acb7df6171a700294ac1ffe5112a25",
-      "alphaLevels": 256,
-      "partialPixels": 9510,
-      "foregroundPixels": 99275,
+      "outputSha256": "c81bd4cb121887171b7ff36872a08b54213732471d491f8523c45ec924ef3eb8",
+      "alphaLevels": 252,
+      "partialPixels": 2442,
+      "foregroundPixels": 98545,
       "bbox": [
         44,
         44,
@@ -1923,21 +1923,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-optimus-prime-4-60p/front.webp",
-      "outputSha256": "9169f10d94ee82554272a361c8f16cdeaad8a919c5cc75b6e4abc030799af7af",
-      "alphaLevels": 256,
-      "partialPixels": 9133,
-      "foregroundPixels": 105479,
+      "outputSha256": "9fa5a7ab2cb4db2cdc941dee85134690cd51e3b18709bd8a33239e6574199ec9",
+      "alphaLevels": 253,
+      "partialPixels": 10039,
+      "foregroundPixels": 100273,
       "bbox": [
-        41,
-        36,
-        406,
-        412
+        44,
+        44,
+        404,
+        403
       ],
       "margins": [
-        41,
-        36,
-        42,
-        36
+        44,
+        44,
+        44,
+        45
       ]
     },
     {
@@ -2550,21 +2550,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-starscream-3-80n/front.webp",
-      "outputSha256": "788677a6a566af7f6210879f31cbb1652ca0ede99981d766593ae4ae0162314a",
-      "alphaLevels": 256,
-      "partialPixels": 8051,
-      "foregroundPixels": 85928,
+      "outputSha256": "692efe57456d49f5490a5edbdf8963370abcd64ae72f8e9677ebbf20e43bb2db",
+      "alphaLevels": 253,
+      "partialPixels": 8320,
+      "foregroundPixels": 99289,
       "bbox": [
-        56,
-        57,
-        392,
-        391
+        44,
+        48,
+        404,
+        399
       ],
       "margins": [
-        56,
-        57,
-        56,
-        57
+        44,
+        48,
+        44,
+        49
       ]
     },
     {
