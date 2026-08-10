@@ -1,5 +1,5 @@
 {
-  "version": "20260810-x-nonfront-6-gear-chip-harmony",
+  "version": "20260811-x-nonfront-6-gear-chip-black-vivid",
   "canvasSize": 448,
   "files": [
     {
@@ -498,7 +498,7 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-darth-vader-4-60p/front.webp",
-      "outputSha256": "f9d1cec355c8fcfd194be7ce4d1e159a4dd1e9b61dae0e21c3990afbb1dfe939",
+      "outputSha256": "cf3960f331c186fa13dc1daf1a9ee4c3b824c610439f4f52929a363c21e0a753",
       "alphaLevels": 251,
       "partialPixels": 2696,
       "foregroundPixels": 97096,
@@ -1049,7 +1049,7 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-driger-slash-4-80p/front.webp",
-      "outputSha256": "f9b94223a075c55f3d2309f11e5d1a9f83c98bec47ebff8a7d67939eef4ada44",
+      "outputSha256": "1eaf5a31a90f42990738e22b303b953f413a331c3b7840a1df89f194b946c77f",
       "alphaLevels": 256,
       "partialPixels": 2534,
       "foregroundPixels": 95700,
@@ -1505,7 +1505,7 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-luke-skywalker-4-80b/front.webp",
-      "outputSha256": "72eb269863f2fd53849d75e752cb79048e72e3bd0982f9c2bff0ba28d16310b0",
+      "outputSha256": "d144a3a79359e66b79ee7f5c72f2deabfd106729543542631a1b5fa9a4ed7caf",
       "alphaLevels": 230,
       "partialPixels": 3097,
       "foregroundPixels": 94231,
@@ -2474,7 +2474,7 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-spinosaurus-3-85a/front.webp",
-      "outputSha256": "3fc8496e3e73f719356663715df5cfbf0c0c2c8454fe559eacfb4e65257f082a",
+      "outputSha256": "afc634f35c4d9102e9cae378d8fe749189a251c7c2eca54c67b3da36d7fed49e",
       "alphaLevels": 242,
       "partialPixels": 2533,
       "foregroundPixels": 94716,
@@ -2968,7 +2968,7 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-the-mandalorian-3-60f/front.webp",
-      "outputSha256": "24625a5c2d2d51e08e46611df087bd6043fcc49ce3e4dcd2816e9271517ccc26",
+      "outputSha256": "4d1ee271637272b6d143c1ed6af308c8e0522d19942e5ad481aaa1d2640ee234",
       "alphaLevels": 251,
       "partialPixels": 2561,
       "foregroundPixels": 100167,
@@ -3044,7 +3044,7 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-venom-3-80n/front.webp",
-      "outputSha256": "f6c78abf3c42e1d530b8ffaff0fe1821ef288834bbfb0a838ef676bfbc7e1360",
+      "outputSha256": "ffd8f9fa11e072b93e5b74062b40eee75fd56b7f28aeaffded8a7d37c6c36b11",
       "alphaLevels": 241,
       "partialPixels": 2604,
       "foregroundPixels": 91716,

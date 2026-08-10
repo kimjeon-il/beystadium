@@ -8,7 +8,7 @@ const bookItems = [];
 const gameItems = [];
 const animeInfo = { title: "", overview: [], characters: [], episodes: [] };
 const searchIndexItems = [];
-const X_ASSET_CACHE_VERSION = "20260810-x-nonfront-6-gear-chip-harmony";
+const X_ASSET_CACHE_VERSION = "20260811-x-nonfront-6-gear-chip-black-vivid";
 
 const versionAssetUrl = source => {
   const value = String(source || "");

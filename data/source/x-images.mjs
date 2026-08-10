@@ -35,8 +35,8 @@ const xImageMappings = [
   {
     "id": "BEY-X-BX-00-DARTH-VADER-4-60P",
     "image": "assets/images/x/beys/bey-x-bx-00-darth-vader-4-60p/front.webp",
-    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-darth-vader-4-60p-generated.png",
-    "sourceSha256": "2f41414e05b1ba330a5ab6e18edf7422f32364a55ad3cc369d0a45ecfaceb74b",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-darth-vader-4-60p-gear-chip-black-vivid.png",
+    "sourceSha256": "c909fb44343bc83c70b2c57e8b5f1bc099ce9055b45a196cbd037c8499bcdf48",
     "sourceKind": "user-approved-generated-front",
     "normalizationInput": "source-file",
     "preserveSourcePixels": true
@@ -100,8 +100,8 @@ const xImageMappings = [
   {
     "id": "BEY-X-BX-00-DRIGER-SLASH-4-80P",
     "image": "assets/images/x/beys/bey-x-bx-00-driger-slash-4-80p/front.webp",
-    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-driger-slash-4-80p-generated.png",
-    "sourceSha256": "ff3a74bcc9c3b7a96355ae0490e2f575c591b51a460ff08ecbc358c17fcb5ff2",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-driger-slash-4-80p-gear-chip-black-vivid.png",
+    "sourceSha256": "f5eb0cd5ee09220e9e4e2d15c6d84af310af0dc46ab346c77551f1803859708a",
     "sourceKind": "user-approved-generated-front",
     "normalizationInput": "source-file",
     "preserveSourcePixels": true
@@ -136,8 +136,8 @@ const xImageMappings = [
   {
     "id": "BEY-X-BX-00-LUKE-SKYWALKER-4-80B",
     "image": "assets/images/x/beys/bey-x-bx-00-luke-skywalker-4-80b/front.webp",
-    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-luke-skywalker-4-80b-generated.png",
-    "sourceSha256": "2fc9b619352bd0a04f0c564d42b62f228ee2e854167a7fc18891281920a80b6b",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-luke-skywalker-4-80b-gear-chip-black-vivid.png",
+    "sourceSha256": "88939ca5cca6693ffbbf10f068c0502bf16520626946cb2701f60f556e130a5a",
     "sourceKind": "user-approved-generated-front",
     "normalizationInput": "source-file",
     "preserveSourcePixels": true
@@ -242,8 +242,8 @@ const xImageMappings = [
   {
     "id": "BEY-X-BX-00-SPINOSAURUS-3-85A",
     "image": "assets/images/x/beys/bey-x-bx-00-spinosaurus-3-85a/front.webp",
-    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-spinosaurus-3-85a-generated.png",
-    "sourceSha256": "823481fe80d28e237082304bf28bd1b379887af720c5ebb41a00fb4b75a42138",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-spinosaurus-3-85a-gear-chip-black-vivid.png",
+    "sourceSha256": "a044aaa129c4b633e8bc27f4642bc23d2d445be463e6721f7274afee1810826c",
     "sourceKind": "user-approved-generated-front",
     "normalizationInput": "source-file",
     "preserveSourcePixels": true
@@ -287,8 +287,8 @@ const xImageMappings = [
   {
     "id": "BEY-X-BX-00-THE-MANDALORIAN-3-60F",
     "image": "assets/images/x/beys/bey-x-bx-00-the-mandalorian-3-60f/front.webp",
-    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-the-mandalorian-3-60f-generated.png",
-    "sourceSha256": "10682c91c6c17c01fa9d0de3023cb17fa0823c499853841ddb7b6d48b6d7960b",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-the-mandalorian-3-60f-gear-chip-black-vivid.png",
+    "sourceSha256": "0c38651f6247b56c5a3e4457a9ea41ea7020da9c282b56e4b7ae6cb600441745",
     "sourceKind": "user-approved-generated-front",
     "normalizationInput": "source-file",
     "preserveSourcePixels": true
@@ -296,8 +296,8 @@ const xImageMappings = [
   {
     "id": "BEY-X-BX-00-VENOM-3-80N",
     "image": "assets/images/x/beys/bey-x-bx-00-venom-3-80n/front.webp",
-    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-venom-3-80n-generated.png",
-    "sourceSha256": "0e8a9e9627baa9a9bb82577289153e497664ab97c7499b692e80053449122710",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-venom-3-80n-gear-chip-black-vivid.png",
+    "sourceSha256": "621cb8f9a11bbb6b3acecae74d0a09b9bf45fe93ca72fea322539dd68b745413",
     "sourceKind": "user-approved-generated-front",
     "normalizationInput": "source-file",
     "preserveSourcePixels": true
