@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-const X_ASSET_CACHE_VERSION = "20260809-x-tyranno-quetzal-generated-fronts";
+const X_ASSET_CACHE_VERSION = "20260810-x-variant-generated-fronts-4";
 
 const consoleErrors = page => {
   const errors = [];
