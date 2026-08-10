@@ -93,7 +93,7 @@ uniqueValues([
   ...verifiedMainById.keys(),
   ...temporarySideById.keys()
 ], "explicit primary image classifications");
-assert.equal(xBeyPrimaryImageConfig.version, "20260810-x-dran-dagger-buster-image-swap");
+assert.equal(xBeyPrimaryImageConfig.version, "20260810-x-draciel-shield-angle");
 assert.equal(xBeyAngleCorrectionConfig.version, xBeyPrimaryImageConfig.version);
 assert.equal(xBeyAngleCorrectionConfig.method, "premultiplied-alpha-vertical-affine");
 assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
@@ -108,9 +108,9 @@ assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
     "verified-existing-front"
   ]
 });
-assert.equal(xBeyPrimaryImageConfig.selected.length, 132);
+assert.equal(xBeyPrimaryImageConfig.selected.length, 133);
 assert.equal(xBeyAngleCorrectionConfig.entries.length, 6);
-assert.equal(xBeyPrimaryImageConfig.verifiedMain.length, 82);
+assert.equal(xBeyPrimaryImageConfig.verifiedMain.length, 81);
 assert.equal(
   new Set([
     ...xBeyPrimaryImageConfig.selected.map(entry => entry.image),
@@ -745,6 +745,18 @@ const approvedGeneratedFronts = new Map([
     generationPromptSha256: "b9fb94d54763e1f7dc9fda3dea7e3ea7ec74465e66b6537854a7d66f5c05f67f",
     imageGenerationUsed: true
   }],
+  ["BEY-X-BX-00-DRACIEL-SHIELD-7-60D", {
+    sourceFile: "data/source/x-bey-front-sources/bey-x-bx-00-draciel-shield-7-60d-generated.png",
+    sourceSha256: "5bceef35154d9d546045c6b0779d215afa67dc21768f39272771389bb84f0267",
+    processingMethod: "imagegen-orthographic-angle-correction-plus-official-center-reprojection",
+    generationProvenanceFile: "data/source/x-bey-front-sources/x-draciel-shield-angle.json",
+    geometryAuthoritySha256: "d0e6acb83417fcab8467f8a8e2afcc85028eec4eefc94aea71f2066dbf5bc669",
+    rawReferenceSha256: "0343a6d1050e61a25b276392e440568836dafb3bc4cf6798ecb52cf16d1c3a8d",
+    styleAuthoritySha256: "d0e6acb83417fcab8467f8a8e2afcc85028eec4eefc94aea71f2066dbf5bc669",
+    angleReferenceSha256: "0ed2f3a1405021ade8ebe57358f82bf879ff5771b40bf9f5f161ddd22b517672",
+    centralArtworkSourceSha256: "98d85a58e1284af9792390d72c55836e28694dd407d74a898f1f8407f69a508b",
+    imageGenerationUsed: true
+  }],
   ["BEY-X-BX-00-SPIDER-MAN-3-60F", {
     sourceFile: "data/source/x-bey-front-sources/bey-x-bx-00-spider-man-3-60f-generated.png",
     sourceSha256: "576251729af9cf23672fc99b17b58a047caf88b8baf63d4e048a8316f7b696a6",
@@ -835,7 +847,8 @@ for (const provenanceFile of [
   "data/source/x-bey-front-sources/x-spider-optimus-generated-fronts.json",
   "data/source/x-bey-front-sources/x-tyranno-quetzal-generated-fronts.json",
   "data/source/x-bey-front-sources/x-variant-generated-fronts-4.json",
-  "data/source/x-bey-front-sources/x-moff-gideon-gear-chip-vivid.json"
+  "data/source/x-bey-front-sources/x-moff-gideon-gear-chip-vivid.json",
+  "data/source/x-bey-front-sources/x-draciel-shield-angle.json"
 ]) {
   const provenance = JSON.parse(await readFile(path.resolve(provenanceFile), "utf8"));
   generatedFrontProvenanceByFile.set(
@@ -881,7 +894,9 @@ for (const entry of xBeyPrimaryImageConfig.selected) {
       for (const field of [
         "characterSourceSha256",
         "gearChipTemplateSha256",
-        "hookStructureMismatchPixels"
+        "hookStructureMismatchPixels",
+        "angleReferenceSha256",
+        "centralArtworkSourceSha256"
       ]) {
         if (Object.hasOwn(expected, field)) assert.equal(entry[field], expected[field]);
       }
@@ -1066,7 +1081,7 @@ for (const entry of xBeyPrimaryImageConfig.temporarySideImages) {
 }
 
 const alphaReview = JSON.parse(await readFile(ALPHA_REVIEW_PATH, "utf8"));
-assert.equal(alphaReview.version, "20260810-x-dran-dagger-buster-image-swap");
+assert.equal(alphaReview.version, "20260810-x-draciel-shield-angle");
 const alphaReviewByImage = new Map(alphaReview.files.map(entry => [entry.image, entry]));
 const normalizedEntries = [
   ...xBeyPrimaryImageConfig.selected,
@@ -1169,8 +1184,8 @@ for (const item of xBeys) {
 assert.deepEqual(counts, {
   officialAngleCorrected: 6,
   officialAssembledFront: 116,
-  userApprovedGeneratedFront: 13,
-  verifiedExistingFront: 85,
+  userApprovedGeneratedFront: 14,
+  verifiedExistingFront: 84,
   temporarySide: 0
 });
 

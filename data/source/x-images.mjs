@@ -41,8 +41,11 @@ const xImageMappings = [
   {
     "id": "BEY-X-BX-00-DRACIEL-SHIELD-7-60D",
     "image": "assets/images/x/beys/bey-x-bx-00-draciel-shield-7-60d/main.webp",
-    "sourcePath": "02_product_components/071_bx00-drsh/01_BXG11_01@1.png",
-    "sourceSha256": "d0e6acb83417fcab8467f8a8e2afcc85028eec4eefc94aea71f2066dbf5bc669"
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-draciel-shield-7-60d-generated.png",
+    "sourceSha256": "5bceef35154d9d546045c6b0779d215afa67dc21768f39272771389bb84f0267",
+    "sourceKind": "user-approved-generated-front",
+    "normalizationInput": "source-file",
+    "preserveSourcePixels": true
   },
   {
     "id": "BEY-X-BX-00-DRAGOON-STORM-4-60RA",

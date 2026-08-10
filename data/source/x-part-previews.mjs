@@ -306,15 +306,16 @@ const xPartPreviewMappings = [
     "beyId": "BEY-X-BX-00-DRACIEL-SHIELD-7-60D",
     "partId": "PART-X-BLADE-DRACIEL-SHIELD",
     "image": "assets/images/x/beys/bey-x-bx-00-draciel-shield-7-60d/main.webp",
-    "sourceKind": "official-assembled-bey-view",
+    "sourceKind": "user-approved-generated-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG11_01@1.png",
-    "sourcePath": "02_product_components/071_bx00-drsh/01_BXG11_01@1.png",
-    "sourceSha256": "d0e6acb83417fcab8467f8a8e2afcc85028eec4eefc94aea71f2066dbf5bc669",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-draciel-shield-7-60d-generated.png",
+    "sourceSha256": "5bceef35154d9d546045c6b0779d215afa67dc21768f39272771389bb84f0267",
     "shapeSource": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG11_01@1.png",
     "shapeSourceSha256": "d0e6acb83417fcab8467f8a8e2afcc85028eec4eefc94aea71f2066dbf5bc669",
     "colorEvidence": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG11_01@1.png",
     "colorEvidenceSha256": "d0e6acb83417fcab8467f8a8e2afcc85028eec4eefc94aea71f2066dbf5bc669",
-    "outputSha256": "98d85a58e1284af9792390d72c55836e28694dd407d74a898f1f8407f69a508b"
+    "generationProvenanceFile": "data/source/x-bey-front-sources/x-draciel-shield-angle.json",
+    "outputSha256": "f3bff79c37966712bd3ff781325dce3f8eebb1a0ced2dcb87dc40de96955c10d"
   },
   {
     "beyId": "BEY-X-BX-00-DRACIEL-SHIELD-7-60D",

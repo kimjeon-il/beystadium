@@ -11,7 +11,10 @@ import { xCatalogImagePath } from "./x-image-paths.mjs";
 const REPORT_ARG = process.argv.find(argument => argument.startsWith("--report="));
 const REPORT_PATH = REPORT_ARG?.slice("--report=".length) || "";
 const ALPHA_REVIEW_PATH = path.resolve("data/source/x-image-alpha-review.json");
-const ALPHA_REVIEW_VERSION = "20260810-x-dran-dagger-buster-image-swap";
+const ALPHA_REVIEW_VERSION = "20260810-x-draciel-shield-angle";
+const generatedMainImageIds = new Set([
+  "BEY-X-BX-00-DRACIEL-SHIELD-7-60D"
+]);
 const xItems = [...beyItems, ...partItems].filter(item => item.series === "x");
 const xIds = new Set(xItems.map(item => item.id));
 const expectedCorrectedSources = {
@@ -120,6 +123,11 @@ async function validateOutputs() {
       sourcePath: "data/source/x-bey-front-sources/bey-x-bx-00-cobalt-dragoon-9-60f-generated.png",
       sourceSha256: "a963b81463618f008883ea188f818be98500c1513c16bda8c7d2814cd50e166b"
     }],
+    ["BEY-X-BX-00-DRACIEL-SHIELD-7-60D", {
+      image: "assets/images/x/beys/bey-x-bx-00-draciel-shield-7-60d/main.webp",
+      sourcePath: "data/source/x-bey-front-sources/bey-x-bx-00-draciel-shield-7-60d-generated.png",
+      sourceSha256: "5bceef35154d9d546045c6b0779d215afa67dc21768f39272771389bb84f0267"
+    }],
     ["BEY-X-BX-00-DRAN-SWORD-1-60V", {
       image: "assets/images/x/beys/bey-x-bx-00-dran-sword-1-60v/front.webp",
       sourcePath: "data/source/x-bey-front-sources/bey-x-bx-00-dran-sword-1-60v-generated.png",
@@ -177,6 +185,7 @@ async function validateOutputs() {
   for (const entry of xImageMappings) {
     const item = xItems.find(candidate => candidate.id === entry.id);
     const expectedImage = entry.sourceKind === "user-approved-generated-front"
+      && !generatedMainImageIds.has(entry.id)
       ? `assets/images/x/beys/${entry.id.toLowerCase()}/front.webp`
       : xCatalogImagePath(item);
     assert.equal(entry.image, expectedImage, `${entry.id} uses the wrong image layout`);

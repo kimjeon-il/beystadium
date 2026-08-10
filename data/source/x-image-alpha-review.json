@@ -1,5 +1,5 @@
 {
-  "version": "20260810-x-dran-dagger-buster-image-swap",
+  "version": "20260810-x-draciel-shield-angle",
   "canvasSize": 448,
   "files": [
     {
@@ -574,21 +574,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-draciel-shield-7-60d/main.webp",
-      "outputSha256": "98d85a58e1284af9792390d72c55836e28694dd407d74a898f1f8407f69a508b",
-      "alphaLevels": 256,
-      "partialPixels": 7249,
-      "foregroundPixels": 89764,
+      "outputSha256": "f3bff79c37966712bd3ff781325dce3f8eebb1a0ced2dcb87dc40de96955c10d",
+      "alphaLevels": 253,
+      "partialPixels": 3278,
+      "foregroundPixels": 92372,
       "bbox": [
         44,
-        51,
-        404,
-        396
+        44,
+        403,
+        404
       ],
       "margins": [
         44,
-        51,
         44,
-        52
+        45,
+        44
       ]
     },
     {

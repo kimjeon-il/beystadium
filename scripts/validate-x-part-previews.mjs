@@ -77,8 +77,9 @@ assert.deepEqual(
   {
     "official-color-derived": 238,
     "official-direct": 3,
-    "official-assembled-bey-view": 66,
-    "official-individual": 436
+    "official-assembled-bey-view": 65,
+    "official-individual": 436,
+    "user-approved-generated-bey-view": 1
   }
 );
 
@@ -158,7 +159,8 @@ for (const entry of xPartPreviewMappings) {
       "official-individual",
       "official-assembled-bey-view",
       "official-color-derived",
-      "official-direct"
+      "official-direct",
+      "user-approved-generated-bey-view"
     ]
       .includes(entry.sourceKind),
     `${contextKey(entry.beyId, entry.partId)} has an invalid source kind`
@@ -230,6 +232,19 @@ for (const entry of xPartPreviewMappings) {
   );
   assert.ok(info.hasAlpha, `${entry.image} does not advertise an alpha channel`);
 }
+
+const dracielBladePreview = mappingByContext.get(
+  contextKey("BEY-X-BX-00-DRACIEL-SHIELD-7-60D", "PART-X-BLADE-DRACIEL-SHIELD")
+);
+assert.equal(dracielBladePreview?.sourceKind, "user-approved-generated-bey-view");
+assert.equal(
+  dracielBladePreview?.sourcePath,
+  "data/source/x-bey-front-sources/bey-x-bx-00-draciel-shield-7-60d-generated.png"
+);
+assert.equal(
+  dracielBladePreview?.generationProvenanceFile,
+  "data/source/x-bey-front-sources/x-draciel-shield-angle.json"
+);
 
 for (const entry of xPartPreviewUnavailable) {
   const bey = beyById.get(entry.beyId);

@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: website product-image preview
+Input images:
+- Image 1: edit target and absolute authority for the exact Draciel Shield X remake product geometry, green/silver materials, colors, central Draciel artwork, Japanese lettering, blue badges, yellow printed details, part count, grooves, and assembly.
+- Image 2: camera/viewpoint reference only.
+
+Primary request: Re-render the exact assembled product from Image 1 in the perfectly straight, orthographic vertical top-down view shown in Image 2. Change only the camera angle and resulting visible projection.
+
+Composition/framing: one complete Bey centered, perfectly vertical top view, no perspective tilt. The north and south blue badges must share a vertical axis; the east and west blue badges must share a horizontal axis. The four diagonal yellow details must form a symmetric square around the center. Preserve the original clockwise orientation.
+
+Scene/backdrop: perfectly flat solid #ff00ff chroma-key background for local removal. One uniform color with no shadow, gradient, texture, floor plane, reflection, or lighting variation.
+
+Materials/textures: preserve the clean Takara Tomy catalog CGI materials from Image 1. Do not copy the brighter retail-photo color cast from Image 2.
+
+Constraints: preserve every blade, guard, groove, gap, metal edge, plastic contour, ratchet/bit visibility, central circular sticker artwork, Japanese text, and all printed symbols. Do not redesign, simplify, add, remove, mirror, rotate, recolor, restyle, sharpen, or rewrite anything. No launcher, packaging, UI icons, heart icon, expand icon, watermark, extra text, cast shadow, or reflection. Do not use #ff00ff anywhere in the product. Crisp complete silhouette with generous padding.

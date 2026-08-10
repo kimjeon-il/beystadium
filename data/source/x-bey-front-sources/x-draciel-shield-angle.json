@@ -1,0 +1,64 @@
+{
+  "version": "20260810-x-draciel-shield-angle",
+  "toolMode": "built-in ImageGen angle correction with deterministic chroma removal, official center-art restoration, and normalization; no CLI fallback",
+  "scope": "Draciel Shield X remake orthographic top-view correction",
+  "jobs": [
+    {
+      "id": "BEY-X-BX-00-DRACIEL-SHIELD-7-60D",
+      "targetName": "드래셀실드 7-60D",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-draciel-shield-7-60d-generated.png",
+      "sourceSha256": "5bceef35154d9d546045c6b0779d215afa67dc21768f39272771389bb84f0267",
+      "finalOutputSha256": "f3bff79c37966712bd3ff781325dce3f8eebb1a0ced2dcb87dc40de96955c10d",
+      "processingMethod": "imagegen-orthographic-angle-correction-plus-official-center-reprojection",
+      "officialAssembled": {
+        "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG11_01@1.png",
+        "sourcePath": "02_product_components/071_bx00-drsh/01_BXG11_01@1.png",
+        "sha256": "d0e6acb83417fcab8467f8a8e2afcc85028eec4eefc94aea71f2066dbf5bc669"
+      },
+      "angleReferenceFile": "data/source/x-bey-front-sources/bey-x-bx-00-draciel-shield-7-60d-angle-reference.png",
+      "angleReferenceSha256": "0ed2f3a1405021ade8ebe57358f82bf879ff5771b40bf9f5f161ddd22b517672",
+      "rawGeneratedFile": "data/source/x-bey-front-sources/bey-x-bx-00-draciel-shield-7-60d-imagegen-raw.png",
+      "rawGeneratedSha256": "0343a6d1050e61a25b276392e440568836dafb3bc4cf6798ecb52cf16d1c3a8d",
+      "promptFile": "data/source/x-bey-front-sources/bey-x-bx-00-draciel-shield-7-60d-prompt.txt",
+      "promptSha256": "ff6cda6d190803fc5a953e689a532b6b5fc1fadd73504241b177ef9270a1150a",
+      "geometryAuthoritySha256": "d0e6acb83417fcab8467f8a8e2afcc85028eec4eefc94aea71f2066dbf5bc669",
+      "styleAuthoritySha256": "d0e6acb83417fcab8467f8a8e2afcc85028eec4eefc94aea71f2066dbf5bc669",
+      "centralArtworkSourceSha256": "98d85a58e1284af9792390d72c55836e28694dd407d74a898f1f8407f69a508b",
+      "centerProtection": {
+        "method": "official-main-center-circle-uniform-reprojection",
+        "sourceCenter": [224, 224],
+        "sourceRadius": 53,
+        "targetCenter": [223.5, 223.5],
+        "targetRadius": 56,
+        "featherPixels": 2
+      },
+      "normalization": {
+        "canvas": [448, 448],
+        "targetLongEdge": 360,
+        "resample": "premultiplied-alpha-lanczos",
+        "output": "lossless-webp",
+        "normalizedForegroundBox": [44, 44, 403, 404]
+      },
+      "alphaProcessing": {
+        "method": "automatic-border-chroma-removal",
+        "chromaKey": "#ff00ff",
+        "softMatte": true,
+        "transparentThreshold": 12,
+        "opaqueThreshold": 220,
+        "despill": true,
+        "keepLargestComponent": true
+      },
+      "validation": {
+        "bbox": [44, 44, 403, 404],
+        "longEdge": 360,
+        "center": [223.0, 223.5],
+        "centerError": [-0.5, 0.0],
+        "transparentCorners": true,
+        "magentaResidualPixels": 0,
+        "greenResidualPixels": 0,
+        "componentCount": 1,
+        "deterministic": true
+      }
+    }
+  ]
+}

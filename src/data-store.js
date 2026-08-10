@@ -8,7 +8,7 @@ const bookItems = [];
 const gameItems = [];
 const animeInfo = { title: "", overview: [], characters: [], episodes: [] };
 const searchIndexItems = [];
-const X_ASSET_CACHE_VERSION = "20260810-x-dran-dagger-buster-image-swap";
+const X_ASSET_CACHE_VERSION = "20260810-x-draciel-shield-angle";
 
 const versionAssetUrl = source => {
   const value = String(source || "");

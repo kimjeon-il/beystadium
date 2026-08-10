@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-const X_ASSET_CACHE_VERSION = "20260810-x-dran-dagger-buster-image-swap";
+const X_ASSET_CACHE_VERSION = "20260810-x-draciel-shield-angle";
 
 const consoleErrors = page => {
   const errors = [];
