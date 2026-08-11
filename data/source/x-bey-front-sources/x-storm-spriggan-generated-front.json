@@ -1,0 +1,49 @@
+{
+  "version": "20260811-x-storm-spriggan-generated-front",
+  "toolMode": "user-selected existing ImageGen output with deterministic chroma-key removal; no generation or visual reinterpretation in this task",
+  "scope": "Storm Spriggan 2-70M selected generated front render",
+  "jobs": [
+    {
+      "id": "BEY-X-BX-00-STORM-SPRIGGAN-2-70M",
+      "targetName": "스톰 스프리건 2-70M",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-storm-spriggan-2-70m-generated.png",
+      "sourceSha256": "465805f8466457b63ce0be6f52393abd7001ae14c64214a75541143cdf64bd52",
+      "finalOutputSha256": "aa51c4f08d731c9b87c109257b4a52eeb051b0439f97763ef79485772776b611",
+      "processingMethod": "existing-imagegen-output-chroma-key-removal-plus-premultiplied-normalization",
+      "geometryAuthorityFile": "data/source/x-bey-front-sources/bey-x-bx-00-storm-spriggan-2-70m-generated-raw.png",
+      "geometryAuthoritySha256": "4ef0942495a424833c408e15ecf03320483f590104cef4842d4f6518a91bca6a",
+      "rawReferenceFile": "data/source/x-bey-front-sources/bey-x-bx-00-storm-spriggan-2-70m-generated-raw.png",
+      "rawReferenceSha256": "4ef0942495a424833c408e15ecf03320483f590104cef4842d4f6518a91bca6a",
+      "styleAuthorityFile": "assets/images/x/beys/bey-x-bx-00-storm-spriggan-2-70m/main.webp",
+      "styleAuthoritySha256": "e742920505b3df100420796cc6447d666b3052688f19bd62e59c758859ddb063",
+      "rawGeneratedFile": "data/source/x-bey-front-sources/bey-x-bx-00-storm-spriggan-2-70m-generated-raw.png",
+      "rawGeneratedSha256": "4ef0942495a424833c408e15ecf03320483f590104cef4842d4f6518a91bca6a",
+      "chromaKey": {
+        "sampleMode": "border-median",
+        "sampledColor": "#07f30e",
+        "softMatteTransparentThreshold": 32,
+        "softMatteOpaqueThreshold": 180,
+        "edgeContract": 1,
+        "spillCleanup": true
+      },
+      "normalization": {
+        "canvas": [448, 448],
+        "targetLongEdge": 360,
+        "resample": "premultiplied-alpha-lanczos",
+        "output": "lossless-webp",
+        "normalizedForegroundBox": [54, 44, 394, 404]
+      },
+      "validation": {
+        "bbox": [54, 44, 394, 404],
+        "longEdge": 360,
+        "center": [223.5, 223.5],
+        "transparentCorners": true,
+        "alphaLevels": 255,
+        "partialAlphaPixels": 3441,
+        "exactChromaResidualPixels": 0,
+        "greenResidualPixels": 0,
+        "componentCount": 1
+      }
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "version": "20260811-x-warrior-saber-imagegen-direct",
+  "version": "20260811-x-storm-spriggan-generated-front",
   "canvasSize": 448,
   "files": [
     {
@@ -2721,20 +2721,20 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-storm-spriggan-2-70m/front.webp",
-      "outputSha256": "ed49be79c9a99719e1944ca77c0036e7b4dd33f51872424f53cd163b9e0c9696",
-      "alphaLevels": 256,
-      "partialPixels": 99959,
-      "foregroundPixels": 100083,
+      "outputSha256": "aa51c4f08d731c9b87c109257b4a52eeb051b0439f97763ef79485772776b611",
+      "alphaLevels": 255,
+      "partialPixels": 3441,
+      "foregroundPixels": 97244,
       "bbox": [
-        47,
+        54,
         44,
-        400,
+        394,
         404
       ],
       "margins": [
-        47,
+        54,
         44,
-        48,
+        54,
         44
       ]
     },

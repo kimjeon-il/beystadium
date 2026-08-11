@@ -1,5 +1,5 @@
 {
-  "version": "20260811-x-warrior-saber-imagegen-direct",
+  "version": "20260811-x-storm-spriggan-generated-front",
   "sourceRoot": "",
   "policy": [
     "official-angle-corrected",
@@ -2004,18 +2004,23 @@
     {
       "id": "BEY-X-BX-00-STORM-SPRIGGAN-2-70M",
       "image": "assets/images/x/beys/bey-x-bx-00-storm-spriggan-2-70m/front.webp",
-      "sourceKind": "verified-existing-front",
-      "sourceUrl": "https://beyblade.phstudy.org/images/site/Blade/BL-PRD-997351-00.png",
-      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-storm-spriggan-2-70m-verified.png",
-      "sourceSha256": "a5e056e8e1dc40b91998729123518bb521accac0d95af65af71fb3df57d9d6e9",
+      "sourceKind": "user-approved-generated-front",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-storm-spriggan-2-70m-generated.png",
+      "sourceSha256": "465805f8466457b63ce0be6f52393abd7001ae14c64214a75541143cdf64bd52",
       "normalizationInput": "source-file",
       "preserveSourcePixels": true,
-      "preNormalizationSha256": "a5e056e8e1dc40b91998729123518bb521accac0d95af65af71fb3df57d9d6e9",
-      "outputSha256": "ed49be79c9a99719e1944ca77c0036e7b4dd33f51872424f53cd163b9e0c9696",
+      "processingMethod": "existing-imagegen-output-chroma-key-removal-plus-premultiplied-normalization",
+      "generationProvenanceFile": "data/source/x-bey-front-sources/x-storm-spriggan-generated-front.json",
+      "geometryAuthoritySha256": "4ef0942495a424833c408e15ecf03320483f590104cef4842d4f6518a91bca6a",
+      "rawReferenceSha256": "4ef0942495a424833c408e15ecf03320483f590104cef4842d4f6518a91bca6a",
+      "styleAuthoritySha256": "e742920505b3df100420796cc6447d666b3052688f19bd62e59c758859ddb063",
+      "imageGenerationUsed": true,
+      "preNormalizationSha256": "465805f8466457b63ce0be6f52393abd7001ae14c64214a75541143cdf64bd52",
+      "outputSha256": "aa51c4f08d731c9b87c109257b4a52eeb051b0439f97763ef79485772776b611",
       "normalizedForegroundBox": [
-        47,
+        54,
         44,
-        400,
+        394,
         404
       ]
     },

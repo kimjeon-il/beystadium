@@ -11,7 +11,7 @@ import { xCatalogImagePath } from "./x-image-paths.mjs";
 const REPORT_ARG = process.argv.find(argument => argument.startsWith("--report="));
 const REPORT_PATH = REPORT_ARG?.slice("--report=".length) || "";
 const ALPHA_REVIEW_PATH = path.resolve("data/source/x-image-alpha-review.json");
-const ALPHA_REVIEW_VERSION = "20260811-x-warrior-saber-imagegen-direct";
+const ALPHA_REVIEW_VERSION = "20260811-x-storm-spriggan-generated-front";
 const generatedMainImageIds = new Set([
   "BEY-X-BX-00-DRACIEL-SHIELD-7-60D"
 ]);

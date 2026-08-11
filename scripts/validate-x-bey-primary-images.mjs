@@ -93,7 +93,7 @@ uniqueValues([
   ...verifiedMainById.keys(),
   ...temporarySideById.keys()
 ], "explicit primary image classifications");
-assert.equal(xBeyPrimaryImageConfig.version, "20260811-x-warrior-saber-imagegen-direct");
+assert.equal(xBeyPrimaryImageConfig.version, "20260811-x-storm-spriggan-generated-front");
 assert.equal(xBeyAngleCorrectionConfig.version, xBeyPrimaryImageConfig.version);
 assert.equal(xBeyAngleCorrectionConfig.method, "premultiplied-alpha-vertical-affine");
 assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
@@ -909,6 +909,16 @@ const approvedGeneratedFronts = new Map([
     rawReferenceSha256: "b2f452912bc9acac7882bab6c40e2fac2a8464883f671aa47dda0510d3d26a40",
     styleAuthoritySha256: "80c41f941c7e114aba004edeaafd25b89da008dd834b22d94526aeb24ec1ebd3",
     imageGenerationUsed: true
+  }],
+  ["BEY-X-BX-00-STORM-SPRIGGAN-2-70M", {
+    sourceFile: "data/source/x-bey-front-sources/bey-x-bx-00-storm-spriggan-2-70m-generated.png",
+    sourceSha256: "465805f8466457b63ce0be6f52393abd7001ae14c64214a75541143cdf64bd52",
+    processingMethod: "existing-imagegen-output-chroma-key-removal-plus-premultiplied-normalization",
+    generationProvenanceFile: "data/source/x-bey-front-sources/x-storm-spriggan-generated-front.json",
+    geometryAuthoritySha256: "4ef0942495a424833c408e15ecf03320483f590104cef4842d4f6518a91bca6a",
+    rawReferenceSha256: "4ef0942495a424833c408e15ecf03320483f590104cef4842d4f6518a91bca6a",
+    styleAuthoritySha256: "e742920505b3df100420796cc6447d666b3052688f19bd62e59c758859ddb063",
+    imageGenerationUsed: true
   }]
 ]);
 const generatedFrontProvenanceByFile = new Map();
@@ -921,7 +931,8 @@ for (const provenanceFile of [
   "data/source/x-bey-front-sources/x-draciel-shield-angle.json",
   "data/source/x-bey-front-sources/x-nonfront-6-gear-chip-harmony.json",
   "data/source/x-bey-front-sources/x-nonfront-6-gear-chip-black-vivid.json",
-  "data/source/x-bey-front-sources/x-warrior-saber-generated-front.json"
+  "data/source/x-bey-front-sources/x-warrior-saber-generated-front.json",
+  "data/source/x-bey-front-sources/x-storm-spriggan-generated-front.json"
 ]) {
   const provenance = JSON.parse(await readFile(path.resolve(provenanceFile), "utf8"));
   generatedFrontProvenanceByFile.set(
@@ -1046,37 +1057,10 @@ for (const entry of xBeyPrimaryImageConfig.selected) {
     continue;
   }
   if (entry.sourceKind === "verified-existing-front") {
-    if (entry.id !== "BEY-X-BX-00-STORM-SPRIGGAN-2-70M") {
-      const expected = verifiedSuppliedFronts.get(entry.id);
-      assert.ok(expected, `${entry.id}: verified front is not approved`);
-      assert.equal(entry.sourceFile, expected.sourceFile);
-      assert.equal(entry.sourceSha256, expected.sourceSha256);
-      assert.equal(
-        createHash("sha256").update(await readFile(path.resolve(entry.sourceFile))).digest("hex"),
-        entry.sourceSha256,
-        `${entry.id}: verified source hash changed`
-      );
-      assert.equal(entry.normalizationInput, "source-file");
-      assert.equal(entry.preserveSourcePixels, true);
-      assert.equal(entry.rawReferenceSha256, expected.rawReferenceSha256);
-      for (const field of ["sourceUrl", "compositionReferenceSha256", "alphaReferenceSha256", "processingMethod"]) {
-        if (Object.hasOwn(expected, field)) assert.equal(entry[field], expected[field]);
-      }
-      assert.equal(entry.imageGenerationUsed, false);
-      assert.equal(entry.preNormalizationSha256, entry.sourceSha256);
-      assert.match(entry.outputSha256, /^[a-f0-9]{64}$/);
-      assert.equal(entry.normalizedForegroundBox.length, 4);
-      continue;
-    }
-    assert.equal(
-      entry.sourceUrl,
-      "https://beyblade.phstudy.org/images/site/Blade/BL-PRD-997351-00.png"
-    );
-    assert.equal(
-      entry.sourceFile,
-      "data/source/x-bey-front-sources/bey-x-bx-00-storm-spriggan-2-70m-verified.png"
-    );
-    assert.equal(entry.sourceSha256, "a5e056e8e1dc40b91998729123518bb521accac0d95af65af71fb3df57d9d6e9");
+    const expected = verifiedSuppliedFronts.get(entry.id);
+    assert.ok(expected, `${entry.id}: verified front is not approved`);
+    assert.equal(entry.sourceFile, expected.sourceFile);
+    assert.equal(entry.sourceSha256, expected.sourceSha256);
     assert.equal(
       createHash("sha256").update(await readFile(path.resolve(entry.sourceFile))).digest("hex"),
       entry.sourceSha256,
@@ -1084,9 +1068,14 @@ for (const entry of xBeyPrimaryImageConfig.selected) {
     );
     assert.equal(entry.normalizationInput, "source-file");
     assert.equal(entry.preserveSourcePixels, true);
-    assert.equal(entry.preNormalizationSha256, "a5e056e8e1dc40b91998729123518bb521accac0d95af65af71fb3df57d9d6e9");
-    assert.equal(entry.outputSha256, "ed49be79c9a99719e1944ca77c0036e7b4dd33f51872424f53cd163b9e0c9696");
-    assert.deepEqual(entry.normalizedForegroundBox, [47, 44, 400, 404]);
+    assert.equal(entry.rawReferenceSha256, expected.rawReferenceSha256);
+    for (const field of ["sourceUrl", "compositionReferenceSha256", "alphaReferenceSha256", "processingMethod"]) {
+      if (Object.hasOwn(expected, field)) assert.equal(entry[field], expected[field]);
+    }
+    assert.equal(entry.imageGenerationUsed, false);
+    assert.equal(entry.preNormalizationSha256, entry.sourceSha256);
+    assert.match(entry.outputSha256, /^[a-f0-9]{64}$/);
+    assert.equal(entry.normalizedForegroundBox.length, 4);
     continue;
   }
   assert.equal(entry.sourceKind, "official-assembled-front");
@@ -1157,7 +1146,7 @@ for (const entry of xBeyPrimaryImageConfig.temporarySideImages) {
 }
 
 const alphaReview = JSON.parse(await readFile(ALPHA_REVIEW_PATH, "utf8"));
-assert.equal(alphaReview.version, "20260811-x-warrior-saber-imagegen-direct");
+assert.equal(alphaReview.version, "20260811-x-storm-spriggan-generated-front");
 const alphaReviewByImage = new Map(alphaReview.files.map(entry => [entry.image, entry]));
 const normalizedEntries = [
   ...xBeyPrimaryImageConfig.selected,
@@ -1260,8 +1249,8 @@ for (const item of xBeys) {
 assert.deepEqual(counts, {
   officialAngleCorrected: 0,
   officialAssembledFront: 116,
-  userApprovedGeneratedFront: 21,
-  verifiedExistingFront: 84,
+  userApprovedGeneratedFront: 22,
+  verifiedExistingFront: 83,
   temporarySide: 0
 });
 

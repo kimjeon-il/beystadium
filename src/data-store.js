@@ -8,7 +8,7 @@ const bookItems = [];
 const gameItems = [];
 const animeInfo = { title: "", overview: [], characters: [], episodes: [] };
 const searchIndexItems = [];
-const X_ASSET_CACHE_VERSION = "20260811-x-warrior-saber-imagegen-direct";
+const X_ASSET_CACHE_VERSION = "20260811-x-storm-spriggan-generated-front";
 
 const versionAssetUrl = source => {
   const value = String(source || "");
