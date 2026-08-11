@@ -1,29 +1,41 @@
 {
-  "version": "20260811-x-warrior-saber-front",
+  "version": "20260811-x-warrior-saber-front-hd",
   "id": "BEY-X-UX-00-WARRIOR-SABER-2-70L",
   "sourceKind": "verified-existing-front",
-  "rawReferenceFile": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-reference.png",
-  "rawReferenceSha256": "3d8409719d3bf88390643c499969c5aa96a0bd5486aa6175d35c39a952bfd3d9",
-  "sourceFile": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-verified.png",
-  "sourceSha256": "dbf030becd6bdea126d79082a63d280dec358daeac1cabc6f254368efc8fe1f5",
+  "sourceUrl": "https://beyblade.phstudy.org/images/app/Big/BL-PRD-993773-00.png",
+  "rawReferenceFile": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-hd-reference.png",
+  "rawReferenceSha256": "dac31a104eecb5a296776c089f07b559871b64cd9183bfe8fca278dbb49852ea",
+  "compositionReferenceFile": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-reference.png",
+  "compositionReferenceSha256": "3d8409719d3bf88390643c499969c5aa96a0bd5486aa6175d35c39a952bfd3d9",
+  "previousAlphaReferenceFile": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-verified.png",
+  "previousAlphaReferenceSha256": "dbf030becd6bdea126d79082a63d280dec358daeac1cabc6f254368efc8fe1f5",
+  "sourceFile": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-hd-verified.png",
+  "sourceSha256": "c0185de57242dd2500b593ad9bd6c5574cf035b7f8b049ae9ff2543fde23c89a",
   "image": "assets/images/x/beys/bey-x-ux-00-warrior-saber-2-70l/front.webp",
-  "outputSha256": "aa75f29cb53d4945080fab9a0828244d8c83f5215bbd590557679133cd7c1655",
+  "outputSha256": "e5422a5d34d1e6181201331e7b09cfe007e86e176e2fe4ea639d78f3506cc2cf",
   "processing": {
     "imageGenerationUsed": false,
-    "segmentationModel": "u2netp",
-    "alphaMatting": false,
-    "keepLargestComponent": true,
-    "preserveSourcePixels": true,
+    "sourceSelection": "matching-product-512px-rgba",
+    "preserveSourcePixelsAfterDetailEnhancement": true,
     "rotationDegrees": 0,
     "warpUsed": false,
     "colorCorrectionUsed": false,
+    "detailEnhancement": {
+      "filter": "unsharp-mask",
+      "radius": 0.65,
+      "percent": 70,
+      "threshold": 4
+    },
     "normalization": "premultiplied-alpha-lanczos"
   },
   "validation": {
     "canvas": [448, 448],
-    "normalizedForegroundBox": [48, 44, 400, 404],
+    "normalizedForegroundBox": [55, 44, 392, 404],
     "foregroundLongEdge": 360,
     "componentCount": 1,
-    "transparentCorners": true
+    "transparentCorners": true,
+    "previousLaplacianVariance": 1974.15,
+    "outputLaplacianVariance": 7690.46,
+    "ux09ReferenceLaplacianVariance": 7095.7
   }
 }
