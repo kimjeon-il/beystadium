@@ -1,5 +1,5 @@
 {
-  "version": "20260811-x-warrior-saber-front-photo-restored",
+  "version": "20260811-x-warrior-saber-official-cgi-finish",
   "canvasSize": 448,
   "files": [
     {
@@ -13190,7 +13190,7 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-ux-00-warrior-saber-2-70l/front.webp",
-      "outputSha256": "9b49079da611bd9a8630252274fab4af26a7f5e5de78d863de6fb095e6192722",
+      "outputSha256": "fb0f93d4a83ba4796a6eb11420cd3a9519d04e5100058d36f73677e60da70d4b",
       "alphaLevels": 256,
       "partialPixels": 3658,
       "foregroundPixels": 97702,

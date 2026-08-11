@@ -1,0 +1,18 @@
+Use case: style-transfer
+Asset type: Beyblade X catalog front image for a website
+Input images:
+- Image 1 is the high-resolution edit target and the absolute authority for the orange product's geometry, color palette, gear-chip artwork, screw positions, and rotation.
+- Image 2 is the exact composition, center, scale, silhouette, internal-part layout, and top-down camera authority. Preserve it exactly.
+- Image 3 is only the material/render-quality reference: clean high-resolution Takara Tomy catalog CGI, smooth polished surfaces, crisp molded details, controlled studio highlights.
+
+Primary request: Re-render only the surface finish and image clarity of the orange product from Images 1 and 2 so it has the same smooth, high-resolution official catalog CGI quality as Image 3.
+Subject/material requirements:
+- Preserve the vivid translucent orange outer blade exactly; render it as smooth thick translucent orange plastic with clean depth, controlled glossy highlights, and crisp molded grooves.
+- Preserve the teal transparent three-part inner structure exactly; improve its transparency, depth, bevels, and clean edges without changing hue or shape.
+- Preserve the opaque white central plastic exactly; render as smooth clean molded white plastic with subtle bevel lighting and no pink/gray cast.
+- Preserve both orange screw-head details, every opening, notch, groove, seam, and overlap.
+- Preserve the entire central gear-chip artwork, all letters, tick marks, black ring, creature illustration, exact rotation, size, and position. Make it crisp and clean but do not redraw or reinterpret it.
+Composition/framing: exact vertical top view, no perspective, no rotation, no movement, no resizing, no warping, no mirroring, no symmetry correction. Match Image 2 pixel layout.
+Scene/backdrop: perfectly flat solid #ff00ff chroma-key background, uniform with no shadow, gradient, texture, reflection, or floor plane.
+Constraints: change only rendering quality, surface material, lighting cleanliness, and resolution. Keep all physical geometry and printed artwork unchanged.
+Avoid: copying the silver, purple, green, or magenta product colors from Image 3; changing the product design; inventing details; game-art look; painted-metal look; black outlines; cel shading; excessive sharpening; blur; noise; halo; watermark; cast shadow.

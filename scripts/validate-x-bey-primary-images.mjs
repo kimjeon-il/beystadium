@@ -93,7 +93,7 @@ uniqueValues([
   ...verifiedMainById.keys(),
   ...temporarySideById.keys()
 ], "explicit primary image classifications");
-assert.equal(xBeyPrimaryImageConfig.version, "20260811-x-warrior-saber-front-photo-restored");
+assert.equal(xBeyPrimaryImageConfig.version, "20260811-x-warrior-saber-official-cgi-finish");
 assert.equal(xBeyAngleCorrectionConfig.version, xBeyPrimaryImageConfig.version);
 assert.equal(xBeyAngleCorrectionConfig.method, "premultiplied-alpha-vertical-affine");
 assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
@@ -899,6 +899,16 @@ const approvedGeneratedFronts = new Map([
     rawReferenceSha256: "b00e0ce20ff9a8f8a2337541778fc77c4953ff8955200b09054b6ff443b136e0",
     styleAuthoritySha256: "1656c31d82bf7b556f04a63447a4131259ba5eecd0e70744da7ca922b561ebf1",
     imageGenerationUsed: true
+  }],
+  ["BEY-X-UX-00-WARRIOR-SABER-2-70L", {
+    sourceFile: "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-official-cgi.png",
+    sourceSha256: "d7b2ab3bd87b2f847590d856285fa2419a2f543defb2f912b0a38999cc5a38ee",
+    processingMethod: "imagegen-official-cgi-surface-rerender-plus-fixed-alpha-and-chip-restoration",
+    generationProvenanceFile: "data/source/x-bey-front-sources/x-warrior-saber-generated-front.json",
+    geometryAuthoritySha256: "b246f7628bae0819897837f8acea7fe08c5203db7736d17924ff7b1aa01338d5",
+    rawReferenceSha256: "3d8409719d3bf88390643c499969c5aa96a0bd5486aa6175d35c39a952bfd3d9",
+    styleAuthoritySha256: "80c41f941c7e114aba004edeaafd25b89da008dd834b22d94526aeb24ec1ebd3",
+    imageGenerationUsed: true
   }]
 ]);
 const generatedFrontProvenanceByFile = new Map();
@@ -910,7 +920,8 @@ for (const provenanceFile of [
   "data/source/x-bey-front-sources/x-moff-gideon-gear-chip-vivid.json",
   "data/source/x-bey-front-sources/x-draciel-shield-angle.json",
   "data/source/x-bey-front-sources/x-nonfront-6-gear-chip-harmony.json",
-  "data/source/x-bey-front-sources/x-nonfront-6-gear-chip-black-vivid.json"
+  "data/source/x-bey-front-sources/x-nonfront-6-gear-chip-black-vivid.json",
+  "data/source/x-bey-front-sources/x-warrior-saber-generated-front.json"
 ]) {
   const provenance = JSON.parse(await readFile(path.resolve(provenanceFile), "utf8"));
   generatedFrontProvenanceByFile.set(
@@ -931,13 +942,6 @@ const verifiedSuppliedFronts = new Map([
     sourceFile: "data/source/x-bey-front-sources/bey-x-bx-00-mosasaurus-9-60u-verified.png",
     sourceSha256: "691bef673e992ec24b68387cfdbae9c3c09847be1a1b967a2e23ffbf9541ef1f",
     rawReferenceSha256: "b0142adf2c73a42ffc0799242aa0549ff7bdceed812c8fb31272042b2f6f0763"
-  }],
-  ["BEY-X-UX-00-WARRIOR-SABER-2-70L", {
-    sourceFile: "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-photo-restored.png",
-    sourceSha256: "b246f7628bae0819897837f8acea7fe08c5203db7736d17924ff7b1aa01338d5",
-    rawReferenceSha256: "3d8409719d3bf88390643c499969c5aa96a0bd5486aa6175d35c39a952bfd3d9",
-    alphaReferenceSha256: "dbf030becd6bdea126d79082a63d280dec358daeac1cabc6f254368efc8fe1f5",
-    processingMethod: "user-photo-premultiplied-lanczos-moderate-unsharp"
   }]
 ]);
 
@@ -1153,7 +1157,7 @@ for (const entry of xBeyPrimaryImageConfig.temporarySideImages) {
 }
 
 const alphaReview = JSON.parse(await readFile(ALPHA_REVIEW_PATH, "utf8"));
-assert.equal(alphaReview.version, "20260811-x-warrior-saber-front-photo-restored");
+assert.equal(alphaReview.version, "20260811-x-warrior-saber-official-cgi-finish");
 const alphaReviewByImage = new Map(alphaReview.files.map(entry => [entry.image, entry]));
 const normalizedEntries = [
   ...xBeyPrimaryImageConfig.selected,
@@ -1256,8 +1260,8 @@ for (const item of xBeys) {
 assert.deepEqual(counts, {
   officialAngleCorrected: 0,
   officialAssembledFront: 116,
-  userApprovedGeneratedFront: 20,
-  verifiedExistingFront: 85,
+  userApprovedGeneratedFront: 21,
+  verifiedExistingFront: 84,
   temporarySide: 0
 });
 
