@@ -98,7 +98,6 @@ const OFFICIAL_SOURCE_OVERRIDES = {
 const UNAVAILABLE_REASONS = {
   "BEY-X-BX-00-HELLS-SCYTHE-3-80F": "타카라토미·한국 공식 출처에 단독 제품 사진이 공개되지 않았다.",
   "BEY-X-BX-00-NINJA-KNIFE-4-60LF": "공식 게임 특전 홍보 이미지에는 패키지와 합성된 사진만 있다.",
-  "BEY-X-BX-00-CROCO-CRUNCH-2-60Q": "타카라토미 공식 목록에는 출시 정보만 있고 단독 제품 사진이 없다.",
   "PART-X-BLADE-NINJA-KNIFE": "공식 게임 특전 홍보 이미지에 개별 블레이드 사진이 없다.",
   "PART-X-BLADE-CROCO-CRUNCH": "타카라토미 공식 출처에 개별 블레이드 사진이 없다.",
   "PART-X-BLADE-WARRIOR-STEEL": "연결된 공식 제품 상세와 개별 부품 사진이 없다.",
@@ -286,6 +285,9 @@ const xParts = partItems.filter(item => item.series === "x");
 const itemById = new Map([...xBeys, ...xParts].map(item => [item.id, item]));
 const productById = new Map(productItems.filter(item => item.series === "x").map(item => [item.id, item]));
 const reviewedById = new Map(xImageReview.map(entry => [entry.id, entry]));
+const reviewedFrontsUsingMainPath = new Set([
+  "BEY-X-BX-00-DRACIEL-SHIELD-7-60D"
+]);
 if (reviewedById.size !== xImageReview.length) {
   throw new Error("Duplicate reviewed X image mapping IDs");
 }
@@ -569,6 +571,7 @@ async function main() {
     const item = itemById.get(review.id);
     if (!item) throw new Error(`Unknown reviewed X image item: ${review.id}`);
     const expectedImage = ["user-approved-generated-front", "verified-existing-front"].includes(review.sourceKind)
+      && !reviewedFrontsUsingMainPath.has(review.id)
       ? `assets/images/x/beys/${review.id.toLowerCase()}/front.webp`
       : outputRelative(item);
     if (review.image !== expectedImage) {

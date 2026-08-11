@@ -1,0 +1,68 @@
+{
+  "version": "20260812-x-croco-crunch-front",
+  "id": "BEY-X-BX-00-CROCO-CRUNCH-2-60Q",
+  "classification": "verified-existing-front",
+  "imageGenerationUsed": false,
+  "rawSource": {
+    "file": "data/source/x-bey-front-sources/bey-x-bx-00-croco-crunch-2-60q-user-raw.png",
+    "sha256": "ce0ab20b6b17bd7c9db3bf913206b4c14e644ef8451128aaa80ab818c52e714d",
+    "width": 500,
+    "height": 453
+  },
+  "processing": {
+    "backgroundRemoval": "u2netp-alpha-matting",
+    "alphaMattingForegroundThreshold": 235,
+    "alphaMattingBackgroundThreshold": 12,
+    "alphaMattingErodeSize": 8,
+    "keepLargestComponent": true,
+    "whiteMatteRemoval": "partial-alpha-unmatte",
+    "colorAdjustment": "hue-and-chroma-preserving-smooth-highlight-rolloff",
+    "highlightRolloffStart": 0.8,
+    "highlightRolloffMaximum": 0.025,
+    "rotationDegrees": 0,
+    "perspectiveCorrection": false,
+    "warp": false
+  },
+  "transparentSource": {
+    "file": "data/source/x-bey-front-sources/bey-x-bx-00-croco-crunch-2-60q-verified.png",
+    "sha256": "6d677d0d1a6cfd38689314cdae719ccfa15534d5f30d3d78f86018c26a1fefcd",
+    "foregroundBox": [
+      0,
+      0,
+      500,
+      453
+    ]
+  },
+  "normalization": {
+    "method": "premultiplied-alpha-uniform-long-edge",
+    "canvasSize": 448,
+    "targetForegroundSize": 360,
+    "center": [
+      223.5,
+      223.5
+    ],
+    "resample": "lanczos"
+  },
+  "finalOutput": {
+    "file": "assets/images/x/beys/bey-x-bx-00-croco-crunch-2-60q/front.webp",
+    "sha256": "b136b86a024cab4348932d552215cbd9922e8c0bc58845c69d5654a6b6224248",
+    "normalizedForegroundBox": [
+      44,
+      61,
+      404,
+      387
+    ]
+  },
+  "validation": {
+    "alphaLevels": 256,
+    "partialAlphaPixels": 4863,
+    "componentCountAtAlpha8": 1,
+    "transparentCornerPixels": 4,
+    "whiteBackgroundResidualPixels": 0,
+    "newChannelClippingPixels": 0,
+    "meanHueShiftDegrees": 0.031081,
+    "maximumHueShiftDegrees": 2.0,
+    "centerErrorPixels": 0,
+    "longEdgePixels": 360
+  }
+}

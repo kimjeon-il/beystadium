@@ -38,6 +38,16 @@ const xImageReview = [
     "outputSha256": "c9a036eff3bcc2a0a2eb77489d609d5d86661683168a3508eaed904438383a73"
   },
   {
+    "id": "BEY-X-BX-00-CROCO-CRUNCH-2-60Q",
+    "image": "assets/images/x/beys/bey-x-bx-00-croco-crunch-2-60q/front.webp",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-croco-crunch-2-60q-verified.png",
+    "sourceSha256": "6d677d0d1a6cfd38689314cdae719ccfa15534d5f30d3d78f86018c26a1fefcd",
+    "outputSha256": "b136b86a024cab4348932d552215cbd9922e8c0bc58845c69d5654a6b6224248",
+    "sourceKind": "verified-existing-front",
+    "normalizationInput": "source-file",
+    "preserveSourcePixels": true
+  },
+  {
     "id": "BEY-X-BX-00-DARTH-VADER-4-60P",
     "image": "assets/images/x/beys/bey-x-bx-00-darth-vader-4-60p/front.webp",
     "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-darth-vader-4-60p-gear-chip-black-vivid.png",

@@ -93,7 +93,7 @@ uniqueValues([
   ...verifiedMainById.keys(),
   ...temporarySideById.keys()
 ], "explicit primary image classifications");
-assert.equal(xBeyPrimaryImageConfig.version, "20260811-x-storm-spriggan-generated-front");
+assert.equal(xBeyPrimaryImageConfig.version, "20260812-x-croco-crunch-front");
 assert.equal(xBeyAngleCorrectionConfig.version, xBeyPrimaryImageConfig.version);
 assert.equal(xBeyAngleCorrectionConfig.method, "premultiplied-alpha-vertical-affine");
 assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
@@ -108,7 +108,7 @@ assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
     "verified-existing-front"
   ]
 });
-assert.equal(xBeyPrimaryImageConfig.selected.length, 140);
+assert.equal(xBeyPrimaryImageConfig.selected.length, 141);
 assert.equal(xBeyAngleCorrectionConfig.entries.length, 0);
 assert.equal(xBeyPrimaryImageConfig.verifiedMain.length, 81);
 assert.equal(
@@ -116,7 +116,7 @@ assert.equal(
     ...xBeyPrimaryImageConfig.selected.map(entry => entry.image),
     ...xBeyPrimaryImageConfig.verifiedMain.map(entry => entry.image)
   ]).size,
-  221,
+  222,
   "front-view normalization paths must be unique"
 );
 
@@ -944,6 +944,14 @@ for (const provenanceFile of [
   );
 }
 const verifiedSuppliedFronts = new Map([
+  ["BEY-X-BX-00-CROCO-CRUNCH-2-60Q", {
+    sourceFile: "data/source/x-bey-front-sources/bey-x-bx-00-croco-crunch-2-60q-verified.png",
+    sourceSha256: "6d677d0d1a6cfd38689314cdae719ccfa15534d5f30d3d78f86018c26a1fefcd",
+    rawReferenceFile: "data/source/x-bey-front-sources/bey-x-bx-00-croco-crunch-2-60q-user-raw.png",
+    rawReferenceSha256: "ce0ab20b6b17bd7c9db3bf913206b4c14e644ef8451128aaa80ab818c52e714d",
+    processingMethod: "u2netp-alpha-matting-largest-component-white-despill-plus-hue-preserving-highlight-rolloff",
+    provenanceFile: "data/source/x-bey-front-sources/x-croco-crunch-front.json"
+  }],
   ["BEY-X-BX-00-T-REX-1-80GB", {
     sourceFile: "data/source/x-bey-front-sources/bey-x-bx-00-t-rex-1-80gb-verified.png",
     sourceSha256: "a9c014fa1a30750801d5e3cc046b9f162eb2a588ea3b55e2d1293ca52f6092a4",
@@ -1069,8 +1077,32 @@ for (const entry of xBeyPrimaryImageConfig.selected) {
     assert.equal(entry.normalizationInput, "source-file");
     assert.equal(entry.preserveSourcePixels, true);
     assert.equal(entry.rawReferenceSha256, expected.rawReferenceSha256);
-    for (const field of ["sourceUrl", "compositionReferenceSha256", "alphaReferenceSha256", "processingMethod"]) {
+    for (const field of [
+      "sourceUrl",
+      "rawReferenceFile",
+      "compositionReferenceSha256",
+      "alphaReferenceSha256",
+      "processingMethod",
+      "provenanceFile"
+    ]) {
       if (Object.hasOwn(expected, field)) assert.equal(entry[field], expected[field]);
+    }
+    if (expected.rawReferenceFile) {
+      assert.equal(
+        createHash("sha256").update(await readFile(path.resolve(expected.rawReferenceFile))).digest("hex"),
+        expected.rawReferenceSha256,
+        `${entry.id}: raw reference hash changed`
+      );
+    }
+    if (expected.provenanceFile) {
+      const provenance = JSON.parse(await readFile(path.resolve(expected.provenanceFile), "utf8"));
+      assert.equal(provenance.version, xBeyPrimaryImageConfig.version);
+      assert.equal(provenance.id, entry.id);
+      assert.equal(provenance.imageGenerationUsed, false);
+      assert.equal(provenance.rawSource.sha256, expected.rawReferenceSha256);
+      assert.equal(provenance.transparentSource.sha256, entry.sourceSha256);
+      assert.equal(provenance.finalOutput.sha256, entry.outputSha256);
+      assert.deepEqual(provenance.finalOutput.normalizedForegroundBox, entry.normalizedForegroundBox);
     }
     assert.equal(entry.imageGenerationUsed, false);
     assert.equal(entry.preNormalizationSha256, entry.sourceSha256);
@@ -1146,13 +1178,13 @@ for (const entry of xBeyPrimaryImageConfig.temporarySideImages) {
 }
 
 const alphaReview = JSON.parse(await readFile(ALPHA_REVIEW_PATH, "utf8"));
-assert.equal(alphaReview.version, "20260811-x-storm-spriggan-generated-front");
+assert.equal(alphaReview.version, "20260812-x-croco-crunch-front");
 const alphaReviewByImage = new Map(alphaReview.files.map(entry => [entry.image, entry]));
 const normalizedEntries = [
   ...xBeyPrimaryImageConfig.selected,
   ...xBeyPrimaryImageConfig.verifiedMain
 ];
-assert.equal(normalizedEntries.length, 221);
+assert.equal(normalizedEntries.length, 222);
 for (const entry of normalizedEntries) {
   const review = alphaReviewByImage.get(entry.image);
   assert.ok(review, `${entry.id}: normalized image is missing from the alpha review`);
@@ -1178,7 +1210,7 @@ const counts = {
   temporarySide: 0
 };
 const xBeys = beyItems.filter(item => item.series === "x" && item.image);
-assert.equal(xBeys.length, 221);
+assert.equal(xBeys.length, 222);
 
 for (const item of xBeys) {
   const bladeIds = bladePartIds(item);
@@ -1250,7 +1282,7 @@ assert.deepEqual(counts, {
   officialAngleCorrected: 0,
   officialAssembledFront: 116,
   userApprovedGeneratedFront: 22,
-  verifiedExistingFront: 83,
+  verifiedExistingFront: 84,
   temporarySide: 0
 });
 

@@ -7,7 +7,7 @@ import { productItems } from "../data/source/products.mjs";
 import { rareBeyGetItems } from "../data/source/rare-bey-get.mjs";
 import { bookItems, gameItems, toolsItems } from "../data/source/secondary.mjs";
 
-const VERSION = "20260811-x-storm-spriggan-generated-front";
+const VERSION = "20260812-x-croco-crunch-front";
 const SERIES_SLUGS = {
   "metal fight": "metal-fight",
   burst: "burst",

@@ -1,5 +1,5 @@
 {
-  "version": "20260811-x-storm-spriggan-generated-front",
+  "version": "20260812-x-croco-crunch-front",
   "canvasSize": 448,
   "files": [
     {
@@ -456,6 +456,25 @@
         59,
         45,
         60
+      ]
+    },
+    {
+      "image": "assets/images/x/beys/bey-x-bx-00-croco-crunch-2-60q/front.webp",
+      "outputSha256": "b136b86a024cab4348932d552215cbd9922e8c0bc58845c69d5654a6b6224248",
+      "alphaLevels": 256,
+      "partialPixels": 4863,
+      "foregroundPixels": 88363,
+      "bbox": [
+        44,
+        61,
+        404,
+        387
+      ],
+      "margins": [
+        44,
+        61,
+        44,
+        61
       ]
     },
     {

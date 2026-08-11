@@ -33,6 +33,15 @@ const xImageMappings = [
     "sourceSha256": "c7e861bd044a230d0f4d804e76b9cc74fba654fa2f040b507943f11a901536e9"
   },
   {
+    "id": "BEY-X-BX-00-CROCO-CRUNCH-2-60Q",
+    "image": "assets/images/x/beys/bey-x-bx-00-croco-crunch-2-60q/front.webp",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-croco-crunch-2-60q-verified.png",
+    "sourceSha256": "6d677d0d1a6cfd38689314cdae719ccfa15534d5f30d3d78f86018c26a1fefcd",
+    "sourceKind": "verified-existing-front",
+    "normalizationInput": "source-file",
+    "preserveSourcePixels": true
+  },
+  {
     "id": "BEY-X-BX-00-DARTH-VADER-4-60P",
     "image": "assets/images/x/beys/bey-x-bx-00-darth-vader-4-60p/front.webp",
     "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-darth-vader-4-60p-gear-chip-black-vivid.png",
@@ -2994,10 +3003,6 @@ const xImageUnavailable = [
   {
     "id": "BEY-X-BX-00-NINJA-KNIFE-4-60LF",
     "reason": "공식 게임 특전 홍보 이미지에는 패키지와 합성된 사진만 있다."
-  },
-  {
-    "id": "BEY-X-BX-00-CROCO-CRUNCH-2-60Q",
-    "reason": "타카라토미 공식 목록에는 출시 정보만 있고 단독 제품 사진이 없다."
   },
   {
     "id": "PART-X-BLADE-NINJA-KNIFE",
