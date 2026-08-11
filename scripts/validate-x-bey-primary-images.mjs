@@ -93,7 +93,7 @@ uniqueValues([
   ...verifiedMainById.keys(),
   ...temporarySideById.keys()
 ], "explicit primary image classifications");
-assert.equal(xBeyPrimaryImageConfig.version, "20260811-x-warrior-saber-official-cgi-finish");
+assert.equal(xBeyPrimaryImageConfig.version, "20260811-x-warrior-saber-imagegen-direct");
 assert.equal(xBeyAngleCorrectionConfig.version, xBeyPrimaryImageConfig.version);
 assert.equal(xBeyAngleCorrectionConfig.method, "premultiplied-alpha-vertical-affine");
 assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
@@ -901,12 +901,12 @@ const approvedGeneratedFronts = new Map([
     imageGenerationUsed: true
   }],
   ["BEY-X-UX-00-WARRIOR-SABER-2-70L", {
-    sourceFile: "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-official-cgi.png",
-    sourceSha256: "d7b2ab3bd87b2f847590d856285fa2419a2f543defb2f912b0a38999cc5a38ee",
-    processingMethod: "imagegen-official-cgi-surface-rerender-plus-fixed-alpha-and-chip-restoration",
+    sourceFile: "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-imagegen-direct.png",
+    sourceSha256: "9cebad4dcf5c82ffea0d861f34922cd96fe4d770870db0f6a484f06e5688ba62",
+    processingMethod: "imagegen-direct-chroma-key-plus-premultiplied-normalization",
     generationProvenanceFile: "data/source/x-bey-front-sources/x-warrior-saber-generated-front.json",
-    geometryAuthoritySha256: "b246f7628bae0819897837f8acea7fe08c5203db7736d17924ff7b1aa01338d5",
-    rawReferenceSha256: "3d8409719d3bf88390643c499969c5aa96a0bd5486aa6175d35c39a952bfd3d9",
+    geometryAuthoritySha256: "b2f452912bc9acac7882bab6c40e2fac2a8464883f671aa47dda0510d3d26a40",
+    rawReferenceSha256: "b2f452912bc9acac7882bab6c40e2fac2a8464883f671aa47dda0510d3d26a40",
     styleAuthoritySha256: "80c41f941c7e114aba004edeaafd25b89da008dd834b22d94526aeb24ec1ebd3",
     imageGenerationUsed: true
   }]
@@ -1157,7 +1157,7 @@ for (const entry of xBeyPrimaryImageConfig.temporarySideImages) {
 }
 
 const alphaReview = JSON.parse(await readFile(ALPHA_REVIEW_PATH, "utf8"));
-assert.equal(alphaReview.version, "20260811-x-warrior-saber-official-cgi-finish");
+assert.equal(alphaReview.version, "20260811-x-warrior-saber-imagegen-direct");
 const alphaReviewByImage = new Map(alphaReview.files.map(entry => [entry.image, entry]));
 const normalizedEntries = [
   ...xBeyPrimaryImageConfig.selected,

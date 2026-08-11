@@ -1,59 +1,49 @@
 {
-  "version": "20260811-x-warrior-saber-official-cgi-finish",
-  "toolMode": "built-in ImageGen style transfer with deterministic fixed-alpha, gear-chip, and high-frequency geometry restoration; no CLI fallback",
-  "scope": "UX-00 Warrior Saber 2-70L official-catalog CGI surface finish",
+  "version": "20260811-x-warrior-saber-imagegen-direct",
+  "toolMode": "built-in ImageGen result applied directly after deterministic chroma-key removal and site normalization; no regeneration or source-detail restoration",
+  "scope": "UX-00 Warrior Saber 2-70L direct generated front render",
   "jobs": [
     {
       "id": "BEY-X-UX-00-WARRIOR-SABER-2-70L",
       "targetName": "사무라이세이버 2-70L",
-      "sourceFile": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-official-cgi.png",
-      "sourceSha256": "d7b2ab3bd87b2f847590d856285fa2419a2f543defb2f912b0a38999cc5a38ee",
-      "finalOutputSha256": "fb0f93d4a83ba4796a6eb11420cd3a9519d04e5100058d36f73677e60da70d4b",
-      "processingMethod": "imagegen-official-cgi-surface-rerender-plus-fixed-alpha-and-chip-restoration",
-      "geometryAuthorityFile": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-photo-restored.png",
-      "geometryAuthoritySha256": "b246f7628bae0819897837f8acea7fe08c5203db7736d17924ff7b1aa01338d5",
-      "rawReferenceFile": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-reference.png",
-      "rawReferenceSha256": "3d8409719d3bf88390643c499969c5aa96a0bd5486aa6175d35c39a952bfd3d9",
-      "alphaAuthorityFile": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-verified.png",
-      "alphaAuthoritySha256": "dbf030becd6bdea126d79082a63d280dec358daeac1cabc6f254368efc8fe1f5",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-imagegen-direct.png",
+      "sourceSha256": "9cebad4dcf5c82ffea0d861f34922cd96fe4d770870db0f6a484f06e5688ba62",
+      "finalOutputSha256": "a7a34aeb8023e70e45e9d5374e583ad5a55300f012d41a32e3053acc352edcdc",
+      "processingMethod": "imagegen-direct-chroma-key-plus-premultiplied-normalization",
+      "geometryAuthorityFile": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-official-cgi-raw.png",
+      "geometryAuthoritySha256": "b2f452912bc9acac7882bab6c40e2fac2a8464883f671aa47dda0510d3d26a40",
+      "rawReferenceFile": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-official-cgi-raw.png",
+      "rawReferenceSha256": "b2f452912bc9acac7882bab6c40e2fac2a8464883f671aa47dda0510d3d26a40",
       "styleAuthorityFile": "assets/images/x/beys/bey-x-ux-09-warrior-saber-2-70l/front.webp",
       "styleAuthoritySha256": "80c41f941c7e114aba004edeaafd25b89da008dd834b22d94526aeb24ec1ebd3",
       "rawGeneratedFile": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-official-cgi-raw.png",
       "rawGeneratedSha256": "b2f452912bc9acac7882bab6c40e2fac2a8464883f671aa47dda0510d3d26a40",
       "promptFile": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-official-cgi-prompt.txt",
       "promptSha256": "e68bd23d4f694623b792122f1034ef5079f212a02f07fe78a1ebde49296cf978",
-      "geometryEdgeMaskFile": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-official-cgi-edge-mask.png",
-      "geometryEdgeMaskSha256": "c8740b94a16af4285797311bac6680f01ecada4a609efbf69ba15c9a40590d77",
+      "chromaKey": {
+        "sampleMode": "border-median",
+        "sampledColor": "#f10bf7",
+        "softMatteTransparentThreshold": 8,
+        "softMatteOpaqueThreshold": 80,
+        "spillCleanup": true
+      },
       "normalization": {
         "canvas": [448, 448],
         "targetLongEdge": 360,
         "resample": "premultiplied-alpha-lanczos",
         "output": "lossless-webp",
-        "normalizedForegroundBox": [48, 44, 400, 404]
-      },
-      "gearChipRestoration": {
-        "center": [223.5, 223.5],
-        "radius": 60,
-        "featherPixels": 2,
-        "source": "geometry-authority",
-        "detailEnhancement": {
-          "filter": "unsharp-mask",
-          "radius": 0.55,
-          "percent": 55,
-          "threshold": 3
-        }
+        "normalizedForegroundBox": [46, 44, 401, 404]
       },
       "validation": {
-        "bbox": [48, 44, 400, 404],
+        "bbox": [46, 44, 401, 404],
         "longEdge": 360,
-        "center": [223.5, 223.5],
+        "center": [223.0, 223.5],
         "transparentCorners": true,
-        "alphaMismatchPixels": 0,
-        "protectedBoundaryPixels": 7076,
-        "protectedBoundaryMismatchPixels": 0,
-        "magentaResidualPixels": 0,
+        "alphaLevels": 255,
+        "partialAlphaPixels": 6702,
+        "exactChromaResidualPixels": 0,
         "greenResidualPixels": 0,
-        "componentCount": 1
+        "significantComponentCount": 1
       }
     }
   ]
