@@ -1,5 +1,5 @@
 {
-  "version": "20260811-x-nonfront-6-gear-chip-black-vivid",
+  "version": "20260811-x-warrior-saber-front",
   "sourceRoot": "",
   "policy": [
     "official-angle-corrected",
@@ -1492,6 +1492,30 @@
         46,
         404,
         401
+      ]
+    },
+    {
+      "id": "BEY-X-UX-00-WARRIOR-SABER-2-70L",
+      "image": "assets/images/x/beys/bey-x-ux-00-warrior-saber-2-70l/front.webp",
+      "sourceKind": "verified-existing-front",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-verified.png",
+      "sourceSha256": "dbf030becd6bdea126d79082a63d280dec358daeac1cabc6f254368efc8fe1f5",
+      "normalizationInput": "source-file",
+      "preserveSourcePixels": true,
+      "processingMethod": "u2netp-non-matting-largest-component-source-pixel-preservation",
+      "provenanceFile": "data/source/x-bey-front-sources/x-warrior-saber-verified-front.json",
+      "rawReferenceSha256": "3d8409719d3bf88390643c499969c5aa96a0bd5486aa6175d35c39a952bfd3d9",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "imageGenerationUsed": false,
+      "preNormalizationSha256": "dbf030becd6bdea126d79082a63d280dec358daeac1cabc6f254368efc8fe1f5",
+      "outputSha256": "aa75f29cb53d4945080fab9a0828244d8c83f5215bbd590557679133cd7c1655",
+      "normalizedForegroundBox": [
+        48,
+        44,
+        400,
+        404
       ]
     },
     {

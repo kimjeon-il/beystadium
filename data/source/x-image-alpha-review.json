@@ -1,5 +1,5 @@
 {
-  "version": "20260811-x-nonfront-6-gear-chip-black-vivid",
+  "version": "20260811-x-warrior-saber-front",
   "canvasSize": 448,
   "files": [
     {
@@ -13186,6 +13186,25 @@
         61,
         46,
         62
+      ]
+    },
+    {
+      "image": "assets/images/x/beys/bey-x-ux-00-warrior-saber-2-70l/front.webp",
+      "outputSha256": "aa75f29cb53d4945080fab9a0828244d8c83f5215bbd590557679133cd7c1655",
+      "alphaLevels": 256,
+      "partialPixels": 3658,
+      "foregroundPixels": 97702,
+      "bbox": [
+        48,
+        44,
+        400,
+        404
+      ],
+      "margins": [
+        48,
+        44,
+        48,
+        44
       ]
     },
     {

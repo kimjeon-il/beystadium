@@ -11,7 +11,7 @@ import { xCatalogImagePath } from "./x-image-paths.mjs";
 const REPORT_ARG = process.argv.find(argument => argument.startsWith("--report="));
 const REPORT_PATH = REPORT_ARG?.slice("--report=".length) || "";
 const ALPHA_REVIEW_PATH = path.resolve("data/source/x-image-alpha-review.json");
-const ALPHA_REVIEW_VERSION = "20260811-x-nonfront-6-gear-chip-black-vivid";
+const ALPHA_REVIEW_VERSION = "20260811-x-warrior-saber-front";
 const generatedMainImageIds = new Set([
   "BEY-X-BX-00-DRACIEL-SHIELD-7-60D"
 ]);
@@ -99,8 +99,8 @@ async function validateOutputs() {
   ];
   uniqueValues(accountedIds, "accounted X item IDs");
   assert.deepEqual(new Set(accountedIds), xIds, "every X Bey and part must be mapped or unavailable");
-  assert.equal(xImageMappings.length, 442);
-  assert.equal(xImageUnavailable.length, 23);
+  assert.equal(xImageMappings.length, 443);
+  assert.equal(xImageUnavailable.length, 22);
   assert.equal(xImageReview.length, xImageMappings.length);
   const mappingById = new Map(xImageMappings.map(entry => [entry.id, entry]));
   const phoenixComposite = mappingById.get("BEY-X-BX-00-PHOENIX-SOAR-9-80DB");
@@ -184,7 +184,7 @@ async function validateOutputs() {
   const reviewById = new Map(xImageReview.map(entry => [entry.id, entry]));
   for (const entry of xImageMappings) {
     const item = xItems.find(candidate => candidate.id === entry.id);
-    const expectedImage = entry.sourceKind === "user-approved-generated-front"
+    const expectedImage = ["user-approved-generated-front", "verified-existing-front"].includes(entry.sourceKind)
       && !generatedMainImageIds.has(entry.id)
       ? `assets/images/x/beys/${entry.id.toLowerCase()}/front.webp`
       : xCatalogImagePath(item);
@@ -228,7 +228,7 @@ async function validateOutputs() {
   }
 
   const files = await webpFiles(path.resolve("assets/images/x"));
-  assert.equal(files.length, 1045, "X image file count changed");
+  assert.equal(files.length, 1046, "X image file count changed");
   assert.equal(
     files.some(file => file.includes(`${path.sep}part-previews${path.sep}`)),
     false,

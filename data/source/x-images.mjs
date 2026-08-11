@@ -1161,6 +1161,15 @@ const xImageMappings = [
     "sourceSha256": "ada44b9a1889c292a9cba5abf4f2d705bcc58c138b5f1ec93f2e74ad0a5aab64"
   },
   {
+    "id": "BEY-X-UX-00-WARRIOR-SABER-2-70L",
+    "image": "assets/images/x/beys/bey-x-ux-00-warrior-saber-2-70l/front.webp",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-verified.png",
+    "sourceSha256": "dbf030becd6bdea126d79082a63d280dec358daeac1cabc6f254368efc8fe1f5",
+    "sourceKind": "verified-existing-front",
+    "normalizationInput": "source-file",
+    "preserveSourcePixels": true
+  },
+  {
     "id": "BEY-X-UX-00-WARRIOR-SABER-5-60K",
     "image": "assets/images/x/beys/bey-x-ux-00-warrior-saber-5-60k/main.webp",
     "sourcePath": "02_product_components/134_ux00-samurai/01_BXG54_01@1.png",
@@ -2989,10 +2998,6 @@ const xImageUnavailable = [
   {
     "id": "BEY-X-BX-00-CROCO-CRUNCH-2-60Q",
     "reason": "타카라토미 공식 목록에는 출시 정보만 있고 단독 제품 사진이 없다."
-  },
-  {
-    "id": "BEY-X-UX-00-WARRIOR-SABER-2-70L",
-    "reason": "공식 특장판 홍보 이미지에는 문자·책 표지와 합성된 사진만 있다."
   },
   {
     "id": "PART-X-BLADE-NINJA-KNIFE",

@@ -1341,6 +1341,16 @@ const xImageReview = [
     "outputSha256": "aad9798ca71ee2b4813107674148a659b76b938ea2f4a22f2c9d8058acbcf185"
   },
   {
+    "id": "BEY-X-UX-00-WARRIOR-SABER-2-70L",
+    "image": "assets/images/x/beys/bey-x-ux-00-warrior-saber-2-70l/front.webp",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-verified.png",
+    "sourceSha256": "dbf030becd6bdea126d79082a63d280dec358daeac1cabc6f254368efc8fe1f5",
+    "outputSha256": "aa75f29cb53d4945080fab9a0828244d8c83f5215bbd590557679133cd7c1655",
+    "sourceKind": "verified-existing-front",
+    "normalizationInput": "source-file",
+    "preserveSourcePixels": true
+  },
+  {
     "id": "BEY-X-UX-00-WARRIOR-SABER-5-60K",
     "image": "assets/images/x/beys/bey-x-ux-00-warrior-saber-5-60k/main.webp",
     "sourcePath": "02_product_components/134_ux00-samurai/01_BXG54_01@1.png",

@@ -93,7 +93,7 @@ uniqueValues([
   ...verifiedMainById.keys(),
   ...temporarySideById.keys()
 ], "explicit primary image classifications");
-assert.equal(xBeyPrimaryImageConfig.version, "20260811-x-nonfront-6-gear-chip-black-vivid");
+assert.equal(xBeyPrimaryImageConfig.version, "20260811-x-warrior-saber-front");
 assert.equal(xBeyAngleCorrectionConfig.version, xBeyPrimaryImageConfig.version);
 assert.equal(xBeyAngleCorrectionConfig.method, "premultiplied-alpha-vertical-affine");
 assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
@@ -108,7 +108,7 @@ assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
     "verified-existing-front"
   ]
 });
-assert.equal(xBeyPrimaryImageConfig.selected.length, 139);
+assert.equal(xBeyPrimaryImageConfig.selected.length, 140);
 assert.equal(xBeyAngleCorrectionConfig.entries.length, 0);
 assert.equal(xBeyPrimaryImageConfig.verifiedMain.length, 81);
 assert.equal(
@@ -116,7 +116,7 @@ assert.equal(
     ...xBeyPrimaryImageConfig.selected.map(entry => entry.image),
     ...xBeyPrimaryImageConfig.verifiedMain.map(entry => entry.image)
   ]).size,
-  220,
+  221,
   "front-view normalization paths must be unique"
 );
 
@@ -931,6 +931,11 @@ const verifiedSuppliedFronts = new Map([
     sourceFile: "data/source/x-bey-front-sources/bey-x-bx-00-mosasaurus-9-60u-verified.png",
     sourceSha256: "691bef673e992ec24b68387cfdbae9c3c09847be1a1b967a2e23ffbf9541ef1f",
     rawReferenceSha256: "b0142adf2c73a42ffc0799242aa0549ff7bdceed812c8fb31272042b2f6f0763"
+  }],
+  ["BEY-X-UX-00-WARRIOR-SABER-2-70L", {
+    sourceFile: "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-verified.png",
+    sourceSha256: "dbf030becd6bdea126d79082a63d280dec358daeac1cabc6f254368efc8fe1f5",
+    rawReferenceSha256: "3d8409719d3bf88390643c499969c5aa96a0bd5486aa6175d35c39a952bfd3d9"
   }]
 ]);
 
@@ -1143,13 +1148,13 @@ for (const entry of xBeyPrimaryImageConfig.temporarySideImages) {
 }
 
 const alphaReview = JSON.parse(await readFile(ALPHA_REVIEW_PATH, "utf8"));
-assert.equal(alphaReview.version, "20260811-x-nonfront-6-gear-chip-black-vivid");
+assert.equal(alphaReview.version, "20260811-x-warrior-saber-front");
 const alphaReviewByImage = new Map(alphaReview.files.map(entry => [entry.image, entry]));
 const normalizedEntries = [
   ...xBeyPrimaryImageConfig.selected,
   ...xBeyPrimaryImageConfig.verifiedMain
 ];
-assert.equal(normalizedEntries.length, 220);
+assert.equal(normalizedEntries.length, 221);
 for (const entry of normalizedEntries) {
   const review = alphaReviewByImage.get(entry.image);
   assert.ok(review, `${entry.id}: normalized image is missing from the alpha review`);
@@ -1175,7 +1180,7 @@ const counts = {
   temporarySide: 0
 };
 const xBeys = beyItems.filter(item => item.series === "x" && item.image);
-assert.equal(xBeys.length, 220);
+assert.equal(xBeys.length, 221);
 
 for (const item of xBeys) {
   const bladeIds = bladePartIds(item);
@@ -1247,7 +1252,7 @@ assert.deepEqual(counts, {
   officialAngleCorrected: 0,
   officialAssembledFront: 116,
   userApprovedGeneratedFront: 20,
-  verifiedExistingFront: 84,
+  verifiedExistingFront: 85,
   temporarySide: 0
 });
 
