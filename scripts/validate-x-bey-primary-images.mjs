@@ -93,7 +93,7 @@ uniqueValues([
   ...verifiedMainById.keys(),
   ...temporarySideById.keys()
 ], "explicit primary image classifications");
-assert.equal(xBeyPrimaryImageConfig.version, "20260811-x-warrior-saber-front-hd");
+assert.equal(xBeyPrimaryImageConfig.version, "20260811-x-warrior-saber-front-photo-restored");
 assert.equal(xBeyAngleCorrectionConfig.version, xBeyPrimaryImageConfig.version);
 assert.equal(xBeyAngleCorrectionConfig.method, "premultiplied-alpha-vertical-affine");
 assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
@@ -933,12 +933,11 @@ const verifiedSuppliedFronts = new Map([
     rawReferenceSha256: "b0142adf2c73a42ffc0799242aa0549ff7bdceed812c8fb31272042b2f6f0763"
   }],
   ["BEY-X-UX-00-WARRIOR-SABER-2-70L", {
-    sourceUrl: "https://beyblade.phstudy.org/images/app/Big/BL-PRD-993773-00.png",
-    sourceFile: "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-hd-verified.png",
-    sourceSha256: "c0185de57242dd2500b593ad9bd6c5574cf035b7f8b049ae9ff2543fde23c89a",
-    rawReferenceSha256: "dac31a104eecb5a296776c089f07b559871b64cd9183bfe8fca278dbb49852ea",
-    compositionReferenceSha256: "3d8409719d3bf88390643c499969c5aa96a0bd5486aa6175d35c39a952bfd3d9",
-    processingMethod: "matching-product-rgba-premultiplied-lanczos-light-unsharp"
+    sourceFile: "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-photo-restored.png",
+    sourceSha256: "b246f7628bae0819897837f8acea7fe08c5203db7736d17924ff7b1aa01338d5",
+    rawReferenceSha256: "3d8409719d3bf88390643c499969c5aa96a0bd5486aa6175d35c39a952bfd3d9",
+    alphaReferenceSha256: "dbf030becd6bdea126d79082a63d280dec358daeac1cabc6f254368efc8fe1f5",
+    processingMethod: "user-photo-premultiplied-lanczos-moderate-unsharp"
   }]
 ]);
 
@@ -1056,7 +1055,7 @@ for (const entry of xBeyPrimaryImageConfig.selected) {
       assert.equal(entry.normalizationInput, "source-file");
       assert.equal(entry.preserveSourcePixels, true);
       assert.equal(entry.rawReferenceSha256, expected.rawReferenceSha256);
-      for (const field of ["sourceUrl", "compositionReferenceSha256", "processingMethod"]) {
+      for (const field of ["sourceUrl", "compositionReferenceSha256", "alphaReferenceSha256", "processingMethod"]) {
         if (Object.hasOwn(expected, field)) assert.equal(entry[field], expected[field]);
       }
       assert.equal(entry.imageGenerationUsed, false);
@@ -1154,7 +1153,7 @@ for (const entry of xBeyPrimaryImageConfig.temporarySideImages) {
 }
 
 const alphaReview = JSON.parse(await readFile(ALPHA_REVIEW_PATH, "utf8"));
-assert.equal(alphaReview.version, "20260811-x-warrior-saber-front-hd");
+assert.equal(alphaReview.version, "20260811-x-warrior-saber-front-photo-restored");
 const alphaReviewByImage = new Map(alphaReview.files.map(entry => [entry.image, entry]));
 const normalizedEntries = [
   ...xBeyPrimaryImageConfig.selected,

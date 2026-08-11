@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-const X_ASSET_CACHE_VERSION = "20260811-x-warrior-saber-front-hd";
+const X_ASSET_CACHE_VERSION = "20260811-x-warrior-saber-front-photo-restored";
 
 const consoleErrors = page => {
   const errors = [];
