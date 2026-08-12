@@ -198,6 +198,17 @@ const xImageReview = [
     "preserveSourcePixels": true
   },
   {
+    "id": "BEY-X-BX-00-NINJA-KNIFE-4-60LF",
+    "image": "assets/images/x/beys/bey-x-bx-00-ninja-knife-4-60lf/front.webp",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-ninja-knife-4-60lf-verified.png",
+    "sourceSha256": "a6d9d6437f40a0bc278c87c2028becbf30bec5a3a1ce52e8420ffec7932fd94d",
+    "outputSha256": "20391b40544ceb0480dd8fa42fc0cdc9618d3a49ce08a70c36cfb959f9d5a483",
+    "keepLargestComponent": true,
+    "sourceKind": "verified-existing-front",
+    "normalizationInput": "source-file",
+    "preserveSourcePixels": true
+  },
+  {
     "id": "BEY-X-BX-00-MOSASAURUS-9-60U",
     "image": "assets/images/x/beys/bey-x-bx-00-mosasaurus-9-60u/main.webp",
     "sourcePath": "02_product_components/100_bx00-jtm/06_BXG40_06@1.png",

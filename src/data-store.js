@@ -8,7 +8,7 @@ const bookItems = [];
 const gameItems = [];
 const animeInfo = { title: "", overview: [], characters: [], episodes: [] };
 const searchIndexItems = [];
-const X_ASSET_CACHE_VERSION = "20260812-x-croco-crunch-color-match";
+const X_ASSET_CACHE_VERSION = "20260812-x-ninja-knife-front";
 
 const versionAssetUrl = source => {
   const value = String(source || "");

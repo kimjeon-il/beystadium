@@ -1,5 +1,5 @@
 {
-  "version": "20260812-x-croco-crunch-color-match",
+  "version": "20260812-x-ninja-knife-front",
   "sourceRoot": "",
   "policy": [
     "official-angle-corrected",
@@ -2250,6 +2250,29 @@
         61,
         404,
         387
+      ]
+    },
+    {
+      "id": "BEY-X-BX-00-NINJA-KNIFE-4-60LF",
+      "image": "assets/images/x/beys/bey-x-bx-00-ninja-knife-4-60lf/front.webp",
+      "sourceKind": "verified-existing-front",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-ninja-knife-4-60lf-verified.png",
+      "sourceSha256": "a6d9d6437f40a0bc278c87c2028becbf30bec5a3a1ce52e8420ffec7932fd94d",
+      "normalizationInput": "source-file",
+      "preserveSourcePixels": true,
+      "rawReferenceFile": "data/source/x-bey-front-sources/bey-x-bx-00-ninja-knife-4-60lf-user-raw.webp",
+      "rawReferenceSha256": "763c8374dd41724b1ee47485eb00bbef8f9d02c961345e622b260e055e162c40",
+      "processingMethod": "largest-connected-alpha-component-plus-premultiplied-normalization",
+      "provenanceFile": "data/source/x-bey-front-sources/x-ninja-knife-front.json",
+      "keepLargestComponent": true,
+      "imageGenerationUsed": false,
+      "preNormalizationSha256": "a6d9d6437f40a0bc278c87c2028becbf30bec5a3a1ce52e8420ffec7932fd94d",
+      "outputSha256": "20391b40544ceb0480dd8fa42fc0cdc9618d3a49ce08a70c36cfb959f9d5a483",
+      "normalizedForegroundBox": [
+        44,
+        44,
+        404,
+        403
       ]
     },
     {

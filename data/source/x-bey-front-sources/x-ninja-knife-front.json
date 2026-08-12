@@ -1,0 +1,51 @@
+{
+  "version": "20260812-x-ninja-knife-front",
+  "id": "BEY-X-BX-00-NINJA-KNIFE-4-60LF",
+  "classification": "verified-existing-front",
+  "imageGenerationUsed": false,
+  "rawSource": {
+    "file": "data/source/x-bey-front-sources/bey-x-bx-00-ninja-knife-4-60lf-user-raw.webp",
+    "sha256": "763c8374dd41724b1ee47485eb00bbef8f9d02c961345e622b260e055e162c40",
+    "width": 360,
+    "height": 359
+  },
+  "processing": {
+    "method": "largest-connected-alpha-component-plus-premultiplied-normalization",
+    "alphaComponentConnectivity": 4,
+    "detectedComponentCount": 70,
+    "keptComponentPixels": 96433,
+    "removedDetachedAlphaPixels": 78,
+    "colorAdjustment": false,
+    "rotationDegrees": 0,
+    "perspectiveCorrection": false,
+    "warp": false
+  },
+  "transparentSource": {
+    "file": "data/source/x-bey-front-sources/bey-x-bx-00-ninja-knife-4-60lf-verified.png",
+    "sha256": "a6d9d6437f40a0bc278c87c2028becbf30bec5a3a1ce52e8420ffec7932fd94d",
+    "width": 360,
+    "height": 359,
+    "foregroundBox": [0, 0, 360, 359]
+  },
+  "normalization": {
+    "method": "premultiplied-alpha-uniform-long-edge",
+    "canvasSize": 448,
+    "targetForegroundSize": 360,
+    "center": [223.5, 223.5],
+    "resample": "lanczos"
+  },
+  "finalOutput": {
+    "file": "assets/images/x/beys/bey-x-bx-00-ninja-knife-4-60lf/front.webp",
+    "sha256": "20391b40544ceb0480dd8fa42fc0cdc9618d3a49ce08a70c36cfb959f9d5a483",
+    "normalizedForegroundBox": [44, 44, 404, 403]
+  },
+  "validation": {
+    "alphaLevels": 253,
+    "partialAlphaPixels": 3262,
+    "foregroundPixelsAtAlpha4": 95549,
+    "significantComponentCount": 1,
+    "transparentCornerPixels": 4,
+    "centerErrorPixels": 0,
+    "longEdgePixels": 360
+  }
+}

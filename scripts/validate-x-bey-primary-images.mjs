@@ -93,7 +93,7 @@ uniqueValues([
   ...verifiedMainById.keys(),
   ...temporarySideById.keys()
 ], "explicit primary image classifications");
-assert.equal(xBeyPrimaryImageConfig.version, "20260812-x-croco-crunch-color-match");
+assert.equal(xBeyPrimaryImageConfig.version, "20260812-x-ninja-knife-front");
 assert.equal(xBeyAngleCorrectionConfig.version, xBeyPrimaryImageConfig.version);
 assert.equal(xBeyAngleCorrectionConfig.method, "premultiplied-alpha-vertical-affine");
 assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
@@ -108,7 +108,7 @@ assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
     "verified-existing-front"
   ]
 });
-assert.equal(xBeyPrimaryImageConfig.selected.length, 141);
+assert.equal(xBeyPrimaryImageConfig.selected.length, 142);
 assert.equal(xBeyAngleCorrectionConfig.entries.length, 0);
 assert.equal(xBeyPrimaryImageConfig.verifiedMain.length, 81);
 assert.equal(
@@ -116,7 +116,7 @@ assert.equal(
     ...xBeyPrimaryImageConfig.selected.map(entry => entry.image),
     ...xBeyPrimaryImageConfig.verifiedMain.map(entry => entry.image)
   ]).size,
-  222,
+  223,
   "front-view normalization paths must be unique"
 );
 
@@ -954,6 +954,14 @@ const verifiedSuppliedFronts = new Map([
     processingMethod: "material-separated-hsv-quantile-color-match-with-gear-chip-black-white-preservation",
     provenanceFile: "data/source/x-bey-front-sources/x-croco-crunch-front.json"
   }],
+  ["BEY-X-BX-00-NINJA-KNIFE-4-60LF", {
+    sourceFile: "data/source/x-bey-front-sources/bey-x-bx-00-ninja-knife-4-60lf-verified.png",
+    sourceSha256: "a6d9d6437f40a0bc278c87c2028becbf30bec5a3a1ce52e8420ffec7932fd94d",
+    rawReferenceFile: "data/source/x-bey-front-sources/bey-x-bx-00-ninja-knife-4-60lf-user-raw.webp",
+    rawReferenceSha256: "763c8374dd41724b1ee47485eb00bbef8f9d02c961345e622b260e055e162c40",
+    processingMethod: "largest-connected-alpha-component-plus-premultiplied-normalization",
+    provenanceFile: "data/source/x-bey-front-sources/x-ninja-knife-front.json"
+  }],
   ["BEY-X-BX-00-T-REX-1-80GB", {
     sourceFile: "data/source/x-bey-front-sources/bey-x-bx-00-t-rex-1-80gb-verified.png",
     sourceSha256: "a9c014fa1a30750801d5e3cc046b9f162eb2a588ea3b55e2d1293ca52f6092a4",
@@ -1197,13 +1205,13 @@ for (const entry of xBeyPrimaryImageConfig.temporarySideImages) {
 }
 
 const alphaReview = JSON.parse(await readFile(ALPHA_REVIEW_PATH, "utf8"));
-assert.equal(alphaReview.version, "20260812-x-croco-crunch-color-match");
+assert.equal(alphaReview.version, "20260812-x-ninja-knife-front");
 const alphaReviewByImage = new Map(alphaReview.files.map(entry => [entry.image, entry]));
 const normalizedEntries = [
   ...xBeyPrimaryImageConfig.selected,
   ...xBeyPrimaryImageConfig.verifiedMain
 ];
-assert.equal(normalizedEntries.length, 222);
+assert.equal(normalizedEntries.length, 223);
 for (const entry of normalizedEntries) {
   const review = alphaReviewByImage.get(entry.image);
   assert.ok(review, `${entry.id}: normalized image is missing from the alpha review`);
@@ -1229,7 +1237,7 @@ const counts = {
   temporarySide: 0
 };
 const xBeys = beyItems.filter(item => item.series === "x" && item.image);
-assert.equal(xBeys.length, 222);
+assert.equal(xBeys.length, 223);
 
 for (const item of xBeys) {
   const bladeIds = bladePartIds(item);
@@ -1301,7 +1309,7 @@ assert.deepEqual(counts, {
   officialAngleCorrected: 0,
   officialAssembledFront: 116,
   userApprovedGeneratedFront: 22,
-  verifiedExistingFront: 84,
+  verifiedExistingFront: 85,
   temporarySide: 0
 });
 

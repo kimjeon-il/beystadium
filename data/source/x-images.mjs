@@ -176,6 +176,16 @@ const xImageMappings = [
     "preserveSourcePixels": true
   },
   {
+    "id": "BEY-X-BX-00-NINJA-KNIFE-4-60LF",
+    "image": "assets/images/x/beys/bey-x-bx-00-ninja-knife-4-60lf/front.webp",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-ninja-knife-4-60lf-verified.png",
+    "sourceSha256": "a6d9d6437f40a0bc278c87c2028becbf30bec5a3a1ce52e8420ffec7932fd94d",
+    "keepLargestComponent": true,
+    "sourceKind": "verified-existing-front",
+    "normalizationInput": "source-file",
+    "preserveSourcePixels": true
+  },
+  {
     "id": "BEY-X-BX-00-MOSASAURUS-9-60U",
     "image": "assets/images/x/beys/bey-x-bx-00-mosasaurus-9-60u/main.webp",
     "sourcePath": "02_product_components/100_bx00-jtm/06_BXG40_06@1.png",
@@ -2999,10 +3009,6 @@ const xImageUnavailable = [
   {
     "id": "BEY-X-BX-00-HELLS-SCYTHE-3-80F",
     "reason": "타카라토미·한국 공식 출처에 단독 제품 사진이 공개되지 않았다."
-  },
-  {
-    "id": "BEY-X-BX-00-NINJA-KNIFE-4-60LF",
-    "reason": "공식 게임 특전 홍보 이미지에는 패키지와 합성된 사진만 있다."
   },
   {
     "id": "PART-X-BLADE-NINJA-KNIFE",
