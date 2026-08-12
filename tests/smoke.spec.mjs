@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-const X_ASSET_CACHE_VERSION = "20260812-x-croco-crunch-front";
+const X_ASSET_CACHE_VERSION = "20260812-x-croco-crunch-color-match";
 
 const consoleErrors = page => {
   const errors = [];

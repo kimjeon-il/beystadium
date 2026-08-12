@@ -1,5 +1,5 @@
 {
-  "version": "20260812-x-croco-crunch-front",
+  "version": "20260812-x-croco-crunch-color-match",
   "canvasSize": 448,
   "files": [
     {
@@ -460,7 +460,7 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-croco-crunch-2-60q/front.webp",
-      "outputSha256": "b136b86a024cab4348932d552215cbd9922e8c0bc58845c69d5654a6b6224248",
+      "outputSha256": "89ff64dea72378ca7a4f5aaa9c66a17b3469280e0a0fc3ea55e940793f317edd",
       "alphaLevels": 256,
       "partialPixels": 4863,
       "foregroundPixels": 88363,

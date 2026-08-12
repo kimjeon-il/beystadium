@@ -40,9 +40,9 @@ const xImageReview = [
   {
     "id": "BEY-X-BX-00-CROCO-CRUNCH-2-60Q",
     "image": "assets/images/x/beys/bey-x-bx-00-croco-crunch-2-60q/front.webp",
-    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-croco-crunch-2-60q-verified.png",
-    "sourceSha256": "6d677d0d1a6cfd38689314cdae719ccfa15534d5f30d3d78f86018c26a1fefcd",
-    "outputSha256": "b136b86a024cab4348932d552215cbd9922e8c0bc58845c69d5654a6b6224248",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-croco-crunch-2-60q-verified-color-matched.png",
+    "sourceSha256": "636902a7aef7f2a6e4e279811f943f5eda71ddd58bd53270547952b4791702ad",
+    "outputSha256": "89ff64dea72378ca7a4f5aaa9c66a17b3469280e0a0fc3ea55e940793f317edd",
     "sourceKind": "verified-existing-front",
     "normalizationInput": "source-file",
     "preserveSourcePixels": true

@@ -93,7 +93,7 @@ uniqueValues([
   ...verifiedMainById.keys(),
   ...temporarySideById.keys()
 ], "explicit primary image classifications");
-assert.equal(xBeyPrimaryImageConfig.version, "20260812-x-croco-crunch-front");
+assert.equal(xBeyPrimaryImageConfig.version, "20260812-x-croco-crunch-color-match");
 assert.equal(xBeyAngleCorrectionConfig.version, xBeyPrimaryImageConfig.version);
 assert.equal(xBeyAngleCorrectionConfig.method, "premultiplied-alpha-vertical-affine");
 assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
@@ -945,11 +945,13 @@ for (const provenanceFile of [
 }
 const verifiedSuppliedFronts = new Map([
   ["BEY-X-BX-00-CROCO-CRUNCH-2-60Q", {
-    sourceFile: "data/source/x-bey-front-sources/bey-x-bx-00-croco-crunch-2-60q-verified.png",
-    sourceSha256: "6d677d0d1a6cfd38689314cdae719ccfa15534d5f30d3d78f86018c26a1fefcd",
-    rawReferenceFile: "data/source/x-bey-front-sources/bey-x-bx-00-croco-crunch-2-60q-user-raw.png",
-    rawReferenceSha256: "ce0ab20b6b17bd7c9db3bf913206b4c14e644ef8451128aaa80ab818c52e714d",
-    processingMethod: "u2netp-alpha-matting-largest-component-white-despill-plus-hue-preserving-highlight-rolloff",
+    sourceFile: "data/source/x-bey-front-sources/bey-x-bx-00-croco-crunch-2-60q-verified-color-matched.png",
+    sourceSha256: "636902a7aef7f2a6e4e279811f943f5eda71ddd58bd53270547952b4791702ad",
+    rawReferenceFile: "data/source/x-bey-front-sources/bey-x-bx-00-croco-crunch-2-60q-color-match-input.png",
+    rawReferenceSha256: "07e9615fdf8921898f6cc14823291c5099c5f04d474a41ffc1da0d7167685a21",
+    colorReferenceFile: "data/source/x-bey-front-sources/bey-x-bx-00-croco-crunch-2-60q-color-reference.png",
+    colorReferenceSha256: "7bf10543a86daf742fccea40a495b5b6eb3706a80a7ad50c54dc55fc52a9db37",
+    processingMethod: "material-separated-hsv-quantile-color-match-with-gear-chip-black-white-preservation",
     provenanceFile: "data/source/x-bey-front-sources/x-croco-crunch-front.json"
   }],
   ["BEY-X-BX-00-T-REX-1-80GB", {
@@ -1080,6 +1082,7 @@ for (const entry of xBeyPrimaryImageConfig.selected) {
     for (const field of [
       "sourceUrl",
       "rawReferenceFile",
+      "colorReferenceFile",
       "compositionReferenceSha256",
       "alphaReferenceSha256",
       "processingMethod",
@@ -1094,12 +1097,28 @@ for (const entry of xBeyPrimaryImageConfig.selected) {
         `${entry.id}: raw reference hash changed`
       );
     }
+    if (expected.colorReferenceFile) {
+      assert.equal(entry.colorReferenceSha256, expected.colorReferenceSha256);
+      assert.equal(
+        createHash("sha256").update(await readFile(path.resolve(expected.colorReferenceFile))).digest("hex"),
+        expected.colorReferenceSha256,
+        `${entry.id}: color reference hash changed`
+      );
+    }
     if (expected.provenanceFile) {
       const provenance = JSON.parse(await readFile(path.resolve(expected.provenanceFile), "utf8"));
       assert.equal(provenance.version, xBeyPrimaryImageConfig.version);
       assert.equal(provenance.id, entry.id);
       assert.equal(provenance.imageGenerationUsed, false);
       assert.equal(provenance.rawSource.sha256, expected.rawReferenceSha256);
+      if (expected.colorReferenceFile) {
+        assert.equal(provenance.colorReference.file, expected.colorReferenceFile);
+        assert.equal(provenance.colorReference.sha256, expected.colorReferenceSha256);
+        assert.equal(provenance.validation.alphaMismatchPixels, 0);
+        assert.equal(provenance.validation.blackGearChipMismatchPixels, 0);
+        assert.equal(provenance.validation.whiteGearChipMismatchPixels, 0);
+        assert.equal(provenance.validation.newChannelClippingPixels, 0);
+      }
       assert.equal(provenance.transparentSource.sha256, entry.sourceSha256);
       assert.equal(provenance.finalOutput.sha256, entry.outputSha256);
       assert.deepEqual(provenance.finalOutput.normalizedForegroundBox, entry.normalizedForegroundBox);
@@ -1178,7 +1197,7 @@ for (const entry of xBeyPrimaryImageConfig.temporarySideImages) {
 }
 
 const alphaReview = JSON.parse(await readFile(ALPHA_REVIEW_PATH, "utf8"));
-assert.equal(alphaReview.version, "20260812-x-croco-crunch-front");
+assert.equal(alphaReview.version, "20260812-x-croco-crunch-color-match");
 const alphaReviewByImage = new Map(alphaReview.files.map(entry => [entry.image, entry]));
 const normalizedEntries = [
   ...xBeyPrimaryImageConfig.selected,
