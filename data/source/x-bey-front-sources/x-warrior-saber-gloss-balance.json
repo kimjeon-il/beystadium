@@ -1,0 +1,59 @@
+{
+  "version": "20260813-x-warrior-saber-gloss-balance",
+  "id": "BEY-X-UX-00-WARRIOR-SABER-2-70L",
+  "method": "deterministic-material-mask-broad-highlight-compression",
+  "imageGenerationUsedForRevision": false,
+  "baseSource": {
+    "file": "assets/images/x/beys/bey-x-ux-00-warrior-saber-2-70l/front.webp@5ec4fa5",
+    "sha256": "a7a34aeb8023e70e45e9d5374e583ad5a55300f012d41a32e3053acc352edcdc"
+  },
+  "balancedSource": {
+    "file": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-gloss-balanced.png",
+    "sha256": "2c8919384b4235e7b3a406e225a1a65879eb209d93068fc34c7f90ead6c5cbf0"
+  },
+  "masks": {
+    "orange": {
+      "file": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-gloss-orange-mask.png",
+      "sha256": "f629311c918df584d5f5870ad6914edf4e0f8db78933b0eca7556de18d3f7567",
+      "pixels": 52218
+    },
+    "teal": {
+      "file": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-gloss-teal-mask.png",
+      "sha256": "d48e172239ee6e88dfddaf113254c92832f98f709bb0d2465bc6cbe60c7f2383",
+      "pixels": 13569
+    },
+    "highlightWeight": {
+      "file": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-gloss-highlight-weight.png",
+      "sha256": "80e4198096c4aefa4224cc477ef688c9f5290354919756673a45ce9fac96935b"
+    }
+  },
+  "parameters": {
+    "highlightStrength": 1.0,
+    "targetValueFloor": 0.76,
+    "targetValueCeiling": 0.82,
+    "edgeGradientProtection": [
+      0.035,
+      0.105
+    ],
+    "internalFeatherRadius": 0.65,
+    "rotationDegrees": 0,
+    "scale": 1,
+    "warp": false
+  },
+  "validation": {
+    "alphaMismatchPixels": 0,
+    "outsideMaterialRgbaMismatchPixels": 0,
+    "centerRgbaMismatchPixels": 0,
+    "screwRgbaMismatchPixels": 0,
+    "changedRgbPixels": 46256,
+    "medianHueShiftDegrees": 0.0488,
+    "p95HueShiftDegrees": 0.208,
+    "normalizedForegroundBox": [
+      46,
+      44,
+      401,
+      404
+    ],
+    "outputSha256": "c618b55d849c20ef9102b19a94c706224889307a0192b48a0d05ceb3f1cfb38f"
+  }
+}

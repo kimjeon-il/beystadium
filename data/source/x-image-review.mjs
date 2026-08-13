@@ -1364,9 +1364,9 @@ const xImageReview = [
   {
     "id": "BEY-X-UX-00-WARRIOR-SABER-2-70L",
     "image": "assets/images/x/beys/bey-x-ux-00-warrior-saber-2-70l/front.webp",
-    "sourcePath": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-imagegen-direct.png",
-    "sourceSha256": "9cebad4dcf5c82ffea0d861f34922cd96fe4d770870db0f6a484f06e5688ba62",
-    "outputSha256": "a7a34aeb8023e70e45e9d5374e583ad5a55300f012d41a32e3053acc352edcdc",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-gloss-balanced.png",
+    "sourceSha256": "2c8919384b4235e7b3a406e225a1a65879eb209d93068fc34c7f90ead6c5cbf0",
+    "outputSha256": "c618b55d849c20ef9102b19a94c706224889307a0192b48a0d05ceb3f1cfb38f",
     "sourceKind": "user-approved-generated-front",
     "normalizationInput": "source-file",
     "preserveSourcePixels": true

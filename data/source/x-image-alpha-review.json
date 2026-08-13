@@ -1,5 +1,5 @@
 {
-  "version": "20260812-x-ninja-knife-front",
+  "version": "20260813-x-warrior-saber-gloss-balance",
   "canvasSize": 448,
   "files": [
     {
@@ -13228,7 +13228,7 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-ux-00-warrior-saber-2-70l/front.webp",
-      "outputSha256": "a7a34aeb8023e70e45e9d5374e583ad5a55300f012d41a32e3053acc352edcdc",
+      "outputSha256": "c618b55d849c20ef9102b19a94c706224889307a0192b48a0d05ceb3f1cfb38f",
       "alphaLevels": 255,
       "partialPixels": 6702,
       "foregroundPixels": 97115,

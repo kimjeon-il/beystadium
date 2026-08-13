@@ -93,7 +93,7 @@ uniqueValues([
   ...verifiedMainById.keys(),
   ...temporarySideById.keys()
 ], "explicit primary image classifications");
-assert.equal(xBeyPrimaryImageConfig.version, "20260812-x-ninja-knife-front");
+assert.equal(xBeyPrimaryImageConfig.version, "20260813-x-warrior-saber-gloss-balance");
 assert.equal(xBeyAngleCorrectionConfig.version, xBeyPrimaryImageConfig.version);
 assert.equal(xBeyAngleCorrectionConfig.method, "premultiplied-alpha-vertical-affine");
 assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
@@ -901,10 +901,11 @@ const approvedGeneratedFronts = new Map([
     imageGenerationUsed: true
   }],
   ["BEY-X-UX-00-WARRIOR-SABER-2-70L", {
-    sourceFile: "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-imagegen-direct.png",
-    sourceSha256: "9cebad4dcf5c82ffea0d861f34922cd96fe4d770870db0f6a484f06e5688ba62",
-    processingMethod: "imagegen-direct-chroma-key-plus-premultiplied-normalization",
+    sourceFile: "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-gloss-balanced.png",
+    sourceSha256: "2c8919384b4235e7b3a406e225a1a65879eb209d93068fc34c7f90ead6c5cbf0",
+    processingMethod: "imagegen-base-plus-deterministic-material-mask-broad-highlight-compression",
     generationProvenanceFile: "data/source/x-bey-front-sources/x-warrior-saber-generated-front.json",
+    postProcessingProvenanceFile: "data/source/x-bey-front-sources/x-warrior-saber-gloss-balance.json",
     geometryAuthoritySha256: "b2f452912bc9acac7882bab6c40e2fac2a8464883f671aa47dda0510d3d26a40",
     rawReferenceSha256: "b2f452912bc9acac7882bab6c40e2fac2a8464883f671aa47dda0510d3d26a40",
     styleAuthoritySha256: "80c41f941c7e114aba004edeaafd25b89da008dd834b22d94526aeb24ec1ebd3",
@@ -998,7 +999,8 @@ for (const entry of xBeyPrimaryImageConfig.selected) {
         "gearChipTemplateSha256",
         "hookStructureMismatchPixels",
         "angleReferenceSha256",
-        "centralArtworkSourceSha256"
+        "centralArtworkSourceSha256",
+        "postProcessingProvenanceFile"
       ]) {
         if (Object.hasOwn(expected, field)) assert.equal(entry[field], expected[field]);
       }
@@ -1044,6 +1046,25 @@ for (const entry of xBeyPrimaryImageConfig.selected) {
           );
         }
         assert.equal(provenance.validation.greenResidualPixels, 0);
+        if (expected.postProcessingProvenanceFile) {
+          const postProcessing = JSON.parse(
+            await readFile(path.resolve(expected.postProcessingProvenanceFile), "utf8")
+          );
+          assert.equal(postProcessing.version, xBeyPrimaryImageConfig.version);
+          assert.equal(postProcessing.id, entry.id);
+          assert.equal(postProcessing.imageGenerationUsedForRevision, false);
+          assert.equal(postProcessing.balancedSource.file, entry.sourceFile);
+          assert.equal(postProcessing.balancedSource.sha256, entry.sourceSha256);
+          assert.equal(postProcessing.validation.alphaMismatchPixels, 0);
+          assert.equal(postProcessing.validation.outsideMaterialRgbaMismatchPixels, 0);
+          assert.equal(postProcessing.validation.centerRgbaMismatchPixels, 0);
+          assert.equal(postProcessing.validation.screwRgbaMismatchPixels, 0);
+          assert.equal(postProcessing.validation.outputSha256, entry.outputSha256);
+          assert.deepEqual(
+            postProcessing.validation.normalizedForegroundBox,
+            entry.normalizedForegroundBox
+          );
+        }
         if (Object.hasOwn(provenance.validation, "protectedMismatchPixels")) {
           assert.equal(provenance.validation.protectedMismatchPixels, 0);
         }
@@ -1205,7 +1226,7 @@ for (const entry of xBeyPrimaryImageConfig.temporarySideImages) {
 }
 
 const alphaReview = JSON.parse(await readFile(ALPHA_REVIEW_PATH, "utf8"));
-assert.equal(alphaReview.version, "20260812-x-ninja-knife-front");
+assert.equal(alphaReview.version, "20260813-x-warrior-saber-gloss-balance");
 const alphaReviewByImage = new Map(alphaReview.files.map(entry => [entry.image, entry]));
 const normalizedEntries = [
   ...xBeyPrimaryImageConfig.selected,

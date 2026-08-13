@@ -1,15 +1,15 @@
 {
-  "version": "20260811-x-warrior-saber-imagegen-direct",
-  "toolMode": "built-in ImageGen result applied directly after deterministic chroma-key removal and site normalization; no regeneration or source-detail restoration",
-  "scope": "UX-00 Warrior Saber 2-70L direct generated front render",
+  "version": "20260813-x-warrior-saber-gloss-balance",
+  "toolMode": "existing built-in ImageGen base followed by deterministic material-mask broad-highlight compression; no regeneration",
+  "scope": "UX-00 Warrior Saber 2-70L generated front render with deterministic gloss balance",
   "jobs": [
     {
       "id": "BEY-X-UX-00-WARRIOR-SABER-2-70L",
       "targetName": "사무라이세이버 2-70L",
-      "sourceFile": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-imagegen-direct.png",
-      "sourceSha256": "9cebad4dcf5c82ffea0d861f34922cd96fe4d770870db0f6a484f06e5688ba62",
-      "finalOutputSha256": "a7a34aeb8023e70e45e9d5374e583ad5a55300f012d41a32e3053acc352edcdc",
-      "processingMethod": "imagegen-direct-chroma-key-plus-premultiplied-normalization",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-gloss-balanced.png",
+      "sourceSha256": "2c8919384b4235e7b3a406e225a1a65879eb209d93068fc34c7f90ead6c5cbf0",
+      "finalOutputSha256": "c618b55d849c20ef9102b19a94c706224889307a0192b48a0d05ceb3f1cfb38f",
+      "processingMethod": "imagegen-base-plus-deterministic-material-mask-broad-highlight-compression",
       "geometryAuthorityFile": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-official-cgi-raw.png",
       "geometryAuthoritySha256": "b2f452912bc9acac7882bab6c40e2fac2a8464883f671aa47dda0510d3d26a40",
       "rawReferenceFile": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-official-cgi-raw.png",
@@ -20,6 +20,10 @@
       "rawGeneratedSha256": "b2f452912bc9acac7882bab6c40e2fac2a8464883f671aa47dda0510d3d26a40",
       "promptFile": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-official-cgi-prompt.txt",
       "promptSha256": "e68bd23d4f694623b792122f1034ef5079f212a02f07fe78a1ebde49296cf978",
+      "postProcessingProvenanceFile": "data/source/x-bey-front-sources/x-warrior-saber-gloss-balance.json",
+      "postProcessingSourceFile": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-gloss-balanced.png",
+      "postProcessingSourceSha256": "2c8919384b4235e7b3a406e225a1a65879eb209d93068fc34c7f90ead6c5cbf0",
+      "postProcessingMethod": "deterministic-material-mask-broad-highlight-compression",
       "chromaKey": {
         "sampleMode": "border-median",
         "sampledColor": "#f10bf7",
