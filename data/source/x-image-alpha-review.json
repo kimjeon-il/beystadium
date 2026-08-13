@@ -1,5 +1,5 @@
 {
-  "version": "20260813-x-warrior-saber-gloss-balance",
+  "version": "20260813-x-warrior-saber-highlight-shape-fix",
   "canvasSize": 448,
   "files": [
     {
@@ -13228,7 +13228,7 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-ux-00-warrior-saber-2-70l/front.webp",
-      "outputSha256": "c618b55d849c20ef9102b19a94c706224889307a0192b48a0d05ceb3f1cfb38f",
+      "outputSha256": "8e21be501d25aced979a9a1b672c79583ce00a2bc6a72e7b9c990b7a68864ef4",
       "alphaLevels": 255,
       "partialPixels": 6702,
       "foregroundPixels": 97115,

@@ -1,0 +1,50 @@
+{
+  "version": "20260813-x-warrior-saber-highlight-shape-fix",
+  "id": "BEY-X-UX-00-WARRIOR-SABER-2-70L",
+  "method": "deterministic-180-degree-counterpart-local-highlight-reconstruction",
+  "imageGenerationUsedForRevision": false,
+  "baseSource": {
+    "file": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-gloss-balanced.png",
+    "sha256": "2c8919384b4235e7b3a406e225a1a65879eb209d93068fc34c7f90ead6c5cbf0"
+  },
+  "fixedSource": {
+    "file": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-highlight-shape-fixed.png",
+    "sha256": "b98c71cf051439da988895a88d63c6582a15912ba02ad4d71cf9c79f8fb95090"
+  },
+  "balancedSource": {
+    "file": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-highlight-shape-fixed.png",
+    "sha256": "b98c71cf051439da988895a88d63c6582a15912ba02ad4d71cf9c79f8fb95090"
+  },
+  "styleAuthority": {
+    "file": "assets/images/x/beys/bey-x-ux-09-warrior-saber-2-70l/front.webp",
+    "sha256": "80c41f941c7e114aba004edeaafd25b89da008dd834b22d94526aeb24ec1ebd3"
+  },
+  "mask": {
+    "file": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-highlight-reconstruction-mask.png",
+    "sha256": "591c57b64a7cf87ef87112a765d14cabd30929034470d0c9d37c87dbbd112f9f",
+    "pixels": 3497
+  },
+  "parameters": {
+    "donorTransform": "exact-180-degree-center-rotation",
+    "localRoi": [345, 134, 403, 231],
+    "seedValueMinimum": 0.68,
+    "seedSaturationMaximum": 0.56,
+    "maskGrowthPixels": 9,
+    "maskFeatherRadius": 3.25,
+    "rotationDegrees": 0,
+    "scale": 1,
+    "warp": false
+  },
+  "validation": {
+    "alphaMismatchPixels": 0,
+    "outsideMaskRgbaMismatchPixels": 0,
+    "outsideMaterialRgbaMismatchPixels": 0,
+    "centerRgbaMismatchPixels": 0,
+    "screwRgbaMismatchPixels": 0,
+    "changedRgbPixels": 3376,
+    "broadWhiteHighlightPixelsBefore": 702,
+    "broadWhiteHighlightPixelsAfter": 117,
+    "normalizedForegroundBox": [46, 44, 401, 404],
+    "outputSha256": "8e21be501d25aced979a9a1b672c79583ce00a2bc6a72e7b9c990b7a68864ef4"
+  }
+}
