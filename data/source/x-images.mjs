@@ -1182,8 +1182,8 @@ const xImageMappings = [
   {
     "id": "BEY-X-UX-00-WARRIOR-SABER-2-70L",
     "image": "assets/images/x/beys/bey-x-ux-00-warrior-saber-2-70l/front.webp",
-    "sourcePath": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-painted-highlight-color.png",
-    "sourceSha256": "385562ff72bc5e4e9a30c18666b6d26f6418569c872aa77086497f46e4c6496d",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-highlight-transition.png",
+    "sourceSha256": "10c414a415ab6c45af5d078adf7e426447f137be869eaaf6bcc85cc06934378e",
     "sourceKind": "user-approved-generated-front",
     "normalizationInput": "source-file",
     "preserveSourcePixels": true

@@ -1,0 +1,53 @@
+{
+  "version": "20260814-x-warrior-saber-highlight-transition",
+  "id": "BEY-X-UX-00-WARRIOR-SABER-2-70L",
+  "method": "deterministic-oklab-distance-field-highlight-transition",
+  "imageGenerationUsedForRevision": false,
+  "baseSource": {
+    "file": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-full-highlight-balanced.png",
+    "sha256": "81674b87596d4ea5d08bf3ae641a69c5a9396614fb9c5d7d8d83ea55d1cde7c9"
+  },
+  "balancedSource": {
+    "file": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-highlight-transition.png",
+    "sha256": "10c414a415ab6c45af5d078adf7e426447f137be869eaaf6bcc85cc06934378e"
+  },
+  "masks": {
+    "orangeMaterial": {
+      "file": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-transition-orange-material-mask.png",
+      "sha256": "933f48a037f93557d8c1f78101b9b4d771d8438eb354daf46d7871d66e2d9083",
+      "pixels": 56136
+    },
+    "highlightCore": {
+      "file": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-highlight-core-mask.png",
+      "sha256": "fb32a3a00048ed666fa893f2c493f18c0f46805cf3cede6f498cb226d8d6c397"
+    },
+    "transitionWeight": {
+      "file": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-highlight-transition-mask.png",
+      "sha256": "d6bab9213648576b12f4592039bb6354c2257c4525da8be56111de33d21e470b"
+    }
+  },
+  "parameters": {
+    "sectors": 8,
+    "transitionRadiusPixels": 14,
+    "transitionBlurRadius": 4.25,
+    "colorSpace": "OKLab",
+    "preserveLightness": true,
+    "rotationDegrees": 0,
+    "scale": 1,
+    "warp": false
+  },
+  "validation": {
+    "alphaMismatchPixels": 0,
+    "outsideMaterialRgbaMismatchPixels": 0,
+    "centerRgbaMismatchPixels": 0,
+    "screwRgbaMismatchPixels": 0,
+    "changedRgbPixels": 31693,
+    "maximumTransitionMaskNeighborJump": 0.07069709151983261,
+    "flatTransitionDeltaE00P95": 1.5682376623153687,
+    "flatTransitionDeltaE00P99": 1.8806250095367432,
+    "flatTransitionDeltaE00Maximum": 2.2974483966827393,
+    "allOrangeSectorsCorrected": true,
+    "normalizedForegroundBox": [46, 44, 401, 404],
+    "outputSha256": "4694f576beb3740558190160e4f2f8c2c0de9fd5323b519068f0ae33e265e59a"
+  }
+}

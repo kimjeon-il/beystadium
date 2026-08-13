@@ -115,7 +115,7 @@ SUPPLIED_FRONT_IDS = {
     "BEY-X-UX-19-BULLET-GRIFFON-H",
     "BEY-X-UX-20-GLORY-VALKYRIE-LF",
 }
-CONFIG_VERSION = "20260813-x-warrior-saber-painted-highlight-color"
+CONFIG_VERSION = "20260814-x-warrior-saber-highlight-transition"
 
 
 def parse_args() -> argparse.Namespace:

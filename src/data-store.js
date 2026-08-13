@@ -8,7 +8,7 @@ const bookItems = [];
 const gameItems = [];
 const animeInfo = { title: "", overview: [], characters: [], episodes: [] };
 const searchIndexItems = [];
-const X_ASSET_CACHE_VERSION = "20260813-x-warrior-saber-painted-highlight-color";
+const X_ASSET_CACHE_VERSION = "20260814-x-warrior-saber-highlight-transition";
 
 const versionAssetUrl = source => {
   const value = String(source || "");
