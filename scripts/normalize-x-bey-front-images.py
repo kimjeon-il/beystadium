@@ -16,7 +16,7 @@ from PIL import Image
 
 CONFIG_PATH = Path("data/source/x-bey-primary-images.json")
 ANGLE_CONFIG_PATH = Path("data/source/x-bey-angle-corrections.json")
-CONFIG_VERSION = "20260813-x-warrior-saber-full-highlight-balance"
+CONFIG_VERSION = "20260813-x-warrior-saber-painted-highlight-color"
 CANVAS_SIZE = 448
 TARGET_FOREGROUND_SIZE = 360
 ALPHA_THRESHOLD = 3

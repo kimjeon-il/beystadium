@@ -7,7 +7,7 @@ import { productItems } from "../data/source/products.mjs";
 import { rareBeyGetItems } from "../data/source/rare-bey-get.mjs";
 import { bookItems, gameItems, toolsItems } from "../data/source/secondary.mjs";
 
-const VERSION = "20260813-x-warrior-saber-full-highlight-balance";
+const VERSION = "20260813-x-warrior-saber-painted-highlight-color";
 const SERIES_SLUGS = {
   "metal fight": "metal-fight",
   burst: "burst",

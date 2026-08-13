@@ -1,5 +1,5 @@
 {
-  "version": "20260813-x-warrior-saber-full-highlight-balance",
+  "version": "20260813-x-warrior-saber-painted-highlight-color",
   "canvasSize": 448,
   "files": [
     {
@@ -13228,7 +13228,7 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-ux-00-warrior-saber-2-70l/front.webp",
-      "outputSha256": "740ec53af1d922ffd679bf8cb2746469813c9f116dd19e4400b85465f2814c7d",
+      "outputSha256": "9506766954c05b4d8bebd43a7685ccc22a78bde60fac6222eb216139e9baea0f",
       "alphaLevels": 255,
       "partialPixels": 6702,
       "foregroundPixels": 97115,

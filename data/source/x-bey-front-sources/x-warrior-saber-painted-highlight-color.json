@@ -1,0 +1,52 @@
+{
+  "version": "20260813-x-warrior-saber-painted-highlight-color",
+  "id": "BEY-X-UX-00-WARRIOR-SABER-2-70L",
+  "method": "deterministic-painted-orange-highlight-color-harmonization",
+  "imageGenerationUsedForRevision": false,
+  "baseSource": {
+    "file": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-full-highlight-balanced.png",
+    "sha256": "81674b87596d4ea5d08bf3ae641a69c5a9396614fb9c5d7d8d83ea55d1cde7c9"
+  },
+  "balancedSource": {
+    "file": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-painted-highlight-color.png",
+    "sha256": "385562ff72bc5e4e9a30c18666b6d26f6418569c872aa77086497f46e4c6496d"
+  },
+  "officialPaintedReference": {
+    "file": "assets/images/x/beys/bey-x-bx-23-phoenix-soar-9-60gf/front.webp",
+    "sha256": "bd86e7dc4f7a41fcb28786a0e14d7c3cf9ac109f401eb0b34c352414dbaa687a",
+    "usage": "painted-metal highlight saturation and tonal-width reference only"
+  },
+  "masks": {
+    "orangeMaterial": {
+      "file": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-painted-orange-material-mask.png",
+      "sha256": "933f48a037f93557d8c1f78101b9b4d771d8438eb354daf46d7871d66e2d9083",
+      "pixels": 56136
+    },
+    "paintedHighlight": {
+      "file": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-painted-highlight-mask.png",
+      "sha256": "dc1418a17c6c7d527afd7d2f83653ea390265396d12f37a93ed9147d2f03d57e"
+    }
+  },
+  "parameters": {
+    "sectors": 8,
+    "targetOrangeHueDegrees": 17.419355660676956,
+    "paintedHighlightSaturationFloor": [0.64, 0.72],
+    "highlightValueCeiling": 0.94,
+    "maskFeather": "continuous density-weighted interior transition",
+    "rotationDegrees": 0,
+    "scale": 1,
+    "warp": false
+  },
+  "validation": {
+    "alphaMismatchPixels": 0,
+    "outsideMaterialRgbaMismatchPixels": 0,
+    "centerRgbaMismatchPixels": 0,
+    "screwRgbaMismatchPixels": 0,
+    "changedRgbPixels": 8881,
+    "broadLowChromaPixelsBefore": 3810,
+    "broadLowChromaPixelsAfter": 132,
+    "allOrangeSectorsCorrected": true,
+    "normalizedForegroundBox": [46, 44, 401, 404],
+    "outputSha256": "9506766954c05b4d8bebd43a7685ccc22a78bde60fac6222eb216139e9baea0f"
+  }
+}

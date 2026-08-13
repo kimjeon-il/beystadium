@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-const X_ASSET_CACHE_VERSION = "20260813-x-warrior-saber-full-highlight-balance";
+const X_ASSET_CACHE_VERSION = "20260813-x-warrior-saber-painted-highlight-color";
 
 const consoleErrors = page => {
   const errors = [];

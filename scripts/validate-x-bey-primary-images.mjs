@@ -93,7 +93,7 @@ uniqueValues([
   ...verifiedMainById.keys(),
   ...temporarySideById.keys()
 ], "explicit primary image classifications");
-assert.equal(xBeyPrimaryImageConfig.version, "20260813-x-warrior-saber-full-highlight-balance");
+assert.equal(xBeyPrimaryImageConfig.version, "20260813-x-warrior-saber-painted-highlight-color");
 assert.equal(xBeyAngleCorrectionConfig.version, xBeyPrimaryImageConfig.version);
 assert.equal(xBeyAngleCorrectionConfig.method, "premultiplied-alpha-vertical-affine");
 assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
@@ -901,11 +901,11 @@ const approvedGeneratedFronts = new Map([
     imageGenerationUsed: true
   }],
   ["BEY-X-UX-00-WARRIOR-SABER-2-70L", {
-    sourceFile: "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-full-highlight-balanced.png",
-    sourceSha256: "81674b87596d4ea5d08bf3ae641a69c5a9396614fb9c5d7d8d83ea55d1cde7c9",
-    processingMethod: "imagegen-base-plus-deterministic-full-image-material-separated-highlight-balance",
+    sourceFile: "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-painted-highlight-color.png",
+    sourceSha256: "385562ff72bc5e4e9a30c18666b6d26f6418569c872aa77086497f46e4c6496d",
+    processingMethod: "imagegen-base-plus-deterministic-painted-orange-highlight-color-harmonization",
     generationProvenanceFile: "data/source/x-bey-front-sources/x-warrior-saber-generated-front.json",
-    postProcessingProvenanceFile: "data/source/x-bey-front-sources/x-warrior-saber-full-highlight-balance.json",
+    postProcessingProvenanceFile: "data/source/x-bey-front-sources/x-warrior-saber-painted-highlight-color.json",
     geometryAuthoritySha256: "b2f452912bc9acac7882bab6c40e2fac2a8464883f671aa47dda0510d3d26a40",
     rawReferenceSha256: "b2f452912bc9acac7882bab6c40e2fac2a8464883f671aa47dda0510d3d26a40",
     styleAuthoritySha256: "80c41f941c7e114aba004edeaafd25b89da008dd834b22d94526aeb24ec1ebd3",
@@ -1226,7 +1226,7 @@ for (const entry of xBeyPrimaryImageConfig.temporarySideImages) {
 }
 
 const alphaReview = JSON.parse(await readFile(ALPHA_REVIEW_PATH, "utf8"));
-assert.equal(alphaReview.version, "20260813-x-warrior-saber-full-highlight-balance");
+assert.equal(alphaReview.version, "20260813-x-warrior-saber-painted-highlight-color");
 const alphaReviewByImage = new Map(alphaReview.files.map(entry => [entry.image, entry]));
 const normalizedEntries = [
   ...xBeyPrimaryImageConfig.selected,
