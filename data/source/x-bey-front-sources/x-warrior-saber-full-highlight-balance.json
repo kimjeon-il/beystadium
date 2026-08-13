@@ -1,0 +1,74 @@
+{
+  "version": "20260813-x-warrior-saber-full-highlight-balance",
+  "id": "BEY-X-UX-00-WARRIOR-SABER-2-70L",
+  "method": "deterministic-full-image-material-separated-highlight-balance",
+  "imageGenerationUsedForRevision": false,
+  "baseSource": {
+    "file": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-gloss-balanced.png",
+    "sha256": "2c8919384b4235e7b3a406e225a1a65879eb209d93068fc34c7f90ead6c5cbf0"
+  },
+  "balancedSource": {
+    "file": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-full-highlight-balanced.png",
+    "sha256": "81674b87596d4ea5d08bf3ae641a69c5a9396614fb9c5d7d8d83ea55d1cde7c9"
+  },
+  "styleAuthority": {
+    "file": "assets/images/x/beys/bey-x-ux-09-warrior-saber-2-70l/front.webp",
+    "sha256": "80c41f941c7e114aba004edeaafd25b89da008dd834b22d94526aeb24ec1ebd3"
+  },
+  "masks": {
+    "orangeMaterial": {
+      "file": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-full-orange-material-mask.png",
+      "sha256": "933f48a037f93557d8c1f78101b9b4d771d8438eb354daf46d7871d66e2d9083",
+      "pixels": 56136
+    },
+    "tealMaterial": {
+      "file": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-full-teal-material-mask.png",
+      "sha256": "5f422807a968b5866c20d8ab9640fe564747f7bb01fbeae3986ffed3df83d57e",
+      "pixels": 14024
+    },
+    "whiteMaterial": {
+      "file": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-full-white-material-mask.png",
+      "sha256": "ede6d17da129c4100635b1fda1c55ed37715b79db4a7a07a00065291d306f620",
+      "pixels": 8721
+    },
+    "orangeHighlightWeight": {
+      "file": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-full-orange-highlight-weight.png",
+      "sha256": "f76e149a9d919ddcba778c4069cd01d9b2cdb8f59fd9fce3c1438722125c304d"
+    },
+    "tealHighlightWeight": {
+      "file": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-full-teal-highlight-weight.png",
+      "sha256": "15e2d2ad6b889f688fa15a7af32339fcba7c71685760d13050caada86c520eee"
+    },
+    "whiteHighlightWeight": {
+      "file": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-full-white-highlight-weight.png",
+      "sha256": "03b0788dd202a12e4291ac21ac3fa7de3dbb65a6cccb75cca6ed7bcdbaa058f9"
+    }
+  },
+  "parameters": {
+    "sectors": 8,
+    "orangeTargetHue": 0.055,
+    "orangeMinimumSaturation": 0.34,
+    "tealTargetHue": 0.485,
+    "tealMinimumSaturation": 0.28,
+    "coloredHighlightValueCeiling": 0.84,
+    "whiteHighlightValueCeiling": 0.91,
+    "maskFeather": "continuous density-weighted one-pixel interior transition",
+    "rotationDegrees": 0,
+    "scale": 1,
+    "warp": false
+  },
+  "validation": {
+    "alphaMismatchPixels": 0,
+    "outsideMaterialRgbaMismatchPixels": 0,
+    "centerRgbaMismatchPixels": 0,
+    "screwRgbaMismatchPixels": 0,
+    "changedRgbPixels": 8302,
+    "orangeCorrectedPixels": 5266,
+    "tealCorrectedPixels": 800,
+    "whiteCorrectedPixels": 2268,
+    "allOrangeSectorsCorrected": true,
+    "allTealSectorsCorrected": true,
+    "normalizedForegroundBox": [46, 44, 401, 404],
+    "outputSha256": "740ec53af1d922ffd679bf8cb2746469813c9f116dd19e4400b85465f2814c7d"
+  }
+}
