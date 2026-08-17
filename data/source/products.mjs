@@ -7240,11 +7240,11 @@
       },
       jp: {
         no: "BX-00",
-        name: "스페셜크로스베이 헬즈사이즈 3-80F",
+        name: "헬즈사이즈 3-80F",
         kind: "부스터",
         releaseDate: "2024-01-27",
         price: "1740",
-        composition: [{ name: "스페셜크로스베이 헬즈사이즈 3-80F", quantity: "1개", target: "BEY-X-BX-00-HELLS-SCYTHE-3-80F" }]
+        composition: [{ name: "헬즈사이즈 3-80F", quantity: "1개", target: "BEY-X-BX-00-HELLS-SCYTHE-3-80F" }]
       }
     }
   },

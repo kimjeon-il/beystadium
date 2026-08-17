@@ -1,5 +1,5 @@
 {
-  "version": "20260814-x-warrior-saber-highlight-transition",
+  "version": "20260818-x-hells-scythe-3-80f-front-name",
   "sourceRoot": "",
   "policy": [
     "official-angle-corrected",
@@ -151,6 +151,30 @@
         44,
         404,
         403
+      ]
+    },
+    {
+      "id": "BEY-X-BX-00-HELLS-SCYTHE-3-80F",
+      "image": "assets/images/x/beys/bey-x-bx-00-hells-scythe-3-80f/front.webp",
+      "sourceKind": "user-approved-generated-front",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-hells-scythe-3-80f-generated-front.png",
+      "sourceSha256": "86733de06d1a039376f63649f06c489575d21970602eaf38cd71b0eac1844e8c",
+      "normalizationInput": "source-file",
+      "preserveSourcePixels": true,
+      "processingMethod": "built-in-imagegen-angle-reference-plus-deterministic-original-pixel-rotation-u2netp-background-removal-premultiplied-normalization",
+      "generationProvenanceFile": "data/source/x-bey-front-sources/x-hells-scythe-3-80f-generated-front.json",
+      "geometryAuthoritySha256": "c73ddcdcd32a673eba82e408b6b653dc72120542c0a2e60f1edc3a8df6e64f3d",
+      "rawReferenceSha256": "c73ddcdcd32a673eba82e408b6b653dc72120542c0a2e60f1edc3a8df6e64f3d",
+      "compositionReferenceSha256": "db09abaff8e65ada3b9533a9155468c7ff6f72fed92cd7c9389f6e75b5cd265c",
+      "styleAuthoritySha256": "c73ddcdcd32a673eba82e408b6b653dc72120542c0a2e60f1edc3a8df6e64f3d",
+      "imageGenerationUsed": true,
+      "preNormalizationSha256": "86733de06d1a039376f63649f06c489575d21970602eaf38cd71b0eac1844e8c",
+      "outputSha256": "704277144438fe2813b366cb9d7d02895b5f0ae1f638022ff6ec76a7f585864e",
+      "normalizedForegroundBox": [
+        44,
+        45,
+        404,
+        402
       ]
     },
     {

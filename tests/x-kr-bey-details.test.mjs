@@ -120,6 +120,18 @@ test("출시 정보가 입력되지 않은 BX-49는 한국 미출시 상태를 �
   assert.deepEqual(productsById.get("PRODUCT-X-BX-49")?.releases.kr, { status: "unreleased" });
 });
 
+test("BX-00 헬즈사이즈 3-80F의 표시 이름에서 판촉 접두어를 제외한다", () => {
+  const beyId = "BEY-X-BX-00-HELLS-SCYTHE-3-80F";
+  const product = productsById.get("PRODUCT-X-BX-00-SPECIAL-CROSS-BEY-HELLS-SCYTHE-3-80F");
+
+  assert.equal(beysById.get(beyId)?.name, "헬즈사이즈 3-80F");
+  assert.equal(product?.releases.jp.name, "헬즈사이즈 3-80F");
+  assert.deepEqual(product?.releases.jp.composition, [
+    { name: "헬즈사이즈 3-80F", quantity: "1개", target: beyId }
+  ]);
+  assert.equal(product?.addressSlug, "SPECIAL-CROSS-BEY-HELLS-SCYTHE-3-80F");
+});
+
 test("생성된 X 검색 레코드에 한국 공식 베이 설명을 포함한다", () => {
   const { search } = JSON.parse(readFileSync(new URL("../data/runtime/search/x.json", import.meta.url), "utf8"));
   const compactEntry = search.find((entry) => entry[2] === "BEY-X-CX-14-KNIGHT-FORTRESS-GV-8-70UN");

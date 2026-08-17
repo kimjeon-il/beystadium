@@ -93,7 +93,7 @@ uniqueValues([
   ...verifiedMainById.keys(),
   ...temporarySideById.keys()
 ], "explicit primary image classifications");
-assert.equal(xBeyPrimaryImageConfig.version, "20260814-x-warrior-saber-highlight-transition");
+assert.equal(xBeyPrimaryImageConfig.version, "20260818-x-hells-scythe-3-80f-front-name");
 assert.equal(xBeyAngleCorrectionConfig.version, xBeyPrimaryImageConfig.version);
 assert.equal(xBeyAngleCorrectionConfig.method, "premultiplied-alpha-vertical-affine");
 assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
@@ -108,7 +108,7 @@ assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
     "verified-existing-front"
   ]
 });
-assert.equal(xBeyPrimaryImageConfig.selected.length, 142);
+assert.equal(xBeyPrimaryImageConfig.selected.length, 143);
 assert.equal(xBeyAngleCorrectionConfig.entries.length, 0);
 assert.equal(xBeyPrimaryImageConfig.verifiedMain.length, 81);
 assert.equal(
@@ -116,7 +116,7 @@ assert.equal(
     ...xBeyPrimaryImageConfig.selected.map(entry => entry.image),
     ...xBeyPrimaryImageConfig.verifiedMain.map(entry => entry.image)
   ]).size,
-  223,
+  224,
   "front-view normalization paths must be unique"
 );
 
@@ -920,6 +920,16 @@ const approvedGeneratedFronts = new Map([
     rawReferenceSha256: "4ef0942495a424833c408e15ecf03320483f590104cef4842d4f6518a91bca6a",
     styleAuthoritySha256: "e742920505b3df100420796cc6447d666b3052688f19bd62e59c758859ddb063",
     imageGenerationUsed: true
+  }],
+  ["BEY-X-BX-00-HELLS-SCYTHE-3-80F", {
+    sourceFile: "data/source/x-bey-front-sources/bey-x-bx-00-hells-scythe-3-80f-generated-front.png",
+    sourceSha256: "86733de06d1a039376f63649f06c489575d21970602eaf38cd71b0eac1844e8c",
+    processingMethod: "built-in-imagegen-angle-reference-plus-deterministic-original-pixel-rotation-u2netp-background-removal-premultiplied-normalization",
+    generationProvenanceFile: "data/source/x-bey-front-sources/x-hells-scythe-3-80f-generated-front.json",
+    geometryAuthoritySha256: "c73ddcdcd32a673eba82e408b6b653dc72120542c0a2e60f1edc3a8df6e64f3d",
+    rawReferenceSha256: "c73ddcdcd32a673eba82e408b6b653dc72120542c0a2e60f1edc3a8df6e64f3d",
+    styleAuthoritySha256: "c73ddcdcd32a673eba82e408b6b653dc72120542c0a2e60f1edc3a8df6e64f3d",
+    imageGenerationUsed: true
   }]
 ]);
 const generatedFrontProvenanceByFile = new Map();
@@ -933,7 +943,8 @@ for (const provenanceFile of [
   "data/source/x-bey-front-sources/x-nonfront-6-gear-chip-harmony.json",
   "data/source/x-bey-front-sources/x-nonfront-6-gear-chip-black-vivid.json",
   "data/source/x-bey-front-sources/x-warrior-saber-generated-front.json",
-  "data/source/x-bey-front-sources/x-storm-spriggan-generated-front.json"
+  "data/source/x-bey-front-sources/x-storm-spriggan-generated-front.json",
+  "data/source/x-bey-front-sources/x-hells-scythe-3-80f-generated-front.json"
 ]) {
   const provenance = JSON.parse(await readFile(path.resolve(provenanceFile), "utf8"));
   generatedFrontProvenanceByFile.set(
@@ -1226,13 +1237,13 @@ for (const entry of xBeyPrimaryImageConfig.temporarySideImages) {
 }
 
 const alphaReview = JSON.parse(await readFile(ALPHA_REVIEW_PATH, "utf8"));
-assert.equal(alphaReview.version, "20260814-x-warrior-saber-highlight-transition");
+assert.equal(alphaReview.version, "20260818-x-hells-scythe-3-80f-front-name");
 const alphaReviewByImage = new Map(alphaReview.files.map(entry => [entry.image, entry]));
 const normalizedEntries = [
   ...xBeyPrimaryImageConfig.selected,
   ...xBeyPrimaryImageConfig.verifiedMain
 ];
-assert.equal(normalizedEntries.length, 223);
+assert.equal(normalizedEntries.length, 224);
 for (const entry of normalizedEntries) {
   const review = alphaReviewByImage.get(entry.image);
   assert.ok(review, `${entry.id}: normalized image is missing from the alpha review`);
@@ -1258,7 +1269,7 @@ const counts = {
   temporarySide: 0
 };
 const xBeys = beyItems.filter(item => item.series === "x" && item.image);
-assert.equal(xBeys.length, 223);
+assert.equal(xBeys.length, 224);
 
 for (const item of xBeys) {
   const bladeIds = bladePartIds(item);
@@ -1329,7 +1340,7 @@ for (const item of xBeys) {
 assert.deepEqual(counts, {
   officialAngleCorrected: 0,
   officialAssembledFront: 116,
-  userApprovedGeneratedFront: 22,
+  userApprovedGeneratedFront: 23,
   verifiedExistingFront: 85,
   temporarySide: 0
 });

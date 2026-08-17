@@ -1,5 +1,5 @@
 {
-  "version": "20260814-x-warrior-saber-highlight-transition",
+  "version": "20260818-x-hells-scythe-3-80f-front-name",
   "canvasSize": 448,
   "files": [
     {
@@ -1197,6 +1197,25 @@
         66,
         46,
         66
+      ]
+    },
+    {
+      "image": "assets/images/x/beys/bey-x-bx-00-hells-scythe-3-80f/front.webp",
+      "outputSha256": "704277144438fe2813b366cb9d7d02895b5f0ae1f638022ff6ec76a7f585864e",
+      "alphaLevels": 248,
+      "partialPixels": 3059,
+      "foregroundPixels": 101306,
+      "bbox": [
+        44,
+        45,
+        404,
+        402
+      ],
+      "margins": [
+        44,
+        45,
+        44,
+        46
       ]
     },
     {

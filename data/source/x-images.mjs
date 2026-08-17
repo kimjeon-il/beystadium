@@ -122,6 +122,15 @@ const xImageMappings = [
     "sourceSha256": "47ee3ad302529fccadd72be012598dea1b822ebe7e1a2389c4633de21c995200"
   },
   {
+    "id": "BEY-X-BX-00-HELLS-SCYTHE-3-80F",
+    "image": "assets/images/x/beys/bey-x-bx-00-hells-scythe-3-80f/front.webp",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-hells-scythe-3-80f-generated-front.png",
+    "sourceSha256": "86733de06d1a039376f63649f06c489575d21970602eaf38cd71b0eac1844e8c",
+    "sourceKind": "user-approved-generated-front",
+    "normalizationInput": "source-file",
+    "preserveSourcePixels": true
+  },
+  {
     "id": "BEY-X-BX-00-HELLS-SCYTHE-4-60T",
     "image": "assets/images/x/beys/bey-x-bx-00-hells-scythe-4-60t/main.webp",
     "sourcePath": "02_product_components/017_bx00-hc/01_BXG03_01@1.png",
@@ -176,6 +185,12 @@ const xImageMappings = [
     "preserveSourcePixels": true
   },
   {
+    "id": "BEY-X-BX-00-MOSASAURUS-9-60U",
+    "image": "assets/images/x/beys/bey-x-bx-00-mosasaurus-9-60u/main.webp",
+    "sourcePath": "02_product_components/100_bx00-jtm/06_BXG40_06@1.png",
+    "sourceSha256": "3c1d427f6a8558bef908ce97ee93cceb23e45cf2c33a732e27158f8b5b0c15d5"
+  },
+  {
     "id": "BEY-X-BX-00-NINJA-KNIFE-4-60LF",
     "image": "assets/images/x/beys/bey-x-bx-00-ninja-knife-4-60lf/front.webp",
     "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-ninja-knife-4-60lf-verified.png",
@@ -184,12 +199,6 @@ const xImageMappings = [
     "sourceKind": "verified-existing-front",
     "normalizationInput": "source-file",
     "preserveSourcePixels": true
-  },
-  {
-    "id": "BEY-X-BX-00-MOSASAURUS-9-60U",
-    "image": "assets/images/x/beys/bey-x-bx-00-mosasaurus-9-60u/main.webp",
-    "sourcePath": "02_product_components/100_bx00-jtm/06_BXG40_06@1.png",
-    "sourceSha256": "3c1d427f6a8558bef908ce97ee93cceb23e45cf2c33a732e27158f8b5b0c15d5"
   },
   {
     "id": "BEY-X-BX-00-OPTIMUS-PRIMAL-3-60F",
@@ -3006,10 +3015,6 @@ const xImageMappings = [
 ];
 
 const xImageUnavailable = [
-  {
-    "id": "BEY-X-BX-00-HELLS-SCYTHE-3-80F",
-    "reason": "타카라토미·한국 공식 출처에 단독 제품 사진이 공개되지 않았다."
-  },
   {
     "id": "PART-X-BLADE-NINJA-KNIFE",
     "reason": "공식 게임 특전 홍보 이미지에 개별 블레이드 사진이 없다."

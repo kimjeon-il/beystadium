@@ -8,7 +8,7 @@ const bookItems = [];
 const gameItems = [];
 const animeInfo = { title: "", overview: [], characters: [], episodes: [] };
 const searchIndexItems = [];
-const X_ASSET_CACHE_VERSION = "20260814-x-warrior-saber-highlight-transition";
+const X_ASSET_CACHE_VERSION = "20260818-x-hells-scythe-3-80f-front-name";
 
 const versionAssetUrl = source => {
   const value = String(source || "");

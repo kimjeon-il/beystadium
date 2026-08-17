@@ -96,7 +96,6 @@ const OFFICIAL_SOURCE_OVERRIDES = {
 };
 
 const UNAVAILABLE_REASONS = {
-  "BEY-X-BX-00-HELLS-SCYTHE-3-80F": "타카라토미·한국 공식 출처에 단독 제품 사진이 공개되지 않았다.",
   "PART-X-BLADE-NINJA-KNIFE": "공식 게임 특전 홍보 이미지에 개별 블레이드 사진이 없다.",
   "PART-X-BLADE-CROCO-CRUNCH": "타카라토미 공식 출처에 개별 블레이드 사진이 없다.",
   "PART-X-BLADE-WARRIOR-STEEL": "연결된 공식 제품 상세와 개별 부품 사진이 없다.",

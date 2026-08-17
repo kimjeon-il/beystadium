@@ -7,7 +7,7 @@ import { productItems } from "../data/source/products.mjs";
 import { rareBeyGetItems } from "../data/source/rare-bey-get.mjs";
 import { bookItems, gameItems, toolsItems } from "../data/source/secondary.mjs";
 
-const VERSION = "20260814-x-warrior-saber-highlight-transition";
+const VERSION = "20260818-x-hells-scythe-3-80f-front-name";
 const SERIES_SLUGS = {
   "metal fight": "metal-fight",
   burst: "burst",

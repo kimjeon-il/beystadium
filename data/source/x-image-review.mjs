@@ -137,6 +137,16 @@ const xImageReview = [
     "outputSha256": "b12c07e0f399b98d662eed8dd9d2c77177712e5d145df57fc2b4460752e15f82"
   },
   {
+    "id": "BEY-X-BX-00-HELLS-SCYTHE-3-80F",
+    "image": "assets/images/x/beys/bey-x-bx-00-hells-scythe-3-80f/front.webp",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-hells-scythe-3-80f-generated-front.png",
+    "sourceSha256": "86733de06d1a039376f63649f06c489575d21970602eaf38cd71b0eac1844e8c",
+    "outputSha256": "704277144438fe2813b366cb9d7d02895b5f0ae1f638022ff6ec76a7f585864e",
+    "sourceKind": "user-approved-generated-front",
+    "normalizationInput": "source-file",
+    "preserveSourcePixels": true
+  },
+  {
     "id": "BEY-X-BX-00-HELLS-SCYTHE-4-60T",
     "image": "assets/images/x/beys/bey-x-bx-00-hells-scythe-4-60t/main.webp",
     "sourcePath": "02_product_components/017_bx00-hc/01_BXG03_01@1.png",

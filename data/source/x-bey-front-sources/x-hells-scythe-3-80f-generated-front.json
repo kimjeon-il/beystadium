@@ -1,0 +1,69 @@
+{
+  "version": "20260818-x-hells-scythe-3-80f-front-name",
+  "toolMode": "built-in ImageGen composition study followed by deterministic original-pixel reprojection; generated RGB rejected for geometry drift",
+  "scope": "Hells Scythe 3-80F name correction and user-supplied front image",
+  "jobs": [
+    {
+      "id": "BEY-X-BX-00-HELLS-SCYTHE-3-80F",
+      "targetName": "헬즈사이즈 3-80F",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-hells-scythe-3-80f-generated-front.png",
+      "sourceSha256": "86733de06d1a039376f63649f06c489575d21970602eaf38cd71b0eac1844e8c",
+      "finalOutputFile": "assets/images/x/beys/bey-x-bx-00-hells-scythe-3-80f/front.webp",
+      "finalOutputSha256": "704277144438fe2813b366cb9d7d02895b5f0ae1f638022ff6ec76a7f585864e",
+      "rawReferenceFile": "data/source/x-bey-front-sources/bey-x-bx-00-hells-scythe-3-80f-user-reference.png",
+      "rawReferenceSha256": "c73ddcdcd32a673eba82e408b6b653dc72120542c0a2e60f1edc3a8df6e64f3d",
+      "geometryAuthorityFile": "data/source/x-bey-front-sources/bey-x-bx-00-hells-scythe-3-80f-user-reference.png",
+      "geometryAuthoritySha256": "c73ddcdcd32a673eba82e408b6b653dc72120542c0a2e60f1edc3a8df6e64f3d",
+      "compositionReferenceFile": "data/source/x-bey-front-sources/bey-x-bx-00-hells-scythe-3-80f-composition-reference.png",
+      "compositionReferenceSha256": "db09abaff8e65ada3b9533a9155468c7ff6f72fed92cd7c9389f6e75b5cd265c",
+      "imagegenCandidates": [
+        {
+          "file": "data/source/x-bey-front-sources/bey-x-bx-00-hells-scythe-3-80f-imagegen-v1.png",
+          "sha256": "27356240c9de0c4c804dc3a4b490ef24368a22fb1ce4f92066ff26e27b8c56c0",
+          "accepted": false,
+          "reason": "outer blade geometry and lower-right X tab were reinterpreted"
+        },
+        {
+          "file": "data/source/x-bey-front-sources/bey-x-bx-00-hells-scythe-3-80f-imagegen-retry.png",
+          "sha256": "4444bdf670d1cd50c3197a6aa9539e0c3ef17cd6178bf82047bf9cfbcc781852",
+          "accepted": false,
+          "reason": "product geometry and photographic metal surface still drifted from the user source"
+        }
+      ],
+      "prompt": "Use Image 1 as the absolute product identity and geometry authority and Image 2 as camera composition authority only. Preserve the silver outer metal, blue plastic, yellow outlines, all three black tabs with red X marks, central printed sticker, openings, grooves and clockwise orientation. Match only Image 2 camera angle, screen rotation, center and scale. Render on a flat #ff00ff chroma-key background without shadows or extra objects.",
+      "retryPrompt": "Correct only product-geometry and material drift: restore the exact physical shapes and photographic surfaces from the original blue product, including all three black and red X tabs and the unchanged central sticker, while retaining the candidate framing.",
+      "processingMethod": "u2netp-no-matting-background-removal-plus-20.5-degree-original-pixel-rotation-and-premultiplied-alpha-lanczos-normalization",
+      "segmentation": {
+        "model": "u2netp",
+        "alphaMatting": false,
+        "keepLargestComponent": true,
+        "opaqueThreshold": 150,
+        "internalApertureCleanup": "background-color-connected local masks",
+        "edgeSigma": 0.55
+      },
+      "compositionTransform": {
+        "rotationDegreesCounterClockwise": 20.5,
+        "uniformScaleOnly": true,
+        "warp": false,
+        "generatedRgbUsed": false
+      },
+      "normalization": {
+        "canvas": [448, 448],
+        "targetLongEdge": 360,
+        "resample": "premultiplied-alpha-lanczos",
+        "output": "lossless-webp",
+        "normalizedForegroundBox": [44, 45, 404, 402]
+      },
+      "validation": {
+        "center": [223.5, 223.0],
+        "bbox": [44, 45, 404, 402],
+        "transparentCorners": true,
+        "greenResidualPixels": 0,
+        "partialAlphaPixels": 3059,
+        "componentCount": 1,
+        "generatedTextOrStickerPixelsUsed": false,
+        "originalProductRgbPreserved": true
+      }
+    }
+  ]
+}
