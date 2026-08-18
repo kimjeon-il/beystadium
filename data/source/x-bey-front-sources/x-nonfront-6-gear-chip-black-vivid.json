@@ -2,8 +2,9 @@
   "version": "20260811-x-nonfront-6-gear-chip-black-vivid",
   "toolMode": "existing ImageGen-derived geometry with deterministic connected-component black correction and OKLCh vividness; no new ImageGen or CLI call",
   "scope": "six deployed front views; only gear-chip print RGB changed and v48 support/body/alpha pixels preserved",
-  "sourceManifest": "tmp/imagegen/x-nonfront-6-gear-chip-black-vivid-v49/manifest.json",
+  "sourceManifest": null,
   "sourceManifestSha256": "62a9f395b161649eca0b840a220146fda2b032e93bb77897f9d273c460fc6526",
+  "sourceManifestStatus": "deleted temporary build artifact after approved source preservation",
   "blackSelection": {
     "seed": "HSV S<=0.15 and V<=0.22",
     "connectedExpansion": "HSV S<=0.18 and V<=0.42",

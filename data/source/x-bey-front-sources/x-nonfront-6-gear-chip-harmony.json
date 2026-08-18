@@ -2,8 +2,9 @@
   "version": "20260810-x-nonfront-6-gear-chip-harmony",
   "toolMode": "existing ImageGen-derived geometry with deterministic local gear-chip RGB harmonization; no new ImageGen or CLI call",
   "scope": "six final front views; v47 body pixels preserved and gear-chip colors harmonized",
-  "sourceManifest": "tmp/imagegen/x-nonfront-6-gear-chip-harmony-v48/manifest.json",
+  "sourceManifest": null,
   "sourceManifestSha256": "2f246b10cc4d7d2ef9605c51a8b063b44f73b081d6c6d34641e7c42951fd26ff",
+  "sourceManifestStatus": "deleted temporary build artifact after approved source preservation",
   "jobs": [
     {
       "id": "BEY-X-BX-00-DRIGER-SLASH-4-80P",
