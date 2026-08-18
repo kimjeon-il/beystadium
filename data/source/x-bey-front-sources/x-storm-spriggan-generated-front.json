@@ -1,5 +1,5 @@
 {
-  "version": "20260811-x-storm-spriggan-generated-front",
+  "version": "20260819-x-bey-canonical-image-paths",
   "toolMode": "user-selected existing ImageGen output with deterministic chroma-key removal; no generation or visual reinterpretation in this task",
   "scope": "Storm Spriggan 2-70M selected generated front render",
   "jobs": [
@@ -14,7 +14,7 @@
       "geometryAuthoritySha256": "4ef0942495a424833c408e15ecf03320483f590104cef4842d4f6518a91bca6a",
       "rawReferenceFile": "data/source/x-bey-front-sources/bey-x-bx-00-storm-spriggan-2-70m-generated-raw.png",
       "rawReferenceSha256": "4ef0942495a424833c408e15ecf03320483f590104cef4842d4f6518a91bca6a",
-      "styleAuthorityFile": "assets/images/x/beys/bey-x-bx-00-storm-spriggan-2-70m/main.webp",
+      "styleAuthorityFile": "data/source/x-bey-front-sources/bey-x-bx-00-storm-spriggan-2-70m-style-authority.webp",
       "styleAuthoritySha256": "e742920505b3df100420796cc6447d666b3052688f19bd62e59c758859ddb063",
       "rawGeneratedFile": "data/source/x-bey-front-sources/bey-x-bx-00-storm-spriggan-2-70m-generated-raw.png",
       "rawGeneratedSha256": "4ef0942495a424833c408e15ecf03320483f590104cef4842d4f6518a91bca6a",
@@ -27,16 +27,32 @@
         "spillCleanup": true
       },
       "normalization": {
-        "canvas": [448, 448],
+        "canvas": [
+          448,
+          448
+        ],
         "targetLongEdge": 360,
         "resample": "premultiplied-alpha-lanczos",
         "output": "lossless-webp",
-        "normalizedForegroundBox": [54, 44, 394, 404]
+        "normalizedForegroundBox": [
+          54,
+          44,
+          394,
+          404
+        ]
       },
       "validation": {
-        "bbox": [54, 44, 394, 404],
+        "bbox": [
+          54,
+          44,
+          394,
+          404
+        ],
         "longEdge": 360,
-        "center": [223.5, 223.5],
+        "center": [
+          223.5,
+          223.5
+        ],
         "transparentCorners": true,
         "alphaLevels": 255,
         "partialAlphaPixels": 3441,

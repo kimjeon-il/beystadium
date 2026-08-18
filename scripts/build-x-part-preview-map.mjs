@@ -5,6 +5,7 @@ import path from "node:path";
 
 import { beyItems, partItems } from "../data/source/catalog.mjs";
 import { xImageMappings } from "../data/source/x-images.mjs";
+import { xPartPreviewMappings as reviewedPartPreviewMappings } from "../data/source/x-part-previews.mjs";
 import { xPartPreviewImagePath } from "./x-image-paths.mjs";
 
 const args = new Set(process.argv.slice(2));
@@ -114,6 +115,11 @@ const xBeys = beyItems.filter(item => item.series === "x");
 const xParts = partItems.filter(item => item.series === "x");
 const itemById = new Map([...xBeys, ...xParts].map(item => [item.id, item]));
 const imageMappingById = new Map(xImageMappings.map(entry => [entry.id, entry]));
+const reviewedBladePreviewByContext = new Map(
+  reviewedPartPreviewMappings
+    .filter(entry => entry.image?.endsWith("-blade-preview.webp"))
+    .map(entry => [`${entry.beyId}::${entry.partId}`, entry])
+);
 
 const sha256 = bytes => createHash("sha256").update(bytes).digest("hex");
 const sourceFileName = entry => {
@@ -427,6 +433,14 @@ async function discover() {
       const part = itemById.get(partId);
       const key = contextKey(bey.id, partId);
       if (mappingByKey.has(key) || part?.type !== "blade" || part.xBladeRole) continue;
+      const reviewedBladePreview = reviewedBladePreviewByContext.get(key);
+      if (reviewedBladePreview) {
+        addMapping({
+          ...reviewedBladePreview,
+          existingImage: reviewedBladePreview.image
+        });
+        continue;
+      }
       const sourceUrl = beyImage.sourceUrl || officialImageUrl(sourceFileName(beyImage));
       addMapping({
         beyId: bey.id,

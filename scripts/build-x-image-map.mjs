@@ -283,9 +283,6 @@ const xParts = partItems.filter(item => item.series === "x");
 const itemById = new Map([...xBeys, ...xParts].map(item => [item.id, item]));
 const productById = new Map(productItems.filter(item => item.series === "x").map(item => [item.id, item]));
 const reviewedById = new Map(xImageReview.map(entry => [entry.id, entry]));
-const reviewedFrontsUsingMainPath = new Set([
-  "BEY-X-BX-00-DRACIEL-SHIELD-7-60D"
-]);
 if (reviewedById.size !== xImageReview.length) {
   throw new Error("Duplicate reviewed X image mapping IDs");
 }
@@ -568,10 +565,7 @@ async function main() {
   for (const review of xImageReview) {
     const item = itemById.get(review.id);
     if (!item) throw new Error(`Unknown reviewed X image item: ${review.id}`);
-    const expectedImage = ["user-approved-generated-front", "verified-existing-front"].includes(review.sourceKind)
-      && !reviewedFrontsUsingMainPath.has(review.id)
-      ? `assets/images/x/beys/${review.id.toLowerCase()}/front.webp`
-      : outputRelative(item);
+    const expectedImage = outputRelative(item);
     if (review.image !== expectedImage) {
       throw new Error(`${review.id}: reviewed output path changed`);
     }

@@ -8,7 +8,7 @@ const bookItems = [];
 const gameItems = [];
 const animeInfo = { title: "", overview: [], characters: [], episodes: [] };
 const searchIndexItems = [];
-const X_ASSET_CACHE_VERSION = "20260818-x-hells-scythe-3-80f-simple-recolor-stickers-v4";
+const X_ASSET_CACHE_VERSION = "20260819-x-bey-canonical-image-paths";
 
 const versionAssetUrl = source => {
   const value = String(source || "");

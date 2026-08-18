@@ -1,5 +1,5 @@
 {
-  "version": "20260818-x-hells-scythe-3-80f-simple-recolor-stickers-v4",
+  "version": "20260819-x-bey-canonical-image-paths",
   "id": "BEY-X-BX-00-CROCO-CRUNCH-2-60Q",
   "classification": "verified-existing-front",
   "imageGenerationUsed": false,
@@ -55,7 +55,7 @@
     "resample": "lanczos"
   },
   "finalOutput": {
-    "file": "assets/images/x/beys/bey-x-bx-00-croco-crunch-2-60q/front.webp",
+    "file": "assets/images/x/beys/bey-x-bx-00-croco-crunch-2-60q/bey-x-bx-00-croco-crunch-2-60q.webp",
     "sha256": "89ff64dea72378ca7a4f5aaa9c66a17b3469280e0a0fc3ea55e940793f317edd",
     "normalizedForegroundBox": [
       44,

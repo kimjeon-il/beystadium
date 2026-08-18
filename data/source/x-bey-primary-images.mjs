@@ -4,9 +4,6 @@ import xBeyAngleCorrectionConfig from "./x-bey-angle-corrections.json" with { ty
 const selectedFrontById = new Map(
   xBeyPrimaryImageConfig.selected.map(entry => [entry.id, entry])
 );
-const verifiedMainById = new Map(
-  xBeyPrimaryImageConfig.verifiedMain.map(entry => [entry.id, entry])
-);
 const temporarySideIds = new Set(
   xBeyPrimaryImageConfig.temporarySideImages.map(entry => entry.id)
 );
@@ -25,7 +22,6 @@ function applyXBeyPrimaryImages(items) {
     const classifications = [
       Boolean(selectedFront),
       Boolean(angleCorrection),
-      verifiedMainById.has(item.id),
       temporarySideIds.has(item.id)
     ].filter(Boolean).length;
     if (classifications > 1) {
@@ -37,11 +33,6 @@ function applyXBeyPrimaryImages(items) {
     }
     if (angleCorrection) {
       item.image = angleCorrection.image;
-      continue;
-    }
-    const verifiedMain = verifiedMainById.get(item.id);
-    if (verifiedMain) {
-      item.image = verifiedMain.image;
       continue;
     }
     if (temporarySideIds.has(item.id)) continue;

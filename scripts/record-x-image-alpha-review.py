@@ -14,7 +14,7 @@ from PIL import Image
 CANVAS_SIZE = 448
 MIN_MARGIN = 6
 MAX_FOREGROUND_SIZE = CANVAS_SIZE - MIN_MARGIN * 2
-REVIEW_VERSION = "20260818-x-hells-scythe-3-80f-simple-recolor-stickers-v4"
+REVIEW_VERSION = "20260819-x-bey-canonical-image-paths"
 
 
 def parse_args() -> argparse.Namespace:

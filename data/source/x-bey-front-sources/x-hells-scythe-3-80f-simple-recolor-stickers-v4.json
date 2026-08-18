@@ -1,12 +1,12 @@
 {
-  "version": "20260818-x-hells-scythe-3-80f-simple-recolor-stickers-v4",
+  "version": "20260819-x-bey-canonical-image-paths",
   "id": "BEY-X-BX-00-HELLS-SCYTHE-3-80F",
   "classification": "user-approved-generated-front",
   "imageGenerationUsedForRevision": false,
   "scope": "Use the official BX-02 front unchanged except for the visible translucent ratchet recolor and the approved 3-80F sticker set.",
   "inputs": {
     "officialBase": {
-      "file": "assets/images/x/beys/bey-x-bx-02-hells-scythe-4-60t/front.webp",
+      "file": "assets/images/x/beys/bey-x-bx-02-hells-scythe-4-60t/bey-x-bx-02-hells-scythe-4-60t.webp",
       "sha256": "de3bdb2b1396ab3ab9d1e52788335aa6738ce0515eee4b3072651f2eaf7803ec",
       "role": "geometry, metal, lighting, alpha, rotation and scale authority"
     },
@@ -42,7 +42,7 @@
   "output": {
     "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-hells-scythe-3-80f-simple-recolor-stickers-v4.png",
     "sourceSha256": "f721cae7845aeb83a8464d8f5bc7414982df99901934cbe9fa7538b9cd967764",
-    "finalFile": "assets/images/x/beys/bey-x-bx-00-hells-scythe-3-80f/front.webp",
+    "finalFile": "assets/images/x/beys/bey-x-bx-00-hells-scythe-3-80f/bey-x-bx-00-hells-scythe-3-80f.webp",
     "finalSha256": "17664785f39f474bee2b4e5df3c65d481293ac1f2dbf32c4176447534848b32f"
   },
   "validation": {

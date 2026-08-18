@@ -1,5 +1,5 @@
 {
-  "version": "20260818-x-hells-scythe-3-80f-simple-recolor-stickers-v4",
+  "version": "20260819-x-bey-canonical-image-paths",
   "toolMode": "existing built-in ImageGen base followed by deterministic OKLab distance-field highlight transition; no regeneration",
   "scope": "UX-00 Warrior Saber 2-70L generated front render with continuous orange highlight-to-coating transition",
   "jobs": [
@@ -14,7 +14,7 @@
       "geometryAuthoritySha256": "b2f452912bc9acac7882bab6c40e2fac2a8464883f671aa47dda0510d3d26a40",
       "rawReferenceFile": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-official-cgi-raw.png",
       "rawReferenceSha256": "b2f452912bc9acac7882bab6c40e2fac2a8464883f671aa47dda0510d3d26a40",
-      "styleAuthorityFile": "assets/images/x/beys/bey-x-ux-09-warrior-saber-2-70l/front.webp",
+      "styleAuthorityFile": "assets/images/x/beys/bey-x-ux-09-warrior-saber-2-70l/bey-x-ux-09-warrior-saber-2-70l.webp",
       "styleAuthoritySha256": "80c41f941c7e114aba004edeaafd25b89da008dd834b22d94526aeb24ec1ebd3",
       "rawGeneratedFile": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-official-cgi-raw.png",
       "rawGeneratedSha256": "b2f452912bc9acac7882bab6c40e2fac2a8464883f671aa47dda0510d3d26a40",

@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-const X_ASSET_CACHE_VERSION = "20260818-x-hells-scythe-3-80f-simple-recolor-stickers-v4";
+const X_ASSET_CACHE_VERSION = "20260819-x-bey-canonical-image-paths";
 
 const consoleErrors = page => {
   const errors = [];
@@ -2787,7 +2787,7 @@ test("X mounted part previews fit portrait bits and use each Bey's official colo
   const mammothBlade = page.locator('#detailModal .mounted-link[data-part-id="PART-X-BLADE-MAMMOTH-TUSK"]');
   await expect(mammothBlade).toHaveAttribute(
     "data-image-preview-src",
-    "assets/images/x/beys/bey-x-bx-48-03-mammoth-tusk-7-60s/main.webp"
+    "assets/images/x/beys/bey-x-bx-48-03-mammoth-tusk-7-60s/bey-x-bx-48-03-mammoth-tusk-7-60s.webp"
   );
   const mammothSpike = page.locator('#detailModal .mounted-link[data-part-id="PART-X-BIT-S"]');
   await expect(mammothSpike).toHaveAttribute(
@@ -2821,32 +2821,32 @@ test("X mounted part previews fit portrait bits and use each Bey's official colo
     [
       "PRODUCT-X-CX-11",
       "BEY-X-CX-11-EMPEROR-MIGHT-H-OP",
-      "assets/images/x/beys/bey-x-cx-11-emperor-might-h-op/front.webp"
+      "assets/images/x/beys/bey-x-cx-11-emperor-might-h-op/bey-x-cx-11-emperor-might-h-op.webp"
     ],
     [
       "PRODUCT-X-BX-00-DRAN-DAGGER-2-80GP-BLACK-GIANTS",
       "BEY-X-BX-00-DRAN-DAGGER-2-80GP",
-      "assets/images/x/beys/bey-x-bx-00-dran-dagger-2-80gp/front.webp"
+      "assets/images/x/beys/bey-x-bx-00-dran-dagger-2-80gp/bey-x-bx-00-dran-dagger-2-80gp.webp"
     ],
     [
       "PRODUCT-X-BX-17",
       "BEY-X-BX-17-DRAN-SWORD-3-60F",
-      "assets/images/x/beys/bey-x-bx-17-dran-sword-3-60f/front.webp"
+      "assets/images/x/beys/bey-x-bx-17-dran-sword-3-60f/bey-x-bx-17-dran-sword-3-60f.webp"
     ],
     [
       "PRODUCT-X-UX-04",
       "BEY-X-UX-04-DRAN-BUSTER-1-60A",
-      "assets/images/x/beys/bey-x-ux-04-dran-buster-1-60a/front.webp"
+      "assets/images/x/beys/bey-x-ux-04-dran-buster-1-60a/bey-x-ux-04-dran-buster-1-60a.webp"
     ],
     [
       "PRODUCT-X-BX-48",
       "BEY-X-BX-48-01-COBALT-DRAGOON-9-80F",
-      "assets/images/x/beys/bey-x-bx-48-01-cobalt-dragoon-9-80f/front.webp"
+      "assets/images/x/beys/bey-x-bx-48-01-cobalt-dragoon-9-80f/bey-x-bx-48-01-cobalt-dragoon-9-80f.webp"
     ],
     [
       "PRODUCT-X-UX-00-ASIA-SPECIAL-DRAN-DECK-SET",
       "BEY-X-UX-00-DRAN-SWORD-4-80DB",
-      "assets/images/x/beys/bey-x-ux-00-dran-sword-4-80db/front.webp"
+      "assets/images/x/beys/bey-x-ux-00-dran-sword-4-80db/bey-x-ux-00-dran-sword-4-80db.webp"
     ]
   ];
   for (const [productId, beyId, image] of compositionPrimaryImages) {
@@ -3868,7 +3868,7 @@ test("X catalog cards use top-view primary images without adding a detail art pa
   await expect(cardImage).toHaveAttribute("decoding", "async");
   await expect(cardImage).toHaveAttribute(
     "src",
-    `assets/images/x/beys/bey-x-bx-01-dran-sword-3-60f/front.webp?v=${X_ASSET_CACHE_VERSION}`
+    `assets/images/x/beys/bey-x-bx-01-dran-sword-3-60f/bey-x-bx-01-dran-sword-3-60f.webp?v=${X_ASSET_CACHE_VERSION}`
   );
   await cardImage.evaluate(image => {
     image.scrollIntoView({ block: "center" });
@@ -3900,57 +3900,57 @@ test("X catalog cards use top-view primary images without adding a detail art pa
     [
       "BEY-X-BX-00-01-LIGHTNING-L-DRAGO-UPPER-1-60F",
       "라이트닝 엘드라고 1-60F (어퍼형)",
-      "assets/images/x/beys/bey-x-bx-00-01-lightning-l-drago-upper-1-60f/front.webp"
+      "assets/images/x/beys/bey-x-bx-00-01-lightning-l-drago-upper-1-60f/bey-x-bx-00-01-lightning-l-drago-upper-1-60f.webp"
     ],
     [
       "BEY-X-BX-50-01-HEAVENS-RING-0-80DS",
       "헤븐즈링 0-80DS",
-      "assets/images/x/beys/bey-x-bx-50-01-heavens-ring-0-80ds/front.webp"
+      "assets/images/x/beys/bey-x-bx-50-01-heavens-ring-0-80ds/bey-x-bx-50-01-heavens-ring-0-80ds.webp"
     ],
     [
       "BEY-X-BX-31-01-TYRANNO-BEAT-4-70Q",
       "티라노비트 4-70Q",
-      "assets/images/x/beys/bey-x-bx-31-01-tyranno-beat-4-70q/front.webp"
+      "assets/images/x/beys/bey-x-bx-31-01-tyranno-beat-4-70q/bey-x-bx-31-01-tyranno-beat-4-70q.webp"
     ],
     [
       "BEY-X-CX-11-EMPEROR-MIGHT-H-OP",
       "엠퍼러 마이트H Op",
-      "assets/images/x/beys/bey-x-cx-11-emperor-might-h-op/front.webp"
+      "assets/images/x/beys/bey-x-cx-11-emperor-might-h-op/bey-x-cx-11-emperor-might-h-op.webp"
     ],
     [
       "BEY-X-CX-00-VALKYRIE-BOLT-S-4-70V",
       "발키리언 볼트S 4-70V",
-      "assets/images/x/beys/bey-x-cx-00-valkyrie-bolt-s-4-70v/front.webp"
+      "assets/images/x/beys/bey-x-cx-00-valkyrie-bolt-s-4-70v/bey-x-cx-00-valkyrie-bolt-s-4-70v.webp"
     ],
     [
       "BEY-X-CX-01-DRAN-BRAVE-S-6-60V",
       "드랜 브레이브S 6-60V",
-      "assets/images/x/beys/bey-x-cx-01-dran-brave-s-6-60v/front.webp"
+      "assets/images/x/beys/bey-x-cx-01-dran-brave-s-6-60v/bey-x-cx-01-dran-brave-s-6-60v.webp"
     ],
     [
       "BEY-X-BX-00-DRAN-DAGGER-2-80GP",
       "드란대거 2-80GP",
-      "assets/images/x/beys/bey-x-bx-00-dran-dagger-2-80gp/front.webp"
+      "assets/images/x/beys/bey-x-bx-00-dran-dagger-2-80gp/bey-x-bx-00-dran-dagger-2-80gp.webp"
     ],
     [
       "BEY-X-BX-17-DRAN-SWORD-3-60F",
       "드랜소드 3-60F",
-      "assets/images/x/beys/bey-x-bx-17-dran-sword-3-60f/front.webp"
+      "assets/images/x/beys/bey-x-bx-17-dran-sword-3-60f/bey-x-bx-17-dran-sword-3-60f.webp"
     ],
     [
       "BEY-X-UX-04-DRAN-BUSTER-1-60A",
       "드랜버스터 1-60A",
-      "assets/images/x/beys/bey-x-ux-04-dran-buster-1-60a/front.webp"
+      "assets/images/x/beys/bey-x-ux-04-dran-buster-1-60a/bey-x-ux-04-dran-buster-1-60a.webp"
     ],
     [
       "BEY-X-BX-48-01-COBALT-DRAGOON-9-80F",
       "코발트드래군 9-80F",
-      "assets/images/x/beys/bey-x-bx-48-01-cobalt-dragoon-9-80f/front.webp"
+      "assets/images/x/beys/bey-x-bx-48-01-cobalt-dragoon-9-80f/bey-x-bx-48-01-cobalt-dragoon-9-80f.webp"
     ],
     [
       "BEY-X-UX-00-DRAN-SWORD-4-80DB",
       "드랜소드 4-80DB",
-      "assets/images/x/beys/bey-x-ux-00-dran-sword-4-80db/front.webp"
+      "assets/images/x/beys/bey-x-ux-00-dran-sword-4-80db/bey-x-ux-00-dran-sword-4-80db.webp"
     ]
   ];
   for (const [id, query, image] of primaryImages) {

@@ -48,7 +48,7 @@ def destination_for_part(root: Path, source: Path) -> Path:
 
 def discover_migrations(root: Path) -> list[Migration]:
     migrations = [
-        Migration(source, root / "beys" / source.stem / "main.webp")
+        Migration(source, root / "beys" / source.stem / f"{source.stem}.webp")
         for source in sorted((root / "beys").glob("*.webp"))
     ]
     migrations.extend(

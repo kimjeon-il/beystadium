@@ -1,5 +1,5 @@
 {
-  "version": "20260818-x-hells-scythe-3-80f-simple-recolor-stickers-v4",
+  "version": "20260819-x-bey-canonical-image-paths",
   "id": "BEY-X-BX-00-NINJA-KNIFE-4-60LF",
   "classification": "verified-existing-front",
   "imageGenerationUsed": false,
@@ -35,7 +35,7 @@
     "resample": "lanczos"
   },
   "finalOutput": {
-    "file": "assets/images/x/beys/bey-x-bx-00-ninja-knife-4-60lf/front.webp",
+    "file": "assets/images/x/beys/bey-x-bx-00-ninja-knife-4-60lf/bey-x-bx-00-ninja-knife-4-60lf.webp",
     "sha256": "20391b40544ceb0480dd8fa42fc0cdc9618d3a49ce08a70c36cfb959f9d5a483",
     "normalizedForegroundBox": [44, 44, 404, 403]
   },

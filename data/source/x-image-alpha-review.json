@@ -1,9 +1,9 @@
 {
-  "version": "20260818-x-hells-scythe-3-80f-simple-recolor-stickers-v4",
+  "version": "20260819-x-bey-canonical-image-paths",
   "canvasSize": 448,
   "files": [
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-01-lightning-l-drago-upper-1-60f/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-01-lightning-l-drago-upper-1-60f/bey-x-bx-00-01-lightning-l-drago-upper-1-60f.webp",
       "outputSha256": "da56a5ca655069f9b250369ddc5b8b18e3deceb98ffdb6898d49898a234528ee",
       "alphaLevels": 254,
       "partialPixels": 4621,
@@ -19,25 +19,6 @@
         44,
         45,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-01-lightning-l-drago-upper-1-60f/main.webp",
-      "outputSha256": "c84a03d1b6216ca0d36a6d05a92f2b03fd66e5ebb252dfcb7869bd369a19b2e8",
-      "alphaLevels": 256,
-      "partialPixels": 6440,
-      "foregroundPixels": 76299,
-      "bbox": [
-        45,
-        77,
-        403,
-        371
-      ],
-      "margins": [
-        45,
-        77,
-        45,
-        77
       ]
     },
     {
@@ -98,7 +79,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-02-lightning-l-drago-barrage-1-60f/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-02-lightning-l-drago-barrage-1-60f/bey-x-bx-00-02-lightning-l-drago-barrage-1-60f.webp",
       "outputSha256": "10b70de925ad49855b480d13527bc5e4e58a8458eca20e81797f54424141eabd",
       "alphaLevels": 234,
       "partialPixels": 3474,
@@ -114,25 +95,6 @@
         44,
         48,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-02-lightning-l-drago-barrage-1-60f/main.webp",
-      "outputSha256": "df8c5f850947e74f3ec2e6881e92144d048565de5ea897141340cc720a3f82db",
-      "alphaLevels": 256,
-      "partialPixels": 6301,
-      "foregroundPixels": 78946,
-      "bbox": [
-        43,
-        70,
-        404,
-        377
-      ],
-      "margins": [
-        43,
-        70,
-        44,
-        71
       ]
     },
     {
@@ -193,7 +155,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-cobalt-dragoon-2-60c/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-cobalt-dragoon-2-60c/bey-x-bx-00-cobalt-dragoon-2-60c.webp",
       "outputSha256": "ba560c8ea9f2e9e413c67233cab5caa5fe709902f99dfc65796d2dc396a14409",
       "alphaLevels": 243,
       "partialPixels": 4204,
@@ -209,25 +171,6 @@
         44,
         45,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-cobalt-dragoon-2-60c/main.webp",
-      "outputSha256": "2069aa90dc779ad1ee8262e46f59d6abd347449238ca8647e48bf4d966bdf954",
-      "alphaLevels": 256,
-      "partialPixels": 8249,
-      "foregroundPixels": 89740,
-      "bbox": [
-        46,
-        44,
-        402,
-        403
-      ],
-      "margins": [
-        46,
-        44,
-        46,
-        45
       ]
     },
     {
@@ -288,7 +231,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-cobalt-dragoon-9-60f/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-cobalt-dragoon-9-60f/bey-x-bx-00-cobalt-dragoon-9-60f.webp",
       "outputSha256": "0c02b54beecb85bf80a1eebf0bbc58aa8cee3883ea8c357c1cdf4c3eeea629ba",
       "alphaLevels": 255,
       "partialPixels": 4338,
@@ -303,25 +246,6 @@
         47,
         44,
         47,
-        44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-cobalt-dragoon-9-60f/main.webp",
-      "outputSha256": "1d50a3bce9fc15244c87cf587dfeef93e776f32cd81efd53354bc142b0fc0097",
-      "alphaLevels": 256,
-      "partialPixels": 6623,
-      "foregroundPixels": 90336,
-      "bbox": [
-        43,
-        44,
-        404,
-        404
-      ],
-      "margins": [
-        43,
-        44,
-        44,
         44
       ]
     },
@@ -383,7 +307,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-cobalt-drake-4-60f/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-cobalt-drake-4-60f/bey-x-bx-00-cobalt-drake-4-60f.webp",
       "outputSha256": "2611bcd45855be2014573c76b92771f93f29d91e01ffa5aed8064852dfc4e6b8",
       "alphaLevels": 253,
       "partialPixels": 4106,
@@ -399,25 +323,6 @@
         44,
         44,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-cobalt-drake-4-60f/main.webp",
-      "outputSha256": "c9a036eff3bcc2a0a2eb77489d609d5d86661683168a3508eaed904438383a73",
-      "alphaLevels": 256,
-      "partialPixels": 7038,
-      "foregroundPixels": 88976,
-      "bbox": [
-        45,
-        45,
-        403,
-        403
-      ],
-      "margins": [
-        45,
-        45,
-        45,
-        45
       ]
     },
     {
@@ -459,7 +364,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-croco-crunch-2-60q/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-croco-crunch-2-60q/bey-x-bx-00-croco-crunch-2-60q.webp",
       "outputSha256": "89ff64dea72378ca7a4f5aaa9c66a17b3469280e0a0fc3ea55e940793f317edd",
       "alphaLevels": 256,
       "partialPixels": 4863,
@@ -516,7 +421,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-darth-vader-4-60p/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-darth-vader-4-60p/bey-x-bx-00-darth-vader-4-60p.webp",
       "outputSha256": "cf3960f331c186fa13dc1daf1a9ee4c3b824c610439f4f52929a363c21e0a753",
       "alphaLevels": 251,
       "partialPixels": 2696,
@@ -532,25 +437,6 @@
         50,
         44,
         51
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-darth-vader-4-60p/main.webp",
-      "outputSha256": "598b315e4a33a3f4913a2b8ab2cc598d424031ff683c59ceb65ab9a095309a2b",
-      "alphaLevels": 256,
-      "partialPixels": 8779,
-      "foregroundPixels": 99490,
-      "bbox": [
-        44,
-        46,
-        404,
-        401
-      ],
-      "margins": [
-        44,
-        46,
-        44,
-        47
       ]
     },
     {
@@ -592,7 +478,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-draciel-shield-7-60d/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-draciel-shield-7-60d/bey-x-bx-00-draciel-shield-7-60d.webp",
       "outputSha256": "f3bff79c37966712bd3ff781325dce3f8eebb1a0ced2dcb87dc40de96955c10d",
       "alphaLevels": 253,
       "partialPixels": 3278,
@@ -649,7 +535,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-dragoon-storm-4-60ra/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-dragoon-storm-4-60ra/bey-x-bx-00-dragoon-storm-4-60ra.webp",
       "outputSha256": "064e9f142ed1c4ee6550e6caf6150b28a88b591574d8c0a0af87f429c1d59319",
       "alphaLevels": 250,
       "partialPixels": 4592,
@@ -665,25 +551,6 @@
         44,
         44,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-dragoon-storm-4-60ra/main.webp",
-      "outputSha256": "fc696462805f46205502c06490679cfd3b041e5deeb633197a01ea128bae8614",
-      "alphaLevels": 256,
-      "partialPixels": 6231,
-      "foregroundPixels": 70594,
-      "bbox": [
-        45,
-        77,
-        403,
-        370
-      ],
-      "margins": [
-        45,
-        77,
-        45,
-        78
       ]
     },
     {
@@ -744,7 +611,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-dran-dagger-2-80gp/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-dran-dagger-2-80gp/bey-x-bx-00-dran-dagger-2-80gp.webp",
       "outputSha256": "9fe33051f0904688270d2b8aca741df7692717aa8ca16476f5a422c307f99ff4",
       "alphaLevels": 255,
       "partialPixels": 5508,
@@ -763,7 +630,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-dran-dagger-2-80gp/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-dran-dagger-2-80gp/bey-x-bx-00-dran-dagger-2-80gp-blade-preview.webp",
       "outputSha256": "12007a6ac676436780e8dda76f24b090abe6a01f2e3f82767259b702c6db3424",
       "alphaLevels": 255,
       "partialPixels": 3714,
@@ -820,7 +687,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-dran-sword-1-60v/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-dran-sword-1-60v/bey-x-bx-00-dran-sword-1-60v.webp",
       "outputSha256": "9f96beccb32fc00787f25743ea59ac2f346f9cdcb3d524a9f90112c1c5efdc9e",
       "alphaLevels": 256,
       "partialPixels": 4626,
@@ -836,25 +703,6 @@
         44,
         49,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-dran-sword-1-60v/main.webp",
-      "outputSha256": "9bc5bd6d3372c026575df168aa258d8fae68dea7c6c72df92d0785b24772edd3",
-      "alphaLevels": 256,
-      "partialPixels": 5857,
-      "foregroundPixels": 96010,
-      "bbox": [
-        44,
-        41,
-        404,
-        407
-      ],
-      "margins": [
-        44,
-        41,
-        44,
-        41
       ]
     },
     {
@@ -915,7 +763,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-dran-sword-3-60f/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-dran-sword-3-60f/bey-x-bx-00-dran-sword-3-60f.webp",
       "outputSha256": "a45ed38ef51f768b7d5a3c9c3e5c29d736ce294bce72957013670ec33f25363e",
       "alphaLevels": 256,
       "partialPixels": 5097,
@@ -931,25 +779,6 @@
         44,
         50,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-dran-sword-3-60f/main.webp",
-      "outputSha256": "b079b4c9e89bf9608998965e411bc4c89754117a13e2b234ed68480398cfc241",
-      "alphaLevels": 256,
-      "partialPixels": 4668,
-      "foregroundPixels": 68047,
-      "bbox": [
-        44,
-        80,
-        403,
-        367
-      ],
-      "margins": [
-        44,
-        80,
-        45,
-        81
       ]
     },
     {
@@ -1010,7 +839,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-dranzer-spiral-3-80t/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-dranzer-spiral-3-80t/bey-x-bx-00-dranzer-spiral-3-80t.webp",
       "outputSha256": "92da28e8d99ed603b9b62106906b1defa0dd6eeb483ea7ea75b246fce5cf170a",
       "alphaLevels": 254,
       "partialPixels": 4098,
@@ -1067,7 +896,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-driger-slash-4-80p/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-driger-slash-4-80p/bey-x-bx-00-driger-slash-4-80p.webp",
       "outputSha256": "1eaf5a31a90f42990738e22b303b953f413a331c3b7840a1df89f194b946c77f",
       "alphaLevels": 256,
       "partialPixels": 2534,
@@ -1083,25 +912,6 @@
         44,
         49,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-driger-slash-4-80p/main.webp",
-      "outputSha256": "39510fb47eb8069b7dbe3dfb9668ebd6bfdf5c5c4863ee37f2f779f31d390f0b",
-      "alphaLevels": 256,
-      "partialPixels": 6506,
-      "foregroundPixels": 82485,
-      "bbox": [
-        39,
-        59,
-        409,
-        388
-      ],
-      "margins": [
-        39,
-        59,
-        39,
-        60
       ]
     },
     {
@@ -1143,7 +953,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-hells-chain-5-60ht/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-hells-chain-5-60ht/bey-x-bx-00-hells-chain-5-60ht.webp",
       "outputSha256": "b1b16d5f2861bf8c8a2d683237a412227e6c6cccf496e04deb74f8e90f4833b1",
       "alphaLevels": 248,
       "partialPixels": 3624,
@@ -1159,25 +969,6 @@
         44,
         44,
         45
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-hells-chain-5-60ht/main.webp",
-      "outputSha256": "b12c07e0f399b98d662eed8dd9d2c77177712e5d145df57fc2b4460752e15f82",
-      "alphaLevels": 17,
-      "partialPixels": 2177,
-      "foregroundPixels": 96009,
-      "bbox": [
-        47,
-        48,
-        400,
-        400
-      ],
-      "margins": [
-        47,
-        48,
-        48,
-        48
       ]
     },
     {
@@ -1200,7 +991,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-hells-scythe-3-80f/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-hells-scythe-3-80f/bey-x-bx-00-hells-scythe-3-80f.webp",
       "outputSha256": "17664785f39f474bee2b4e5df3c65d481293ac1f2dbf32c4176447534848b32f",
       "alphaLevels": 255,
       "partialPixels": 4737,
@@ -1276,7 +1067,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-hells-scythe-4-60t/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-hells-scythe-4-60t/bey-x-bx-00-hells-scythe-4-60t.webp",
       "outputSha256": "dcdab6cec5bb8e9df2c3b28fab8b363785206e8ed7835506536b50a4647458af",
       "alphaLevels": 249,
       "partialPixels": 5353,
@@ -1292,25 +1083,6 @@
         44,
         45,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-hells-scythe-4-60t/main.webp",
-      "outputSha256": "a54720c678a10d014bace0f22d2e7f2bff71525add56ec44f3af945ada861947",
-      "alphaLevels": 254,
-      "partialPixels": 6756,
-      "foregroundPixels": 95323,
-      "bbox": [
-        46,
-        47,
-        401,
-        401
-      ],
-      "margins": [
-        46,
-        47,
-        47,
-        47
       ]
     },
     {
@@ -1371,7 +1143,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-iron-man-4-80b/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-iron-man-4-80b/bey-x-bx-00-iron-man-4-80b.webp",
       "outputSha256": "4579c64cb5c2b07fdfdc1848a9e2ebec874078ddfeaf32b84fc1fa87e0865da2",
       "alphaLevels": 256,
       "partialPixels": 5294,
@@ -1387,25 +1159,6 @@
         44,
         44,
         45
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-iron-man-4-80b/main.webp",
-      "outputSha256": "3733a507daee56c8bc6021e43854410e463c901af168113cce421682148b7975",
-      "alphaLevels": 256,
-      "partialPixels": 9499,
-      "foregroundPixels": 95681,
-      "bbox": [
-        44,
-        51,
-        404,
-        396
-      ],
-      "margins": [
-        44,
-        51,
-        44,
-        52
       ]
     },
     {
@@ -1447,7 +1200,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-leon-claw-5-60p/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-leon-claw-5-60p/bey-x-bx-00-leon-claw-5-60p.webp",
       "outputSha256": "b4bdae8d2997b97fdcb3ae5451e9e5f95f41e030014fe161d5285b5fc9e6e583",
       "alphaLevels": 232,
       "partialPixels": 3548,
@@ -1463,25 +1216,6 @@
         44,
         44,
         45
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-leon-claw-5-60p/main.webp",
-      "outputSha256": "59cb33d4e58f4234cf3031e6c8b7d2356f012534deada2f5803c1502528672de",
-      "alphaLevels": 30,
-      "partialPixels": 2257,
-      "foregroundPixels": 97410,
-      "bbox": [
-        45,
-        46,
-        402,
-        402
-      ],
-      "margins": [
-        45,
-        46,
-        46,
-        46
       ]
     },
     {
@@ -1542,7 +1276,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-luke-skywalker-4-80b/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-luke-skywalker-4-80b/bey-x-bx-00-luke-skywalker-4-80b.webp",
       "outputSha256": "d144a3a79359e66b79ee7f5c72f2deabfd106729543542631a1b5fa9a4ed7caf",
       "alphaLevels": 230,
       "partialPixels": 3097,
@@ -1558,25 +1292,6 @@
         44,
         52,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-luke-skywalker-4-80b/main.webp",
-      "outputSha256": "5fe22fcf62dbe66f16a6bcffb0a044fa569a9cb3f01f56029c82f830551be4fb",
-      "alphaLevels": 256,
-      "partialPixels": 7735,
-      "foregroundPixels": 99159,
-      "bbox": [
-        43,
-        46,
-        404,
-        401
-      ],
-      "margins": [
-        43,
-        46,
-        44,
-        47
       ]
     },
     {
@@ -1618,7 +1333,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-mammoth-tusk-2-80e/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-mammoth-tusk-2-80e/bey-x-bx-00-mammoth-tusk-2-80e.webp",
       "outputSha256": "6979dd8307f6953c6f776f8c3eb9dbe2450403cdfab95ef8593601a36e833a51",
       "alphaLevels": 229,
       "partialPixels": 3593,
@@ -1637,26 +1352,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-mammoth-tusk-2-80e/main.webp",
-      "outputSha256": "582cc15949b96377b41bd956853ecba38d520726133c20b49e0116464df078bd",
-      "alphaLevels": 253,
-      "partialPixels": 7061,
-      "foregroundPixels": 98345,
-      "bbox": [
-        45,
-        45,
-        402,
-        402
-      ],
-      "margins": [
-        45,
-        45,
-        46,
-        46
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-megatron-4-80b/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-megatron-4-80b/bey-x-bx-00-megatron-4-80b.webp",
       "outputSha256": "3e86ecfc47f23bfdd88651a4abaf85396ea58725d4be48f5c92478fe948b4616",
       "alphaLevels": 253,
       "partialPixels": 4073,
@@ -1672,25 +1368,6 @@
         46,
         44,
         46
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-megatron-4-80b/main.webp",
-      "outputSha256": "a0a107233f2f34d43e2a23a95dc9ebf0999ec807c124f15bb9d0b4bb0dc0d718",
-      "alphaLevels": 256,
-      "partialPixels": 7250,
-      "foregroundPixels": 83415,
-      "bbox": [
-        53,
-        64,
-        394,
-        384
-      ],
-      "margins": [
-        53,
-        64,
-        54,
-        64
       ]
     },
     {
@@ -1732,7 +1409,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-moff-gideon-3-80n/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-moff-gideon-3-80n/bey-x-bx-00-moff-gideon-3-80n.webp",
       "outputSha256": "b2f8cd069592a14b667f581b02f04e23877e2a7dae8f081551a3de554a5a1c0d",
       "alphaLevels": 252,
       "partialPixels": 2442,
@@ -1748,25 +1425,6 @@
         44,
         44,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-moff-gideon-3-80n/main.webp",
-      "outputSha256": "3d6df15a9c2ab4870d68050c248e8e662fcca316a6716bd38bbb0b2107d2199d",
-      "alphaLevels": 256,
-      "partialPixels": 8141,
-      "foregroundPixels": 91996,
-      "bbox": [
-        44,
-        58,
-        404,
-        390
-      ],
-      "margins": [
-        44,
-        58,
-        44,
-        58
       ]
     },
     {
@@ -1808,7 +1466,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-mosasaurus-9-60u/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-mosasaurus-9-60u/bey-x-bx-00-mosasaurus-9-60u.webp",
       "outputSha256": "83ea201590bfa07578c8e782fea6b761a0b231210cbb2ac1b5cfb375d3e5972e",
       "alphaLevels": 255,
       "partialPixels": 4104,
@@ -1824,25 +1482,6 @@
         44,
         51,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-mosasaurus-9-60u/main.webp",
-      "outputSha256": "adda178c62e0d3006dfe504254f2b1d4db779ab846d68a02be313fd06d247229",
-      "alphaLevels": 256,
-      "partialPixels": 9413,
-      "foregroundPixels": 96875,
-      "bbox": [
-        43,
-        52,
-        405,
-        396
-      ],
-      "margins": [
-        43,
-        52,
-        43,
-        52
       ]
     },
     {
@@ -1884,7 +1523,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-ninja-knife-4-60lf/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-ninja-knife-4-60lf/bey-x-bx-00-ninja-knife-4-60lf.webp",
       "outputSha256": "20391b40544ceb0480dd8fa42fc0cdc9618d3a49ce08a70c36cfb959f9d5a483",
       "alphaLevels": 253,
       "partialPixels": 3262,
@@ -1903,7 +1542,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-optimus-primal-3-60f/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-optimus-primal-3-60f/bey-x-bx-00-optimus-primal-3-60f.webp",
       "outputSha256": "4333c25d1a13507957912c49b9808f2a322e885dbc035010bb41c64b7c86023b",
       "alphaLevels": 256,
       "partialPixels": 79139,
@@ -1919,25 +1558,6 @@
         44,
         51,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-optimus-primal-3-60f/main.webp",
-      "outputSha256": "6f9fffa4c29af84dfa793b50db80df246c3aa527e27e7072ac151d8261313207",
-      "alphaLevels": 256,
-      "partialPixels": 9448,
-      "foregroundPixels": 82371,
-      "bbox": [
-        53,
-        58,
-        394,
-        390
-      ],
-      "margins": [
-        53,
-        58,
-        54,
-        58
       ]
     },
     {
@@ -1979,7 +1599,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-optimus-prime-4-60p/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-optimus-prime-4-60p/bey-x-bx-00-optimus-prime-4-60p.webp",
       "outputSha256": "9fa5a7ab2cb4db2cdc941dee85134690cd51e3b18709bd8a33239e6574199ec9",
       "alphaLevels": 253,
       "partialPixels": 10039,
@@ -1995,25 +1615,6 @@
         44,
         44,
         45
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-optimus-prime-4-60p/main.webp",
-      "outputSha256": "d40f6453a2e7dbb97d4c8ef057696551569302899adf905f12324f4fa0ff9c7d",
-      "alphaLevels": 256,
-      "partialPixels": 7937,
-      "foregroundPixels": 97615,
-      "bbox": [
-        41,
-        50,
-        406,
-        398
-      ],
-      "margins": [
-        41,
-        50,
-        42,
-        50
       ]
     },
     {
@@ -2055,7 +1656,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-phoenix-soar-9-60gf/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-phoenix-soar-9-60gf/bey-x-bx-00-phoenix-soar-9-60gf.webp",
       "outputSha256": "d4bcba507d9a8a24ce2eccc11bf894343c19b62c8c893ea621ace811ea0944c1",
       "alphaLevels": 205,
       "partialPixels": 3531,
@@ -2071,25 +1672,6 @@
         44,
         46,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-phoenix-soar-9-60gf/main.webp",
-      "outputSha256": "3ce6008773fc368375ffef985e67e74ebc37214da9bb4e57254a3d7351768bf8",
-      "alphaLevels": 256,
-      "partialPixels": 7219,
-      "foregroundPixels": 93697,
-      "bbox": [
-        44,
-        42,
-        404,
-        405
-      ],
-      "margins": [
-        44,
-        42,
-        44,
-        43
       ]
     },
     {
@@ -2150,7 +1732,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-phoenix-soar-9-80db/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-phoenix-soar-9-80db/bey-x-bx-00-phoenix-soar-9-80db.webp",
       "outputSha256": "8921c200df26d3068603f0f8aea452711f0d09f37b2ed3a792d660436f6b5489",
       "alphaLevels": 253,
       "partialPixels": 4001,
@@ -2226,7 +1808,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-quetzalcoatlus-4-55d/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-quetzalcoatlus-4-55d/bey-x-bx-00-quetzalcoatlus-4-55d.webp",
       "outputSha256": "7ba932bf0d46d5a2bd9a38c52c2e4df21256381cdf501e98a75bc3f40ff9103d",
       "alphaLevels": 256,
       "partialPixels": 96023,
@@ -2242,25 +1824,6 @@
         44,
         44,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-quetzalcoatlus-4-55d/main.webp",
-      "outputSha256": "9f532c2acf34b439e06db614685ea10af74db67235bf4586aa4b47b99c80e1d1",
-      "alphaLevels": 256,
-      "partialPixels": 7968,
-      "foregroundPixels": 99949,
-      "bbox": [
-        44,
-        42,
-        404,
-        405
-      ],
-      "margins": [
-        44,
-        42,
-        44,
-        43
       ]
     },
     {
@@ -2302,7 +1865,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-rock-leone-6-80gn/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-rock-leone-6-80gn/bey-x-bx-00-rock-leone-6-80gn.webp",
       "outputSha256": "b448e96c7c4ef2924e5b088976229401f2aec58eda14fa82c46283c2f10c4a46",
       "alphaLevels": 183,
       "partialPixels": 3911,
@@ -2318,25 +1881,6 @@
         44,
         47,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-rock-leone-6-80gn/main.webp",
-      "outputSha256": "a78ceb5862368191857b352a19f804b7b9d75f1a49729f5790c800002d8bd2fd",
-      "alphaLevels": 256,
-      "partialPixels": 6317,
-      "foregroundPixels": 101414,
-      "bbox": [
-        43,
-        41,
-        404,
-        406
-      ],
-      "margins": [
-        43,
-        41,
-        44,
-        42
       ]
     },
     {
@@ -2378,7 +1922,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-shark-edge-5-60gf/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-shark-edge-5-60gf/bey-x-bx-00-shark-edge-5-60gf.webp",
       "outputSha256": "63d1b3f2065ba02c7d618ac9a8cbe0f06c66668acadd464248268949d5ecefa1",
       "alphaLevels": 249,
       "partialPixels": 4395,
@@ -2394,25 +1938,6 @@
         44,
         51,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-shark-edge-5-60gf/main.webp",
-      "outputSha256": "0b1351cebca53565584f353ca6016535eb8fdeb6f413539afa561bb0c669adaa",
-      "alphaLevels": 22,
-      "partialPixels": 2257,
-      "foregroundPixels": 91619,
-      "bbox": [
-        48,
-        41,
-        400,
-        406
-      ],
-      "margins": [
-        48,
-        41,
-        48,
-        42
       ]
     },
     {
@@ -2454,7 +1979,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-spider-man-3-60f/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-spider-man-3-60f/bey-x-bx-00-spider-man-3-60f.webp",
       "outputSha256": "b299fd8bc92ec5bdb807d141e2337220eb64fcd8960e3aeb384551c2d3f59ed1",
       "alphaLevels": 256,
       "partialPixels": 86564,
@@ -2470,25 +1995,6 @@
         44,
         45,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-spider-man-3-60f/main.webp",
-      "outputSha256": "8210e6f9a266967d5859faebfe9af721b19ac80d6663e4da113cd3aafee74e90",
-      "alphaLevels": 256,
-      "partialPixels": 7924,
-      "foregroundPixels": 92788,
-      "bbox": [
-        44,
-        54,
-        404,
-        393
-      ],
-      "margins": [
-        44,
-        54,
-        44,
-        55
       ]
     },
     {
@@ -2530,7 +2036,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-spinosaurus-3-85a/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-spinosaurus-3-85a/bey-x-bx-00-spinosaurus-3-85a.webp",
       "outputSha256": "afc634f35c4d9102e9cae378d8fe749189a251c7c2eca54c67b3da36d7fed49e",
       "alphaLevels": 242,
       "partialPixels": 2533,
@@ -2546,25 +2052,6 @@
         44,
         47,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-spinosaurus-3-85a/main.webp",
-      "outputSha256": "492980f3daeeedae2e6e1438eea902d2631cff9ca270710432bfb91beaec2ed1",
-      "alphaLevels": 256,
-      "partialPixels": 8249,
-      "foregroundPixels": 93436,
-      "bbox": [
-        43,
-        51,
-        405,
-        396
-      ],
-      "margins": [
-        43,
-        51,
-        43,
-        52
       ]
     },
     {
@@ -2606,7 +2093,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-starscream-3-80n/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-starscream-3-80n/bey-x-bx-00-starscream-3-80n.webp",
       "outputSha256": "692efe57456d49f5490a5edbdf8963370abcd64ae72f8e9677ebbf20e43bb2db",
       "alphaLevels": 253,
       "partialPixels": 8320,
@@ -2622,25 +2109,6 @@
         48,
         44,
         49
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-starscream-3-80n/main.webp",
-      "outputSha256": "f6eaf374d627ec3b01d96fb62ac4f1d1661d230bab0c761dd658a6101133b45a",
-      "alphaLevels": 256,
-      "partialPixels": 6884,
-      "foregroundPixels": 79382,
-      "bbox": [
-        56,
-        70,
-        392,
-        378
-      ],
-      "margins": [
-        56,
-        70,
-        56,
-        70
       ]
     },
     {
@@ -2682,7 +2150,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-storm-pegasis-3-70ra/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-storm-pegasis-3-70ra/bey-x-bx-00-storm-pegasis-3-70ra.webp",
       "outputSha256": "b1cde85ed29b412632159f5205e7cfc459fa5f8b8fbc925c1a3e6a673bc22f65",
       "alphaLevels": 231,
       "partialPixels": 4170,
@@ -2698,25 +2166,6 @@
         47,
         44,
         47
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-storm-pegasis-3-70ra/main.webp",
-      "outputSha256": "d80ad6e127a4ca3e5e3b8617c6da21169ee316eb161b40f7740c8b9047a44210",
-      "alphaLevels": 253,
-      "partialPixels": 4412,
-      "foregroundPixels": 74316,
-      "bbox": [
-        46,
-        72,
-        401,
-        376
-      ],
-      "margins": [
-        46,
-        72,
-        47,
-        72
       ]
     },
     {
@@ -2777,7 +2226,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-storm-spriggan-2-70m/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-storm-spriggan-2-70m/bey-x-bx-00-storm-spriggan-2-70m.webp",
       "outputSha256": "aa51c4f08d731c9b87c109257b4a52eeb051b0439f97763ef79485772776b611",
       "alphaLevels": 255,
       "partialPixels": 3441,
@@ -2793,25 +2242,6 @@
         44,
         54,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-storm-spriggan-2-70m/main.webp",
-      "outputSha256": "e742920505b3df100420796cc6447d666b3052688f19bd62e59c758859ddb063",
-      "alphaLevels": 256,
-      "partialPixels": 7115,
-      "foregroundPixels": 103878,
-      "bbox": [
-        42,
-        42,
-        405,
-        405
-      ],
-      "margins": [
-        42,
-        42,
-        43,
-        43
       ]
     },
     {
@@ -2872,7 +2302,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-t-rex-1-80gb/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-t-rex-1-80gb/bey-x-bx-00-t-rex-1-80gb.webp",
       "outputSha256": "3c57b4b15f141c132a42a3b04beee19dd5f319e199415bb154c6608b7d82af28",
       "alphaLevels": 255,
       "partialPixels": 4349,
@@ -2888,25 +2318,6 @@
         44,
         47,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-t-rex-1-80gb/main.webp",
-      "outputSha256": "61d73beb9eb16628b3ab6a6d1282273a2b9e77ea60dfab78221158ea1f7f2af7",
-      "alphaLevels": 256,
-      "partialPixels": 8197,
-      "foregroundPixels": 92563,
-      "bbox": [
-        42,
-        54,
-        406,
-        393
-      ],
-      "margins": [
-        42,
-        54,
-        42,
-        55
       ]
     },
     {
@@ -2948,7 +2359,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-thanos-4-60p/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-thanos-4-60p/bey-x-bx-00-thanos-4-60p.webp",
       "outputSha256": "734f1070dec41e4589b9a251dea49e4bd25309e5702b93996c720d0d8fcb91f1",
       "alphaLevels": 235,
       "partialPixels": 3221,
@@ -2964,25 +2375,6 @@
         48,
         44,
         49
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-thanos-4-60p/main.webp",
-      "outputSha256": "c9518a0a3cc9be88c72a6d2d09fe3af3739b2c0c03e660031b52fa1c1a1c650f",
-      "alphaLevels": 256,
-      "partialPixels": 7837,
-      "foregroundPixels": 92970,
-      "bbox": [
-        44,
-        58,
-        404,
-        389
-      ],
-      "margins": [
-        44,
-        58,
-        44,
-        59
       ]
     },
     {
@@ -3024,7 +2416,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-the-mandalorian-3-60f/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-the-mandalorian-3-60f/bey-x-bx-00-the-mandalorian-3-60f.webp",
       "outputSha256": "4d1ee271637272b6d143c1ed6af308c8e0522d19942e5ad481aaa1d2640ee234",
       "alphaLevels": 251,
       "partialPixels": 2561,
@@ -3040,25 +2432,6 @@
         44,
         44,
         45
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-the-mandalorian-3-60f/main.webp",
-      "outputSha256": "58d9acb62ccb52b819bc74f5c2193e89fdadb6b8f4f0155c6ef419d33e27e4fe",
-      "alphaLevels": 256,
-      "partialPixels": 7999,
-      "foregroundPixels": 93426,
-      "bbox": [
-        44,
-        58,
-        404,
-        389
-      ],
-      "margins": [
-        44,
-        58,
-        44,
-        59
       ]
     },
     {
@@ -3100,7 +2473,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-venom-3-80n/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-venom-3-80n/bey-x-bx-00-venom-3-80n.webp",
       "outputSha256": "ffd8f9fa11e072b93e5b74062b40eee75fd56b7f28aeaffded8a7d37c6c36b11",
       "alphaLevels": 241,
       "partialPixels": 2604,
@@ -3116,25 +2489,6 @@
         44,
         49,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-venom-3-80n/main.webp",
-      "outputSha256": "69e8d64a8cc6335262af96bda221e1b27aa0b0b9c1727a3eccb5ff28f6d7fc53",
-      "alphaLevels": 256,
-      "partialPixels": 7454,
-      "foregroundPixels": 91664,
-      "bbox": [
-        44,
-        49,
-        403,
-        398
-      ],
-      "margins": [
-        44,
-        49,
-        45,
-        50
       ]
     },
     {
@@ -3176,7 +2530,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-victory-valkyrie-2-60ra/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-victory-valkyrie-2-60ra/bey-x-bx-00-victory-valkyrie-2-60ra.webp",
       "outputSha256": "f8efd069fa8b593192bfb6031bdf22835f186167821aa7e5c3fe7aada532df6f",
       "alphaLevels": 254,
       "partialPixels": 4486,
@@ -3192,25 +2546,6 @@
         48,
         44,
         49
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-victory-valkyrie-2-60ra/main.webp",
-      "outputSha256": "b81c14f4b17332cfd980f4b5abb362485b5891999a5525de66385047d783e43e",
-      "alphaLevels": 256,
-      "partialPixels": 5197,
-      "foregroundPixels": 77840,
-      "bbox": [
-        46,
-        64,
-        401,
-        384
-      ],
-      "margins": [
-        46,
-        64,
-        47,
-        64
       ]
     },
     {
@@ -3252,7 +2587,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-00-xeno-xcalibur-3-60gf/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-00-xeno-xcalibur-3-60gf/bey-x-bx-00-xeno-xcalibur-3-60gf.webp",
       "outputSha256": "98a5f9909946d71f6c7d3267715be771eed23d8e0e37c0e9504eaac8d52085c5",
       "alphaLevels": 244,
       "partialPixels": 3185,
@@ -3268,25 +2603,6 @@
         44,
         57,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-00-xeno-xcalibur-3-60gf/main.webp",
-      "outputSha256": "6876fa0e69f2b5f61179e1e2e491a93771da20dbb9b3078482abbeaf9bc1b1cf",
-      "alphaLevels": 256,
-      "partialPixels": 6509,
-      "foregroundPixels": 103451,
-      "bbox": [
-        42,
-        31,
-        405,
-        416
-      ],
-      "margins": [
-        42,
-        31,
-        43,
-        32
       ]
     },
     {
@@ -3328,7 +2644,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-01-dran-sword-3-60f/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-01-dran-sword-3-60f/bey-x-bx-01-dran-sword-3-60f.webp",
       "outputSha256": "21a1f3ec92cc0ccca2c3767324199c22862aff7501c9d5ee23638836f393fcba",
       "alphaLevels": 202,
       "partialPixels": 3796,
@@ -3347,26 +2663,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-01-dran-sword-3-60f/main.webp",
-      "outputSha256": "867f31b885524248908b010bcd834cd42253f627c2f323450f4480510e62ffc9",
-      "alphaLevels": 252,
-      "partialPixels": 5356,
-      "foregroundPixels": 91548,
-      "bbox": [
-        49,
-        44,
-        398,
-        404
-      ],
-      "margins": [
-        49,
-        44,
-        50,
-        44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-02-hells-scythe-4-60t/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-02-hells-scythe-4-60t/bey-x-bx-02-hells-scythe-4-60t.webp",
       "outputSha256": "de3bdb2b1396ab3ab9d1e52788335aa6738ce0515eee4b3072651f2eaf7803ec",
       "alphaLevels": 255,
       "partialPixels": 4737,
@@ -3385,26 +2682,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-02-hells-scythe-4-60t/main.webp",
-      "outputSha256": "6d3f1d8f7293c23cae74031c8749cfa805571421dff341e6a8644e8e80d43dbd",
-      "alphaLevels": 256,
-      "partialPixels": 8037,
-      "foregroundPixels": 95510,
-      "bbox": [
-        48,
-        47,
-        400,
-        400
-      ],
-      "margins": [
-        48,
-        47,
-        48,
-        48
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-03-wizard-arrow-4-80b/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-03-wizard-arrow-4-80b/bey-x-bx-03-wizard-arrow-4-80b.webp",
       "outputSha256": "b4c057c29f750689d6f856c578c88a59442337c7abca0251ef58bff6d788d087",
       "alphaLevels": 255,
       "partialPixels": 4379,
@@ -3423,26 +2701,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-03-wizard-arrow-4-80b/main.webp",
-      "outputSha256": "4d5e0925e703606936a3074a7f0d72e94573ce42a6305d025feea941cfc6dfc4",
-      "alphaLevels": 256,
-      "partialPixels": 6982,
-      "foregroundPixels": 91828,
-      "bbox": [
-        50,
-        55,
-        398,
-        392
-      ],
-      "margins": [
-        50,
-        55,
-        50,
-        56
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-04-knight-shield-3-80n/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-04-knight-shield-3-80n/bey-x-bx-04-knight-shield-3-80n.webp",
       "outputSha256": "0f8222b43ec4e280d261a8cf0a0ac334fad46a5efdea869a4c4ff0a9d05c8c2c",
       "alphaLevels": 256,
       "partialPixels": 5223,
@@ -3461,26 +2720,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-04-knight-shield-3-80n/main.webp",
-      "outputSha256": "020be4d38803b74dd5894e0181b54650b3d69902ddba7b860a0c197fff963e19",
-      "alphaLevels": 256,
-      "partialPixels": 9104,
-      "foregroundPixels": 95265,
-      "bbox": [
-        49,
-        49,
-        398,
-        398
-      ],
-      "margins": [
-        49,
-        49,
-        50,
-        50
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-05-wizard-arrow-4-80b/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-05-wizard-arrow-4-80b/bey-x-bx-05-wizard-arrow-4-80b.webp",
       "outputSha256": "f32a782ba354c7e38ba88f2801b68f59d9e875d06640e65d81eff78750310c92",
       "alphaLevels": 254,
       "partialPixels": 4280,
@@ -3496,25 +2736,6 @@
         49,
         44,
         50
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-05-wizard-arrow-4-80b/main.webp",
-      "outputSha256": "b42515da19e6b014751dfe525d3232e5768fc66f03f9683295346a249d7e205d",
-      "alphaLevels": 256,
-      "partialPixels": 6804,
-      "foregroundPixels": 91432,
-      "bbox": [
-        50,
-        55,
-        398,
-        392
-      ],
-      "margins": [
-        50,
-        55,
-        50,
-        56
       ]
     },
     {
@@ -3575,7 +2796,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-06-knight-shield-3-80n/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-06-knight-shield-3-80n/bey-x-bx-06-knight-shield-3-80n.webp",
       "outputSha256": "a3dd9e4fe6e820481a56c5814475c833880dafce41c3149b158ea7c8c085e0f1",
       "alphaLevels": 256,
       "partialPixels": 4724,
@@ -3591,25 +2812,6 @@
         44,
         45,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-06-knight-shield-3-80n/main.webp",
-      "outputSha256": "7406cd63c6f776a91f67da1c33860c6d88396d4cd46292de1a976e518ead7e4b",
-      "alphaLevels": 256,
-      "partialPixels": 8772,
-      "foregroundPixels": 94922,
-      "bbox": [
-        50,
-        49,
-        398,
-        398
-      ],
-      "margins": [
-        50,
-        49,
-        50,
-        50
       ]
     },
     {
@@ -3670,7 +2872,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-07-dran-sword-3-60f/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-07-dran-sword-3-60f/bey-x-bx-07-dran-sword-3-60f.webp",
       "outputSha256": "3b6e5519f57981f0df60f2445c1ad3ba263afd9a8280eb2a3d2d41cd47a2b863",
       "alphaLevels": 232,
       "partialPixels": 4302,
@@ -3686,25 +2888,6 @@
         44,
         49,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-07-dran-sword-3-60f/main.webp",
-      "outputSha256": "48ad9c9dbfa30c4e4d1aef06f22b244b3a7cbac0ca4490033676a5039505aae5",
-      "alphaLevels": 252,
-      "partialPixels": 4576,
-      "foregroundPixels": 80117,
-      "bbox": [
-        30,
-        67,
-        418,
-        380
-      ],
-      "margins": [
-        30,
-        67,
-        30,
-        68
       ]
     },
     {
@@ -3765,7 +2948,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-08-hells-scythe-3-80b/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-08-hells-scythe-3-80b/bey-x-bx-08-hells-scythe-3-80b.webp",
       "outputSha256": "8ac8b733dbac747f577891cbaf17249a8578e8255ef711f475343991367b1c24",
       "alphaLevels": 252,
       "partialPixels": 4328,
@@ -3781,25 +2964,6 @@
         44,
         45,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-08-hells-scythe-3-80b/main.webp",
-      "outputSha256": "c4127ae623816f5cf349bc65466eb193c9e2308cf743c81a72b00d7d458a5e74",
-      "alphaLevels": 252,
-      "partialPixels": 4843,
-      "foregroundPixels": 78844,
-      "bbox": [
-        39,
-        68,
-        408,
-        379
-      ],
-      "margins": [
-        39,
-        68,
-        40,
-        69
       ]
     },
     {
@@ -3860,7 +3024,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-08-knight-shield-4-80t/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-08-knight-shield-4-80t/bey-x-bx-08-knight-shield-4-80t.webp",
       "outputSha256": "3fc2a85a965de818dfca5e8d20e867c5cadce2735b85909843e36d551b803ad0",
       "alphaLevels": 253,
       "partialPixels": 4671,
@@ -3876,25 +3040,6 @@
         44,
         44,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-08-knight-shield-4-80t/main.webp",
-      "outputSha256": "9520e156f7bbe561408cbe94655aa91f52fbe1c8bf4f3fe3a410d6012c2df4a3",
-      "alphaLevels": 248,
-      "partialPixels": 4266,
-      "foregroundPixels": 77233,
-      "bbox": [
-        37,
-        74,
-        410,
-        374
-      ],
-      "margins": [
-        37,
-        74,
-        38,
-        74
       ]
     },
     {
@@ -3955,7 +3100,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-08-wizard-arrow-4-60n/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-08-wizard-arrow-4-60n/bey-x-bx-08-wizard-arrow-4-60n.webp",
       "outputSha256": "0156346797e2d467e36324869c3ff9d2ab728c4d94f7a599b81781944b569322",
       "alphaLevels": 255,
       "partialPixels": 4171,
@@ -3971,25 +3116,6 @@
         49,
         44,
         50
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-08-wizard-arrow-4-60n/main.webp",
-      "outputSha256": "89c9b69802367e0b9a399821ea152472badfa4155e0a6ad8cfd3272135d4c705",
-      "alphaLevels": 247,
-      "partialPixels": 4544,
-      "foregroundPixels": 75627,
-      "bbox": [
-        39,
-        81,
-        408,
-        366
-      ],
-      "margins": [
-        39,
-        81,
-        40,
-        82
       ]
     },
     {
@@ -4050,7 +3176,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-13-knight-lance-4-80hn/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-13-knight-lance-4-80hn/bey-x-bx-13-knight-lance-4-80hn.webp",
       "outputSha256": "19eb4313c8dd2e06f59b78d55e3bdda75c0aa11d6059cbff2c3fae7d1bdd8f40",
       "alphaLevels": 239,
       "partialPixels": 3732,
@@ -4066,25 +3192,6 @@
         48,
         44,
         49
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-13-knight-lance-4-80hn/main.webp",
-      "outputSha256": "837c2e4f89768ac6c60fbadb2e1af30d1f9f96e6871cf20dda7d2c4d6948bcba",
-      "alphaLevels": 256,
-      "partialPixels": 7845,
-      "foregroundPixels": 98929,
-      "bbox": [
-        43,
-        47,
-        404,
-        400
-      ],
-      "margins": [
-        43,
-        47,
-        44,
-        48
       ]
     },
     {
@@ -4107,7 +3214,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-14-01-shark-edge-3-60lf/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-14-01-shark-edge-3-60lf/bey-x-bx-14-01-shark-edge-3-60lf.webp",
       "outputSha256": "a04b16a82bf9320fdbe49ba9fd2a50caf56bf8ec99c54ba31c681200355dc06a",
       "alphaLevels": 254,
       "partialPixels": 4354,
@@ -4123,25 +3230,6 @@
         44,
         51,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-14-01-shark-edge-3-60lf/main.webp",
-      "outputSha256": "da98ac0357dad0e84e5e8f7665882c6dd23316ff225ab76aba91ab1ae4e7de3e",
-      "alphaLevels": 256,
-      "partialPixels": 7543,
-      "foregroundPixels": 95014,
-      "bbox": [
-        44,
-        39,
-        403,
-        408
-      ],
-      "margins": [
-        44,
-        39,
-        45,
-        40
       ]
     },
     {
@@ -4202,7 +3290,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-14-02-shark-edge-4-80n/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-14-02-shark-edge-4-80n/bey-x-bx-14-02-shark-edge-4-80n.webp",
       "outputSha256": "2a8c46c445a578cb673fd51d406e7ff9e0225bda081022244e8452e33a331984",
       "alphaLevels": 256,
       "partialPixels": 9233,
@@ -4259,7 +3347,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-14-03-dran-sword-3-80b/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-14-03-dran-sword-3-80b/bey-x-bx-14-03-dran-sword-3-80b.webp",
       "outputSha256": "c5922a1f138ba0a1c3802dfec0e262fa878e37f655d1e8c19d0354bac8128b23",
       "alphaLevels": 256,
       "partialPixels": 9613,
@@ -4316,7 +3404,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-14-04-hells-scythe-4-80lf/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-14-04-hells-scythe-4-80lf/bey-x-bx-14-04-hells-scythe-4-80lf.webp",
       "outputSha256": "cf8d1f8aa1a6f7f818320b1d2d9955a7dd3d383b881e6971e7818931ed4e4d31",
       "alphaLevels": 256,
       "partialPixels": 9247,
@@ -4373,7 +3461,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-14-05-knight-shield-4-60lf/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-14-05-knight-shield-4-60lf/bey-x-bx-14-05-knight-shield-4-60lf.webp",
       "outputSha256": "524b6275d89de95c472a95498277b51985094894364dfd2800af1c441175b555",
       "alphaLevels": 256,
       "partialPixels": 12553,
@@ -4430,7 +3518,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-14-06-wizard-arrow-3-60t/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-14-06-wizard-arrow-3-60t/bey-x-bx-14-06-wizard-arrow-3-60t.webp",
       "outputSha256": "eea2ed4b53f5e2a5f72ba993510fd91ae5ff91b95acdb7092c7d8873ce1da753",
       "alphaLevels": 256,
       "partialPixels": 9326,
@@ -4487,7 +3575,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-15-leon-claw-5-60p/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-15-leon-claw-5-60p/bey-x-bx-15-leon-claw-5-60p.webp",
       "outputSha256": "ed12cac78fd25c29fcad1e4c653c7bcca0b7456ba80d1d3c135cbe49d06fb4b1",
       "alphaLevels": 20,
       "partialPixels": 2308,
@@ -4506,26 +3594,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-15-leon-claw-5-60p/main.webp",
-      "outputSha256": "b23896c89b6a5bc57511618ee0dfa60c25aec215c46aa7e4b10ff2db43ab7bae",
-      "alphaLevels": 256,
-      "partialPixels": 8296,
-      "foregroundPixels": 103756,
-      "bbox": [
-        40,
-        41,
-        407,
-        407
-      ],
-      "margins": [
-        40,
-        41,
-        41,
-        41
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-16-01-viper-tail-5-80o/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-16-01-viper-tail-5-80o/bey-x-bx-16-01-viper-tail-5-80o.webp",
       "outputSha256": "da067758ef8958b73029c67f2a761b3f522f396885c4a7378edce6d3e2351fc9",
       "alphaLevels": 161,
       "partialPixels": 3525,
@@ -4544,26 +3613,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-16-01-viper-tail-5-80o/main.webp",
-      "outputSha256": "da85fda2c73726045f885f4f0c10983888d623cdb1fe6083023d2eeb4268bc45",
-      "alphaLevels": 250,
-      "partialPixels": 3732,
-      "foregroundPixels": 78779,
-      "bbox": [
-        38,
-        72,
-        409,
-        376
-      ],
-      "margins": [
-        38,
-        72,
-        39,
-        72
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-16-02-viper-tail-4-60f/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-16-02-viper-tail-4-60f/bey-x-bx-16-02-viper-tail-4-60f.webp",
       "outputSha256": "4a74ead67827240693ce1ba11a1f665246ae7fcb7cbb594827181b47cae3c761",
       "alphaLevels": 163,
       "partialPixels": 3189,
@@ -4582,7 +3632,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-16-02-viper-tail-4-60f/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-16-02-viper-tail-4-60f/bey-x-bx-16-02-viper-tail-4-60f-blade-preview.webp",
       "outputSha256": "ce63fd8ad231274acef6a5ca723b5d3b91fa979a0f71835b1162b7a3a1bf698a",
       "alphaLevels": 255,
       "partialPixels": 8474,
@@ -4639,7 +3689,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-16-03-viper-tail-3-80hn/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-16-03-viper-tail-3-80hn/bey-x-bx-16-03-viper-tail-3-80hn.webp",
       "outputSha256": "1cebc7bceb2ad53ab9243ab4ba0c09dcf050d1345e03146a150b9e287f65d934",
       "alphaLevels": 163,
       "partialPixels": 3195,
@@ -4658,7 +3708,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-16-03-viper-tail-3-80hn/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-16-03-viper-tail-3-80hn/bey-x-bx-16-03-viper-tail-3-80hn-blade-preview.webp",
       "outputSha256": "c7562603f50966d45339f839bf4b778bc0209652eba1975a5eab73869dcf49ce",
       "alphaLevels": 256,
       "partialPixels": 8355,
@@ -4715,7 +3765,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-17-dran-sword-3-60f/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-17-dran-sword-3-60f/bey-x-bx-17-dran-sword-3-60f.webp",
       "outputSha256": "49c9657fe9552fb4dc8b7229f7549b559c4ea1c56857cea312e4b8b6f6703891",
       "alphaLevels": 256,
       "partialPixels": 11067,
@@ -4734,7 +3784,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-17-dran-sword-3-60f/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-17-dran-sword-3-60f/bey-x-bx-17-dran-sword-3-60f-blade-preview.webp",
       "outputSha256": "a6fe8afed52e0ac39a5b0945df166d2ec9abc0b4e8cef00331cc5d72710b6b6a",
       "alphaLevels": 256,
       "partialPixels": 5449,
@@ -4791,7 +3841,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-17-wizard-arrow-4-80b/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-17-wizard-arrow-4-80b/bey-x-bx-17-wizard-arrow-4-80b.webp",
       "outputSha256": "fbb3f90d6461ecf8bbf12d142aab0afa3a4587f20de75ce417bd4bb60937383a",
       "alphaLevels": 253,
       "partialPixels": 4072,
@@ -4810,7 +3860,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-17-wizard-arrow-4-80b/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-17-wizard-arrow-4-80b/bey-x-bx-17-wizard-arrow-4-80b-blade-preview.webp",
       "outputSha256": "e3dea101d3d1df333b1d30a22088abbb414bbd1ec79efc9eaf15a4bd7eac7522",
       "alphaLevels": 27,
       "partialPixels": 2448,
@@ -4867,7 +3917,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-19-rhino-horn-3-80s/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-19-rhino-horn-3-80s/bey-x-bx-19-rhino-horn-3-80s.webp",
       "outputSha256": "da3f041f84eeaaf4ad26261f5a294632ff29f30840bfa48a05becebb9faf979d",
       "alphaLevels": 253,
       "partialPixels": 4240,
@@ -4883,25 +3933,6 @@
         44,
         45,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-19-rhino-horn-3-80s/main.webp",
-      "outputSha256": "468ff80527590b5c6f46ed66e29fc8018a696a90824893a42702fa4bf66fb4a6",
-      "alphaLevels": 256,
-      "partialPixels": 6946,
-      "foregroundPixels": 87524,
-      "bbox": [
-        52,
-        51,
-        395,
-        396
-      ],
-      "margins": [
-        52,
-        51,
-        53,
-        52
       ]
     },
     {
@@ -4924,7 +3955,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-20-dran-dagger-4-60r/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-20-dran-dagger-4-60r/bey-x-bx-20-dran-dagger-4-60r.webp",
       "outputSha256": "8e56ca67a5f11edf88d8d3167faa37fd92fb9714551a20ceb9b978f762b1c713",
       "alphaLevels": 243,
       "partialPixels": 4063,
@@ -4940,25 +3971,6 @@
         44,
         53,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-20-dran-dagger-4-60r/main.webp",
-      "outputSha256": "0ba88a298bb8dc5dee95b5fa228ccddb094051951a7e62f134e613cc3c505f4a",
-      "alphaLevels": 29,
-      "partialPixels": 2569,
-      "foregroundPixels": 87306,
-      "bbox": [
-        54,
-        45,
-        394,
-        402
-      ],
-      "margins": [
-        54,
-        45,
-        54,
-        46
       ]
     },
     {
@@ -4981,7 +3993,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-20-knight-shield-5-80t/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-20-knight-shield-5-80t/bey-x-bx-20-knight-shield-5-80t.webp",
       "outputSha256": "606c2761428eb66f340dcd37382e7283141b62823ae9f258b4682543b6951354",
       "alphaLevels": 250,
       "partialPixels": 4451,
@@ -4997,25 +4009,6 @@
         44,
         45,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-20-knight-shield-5-80t/main.webp",
-      "outputSha256": "891e87ceedb6e1738af3cedc8b4dee467b8fca14b2d1ecec3ea617cc1a91c6ae",
-      "alphaLevels": 38,
-      "partialPixels": 2656,
-      "foregroundPixels": 96118,
-      "bbox": [
-        48,
-        47,
-        399,
-        400
-      ],
-      "margins": [
-        48,
-        47,
-        49,
-        48
       ]
     },
     {
@@ -5076,27 +4069,8 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-20-shark-edge-3-80f/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-20-shark-edge-3-80f/bey-x-bx-20-shark-edge-3-80f.webp",
       "outputSha256": "4727bc20387b2583bc61dfcd82a6062be460058bacc29d6acff35cc088010a72",
-      "alphaLevels": 23,
-      "partialPixels": 2212,
-      "foregroundPixels": 88764,
-      "bbox": [
-        50,
-        44,
-        397,
-        404
-      ],
-      "margins": [
-        50,
-        44,
-        51,
-        44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-20-shark-edge-3-80f/main.webp",
-      "outputSha256": "de531e61051548d8f035228dd57f98f655cc336c21aee297f51de1c367631201",
       "alphaLevels": 23,
       "partialPixels": 2212,
       "foregroundPixels": 88764,
@@ -5171,7 +4145,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-21-hells-chain-5-60ht/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-21-hells-chain-5-60ht/bey-x-bx-21-hells-chain-5-60ht.webp",
       "outputSha256": "713633f8dcb34232835352b96e52c0c5e0fea075c3c7d6229430bba6e7e25394",
       "alphaLevels": 251,
       "partialPixels": 3595,
@@ -5187,25 +4161,6 @@
         46,
         44,
         46
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-21-hells-chain-5-60ht/main.webp",
-      "outputSha256": "8a504cb637538e65945bc4b86a0d06526f2d08fc4e68be534033d0c5f1a17a7d",
-      "alphaLevels": 256,
-      "partialPixels": 5235,
-      "foregroundPixels": 80105,
-      "bbox": [
-        34,
-        72,
-        414,
-        375
-      ],
-      "margins": [
-        34,
-        72,
-        34,
-        73
       ]
     },
     {
@@ -5266,7 +4221,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-21-knight-lance-3-60lf/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-21-knight-lance-3-60lf/bey-x-bx-21-knight-lance-3-60lf.webp",
       "outputSha256": "4c0cf2f4f1ca15810ba01092de2487ceac62e58a9dddcd96db965fcaf4383122",
       "alphaLevels": 253,
       "partialPixels": 3724,
@@ -5282,25 +4237,6 @@
         47,
         44,
         48
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-21-knight-lance-3-60lf/main.webp",
-      "outputSha256": "fa0ffd4aa5d2ce00e00de76c0e198bc3d3e79f303c5a78b619932563c262d26a",
-      "alphaLevels": 255,
-      "partialPixels": 8007,
-      "foregroundPixels": 95120,
-      "bbox": [
-        48,
-        50,
-        400,
-        398
-      ],
-      "margins": [
-        48,
-        50,
-        48,
-        50
       ]
     },
     {
@@ -5361,7 +4297,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-21-wizard-arrow-4-80n/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-21-wizard-arrow-4-80n/bey-x-bx-21-wizard-arrow-4-80n.webp",
       "outputSha256": "b88343dd389b849c16e0f9fbfeeefbcd75674f0cb31bdbce7081a188cbb83641",
       "alphaLevels": 254,
       "partialPixels": 4465,
@@ -5377,25 +4313,6 @@
         49,
         44,
         49
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-21-wizard-arrow-4-80n/main.webp",
-      "outputSha256": "d0824be3187ab1605669a8a1f459812cbc74c712c92de06aea1883eec90e62f1",
-      "alphaLevels": 256,
-      "partialPixels": 6885,
-      "foregroundPixels": 86381,
-      "bbox": [
-        55,
-        60,
-        392,
-        388
-      ],
-      "margins": [
-        55,
-        60,
-        56,
-        60
       ]
     },
     {
@@ -5456,7 +4373,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-22-dran-sword-3-60f/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-22-dran-sword-3-60f/bey-x-bx-22-dran-sword-3-60f.webp",
       "outputSha256": "eeb2a360ba1cf4ce6c18f5aef1fc268fef16f1cc6d33d053b76d366c89fb4981",
       "alphaLevels": 255,
       "partialPixels": 5257,
@@ -5472,25 +4389,6 @@
         44,
         49,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-22-dran-sword-3-60f/main.webp",
-      "outputSha256": "7697381729bd985569a5c3ce13db057ea20821bce78dcef45ce9f087a725afe6",
-      "alphaLevels": 256,
-      "partialPixels": 9555,
-      "foregroundPixels": 93024,
-      "bbox": [
-        48,
-        43,
-        400,
-        405
-      ],
-      "margins": [
-        48,
-        43,
-        48,
-        43
       ]
     },
     {
@@ -5551,7 +4449,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-23-phoenix-soar-9-60gf/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-23-phoenix-soar-9-60gf/bey-x-bx-23-phoenix-soar-9-60gf.webp",
       "outputSha256": "bd86e7dc4f7a41fcb28786a0e14d7c3cf9ac109f401eb0b34c352414dbaa687a",
       "alphaLevels": 31,
       "partialPixels": 2476,
@@ -5570,26 +4468,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-23-phoenix-soar-9-60gf/main.webp",
-      "outputSha256": "2a5d7dc9ee4e249be2e8ba828ad7291290cbd8bfb7c46aeb78d7d175481c4a6c",
-      "alphaLevels": 253,
-      "partialPixels": 4151,
-      "foregroundPixels": 92782,
-      "bbox": [
-        45,
-        44,
-        403,
-        404
-      ],
-      "margins": [
-        45,
-        44,
-        45,
-        44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-24-01-wyvern-gale-5-80gb/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-24-01-wyvern-gale-5-80gb/bey-x-bx-24-01-wyvern-gale-5-80gb.webp",
       "outputSha256": "35a323ffa8cc03f83825912bb9a74cd5407bd13940b738af7c2c45bf076d3169",
       "alphaLevels": 253,
       "partialPixels": 4635,
@@ -5605,25 +4484,6 @@
         44,
         45,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-24-01-wyvern-gale-5-80gb/main.webp",
-      "outputSha256": "a0dedab56f1636b5819e483c63b493fa358143990272bd78bb06d1367d20c9ad",
-      "alphaLevels": 256,
-      "partialPixels": 5170,
-      "foregroundPixels": 88951,
-      "bbox": [
-        52,
-        53,
-        396,
-        395
-      ],
-      "margins": [
-        52,
-        53,
-        52,
-        53
       ]
     },
     {
@@ -5646,7 +4506,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-24-02-wyvern-gale-3-60t/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-24-02-wyvern-gale-3-60t/bey-x-bx-24-02-wyvern-gale-3-60t.webp",
       "outputSha256": "d31f28803672d542db538db63c4a35e20e04e28682034d02987f6b83014b993f",
       "alphaLevels": 256,
       "partialPixels": 6820,
@@ -5703,7 +4563,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-24-03-knight-lance-4-60gb/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-24-03-knight-lance-4-60gb/bey-x-bx-24-03-knight-lance-4-60gb.webp",
       "outputSha256": "1d0a9603ad5b1344fa8fa6a48c895d2ac20b26d34096b9377da244151c087eb2",
       "alphaLevels": 255,
       "partialPixels": 6954,
@@ -5760,7 +4620,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-24-04-viper-tail-5-60f/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-24-04-viper-tail-5-60f/bey-x-bx-24-04-viper-tail-5-60f.webp",
       "outputSha256": "2518600ed8b8366fa4183cba2c461acc3089fc122122076aef273c1eb1acadb0",
       "alphaLevels": 256,
       "partialPixels": 5695,
@@ -5817,7 +4677,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-24-05-leon-claw-3-80hn/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-24-05-leon-claw-3-80hn/bey-x-bx-24-05-leon-claw-3-80hn.webp",
       "outputSha256": "3ce5fb7e83c36ca253c5caf10b47da69afac30d8235e75037a616723a14f6d51",
       "alphaLevels": 256,
       "partialPixels": 6704,
@@ -5874,7 +4734,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-24-06-wizard-arrow-4-80gb/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-24-06-wizard-arrow-4-80gb/bey-x-bx-24-06-wizard-arrow-4-80gb.webp",
       "outputSha256": "37b9491f8d6627db193808cd9c04b14d637b8646deec1a4f7eb2acf60c2b30f5",
       "alphaLevels": 256,
       "partialPixels": 6492,
@@ -5931,7 +4791,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-26-unicorn-sting-5-60gf/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-26-unicorn-sting-5-60gf/bey-x-bx-26-unicorn-sting-5-60gf.webp",
       "outputSha256": "1decbf9b8e212ef4a0222e1ce5aa5daab1ba08c08f9f0ca2dd1913be3e1e35bb",
       "alphaLevels": 256,
       "partialPixels": 4556,
@@ -5947,25 +4807,6 @@
         46,
         44,
         47
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-26-unicorn-sting-5-60gf/main.webp",
-      "outputSha256": "2072ba102ee3ee5e1fe93bdfc81e643cf7078c83c48035c5f4f93401ab90b795",
-      "alphaLevels": 256,
-      "partialPixels": 7818,
-      "foregroundPixels": 87675,
-      "bbox": [
-        53,
-        55,
-        394,
-        393
-      ],
-      "margins": [
-        53,
-        55,
-        54,
-        55
       ]
     },
     {
@@ -6007,7 +4848,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-27-01-sphinx-cowl-9-80gn/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-27-01-sphinx-cowl-9-80gn/bey-x-bx-27-01-sphinx-cowl-9-80gn.webp",
       "outputSha256": "4541f8985dd658162cc017eae06e4a9c40022477f6236c0cfb23c442b63cd5f4",
       "alphaLevels": 247,
       "partialPixels": 3705,
@@ -6023,25 +4864,6 @@
         44,
         49,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-27-01-sphinx-cowl-9-80gn/main.webp",
-      "outputSha256": "5bcb5fe785f1ce7eb1ee8c8c427a3e0ba621a15a73b0a38ed191ce88d6ebe86e",
-      "alphaLevels": 256,
-      "partialPixels": 5564,
-      "foregroundPixels": 97708,
-      "bbox": [
-        19,
-        53,
-        428,
-        395
-      ],
-      "margins": [
-        19,
-        53,
-        20,
-        53
       ]
     },
     {
@@ -6083,7 +4905,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-27-02-sphinx-cowl-4-80ht/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-27-02-sphinx-cowl-4-80ht/bey-x-bx-27-02-sphinx-cowl-4-80ht.webp",
       "outputSha256": "d787c7320dd5cfd17cd678304a201962b450a56109d53aea7a473521bf2f2fb4",
       "alphaLevels": 256,
       "partialPixels": 8302,
@@ -6140,7 +4962,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-27-03-sphinx-cowl-5-60o/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-27-03-sphinx-cowl-5-60o/bey-x-bx-27-03-sphinx-cowl-5-60o.webp",
       "outputSha256": "8dc93743a9bb6c3417c1b1a90b26c849f7adb06abb9626018854e5bed82735c9",
       "alphaLevels": 256,
       "partialPixels": 8412,
@@ -6197,7 +5019,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-31-01-tyranno-beat-4-70q/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-31-01-tyranno-beat-4-70q/bey-x-bx-31-01-tyranno-beat-4-70q.webp",
       "outputSha256": "1ed500eb85ee0510af61c3425684e991511bbc7fa907f0bd1cb9a122677de36a",
       "alphaLevels": 254,
       "partialPixels": 6108,
@@ -6213,25 +5035,6 @@
         44,
         44,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-31-01-tyranno-beat-4-70q/main.webp",
-      "outputSha256": "99f1663122b0102750b3754b4af1d9a094cd438a6f22a23a565ace417fbf3e3f",
-      "alphaLevels": 31,
-      "partialPixels": 2904,
-      "foregroundPixels": 80433,
-      "bbox": [
-        57,
-        57,
-        391,
-        391
-      ],
-      "margins": [
-        57,
-        57,
-        57,
-        57
       ]
     },
     {
@@ -6254,7 +5057,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-31-02-tyranno-beat-3-60s/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-31-02-tyranno-beat-3-60s/bey-x-bx-31-02-tyranno-beat-3-60s.webp",
       "outputSha256": "90bc25f4ffbbc913024e06b652cc8d0517bda182928869e74ecd3f0612bd11c6",
       "alphaLevels": 256,
       "partialPixels": 12612,
@@ -6311,7 +5114,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-31-03-hells-chain-9-80o/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-31-03-hells-chain-9-80o/bey-x-bx-31-03-hells-chain-9-80o.webp",
       "outputSha256": "10634487bd907cba7c42e2594d85bbef23c681b6071628d03348dfb76c5e0d37",
       "alphaLevels": 256,
       "partialPixels": 10787,
@@ -6368,7 +5171,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-31-04-dran-dagger-4-70p/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-31-04-dran-dagger-4-70p/bey-x-bx-31-04-dran-dagger-4-70p.webp",
       "outputSha256": "c106b3a30ac3296d4606347d336349c41e61daaaed9fcc63d1adc61a0dda6ec6",
       "alphaLevels": 256,
       "partialPixels": 13975,
@@ -6425,7 +5228,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-31-05-shark-edge-1-60q/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-31-05-shark-edge-1-60q/bey-x-bx-31-05-shark-edge-1-60q.webp",
       "outputSha256": "1543308e5948a7835cee07290a15d61af2ff9d33eb3c7a4a5c232fcc88b28773",
       "alphaLevels": 256,
       "partialPixels": 10859,
@@ -6482,7 +5285,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-31-06-rhino-horn-5-80q/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-31-06-rhino-horn-5-80q/bey-x-bx-31-06-rhino-horn-5-80q.webp",
       "outputSha256": "105ac4ce9f62c8759e25166ebf435f80d9067d5274281da5b62e3caab015c230",
       "alphaLevels": 256,
       "partialPixels": 10905,
@@ -6539,7 +5342,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-33-pearl-tiger-3-60u/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-33-pearl-tiger-3-60u/bey-x-bx-33-pearl-tiger-3-60u.webp",
       "outputSha256": "fc52e9c5afd535aefe4b289ecd6c264a886c5549cdb95c4202c877a981ea25ae",
       "alphaLevels": 253,
       "partialPixels": 4736,
@@ -6555,25 +5358,6 @@
         44,
         44,
         45
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-33-pearl-tiger-3-60u/main.webp",
-      "outputSha256": "0742aa31c3d14269365399bdd9d0295bbd7ea75e08b9dbaf791e3beb3b55a0d9",
-      "alphaLevels": 35,
-      "partialPixels": 2858,
-      "foregroundPixels": 89988,
-      "bbox": [
-        46,
-        46,
-        402,
-        401
-      ],
-      "margins": [
-        46,
-        46,
-        46,
-        47
       ]
     },
     {
@@ -6596,7 +5380,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-34-cobalt-dragoon-2-60c/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-34-cobalt-dragoon-2-60c/bey-x-bx-34-cobalt-dragoon-2-60c.webp",
       "outputSha256": "9161f0460172fdd4175afbe124b7eab8d60e1f3967c7de9fbfb3a2e45b46a173",
       "alphaLevels": 216,
       "partialPixels": 3626,
@@ -6615,26 +5399,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-34-cobalt-dragoon-2-60c/main.webp",
-      "outputSha256": "4bbba69c03dcc3ef6f0201f96b832709d0fd00ffcb12b5c9d40a1deec9e1fa25",
-      "alphaLevels": 32,
-      "partialPixels": 2305,
-      "foregroundPixels": 87946,
-      "bbox": [
-        46,
-        45,
-        402,
-        402
-      ],
-      "margins": [
-        46,
-        45,
-        46,
-        46
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-35-01-black-turtle-4-60d/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-35-01-black-turtle-4-60d/bey-x-bx-35-01-black-turtle-4-60d.webp",
       "outputSha256": "f3b8e19453668eee156e3cd87dcc91925172d901da62c3bea4e0c1393ec0e38c",
       "alphaLevels": 254,
       "partialPixels": 4522,
@@ -6650,25 +5415,6 @@
         44,
         44,
         45
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-35-01-black-turtle-4-60d/main.webp",
-      "outputSha256": "f648725c1c65f9f9d2ac74f810f533acb9c9ae4bf554d9bb48a72c2b9a1daea1",
-      "alphaLevels": 24,
-      "partialPixels": 2168,
-      "foregroundPixels": 76802,
-      "bbox": [
-        59,
-        60,
-        388,
-        388
-      ],
-      "margins": [
-        59,
-        60,
-        60,
-        60
       ]
     },
     {
@@ -6691,7 +5437,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-35-02-black-turtle-9-80b/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-35-02-black-turtle-9-80b/bey-x-bx-35-02-black-turtle-9-80b.webp",
       "outputSha256": "eaf3267454c287397c28b68d9d5fa88243b4039d53fea71e1f89f65547c90c1e",
       "alphaLevels": 256,
       "partialPixels": 11425,
@@ -6748,7 +5494,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-35-03-unicorn-sting-3-70d/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-35-03-unicorn-sting-3-70d/bey-x-bx-35-03-unicorn-sting-3-70d.webp",
       "outputSha256": "d68ea54150d691d394a45e946a2322f91f6e4ef4be1a74a0295f2ba2fa71b16c",
       "alphaLevels": 256,
       "partialPixels": 8269,
@@ -6805,7 +5551,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-35-04-wizard-rod-1-60r/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-35-04-wizard-rod-1-60r/bey-x-bx-35-04-wizard-rod-1-60r.webp",
       "outputSha256": "f0e35ce099e8808f0bfa72429ddde438baea9cb5f8e62e2900d68f125a605a1c",
       "alphaLevels": 256,
       "partialPixels": 17700,
@@ -6862,7 +5608,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-35-05-phoenix-soar-5-80h/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-35-05-phoenix-soar-5-80h/bey-x-bx-35-05-phoenix-soar-5-80h.webp",
       "outputSha256": "1459e5de78f77a6288e0c1ba17c91a1015ffc045acd74e2209d5674f75c46e2f",
       "alphaLevels": 256,
       "partialPixels": 7708,
@@ -6919,7 +5665,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-35-06-viper-tail-5-70d/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-35-06-viper-tail-5-70d/bey-x-bx-35-06-viper-tail-5-70d.webp",
       "outputSha256": "05af8a2b8eed50ceba94519866f01975b3cc0263a34d5f056281d0b35b25e49e",
       "alphaLevels": 256,
       "partialPixels": 7994,
@@ -6976,7 +5722,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-36-01-whale-wave-5-80e/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-36-01-whale-wave-5-80e/bey-x-bx-36-01-whale-wave-5-80e.webp",
       "outputSha256": "da9d847f8527e3223b67007d47aa0b1011511656bb06c4bb73a8b289e84a9b9e",
       "alphaLevels": 252,
       "partialPixels": 3825,
@@ -6992,25 +5738,6 @@
         44,
         45,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-36-01-whale-wave-5-80e/main.webp",
-      "outputSha256": "c4a792fdc03d0bdcdcc3c42be0e295cff125fe7983a05d0f1072943b14fec920",
-      "alphaLevels": 256,
-      "partialPixels": 6094,
-      "foregroundPixels": 81659,
-      "bbox": [
-        44,
-        63,
-        404,
-        385
-      ],
-      "margins": [
-        44,
-        63,
-        44,
-        63
       ]
     },
     {
@@ -7052,7 +5779,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-36-02-whale-wave-4-70hn/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-36-02-whale-wave-4-70hn/bey-x-bx-36-02-whale-wave-4-70hn.webp",
       "outputSha256": "4bb7f711e08a689beaa7ccd643a0f2fc22aca595ec465ceb47d60695fff7f9d6",
       "alphaLevels": 256,
       "partialPixels": 8207,
@@ -7109,7 +5836,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-36-03-whale-wave-3-80gb/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-36-03-whale-wave-3-80gb/bey-x-bx-36-03-whale-wave-3-80gb.webp",
       "outputSha256": "06533217ffb552e1210fbc04ddbbc21caccc3ae61ebd7ed57dcab3a31d8203bf",
       "alphaLevels": 255,
       "partialPixels": 7918,
@@ -7166,7 +5893,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-37-bear-scratch-5-60f/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-37-bear-scratch-5-60f/bey-x-bx-37-bear-scratch-5-60f.webp",
       "outputSha256": "e75e77cd72fada8d05967d8fe47b044872c3970308f05c70979b9646025edcdf",
       "alphaLevels": 240,
       "partialPixels": 3959,
@@ -7181,25 +5908,6 @@
         44,
         44,
         44,
-        44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-37-bear-scratch-5-60f/main.webp",
-      "outputSha256": "6241835be2d4e1a82ad24fed5bcde5d1706595343ac8c490d980a783b415e4b2",
-      "alphaLevels": 256,
-      "partialPixels": 8317,
-      "foregroundPixels": 94956,
-      "bbox": [
-        44,
-        44,
-        403,
-        404
-      ],
-      "margins": [
-        44,
-        44,
-        45,
         44
       ]
     },
@@ -7242,7 +5950,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-38-crimson-garuda-4-70tp/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-38-crimson-garuda-4-70tp/bey-x-bx-38-crimson-garuda-4-70tp.webp",
       "outputSha256": "b0be6a731707219935357a876fc4835e00f3dfd812c96b5c4a7e792c9344d68c",
       "alphaLevels": 241,
       "partialPixels": 4582,
@@ -7261,26 +5969,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-38-crimson-garuda-4-70tp/main.webp",
-      "outputSha256": "46ee4dff41fa61f07f24eef22c862d97ae510b56e918fe0ed1fb595fea4d32c7",
-      "alphaLevels": 256,
-      "partialPixels": 8183,
-      "foregroundPixels": 102896,
-      "bbox": [
-        44,
-        37,
-        403,
-        411
-      ],
-      "margins": [
-        44,
-        37,
-        45,
-        37
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-39-01-shelter-drake-7-80gp/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-39-01-shelter-drake-7-80gp/bey-x-bx-39-01-shelter-drake-7-80gp.webp",
       "outputSha256": "2fabe91886aa381fd5ffa38ec100ac73e29f407b5a3214430391016c8540a3de",
       "alphaLevels": 248,
       "partialPixels": 3849,
@@ -7299,26 +5988,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-39-01-shelter-drake-7-80gp/main.webp",
-      "outputSha256": "d65a8303b738bf4e140ab754615fc9206381c0d918ff9ece0f34376879e1fca2",
-      "alphaLevels": 256,
-      "partialPixels": 5809,
-      "foregroundPixels": 79095,
-      "bbox": [
-        46,
-        67,
-        401,
-        381
-      ],
-      "margins": [
-        46,
-        67,
-        47,
-        67
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-39-02-shelter-drake-5-70o/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-39-02-shelter-drake-5-70o/bey-x-bx-39-02-shelter-drake-5-70o.webp",
       "outputSha256": "703f9228d753bcedef8575a219311ba3697a5d2e2f5cd4970b38787d4b67f318",
       "alphaLevels": 253,
       "partialPixels": 3783,
@@ -7337,7 +6007,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-39-02-shelter-drake-5-70o/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-39-02-shelter-drake-5-70o/bey-x-bx-39-02-shelter-drake-5-70o-blade-preview.webp",
       "outputSha256": "583aa7af58c889502a35976742b6fae8d0cf34e805e9ca674ffd548d9a4fe81e",
       "alphaLevels": 256,
       "partialPixels": 6703,
@@ -7394,7 +6064,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-39-03-shelter-drake-3-60d/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-39-03-shelter-drake-3-60d/bey-x-bx-39-03-shelter-drake-3-60d.webp",
       "outputSha256": "eead22f33a12cd82482c4d162cef226f4582c9a8317af524af77266955ff17ef",
       "alphaLevels": 249,
       "partialPixels": 3812,
@@ -7413,7 +6083,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-39-03-shelter-drake-3-60d/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-39-03-shelter-drake-3-60d/bey-x-bx-39-03-shelter-drake-3-60d-blade-preview.webp",
       "outputSha256": "efd69a5f52df4163969e5b7a437cfd3eedcccc11c9b0830d97490f6e2c0ba042",
       "alphaLevels": 254,
       "partialPixels": 6853,
@@ -7470,7 +6140,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-44-tricera-press-m-85bs/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-44-tricera-press-m-85bs/bey-x-bx-44-tricera-press-m-85bs.webp",
       "outputSha256": "1e26a9ae2ce71d1d55b259f87d131a04f45a878174f6cd9b0263e4beadac97d7",
       "alphaLevels": 225,
       "partialPixels": 3676,
@@ -7486,25 +6156,6 @@
         44,
         45,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-44-tricera-press-m-85bs/main.webp",
-      "outputSha256": "f4e63f9d39a8567fee9f1cb93a58a45d56b45ab5da6593bcb6a0faf37e2db3c2",
-      "alphaLevels": 256,
-      "partialPixels": 8648,
-      "foregroundPixels": 99849,
-      "bbox": [
-        42,
-        41,
-        405,
-        406
-      ],
-      "margins": [
-        42,
-        41,
-        43,
-        42
       ]
     },
     {
@@ -7527,7 +6178,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-45-warrior-calibur-6-70m/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-45-warrior-calibur-6-70m/bey-x-bx-45-warrior-calibur-6-70m.webp",
       "outputSha256": "7683955f5082f4a8d58128e41e9890f910fdfce77a9dc6cba5c57a3f05b94d7a",
       "alphaLevels": 244,
       "partialPixels": 3546,
@@ -7546,45 +6197,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-45-warrior-calibur-6-70m/main.webp",
-      "outputSha256": "7e01d0d6902b4b39cff5e79117dd65b6be5905a7f26f3766fb344f5a8c2c154c",
-      "alphaLevels": 256,
-      "partialPixels": 7933,
-      "foregroundPixels": 96689,
-      "bbox": [
-        43,
-        48,
-        404,
-        400
-      ],
-      "margins": [
-        43,
-        48,
-        44,
-        48
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-46-cobalt-drake-9-60r/front.webp",
-      "outputSha256": "4254d11b11324eabc470b51fe793c44d23dceeaa99afa151e0898d0b6556c5e7",
-      "alphaLevels": 248,
-      "partialPixels": 3518,
-      "foregroundPixels": 91886,
-      "bbox": [
-        44,
-        44,
-        404,
-        404
-      ],
-      "margins": [
-        44,
-        44,
-        44,
-        44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-46-cobalt-drake-9-60r/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-46-cobalt-drake-9-60r/bey-x-bx-46-cobalt-drake-9-60r.webp",
       "outputSha256": "4254d11b11324eabc470b51fe793c44d23dceeaa99afa151e0898d0b6556c5e7",
       "alphaLevels": 248,
       "partialPixels": 3518,
@@ -7660,26 +6273,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-46-gore-tackle-7-70t/front.webp",
-      "outputSha256": "a226f433f62676b0279bbecbccf09db0049f4f3a8f8c8af0954460ddfad05961",
-      "alphaLevels": 254,
-      "partialPixels": 4394,
-      "foregroundPixels": 101406,
-      "bbox": [
-        44,
-        44,
-        404,
-        404
-      ],
-      "margins": [
-        44,
-        44,
-        44,
-        44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-46-gore-tackle-7-70t/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-46-gore-tackle-7-70t/bey-x-bx-46-gore-tackle-7-70t.webp",
       "outputSha256": "a226f433f62676b0279bbecbccf09db0049f4f3a8f8c8af0954460ddfad05961",
       "alphaLevels": 254,
       "partialPixels": 4394,
@@ -7755,7 +6349,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-48-01-cobalt-dragoon-9-80f/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-48-01-cobalt-dragoon-9-80f/bey-x-bx-48-01-cobalt-dragoon-9-80f.webp",
       "outputSha256": "d165982bbe98a1b00b8b98f5bf9a6345c7cea637a3d8cb33e074264119da6d8a",
       "alphaLevels": 256,
       "partialPixels": 6837,
@@ -7774,7 +6368,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-48-01-cobalt-dragoon-9-80f/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-48-01-cobalt-dragoon-9-80f/bey-x-bx-48-01-cobalt-dragoon-9-80f-blade-preview.webp",
       "outputSha256": "3f0d64f0f6a02bff79328d98a3a81b827e848b2a8762acebaa6eef33ed9d9c44",
       "alphaLevels": 255,
       "partialPixels": 5532,
@@ -7831,7 +6425,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-48-02-shark-edge-4-70e/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-48-02-shark-edge-4-70e/bey-x-bx-48-02-shark-edge-4-70e.webp",
       "outputSha256": "613614e690d4910a2ae7f52ca507b44d036036e17a81345e4ebb52c55ba90027",
       "alphaLevels": 256,
       "partialPixels": 6105,
@@ -7888,7 +6482,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-48-03-mammoth-tusk-7-60s/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-48-03-mammoth-tusk-7-60s/bey-x-bx-48-03-mammoth-tusk-7-60s.webp",
       "outputSha256": "2dbfa16a89c7c59dd716547580a1fcbea5310d013d97865cc445c773804f0dcd",
       "alphaLevels": 256,
       "partialPixels": 6906,
@@ -7945,7 +6539,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-48-04-hells-scythe-3-85gb/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-48-04-hells-scythe-3-85gb/bey-x-bx-48-04-hells-scythe-3-85gb.webp",
       "outputSha256": "6282549629aec1c314f6d96e1eb19c4548388b9ee022d97ee501b023c53bf597",
       "alphaLevels": 256,
       "partialPixels": 6336,
@@ -8002,7 +6596,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-48-05-dran-buster-2-80q/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-48-05-dran-buster-2-80q/bey-x-bx-48-05-dran-buster-2-80q.webp",
       "outputSha256": "0610d7ab11ed75c026db2fdec36147e36ef6a5b9a75cf07c387b25b354d83581",
       "alphaLevels": 256,
       "partialPixels": 6423,
@@ -8059,7 +6653,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-49-dran-strike-4-50ff/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-49-dran-strike-4-50ff/bey-x-bx-49-dran-strike-4-50ff.webp",
       "outputSha256": "80daf2c567cc78260d05fb1dcf1f2d1f636b8fbd7688882dcfaacb581d11d55d",
       "alphaLevels": 255,
       "partialPixels": 4177,
@@ -8078,26 +6672,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-49-dran-strike-4-50ff/main.webp",
-      "outputSha256": "8df49b964b649995a4ae34974bf55b6ece8606f5c2376e1266ddd887c4bb8067",
-      "alphaLevels": 256,
-      "partialPixels": 7937,
-      "foregroundPixels": 92394,
-      "bbox": [
-        42,
-        46,
-        405,
-        402
-      ],
-      "margins": [
-        42,
-        46,
-        43,
-        46
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-50-01-heavens-ring-0-80ds/front.webp",
+      "image": "assets/images/x/beys/bey-x-bx-50-01-heavens-ring-0-80ds/bey-x-bx-50-01-heavens-ring-0-80ds.webp",
       "outputSha256": "9f3aa715e7649d82ac6d15ae8d1d9c1596972b92786fd02c4aa5182b48f35e5f",
       "alphaLevels": 229,
       "partialPixels": 3655,
@@ -8113,25 +6688,6 @@
         46,
         44,
         47
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-bx-50-01-heavens-ring-0-80ds/main.webp",
-      "outputSha256": "6a73ddda0ffb230108b8220c3b5e41a1a47181e02ff35ce5b6c0993b364a13db",
-      "alphaLevels": 256,
-      "partialPixels": 6590,
-      "foregroundPixels": 85598,
-      "bbox": [
-        42,
-        65,
-        405,
-        382
-      ],
-      "margins": [
-        42,
-        65,
-        43,
-        66
       ]
     },
     {
@@ -8154,7 +6710,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-50-02-heavens-ring-6-60tp/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-50-02-heavens-ring-6-60tp/bey-x-bx-50-02-heavens-ring-6-60tp.webp",
       "outputSha256": "4a7f06b4b0cedd8c5cea6750aca36555a7d3bc55df24a526323f5600e562e7dc",
       "alphaLevels": 256,
       "partialPixels": 9365,
@@ -8211,7 +6767,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-50-03-impact-drake-7-55fb/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-50-03-impact-drake-7-55fb/bey-x-bx-50-03-impact-drake-7-55fb.webp",
       "outputSha256": "d9922316f87a3f140d10913f74322308c54376dab2a2768015655a1e2c53bb22",
       "alphaLevels": 256,
       "partialPixels": 7925,
@@ -8268,7 +6824,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-50-04-ghost-circle-m-85ds/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-50-04-ghost-circle-m-85ds/bey-x-bx-50-04-ghost-circle-m-85ds.webp",
       "outputSha256": "2e729b624b14e720490619ed807b2fd0fae4ffd2844b4c764375732a0e109fe9",
       "alphaLevels": 256,
       "partialPixels": 6800,
@@ -8325,7 +6881,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-50-05-wolf-flame-d-9-65l/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-50-05-wolf-flame-d-9-65l/bey-x-bx-50-05-wolf-flame-d-9-65l.webp",
       "outputSha256": "847208b9459efeb3198cd2b88b32ac1f616e137b784b6ef075da80aa47321439",
       "alphaLevels": 256,
       "partialPixels": 8484,
@@ -8439,7 +6995,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-bx-50-06-kerberos-reaper-b-0-80wb/main.webp",
+      "image": "assets/images/x/beys/bey-x-bx-50-06-kerberos-reaper-b-0-80wb/bey-x-bx-50-06-kerberos-reaper-b-0-80wb.webp",
       "outputSha256": "04bc8f0b8a373409b2fcb34ed82f5e2a0034b21c6baf76e3519ff0b90e7e41eb",
       "alphaLevels": 256,
       "partialPixels": 8005,
@@ -8553,7 +7109,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-00-bugs-antlers-b-2-60d/main.webp",
+      "image": "assets/images/x/beys/bey-x-cx-00-bugs-antlers-b-2-60d/bey-x-cx-00-bugs-antlers-b-2-60d.webp",
       "outputSha256": "6aeba1f8912fa88876fcd395b7b2eb727d90afc58736474a0dc80320847d9209",
       "alphaLevels": 256,
       "partialPixels": 6090,
@@ -8629,7 +7185,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-00-drake-brave-g-4-70i/main.webp",
+      "image": "assets/images/x/beys/bey-x-cx-00-drake-brave-g-4-70i/bey-x-cx-00-drake-brave-g-4-70i.webp",
       "outputSha256": "4d988f2cf409b9b52fd9b99e72baafeb2f26c01ce543ff7dd457967d2858a2f6",
       "alphaLevels": 256,
       "partialPixels": 7167,
@@ -8705,7 +7261,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-00-dran-brave-s-6-60v/main.webp",
+      "image": "assets/images/x/beys/bey-x-cx-00-dran-brave-s-6-60v/bey-x-cx-00-dran-brave-s-6-60v.webp",
       "outputSha256": "557560414e2826bafed0071790f31fafc2c1320c9bf0dd4dc6021004ef675757",
       "alphaLevels": 256,
       "partialPixels": 6788,
@@ -8819,7 +7375,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-00-eva-arc-b-0-70e/front.webp",
+      "image": "assets/images/x/beys/bey-x-cx-00-eva-arc-b-0-70e/bey-x-cx-00-eva-arc-b-0-70e.webp",
       "outputSha256": "33285c2f3e002d8aa3ed008ccd2c09fa0218e11fc4ae8d095d8e4715259934e2",
       "alphaLevels": 256,
       "partialPixels": 6237,
@@ -8835,25 +7391,6 @@
         44,
         48,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-00-eva-arc-b-0-70e/main.webp",
-      "outputSha256": "281efe3676712b5e56dbaa9bce05bb9d174693ac2faf6931d9271484bced37ad",
-      "alphaLevels": 256,
-      "partialPixels": 5248,
-      "foregroundPixels": 73650,
-      "bbox": [
-        43,
-        69,
-        404,
-        379
-      ],
-      "margins": [
-        43,
-        69,
-        44,
-        69
       ]
     },
     {
@@ -8933,7 +7470,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-00-eva-brave-a-1-70v/front.webp",
+      "image": "assets/images/x/beys/bey-x-cx-00-eva-brave-a-1-70v/bey-x-cx-00-eva-brave-a-1-70v.webp",
       "outputSha256": "fd3515decefd5e96c52619b368444c35ef98330963fc55f4368d111d6b8a9cc6",
       "alphaLevels": 255,
       "partialPixels": 5565,
@@ -8949,25 +7486,6 @@
         51,
         44,
         52
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-00-eva-brave-a-1-70v/main.webp",
-      "outputSha256": "bb0e3ae585af735b530b1a5864b4b5347dbca96d4d9396956ae38fb2154f4f2b",
-      "alphaLevels": 256,
-      "partialPixels": 5430,
-      "foregroundPixels": 81366,
-      "bbox": [
-        44,
-        72,
-        403,
-        375
-      ],
-      "margins": [
-        44,
-        72,
-        45,
-        73
       ]
     },
     {
@@ -9066,7 +7584,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-00-eva-brush-t-2-70a/front.webp",
+      "image": "assets/images/x/beys/bey-x-cx-00-eva-brush-t-2-70a/bey-x-cx-00-eva-brush-t-2-70a.webp",
       "outputSha256": "d6d47eba2da5a5dc80cf71dab84085816637a3d9ddf2324e5149df5946e0aebc",
       "alphaLevels": 256,
       "partialPixels": 6578,
@@ -9082,25 +7600,6 @@
         44,
         50,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-00-eva-brush-t-2-70a/main.webp",
-      "outputSha256": "ff6fc67db8c6005b28f062b6659ae05cf45c114330f7bb70d000620f4f675634",
-      "alphaLevels": 256,
-      "partialPixels": 6361,
-      "foregroundPixels": 78892,
-      "bbox": [
-        44,
-        58,
-        404,
-        389
-      ],
-      "margins": [
-        44,
-        58,
-        44,
-        59
       ]
     },
     {
@@ -9199,7 +7698,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-00-hornet-port-r-7-60t/main.webp",
+      "image": "assets/images/x/beys/bey-x-cx-00-hornet-port-r-7-60t/bey-x-cx-00-hornet-port-r-7-60t.webp",
       "outputSha256": "33dcc6d2371d265f85487f0480a4a0a750c196cdd5b80bf4048a1ec422cda6cb",
       "alphaLevels": 256,
       "partialPixels": 7704,
@@ -9275,7 +7774,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-00-kraken-riggle-s-3-70o/main.webp",
+      "image": "assets/images/x/beys/bey-x-cx-00-kraken-riggle-s-3-70o/bey-x-cx-00-kraken-riggle-s-3-70o.webp",
       "outputSha256": "f27d90fba3763a05952308fddba489acd5045baa717311d0a08112e86b3e281f",
       "alphaLevels": 256,
       "partialPixels": 5647,
@@ -9351,7 +7850,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-00-pegasus-blast-a-tr/main.webp",
+      "image": "assets/images/x/beys/bey-x-cx-00-pegasus-blast-a-tr/bey-x-cx-00-pegasus-blast-a-tr.webp",
       "outputSha256": "f5c979e85e6b89db227495dcf9bf3dd8df4e5e36bb494cf371ad5dab495ca25d",
       "alphaLevels": 256,
       "partialPixels": 6031,
@@ -9446,7 +7945,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-00-tiga-rage-ft-3-60t/main.webp",
+      "image": "assets/images/x/beys/bey-x-cx-00-tiga-rage-ft-3-60t/bey-x-cx-00-tiga-rage-ft-3-60t.webp",
       "outputSha256": "6dba9e3286ca8a2af6aa1b84d8a4829f3e62f932dc6dbdddbf3cd6ea53a5d96f",
       "alphaLevels": 256,
       "partialPixels": 8207,
@@ -9522,7 +8021,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-00-valkyrie-bolt-s-4-70v/front.webp",
+      "image": "assets/images/x/beys/bey-x-cx-00-valkyrie-bolt-s-4-70v/bey-x-cx-00-valkyrie-bolt-s-4-70v.webp",
       "outputSha256": "c42122eecbad71a79db0fceda69633bbb805b4602cd798759c7cda8cda47ea10",
       "alphaLevels": 256,
       "partialPixels": 7237,
@@ -9541,26 +8040,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-00-valkyrie-bolt-s-4-70v/main.webp",
-      "outputSha256": "43da7d5d9c03fa64cc2ca7ce0ee80e852741b06306347a62402d22ce67c9e263",
-      "alphaLevels": 256,
-      "partialPixels": 4164,
-      "foregroundPixels": 29727,
-      "bbox": [
-        116,
-        126,
-        332,
-        322
-      ],
-      "margins": [
-        116,
-        126,
-        116,
-        126
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-00-wizard-arc-r-4-55lo/main.webp",
+      "image": "assets/images/x/beys/bey-x-cx-00-wizard-arc-r-4-55lo/bey-x-cx-00-wizard-arc-r-4-55lo.webp",
       "outputSha256": "acc7eedd2d51e3c2112b62f249a7179f82b7705d03e23431f82b57534b324802",
       "alphaLevels": 256,
       "partialPixels": 6842,
@@ -9674,7 +8154,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-01-dran-brave-s-6-60v/front.webp",
+      "image": "assets/images/x/beys/bey-x-cx-01-dran-brave-s-6-60v/bey-x-cx-01-dran-brave-s-6-60v.webp",
       "outputSha256": "84df9d3d7d6f3338eb4d2096e744587d8628c7bf3a2ac97e6f1f4c8539e8922c",
       "alphaLevels": 249,
       "partialPixels": 4601,
@@ -9693,26 +8173,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-01-dran-brave-s-6-60v/main.webp",
-      "outputSha256": "80b7c975ea1100fa65d006a9f47bd62965b0aae1400b5a9fd261ee04a45dfb49",
-      "alphaLevels": 256,
-      "partialPixels": 6887,
-      "foregroundPixels": 99520,
-      "bbox": [
-        44,
-        39,
-        404,
-        408
-      ],
-      "margins": [
-        44,
-        39,
-        44,
-        40
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-02-wizard-arc-r-4-55lo/front.webp",
+      "image": "assets/images/x/beys/bey-x-cx-02-wizard-arc-r-4-55lo/bey-x-cx-02-wizard-arc-r-4-55lo.webp",
       "outputSha256": "5307f6bed48bda96971ae675e855044d53a3e6d56b18a95bb9a9ede49a6a4401",
       "alphaLevels": 221,
       "partialPixels": 3462,
@@ -9731,26 +8192,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-02-wizard-arc-r-4-55lo/main.webp",
-      "outputSha256": "4bed3544d9abb8af9e88aec6bed886c03c575273a730241c8253738c727346bf",
-      "alphaLevels": 255,
-      "partialPixels": 6150,
-      "foregroundPixels": 95156,
-      "bbox": [
-        45,
-        52,
-        403,
-        395
-      ],
-      "margins": [
-        45,
-        52,
-        45,
-        53
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-03-perseus-dark-b-6-80w/front.webp",
+      "image": "assets/images/x/beys/bey-x-cx-03-perseus-dark-b-6-80w/bey-x-cx-03-perseus-dark-b-6-80w.webp",
       "outputSha256": "e0b16cf4d8845cb261185225de7a9604558d6f9137cbcd92cc16ddc3c40f6687",
       "alphaLevels": 232,
       "partialPixels": 3567,
@@ -9769,26 +8211,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-03-perseus-dark-b-6-80w/main.webp",
-      "outputSha256": "0b2f82d57990da24e2132ec3680537c6a8952d903aa937ce89b6bba54a67a757",
-      "alphaLevels": 256,
-      "partialPixels": 6699,
-      "foregroundPixels": 96856,
-      "bbox": [
-        45,
-        51,
-        402,
-        396
-      ],
-      "margins": [
-        45,
-        51,
-        46,
-        52
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-04-dran-brave-s-6-60v/front.webp",
+      "image": "assets/images/x/beys/bey-x-cx-04-dran-brave-s-6-60v/bey-x-cx-04-dran-brave-s-6-60v.webp",
       "outputSha256": "4046255f176c578d16d5e6200876f90e0eac724704c713399faf95cffc18d749",
       "alphaLevels": 252,
       "partialPixels": 4120,
@@ -9804,25 +8227,6 @@
         44,
         47,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-04-dran-brave-s-6-60v/main.webp",
-      "outputSha256": "a18577061aa533f4a38564016de8ffbc1e5697c9c6989ebc8d20d17d1f51c499",
-      "alphaLevels": 256,
-      "partialPixels": 7984,
-      "foregroundPixels": 92321,
-      "bbox": [
-        51,
-        48,
-        396,
-        399
-      ],
-      "margins": [
-        51,
-        48,
-        52,
-        49
       ]
     },
     {
@@ -9921,7 +8325,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-04-perseus-dark-b-6-80w/front.webp",
+      "image": "assets/images/x/beys/bey-x-cx-04-perseus-dark-b-6-80w/bey-x-cx-04-perseus-dark-b-6-80w.webp",
       "outputSha256": "1a1e36f8154cc4910d76de076588adde98d020c02d6511ea6919f9d7e799f554",
       "alphaLevels": 252,
       "partialPixels": 3792,
@@ -9937,25 +8341,6 @@
         52,
         44,
         53
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-04-perseus-dark-b-6-80w/main.webp",
-      "outputSha256": "63ccfc5b3067dc6bcc5f816444e4643b0c84855cfaedd125945eb29f2d214e97",
-      "alphaLevels": 256,
-      "partialPixels": 7482,
-      "foregroundPixels": 89092,
-      "bbox": [
-        52,
-        60,
-        396,
-        388
-      ],
-      "margins": [
-        52,
-        60,
-        52,
-        60
       ]
     },
     {
@@ -10054,26 +8439,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-05-01-hells-reaper-t-4-70k/front.webp",
-      "outputSha256": "610008a46ec6d460be3ad842cd486460a234afc9e01230a572221d79845fadae",
-      "alphaLevels": 256,
-      "partialPixels": 6330,
-      "foregroundPixels": 96262,
-      "bbox": [
-        44,
-        44,
-        404,
-        403
-      ],
-      "margins": [
-        44,
-        44,
-        44,
-        45
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-05-01-hells-reaper-t-4-70k/main.webp",
+      "image": "assets/images/x/beys/bey-x-cx-05-01-hells-reaper-t-4-70k/bey-x-cx-05-01-hells-reaper-t-4-70k.webp",
       "outputSha256": "610008a46ec6d460be3ad842cd486460a234afc9e01230a572221d79845fadae",
       "alphaLevels": 256,
       "partialPixels": 6330,
@@ -10149,7 +8515,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-05-02-rhino-reaper-c-4-55d/main.webp",
+      "image": "assets/images/x/beys/bey-x-cx-05-02-rhino-reaper-c-4-55d/bey-x-cx-05-02-rhino-reaper-c-4-55d.webp",
       "outputSha256": "5a807784d9f51d7a274ef74f1db6c4100de6ead7b7d955d538b4e3ead6c6902f",
       "alphaLevels": 256,
       "partialPixels": 9174,
@@ -10225,7 +8591,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-05-03-hells-arc-t-3-85o/main.webp",
+      "image": "assets/images/x/beys/bey-x-cx-05-03-hells-arc-t-3-85o/bey-x-cx-05-03-hells-arc-t-3-85o.webp",
       "outputSha256": "28312245b3f64e5b1ec13cb2801025f855387da8ce47502c6f6d3e5f1408a11e",
       "alphaLevels": 255,
       "partialPixels": 6591,
@@ -10339,7 +8705,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-05-04-leon-crest-9-80k/main.webp",
+      "image": "assets/images/x/beys/bey-x-cx-05-04-leon-crest-9-80k/bey-x-cx-05-04-leon-crest-9-80k.webp",
       "outputSha256": "3b8a36a5432b6667891b4598f63c7eb561adb8d47d09c3c924382bbf9c305b9e",
       "alphaLevels": 256,
       "partialPixels": 8873,
@@ -10396,7 +8762,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-05-05-phoenix-rudder-4-70lf/main.webp",
+      "image": "assets/images/x/beys/bey-x-cx-05-05-phoenix-rudder-4-70lf/bey-x-cx-05-05-phoenix-rudder-4-70lf.webp",
       "outputSha256": "0823b3ad08a59e724cf14c9b7da2026e7770ee2f02db2d814844921eb05b2846",
       "alphaLevels": 256,
       "partialPixels": 8101,
@@ -10453,7 +8819,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-05-06-whale-wave-7-60k/main.webp",
+      "image": "assets/images/x/beys/bey-x-cx-05-06-whale-wave-7-60k/bey-x-cx-05-06-whale-wave-7-60k.webp",
       "outputSha256": "276e83e9a65c756ed220a7fe8882de10c7ee88f7f95a05d439d19707499c4544",
       "alphaLevels": 256,
       "partialPixels": 7999,
@@ -10510,7 +8876,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-06-01-fox-brush-j-9-70gr/front.webp",
+      "image": "assets/images/x/beys/bey-x-cx-06-01-fox-brush-j-9-70gr/bey-x-cx-06-01-fox-brush-j-9-70gr.webp",
       "outputSha256": "b037c1e725070cf248bfdfa8470ad80fd1872eae6a66f2b3b313bcc462ec05c6",
       "alphaLevels": 256,
       "partialPixels": 7456,
@@ -10526,25 +8892,6 @@
         44,
         50,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-06-01-fox-brush-j-9-70gr/main.webp",
-      "outputSha256": "4ccea7dc17e518f47cb92f99a1db9956d27a1f7adc10c161c4d8497860f13d17",
-      "alphaLevels": 256,
-      "partialPixels": 7112,
-      "foregroundPixels": 79426,
-      "bbox": [
-        43,
-        58,
-        405,
-        389
-      ],
-      "margins": [
-        43,
-        58,
-        43,
-        59
       ]
     },
     {
@@ -10567,7 +8914,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-06-02-fox-brush-j-0-80db/main.webp",
+      "image": "assets/images/x/beys/bey-x-cx-06-02-fox-brush-j-0-80db/bey-x-cx-06-02-fox-brush-j-0-80db.webp",
       "outputSha256": "1ef9bae8a50d94c59cfd3074defb9951835b0fab38bb9ed827e05b757b14a614",
       "alphaLevels": 256,
       "partialPixels": 8605,
@@ -10681,7 +9028,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-06-03-fox-brush-j-2-60u/main.webp",
+      "image": "assets/images/x/beys/bey-x-cx-06-03-fox-brush-j-2-60u/bey-x-cx-06-03-fox-brush-j-2-60u.webp",
       "outputSha256": "86c3bfc3730bdbde2cb3c127da1f7e32f13775b1343f419becb7f7fff7ec97fd",
       "alphaLevels": 256,
       "partialPixels": 8682,
@@ -10795,7 +9142,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-07-pegasus-blast-a-tr/main.webp",
+      "image": "assets/images/x/beys/bey-x-cx-07-pegasus-blast-a-tr/bey-x-cx-07-pegasus-blast-a-tr.webp",
       "outputSha256": "1e0d6424495844b80c4c813710c4ba40d28eb8ec8062210566806cfa7e8edc1c",
       "alphaLevels": 256,
       "partialPixels": 6199,
@@ -10814,7 +9161,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-08-01-kerberos-flame-w-5-80wb/front.webp",
+      "image": "assets/images/x/beys/bey-x-cx-08-01-kerberos-flame-w-5-80wb/bey-x-cx-08-01-kerberos-flame-w-5-80wb.webp",
       "outputSha256": "975b3ad689aa51c22a1d530f9acca0342b22f47b5f939875454e3cddf09b3c93",
       "alphaLevels": 256,
       "partialPixels": 6681,
@@ -10830,25 +9177,6 @@
         44,
         45,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-08-01-kerberos-flame-w-5-80wb/main.webp",
-      "outputSha256": "8b201d4ee0906d81b9d59ce2743605df30dbfed04bccaaf5c97a4dce27e83fa5",
-      "alphaLevels": 255,
-      "partialPixels": 6436,
-      "foregroundPixels": 88355,
-      "bbox": [
-        44,
-        58,
-        404,
-        390
-      ],
-      "margins": [
-        44,
-        58,
-        44,
-        58
       ]
     },
     {
@@ -10871,7 +9199,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-08-02-whale-flame-m-3-85ht/main.webp",
+      "image": "assets/images/x/beys/bey-x-cx-08-02-whale-flame-m-3-85ht/bey-x-cx-08-02-whale-flame-m-3-85ht.webp",
       "outputSha256": "a0deb245c4ce29cc59e98e34d4138cf60812dd0e4652c9303f26e6a2891abe81",
       "alphaLevels": 256,
       "partialPixels": 8711,
@@ -10947,7 +9275,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-08-03-kerberos-dark-w-1-60f/main.webp",
+      "image": "assets/images/x/beys/bey-x-cx-08-03-kerberos-dark-w-1-60f/bey-x-cx-08-03-kerberos-dark-w-1-60f.webp",
       "outputSha256": "97c2f284fd2e80e144e2a8e1105594c5522962b44d3c83d8f33a3643566abaa4",
       "alphaLevels": 256,
       "partialPixels": 7672,
@@ -11061,7 +9389,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-08-04-dran-buster-5-80mn/main.webp",
+      "image": "assets/images/x/beys/bey-x-cx-08-04-dran-buster-5-80mn/bey-x-cx-08-04-dran-buster-5-80mn.webp",
       "outputSha256": "c8dd0977d3046ecde9d438c4cbafe49c7f6ee86b9729ea40d35b1e49e04a30a0",
       "alphaLevels": 256,
       "partialPixels": 8160,
@@ -11118,7 +9446,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-08-05-black-turtle-7-70wb/main.webp",
+      "image": "assets/images/x/beys/bey-x-cx-08-05-black-turtle-7-70wb/bey-x-cx-08-05-black-turtle-7-70wb.webp",
       "outputSha256": "51dbefd9f30b8d83ada85a549969968f056bce55ab61fec9e384af6c2140a97d",
       "alphaLevels": 256,
       "partialPixels": 8196,
@@ -11175,7 +9503,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-08-06-cobalt-dragoon-4-55wb/main.webp",
+      "image": "assets/images/x/beys/bey-x-cx-08-06-cobalt-dragoon-4-55wb/bey-x-cx-08-06-cobalt-dragoon-4-55wb.webp",
       "outputSha256": "49a1f41bf15161117d560ce5b6be65f055431e6b71f3c724420b8291d8a47323",
       "alphaLevels": 256,
       "partialPixels": 8107,
@@ -11232,7 +9560,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-09-sol-eclipse-d-5-70tk/front.webp",
+      "image": "assets/images/x/beys/bey-x-cx-09-sol-eclipse-d-5-70tk/bey-x-cx-09-sol-eclipse-d-5-70tk.webp",
       "outputSha256": "e86472105e074eca1feb488352cd4a3cf9fdb40b8174d5af162292cf677cf0d0",
       "alphaLevels": 256,
       "partialPixels": 6365,
@@ -11248,25 +9576,6 @@
         44,
         47,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-09-sol-eclipse-d-5-70tk/main.webp",
-      "outputSha256": "825216bd8ba79d06f09fd3dda8f43bd9e3e64459a813a6c171102d7501ce6c05",
-      "alphaLevels": 256,
-      "partialPixels": 5931,
-      "foregroundPixels": 81501,
-      "bbox": [
-        45,
-        65,
-        402,
-        383
-      ],
-      "margins": [
-        45,
-        65,
-        46,
-        65
       ]
     },
     {
@@ -11289,7 +9598,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-10-wolf-hunt-f-0-60db/main.webp",
+      "image": "assets/images/x/beys/bey-x-cx-10-wolf-hunt-f-0-60db/bey-x-cx-10-wolf-hunt-f-0-60db.webp",
       "outputSha256": "f849d8040393350744c20021b4c4d5e863754920022956f9f63634c553d49b8b",
       "alphaLevels": 256,
       "partialPixels": 7834,
@@ -11327,7 +9636,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-11-emperor-might-h-op/front.webp",
+      "image": "assets/images/x/beys/bey-x-cx-11-emperor-might-h-op/bey-x-cx-11-emperor-might-h-op.webp",
       "outputSha256": "ed2997b552373045cc3cee5947d824dedb39542936fcc4f86261e92d38bf8864",
       "alphaLevels": 254,
       "partialPixels": 5687,
@@ -11346,45 +9655,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-11-emperor-might-h-op/main.webp",
-      "outputSha256": "72823a5bbb5c83dfd06656f52422cb435f149065fbb500f73bf4fe9a86772ef2",
-      "alphaLevels": 256,
-      "partialPixels": 5755,
-      "foregroundPixels": 83822,
-      "bbox": [
-        44,
-        65,
-        404,
-        382
-      ],
-      "margins": [
-        44,
-        65,
-        44,
-        66
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-11-golem-rock-m-85hn/front.webp",
-      "outputSha256": "bb9a85ae1065e05994eed5d95250797a063988612c44326b035954ca4e8c1f3b",
-      "alphaLevels": 238,
-      "partialPixels": 3506,
-      "foregroundPixels": 97372,
-      "bbox": [
-        44,
-        51,
-        404,
-        397
-      ],
-      "margins": [
-        44,
-        51,
-        44,
-        51
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-11-golem-rock-m-85hn/main.webp",
+      "image": "assets/images/x/beys/bey-x-cx-11-golem-rock-m-85hn/bey-x-cx-11-golem-rock-m-85hn.webp",
       "outputSha256": "bb9a85ae1065e05994eed5d95250797a063988612c44326b035954ca4e8c1f3b",
       "alphaLevels": 238,
       "partialPixels": 3506,
@@ -11460,26 +9731,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-11-shark-gill-5-60fb/front.webp",
-      "outputSha256": "a46792d03e4033a4646166cb153817877377ca448491274ac2cb578f67b548b5",
-      "alphaLevels": 253,
-      "partialPixels": 3907,
-      "foregroundPixels": 92365,
-      "bbox": [
-        59,
-        44,
-        388,
-        404
-      ],
-      "margins": [
-        59,
-        44,
-        60,
-        44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-11-shark-gill-5-60fb/main.webp",
+      "image": "assets/images/x/beys/bey-x-cx-11-shark-gill-5-60fb/bey-x-cx-11-shark-gill-5-60fb.webp",
       "outputSha256": "a46792d03e4033a4646166cb153817877377ca448491274ac2cb578f67b548b5",
       "alphaLevels": 253,
       "partialPixels": 3907,
@@ -11536,7 +9788,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-12-phoenix-flare-z-9-80ww/main.webp",
+      "image": "assets/images/x/beys/bey-x-cx-12-phoenix-flare-z-9-80ww/bey-x-cx-12-phoenix-flare-z-9-80ww.webp",
       "outputSha256": "fa1becea1b837b0fe905e4d3576d336f9e01c565a75093380eb89e700755a27a",
       "alphaLevels": 255,
       "partialPixels": 6424,
@@ -11555,7 +9807,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-13-bahamut-blitz-bk-1-50i/main.webp",
+      "image": "assets/images/x/beys/bey-x-cx-13-bahamut-blitz-bk-1-50i/bey-x-cx-13-bahamut-blitz-bk-1-50i.webp",
       "outputSha256": "cc7e646eed917d229b38f9c5466a0734ff3167d01fa715225a2e90b4ac00c726",
       "alphaLevels": 256,
       "partialPixels": 8557,
@@ -11574,7 +9826,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-14-knight-fortress-gv-8-70un/main.webp",
+      "image": "assets/images/x/beys/bey-x-cx-14-knight-fortress-gv-8-70un/bey-x-cx-14-knight-fortress-gv-8-70un.webp",
       "outputSha256": "76d11b118dc10e91fbe2700151fa40b785c21d078c56f5dff2d00a35b6d2eeeb",
       "alphaLevels": 256,
       "partialPixels": 8584,
@@ -11612,7 +9864,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-15-ragna-rage-fe-4-55y/main.webp",
+      "image": "assets/images/x/beys/bey-x-cx-15-ragna-rage-fe-4-55y/bey-x-cx-15-ragna-rage-fe-4-55y.webp",
       "outputSha256": "cead8ff20be41d6f96758528f3525f6df86e5a6d65eb7afecc998b50ae971e88",
       "alphaLevels": 256,
       "partialPixels": 7313,
@@ -11650,7 +9902,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-16-bahamut-blitz-bk-1-50i/main.webp",
+      "image": "assets/images/x/beys/bey-x-cx-16-bahamut-blitz-bk-1-50i/bey-x-cx-16-bahamut-blitz-bk-1-50i.webp",
       "outputSha256": "80fb7829587359387eb9d0be11eeadf4cea6bdd50f768221b4b66b69e313c632",
       "alphaLevels": 256,
       "partialPixels": 9290,
@@ -11783,7 +10035,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-17-01-unicorn-delta-po-3-60gu/front.webp",
+      "image": "assets/images/x/beys/bey-x-cx-17-01-unicorn-delta-po-3-60gu/bey-x-cx-17-01-unicorn-delta-po-3-60gu.webp",
       "outputSha256": "42484e025e66c055876752020f405feba4ad91238b26ef9cc3219b09eb6f2ab3",
       "alphaLevels": 248,
       "partialPixels": 5661,
@@ -11799,25 +10051,6 @@
         44,
         45,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-17-01-unicorn-delta-po-3-60gu/main.webp",
-      "outputSha256": "7040059dd7051a0ece70b9893b2a6eb94f7e599b97e67864d3aa9f56fbbf08f7",
-      "alphaLevels": 256,
-      "partialPixels": 6108,
-      "foregroundPixels": 78989,
-      "bbox": [
-        44,
-        69,
-        403,
-        379
-      ],
-      "margins": [
-        44,
-        69,
-        45,
-        69
       ]
     },
     {
@@ -11840,7 +10073,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-17-02-unicorn-delta-po-1-80gr/main.webp",
+      "image": "assets/images/x/beys/bey-x-cx-17-02-unicorn-delta-po-1-80gr/bey-x-cx-17-02-unicorn-delta-po-1-80gr.webp",
       "outputSha256": "c02ff577715b7fbb62b42e97e3c42277c7581131076f1593e3941f5de4f78bf5",
       "alphaLevels": 255,
       "partialPixels": 7241,
@@ -11973,7 +10206,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-17-03-warrior-saber-9-65lo/main.webp",
+      "image": "assets/images/x/beys/bey-x-cx-17-03-warrior-saber-9-65lo/bey-x-cx-17-03-warrior-saber-9-65lo.webp",
       "outputSha256": "d50d82d8101ce8e332afa5a2c21c814667afbb7b69842fd1d278397bd451f46b",
       "alphaLevels": 256,
       "partialPixels": 9312,
@@ -12030,7 +10263,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-17-04-hells-hammer-3-85gu/main.webp",
+      "image": "assets/images/x/beys/bey-x-cx-17-04-hells-hammer-3-85gu/bey-x-cx-17-04-hells-hammer-3-85gu.webp",
       "outputSha256": "fab8992ffc8e13905583128488dceaaa8ee1cca4175f9f75a9759b16dea1e36a",
       "alphaLevels": 256,
       "partialPixels": 7543,
@@ -12087,7 +10320,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-17-05-tyranno-beat-3-60n/main.webp",
+      "image": "assets/images/x/beys/bey-x-cx-17-05-tyranno-beat-3-60n/bey-x-cx-17-05-tyranno-beat-3-60n.webp",
       "outputSha256": "447908a7bf3b36b8dab06b6119644685cdd2cf368502915b58039b576fdf4627",
       "alphaLevels": 256,
       "partialPixels": 8454,
@@ -12144,7 +10377,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-17-06-crimson-garuda-7-80gu/main.webp",
+      "image": "assets/images/x/beys/bey-x-cx-17-06-crimson-garuda-7-80gu/bey-x-cx-17-06-crimson-garuda-7-80gu.webp",
       "outputSha256": "2af9731ff0ca724a712f682d5766fbd0661b120f409fd53178276188d6915d8c",
       "alphaLevels": 256,
       "partialPixels": 8479,
@@ -12201,7 +10434,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-18-01-brachio-whip-ow-5-70nr/front.webp",
+      "image": "assets/images/x/beys/bey-x-cx-18-01-brachio-whip-ow-5-70nr/bey-x-cx-18-01-brachio-whip-ow-5-70nr.webp",
       "outputSha256": "e498db6cd3748ad67e39b26263df0822cf40f94d22983a15b9c457833eb65776",
       "alphaLevels": 256,
       "partialPixels": 6809,
@@ -12217,25 +10450,6 @@
         44,
         44,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-cx-18-01-brachio-whip-ow-5-70nr/main.webp",
-      "outputSha256": "b33077078fa56a7312093bf4df579bada403a531d0b4dab9c97116a73a92382d",
-      "alphaLevels": 256,
-      "partialPixels": 6295,
-      "foregroundPixels": 85545,
-      "bbox": [
-        43,
-        55,
-        404,
-        393
-      ],
-      "margins": [
-        43,
-        55,
-        44,
-        55
       ]
     },
     {
@@ -12277,7 +10491,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-18-02-brachio-whip-ow-5-70nr/main.webp",
+      "image": "assets/images/x/beys/bey-x-cx-18-02-brachio-whip-ow-5-70nr/bey-x-cx-18-02-brachio-whip-ow-5-70nr.webp",
       "outputSha256": "83df9bee05cfa134cbf2b15bbfbfeb61e001a40c475ab04c5e7708e36bd7d874",
       "alphaLevels": 256,
       "partialPixels": 7908,
@@ -12410,7 +10624,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-cx-18-03-brachio-whip-ow-5-70nr/main.webp",
+      "image": "assets/images/x/beys/bey-x-cx-18-03-brachio-whip-ow-5-70nr/bey-x-cx-18-03-brachio-whip-ow-5-70nr.webp",
       "outputSha256": "03c2aad71b934942042bd61c5b5eb27357e20abf132f1697be1adf3fc5de024b",
       "alphaLevels": 256,
       "partialPixels": 8372,
@@ -12543,7 +10757,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-00-aero-pegasus-3-70a/front.webp",
+      "image": "assets/images/x/beys/bey-x-ux-00-aero-pegasus-3-70a/bey-x-ux-00-aero-pegasus-3-70a.webp",
       "outputSha256": "514a8cd9ca4aa2b70bed42ecfa782e26ac7273e320f06a8063b83b5aac892608",
       "alphaLevels": 255,
       "partialPixels": 4352,
@@ -12559,25 +10773,6 @@
         44,
         47,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-00-aero-pegasus-3-70a/main.webp",
-      "outputSha256": "de71888a43e53161a6209c6961021dd7eba0e644106deb20a646056a8d75c292",
-      "alphaLevels": 256,
-      "partialPixels": 8866,
-      "foregroundPixels": 100995,
-      "bbox": [
-        44,
-        41,
-        403,
-        407
-      ],
-      "margins": [
-        44,
-        41,
-        45,
-        41
       ]
     },
     {
@@ -12619,7 +10814,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-00-dran-buster-1-60a/front.webp",
+      "image": "assets/images/x/beys/bey-x-ux-00-dran-buster-1-60a/bey-x-ux-00-dran-buster-1-60a.webp",
       "outputSha256": "571f7bae314442d9c16ba99c81198dcdcde5ba68ac9da05beb29a36a1c48e4d5",
       "alphaLevels": 240,
       "partialPixels": 4285,
@@ -12638,7 +10833,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-00-dran-buster-1-60a/main.webp",
+      "image": "assets/images/x/beys/bey-x-ux-00-dran-buster-1-60a/bey-x-ux-00-dran-buster-1-60a-blade-preview.webp",
       "outputSha256": "d4edcb272af5b8b490fcebe86a82ac5b9792eec46ee242d9afff151335c5878f",
       "alphaLevels": 256,
       "partialPixels": 4608,
@@ -12695,7 +10890,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-00-dran-buster-3-70n/front.webp",
+      "image": "assets/images/x/beys/bey-x-ux-00-dran-buster-3-70n/bey-x-ux-00-dran-buster-3-70n.webp",
       "outputSha256": "9af7932e9d7080181eaa2fe7e1dab18b72e379a0b2adb1d46187dfacd1001f75",
       "alphaLevels": 223,
       "partialPixels": 3623,
@@ -12710,25 +10905,6 @@
         48,
         44,
         49,
-        44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-00-dran-buster-3-70n/main.webp",
-      "outputSha256": "7ac3685b471ed038b0222b47df1c170064a135c33c7f5ccc695dfe2afaee7ea8",
-      "alphaLevels": 256,
-      "partialPixels": 6853,
-      "foregroundPixels": 92842,
-      "bbox": [
-        47,
-        43,
-        400,
-        404
-      ],
-      "margins": [
-        47,
-        43,
-        48,
         44
       ]
     },
@@ -12790,7 +10966,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-00-dran-dagger-9-60lf/front.webp",
+      "image": "assets/images/x/beys/bey-x-ux-00-dran-dagger-9-60lf/bey-x-ux-00-dran-dagger-9-60lf.webp",
       "outputSha256": "55516b4cf802eafbc8705d734437b4dd196c9b154525dee888a0b02f00b04145",
       "alphaLevels": 255,
       "partialPixels": 4248,
@@ -12806,25 +10982,6 @@
         44,
         54,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-00-dran-dagger-9-60lf/main.webp",
-      "outputSha256": "41566bdcafe4a95efcb1337431d5f162e764a3bff507a596c2bf7e7b55705ece",
-      "alphaLevels": 255,
-      "partialPixels": 6026,
-      "foregroundPixels": 96047,
-      "bbox": [
-        47,
-        36,
-        401,
-        411
-      ],
-      "margins": [
-        47,
-        36,
-        47,
-        37
       ]
     },
     {
@@ -12885,7 +11042,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-00-dran-sword-4-80db/front.webp",
+      "image": "assets/images/x/beys/bey-x-ux-00-dran-sword-4-80db/bey-x-ux-00-dran-sword-4-80db.webp",
       "outputSha256": "d52ccaeb37d441b7ba9ce0616afa12c1f9071901a0464a224dfca4d97b50c939",
       "alphaLevels": 256,
       "partialPixels": 6672,
@@ -12901,25 +11058,6 @@
         44,
         51,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-00-dran-sword-4-80db/main.webp",
-      "outputSha256": "5eccc116eb89f76d99c08dda0a061bae44b30b2964d14d924199b25bcd9f3f91",
-      "alphaLevels": 256,
-      "partialPixels": 5901,
-      "foregroundPixels": 82535,
-      "bbox": [
-        45,
-        63,
-        403,
-        385
-      ],
-      "margins": [
-        45,
-        63,
-        45,
-        63
       ]
     },
     {
@@ -12980,7 +11118,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-00-hells-hammer-3-70h/front.webp",
+      "image": "assets/images/x/beys/bey-x-ux-00-hells-hammer-3-70h/bey-x-ux-00-hells-hammer-3-70h.webp",
       "outputSha256": "95d5f304d67b449b104d9261c5f7330b39a9261949289e8ced0ee4664a6094cf",
       "alphaLevels": 250,
       "partialPixels": 3623,
@@ -12996,25 +11134,6 @@
         45,
         44,
         45
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-00-hells-hammer-3-70h/main.webp",
-      "outputSha256": "5903437407e219f70954fa98c8a418cc5b77c021f3eb75633d7fbe049459b6d7",
-      "alphaLevels": 256,
-      "partialPixels": 5030,
-      "foregroundPixels": 75096,
-      "bbox": [
-        47,
-        77,
-        401,
-        371
-      ],
-      "margins": [
-        47,
-        77,
-        47,
-        77
       ]
     },
     {
@@ -13075,7 +11194,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-00-knight-mail-3-85bs/front.webp",
+      "image": "assets/images/x/beys/bey-x-ux-00-knight-mail-3-85bs/bey-x-ux-00-knight-mail-3-85bs.webp",
       "outputSha256": "1d39310470d811532d3e8693e6e78830c69bd4ed76f48eb0b6e8a4b052cd89f3",
       "alphaLevels": 207,
       "partialPixels": 3405,
@@ -13091,25 +11210,6 @@
         44,
         45,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-00-knight-mail-3-85bs/main.webp",
-      "outputSha256": "f578395d33b02f47d4c01cac7ac151d4fe3f2f36c2a350ac393bbfbbe7115ce9",
-      "alphaLevels": 256,
-      "partialPixels": 6495,
-      "foregroundPixels": 98102,
-      "bbox": [
-        44,
-        45,
-        403,
-        403
-      ],
-      "margins": [
-        44,
-        45,
-        45,
-        45
       ]
     },
     {
@@ -13151,7 +11251,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-00-scorpio-spear-0-70z/front.webp",
+      "image": "assets/images/x/beys/bey-x-ux-00-scorpio-spear-0-70z/bey-x-ux-00-scorpio-spear-0-70z.webp",
       "outputSha256": "881f08729a98607e6f6e69cfd0115de0e81d28a9ef4f62ad286c8d12d39f89a5",
       "alphaLevels": 252,
       "partialPixels": 3513,
@@ -13167,25 +11267,6 @@
         46,
         44,
         47
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-00-scorpio-spear-0-70z/main.webp",
-      "outputSha256": "aad9798ca71ee2b4813107674148a659b76b938ea2f4a22f2c9d8058acbcf185",
-      "alphaLevels": 256,
-      "partialPixels": 5855,
-      "foregroundPixels": 96740,
-      "bbox": [
-        46,
-        48,
-        402,
-        400
-      ],
-      "margins": [
-        46,
-        48,
-        46,
-        48
       ]
     },
     {
@@ -13246,7 +11327,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-00-warrior-saber-2-70l/front.webp",
+      "image": "assets/images/x/beys/bey-x-ux-00-warrior-saber-2-70l/bey-x-ux-00-warrior-saber-2-70l.webp",
       "outputSha256": "4694f576beb3740558190160e4f2f8c2c0de9fd5323b519068f0ae33e265e59a",
       "alphaLevels": 255,
       "partialPixels": 6702,
@@ -13322,7 +11403,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-00-warrior-saber-5-60k/front.webp",
+      "image": "assets/images/x/beys/bey-x-ux-00-warrior-saber-5-60k/bey-x-ux-00-warrior-saber-5-60k.webp",
       "outputSha256": "3ea6cb30b149e4fe0b559a6de7927ac02d6767a88e39a4af95217d4ea2377c9b",
       "alphaLevels": 223,
       "partialPixels": 4072,
@@ -13338,25 +11419,6 @@
         44,
         48,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-00-warrior-saber-5-60k/main.webp",
-      "outputSha256": "115f0c977e6627141ba4c23d0df4eca671d56bd92797c86e3898c32d8732f8d8",
-      "alphaLevels": 256,
-      "partialPixels": 7138,
-      "foregroundPixels": 101183,
-      "bbox": [
-        42,
-        40,
-        405,
-        407
-      ],
-      "margins": [
-        42,
-        40,
-        43,
-        41
       ]
     },
     {
@@ -13398,7 +11460,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-01-dran-buster-1-60a/front.webp",
+      "image": "assets/images/x/beys/bey-x-ux-01-dran-buster-1-60a/bey-x-ux-01-dran-buster-1-60a.webp",
       "outputSha256": "a6d9855de3cdfdb8866131d8be4ac4aa69c344a8799040f99a23c5a413e8aaa3",
       "alphaLevels": 247,
       "partialPixels": 4307,
@@ -13417,26 +11479,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-01-dran-buster-1-60a/main.webp",
-      "outputSha256": "3bce6679ecc39a329d8acbf5ac274dd4aa1676e68976caeee2649e034cb10e76",
-      "alphaLevels": 28,
-      "partialPixels": 2405,
-      "foregroundPixels": 91367,
-      "bbox": [
-        48,
-        41,
-        399,
-        406
-      ],
-      "margins": [
-        48,
-        41,
-        49,
-        42
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-02-hells-hammer-3-70h/front.webp",
+      "image": "assets/images/x/beys/bey-x-ux-02-hells-hammer-3-70h/bey-x-ux-02-hells-hammer-3-70h.webp",
       "outputSha256": "c9a9b99444900850cf3a0c1509fbfc787d73f76b5db07a8fe70985a62f731ecb",
       "alphaLevels": 256,
       "partialPixels": 5725,
@@ -13455,26 +11498,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-02-hells-hammer-3-70h/main.webp",
-      "outputSha256": "a7ea931ecf23e268a5a1a4a18084226da71cc44ed423848a4d46e2688bd76c6e",
-      "alphaLevels": 35,
-      "partialPixels": 3350,
-      "foregroundPixels": 90767,
-      "bbox": [
-        46,
-        48,
-        401,
-        400
-      ],
-      "margins": [
-        46,
-        48,
-        47,
-        48
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-03-wizard-rod-5-70db/front.webp",
+      "image": "assets/images/x/beys/bey-x-ux-03-wizard-rod-5-70db/bey-x-ux-03-wizard-rod-5-70db.webp",
       "outputSha256": "8826a6f374328854f878ae0f4a1873f7597d309c137371fa765f23e0c18dd12b",
       "alphaLevels": 238,
       "partialPixels": 6680,
@@ -13493,26 +11517,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-03-wizard-rod-5-70db/main.webp",
-      "outputSha256": "5313a2e234853c075a166b7b103680837250c8470082964716693b211e250032",
-      "alphaLevels": 35,
-      "partialPixels": 4448,
-      "foregroundPixels": 92703,
-      "bbox": [
-        46,
-        44,
-        401,
-        403
-      ],
-      "margins": [
-        46,
-        44,
-        47,
-        45
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-04-dran-buster-1-60a/front.webp",
+      "image": "assets/images/x/beys/bey-x-ux-04-dran-buster-1-60a/bey-x-ux-04-dran-buster-1-60a.webp",
       "outputSha256": "841ad2f1a6c83e17f3b6338008af1eace8406741bca81f7bed1c0314c7fe6f0b",
       "alphaLevels": 256,
       "partialPixels": 9321,
@@ -13531,7 +11536,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-04-dran-buster-1-60a/main.webp",
+      "image": "assets/images/x/beys/bey-x-ux-04-dran-buster-1-60a/bey-x-ux-04-dran-buster-1-60a-blade-preview.webp",
       "outputSha256": "0b1878f847f2b3f3bd5b11fcb2461d9e0636307ea0cd40edc9b247dbc4b30e36",
       "alphaLevels": 255,
       "partialPixels": 6272,
@@ -13588,7 +11593,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-04-wizard-rod-5-70db/front.webp",
+      "image": "assets/images/x/beys/bey-x-ux-04-wizard-rod-5-70db/bey-x-ux-04-wizard-rod-5-70db.webp",
       "outputSha256": "b529996b735ba462543aa2cfb51a173ccd3c8cabd2eac81746939856926b1d27",
       "alphaLevels": 233,
       "partialPixels": 5404,
@@ -13607,7 +11612,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-04-wizard-rod-5-70db/main.webp",
+      "image": "assets/images/x/beys/bey-x-ux-04-wizard-rod-5-70db/bey-x-ux-04-wizard-rod-5-70db-blade-preview.webp",
       "outputSha256": "4feefae7259dd6d5f9d91858d9fec86dbb66adaf31f76cb585ca6f8af7b6660d",
       "alphaLevels": 39,
       "partialPixels": 3658,
@@ -13664,7 +11669,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-05-01-ninja-shadow-1-80mn/front.webp",
+      "image": "assets/images/x/beys/bey-x-ux-05-01-ninja-shadow-1-80mn/bey-x-ux-05-01-ninja-shadow-1-80mn.webp",
       "outputSha256": "96cb88f8c000335223ea5497f0ae1a0192abdeb189f6eb98c2e9b7188491e72a",
       "alphaLevels": 251,
       "partialPixels": 3814,
@@ -13683,26 +11688,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-05-01-ninja-shadow-1-80mn/main.webp",
-      "outputSha256": "9e46ac63454f5847a570e84ba183d4eee12111a7f925f49a45c1e9d478ce4cd1",
-      "alphaLevels": 18,
-      "partialPixels": 2089,
-      "foregroundPixels": 88864,
-      "bbox": [
-        57,
-        53,
-        391,
-        395
-      ],
-      "margins": [
-        57,
-        53,
-        57,
-        53
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-05-02-ninja-shadow-9-60lf/main.webp",
+      "image": "assets/images/x/beys/bey-x-ux-05-02-ninja-shadow-9-60lf/bey-x-ux-05-02-ninja-shadow-9-60lf.webp",
       "outputSha256": "9d56e06c6772b9c7b66d97494af510d0d3d576f3a918e61dffe91cd530abcfa4",
       "alphaLevels": 256,
       "partialPixels": 8296,
@@ -13759,7 +11745,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-05-03-ninja-shadow-3-70gp/main.webp",
+      "image": "assets/images/x/beys/bey-x-ux-05-03-ninja-shadow-3-70gp/bey-x-ux-05-03-ninja-shadow-3-70gp.webp",
       "outputSha256": "fe9699f72480f27802825ffb7b0773f0052b84f80e6861854b7ac182b3c175fd",
       "alphaLevels": 256,
       "partialPixels": 8638,
@@ -13816,7 +11802,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-06-leon-crest-7-60gn/front.webp",
+      "image": "assets/images/x/beys/bey-x-ux-06-leon-crest-7-60gn/bey-x-ux-06-leon-crest-7-60gn.webp",
       "outputSha256": "ee7ea06b033d651ca7beb8120f849f9a9a2819832954b2d19933fda9158ccaab",
       "alphaLevels": 184,
       "partialPixels": 3213,
@@ -13835,26 +11821,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-06-leon-crest-7-60gn/main.webp",
-      "outputSha256": "c3683d55d68ad5503cd6420375abacd5cc7ba2ae162fef5ae3590db0910da659",
-      "alphaLevels": 256,
-      "partialPixels": 7058,
-      "foregroundPixels": 97943,
-      "bbox": [
-        44,
-        42,
-        404,
-        406
-      ],
-      "margins": [
-        44,
-        42,
-        44,
-        42
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-07-phoenix-rudder-9-70g/front.webp",
+      "image": "assets/images/x/beys/bey-x-ux-07-phoenix-rudder-9-70g/bey-x-ux-07-phoenix-rudder-9-70g.webp",
       "outputSha256": "b7d0e284281897fd396f6a8b6a25aa884262ec2af818764f38ff8e2ab967ea46",
       "alphaLevels": 244,
       "partialPixels": 3490,
@@ -13873,26 +11840,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-07-phoenix-rudder-9-70g/main.webp",
-      "outputSha256": "ec30a823f04edc53a87713387e3a6b3b5131d066134bde8c538d2474ef853fec",
-      "alphaLevels": 256,
-      "partialPixels": 5934,
-      "foregroundPixels": 86257,
-      "bbox": [
-        34,
-        58,
-        413,
-        390
-      ],
-      "margins": [
-        34,
-        58,
-        35,
-        58
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-07-sphinx-cowl-1-80gf/front.webp",
+      "image": "assets/images/x/beys/bey-x-ux-07-sphinx-cowl-1-80gf/bey-x-ux-07-sphinx-cowl-1-80gf.webp",
       "outputSha256": "f210fb4634ec046f23620d65caa725b30118562ef4d4b69e88be1b8f87895bc8",
       "alphaLevels": 225,
       "partialPixels": 4028,
@@ -13908,25 +11856,6 @@
         44,
         49,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-07-sphinx-cowl-1-80gf/main.webp",
-      "outputSha256": "ebc88f0c34566f97dda15e2a2ecdd3bc4769f56592e7e5053255615f452780a2",
-      "alphaLevels": 253,
-      "partialPixels": 6016,
-      "foregroundPixels": 99646,
-      "bbox": [
-        45,
-        41,
-        403,
-        406
-      ],
-      "margins": [
-        45,
-        41,
-        45,
-        42
       ]
     },
     {
@@ -13987,7 +11916,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-07-wyvern-gale-2-60s/front.webp",
+      "image": "assets/images/x/beys/bey-x-ux-07-wyvern-gale-2-60s/bey-x-ux-07-wyvern-gale-2-60s.webp",
       "outputSha256": "9297b09c2ab637e166e70b0eb65bb5bbb3b748ab4237ac322260a8ed98a3700c",
       "alphaLevels": 250,
       "partialPixels": 4318,
@@ -14003,25 +11932,6 @@
         45,
         44,
         46
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-07-wyvern-gale-2-60s/main.webp",
-      "outputSha256": "ece2597f83fea32bcbd6fb5f45ba80c76b9d31ba8dc345f6a8ce3b2e2bba02e0",
-      "alphaLevels": 255,
-      "partialPixels": 7183,
-      "foregroundPixels": 97563,
-      "bbox": [
-        46,
-        45,
-        402,
-        403
-      ],
-      "margins": [
-        46,
-        45,
-        46,
-        45
       ]
     },
     {
@@ -14082,7 +11992,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-08-silver-wolf-3-80fb/front.webp",
+      "image": "assets/images/x/beys/bey-x-ux-08-silver-wolf-3-80fb/bey-x-ux-08-silver-wolf-3-80fb.webp",
       "outputSha256": "ffacb34c42733b2dfc5af293c7575904448222dc573273ea32740f145acc9f27",
       "alphaLevels": 221,
       "partialPixels": 3455,
@@ -14097,25 +12007,6 @@
         44,
         45,
         44,
-        46
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-08-silver-wolf-3-80fb/main.webp",
-      "outputSha256": "0fb3d158f2abe5cdba7c695872cdfaa7237e51e2ee894ddb23df6ac63030c437",
-      "alphaLevels": 256,
-      "partialPixels": 6910,
-      "foregroundPixels": 99764,
-      "bbox": [
-        42,
-        46,
-        405,
-        402
-      ],
-      "margins": [
-        42,
-        46,
-        43,
         46
       ]
     },
@@ -14139,7 +12030,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-09-warrior-saber-2-70l/front.webp",
+      "image": "assets/images/x/beys/bey-x-ux-09-warrior-saber-2-70l/bey-x-ux-09-warrior-saber-2-70l.webp",
       "outputSha256": "80c41f941c7e114aba004edeaafd25b89da008dd834b22d94526aeb24ec1ebd3",
       "alphaLevels": 234,
       "partialPixels": 4298,
@@ -14158,26 +12049,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-09-warrior-saber-2-70l/main.webp",
-      "outputSha256": "d069897bd65d7b53603d71047b6a54a5b409e55729a1c2fa00bf80f94e43f67d",
-      "alphaLevels": 256,
-      "partialPixels": 7381,
-      "foregroundPixels": 102068,
-      "bbox": [
-        43,
-        39,
-        405,
-        408
-      ],
-      "margins": [
-        43,
-        39,
-        43,
-        40
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-10-knight-mail-3-85bs/front.webp",
+      "image": "assets/images/x/beys/bey-x-ux-10-knight-mail-3-85bs/bey-x-ux-10-knight-mail-3-85bs.webp",
       "outputSha256": "09a05d86799892390591f3652a9abf2dc0d4eb73f2520a225acfdf82e0797615",
       "alphaLevels": 253,
       "partialPixels": 3761,
@@ -14193,25 +12065,6 @@
         44,
         44,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-10-knight-mail-3-85bs/main.webp",
-      "outputSha256": "e74912d618e3d4d4f60c9726c7b62d50908f6b12b20b39b4225fa6f8f5f71501",
-      "alphaLevels": 256,
-      "partialPixels": 4533,
-      "foregroundPixels": 74191,
-      "bbox": [
-        45,
-        76,
-        402,
-        371
-      ],
-      "margins": [
-        45,
-        76,
-        46,
-        77
       ]
     },
     {
@@ -14234,7 +12087,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-11-impact-drake-9-60lr/front.webp",
+      "image": "assets/images/x/beys/bey-x-ux-11-impact-drake-9-60lr/bey-x-ux-11-impact-drake-9-60lr.webp",
       "outputSha256": "a90271d4a5bde2b6fbad4b471bd616e2e1d6f34e4c92630619ef10deb0620f94",
       "alphaLevels": 249,
       "partialPixels": 4205,
@@ -14248,25 +12101,6 @@
       "margins": [
         44,
         44,
-        44,
-        44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-11-impact-drake-9-60lr/main.webp",
-      "outputSha256": "086e397cf20ada905e75e1b6f7ef612b3cbfb3fbbf6ca6cb485df7a3acddc959",
-      "alphaLevels": 256,
-      "partialPixels": 8396,
-      "foregroundPixels": 92730,
-      "bbox": [
-        44,
-        43,
-        404,
-        404
-      ],
-      "margins": [
-        44,
-        43,
         44,
         44
       ]
@@ -14291,7 +12125,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-12-01-ghost-circle-0-80gb/front.webp",
+      "image": "assets/images/x/beys/bey-x-ux-12-01-ghost-circle-0-80gb/bey-x-ux-12-01-ghost-circle-0-80gb.webp",
       "outputSha256": "1def2087e00e75844545aec9bae5a34c4a9a8a3b6c662685276232e2624950f2",
       "alphaLevels": 228,
       "partialPixels": 3428,
@@ -14307,25 +12141,6 @@
         45,
         44,
         45
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-12-01-ghost-circle-0-80gb/main.webp",
-      "outputSha256": "bc04ab35f9276454f46f902c59995f2d690fb55f4a706aeaf0acc077286a795b",
-      "alphaLevels": 255,
-      "partialPixels": 5659,
-      "foregroundPixels": 86580,
-      "bbox": [
-        45,
-        56,
-        403,
-        392
-      ],
-      "margins": [
-        45,
-        56,
-        45,
-        56
       ]
     },
     {
@@ -14348,7 +12163,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-12-02-ghost-circle-4-60h/main.webp",
+      "image": "assets/images/x/beys/bey-x-ux-12-02-ghost-circle-4-60h/bey-x-ux-12-02-ghost-circle-4-60h.webp",
       "outputSha256": "431e60292b5d87d884ceca031559065c1aa0776bc8609bf05ef5feac67cc2eed",
       "alphaLevels": 256,
       "partialPixels": 6833,
@@ -14405,7 +12220,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-12-03-leon-claw-0-80e/main.webp",
+      "image": "assets/images/x/beys/bey-x-ux-12-03-leon-claw-0-80e/bey-x-ux-12-03-leon-claw-0-80e.webp",
       "outputSha256": "e8c593e5091957d777dbcf12ef91672ff69cd650317a1243474fb082f0c998d4",
       "alphaLevels": 255,
       "partialPixels": 5990,
@@ -14462,7 +12277,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-12-04-phoenix-feather-2-60n/main.webp",
+      "image": "assets/images/x/beys/bey-x-ux-12-04-phoenix-feather-2-60n/bey-x-ux-12-04-phoenix-feather-2-60n.webp",
       "outputSha256": "40f98d862d348c6572ad6102e982dbfe83b495f8ceb04f7cb450a45ec0d2c9f7",
       "alphaLevels": 256,
       "partialPixels": 7961,
@@ -14519,7 +12334,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-12-05-ninja-shadow-3-80f/main.webp",
+      "image": "assets/images/x/beys/bey-x-ux-12-05-ninja-shadow-3-80f/bey-x-ux-12-05-ninja-shadow-3-80f.webp",
       "outputSha256": "12bf7fc3261f01e65e4cab88524dde8374e845bed5d215cc1c3d6ec8a58c742d",
       "alphaLevels": 256,
       "partialPixels": 7101,
@@ -14576,7 +12391,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-12-06-wyvern-gale-0-80c/main.webp",
+      "image": "assets/images/x/beys/bey-x-ux-12-06-wyvern-gale-0-80c/bey-x-ux-12-06-wyvern-gale-0-80c.webp",
       "outputSha256": "f04fd90d5a2d32ec2b44e2b0f991f10ce4ccff53c2e47539646bcd34878678eb",
       "alphaLevels": 256,
       "partialPixels": 8886,
@@ -14633,7 +12448,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-13-golem-rock-1-60un/front.webp",
+      "image": "assets/images/x/beys/bey-x-ux-13-golem-rock-1-60un/bey-x-ux-13-golem-rock-1-60un.webp",
       "outputSha256": "97f9cd44529ceacdbcf02514ad8bf928a5fc9d727047f011c414dc24769fcd72",
       "alphaLevels": 232,
       "partialPixels": 3563,
@@ -14649,25 +12464,6 @@
         51,
         44,
         51
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-13-golem-rock-1-60un/main.webp",
-      "outputSha256": "dea96cceb41117dd930d99af96b521564c3c211ad540a5e3aed91a619f8e4575",
-      "alphaLevels": 256,
-      "partialPixels": 5762,
-      "foregroundPixels": 95916,
-      "bbox": [
-        45,
-        52,
-        403,
-        395
-      ],
-      "margins": [
-        45,
-        52,
-        45,
-        53
       ]
     },
     {
@@ -14690,7 +12486,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-14-scorpio-spear-0-70z/front.webp",
+      "image": "assets/images/x/beys/bey-x-ux-14-scorpio-spear-0-70z/bey-x-ux-14-scorpio-spear-0-70z.webp",
       "outputSha256": "b6bc376b258a58e1bdaf623d8ab029fbcd12195f027a34d184eb5b7ca51a0d71",
       "alphaLevels": 252,
       "partialPixels": 3952,
@@ -14709,26 +12505,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-14-scorpio-spear-0-70z/main.webp",
-      "outputSha256": "6ae9baf5fa44beb8482241cd16510b8117e49c8f8f0ac9973425548895737de3",
-      "alphaLevels": 256,
-      "partialPixels": 6438,
-      "foregroundPixels": 96928,
-      "bbox": [
-        46,
-        48,
-        402,
-        399
-      ],
-      "margins": [
-        46,
-        48,
-        46,
-        49
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-15-hells-brave-j-3-60gf/front.webp",
+      "image": "assets/images/x/beys/bey-x-ux-15-hells-brave-j-3-60gf/bey-x-ux-15-hells-brave-j-3-60gf.webp",
       "outputSha256": "7e44dd5fa0d42ba8a0c4cb828f1676437127584a7a30a8212d3cd99807b50647",
       "alphaLevels": 249,
       "partialPixels": 4203,
@@ -14744,25 +12521,6 @@
         44,
         48,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-15-hells-brave-j-3-60gf/main.webp",
-      "outputSha256": "f8ff2274df3029887c155b907e80f415cac18e71fcaf99319f5afbbf37a98497",
-      "alphaLevels": 256,
-      "partialPixels": 6777,
-      "foregroundPixels": 98802,
-      "bbox": [
-        44,
-        39,
-        403,
-        408
-      ],
-      "margins": [
-        44,
-        39,
-        45,
-        40
       ]
     },
     {
@@ -14861,26 +12619,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-15-shark-scale-4-50uf/front.webp",
-      "outputSha256": "aea4dde1001a5e76d59b0cde8a11ba11903fb4bff0d8a99984fbaabfb1ddb740",
-      "alphaLevels": 245,
-      "partialPixels": 3474,
-      "foregroundPixels": 92506,
-      "bbox": [
-        48,
-        44,
-        399,
-        404
-      ],
-      "margins": [
-        48,
-        44,
-        49,
-        44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-15-shark-scale-4-50uf/main.webp",
+      "image": "assets/images/x/beys/bey-x-ux-15-shark-scale-4-50uf/bey-x-ux-15-shark-scale-4-50uf.webp",
       "outputSha256": "aea4dde1001a5e76d59b0cde8a11ba11903fb4bff0d8a99984fbaabfb1ddb740",
       "alphaLevels": 245,
       "partialPixels": 3474,
@@ -14918,7 +12657,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-15-tyranno-roar-1-70l/front.webp",
+      "image": "assets/images/x/beys/bey-x-ux-15-tyranno-roar-1-70l/bey-x-ux-15-tyranno-roar-1-70l.webp",
       "outputSha256": "f2933b567e855ea59310bf65c49cd0ed3ab2ae7e5a0a8c427d61bca9724315a3",
       "alphaLevels": 256,
       "partialPixels": 79950,
@@ -14934,25 +12673,6 @@
         44,
         48,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-15-tyranno-roar-1-70l/main.webp",
-      "outputSha256": "9cfd3702b83ef9fbe8a9a390771dbbfbae9dc72e2cf90c6f0dc66ad5d22c0ee9",
-      "alphaLevels": 256,
-      "partialPixels": 8597,
-      "foregroundPixels": 96707,
-      "bbox": [
-        44,
-        41,
-        404,
-        407
-      ],
-      "margins": [
-        44,
-        41,
-        44,
-        41
       ]
     },
     {
@@ -14975,26 +12695,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-16-01-clock-mirage-9-65b/front.webp",
-      "outputSha256": "3f6fb749373c3ffd3bc22ecc2afe3959d62ba0d83fe88c2f2d99fd0a462d3562",
-      "alphaLevels": 222,
-      "partialPixels": 3437,
-      "foregroundPixels": 101944,
-      "bbox": [
-        44,
-        44,
-        403,
-        404
-      ],
-      "margins": [
-        44,
-        44,
-        45,
-        44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-16-01-clock-mirage-9-65b/main.webp",
+      "image": "assets/images/x/beys/bey-x-ux-16-01-clock-mirage-9-65b/bey-x-ux-16-01-clock-mirage-9-65b.webp",
       "outputSha256": "3f6fb749373c3ffd3bc22ecc2afe3959d62ba0d83fe88c2f2d99fd0a462d3562",
       "alphaLevels": 222,
       "partialPixels": 3437,
@@ -15032,7 +12733,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-16-02-clock-mirage-9-65b/main.webp",
+      "image": "assets/images/x/beys/bey-x-ux-16-02-clock-mirage-9-65b/bey-x-ux-16-02-clock-mirage-9-65b.webp",
       "outputSha256": "4b8928c502d21fbbb4fdfbccddf77966058b43e4499eaaa01c511f3810a38863",
       "alphaLevels": 256,
       "partialPixels": 9390,
@@ -15089,7 +12790,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-16-03-clock-mirage-9-65b/main.webp",
+      "image": "assets/images/x/beys/bey-x-ux-16-03-clock-mirage-9-65b/bey-x-ux-16-03-clock-mirage-9-65b.webp",
       "outputSha256": "2dbd9bc835c8bac77f0c359390bd00c1896019b36da321ebe5c481fd8263719a",
       "alphaLevels": 256,
       "partialPixels": 9348,
@@ -15146,7 +12847,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-17-meteo-dragoon-3-70j/front.webp",
+      "image": "assets/images/x/beys/bey-x-ux-17-meteo-dragoon-3-70j/bey-x-ux-17-meteo-dragoon-3-70j.webp",
       "outputSha256": "7d6895f8965b35a73cc69dd211e7fc77b2a92cac4eee7fd4c9153df0a01928e7",
       "alphaLevels": 255,
       "partialPixels": 3893,
@@ -15162,25 +12863,6 @@
         44,
         52,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-17-meteo-dragoon-3-70j/main.webp",
-      "outputSha256": "b35f1329caa51477d88d22382f86b4884b9f1d4b95f63a4c9fd0d72b378985bb",
-      "alphaLevels": 256,
-      "partialPixels": 6387,
-      "foregroundPixels": 94566,
-      "bbox": [
-        52,
-        47,
-        396,
-        401
-      ],
-      "margins": [
-        52,
-        47,
-        52,
-        47
       ]
     },
     {
@@ -15203,7 +12885,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-18-01-mummy-curse-7-55w/front.webp",
+      "image": "assets/images/x/beys/bey-x-ux-18-01-mummy-curse-7-55w/bey-x-ux-18-01-mummy-curse-7-55w.webp",
       "outputSha256": "8c810f482172f336187e36d01e6ca21547695496b72785ccfd437d0654585f92",
       "alphaLevels": 253,
       "partialPixels": 4836,
@@ -15219,25 +12901,6 @@
         44,
         45,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-18-01-mummy-curse-7-55w/main.webp",
-      "outputSha256": "67c6bd772b12e058e42d0e92067cbdfba21ffabe7a47ebe3ee69779f41fb4ccc",
-      "alphaLevels": 256,
-      "partialPixels": 5363,
-      "foregroundPixels": 69438,
-      "bbox": [
-        56,
-        80,
-        391,
-        367
-      ],
-      "margins": [
-        56,
-        80,
-        57,
-        81
       ]
     },
     {
@@ -15260,7 +12923,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-18-02-mummy-curse-4-60c/main.webp",
+      "image": "assets/images/x/beys/bey-x-ux-18-02-mummy-curse-4-60c/bey-x-ux-18-02-mummy-curse-4-60c.webp",
       "outputSha256": "77b3d8e37b5907bd7048fb722dfa7dda482fd90555bf0aff6ee26daf61fe77e5",
       "alphaLevels": 256,
       "partialPixels": 9015,
@@ -15317,7 +12980,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-18-03-pegasus-brush-m-3-85w/main.webp",
+      "image": "assets/images/x/beys/bey-x-ux-18-03-pegasus-brush-m-3-85w/bey-x-ux-18-03-pegasus-brush-m-3-85w.webp",
       "outputSha256": "ab4bf195ef42520cdfc2abad7fb11d6b645167cad3bc3ac87ca5bddf49505f91",
       "alphaLevels": 256,
       "partialPixels": 9849,
@@ -15412,7 +13075,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-18-04-sol-brave-c-9-70tp/main.webp",
+      "image": "assets/images/x/beys/bey-x-ux-18-04-sol-brave-c-9-70tp/bey-x-ux-18-04-sol-brave-c-9-70tp.webp",
       "outputSha256": "e89622b73da4aef8788185a4e2897eee224425ef0b984f41a811670446c20a61",
       "alphaLevels": 256,
       "partialPixels": 8356,
@@ -15507,7 +13170,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-18-05-dran-dagger-7-55g/main.webp",
+      "image": "assets/images/x/beys/bey-x-ux-18-05-dran-dagger-7-55g/bey-x-ux-18-05-dran-dagger-7-55g.webp",
       "outputSha256": "4de1e02fc46c9ee8164fcec1b2469cf3c49a5a113dc51288e85b5959d51f8aca",
       "alphaLevels": 256,
       "partialPixels": 9504,
@@ -15564,7 +13227,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-18-06-pearl-tiger-4-80lr/main.webp",
+      "image": "assets/images/x/beys/bey-x-ux-18-06-pearl-tiger-4-80lr/bey-x-ux-18-06-pearl-tiger-4-80lr.webp",
       "outputSha256": "e5fa80bf5d57c9f726e463cfd77f4338d72c7d0f30f67fa9f5328222d7291d66",
       "alphaLevels": 256,
       "partialPixels": 11041,
@@ -15621,7 +13284,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-19-bullet-griffon-h/front.webp",
+      "image": "assets/images/x/beys/bey-x-ux-19-bullet-griffon-h/bey-x-ux-19-bullet-griffon-h.webp",
       "outputSha256": "27b094b9bb2f02421c6fdb97f789f87c519e5727a1e7469891d0a5d5393125b2",
       "alphaLevels": 249,
       "partialPixels": 3570,
@@ -15636,25 +13299,6 @@
         44,
         45,
         44,
-        45
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-19-bullet-griffon-h/main.webp",
-      "outputSha256": "2da41ac6c68b7439cfe7d4554fcc1240da8a871253636e0c7932f1bc952946eb",
-      "alphaLevels": 256,
-      "partialPixels": 7107,
-      "foregroundPixels": 99275,
-      "bbox": [
-        42,
-        44,
-        405,
-        403
-      ],
-      "margins": [
-        42,
-        44,
-        43,
         45
       ]
     },
@@ -15678,7 +13322,7 @@
       ]
     },
     {
-      "image": "assets/images/x/beys/bey-x-ux-20-glory-valkyrie-lf/front.webp",
+      "image": "assets/images/x/beys/bey-x-ux-20-glory-valkyrie-lf/bey-x-ux-20-glory-valkyrie-lf.webp",
       "outputSha256": "0fcff03cc4facb6784f417205f80a67ff3a0fcc8b97972ef1a4a034b7b627ccb",
       "alphaLevels": 246,
       "partialPixels": 3957,
@@ -15694,25 +13338,6 @@
         44,
         53,
         44
-      ]
-    },
-    {
-      "image": "assets/images/x/beys/bey-x-ux-20-glory-valkyrie-lf/main.webp",
-      "outputSha256": "d4ee99d4cfcf3567886801fb3b073d9c7e2c7c763ed27adc46ced91bdd4935d5",
-      "alphaLevels": 256,
-      "partialPixels": 7287,
-      "foregroundPixels": 105554,
-      "bbox": [
-        43,
-        34,
-        405,
-        413
-      ],
-      "margins": [
-        43,
-        34,
-        43,
-        35
       ]
     },
     {

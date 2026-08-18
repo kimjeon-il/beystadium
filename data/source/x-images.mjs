@@ -1,25 +1,25 @@
 const xImageMappings = [
   {
     "id": "BEY-X-BX-00-01-LIGHTNING-L-DRAGO-UPPER-1-60F",
-    "image": "assets/images/x/beys/bey-x-bx-00-01-lightning-l-drago-upper-1-60f/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-01-lightning-l-drago-upper-1-60f/bey-x-bx-00-01-lightning-l-drago-upper-1-60f.webp",
     "sourcePath": "02_product_components/058_bx00-ld/01_BXG_07_01@1.png",
     "sourceSha256": "dee185ecdb68fa5f4589d86fdc506f40cd35718c0c0224dbf8554ea541c20661"
   },
   {
     "id": "BEY-X-BX-00-02-LIGHTNING-L-DRAGO-BARRAGE-1-60F",
-    "image": "assets/images/x/beys/bey-x-bx-00-02-lightning-l-drago-barrage-1-60f/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-02-lightning-l-drago-barrage-1-60f/bey-x-bx-00-02-lightning-l-drago-barrage-1-60f.webp",
     "sourcePath": "02_product_components/058_bx00-ld/03_BXG_07_03@1.png",
     "sourceSha256": "9ac0e37f6b8b11e98d43f30cf96ac171062cfd2eb0a5b37b46c847d1775e3d5c"
   },
   {
     "id": "BEY-X-BX-00-COBALT-DRAGOON-2-60C",
-    "image": "assets/images/x/beys/bey-x-bx-00-cobalt-dragoon-2-60c/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-cobalt-dragoon-2-60c/bey-x-bx-00-cobalt-dragoon-2-60c.webp",
     "sourcePath": "02_product_components/057_bx00-cd/01_BXG14_01@1.png",
     "sourceSha256": "8cb4f189f0d833799b13abeaf213dd2597acc4fe0798356e5dabd86cab619956"
   },
   {
     "id": "BEY-X-BX-00-COBALT-DRAGOON-9-60F",
-    "image": "assets/images/x/beys/bey-x-bx-00-cobalt-dragoon-9-60f/front.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-cobalt-dragoon-9-60f/bey-x-bx-00-cobalt-dragoon-9-60f.webp",
     "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-cobalt-dragoon-9-60f-generated.png",
     "sourceSha256": "a963b81463618f008883ea188f818be98500c1513c16bda8c7d2814cd50e166b",
     "sourceKind": "user-approved-generated-front",
@@ -28,13 +28,13 @@ const xImageMappings = [
   },
   {
     "id": "BEY-X-BX-00-COBALT-DRAKE-4-60F",
-    "image": "assets/images/x/beys/bey-x-bx-00-cobalt-drake-4-60f/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-cobalt-drake-4-60f/bey-x-bx-00-cobalt-drake-4-60f.webp",
     "sourcePath": "02_product_components/066_bx00-cdr/01_BXG23_01@1.png",
     "sourceSha256": "c7e861bd044a230d0f4d804e76b9cc74fba654fa2f040b507943f11a901536e9"
   },
   {
     "id": "BEY-X-BX-00-CROCO-CRUNCH-2-60Q",
-    "image": "assets/images/x/beys/bey-x-bx-00-croco-crunch-2-60q/front.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-croco-crunch-2-60q/bey-x-bx-00-croco-crunch-2-60q.webp",
     "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-croco-crunch-2-60q-verified-color-matched.png",
     "sourceSha256": "636902a7aef7f2a6e4e279811f943f5eda71ddd58bd53270547952b4791702ad",
     "sourceKind": "verified-existing-front",
@@ -43,7 +43,7 @@ const xImageMappings = [
   },
   {
     "id": "BEY-X-BX-00-DARTH-VADER-4-60P",
-    "image": "assets/images/x/beys/bey-x-bx-00-darth-vader-4-60p/front.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-darth-vader-4-60p/bey-x-bx-00-darth-vader-4-60p.webp",
     "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-darth-vader-4-60p-gear-chip-black-vivid.png",
     "sourceSha256": "c909fb44343bc83c70b2c57e8b5f1bc099ce9055b45a196cbd037c8499bcdf48",
     "sourceKind": "user-approved-generated-front",
@@ -52,7 +52,7 @@ const xImageMappings = [
   },
   {
     "id": "BEY-X-BX-00-DRACIEL-SHIELD-7-60D",
-    "image": "assets/images/x/beys/bey-x-bx-00-draciel-shield-7-60d/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-draciel-shield-7-60d/bey-x-bx-00-draciel-shield-7-60d.webp",
     "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-draciel-shield-7-60d-generated.png",
     "sourceSha256": "5bceef35154d9d546045c6b0779d215afa67dc21768f39272771389bb84f0267",
     "sourceKind": "user-approved-generated-front",
@@ -61,13 +61,13 @@ const xImageMappings = [
   },
   {
     "id": "BEY-X-BX-00-DRAGOON-STORM-4-60RA",
-    "image": "assets/images/x/beys/bey-x-bx-00-dragoon-storm-4-60ra/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-dragoon-storm-4-60ra/bey-x-bx-00-dragoon-storm-4-60ra.webp",
     "sourcePath": "02_product_components/077_bx00-25set/02_BXG00_02@1.png",
     "sourceSha256": "36a7ec3447a4f6276fd4828744d115c1a37789aa9bb883210f6b6730c7b40416"
   },
   {
     "id": "BEY-X-BX-00-DRAN-DAGGER-2-80GP",
-    "image": "assets/images/x/beys/bey-x-bx-00-dran-dagger-2-80gp/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-dran-dagger-2-80gp/bey-x-bx-00-dran-dagger-2-80gp.webp",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG09_01@1.png",
     "sourceSha256": "8253ad5add5ae9c3e50b4d724d4a86793252215908acf387c1f284d06b3d0a82",
     "sourceCrop": [
@@ -87,7 +87,7 @@ const xImageMappings = [
   },
   {
     "id": "BEY-X-BX-00-DRAN-SWORD-1-60V",
-    "image": "assets/images/x/beys/bey-x-bx-00-dran-sword-1-60v/front.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-dran-sword-1-60v/bey-x-bx-00-dran-sword-1-60v.webp",
     "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-dran-sword-1-60v-generated.png",
     "sourceSha256": "37070fde1767ad6b9b38e51a1b4bf3bbcc0905c1b544edc1207ee4c2b8f6e21c",
     "sourceKind": "user-approved-generated-front",
@@ -96,19 +96,19 @@ const xImageMappings = [
   },
   {
     "id": "BEY-X-BX-00-DRAN-SWORD-3-60F",
-    "image": "assets/images/x/beys/bey-x-bx-00-dran-sword-3-60f/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-dran-sword-3-60f/bey-x-bx-00-dran-sword-3-60f.webp",
     "sourcePath": "02_product_components/077_bx00-25set/08_BXG00_08@1.png",
     "sourceSha256": "519436cc111575cfcacb439f91f6ecc11e2b8c4c72cc46e4aabce3ce15d0b23e"
   },
   {
     "id": "BEY-X-BX-00-DRANZER-SPIRAL-3-80T",
-    "image": "assets/images/x/beys/bey-x-bx-00-dranzer-spiral-3-80t/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-dranzer-spiral-3-80t/bey-x-bx-00-dranzer-spiral-3-80t.webp",
     "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-dranzer-spiral-3-80t.png",
     "sourceSha256": "9735358d4b0719abc98935c03a68a7677498ceb581045055e98fb62e39c4413c"
   },
   {
     "id": "BEY-X-BX-00-DRIGER-SLASH-4-80P",
-    "image": "assets/images/x/beys/bey-x-bx-00-driger-slash-4-80p/front.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-driger-slash-4-80p/bey-x-bx-00-driger-slash-4-80p.webp",
     "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-driger-slash-4-80p-gear-chip-black-vivid.png",
     "sourceSha256": "f5eb0cd5ee09220e9e4e2d15c6d84af310af0dc46ab346c77551f1803859708a",
     "sourceKind": "user-approved-generated-front",
@@ -117,13 +117,13 @@ const xImageMappings = [
   },
   {
     "id": "BEY-X-BX-00-HELLS-CHAIN-5-60HT",
-    "image": "assets/images/x/beys/bey-x-bx-00-hells-chain-5-60ht/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-hells-chain-5-60ht/bey-x-bx-00-hells-chain-5-60ht.webp",
     "sourcePath": "02_product_components/042_bx00-hch/01_BXG08_01@1.png",
     "sourceSha256": "47ee3ad302529fccadd72be012598dea1b822ebe7e1a2389c4633de21c995200"
   },
   {
     "id": "BEY-X-BX-00-HELLS-SCYTHE-3-80F",
-    "image": "assets/images/x/beys/bey-x-bx-00-hells-scythe-3-80f/front.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-hells-scythe-3-80f/bey-x-bx-00-hells-scythe-3-80f.webp",
     "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-hells-scythe-3-80f-simple-recolor-stickers-v4.png",
     "sourceSha256": "f721cae7845aeb83a8464d8f5bc7414982df99901934cbe9fa7538b9cd967764",
     "sourceKind": "user-approved-generated-front",
@@ -132,13 +132,13 @@ const xImageMappings = [
   },
   {
     "id": "BEY-X-BX-00-HELLS-SCYTHE-4-60T",
-    "image": "assets/images/x/beys/bey-x-bx-00-hells-scythe-4-60t/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-hells-scythe-4-60t/bey-x-bx-00-hells-scythe-4-60t.webp",
     "sourcePath": "02_product_components/017_bx00-hc/01_BXG03_01@1.png",
     "sourceSha256": "3177f2ed2a7fd6ae07dc948f80c4b6fdf9b36590bb69f2d02bc740adcaba9318"
   },
   {
     "id": "BEY-X-BX-00-IRON-MAN-4-80B",
-    "image": "assets/images/x/beys/bey-x-bx-00-iron-man-4-80b/front.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-iron-man-4-80b/bey-x-bx-00-iron-man-4-80b.webp",
     "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-iron-man-4-80b-generated.png",
     "sourceSha256": "66c8a74562b04c42ab58c104283390b50d1b83a831a86a1df3610697503adcc2",
     "sourceKind": "user-approved-generated-front",
@@ -147,13 +147,13 @@ const xImageMappings = [
   },
   {
     "id": "BEY-X-BX-00-LEON-CLAW-5-60P",
-    "image": "assets/images/x/beys/bey-x-bx-00-leon-claw-5-60p/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-leon-claw-5-60p/bey-x-bx-00-leon-claw-5-60p.webp",
     "sourcePath": "02_product_components/031_bx00-lc/01_BXG05_01@1.png",
     "sourceSha256": "c748f374831977e37244762fc8cef603780e3a47ea789a16ed908ff5671ce02c"
   },
   {
     "id": "BEY-X-BX-00-LUKE-SKYWALKER-4-80B",
-    "image": "assets/images/x/beys/bey-x-bx-00-luke-skywalker-4-80b/front.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-luke-skywalker-4-80b/bey-x-bx-00-luke-skywalker-4-80b.webp",
     "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-luke-skywalker-4-80b-gear-chip-black-vivid.png",
     "sourceSha256": "88939ca5cca6693ffbbf10f068c0502bf16520626946cb2701f60f556e130a5a",
     "sourceKind": "user-approved-generated-front",
@@ -162,13 +162,13 @@ const xImageMappings = [
   },
   {
     "id": "BEY-X-BX-00-MAMMOTH-TUSK-2-80E",
-    "image": "assets/images/x/beys/bey-x-bx-00-mammoth-tusk-2-80e/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-mammoth-tusk-2-80e/bey-x-bx-00-mammoth-tusk-2-80e.webp",
     "sourcePath": "02_product_components/068_bx00-mt/01_BXG32_01@1.png",
     "sourceSha256": "29de3c39c56bc2a985b8dbb8dd5f4527cdd23acefa52ccd7f318fa8f88805cf3"
   },
   {
     "id": "BEY-X-BX-00-MEGATRON-4-80B",
-    "image": "assets/images/x/beys/bey-x-bx-00-megatron-4-80b/front.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-megatron-4-80b/bey-x-bx-00-megatron-4-80b.webp",
     "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-megatron-4-80b-generated.png",
     "sourceSha256": "11eb7bc0aa4b341f91ecd528ede8022e8f0b560908c5515acfca549661e6ce2b",
     "sourceKind": "user-approved-generated-front",
@@ -177,7 +177,7 @@ const xImageMappings = [
   },
   {
     "id": "BEY-X-BX-00-MOFF-GIDEON-3-80N",
-    "image": "assets/images/x/beys/bey-x-bx-00-moff-gideon-3-80n/front.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-moff-gideon-3-80n/bey-x-bx-00-moff-gideon-3-80n.webp",
     "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-moff-gideon-3-80n-generated.png",
     "sourceSha256": "5f20e5ae975044a893ea6a727bc629d636d06597de1d98271450d840ad6f9ea8",
     "sourceKind": "user-approved-generated-front",
@@ -186,13 +186,13 @@ const xImageMappings = [
   },
   {
     "id": "BEY-X-BX-00-MOSASAURUS-9-60U",
-    "image": "assets/images/x/beys/bey-x-bx-00-mosasaurus-9-60u/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-mosasaurus-9-60u/bey-x-bx-00-mosasaurus-9-60u.webp",
     "sourcePath": "02_product_components/100_bx00-jtm/06_BXG40_06@1.png",
     "sourceSha256": "3c1d427f6a8558bef908ce97ee93cceb23e45cf2c33a732e27158f8b5b0c15d5"
   },
   {
     "id": "BEY-X-BX-00-NINJA-KNIFE-4-60LF",
-    "image": "assets/images/x/beys/bey-x-bx-00-ninja-knife-4-60lf/front.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-ninja-knife-4-60lf/bey-x-bx-00-ninja-knife-4-60lf.webp",
     "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-ninja-knife-4-60lf-verified.png",
     "sourceSha256": "a6d9d6437f40a0bc278c87c2028becbf30bec5a3a1ce52e8420ffec7932fd94d",
     "keepLargestComponent": true,
@@ -202,7 +202,7 @@ const xImageMappings = [
   },
   {
     "id": "BEY-X-BX-00-OPTIMUS-PRIMAL-3-60F",
-    "image": "assets/images/x/beys/bey-x-bx-00-optimus-primal-3-60f/front.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-optimus-primal-3-60f/bey-x-bx-00-optimus-primal-3-60f.webp",
     "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-optimus-primal-3-60f-generated.png",
     "sourceSha256": "8b7cb5e0f41ec5a3b28d5cc20b3399cc9e6042bd8c535785119f4c30710c0136",
     "sourceKind": "user-approved-generated-front",
@@ -211,7 +211,7 @@ const xImageMappings = [
   },
   {
     "id": "BEY-X-BX-00-OPTIMUS-PRIME-4-60P",
-    "image": "assets/images/x/beys/bey-x-bx-00-optimus-prime-4-60p/front.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-optimus-prime-4-60p/bey-x-bx-00-optimus-prime-4-60p.webp",
     "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-optimus-prime-4-60p-generated.png",
     "sourceSha256": "cf3ce974da6b4511c21fa198f33207e9473f5e45ffb7dc0bdd867b2fa67e74cf",
     "sourceKind": "user-approved-generated-front",
@@ -220,13 +220,13 @@ const xImageMappings = [
   },
   {
     "id": "BEY-X-BX-00-PHOENIX-SOAR-9-60GF",
-    "image": "assets/images/x/beys/bey-x-bx-00-phoenix-soar-9-60gf/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-phoenix-soar-9-60gf/bey-x-bx-00-phoenix-soar-9-60gf.webp",
     "sourcePath": "02_product_components/076_bx00-pw/01_BXG35_01@1.png",
     "sourceSha256": "14d7dd7c9889e7a8c79501a8ed0cb14ffee2e60a4c09d95391f322d2c77a07fe"
   },
   {
     "id": "BEY-X-BX-00-PHOENIX-SOAR-9-80DB",
-    "image": "assets/images/x/beys/bey-x-bx-00-phoenix-soar-9-80db/front.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-phoenix-soar-9-80db/bey-x-bx-00-phoenix-soar-9-80db.webp",
     "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-phoenix-soar-9-80db-generated.png",
     "sourceSha256": "5869ebe48c1ae08a595de7ff3ef6a552e51e0ea8a5c859de39f21b7f8fd7b7fe",
     "sourceKind": "user-approved-generated-front",
@@ -239,7 +239,7 @@ const xImageMappings = [
   },
   {
     "id": "BEY-X-BX-00-QUETZALCOATLUS-4-55D",
-    "image": "assets/images/x/beys/bey-x-bx-00-quetzalcoatlus-4-55d/front.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-quetzalcoatlus-4-55d/bey-x-bx-00-quetzalcoatlus-4-55d.webp",
     "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-quetzalcoatlus-4-55d-generated.png",
     "sourceSha256": "ba5e46a2ed7216866d17ad0cdd74e08c74e65524ad90dacd4ec9f04a7495bd49",
     "sourceKind": "user-approved-generated-front",
@@ -248,19 +248,19 @@ const xImageMappings = [
   },
   {
     "id": "BEY-X-BX-00-ROCK-LEONE-6-80GN",
-    "image": "assets/images/x/beys/bey-x-bx-00-rock-leone-6-80gn/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-rock-leone-6-80gn/bey-x-bx-00-rock-leone-6-80gn.webp",
     "sourcePath": "02_product_components/102_bx00-rl/01_BXG20_01@1.png",
     "sourceSha256": "1ab28d221e968801d344a1b926edc2bb891459a0bdc0e028c36f8540e3967124"
   },
   {
     "id": "BEY-X-BX-00-SHARK-EDGE-5-60GF",
-    "image": "assets/images/x/beys/bey-x-bx-00-shark-edge-5-60gf/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-shark-edge-5-60gf/bey-x-bx-00-shark-edge-5-60gf.webp",
     "sourcePath": "02_product_components/032_bx00-se/01_BXG06_01@1.png",
     "sourceSha256": "21cd3a6501da1f9418c442424ab1a3bf81b142ebe1b68ecb0af7491d0fbcf01f"
   },
   {
     "id": "BEY-X-BX-00-SPIDER-MAN-3-60F",
-    "image": "assets/images/x/beys/bey-x-bx-00-spider-man-3-60f/front.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-spider-man-3-60f/bey-x-bx-00-spider-man-3-60f.webp",
     "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-spider-man-3-60f-generated.png",
     "sourceSha256": "576251729af9cf23672fc99b17b58a047caf88b8baf63d4e048a8316f7b696a6",
     "sourceKind": "user-approved-generated-front",
@@ -269,7 +269,7 @@ const xImageMappings = [
   },
   {
     "id": "BEY-X-BX-00-SPINOSAURUS-3-85A",
-    "image": "assets/images/x/beys/bey-x-bx-00-spinosaurus-3-85a/front.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-spinosaurus-3-85a/bey-x-bx-00-spinosaurus-3-85a.webp",
     "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-spinosaurus-3-85a-gear-chip-black-vivid.png",
     "sourceSha256": "a044aaa129c4b633e8bc27f4642bc23d2d445be463e6721f7274afee1810826c",
     "sourceKind": "user-approved-generated-front",
@@ -278,7 +278,7 @@ const xImageMappings = [
   },
   {
     "id": "BEY-X-BX-00-STARSCREAM-3-80N",
-    "image": "assets/images/x/beys/bey-x-bx-00-starscream-3-80n/front.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-starscream-3-80n/bey-x-bx-00-starscream-3-80n.webp",
     "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-starscream-3-80n-generated.png",
     "sourceSha256": "78858b427b6e08726ca3358bcb966f70a745a06d7515a2d409ca379bdd457477",
     "sourceKind": "user-approved-generated-front",
@@ -287,25 +287,25 @@ const xImageMappings = [
   },
   {
     "id": "BEY-X-BX-00-STORM-PEGASIS-3-70RA",
-    "image": "assets/images/x/beys/bey-x-bx-00-storm-pegasis-3-70ra/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-storm-pegasis-3-70ra/bey-x-bx-00-storm-pegasis-3-70ra.webp",
     "sourcePath": "02_product_components/077_bx00-25set/04_BXG00_04@1.png",
     "sourceSha256": "a3aa35bec1f73debe0aba45cf5ebad329dec718d3a1c63f9f63d971fbad49299"
   },
   {
     "id": "BEY-X-BX-00-STORM-SPRIGGAN-2-70M",
-    "image": "assets/images/x/beys/bey-x-bx-00-storm-spriggan-2-70m/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-storm-spriggan-2-70m/bey-x-bx-00-storm-spriggan-2-70m.webp",
     "sourcePath": "02_product_components/128_bx00-ss/01_BXG21_01@1.png",
     "sourceSha256": "ef6f54f1ccb9b46a6c64e47e884e336d9951c45f409b508a40513d7fc04b79b6"
   },
   {
     "id": "BEY-X-BX-00-T-REX-1-80GB",
-    "image": "assets/images/x/beys/bey-x-bx-00-t-rex-1-80gb/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-t-rex-1-80gb/bey-x-bx-00-t-rex-1-80gb.webp",
     "sourcePath": "02_product_components/100_bx00-jtm/03_BXG40_03@1.png",
     "sourceSha256": "30b04e0035d3899d51d7c797c8fa8f27e50d71776ebf53eddd9a16f99c6ca0d4"
   },
   {
     "id": "BEY-X-BX-00-THANOS-4-60P",
-    "image": "assets/images/x/beys/bey-x-bx-00-thanos-4-60p/front.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-thanos-4-60p/bey-x-bx-00-thanos-4-60p.webp",
     "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-thanos-4-60p-generated.png",
     "sourceSha256": "128bff090ac184ea257b85ae00499dec8538e383a0c10aee4b21049000dea1ca",
     "sourceKind": "user-approved-generated-front",
@@ -314,7 +314,7 @@ const xImageMappings = [
   },
   {
     "id": "BEY-X-BX-00-THE-MANDALORIAN-3-60F",
-    "image": "assets/images/x/beys/bey-x-bx-00-the-mandalorian-3-60f/front.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-the-mandalorian-3-60f/bey-x-bx-00-the-mandalorian-3-60f.webp",
     "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-the-mandalorian-3-60f-gear-chip-black-vivid.png",
     "sourceSha256": "0c38651f6247b56c5a3e4457a9ea41ea7020da9c282b56e4b7ae6cb600441745",
     "sourceKind": "user-approved-generated-front",
@@ -323,7 +323,7 @@ const xImageMappings = [
   },
   {
     "id": "BEY-X-BX-00-VENOM-3-80N",
-    "image": "assets/images/x/beys/bey-x-bx-00-venom-3-80n/front.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-venom-3-80n/bey-x-bx-00-venom-3-80n.webp",
     "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-venom-3-80n-gear-chip-black-vivid.png",
     "sourceSha256": "621cb8f9a11bbb6b3acecae74d0a09b9bf45fe93ca72fea322539dd68b745413",
     "sourceKind": "user-approved-generated-front",
@@ -332,559 +332,559 @@ const xImageMappings = [
   },
   {
     "id": "BEY-X-BX-00-VICTORY-VALKYRIE-2-60RA",
-    "image": "assets/images/x/beys/bey-x-bx-00-victory-valkyrie-2-60ra/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-victory-valkyrie-2-60ra/bey-x-bx-00-victory-valkyrie-2-60ra.webp",
     "sourcePath": "02_product_components/077_bx00-25set/06_BXG00_06@1.png",
     "sourceSha256": "babb10744eeaf976f708d7d113ffd1694e709874f21ea9cd7122063b5d4b8335"
   },
   {
     "id": "BEY-X-BX-00-XENO-XCALIBUR-3-60GF",
-    "image": "assets/images/x/beys/bey-x-bx-00-xeno-xcalibur-3-60gf/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-xeno-xcalibur-3-60gf/bey-x-bx-00-xeno-xcalibur-3-60gf.webp",
     "sourcePath": "02_product_components/086_bx00-xc/01_BXG13_01@1.png",
     "sourceSha256": "2b3264bfa79001ba93b19ea694cde1bf470592d6c0bf719b850d4f2bf89c8282"
   },
   {
     "id": "BEY-X-BX-01-DRAN-SWORD-3-60F",
-    "image": "assets/images/x/beys/bey-x-bx-01-dran-sword-3-60f/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-01-dran-sword-3-60f/bey-x-bx-01-dran-sword-3-60f.webp",
     "sourcePath": "02_product_components/001_bx01/01_BX01_01@1.png",
     "sourceSha256": "82aaa884854fe2c381798c35d91caaf768e141951f870833c9a278eda653ed0f"
   },
   {
     "id": "BEY-X-BX-02-HELLS-SCYTHE-4-60T",
-    "image": "assets/images/x/beys/bey-x-bx-02-hells-scythe-4-60t/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-02-hells-scythe-4-60t/bey-x-bx-02-hells-scythe-4-60t.webp",
     "sourcePath": "02_product_components/002_bx02/01_BX02_01@1.png",
     "sourceSha256": "9f5120004f7793286cee2532028d5fcea17ee5f3978febe122cc4821e358fd02"
   },
   {
     "id": "BEY-X-BX-03-WIZARD-ARROW-4-80B",
-    "image": "assets/images/x/beys/bey-x-bx-03-wizard-arrow-4-80b/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-03-wizard-arrow-4-80b/bey-x-bx-03-wizard-arrow-4-80b.webp",
     "sourcePath": "02_product_components/003_bx03/01_BX03_01@1.png",
     "sourceSha256": "3889aa28bdfe23a1ce75e3feb452223e075da03948ac5307937909e60a49290f"
   },
   {
     "id": "BEY-X-BX-04-KNIGHT-SHIELD-3-80N",
-    "image": "assets/images/x/beys/bey-x-bx-04-knight-shield-3-80n/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-04-knight-shield-3-80n/bey-x-bx-04-knight-shield-3-80n.webp",
     "sourcePath": "02_product_components/004_bx04/01_BX04_01@1.png",
     "sourceSha256": "89d90ff31b74af37aa6e8020a16e7462ff8123db72b7fae4f402ad9642d16d0b"
   },
   {
     "id": "BEY-X-BX-05-WIZARD-ARROW-4-80B",
-    "image": "assets/images/x/beys/bey-x-bx-05-wizard-arrow-4-80b/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-05-wizard-arrow-4-80b/bey-x-bx-05-wizard-arrow-4-80b.webp",
     "sourcePath": "02_product_components/005_bx05/01_BX05_01@1.png",
     "sourceSha256": "742f51399f2808e4c99d2a0bbecb68fd87550c6e769f19d3d6b658e94a0d3c73"
   },
   {
     "id": "BEY-X-BX-06-KNIGHT-SHIELD-3-80N",
-    "image": "assets/images/x/beys/bey-x-bx-06-knight-shield-3-80n/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-06-knight-shield-3-80n/bey-x-bx-06-knight-shield-3-80n.webp",
     "sourcePath": "02_product_components/006_bx06/01_BX06_01@1.png",
     "sourceSha256": "02399f77e33e4952716cf3be1beca55dc16e14c798fb20820952c628b42c239f"
   },
   {
     "id": "BEY-X-BX-07-DRAN-SWORD-3-60F",
-    "image": "assets/images/x/beys/bey-x-bx-07-dran-sword-3-60f/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-07-dran-sword-3-60f/bey-x-bx-07-dran-sword-3-60f.webp",
     "sourcePath": "02_product_components/007_bx07/01_BX07_08@1.png",
     "sourceSha256": "b764e921be59b8e42ecb532fe6ef0a6ff9272b3b8ec7d49ce7d500f339f27762"
   },
   {
     "id": "BEY-X-BX-08-HELLS-SCYTHE-3-80B",
-    "image": "assets/images/x/beys/bey-x-bx-08-hells-scythe-3-80b/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-08-hells-scythe-3-80b/bey-x-bx-08-hells-scythe-3-80b.webp",
     "sourcePath": "02_product_components/008_bx08/01_BX08_y@1.png",
     "sourceSha256": "0c4300c2759621cf6e5db18226c1f7fcd30d19261cd4b3bbdba155bbd7688d21"
   },
   {
     "id": "BEY-X-BX-08-KNIGHT-SHIELD-4-80T",
-    "image": "assets/images/x/beys/bey-x-bx-08-knight-shield-4-80t/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-08-knight-shield-4-80t/bey-x-bx-08-knight-shield-4-80t.webp",
     "sourcePath": "02_product_components/008_bx08/11_BX08_r@1.png",
     "sourceSha256": "f1c7e3ddeb467ac7b5323ab9bc7f21b980abce8e838bd84d9f8305b1613c4762"
   },
   {
     "id": "BEY-X-BX-08-WIZARD-ARROW-4-60N",
-    "image": "assets/images/x/beys/bey-x-bx-08-wizard-arrow-4-60n/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-08-wizard-arrow-4-60n/bey-x-bx-08-wizard-arrow-4-60n.webp",
     "sourcePath": "02_product_components/008_bx08/06_BX08_g@1.png",
     "sourceSha256": "1a58373c955ad1a949b1f8fd0ee17442aa1a57421a78e831103c31a540091759"
   },
   {
     "id": "BEY-X-BX-13-KNIGHT-LANCE-4-80HN",
-    "image": "assets/images/x/beys/bey-x-bx-13-knight-lance-4-80hn/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-13-knight-lance-4-80hn/bey-x-bx-13-knight-lance-4-80hn.webp",
     "sourcePath": "02_product_components/015_bx13/01_BX13_01@1.png",
     "sourceSha256": "48814bf0c91b0e355a2d0ce6abb44739a1fe70b000f00ea47c26ecef101a05ac"
   },
   {
     "id": "BEY-X-BX-14-01-SHARK-EDGE-3-60LF",
-    "image": "assets/images/x/beys/bey-x-bx-14-01-shark-edge-3-60lf/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-14-01-shark-edge-3-60lf/bey-x-bx-14-01-shark-edge-3-60lf.webp",
     "sourcePath": "02_product_components/016_bx14/01_BX14_01@1.png",
     "sourceSha256": "5ba06e3dcc451e98420cbaf541263c4a501354ec30959f205c8062c032e72549"
   },
   {
     "id": "BEY-X-BX-14-02-SHARK-EDGE-4-80N",
-    "image": "assets/images/x/beys/bey-x-bx-14-02-shark-edge-4-80n/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-14-02-shark-edge-4-80n/bey-x-bx-14-02-shark-edge-4-80n.webp",
     "sourcePath": "02_product_components/016_bx14/02_BX14_02@1.png",
     "sourceSha256": "00f34ded46706e42b3ddc1bc71811d4d84b0d06117b02244fd1e6f5bb87f9fa3"
   },
   {
     "id": "BEY-X-BX-14-03-DRAN-SWORD-3-80B",
-    "image": "assets/images/x/beys/bey-x-bx-14-03-dran-sword-3-80b/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-14-03-dran-sword-3-80b/bey-x-bx-14-03-dran-sword-3-80b.webp",
     "sourcePath": "02_product_components/016_bx14/03_BX14_03@1.png",
     "sourceSha256": "3e3f6f20b4585197e47917edc7c158062ae6f62e67176b4835d0ec0f4555649a"
   },
   {
     "id": "BEY-X-BX-14-04-HELLS-SCYTHE-4-80LF",
-    "image": "assets/images/x/beys/bey-x-bx-14-04-hells-scythe-4-80lf/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-14-04-hells-scythe-4-80lf/bey-x-bx-14-04-hells-scythe-4-80lf.webp",
     "sourcePath": "02_product_components/016_bx14/04_BX14_04@1.png",
     "sourceSha256": "ccc2642d29e9fd2e2a9fad7037c604ea2a7dcdc6da3e54c074f39e5656197a38"
   },
   {
     "id": "BEY-X-BX-14-05-KNIGHT-SHIELD-4-60LF",
-    "image": "assets/images/x/beys/bey-x-bx-14-05-knight-shield-4-60lf/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-14-05-knight-shield-4-60lf/bey-x-bx-14-05-knight-shield-4-60lf.webp",
     "sourcePath": "02_product_components/016_bx14/05_BX14_05@1.png",
     "sourceSha256": "51849203dda8ec1c71de41a64acd8eceb511718d1ce6f5fdaa4b69d1e2334966"
   },
   {
     "id": "BEY-X-BX-14-06-WIZARD-ARROW-3-60T",
-    "image": "assets/images/x/beys/bey-x-bx-14-06-wizard-arrow-3-60t/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-14-06-wizard-arrow-3-60t/bey-x-bx-14-06-wizard-arrow-3-60t.webp",
     "sourcePath": "02_product_components/016_bx14/06_BX14_06@1.png",
     "sourceSha256": "c1ed3941e0b00f07f1d6c919123ba286385febbdefe8bef971a4447b3e2bc687"
   },
   {
     "id": "BEY-X-BX-15-LEON-CLAW-5-60P",
-    "image": "assets/images/x/beys/bey-x-bx-15-leon-claw-5-60p/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-15-leon-claw-5-60p/bey-x-bx-15-leon-claw-5-60p.webp",
     "sourcePath": "02_product_components/018_bx15/01_BX15_01@1.png",
     "sourceSha256": "63e981509c33180c7304dd3ed856a7c0af35c6a8b3719c740149dad0d593fe2c"
   },
   {
     "id": "BEY-X-BX-16-01-VIPER-TAIL-5-80O",
-    "image": "assets/images/x/beys/bey-x-bx-16-01-viper-tail-5-80o/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-16-01-viper-tail-5-80o/bey-x-bx-16-01-viper-tail-5-80o.webp",
     "sourcePath": "02_product_components/019_bx16/01_BX16_01@1.png",
     "sourceSha256": "a4c3e40f250ae5cfd31a3748996e32e745b486d1cbe9100ca7dac98f1ddefb68"
   },
   {
     "id": "BEY-X-BX-16-02-VIPER-TAIL-4-60F",
-    "image": "assets/images/x/beys/bey-x-bx-16-02-viper-tail-4-60f/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-16-02-viper-tail-4-60f/bey-x-bx-16-02-viper-tail-4-60f.webp",
     "sourcePath": "02_product_components/019_bx16/03_BX16_03@1.png",
     "sourceSha256": "d7619acd70609fb6eb8a5bc1bb06bb9f8cc1fa8be99f385799a88d45809288ea"
   },
   {
     "id": "BEY-X-BX-16-03-VIPER-TAIL-3-80HN",
-    "image": "assets/images/x/beys/bey-x-bx-16-03-viper-tail-3-80hn/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-16-03-viper-tail-3-80hn/bey-x-bx-16-03-viper-tail-3-80hn.webp",
     "sourcePath": "02_product_components/019_bx16/04_BX16_04@1.png",
     "sourceSha256": "e8b0cf46f6d9b908c72e3ab60d84ab31c4c626ba50ad91970c5d8c41801d2e5a"
   },
   {
     "id": "BEY-X-BX-17-DRAN-SWORD-3-60F",
-    "image": "assets/images/x/beys/bey-x-bx-17-dran-sword-3-60f/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-17-dran-sword-3-60f/bey-x-bx-17-dran-sword-3-60f.webp",
     "sourcePath": "02_product_components/020_bx17/01_BX17_01@1.png",
     "sourceSha256": "cbb0830baadb1386ba59a71777336767fb9bae049ad7eb05af38d28783fca8a5"
   },
   {
     "id": "BEY-X-BX-17-WIZARD-ARROW-4-80B",
-    "image": "assets/images/x/beys/bey-x-bx-17-wizard-arrow-4-80b/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-17-wizard-arrow-4-80b/bey-x-bx-17-wizard-arrow-4-80b.webp",
     "sourcePath": "02_product_components/020_bx17/04_BX17_04@1.png",
     "sourceSha256": "8033a9a10dbc4c3b5a959249920014c8ce82135652dcf1563d9e151fbbd4c6c5"
   },
   {
     "id": "BEY-X-BX-19-RHINO-HORN-3-80S",
-    "image": "assets/images/x/beys/bey-x-bx-19-rhino-horn-3-80s/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-19-rhino-horn-3-80s/bey-x-bx-19-rhino-horn-3-80s.webp",
     "sourcePath": "02_product_components/022_bx19/01_BX19_01@1.png",
     "sourceSha256": "eeecf04e8d6f564b7b5f191065e364d9f52cc9c5027341e974be27c253628eb9"
   },
   {
     "id": "BEY-X-BX-20-DRAN-DAGGER-4-60R",
-    "image": "assets/images/x/beys/bey-x-bx-20-dran-dagger-4-60r/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-20-dran-dagger-4-60r/bey-x-bx-20-dran-dagger-4-60r.webp",
     "sourcePath": "02_product_components/023_bx20/02_BX20_b_01@1.png",
     "sourceSha256": "831b58ddb219011cff57de4d70eee102e5c6d6bbd315990af54e54df16c47078"
   },
   {
     "id": "BEY-X-BX-20-KNIGHT-SHIELD-5-80T",
-    "image": "assets/images/x/beys/bey-x-bx-20-knight-shield-5-80t/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-20-knight-shield-5-80t/bey-x-bx-20-knight-shield-5-80t.webp",
     "sourcePath": "02_product_components/023_bx20/10_BX20_p_01@1.png",
     "sourceSha256": "8df350c13e115774e79e00d80e1f574ff485d2495833c7e7061a2145d0195e00"
   },
   {
     "id": "BEY-X-BX-20-SHARK-EDGE-3-80F",
-    "image": "assets/images/x/beys/bey-x-bx-20-shark-edge-3-80f/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-20-shark-edge-3-80f/bey-x-bx-20-shark-edge-3-80f.webp",
     "sourcePath": "02_product_components/023_bx20/06_BX20_g_01@1.png",
     "sourceSha256": "46015ec92c41462254e62bde982222726b67afa2c5ae150a208351f88ffed6f2"
   },
   {
     "id": "BEY-X-BX-21-HELLS-CHAIN-5-60HT",
-    "image": "assets/images/x/beys/bey-x-bx-21-hells-chain-5-60ht/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-21-hells-chain-5-60ht/bey-x-bx-21-hells-chain-5-60ht.webp",
     "sourcePath": "02_product_components/024_bx21/01_BX21_p@1.png",
     "sourceSha256": "cbc30d9475b6ccbe8010b9097296466f6c948c7b24d5701686014fc1079f63e4"
   },
   {
     "id": "BEY-X-BX-21-KNIGHT-LANCE-3-60LF",
-    "image": "assets/images/x/beys/bey-x-bx-21-knight-lance-3-60lf/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-21-knight-lance-3-60lf/bey-x-bx-21-knight-lance-3-60lf.webp",
     "sourcePath": "02_product_components/024_bx21/06_BX21_y_01@1.png",
     "sourceSha256": "efbe5bfd488eeafb9d22443138053b65d8ff5a149d636c3b26fed41a325e5c0a"
   },
   {
     "id": "BEY-X-BX-21-WIZARD-ARROW-4-80N",
-    "image": "assets/images/x/beys/bey-x-bx-21-wizard-arrow-4-80n/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-21-wizard-arrow-4-80n/bey-x-bx-21-wizard-arrow-4-80n.webp",
     "sourcePath": "02_product_components/024_bx21/10_BX21_o_01@1.png",
     "sourceSha256": "6db2cd478b3a8c0b4787bb26673221837084c1b58b2f5e155bdda301649fcdd5"
   },
   {
     "id": "BEY-X-BX-22-DRAN-SWORD-3-60F",
-    "image": "assets/images/x/beys/bey-x-bx-22-dran-sword-3-60f/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-22-dran-sword-3-60f/bey-x-bx-22-dran-sword-3-60f.webp",
     "sourcePath": "02_product_components/025_bx22/01_BX22_01@1.png",
     "sourceSha256": "b079edd0d2ef52a2c9af4c26a4d589c3293e3ce8954579eb00f67c919c65e3e0"
   },
   {
     "id": "BEY-X-BX-23-PHOENIX-SOAR-9-60GF",
-    "image": "assets/images/x/beys/bey-x-bx-23-phoenix-soar-9-60gf/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-23-phoenix-soar-9-60gf/bey-x-bx-23-phoenix-soar-9-60gf.webp",
     "sourcePath": "02_product_components/026_bx23/01_BX23_01@1.png",
     "sourceSha256": "65ae2fadab830d7deaecb30a18f0720d00e8f43b3df7de613ecbc082b7b208ff"
   },
   {
     "id": "BEY-X-BX-24-01-WYVERN-GALE-5-80GB",
-    "image": "assets/images/x/beys/bey-x-bx-24-01-wyvern-gale-5-80gb/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-24-01-wyvern-gale-5-80gb/bey-x-bx-24-01-wyvern-gale-5-80gb.webp",
     "sourcePath": "02_product_components/027_bx24/01_BX24_01@1.png",
     "sourceSha256": "1fb5e01d5d74de3caa267c85ff924edaff53aa504b9391101fc1f021565c929e"
   },
   {
     "id": "BEY-X-BX-24-02-WYVERN-GALE-3-60T",
-    "image": "assets/images/x/beys/bey-x-bx-24-02-wyvern-gale-3-60t/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-24-02-wyvern-gale-3-60t/bey-x-bx-24-02-wyvern-gale-3-60t.webp",
     "sourcePath": "02_product_components/027_bx24/02_BX24_02@1.png",
     "sourceSha256": "f3b34fd4c4d61945353e3cb9106a536fea1229e772cf768fcb180581ba306ae3"
   },
   {
     "id": "BEY-X-BX-24-03-KNIGHT-LANCE-4-60GB",
-    "image": "assets/images/x/beys/bey-x-bx-24-03-knight-lance-4-60gb/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-24-03-knight-lance-4-60gb/bey-x-bx-24-03-knight-lance-4-60gb.webp",
     "sourcePath": "02_product_components/027_bx24/03_BX24_03@1.png",
     "sourceSha256": "9da1027a00e114468ed4c93cbd2b36c7759de70cffeec2863113ee84390116b4"
   },
   {
     "id": "BEY-X-BX-24-04-VIPER-TAIL-5-60F",
-    "image": "assets/images/x/beys/bey-x-bx-24-04-viper-tail-5-60f/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-24-04-viper-tail-5-60f/bey-x-bx-24-04-viper-tail-5-60f.webp",
     "sourcePath": "02_product_components/027_bx24/04_BX24_04@1.png",
     "sourceSha256": "5d19babfa7a49a3e9dc779be3455e76fba75fb9bdc3939a4d338fcc4185996e1"
   },
   {
     "id": "BEY-X-BX-24-05-LEON-CLAW-3-80HN",
-    "image": "assets/images/x/beys/bey-x-bx-24-05-leon-claw-3-80hn/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-24-05-leon-claw-3-80hn/bey-x-bx-24-05-leon-claw-3-80hn.webp",
     "sourcePath": "02_product_components/027_bx24/05_BX24_05@1.png",
     "sourceSha256": "42f546a11e1830f348678e50b6f61fed3c1034712568b2b527feefd97e3d083e"
   },
   {
     "id": "BEY-X-BX-24-06-WIZARD-ARROW-4-80GB",
-    "image": "assets/images/x/beys/bey-x-bx-24-06-wizard-arrow-4-80gb/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-24-06-wizard-arrow-4-80gb/bey-x-bx-24-06-wizard-arrow-4-80gb.webp",
     "sourcePath": "02_product_components/027_bx24/06_BX24_06@1.png",
     "sourceSha256": "2586828c4a438e300f17d0e308e85cd30b21ac3d78bc03f78ec325fdbbebbf9b"
   },
   {
     "id": "BEY-X-BX-26-UNICORN-STING-5-60GF",
-    "image": "assets/images/x/beys/bey-x-bx-26-unicorn-sting-5-60gf/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-26-unicorn-sting-5-60gf/bey-x-bx-26-unicorn-sting-5-60gf.webp",
     "sourcePath": "02_product_components/029_bx26/01_BX26_01@1.png",
     "sourceSha256": "dadb15876bda475a9b0407c6c1acf9cc4ba0b9e7995d0990259804d3aa1e6de7"
   },
   {
     "id": "BEY-X-BX-27-01-SPHINX-COWL-9-80GN",
-    "image": "assets/images/x/beys/bey-x-bx-27-01-sphinx-cowl-9-80gn/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-27-01-sphinx-cowl-9-80gn/bey-x-bx-27-01-sphinx-cowl-9-80gn.webp",
     "sourcePath": "02_product_components/030_bx27/01_BX27_01@1.png",
     "sourceSha256": "4d26205b9849fc4cc4730355b8337131cbd715cd0ffc6a5429e048535d58e6df"
   },
   {
     "id": "BEY-X-BX-27-02-SPHINX-COWL-4-80HT",
-    "image": "assets/images/x/beys/bey-x-bx-27-02-sphinx-cowl-4-80ht/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-27-02-sphinx-cowl-4-80ht/bey-x-bx-27-02-sphinx-cowl-4-80ht.webp",
     "sourcePath": "02_product_components/030_bx27/03_BX27_03@1.png",
     "sourceSha256": "997f458f29cfa66f6169f58fb7e7c33a8f64c3064e61720169a4579e7794b5d4"
   },
   {
     "id": "BEY-X-BX-27-03-SPHINX-COWL-5-60O",
-    "image": "assets/images/x/beys/bey-x-bx-27-03-sphinx-cowl-5-60o/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-27-03-sphinx-cowl-5-60o/bey-x-bx-27-03-sphinx-cowl-5-60o.webp",
     "sourcePath": "02_product_components/030_bx27/04_BX27_04@1.png",
     "sourceSha256": "432ae33d3179f05557ea7e20d8beb0346aa0b2a5aaf59d6c9ee90704f0ce97a0"
   },
   {
     "id": "BEY-X-BX-31-01-TYRANNO-BEAT-4-70Q",
-    "image": "assets/images/x/beys/bey-x-bx-31-01-tyranno-beat-4-70q/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-31-01-tyranno-beat-4-70q/bey-x-bx-31-01-tyranno-beat-4-70q.webp",
     "sourcePath": "02_product_components/041_bx31/01_BX31_01@1.png",
     "sourceSha256": "7d20ed7c4fe22c061b19670620d9bd523a3e95b35f49d00e714f6e1b47f25a84"
   },
   {
     "id": "BEY-X-BX-31-02-TYRANNO-BEAT-3-60S",
-    "image": "assets/images/x/beys/bey-x-bx-31-02-tyranno-beat-3-60s/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-31-02-tyranno-beat-3-60s/bey-x-bx-31-02-tyranno-beat-3-60s.webp",
     "sourcePath": "02_product_components/041_bx31/02_BX31_02@1.png",
     "sourceSha256": "1780b2a10cfa66a2535ce502753532497023dfe62785ad63bdf4328de5e50b21"
   },
   {
     "id": "BEY-X-BX-31-03-HELLS-CHAIN-9-80O",
-    "image": "assets/images/x/beys/bey-x-bx-31-03-hells-chain-9-80o/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-31-03-hells-chain-9-80o/bey-x-bx-31-03-hells-chain-9-80o.webp",
     "sourcePath": "02_product_components/041_bx31/04_BX31_04@1.png",
     "sourceSha256": "465ce17c9b94f46ad6c2350f5e8fd96cc9494b4908169a45adfee7120997dcde"
   },
   {
     "id": "BEY-X-BX-31-04-DRAN-DAGGER-4-70P",
-    "image": "assets/images/x/beys/bey-x-bx-31-04-dran-dagger-4-70p/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-31-04-dran-dagger-4-70p/bey-x-bx-31-04-dran-dagger-4-70p.webp",
     "sourcePath": "02_product_components/041_bx31/03_BX31_03@1.png",
     "sourceSha256": "9b149d956937dfd5e560c6e601b40efcbf217044b39073505b05649a33cc0e7c"
   },
   {
     "id": "BEY-X-BX-31-05-SHARK-EDGE-1-60Q",
-    "image": "assets/images/x/beys/bey-x-bx-31-05-shark-edge-1-60q/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-31-05-shark-edge-1-60q/bey-x-bx-31-05-shark-edge-1-60q.webp",
     "sourcePath": "02_product_components/041_bx31/05_BX31_05@1.png",
     "sourceSha256": "476fd4da1443ed894703536fbbdc7ace4df5ed5ad5462f6c52dd3af47f2e06b7"
   },
   {
     "id": "BEY-X-BX-31-06-RHINO-HORN-5-80Q",
-    "image": "assets/images/x/beys/bey-x-bx-31-06-rhino-horn-5-80q/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-31-06-rhino-horn-5-80q/bey-x-bx-31-06-rhino-horn-5-80q.webp",
     "sourcePath": "02_product_components/041_bx31/06_BX31_06@1.png",
     "sourceSha256": "8ff6feaa5ef912342abf96cb22410a6d3aacf04914f060baafea994462c550e0"
   },
   {
     "id": "BEY-X-BX-33-PEARL-TIGER-3-60U",
-    "image": "assets/images/x/beys/bey-x-bx-33-pearl-tiger-3-60u/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-33-pearl-tiger-3-60u/bey-x-bx-33-pearl-tiger-3-60u.webp",
     "sourcePath": "02_product_components/045_bx33/01_BX33_01@1.png",
     "sourceSha256": "20d79eafa547a2cae1145970e4a53684d43e395d65a9152fe4e4fcbfe2c319de"
   },
   {
     "id": "BEY-X-BX-34-COBALT-DRAGOON-2-60C",
-    "image": "assets/images/x/beys/bey-x-bx-34-cobalt-dragoon-2-60c/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-34-cobalt-dragoon-2-60c/bey-x-bx-34-cobalt-dragoon-2-60c.webp",
     "sourcePath": "02_product_components/047_bx34/01_BX34_01@1.png",
     "sourceSha256": "21ab6c3c9cdcc498c70a3a0bebcd19f4b4f0ba5cc10e751b137d084f4a6eedf4"
   },
   {
     "id": "BEY-X-BX-35-01-BLACK-TURTLE-4-60D",
-    "image": "assets/images/x/beys/bey-x-bx-35-01-black-turtle-4-60d/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-35-01-black-turtle-4-60d/bey-x-bx-35-01-black-turtle-4-60d.webp",
     "sourcePath": "02_product_components/048_bx35/02_BX35_02@1.png",
     "sourceSha256": "8a1ebcbeaaa79bca5746642cd394fecefeb062e9b67abb6ea96379d3b8b200d7"
   },
   {
     "id": "BEY-X-BX-35-02-BLACK-TURTLE-9-80B",
-    "image": "assets/images/x/beys/bey-x-bx-35-02-black-turtle-9-80b/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-35-02-black-turtle-9-80b/bey-x-bx-35-02-black-turtle-9-80b.webp",
     "sourcePath": "02_product_components/048_bx35/03_BX35_03@1.png",
     "sourceSha256": "634b08b192bcfacfa1e239131c0e9f3f0dc86ce8d69a6387fa488724bdfd9c23"
   },
   {
     "id": "BEY-X-BX-35-03-UNICORN-STING-3-70D",
-    "image": "assets/images/x/beys/bey-x-bx-35-03-unicorn-sting-3-70d/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-35-03-unicorn-sting-3-70d/bey-x-bx-35-03-unicorn-sting-3-70d.webp",
     "sourcePath": "02_product_components/048_bx35/04_BX35_04@1.png",
     "sourceSha256": "fd852cbabe859b4c4c7518fa7f2492443e8f5b1f0471b9adf68e5e51d5ca2b99"
   },
   {
     "id": "BEY-X-BX-35-04-WIZARD-ROD-1-60R",
-    "image": "assets/images/x/beys/bey-x-bx-35-04-wizard-rod-1-60r/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-35-04-wizard-rod-1-60r/bey-x-bx-35-04-wizard-rod-1-60r.webp",
     "sourcePath": "02_product_components/048_bx35/07_BX35_07@1.png",
     "sourceSha256": "5cf281d4eb7bde8f99d8b6f5677ba74c505cd6ea44d564960a6fb0f6b70d1334"
   },
   {
     "id": "BEY-X-BX-35-05-PHOENIX-SOAR-5-80H",
-    "image": "assets/images/x/beys/bey-x-bx-35-05-phoenix-soar-5-80h/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-35-05-phoenix-soar-5-80h/bey-x-bx-35-05-phoenix-soar-5-80h.webp",
     "sourcePath": "02_product_components/048_bx35/06_BX35_06@1.png",
     "sourceSha256": "1ff3c1ec55ee57f821cc97a23ac0516edc7a32176670239c60aa6b3ad8faa8d5"
   },
   {
     "id": "BEY-X-BX-35-06-VIPER-TAIL-5-70D",
-    "image": "assets/images/x/beys/bey-x-bx-35-06-viper-tail-5-70d/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-35-06-viper-tail-5-70d/bey-x-bx-35-06-viper-tail-5-70d.webp",
     "sourcePath": "02_product_components/048_bx35/05_BX35_05@1.png",
     "sourceSha256": "e6bb3975bce67d40b7a3d6a53fa757c2c88e3192b08598fe57ef7a3d46002540"
   },
   {
     "id": "BEY-X-BX-36-01-WHALE-WAVE-5-80E",
-    "image": "assets/images/x/beys/bey-x-bx-36-01-whale-wave-5-80e/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-36-01-whale-wave-5-80e/bey-x-bx-36-01-whale-wave-5-80e.webp",
     "sourcePath": "02_product_components/059_bx36/01_BX36_01@1.png",
     "sourceSha256": "e68e3011798d84c2a7b02c16a1d342fc0073977d7f6a6c3cc656fc3807108289"
   },
   {
     "id": "BEY-X-BX-36-02-WHALE-WAVE-4-70HN",
-    "image": "assets/images/x/beys/bey-x-bx-36-02-whale-wave-4-70hn/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-36-02-whale-wave-4-70hn/bey-x-bx-36-02-whale-wave-4-70hn.webp",
     "sourcePath": "02_product_components/059_bx36/03_BX36_03@1.png",
     "sourceSha256": "7b4756269a52c77f38d513ede841900238aaa9a450226f058c12ce1594d0ff9d"
   },
   {
     "id": "BEY-X-BX-36-03-WHALE-WAVE-3-80GB",
-    "image": "assets/images/x/beys/bey-x-bx-36-03-whale-wave-3-80gb/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-36-03-whale-wave-3-80gb/bey-x-bx-36-03-whale-wave-3-80gb.webp",
     "sourcePath": "02_product_components/059_bx36/04_BX36_04@1.png",
     "sourceSha256": "aa96114177ff2d53d5af898f7cf0493d568908ef3e77bab983f37e9dc0dc68f5"
   },
   {
     "id": "BEY-X-BX-37-BEAR-SCRATCH-5-60F",
-    "image": "assets/images/x/beys/bey-x-bx-37-bear-scratch-5-60f/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-37-bear-scratch-5-60f/bey-x-bx-37-bear-scratch-5-60f.webp",
     "sourcePath": "02_product_components/061_bx37/03_BX37_03@1.png",
     "sourceSha256": "49ec86ddf6ac21a2ee693b9dd3378ffcfda4945f7de33d53ffe885b4767b473d"
   },
   {
     "id": "BEY-X-BX-38-CRIMSON-GARUDA-4-70TP",
-    "image": "assets/images/x/beys/bey-x-bx-38-crimson-garuda-4-70tp/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-38-crimson-garuda-4-70tp/bey-x-bx-38-crimson-garuda-4-70tp.webp",
     "sourcePath": "02_product_components/062_bx38/01_BX38_01@1.png",
     "sourceSha256": "592f76c72cac1bd2f071d0ee67095be1529764d30a302dc16ad62c01db65b52a"
   },
   {
     "id": "BEY-X-BX-39-01-SHELTER-DRAKE-7-80GP",
-    "image": "assets/images/x/beys/bey-x-bx-39-01-shelter-drake-7-80gp/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-39-01-shelter-drake-7-80gp/bey-x-bx-39-01-shelter-drake-7-80gp.webp",
     "sourcePath": "02_product_components/075_bx39/01_BX39_01@1.png",
     "sourceSha256": "7560baa9cd80914bf1aaa7c376d220c04892d9bbbb06ef36352baf29cd5d91e0"
   },
   {
     "id": "BEY-X-BX-39-02-SHELTER-DRAKE-5-70O",
-    "image": "assets/images/x/beys/bey-x-bx-39-02-shelter-drake-5-70o/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-39-02-shelter-drake-5-70o/bey-x-bx-39-02-shelter-drake-5-70o.webp",
     "sourcePath": "02_product_components/075_bx39/03_BX39_03@1.png",
     "sourceSha256": "9c146d9309cf674697d06a74e72ab640b1a62ede999164d40b0feef711e247a9"
   },
   {
     "id": "BEY-X-BX-39-03-SHELTER-DRAKE-3-60D",
-    "image": "assets/images/x/beys/bey-x-bx-39-03-shelter-drake-3-60d/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-39-03-shelter-drake-3-60d/bey-x-bx-39-03-shelter-drake-3-60d.webp",
     "sourcePath": "02_product_components/075_bx39/04_BX39_04@1.png",
     "sourceSha256": "3797571b7b287d6708e17fa300ac194ba25e47c4ba462326439dd7b2abbb3476"
   },
   {
     "id": "BEY-X-BX-44-TRICERA-PRESS-M-85BS",
-    "image": "assets/images/x/beys/bey-x-bx-44-tricera-press-m-85bs/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-44-tricera-press-m-85bs/bey-x-bx-44-tricera-press-m-85bs.webp",
     "sourcePath": "02_product_components/096_bx44/01_BX44_01@1.png",
     "sourceSha256": "29e4f0eb3f95495ba0f8e503af7894dd09977d4d3647f74cd4c6498f5beb22fd"
   },
   {
     "id": "BEY-X-BX-45-WARRIOR-CALIBUR-6-70M",
-    "image": "assets/images/x/beys/bey-x-bx-45-warrior-calibur-6-70m/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-45-warrior-calibur-6-70m/bey-x-bx-45-warrior-calibur-6-70m.webp",
     "sourcePath": "02_product_components/105_bx45/01_BX45_01@1.png",
     "sourceSha256": "e880e1b792fcac5f2d47856191a596d2792a2d9f8b5f8edd832df71b803f36d2"
   },
   {
     "id": "BEY-X-BX-46-COBALT-DRAKE-9-60R",
-    "image": "assets/images/x/beys/bey-x-bx-46-cobalt-drake-9-60r/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-46-cobalt-drake-9-60r/bey-x-bx-46-cobalt-drake-9-60r.webp",
     "sourcePath": "02_product_components/108_bx46/03_BX46_03@1.png",
     "sourceSha256": "fc396f27d8e51859c1c635874f64ae16ce94f67503b3971f4bedbb4521143355"
   },
   {
     "id": "BEY-X-BX-46-GORE-TACKLE-7-70T",
-    "image": "assets/images/x/beys/bey-x-bx-46-gore-tackle-7-70t/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-46-gore-tackle-7-70t/bey-x-bx-46-gore-tackle-7-70t.webp",
     "sourcePath": "02_product_components/108_bx46/04_BX46_04@1.png",
     "sourceSha256": "99ec82afa6db14a7af6822b34d2e07097706f2067641195ba8c5cf0265431fe5"
   },
   {
     "id": "BEY-X-BX-48-01-COBALT-DRAGOON-9-80F",
-    "image": "assets/images/x/beys/bey-x-bx-48-01-cobalt-dragoon-9-80f/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-48-01-cobalt-dragoon-9-80f/bey-x-bx-48-01-cobalt-dragoon-9-80f.webp",
     "sourcePath": "02_product_components/119_bx48/01_BX48_01@1.png",
     "sourceSha256": "43c0b402fa8205b194f9a5e490b507f9cec10a557e97e15bb7ae90ea4437bb11"
   },
   {
     "id": "BEY-X-BX-48-02-SHARK-EDGE-4-70E",
-    "image": "assets/images/x/beys/bey-x-bx-48-02-shark-edge-4-70e/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-48-02-shark-edge-4-70e/bey-x-bx-48-02-shark-edge-4-70e.webp",
     "sourcePath": "02_product_components/119_bx48/04_BX48_04@1.png",
     "sourceSha256": "6f9d06647e2f54011648e444a91c285eba8e8d935a0523d034037dfd1153d1e0"
   },
   {
     "id": "BEY-X-BX-48-03-MAMMOTH-TUSK-7-60S",
-    "image": "assets/images/x/beys/bey-x-bx-48-03-mammoth-tusk-7-60s/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-48-03-mammoth-tusk-7-60s/bey-x-bx-48-03-mammoth-tusk-7-60s.webp",
     "sourcePath": "02_product_components/119_bx48/03_BX48_03@1.png",
     "sourceSha256": "e9f830438500b7c9b899cb57183ec26c7a364b3c2824d447b47efbcb7fa10ff8"
   },
   {
     "id": "BEY-X-BX-48-04-HELLS-SCYTHE-3-85GB",
-    "image": "assets/images/x/beys/bey-x-bx-48-04-hells-scythe-3-85gb/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-48-04-hells-scythe-3-85gb/bey-x-bx-48-04-hells-scythe-3-85gb.webp",
     "sourcePath": "02_product_components/119_bx48/05_BX48_05@1.png",
     "sourceSha256": "a38566141fb0205b19583816eff14be25fdbc1e451f8f188a1d5e73394d87040"
   },
   {
     "id": "BEY-X-BX-48-05-DRAN-BUSTER-2-80Q",
-    "image": "assets/images/x/beys/bey-x-bx-48-05-dran-buster-2-80q/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-48-05-dran-buster-2-80q/bey-x-bx-48-05-dran-buster-2-80q.webp",
     "sourcePath": "02_product_components/119_bx48/06_BX48_06@1.png",
     "sourceSha256": "0142ba173ab77cea616635622dbcd3ae52574ebdf4befaf945e30f0bb6c57c07"
   },
   {
     "id": "BEY-X-BX-49-DRAN-STRIKE-4-50FF",
-    "image": "assets/images/x/beys/bey-x-bx-49-dran-strike-4-50ff/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-49-dran-strike-4-50ff/bey-x-bx-49-dran-strike-4-50ff.webp",
     "sourcePath": "02_product_components/132_bx49/01_BX49_01@1.png",
     "sourceSha256": "390cedff58474dad8b2f0190cbabd25fdaaef9a6c7803861a1f7621945e3fc2d"
   },
   {
     "id": "BEY-X-BX-50-01-HEAVENS-RING-0-80DS",
-    "image": "assets/images/x/beys/bey-x-bx-50-01-heavens-ring-0-80ds/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-50-01-heavens-ring-0-80ds/bey-x-bx-50-01-heavens-ring-0-80ds.webp",
     "sourcePath": "02_product_components/142_bx50/01_BX50_01@1.png",
     "sourceSha256": "4601c8f18837ad870503614d04370efbde479df484dd63bb02362ee26c656220"
   },
   {
     "id": "BEY-X-BX-50-02-HEAVENS-RING-6-60TP",
-    "image": "assets/images/x/beys/bey-x-bx-50-02-heavens-ring-6-60tp/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-50-02-heavens-ring-6-60tp/bey-x-bx-50-02-heavens-ring-6-60tp.webp",
     "sourcePath": "02_product_components/142_bx50/03_BX50_03@1.png",
     "sourceSha256": "5638deb0ce7a3af4819a69997d91dcc5d88bcd8c67c1cc70f03f4b9ef6ac5fa7"
   },
   {
     "id": "BEY-X-BX-50-03-IMPACT-DRAKE-7-55FB",
-    "image": "assets/images/x/beys/bey-x-bx-50-03-impact-drake-7-55fb/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-50-03-impact-drake-7-55fb/bey-x-bx-50-03-impact-drake-7-55fb.webp",
     "sourcePath": "02_product_components/142_bx50/04_BX50_04@1.png",
     "sourceSha256": "5ceda6fe08e49bce993b747ac1e0753aaf6cf524499a454c82e608d48118a9ca"
   },
   {
     "id": "BEY-X-BX-50-04-GHOST-CIRCLE-M-85DS",
-    "image": "assets/images/x/beys/bey-x-bx-50-04-ghost-circle-m-85ds/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-50-04-ghost-circle-m-85ds/bey-x-bx-50-04-ghost-circle-m-85ds.webp",
     "sourcePath": "02_product_components/142_bx50/05_BX50_05@1.png",
     "sourceSha256": "e566c05a4287e601e2284d2c6b6a39c5964c9ab70f07e07aa2a8e9fb5b4896d9"
   },
   {
     "id": "BEY-X-BX-50-05-WOLF-FLAME-D-9-65L",
-    "image": "assets/images/x/beys/bey-x-bx-50-05-wolf-flame-d-9-65l/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-50-05-wolf-flame-d-9-65l/bey-x-bx-50-05-wolf-flame-d-9-65l.webp",
     "sourcePath": "02_product_components/142_bx50/06_BX50_06@1.png",
     "sourceSha256": "94329525f8eb3dc98925b1d1945645dda0c8272b20c14b03dc12723c5ee8151d"
   },
   {
     "id": "BEY-X-BX-50-06-KERBEROS-REAPER-B-0-80WB",
-    "image": "assets/images/x/beys/bey-x-bx-50-06-kerberos-reaper-b-0-80wb/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-50-06-kerberos-reaper-b-0-80wb/bey-x-bx-50-06-kerberos-reaper-b-0-80wb.webp",
     "sourcePath": "02_product_components/142_bx50/07_BX50_07@1.png",
     "sourceSha256": "0d936c0c1b3ec0ca1e453556b720c078cf2078b09758d36e9f079f14a7c8c0c9"
   },
   {
     "id": "BEY-X-CX-00-BUGS-ANTLERS-B-2-60D",
-    "image": "assets/images/x/beys/bey-x-cx-00-bugs-antlers-b-2-60d/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-00-bugs-antlers-b-2-60d/bey-x-cx-00-bugs-antlers-b-2-60d.webp",
     "sourcePath": "02_product_components/137_cx00-ba/01_BXG81_01@1.png",
     "sourceSha256": "201694337e15cc5823f5437566b38e5475bc554cffe992444bb470acb977ee3a"
   },
   {
     "id": "BEY-X-CX-00-DRAKE-BRAVE-G-4-70I",
-    "image": "assets/images/x/beys/bey-x-cx-00-drake-brave-g-4-70i/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-00-drake-brave-g-4-70i/bey-x-cx-00-drake-brave-g-4-70i.webp",
     "sourcePath": "02_product_components/140_cx00-drb/01_BXH23_01@1.png",
     "sourceSha256": "da6e71edccc9933061201b86e7302573d6663cf147f9f7cf5e5d99f00fe42d48"
   },
   {
     "id": "BEY-X-CX-00-DRAN-BRAVE-S-6-60V",
-    "image": "assets/images/x/beys/bey-x-cx-00-dran-brave-s-6-60v/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-00-dran-brave-s-6-60v/bey-x-cx-00-dran-brave-s-6-60v.webp",
     "sourcePath": "02_product_components/133_cx00-db/01_BXG51_01@1.png",
     "sourceSha256": "bd782be53fa874ce3963600b83db3c00a815b707538116dd35585714590f0ac9"
   },
   {
     "id": "BEY-X-CX-00-EVA-ARC-B-0-70E",
-    "image": "assets/images/x/beys/bey-x-cx-00-eva-arc-b-0-70e/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-00-eva-arc-b-0-70e/bey-x-cx-00-eva-arc-b-0-70e.webp",
     "sourcePath": "02_product_components/144_cx00-eva/01_BXG57_01@1.png",
     "sourceSha256": "a6e73311de2ba1e0148be2de00f9818f2ebb72930eb6e44690b3f5d0955ad098"
   },
   {
     "id": "BEY-X-CX-00-EVA-BRAVE-A-1-70V",
-    "image": "assets/images/x/beys/bey-x-cx-00-eva-brave-a-1-70v/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-00-eva-brave-a-1-70v/bey-x-cx-00-eva-brave-a-1-70v.webp",
     "sourcePath": "02_product_components/144_cx00-eva/08_BXG57_08@1.png",
     "sourceSha256": "ccf6e8f6e4a5b4403bcb945887ad5cd2d03553820f7efa87d3446a38614fced0"
   },
   {
     "id": "BEY-X-CX-00-EVA-BRUSH-T-2-70A",
-    "image": "assets/images/x/beys/bey-x-cx-00-eva-brush-t-2-70a/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-00-eva-brush-t-2-70a/bey-x-cx-00-eva-brush-t-2-70a.webp",
     "sourcePath": "02_product_components/144_cx00-eva/15_BXG57_15@1.png",
     "sourceSha256": "e3c4b14424d5af18ae41c6788011b7fa5ffdeea0f7f366822a3674d8eb4bc365"
   },
   {
     "id": "BEY-X-CX-00-HORNET-PORT-R-7-60T",
-    "image": "assets/images/x/beys/bey-x-cx-00-hornet-port-r-7-60t/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-00-hornet-port-r-7-60t/bey-x-cx-00-hornet-port-r-7-60t.webp",
     "sourcePath": "02_product_components/139_cx00-hf/01_BXG79_01@1.png",
     "sourceSha256": "b52c5777ea7136c52625f19f73db0683005016245638760efcd2ab29c0da3b5b"
   },
   {
     "id": "BEY-X-CX-00-KRAKEN-RIGGLE-S-3-70O",
-    "image": "assets/images/x/beys/bey-x-cx-00-kraken-riggle-s-3-70o/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-00-kraken-riggle-s-3-70o/bey-x-cx-00-kraken-riggle-s-3-70o.webp",
     "sourcePath": "02_product_components/138_cx00-kw/01_BXG80_01@1.png",
     "sourceSha256": "956977faab25ffdb2cda221bf25e63e0314a6f214c167d62320a2b2905e8c152"
   },
   {
     "id": "BEY-X-CX-00-PEGASUS-BLAST-A-TR",
-    "image": "assets/images/x/beys/bey-x-cx-00-pegasus-blast-a-tr/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-00-pegasus-blast-a-tr/bey-x-cx-00-pegasus-blast-a-tr.webp",
     "sourcePath": "02_product_components/103_cx00-pb/01_BXG45_01@1.png",
     "sourceSha256": "1ef832f0475db7b5cdac79d3a0b38748bb97cfdb4cf0c4b5a1e038d94b6fb022"
   },
   {
     "id": "BEY-X-CX-00-TIGA-RAGE-FT-3-60T",
-    "image": "assets/images/x/beys/bey-x-cx-00-tiga-rage-ft-3-60t/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-00-tiga-rage-ft-3-60t/bey-x-cx-00-tiga-rage-ft-3-60t.webp",
     "sourcePath": "02_product_components/145_cx00-tiga/01_BXG70_01@1.png",
     "sourceSha256": "8c9e0f08f11208a8acfa445c9ac30d882d0b122ce66a9b761ef5f0738c0e52c4"
   },
   {
     "id": "BEY-X-CX-00-VALKYRIE-BOLT-S-4-70V",
-    "image": "assets/images/x/beys/bey-x-cx-00-valkyrie-bolt-s-4-70v/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-00-valkyrie-bolt-s-4-70v/bey-x-cx-00-valkyrie-bolt-s-4-70v.webp",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/news/_image/news250715_3@1x.webp",
     "sourceSha256": "400077d635978918a5bb0d93e8993ede02a222b55c03c7a654b8d317cc5a04b7",
     "sourceCrop": [
@@ -896,301 +896,301 @@ const xImageMappings = [
   },
   {
     "id": "BEY-X-CX-00-WIZARD-ARC-R-4-55LO",
-    "image": "assets/images/x/beys/bey-x-cx-00-wizard-arc-r-4-55lo/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-00-wizard-arc-r-4-55lo/bey-x-cx-00-wizard-arc-r-4-55lo.webp",
     "sourcePath": "02_product_components/104_cx00-wa/01_BXG43_01@1.png",
     "sourceSha256": "e4a0bb45384fc39ec684e8a04891fcd54e69ad9b7eae6f97bba1f35f035ae7af"
   },
   {
     "id": "BEY-X-CX-01-DRAN-BRAVE-S-6-60V",
-    "image": "assets/images/x/beys/bey-x-cx-01-dran-brave-s-6-60v/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-01-dran-brave-s-6-60v/bey-x-cx-01-dran-brave-s-6-60v.webp",
     "sourcePath": "02_product_components/082_cx01/01_CX01_01@1.png",
     "sourceSha256": "4f30ab3fd9b2d43bddfdb889b10770126c990d0926de4325fcc5fd1e993d5a4d"
   },
   {
     "id": "BEY-X-CX-02-WIZARD-ARC-R-4-55LO",
-    "image": "assets/images/x/beys/bey-x-cx-02-wizard-arc-r-4-55lo/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-02-wizard-arc-r-4-55lo/bey-x-cx-02-wizard-arc-r-4-55lo.webp",
     "sourcePath": "02_product_components/083_cx02/01_CX02_01@1.png",
     "sourceSha256": "abf3e07cfc6ac02b893b80def1c8790e2ced30ba23a6a4be9517ee8305b898c8"
   },
   {
     "id": "BEY-X-CX-03-PERSEUS-DARK-B-6-80W",
-    "image": "assets/images/x/beys/bey-x-cx-03-perseus-dark-b-6-80w/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-03-perseus-dark-b-6-80w/bey-x-cx-03-perseus-dark-b-6-80w.webp",
     "sourcePath": "02_product_components/084_cx03/01_CX03_01@1.png",
     "sourceSha256": "6c5c9f1fc0c3601529b511649fcc888fc33c3ca1ba4f88977b9ad7b63fdd015e"
   },
   {
     "id": "BEY-X-CX-04-DRAN-BRAVE-S-6-60V",
-    "image": "assets/images/x/beys/bey-x-cx-04-dran-brave-s-6-60v/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-04-dran-brave-s-6-60v/bey-x-cx-04-dran-brave-s-6-60v.webp",
     "sourcePath": "02_product_components/085_cx04/01_CX04_01@1.png",
     "sourceSha256": "1a76cda10cf047ef1fa62c63ac8ed452193c7813f5da29751ed978abfcf4e835"
   },
   {
     "id": "BEY-X-CX-04-PERSEUS-DARK-B-6-80W",
-    "image": "assets/images/x/beys/bey-x-cx-04-perseus-dark-b-6-80w/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-04-perseus-dark-b-6-80w/bey-x-cx-04-perseus-dark-b-6-80w.webp",
     "sourcePath": "02_product_components/085_cx04/02_CX04_02@1.png",
     "sourceSha256": "f6728b3ee85ea99e5ee1597eca05ff976ccd990c9098c5a5c52356d097e8ea82"
   },
   {
     "id": "BEY-X-CX-05-01-HELLS-REAPER-T-4-70K",
-    "image": "assets/images/x/beys/bey-x-cx-05-01-hells-reaper-t-4-70k/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-05-01-hells-reaper-t-4-70k/bey-x-cx-05-01-hells-reaper-t-4-70k.webp",
     "sourcePath": "02_product_components/087_cx05/02_CX05_02@1.png",
     "sourceSha256": "86312af7234cc685ac2edc787ca61d24c8f619b944af324dd31e63c817d82e61"
   },
   {
     "id": "BEY-X-CX-05-02-RHINO-REAPER-C-4-55D",
-    "image": "assets/images/x/beys/bey-x-cx-05-02-rhino-reaper-c-4-55d/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-05-02-rhino-reaper-c-4-55d/bey-x-cx-05-02-rhino-reaper-c-4-55d.webp",
     "sourcePath": "02_product_components/087_cx05/03_CX05_03@1.png",
     "sourceSha256": "cb0818c7dcf9af0d4e2b1d50acaaf83967a7e5f0acbeded242566180dc3fb476"
   },
   {
     "id": "BEY-X-CX-05-03-HELLS-ARC-T-3-85O",
-    "image": "assets/images/x/beys/bey-x-cx-05-03-hells-arc-t-3-85o/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-05-03-hells-arc-t-3-85o/bey-x-cx-05-03-hells-arc-t-3-85o.webp",
     "sourcePath": "02_product_components/087_cx05/04_CX05_04@1.png",
     "sourceSha256": "54230059fc9dca3895cd78160da7e3cf15df859bf40e1aa46420725ad5bbc48c"
   },
   {
     "id": "BEY-X-CX-05-04-LEON-CREST-9-80K",
-    "image": "assets/images/x/beys/bey-x-cx-05-04-leon-crest-9-80k/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-05-04-leon-crest-9-80k/bey-x-cx-05-04-leon-crest-9-80k.webp",
     "sourcePath": "02_product_components/087_cx05/06_CX05_06@1.png",
     "sourceSha256": "aef7b720ced1e0c034c10cc311b4b1403e8311f79a9a11f2c3b852906d381f60"
   },
   {
     "id": "BEY-X-CX-05-05-PHOENIX-RUDDER-4-70LF",
-    "image": "assets/images/x/beys/bey-x-cx-05-05-phoenix-rudder-4-70lf/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-05-05-phoenix-rudder-4-70lf/bey-x-cx-05-05-phoenix-rudder-4-70lf.webp",
     "sourcePath": "02_product_components/087_cx05/05_CX05_05@1.png",
     "sourceSha256": "ee91fb7e4fa138738907bb68c538aa3c99b71783e94a838375f6d7f666aec927"
   },
   {
     "id": "BEY-X-CX-05-06-WHALE-WAVE-7-60K",
-    "image": "assets/images/x/beys/bey-x-cx-05-06-whale-wave-7-60k/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-05-06-whale-wave-7-60k/bey-x-cx-05-06-whale-wave-7-60k.webp",
     "sourcePath": "02_product_components/087_cx05/07_CX05_07@1.png",
     "sourceSha256": "ef8888d0d0990470a6a3866ba63c1d0e8a01b2f5d9fbc4ca7c424fdae67fb796"
   },
   {
     "id": "BEY-X-CX-06-01-FOX-BRUSH-J-9-70GR",
-    "image": "assets/images/x/beys/bey-x-cx-06-01-fox-brush-j-9-70gr/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-06-01-fox-brush-j-9-70gr/bey-x-cx-06-01-fox-brush-j-9-70gr.webp",
     "sourcePath": "02_product_components/095_cx06/01_CX06_01@1.png",
     "sourceSha256": "526d04111a26dfda96687e1da8cb52e1710171b85a0680ed388ad1332503cf5c"
   },
   {
     "id": "BEY-X-CX-06-02-FOX-BRUSH-J-0-80DB",
-    "image": "assets/images/x/beys/bey-x-cx-06-02-fox-brush-j-0-80db/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-06-02-fox-brush-j-0-80db/bey-x-cx-06-02-fox-brush-j-0-80db.webp",
     "sourcePath": "02_product_components/095_cx06/03_CX06_03@1.png",
     "sourceSha256": "c616102295db9d347239003d51f060cc61449da046067dca4eed9202c8e4e5cd"
   },
   {
     "id": "BEY-X-CX-06-03-FOX-BRUSH-J-2-60U",
-    "image": "assets/images/x/beys/bey-x-cx-06-03-fox-brush-j-2-60u/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-06-03-fox-brush-j-2-60u/bey-x-cx-06-03-fox-brush-j-2-60u.webp",
     "sourcePath": "02_product_components/095_cx06/04_CX06_04@1.png",
     "sourceSha256": "4f3372a8dd5c361488d26beb2c1de0ae88b06b7d4c02b70c0cfb2f09deb9a463"
   },
   {
     "id": "BEY-X-CX-07-PEGASUS-BLAST-A-TR",
-    "image": "assets/images/x/beys/bey-x-cx-07-pegasus-blast-a-tr/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-07-pegasus-blast-a-tr/bey-x-cx-07-pegasus-blast-a-tr.webp",
     "sourcePath": "02_product_components/098_cx07/01_CX07_01@1.png",
     "sourceSha256": "7298784c430546ab088dcedd7024d86ba3176c6df10f3dc999eefe2382cecf09"
   },
   {
     "id": "BEY-X-CX-08-01-KERBEROS-FLAME-W-5-80WB",
-    "image": "assets/images/x/beys/bey-x-cx-08-01-kerberos-flame-w-5-80wb/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-08-01-kerberos-flame-w-5-80wb/bey-x-cx-08-01-kerberos-flame-w-5-80wb.webp",
     "sourcePath": "02_product_components/099_cx08/01_CX08_01@1.png",
     "sourceSha256": "351602fa21f507c7c8743c6ba45044d42a2917adaf29f447f15192fc8f8da820"
   },
   {
     "id": "BEY-X-CX-08-02-WHALE-FLAME-M-3-85HT",
-    "image": "assets/images/x/beys/bey-x-cx-08-02-whale-flame-m-3-85ht/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-08-02-whale-flame-m-3-85ht/bey-x-cx-08-02-whale-flame-m-3-85ht.webp",
     "sourcePath": "02_product_components/099_cx08/03_CX08_03@1.png",
     "sourceSha256": "6fda66f4d1e2369b7361eb183ad87c4f78c057873bde3cca97e0dc3ee1664bb1"
   },
   {
     "id": "BEY-X-CX-08-03-KERBEROS-DARK-W-1-60F",
-    "image": "assets/images/x/beys/bey-x-cx-08-03-kerberos-dark-w-1-60f/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-08-03-kerberos-dark-w-1-60f/bey-x-cx-08-03-kerberos-dark-w-1-60f.webp",
     "sourcePath": "02_product_components/099_cx08/04_CX08_04@1.png",
     "sourceSha256": "dcefc1fd94ea1f8350488eaa9b18a65c56e99c10626d04dd449445fbec663219"
   },
   {
     "id": "BEY-X-CX-08-04-DRAN-BUSTER-5-80MN",
-    "image": "assets/images/x/beys/bey-x-cx-08-04-dran-buster-5-80mn/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-08-04-dran-buster-5-80mn/bey-x-cx-08-04-dran-buster-5-80mn.webp",
     "sourcePath": "02_product_components/099_cx08/05_CX08_05@1.png",
     "sourceSha256": "2051c0358362b781e2d09e6008adb67008b9f62c8eb64cf1db68237c1a99f7fa"
   },
   {
     "id": "BEY-X-CX-08-05-BLACK-TURTLE-7-70WB",
-    "image": "assets/images/x/beys/bey-x-cx-08-05-black-turtle-7-70wb/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-08-05-black-turtle-7-70wb/bey-x-cx-08-05-black-turtle-7-70wb.webp",
     "sourcePath": "02_product_components/099_cx08/06_CX08_06@1.png",
     "sourceSha256": "c121d246c5e6ee1ef9f88644087a9969851536b7fdd073da7f23397c2980d428"
   },
   {
     "id": "BEY-X-CX-08-06-COBALT-DRAGOON-4-55WB",
-    "image": "assets/images/x/beys/bey-x-cx-08-06-cobalt-dragoon-4-55wb/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-08-06-cobalt-dragoon-4-55wb/bey-x-cx-08-06-cobalt-dragoon-4-55wb.webp",
     "sourcePath": "02_product_components/099_cx08/07_CX08_07@1.png",
     "sourceSha256": "52a2baae0ab300d167edd031ad0ee7c93c6b0450d9c6759cb071922a9d6e311b"
   },
   {
     "id": "BEY-X-CX-09-SOL-ECLIPSE-D-5-70TK",
-    "image": "assets/images/x/beys/bey-x-cx-09-sol-eclipse-d-5-70tk/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-09-sol-eclipse-d-5-70tk/bey-x-cx-09-sol-eclipse-d-5-70tk.webp",
     "sourcePath": "02_product_components/107_cx09/01_CX09_01@1.png",
     "sourceSha256": "a8b7bcc1484b4393aed61354e406d88082b043ff258a687c191e58c285fa75f4"
   },
   {
     "id": "BEY-X-CX-10-WOLF-HUNT-F-0-60DB",
-    "image": "assets/images/x/beys/bey-x-cx-10-wolf-hunt-f-0-60db/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-10-wolf-hunt-f-0-60db/bey-x-cx-10-wolf-hunt-f-0-60db.webp",
     "sourcePath": "02_product_components/111_cx10/01_CX10_01@1.png",
     "sourceSha256": "291685d5b3998d1f17a24143aca4bd3f6be4dcef0cbf15163bd58fb6b62770b1"
   },
   {
     "id": "BEY-X-CX-11-EMPEROR-MIGHT-H-OP",
-    "image": "assets/images/x/beys/bey-x-cx-11-emperor-might-h-op/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-11-emperor-might-h-op/bey-x-cx-11-emperor-might-h-op.webp",
     "sourcePath": "02_product_components/112_cx11/01_CX11_01@1.png",
     "sourceSha256": "5300641ed9f52ca9a2f99ed35e6745c4a286f2de468b49aedbfa7e337ea4683b"
   },
   {
     "id": "BEY-X-CX-11-GOLEM-ROCK-M-85HN",
-    "image": "assets/images/x/beys/bey-x-cx-11-golem-rock-m-85hn/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-11-golem-rock-m-85hn/bey-x-cx-11-golem-rock-m-85hn.webp",
     "sourcePath": "02_product_components/112_cx11/12_CX11_12@1.png",
     "sourceSha256": "a8693861a6085ad8bf2749004d5ca16bc3984a3bad4431f3a92286aa10fe89ee"
   },
   {
     "id": "BEY-X-CX-11-SHARK-GILL-5-60FB",
-    "image": "assets/images/x/beys/bey-x-cx-11-shark-gill-5-60fb/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-11-shark-gill-5-60fb/bey-x-cx-11-shark-gill-5-60fb.webp",
     "sourcePath": "02_product_components/112_cx11/08_CX11_08@1.png",
     "sourceSha256": "2c72f2d009d80b41d0eceac876e40b21b0ab66ee049aac50aff097f1834f1fd2"
   },
   {
     "id": "BEY-X-CX-12-PHOENIX-FLARE-Z-9-80WW",
-    "image": "assets/images/x/beys/bey-x-cx-12-phoenix-flare-z-9-80ww/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-12-phoenix-flare-z-9-80ww/bey-x-cx-12-phoenix-flare-z-9-80ww.webp",
     "sourcePath": "02_product_components/118_cx12/01_CX12_01@1.png",
     "sourceSha256": "be2469d9ac16e2bc7fdae1fb21d50ec0786d918b616236a8e6d6afd70b350731"
   },
   {
     "id": "BEY-X-CX-13-BAHAMUT-BLITZ-BK-1-50I",
-    "image": "assets/images/x/beys/bey-x-cx-13-bahamut-blitz-bk-1-50i/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-13-bahamut-blitz-bk-1-50i/bey-x-cx-13-bahamut-blitz-bk-1-50i.webp",
     "sourcePath": "02_product_components/123_cx13/01_CX13_01@1.png",
     "sourceSha256": "dbde7d40b9af10474d166ebf7d0ca589dc20258375383d507a6d22ee3a1b2526"
   },
   {
     "id": "BEY-X-CX-14-KNIGHT-FORTRESS-GV-8-70UN",
-    "image": "assets/images/x/beys/bey-x-cx-14-knight-fortress-gv-8-70un/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-14-knight-fortress-gv-8-70un/bey-x-cx-14-knight-fortress-gv-8-70un.webp",
     "sourcePath": "02_product_components/124_cx14/01_CX14_01@1.png",
     "sourceSha256": "bd3108a48f75c297e40a11821908c36133ee00ecbc1ae566d027f4d17b76b2e2"
   },
   {
     "id": "BEY-X-CX-15-RAGNA-RAGE-FE-4-55Y",
-    "image": "assets/images/x/beys/bey-x-cx-15-ragna-rage-fe-4-55y/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-15-ragna-rage-fe-4-55y/bey-x-cx-15-ragna-rage-fe-4-55y.webp",
     "sourcePath": "02_product_components/125_cx15/01_CX15_01@1.png",
     "sourceSha256": "2a35121dd7263931935b6758cd10979313c2f2e2e941d8a6b9d42aa559c1816f"
   },
   {
     "id": "BEY-X-CX-16-BAHAMUT-BLITZ-BK-1-50I",
-    "image": "assets/images/x/beys/bey-x-cx-16-bahamut-blitz-bk-1-50i/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-16-bahamut-blitz-bk-1-50i/bey-x-cx-16-bahamut-blitz-bk-1-50i.webp",
     "sourcePath": "02_product_components/126_cx16/01_CX16_01@1.png",
     "sourceSha256": "85b2a9048de05a3a6c696e04d393f8868c387f74abcbbb825c9c4100c523fbe1"
   },
   {
     "id": "BEY-X-CX-17-01-UNICORN-DELTA-PO-3-60GU",
-    "image": "assets/images/x/beys/bey-x-cx-17-01-unicorn-delta-po-3-60gu/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-17-01-unicorn-delta-po-3-60gu/bey-x-cx-17-01-unicorn-delta-po-3-60gu.webp",
     "sourcePath": "02_product_components/131_cx17/01_CX17_01@1.png",
     "sourceSha256": "5fe9dd95539e7ee80ec9cf0265741bb85ff7ffdeba1441bd68a994c169a0d44c"
   },
   {
     "id": "BEY-X-CX-17-02-UNICORN-DELTA-PO-1-80GR",
-    "image": "assets/images/x/beys/bey-x-cx-17-02-unicorn-delta-po-1-80gr/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-17-02-unicorn-delta-po-1-80gr/bey-x-cx-17-02-unicorn-delta-po-1-80gr.webp",
     "sourcePath": "02_product_components/131_cx17/03_CX17_03@1.png",
     "sourceSha256": "9927dea1853cdb9588f6b29742ac272494d4495664700c56d4bf3f798e2ebe2a"
   },
   {
     "id": "BEY-X-CX-17-03-WARRIOR-SABER-9-65LO",
-    "image": "assets/images/x/beys/bey-x-cx-17-03-warrior-saber-9-65lo/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-17-03-warrior-saber-9-65lo/bey-x-cx-17-03-warrior-saber-9-65lo.webp",
     "sourcePath": "02_product_components/131_cx17/04_CX17_04@1.png",
     "sourceSha256": "ef46c5359e22567f7d9030c917385c281c455d68bb9711027f569cfc4c16ebbc"
   },
   {
     "id": "BEY-X-CX-17-04-HELLS-HAMMER-3-85GU",
-    "image": "assets/images/x/beys/bey-x-cx-17-04-hells-hammer-3-85gu/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-17-04-hells-hammer-3-85gu/bey-x-cx-17-04-hells-hammer-3-85gu.webp",
     "sourcePath": "02_product_components/131_cx17/05_CX17_05@1.png",
     "sourceSha256": "98ced0e643a1b1a195ccac1693b0015313a8d95391decd9b3fa0e2383b875294"
   },
   {
     "id": "BEY-X-CX-17-05-TYRANNO-BEAT-3-60N",
-    "image": "assets/images/x/beys/bey-x-cx-17-05-tyranno-beat-3-60n/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-17-05-tyranno-beat-3-60n/bey-x-cx-17-05-tyranno-beat-3-60n.webp",
     "sourcePath": "02_product_components/131_cx17/06_CX17_06@1.png",
     "sourceSha256": "7dc269d5cdbc288db67450507dd99eb8aa033bbd7124e147d3c1ebc022bac12f"
   },
   {
     "id": "BEY-X-CX-17-06-CRIMSON-GARUDA-7-80GU",
-    "image": "assets/images/x/beys/bey-x-cx-17-06-crimson-garuda-7-80gu/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-17-06-crimson-garuda-7-80gu/bey-x-cx-17-06-crimson-garuda-7-80gu.webp",
     "sourcePath": "02_product_components/131_cx17/07_CX17_07@1.png",
     "sourceSha256": "47670863d68a513574b86d798efe8ea74cc1417a269a11050d59972b69191fa4"
   },
   {
     "id": "BEY-X-CX-18-01-BRACHIO-WHIP-OW-5-70NR",
-    "image": "assets/images/x/beys/bey-x-cx-18-01-brachio-whip-ow-5-70nr/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-18-01-brachio-whip-ow-5-70nr/bey-x-cx-18-01-brachio-whip-ow-5-70nr.webp",
     "sourcePath": "02_product_components/136_cx18/01_CX18_01@1.png",
     "sourceSha256": "f2f072249b5c4c249778fd257f99eb98be7ca834dc40119905e17281a2ea580b"
   },
   {
     "id": "BEY-X-CX-18-02-BRACHIO-WHIP-OW-5-70NR",
-    "image": "assets/images/x/beys/bey-x-cx-18-02-brachio-whip-ow-5-70nr/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-18-02-brachio-whip-ow-5-70nr/bey-x-cx-18-02-brachio-whip-ow-5-70nr.webp",
     "sourcePath": "02_product_components/136_cx18/03_CX18_03@1.png",
     "sourceSha256": "f1e7911d81e44bd32bff491421b7a547f2a32bc7258b699896f2769c6e997d71"
   },
   {
     "id": "BEY-X-CX-18-03-BRACHIO-WHIP-OW-5-70NR",
-    "image": "assets/images/x/beys/bey-x-cx-18-03-brachio-whip-ow-5-70nr/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-18-03-brachio-whip-ow-5-70nr/bey-x-cx-18-03-brachio-whip-ow-5-70nr.webp",
     "sourcePath": "02_product_components/136_cx18/04_CX18_04@1.png",
     "sourceSha256": "8a303cef9f7f6f28aba11d23071521995fac7a7da3a7ab108793b212df852f72"
   },
   {
     "id": "BEY-X-UX-00-AERO-PEGASUS-3-70A",
-    "image": "assets/images/x/beys/bey-x-ux-00-aero-pegasus-3-70a/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-00-aero-pegasus-3-70a/bey-x-ux-00-aero-pegasus-3-70a.webp",
     "sourcePath": "02_product_components/120_ux00-ap_red/01_BXG24_01@1.png",
     "sourceSha256": "7b1899d16ae4d56d7e07185e8880520300ce273ee7b672be184f874b67eacad9"
   },
   {
     "id": "BEY-X-UX-00-DRAN-BUSTER-1-60A",
-    "image": "assets/images/x/beys/bey-x-ux-00-dran-buster-1-60a/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-00-dran-buster-1-60a/bey-x-ux-00-dran-buster-1-60a.webp",
     "sourcePath": "02_product_components/067_bx00-cc/01_BXG31_01@1.png",
     "sourceSha256": "c8abdbe7246faf747e6347b57696c9f7a1e48d55110299f2870d886fe5c38c8c"
   },
   {
     "id": "BEY-X-UX-00-DRAN-BUSTER-3-70N",
-    "image": "assets/images/x/beys/bey-x-ux-00-dran-buster-3-70n/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-00-dran-buster-3-70n/bey-x-ux-00-dran-buster-3-70n.webp",
     "sourcePath": "02_product_components/065_bxa02/05_BXA02_05@1.png",
     "sourceSha256": "9ef9ce0ba69faa5b95373e1b7f5d0827fc1ad41e572c668b6dba0861bd077726"
   },
   {
     "id": "BEY-X-UX-00-DRAN-DAGGER-9-60LF",
-    "image": "assets/images/x/beys/bey-x-ux-00-dran-dagger-9-60lf/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-00-dran-dagger-9-60lf/bey-x-ux-00-dran-dagger-9-60lf.webp",
     "sourcePath": "02_product_components/065_bxa02/09_BXA02_09@1.png",
     "sourceSha256": "378f19ec51d04465545bf9d341fbfd83adaf97ec6617cf765a8fd155949a51d3"
   },
   {
     "id": "BEY-X-UX-00-DRAN-SWORD-4-80DB",
-    "image": "assets/images/x/beys/bey-x-ux-00-dran-sword-4-80db/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-00-dran-sword-4-80db/bey-x-ux-00-dran-sword-4-80db.webp",
     "sourcePath": "02_product_components/065_bxa02/01_BXA02_01@1.png",
     "sourceSha256": "0347caae9d8729d1c9b4c274c1f46f8d4e305941faac4a9ab6b65adbcee5686c"
   },
   {
     "id": "BEY-X-UX-00-HELLS-HAMMER-3-70H",
-    "image": "assets/images/x/beys/bey-x-ux-00-hells-hammer-3-70h/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-00-hells-hammer-3-70h/bey-x-ux-00-hells-hammer-3-70h.webp",
     "sourcePath": "02_product_components/073_ux00-hs_bc/01_BXG19_01@1.png",
     "sourceSha256": "39aa4ecab5d30cb690a471b63774159f108468395ac92119e921172fd4e028ba"
   },
   {
     "id": "BEY-X-UX-00-KNIGHT-MAIL-3-85BS",
-    "image": "assets/images/x/beys/bey-x-ux-00-knight-mail-3-85bs/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-00-knight-mail-3-85bs/bey-x-ux-00-knight-mail-3-85bs.webp",
     "sourcePath": "02_product_components/097_ux00-nm/01_BXG42_01@1.png",
     "sourceSha256": "0d40987bd0717c1e2e7040885b32aa8de327e38710356084dd55f6b6c76c52af"
   },
   {
     "id": "BEY-X-UX-00-SCORPIO-SPEAR-0-70Z",
-    "image": "assets/images/x/beys/bey-x-ux-00-scorpio-spear-0-70z/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-00-scorpio-spear-0-70z/bey-x-ux-00-scorpio-spear-0-70z.webp",
     "sourcePath": "02_product_components/130_ux00-ss/01_BXG61_01@1.png",
     "sourceSha256": "ada44b9a1889c292a9cba5abf4f2d705bcc58c138b5f1ec93f2e74ad0a5aab64"
   },
   {
     "id": "BEY-X-UX-00-WARRIOR-SABER-2-70L",
-    "image": "assets/images/x/beys/bey-x-ux-00-warrior-saber-2-70l/front.webp",
+    "image": "assets/images/x/beys/bey-x-ux-00-warrior-saber-2-70l/bey-x-ux-00-warrior-saber-2-70l.webp",
     "sourcePath": "data/source/x-bey-front-sources/bey-x-ux-00-warrior-saber-2-70l-highlight-transition.png",
     "sourceSha256": "10c414a415ab6c45af5d078adf7e426447f137be869eaaf6bcc85cc06934378e",
     "sourceKind": "user-approved-generated-front",
@@ -1199,169 +1199,169 @@ const xImageMappings = [
   },
   {
     "id": "BEY-X-UX-00-WARRIOR-SABER-5-60K",
-    "image": "assets/images/x/beys/bey-x-ux-00-warrior-saber-5-60k/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-00-warrior-saber-5-60k/bey-x-ux-00-warrior-saber-5-60k.webp",
     "sourcePath": "02_product_components/134_ux00-samurai/01_BXG54_01@1.png",
     "sourceSha256": "24f8bb1987440612b1bd17aa9cfbc57860d31f7e1543fcae24d130217e6770a9"
   },
   {
     "id": "BEY-X-UX-01-DRAN-BUSTER-1-60A",
-    "image": "assets/images/x/beys/bey-x-ux-01-dran-buster-1-60a/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-01-dran-buster-1-60a/bey-x-ux-01-dran-buster-1-60a.webp",
     "sourcePath": "02_product_components/036_ux01/01_UX01_01@1.png",
     "sourceSha256": "8facf3c1200b79d73f811c43594681028cf5031e4d6c1255f1add82091006792"
   },
   {
     "id": "BEY-X-UX-02-HELLS-HAMMER-3-70H",
-    "image": "assets/images/x/beys/bey-x-ux-02-hells-hammer-3-70h/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-02-hells-hammer-3-70h/bey-x-ux-02-hells-hammer-3-70h.webp",
     "sourcePath": "02_product_components/037_ux02/01_UX02_01@1.png",
     "sourceSha256": "22d131b4034ede2d037d69aaccc323a7c91677e1b37af6788f2e47b81b281f8d"
   },
   {
     "id": "BEY-X-UX-03-WIZARD-ROD-5-70DB",
-    "image": "assets/images/x/beys/bey-x-ux-03-wizard-rod-5-70db/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-03-wizard-rod-5-70db/bey-x-ux-03-wizard-rod-5-70db.webp",
     "sourcePath": "02_product_components/038_ux03/01_UX03_01@1.png",
     "sourceSha256": "cad73cd518db90ead3fbd8d5d37c0d261bd78a235d35d9ed2c9648462519db6a"
   },
   {
     "id": "BEY-X-UX-04-DRAN-BUSTER-1-60A",
-    "image": "assets/images/x/beys/bey-x-ux-04-dran-buster-1-60a/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-04-dran-buster-1-60a/bey-x-ux-04-dran-buster-1-60a.webp",
     "sourcePath": "02_product_components/039_ux04/01_UX04_01@1.png",
     "sourceSha256": "b3005924614011a6b40a9316ae402f896405511bfac658f03a98edaaf827a40a"
   },
   {
     "id": "BEY-X-UX-04-WIZARD-ROD-5-70DB",
-    "image": "assets/images/x/beys/bey-x-ux-04-wizard-rod-5-70db/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-04-wizard-rod-5-70db/bey-x-ux-04-wizard-rod-5-70db.webp",
     "sourcePath": "02_product_components/039_ux04/04_UX04_04@1.png",
     "sourceSha256": "3252eec1bcb692d6c9fb77d553d7ba4370547ef3af75787b0d18fb9cd1e6af2c"
   },
   {
     "id": "BEY-X-UX-05-01-NINJA-SHADOW-1-80MN",
-    "image": "assets/images/x/beys/bey-x-ux-05-01-ninja-shadow-1-80mn/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-05-01-ninja-shadow-1-80mn/bey-x-ux-05-01-ninja-shadow-1-80mn.webp",
     "sourcePath": "02_product_components/043_ux05/02_UX05_02@1.png",
     "sourceSha256": "608ecbf5748abd8f5aeef41769fe20315da84dd81f9e3d144a62a161a6acc29b"
   },
   {
     "id": "BEY-X-UX-05-02-NINJA-SHADOW-9-60LF",
-    "image": "assets/images/x/beys/bey-x-ux-05-02-ninja-shadow-9-60lf/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-05-02-ninja-shadow-9-60lf/bey-x-ux-05-02-ninja-shadow-9-60lf.webp",
     "sourcePath": "02_product_components/043_ux05/03_UX05_03@1.png",
     "sourceSha256": "cdd6bb40c0200e06191f991b60f875c0bcb4bab4ea708970e2d0c2bee7ab35b1"
   },
   {
     "id": "BEY-X-UX-05-03-NINJA-SHADOW-3-70GP",
-    "image": "assets/images/x/beys/bey-x-ux-05-03-ninja-shadow-3-70gp/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-05-03-ninja-shadow-3-70gp/bey-x-ux-05-03-ninja-shadow-3-70gp.webp",
     "sourcePath": "02_product_components/043_ux05/04_UX05_04@1.png",
     "sourceSha256": "2920da4d9d7e00cf0e43da1cde4daf988f3ce764a19142ad21945759225f3b65"
   },
   {
     "id": "BEY-X-UX-06-LEON-CREST-7-60GN",
-    "image": "assets/images/x/beys/bey-x-ux-06-leon-crest-7-60gn/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-06-leon-crest-7-60gn/bey-x-ux-06-leon-crest-7-60gn.webp",
     "sourcePath": "02_product_components/055_ux06/01_UX06_01@1.png",
     "sourceSha256": "072739dbfd97d8e0b17b180629d4b75ae9fe9b99015247256953ba6c9f63dec2"
   },
   {
     "id": "BEY-X-UX-07-PHOENIX-RUDDER-9-70G",
-    "image": "assets/images/x/beys/bey-x-ux-07-phoenix-rudder-9-70g/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-07-phoenix-rudder-9-70g/bey-x-ux-07-phoenix-rudder-9-70g.webp",
     "sourcePath": "02_product_components/056_ux07/01_UX07_r@1.png",
     "sourceSha256": "f5501a0d57e7776a89ecbcc4f84e57a7f7a7fb673662dfd16ed6238b1def55ae"
   },
   {
     "id": "BEY-X-UX-07-SPHINX-COWL-1-80GF",
-    "image": "assets/images/x/beys/bey-x-ux-07-sphinx-cowl-1-80gf/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-07-sphinx-cowl-1-80gf/bey-x-ux-07-sphinx-cowl-1-80gf.webp",
     "sourcePath": "02_product_components/056_ux07/10_UX07_b_01@1.png",
     "sourceSha256": "d21d64964869304285b5442dfb0fa79c4e5afc90178d8bde7ff03df6b1dfa90f"
   },
   {
     "id": "BEY-X-UX-07-WYVERN-GALE-2-60S",
-    "image": "assets/images/x/beys/bey-x-ux-07-wyvern-gale-2-60s/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-07-wyvern-gale-2-60s/bey-x-ux-07-wyvern-gale-2-60s.webp",
     "sourcePath": "02_product_components/056_ux07/06_UX07_g_01@1.png",
     "sourceSha256": "daecb55fba3fbda1cfe623975141fe6890cfc3a32e05dc7e110549d49b7c3850"
   },
   {
     "id": "BEY-X-UX-08-SILVER-WOLF-3-80FB",
-    "image": "assets/images/x/beys/bey-x-ux-08-silver-wolf-3-80fb/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-08-silver-wolf-3-80fb/bey-x-ux-08-silver-wolf-3-80fb.webp",
     "sourcePath": "02_product_components/060_ux08/01_UX08_01@1.png",
     "sourceSha256": "2b13fe9a4a7e69ecea37341c51049b8a0193ba448d1f737cf10519eca6722f38"
   },
   {
     "id": "BEY-X-UX-09-WARRIOR-SABER-2-70L",
-    "image": "assets/images/x/beys/bey-x-ux-09-warrior-saber-2-70l/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-09-warrior-saber-2-70l/bey-x-ux-09-warrior-saber-2-70l.webp",
     "sourcePath": "02_product_components/063_ux09/01_UX09_01@1.png",
     "sourceSha256": "4abfed8bc336de9de72ab0525c7d55bb4fab7f61aad83d57aa92dde407df038a"
   },
   {
     "id": "BEY-X-UX-10-KNIGHT-MAIL-3-85BS",
-    "image": "assets/images/x/beys/bey-x-ux-10-knight-mail-3-85bs/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-10-knight-mail-3-85bs/bey-x-ux-10-knight-mail-3-85bs.webp",
     "sourcePath": "02_product_components/064_ux10/01_UX10_01@1.png",
     "sourceSha256": "e84b53c5880714df6d4eaa8e9bdd4e9d2f262827bb58fe40d4b33b754856669e"
   },
   {
     "id": "BEY-X-UX-11-IMPACT-DRAKE-9-60LR",
-    "image": "assets/images/x/beys/bey-x-ux-11-impact-drake-9-60lr/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-11-impact-drake-9-60lr/bey-x-ux-11-impact-drake-9-60lr.webp",
     "sourcePath": "02_product_components/069_ux11/01_UX11_01@1.png",
     "sourceSha256": "2e7f1d54e13d1f8c9d979f73c24bbd20be6246dbfc26b900a397cabd9ddb2ec9"
   },
   {
     "id": "BEY-X-UX-12-01-GHOST-CIRCLE-0-80GB",
-    "image": "assets/images/x/beys/bey-x-ux-12-01-ghost-circle-0-80gb/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-12-01-ghost-circle-0-80gb/bey-x-ux-12-01-ghost-circle-0-80gb.webp",
     "sourcePath": "02_product_components/070_ux12/01_UX12_01@1.png",
     "sourceSha256": "0aec51fc61242f1cbfebbe3348ff83425419bed61c73576e765c1205dc9ca237"
   },
   {
     "id": "BEY-X-UX-12-02-GHOST-CIRCLE-4-60H",
-    "image": "assets/images/x/beys/bey-x-ux-12-02-ghost-circle-4-60h/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-12-02-ghost-circle-4-60h/bey-x-ux-12-02-ghost-circle-4-60h.webp",
     "sourcePath": "02_product_components/070_ux12/03_UX12_03@1.png",
     "sourceSha256": "80a486b30a3f8d9113f5aee7657f9cca8463cc3c8c237fa905f4a4138672e0fd"
   },
   {
     "id": "BEY-X-UX-12-03-LEON-CLAW-0-80E",
-    "image": "assets/images/x/beys/bey-x-ux-12-03-leon-claw-0-80e/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-12-03-leon-claw-0-80e/bey-x-ux-12-03-leon-claw-0-80e.webp",
     "sourcePath": "02_product_components/070_ux12/05_UX12_05@1.png",
     "sourceSha256": "72423e836e9f44d08d5c5a07e076998fd3b3d99d10a2eda5e0ee9cd2cf0d46c2"
   },
   {
     "id": "BEY-X-UX-12-04-PHOENIX-FEATHER-2-60N",
-    "image": "assets/images/x/beys/bey-x-ux-12-04-phoenix-feather-2-60n/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-12-04-phoenix-feather-2-60n/bey-x-ux-12-04-phoenix-feather-2-60n.webp",
     "sourcePath": "02_product_components/070_ux12/06_UX12_06@1.png",
     "sourceSha256": "5bafc71c4357960cf98feffd1fac4f98caa037430332c97e30d2b316b9d59c9f"
   },
   {
     "id": "BEY-X-UX-12-05-NINJA-SHADOW-3-80F",
-    "image": "assets/images/x/beys/bey-x-ux-12-05-ninja-shadow-3-80f/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-12-05-ninja-shadow-3-80f/bey-x-ux-12-05-ninja-shadow-3-80f.webp",
     "sourcePath": "02_product_components/070_ux12/04_UX12_04@1.png",
     "sourceSha256": "e90e525a3d4eb6a59acd8784e821612a8b7bbbf9f450bc41c26b711555f67a10"
   },
   {
     "id": "BEY-X-UX-12-06-WYVERN-GALE-0-80C",
-    "image": "assets/images/x/beys/bey-x-ux-12-06-wyvern-gale-0-80c/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-12-06-wyvern-gale-0-80c/bey-x-ux-12-06-wyvern-gale-0-80c.webp",
     "sourcePath": "02_product_components/070_ux12/07_UX12_07@1.png",
     "sourceSha256": "464b35ddc8faa25c85db78f1a2bf626167e6d6b7bef8a6a64408378619acd278"
   },
   {
     "id": "BEY-X-UX-13-GOLEM-ROCK-1-60UN",
-    "image": "assets/images/x/beys/bey-x-ux-13-golem-rock-1-60un/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-13-golem-rock-1-60un/bey-x-ux-13-golem-rock-1-60un.webp",
     "sourcePath": "02_product_components/074_ux13/01_UX13_01@1.png",
     "sourceSha256": "259ac937e826666811c8bf8d0233ad1a0de8e3614d61a5f610506a60b950df9b"
   },
   {
     "id": "BEY-X-UX-14-SCORPIO-SPEAR-0-70Z",
-    "image": "assets/images/x/beys/bey-x-ux-14-scorpio-spear-0-70z/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-14-scorpio-spear-0-70z/bey-x-ux-14-scorpio-spear-0-70z.webp",
     "sourcePath": "02_product_components/092_ux14/01_UX14_01@1.png",
     "sourceSha256": "e4776150c63ec5a9266be91d2e5f636319a52034e72c2fedf9b599b548991055"
   },
   {
     "id": "BEY-X-UX-15-HELLS-BRAVE-J-3-60GF",
-    "image": "assets/images/x/beys/bey-x-ux-15-hells-brave-j-3-60gf/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-15-hells-brave-j-3-60gf/bey-x-ux-15-hells-brave-j-3-60gf.webp",
     "sourcePath": "02_product_components/106_ux15/10_UX15_10@1.png",
     "sourceSha256": "82ef65e52f797f7f771d5db4251cb14450eb2a1c2bba903abe973129e9dc29c8"
   },
   {
     "id": "BEY-X-UX-15-SHARK-SCALE-4-50UF",
-    "image": "assets/images/x/beys/bey-x-ux-15-shark-scale-4-50uf/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-15-shark-scale-4-50uf/bey-x-ux-15-shark-scale-4-50uf.webp",
     "sourcePath": "02_product_components/106_ux15/02_UX15_02@1.png",
     "sourceSha256": "79ff56e3ab08a4cebbcd0c22432fc2f4e490e5efaf51a1df81d7f898ad95adb7"
   },
   {
     "id": "BEY-X-UX-15-TYRANNO-ROAR-1-70L",
-    "image": "assets/images/x/beys/bey-x-ux-15-tyranno-roar-1-70l/front.webp",
+    "image": "assets/images/x/beys/bey-x-ux-15-tyranno-roar-1-70l/bey-x-ux-15-tyranno-roar-1-70l.webp",
     "sourcePath": "data/source/x-bey-front-sources/bey-x-ux-15-tyranno-roar-1-70l-generated.png",
     "sourceSha256": "851a05a2b868c330801b2a7798537f4804548ceb838e78de4a431be8001610e6",
     "sourceKind": "user-approved-generated-front",
@@ -1370,73 +1370,73 @@ const xImageMappings = [
   },
   {
     "id": "BEY-X-UX-16-01-CLOCK-MIRAGE-9-65B",
-    "image": "assets/images/x/beys/bey-x-ux-16-01-clock-mirage-9-65b/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-16-01-clock-mirage-9-65b/bey-x-ux-16-01-clock-mirage-9-65b.webp",
     "sourcePath": "02_product_components/110_ux16/02_UX16_02@1.png",
     "sourceSha256": "9ff73dc56f0f7e33e1378031c61ab2d191bc4ee52e253835c0fc88295a269df3"
   },
   {
     "id": "BEY-X-UX-16-02-CLOCK-MIRAGE-9-65B",
-    "image": "assets/images/x/beys/bey-x-ux-16-02-clock-mirage-9-65b/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-16-02-clock-mirage-9-65b/bey-x-ux-16-02-clock-mirage-9-65b.webp",
     "sourcePath": "02_product_components/110_ux16/03_UX16_03@1.png",
     "sourceSha256": "657b34957726fc8b466f4dbc4c0507b7b72627d947740780117a3f286e915096"
   },
   {
     "id": "BEY-X-UX-16-03-CLOCK-MIRAGE-9-65B",
-    "image": "assets/images/x/beys/bey-x-ux-16-03-clock-mirage-9-65b/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-16-03-clock-mirage-9-65b/bey-x-ux-16-03-clock-mirage-9-65b.webp",
     "sourcePath": "02_product_components/110_ux16/04_UX16_04@1.png",
     "sourceSha256": "57aab41072dc07fc356e02f60e61be5f621d5f9d8ec120a06c6b0dc63dfa0998"
   },
   {
     "id": "BEY-X-UX-17-METEO-DRAGOON-3-70J",
-    "image": "assets/images/x/beys/bey-x-ux-17-meteo-dragoon-3-70j/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-17-meteo-dragoon-3-70j/bey-x-ux-17-meteo-dragoon-3-70j.webp",
     "sourcePath": "02_product_components/115_ux17/01_UX17_01@1.png",
     "sourceSha256": "0a56cad3ebc596c18c3c12ac115d5a5c9af542782f7c814e9cec9054174f1297"
   },
   {
     "id": "BEY-X-UX-18-01-MUMMY-CURSE-7-55W",
-    "image": "assets/images/x/beys/bey-x-ux-18-01-mummy-curse-7-55w/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-18-01-mummy-curse-7-55w/bey-x-ux-18-01-mummy-curse-7-55w.webp",
     "sourcePath": "02_product_components/116_ux18/01_UX18_01@1.png",
     "sourceSha256": "71ab687e2ea7fb8d2e366e2876321e9baba1483f047a6ec8f8205612ec5eba63"
   },
   {
     "id": "BEY-X-UX-18-02-MUMMY-CURSE-4-60C",
-    "image": "assets/images/x/beys/bey-x-ux-18-02-mummy-curse-4-60c/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-18-02-mummy-curse-4-60c/bey-x-ux-18-02-mummy-curse-4-60c.webp",
     "sourcePath": "02_product_components/116_ux18/03_UX18_03@1.png",
     "sourceSha256": "9232f8abd2f8047db85d247058137732b59ab8cacc347c9fe117d001f16db5b8"
   },
   {
     "id": "BEY-X-UX-18-03-PEGASUS-BRUSH-M-3-85W",
-    "image": "assets/images/x/beys/bey-x-ux-18-03-pegasus-brush-m-3-85w/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-18-03-pegasus-brush-m-3-85w/bey-x-ux-18-03-pegasus-brush-m-3-85w.webp",
     "sourcePath": "02_product_components/116_ux18/06_UX18_06@1.png",
     "sourceSha256": "303331e4298913f994525efbe1d1ab21f53729264c0eee74090047e447bc252e"
   },
   {
     "id": "BEY-X-UX-18-04-SOL-BRAVE-C-9-70TP",
-    "image": "assets/images/x/beys/bey-x-ux-18-04-sol-brave-c-9-70tp/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-18-04-sol-brave-c-9-70tp/bey-x-ux-18-04-sol-brave-c-9-70tp.webp",
     "sourcePath": "02_product_components/116_ux18/07_UX18_07@1.png",
     "sourceSha256": "f6bbbd7467c470fedc0761e2290557d0a715b4bddc88040b332d0cfe7639bf30"
   },
   {
     "id": "BEY-X-UX-18-05-DRAN-DAGGER-7-55G",
-    "image": "assets/images/x/beys/bey-x-ux-18-05-dran-dagger-7-55g/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-18-05-dran-dagger-7-55g/bey-x-ux-18-05-dran-dagger-7-55g.webp",
     "sourcePath": "02_product_components/116_ux18/04_UX18_04@1.png",
     "sourceSha256": "4b46df7767c6a52fb167c3e6c28e94d87b6037d671db08e6c3c9a796034dc4ac"
   },
   {
     "id": "BEY-X-UX-18-06-PEARL-TIGER-4-80LR",
-    "image": "assets/images/x/beys/bey-x-ux-18-06-pearl-tiger-4-80lr/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-18-06-pearl-tiger-4-80lr/bey-x-ux-18-06-pearl-tiger-4-80lr.webp",
     "sourcePath": "02_product_components/116_ux18/05_UX18_05@1.png",
     "sourceSha256": "ff951457d3444adc6eae73d2afe07f23cf3822aac6f4874c64d66a042bc9208e"
   },
   {
     "id": "BEY-X-UX-19-BULLET-GRIFFON-H",
-    "image": "assets/images/x/beys/bey-x-ux-19-bullet-griffon-h/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-19-bullet-griffon-h/bey-x-ux-19-bullet-griffon-h.webp",
     "sourcePath": "02_product_components/129_ux19/01_UX19_01@1.png",
     "sourceSha256": "ba2ce482b3e334aa62777ea7857b0550f8c4488ec39d01c37227c040c272e7d8"
   },
   {
     "id": "BEY-X-UX-20-GLORY-VALKYRIE-LF",
-    "image": "assets/images/x/beys/bey-x-ux-20-glory-valkyrie-lf/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-20-glory-valkyrie-lf/bey-x-ux-20-glory-valkyrie-lf.webp",
     "sourcePath": "02_product_components/143_ux20/01_UX20_01@1.png",
     "sourceSha256": "be1e0b2bacecc0a1a5dd4e96aaada15de3f3d0fcce087979d7262219b7d85cc6"
   },

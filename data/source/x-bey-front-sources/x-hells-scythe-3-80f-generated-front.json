@@ -1,5 +1,5 @@
 {
-  "version": "20260818-x-hells-scythe-3-80f-simple-recolor-stickers-v4",
+  "version": "20260819-x-bey-canonical-image-paths",
   "toolMode": "built-in ImageGen composition study followed by deterministic original-pixel reprojection; generated RGB rejected for geometry drift",
   "scope": "Hells Scythe 3-80F name correction and user-supplied front image",
   "jobs": [
@@ -8,7 +8,7 @@
       "targetName": "헬즈사이즈 3-80F",
       "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-hells-scythe-3-80f-color-matched.png",
       "sourceSha256": "97af598b0694630658f1daf74f912e6570d016823c3f6ad0450e714620eed752",
-      "finalOutputFile": "assets/images/x/beys/bey-x-bx-00-hells-scythe-3-80f/front.webp",
+      "finalOutputFile": "assets/images/x/beys/bey-x-bx-00-hells-scythe-3-80f/bey-x-bx-00-hells-scythe-3-80f.webp",
       "finalOutputSha256": "e327ae29d559011a7e0323a5bb356ed2bd6b1c2316f7564af683ebf3c6e9efd6",
       "preColorMatchSourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-hells-scythe-3-80f-generated-front.png",
       "preColorMatchSourceSha256": "86733de06d1a039376f63649f06c489575d21970602eaf38cd71b0eac1844e8c",

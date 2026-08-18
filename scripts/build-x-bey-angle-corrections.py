@@ -115,7 +115,7 @@ SUPPLIED_FRONT_IDS = {
     "BEY-X-UX-19-BULLET-GRIFFON-H",
     "BEY-X-UX-20-GLORY-VALKYRIE-LF",
 }
-CONFIG_VERSION = "20260818-x-hells-scythe-3-80f-simple-recolor-stickers-v4"
+CONFIG_VERSION = "20260819-x-bey-canonical-image-paths"
 
 
 def parse_args() -> argparse.Namespace:
@@ -214,7 +214,10 @@ def initialize_config(audit_path: Path) -> dict:
         entries.append({
             "id": item["id"],
             "sourceImage": item["image"],
-            "image": f"assets/images/x/beys/{item['id'].lower()}/front.webp",
+            "image": (
+                f"assets/images/x/beys/{item['id'].lower()}/"
+                f"{item['id'].lower()}.webp"
+            ),
             "sourceKind": "official-angle-corrected",
             "sourceUrl": item["sourceUrl"],
             "sourceSha256": item["sourceSha256"],

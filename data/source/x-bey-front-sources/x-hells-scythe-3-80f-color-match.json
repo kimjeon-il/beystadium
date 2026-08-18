@@ -1,5 +1,5 @@
 {
-  "version": "20260818-x-hells-scythe-3-80f-simple-recolor-stickers-v4",
+  "version": "20260819-x-bey-canonical-image-paths",
   "id": "BEY-X-BX-00-HELLS-SCYTHE-3-80F",
   "classification": "user-approved-generated-front",
   "imageGenerationUsedForRevision": false,
@@ -9,17 +9,17 @@
   },
   "references": [
     {
-      "file": "assets/images/x/beys/bey-x-bx-02-hells-scythe-4-60t/front.webp",
+      "file": "assets/images/x/beys/bey-x-bx-02-hells-scythe-4-60t/bey-x-bx-02-hells-scythe-4-60t.webp",
       "sha256": "de3bdb2b1396ab3ab9d1e52788335aa6738ce0515eee4b3072651f2eaf7803ec",
       "role": "same-geometry official tone and material"
     },
     {
-      "file": "assets/images/x/beys/bey-x-bx-04-knight-shield-3-80n/front.webp",
+      "file": "assets/images/x/beys/bey-x-bx-04-knight-shield-3-80n/bey-x-bx-04-knight-shield-3-80n.webp",
       "sha256": "0f8222b43ec4e280d261a8cf0a0ac334fad46a5efdea869a4c4ff0a9d05c8c2c",
       "role": "official neutral silver metal"
     },
     {
-      "file": "assets/images/x/beys/bey-x-bx-23-phoenix-soar-9-60gf/front.webp",
+      "file": "assets/images/x/beys/bey-x-bx-23-phoenix-soar-9-60gf/bey-x-bx-23-phoenix-soar-9-60gf.webp",
       "sha256": "bd86e7dc4f7a41fcb28786a0e14d7c3cf9ac109f401eb0b34c352414dbaa687a",
       "role": "official vivid colored material"
     },
@@ -44,7 +44,7 @@
   "output": {
     "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-hells-scythe-3-80f-color-matched.png",
     "sourceSha256": "97af598b0694630658f1daf74f912e6570d016823c3f6ad0450e714620eed752",
-    "finalFile": "assets/images/x/beys/bey-x-bx-00-hells-scythe-3-80f/front.webp",
+    "finalFile": "assets/images/x/beys/bey-x-bx-00-hells-scythe-3-80f/bey-x-bx-00-hells-scythe-3-80f.webp",
     "finalSha256": "e327ae29d559011a7e0323a5bb356ed2bd6b1c2316f7564af683ebf3c6e9efd6"
   },
   "validation": {

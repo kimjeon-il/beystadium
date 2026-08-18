@@ -366,7 +366,8 @@ def current_image_path(entry: dict) -> Path:
             / f"{part_id.lower()}.webp"
         )
     if item_id.startswith("BEY-X-"):
-        return Path("assets/images/x/beys") / item_id.lower() / "main.webp"
+        item_slug = item_id.lower()
+        return Path("assets/images/x/beys") / item_slug / f"{item_slug}.webp"
     if item_id.startswith("PART-X-"):
         for part_type in ("blade", "ratchet", "bit"):
             if item_id.startswith(f"PART-X-{part_type.upper()}-"):

@@ -9,7 +9,10 @@ import {
   xPartPreviewUnavailable
 } from "../data/source/x-part-previews.mjs";
 import { xImageMappings } from "../data/source/x-images.mjs";
-import { xPartPreviewImagePath } from "./x-image-paths.mjs";
+import {
+  xBeyBladePreviewImagePath,
+  xPartPreviewImagePath
+} from "./x-image-paths.mjs";
 
 const xBeys = beyItems.filter(item => item.series === "x");
 const partById = new Map(partItems.filter(item => item.series === "x").map(item => [item.id, item]));
@@ -172,6 +175,7 @@ for (const entry of xPartPreviewMappings) {
   ]);
   if (entry.sourceKind === "official-assembled-bey-view") {
     expectedImagePaths.add(originalBeyImageById.get(entry.beyId));
+    expectedImagePaths.add(xBeyBladePreviewImagePath(entry.beyId));
   }
   assert.ok(
     expectedImagePaths.has(entry.image),
@@ -265,7 +269,7 @@ const mammothBlade = mappingByContext.get(contextKey(
 assert.equal(mammothBlade?.sourceKind, "official-assembled-bey-view");
 assert.equal(
   mammothBlade?.image,
-  "assets/images/x/beys/bey-x-bx-48-03-mammoth-tusk-7-60s/main.webp"
+  "assets/images/x/beys/bey-x-bx-48-03-mammoth-tusk-7-60s/bey-x-bx-48-03-mammoth-tusk-7-60s.webp"
 );
 
 console.log(

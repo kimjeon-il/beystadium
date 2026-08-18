@@ -305,7 +305,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-00-DRACIEL-SHIELD-7-60D",
     "partId": "PART-X-BLADE-DRACIEL-SHIELD",
-    "image": "assets/images/x/beys/bey-x-bx-00-draciel-shield-7-60d/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-draciel-shield-7-60d/bey-x-bx-00-draciel-shield-7-60d.webp",
     "sourceKind": "user-approved-generated-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG11_01@1.png",
     "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-draciel-shield-7-60d-generated.png",
@@ -402,7 +402,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-00-DRAN-DAGGER-2-80GP",
     "partId": "PART-X-BLADE-DRAN-DAGGER",
-    "image": "assets/images/x/beys/bey-x-bx-00-dran-dagger-2-80gp/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-dran-dagger-2-80gp/bey-x-bx-00-dran-dagger-2-80gp-blade-preview.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG09_01@1.png",
     "sourcePath": "",
@@ -540,7 +540,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-00-DRANZER-SPIRAL-3-80T",
     "partId": "PART-X-BLADE-DRANZER-SPIRAL",
-    "image": "assets/images/x/beys/bey-x-bx-00-dranzer-spiral-3-80t/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-00-dranzer-spiral-3-80t/bey-x-bx-00-dranzer-spiral-3-80t.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG15_01@1.png",
     "sourcePath": "02_product_components/054_bx00-ds3/01_BXG15_01@1.png",
@@ -2340,7 +2340,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-14-02-SHARK-EDGE-4-80N",
     "partId": "PART-X-BLADE-SHARK-EDGE",
-    "image": "assets/images/x/beys/bey-x-bx-14-02-shark-edge-4-80n/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-14-02-shark-edge-4-80n/bey-x-bx-14-02-shark-edge-4-80n.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX14_02@1.png",
     "sourcePath": "02_product_components/016_bx14/02_BX14_02@1.png",
@@ -2388,7 +2388,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-14-03-DRAN-SWORD-3-80B",
     "partId": "PART-X-BLADE-DRAN-SWORD",
-    "image": "assets/images/x/beys/bey-x-bx-14-03-dran-sword-3-80b/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-14-03-dran-sword-3-80b/bey-x-bx-14-03-dran-sword-3-80b.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX14_03@1.png",
     "sourcePath": "02_product_components/016_bx14/03_BX14_03@1.png",
@@ -2436,7 +2436,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-14-04-HELLS-SCYTHE-4-80LF",
     "partId": "PART-X-BLADE-HELLS-SCYTHE",
-    "image": "assets/images/x/beys/bey-x-bx-14-04-hells-scythe-4-80lf/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-14-04-hells-scythe-4-80lf/bey-x-bx-14-04-hells-scythe-4-80lf.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX14_04@1.png",
     "sourcePath": "02_product_components/016_bx14/04_BX14_04@1.png",
@@ -2484,7 +2484,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-14-05-KNIGHT-SHIELD-4-60LF",
     "partId": "PART-X-BLADE-KNIGHT-SHIELD",
-    "image": "assets/images/x/beys/bey-x-bx-14-05-knight-shield-4-60lf/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-14-05-knight-shield-4-60lf/bey-x-bx-14-05-knight-shield-4-60lf.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX14_05@1.png",
     "sourcePath": "02_product_components/016_bx14/05_BX14_05@1.png",
@@ -2532,7 +2532,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-14-06-WIZARD-ARROW-3-60T",
     "partId": "PART-X-BLADE-WIZARD-ARROW",
-    "image": "assets/images/x/beys/bey-x-bx-14-06-wizard-arrow-3-60t/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-14-06-wizard-arrow-3-60t/bey-x-bx-14-06-wizard-arrow-3-60t.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX14_06@1.png",
     "sourcePath": "02_product_components/016_bx14/06_BX14_06@1.png",
@@ -2664,7 +2664,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-16-02-VIPER-TAIL-4-60F",
     "partId": "PART-X-BLADE-VIPER-TAIL",
-    "image": "assets/images/x/beys/bey-x-bx-16-02-viper-tail-4-60f/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-16-02-viper-tail-4-60f/bey-x-bx-16-02-viper-tail-4-60f-blade-preview.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX16_03@1.png",
     "sourcePath": "02_product_components/019_bx16/03_BX16_03@1.png",
@@ -2712,7 +2712,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-16-03-VIPER-TAIL-3-80HN",
     "partId": "PART-X-BLADE-VIPER-TAIL",
-    "image": "assets/images/x/beys/bey-x-bx-16-03-viper-tail-3-80hn/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-16-03-viper-tail-3-80hn/bey-x-bx-16-03-viper-tail-3-80hn-blade-preview.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX16_04@1.png",
     "sourcePath": "02_product_components/019_bx16/04_BX16_04@1.png",
@@ -2760,7 +2760,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-17-DRAN-SWORD-3-60F",
     "partId": "PART-X-BLADE-DRAN-SWORD",
-    "image": "assets/images/x/beys/bey-x-bx-17-dran-sword-3-60f/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-17-dran-sword-3-60f/bey-x-bx-17-dran-sword-3-60f-blade-preview.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX17_01@1.png",
     "sourcePath": "02_product_components/020_bx17/01_BX17_01@1.png",
@@ -2808,7 +2808,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-17-WIZARD-ARROW-4-80B",
     "partId": "PART-X-BLADE-WIZARD-ARROW",
-    "image": "assets/images/x/beys/bey-x-bx-17-wizard-arrow-4-80b/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-17-wizard-arrow-4-80b/bey-x-bx-17-wizard-arrow-4-80b-blade-preview.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX17_02@1.png",
     "sourcePath": "02_product_components/020_bx17/02_BX17_02@1.png",
@@ -3279,7 +3279,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-24-02-WYVERN-GALE-3-60T",
     "partId": "PART-X-BLADE-WYVERN-GALE",
-    "image": "assets/images/x/beys/bey-x-bx-24-02-wyvern-gale-3-60t/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-24-02-wyvern-gale-3-60t/bey-x-bx-24-02-wyvern-gale-3-60t.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX24_02@1.png",
     "sourcePath": "02_product_components/027_bx24/02_BX24_02@1.png",
@@ -3327,7 +3327,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-24-03-KNIGHT-LANCE-4-60GB",
     "partId": "PART-X-BLADE-KNIGHT-LANCE",
-    "image": "assets/images/x/beys/bey-x-bx-24-03-knight-lance-4-60gb/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-24-03-knight-lance-4-60gb/bey-x-bx-24-03-knight-lance-4-60gb.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX24_03@1.png",
     "sourcePath": "02_product_components/027_bx24/03_BX24_03@1.png",
@@ -3375,7 +3375,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-24-04-VIPER-TAIL-5-60F",
     "partId": "PART-X-BLADE-VIPER-TAIL",
-    "image": "assets/images/x/beys/bey-x-bx-24-04-viper-tail-5-60f/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-24-04-viper-tail-5-60f/bey-x-bx-24-04-viper-tail-5-60f.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX24_04@1.png",
     "sourcePath": "02_product_components/027_bx24/04_BX24_04@1.png",
@@ -3423,7 +3423,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-24-05-LEON-CLAW-3-80HN",
     "partId": "PART-X-BLADE-LEON-CLAW",
-    "image": "assets/images/x/beys/bey-x-bx-24-05-leon-claw-3-80hn/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-24-05-leon-claw-3-80hn/bey-x-bx-24-05-leon-claw-3-80hn.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX24_05@1.png",
     "sourcePath": "02_product_components/027_bx24/05_BX24_05@1.png",
@@ -3471,7 +3471,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-24-06-WIZARD-ARROW-4-80GB",
     "partId": "PART-X-BLADE-WIZARD-ARROW",
-    "image": "assets/images/x/beys/bey-x-bx-24-06-wizard-arrow-4-80gb/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-24-06-wizard-arrow-4-80gb/bey-x-bx-24-06-wizard-arrow-4-80gb.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX24_06@1.png",
     "sourcePath": "02_product_components/027_bx24/06_BX24_06@1.png",
@@ -3603,7 +3603,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-27-02-SPHINX-COWL-4-80HT",
     "partId": "PART-X-BLADE-SPHINX-COWL",
-    "image": "assets/images/x/beys/bey-x-bx-27-02-sphinx-cowl-4-80ht/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-27-02-sphinx-cowl-4-80ht/bey-x-bx-27-02-sphinx-cowl-4-80ht.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX27_03@1.png",
     "sourcePath": "02_product_components/030_bx27/03_BX27_03@1.png",
@@ -3651,7 +3651,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-27-03-SPHINX-COWL-5-60O",
     "partId": "PART-X-BLADE-SPHINX-COWL",
-    "image": "assets/images/x/beys/bey-x-bx-27-03-sphinx-cowl-5-60o/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-27-03-sphinx-cowl-5-60o/bey-x-bx-27-03-sphinx-cowl-5-60o.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX27_04@1.png",
     "sourcePath": "02_product_components/030_bx27/04_BX27_04@1.png",
@@ -3741,7 +3741,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-31-02-TYRANNO-BEAT-3-60S",
     "partId": "PART-X-BLADE-TYRANNO-BEAT",
-    "image": "assets/images/x/beys/bey-x-bx-31-02-tyranno-beat-3-60s/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-31-02-tyranno-beat-3-60s/bey-x-bx-31-02-tyranno-beat-3-60s.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX31_02@1.png",
     "sourcePath": "02_product_components/041_bx31/02_BX31_02@1.png",
@@ -3789,7 +3789,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-31-03-HELLS-CHAIN-9-80O",
     "partId": "PART-X-BLADE-HELLS-CHAIN",
-    "image": "assets/images/x/beys/bey-x-bx-31-03-hells-chain-9-80o/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-31-03-hells-chain-9-80o/bey-x-bx-31-03-hells-chain-9-80o.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX31_03@1.png",
     "sourcePath": "02_product_components/041_bx31/03_BX31_03@1.png",
@@ -3837,7 +3837,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-31-04-DRAN-DAGGER-4-70P",
     "partId": "PART-X-BLADE-DRAN-DAGGER",
-    "image": "assets/images/x/beys/bey-x-bx-31-04-dran-dagger-4-70p/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-31-04-dran-dagger-4-70p/bey-x-bx-31-04-dran-dagger-4-70p.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX31_04@1.png",
     "sourcePath": "02_product_components/041_bx31/04_BX31_04@1.png",
@@ -3885,7 +3885,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-31-05-SHARK-EDGE-1-60Q",
     "partId": "PART-X-BLADE-SHARK-EDGE",
-    "image": "assets/images/x/beys/bey-x-bx-31-05-shark-edge-1-60q/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-31-05-shark-edge-1-60q/bey-x-bx-31-05-shark-edge-1-60q.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX31_05@1.png",
     "sourcePath": "02_product_components/041_bx31/05_BX31_05@1.png",
@@ -3933,7 +3933,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-31-06-RHINO-HORN-5-80Q",
     "partId": "PART-X-BLADE-RHINO-HORN",
-    "image": "assets/images/x/beys/bey-x-bx-31-06-rhino-horn-5-80q/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-31-06-rhino-horn-5-80q/bey-x-bx-31-06-rhino-horn-5-80q.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX31_06@1.png",
     "sourcePath": "02_product_components/041_bx31/06_BX31_06@1.png",
@@ -4110,7 +4110,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-35-02-BLACK-TURTLE-9-80B",
     "partId": "PART-X-BLADE-BLACK-TURTLE",
-    "image": "assets/images/x/beys/bey-x-bx-35-02-black-turtle-9-80b/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-35-02-black-turtle-9-80b/bey-x-bx-35-02-black-turtle-9-80b.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX35_03@1.png",
     "sourcePath": "02_product_components/048_bx35/03_BX35_03@1.png",
@@ -4158,7 +4158,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-35-03-UNICORN-STING-3-70D",
     "partId": "PART-X-BLADE-UNICORN-STING",
-    "image": "assets/images/x/beys/bey-x-bx-35-03-unicorn-sting-3-70d/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-35-03-unicorn-sting-3-70d/bey-x-bx-35-03-unicorn-sting-3-70d.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX35_04@1.png",
     "sourcePath": "02_product_components/048_bx35/04_BX35_04@1.png",
@@ -4206,7 +4206,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-35-04-WIZARD-ROD-1-60R",
     "partId": "PART-X-BLADE-WIZARD-ROD",
-    "image": "assets/images/x/beys/bey-x-bx-35-04-wizard-rod-1-60r/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-35-04-wizard-rod-1-60r/bey-x-bx-35-04-wizard-rod-1-60r.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX35_05@1.png",
     "sourcePath": "02_product_components/048_bx35/05_BX35_05@1.png",
@@ -4254,7 +4254,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-35-05-PHOENIX-SOAR-5-80H",
     "partId": "PART-X-BLADE-PHOENIX-SOAR",
-    "image": "assets/images/x/beys/bey-x-bx-35-05-phoenix-soar-5-80h/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-35-05-phoenix-soar-5-80h/bey-x-bx-35-05-phoenix-soar-5-80h.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX35_06@1.png",
     "sourcePath": "02_product_components/048_bx35/06_BX35_06@1.png",
@@ -4302,7 +4302,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-35-06-VIPER-TAIL-5-70D",
     "partId": "PART-X-BLADE-VIPER-TAIL",
-    "image": "assets/images/x/beys/bey-x-bx-35-06-viper-tail-5-70d/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-35-06-viper-tail-5-70d/bey-x-bx-35-06-viper-tail-5-70d.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX35_07@1.png",
     "sourcePath": "02_product_components/048_bx35/07_BX35_07@1.png",
@@ -4392,7 +4392,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-36-02-WHALE-WAVE-4-70HN",
     "partId": "PART-X-BLADE-WHALE-WAVE",
-    "image": "assets/images/x/beys/bey-x-bx-36-02-whale-wave-4-70hn/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-36-02-whale-wave-4-70hn/bey-x-bx-36-02-whale-wave-4-70hn.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX36_03@1.png",
     "sourcePath": "02_product_components/059_bx36/03_BX36_03@1.png",
@@ -4440,7 +4440,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-36-03-WHALE-WAVE-3-80GB",
     "partId": "PART-X-BLADE-WHALE-WAVE",
-    "image": "assets/images/x/beys/bey-x-bx-36-03-whale-wave-3-80gb/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-36-03-whale-wave-3-80gb/bey-x-bx-36-03-whale-wave-3-80gb.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX36_04@1.png",
     "sourcePath": "02_product_components/059_bx36/04_BX36_04@1.png",
@@ -4614,7 +4614,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-39-02-SHELTER-DRAKE-5-70O",
     "partId": "PART-X-BLADE-SHELTER-DRAKE",
-    "image": "assets/images/x/beys/bey-x-bx-39-02-shelter-drake-5-70o/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-39-02-shelter-drake-5-70o/bey-x-bx-39-02-shelter-drake-5-70o-blade-preview.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX39_03@1.png",
     "sourcePath": "02_product_components/075_bx39/03_BX39_03@1.png",
@@ -4662,7 +4662,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-39-03-SHELTER-DRAKE-3-60D",
     "partId": "PART-X-BLADE-SHELTER-DRAKE",
-    "image": "assets/images/x/beys/bey-x-bx-39-03-shelter-drake-3-60d/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-39-03-shelter-drake-3-60d/bey-x-bx-39-03-shelter-drake-3-60d-blade-preview.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX39_04@1.png",
     "sourcePath": "02_product_components/075_bx39/04_BX39_04@1.png",
@@ -4878,7 +4878,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-48-01-COBALT-DRAGOON-9-80F",
     "partId": "PART-X-BLADE-COBALT-DRAGOON",
-    "image": "assets/images/x/beys/bey-x-bx-48-01-cobalt-dragoon-9-80f/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-48-01-cobalt-dragoon-9-80f/bey-x-bx-48-01-cobalt-dragoon-9-80f-blade-preview.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX48_01@1.png",
     "sourcePath": "02_product_components/119_bx48/01_BX48_01@1.png",
@@ -4926,7 +4926,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-48-02-SHARK-EDGE-4-70E",
     "partId": "PART-X-BLADE-SHARK-EDGE",
-    "image": "assets/images/x/beys/bey-x-bx-48-02-shark-edge-4-70e/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-48-02-shark-edge-4-70e/bey-x-bx-48-02-shark-edge-4-70e.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX48_04@1.png",
     "sourcePath": "02_product_components/119_bx48/04_BX48_04@1.png",
@@ -4974,7 +4974,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-48-03-MAMMOTH-TUSK-7-60S",
     "partId": "PART-X-BLADE-MAMMOTH-TUSK",
-    "image": "assets/images/x/beys/bey-x-bx-48-03-mammoth-tusk-7-60s/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-48-03-mammoth-tusk-7-60s/bey-x-bx-48-03-mammoth-tusk-7-60s.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX48_03@1.png",
     "sourcePath": "02_product_components/119_bx48/03_BX48_03@1.png",
@@ -5022,7 +5022,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-48-04-HELLS-SCYTHE-3-85GB",
     "partId": "PART-X-BLADE-HELLS-SCYTHE",
-    "image": "assets/images/x/beys/bey-x-bx-48-04-hells-scythe-3-85gb/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-48-04-hells-scythe-3-85gb/bey-x-bx-48-04-hells-scythe-3-85gb.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX48_05@1.png",
     "sourcePath": "02_product_components/119_bx48/05_BX48_05@1.png",
@@ -5070,7 +5070,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-48-05-DRAN-BUSTER-2-80Q",
     "partId": "PART-X-BLADE-DRAN-BUSTER",
-    "image": "assets/images/x/beys/bey-x-bx-48-05-dran-buster-2-80q/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-48-05-dran-buster-2-80q/bey-x-bx-48-05-dran-buster-2-80q.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX48_06@1.png",
     "sourcePath": "02_product_components/119_bx48/06_BX48_06@1.png",
@@ -5202,7 +5202,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-50-02-HEAVENS-RING-6-60TP",
     "partId": "PART-X-BLADE-HEAVENS-RING",
-    "image": "assets/images/x/beys/bey-x-bx-50-02-heavens-ring-6-60tp/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-50-02-heavens-ring-6-60tp/bey-x-bx-50-02-heavens-ring-6-60tp.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX50_03@1.png",
     "sourcePath": "02_product_components/142_bx50/03_BX50_03@1.png",
@@ -5250,7 +5250,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-50-03-IMPACT-DRAKE-7-55FB",
     "partId": "PART-X-BLADE-IMPACT-DRAKE",
-    "image": "assets/images/x/beys/bey-x-bx-50-03-impact-drake-7-55fb/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-50-03-impact-drake-7-55fb/bey-x-bx-50-03-impact-drake-7-55fb.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX50_04@1.png",
     "sourcePath": "02_product_components/142_bx50/04_BX50_04@1.png",
@@ -5298,7 +5298,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-BX-50-04-GHOST-CIRCLE-M-85DS",
     "partId": "PART-X-BLADE-GHOST-CIRCLE",
-    "image": "assets/images/x/beys/bey-x-bx-50-04-ghost-circle-m-85ds/main.webp",
+    "image": "assets/images/x/beys/bey-x-bx-50-04-ghost-circle-m-85ds/bey-x-bx-50-04-ghost-circle-m-85ds.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX50_05@1.png",
     "sourcePath": "02_product_components/142_bx50/05_BX50_05@1.png",
@@ -6797,7 +6797,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-CX-05-04-LEON-CREST-9-80K",
     "partId": "PART-X-BLADE-LEON-CREST",
-    "image": "assets/images/x/beys/bey-x-cx-05-04-leon-crest-9-80k/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-05-04-leon-crest-9-80k/bey-x-cx-05-04-leon-crest-9-80k.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/CX05_06@1.png",
     "sourcePath": "02_product_components/087_cx05/06_CX05_06@1.png",
@@ -6845,7 +6845,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-CX-05-05-PHOENIX-RUDDER-4-70LF",
     "partId": "PART-X-BLADE-PHOENIX-RUDDER",
-    "image": "assets/images/x/beys/bey-x-cx-05-05-phoenix-rudder-4-70lf/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-05-05-phoenix-rudder-4-70lf/bey-x-cx-05-05-phoenix-rudder-4-70lf.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/CX05_05@1.png",
     "sourcePath": "02_product_components/087_cx05/05_CX05_05@1.png",
@@ -6893,7 +6893,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-CX-05-06-WHALE-WAVE-7-60K",
     "partId": "PART-X-BLADE-WHALE-WAVE",
-    "image": "assets/images/x/beys/bey-x-cx-05-06-whale-wave-7-60k/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-05-06-whale-wave-7-60k/bey-x-cx-05-06-whale-wave-7-60k.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/CX05_07@1.png",
     "sourcePath": "02_product_components/087_cx05/07_CX05_07@1.png",
@@ -7443,7 +7443,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-CX-08-04-DRAN-BUSTER-5-80MN",
     "partId": "PART-X-BLADE-DRAN-BUSTER",
-    "image": "assets/images/x/beys/bey-x-cx-08-04-dran-buster-5-80mn/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-08-04-dran-buster-5-80mn/bey-x-cx-08-04-dran-buster-5-80mn.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/CX08_05@1.png",
     "sourcePath": "02_product_components/099_cx08/05_CX08_05@1.png",
@@ -7491,7 +7491,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-CX-08-05-BLACK-TURTLE-7-70WB",
     "partId": "PART-X-BLADE-BLACK-TURTLE",
-    "image": "assets/images/x/beys/bey-x-cx-08-05-black-turtle-7-70wb/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-08-05-black-turtle-7-70wb/bey-x-cx-08-05-black-turtle-7-70wb.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/CX08_06@1.png",
     "sourcePath": "02_product_components/099_cx08/06_CX08_06@1.png",
@@ -7539,7 +7539,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-CX-08-06-COBALT-DRAGOON-4-55WB",
     "partId": "PART-X-BLADE-COBALT-DRAGOON",
-    "image": "assets/images/x/beys/bey-x-cx-08-06-cobalt-dragoon-4-55wb/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-08-06-cobalt-dragoon-4-55wb/bey-x-cx-08-06-cobalt-dragoon-4-55wb.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/CX08_07@1.png",
     "sourcePath": "02_product_components/099_cx08/07_CX08_07@1.png",
@@ -8462,7 +8462,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-CX-17-03-WARRIOR-SABER-9-65LO",
     "partId": "PART-X-BLADE-WARRIOR-SABER",
-    "image": "assets/images/x/beys/bey-x-cx-17-03-warrior-saber-9-65lo/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-17-03-warrior-saber-9-65lo/bey-x-cx-17-03-warrior-saber-9-65lo.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/CX17_04@1.png",
     "sourcePath": "02_product_components/131_cx17/04_CX17_04@1.png",
@@ -8510,7 +8510,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-CX-17-04-HELLS-HAMMER-3-85GU",
     "partId": "PART-X-BLADE-HELLS-HAMMER",
-    "image": "assets/images/x/beys/bey-x-cx-17-04-hells-hammer-3-85gu/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-17-04-hells-hammer-3-85gu/bey-x-cx-17-04-hells-hammer-3-85gu.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/CX17_05@1.png",
     "sourcePath": "02_product_components/131_cx17/05_CX17_05@1.png",
@@ -8558,7 +8558,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-CX-17-05-TYRANNO-BEAT-3-60N",
     "partId": "PART-X-BLADE-TYRANNO-BEAT",
-    "image": "assets/images/x/beys/bey-x-cx-17-05-tyranno-beat-3-60n/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-17-05-tyranno-beat-3-60n/bey-x-cx-17-05-tyranno-beat-3-60n.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/CX17_06@1.png",
     "sourcePath": "02_product_components/131_cx17/06_CX17_06@1.png",
@@ -8606,7 +8606,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-CX-17-06-CRIMSON-GARUDA-7-80GU",
     "partId": "PART-X-BLADE-CRIMSON-GARUDA",
-    "image": "assets/images/x/beys/bey-x-cx-17-06-crimson-garuda-7-80gu/main.webp",
+    "image": "assets/images/x/beys/bey-x-cx-17-06-crimson-garuda-7-80gu/bey-x-cx-17-06-crimson-garuda-7-80gu.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/CX17_07@1.png",
     "sourcePath": "02_product_components/131_cx17/07_CX17_07@1.png",
@@ -8981,7 +8981,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-UX-00-DRAN-BUSTER-1-60A",
     "partId": "PART-X-BLADE-DRAN-BUSTER",
-    "image": "assets/images/x/beys/bey-x-ux-00-dran-buster-1-60a/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-00-dran-buster-1-60a/bey-x-ux-00-dran-buster-1-60a-blade-preview.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BXG31_01@1.png",
     "sourcePath": "02_product_components/067_bx00-cc/01_BXG31_01@1.png",
@@ -9497,7 +9497,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-UX-04-DRAN-BUSTER-1-60A",
     "partId": "PART-X-BLADE-DRAN-BUSTER",
-    "image": "assets/images/x/beys/bey-x-ux-04-dran-buster-1-60a/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-04-dran-buster-1-60a/bey-x-ux-04-dran-buster-1-60a-blade-preview.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX04_01@1.png",
     "sourcePath": "02_product_components/039_ux04/01_UX04_01@1.png",
@@ -9545,7 +9545,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-UX-04-WIZARD-ROD-5-70DB",
     "partId": "PART-X-BLADE-WIZARD-ROD",
-    "image": "assets/images/x/beys/bey-x-ux-04-wizard-rod-5-70db/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-04-wizard-rod-5-70db/bey-x-ux-04-wizard-rod-5-70db-blade-preview.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX04_02@1.png",
     "sourcePath": "02_product_components/039_ux04/02_UX04_02@1.png",
@@ -9635,7 +9635,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-UX-05-02-NINJA-SHADOW-9-60LF",
     "partId": "PART-X-BLADE-NINJA-SHADOW",
-    "image": "assets/images/x/beys/bey-x-ux-05-02-ninja-shadow-9-60lf/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-05-02-ninja-shadow-9-60lf/bey-x-ux-05-02-ninja-shadow-9-60lf.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX05_03@1.png",
     "sourcePath": "02_product_components/043_ux05/03_UX05_03@1.png",
@@ -9683,7 +9683,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-UX-05-03-NINJA-SHADOW-3-70GP",
     "partId": "PART-X-BLADE-NINJA-SHADOW",
-    "image": "assets/images/x/beys/bey-x-ux-05-03-ninja-shadow-3-70gp/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-05-03-ninja-shadow-3-70gp/bey-x-ux-05-03-ninja-shadow-3-70gp.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX05_04@1.png",
     "sourcePath": "02_product_components/043_ux05/04_UX05_04@1.png",
@@ -10109,7 +10109,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-UX-12-02-GHOST-CIRCLE-4-60H",
     "partId": "PART-X-BLADE-GHOST-CIRCLE",
-    "image": "assets/images/x/beys/bey-x-ux-12-02-ghost-circle-4-60h/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-12-02-ghost-circle-4-60h/bey-x-ux-12-02-ghost-circle-4-60h.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX12_03@1.png",
     "sourcePath": "02_product_components/070_ux12/03_UX12_03@1.png",
@@ -10157,7 +10157,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-UX-12-03-LEON-CLAW-0-80E",
     "partId": "PART-X-BLADE-LEON-CLAW",
-    "image": "assets/images/x/beys/bey-x-ux-12-03-leon-claw-0-80e/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-12-03-leon-claw-0-80e/bey-x-ux-12-03-leon-claw-0-80e.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX12_04@1.png",
     "sourcePath": "02_product_components/070_ux12/04_UX12_04@1.png",
@@ -10205,7 +10205,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-UX-12-04-PHOENIX-FEATHER-2-60N",
     "partId": "PART-X-BLADE-PHOENIX-FEATHER",
-    "image": "assets/images/x/beys/bey-x-ux-12-04-phoenix-feather-2-60n/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-12-04-phoenix-feather-2-60n/bey-x-ux-12-04-phoenix-feather-2-60n.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX12_05@1.png",
     "sourcePath": "02_product_components/070_ux12/05_UX12_05@1.png",
@@ -10253,7 +10253,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-UX-12-05-NINJA-SHADOW-3-80F",
     "partId": "PART-X-BLADE-NINJA-SHADOW",
-    "image": "assets/images/x/beys/bey-x-ux-12-05-ninja-shadow-3-80f/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-12-05-ninja-shadow-3-80f/bey-x-ux-12-05-ninja-shadow-3-80f.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX12_06@1.png",
     "sourcePath": "02_product_components/070_ux12/06_UX12_06@1.png",
@@ -10301,7 +10301,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-UX-12-06-WYVERN-GALE-0-80C",
     "partId": "PART-X-BLADE-WYVERN-GALE",
-    "image": "assets/images/x/beys/bey-x-ux-12-06-wyvern-gale-0-80c/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-12-06-wyvern-gale-0-80c/bey-x-ux-12-06-wyvern-gale-0-80c.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX12_07@1.png",
     "sourcePath": "02_product_components/070_ux12/07_UX12_07@1.png",
@@ -10629,7 +10629,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-UX-16-02-CLOCK-MIRAGE-9-65B",
     "partId": "PART-X-BLADE-CLOCK-MIRAGE",
-    "image": "assets/images/x/beys/bey-x-ux-16-02-clock-mirage-9-65b/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-16-02-clock-mirage-9-65b/bey-x-ux-16-02-clock-mirage-9-65b.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX16_03@1.png",
     "sourcePath": "02_product_components/110_ux16/03_UX16_03@1.png",
@@ -10677,7 +10677,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-UX-16-03-CLOCK-MIRAGE-9-65B",
     "partId": "PART-X-BLADE-CLOCK-MIRAGE",
-    "image": "assets/images/x/beys/bey-x-ux-16-03-clock-mirage-9-65b/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-16-03-clock-mirage-9-65b/bey-x-ux-16-03-clock-mirage-9-65b.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX16_04@1.png",
     "sourcePath": "02_product_components/110_ux16/04_UX16_04@1.png",
@@ -10809,7 +10809,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-UX-18-02-MUMMY-CURSE-4-60C",
     "partId": "PART-X-BLADE-MUMMY-CURSE",
-    "image": "assets/images/x/beys/bey-x-ux-18-02-mummy-curse-4-60c/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-18-02-mummy-curse-4-60c/bey-x-ux-18-02-mummy-curse-4-60c.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX18_03@1.png",
     "sourcePath": "02_product_components/116_ux18/03_UX18_03@1.png",
@@ -10993,7 +10993,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-UX-18-05-DRAN-DAGGER-7-55G",
     "partId": "PART-X-BLADE-DRAN-DAGGER",
-    "image": "assets/images/x/beys/bey-x-ux-18-05-dran-dagger-7-55g/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-18-05-dran-dagger-7-55g/bey-x-ux-18-05-dran-dagger-7-55g.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX18_04@1.png",
     "sourcePath": "02_product_components/116_ux18/04_UX18_04@1.png",
@@ -11041,7 +11041,7 @@ const xPartPreviewMappings = [
   {
     "beyId": "BEY-X-UX-18-06-PEARL-TIGER-4-80LR",
     "partId": "PART-X-BLADE-PEARL-TIGER",
-    "image": "assets/images/x/beys/bey-x-ux-18-06-pearl-tiger-4-80lr/main.webp",
+    "image": "assets/images/x/beys/bey-x-ux-18-06-pearl-tiger-4-80lr/bey-x-ux-18-06-pearl-tiger-4-80lr.webp",
     "sourceKind": "official-assembled-bey-view",
     "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/UX18_05@1.png",
     "sourcePath": "02_product_components/116_ux18/05_UX18_05@1.png",

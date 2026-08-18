@@ -16,7 +16,7 @@ from PIL import Image
 
 CONFIG_PATH = Path("data/source/x-bey-primary-images.json")
 ANGLE_CONFIG_PATH = Path("data/source/x-bey-angle-corrections.json")
-CONFIG_VERSION = "20260818-x-hells-scythe-3-80f-simple-recolor-stickers-v4"
+CONFIG_VERSION = "20260819-x-bey-canonical-image-paths"
 CANVAS_SIZE = 448
 TARGET_FOREGROUND_SIZE = 360
 ALPHA_THRESHOLD = 3
@@ -109,13 +109,6 @@ def config_entries(config: dict) -> list[dict]:
             "verified-existing-front",
         }:
             raise ValueError(f"{entry['id']}: unexpected selected source kind")
-        entries.append(entry)
-    for entry in config["verifiedMain"]:
-        entry.setdefault("sourceKind", "verified-existing-front")
-        entry.setdefault(
-            "image",
-            f"assets/images/x/beys/{entry['id'].lower()}/main.webp",
-        )
         entries.append(entry)
     return entries
 

@@ -11,10 +11,7 @@ import { xCatalogImagePath } from "./x-image-paths.mjs";
 const REPORT_ARG = process.argv.find(argument => argument.startsWith("--report="));
 const REPORT_PATH = REPORT_ARG?.slice("--report=".length) || "";
 const ALPHA_REVIEW_PATH = path.resolve("data/source/x-image-alpha-review.json");
-const ALPHA_REVIEW_VERSION = "20260818-x-hells-scythe-3-80f-simple-recolor-stickers-v4";
-const generatedMainImageIds = new Set([
-  "BEY-X-BX-00-DRACIEL-SHIELD-7-60D"
-]);
+const ALPHA_REVIEW_VERSION = "20260819-x-bey-canonical-image-paths";
 const xItems = [...beyItems, ...partItems].filter(item => item.series === "x");
 const xIds = new Set(xItems.map(item => item.id));
 const expectedCorrectedSources = {
@@ -106,7 +103,7 @@ async function validateOutputs() {
   const phoenixComposite = mappingById.get("BEY-X-BX-00-PHOENIX-SOAR-9-80DB");
   assert.deepEqual(phoenixComposite, {
     id: "BEY-X-BX-00-PHOENIX-SOAR-9-80DB",
-    image: "assets/images/x/beys/bey-x-bx-00-phoenix-soar-9-80db/front.webp",
+    image: "assets/images/x/beys/bey-x-bx-00-phoenix-soar-9-80db/bey-x-bx-00-phoenix-soar-9-80db.webp",
     sourcePath: "data/source/x-bey-front-sources/bey-x-bx-00-phoenix-soar-9-80db-generated.png",
     sourceSha256: "5869ebe48c1ae08a595de7ff3ef6a552e51e0ea8a5c859de39f21b7f8fd7b7fe",
     sourceKind: "user-approved-generated-front",
@@ -119,47 +116,47 @@ async function validateOutputs() {
   });
   for (const [id, expected] of new Map([
     ["BEY-X-BX-00-COBALT-DRAGOON-9-60F", {
-      image: "assets/images/x/beys/bey-x-bx-00-cobalt-dragoon-9-60f/front.webp",
+      image: "assets/images/x/beys/bey-x-bx-00-cobalt-dragoon-9-60f/bey-x-bx-00-cobalt-dragoon-9-60f.webp",
       sourcePath: "data/source/x-bey-front-sources/bey-x-bx-00-cobalt-dragoon-9-60f-generated.png",
       sourceSha256: "a963b81463618f008883ea188f818be98500c1513c16bda8c7d2814cd50e166b"
     }],
     ["BEY-X-BX-00-DRACIEL-SHIELD-7-60D", {
-      image: "assets/images/x/beys/bey-x-bx-00-draciel-shield-7-60d/main.webp",
+      image: "assets/images/x/beys/bey-x-bx-00-draciel-shield-7-60d/bey-x-bx-00-draciel-shield-7-60d.webp",
       sourcePath: "data/source/x-bey-front-sources/bey-x-bx-00-draciel-shield-7-60d-generated.png",
       sourceSha256: "5bceef35154d9d546045c6b0779d215afa67dc21768f39272771389bb84f0267"
     }],
     ["BEY-X-BX-00-DRAN-SWORD-1-60V", {
-      image: "assets/images/x/beys/bey-x-bx-00-dran-sword-1-60v/front.webp",
+      image: "assets/images/x/beys/bey-x-bx-00-dran-sword-1-60v/bey-x-bx-00-dran-sword-1-60v.webp",
       sourcePath: "data/source/x-bey-front-sources/bey-x-bx-00-dran-sword-1-60v-generated.png",
       sourceSha256: "37070fde1767ad6b9b38e51a1b4bf3bbcc0905c1b544edc1207ee4c2b8f6e21c"
     }],
     ["BEY-X-BX-00-IRON-MAN-4-80B", {
-      image: "assets/images/x/beys/bey-x-bx-00-iron-man-4-80b/front.webp",
+      image: "assets/images/x/beys/bey-x-bx-00-iron-man-4-80b/bey-x-bx-00-iron-man-4-80b.webp",
       sourcePath: "data/source/x-bey-front-sources/bey-x-bx-00-iron-man-4-80b-generated.png",
       sourceSha256: "66c8a74562b04c42ab58c104283390b50d1b83a831a86a1df3610697503adcc2"
     }],
     ["BEY-X-BX-00-THANOS-4-60P", {
-      image: "assets/images/x/beys/bey-x-bx-00-thanos-4-60p/front.webp",
+      image: "assets/images/x/beys/bey-x-bx-00-thanos-4-60p/bey-x-bx-00-thanos-4-60p.webp",
       sourcePath: "data/source/x-bey-front-sources/bey-x-bx-00-thanos-4-60p-generated.png",
       sourceSha256: "128bff090ac184ea257b85ae00499dec8538e383a0c10aee4b21049000dea1ca"
     }],
     ["BEY-X-BX-00-SPIDER-MAN-3-60F", {
-      image: "assets/images/x/beys/bey-x-bx-00-spider-man-3-60f/front.webp",
+      image: "assets/images/x/beys/bey-x-bx-00-spider-man-3-60f/bey-x-bx-00-spider-man-3-60f.webp",
       sourcePath: "data/source/x-bey-front-sources/bey-x-bx-00-spider-man-3-60f-generated.png",
       sourceSha256: "576251729af9cf23672fc99b17b58a047caf88b8baf63d4e048a8316f7b696a6"
     }],
     ["BEY-X-BX-00-OPTIMUS-PRIMAL-3-60F", {
-      image: "assets/images/x/beys/bey-x-bx-00-optimus-primal-3-60f/front.webp",
+      image: "assets/images/x/beys/bey-x-bx-00-optimus-primal-3-60f/bey-x-bx-00-optimus-primal-3-60f.webp",
       sourcePath: "data/source/x-bey-front-sources/bey-x-bx-00-optimus-primal-3-60f-generated.png",
       sourceSha256: "8b7cb5e0f41ec5a3b28d5cc20b3399cc9e6042bd8c535785119f4c30710c0136"
     }],
     ["BEY-X-UX-15-TYRANNO-ROAR-1-70L", {
-      image: "assets/images/x/beys/bey-x-ux-15-tyranno-roar-1-70l/front.webp",
+      image: "assets/images/x/beys/bey-x-ux-15-tyranno-roar-1-70l/bey-x-ux-15-tyranno-roar-1-70l.webp",
       sourcePath: "data/source/x-bey-front-sources/bey-x-ux-15-tyranno-roar-1-70l-generated.png",
       sourceSha256: "851a05a2b868c330801b2a7798537f4804548ceb838e78de4a431be8001610e6"
     }],
     ["BEY-X-BX-00-QUETZALCOATLUS-4-55D", {
-      image: "assets/images/x/beys/bey-x-bx-00-quetzalcoatlus-4-55d/front.webp",
+      image: "assets/images/x/beys/bey-x-bx-00-quetzalcoatlus-4-55d/bey-x-bx-00-quetzalcoatlus-4-55d.webp",
       sourcePath: "data/source/x-bey-front-sources/bey-x-bx-00-quetzalcoatlus-4-55d-generated.png",
       sourceSha256: "ba5e46a2ed7216866d17ad0cdd74e08c74e65524ad90dacd4ec9f04a7495bd49"
     }]
@@ -184,10 +181,7 @@ async function validateOutputs() {
   const reviewById = new Map(xImageReview.map(entry => [entry.id, entry]));
   for (const entry of xImageMappings) {
     const item = xItems.find(candidate => candidate.id === entry.id);
-    const expectedImage = ["user-approved-generated-front", "verified-existing-front"].includes(entry.sourceKind)
-      && !generatedMainImageIds.has(entry.id)
-      ? `assets/images/x/beys/${entry.id.toLowerCase()}/front.webp`
-      : xCatalogImagePath(item);
+    const expectedImage = xCatalogImagePath(item);
     assert.equal(entry.image, expectedImage, `${entry.id} uses the wrong image layout`);
     assert.match(entry.sourceSha256, /^[a-f0-9]{64}$/);
     assert.ok(entry.sourcePath || entry.sourceUrl, `${entry.id} needs source provenance`);
@@ -228,7 +222,7 @@ async function validateOutputs() {
   }
 
   const files = await webpFiles(path.resolve("assets/images/x"));
-  assert.equal(files.length, 1049, "X image file count changed");
+  assert.equal(files.length, 924, "X image file count changed");
   assert.equal(
     files.some(file => file.includes(`${path.sep}part-previews${path.sep}`)),
     false,
