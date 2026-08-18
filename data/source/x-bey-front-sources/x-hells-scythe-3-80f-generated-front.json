@@ -1,15 +1,18 @@
 {
-  "version": "20260818-x-hells-scythe-3-80f-front-name",
+  "version": "20260818-x-hells-scythe-3-80f-color-match",
   "toolMode": "built-in ImageGen composition study followed by deterministic original-pixel reprojection; generated RGB rejected for geometry drift",
   "scope": "Hells Scythe 3-80F name correction and user-supplied front image",
   "jobs": [
     {
       "id": "BEY-X-BX-00-HELLS-SCYTHE-3-80F",
       "targetName": "헬즈사이즈 3-80F",
-      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-hells-scythe-3-80f-generated-front.png",
-      "sourceSha256": "86733de06d1a039376f63649f06c489575d21970602eaf38cd71b0eac1844e8c",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-hells-scythe-3-80f-color-matched.png",
+      "sourceSha256": "97af598b0694630658f1daf74f912e6570d016823c3f6ad0450e714620eed752",
       "finalOutputFile": "assets/images/x/beys/bey-x-bx-00-hells-scythe-3-80f/front.webp",
-      "finalOutputSha256": "704277144438fe2813b366cb9d7d02895b5f0ae1f638022ff6ec76a7f585864e",
+      "finalOutputSha256": "e327ae29d559011a7e0323a5bb356ed2bd6b1c2316f7564af683ebf3c6e9efd6",
+      "preColorMatchSourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-hells-scythe-3-80f-generated-front.png",
+      "preColorMatchSourceSha256": "86733de06d1a039376f63649f06c489575d21970602eaf38cd71b0eac1844e8c",
+      "colorMatchProvenanceFile": "data/source/x-bey-front-sources/x-hells-scythe-3-80f-color-match.json",
       "rawReferenceFile": "data/source/x-bey-front-sources/bey-x-bx-00-hells-scythe-3-80f-user-reference.png",
       "rawReferenceSha256": "c73ddcdcd32a673eba82e408b6b653dc72120542c0a2e60f1edc3a8df6e64f3d",
       "geometryAuthorityFile": "data/source/x-bey-front-sources/bey-x-bx-00-hells-scythe-3-80f-user-reference.png",
@@ -32,7 +35,7 @@
       ],
       "prompt": "Use Image 1 as the absolute product identity and geometry authority and Image 2 as camera composition authority only. Preserve the silver outer metal, blue plastic, yellow outlines, all three black tabs with red X marks, central printed sticker, openings, grooves and clockwise orientation. Match only Image 2 camera angle, screen rotation, center and scale. Render on a flat #ff00ff chroma-key background without shadows or extra objects.",
       "retryPrompt": "Correct only product-geometry and material drift: restore the exact physical shapes and photographic surfaces from the original blue product, including all three black and red X tabs and the unchanged central sticker, while retaining the candidate framing.",
-      "processingMethod": "u2netp-no-matting-background-removal-plus-20.5-degree-original-pixel-rotation-and-premultiplied-alpha-lanczos-normalization",
+      "processingMethod": "u2netp-no-matting-background-removal-plus-20.5-degree-original-pixel-rotation-premultiplied-alpha-normalization-and-deterministic-material-color-match",
       "segmentation": {
         "model": "u2netp",
         "alphaMatting": false,
@@ -62,7 +65,10 @@
         "partialAlphaPixels": 3059,
         "componentCount": 1,
         "generatedTextOrStickerPixelsUsed": false,
-        "originalProductRgbPreserved": true
+        "originalProductRgbPreserved": false,
+        "geometryAndAlphaPreservedFromPreColorMatchSource": true,
+        "alphaMismatchPixels": 0,
+        "outsideColorMaskRgbaMismatchPixels": 0
       }
     }
   ]

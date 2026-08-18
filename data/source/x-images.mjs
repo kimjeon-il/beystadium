@@ -124,8 +124,8 @@ const xImageMappings = [
   {
     "id": "BEY-X-BX-00-HELLS-SCYTHE-3-80F",
     "image": "assets/images/x/beys/bey-x-bx-00-hells-scythe-3-80f/front.webp",
-    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-hells-scythe-3-80f-generated-front.png",
-    "sourceSha256": "86733de06d1a039376f63649f06c489575d21970602eaf38cd71b0eac1844e8c",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-hells-scythe-3-80f-color-matched.png",
+    "sourceSha256": "97af598b0694630658f1daf74f912e6570d016823c3f6ad0450e714620eed752",
     "sourceKind": "user-approved-generated-front",
     "normalizationInput": "source-file",
     "preserveSourcePixels": true

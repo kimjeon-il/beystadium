@@ -1,5 +1,5 @@
 {
-  "version": "20260818-x-hells-scythe-3-80f-front-name",
+  "version": "20260818-x-hells-scythe-3-80f-color-match",
   "toolMode": "existing built-in ImageGen base followed by deterministic OKLab distance-field highlight transition; no regeneration",
   "scope": "UX-00 Warrior Saber 2-70L generated front render with continuous orange highlight-to-coating transition",
   "jobs": [
