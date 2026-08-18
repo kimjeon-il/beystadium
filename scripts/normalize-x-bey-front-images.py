@@ -16,7 +16,7 @@ from PIL import Image
 
 CONFIG_PATH = Path("data/source/x-bey-primary-images.json")
 ANGLE_CONFIG_PATH = Path("data/source/x-bey-angle-corrections.json")
-CONFIG_VERSION = "20260818-x-hells-scythe-3-80f-color-match"
+CONFIG_VERSION = "20260818-x-hells-scythe-3-80f-simple-recolor-stickers-v4"
 CANVAS_SIZE = 448
 TARGET_FOREGROUND_SIZE = 360
 ALPHA_THRESHOLD = 3

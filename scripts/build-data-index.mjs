@@ -7,7 +7,7 @@ import { productItems } from "../data/source/products.mjs";
 import { rareBeyGetItems } from "../data/source/rare-bey-get.mjs";
 import { bookItems, gameItems, toolsItems } from "../data/source/secondary.mjs";
 
-const VERSION = "20260818-x-hells-scythe-3-80f-color-match";
+const VERSION = "20260818-x-hells-scythe-3-80f-simple-recolor-stickers-v4";
 const SERIES_SLUGS = {
   "metal fight": "metal-fight",
   burst: "burst",

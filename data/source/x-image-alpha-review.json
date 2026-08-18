@@ -1,5 +1,5 @@
 {
-  "version": "20260818-x-hells-scythe-3-80f-color-match",
+  "version": "20260818-x-hells-scythe-3-80f-simple-recolor-stickers-v4",
   "canvasSize": 448,
   "files": [
     {
@@ -1201,21 +1201,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-hells-scythe-3-80f/front.webp",
-      "outputSha256": "e327ae29d559011a7e0323a5bb356ed2bd6b1c2316f7564af683ebf3c6e9efd6",
-      "alphaLevels": 248,
-      "partialPixels": 3059,
-      "foregroundPixels": 101306,
+      "outputSha256": "17664785f39f474bee2b4e5df3c65d481293ac1f2dbf32c4176447534848b32f",
+      "alphaLevels": 255,
+      "partialPixels": 4737,
+      "foregroundPixels": 98811,
       "bbox": [
         44,
-        45,
-        404,
-        402
+        44,
+        403,
+        404
       ],
       "margins": [
         44,
-        45,
         44,
-        46
+        45,
+        44
       ]
     },
     {

@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-const X_ASSET_CACHE_VERSION = "20260818-x-hells-scythe-3-80f-color-match";
+const X_ASSET_CACHE_VERSION = "20260818-x-hells-scythe-3-80f-simple-recolor-stickers-v4";
 
 const consoleErrors = page => {
   const errors = [];

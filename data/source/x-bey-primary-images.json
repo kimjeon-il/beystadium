@@ -1,5 +1,5 @@
 {
-  "version": "20260818-x-hells-scythe-3-80f-color-match",
+  "version": "20260818-x-hells-scythe-3-80f-simple-recolor-stickers-v4",
   "sourceRoot": "",
   "policy": [
     "official-angle-corrected",
@@ -157,25 +157,23 @@
       "id": "BEY-X-BX-00-HELLS-SCYTHE-3-80F",
       "image": "assets/images/x/beys/bey-x-bx-00-hells-scythe-3-80f/front.webp",
       "sourceKind": "user-approved-generated-front",
-      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-hells-scythe-3-80f-color-matched.png",
-      "sourceSha256": "97af598b0694630658f1daf74f912e6570d016823c3f6ad0450e714620eed752",
+      "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-hells-scythe-3-80f-simple-recolor-stickers-v4.png",
+      "sourceSha256": "f721cae7845aeb83a8464d8f5bc7414982df99901934cbe9fa7538b9cd967764",
       "normalizationInput": "source-file",
       "preserveSourcePixels": true,
-      "processingMethod": "built-in-imagegen-angle-reference-plus-deterministic-original-pixel-rotation-u2netp-background-removal-premultiplied-normalization-and-material-color-match",
-      "generationProvenanceFile": "data/source/x-bey-front-sources/x-hells-scythe-3-80f-generated-front.json",
-      "colorMatchProvenanceFile": "data/source/x-bey-front-sources/x-hells-scythe-3-80f-color-match.json",
-      "geometryAuthoritySha256": "c73ddcdcd32a673eba82e408b6b653dc72120542c0a2e60f1edc3a8df6e64f3d",
+      "processingMethod": "deterministic-official-front-ratchet-recolor-and-original-sticker-pixel-composite",
+      "postProcessingProvenanceFile": "data/source/x-bey-front-sources/x-hells-scythe-3-80f-simple-recolor-stickers-v4.json",
+      "geometryAuthoritySha256": "de3bdb2b1396ab3ab9d1e52788335aa6738ce0515eee4b3072651f2eaf7803ec",
       "rawReferenceSha256": "c73ddcdcd32a673eba82e408b6b653dc72120542c0a2e60f1edc3a8df6e64f3d",
-      "compositionReferenceSha256": "db09abaff8e65ada3b9533a9155468c7ff6f72fed92cd7c9389f6e75b5cd265c",
       "styleAuthoritySha256": "de3bdb2b1396ab3ab9d1e52788335aa6738ce0515eee4b3072651f2eaf7803ec",
-      "imageGenerationUsed": true,
-      "preNormalizationSha256": "97af598b0694630658f1daf74f912e6570d016823c3f6ad0450e714620eed752",
-      "outputSha256": "e327ae29d559011a7e0323a5bb356ed2bd6b1c2316f7564af683ebf3c6e9efd6",
+      "imageGenerationUsed": false,
+      "preNormalizationSha256": "f721cae7845aeb83a8464d8f5bc7414982df99901934cbe9fa7538b9cd967764",
+      "outputSha256": "17664785f39f474bee2b4e5df3c65d481293ac1f2dbf32c4176447534848b32f",
       "normalizedForegroundBox": [
         44,
-        45,
-        404,
-        402
+        44,
+        403,
+        404
       ]
     },
     {
