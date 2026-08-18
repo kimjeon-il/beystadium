@@ -1884,6 +1884,71 @@ test("Metal Fight remake names switch between Korean releases and Japanese origi
   expect(errors).toEqual([]);
 });
 
+test("X bey detail names use Japanese only from an explicit Japanese release context", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "regional X bey names are shared by desktop and mobile layouts");
+  test.setTimeout(60_000);
+  const errors = consoleErrors(page);
+  const targetId = "BEY-X-UX-00-DRAN-BUSTER-1-60A";
+  const koreanName = "드랜버스터 1-60A";
+  const japaneseName = "드란버스터 1-60A";
+  const domClick = locator => locator.evaluate(element => element.click());
+
+  await page.goto(`/#${targetId}`);
+  await expect(page.locator("#detailModal .modal-name")).toHaveText(koreanName);
+
+  await page.goto("/#toy-release");
+  await expect(page.locator("#releaseSearchInput")).toBeVisible();
+  await domClick(page.locator('.release-region-tabs button[data-release-region="jp"]'));
+  await domClick(page.locator(".release-list-page .table-list-dropdown summary"));
+  await domClick(page.locator('[data-release-series="x"]'));
+  await page.locator("#releaseSearchInput").fill("UX-00");
+  await domClick(page.locator('.release-product-row[data-product-id="PRODUCT-X-UX-00-DRAN-BUSTER-1-60A"]'));
+  const japaneseLink = page.locator(`#detailModal .composition-link[data-target-id="${targetId}"]`);
+  await expect(japaneseLink.locator("span")).toContainText(japaneseName);
+  await domClick(japaneseLink);
+  await expect(page.locator("#detailModal .modal-name")).toHaveText(japaneseName);
+
+  await page.goto("/#toy-release");
+  await expect(page.locator("#releaseSearchInput")).toBeVisible();
+  await domClick(page.locator('.release-region-tabs button[data-release-region="kr"]'));
+  await domClick(page.locator(".release-list-page .table-list-dropdown summary"));
+  await domClick(page.locator('[data-release-series="x"]'));
+  await page.locator("#releaseSearchInput").fill("FC 바르셀로나");
+  await domClick(page.locator('.release-product-row[data-product-id="PRODUCT-X-UX-00-DRAN-BUSTER-1-60A-FC-BARCELONA"]'));
+  const koreanLink = page.locator(`#detailModal .composition-link[data-target-id="${targetId}"]`);
+  await expect(koreanLink.locator("span")).toContainText(koreanName);
+  await domClick(koreanLink);
+  await expect(page.locator("#detailModal .modal-name")).toHaveText(koreanName);
+
+  await page.goto("/#toy-release");
+  await expect(page.locator("#releaseSearchInput")).toBeVisible();
+  await domClick(page.locator('.release-region-tabs button[data-release-region="jp"]'));
+  const searchHash = `#search?q=${encodeURIComponent(koreanName)}&scope=bey`;
+  await page.evaluate(hash => {
+    window.location.hash = hash;
+  }, searchHash);
+  const searchResult = page.locator(`#globalGrid .search-result-item[data-id="${targetId}"]`);
+  await expect(searchResult).toBeVisible();
+  await expect(searchResult.locator("strong")).toHaveText(koreanName);
+  await domClick(searchResult);
+  await expect(page.locator("#detailModal .modal-name")).toHaveText(koreanName);
+
+  await page.goto("/#toy-release");
+  await expect(page.locator("#releaseSearchInput")).toBeVisible();
+  await domClick(page.locator('.release-region-tabs button[data-release-region="jp"]'));
+  const catalogHash = `#toy-catalog?scope=bey&series=x&sort=latest&page=1&q=${encodeURIComponent(koreanName)}`;
+  await page.evaluate(hash => {
+    window.location.hash = hash;
+  }, catalogHash);
+  const catalogCard = page.locator(`.catalog-card[data-id="${targetId}"]`);
+  await expect(catalogCard).toBeVisible();
+  await expect(catalogCard.locator(".catalog-card-title")).toContainText(koreanName);
+  await domClick(catalogCard.locator(".catalog-card-action"));
+  await expect(page.locator("#detailModal .modal-name")).toHaveText(koreanName);
+
+  expect(errors).toEqual([]);
+});
+
 test("X random booster products open their ordered Bey lineups", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "lineup data is shared by desktop and mobile layouts");
   const errors = consoleErrors(page);

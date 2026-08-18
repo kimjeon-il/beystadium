@@ -132,30 +132,8 @@ function detailHeading(item, options = {}) {
   return modalTitle(itemDisplayName(item, options.region));
 }
 const validReleaseRegion = region => releaseRegionLabels[region] ? region : "";
-const catalogDetailProductHasTarget = (product, region, targetId) =>
-  productReleasedInRegion(product, region) &&
-  (productCompositionItems(product, region).some(part => part.target === targetId) ||
-    productLineupIds(product).includes(targetId));
-const inferCatalogDetailRegionFromProduct = (options = {}) => {
-  const product = options.backProductId ? productItemsById.get(options.backProductId) : null;
-  if (!product) return "";
-  const requestedRegion = validReleaseRegion(options.region) || validReleaseRegion(appState.activeReleaseRegion) || "kr";
-  return productDisplayRegion(product, requestedRegion);
-};
-const inferCatalogDetailRegionFromItem = item => {
-  if (!item || item.series !== "x") return "";
-  if (item.id.includes("-JP-")) return "jp";
-  if (item.type !== "bey") return "";
-  const hasJpRelease = productItems.some(product => catalogDetailProductHasTarget(product, "jp", item.id));
-  const hasKrRelease = productItems.some(product => catalogDetailProductHasTarget(product, "kr", item.id));
-  return hasJpRelease && !hasKrRelease ? "jp" : "";
-};
-function catalogDetailRegion(item, options = {}) {
-  return validReleaseRegion(options.region) ||
-    inferCatalogDetailRegionFromProduct(options) ||
-    inferCatalogDetailRegionFromItem(item) ||
-    validReleaseRegion(appState.activeReleaseRegion) ||
-    "kr";
+function catalogDetailRegion(_item, options = {}) {
+  return validReleaseRegion(options.region) || "kr";
 }
 function openDetail(id, options = {}) {
   const item = catalogCoreItemsById.get(id);
