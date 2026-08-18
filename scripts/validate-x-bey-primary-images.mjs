@@ -93,7 +93,7 @@ uniqueValues([
   ...verifiedMainById.keys(),
   ...temporarySideById.keys()
 ], "explicit primary image classifications");
-assert.equal(xBeyPrimaryImageConfig.version, "20260818-x-hells-scythe-3-80f-color-match");
+assert.equal(xBeyPrimaryImageConfig.version, "20260818-x-hells-scythe-3-80f-bx02-angle-color");
 assert.equal(xBeyAngleCorrectionConfig.version, xBeyPrimaryImageConfig.version);
 assert.equal(xBeyAngleCorrectionConfig.method, "premultiplied-alpha-vertical-affine");
 assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
@@ -922,12 +922,12 @@ const approvedGeneratedFronts = new Map([
     imageGenerationUsed: true
   }],
   ["BEY-X-BX-00-HELLS-SCYTHE-3-80F", {
-    sourceFile: "data/source/x-bey-front-sources/bey-x-bx-00-hells-scythe-3-80f-color-matched.png",
-    sourceSha256: "97af598b0694630658f1daf74f912e6570d016823c3f6ad0450e714620eed752",
-    processingMethod: "built-in-imagegen-angle-reference-plus-deterministic-original-pixel-rotation-u2netp-background-removal-premultiplied-normalization-and-material-color-match",
+    sourceFile: "data/source/x-bey-front-sources/bey-x-bx-00-hells-scythe-3-80f-bx02-angle-color.png",
+    sourceSha256: "c012d74e2112035483a3b137607b967dc3f7114e8042d9e3c892053947fe8eba",
+    processingMethod: "deterministic-bx02-top-view-alpha-and-metal-material-transfer-plus-target-blue-plastic-artwork-and-threefold-x-insert-reassembly",
     generationProvenanceFile: "data/source/x-bey-front-sources/x-hells-scythe-3-80f-generated-front.json",
-    colorMatchProvenanceFile: "data/source/x-bey-front-sources/x-hells-scythe-3-80f-color-match.json",
-    geometryAuthoritySha256: "c73ddcdcd32a673eba82e408b6b653dc72120542c0a2e60f1edc3a8df6e64f3d",
+    angleColorProvenanceFile: "data/source/x-bey-front-sources/x-hells-scythe-3-80f-bx02-angle-color.json",
+    geometryAuthoritySha256: "de3bdb2b1396ab3ab9d1e52788335aa6738ce0515eee4b3072651f2eaf7803ec",
     rawReferenceSha256: "c73ddcdcd32a673eba82e408b6b653dc72120542c0a2e60f1edc3a8df6e64f3d",
     styleAuthoritySha256: "de3bdb2b1396ab3ab9d1e52788335aa6738ce0515eee4b3072651f2eaf7803ec",
     imageGenerationUsed: true
@@ -1013,7 +1013,8 @@ for (const entry of xBeyPrimaryImageConfig.selected) {
         "angleReferenceSha256",
         "centralArtworkSourceSha256",
         "postProcessingProvenanceFile",
-        "colorMatchProvenanceFile"
+        "colorMatchProvenanceFile",
+        "angleColorProvenanceFile"
       ]) {
         if (Object.hasOwn(expected, field)) assert.equal(entry[field], expected[field]);
       }
@@ -1092,6 +1093,23 @@ for (const entry of xBeyPrimaryImageConfig.selected) {
           assert.equal(colorMatch.validation.outsideMaskRgbaMismatchPixels, 0);
           assert.deepEqual(
             colorMatch.validation.normalizedForegroundBox,
+            entry.normalizedForegroundBox
+          );
+        }
+        if (expected.angleColorProvenanceFile) {
+          const angleColor = JSON.parse(
+            await readFile(path.resolve(expected.angleColorProvenanceFile), "utf8")
+          );
+          assert.equal(angleColor.version, xBeyPrimaryImageConfig.version);
+          assert.equal(angleColor.id, entry.id);
+          assert.equal(angleColor.imageGenerationUsedForRevision, false);
+          assert.equal(angleColor.output.sourceFile, entry.sourceFile);
+          assert.equal(angleColor.output.sourceSha256, entry.sourceSha256);
+          assert.equal(angleColor.output.finalSha256, entry.outputSha256);
+          assert.equal(angleColor.validation.alphaMatchesOfficialPixels, 0);
+          assert.equal(angleColor.validation.sourceToOutputVisibleRgbaMismatchPixels, 0);
+          assert.deepEqual(
+            angleColor.validation.normalizedForegroundBox,
             entry.normalizedForegroundBox
           );
         }
@@ -1256,7 +1274,7 @@ for (const entry of xBeyPrimaryImageConfig.temporarySideImages) {
 }
 
 const alphaReview = JSON.parse(await readFile(ALPHA_REVIEW_PATH, "utf8"));
-assert.equal(alphaReview.version, "20260818-x-hells-scythe-3-80f-color-match");
+assert.equal(alphaReview.version, "20260818-x-hells-scythe-3-80f-bx02-angle-color");
 const alphaReviewByImage = new Map(alphaReview.files.map(entry => [entry.image, entry]));
 const normalizedEntries = [
   ...xBeyPrimaryImageConfig.selected,

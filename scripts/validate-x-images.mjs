@@ -11,7 +11,7 @@ import { xCatalogImagePath } from "./x-image-paths.mjs";
 const REPORT_ARG = process.argv.find(argument => argument.startsWith("--report="));
 const REPORT_PATH = REPORT_ARG?.slice("--report=".length) || "";
 const ALPHA_REVIEW_PATH = path.resolve("data/source/x-image-alpha-review.json");
-const ALPHA_REVIEW_VERSION = "20260818-x-hells-scythe-3-80f-color-match";
+const ALPHA_REVIEW_VERSION = "20260818-x-hells-scythe-3-80f-bx02-angle-color";
 const generatedMainImageIds = new Set([
   "BEY-X-BX-00-DRACIEL-SHIELD-7-60D"
 ]);

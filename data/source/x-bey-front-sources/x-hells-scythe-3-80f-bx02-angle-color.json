@@ -1,0 +1,56 @@
+{
+  "version": "20260818-x-hells-scythe-3-80f-bx02-angle-color",
+  "id": "BEY-X-BX-00-HELLS-SCYTHE-3-80F",
+  "classification": "user-approved-generated-front",
+  "imageGenerationUsedForRevision": false,
+  "inputs": {
+    "previousSourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-hells-scythe-3-80f-color-matched.png",
+    "previousSourceSha256": "97af598b0694630658f1daf74f912e6570d016823c3f6ad0450e714620eed752",
+    "rawTargetFile": "data/source/x-bey-front-sources/bey-x-bx-00-hells-scythe-3-80f-user-reference.png",
+    "rawTargetSha256": "c73ddcdcd32a673eba82e408b6b653dc72120542c0a2e60f1edc3a8df6e64f3d",
+    "targetArtworkFile": "assets/images/x/beys/bey-x-bx-00-hells-scythe-3-80f/parts/part-x-blade-hells-scythe.webp",
+    "targetArtworkSha256": "09b329a300b57eaceaf2d3d0ebd6d39b26a00004179846a56cabc5dc163049c1",
+    "officialGeometryStyleFile": "assets/images/x/beys/bey-x-bx-02-hells-scythe-4-60t/front.webp",
+    "officialGeometryStyleSha256": "de3bdb2b1396ab3ab9d1e52788335aa6738ce0515eee4b3072651f2eaf7803ec"
+  },
+  "processing": {
+    "method": "deterministic-bx02-top-view-alpha-and-metal-material-transfer-plus-target-blue-plastic-artwork-and-threefold-x-insert-reassembly",
+    "geometryAuthority": "official BX-02 front coordinate system and alpha",
+    "colorAuthority": "target reference and target blade preview",
+    "generatedRgbUsedForRevision": false,
+    "rotationOrPerspectiveTransformAppliedToOfficial": false,
+    "officialForegroundBox": [44, 44, 403, 404],
+    "targetReferenceAffineMatrix": [
+      [0.20075981682404956, 0.058332595722478196, 16.854295457404117],
+      [-0.06817038344894416, 0.2799174962847706, 64.27624768817232]
+    ],
+    "referenceLandmarks": {
+      "source": [[916.0, 390.0], [390.0, 846.0], [1125.0, 1025.0]],
+      "official": [[223.5, 111.0], [144.5, 274.5], [302.5, 274.5]]
+    },
+    "xInsertAssembly": {
+      "source": "clean target top insert pixels",
+      "copies": 3,
+      "rotationDegrees": [0, 120, 240],
+      "uniformScale": 0.82
+    },
+    "stickerRadiusPixels": 58.5
+  },
+  "output": {
+    "sourceFile": "data/source/x-bey-front-sources/bey-x-bx-00-hells-scythe-3-80f-bx02-angle-color.png",
+    "sourceSha256": "c012d74e2112035483a3b137607b967dc3f7114e8042d9e3c892053947fe8eba",
+    "finalFile": "assets/images/x/beys/bey-x-bx-00-hells-scythe-3-80f/front.webp",
+    "finalSha256": "9e6ee19eaf8ae4b35301a8f18e896bfdaaf8c561dff2ed735010efeaa316721f",
+    "format": "lossless-webp"
+  },
+  "validation": {
+    "canvas": [448, 448],
+    "normalizedForegroundBox": [44, 44, 403, 404],
+    "alphaMatchesOfficialPixels": 0,
+    "sourceToOutputVisibleRgbaMismatchPixels": 0,
+    "transparentRgbNormalizationPixels": 31898,
+    "transparentCorners": true,
+    "redPlasticResidualPixelsOutsideArtwork": 20,
+    "singleForegroundComponent": true
+  }
+}

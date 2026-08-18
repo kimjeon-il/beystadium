@@ -139,9 +139,9 @@ const xImageReview = [
   {
     "id": "BEY-X-BX-00-HELLS-SCYTHE-3-80F",
     "image": "assets/images/x/beys/bey-x-bx-00-hells-scythe-3-80f/front.webp",
-    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-hells-scythe-3-80f-color-matched.png",
-    "sourceSha256": "97af598b0694630658f1daf74f912e6570d016823c3f6ad0450e714620eed752",
-    "outputSha256": "e327ae29d559011a7e0323a5bb356ed2bd6b1c2316f7564af683ebf3c6e9efd6",
+    "sourcePath": "data/source/x-bey-front-sources/bey-x-bx-00-hells-scythe-3-80f-bx02-angle-color.png",
+    "sourceSha256": "c012d74e2112035483a3b137607b967dc3f7114e8042d9e3c892053947fe8eba",
+    "outputSha256": "9e6ee19eaf8ae4b35301a8f18e896bfdaaf8c561dff2ed735010efeaa316721f",
     "sourceKind": "user-approved-generated-front",
     "normalizationInput": "source-file",
     "preserveSourcePixels": true
