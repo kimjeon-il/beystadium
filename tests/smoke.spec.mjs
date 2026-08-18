@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-const X_ASSET_CACHE_VERSION = "20260818-x-hells-scythe-3-80f-bx02-angle-color";
+const X_ASSET_CACHE_VERSION = "20260818-x-hells-scythe-3-80f-color-match";
 
 const consoleErrors = page => {
   const errors = [];

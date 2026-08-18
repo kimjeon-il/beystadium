@@ -14,7 +14,7 @@ from PIL import Image
 CANVAS_SIZE = 448
 MIN_MARGIN = 6
 MAX_FOREGROUND_SIZE = CANVAS_SIZE - MIN_MARGIN * 2
-REVIEW_VERSION = "20260818-x-hells-scythe-3-80f-bx02-angle-color"
+REVIEW_VERSION = "20260818-x-hells-scythe-3-80f-color-match"
 
 
 def parse_args() -> argparse.Namespace:

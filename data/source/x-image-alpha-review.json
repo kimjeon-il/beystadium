@@ -1,5 +1,5 @@
 {
-  "version": "20260818-x-hells-scythe-3-80f-bx02-angle-color",
+  "version": "20260818-x-hells-scythe-3-80f-color-match",
   "canvasSize": 448,
   "files": [
     {
@@ -1201,21 +1201,21 @@
     },
     {
       "image": "assets/images/x/beys/bey-x-bx-00-hells-scythe-3-80f/front.webp",
-      "outputSha256": "9e6ee19eaf8ae4b35301a8f18e896bfdaaf8c561dff2ed735010efeaa316721f",
-      "alphaLevels": 255,
-      "partialPixels": 4737,
-      "foregroundPixels": 98811,
+      "outputSha256": "e327ae29d559011a7e0323a5bb356ed2bd6b1c2316f7564af683ebf3c6e9efd6",
+      "alphaLevels": 248,
+      "partialPixels": 3059,
+      "foregroundPixels": 101306,
       "bbox": [
         44,
-        44,
-        403,
-        404
+        45,
+        404,
+        402
       ],
       "margins": [
         44,
-        44,
         45,
-        44
+        44,
+        46
       ]
     },
     {

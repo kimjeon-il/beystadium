@@ -8,7 +8,7 @@ const bookItems = [];
 const gameItems = [];
 const animeInfo = { title: "", overview: [], characters: [], episodes: [] };
 const searchIndexItems = [];
-const X_ASSET_CACHE_VERSION = "20260818-x-hells-scythe-3-80f-bx02-angle-color";
+const X_ASSET_CACHE_VERSION = "20260818-x-hells-scythe-3-80f-color-match";
 
 const versionAssetUrl = source => {
   const value = String(source || "");
