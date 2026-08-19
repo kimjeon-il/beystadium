@@ -1,6 +1,6 @@
 import { expect } from "@playwright/test";
 
-const X_ASSET_CACHE_VERSION = "20260819-x-bey-canonical-image-paths";
+const X_ASSET_CACHE_VERSION = "20260819-burst-bey-front-images";
 
 const consoleErrors = page => {
   const errors = [];

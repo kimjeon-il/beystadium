@@ -18,6 +18,7 @@ import { applyXKoreaBeyDetails } from "./x-kr-bey-details.mjs";
 import { applyXImages } from "./x-images.mjs";
 import { applyXPartPreviewImages } from "./x-part-previews.mjs";
 import { applyXBeyPrimaryImages } from "./x-bey-primary-images.mjs";
+import { applyBurstBeyPrimaryImages } from "./burst-bey-primary-images.mjs";
 
 const beyItems = [
   { id: "BEY-METAL-FIGHT-BB-01-PEGASIS-105F", series: "metal fight", type: "bey", structure: "basic", name: "페가시스", en: "Pegasis", sub: "105F", productNo: "BB-01", battleType: "attack", spin: "right", desc: "", parts: ["PART-METAL-FIGHT-FACE-PEGASIS", "PART-METAL-FIGHT-WHEEL-PEGASIS", "PART-METAL-FIGHT-TRACK-105", "PART-METAL-FIGHT-BOTTOM-FLAT"] },
@@ -361,10 +362,10 @@ const beyItems = [
   { id: "BEY-BURST-B-100-SPRIGGAN-REQUIEM-0-ZT", series: "burst", type: "bey", name: "스프리건 레퀴엠.0.Zt", en: "Spriggan Requiem.0.Zt", productNo: "B-100", battleType: "balance", spin: "dual", desc: "", parts: ["PART-BURST-GODLAYER-SPRIGGAN-REQUIEM", "PART-BURST-COREDISK-0", "PART-BURST-DRIVER-ZETA"] },
   { id: "BEY-BURST-B-102-TWIN-NEMESIS-3H-UL", series: "burst", type: "bey", name: "트윈 네메시스.3H.Ul", en: "Twin Nemesis.3H.Ul", productNo: "B-102", battleType: "attack", spin: "right", desc: "", parts: ["PART-BURST-GODLAYER-TWIN-NEMESIS", "PART-BURST-COREDISK-3", "PART-BURST-FRAME-HIT", "PART-BURST-DRIVER-ULTIMATE-REBOOT"] },
   { id: "BEY-BURST-B-103-SCREW-TRIDENT-8B-WD", series: "burst", type: "bey", name: "스크류 트라이던트.8B.Wd", en: "Screw Trident.8B.Wd", productNo: "B-103", battleType: "stamina", spin: "right", desc: "", parts: ["PART-BURST-GODLAYER-SCREW-TRIDENT", "PART-BURST-COREDISK-8", "PART-BURST-FRAME-BUMP", "PART-BURST-DRIVER-WEDGE"] },
-  { id: "BEY-BURST-B-104-WINNING-VALKYRIE-12-VL", series: "burst", type: "bey", name: "위닝 발키리.12.Vl", en: "Winning Valkyrie.12.Vl", productNo: "B-104", battleType: "attack", spin: "right", desc: "", image: "assets/images/beys/winning-valkyrie-original.png", parts: ["PART-BURST-CHOZLAYER-WINNING-VALKYRIE", "PART-BURST-COREDISK-12", "PART-BURST-DRIVER-VOLCANIC"] },
+  { id: "BEY-BURST-B-104-WINNING-VALKYRIE-12-VL", series: "burst", type: "bey", name: "위닝 발키리.12.Vl", en: "Winning Valkyrie.12.Vl", productNo: "B-104", battleType: "attack", spin: "right", desc: "", parts: ["PART-BURST-CHOZLAYER-WINNING-VALKYRIE", "PART-BURST-COREDISK-12", "PART-BURST-DRIVER-VOLCANIC"] },
   { id: "BEY-BURST-B-105-Z-ACHILLES-11-XT", series: "burst", type: "bey", name: "제트 아킬레스.11.Xt", en: "Z Achilles.11.Xt", productNo: "B-105", battleType: "balance", spin: "right", desc: "", parts: ["PART-BURST-CHOZLAYER-Z-ACHILLES", "PART-BURST-COREDISK-11", "PART-BURST-DRIVER-XTEND"] },
   { id: "BEY-BURST-B-106-EMPEROR-FORNEUS-0-YR", series: "burst", type: "bey", name: "엠퍼러 포르네우스.0.Yr", en: "Emperor Forneus.0.Yr", productNo: "B-106", battleType: "defense", spin: "right", desc: "", parts: ["PART-BURST-CHOZLAYER-EMPEROR-FORNEUS", "PART-BURST-COREDISK-0", "PART-BURST-DRIVER-YARD"] },
-  { id: "BEY-BURST-B-107-WINNING-VALKYRIE-12-VL", series: "burst", type: "bey", name: "위닝 발키리.12.Vl", en: "Winning Valkyrie.12.Vl", productNo: "B-107", battleType: "attack", spin: "right", desc: "", image: "assets/images/beys/winning-valkyrie-original.png", parts: ["PART-BURST-CHOZLAYER-WINNING-VALKYRIE", "PART-BURST-COREDISK-12", "PART-BURST-DRIVER-VOLCANIC"] },
+  { id: "BEY-BURST-B-107-WINNING-VALKYRIE-12-VL", series: "burst", type: "bey", name: "위닝 발키리.12.Vl", en: "Winning Valkyrie.12.Vl", productNo: "B-107", battleType: "attack", spin: "right", desc: "", parts: ["PART-BURST-CHOZLAYER-WINNING-VALKYRIE", "PART-BURST-COREDISK-12", "PART-BURST-DRIVER-VOLCANIC"] },
   { id: "BEY-BURST-B-107-Z-ACHILLES-11-XT", series: "burst", type: "bey", name: "제트 아킬레스.11.Xt", en: "Z Achilles.11.Xt", productNo: "B-107", battleType: "balance", spin: "right", desc: "", parts: ["PART-BURST-CHOZLAYER-Z-ACHILLES", "PART-BURST-COREDISK-11", "PART-BURST-DRIVER-XTEND"] },
   { id: "BEY-BURST-B-110-BLOODY-LONGINUS-13-JL", series: "burst", type: "bey", name: "블러디 롱기누스.13.Jl", en: "Bloody Longinus.13.Jl", productNo: "B-110", battleType: "attack", spin: "left", desc: "", parts: ["PART-BURST-CHOZLAYER-BLOODY-LONGINUS", "PART-BURST-COREDISK-13", "PART-BURST-DRIVER-JOLT"] },
   { id: "BEY-BURST-BA-03-Z-ACHILLES-11-XT", series: "burst", type: "bey", name: "제트 아킬레스.11.Xt", en: "Z Achilles.11.Xt", productNo: "BA-03", battleType: "balance", spin: "right", desc: "", parts: ["PART-BURST-CHOZLAYER-Z-ACHILLES", "PART-BURST-COREDISK-11", "PART-BURST-DRIVER-XTEND"] },
@@ -1698,6 +1699,7 @@ const {
   lineups: burstRandomBoosterLineups
 } = buildBurstRandomBoosterData(partItems, beyItems);
 beyItems.push(...burstRandomBoosterBeys);
+applyBurstBeyPrimaryImages(beyItems);
 applyXKoreaBeyDetails(beyItems);
 applyXImages([...beyItems, ...partItems]);
 applyXPartPreviewImages(beyItems);
