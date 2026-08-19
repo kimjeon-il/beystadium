@@ -8,7 +8,7 @@ const bookItems = [];
 const gameItems = [];
 const animeInfo = { title: "", overview: [], characters: [], episodes: [] };
 const searchIndexItems = [];
-const X_ASSET_CACHE_VERSION = "20260819-burst-strict-front-images";
+const X_ASSET_CACHE_VERSION = "20260819-burst-fandom-strict-front-images";
 
 const versionAssetUrl = source => {
   const value = String(source || "");

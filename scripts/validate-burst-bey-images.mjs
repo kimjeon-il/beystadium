@@ -7,9 +7,10 @@ import path from "node:path";
 import { beyItems } from "../data/source/catalog.mjs";
 import { burstBeyPrimaryImageConfig } from "../data/source/burst-bey-primary-images.mjs";
 import burstBeyFrontViewAudit from "../data/source/burst-bey-front-view-audit.json" with { type: "json" };
+import burstBeyFandomFrontSources from "../data/source/burst-bey-fandom-front-sources.json" with { type: "json" };
 import { burstBeyImagePath } from "./burst-image-paths.mjs";
 
-const VERSION = "20260819-burst-strict-front-images";
+const VERSION = "20260819-burst-fandom-strict-front-images";
 const burstBeys = beyItems.filter(item => item.series === "burst" && item.type === "bey");
 const byId = new Map(burstBeys.map(item => [item.id, item]));
 const selected = burstBeyPrimaryImageConfig.selected;
@@ -50,6 +51,7 @@ function webpInfo(bytes) {
 
 assert.equal(burstBeyPrimaryImageConfig.version, VERSION);
 assert.equal(burstBeyFrontViewAudit.version, VERSION);
+assert.equal(burstBeyFandomFrontSources.version, VERSION);
 assert.equal(burstBeys.length, 433);
 assert.equal(selected.length + unavailable.length, 433);
 assert.equal(burstBeyFrontViewAudit.entries.length, 433);
@@ -73,13 +75,32 @@ assert.deepEqual(burstBeyFrontViewAudit.summary, {
   initialStrictFront: 278,
   initialObliqueOrPerspective: 121,
   initialDiagramOrMultiSubject: 2,
-  replaced: 7,
-  removedInvalidImage: 116,
-  keptStrictFront: 278,
-  keptUnavailable: 32,
-  finalSelected: 285,
-  finalUnavailable: 148
+  priorReplaced: 7,
+  priorRemovedInvalidImage: 116,
+  priorStrictFrontBaseline: 285,
+  fandomReviewed: 148,
+  fandomDirectRegistered: 72,
+  fandomLowResolutionEnhanced: 12,
+  fandomUnavailable: 64,
+  finalSelected: 369,
+  finalUnavailable: 64
 });
+assert.deepEqual(burstBeyFandomFrontSources.summary, {
+  reviewed: 148,
+  approved: 84,
+  direct: 72,
+  lowResolution: 12,
+  unavailable: 64
+});
+assert.equal(
+  burstBeyFandomFrontSources.selected.length + burstBeyFandomFrontSources.unavailable.length,
+  148,
+  "Fandom review must cover every previously unavailable Burst Bey"
+);
+unique(
+  [...burstBeyFandomFrontSources.selected, ...burstBeyFandomFrontSources.unavailable].map(entry => entry.id),
+  "Fandom review entries"
+);
 assert.deepEqual(burstBeyPrimaryImageConfig.normalization, {
   method: "premultiplied-alpha-uniform-long-edge",
   canvasSize: 448,
@@ -97,7 +118,7 @@ for (const entry of selected) {
   assert.equal(item.image, entry.image, `${entry.id}: catalog image does not use selected path`);
   assert.match(entry.sourceSha256, /^[0-9a-f]{64}$/);
   assert.match(entry.outputSha256, /^[0-9a-f]{64}$/);
-  assert.ok(["local", "verified-database", "official", "shop"].includes(entry.sourceKind));
+  assert.ok(["local", "verified-database", "generated-enhancement", "official", "shop"].includes(entry.sourceKind));
   if (entry.sourceKind === "local") {
     assert.ok(entry.sourceRelativePath && !path.isAbsolute(entry.sourceRelativePath));
     assert.ok(!entry.sourceUrl, `${entry.id}: local source should not claim a web URL`);
@@ -122,6 +143,16 @@ for (const entry of selected) {
   const bytes = await readFile(entry.image);
   assert.deepEqual(webpInfo(bytes), { width: 448, height: 448, hasAlpha: true });
   assert.equal(createHash("sha256").update(bytes).digest("hex"), entry.outputSha256);
+  if (entry.sourceKind === "generated-enhancement") {
+    assert.equal(entry.processingClass, "low-resolution-imagegen");
+    assert.equal(entry.generatedEnhancement, true);
+    assert.equal(entry.originalAlphaReapplied, true);
+    assert.equal(entry.generationMode, "imagegen-edit");
+    assert.match(entry.generatedSourceSha256, /^[0-9a-f]{64}$/);
+    assert.equal(existsSync(entry.generatedSourcePath), true);
+    const generatedBytes = await readFile(entry.generatedSourcePath);
+    assert.equal(createHash("sha256").update(generatedBytes).digest("hex"), entry.generatedSourceSha256);
+  }
 }
 
 for (const entry of unavailable) {
@@ -133,6 +164,29 @@ for (const entry of unavailable) {
   assert.equal(entry.searchAudit.checkedAt, "2026-08-19");
   const auditEntry = burstBeyFrontViewAudit.entries.find(value => value.id === entry.id);
   assert.equal(auditEntry.finalClassification, "unavailable");
+}
+
+for (const source of burstBeyFandomFrontSources.selected) {
+  assert.equal(source.strictFrontReviewed, true, `${source.id}: strict front review missing`);
+  assert.equal(source.exactCombinationReviewed, true, `${source.id}: exact combination review missing`);
+  assert.equal(source.assembledProductReviewed, true, `${source.id}: assembled product review missing`);
+  assert.match(source.mediawikiSha1, /^[0-9a-f]{40}$/);
+  assert.match(source.sourceSha256, /^[0-9a-f]{64}$/);
+  assert.match(source.sourceUrl, /^https:\/\/static\.wikia\.nocookie\.net\//);
+  assert.equal(selectedById.has(source.id), true, `${source.id}: approved Fandom source is not selected`);
+  if (source.processingClass === "low-resolution-imagegen") {
+    assert.equal(source.generatedEnhancement, true);
+    assert.equal(source.originalAlphaReapplied, true);
+    assert.match(source.generatedSourceSha256, /^[0-9a-f]{64}$/);
+  } else {
+    assert.equal(source.processingClass, "direct");
+    assert.equal(source.generatedEnhancement, false);
+  }
+}
+
+for (const source of burstBeyFandomFrontSources.unavailable) {
+  assert.equal(unavailableById.has(source.id), true, `${source.id}: rejected Fandom source must remain unavailable`);
+  assert.ok(source.reason);
 }
 
 console.log(`Burst Bey images OK: ${selected.length} selected, ${unavailable.length} unavailable.`);

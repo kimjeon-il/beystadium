@@ -12,6 +12,7 @@ import json
 import os
 from pathlib import Path
 import re
+import shutil
 import sys
 import time
 from typing import Any
@@ -23,13 +24,14 @@ import numpy as np
 from PIL import Image, ImageFilter
 
 
-VERSION = "20260819-burst-strict-front-images"
+VERSION = "20260819-burst-fandom-strict-front-images"
 CANVAS_SIZE = 448
 TARGET_FOREGROUND_SIZE = 360
 ALPHA_THRESHOLD = 3
 LOCAL_SOURCE_ROOT = Path(r"D:\베이블레이드\1. 완구\자료\3. 베이블레이드 버스트")
 RUNTIME_PATH = Path("data/runtime/series/burst.json")
 CONFIG_PATH = Path("data/source/burst-bey-primary-images.json")
+FANDOM_REVIEW_PATH = Path("data/source/burst-bey-fandom-front-sources.json")
 OUTPUT_ROOT = Path("assets/images/burst/beys")
 CACHE_ROOT = Path(".cache/burst-bey-sources")
 OFFICIAL_PRODUCTS_PAGE = "https://beyblade.takaratomy.co.jp/burst/products.html"
@@ -70,6 +72,9 @@ class SourceCandidate:
     cache_path: Path
     title: str = ""
     checked_at: str = "2026-08-19"
+    source_sha256: str = ""
+    original_path: Path | None = None
+    metadata: dict[str, Any] | None = None
 
 
 def parse_args() -> argparse.Namespace:
@@ -78,6 +83,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--probe-only", action="store_true")
     parser.add_argument("--workers", type=int, default=8)
     parser.add_argument("--ids", nargs="*")
+    parser.add_argument("--refresh-unavailable", action="store_true")
     return parser.parse_args()
 
 
@@ -121,7 +127,11 @@ def title_similarity(left: str, right: str) -> float:
 
 def local_files_by_product() -> dict[int, list[tuple[int, Path]]]:
     groups: dict[int, list[tuple[int, Path]]] = {}
-    if not LOCAL_SOURCE_ROOT.exists():
+    try:
+        source_exists = LOCAL_SOURCE_ROOT.exists()
+    except OSError:
+        source_exists = False
+    if not source_exists:
         return groups
     pattern = re.compile(r"^(\d+)(?:_(\d+))?\.(?:jpe?g|png|webp)$", re.I)
     for path in LOCAL_SOURCE_ROOT.iterdir():
@@ -207,7 +217,71 @@ def official_image_map() -> dict[str, str]:
     return result
 
 
-def fandom_source(item: dict[str, Any]) -> SourceCandidate | None:
+def cached_reviewed_source(entry: dict[str, Any]) -> Path:
+    suffix = Path(entry["sourceUrl"].split("?", 1)[0]).suffix.casefold()
+    if suffix not in SUPPORTED_EXTENSIONS:
+        suffix = ".png" if entry.get("sourceMime") == "image/png" else ".jpg"
+    path = CACHE_ROOT / "fandom-reviewed" / f'{entry["id"].casefold()}{suffix}'
+    if not path.exists() or sha256(path) != entry["sourceSha256"]:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        discovery = Path(".cache/burst-fandom-plan/discovery/candidates") / entry["id"].casefold()
+        local_match = next(
+            (
+                candidate for candidate in discovery.glob("*")
+                if candidate.is_file() and sha256(candidate) == entry["sourceSha256"]
+            ),
+            None,
+        )
+        if local_match:
+            shutil.copy2(local_match, path)
+        else:
+            path.write_bytes(request_bytes(entry["sourceUrl"]))
+    if sha256(path) != entry["sourceSha256"]:
+        raise ValueError(f'{entry["id"]}: reviewed Fandom source hash mismatch')
+    return path
+
+
+def reviewed_fandom_sources() -> dict[str, SourceCandidate]:
+    if not FANDOM_REVIEW_PATH.exists():
+        return {}
+    review = json.loads(FANDOM_REVIEW_PATH.read_text(encoding="utf-8"))
+    if review.get("version") != VERSION:
+        raise ValueError("reviewed Fandom source version mismatch")
+    result: dict[str, SourceCandidate] = {}
+    for entry in review.get("selected", []):
+        original_path = cached_reviewed_source(entry)
+        generated_path = entry.get("generatedSourcePath")
+        if generated_path:
+            cache_path = Path(generated_path)
+            if not cache_path.exists() or sha256(cache_path) != entry["generatedSourceSha256"]:
+                raise ValueError(f'{entry["id"]}: generated enhancement hash mismatch')
+            kind = "generated-enhancement"
+        else:
+            cache_path = original_path
+            kind = "verified-database"
+        result[entry["id"]] = SourceCandidate(
+            kind=kind,
+            location=entry["sourceUrl"],
+            cache_path=cache_path,
+            title=entry["fileTitle"],
+            source_sha256=entry["sourceSha256"],
+            original_path=original_path,
+            metadata=entry,
+        )
+    return result
+
+
+def reviewed_fandom_unavailable() -> dict[str, str]:
+    if not FANDOM_REVIEW_PATH.exists():
+        return {}
+    review = json.loads(FANDOM_REVIEW_PATH.read_text(encoding="utf-8"))
+    return {
+        entry["id"]: entry["reason"]
+        for entry in review.get("unavailable", [])
+    }
+
+
+def fandom_source(item: dict[str, Any], refresh_unavailable: bool = False) -> SourceCandidate | None:
     metadata_path = CACHE_ROOT / "fandom" / f"{item['id'].casefold()}.json"
     if metadata_path.exists():
         metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
@@ -220,7 +294,7 @@ def fandom_source(item: dict[str, Any]) -> SourceCandidate | None:
                 title=metadata.get("title", ""),
             )
     unavailable_path = CACHE_ROOT / "fandom" / f"{item['id'].casefold()}.unavailable.json"
-    if unavailable_path.exists():
+    if unavailable_path.exists() and not refresh_unavailable:
         return None
     legacy_images = [
         path for path in (CACHE_ROOT / "fandom").glob(f"{item['id'].casefold()}.*")
@@ -266,19 +340,49 @@ def fandom_source(item: dict[str, Any]) -> SourceCandidate | None:
     detail = json_request({
         "action": "query",
         "pageids": str(page["pageid"]),
-        "prop": "pageimages",
+        "prop": "pageimages|images",
         "piprop": "original",
+        "imlimit": "500",
         "format": "json",
         "origin": "*",
     })
     pages = detail.get("query", {}).get("pages", {})
     resolved = pages.get(str(page["pageid"]), {})
+    image_titles = [row.get("title") for row in resolved.get("images", []) if row.get("title")]
     original = resolved.get("original") or {}
-    url = original.get("source")
-    width = int(original.get("width") or 0)
-    height = int(original.get("height") or 0)
-    if not url or min(width, height) < 250 or max(width, height) / min(width, height) > 1.35:
+    candidates: list[dict[str, Any]] = []
+    if original.get("source"):
+        candidates.append({**original, "title": page.get("title", "")})
+    for start in range(0, len(image_titles), 50):
+        batch = image_titles[start:start + 50]
+        image_info = json_request({
+            "action": "query",
+            "titles": "|".join(batch),
+            "prop": "imageinfo",
+            "iiprop": "url|size|sha1|mime",
+            "format": "json",
+            "origin": "*",
+        })
+        for image_page in image_info.get("query", {}).get("pages", {}).values():
+            info = (image_page.get("imageinfo") or [{}])[0]
+            if info.get("url"):
+                candidates.append({**info, "source": info["url"], "title": image_page.get("title", "")})
+    target = " ".join(filter(None, [item.get("en"), item.get("expandedQuery")]))
+    ranked = []
+    for image in candidates:
+        url = image.get("source") or image.get("url")
+        width = int(image.get("width") or 0)
+        height = int(image.get("height") or 0)
+        if not url or min(width, height) < 180 or max(width, height) / min(width, height) > 1.45:
+            continue
+        title = image.get("title", "")
+        ranked.append((title_similarity(target, title), min(width, height), image))
+    if not ranked:
+        unavailable_path.parent.mkdir(parents=True, exist_ok=True)
+        unavailable_path.write_text(json.dumps({"checkedAt": "2026-08-19", "galleryImagesChecked": len(candidates)}), encoding="utf-8")
         return None
+    original = max(ranked, key=lambda value: (value[0], value[1]))[2]
+    url = original.get("source") or original.get("url")
     suffix = Path(url.split("?", 1)[0]).suffix.casefold() or ".img"
     cache_path = CACHE_ROOT / "fandom" / f"{item['id'].casefold()}{suffix}"
     if not cache_path.exists():
@@ -292,26 +396,35 @@ def fandom_source(item: dict[str, Any]) -> SourceCandidate | None:
         return None
     metadata_path.write_text(json.dumps({
         "sourceUrl": url,
-        "title": page.get("title", ""),
+        "title": original.get("title") or page.get("title", ""),
         "cachePath": str(cache_path),
+        "galleryImagesChecked": len(candidates),
     }), encoding="utf-8")
     return SourceCandidate(
         kind="verified-database",
         location=url,
         cache_path=cache_path,
-        title=page.get("title", ""),
+        title=original.get("title") or page.get("title", ""),
     )
 
 
 def source_for_item(
     item: dict[str, Any],
     local_sources: dict[str, SourceCandidate],
+    reviewed_sources: dict[str, SourceCandidate],
+    reviewed_unavailable: dict[str, str],
+    refresh_unavailable: bool = False,
 ) -> tuple[SourceCandidate | None, str | None]:
+    if item["id"] in reviewed_unavailable:
+        return None, reviewed_unavailable[item["id"]]
+    reviewed = reviewed_sources.get(item["id"])
+    if reviewed:
+        return reviewed, None
     local = local_sources.get(item["id"])
     if local:
         return local, None
     try:
-        source = fandom_source(item)
+        source = fandom_source(item, refresh_unavailable=refresh_unavailable)
     except Exception as error:  # Network/source failures remain explicit unavailable entries.
         return None, f"verified database lookup failed: {type(error).__name__}"
     if source:
@@ -439,6 +552,31 @@ def source_rgba(candidate: SourceCandidate, rembg_session, rembg_remove) -> tupl
     return Image.fromarray(rgba, "RGBA"), method
 
 
+def generated_rgba_with_original_alpha(
+    candidate: SourceCandidate,
+    rembg_session,
+    rembg_remove,
+) -> tuple[Image.Image, str]:
+    if candidate.original_path is None:
+        raise ValueError("generated enhancement is missing its original alpha source")
+    generated, _ = source_rgba(candidate, rembg_session, rembg_remove)
+    original_candidate = SourceCandidate(
+        kind="verified-database",
+        location=candidate.location,
+        cache_path=candidate.original_path,
+        title=candidate.title,
+    )
+    original, original_method = source_rgba(original_candidate, rembg_session, rembg_remove)
+    original_crop = original.crop(foreground_box(original))
+    generated_crop = generated.crop(foreground_box(generated))
+    generated_crop = resize_premultiplied(generated_crop, original_crop.size)
+    generated_array = np.asarray(generated_crop.convert("RGBA")).copy()
+    original_alpha = np.asarray(original_crop.getchannel("A"))
+    generated_array[:, :, 3] = original_alpha
+    generated_array[original_alpha == 0, :3] = 0
+    return Image.fromarray(generated_array, "RGBA"), f"imagegen-detail-enhancement+{original_method}-alpha"
+
+
 def output_path(item_id: str) -> Path:
     slug = item_id.casefold()
     return OUTPUT_ROOT / slug / f"{slug}.webp"
@@ -456,7 +594,7 @@ def selected_entry(
         "id": item["id"],
         "image": destination.as_posix(),
         "sourceKind": candidate.kind,
-        "sourceSha256": sha256(candidate.cache_path),
+        "sourceSha256": candidate.source_sha256 or sha256(candidate.cache_path),
         "outputSha256": sha256(destination),
         "sourceTitle": candidate.title,
         "productNo": item.get("productNo", ""),
@@ -477,14 +615,32 @@ def selected_entry(
     else:
         entry["sourceUrl"] = candidate.location
         entry["checkedAt"] = candidate.checked_at
+    if candidate.metadata:
+        metadata = candidate.metadata
+        entry["fandomPageUrl"] = metadata["fandomPageUrl"]
+        entry["fandomFilePageUrl"] = metadata["filePageUrl"]
+        entry["mediawikiSha1"] = metadata["mediawikiSha1"]
+        entry["sourceDimensions"] = [metadata["sourceWidth"], metadata["sourceHeight"]]
+        entry["strictFrontReviewed"] = metadata["strictFrontReviewed"]
+        entry["exactCombinationReviewed"] = metadata["exactCombinationReviewed"]
+        entry["assembledProductReviewed"] = metadata["assembledProductReviewed"]
+        entry["processingClass"] = metadata["processingClass"]
+        if candidate.kind == "generated-enhancement":
+            entry["generatedEnhancement"] = True
+            entry["generatedSourcePath"] = metadata["generatedSourcePath"]
+            entry["generatedSourceSha256"] = metadata["generatedSourceSha256"]
+            entry["generationMode"] = metadata["generationMode"]
+            entry["generationPrompt"] = metadata["generationPrompt"]
+            entry["originalAlphaReapplied"] = metadata["originalAlphaReapplied"]
+            entry["generationReviewedAt"] = metadata["generationReviewedAt"]
     entry["searchAudit"] = {
         "officialProductsPage": OFFICIAL_PRODUCTS_PAGE,
         "officialProductImage": official_url,
         "officialOutcome": "checked; no safer isolated exact-combination source selected"
         if candidate.kind != "local"
         else "local exact-combination source selected before web fallback",
-        "databaseOutcome": "exact title and assembled top-view page image selected"
-        if candidate.kind == "verified-database"
+        "databaseOutcome": "exact title and assembled top-view gallery image selected"
+        if candidate.kind in {"verified-database", "generated-enhancement"}
         else "not needed",
         "shopOutcome": "not needed",
     }
@@ -528,12 +684,21 @@ def main() -> int:
     if requested:
         items = [item for item in items if item["id"] in requested]
     local_sources = explicit_local_sources(items)
+    reviewed_sources = reviewed_fandom_sources()
+    reviewed_unavailable = reviewed_fandom_unavailable()
     official = official_image_map()
 
     resolved: dict[str, tuple[SourceCandidate | None, str | None]] = {}
     with ThreadPoolExecutor(max_workers=max(1, args.workers)) as executor:
         futures = {
-            executor.submit(source_for_item, item, local_sources): item
+            executor.submit(
+                source_for_item,
+                item,
+                local_sources,
+                reviewed_sources,
+                reviewed_unavailable,
+                args.refresh_unavailable,
+            ): item
             for item in items
         }
         for index, future in enumerate(as_completed(futures), 1):
@@ -565,11 +730,15 @@ def main() -> int:
         product_no = item.get("productNo", "")
         official_url = official.get(product_no)
         if candidate is None:
+            output_path(item["id"]).unlink(missing_ok=True)
             unavailable.append(unavailable_entry(item, reason or "no source", official_url))
             continue
         destination = output_path(item["id"])
         try:
-            rgba, method = source_rgba(candidate, rembg_session, rembg_remove)
+            if candidate.kind == "generated-enhancement":
+                rgba, method = generated_rgba_with_original_alpha(candidate, rembg_session, rembg_remove)
+            else:
+                rgba, method = source_rgba(candidate, rembg_session, rembg_remove)
             normalized, bounds = normalize(rgba)
             destination.parent.mkdir(parents=True, exist_ok=True)
             normalized.save(destination, "WEBP", lossless=True, method=6, exact=True)
@@ -620,7 +789,8 @@ def main() -> int:
             "localFirst": True,
             "localRoot": "D:/베이블레이드/1. 완구/자료/3. 베이블레이드 버스트",
             "webOrder": ["official", "verified-database", "shop"],
-            "generatedImagesAllowed": False,
+            "generatedImagesAllowed": True,
+            "generatedImagePolicy": "low-resolution exact strict-front sources only; original alpha reapplied",
             "unsafeSourcesRemainUnavailable": True,
         },
         "selected": selected,
