@@ -23,7 +23,7 @@ import numpy as np
 from PIL import Image, ImageFilter
 
 
-VERSION = "20260819-burst-bey-front-images"
+VERSION = "20260819-burst-strict-front-images"
 CANVAS_SIZE = 448
 TARGET_FOREGROUND_SIZE = 360
 ALPHA_THRESHOLD = 3
