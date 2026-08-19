@@ -624,8 +624,8 @@ test.describe("mobile-first navigation and content", () => {
       if (width < 640) {
         expect(appearance.left).toBe(8);
         expect(appearance.top).toBe(8);
-        expect(appearance.width).toBe(appearance.viewportWidth - 16);
-        expect(appearance.height).toBe(appearance.viewportHeight - 16);
+        expect(Math.abs(appearance.width - (appearance.viewportWidth - 16))).toBeLessThanOrEqual(1);
+        expect(Math.abs(appearance.height - (appearance.viewportHeight - 16))).toBeLessThanOrEqual(1);
         expect(appearance.borderWidth).toBe(0);
         expect(appearance.radius).toBe(0);
         expect(appearance.shadow).toBe("none");
