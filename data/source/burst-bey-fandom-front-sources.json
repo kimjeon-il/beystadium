@@ -1,19 +1,20 @@
 {
-  "version": "20260819-burst-fandom-strict-front-images",
+  "version": "20260819-burst-orthographic-top-reaudit",
   "source": "https://beyblade.fandom.com/",
   "scope": "previously unavailable Burst Beys only",
   "reviewedAt": "2026-08-19",
   "criteria": {
-    "strictFront": "single exact assembled Bey in vertical top view with no visible side thickness or perspective",
+    "strictFront": "single exact assembled Bey in orthographic vertical top view with no visible side thickness or perspective",
     "exactCombination": "product color and layer/disk/frame-or-chassis/driver combination match the catalog item",
-    "lowResolutionThreshold": 360
+    "lowResolutionThreshold": 360,
+    "pixelEvidenceRequired": true
   },
   "summary": {
     "reviewed": 148,
-    "approved": 84,
-    "direct": 72,
+    "approved": 57,
+    "direct": 45,
     "lowResolution": 12,
-    "unavailable": 64
+    "unavailable": 91
   },
   "selected": [
     {
@@ -35,7 +36,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-01.jpg",
+          "cell": 2,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-00-DRACIEL-FORTRESS-10-PL",
@@ -62,7 +82,26 @@
       "generationMode": "imagegen-edit",
       "generationPrompt": "Precise product-image enhancement only. Upscale and restore this exact assembled Beyblade into a clean high-resolution catalog image with transparent background. Preserve the exact top-view angle, rotation, silhouette, component boundaries, colors, printed details, center emblem, screws, openings, and molded geometry. Do not redesign, add, remove, rotate, warp, symmetrize, recolor, or reinterpret any product detail. Improve only resolution, edge clarity, and subtle surface detail. One centered product, no shadow, no extra text.",
       "originalAlphaReapplied": true,
-      "generationReviewedAt": "2026-08-19"
+      "generationReviewedAt": "2026-08-19",
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-01.jpg",
+          "cell": 4,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-00-DRAGOON-PHANTOM-00-S-PW",
@@ -89,7 +128,26 @@
       "generationMode": "imagegen-edit",
       "generationPrompt": "Precise product-image enhancement only. Upscale and restore this exact assembled Beyblade into a clean high-resolution catalog image with transparent background. Preserve the exact top-view angle, rotation, silhouette, component boundaries, colors, printed details, center emblem, screws, openings, and molded geometry. Do not redesign, add, remove, rotate, warp, symmetrize, recolor, or reinterpret any product detail. Improve only resolution, edge clarity, and subtle surface detail. One centered product, no shadow, no extra text.",
       "originalAlphaReapplied": true,
-      "generationReviewedAt": "2026-08-19"
+      "generationReviewedAt": "2026-08-19",
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-01.jpg",
+          "cell": 8,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-00-DRAGOON-PHANTOM-G-V",
@@ -116,7 +174,26 @@
       "generationMode": "imagegen-edit",
       "generationPrompt": "Precise product-image enhancement only. Upscale and restore this exact assembled Beyblade into a clean high-resolution catalog image with transparent background. Preserve the exact top-view angle, rotation, silhouette, component boundaries, colors, printed details, center emblem, screws, openings, and molded geometry. Do not redesign, add, remove, rotate, warp, symmetrize, recolor, or reinterpret any product detail. Improve only resolution, edge clarity, and subtle surface detail. One centered product, no shadow, no extra text.",
       "originalAlphaReapplied": true,
-      "generationReviewedAt": "2026-08-19"
+      "generationReviewedAt": "2026-08-19",
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-01.jpg",
+          "cell": 9,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-00-DRAGOON-VICTORY-ST-EV",
@@ -137,7 +214,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-01.jpg",
+          "cell": 12,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-00-STORM-PEGASIS-HR-L-DASH",
@@ -164,7 +260,26 @@
       "generationMode": "imagegen-edit",
       "generationPrompt": "Precise product-image enhancement only. Upscale and restore this exact assembled Beyblade into a clean high-resolution catalog image with transparent background. Preserve the exact top-view angle, rotation, silhouette, component boundaries, colors, printed details, center emblem, screws, openings, and molded geometry. Do not redesign, add, remove, rotate, warp, symmetrize, recolor, or reinterpret any product detail. Improve only resolution, edge clarity, and subtle surface detail. One centered product, no shadow, no extra text.",
       "originalAlphaReapplied": true,
-      "generationReviewedAt": "2026-08-19"
+      "generationReviewedAt": "2026-08-19",
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-03.jpg",
+          "cell": 8,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-05-SPRIGGAN-H-D",
@@ -185,7 +300,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-04.jpg",
+          "cell": 1,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-06-RAGNARUK-C-A",
@@ -212,49 +346,26 @@
       "generationMode": "imagegen-edit",
       "generationPrompt": "Precise product-image enhancement only. Upscale and restore this exact assembled Beyblade into a clean high-resolution catalog image with transparent background. Preserve the exact top-view angle, rotation, silhouette, component boundaries, colors, printed details, center emblem, screws, openings, and molded geometry. Do not redesign, add, remove, rotate, warp, symmetrize, recolor, or reinterpret any product detail. Improve only resolution, edge clarity, and subtle surface detail. One centered product, no shadow, no extra text.",
       "originalAlphaReapplied": true,
-      "generationReviewedAt": "2026-08-19"
-    },
-    {
-      "id": "BEY-BURST-B-111-01-CRASH-RAGNARUK-11-R-WD",
-      "productNo": "B-111",
-      "combination": "Crash Ragnaruk 11Reach Wedge",
-      "fandomPageTitle": "Crash Ragnaruk 11Reach Wedge",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Crash_Ragnaruk_11Reach_Wedge",
-      "fileTitle": "File:CR .11R.Wd.png",
-      "filePageUrl": "https://beyblade.fandom.com/wiki/File:CR_.11R.Wd.png",
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/f/f1/CR_.11R.Wd.png/revision/latest?cb=20180415043010",
-      "mediawikiSha1": "4f2629a0228e582e1e5899285d317931d0497d7e",
-      "sourceSha256": "48d24b5a2d2362ba011f617ed491381fba9da183fbd28cc748e1dbf8b6f9e83a",
-      "sourceWidth": 1244,
-      "sourceHeight": 1224,
-      "sourceMime": "image/png",
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "reviewedAt": "2026-08-19",
-      "processingClass": "direct",
-      "generatedEnhancement": false
-    },
-    {
-      "id": "BEY-BURST-B-128-ORB-EGIS-OUTER-QS",
-      "productNo": "B-128",
-      "combination": "Orb Egis.Ω.Qs",
-      "fandomPageTitle": "Orb Egis Outer Quest",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Orb_Egis_Outer_Quest",
-      "fileTitle": "File:OE.Outer.Qs.jpg",
-      "filePageUrl": "https://beyblade.fandom.com/wiki/File:OE.Outer.Qs.jpg",
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/9/93/OE.Outer.Qs.jpg/revision/latest?cb=20181014191012",
-      "mediawikiSha1": "9ca1976db0e29c56e0b2eeb205adb2af71173eff",
-      "sourceSha256": "34846009676a360a866a9a6eaa130b2236bba319f39e3ce89660ad1e46a3d7ff",
-      "sourceWidth": 1100,
-      "sourceHeight": 1100,
-      "sourceMime": "image/jpeg",
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "reviewedAt": "2026-08-19",
-      "processingClass": "direct",
-      "generatedEnhancement": false
+      "generationReviewedAt": "2026-08-19",
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-04.jpg",
+          "cell": 2,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-13-VALKYRIE-S-S",
@@ -275,7 +386,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-08.jpg",
+          "cell": 6,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-135-BUSHIN-ASHURA-HR-KP-TEN",
@@ -296,7 +426,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-10.jpg",
+          "cell": 1,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-142-JUDGEMENT-JOKER-00T-TR-ZAN",
@@ -317,28 +466,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
-    },
-    {
-      "id": "BEY-BURST-B-145-VENOM-DIABOLOS-VN-BL",
-      "productNo": "B-145",
-      "combination": "Venom Diabolos.Vn.Bl",
-      "fandomPageTitle": "Venom Diabolos Vanguard Bullet",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Venom_Diabolos_Vanguard_Bullet",
-      "fileTitle": "File:VD.Vn.Bl.jpg",
-      "filePageUrl": "https://beyblade.fandom.com/wiki/File:VD.Vn.Bl.jpg",
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/d/d4/VD.Vn.Bl.jpg/revision/latest?cb=20190515192159",
-      "mediawikiSha1": "95192ce78c0205c5c8cea06b158c64d4c20cefad",
-      "sourceSha256": "a539c0e02c4e3e0d0d33eb3f041499e126d5bf2865f870da1e145ce86ccd57d4",
-      "sourceWidth": 1100,
-      "sourceHeight": 1100,
-      "sourceMime": "image/jpeg",
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "reviewedAt": "2026-08-19",
-      "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-11.jpg",
+          "cell": 1,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-148-HEAVEN-PEGASUS-10P-LW-SEN",
@@ -359,7 +506,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-11.jpg",
+          "cell": 9,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-151-05-STORM-PEGASIS-HR-AT",
@@ -386,7 +552,26 @@
       "generationMode": "imagegen-edit",
       "generationPrompt": "Precise product-image enhancement only. Upscale and restore this exact assembled Beyblade into a clean high-resolution catalog image with transparent background. Preserve the exact top-view angle, rotation, silhouette, component boundaries, colors, printed details, center emblem, screws, openings, and molded geometry. Do not redesign, add, remove, rotate, warp, symmetrize, recolor, or reinterpret any product detail. Improve only resolution, edge clarity, and subtle surface detail. One centered product, no shadow, no extra text.",
       "originalAlphaReapplied": true,
-      "generationReviewedAt": "2026-08-19"
+      "generationReviewedAt": "2026-08-19",
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-12.jpg",
+          "cell": 11,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-151-06-BUSHIN-VALKYRIE-0-U-DASH-RETSU",
@@ -413,238 +598,26 @@
       "generationMode": "imagegen-edit",
       "generationPrompt": "Precise product-image enhancement only. Upscale and restore this exact assembled Beyblade into a clean high-resolution catalog image with transparent background. Preserve the exact top-view angle, rotation, silhouette, component boundaries, colors, printed details, center emblem, screws, openings, and molded geometry. Do not redesign, add, remove, rotate, warp, symmetrize, recolor, or reinterpret any product detail. Improve only resolution, edge clarity, and subtle surface detail. One centered product, no shadow, no extra text.",
       "originalAlphaReapplied": true,
-      "generationReviewedAt": "2026-08-19"
-    },
-    {
-      "id": "BEY-BURST-B-154-IMPERIAL-DRAGON-IG-DASH",
-      "productNo": "B-154",
-      "combination": "Imperial Dragon.Ig'",
-      "fandomPageTitle": "Imperial Dragon Ignition'",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Imperial_Dragon_Ignition%27",
-      "fileTitle": "File:Imperial Dragon Bey.jpg",
-      "filePageUrl": "https://beyblade.fandom.com/wiki/File:Imperial_Dragon_Bey.jpg",
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/2/2c/Imperial_Dragon_Bey.jpg/revision/latest?cb=20191015123208",
-      "mediawikiSha1": "9c63f6bcad1e5f7165e5b397e35bf9d4c3b88686",
-      "sourceSha256": "b81d04758852af951a709865f9746c7044cd09db77953844e2380365d2eb1be3",
-      "sourceWidth": 700,
-      "sourceHeight": 700,
-      "sourceMime": "image/jpeg",
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "reviewedAt": "2026-08-19",
-      "processingClass": "direct",
-      "generatedEnhancement": false
-    },
-    {
-      "id": "BEY-BURST-B-155-MASTER-DIABOLOS-GN",
-      "productNo": "B-155",
-      "combination": "Master Diabolos.Gn",
-      "fandomPageTitle": "Master Diabolos Generate",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Master_Diabolos_Generate",
-      "fileTitle": "File:Master Diabolos Bey.jpg",
-      "filePageUrl": "https://beyblade.fandom.com/wiki/File:Master_Diabolos_Bey.jpg",
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/7/70/Master_Diabolos_Bey.jpg/revision/latest?cb=20191212193511",
-      "mediawikiSha1": "9f51d4938ce531c8fce8e7fb97db0fd9aaa96111",
-      "sourceSha256": "19615739bb9c7cda976ddeca69bfcc1ba9dfc0c9b2b35d7f33f787ddf414d3b3",
-      "sourceWidth": 1074,
-      "sourceHeight": 1039,
-      "sourceMime": "image/jpeg",
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "reviewedAt": "2026-08-19",
-      "processingClass": "direct",
-      "generatedEnhancement": false
-    },
-    {
-      "id": "BEY-BURST-B-157-BIGBANG-GENESIS-0-YM",
-      "productNo": "B-157",
-      "combination": "Bigbang Genesis.0.Ym",
-      "fandomPageTitle": "Bigbang Genesis 0 Yard Metal",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Bigbang_Genesis_0_Yard_Metal",
-      "fileTitle": "File:Big Bang Genesis Bey.jpg",
-      "filePageUrl": "https://beyblade.fandom.com/wiki/File:Big_Bang_Genesis_Bey.jpg",
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/d/d9/Big_Bang_Genesis_Bey.jpg/revision/latest?cb=20200114172916",
-      "mediawikiSha1": "cb5f59d0cee67c6171bcd54650176e59428c49fc",
-      "sourceSha256": "f4fc97a8911895f3bcd9e0bf9ef73de193975cc270881ec7a3e3d60bc4609190",
-      "sourceWidth": 1100,
-      "sourceHeight": 1100,
-      "sourceMime": "image/jpeg",
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "reviewedAt": "2026-08-19",
-      "processingClass": "direct",
-      "generatedEnhancement": false
-    },
-    {
-      "id": "BEY-BURST-B-159-SUPER-HYPERION-XC-1A",
-      "productNo": "B-159",
-      "combination": "Super Hyperion.Xc 1A",
-      "fandomPageTitle": "Super Hyperion Xceed 1A",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Super_Hyperion_Xceed_1A",
-      "fileTitle": "File:Super Hyperion.jpeg",
-      "filePageUrl": "https://beyblade.fandom.com/wiki/File:Super_Hyperion.jpeg",
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/f/f8/Super_Hyperion.jpeg/revision/latest?cb=20230613034222",
-      "mediawikiSha1": "95c87290ee37b7d30caa428f7b1af2e51fa3d590",
-      "sourceSha256": "d9627ab56d510adcdc282d046c44ec8cdd90652509a3fc1becb0ad1660b7acae",
-      "sourceWidth": 825,
-      "sourceHeight": 848,
-      "sourceMime": "image/jpeg",
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "reviewedAt": "2026-08-19",
-      "processingClass": "direct",
-      "generatedEnhancement": false
-    },
-    {
-      "id": "BEY-BURST-B-160-KING-HELIOS-ZN-1B",
-      "productNo": "B-160",
-      "combination": "King Helios.Zn 1B",
-      "fandomPageTitle": "King Helios Zone 1B",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/King_Helios_Zone_1B",
-      "fileTitle": "File:King Helios Bey 1.jpg",
-      "filePageUrl": "https://beyblade.fandom.com/wiki/File:King_Helios_Bey_1.jpg",
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/9/93/King_Helios_Bey_1.jpg/revision/latest?cb=20200313183349",
-      "mediawikiSha1": "8074f7e151e12e1c019e0a3c6b79c3138fa560eb",
-      "sourceSha256": "4b22ccdbe0f0d3e8c4971aff5cf8264c1781028332b018ab94392c57686355b2",
-      "sourceWidth": 1100,
-      "sourceHeight": 1100,
-      "sourceMime": "image/jpeg",
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "reviewedAt": "2026-08-19",
-      "processingClass": "direct",
-      "generatedEnhancement": false
-    },
-    {
-      "id": "BEY-BURST-B-161-GLIDE-RAGNARUK-WH-R-1S",
-      "productNo": "B-161",
-      "combination": "Glide Ragnaruk.Wh.R 1S",
-      "fandomPageTitle": "Glide Ragnaruk Wheel Revolve 1S",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Glide_Ragnaruk_Wheel_Revolve_1S",
-      "fileTitle": "File:Glide Ragnaruk Bey 1.jpg",
-      "filePageUrl": "https://beyblade.fandom.com/wiki/File:Glide_Ragnaruk_Bey_1.jpg",
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/f/fd/Glide_Ragnaruk_Bey_1.jpg/revision/latest?cb=20200313191149",
-      "mediawikiSha1": "c1a4d45e9b978d6315cd6c45d7220244aea9c60e",
-      "sourceSha256": "24bfc6a375b12f3a65e05c2ba069657c1ffd354a33099ee03b3be0bc9abdda56",
-      "sourceWidth": 1100,
-      "sourceHeight": 1100,
-      "sourceMime": "image/jpeg",
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "reviewedAt": "2026-08-19",
-      "processingClass": "direct",
-      "generatedEnhancement": false
-    },
-    {
-      "id": "BEY-BURST-B-162-KING-HELIOS-ZN-1B",
-      "productNo": "B-162",
-      "combination": "King Helios.Zn 1B",
-      "fandomPageTitle": "King Helios Zone 1B",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/King_Helios_Zone_1B",
-      "fileTitle": "File:King Helios (B-162).jpg",
-      "filePageUrl": "https://beyblade.fandom.com/wiki/File:King_Helios_(B-162).jpg",
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/b/b0/King_Helios_%28B-162%29.jpg/revision/latest?cb=20200313192203",
-      "mediawikiSha1": "27af0cb6ce2b0b1243f45b961213289b5d13027a",
-      "sourceSha256": "4925c28ed65e562c1952f944f3c68e2f220a255e7cf6c8f33058ff6f72dc3603",
-      "sourceWidth": 1100,
-      "sourceHeight": 1100,
-      "sourceMime": "image/jpeg",
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "reviewedAt": "2026-08-19",
-      "processingClass": "direct",
-      "generatedEnhancement": false
-    },
-    {
-      "id": "BEY-BURST-B-162-SUPER-HYPERION-XC-1A",
-      "productNo": "B-162",
-      "combination": "Super Hyperion.Xc 1A",
-      "fandomPageTitle": "Super Hyperion Xceed 1A",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Super_Hyperion_Xceed_1A",
-      "fileTitle": "File:Super Hyperion (B-162).jpg",
-      "filePageUrl": "https://beyblade.fandom.com/wiki/File:Super_Hyperion_(B-162).jpg",
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/1/10/Super_Hyperion_%28B-162%29.jpg/revision/latest?cb=20200313192204",
-      "mediawikiSha1": "8bc9ec1bab7490460d5e198d79ba9c08acac99cb",
-      "sourceSha256": "bf72c1fe577e5e1e9a60ed70bfa56c69648c965de2d87a00d9f87746da5694b7",
-      "sourceWidth": 1100,
-      "sourceHeight": 1100,
-      "sourceMime": "image/jpeg",
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "reviewedAt": "2026-08-19",
-      "processingClass": "direct",
-      "generatedEnhancement": false
-    },
-    {
-      "id": "BEY-BURST-B-163-BRAVE-VALKYRIE-EV-DASH-2A",
-      "productNo": "B-163",
-      "combination": "Brave Valkyrie.Ev' 2A",
-      "fandomPageTitle": "Brave Valkyrie Evolution' 2A",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Brave_Valkyrie_Evolution%27_2A",
-      "fileTitle": "File:BBSK-BrVEv'2A.jpg",
-      "filePageUrl": "https://beyblade.fandom.com/wiki/File:BBSK-BrVEv'2A.jpg",
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/f/f3/BBSK-BrVEv%272A.jpg/revision/latest?cb=20200414161602",
-      "mediawikiSha1": "872d24056040cb200c3ee900b606ef5384369c2f",
-      "sourceSha256": "3edf3d25164667778d3334d06d8bacb7dfa5289d4be7cde52a2690e159b7026c",
-      "sourceWidth": 1100,
-      "sourceHeight": 1100,
-      "sourceMime": "image/jpeg",
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "reviewedAt": "2026-08-19",
-      "processingClass": "direct",
-      "generatedEnhancement": false
-    },
-    {
-      "id": "BEY-BURST-B-167-MIRAGE-FAFNIR-NT-2S",
-      "productNo": "B-167",
-      "combination": "Mirage Fafnir.Nt 2S",
-      "fandomPageTitle": "Mirage Fafnir Nothing 2S",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Mirage_Fafnir_Nothing_2S",
-      "fileTitle": "File:BBSK-MFNT2S 1.jpg",
-      "filePageUrl": "https://beyblade.fandom.com/wiki/File:BBSK-MFNT2S_1.jpg",
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/0/09/BBSK-MFNT2S_1.jpg/revision/latest?cb=20200514165642",
-      "mediawikiSha1": "eab1bc7b7d789a7e183f2231cf3b8afefbcefab1",
-      "sourceSha256": "c19eeab038d012f73efa26c1e0fb70f7301b7053e951de9ff58b08d42162d8af",
-      "sourceWidth": 1100,
-      "sourceHeight": 1100,
-      "sourceMime": "image/jpeg",
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "reviewedAt": "2026-08-19",
-      "processingClass": "direct",
-      "generatedEnhancement": false
-    },
-    {
-      "id": "BEY-BURST-B-168-RAGE-LONGINUS-DS-DASH-3A",
-      "productNo": "B-168",
-      "combination": "Rage Longinus.Ds' 3A",
-      "fandomPageTitle": "Rage Longinus Destroy' 3A",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Rage_Longinus_Destroy%27_3A",
-      "fileTitle": "File:BBSK-RLDS'3A 1.jpg",
-      "filePageUrl": "https://beyblade.fandom.com/wiki/File:BBSK-RLDS'3A_1.jpg",
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/6/67/BBSK-RLDS%273A_1.jpg/revision/latest?cb=20200514165756",
-      "mediawikiSha1": "685c36a43c256d4aadb0313f9feb12baa5ddb46c",
-      "sourceSha256": "e5cefc292bb42d450f3773f41babd00ebc1ed9b362d83ded06599fc320e3b133",
-      "sourceWidth": 1100,
-      "sourceHeight": 1100,
-      "sourceMime": "image/jpeg",
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "reviewedAt": "2026-08-19",
-      "processingClass": "direct",
-      "generatedEnhancement": false
+      "generationReviewedAt": "2026-08-19",
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-12.jpg",
+          "cell": 12,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-170-03-KING-FAFNIR-8-DASH-D-1S",
@@ -671,7 +644,26 @@
       "generationMode": "imagegen-edit",
       "generationPrompt": "Precise product-image enhancement only. Upscale and restore this exact assembled Beyblade into a clean high-resolution catalog image with transparent background. Preserve the exact top-view angle, rotation, silhouette, component boundaries, colors, printed details, center emblem, screws, openings, and molded geometry. Do not redesign, add, remove, rotate, warp, symmetrize, recolor, or reinterpret any product detail. Improve only resolution, edge clarity, and subtle surface detail. One centered product, no shadow, no extra text.",
       "originalAlphaReapplied": true,
-      "generationReviewedAt": "2026-08-19"
+      "generationReviewedAt": "2026-08-19",
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-15.jpg",
+          "cell": 8,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-171-NAKED-DIABOLOS-NDB-GOKU-11-WV",
@@ -692,28 +684,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
-    },
-    {
-      "id": "BEY-BURST-B-172-WORLD-SPRIGGAN-U-DASH-2B",
-      "productNo": "B-172",
-      "combination": "World Spriggan.U' 2B",
-      "fandomPageTitle": "World Spriggan Unite' 2B",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/World_Spriggan_Unite%27_2B",
-      "fileTitle": "File:World Spriggan Bey 1.jpg",
-      "filePageUrl": "https://beyblade.fandom.com/wiki/File:World_Spriggan_Bey_1.jpg",
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/3/3e/World_Spriggan_Bey_1.jpg/revision/latest?cb=20200811151938",
-      "mediawikiSha1": "a8d2063b0615306d9a465eb2dde9c804a773f984",
-      "sourceSha256": "1d996f15bab373e32af22a9e5916296b410bfab46f33d52062f4d3d9af838055",
-      "sourceWidth": 1100,
-      "sourceHeight": 1100,
-      "sourceMime": "image/jpeg",
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "reviewedAt": "2026-08-19",
-      "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-16.jpg",
+          "cell": 3,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-173-04-ACE-DRAGON-WH-RS-GEN",
@@ -734,7 +724,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-16.jpg",
+          "cell": 9,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-173-05-HELL-SALAMANDER-OUTER-UN",
@@ -755,7 +764,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-16.jpg",
+          "cell": 10,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-173-06-DEAD-HADES-1-DASH-HB-DASH",
@@ -776,7 +804,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-16.jpg",
+          "cell": 11,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-173-08-DRIGER-VULCAN-0-HJ-DASH",
@@ -797,28 +844,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
-    },
-    {
-      "id": "BEY-BURST-B-174-HYPERION-BURN-CHO-XC-DASH-X",
-      "productNo": "B-174",
-      "combination": "Hyperion Burn.Cho.Xc'+X",
-      "fandomPageTitle": "Hyperion Burn Cho Xceed'+X",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Hyperion_Burn_Cho_Xceed%27%2BX",
-      "fileTitle": "File:BBSK-Hyperion Burn Cho Xceed' X (Activated).png",
-      "filePageUrl": "https://beyblade.fandom.com/wiki/File:BBSK-Hyperion_Burn_Cho_Xceed'_X_(Activated).png",
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/3/31/BBSK-Hyperion_Burn_Cho_Xceed%27_X_%28Activated%29.png/revision/latest?cb=20201014193759",
-      "mediawikiSha1": "87cc413d1d443a1ca32d3eca12409c0a7833baac",
-      "sourceSha256": "24c1d379246ee34f0bd869a9f3099986bc9b8a5033ddc4d8243c73119926e50b",
-      "sourceWidth": 1100,
-      "sourceHeight": 1100,
-      "sourceMime": "image/png",
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "reviewedAt": "2026-08-19",
-      "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-17.jpg",
+          "cell": 1,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-177-JET-WYVERN-AR-JS-1D",
@@ -839,28 +884,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
-    },
-    {
-      "id": "BEY-BURST-B-178-02-KING-HELIOS-S-1B",
-      "productNo": "B-178",
-      "combination": "King Helios Survive 1B",
-      "fandomPageTitle": "King Helios Survive 1B",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/King_Helios_Survive_1B",
-      "fileTitle": "File:King Helios.S.1B (B-178 02).jpg",
-      "filePageUrl": "https://beyblade.fandom.com/wiki/File:King_Helios.S.1B_(B-178_02).jpg",
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/a/aa/King_Helios.S.1B_%28B-178_02%29.jpg/revision/latest?cb=20210214173604",
-      "mediawikiSha1": "075c9d9f10a8bc38ec75d6f5415b175d8ac802dc",
-      "sourceSha256": "0b4ce6611fa504677822f61c68d2c5376233fa5c114f35e4795a7d4d679bc838",
-      "sourceWidth": 1100,
-      "sourceHeight": 1100,
-      "sourceMime": "image/jpeg",
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "reviewedAt": "2026-08-19",
-      "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-17.jpg",
+          "cell": 12,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-178-03-GLIDE-RAGNARUK-5-T-1S",
@@ -881,7 +924,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-18.jpg",
+          "cell": 3,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-178-05-VARIANT-LUCIFER-O-2D",
@@ -902,28 +964,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
-    },
-    {
-      "id": "BEY-BURST-B-178-06-IMPERIAL-DRAGON-7-ET",
-      "productNo": "B-178",
-      "combination": "Imperial Dragon 7 Eternal",
-      "fandomPageTitle": "Imperial Dragon 7 Eternal",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Imperial_Dragon_7_Eternal",
-      "fileTitle": "File:Imperial Dragon.7.Et (B-178 06).jpg",
-      "filePageUrl": "https://beyblade.fandom.com/wiki/File:Imperial_Dragon.7.Et_(B-178_06).jpg",
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/1/1b/Imperial_Dragon.7.Et_%28B-178_06%29.jpg/revision/latest?cb=20210214173827",
-      "mediawikiSha1": "3b8912db0fc618f7e6f8ebc3cd4c200b358e974c",
-      "sourceSha256": "caaf709d0bb41ea8248430e1790f45ec3e6cdf3a8e1d4a26d72c97d710e4c41c",
-      "sourceWidth": 1100,
-      "sourceHeight": 1100,
-      "sourceMime": "image/jpeg",
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "reviewedAt": "2026-08-19",
-      "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-18.jpg",
+          "cell": 5,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-178-08-REVIVE-PHOENIX-4-MD",
@@ -944,28 +1004,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
-    },
-    {
-      "id": "BEY-BURST-B-179-DEATH-SOLOMON-MF-2B",
-      "productNo": "B-179",
-      "combination": "Death Solomon.MF 2B",
-      "fandomPageTitle": "Death Solomon Metal Fusion 2B",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Death_Solomon_Metal_Fusion_2B",
-      "fileTitle": "File:BBSK-Death Solomon Metal Fusion 2B 1.jpg",
-      "filePageUrl": "https://beyblade.fandom.com/wiki/File:BBSK-Death_Solomon_Metal_Fusion_2B_1.jpg",
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/6/6a/BBSK-Death_Solomon_Metal_Fusion_2B_1.jpg/revision/latest?cb=20210214180202",
-      "mediawikiSha1": "ef2077810457a3c3d63af8dee41a3bdcf24fd9b2",
-      "sourceSha256": "3c1a563137500b6ba3338c219b5ba3b039c8637f8261ce8d29f41722c39cd85e",
-      "sourceWidth": 1100,
-      "sourceHeight": 1100,
-      "sourceMime": "image/jpeg",
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "reviewedAt": "2026-08-19",
-      "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-18.jpg",
+          "cell": 8,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-18-SPRIGGAN-S-F",
@@ -986,70 +1044,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
-    },
-    {
-      "id": "BEY-BURST-B-181-01-CYCLONE-RAGNARUK-GG-NV-6",
-      "productNo": "B-181",
-      "combination": "Cyclone Ragnaruk Giga Never-6",
-      "fandomPageTitle": "Cyclone Ragnaruk Giga Never-6",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Cyclone_Ragnaruk_Giga_Never-6",
-      "fileTitle": "File:BBDB-Cyclone Ragnaruk Giga Never-6.jpg",
-      "filePageUrl": "https://beyblade.fandom.com/wiki/File:BBDB-Cyclone_Ragnaruk_Giga_Never-6.jpg",
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/d/d6/BBDB-Cyclone_Ragnaruk_Giga_Never-6.jpg/revision/latest?cb=20210314175418",
-      "mediawikiSha1": "3cbd49a479acce5489a7b556cb57907f556f8b71",
-      "sourceSha256": "e059b0cf5f1b9e493f43cec3fc37d1758b5c924a038631baa623e83721152d47",
-      "sourceWidth": 1100,
-      "sourceHeight": 1100,
-      "sourceMime": "image/jpeg",
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "reviewedAt": "2026-08-19",
-      "processingClass": "direct",
-      "generatedEnhancement": false
-    },
-    {
-      "id": "BEY-BURST-B-181-02-CYCLONE-RAGNARUK-NX-RS-2",
-      "productNo": "B-181",
-      "combination": "Cyclone Ragnaruk Nexus Rise-2",
-      "fandomPageTitle": "Cyclone Ragnaruk Nexus Rise-2",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Cyclone_Ragnaruk_Nexus_Rise-2",
-      "fileTitle": "File:Cyclone Ragnaruk.Nx.Rs-2 (B-181 02).jpg",
-      "filePageUrl": "https://beyblade.fandom.com/wiki/File:Cyclone_Ragnaruk.Nx.Rs-2_(B-181_02).jpg",
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/5/5d/Cyclone_Ragnaruk.Nx.Rs-2_%28B-181_02%29.jpg/revision/latest?cb=20210314175427",
-      "mediawikiSha1": "7f238b4b87b97034186334b2d04983d4ffb7f368",
-      "sourceSha256": "1f90921f94a93c22b7b9029f38f260a9aca55e1601724b0d6eaf1c6db46b1b77",
-      "sourceWidth": 1100,
-      "sourceHeight": 1100,
-      "sourceMime": "image/jpeg",
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "reviewedAt": "2026-08-19",
-      "processingClass": "direct",
-      "generatedEnhancement": false
-    },
-    {
-      "id": "BEY-BURST-B-181-05-INFINITE-DEATHSCYTHER-UN-1A",
-      "productNo": "B-181",
-      "combination": "Infinite Deathscyther Universe 1A",
-      "fandomPageTitle": "Infinite Deathscyther Universe 1A",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Infinite_Deathscyther_Universe_1A",
-      "fileTitle": "File:Infinite Deathscyther.Un.1A (B-181 05).jpg",
-      "filePageUrl": "https://beyblade.fandom.com/wiki/File:Infinite_Deathscyther.Un.1A_(B-181_05).jpg",
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/e/e0/Infinite_Deathscyther.Un.1A_%28B-181_05%29.jpg/revision/latest?cb=20210314175737",
-      "mediawikiSha1": "3a9978a43ef15954a5f7f9b33a33346c761475ee",
-      "sourceSha256": "73e6b7654773ead460cbb5e295ccbc59841f3371521cbe3346a00a75de8e91a4",
-      "sourceWidth": 1100,
-      "sourceHeight": 1100,
-      "sourceMime": "image/jpeg",
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "reviewedAt": "2026-08-19",
-      "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-18.jpg",
+          "cell": 10,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-181-06-BRAVE-WYVERN-10-NV-4A",
@@ -1070,7 +1084,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-19.jpg",
+          "cell": 6,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-186-01-ROAR-BAHAMUT-GG-MM-10",
@@ -1091,49 +1124,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
-    },
-    {
-      "id": "BEY-BURST-B-186-02-ROAR-FAFNIR-00-R-2",
-      "productNo": "B-186",
-      "combination": "Roar Fafnir 00 Revolve-2",
-      "fandomPageTitle": "Roar Fafnir 00 Revolve-2",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Roar_Fafnir_00_Revolve-2",
-      "fileTitle": "File:Roar Fafnir.00.R-2 (B-186 02).jpg",
-      "filePageUrl": "https://beyblade.fandom.com/wiki/File:Roar_Fafnir.00.R-2_(B-186_02).jpg",
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/8/81/Roar_Fafnir.00.R-2_%28B-186_02%29.jpg/revision/latest?cb=20210614155623",
-      "mediawikiSha1": "f60abbc8411e4025ed74d7607475392b72b16d86",
-      "sourceSha256": "5dd80225c4dd4571ee229e197347f11295dbc37b882857976adc8e45696b548e",
-      "sourceWidth": 1100,
-      "sourceHeight": 1100,
-      "sourceMime": "image/jpeg",
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "reviewedAt": "2026-08-19",
-      "processingClass": "direct",
-      "generatedEnhancement": false
-    },
-    {
-      "id": "BEY-BURST-B-186-05-WORLD-DRAGON-OUTER-MM-4A",
-      "productNo": "B-186",
-      "combination": "World Dragon Outer Moment 4A",
-      "fandomPageTitle": "World Dragon Outer Moment 4A",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/World_Dragon_Outer_Moment_4A",
-      "fileTitle": "File:World Dragon.Ω.Mm.4A (B-186 05).jpg",
-      "filePageUrl": "https://beyblade.fandom.com/wiki/File:World_Dragon.Ω.Mm.4A_(B-186_05).jpg",
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/e/ef/World_Dragon.%CE%A9.Mm.4A_%28B-186_05%29.jpg/revision/latest?cb=20210614155956",
-      "mediawikiSha1": "f2935e6a4fb7215acc9faf438246d0c0554114cc",
-      "sourceSha256": "d82ecf89f69635773d6b2615747ab936c0fe864e990e780ed101e43aa37f8f01",
-      "sourceWidth": 1100,
-      "sourceHeight": 1100,
-      "sourceMime": "image/jpeg",
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "reviewedAt": "2026-08-19",
-      "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-19.jpg",
+          "cell": 8,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-186-06-VARIANT-SPRIGGAN-CN-HH-DASH-1S",
@@ -1154,28 +1164,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
-    },
-    {
-      "id": "BEY-BURST-B-187-SAVIOR-VALKYRIE-SH-7",
-      "productNo": "B-187",
-      "combination": "Savior Valkyrie.Sh-7",
-      "fandomPageTitle": "Savior Valkyrie Shot-7",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Savior_Valkyrie_Shot-7",
-      "fileTitle": "File:BBDB-Savior Valkyrie Shot-7 (Low Mode).png",
-      "filePageUrl": "https://beyblade.fandom.com/wiki/File:BBDB-Savior_Valkyrie_Shot-7_(Low_Mode).png",
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/a/aa/BBDB-Savior_Valkyrie_Shot-7_%28Low_Mode%29.png/revision/latest?cb=20230513052847",
-      "mediawikiSha1": "8fa19278069c9d69ffb2a00966dcb14b463cf035",
-      "sourceSha256": "2ae001365d920bee0176b390e2365eda34dfac11edc90e83bf9c245e50fa5183",
-      "sourceWidth": 1100,
-      "sourceHeight": 1100,
-      "sourceMime": "image/png",
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "reviewedAt": "2026-08-19",
-      "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-20.jpg",
+          "cell": 1,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-188-ASTRAL-SPRIGGAN-OV-QT-0",
@@ -1196,28 +1204,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
-    },
-    {
-      "id": "BEY-BURST-B-189-GUILTY-LONGINUS-KR-MDS-2",
-      "productNo": "B-189",
-      "combination": "Guilty Longinus.Kr.MDs-2",
-      "fandomPageTitle": "Guilty Longinus Karma Metal Destroy-2",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Guilty_Longinus_Karma_Metal_Destroy-2",
-      "fileTitle": "File:BBDB-Guilty Longinus Karma Metal Destroy-2 (Low Mode).png",
-      "filePageUrl": "https://beyblade.fandom.com/wiki/File:BBDB-Guilty_Longinus_Karma_Metal_Destroy-2_(Low_Mode).png",
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/3/39/BBDB-Guilty_Longinus_Karma_Metal_Destroy-2_%28Low_Mode%29.png/revision/latest?cb=20220108222936",
-      "mediawikiSha1": "26b623f9f5199532e6fec960f27706ee19314cd0",
-      "sourceSha256": "dd04fe05c3995273916d0dbe1d65ea4146ad54afee7ca184fa69b9470f34e18c",
-      "sourceWidth": 1100,
-      "sourceHeight": 1100,
-      "sourceMime": "image/png",
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "reviewedAt": "2026-08-19",
-      "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-20.jpg",
+          "cell": 3,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-193-ULTIMATE-VALKYRIE-LG-V-DASH-9",
@@ -1238,7 +1244,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-20.jpg",
+          "cell": 8,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-194-03-GUILTY-SPRIGGAN-OUTER-NV-2",
@@ -1259,28 +1284,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
-    },
-    {
-      "id": "BEY-BURST-B-199-GATLING-DRAGON-KR-CM-DASH-10",
-      "productNo": "B-199",
-      "combination": "Gatling Dragon.Kr.Cm'-10",
-      "fandomPageTitle": "Gatling Dragon Karma Charge Metal'-10",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Gatling_Dragon_Karma_Charge_Metal%27-10",
-      "fileTitle": "File:Gatling Dragon Karma Charge Metal'-10 (Low Mode - Consecutive Hit Mode; Angled View).jpeg",
-      "filePageUrl": "https://beyblade.fandom.com/wiki/File:Gatling_Dragon_Karma_Charge_Metal'-10_(Low_Mode_-_Consecutive_Hit_Mode;_Angled_View).jpeg",
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/6/62/Gatling_Dragon_Karma_Charge_Metal%27-10_%28Low_Mode_-_Consecutive_Hit_Mode%3B_Angled_View%29.jpeg/revision/latest?cb=20220512164109",
-      "mediawikiSha1": "fa9d5a9518f237bd1a3b6488260833227a2285f2",
-      "sourceSha256": "b5a092ff9e40ef6558efe93e7def2ed11f4bca37b214f6f0dce3fad4792e5f17",
-      "sourceWidth": 1100,
-      "sourceHeight": 1100,
-      "sourceMime": "image/jpeg",
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "reviewedAt": "2026-08-19",
-      "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-20.jpg",
+          "cell": 11,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-203-DIVINE-BELIAL-NX-BDR",
@@ -1301,7 +1324,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-22.jpg",
+          "cell": 10,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-21-SPRIGGAN-S-B",
@@ -1328,7 +1370,26 @@
       "generationMode": "imagegen-edit",
       "generationPrompt": "Precise product-image enhancement only. Upscale and restore this exact assembled Beyblade into a clean high-resolution catalog image with transparent background. Preserve the exact top-view angle, rotation, silhouette, component boundaries, colors, printed details, center emblem, screws, openings, and molded geometry. Do not redesign, add, remove, rotate, warp, symmetrize, recolor, or reinterpret any product detail. Improve only resolution, edge clarity, and subtle surface detail. One centered product, no shadow, no extra text.",
       "originalAlphaReapplied": true,
-      "generationReviewedAt": "2026-08-19"
+      "generationReviewedAt": "2026-08-19",
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-23.jpg",
+          "cell": 3,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-22-RAGNARUK-C-M",
@@ -1349,7 +1410,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-23.jpg",
+          "cell": 4,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-22-UNICORN-R-D",
@@ -1370,7 +1450,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-23.jpg",
+          "cell": 5,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-22-WYVERN-H-S",
@@ -1391,7 +1490,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-23.jpg",
+          "cell": 6,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-24-01-EVIL-EYE-W-N",
@@ -1418,7 +1536,26 @@
       "generationMode": "imagegen-edit",
       "generationPrompt": "Precise product-image enhancement only. Upscale and restore this exact assembled Beyblade into a clean high-resolution catalog image with transparent background. Preserve the exact top-view angle, rotation, silhouette, component boundaries, colors, printed details, center emblem, screws, openings, and molded geometry. Do not redesign, add, remove, rotate, warp, symmetrize, recolor, or reinterpret any product detail. Improve only resolution, edge clarity, and subtle surface detail. One centered product, no shadow, no extra text.",
       "originalAlphaReapplied": true,
-      "generationReviewedAt": "2026-08-19"
+      "generationReviewedAt": "2026-08-19",
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-23.jpg",
+          "cell": 8,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-30-SPRIGGAN-S-F",
@@ -1439,7 +1576,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-24.jpg",
+          "cell": 6,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-34-VICTORY-VALKYRIE-B-V",
@@ -1460,7 +1616,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-24.jpg",
+          "cell": 8,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-35-STORM-SPRIGGAN-K-U",
@@ -1481,7 +1656,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-24.jpg",
+          "cell": 9,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-36-RISING-RAGNARUK-G-R",
@@ -1502,7 +1696,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-24.jpg",
+          "cell": 10,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-37-KAISER-KERBEUS-L-P",
@@ -1523,7 +1736,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-24.jpg",
+          "cell": 11,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-38-VICTORY-VALKYRIE-B-V",
@@ -1544,7 +1776,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-24.jpg",
+          "cell": 12,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-42-DARK-DEATHSCYTHER-F-J",
@@ -1565,7 +1816,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-25.jpg",
+          "cell": 1,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-57-CHAOS-O-G",
@@ -1586,7 +1856,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-26.jpg",
+          "cell": 1,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-57-NOVA-NEPTUNE-V-T",
@@ -1607,7 +1896,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-26.jpg",
+          "cell": 2,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-61-04-HOLY-HORUSOOD-V-J",
@@ -1634,7 +1942,26 @@
       "generationMode": "imagegen-edit",
       "generationPrompt": "Precise product-image enhancement only. Upscale and restore this exact assembled Beyblade into a clean high-resolution catalog image with transparent background. Preserve the exact top-view angle, rotation, silhouette, component boundaries, colors, printed details, center emblem, screws, openings, and molded geometry. Do not redesign, add, remove, rotate, warp, symmetrize, recolor, or reinterpret any product detail. Improve only resolution, edge clarity, and subtle surface detail. One centered product, no shadow, no extra text.",
       "originalAlphaReapplied": true,
-      "generationReviewedAt": "2026-08-19"
+      "generationReviewedAt": "2026-08-19",
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-26.jpg",
+          "cell": 7,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-61-06-HOLY-HORUSOOD-T-O",
@@ -1661,7 +1988,26 @@
       "generationMode": "imagegen-edit",
       "generationPrompt": "Precise product-image enhancement only. Upscale and restore this exact assembled Beyblade into a clean high-resolution catalog image with transparent background. Preserve the exact top-view angle, rotation, silhouette, component boundaries, colors, printed details, center emblem, screws, openings, and molded geometry. Do not redesign, add, remove, rotate, warp, symmetrize, recolor, or reinterpret any product detail. Improve only resolution, edge clarity, and subtle surface detail. One centered product, no shadow, no extra text.",
       "originalAlphaReapplied": true,
-      "generationReviewedAt": "2026-08-19"
+      "generationReviewedAt": "2026-08-19",
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-26.jpg",
+          "cell": 9,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-66-LOST-LONGINUS-N-SP",
@@ -1682,7 +2028,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-27.jpg",
+          "cell": 4,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-69-JAIL-JORMUNGAND-I-CY",
@@ -1703,7 +2068,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-28.jpg",
+          "cell": 1,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-71-ACID-ANUBIS-Y-O",
@@ -1724,7 +2108,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-28.jpg",
+          "cell": 2,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-79-DRAIN-FAFNIR-8-NT",
@@ -1745,7 +2148,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-28.jpg",
+          "cell": 3,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-80-01-TORNADO-WYVERN-4-G-AT",
@@ -1766,7 +2188,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-28.jpg",
+          "cell": 4,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-86-LEGEND-SPRIGGAN-7-MR",
@@ -1787,7 +2228,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-29.jpg",
+          "cell": 1,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-92-SIEG-XCALIBUR-1-IR",
@@ -1808,7 +2268,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-30.jpg",
+          "cell": 2,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-B-97-NIGHTMARE-LONGINUS-DS",
@@ -1829,7 +2308,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-30.jpg",
+          "cell": 12,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     },
     {
       "id": "BEY-BURST-BK-01-VICTORY-VALKYRIE-B-V",
@@ -1850,7 +2348,26 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "processingClass": "direct",
-      "generatedEnhancement": false
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-orthographic-top-reaudit",
+          "contactSheet": "selected-31.jpg",
+          "cell": 8,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
     }
   ],
   "unavailable": [
@@ -1969,6 +2486,30 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "reason": "Fandom image remains perspective-distorted with visible side thickness"
+    },
+    {
+      "id": "BEY-BURST-B-111-01-CRASH-RAGNARUK-11-R-WD",
+      "productNo": "B-111",
+      "combination": "Crash Ragnaruk 11Reach Wedge",
+      "fandomPageTitle": "Crash Ragnaruk 11Reach Wedge",
+      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Crash_Ragnaruk_11Reach_Wedge",
+      "fileTitle": "File:CR .11R.Wd.png",
+      "filePageUrl": "https://beyblade.fandom.com/wiki/File:CR_.11R.Wd.png",
+      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/f/f1/CR_.11R.Wd.png/revision/latest?cb=20180415043010",
+      "mediawikiSha1": "4f2629a0228e582e1e5899285d317931d0497d7e",
+      "sourceSha256": "48d24b5a2d2362ba011f617ed491381fba9da183fbd28cc748e1dbf8b6f9e83a",
+      "sourceWidth": 1244,
+      "sourceHeight": 1224,
+      "sourceMime": "image/png",
+      "strictFrontReviewed": true,
+      "exactCombinationReviewed": true,
+      "assembledProductReviewed": true,
+      "reviewedAt": "2026-08-19",
+      "processingClass": "direct",
+      "generatedEnhancement": false,
+      "reason": "assembled source failed orthographic top-view pixel review; no verified replacement found",
+      "rejectedSourceUrl": "https://static.wikia.nocookie.net/beyblade/images/f/f1/CR_.11R.Wd.png/revision/latest?cb=20180415043010",
+      "rejectedFileTitle": "File:CR .11R.Wd.png"
     },
     {
       "id": "BEY-BURST-B-120-BUSTER-XCALIBUR-1DASH-SW",
@@ -2091,6 +2632,30 @@
       "reason": "Fandom candidate is byte-identical to the previously rejected non-front image"
     },
     {
+      "id": "BEY-BURST-B-128-ORB-EGIS-OUTER-QS",
+      "productNo": "B-128",
+      "combination": "Orb Egis.Ω.Qs",
+      "fandomPageTitle": "Orb Egis Outer Quest",
+      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Orb_Egis_Outer_Quest",
+      "fileTitle": "File:OE.Outer.Qs.jpg",
+      "filePageUrl": "https://beyblade.fandom.com/wiki/File:OE.Outer.Qs.jpg",
+      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/9/93/OE.Outer.Qs.jpg/revision/latest?cb=20181014191012",
+      "mediawikiSha1": "9ca1976db0e29c56e0b2eeb205adb2af71173eff",
+      "sourceSha256": "34846009676a360a866a9a6eaa130b2236bba319f39e3ce89660ad1e46a3d7ff",
+      "sourceWidth": 1100,
+      "sourceHeight": 1100,
+      "sourceMime": "image/jpeg",
+      "strictFrontReviewed": true,
+      "exactCombinationReviewed": true,
+      "assembledProductReviewed": true,
+      "reviewedAt": "2026-08-19",
+      "processingClass": "direct",
+      "generatedEnhancement": false,
+      "reason": "assembled source failed orthographic top-view pixel review; no verified replacement found",
+      "rejectedSourceUrl": "https://static.wikia.nocookie.net/beyblade/images/9/93/OE.Outer.Qs.jpg/revision/latest?cb=20181014191012",
+      "rejectedFileTitle": "File:OE.Outer.Qs.jpg"
+    },
+    {
       "id": "BEY-BURST-B-129-CHO-Z-ACHILLES-00-DM",
       "productNo": "B-129",
       "combination": "Cho-Z Achilles.00.Dm",
@@ -2161,6 +2726,30 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "reason": "Fandom image shows visible side thickness and an oblique camera angle"
+    },
+    {
+      "id": "BEY-BURST-B-145-VENOM-DIABOLOS-VN-BL",
+      "productNo": "B-145",
+      "combination": "Venom Diabolos.Vn.Bl",
+      "fandomPageTitle": "Venom Diabolos Vanguard Bullet",
+      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Venom_Diabolos_Vanguard_Bullet",
+      "fileTitle": "File:VD.Vn.Bl.jpg",
+      "filePageUrl": "https://beyblade.fandom.com/wiki/File:VD.Vn.Bl.jpg",
+      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/d/d4/VD.Vn.Bl.jpg/revision/latest?cb=20190515192159",
+      "mediawikiSha1": "95192ce78c0205c5c8cea06b158c64d4c20cefad",
+      "sourceSha256": "a539c0e02c4e3e0d0d33eb3f041499e126d5bf2865f870da1e145ce86ccd57d4",
+      "sourceWidth": 1100,
+      "sourceHeight": 1100,
+      "sourceMime": "image/jpeg",
+      "strictFrontReviewed": true,
+      "exactCombinationReviewed": true,
+      "assembledProductReviewed": true,
+      "reviewedAt": "2026-08-19",
+      "processingClass": "direct",
+      "generatedEnhancement": false,
+      "reason": "assembled source failed orthographic top-view pixel review; no verified replacement found",
+      "rejectedSourceUrl": "https://static.wikia.nocookie.net/beyblade/images/d/d4/VD.Vn.Bl.jpg/revision/latest?cb=20190515192159",
+      "rejectedFileTitle": "File:VD.Vn.Bl.jpg"
     },
     {
       "id": "BEY-BURST-B-146-04-SLASH-JOKER-10-KP-METSU",
@@ -2295,6 +2884,54 @@
       "reason": "Fandom candidate is byte-identical to the previously rejected non-front image"
     },
     {
+      "id": "BEY-BURST-B-154-IMPERIAL-DRAGON-IG-DASH",
+      "productNo": "B-154",
+      "combination": "Imperial Dragon.Ig'",
+      "fandomPageTitle": "Imperial Dragon Ignition'",
+      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Imperial_Dragon_Ignition%27",
+      "fileTitle": "File:Imperial Dragon Bey.jpg",
+      "filePageUrl": "https://beyblade.fandom.com/wiki/File:Imperial_Dragon_Bey.jpg",
+      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/2/2c/Imperial_Dragon_Bey.jpg/revision/latest?cb=20191015123208",
+      "mediawikiSha1": "9c63f6bcad1e5f7165e5b397e35bf9d4c3b88686",
+      "sourceSha256": "b81d04758852af951a709865f9746c7044cd09db77953844e2380365d2eb1be3",
+      "sourceWidth": 700,
+      "sourceHeight": 700,
+      "sourceMime": "image/jpeg",
+      "strictFrontReviewed": true,
+      "exactCombinationReviewed": true,
+      "assembledProductReviewed": true,
+      "reviewedAt": "2026-08-19",
+      "processingClass": "direct",
+      "generatedEnhancement": false,
+      "reason": "assembled source failed orthographic top-view pixel review; no verified replacement found",
+      "rejectedSourceUrl": "https://static.wikia.nocookie.net/beyblade/images/2/2c/Imperial_Dragon_Bey.jpg/revision/latest?cb=20191015123208",
+      "rejectedFileTitle": "File:Imperial Dragon Bey.jpg"
+    },
+    {
+      "id": "BEY-BURST-B-155-MASTER-DIABOLOS-GN",
+      "productNo": "B-155",
+      "combination": "Master Diabolos.Gn",
+      "fandomPageTitle": "Master Diabolos Generate",
+      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Master_Diabolos_Generate",
+      "fileTitle": "File:Master Diabolos Bey.jpg",
+      "filePageUrl": "https://beyblade.fandom.com/wiki/File:Master_Diabolos_Bey.jpg",
+      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/7/70/Master_Diabolos_Bey.jpg/revision/latest?cb=20191212193511",
+      "mediawikiSha1": "9f51d4938ce531c8fce8e7fb97db0fd9aaa96111",
+      "sourceSha256": "19615739bb9c7cda976ddeca69bfcc1ba9dfc0c9b2b35d7f33f787ddf414d3b3",
+      "sourceWidth": 1074,
+      "sourceHeight": 1039,
+      "sourceMime": "image/jpeg",
+      "strictFrontReviewed": true,
+      "exactCombinationReviewed": true,
+      "assembledProductReviewed": true,
+      "reviewedAt": "2026-08-19",
+      "processingClass": "direct",
+      "generatedEnhancement": false,
+      "reason": "assembled source failed orthographic top-view pixel review; no verified replacement found",
+      "rejectedSourceUrl": "https://static.wikia.nocookie.net/beyblade/images/7/70/Master_Diabolos_Bey.jpg/revision/latest?cb=20191212193511",
+      "rejectedFileTitle": "File:Master Diabolos Bey.jpg"
+    },
+    {
       "id": "BEY-BURST-B-156-03-DREAD-FAFNIR-PR-R-METSU",
       "productNo": "B-156",
       "combination": "Dread Fafnir Paradox Revolve Metsu",
@@ -2333,6 +2970,30 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "reason": "Fandom candidate is byte-identical to the previously rejected non-front image"
+    },
+    {
+      "id": "BEY-BURST-B-157-BIGBANG-GENESIS-0-YM",
+      "productNo": "B-157",
+      "combination": "Bigbang Genesis.0.Ym",
+      "fandomPageTitle": "Bigbang Genesis 0 Yard Metal",
+      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Bigbang_Genesis_0_Yard_Metal",
+      "fileTitle": "File:Big Bang Genesis Bey.jpg",
+      "filePageUrl": "https://beyblade.fandom.com/wiki/File:Big_Bang_Genesis_Bey.jpg",
+      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/d/d9/Big_Bang_Genesis_Bey.jpg/revision/latest?cb=20200114172916",
+      "mediawikiSha1": "cb5f59d0cee67c6171bcd54650176e59428c49fc",
+      "sourceSha256": "f4fc97a8911895f3bcd9e0bf9ef73de193975cc270881ec7a3e3d60bc4609190",
+      "sourceWidth": 1100,
+      "sourceHeight": 1100,
+      "sourceMime": "image/jpeg",
+      "strictFrontReviewed": true,
+      "exactCombinationReviewed": true,
+      "assembledProductReviewed": true,
+      "reviewedAt": "2026-08-19",
+      "processingClass": "direct",
+      "generatedEnhancement": false,
+      "reason": "assembled source failed orthographic top-view pixel review; no verified replacement found",
+      "rejectedSourceUrl": "https://static.wikia.nocookie.net/beyblade/images/d/d9/Big_Bang_Genesis_Bey.jpg/revision/latest?cb=20200114172916",
+      "rejectedFileTitle": "File:Big Bang Genesis Bey.jpg"
     },
     {
       "id": "BEY-BURST-B-158-02-GRAND-DRAGON-DASH-L-FL-GOU",
@@ -2475,6 +3136,150 @@
       "reason": "Fandom candidate is byte-identical to the previously rejected non-front image"
     },
     {
+      "id": "BEY-BURST-B-159-SUPER-HYPERION-XC-1A",
+      "productNo": "B-159",
+      "combination": "Super Hyperion.Xc 1A",
+      "fandomPageTitle": "Super Hyperion Xceed 1A",
+      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Super_Hyperion_Xceed_1A",
+      "fileTitle": "File:Super Hyperion.jpeg",
+      "filePageUrl": "https://beyblade.fandom.com/wiki/File:Super_Hyperion.jpeg",
+      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/f/f8/Super_Hyperion.jpeg/revision/latest?cb=20230613034222",
+      "mediawikiSha1": "95c87290ee37b7d30caa428f7b1af2e51fa3d590",
+      "sourceSha256": "d9627ab56d510adcdc282d046c44ec8cdd90652509a3fc1becb0ad1660b7acae",
+      "sourceWidth": 825,
+      "sourceHeight": 848,
+      "sourceMime": "image/jpeg",
+      "strictFrontReviewed": true,
+      "exactCombinationReviewed": true,
+      "assembledProductReviewed": true,
+      "reviewedAt": "2026-08-19",
+      "processingClass": "direct",
+      "generatedEnhancement": false,
+      "reason": "assembled source failed orthographic top-view pixel review; no verified replacement found",
+      "rejectedSourceUrl": "https://static.wikia.nocookie.net/beyblade/images/f/f8/Super_Hyperion.jpeg/revision/latest?cb=20230613034222",
+      "rejectedFileTitle": "File:Super Hyperion.jpeg"
+    },
+    {
+      "id": "BEY-BURST-B-160-KING-HELIOS-ZN-1B",
+      "productNo": "B-160",
+      "combination": "King Helios.Zn 1B",
+      "fandomPageTitle": "King Helios Zone 1B",
+      "fandomPageUrl": "https://beyblade.fandom.com/wiki/King_Helios_Zone_1B",
+      "fileTitle": "File:King Helios Bey 1.jpg",
+      "filePageUrl": "https://beyblade.fandom.com/wiki/File:King_Helios_Bey_1.jpg",
+      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/9/93/King_Helios_Bey_1.jpg/revision/latest?cb=20200313183349",
+      "mediawikiSha1": "8074f7e151e12e1c019e0a3c6b79c3138fa560eb",
+      "sourceSha256": "4b22ccdbe0f0d3e8c4971aff5cf8264c1781028332b018ab94392c57686355b2",
+      "sourceWidth": 1100,
+      "sourceHeight": 1100,
+      "sourceMime": "image/jpeg",
+      "strictFrontReviewed": true,
+      "exactCombinationReviewed": true,
+      "assembledProductReviewed": true,
+      "reviewedAt": "2026-08-19",
+      "processingClass": "direct",
+      "generatedEnhancement": false,
+      "reason": "assembled source failed orthographic top-view pixel review; no verified replacement found",
+      "rejectedSourceUrl": "https://static.wikia.nocookie.net/beyblade/images/9/93/King_Helios_Bey_1.jpg/revision/latest?cb=20200313183349",
+      "rejectedFileTitle": "File:King Helios Bey 1.jpg"
+    },
+    {
+      "id": "BEY-BURST-B-161-GLIDE-RAGNARUK-WH-R-1S",
+      "productNo": "B-161",
+      "combination": "Glide Ragnaruk.Wh.R 1S",
+      "fandomPageTitle": "Glide Ragnaruk Wheel Revolve 1S",
+      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Glide_Ragnaruk_Wheel_Revolve_1S",
+      "fileTitle": "File:Glide Ragnaruk Bey 1.jpg",
+      "filePageUrl": "https://beyblade.fandom.com/wiki/File:Glide_Ragnaruk_Bey_1.jpg",
+      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/f/fd/Glide_Ragnaruk_Bey_1.jpg/revision/latest?cb=20200313191149",
+      "mediawikiSha1": "c1a4d45e9b978d6315cd6c45d7220244aea9c60e",
+      "sourceSha256": "24bfc6a375b12f3a65e05c2ba069657c1ffd354a33099ee03b3be0bc9abdda56",
+      "sourceWidth": 1100,
+      "sourceHeight": 1100,
+      "sourceMime": "image/jpeg",
+      "strictFrontReviewed": true,
+      "exactCombinationReviewed": true,
+      "assembledProductReviewed": true,
+      "reviewedAt": "2026-08-19",
+      "processingClass": "direct",
+      "generatedEnhancement": false,
+      "reason": "assembled source failed orthographic top-view pixel review; no verified replacement found",
+      "rejectedSourceUrl": "https://static.wikia.nocookie.net/beyblade/images/f/fd/Glide_Ragnaruk_Bey_1.jpg/revision/latest?cb=20200313191149",
+      "rejectedFileTitle": "File:Glide Ragnaruk Bey 1.jpg"
+    },
+    {
+      "id": "BEY-BURST-B-162-KING-HELIOS-ZN-1B",
+      "productNo": "B-162",
+      "combination": "King Helios.Zn 1B",
+      "fandomPageTitle": "King Helios Zone 1B",
+      "fandomPageUrl": "https://beyblade.fandom.com/wiki/King_Helios_Zone_1B",
+      "fileTitle": "File:King Helios (B-162).jpg",
+      "filePageUrl": "https://beyblade.fandom.com/wiki/File:King_Helios_(B-162).jpg",
+      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/b/b0/King_Helios_%28B-162%29.jpg/revision/latest?cb=20200313192203",
+      "mediawikiSha1": "27af0cb6ce2b0b1243f45b961213289b5d13027a",
+      "sourceSha256": "4925c28ed65e562c1952f944f3c68e2f220a255e7cf6c8f33058ff6f72dc3603",
+      "sourceWidth": 1100,
+      "sourceHeight": 1100,
+      "sourceMime": "image/jpeg",
+      "strictFrontReviewed": true,
+      "exactCombinationReviewed": true,
+      "assembledProductReviewed": true,
+      "reviewedAt": "2026-08-19",
+      "processingClass": "direct",
+      "generatedEnhancement": false,
+      "reason": "assembled source failed orthographic top-view pixel review; no verified replacement found",
+      "rejectedSourceUrl": "https://static.wikia.nocookie.net/beyblade/images/b/b0/King_Helios_%28B-162%29.jpg/revision/latest?cb=20200313192203",
+      "rejectedFileTitle": "File:King Helios (B-162).jpg"
+    },
+    {
+      "id": "BEY-BURST-B-162-SUPER-HYPERION-XC-1A",
+      "productNo": "B-162",
+      "combination": "Super Hyperion.Xc 1A",
+      "fandomPageTitle": "Super Hyperion Xceed 1A",
+      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Super_Hyperion_Xceed_1A",
+      "fileTitle": "File:Super Hyperion (B-162).jpg",
+      "filePageUrl": "https://beyblade.fandom.com/wiki/File:Super_Hyperion_(B-162).jpg",
+      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/1/10/Super_Hyperion_%28B-162%29.jpg/revision/latest?cb=20200313192204",
+      "mediawikiSha1": "8bc9ec1bab7490460d5e198d79ba9c08acac99cb",
+      "sourceSha256": "bf72c1fe577e5e1e9a60ed70bfa56c69648c965de2d87a00d9f87746da5694b7",
+      "sourceWidth": 1100,
+      "sourceHeight": 1100,
+      "sourceMime": "image/jpeg",
+      "strictFrontReviewed": true,
+      "exactCombinationReviewed": true,
+      "assembledProductReviewed": true,
+      "reviewedAt": "2026-08-19",
+      "processingClass": "direct",
+      "generatedEnhancement": false,
+      "reason": "assembled source failed orthographic top-view pixel review; no verified replacement found",
+      "rejectedSourceUrl": "https://static.wikia.nocookie.net/beyblade/images/1/10/Super_Hyperion_%28B-162%29.jpg/revision/latest?cb=20200313192204",
+      "rejectedFileTitle": "File:Super Hyperion (B-162).jpg"
+    },
+    {
+      "id": "BEY-BURST-B-163-BRAVE-VALKYRIE-EV-DASH-2A",
+      "productNo": "B-163",
+      "combination": "Brave Valkyrie.Ev' 2A",
+      "fandomPageTitle": "Brave Valkyrie Evolution' 2A",
+      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Brave_Valkyrie_Evolution%27_2A",
+      "fileTitle": "File:BBSK-BrVEv'2A.jpg",
+      "filePageUrl": "https://beyblade.fandom.com/wiki/File:BBSK-BrVEv'2A.jpg",
+      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/f/f3/BBSK-BrVEv%272A.jpg/revision/latest?cb=20200414161602",
+      "mediawikiSha1": "872d24056040cb200c3ee900b606ef5384369c2f",
+      "sourceSha256": "3edf3d25164667778d3334d06d8bacb7dfa5289d4be7cde52a2690e159b7026c",
+      "sourceWidth": 1100,
+      "sourceHeight": 1100,
+      "sourceMime": "image/jpeg",
+      "strictFrontReviewed": true,
+      "exactCombinationReviewed": true,
+      "assembledProductReviewed": true,
+      "reviewedAt": "2026-08-19",
+      "processingClass": "direct",
+      "generatedEnhancement": false,
+      "reason": "assembled source failed orthographic top-view pixel review; no verified replacement found",
+      "rejectedSourceUrl": "https://static.wikia.nocookie.net/beyblade/images/f/f3/BBSK-BrVEv%272A.jpg/revision/latest?cb=20200414161602",
+      "rejectedFileTitle": "File:BBSK-BrVEv'2A.jpg"
+    },
+    {
       "id": "BEY-BURST-B-164-04-TACT-DIABOLOS-2-G-LW-GEN",
       "productNo": "B-164",
       "combination": "Tact Diabolos 2Glaive Low Gen",
@@ -2493,6 +3298,54 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "reason": "Fandom candidate is byte-identical to the previously rejected non-front image"
+    },
+    {
+      "id": "BEY-BURST-B-167-MIRAGE-FAFNIR-NT-2S",
+      "productNo": "B-167",
+      "combination": "Mirage Fafnir.Nt 2S",
+      "fandomPageTitle": "Mirage Fafnir Nothing 2S",
+      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Mirage_Fafnir_Nothing_2S",
+      "fileTitle": "File:BBSK-MFNT2S 1.jpg",
+      "filePageUrl": "https://beyblade.fandom.com/wiki/File:BBSK-MFNT2S_1.jpg",
+      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/0/09/BBSK-MFNT2S_1.jpg/revision/latest?cb=20200514165642",
+      "mediawikiSha1": "eab1bc7b7d789a7e183f2231cf3b8afefbcefab1",
+      "sourceSha256": "c19eeab038d012f73efa26c1e0fb70f7301b7053e951de9ff58b08d42162d8af",
+      "sourceWidth": 1100,
+      "sourceHeight": 1100,
+      "sourceMime": "image/jpeg",
+      "strictFrontReviewed": true,
+      "exactCombinationReviewed": true,
+      "assembledProductReviewed": true,
+      "reviewedAt": "2026-08-19",
+      "processingClass": "direct",
+      "generatedEnhancement": false,
+      "reason": "assembled source failed orthographic top-view pixel review; no verified replacement found",
+      "rejectedSourceUrl": "https://static.wikia.nocookie.net/beyblade/images/0/09/BBSK-MFNT2S_1.jpg/revision/latest?cb=20200514165642",
+      "rejectedFileTitle": "File:BBSK-MFNT2S 1.jpg"
+    },
+    {
+      "id": "BEY-BURST-B-168-RAGE-LONGINUS-DS-DASH-3A",
+      "productNo": "B-168",
+      "combination": "Rage Longinus.Ds' 3A",
+      "fandomPageTitle": "Rage Longinus Destroy' 3A",
+      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Rage_Longinus_Destroy%27_3A",
+      "fileTitle": "File:BBSK-RLDS'3A 1.jpg",
+      "filePageUrl": "https://beyblade.fandom.com/wiki/File:BBSK-RLDS'3A_1.jpg",
+      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/6/67/BBSK-RLDS%273A_1.jpg/revision/latest?cb=20200514165756",
+      "mediawikiSha1": "685c36a43c256d4aadb0313f9feb12baa5ddb46c",
+      "sourceSha256": "e5cefc292bb42d450f3773f41babd00ebc1ed9b362d83ded06599fc320e3b133",
+      "sourceWidth": 1100,
+      "sourceHeight": 1100,
+      "sourceMime": "image/jpeg",
+      "strictFrontReviewed": true,
+      "exactCombinationReviewed": true,
+      "assembledProductReviewed": true,
+      "reviewedAt": "2026-08-19",
+      "processingClass": "direct",
+      "generatedEnhancement": false,
+      "reason": "assembled source failed orthographic top-view pixel review; no verified replacement found",
+      "rejectedSourceUrl": "https://static.wikia.nocookie.net/beyblade/images/6/67/BBSK-RLDS%273A_1.jpg/revision/latest?cb=20200514165756",
+      "rejectedFileTitle": "File:BBSK-RLDS'3A 1.jpg"
     },
     {
       "id": "BEY-BURST-B-170-01-DEATH-DIABOLOS-4-T-MR-DASH-1D",
@@ -2535,6 +3388,30 @@
       "reason": "Fandom candidate is byte-identical to the previously rejected non-front image"
     },
     {
+      "id": "BEY-BURST-B-172-WORLD-SPRIGGAN-U-DASH-2B",
+      "productNo": "B-172",
+      "combination": "World Spriggan.U' 2B",
+      "fandomPageTitle": "World Spriggan Unite' 2B",
+      "fandomPageUrl": "https://beyblade.fandom.com/wiki/World_Spriggan_Unite%27_2B",
+      "fileTitle": "File:World Spriggan Bey 1.jpg",
+      "filePageUrl": "https://beyblade.fandom.com/wiki/File:World_Spriggan_Bey_1.jpg",
+      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/3/3e/World_Spriggan_Bey_1.jpg/revision/latest?cb=20200811151938",
+      "mediawikiSha1": "a8d2063b0615306d9a465eb2dde9c804a773f984",
+      "sourceSha256": "1d996f15bab373e32af22a9e5916296b410bfab46f33d52062f4d3d9af838055",
+      "sourceWidth": 1100,
+      "sourceHeight": 1100,
+      "sourceMime": "image/jpeg",
+      "strictFrontReviewed": true,
+      "exactCombinationReviewed": true,
+      "assembledProductReviewed": true,
+      "reviewedAt": "2026-08-19",
+      "processingClass": "direct",
+      "generatedEnhancement": false,
+      "reason": "assembled source failed orthographic top-view pixel review; no verified replacement found",
+      "rejectedSourceUrl": "https://static.wikia.nocookie.net/beyblade/images/3/3e/World_Spriggan_Bey_1.jpg/revision/latest?cb=20200811151938",
+      "rejectedFileTitle": "File:World Spriggan Bey 1.jpg"
+    },
+    {
       "id": "BEY-BURST-B-174-HELIOS-VOLCANO-OU-ZN-DASH-Z",
       "productNo": "B-174",
       "combination": "Helios Volcano.Ou.Zn'+Z",
@@ -2555,6 +3432,174 @@
       "reason": "Fandom candidate is byte-identical to the previously rejected non-front image"
     },
     {
+      "id": "BEY-BURST-B-174-HYPERION-BURN-CHO-XC-DASH-X",
+      "productNo": "B-174",
+      "combination": "Hyperion Burn.Cho.Xc'+X",
+      "fandomPageTitle": "Hyperion Burn Cho Xceed'+X",
+      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Hyperion_Burn_Cho_Xceed%27%2BX",
+      "fileTitle": "File:BBSK-Hyperion Burn Cho Xceed' X (Activated).png",
+      "filePageUrl": "https://beyblade.fandom.com/wiki/File:BBSK-Hyperion_Burn_Cho_Xceed'_X_(Activated).png",
+      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/3/31/BBSK-Hyperion_Burn_Cho_Xceed%27_X_%28Activated%29.png/revision/latest?cb=20201014193759",
+      "mediawikiSha1": "87cc413d1d443a1ca32d3eca12409c0a7833baac",
+      "sourceSha256": "24c1d379246ee34f0bd869a9f3099986bc9b8a5033ddc4d8243c73119926e50b",
+      "sourceWidth": 1100,
+      "sourceHeight": 1100,
+      "sourceMime": "image/png",
+      "strictFrontReviewed": true,
+      "exactCombinationReviewed": true,
+      "assembledProductReviewed": true,
+      "reviewedAt": "2026-08-19",
+      "processingClass": "direct",
+      "generatedEnhancement": false,
+      "reason": "assembled source failed orthographic top-view pixel review; no verified replacement found",
+      "rejectedSourceUrl": "https://static.wikia.nocookie.net/beyblade/images/3/31/BBSK-Hyperion_Burn_Cho_Xceed%27_X_%28Activated%29.png/revision/latest?cb=20201014193759",
+      "rejectedFileTitle": "File:BBSK-Hyperion Burn Cho Xceed' X (Activated).png"
+    },
+    {
+      "id": "BEY-BURST-B-178-02-KING-HELIOS-S-1B",
+      "productNo": "B-178",
+      "combination": "King Helios Survive 1B",
+      "fandomPageTitle": "King Helios Survive 1B",
+      "fandomPageUrl": "https://beyblade.fandom.com/wiki/King_Helios_Survive_1B",
+      "fileTitle": "File:King Helios.S.1B (B-178 02).jpg",
+      "filePageUrl": "https://beyblade.fandom.com/wiki/File:King_Helios.S.1B_(B-178_02).jpg",
+      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/a/aa/King_Helios.S.1B_%28B-178_02%29.jpg/revision/latest?cb=20210214173604",
+      "mediawikiSha1": "075c9d9f10a8bc38ec75d6f5415b175d8ac802dc",
+      "sourceSha256": "0b4ce6611fa504677822f61c68d2c5376233fa5c114f35e4795a7d4d679bc838",
+      "sourceWidth": 1100,
+      "sourceHeight": 1100,
+      "sourceMime": "image/jpeg",
+      "strictFrontReviewed": true,
+      "exactCombinationReviewed": true,
+      "assembledProductReviewed": true,
+      "reviewedAt": "2026-08-19",
+      "processingClass": "direct",
+      "generatedEnhancement": false,
+      "reason": "assembled source failed orthographic top-view pixel review; no verified replacement found",
+      "rejectedSourceUrl": "https://static.wikia.nocookie.net/beyblade/images/a/aa/King_Helios.S.1B_%28B-178_02%29.jpg/revision/latest?cb=20210214173604",
+      "rejectedFileTitle": "File:King Helios.S.1B (B-178 02).jpg"
+    },
+    {
+      "id": "BEY-BURST-B-178-06-IMPERIAL-DRAGON-7-ET",
+      "productNo": "B-178",
+      "combination": "Imperial Dragon 7 Eternal",
+      "fandomPageTitle": "Imperial Dragon 7 Eternal",
+      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Imperial_Dragon_7_Eternal",
+      "fileTitle": "File:Imperial Dragon.7.Et (B-178 06).jpg",
+      "filePageUrl": "https://beyblade.fandom.com/wiki/File:Imperial_Dragon.7.Et_(B-178_06).jpg",
+      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/1/1b/Imperial_Dragon.7.Et_%28B-178_06%29.jpg/revision/latest?cb=20210214173827",
+      "mediawikiSha1": "3b8912db0fc618f7e6f8ebc3cd4c200b358e974c",
+      "sourceSha256": "caaf709d0bb41ea8248430e1790f45ec3e6cdf3a8e1d4a26d72c97d710e4c41c",
+      "sourceWidth": 1100,
+      "sourceHeight": 1100,
+      "sourceMime": "image/jpeg",
+      "strictFrontReviewed": true,
+      "exactCombinationReviewed": true,
+      "assembledProductReviewed": true,
+      "reviewedAt": "2026-08-19",
+      "processingClass": "direct",
+      "generatedEnhancement": false,
+      "reason": "assembled source failed orthographic top-view pixel review; no verified replacement found",
+      "rejectedSourceUrl": "https://static.wikia.nocookie.net/beyblade/images/1/1b/Imperial_Dragon.7.Et_%28B-178_06%29.jpg/revision/latest?cb=20210214173827",
+      "rejectedFileTitle": "File:Imperial Dragon.7.Et (B-178 06).jpg"
+    },
+    {
+      "id": "BEY-BURST-B-179-DEATH-SOLOMON-MF-2B",
+      "productNo": "B-179",
+      "combination": "Death Solomon.MF 2B",
+      "fandomPageTitle": "Death Solomon Metal Fusion 2B",
+      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Death_Solomon_Metal_Fusion_2B",
+      "fileTitle": "File:BBSK-Death Solomon Metal Fusion 2B 1.jpg",
+      "filePageUrl": "https://beyblade.fandom.com/wiki/File:BBSK-Death_Solomon_Metal_Fusion_2B_1.jpg",
+      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/6/6a/BBSK-Death_Solomon_Metal_Fusion_2B_1.jpg/revision/latest?cb=20210214180202",
+      "mediawikiSha1": "ef2077810457a3c3d63af8dee41a3bdcf24fd9b2",
+      "sourceSha256": "3c1a563137500b6ba3338c219b5ba3b039c8637f8261ce8d29f41722c39cd85e",
+      "sourceWidth": 1100,
+      "sourceHeight": 1100,
+      "sourceMime": "image/jpeg",
+      "strictFrontReviewed": true,
+      "exactCombinationReviewed": true,
+      "assembledProductReviewed": true,
+      "reviewedAt": "2026-08-19",
+      "processingClass": "direct",
+      "generatedEnhancement": false,
+      "reason": "assembled source failed orthographic top-view pixel review; no verified replacement found",
+      "rejectedSourceUrl": "https://static.wikia.nocookie.net/beyblade/images/6/6a/BBSK-Death_Solomon_Metal_Fusion_2B_1.jpg/revision/latest?cb=20210214180202",
+      "rejectedFileTitle": "File:BBSK-Death Solomon Metal Fusion 2B 1.jpg"
+    },
+    {
+      "id": "BEY-BURST-B-181-01-CYCLONE-RAGNARUK-GG-NV-6",
+      "productNo": "B-181",
+      "combination": "Cyclone Ragnaruk Giga Never-6",
+      "fandomPageTitle": "Cyclone Ragnaruk Giga Never-6",
+      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Cyclone_Ragnaruk_Giga_Never-6",
+      "fileTitle": "File:BBDB-Cyclone Ragnaruk Giga Never-6.jpg",
+      "filePageUrl": "https://beyblade.fandom.com/wiki/File:BBDB-Cyclone_Ragnaruk_Giga_Never-6.jpg",
+      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/d/d6/BBDB-Cyclone_Ragnaruk_Giga_Never-6.jpg/revision/latest?cb=20210314175418",
+      "mediawikiSha1": "3cbd49a479acce5489a7b556cb57907f556f8b71",
+      "sourceSha256": "e059b0cf5f1b9e493f43cec3fc37d1758b5c924a038631baa623e83721152d47",
+      "sourceWidth": 1100,
+      "sourceHeight": 1100,
+      "sourceMime": "image/jpeg",
+      "strictFrontReviewed": true,
+      "exactCombinationReviewed": true,
+      "assembledProductReviewed": true,
+      "reviewedAt": "2026-08-19",
+      "processingClass": "direct",
+      "generatedEnhancement": false,
+      "reason": "assembled source failed orthographic top-view pixel review; no verified replacement found",
+      "rejectedSourceUrl": "https://static.wikia.nocookie.net/beyblade/images/d/d6/BBDB-Cyclone_Ragnaruk_Giga_Never-6.jpg/revision/latest?cb=20210314175418",
+      "rejectedFileTitle": "File:BBDB-Cyclone Ragnaruk Giga Never-6.jpg"
+    },
+    {
+      "id": "BEY-BURST-B-181-02-CYCLONE-RAGNARUK-NX-RS-2",
+      "productNo": "B-181",
+      "combination": "Cyclone Ragnaruk Nexus Rise-2",
+      "fandomPageTitle": "Cyclone Ragnaruk Nexus Rise-2",
+      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Cyclone_Ragnaruk_Nexus_Rise-2",
+      "fileTitle": "File:Cyclone Ragnaruk.Nx.Rs-2 (B-181 02).jpg",
+      "filePageUrl": "https://beyblade.fandom.com/wiki/File:Cyclone_Ragnaruk.Nx.Rs-2_(B-181_02).jpg",
+      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/5/5d/Cyclone_Ragnaruk.Nx.Rs-2_%28B-181_02%29.jpg/revision/latest?cb=20210314175427",
+      "mediawikiSha1": "7f238b4b87b97034186334b2d04983d4ffb7f368",
+      "sourceSha256": "1f90921f94a93c22b7b9029f38f260a9aca55e1601724b0d6eaf1c6db46b1b77",
+      "sourceWidth": 1100,
+      "sourceHeight": 1100,
+      "sourceMime": "image/jpeg",
+      "strictFrontReviewed": true,
+      "exactCombinationReviewed": true,
+      "assembledProductReviewed": true,
+      "reviewedAt": "2026-08-19",
+      "processingClass": "direct",
+      "generatedEnhancement": false,
+      "reason": "assembled source failed orthographic top-view pixel review; no verified replacement found",
+      "rejectedSourceUrl": "https://static.wikia.nocookie.net/beyblade/images/5/5d/Cyclone_Ragnaruk.Nx.Rs-2_%28B-181_02%29.jpg/revision/latest?cb=20210314175427",
+      "rejectedFileTitle": "File:Cyclone Ragnaruk.Nx.Rs-2 (B-181 02).jpg"
+    },
+    {
+      "id": "BEY-BURST-B-181-05-INFINITE-DEATHSCYTHER-UN-1A",
+      "productNo": "B-181",
+      "combination": "Infinite Deathscyther Universe 1A",
+      "fandomPageTitle": "Infinite Deathscyther Universe 1A",
+      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Infinite_Deathscyther_Universe_1A",
+      "fileTitle": "File:Infinite Deathscyther.Un.1A (B-181 05).jpg",
+      "filePageUrl": "https://beyblade.fandom.com/wiki/File:Infinite_Deathscyther.Un.1A_(B-181_05).jpg",
+      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/e/e0/Infinite_Deathscyther.Un.1A_%28B-181_05%29.jpg/revision/latest?cb=20210314175737",
+      "mediawikiSha1": "3a9978a43ef15954a5f7f9b33a33346c761475ee",
+      "sourceSha256": "73e6b7654773ead460cbb5e295ccbc59841f3371521cbe3346a00a75de8e91a4",
+      "sourceWidth": 1100,
+      "sourceHeight": 1100,
+      "sourceMime": "image/jpeg",
+      "strictFrontReviewed": true,
+      "exactCombinationReviewed": true,
+      "assembledProductReviewed": true,
+      "reviewedAt": "2026-08-19",
+      "processingClass": "direct",
+      "generatedEnhancement": false,
+      "reason": "assembled source failed orthographic top-view pixel review; no verified replacement found",
+      "rejectedSourceUrl": "https://static.wikia.nocookie.net/beyblade/images/e/e0/Infinite_Deathscyther.Un.1A_%28B-181_05%29.jpg/revision/latest?cb=20210314175737",
+      "rejectedFileTitle": "File:Infinite Deathscyther.Un.1A (B-181 05).jpg"
+    },
+    {
       "id": "BEY-BURST-B-185-VANISH-FAFNIR-TP-KC-3",
       "productNo": "B-185",
       "combination": "Vanish Fafnir.Tp.Kc-3",
@@ -2573,6 +3618,102 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "reason": "Fandom image remains perspective-distorted with visible side thickness"
+    },
+    {
+      "id": "BEY-BURST-B-186-02-ROAR-FAFNIR-00-R-2",
+      "productNo": "B-186",
+      "combination": "Roar Fafnir 00 Revolve-2",
+      "fandomPageTitle": "Roar Fafnir 00 Revolve-2",
+      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Roar_Fafnir_00_Revolve-2",
+      "fileTitle": "File:Roar Fafnir.00.R-2 (B-186 02).jpg",
+      "filePageUrl": "https://beyblade.fandom.com/wiki/File:Roar_Fafnir.00.R-2_(B-186_02).jpg",
+      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/8/81/Roar_Fafnir.00.R-2_%28B-186_02%29.jpg/revision/latest?cb=20210614155623",
+      "mediawikiSha1": "f60abbc8411e4025ed74d7607475392b72b16d86",
+      "sourceSha256": "5dd80225c4dd4571ee229e197347f11295dbc37b882857976adc8e45696b548e",
+      "sourceWidth": 1100,
+      "sourceHeight": 1100,
+      "sourceMime": "image/jpeg",
+      "strictFrontReviewed": true,
+      "exactCombinationReviewed": true,
+      "assembledProductReviewed": true,
+      "reviewedAt": "2026-08-19",
+      "processingClass": "direct",
+      "generatedEnhancement": false,
+      "reason": "assembled source failed orthographic top-view pixel review; no verified replacement found",
+      "rejectedSourceUrl": "https://static.wikia.nocookie.net/beyblade/images/8/81/Roar_Fafnir.00.R-2_%28B-186_02%29.jpg/revision/latest?cb=20210614155623",
+      "rejectedFileTitle": "File:Roar Fafnir.00.R-2 (B-186 02).jpg"
+    },
+    {
+      "id": "BEY-BURST-B-186-05-WORLD-DRAGON-OUTER-MM-4A",
+      "productNo": "B-186",
+      "combination": "World Dragon Outer Moment 4A",
+      "fandomPageTitle": "World Dragon Outer Moment 4A",
+      "fandomPageUrl": "https://beyblade.fandom.com/wiki/World_Dragon_Outer_Moment_4A",
+      "fileTitle": "File:World Dragon.Ω.Mm.4A (B-186 05).jpg",
+      "filePageUrl": "https://beyblade.fandom.com/wiki/File:World_Dragon.Ω.Mm.4A_(B-186_05).jpg",
+      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/e/ef/World_Dragon.%CE%A9.Mm.4A_%28B-186_05%29.jpg/revision/latest?cb=20210614155956",
+      "mediawikiSha1": "f2935e6a4fb7215acc9faf438246d0c0554114cc",
+      "sourceSha256": "d82ecf89f69635773d6b2615747ab936c0fe864e990e780ed101e43aa37f8f01",
+      "sourceWidth": 1100,
+      "sourceHeight": 1100,
+      "sourceMime": "image/jpeg",
+      "strictFrontReviewed": true,
+      "exactCombinationReviewed": true,
+      "assembledProductReviewed": true,
+      "reviewedAt": "2026-08-19",
+      "processingClass": "direct",
+      "generatedEnhancement": false,
+      "reason": "assembled source failed orthographic top-view pixel review; no verified replacement found",
+      "rejectedSourceUrl": "https://static.wikia.nocookie.net/beyblade/images/e/ef/World_Dragon.%CE%A9.Mm.4A_%28B-186_05%29.jpg/revision/latest?cb=20210614155956",
+      "rejectedFileTitle": "File:World Dragon.Ω.Mm.4A (B-186 05).jpg"
+    },
+    {
+      "id": "BEY-BURST-B-187-SAVIOR-VALKYRIE-SH-7",
+      "productNo": "B-187",
+      "combination": "Savior Valkyrie.Sh-7",
+      "fandomPageTitle": "Savior Valkyrie Shot-7",
+      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Savior_Valkyrie_Shot-7",
+      "fileTitle": "File:BBDB-Savior Valkyrie Shot-7 (Low Mode).png",
+      "filePageUrl": "https://beyblade.fandom.com/wiki/File:BBDB-Savior_Valkyrie_Shot-7_(Low_Mode).png",
+      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/a/aa/BBDB-Savior_Valkyrie_Shot-7_%28Low_Mode%29.png/revision/latest?cb=20230513052847",
+      "mediawikiSha1": "8fa19278069c9d69ffb2a00966dcb14b463cf035",
+      "sourceSha256": "2ae001365d920bee0176b390e2365eda34dfac11edc90e83bf9c245e50fa5183",
+      "sourceWidth": 1100,
+      "sourceHeight": 1100,
+      "sourceMime": "image/png",
+      "strictFrontReviewed": true,
+      "exactCombinationReviewed": true,
+      "assembledProductReviewed": true,
+      "reviewedAt": "2026-08-19",
+      "processingClass": "direct",
+      "generatedEnhancement": false,
+      "reason": "assembled source failed orthographic top-view pixel review; no verified replacement found",
+      "rejectedSourceUrl": "https://static.wikia.nocookie.net/beyblade/images/a/aa/BBDB-Savior_Valkyrie_Shot-7_%28Low_Mode%29.png/revision/latest?cb=20230513052847",
+      "rejectedFileTitle": "File:BBDB-Savior Valkyrie Shot-7 (Low Mode).png"
+    },
+    {
+      "id": "BEY-BURST-B-189-GUILTY-LONGINUS-KR-MDS-2",
+      "productNo": "B-189",
+      "combination": "Guilty Longinus.Kr.MDs-2",
+      "fandomPageTitle": "Guilty Longinus Karma Metal Destroy-2",
+      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Guilty_Longinus_Karma_Metal_Destroy-2",
+      "fileTitle": "File:BBDB-Guilty Longinus Karma Metal Destroy-2 (Low Mode).png",
+      "filePageUrl": "https://beyblade.fandom.com/wiki/File:BBDB-Guilty_Longinus_Karma_Metal_Destroy-2_(Low_Mode).png",
+      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/3/39/BBDB-Guilty_Longinus_Karma_Metal_Destroy-2_%28Low_Mode%29.png/revision/latest?cb=20220108222936",
+      "mediawikiSha1": "26b623f9f5199532e6fec960f27706ee19314cd0",
+      "sourceSha256": "dd04fe05c3995273916d0dbe1d65ea4146ad54afee7ca184fa69b9470f34e18c",
+      "sourceWidth": 1100,
+      "sourceHeight": 1100,
+      "sourceMime": "image/png",
+      "strictFrontReviewed": true,
+      "exactCombinationReviewed": true,
+      "assembledProductReviewed": true,
+      "reviewedAt": "2026-08-19",
+      "processingClass": "direct",
+      "generatedEnhancement": false,
+      "reason": "assembled source failed orthographic top-view pixel review; no verified replacement found",
+      "rejectedSourceUrl": "https://static.wikia.nocookie.net/beyblade/images/3/39/BBDB-Guilty_Longinus_Karma_Metal_Destroy-2_%28Low_Mode%29.png/revision/latest?cb=20220108222936",
+      "rejectedFileTitle": "File:BBDB-Guilty Longinus Karma Metal Destroy-2 (Low Mode).png"
     },
     {
       "id": "BEY-BURST-B-190-DYNAMITE-BELIAL-NX-VN-3",
@@ -2645,6 +3786,30 @@
       "strictFrontReviewed": true,
       "exactCombinationReviewed": true,
       "reviewedAt": "2026-08-19"
+    },
+    {
+      "id": "BEY-BURST-B-199-GATLING-DRAGON-KR-CM-DASH-10",
+      "productNo": "B-199",
+      "combination": "Gatling Dragon.Kr.Cm'-10",
+      "fandomPageTitle": "Gatling Dragon Karma Charge Metal'-10",
+      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Gatling_Dragon_Karma_Charge_Metal%27-10",
+      "fileTitle": "File:Gatling Dragon Karma Charge Metal'-10 (Low Mode - Consecutive Hit Mode; Angled View).jpeg",
+      "filePageUrl": "https://beyblade.fandom.com/wiki/File:Gatling_Dragon_Karma_Charge_Metal'-10_(Low_Mode_-_Consecutive_Hit_Mode;_Angled_View).jpeg",
+      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/6/62/Gatling_Dragon_Karma_Charge_Metal%27-10_%28Low_Mode_-_Consecutive_Hit_Mode%3B_Angled_View%29.jpeg/revision/latest?cb=20220512164109",
+      "mediawikiSha1": "fa9d5a9518f237bd1a3b6488260833227a2285f2",
+      "sourceSha256": "b5a092ff9e40ef6558efe93e7def2ed11f4bca37b214f6f0dce3fad4792e5f17",
+      "sourceWidth": 1100,
+      "sourceHeight": 1100,
+      "sourceMime": "image/jpeg",
+      "strictFrontReviewed": true,
+      "exactCombinationReviewed": true,
+      "assembledProductReviewed": true,
+      "reviewedAt": "2026-08-19",
+      "processingClass": "direct",
+      "generatedEnhancement": false,
+      "reason": "assembled source failed orthographic top-view pixel review; no verified replacement found",
+      "rejectedSourceUrl": "https://static.wikia.nocookie.net/beyblade/images/6/62/Gatling_Dragon_Karma_Charge_Metal%27-10_%28Low_Mode_-_Consecutive_Hit_Mode%3B_Angled_View%29.jpeg/revision/latest?cb=20220512164109",
+      "rejectedFileTitle": "File:Gatling Dragon Karma Charge Metal'-10 (Low Mode - Consecutive Hit Mode; Angled View).jpeg"
     },
     {
       "id": "BEY-BURST-B-200-XIPHOID-XCALIBUR-XN-SW-DASH-1",

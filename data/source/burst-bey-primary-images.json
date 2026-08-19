@@ -1,5 +1,5 @@
 {
-  "version": "20260819-burst-fandom-strict-front-images",
+  "version": "20260819-burst-orthographic-top-reaudit",
   "normalization": {
     "method": "premultiplied-alpha-uniform-long-edge",
     "canvasSize": 448,
@@ -22,7 +22,9 @@
     ],
     "generatedImagesAllowed": true,
     "generatedImagePolicy": "low-resolution exact strict-front sources only; original alpha reapplied",
-    "unsafeSourcesRemainUnavailable": true
+    "unsafeSourcesRemainUnavailable": true,
+    "strictFrontDefinition": "orthographic vertical top view with no visible side thickness or perspective",
+    "manualPixelEvidenceRequired": true
   },
   "selected": [
     {
@@ -956,42 +958,6 @@
         "reviewedAt": "2026-08-19"
       },
       "sourceUrl": "https://beyblade.fandom.com/wiki/Hell_Kerbecs.0L.Mb",
-      "checkedAt": "2026-08-19",
-      "searchAudit": {
-        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
-        "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B-00_bbg37.png",
-        "officialOutcome": "checked; no safer isolated exact-combination source selected",
-        "databaseOutcome": "exact title and assembled top-view page image selected",
-        "shopOutcome": "not needed"
-      }
-    },
-    {
-      "id": "BEY-BURST-B-00-KR-BLAZE-RAGNARUK-4S-B",
-      "image": "assets/images/burst/beys/bey-burst-b-00-kr-blaze-ragnaruk-4s-b/bey-burst-b-00-kr-blaze-ragnaruk-4s-b.webp",
-      "sourceKind": "verified-database",
-      "sourceSha256": "119651b0c18fc7cfb1b3b85b43ddd66b7fcf878d6c020d5a40b3923fdddb4349",
-      "outputSha256": "e5abf1adc56ad1f1a09649fe1e28e265b3db8bc7fb7466e2b0ca01591d80274b",
-      "sourceTitle": "Blaze Ragnaruk.4S.B",
-      "productNo": "B-00",
-      "combination": "Blaze Ragnaruk.4S.B",
-      "backgroundRemoval": "connected-light-background",
-      "normalizedForegroundBox": [
-        44,
-        48,
-        404,
-        400
-      ],
-      "alphaReview": {
-        "canvasSize": [
-          448,
-          448
-        ],
-        "targetForegroundSize": 360,
-        "transparentCorners": true,
-        "singleConnectedSubject": true,
-        "reviewedAt": "2026-08-19"
-      },
-      "sourceUrl": "https://beyblade.fandom.com/wiki/Blaze_Ragnaruk.4S.B",
       "checkedAt": "2026-08-19",
       "searchAudit": {
         "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
@@ -2130,53 +2096,6 @@
         "checkedAt": "2026-08-19"
       },
       "reusedFrom": "BEY-BURST-BA-03-BLOODY-LONGINUS-13-JL"
-    },
-    {
-      "id": "BEY-BURST-B-111-01-CRASH-RAGNARUK-11-R-WD",
-      "image": "assets/images/burst/beys/bey-burst-b-111-01-crash-ragnaruk-11-r-wd/bey-burst-b-111-01-crash-ragnaruk-11-r-wd.webp",
-      "sourceKind": "verified-database",
-      "sourceSha256": "48d24b5a2d2362ba011f617ed491381fba9da183fbd28cc748e1dbf8b6f9e83a",
-      "outputSha256": "1481c1597bbecd1116a3aa88b8ce022631c2961d7a644d32a6d269c847c8c27f",
-      "sourceTitle": "File:CR .11R.Wd.png",
-      "productNo": "B-111",
-      "combination": "Crash Ragnaruk 11Reach Wedge",
-      "backgroundRemoval": "connected-light-background",
-      "normalizedForegroundBox": [
-        45,
-        44,
-        403,
-        404
-      ],
-      "alphaReview": {
-        "canvasSize": [
-          448,
-          448
-        ],
-        "targetForegroundSize": 360,
-        "transparentCorners": true,
-        "singleConnectedSubject": true,
-        "reviewedAt": "2026-08-19"
-      },
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/f/f1/CR_.11R.Wd.png/revision/latest?cb=20180415043010",
-      "checkedAt": "2026-08-19",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Crash_Ragnaruk_11Reach_Wedge",
-      "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:CR_.11R.Wd.png",
-      "mediawikiSha1": "4f2629a0228e582e1e5899285d317931d0497d7e",
-      "sourceDimensions": [
-        1244,
-        1224
-      ],
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "processingClass": "direct",
-      "searchAudit": {
-        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
-        "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B_111.png",
-        "officialOutcome": "checked; no safer isolated exact-combination source selected",
-        "databaseOutcome": "exact title and assembled top-view gallery image selected",
-        "shopOutcome": "not needed"
-      }
     },
     {
       "id": "BEY-BURST-B-111-02-WINNING-VALKYRIE-8-GR",
@@ -3327,53 +3246,6 @@
         "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B_128.png",
         "officialOutcome": "checked; no safer isolated exact-combination source selected",
         "databaseOutcome": "exact title and assembled top-view page image selected",
-        "shopOutcome": "not needed"
-      }
-    },
-    {
-      "id": "BEY-BURST-B-128-ORB-EGIS-OUTER-QS",
-      "image": "assets/images/burst/beys/bey-burst-b-128-orb-egis-outer-qs/bey-burst-b-128-orb-egis-outer-qs.webp",
-      "sourceKind": "verified-database",
-      "sourceSha256": "34846009676a360a866a9a6eaa130b2236bba319f39e3ce89660ad1e46a3d7ff",
-      "outputSha256": "2e7e79debee5b97c295ff13a402e1e2f2d370e7a1337d56bd7c915e78af5fd76",
-      "sourceTitle": "File:OE.Outer.Qs.jpg",
-      "productNo": "B-128",
-      "combination": "Orb Egis.Ω.Qs",
-      "backgroundRemoval": "connected-light-background",
-      "normalizedForegroundBox": [
-        44,
-        55,
-        404,
-        392
-      ],
-      "alphaReview": {
-        "canvasSize": [
-          448,
-          448
-        ],
-        "targetForegroundSize": 360,
-        "transparentCorners": true,
-        "singleConnectedSubject": true,
-        "reviewedAt": "2026-08-19"
-      },
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/9/93/OE.Outer.Qs.jpg/revision/latest?cb=20181014191012",
-      "checkedAt": "2026-08-19",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Orb_Egis_Outer_Quest",
-      "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:OE.Outer.Qs.jpg",
-      "mediawikiSha1": "9ca1976db0e29c56e0b2eeb205adb2af71173eff",
-      "sourceDimensions": [
-        1100,
-        1100
-      ],
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "processingClass": "direct",
-      "searchAudit": {
-        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
-        "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B_128.png",
-        "officialOutcome": "checked; no safer isolated exact-combination source selected",
-        "databaseOutcome": "exact title and assembled top-view gallery image selected",
         "shopOutcome": "not needed"
       }
     },
@@ -4565,53 +4437,6 @@
       }
     },
     {
-      "id": "BEY-BURST-B-145-VENOM-DIABOLOS-VN-BL",
-      "image": "assets/images/burst/beys/bey-burst-b-145-venom-diabolos-vn-bl/bey-burst-b-145-venom-diabolos-vn-bl.webp",
-      "sourceKind": "verified-database",
-      "sourceSha256": "a539c0e02c4e3e0d0d33eb3f041499e126d5bf2865f870da1e145ce86ccd57d4",
-      "outputSha256": "3b4ab94e292639f60e5dd409aebd2b698c0de5d09a522d04a6e537bb13bfd4d9",
-      "sourceTitle": "File:VD.Vn.Bl.jpg",
-      "productNo": "B-145",
-      "combination": "Venom Diabolos.Vn.Bl",
-      "backgroundRemoval": "connected-light-background",
-      "normalizedForegroundBox": [
-        44,
-        44,
-        403,
-        404
-      ],
-      "alphaReview": {
-        "canvasSize": [
-          448,
-          448
-        ],
-        "targetForegroundSize": 360,
-        "transparentCorners": true,
-        "singleConnectedSubject": true,
-        "reviewedAt": "2026-08-19"
-      },
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/d/d4/VD.Vn.Bl.jpg/revision/latest?cb=20190515192159",
-      "checkedAt": "2026-08-19",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Venom_Diabolos_Vanguard_Bullet",
-      "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:VD.Vn.Bl.jpg",
-      "mediawikiSha1": "95192ce78c0205c5c8cea06b158c64d4c20cefad",
-      "sourceDimensions": [
-        1100,
-        1100
-      ],
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "processingClass": "direct",
-      "searchAudit": {
-        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
-        "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B-145.png",
-        "officialOutcome": "checked; no safer isolated exact-combination source selected",
-        "databaseOutcome": "exact title and assembled top-view gallery image selected",
-        "shopOutcome": "not needed"
-      }
-    },
-    {
       "id": "BEY-BURST-B-146-01-FLARE-DRAGON-AR-PL-SEN",
       "image": "assets/images/burst/beys/bey-burst-b-146-01-flare-dragon-ar-pl-sen/bey-burst-b-146-01-flare-dragon-ar-pl-sen.webp",
       "sourceKind": "verified-database",
@@ -5559,136 +5384,6 @@
       }
     },
     {
-      "id": "BEY-BURST-B-153-REGALIA-GENESIS-HY",
-      "image": "assets/images/burst/beys/bey-burst-b-153-regalia-genesis-hy/bey-burst-b-153-regalia-genesis-hy.webp",
-      "sourceKind": "verified-database",
-      "sourceSha256": "a459813e97911470626e3e2fec27c80af67533354735d0acaabc687e0e0b4ffa",
-      "outputSha256": "4f4bd84906441afd32090ec015b024145d4eda333c529f03219bec65ed8da551",
-      "sourceTitle": "Regalia Genesis.Hy",
-      "productNo": "B-153",
-      "combination": "Regalia Genesis.Hy",
-      "backgroundRemoval": "connected-light-background",
-      "normalizedForegroundBox": [
-        64,
-        44,
-        383,
-        404
-      ],
-      "alphaReview": {
-        "canvasSize": [
-          448,
-          448
-        ],
-        "targetForegroundSize": 360,
-        "transparentCorners": true,
-        "singleConnectedSubject": true,
-        "reviewedAt": "2026-08-19"
-      },
-      "sourceUrl": "https://beyblade.fandom.com/wiki/Regalia_Genesis.Hy",
-      "checkedAt": "2026-08-19",
-      "searchAudit": {
-        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
-        "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B-153.png",
-        "officialOutcome": "checked; no safer isolated exact-combination source selected",
-        "databaseOutcome": "exact title and assembled top-view page image selected",
-        "shopOutcome": "not needed"
-      }
-    },
-    {
-      "id": "BEY-BURST-B-154-IMPERIAL-DRAGON-IG-DASH",
-      "image": "assets/images/burst/beys/bey-burst-b-154-imperial-dragon-ig-dash/bey-burst-b-154-imperial-dragon-ig-dash.webp",
-      "sourceKind": "verified-database",
-      "sourceSha256": "b81d04758852af951a709865f9746c7044cd09db77953844e2380365d2eb1be3",
-      "outputSha256": "7d85228f320caa6778b7c61483f8bcf65a4588e016e5104fadb446af910291d7",
-      "sourceTitle": "File:Imperial Dragon Bey.jpg",
-      "productNo": "B-154",
-      "combination": "Imperial Dragon.Ig'",
-      "backgroundRemoval": "connected-light-background",
-      "normalizedForegroundBox": [
-        44,
-        50,
-        404,
-        397
-      ],
-      "alphaReview": {
-        "canvasSize": [
-          448,
-          448
-        ],
-        "targetForegroundSize": 360,
-        "transparentCorners": true,
-        "singleConnectedSubject": true,
-        "reviewedAt": "2026-08-19"
-      },
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/2/2c/Imperial_Dragon_Bey.jpg/revision/latest?cb=20191015123208",
-      "checkedAt": "2026-08-19",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Imperial_Dragon_Ignition%27",
-      "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:Imperial_Dragon_Bey.jpg",
-      "mediawikiSha1": "9c63f6bcad1e5f7165e5b397e35bf9d4c3b88686",
-      "sourceDimensions": [
-        700,
-        700
-      ],
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "processingClass": "direct",
-      "searchAudit": {
-        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
-        "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B-154.png",
-        "officialOutcome": "checked; no safer isolated exact-combination source selected",
-        "databaseOutcome": "exact title and assembled top-view gallery image selected",
-        "shopOutcome": "not needed"
-      }
-    },
-    {
-      "id": "BEY-BURST-B-155-MASTER-DIABOLOS-GN",
-      "image": "assets/images/burst/beys/bey-burst-b-155-master-diabolos-gn/bey-burst-b-155-master-diabolos-gn.webp",
-      "sourceKind": "verified-database",
-      "sourceSha256": "19615739bb9c7cda976ddeca69bfcc1ba9dfc0c9b2b35d7f33f787ddf414d3b3",
-      "outputSha256": "98ea42ca182f04990165046609991c205cb9962bf8d491828249c15843a5db44",
-      "sourceTitle": "File:Master Diabolos Bey.jpg",
-      "productNo": "B-155",
-      "combination": "Master Diabolos.Gn",
-      "backgroundRemoval": "connected-light-background",
-      "normalizedForegroundBox": [
-        44,
-        51,
-        404,
-        397
-      ],
-      "alphaReview": {
-        "canvasSize": [
-          448,
-          448
-        ],
-        "targetForegroundSize": 360,
-        "transparentCorners": true,
-        "singleConnectedSubject": true,
-        "reviewedAt": "2026-08-19"
-      },
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/7/70/Master_Diabolos_Bey.jpg/revision/latest?cb=20191212193511",
-      "checkedAt": "2026-08-19",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Master_Diabolos_Generate",
-      "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:Master_Diabolos_Bey.jpg",
-      "mediawikiSha1": "9f51d4938ce531c8fce8e7fb97db0fd9aaa96111",
-      "sourceDimensions": [
-        1074,
-        1039
-      ],
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "processingClass": "direct",
-      "searchAudit": {
-        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
-        "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B_155.png",
-        "officialOutcome": "checked; no safer isolated exact-combination source selected",
-        "databaseOutcome": "exact title and assembled top-view gallery image selected",
-        "shopOutcome": "not needed"
-      }
-    },
-    {
       "id": "BEY-BURST-B-156-01-NAKED-SPRIGGAN-PR-OM-TEN",
       "image": "assets/images/burst/beys/bey-burst-b-156-01-naked-spriggan-pr-om-ten/bey-burst-b-156-01-naked-spriggan-pr-om-ten.webp",
       "sourceKind": "verified-database",
@@ -5905,53 +5600,6 @@
       }
     },
     {
-      "id": "BEY-BURST-B-157-BIGBANG-GENESIS-0-YM",
-      "image": "assets/images/burst/beys/bey-burst-b-157-bigbang-genesis-0-ym/bey-burst-b-157-bigbang-genesis-0-ym.webp",
-      "sourceKind": "verified-database",
-      "sourceSha256": "f4fc97a8911895f3bcd9e0bf9ef73de193975cc270881ec7a3e3d60bc4609190",
-      "outputSha256": "87fa2cd5570527e7658f344cc4060f888b66fedcc216014dc1489327b7683c7d",
-      "sourceTitle": "File:Big Bang Genesis Bey.jpg",
-      "productNo": "B-157",
-      "combination": "Bigbang Genesis.0.Ym",
-      "backgroundRemoval": "connected-light-background",
-      "normalizedForegroundBox": [
-        44,
-        48,
-        404,
-        400
-      ],
-      "alphaReview": {
-        "canvasSize": [
-          448,
-          448
-        ],
-        "targetForegroundSize": 360,
-        "transparentCorners": true,
-        "singleConnectedSubject": true,
-        "reviewedAt": "2026-08-19"
-      },
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/d/d9/Big_Bang_Genesis_Bey.jpg/revision/latest?cb=20200114172916",
-      "checkedAt": "2026-08-19",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Bigbang_Genesis_0_Yard_Metal",
-      "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:Big_Bang_Genesis_Bey.jpg",
-      "mediawikiSha1": "cb5f59d0cee67c6171bcd54650176e59428c49fc",
-      "sourceDimensions": [
-        1100,
-        1100
-      ],
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "processingClass": "direct",
-      "searchAudit": {
-        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
-        "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B_157.png",
-        "officialOutcome": "checked; no safer isolated exact-combination source selected",
-        "databaseOutcome": "exact title and assembled top-view gallery image selected",
-        "shopOutcome": "not needed"
-      }
-    },
-    {
       "id": "BEY-BURST-B-158-01-BURN-PHOENIX-Y-WD",
       "image": "assets/images/burst/beys/bey-burst-b-158-01-burn-phoenix-y-wd/bey-burst-b-158-01-burn-phoenix-y-wd.webp",
       "sourceKind": "verified-database",
@@ -5984,288 +5632,6 @@
         "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B_158.png",
         "officialOutcome": "checked; no safer isolated exact-combination source selected",
         "databaseOutcome": "exact title and assembled top-view page image selected",
-        "shopOutcome": "not needed"
-      }
-    },
-    {
-      "id": "BEY-BURST-B-159-SUPER-HYPERION-XC-1A",
-      "image": "assets/images/burst/beys/bey-burst-b-159-super-hyperion-xc-1a/bey-burst-b-159-super-hyperion-xc-1a.webp",
-      "sourceKind": "verified-database",
-      "sourceSha256": "d9627ab56d510adcdc282d046c44ec8cdd90652509a3fc1becb0ad1660b7acae",
-      "outputSha256": "49ce71785b7962d1ff9c94b67aa456d0e1aa0a42b446448ad889b393b0c37757",
-      "sourceTitle": "File:Super Hyperion.jpeg",
-      "productNo": "B-159",
-      "combination": "Super Hyperion.Xc 1A",
-      "backgroundRemoval": "connected-light-background",
-      "normalizedForegroundBox": [
-        49,
-        44,
-        399,
-        404
-      ],
-      "alphaReview": {
-        "canvasSize": [
-          448,
-          448
-        ],
-        "targetForegroundSize": 360,
-        "transparentCorners": true,
-        "singleConnectedSubject": true,
-        "reviewedAt": "2026-08-19"
-      },
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/f/f8/Super_Hyperion.jpeg/revision/latest?cb=20230613034222",
-      "checkedAt": "2026-08-19",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Super_Hyperion_Xceed_1A",
-      "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:Super_Hyperion.jpeg",
-      "mediawikiSha1": "95c87290ee37b7d30caa428f7b1af2e51fa3d590",
-      "sourceDimensions": [
-        825,
-        848
-      ],
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "processingClass": "direct",
-      "searchAudit": {
-        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
-        "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B-159.png",
-        "officialOutcome": "checked; no safer isolated exact-combination source selected",
-        "databaseOutcome": "exact title and assembled top-view gallery image selected",
-        "shopOutcome": "not needed"
-      }
-    },
-    {
-      "id": "BEY-BURST-B-160-KING-HELIOS-ZN-1B",
-      "image": "assets/images/burst/beys/bey-burst-b-160-king-helios-zn-1b/bey-burst-b-160-king-helios-zn-1b.webp",
-      "sourceKind": "verified-database",
-      "sourceSha256": "4b22ccdbe0f0d3e8c4971aff5cf8264c1781028332b018ab94392c57686355b2",
-      "outputSha256": "7c73a34741043a711da345d52368579a9f9383a1a4707bf164be9a075253038c",
-      "sourceTitle": "File:King Helios Bey 1.jpg",
-      "productNo": "B-160",
-      "combination": "King Helios.Zn 1B",
-      "backgroundRemoval": "connected-light-background",
-      "normalizedForegroundBox": [
-        46,
-        44,
-        401,
-        404
-      ],
-      "alphaReview": {
-        "canvasSize": [
-          448,
-          448
-        ],
-        "targetForegroundSize": 360,
-        "transparentCorners": true,
-        "singleConnectedSubject": true,
-        "reviewedAt": "2026-08-19"
-      },
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/9/93/King_Helios_Bey_1.jpg/revision/latest?cb=20200313183349",
-      "checkedAt": "2026-08-19",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/King_Helios_Zone_1B",
-      "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:King_Helios_Bey_1.jpg",
-      "mediawikiSha1": "8074f7e151e12e1c019e0a3c6b79c3138fa560eb",
-      "sourceDimensions": [
-        1100,
-        1100
-      ],
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "processingClass": "direct",
-      "searchAudit": {
-        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
-        "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B-160.png",
-        "officialOutcome": "checked; no safer isolated exact-combination source selected",
-        "databaseOutcome": "exact title and assembled top-view gallery image selected",
-        "shopOutcome": "not needed"
-      }
-    },
-    {
-      "id": "BEY-BURST-B-161-GLIDE-RAGNARUK-WH-R-1S",
-      "image": "assets/images/burst/beys/bey-burst-b-161-glide-ragnaruk-wh-r-1s/bey-burst-b-161-glide-ragnaruk-wh-r-1s.webp",
-      "sourceKind": "verified-database",
-      "sourceSha256": "24bfc6a375b12f3a65e05c2ba069657c1ffd354a33099ee03b3be0bc9abdda56",
-      "outputSha256": "8b8939f705c2a8e8ad5e1f81f0491222ce979ac4089514a1aa2aeac4f12964b1",
-      "sourceTitle": "File:Glide Ragnaruk Bey 1.jpg",
-      "productNo": "B-161",
-      "combination": "Glide Ragnaruk.Wh.R 1S",
-      "backgroundRemoval": "connected-light-background",
-      "normalizedForegroundBox": [
-        44,
-        49,
-        404,
-        398
-      ],
-      "alphaReview": {
-        "canvasSize": [
-          448,
-          448
-        ],
-        "targetForegroundSize": 360,
-        "transparentCorners": true,
-        "singleConnectedSubject": true,
-        "reviewedAt": "2026-08-19"
-      },
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/f/fd/Glide_Ragnaruk_Bey_1.jpg/revision/latest?cb=20200313191149",
-      "checkedAt": "2026-08-19",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Glide_Ragnaruk_Wheel_Revolve_1S",
-      "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:Glide_Ragnaruk_Bey_1.jpg",
-      "mediawikiSha1": "c1a4d45e9b978d6315cd6c45d7220244aea9c60e",
-      "sourceDimensions": [
-        1100,
-        1100
-      ],
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "processingClass": "direct",
-      "searchAudit": {
-        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
-        "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B-161.png",
-        "officialOutcome": "checked; no safer isolated exact-combination source selected",
-        "databaseOutcome": "exact title and assembled top-view gallery image selected",
-        "shopOutcome": "not needed"
-      }
-    },
-    {
-      "id": "BEY-BURST-B-162-KING-HELIOS-ZN-1B",
-      "image": "assets/images/burst/beys/bey-burst-b-162-king-helios-zn-1b/bey-burst-b-162-king-helios-zn-1b.webp",
-      "sourceKind": "verified-database",
-      "sourceSha256": "4925c28ed65e562c1952f944f3c68e2f220a255e7cf6c8f33058ff6f72dc3603",
-      "outputSha256": "b18346198ba9f1dfc1e663b7e31d673efdba5f9f84c14d3518f73daa2fa780e2",
-      "sourceTitle": "File:King Helios (B-162).jpg",
-      "productNo": "B-162",
-      "combination": "King Helios.Zn 1B",
-      "backgroundRemoval": "connected-light-background",
-      "normalizedForegroundBox": [
-        44,
-        48,
-        404,
-        400
-      ],
-      "alphaReview": {
-        "canvasSize": [
-          448,
-          448
-        ],
-        "targetForegroundSize": 360,
-        "transparentCorners": true,
-        "singleConnectedSubject": true,
-        "reviewedAt": "2026-08-19"
-      },
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/b/b0/King_Helios_%28B-162%29.jpg/revision/latest?cb=20200313192203",
-      "checkedAt": "2026-08-19",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/King_Helios_Zone_1B",
-      "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:King_Helios_(B-162).jpg",
-      "mediawikiSha1": "27af0cb6ce2b0b1243f45b961213289b5d13027a",
-      "sourceDimensions": [
-        1100,
-        1100
-      ],
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "processingClass": "direct",
-      "searchAudit": {
-        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
-        "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B-162.png",
-        "officialOutcome": "checked; no safer isolated exact-combination source selected",
-        "databaseOutcome": "exact title and assembled top-view gallery image selected",
-        "shopOutcome": "not needed"
-      }
-    },
-    {
-      "id": "BEY-BURST-B-162-SUPER-HYPERION-XC-1A",
-      "image": "assets/images/burst/beys/bey-burst-b-162-super-hyperion-xc-1a/bey-burst-b-162-super-hyperion-xc-1a.webp",
-      "sourceKind": "verified-database",
-      "sourceSha256": "bf72c1fe577e5e1e9a60ed70bfa56c69648c965de2d87a00d9f87746da5694b7",
-      "outputSha256": "8f33985af4ee305b6021ce332a3aa509c32304473420f830369544da5c50c2fd",
-      "sourceTitle": "File:Super Hyperion (B-162).jpg",
-      "productNo": "B-162",
-      "combination": "Super Hyperion.Xc 1A",
-      "backgroundRemoval": "connected-light-background",
-      "normalizedForegroundBox": [
-        45,
-        44,
-        403,
-        404
-      ],
-      "alphaReview": {
-        "canvasSize": [
-          448,
-          448
-        ],
-        "targetForegroundSize": 360,
-        "transparentCorners": true,
-        "singleConnectedSubject": true,
-        "reviewedAt": "2026-08-19"
-      },
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/1/10/Super_Hyperion_%28B-162%29.jpg/revision/latest?cb=20200313192204",
-      "checkedAt": "2026-08-19",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Super_Hyperion_Xceed_1A",
-      "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:Super_Hyperion_(B-162).jpg",
-      "mediawikiSha1": "8bc9ec1bab7490460d5e198d79ba9c08acac99cb",
-      "sourceDimensions": [
-        1100,
-        1100
-      ],
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "processingClass": "direct",
-      "searchAudit": {
-        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
-        "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B-162.png",
-        "officialOutcome": "checked; no safer isolated exact-combination source selected",
-        "databaseOutcome": "exact title and assembled top-view gallery image selected",
-        "shopOutcome": "not needed"
-      }
-    },
-    {
-      "id": "BEY-BURST-B-163-BRAVE-VALKYRIE-EV-DASH-2A",
-      "image": "assets/images/burst/beys/bey-burst-b-163-brave-valkyrie-ev-dash-2a/bey-burst-b-163-brave-valkyrie-ev-dash-2a.webp",
-      "sourceKind": "verified-database",
-      "sourceSha256": "3edf3d25164667778d3334d06d8bacb7dfa5289d4be7cde52a2690e159b7026c",
-      "outputSha256": "6397e71b1eb23fc97022fd4e6c7b9f8b51a641ad4146f316d4c45b13a1d727a5",
-      "sourceTitle": "File:BBSK-BrVEv'2A.jpg",
-      "productNo": "B-163",
-      "combination": "Brave Valkyrie.Ev' 2A",
-      "backgroundRemoval": "connected-light-background",
-      "normalizedForegroundBox": [
-        44,
-        51,
-        404,
-        396
-      ],
-      "alphaReview": {
-        "canvasSize": [
-          448,
-          448
-        ],
-        "targetForegroundSize": 360,
-        "transparentCorners": true,
-        "singleConnectedSubject": true,
-        "reviewedAt": "2026-08-19"
-      },
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/f/f3/BBSK-BrVEv%272A.jpg/revision/latest?cb=20200414161602",
-      "checkedAt": "2026-08-19",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Brave_Valkyrie_Evolution%27_2A",
-      "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:BBSK-BrVEv'2A.jpg",
-      "mediawikiSha1": "872d24056040cb200c3ee900b606ef5384369c2f",
-      "sourceDimensions": [
-        1100,
-        1100
-      ],
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "processingClass": "direct",
-      "searchAudit": {
-        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
-        "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B-163.png",
-        "officialOutcome": "checked; no safer isolated exact-combination source selected",
-        "databaseOutcome": "exact title and assembled top-view gallery image selected",
         "shopOutcome": "not needed"
       }
     },
@@ -6518,100 +5884,6 @@
         "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B-164.png",
         "officialOutcome": "checked; no safer isolated exact-combination source selected",
         "databaseOutcome": "exact title and assembled top-view page image selected",
-        "shopOutcome": "not needed"
-      }
-    },
-    {
-      "id": "BEY-BURST-B-167-MIRAGE-FAFNIR-NT-2S",
-      "image": "assets/images/burst/beys/bey-burst-b-167-mirage-fafnir-nt-2s/bey-burst-b-167-mirage-fafnir-nt-2s.webp",
-      "sourceKind": "verified-database",
-      "sourceSha256": "c19eeab038d012f73efa26c1e0fb70f7301b7053e951de9ff58b08d42162d8af",
-      "outputSha256": "4101ec9365f1f758a4d3ce1ba12f4f03aba78eb2a8877e21931e678af82d0e10",
-      "sourceTitle": "File:BBSK-MFNT2S 1.jpg",
-      "productNo": "B-167",
-      "combination": "Mirage Fafnir.Nt 2S",
-      "backgroundRemoval": "connected-light-background",
-      "normalizedForegroundBox": [
-        44,
-        45,
-        404,
-        402
-      ],
-      "alphaReview": {
-        "canvasSize": [
-          448,
-          448
-        ],
-        "targetForegroundSize": 360,
-        "transparentCorners": true,
-        "singleConnectedSubject": true,
-        "reviewedAt": "2026-08-19"
-      },
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/0/09/BBSK-MFNT2S_1.jpg/revision/latest?cb=20200514165642",
-      "checkedAt": "2026-08-19",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Mirage_Fafnir_Nothing_2S",
-      "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:BBSK-MFNT2S_1.jpg",
-      "mediawikiSha1": "eab1bc7b7d789a7e183f2231cf3b8afefbcefab1",
-      "sourceDimensions": [
-        1100,
-        1100
-      ],
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "processingClass": "direct",
-      "searchAudit": {
-        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
-        "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B-167.png",
-        "officialOutcome": "checked; no safer isolated exact-combination source selected",
-        "databaseOutcome": "exact title and assembled top-view gallery image selected",
-        "shopOutcome": "not needed"
-      }
-    },
-    {
-      "id": "BEY-BURST-B-168-RAGE-LONGINUS-DS-DASH-3A",
-      "image": "assets/images/burst/beys/bey-burst-b-168-rage-longinus-ds-dash-3a/bey-burst-b-168-rage-longinus-ds-dash-3a.webp",
-      "sourceKind": "verified-database",
-      "sourceSha256": "e5cefc292bb42d450f3773f41babd00ebc1ed9b362d83ded06599fc320e3b133",
-      "outputSha256": "d776602fdf5020c582dfbc321367a3e36daafcdf91286a89bb042b691bf36488",
-      "sourceTitle": "File:BBSK-RLDS'3A 1.jpg",
-      "productNo": "B-168",
-      "combination": "Rage Longinus.Ds' 3A",
-      "backgroundRemoval": "connected-light-background",
-      "normalizedForegroundBox": [
-        64,
-        44,
-        384,
-        404
-      ],
-      "alphaReview": {
-        "canvasSize": [
-          448,
-          448
-        ],
-        "targetForegroundSize": 360,
-        "transparentCorners": true,
-        "singleConnectedSubject": true,
-        "reviewedAt": "2026-08-19"
-      },
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/6/67/BBSK-RLDS%273A_1.jpg/revision/latest?cb=20200514165756",
-      "checkedAt": "2026-08-19",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Rage_Longinus_Destroy%27_3A",
-      "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:BBSK-RLDS'3A_1.jpg",
-      "mediawikiSha1": "685c36a43c256d4aadb0313f9feb12baa5ddb46c",
-      "sourceDimensions": [
-        1100,
-        1100
-      ],
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "processingClass": "direct",
-      "searchAudit": {
-        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
-        "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B-168.png",
-        "officialOutcome": "checked; no safer isolated exact-combination source selected",
-        "databaseOutcome": "exact title and assembled top-view gallery image selected",
         "shopOutcome": "not needed"
       }
     },
@@ -7041,53 +6313,6 @@
       }
     },
     {
-      "id": "BEY-BURST-B-172-WORLD-SPRIGGAN-U-DASH-2B",
-      "image": "assets/images/burst/beys/bey-burst-b-172-world-spriggan-u-dash-2b/bey-burst-b-172-world-spriggan-u-dash-2b.webp",
-      "sourceKind": "verified-database",
-      "sourceSha256": "1d996f15bab373e32af22a9e5916296b410bfab46f33d52062f4d3d9af838055",
-      "outputSha256": "7232a72e2978ccb3b943941867072169cebcecc2682ec238550d85f16538347c",
-      "sourceTitle": "File:World Spriggan Bey 1.jpg",
-      "productNo": "B-172",
-      "combination": "World Spriggan.U' 2B",
-      "backgroundRemoval": "connected-light-background",
-      "normalizedForegroundBox": [
-        44,
-        44,
-        404,
-        403
-      ],
-      "alphaReview": {
-        "canvasSize": [
-          448,
-          448
-        ],
-        "targetForegroundSize": 360,
-        "transparentCorners": true,
-        "singleConnectedSubject": true,
-        "reviewedAt": "2026-08-19"
-      },
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/3/3e/World_Spriggan_Bey_1.jpg/revision/latest?cb=20200811151938",
-      "checkedAt": "2026-08-19",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/World_Spriggan_Unite%27_2B",
-      "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:World_Spriggan_Bey_1.jpg",
-      "mediawikiSha1": "a8d2063b0615306d9a465eb2dde9c804a773f984",
-      "sourceDimensions": [
-        1100,
-        1100
-      ],
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "processingClass": "direct",
-      "searchAudit": {
-        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
-        "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B-172.png",
-        "officialOutcome": "checked; no safer isolated exact-combination source selected",
-        "databaseOutcome": "exact title and assembled top-view gallery image selected",
-        "shopOutcome": "not needed"
-      }
-    },
-    {
       "id": "BEY-BURST-B-173-01-INFINITE-ACHILLES-DM-DASH-1B",
       "image": "assets/images/burst/beys/bey-burst-b-173-01-infinite-achilles-dm-dash-1b/bey-burst-b-173-01-infinite-achilles-dm-dash-1b.webp",
       "sourceKind": "local",
@@ -7414,53 +6639,6 @@
       "searchAudit": {
         "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
         "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B-173.png",
-        "officialOutcome": "checked; no safer isolated exact-combination source selected",
-        "databaseOutcome": "exact title and assembled top-view gallery image selected",
-        "shopOutcome": "not needed"
-      }
-    },
-    {
-      "id": "BEY-BURST-B-174-HYPERION-BURN-CHO-XC-DASH-X",
-      "image": "assets/images/burst/beys/bey-burst-b-174-hyperion-burn-cho-xc-dash-x/bey-burst-b-174-hyperion-burn-cho-xc-dash-x.webp",
-      "sourceKind": "verified-database",
-      "sourceSha256": "24c1d379246ee34f0bd869a9f3099986bc9b8a5033ddc4d8243c73119926e50b",
-      "outputSha256": "f972a9fe5b255fa4deec36f5f970afd5c3de540164dc6b8f6c1abdfb55915a76",
-      "sourceTitle": "File:BBSK-Hyperion Burn Cho Xceed' X (Activated).png",
-      "productNo": "B-174",
-      "combination": "Hyperion Burn.Cho.Xc'+X",
-      "backgroundRemoval": "connected-light-background",
-      "normalizedForegroundBox": [
-        44,
-        45,
-        404,
-        403
-      ],
-      "alphaReview": {
-        "canvasSize": [
-          448,
-          448
-        ],
-        "targetForegroundSize": 360,
-        "transparentCorners": true,
-        "singleConnectedSubject": true,
-        "reviewedAt": "2026-08-19"
-      },
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/3/31/BBSK-Hyperion_Burn_Cho_Xceed%27_X_%28Activated%29.png/revision/latest?cb=20201014193759",
-      "checkedAt": "2026-08-19",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Hyperion_Burn_Cho_Xceed%27%2BX",
-      "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:BBSK-Hyperion_Burn_Cho_Xceed'_X_(Activated).png",
-      "mediawikiSha1": "87cc413d1d443a1ca32d3eca12409c0a7833baac",
-      "sourceDimensions": [
-        1100,
-        1100
-      ],
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "processingClass": "direct",
-      "searchAudit": {
-        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
-        "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B-174.png",
         "officialOutcome": "checked; no safer isolated exact-combination source selected",
         "databaseOutcome": "exact title and assembled top-view gallery image selected",
         "shopOutcome": "not needed"
@@ -7874,53 +7052,6 @@
       }
     },
     {
-      "id": "BEY-BURST-B-178-02-KING-HELIOS-S-1B",
-      "image": "assets/images/burst/beys/bey-burst-b-178-02-king-helios-s-1b/bey-burst-b-178-02-king-helios-s-1b.webp",
-      "sourceKind": "verified-database",
-      "sourceSha256": "0b4ce6611fa504677822f61c68d2c5376233fa5c114f35e4795a7d4d679bc838",
-      "outputSha256": "ac910ce89881b954608f2f273da8aad21b1a688e9b44f354403e705c68eb04a5",
-      "sourceTitle": "File:King Helios.S.1B (B-178 02).jpg",
-      "productNo": "B-178",
-      "combination": "King Helios Survive 1B",
-      "backgroundRemoval": "connected-light-background",
-      "normalizedForegroundBox": [
-        44,
-        44,
-        404,
-        403
-      ],
-      "alphaReview": {
-        "canvasSize": [
-          448,
-          448
-        ],
-        "targetForegroundSize": 360,
-        "transparentCorners": true,
-        "singleConnectedSubject": true,
-        "reviewedAt": "2026-08-19"
-      },
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/a/aa/King_Helios.S.1B_%28B-178_02%29.jpg/revision/latest?cb=20210214173604",
-      "checkedAt": "2026-08-19",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/King_Helios_Survive_1B",
-      "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:King_Helios.S.1B_(B-178_02).jpg",
-      "mediawikiSha1": "075c9d9f10a8bc38ec75d6f5415b175d8ac802dc",
-      "sourceDimensions": [
-        1100,
-        1100
-      ],
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "processingClass": "direct",
-      "searchAudit": {
-        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
-        "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B-178.png",
-        "officialOutcome": "checked; no safer isolated exact-combination source selected",
-        "databaseOutcome": "exact title and assembled top-view gallery image selected",
-        "shopOutcome": "not needed"
-      }
-    },
-    {
       "id": "BEY-BURST-B-178-03-GLIDE-RAGNARUK-5-T-1S",
       "image": "assets/images/burst/beys/bey-burst-b-178-03-glide-ragnaruk-5-t-1s/bey-burst-b-178-03-glide-ragnaruk-5-t-1s.webp",
       "sourceKind": "verified-database",
@@ -8051,53 +7182,6 @@
       }
     },
     {
-      "id": "BEY-BURST-B-178-06-IMPERIAL-DRAGON-7-ET",
-      "image": "assets/images/burst/beys/bey-burst-b-178-06-imperial-dragon-7-et/bey-burst-b-178-06-imperial-dragon-7-et.webp",
-      "sourceKind": "verified-database",
-      "sourceSha256": "caaf709d0bb41ea8248430e1790f45ec3e6cdf3a8e1d4a26d72c97d710e4c41c",
-      "outputSha256": "c12b108764f6c3f824f37b1f21ec5647c95e9c30fc93bce3f811d8c0ea2cbe74",
-      "sourceTitle": "File:Imperial Dragon.7.Et (B-178 06).jpg",
-      "productNo": "B-178",
-      "combination": "Imperial Dragon 7 Eternal",
-      "backgroundRemoval": "connected-light-background",
-      "normalizedForegroundBox": [
-        44,
-        59,
-        404,
-        388
-      ],
-      "alphaReview": {
-        "canvasSize": [
-          448,
-          448
-        ],
-        "targetForegroundSize": 360,
-        "transparentCorners": true,
-        "singleConnectedSubject": true,
-        "reviewedAt": "2026-08-19"
-      },
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/1/1b/Imperial_Dragon.7.Et_%28B-178_06%29.jpg/revision/latest?cb=20210214173827",
-      "checkedAt": "2026-08-19",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Imperial_Dragon_7_Eternal",
-      "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:Imperial_Dragon.7.Et_(B-178_06).jpg",
-      "mediawikiSha1": "3b8912db0fc618f7e6f8ebc3cd4c200b358e974c",
-      "sourceDimensions": [
-        1100,
-        1100
-      ],
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "processingClass": "direct",
-      "searchAudit": {
-        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
-        "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B-178.png",
-        "officialOutcome": "checked; no safer isolated exact-combination source selected",
-        "databaseOutcome": "exact title and assembled top-view gallery image selected",
-        "shopOutcome": "not needed"
-      }
-    },
-    {
       "id": "BEY-BURST-B-178-07-MASTER-DIABOLOS-0-Z",
       "image": "assets/images/burst/beys/bey-burst-b-178-07-master-diabolos-0-z/bey-burst-b-178-07-master-diabolos-0-z.webp",
       "sourceKind": "local",
@@ -8175,53 +7259,6 @@
       "searchAudit": {
         "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
         "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B-178.png",
-        "officialOutcome": "checked; no safer isolated exact-combination source selected",
-        "databaseOutcome": "exact title and assembled top-view gallery image selected",
-        "shopOutcome": "not needed"
-      }
-    },
-    {
-      "id": "BEY-BURST-B-179-DEATH-SOLOMON-MF-2B",
-      "image": "assets/images/burst/beys/bey-burst-b-179-death-solomon-mf-2b/bey-burst-b-179-death-solomon-mf-2b.webp",
-      "sourceKind": "verified-database",
-      "sourceSha256": "3c1a563137500b6ba3338c219b5ba3b039c8637f8261ce8d29f41722c39cd85e",
-      "outputSha256": "e48aa3a858e6cfe4a6c95ec143319abd881b62eb1bcee092951ccedc1846cbdb",
-      "sourceTitle": "File:BBSK-Death Solomon Metal Fusion 2B 1.jpg",
-      "productNo": "B-179",
-      "combination": "Death Solomon.MF 2B",
-      "backgroundRemoval": "connected-light-background",
-      "normalizedForegroundBox": [
-        45,
-        44,
-        402,
-        404
-      ],
-      "alphaReview": {
-        "canvasSize": [
-          448,
-          448
-        ],
-        "targetForegroundSize": 360,
-        "transparentCorners": true,
-        "singleConnectedSubject": true,
-        "reviewedAt": "2026-08-19"
-      },
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/6/6a/BBSK-Death_Solomon_Metal_Fusion_2B_1.jpg/revision/latest?cb=20210214180202",
-      "checkedAt": "2026-08-19",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Death_Solomon_Metal_Fusion_2B",
-      "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:BBSK-Death_Solomon_Metal_Fusion_2B_1.jpg",
-      "mediawikiSha1": "ef2077810457a3c3d63af8dee41a3bdcf24fd9b2",
-      "sourceDimensions": [
-        1100,
-        1100
-      ],
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "processingClass": "direct",
-      "searchAudit": {
-        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
-        "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B-179.png",
         "officialOutcome": "checked; no safer isolated exact-combination source selected",
         "databaseOutcome": "exact title and assembled top-view gallery image selected",
         "shopOutcome": "not needed"
@@ -8348,100 +7385,6 @@
       "reusedFrom": "BEY-BURST-B-182-DYNAMITE-BELIAL-NX-VN-2"
     },
     {
-      "id": "BEY-BURST-B-181-01-CYCLONE-RAGNARUK-GG-NV-6",
-      "image": "assets/images/burst/beys/bey-burst-b-181-01-cyclone-ragnaruk-gg-nv-6/bey-burst-b-181-01-cyclone-ragnaruk-gg-nv-6.webp",
-      "sourceKind": "verified-database",
-      "sourceSha256": "e059b0cf5f1b9e493f43cec3fc37d1758b5c924a038631baa623e83721152d47",
-      "outputSha256": "97d1462fbcc32399cb3c00581a2e3aaded45fc13ff63fa1470ced4aad1709af7",
-      "sourceTitle": "File:BBDB-Cyclone Ragnaruk Giga Never-6.jpg",
-      "productNo": "B-181",
-      "combination": "Cyclone Ragnaruk Giga Never-6",
-      "backgroundRemoval": "connected-light-background",
-      "normalizedForegroundBox": [
-        44,
-        49,
-        404,
-        399
-      ],
-      "alphaReview": {
-        "canvasSize": [
-          448,
-          448
-        ],
-        "targetForegroundSize": 360,
-        "transparentCorners": true,
-        "singleConnectedSubject": true,
-        "reviewedAt": "2026-08-19"
-      },
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/d/d6/BBDB-Cyclone_Ragnaruk_Giga_Never-6.jpg/revision/latest?cb=20210314175418",
-      "checkedAt": "2026-08-19",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Cyclone_Ragnaruk_Giga_Never-6",
-      "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:BBDB-Cyclone_Ragnaruk_Giga_Never-6.jpg",
-      "mediawikiSha1": "3cbd49a479acce5489a7b556cb57907f556f8b71",
-      "sourceDimensions": [
-        1100,
-        1100
-      ],
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "processingClass": "direct",
-      "searchAudit": {
-        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
-        "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B-181.png",
-        "officialOutcome": "checked; no safer isolated exact-combination source selected",
-        "databaseOutcome": "exact title and assembled top-view gallery image selected",
-        "shopOutcome": "not needed"
-      }
-    },
-    {
-      "id": "BEY-BURST-B-181-02-CYCLONE-RAGNARUK-NX-RS-2",
-      "image": "assets/images/burst/beys/bey-burst-b-181-02-cyclone-ragnaruk-nx-rs-2/bey-burst-b-181-02-cyclone-ragnaruk-nx-rs-2.webp",
-      "sourceKind": "verified-database",
-      "sourceSha256": "1f90921f94a93c22b7b9029f38f260a9aca55e1601724b0d6eaf1c6db46b1b77",
-      "outputSha256": "6ff1521a9eb910309064a9727726bb15bd81c71d884f496f313d4bbb5b98fd6c",
-      "sourceTitle": "File:Cyclone Ragnaruk.Nx.Rs-2 (B-181 02).jpg",
-      "productNo": "B-181",
-      "combination": "Cyclone Ragnaruk Nexus Rise-2",
-      "backgroundRemoval": "connected-light-background",
-      "normalizedForegroundBox": [
-        44,
-        48,
-        404,
-        399
-      ],
-      "alphaReview": {
-        "canvasSize": [
-          448,
-          448
-        ],
-        "targetForegroundSize": 360,
-        "transparentCorners": true,
-        "singleConnectedSubject": true,
-        "reviewedAt": "2026-08-19"
-      },
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/5/5d/Cyclone_Ragnaruk.Nx.Rs-2_%28B-181_02%29.jpg/revision/latest?cb=20210314175427",
-      "checkedAt": "2026-08-19",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Cyclone_Ragnaruk_Nexus_Rise-2",
-      "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:Cyclone_Ragnaruk.Nx.Rs-2_(B-181_02).jpg",
-      "mediawikiSha1": "7f238b4b87b97034186334b2d04983d4ffb7f368",
-      "sourceDimensions": [
-        1100,
-        1100
-      ],
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "processingClass": "direct",
-      "searchAudit": {
-        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
-        "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B-181.png",
-        "officialOutcome": "checked; no safer isolated exact-combination source selected",
-        "databaseOutcome": "exact title and assembled top-view gallery image selected",
-        "shopOutcome": "not needed"
-      }
-    },
-    {
       "id": "BEY-BURST-B-181-03-DRAGOON-V2-WH-XC-DASH",
       "image": "assets/images/burst/beys/bey-burst-b-181-03-dragoon-v2-wh-xc-dash/bey-burst-b-181-03-dragoon-v2-wh-xc-dash.webp",
       "sourceKind": "local",
@@ -8510,53 +7453,6 @@
         "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B-181.png",
         "officialOutcome": "local exact-combination source selected before web fallback",
         "databaseOutcome": "not needed",
-        "shopOutcome": "not needed"
-      }
-    },
-    {
-      "id": "BEY-BURST-B-181-05-INFINITE-DEATHSCYTHER-UN-1A",
-      "image": "assets/images/burst/beys/bey-burst-b-181-05-infinite-deathscyther-un-1a/bey-burst-b-181-05-infinite-deathscyther-un-1a.webp",
-      "sourceKind": "verified-database",
-      "sourceSha256": "73e6b7654773ead460cbb5e295ccbc59841f3371521cbe3346a00a75de8e91a4",
-      "outputSha256": "897b322eef53f70a65dfaa7ecce68a2d1229c522d55e85eb5cfe91c83552cb0e",
-      "sourceTitle": "File:Infinite Deathscyther.Un.1A (B-181 05).jpg",
-      "productNo": "B-181",
-      "combination": "Infinite Deathscyther Universe 1A",
-      "backgroundRemoval": "connected-light-background",
-      "normalizedForegroundBox": [
-        44,
-        47,
-        404,
-        401
-      ],
-      "alphaReview": {
-        "canvasSize": [
-          448,
-          448
-        ],
-        "targetForegroundSize": 360,
-        "transparentCorners": true,
-        "singleConnectedSubject": true,
-        "reviewedAt": "2026-08-19"
-      },
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/e/e0/Infinite_Deathscyther.Un.1A_%28B-181_05%29.jpg/revision/latest?cb=20210314175737",
-      "checkedAt": "2026-08-19",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Infinite_Deathscyther_Universe_1A",
-      "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:Infinite_Deathscyther.Un.1A_(B-181_05).jpg",
-      "mediawikiSha1": "3a9978a43ef15954a5f7f9b33a33346c761475ee",
-      "sourceDimensions": [
-        1100,
-        1100
-      ],
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "processingClass": "direct",
-      "searchAudit": {
-        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
-        "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B-181.png",
-        "officialOutcome": "checked; no safer isolated exact-combination source selected",
-        "databaseOutcome": "exact title and assembled top-view gallery image selected",
         "shopOutcome": "not needed"
       }
     },
@@ -8691,53 +7587,6 @@
       }
     },
     {
-      "id": "BEY-BURST-B-186-02-ROAR-FAFNIR-00-R-2",
-      "image": "assets/images/burst/beys/bey-burst-b-186-02-roar-fafnir-00-r-2/bey-burst-b-186-02-roar-fafnir-00-r-2.webp",
-      "sourceKind": "verified-database",
-      "sourceSha256": "5dd80225c4dd4571ee229e197347f11295dbc37b882857976adc8e45696b548e",
-      "outputSha256": "ac33b649ac2453ffc237fca96341aefaea2eaceb877dc9ed376557939982ab27",
-      "sourceTitle": "File:Roar Fafnir.00.R-2 (B-186 02).jpg",
-      "productNo": "B-186",
-      "combination": "Roar Fafnir 00 Revolve-2",
-      "backgroundRemoval": "connected-light-background",
-      "normalizedForegroundBox": [
-        46,
-        44,
-        402,
-        404
-      ],
-      "alphaReview": {
-        "canvasSize": [
-          448,
-          448
-        ],
-        "targetForegroundSize": 360,
-        "transparentCorners": true,
-        "singleConnectedSubject": true,
-        "reviewedAt": "2026-08-19"
-      },
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/8/81/Roar_Fafnir.00.R-2_%28B-186_02%29.jpg/revision/latest?cb=20210614155623",
-      "checkedAt": "2026-08-19",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Roar_Fafnir_00_Revolve-2",
-      "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:Roar_Fafnir.00.R-2_(B-186_02).jpg",
-      "mediawikiSha1": "f60abbc8411e4025ed74d7607475392b72b16d86",
-      "sourceDimensions": [
-        1100,
-        1100
-      ],
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "processingClass": "direct",
-      "searchAudit": {
-        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
-        "officialProductImage": null,
-        "officialOutcome": "checked; no safer isolated exact-combination source selected",
-        "databaseOutcome": "exact title and assembled top-view gallery image selected",
-        "shopOutcome": "not needed"
-      }
-    },
-    {
       "id": "BEY-BURST-B-186-03-DRANZER-V2-0-C-RB-DASH",
       "image": "assets/images/burst/beys/bey-burst-b-186-03-dranzer-v2-0-c-rb-dash/bey-burst-b-186-03-dranzer-v2-0-c-rb-dash.webp",
       "sourceKind": "local",
@@ -8810,53 +7659,6 @@
       }
     },
     {
-      "id": "BEY-BURST-B-186-05-WORLD-DRAGON-OUTER-MM-4A",
-      "image": "assets/images/burst/beys/bey-burst-b-186-05-world-dragon-outer-mm-4a/bey-burst-b-186-05-world-dragon-outer-mm-4a.webp",
-      "sourceKind": "verified-database",
-      "sourceSha256": "d82ecf89f69635773d6b2615747ab936c0fe864e990e780ed101e43aa37f8f01",
-      "outputSha256": "bd9b57e45ad7584c4cd2cb230cd2f9c14b307280449db45beb861e1645fa1ec3",
-      "sourceTitle": "File:World Dragon.Ω.Mm.4A (B-186 05).jpg",
-      "productNo": "B-186",
-      "combination": "World Dragon Outer Moment 4A",
-      "backgroundRemoval": "connected-light-background",
-      "normalizedForegroundBox": [
-        44,
-        47,
-        404,
-        401
-      ],
-      "alphaReview": {
-        "canvasSize": [
-          448,
-          448
-        ],
-        "targetForegroundSize": 360,
-        "transparentCorners": true,
-        "singleConnectedSubject": true,
-        "reviewedAt": "2026-08-19"
-      },
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/e/ef/World_Dragon.%CE%A9.Mm.4A_%28B-186_05%29.jpg/revision/latest?cb=20210614155956",
-      "checkedAt": "2026-08-19",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/World_Dragon_Outer_Moment_4A",
-      "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:World_Dragon.Ω.Mm.4A_(B-186_05).jpg",
-      "mediawikiSha1": "f2935e6a4fb7215acc9faf438246d0c0554114cc",
-      "sourceDimensions": [
-        1100,
-        1100
-      ],
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "processingClass": "direct",
-      "searchAudit": {
-        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
-        "officialProductImage": null,
-        "officialOutcome": "checked; no safer isolated exact-combination source selected",
-        "databaseOutcome": "exact title and assembled top-view gallery image selected",
-        "shopOutcome": "not needed"
-      }
-    },
-    {
       "id": "BEY-BURST-B-186-06-VARIANT-SPRIGGAN-CN-HH-DASH-1S",
       "image": "assets/images/burst/beys/bey-burst-b-186-06-variant-spriggan-cn-hh-dash-1s/bey-burst-b-186-06-variant-spriggan-cn-hh-dash-1s.webp",
       "sourceKind": "verified-database",
@@ -8887,53 +7689,6 @@
       "fandomPageUrl": "https://beyblade.fandom.com/wiki/Variant_Spriggan_Convert_High_Hold%27_1S",
       "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:Variant_Spriggan.Cn.HH'.1S_(B-186_06).jpg",
       "mediawikiSha1": "85ccd448775732a1b90adeb2170e8986f9c365a5",
-      "sourceDimensions": [
-        1100,
-        1100
-      ],
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "processingClass": "direct",
-      "searchAudit": {
-        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
-        "officialProductImage": null,
-        "officialOutcome": "checked; no safer isolated exact-combination source selected",
-        "databaseOutcome": "exact title and assembled top-view gallery image selected",
-        "shopOutcome": "not needed"
-      }
-    },
-    {
-      "id": "BEY-BURST-B-187-SAVIOR-VALKYRIE-SH-7",
-      "image": "assets/images/burst/beys/bey-burst-b-187-savior-valkyrie-sh-7/bey-burst-b-187-savior-valkyrie-sh-7.webp",
-      "sourceKind": "verified-database",
-      "sourceSha256": "2ae001365d920bee0176b390e2365eda34dfac11edc90e83bf9c245e50fa5183",
-      "outputSha256": "d5f97f933aa57b60d5c63963c6cf10c526c9a586c195d290100cb54ee392e4c6",
-      "sourceTitle": "File:BBDB-Savior Valkyrie Shot-7 (Low Mode).png",
-      "productNo": "B-187",
-      "combination": "Savior Valkyrie.Sh-7",
-      "backgroundRemoval": "source-alpha",
-      "normalizedForegroundBox": [
-        44,
-        46,
-        404,
-        401
-      ],
-      "alphaReview": {
-        "canvasSize": [
-          448,
-          448
-        ],
-        "targetForegroundSize": 360,
-        "transparentCorners": true,
-        "singleConnectedSubject": true,
-        "reviewedAt": "2026-08-19"
-      },
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/a/aa/BBDB-Savior_Valkyrie_Shot-7_%28Low_Mode%29.png/revision/latest?cb=20230513052847",
-      "checkedAt": "2026-08-19",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Savior_Valkyrie_Shot-7",
-      "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:BBDB-Savior_Valkyrie_Shot-7_(Low_Mode).png",
-      "mediawikiSha1": "8fa19278069c9d69ffb2a00966dcb14b463cf035",
       "sourceDimensions": [
         1100,
         1100
@@ -8992,53 +7747,6 @@
       "searchAudit": {
         "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
         "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B-188.png",
-        "officialOutcome": "checked; no safer isolated exact-combination source selected",
-        "databaseOutcome": "exact title and assembled top-view gallery image selected",
-        "shopOutcome": "not needed"
-      }
-    },
-    {
-      "id": "BEY-BURST-B-189-GUILTY-LONGINUS-KR-MDS-2",
-      "image": "assets/images/burst/beys/bey-burst-b-189-guilty-longinus-kr-mds-2/bey-burst-b-189-guilty-longinus-kr-mds-2.webp",
-      "sourceKind": "verified-database",
-      "sourceSha256": "dd04fe05c3995273916d0dbe1d65ea4146ad54afee7ca184fa69b9470f34e18c",
-      "outputSha256": "9e62d08dc75bfafcdc3423803cab95f054292f430a01a8127e95d31f54e708d6",
-      "sourceTitle": "File:BBDB-Guilty Longinus Karma Metal Destroy-2 (Low Mode).png",
-      "productNo": "B-189",
-      "combination": "Guilty Longinus.Kr.MDs-2",
-      "backgroundRemoval": "source-alpha",
-      "normalizedForegroundBox": [
-        44,
-        45,
-        404,
-        402
-      ],
-      "alphaReview": {
-        "canvasSize": [
-          448,
-          448
-        ],
-        "targetForegroundSize": 360,
-        "transparentCorners": true,
-        "singleConnectedSubject": true,
-        "reviewedAt": "2026-08-19"
-      },
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/3/39/BBDB-Guilty_Longinus_Karma_Metal_Destroy-2_%28Low_Mode%29.png/revision/latest?cb=20220108222936",
-      "checkedAt": "2026-08-19",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Guilty_Longinus_Karma_Metal_Destroy-2",
-      "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:BBDB-Guilty_Longinus_Karma_Metal_Destroy-2_(Low_Mode).png",
-      "mediawikiSha1": "26b623f9f5199532e6fec960f27706ee19314cd0",
-      "sourceDimensions": [
-        1100,
-        1100
-      ],
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "processingClass": "direct",
-      "searchAudit": {
-        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
-        "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B-189.png",
         "officialOutcome": "checked; no safer isolated exact-combination source selected",
         "databaseOutcome": "exact title and assembled top-view gallery image selected",
         "shopOutcome": "not needed"
@@ -9891,53 +8599,6 @@
         "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B-198.png",
         "officialOutcome": "checked; no safer isolated exact-combination source selected",
         "databaseOutcome": "exact title and assembled top-view page image selected",
-        "shopOutcome": "not needed"
-      }
-    },
-    {
-      "id": "BEY-BURST-B-199-GATLING-DRAGON-KR-CM-DASH-10",
-      "image": "assets/images/burst/beys/bey-burst-b-199-gatling-dragon-kr-cm-dash-10/bey-burst-b-199-gatling-dragon-kr-cm-dash-10.webp",
-      "sourceKind": "verified-database",
-      "sourceSha256": "b5a092ff9e40ef6558efe93e7def2ed11f4bca37b214f6f0dce3fad4792e5f17",
-      "outputSha256": "f7b9b243989305247ea97a5f0b9685db8d91d1fa4a2a96ff8b4bf23a04494230",
-      "sourceTitle": "File:Gatling Dragon Karma Charge Metal'-10 (Low Mode - Consecutive Hit Mode; Angled View).jpeg",
-      "productNo": "B-199",
-      "combination": "Gatling Dragon.Kr.Cm'-10",
-      "backgroundRemoval": "connected-light-background",
-      "normalizedForegroundBox": [
-        54,
-        44,
-        394,
-        404
-      ],
-      "alphaReview": {
-        "canvasSize": [
-          448,
-          448
-        ],
-        "targetForegroundSize": 360,
-        "transparentCorners": true,
-        "singleConnectedSubject": true,
-        "reviewedAt": "2026-08-19"
-      },
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/6/62/Gatling_Dragon_Karma_Charge_Metal%27-10_%28Low_Mode_-_Consecutive_Hit_Mode%3B_Angled_View%29.jpeg/revision/latest?cb=20220512164109",
-      "checkedAt": "2026-08-19",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Gatling_Dragon_Karma_Charge_Metal%27-10",
-      "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:Gatling_Dragon_Karma_Charge_Metal'-10_(Low_Mode_-_Consecutive_Hit_Mode;_Angled_View).jpeg",
-      "mediawikiSha1": "fa9d5a9518f237bd1a3b6488260833227a2285f2",
-      "sourceDimensions": [
-        1100,
-        1100
-      ],
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "assembledProductReviewed": true,
-      "processingClass": "direct",
-      "searchAudit": {
-        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
-        "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B-199.png",
-        "officialOutcome": "checked; no safer isolated exact-combination source selected",
-        "databaseOutcome": "exact title and assembled top-view gallery image selected",
         "shopOutcome": "not needed"
       }
     },
@@ -14383,6 +13044,27 @@
       }
     },
     {
+      "id": "BEY-BURST-B-00-KR-BLAZE-RAGNARUK-4S-B",
+      "productNo": "B-00",
+      "combination": "Blaze Ragnaruk.4S.B",
+      "reason": "previous image failed orthographic top-view review; no verified vertical top-view replacement found",
+      "rejectedSource": {
+        "sourceKind": "verified-database",
+        "sourceTitle": "Blaze Ragnaruk.4S.B",
+        "sourceUrl": "https://beyblade.fandom.com/wiki/Blaze_Ragnaruk.4S.B",
+        "sourceSha256": "119651b0c18fc7cfb1b3b85b43ddd66b7fcf878d6c020d5a40b3923fdddb4349",
+        "outputSha256": "e5abf1adc56ad1f1a09649fe1e28e265b3db8bc7fb7466e2b0ca01591d80274b"
+      },
+      "searchAudit": {
+        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
+        "officialPartsPage": "https://beyblade.takaratomy.co.jp/burst/parts.html",
+        "officialOutcome": "no exact isolated orthographic assembled replacement retained",
+        "databaseOutcome": "Fandom page and full gallery rechecked; assembled candidates remained angled or perspective-distorted",
+        "shopOutcome": "no verified watermark-free exact orthographic source retained",
+        "checkedAt": "2026-08-19"
+      }
+    },
+    {
       "id": "BEY-BURST-B-00-WOLBORG-8-BR",
       "productNo": "B-00",
       "combination": "Wolborg.8.Br",
@@ -14421,6 +13103,31 @@
         "officialOutcome": "checked; no safe isolated exact-combination source",
         "databaseOutcome": "no exact verified assembled top-view source",
         "shopOutcome": "no verified watermark-free exact source retained",
+        "checkedAt": "2026-08-19"
+      }
+    },
+    {
+      "id": "BEY-BURST-B-111-01-CRASH-RAGNARUK-11-R-WD",
+      "productNo": "B-111",
+      "combination": "Crash Ragnaruk 11Reach Wedge",
+      "reason": "previous image failed orthographic top-view review; no verified vertical top-view replacement found",
+      "rejectedSource": {
+        "sourceKind": "verified-database",
+        "sourceTitle": "File:CR .11R.Wd.png",
+        "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/f/f1/CR_.11R.Wd.png/revision/latest?cb=20180415043010",
+        "sourceSha256": "48d24b5a2d2362ba011f617ed491381fba9da183fbd28cc748e1dbf8b6f9e83a",
+        "outputSha256": "1481c1597bbecd1116a3aa88b8ce022631c2961d7a644d32a6d269c847c8c27f",
+        "fandomPageUrl": "https://beyblade.fandom.com/wiki/Crash_Ragnaruk_11Reach_Wedge",
+        "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:CR_.11R.Wd.png",
+        "mediawikiSha1": "4f2629a0228e582e1e5899285d317931d0497d7e",
+        "processingClass": "direct"
+      },
+      "searchAudit": {
+        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
+        "officialPartsPage": "https://beyblade.takaratomy.co.jp/burst/parts.html",
+        "officialOutcome": "no exact isolated orthographic assembled replacement retained",
+        "databaseOutcome": "Fandom page and full gallery rechecked; assembled candidates remained angled or perspective-distorted",
+        "shopOutcome": "no verified watermark-free exact orthographic source retained",
         "checkedAt": "2026-08-19"
       }
     },
@@ -14509,6 +13216,31 @@
       }
     },
     {
+      "id": "BEY-BURST-B-128-ORB-EGIS-OUTER-QS",
+      "productNo": "B-128",
+      "combination": "Orb Egis.Ω.Qs",
+      "reason": "previous image failed orthographic top-view review; no verified vertical top-view replacement found",
+      "rejectedSource": {
+        "sourceKind": "verified-database",
+        "sourceTitle": "File:OE.Outer.Qs.jpg",
+        "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/9/93/OE.Outer.Qs.jpg/revision/latest?cb=20181014191012",
+        "sourceSha256": "34846009676a360a866a9a6eaa130b2236bba319f39e3ce89660ad1e46a3d7ff",
+        "outputSha256": "2e7e79debee5b97c295ff13a402e1e2f2d370e7a1337d56bd7c915e78af5fd76",
+        "fandomPageUrl": "https://beyblade.fandom.com/wiki/Orb_Egis_Outer_Quest",
+        "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:OE.Outer.Qs.jpg",
+        "mediawikiSha1": "9ca1976db0e29c56e0b2eeb205adb2af71173eff",
+        "processingClass": "direct"
+      },
+      "searchAudit": {
+        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
+        "officialPartsPage": "https://beyblade.takaratomy.co.jp/burst/parts.html",
+        "officialOutcome": "no exact isolated orthographic assembled replacement retained",
+        "databaseOutcome": "Fandom page and full gallery rechecked; assembled candidates remained angled or perspective-distorted",
+        "shopOutcome": "no verified watermark-free exact orthographic source retained",
+        "checkedAt": "2026-08-19"
+      }
+    },
+    {
       "id": "BEY-BURST-B-129-CHO-Z-ACHILLES-00-DM",
       "productNo": "B-129",
       "combination": "Cho-Z Achilles.00.Dm",
@@ -14561,6 +13293,31 @@
         "officialOutcome": "checked; no safe isolated exact-combination source",
         "databaseOutcome": "no exact verified assembled top-view source",
         "shopOutcome": "no verified watermark-free exact source retained",
+        "checkedAt": "2026-08-19"
+      }
+    },
+    {
+      "id": "BEY-BURST-B-145-VENOM-DIABOLOS-VN-BL",
+      "productNo": "B-145",
+      "combination": "Venom Diabolos.Vn.Bl",
+      "reason": "previous image failed orthographic top-view review; no verified vertical top-view replacement found",
+      "rejectedSource": {
+        "sourceKind": "verified-database",
+        "sourceTitle": "File:VD.Vn.Bl.jpg",
+        "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/d/d4/VD.Vn.Bl.jpg/revision/latest?cb=20190515192159",
+        "sourceSha256": "a539c0e02c4e3e0d0d33eb3f041499e126d5bf2865f870da1e145ce86ccd57d4",
+        "outputSha256": "3b4ab94e292639f60e5dd409aebd2b698c0de5d09a522d04a6e537bb13bfd4d9",
+        "fandomPageUrl": "https://beyblade.fandom.com/wiki/Venom_Diabolos_Vanguard_Bullet",
+        "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:VD.Vn.Bl.jpg",
+        "mediawikiSha1": "95192ce78c0205c5c8cea06b158c64d4c20cefad",
+        "processingClass": "direct"
+      },
+      "searchAudit": {
+        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
+        "officialPartsPage": "https://beyblade.takaratomy.co.jp/burst/parts.html",
+        "officialOutcome": "no exact isolated orthographic assembled replacement retained",
+        "databaseOutcome": "Fandom page and full gallery rechecked; assembled candidates remained angled or perspective-distorted",
+        "shopOutcome": "no verified watermark-free exact orthographic source retained",
         "checkedAt": "2026-08-19"
       }
     },
@@ -14663,6 +13420,77 @@
       }
     },
     {
+      "id": "BEY-BURST-B-153-REGALIA-GENESIS-HY",
+      "productNo": "B-153",
+      "combination": "Regalia Genesis.Hy",
+      "reason": "previous image failed orthographic top-view review; no verified vertical top-view replacement found",
+      "rejectedSource": {
+        "sourceKind": "verified-database",
+        "sourceTitle": "Regalia Genesis.Hy",
+        "sourceUrl": "https://beyblade.fandom.com/wiki/Regalia_Genesis.Hy",
+        "sourceSha256": "a459813e97911470626e3e2fec27c80af67533354735d0acaabc687e0e0b4ffa",
+        "outputSha256": "4f4bd84906441afd32090ec015b024145d4eda333c529f03219bec65ed8da551"
+      },
+      "searchAudit": {
+        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
+        "officialPartsPage": "https://beyblade.takaratomy.co.jp/burst/parts.html",
+        "officialOutcome": "no exact isolated orthographic assembled replacement retained",
+        "databaseOutcome": "Fandom page and full gallery rechecked; assembled candidates remained angled or perspective-distorted",
+        "shopOutcome": "no verified watermark-free exact orthographic source retained",
+        "checkedAt": "2026-08-19"
+      }
+    },
+    {
+      "id": "BEY-BURST-B-154-IMPERIAL-DRAGON-IG-DASH",
+      "productNo": "B-154",
+      "combination": "Imperial Dragon.Ig'",
+      "reason": "previous image failed orthographic top-view review; no verified vertical top-view replacement found",
+      "rejectedSource": {
+        "sourceKind": "verified-database",
+        "sourceTitle": "File:Imperial Dragon Bey.jpg",
+        "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/2/2c/Imperial_Dragon_Bey.jpg/revision/latest?cb=20191015123208",
+        "sourceSha256": "b81d04758852af951a709865f9746c7044cd09db77953844e2380365d2eb1be3",
+        "outputSha256": "7d85228f320caa6778b7c61483f8bcf65a4588e016e5104fadb446af910291d7",
+        "fandomPageUrl": "https://beyblade.fandom.com/wiki/Imperial_Dragon_Ignition%27",
+        "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:Imperial_Dragon_Bey.jpg",
+        "mediawikiSha1": "9c63f6bcad1e5f7165e5b397e35bf9d4c3b88686",
+        "processingClass": "direct"
+      },
+      "searchAudit": {
+        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
+        "officialPartsPage": "https://beyblade.takaratomy.co.jp/burst/parts.html",
+        "officialOutcome": "no exact isolated orthographic assembled replacement retained",
+        "databaseOutcome": "Fandom page and full gallery rechecked; assembled candidates remained angled or perspective-distorted",
+        "shopOutcome": "no verified watermark-free exact orthographic source retained",
+        "checkedAt": "2026-08-19"
+      }
+    },
+    {
+      "id": "BEY-BURST-B-155-MASTER-DIABOLOS-GN",
+      "productNo": "B-155",
+      "combination": "Master Diabolos.Gn",
+      "reason": "previous image failed orthographic top-view review; no verified vertical top-view replacement found",
+      "rejectedSource": {
+        "sourceKind": "verified-database",
+        "sourceTitle": "File:Master Diabolos Bey.jpg",
+        "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/7/70/Master_Diabolos_Bey.jpg/revision/latest?cb=20191212193511",
+        "sourceSha256": "19615739bb9c7cda976ddeca69bfcc1ba9dfc0c9b2b35d7f33f787ddf414d3b3",
+        "outputSha256": "98ea42ca182f04990165046609991c205cb9962bf8d491828249c15843a5db44",
+        "fandomPageUrl": "https://beyblade.fandom.com/wiki/Master_Diabolos_Generate",
+        "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:Master_Diabolos_Bey.jpg",
+        "mediawikiSha1": "9f51d4938ce531c8fce8e7fb97db0fd9aaa96111",
+        "processingClass": "direct"
+      },
+      "searchAudit": {
+        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
+        "officialPartsPage": "https://beyblade.takaratomy.co.jp/burst/parts.html",
+        "officialOutcome": "no exact isolated orthographic assembled replacement retained",
+        "databaseOutcome": "Fandom page and full gallery rechecked; assembled candidates remained angled or perspective-distorted",
+        "shopOutcome": "no verified watermark-free exact orthographic source retained",
+        "checkedAt": "2026-08-19"
+      }
+    },
+    {
       "id": "BEY-BURST-B-156-03-DREAD-FAFNIR-PR-R-METSU",
       "productNo": "B-156",
       "combination": "Dread Fafnir Paradox Revolve Metsu",
@@ -14687,6 +13515,31 @@
         "officialOutcome": "checked; no safe isolated exact-combination source",
         "databaseOutcome": "no exact verified assembled top-view source",
         "shopOutcome": "no verified watermark-free exact source retained",
+        "checkedAt": "2026-08-19"
+      }
+    },
+    {
+      "id": "BEY-BURST-B-157-BIGBANG-GENESIS-0-YM",
+      "productNo": "B-157",
+      "combination": "Bigbang Genesis.0.Ym",
+      "reason": "previous image failed orthographic top-view review; no verified vertical top-view replacement found",
+      "rejectedSource": {
+        "sourceKind": "verified-database",
+        "sourceTitle": "File:Big Bang Genesis Bey.jpg",
+        "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/d/d9/Big_Bang_Genesis_Bey.jpg/revision/latest?cb=20200114172916",
+        "sourceSha256": "f4fc97a8911895f3bcd9e0bf9ef73de193975cc270881ec7a3e3d60bc4609190",
+        "outputSha256": "87fa2cd5570527e7658f344cc4060f888b66fedcc216014dc1489327b7683c7d",
+        "fandomPageUrl": "https://beyblade.fandom.com/wiki/Bigbang_Genesis_0_Yard_Metal",
+        "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:Big_Bang_Genesis_Bey.jpg",
+        "mediawikiSha1": "cb5f59d0cee67c6171bcd54650176e59428c49fc",
+        "processingClass": "direct"
+      },
+      "searchAudit": {
+        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
+        "officialPartsPage": "https://beyblade.takaratomy.co.jp/burst/parts.html",
+        "officialOutcome": "no exact isolated orthographic assembled replacement retained",
+        "databaseOutcome": "Fandom page and full gallery rechecked; assembled candidates remained angled or perspective-distorted",
+        "shopOutcome": "no verified watermark-free exact orthographic source retained",
         "checkedAt": "2026-08-19"
       }
     },
@@ -14789,6 +13642,156 @@
       }
     },
     {
+      "id": "BEY-BURST-B-159-SUPER-HYPERION-XC-1A",
+      "productNo": "B-159",
+      "combination": "Super Hyperion.Xc 1A",
+      "reason": "previous image failed orthographic top-view review; no verified vertical top-view replacement found",
+      "rejectedSource": {
+        "sourceKind": "verified-database",
+        "sourceTitle": "File:Super Hyperion.jpeg",
+        "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/f/f8/Super_Hyperion.jpeg/revision/latest?cb=20230613034222",
+        "sourceSha256": "d9627ab56d510adcdc282d046c44ec8cdd90652509a3fc1becb0ad1660b7acae",
+        "outputSha256": "49ce71785b7962d1ff9c94b67aa456d0e1aa0a42b446448ad889b393b0c37757",
+        "fandomPageUrl": "https://beyblade.fandom.com/wiki/Super_Hyperion_Xceed_1A",
+        "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:Super_Hyperion.jpeg",
+        "mediawikiSha1": "95c87290ee37b7d30caa428f7b1af2e51fa3d590",
+        "processingClass": "direct"
+      },
+      "searchAudit": {
+        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
+        "officialPartsPage": "https://beyblade.takaratomy.co.jp/burst/parts.html",
+        "officialOutcome": "no exact isolated orthographic assembled replacement retained",
+        "databaseOutcome": "Fandom page and full gallery rechecked; assembled candidates remained angled or perspective-distorted",
+        "shopOutcome": "no verified watermark-free exact orthographic source retained",
+        "checkedAt": "2026-08-19"
+      }
+    },
+    {
+      "id": "BEY-BURST-B-160-KING-HELIOS-ZN-1B",
+      "productNo": "B-160",
+      "combination": "King Helios.Zn 1B",
+      "reason": "previous image failed orthographic top-view review; no verified vertical top-view replacement found",
+      "rejectedSource": {
+        "sourceKind": "verified-database",
+        "sourceTitle": "File:King Helios Bey 1.jpg",
+        "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/9/93/King_Helios_Bey_1.jpg/revision/latest?cb=20200313183349",
+        "sourceSha256": "4b22ccdbe0f0d3e8c4971aff5cf8264c1781028332b018ab94392c57686355b2",
+        "outputSha256": "7c73a34741043a711da345d52368579a9f9383a1a4707bf164be9a075253038c",
+        "fandomPageUrl": "https://beyblade.fandom.com/wiki/King_Helios_Zone_1B",
+        "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:King_Helios_Bey_1.jpg",
+        "mediawikiSha1": "8074f7e151e12e1c019e0a3c6b79c3138fa560eb",
+        "processingClass": "direct"
+      },
+      "searchAudit": {
+        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
+        "officialPartsPage": "https://beyblade.takaratomy.co.jp/burst/parts.html",
+        "officialOutcome": "no exact isolated orthographic assembled replacement retained",
+        "databaseOutcome": "Fandom page and full gallery rechecked; assembled candidates remained angled or perspective-distorted",
+        "shopOutcome": "no verified watermark-free exact orthographic source retained",
+        "checkedAt": "2026-08-19"
+      }
+    },
+    {
+      "id": "BEY-BURST-B-161-GLIDE-RAGNARUK-WH-R-1S",
+      "productNo": "B-161",
+      "combination": "Glide Ragnaruk.Wh.R 1S",
+      "reason": "previous image failed orthographic top-view review; no verified vertical top-view replacement found",
+      "rejectedSource": {
+        "sourceKind": "verified-database",
+        "sourceTitle": "File:Glide Ragnaruk Bey 1.jpg",
+        "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/f/fd/Glide_Ragnaruk_Bey_1.jpg/revision/latest?cb=20200313191149",
+        "sourceSha256": "24bfc6a375b12f3a65e05c2ba069657c1ffd354a33099ee03b3be0bc9abdda56",
+        "outputSha256": "8b8939f705c2a8e8ad5e1f81f0491222ce979ac4089514a1aa2aeac4f12964b1",
+        "fandomPageUrl": "https://beyblade.fandom.com/wiki/Glide_Ragnaruk_Wheel_Revolve_1S",
+        "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:Glide_Ragnaruk_Bey_1.jpg",
+        "mediawikiSha1": "c1a4d45e9b978d6315cd6c45d7220244aea9c60e",
+        "processingClass": "direct"
+      },
+      "searchAudit": {
+        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
+        "officialPartsPage": "https://beyblade.takaratomy.co.jp/burst/parts.html",
+        "officialOutcome": "no exact isolated orthographic assembled replacement retained",
+        "databaseOutcome": "Fandom page and full gallery rechecked; assembled candidates remained angled or perspective-distorted",
+        "shopOutcome": "no verified watermark-free exact orthographic source retained",
+        "checkedAt": "2026-08-19"
+      }
+    },
+    {
+      "id": "BEY-BURST-B-162-KING-HELIOS-ZN-1B",
+      "productNo": "B-162",
+      "combination": "King Helios.Zn 1B",
+      "reason": "previous image failed orthographic top-view review; no verified vertical top-view replacement found",
+      "rejectedSource": {
+        "sourceKind": "verified-database",
+        "sourceTitle": "File:King Helios (B-162).jpg",
+        "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/b/b0/King_Helios_%28B-162%29.jpg/revision/latest?cb=20200313192203",
+        "sourceSha256": "4925c28ed65e562c1952f944f3c68e2f220a255e7cf6c8f33058ff6f72dc3603",
+        "outputSha256": "b18346198ba9f1dfc1e663b7e31d673efdba5f9f84c14d3518f73daa2fa780e2",
+        "fandomPageUrl": "https://beyblade.fandom.com/wiki/King_Helios_Zone_1B",
+        "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:King_Helios_(B-162).jpg",
+        "mediawikiSha1": "27af0cb6ce2b0b1243f45b961213289b5d13027a",
+        "processingClass": "direct"
+      },
+      "searchAudit": {
+        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
+        "officialPartsPage": "https://beyblade.takaratomy.co.jp/burst/parts.html",
+        "officialOutcome": "no exact isolated orthographic assembled replacement retained",
+        "databaseOutcome": "Fandom page and full gallery rechecked; assembled candidates remained angled or perspective-distorted",
+        "shopOutcome": "no verified watermark-free exact orthographic source retained",
+        "checkedAt": "2026-08-19"
+      }
+    },
+    {
+      "id": "BEY-BURST-B-162-SUPER-HYPERION-XC-1A",
+      "productNo": "B-162",
+      "combination": "Super Hyperion.Xc 1A",
+      "reason": "previous image failed orthographic top-view review; no verified vertical top-view replacement found",
+      "rejectedSource": {
+        "sourceKind": "verified-database",
+        "sourceTitle": "File:Super Hyperion (B-162).jpg",
+        "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/1/10/Super_Hyperion_%28B-162%29.jpg/revision/latest?cb=20200313192204",
+        "sourceSha256": "bf72c1fe577e5e1e9a60ed70bfa56c69648c965de2d87a00d9f87746da5694b7",
+        "outputSha256": "8f33985af4ee305b6021ce332a3aa509c32304473420f830369544da5c50c2fd",
+        "fandomPageUrl": "https://beyblade.fandom.com/wiki/Super_Hyperion_Xceed_1A",
+        "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:Super_Hyperion_(B-162).jpg",
+        "mediawikiSha1": "8bc9ec1bab7490460d5e198d79ba9c08acac99cb",
+        "processingClass": "direct"
+      },
+      "searchAudit": {
+        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
+        "officialPartsPage": "https://beyblade.takaratomy.co.jp/burst/parts.html",
+        "officialOutcome": "no exact isolated orthographic assembled replacement retained",
+        "databaseOutcome": "Fandom page and full gallery rechecked; assembled candidates remained angled or perspective-distorted",
+        "shopOutcome": "no verified watermark-free exact orthographic source retained",
+        "checkedAt": "2026-08-19"
+      }
+    },
+    {
+      "id": "BEY-BURST-B-163-BRAVE-VALKYRIE-EV-DASH-2A",
+      "productNo": "B-163",
+      "combination": "Brave Valkyrie.Ev' 2A",
+      "reason": "previous image failed orthographic top-view review; no verified vertical top-view replacement found",
+      "rejectedSource": {
+        "sourceKind": "verified-database",
+        "sourceTitle": "File:BBSK-BrVEv'2A.jpg",
+        "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/f/f3/BBSK-BrVEv%272A.jpg/revision/latest?cb=20200414161602",
+        "sourceSha256": "3edf3d25164667778d3334d06d8bacb7dfa5289d4be7cde52a2690e159b7026c",
+        "outputSha256": "6397e71b1eb23fc97022fd4e6c7b9f8b51a641ad4146f316d4c45b13a1d727a5",
+        "fandomPageUrl": "https://beyblade.fandom.com/wiki/Brave_Valkyrie_Evolution%27_2A",
+        "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:BBSK-BrVEv'2A.jpg",
+        "mediawikiSha1": "872d24056040cb200c3ee900b606ef5384369c2f",
+        "processingClass": "direct"
+      },
+      "searchAudit": {
+        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
+        "officialPartsPage": "https://beyblade.takaratomy.co.jp/burst/parts.html",
+        "officialOutcome": "no exact isolated orthographic assembled replacement retained",
+        "databaseOutcome": "Fandom page and full gallery rechecked; assembled candidates remained angled or perspective-distorted",
+        "shopOutcome": "no verified watermark-free exact orthographic source retained",
+        "checkedAt": "2026-08-19"
+      }
+    },
+    {
       "id": "BEY-BURST-B-164-04-TACT-DIABOLOS-2-G-LW-GEN",
       "productNo": "B-164",
       "combination": "Tact Diabolos 2Glaive Low Gen",
@@ -14799,6 +13802,56 @@
         "officialOutcome": "checked; no safe isolated exact-combination source",
         "databaseOutcome": "no exact verified assembled top-view source",
         "shopOutcome": "no verified watermark-free exact source retained",
+        "checkedAt": "2026-08-19"
+      }
+    },
+    {
+      "id": "BEY-BURST-B-167-MIRAGE-FAFNIR-NT-2S",
+      "productNo": "B-167",
+      "combination": "Mirage Fafnir.Nt 2S",
+      "reason": "previous image failed orthographic top-view review; no verified vertical top-view replacement found",
+      "rejectedSource": {
+        "sourceKind": "verified-database",
+        "sourceTitle": "File:BBSK-MFNT2S 1.jpg",
+        "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/0/09/BBSK-MFNT2S_1.jpg/revision/latest?cb=20200514165642",
+        "sourceSha256": "c19eeab038d012f73efa26c1e0fb70f7301b7053e951de9ff58b08d42162d8af",
+        "outputSha256": "4101ec9365f1f758a4d3ce1ba12f4f03aba78eb2a8877e21931e678af82d0e10",
+        "fandomPageUrl": "https://beyblade.fandom.com/wiki/Mirage_Fafnir_Nothing_2S",
+        "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:BBSK-MFNT2S_1.jpg",
+        "mediawikiSha1": "eab1bc7b7d789a7e183f2231cf3b8afefbcefab1",
+        "processingClass": "direct"
+      },
+      "searchAudit": {
+        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
+        "officialPartsPage": "https://beyblade.takaratomy.co.jp/burst/parts.html",
+        "officialOutcome": "no exact isolated orthographic assembled replacement retained",
+        "databaseOutcome": "Fandom page and full gallery rechecked; assembled candidates remained angled or perspective-distorted",
+        "shopOutcome": "no verified watermark-free exact orthographic source retained",
+        "checkedAt": "2026-08-19"
+      }
+    },
+    {
+      "id": "BEY-BURST-B-168-RAGE-LONGINUS-DS-DASH-3A",
+      "productNo": "B-168",
+      "combination": "Rage Longinus.Ds' 3A",
+      "reason": "previous image failed orthographic top-view review; no verified vertical top-view replacement found",
+      "rejectedSource": {
+        "sourceKind": "verified-database",
+        "sourceTitle": "File:BBSK-RLDS'3A 1.jpg",
+        "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/6/67/BBSK-RLDS%273A_1.jpg/revision/latest?cb=20200514165756",
+        "sourceSha256": "e5cefc292bb42d450f3773f41babd00ebc1ed9b362d83ded06599fc320e3b133",
+        "outputSha256": "d776602fdf5020c582dfbc321367a3e36daafcdf91286a89bb042b691bf36488",
+        "fandomPageUrl": "https://beyblade.fandom.com/wiki/Rage_Longinus_Destroy%27_3A",
+        "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:BBSK-RLDS'3A_1.jpg",
+        "mediawikiSha1": "685c36a43c256d4aadb0313f9feb12baa5ddb46c",
+        "processingClass": "direct"
+      },
+      "searchAudit": {
+        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
+        "officialPartsPage": "https://beyblade.takaratomy.co.jp/burst/parts.html",
+        "officialOutcome": "no exact isolated orthographic assembled replacement retained",
+        "databaseOutcome": "Fandom page and full gallery rechecked; assembled candidates remained angled or perspective-distorted",
+        "shopOutcome": "no verified watermark-free exact orthographic source retained",
         "checkedAt": "2026-08-19"
       }
     },
@@ -14831,6 +13884,31 @@
       }
     },
     {
+      "id": "BEY-BURST-B-172-WORLD-SPRIGGAN-U-DASH-2B",
+      "productNo": "B-172",
+      "combination": "World Spriggan.U' 2B",
+      "reason": "previous image failed orthographic top-view review; no verified vertical top-view replacement found",
+      "rejectedSource": {
+        "sourceKind": "verified-database",
+        "sourceTitle": "File:World Spriggan Bey 1.jpg",
+        "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/3/3e/World_Spriggan_Bey_1.jpg/revision/latest?cb=20200811151938",
+        "sourceSha256": "1d996f15bab373e32af22a9e5916296b410bfab46f33d52062f4d3d9af838055",
+        "outputSha256": "7232a72e2978ccb3b943941867072169cebcecc2682ec238550d85f16538347c",
+        "fandomPageUrl": "https://beyblade.fandom.com/wiki/World_Spriggan_Unite%27_2B",
+        "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:World_Spriggan_Bey_1.jpg",
+        "mediawikiSha1": "a8d2063b0615306d9a465eb2dde9c804a773f984",
+        "processingClass": "direct"
+      },
+      "searchAudit": {
+        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
+        "officialPartsPage": "https://beyblade.takaratomy.co.jp/burst/parts.html",
+        "officialOutcome": "no exact isolated orthographic assembled replacement retained",
+        "databaseOutcome": "Fandom page and full gallery rechecked; assembled candidates remained angled or perspective-distorted",
+        "shopOutcome": "no verified watermark-free exact orthographic source retained",
+        "checkedAt": "2026-08-19"
+      }
+    },
+    {
       "id": "BEY-BURST-B-174-HELIOS-VOLCANO-OU-ZN-DASH-Z",
       "productNo": "B-174",
       "combination": "Helios Volcano.Ou.Zn'+Z",
@@ -14845,6 +13923,181 @@
       }
     },
     {
+      "id": "BEY-BURST-B-174-HYPERION-BURN-CHO-XC-DASH-X",
+      "productNo": "B-174",
+      "combination": "Hyperion Burn.Cho.Xc'+X",
+      "reason": "previous image failed orthographic top-view review; no verified vertical top-view replacement found",
+      "rejectedSource": {
+        "sourceKind": "verified-database",
+        "sourceTitle": "File:BBSK-Hyperion Burn Cho Xceed' X (Activated).png",
+        "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/3/31/BBSK-Hyperion_Burn_Cho_Xceed%27_X_%28Activated%29.png/revision/latest?cb=20201014193759",
+        "sourceSha256": "24c1d379246ee34f0bd869a9f3099986bc9b8a5033ddc4d8243c73119926e50b",
+        "outputSha256": "f972a9fe5b255fa4deec36f5f970afd5c3de540164dc6b8f6c1abdfb55915a76",
+        "fandomPageUrl": "https://beyblade.fandom.com/wiki/Hyperion_Burn_Cho_Xceed%27%2BX",
+        "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:BBSK-Hyperion_Burn_Cho_Xceed'_X_(Activated).png",
+        "mediawikiSha1": "87cc413d1d443a1ca32d3eca12409c0a7833baac",
+        "processingClass": "direct"
+      },
+      "searchAudit": {
+        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
+        "officialPartsPage": "https://beyblade.takaratomy.co.jp/burst/parts.html",
+        "officialOutcome": "no exact isolated orthographic assembled replacement retained",
+        "databaseOutcome": "Fandom page and full gallery rechecked; assembled candidates remained angled or perspective-distorted",
+        "shopOutcome": "no verified watermark-free exact orthographic source retained",
+        "checkedAt": "2026-08-19"
+      }
+    },
+    {
+      "id": "BEY-BURST-B-178-02-KING-HELIOS-S-1B",
+      "productNo": "B-178",
+      "combination": "King Helios Survive 1B",
+      "reason": "previous image failed orthographic top-view review; no verified vertical top-view replacement found",
+      "rejectedSource": {
+        "sourceKind": "verified-database",
+        "sourceTitle": "File:King Helios.S.1B (B-178 02).jpg",
+        "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/a/aa/King_Helios.S.1B_%28B-178_02%29.jpg/revision/latest?cb=20210214173604",
+        "sourceSha256": "0b4ce6611fa504677822f61c68d2c5376233fa5c114f35e4795a7d4d679bc838",
+        "outputSha256": "ac910ce89881b954608f2f273da8aad21b1a688e9b44f354403e705c68eb04a5",
+        "fandomPageUrl": "https://beyblade.fandom.com/wiki/King_Helios_Survive_1B",
+        "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:King_Helios.S.1B_(B-178_02).jpg",
+        "mediawikiSha1": "075c9d9f10a8bc38ec75d6f5415b175d8ac802dc",
+        "processingClass": "direct"
+      },
+      "searchAudit": {
+        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
+        "officialPartsPage": "https://beyblade.takaratomy.co.jp/burst/parts.html",
+        "officialOutcome": "no exact isolated orthographic assembled replacement retained",
+        "databaseOutcome": "Fandom page and full gallery rechecked; assembled candidates remained angled or perspective-distorted",
+        "shopOutcome": "no verified watermark-free exact orthographic source retained",
+        "checkedAt": "2026-08-19"
+      }
+    },
+    {
+      "id": "BEY-BURST-B-178-06-IMPERIAL-DRAGON-7-ET",
+      "productNo": "B-178",
+      "combination": "Imperial Dragon 7 Eternal",
+      "reason": "previous image failed orthographic top-view review; no verified vertical top-view replacement found",
+      "rejectedSource": {
+        "sourceKind": "verified-database",
+        "sourceTitle": "File:Imperial Dragon.7.Et (B-178 06).jpg",
+        "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/1/1b/Imperial_Dragon.7.Et_%28B-178_06%29.jpg/revision/latest?cb=20210214173827",
+        "sourceSha256": "caaf709d0bb41ea8248430e1790f45ec3e6cdf3a8e1d4a26d72c97d710e4c41c",
+        "outputSha256": "c12b108764f6c3f824f37b1f21ec5647c95e9c30fc93bce3f811d8c0ea2cbe74",
+        "fandomPageUrl": "https://beyblade.fandom.com/wiki/Imperial_Dragon_7_Eternal",
+        "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:Imperial_Dragon.7.Et_(B-178_06).jpg",
+        "mediawikiSha1": "3b8912db0fc618f7e6f8ebc3cd4c200b358e974c",
+        "processingClass": "direct"
+      },
+      "searchAudit": {
+        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
+        "officialPartsPage": "https://beyblade.takaratomy.co.jp/burst/parts.html",
+        "officialOutcome": "no exact isolated orthographic assembled replacement retained",
+        "databaseOutcome": "Fandom page and full gallery rechecked; assembled candidates remained angled or perspective-distorted",
+        "shopOutcome": "no verified watermark-free exact orthographic source retained",
+        "checkedAt": "2026-08-19"
+      }
+    },
+    {
+      "id": "BEY-BURST-B-179-DEATH-SOLOMON-MF-2B",
+      "productNo": "B-179",
+      "combination": "Death Solomon.MF 2B",
+      "reason": "previous image failed orthographic top-view review; no verified vertical top-view replacement found",
+      "rejectedSource": {
+        "sourceKind": "verified-database",
+        "sourceTitle": "File:BBSK-Death Solomon Metal Fusion 2B 1.jpg",
+        "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/6/6a/BBSK-Death_Solomon_Metal_Fusion_2B_1.jpg/revision/latest?cb=20210214180202",
+        "sourceSha256": "3c1a563137500b6ba3338c219b5ba3b039c8637f8261ce8d29f41722c39cd85e",
+        "outputSha256": "e48aa3a858e6cfe4a6c95ec143319abd881b62eb1bcee092951ccedc1846cbdb",
+        "fandomPageUrl": "https://beyblade.fandom.com/wiki/Death_Solomon_Metal_Fusion_2B",
+        "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:BBSK-Death_Solomon_Metal_Fusion_2B_1.jpg",
+        "mediawikiSha1": "ef2077810457a3c3d63af8dee41a3bdcf24fd9b2",
+        "processingClass": "direct"
+      },
+      "searchAudit": {
+        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
+        "officialPartsPage": "https://beyblade.takaratomy.co.jp/burst/parts.html",
+        "officialOutcome": "no exact isolated orthographic assembled replacement retained",
+        "databaseOutcome": "Fandom page and full gallery rechecked; assembled candidates remained angled or perspective-distorted",
+        "shopOutcome": "no verified watermark-free exact orthographic source retained",
+        "checkedAt": "2026-08-19"
+      }
+    },
+    {
+      "id": "BEY-BURST-B-181-01-CYCLONE-RAGNARUK-GG-NV-6",
+      "productNo": "B-181",
+      "combination": "Cyclone Ragnaruk Giga Never-6",
+      "reason": "previous image failed orthographic top-view review; no verified vertical top-view replacement found",
+      "rejectedSource": {
+        "sourceKind": "verified-database",
+        "sourceTitle": "File:BBDB-Cyclone Ragnaruk Giga Never-6.jpg",
+        "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/d/d6/BBDB-Cyclone_Ragnaruk_Giga_Never-6.jpg/revision/latest?cb=20210314175418",
+        "sourceSha256": "e059b0cf5f1b9e493f43cec3fc37d1758b5c924a038631baa623e83721152d47",
+        "outputSha256": "97d1462fbcc32399cb3c00581a2e3aaded45fc13ff63fa1470ced4aad1709af7",
+        "fandomPageUrl": "https://beyblade.fandom.com/wiki/Cyclone_Ragnaruk_Giga_Never-6",
+        "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:BBDB-Cyclone_Ragnaruk_Giga_Never-6.jpg",
+        "mediawikiSha1": "3cbd49a479acce5489a7b556cb57907f556f8b71",
+        "processingClass": "direct"
+      },
+      "searchAudit": {
+        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
+        "officialPartsPage": "https://beyblade.takaratomy.co.jp/burst/parts.html",
+        "officialOutcome": "no exact isolated orthographic assembled replacement retained",
+        "databaseOutcome": "Fandom page and full gallery rechecked; assembled candidates remained angled or perspective-distorted",
+        "shopOutcome": "no verified watermark-free exact orthographic source retained",
+        "checkedAt": "2026-08-19"
+      }
+    },
+    {
+      "id": "BEY-BURST-B-181-02-CYCLONE-RAGNARUK-NX-RS-2",
+      "productNo": "B-181",
+      "combination": "Cyclone Ragnaruk Nexus Rise-2",
+      "reason": "previous image failed orthographic top-view review; no verified vertical top-view replacement found",
+      "rejectedSource": {
+        "sourceKind": "verified-database",
+        "sourceTitle": "File:Cyclone Ragnaruk.Nx.Rs-2 (B-181 02).jpg",
+        "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/5/5d/Cyclone_Ragnaruk.Nx.Rs-2_%28B-181_02%29.jpg/revision/latest?cb=20210314175427",
+        "sourceSha256": "1f90921f94a93c22b7b9029f38f260a9aca55e1601724b0d6eaf1c6db46b1b77",
+        "outputSha256": "6ff1521a9eb910309064a9727726bb15bd81c71d884f496f313d4bbb5b98fd6c",
+        "fandomPageUrl": "https://beyblade.fandom.com/wiki/Cyclone_Ragnaruk_Nexus_Rise-2",
+        "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:Cyclone_Ragnaruk.Nx.Rs-2_(B-181_02).jpg",
+        "mediawikiSha1": "7f238b4b87b97034186334b2d04983d4ffb7f368",
+        "processingClass": "direct"
+      },
+      "searchAudit": {
+        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
+        "officialPartsPage": "https://beyblade.takaratomy.co.jp/burst/parts.html",
+        "officialOutcome": "no exact isolated orthographic assembled replacement retained",
+        "databaseOutcome": "Fandom page and full gallery rechecked; assembled candidates remained angled or perspective-distorted",
+        "shopOutcome": "no verified watermark-free exact orthographic source retained",
+        "checkedAt": "2026-08-19"
+      }
+    },
+    {
+      "id": "BEY-BURST-B-181-05-INFINITE-DEATHSCYTHER-UN-1A",
+      "productNo": "B-181",
+      "combination": "Infinite Deathscyther Universe 1A",
+      "reason": "previous image failed orthographic top-view review; no verified vertical top-view replacement found",
+      "rejectedSource": {
+        "sourceKind": "verified-database",
+        "sourceTitle": "File:Infinite Deathscyther.Un.1A (B-181 05).jpg",
+        "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/e/e0/Infinite_Deathscyther.Un.1A_%28B-181_05%29.jpg/revision/latest?cb=20210314175737",
+        "sourceSha256": "73e6b7654773ead460cbb5e295ccbc59841f3371521cbe3346a00a75de8e91a4",
+        "outputSha256": "897b322eef53f70a65dfaa7ecce68a2d1229c522d55e85eb5cfe91c83552cb0e",
+        "fandomPageUrl": "https://beyblade.fandom.com/wiki/Infinite_Deathscyther_Universe_1A",
+        "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:Infinite_Deathscyther.Un.1A_(B-181_05).jpg",
+        "mediawikiSha1": "3a9978a43ef15954a5f7f9b33a33346c761475ee",
+        "processingClass": "direct"
+      },
+      "searchAudit": {
+        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
+        "officialPartsPage": "https://beyblade.takaratomy.co.jp/burst/parts.html",
+        "officialOutcome": "no exact isolated orthographic assembled replacement retained",
+        "databaseOutcome": "Fandom page and full gallery rechecked; assembled candidates remained angled or perspective-distorted",
+        "shopOutcome": "no verified watermark-free exact orthographic source retained",
+        "checkedAt": "2026-08-19"
+      }
+    },
+    {
       "id": "BEY-BURST-B-185-VANISH-FAFNIR-TP-KC-3",
       "productNo": "B-185",
       "combination": "Vanish Fafnir.Tp.Kc-3",
@@ -14855,6 +14108,106 @@
         "officialOutcome": "checked; no safe isolated exact-combination source",
         "databaseOutcome": "no exact verified assembled top-view source",
         "shopOutcome": "no verified watermark-free exact source retained",
+        "checkedAt": "2026-08-19"
+      }
+    },
+    {
+      "id": "BEY-BURST-B-186-02-ROAR-FAFNIR-00-R-2",
+      "productNo": "B-186",
+      "combination": "Roar Fafnir 00 Revolve-2",
+      "reason": "previous image failed orthographic top-view review; no verified vertical top-view replacement found",
+      "rejectedSource": {
+        "sourceKind": "verified-database",
+        "sourceTitle": "File:Roar Fafnir.00.R-2 (B-186 02).jpg",
+        "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/8/81/Roar_Fafnir.00.R-2_%28B-186_02%29.jpg/revision/latest?cb=20210614155623",
+        "sourceSha256": "5dd80225c4dd4571ee229e197347f11295dbc37b882857976adc8e45696b548e",
+        "outputSha256": "ac33b649ac2453ffc237fca96341aefaea2eaceb877dc9ed376557939982ab27",
+        "fandomPageUrl": "https://beyblade.fandom.com/wiki/Roar_Fafnir_00_Revolve-2",
+        "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:Roar_Fafnir.00.R-2_(B-186_02).jpg",
+        "mediawikiSha1": "f60abbc8411e4025ed74d7607475392b72b16d86",
+        "processingClass": "direct"
+      },
+      "searchAudit": {
+        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
+        "officialPartsPage": "https://beyblade.takaratomy.co.jp/burst/parts.html",
+        "officialOutcome": "no exact isolated orthographic assembled replacement retained",
+        "databaseOutcome": "Fandom page and full gallery rechecked; assembled candidates remained angled or perspective-distorted",
+        "shopOutcome": "no verified watermark-free exact orthographic source retained",
+        "checkedAt": "2026-08-19"
+      }
+    },
+    {
+      "id": "BEY-BURST-B-186-05-WORLD-DRAGON-OUTER-MM-4A",
+      "productNo": "B-186",
+      "combination": "World Dragon Outer Moment 4A",
+      "reason": "previous image failed orthographic top-view review; no verified vertical top-view replacement found",
+      "rejectedSource": {
+        "sourceKind": "verified-database",
+        "sourceTitle": "File:World Dragon.Ω.Mm.4A (B-186 05).jpg",
+        "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/e/ef/World_Dragon.%CE%A9.Mm.4A_%28B-186_05%29.jpg/revision/latest?cb=20210614155956",
+        "sourceSha256": "d82ecf89f69635773d6b2615747ab936c0fe864e990e780ed101e43aa37f8f01",
+        "outputSha256": "bd9b57e45ad7584c4cd2cb230cd2f9c14b307280449db45beb861e1645fa1ec3",
+        "fandomPageUrl": "https://beyblade.fandom.com/wiki/World_Dragon_Outer_Moment_4A",
+        "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:World_Dragon.Ω.Mm.4A_(B-186_05).jpg",
+        "mediawikiSha1": "f2935e6a4fb7215acc9faf438246d0c0554114cc",
+        "processingClass": "direct"
+      },
+      "searchAudit": {
+        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
+        "officialPartsPage": "https://beyblade.takaratomy.co.jp/burst/parts.html",
+        "officialOutcome": "no exact isolated orthographic assembled replacement retained",
+        "databaseOutcome": "Fandom page and full gallery rechecked; assembled candidates remained angled or perspective-distorted",
+        "shopOutcome": "no verified watermark-free exact orthographic source retained",
+        "checkedAt": "2026-08-19"
+      }
+    },
+    {
+      "id": "BEY-BURST-B-187-SAVIOR-VALKYRIE-SH-7",
+      "productNo": "B-187",
+      "combination": "Savior Valkyrie.Sh-7",
+      "reason": "previous image failed orthographic top-view review; no verified vertical top-view replacement found",
+      "rejectedSource": {
+        "sourceKind": "verified-database",
+        "sourceTitle": "File:BBDB-Savior Valkyrie Shot-7 (Low Mode).png",
+        "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/a/aa/BBDB-Savior_Valkyrie_Shot-7_%28Low_Mode%29.png/revision/latest?cb=20230513052847",
+        "sourceSha256": "2ae001365d920bee0176b390e2365eda34dfac11edc90e83bf9c245e50fa5183",
+        "outputSha256": "d5f97f933aa57b60d5c63963c6cf10c526c9a586c195d290100cb54ee392e4c6",
+        "fandomPageUrl": "https://beyblade.fandom.com/wiki/Savior_Valkyrie_Shot-7",
+        "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:BBDB-Savior_Valkyrie_Shot-7_(Low_Mode).png",
+        "mediawikiSha1": "8fa19278069c9d69ffb2a00966dcb14b463cf035",
+        "processingClass": "direct"
+      },
+      "searchAudit": {
+        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
+        "officialPartsPage": "https://beyblade.takaratomy.co.jp/burst/parts.html",
+        "officialOutcome": "no exact isolated orthographic assembled replacement retained",
+        "databaseOutcome": "Fandom page and full gallery rechecked; assembled candidates remained angled or perspective-distorted",
+        "shopOutcome": "no verified watermark-free exact orthographic source retained",
+        "checkedAt": "2026-08-19"
+      }
+    },
+    {
+      "id": "BEY-BURST-B-189-GUILTY-LONGINUS-KR-MDS-2",
+      "productNo": "B-189",
+      "combination": "Guilty Longinus.Kr.MDs-2",
+      "reason": "previous image failed orthographic top-view review; no verified vertical top-view replacement found",
+      "rejectedSource": {
+        "sourceKind": "verified-database",
+        "sourceTitle": "File:BBDB-Guilty Longinus Karma Metal Destroy-2 (Low Mode).png",
+        "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/3/39/BBDB-Guilty_Longinus_Karma_Metal_Destroy-2_%28Low_Mode%29.png/revision/latest?cb=20220108222936",
+        "sourceSha256": "dd04fe05c3995273916d0dbe1d65ea4146ad54afee7ca184fa69b9470f34e18c",
+        "outputSha256": "9e62d08dc75bfafcdc3423803cab95f054292f430a01a8127e95d31f54e708d6",
+        "fandomPageUrl": "https://beyblade.fandom.com/wiki/Guilty_Longinus_Karma_Metal_Destroy-2",
+        "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:BBDB-Guilty_Longinus_Karma_Metal_Destroy-2_(Low_Mode).png",
+        "mediawikiSha1": "26b623f9f5199532e6fec960f27706ee19314cd0",
+        "processingClass": "direct"
+      },
+      "searchAudit": {
+        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
+        "officialPartsPage": "https://beyblade.takaratomy.co.jp/burst/parts.html",
+        "officialOutcome": "no exact isolated orthographic assembled replacement retained",
+        "databaseOutcome": "Fandom page and full gallery rechecked; assembled candidates remained angled or perspective-distorted",
+        "shopOutcome": "no verified watermark-free exact orthographic source retained",
         "checkedAt": "2026-08-19"
       }
     },
@@ -14911,6 +14264,31 @@
         "officialOutcome": "checked; no safe isolated exact-combination source",
         "databaseOutcome": "no exact verified assembled top-view source",
         "shopOutcome": "no verified watermark-free exact source retained",
+        "checkedAt": "2026-08-19"
+      }
+    },
+    {
+      "id": "BEY-BURST-B-199-GATLING-DRAGON-KR-CM-DASH-10",
+      "productNo": "B-199",
+      "combination": "Gatling Dragon.Kr.Cm'-10",
+      "reason": "previous image failed orthographic top-view review; no verified vertical top-view replacement found",
+      "rejectedSource": {
+        "sourceKind": "verified-database",
+        "sourceTitle": "File:Gatling Dragon Karma Charge Metal'-10 (Low Mode - Consecutive Hit Mode; Angled View).jpeg",
+        "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/6/62/Gatling_Dragon_Karma_Charge_Metal%27-10_%28Low_Mode_-_Consecutive_Hit_Mode%3B_Angled_View%29.jpeg/revision/latest?cb=20220512164109",
+        "sourceSha256": "b5a092ff9e40ef6558efe93e7def2ed11f4bca37b214f6f0dce3fad4792e5f17",
+        "outputSha256": "f7b9b243989305247ea97a5f0b9685db8d91d1fa4a2a96ff8b4bf23a04494230",
+        "fandomPageUrl": "https://beyblade.fandom.com/wiki/Gatling_Dragon_Karma_Charge_Metal%27-10",
+        "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:Gatling_Dragon_Karma_Charge_Metal'-10_(Low_Mode_-_Consecutive_Hit_Mode;_Angled_View).jpeg",
+        "mediawikiSha1": "fa9d5a9518f237bd1a3b6488260833227a2285f2",
+        "processingClass": "direct"
+      },
+      "searchAudit": {
+        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
+        "officialPartsPage": "https://beyblade.takaratomy.co.jp/burst/parts.html",
+        "officialOutcome": "no exact isolated orthographic assembled replacement retained",
+        "databaseOutcome": "Fandom page and full gallery rechecked; assembled candidates remained angled or perspective-distorted",
+        "shopOutcome": "no verified watermark-free exact orthographic source retained",
         "checkedAt": "2026-08-19"
       }
     },

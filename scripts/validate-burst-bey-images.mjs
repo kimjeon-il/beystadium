@@ -10,7 +10,7 @@ import burstBeyFrontViewAudit from "../data/source/burst-bey-front-view-audit.js
 import burstBeyFandomFrontSources from "../data/source/burst-bey-fandom-front-sources.json" with { type: "json" };
 import { burstBeyImagePath } from "./burst-image-paths.mjs";
 
-const VERSION = "20260819-burst-fandom-strict-front-images";
+const VERSION = "20260819-burst-orthographic-top-reaudit";
 const burstBeys = beyItems.filter(item => item.series === "burst" && item.type === "bey");
 const byId = new Map(burstBeys.map(item => [item.id, item]));
 const selected = burstBeyPrimaryImageConfig.selected;
@@ -20,6 +20,31 @@ const unavailableById = new Map(unavailable.map(entry => [entry.id, entry]));
 
 function unique(values, label) {
   assert.equal(new Set(values).size, values.length, `${label} contains duplicates`);
+}
+
+function assertOrthographicReview(review, id) {
+  assert.ok(review && typeof review === "object", `${id}: structured orthographic review is missing`);
+  assert.equal(review.classification, "orthographic-top", `${id}: image is not approved as orthographic top view`);
+  assert.equal(review.cameraAxis, "vertical", `${id}: camera axis is not vertical`);
+  assert.equal(review.perspectiveVisible, false, `${id}: perspective must not be visible`);
+  assert.equal(review.sideThicknessVisible, false, `${id}: side thickness must not be visible`);
+  assert.equal(review.exactCombination, true, `${id}: exact combination review failed`);
+  assert.equal(review.singleAssembledProduct, true, `${id}: image must contain one assembled Bey`);
+  assert.equal(review.reviewedAt, "2026-08-19", `${id}: review date mismatch`);
+  assert.equal(review.evidence?.type, "manual-pixel-review", `${id}: pixel review evidence is missing`);
+  assert.equal(review.evidence?.batch, "burst-orthographic-top-reaudit", `${id}: review batch mismatch`);
+  assert.match(review.evidence?.contactSheet || "", /^selected-\d{2}\.jpg$/, `${id}: review sheet evidence is missing`);
+  assert.ok(Number.isInteger(review.evidence?.cell) && review.evidence.cell >= 1 && review.evidence.cell <= 12, `${id}: invalid review cell`);
+  assert.deepEqual(review.evidence?.reviewedScales, [448, 112], `${id}: required review scales are missing`);
+}
+
+function assertUnavailableReview(review, id) {
+  assert.ok(review && typeof review === "object", `${id}: unavailable review evidence is missing`);
+  assert.ok(
+    ["unavailable", "rejected-oblique-or-perspective"].includes(review.classification),
+    `${id}: invalid unavailable review classification`
+  );
+  assert.equal(review.reviewedAt, "2026-08-19", `${id}: review date mismatch`);
 }
 
 function webpInfo(bytes) {
@@ -72,25 +97,22 @@ assert.deepEqual(burstBeyFrontViewAudit.summary, {
   total: 433,
   initialSelected: 401,
   initialUnavailable: 32,
-  initialStrictFront: 278,
-  initialObliqueOrPerspective: 121,
-  initialDiagramOrMultiSubject: 2,
-  priorReplaced: 7,
-  priorRemovedInvalidImage: 116,
   priorStrictFrontBaseline: 285,
   fandomReviewed: 148,
-  fandomDirectRegistered: 72,
-  fandomLowResolutionEnhanced: 12,
-  fandomUnavailable: 64,
-  finalSelected: 369,
-  finalUnavailable: 64
+  preReauditSelected: 369,
+  reauditedSelected: 369,
+  orthographicTopKept: 340,
+  orthographicTopReplacements: 0,
+  newlyRejectedObliqueOrPerspective: 29,
+  finalSelected: 340,
+  finalUnavailable: 93
 });
 assert.deepEqual(burstBeyFandomFrontSources.summary, {
   reviewed: 148,
-  approved: 84,
-  direct: 72,
+  approved: 57,
+  direct: 45,
   lowResolution: 12,
-  unavailable: 64
+  unavailable: 91
 });
 assert.equal(
   burstBeyFandomFrontSources.selected.length + burstBeyFandomFrontSources.unavailable.length,
@@ -135,10 +157,12 @@ for (const entry of selected) {
   assert.ok(Math.abs(bounds[1] - (448 - bounds[3])) <= 1, `${entry.id}: vertical centering drift`);
   assert.equal(entry.alphaReview.transparentCorners, true);
   assert.equal(entry.alphaReview.singleConnectedSubject, true);
+  assert.doesNotMatch(entry.sourceTitle || "", /angled\s+view/i, `${entry.id}: angled-view source cannot be selected`);
   const auditEntry = burstBeyFrontViewAudit.entries.find(value => value.id === entry.id);
-  assert.equal(auditEntry.finalClassification, "strict-front");
+  assert.equal(auditEntry.finalClassification, "orthographic-top");
   assert.equal(auditEntry.finalImage, entry.image);
   assert.equal(auditEntry.finalOutputSha256, entry.outputSha256);
+  assertOrthographicReview(auditEntry.orthographicReview, entry.id);
 
   const bytes = await readFile(entry.image);
   assert.deepEqual(webpInfo(bytes), { width: 448, height: 448, hasAlpha: true });
@@ -164,12 +188,12 @@ for (const entry of unavailable) {
   assert.equal(entry.searchAudit.checkedAt, "2026-08-19");
   const auditEntry = burstBeyFrontViewAudit.entries.find(value => value.id === entry.id);
   assert.equal(auditEntry.finalClassification, "unavailable");
+  assertUnavailableReview(auditEntry.orthographicReview, entry.id);
 }
 
 for (const source of burstBeyFandomFrontSources.selected) {
-  assert.equal(source.strictFrontReviewed, true, `${source.id}: strict front review missing`);
-  assert.equal(source.exactCombinationReviewed, true, `${source.id}: exact combination review missing`);
-  assert.equal(source.assembledProductReviewed, true, `${source.id}: assembled product review missing`);
+  assertOrthographicReview(source.orthographicReview, source.id);
+  assert.doesNotMatch(source.fileTitle || "", /angled\s+view/i, `${source.id}: angled-view Fandom source cannot be selected`);
   assert.match(source.mediawikiSha1, /^[0-9a-f]{40}$/);
   assert.match(source.sourceSha256, /^[0-9a-f]{64}$/);
   assert.match(source.sourceUrl, /^https:\/\/static\.wikia\.nocookie\.net\//);
@@ -187,6 +211,8 @@ for (const source of burstBeyFandomFrontSources.selected) {
 for (const source of burstBeyFandomFrontSources.unavailable) {
   assert.equal(unavailableById.has(source.id), true, `${source.id}: rejected Fandom source must remain unavailable`);
   assert.ok(source.reason);
+  const auditEntry = burstBeyFrontViewAudit.entries.find(value => value.id === source.id);
+  assertUnavailableReview(auditEntry?.orthographicReview, source.id);
 }
 
 console.log(`Burst Bey images OK: ${selected.length} selected, ${unavailable.length} unavailable.`);
