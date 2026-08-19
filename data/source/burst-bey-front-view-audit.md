@@ -1,7 +1,7 @@
 # 버스트 베이 수직 탑뷰 엄격 재감사
 
 - 검토일: `2026-08-19`
-- 버전: `20260819-burst-orthographic-top-reaudit`
+- 버전: `20260819-burst-b07-b21-orthographic-fronts`
 - 정면 기준: 카메라 축이 회전축 바로 위에 있는 수직 탑뷰
 - 파일명과 캡션은 증거로 사용하지 않고 448px과 112px 픽셀을 직접 검수함
 
@@ -12,11 +12,19 @@
 | 전체 | 433 |
 | 재감사 대상 | 369 |
 | 기존 유지 | 340 |
+| 신규 정면 등록 | 2 |
 | 정면본 교체 | 0 |
 | 빈칸 전환 | 29 |
-| 기존 미제공 | 64 |
-| 최종 정면 등록 | 340 |
-| 최종 미제공 | 93 |
+| 기존 미제공 | 62 |
+| 최종 정면 등록 | 342 |
+| 최종 미제공 | 91 |
+
+## 신규 정면 등록 (2)
+
+| 제품번호 | 한글명 | ID | 판정 |
+|---|---|---|---|
+| B-07 | 케르베우스.W.F | `BEY-BURST-B-07-KERBEUS-W-F` | 사용자 제공 Fandom 원본, 정확한 타카라토미 조합 수직 탑뷰 검수 통과 |
+| B-21 | 미노보로스.O.Q | `BEY-BURST-B-21-MINOBOROS-O-Q` | 사용자 제공 Fandom 원본, 정확한 타카라토미 조합 수직 탑뷰 검수 통과 |
 
 ## 빈칸 전환 (29)
 
@@ -397,71 +405,98 @@
 | BK-01 | 빅토리 발키리.B.V | `BEY-BURST-BK-01-VICTORY-VALKYRIE-B-V` | 수직 탑뷰 픽셀 검수 통과 |
 | BK-01 | 제노 엑스칼리버.M.I | `BEY-BURST-BK-01-XENO-XCALIBUR-M-I` | 수직 탑뷰 픽셀 검수 통과 |
 
-## 기존 미제공 유지 (64)
+## 최종 미제공 (91)
 
 | 제품번호 | 한글명 | ID | 판정 |
 |---|---|---|---|
-| B-00β | 발뒤르.β.β | `BEY-BURST-B-00-BALDUR-BETA-BETA` | 검증된 수직 탑뷰 미확보 |
-| B-00 | 드래곤 스톰.W.X 골드 Ver. | `BEY-BURST-B-00-DRAGOON-STORM-W-X-GOLD` | 검증된 수직 탑뷰 미확보 |
-| B-00 | 드래이거 슬래시.H.F | `BEY-BURST-B-00-DRIGER-SLASH-H-F` | 검증된 수직 탑뷰 미확보 |
-| B-00 | 스톰 타이거.Il.Wd' | `BEY-BURST-B-00-DRIGER-V2-IL-WD-DASH` | 검증된 수직 탑뷰 미확보 |
-| B-00 | 하운드 도그.8.Br | `BEY-BURST-B-00-WOLBORG-8-BR` | 검증된 수직 탑뷰 미확보 |
-| B-07 | 케르베우스.W.F | `BEY-BURST-B-07-KERBEUS-W-F` | 검증된 수직 탑뷰 미확보 |
-| B-102 | 트윈 네메시스.3H.Ul | `BEY-BURST-B-102-TWIN-NEMESIS-3H-UL` | 검증된 수직 탑뷰 미확보 |
-| B-120 | 버스터 엑스칼리버.1'.Sw | `BEY-BURST-B-120-BUSTER-XCALIBUR-1DASH-SW` | 검증된 수직 탑뷰 미확보 |
-| B-121 | 하운드 도그.8.Br | `BEY-BURST-B-121-WOLBORG-8-BR` | 검증된 수직 탑뷰 미확보 |
-| B-122 | 가이스트 파브닐.8'.Ab | `BEY-BURST-B-122-GEIST-FAFNIR-8DASH-AB` | 검증된 수직 탑뷰 미확보 |
-| B-127 | 초Z 발키리.Z.Ev | `BEY-BURST-B-127-CHO-Z-VALKYRIE-Z-EV` | 검증된 수직 탑뷰 미확보 |
-| B-128 | 블러디 롱기누스.1D.Cy | `BEY-BURST-B-128-BLOODY-LONGINUS-1D-CY` | 검증된 수직 탑뷰 미확보 |
-| B-128 | 크래시 라그나로크.5C.Vl' | `BEY-BURST-B-128-CRASH-RAGNARUK-5C-VL-DASH` | 검증된 수직 탑뷰 미확보 |
-| B-129 | 초Z 아킬레스.00.Dm | `BEY-BURST-B-129-CHO-Z-ACHILLES-00-DM` | 검증된 수직 탑뷰 미확보 |
-| B-130 | 엠퍼러 포르네우스.13M.S | `BEY-BURST-B-130-06-EMPEROR-FORNEUS-13-M-S` | 검증된 수직 탑뷰 미확보 |
-| B-139 | 위저드 파브닐.Rt.Rs 섬 | `BEY-BURST-B-139-WIZARD-FAFNIR-RT-RS-SEN` | 검증된 수직 탑뷰 미확보 |
-| B-144 | 츠바이 롱기누스.Dr.Sp' 멸 | `BEY-BURST-B-144-ZWEI-LONGINUS-DR-SP-DASH-METSU` | 검증된 수직 탑뷰 미확보 |
-| B-146 | 슬래시 조커.10.Kp 멸 | `BEY-BURST-B-146-04-SLASH-JOKER-10-KP-METSU` | 검증된 수직 탑뷰 미확보 |
-| B-146 | 크래시 라그나로크.7B.F' | `BEY-BURST-B-146-05-CRASH-RAGNARUK-7-B-F-DASH` | 검증된 수직 탑뷰 미확보 |
-| B-149 | 로드 스프리건.Bl.Dm' | `BEY-BURST-B-149-LORD-SPRIGGAN-BL-DM-DASH` | 검증된 수직 탑뷰 미확보 |
-| B-149 | 슬래시 드래곤.00.Ω 멸 | `BEY-BURST-B-149-SLASH-DRAGON-00-OCTA-METSU` | 검증된 수직 탑뷰 미확보 |
-| B-150 | 유니온 아킬레스.Cn.Xt+ 열 | `BEY-BURST-B-150-UNION-ACHILLES-CN-XT-PLUS-RETSU` | 검증된 수직 탑뷰 미확보 |
-| B-153 | 코스모 드래곤.Vn.R 열 | `BEY-BURST-B-153-COSMO-DRAGON-VN-R-RETSU` | 검증된 수직 탑뷰 미확보 |
-| B-153 | 이레이즈 파브닐.St.Tr 천 | `BEY-BURST-B-153-ERASE-FAFNIR-ST-TR-TEN` | 검증된 수직 탑뷰 미확보 |
-| B-156 | 드레드 파브닐.Pr.R 멸 | `BEY-BURST-B-156-03-DREAD-FAFNIR-PR-R-METSU` | 검증된 수직 탑뷰 미확보 |
-| B-156 | 이레이즈 바하무트.1'S.Zt' 쌍 | `BEY-BURST-B-156-07-ERASE-BAHAMUT-1-DASH-S-ZT-DASH-SOU` | 검증된 수직 탑뷰 미확보 |
-| B-158 | 그랜드 드래곤.α'L.Fl 굉 | `BEY-BURST-B-158-02-GRAND-DRAGON-DASH-L-FL-GOU` | 검증된 수직 탑뷰 미확보 |
-| B-158 | 록 드래곤.5.J' 쌍 | `BEY-BURST-B-158-03-ROCK-DRAGON-5-J-DASH-SOU` | 검증된 수직 탑뷰 미확보 |
-| B-158 | 포이즌 히드라.8'α.F' 환 | `BEY-BURST-B-158-04-POISON-HYDRA-8-DASH-ANGLE-F-DASH-GEN` | 검증된 수직 탑뷰 미확보 |
-| B-158 | 넉아웃 오딘.12.Op' 천 | `BEY-BURST-B-158-05-KNOCKOUT-ODIN-12-OP-DASH-TEN` | 검증된 수직 탑뷰 미확보 |
-| B-158 | 무신 아수라.13.αn 섬 | `BEY-BURST-B-158-06-BUSHIN-ASHURA-13-N-SEN` | 검증된 수직 탑뷰 미확보 |
-| B-158 | 초Z 발키리.3.Gr | `BEY-BURST-B-158-07-CHO-Z-VALKYRIE-3-GR` | 검증된 수직 탑뷰 미확보 |
-| B-158 | 샤이닝 아마테리오스.0.Ds' | `BEY-BURST-B-158-08-SHINING-AMATERIOS-0-DS-DASH` | 검증된 수직 탑뷰 미확보 |
-| B-164 | 택트 디아볼로스.2G.Lw 환 | `BEY-BURST-B-164-04-TACT-DIABOLOS-2-G-LW-GEN` | 검증된 수직 탑뷰 미확보 |
-| B-170 | 데스 디아볼로스.4T.Mr' 1D | `BEY-BURST-B-170-01-DEATH-DIABOLOS-4-T-MR-DASH-1D` | 검증된 수직 탑뷰 미확보 |
-| B-170 | 어비스 디아볼로스.5.F' 1S | `BEY-BURST-B-170-02-ABYSS-DIABOLOS-5-F-DASH-1S` | 검증된 수직 탑뷰 미확보 |
-| B-174 | 헬리오스 볼케이노.왕.Zn'+Z | `BEY-BURST-B-174-HELIOS-VOLCANO-OU-ZN-DASH-Z` | 검증된 수직 탑뷰 미확보 |
-| B-185 | 배니시 파브닐.Tp.Kc-3 | `BEY-BURST-B-185-VANISH-FAFNIR-TP-KC-3` | 검증된 수직 탑뷰 미확보 |
-| B-190 | 다이너마이트 벨리알.Nx.Vn-3 | `BEY-BURST-B-190-DYNAMITE-BELIAL-NX-VN-3` | 검증된 수직 탑뷰 미확보 |
-| B-190 | 로어 바하무트.Kr.MDr-6 | `BEY-BURST-B-190-ROAR-BAHAMUT-KR-MDR-6` | 검증된 수직 탑뷰 미확보 |
-| B-191 | 세이비어 페르세우스.Gg.Br'-3 | `BEY-BURST-B-191-SAVIOR-PERSEUS-GG-BR-DASH-3` | 검증된 수직 탑뷰 미확보 |
-| B-196 | 인피니트 드래곤.Zn'+X 1A | `BEY-BURST-B-196-03-INFINITE-DRAGON-ZN-DASH-PLUS-X-1A` | 검증된 수직 탑뷰 미확보 |
-| B-200 | 지포이드 엑스칼리버.Xn.Sw'-1 | `BEY-BURST-B-200-XIPHOID-XCALIBUR-XN-SW-DASH-1` | 검증된 수직 탑뷰 미확보 |
-| B-202 | 데빌 엑스칼리버.Mn.HWv'-2 | `BEY-BURST-B-202-03-DEVIL-XCALIBUR-MN-HWV-DASH-2` | 검증된 수직 탑뷰 미확보 |
-| B-202 | 지포이드 벨리알.Kr.Ds'-10 | `BEY-BURST-B-202-05-XIPHOID-BELIAL-KR-DS-DASH-10` | 검증된 수직 탑뷰 미확보 |
-| B-203 | 슈퍼 하이페리온 MR.Tp.Xp-2 | `BEY-BURST-B-203-SUPER-HYPERION-MR-TP-XP-2` | 검증된 수직 탑뷰 미확보 |
-| B-204 | 디바인 벨리알.Nx.Ad-6 | `BEY-BURST-B-204-DIVINE-BELIAL-NX-AD-6` | 검증된 수직 탑뷰 미확보 |
-| B-205 | 버스트 스프리건.S'.F'-8 | `BEY-BURST-B-205-BURST-SPRIGGAN-S-DASH-F-DASH-8` | 검증된 수직 탑뷰 미확보 |
-| B-205 | 얼티밋 발키리.W'.A'-9 | `BEY-BURST-B-205-ULTIMATE-VALKYRIE-W-DASH-A-DASH-9` | 검증된 수직 탑뷰 미확보 |
-| B-21 | 미노보로스.O.Q | `BEY-BURST-B-21-MINOBOROS-O-Q` | 검증된 수직 탑뷰 미확보 |
-| B-41 | 와일드 와이번.V.O | `BEY-BURST-B-41-WILD-WYVERN-V-O` | 검증된 수직 탑뷰 미확보 |
-| B-46 | 오벨리스크 오딘.T.X | `BEY-BURST-B-46-OBELISK-ODIN-T-X` | 검증된 수직 탑뷰 미확보 |
-| B-57 | 빅토리 발키리.U.Q | `BEY-BURST-B-57-VICTORY-VALKYRIE-U-Q` | 검증된 수직 탑뷰 미확보 |
-| B-63 | 비스트 베히모스.H.H | `BEY-BURST-B-63-BEAST-BEHEMOTH-H-H` | 검증된 수직 탑뷰 미확보 |
-| B-64 | 빅토리 발키리.T.U | `BEY-BURST-B-64-VICTORY-VALKYRIE-T-U` | 검증된 수직 탑뷰 미확보 |
-| B-65 | 카이저 케르베우스.D.O | `BEY-BURST-B-65-KAISER-KERBEUS-D-O` | 검증된 수직 탑뷰 미확보 |
-| B-65 | 와일드 와이번.I.Y | `BEY-BURST-B-65-WILD-WYVERN-I-Y` | 검증된 수직 탑뷰 미확보 |
-| B-73 | 갓 발키리.6V.Rb | `BEY-BURST-B-73-GOD-VALKYRIE-6V-RB` | 검증된 수직 탑뷰 미확보 |
-| B-74 | 크라이스 사탄.2G.Lp | `BEY-BURST-B-74-KREIS-SATAN-2G-LP` | 검증된 수직 탑뷰 미확보 |
-| B-75 | 블레이즈 라그나로크.4C.Fl | `BEY-BURST-B-75-BLAZE-RAGNARUK-4C-FL` | 검증된 수직 탑뷰 미확보 |
-| B-76 | 갓 발키리.6V.Rb | `BEY-BURST-B-76-VALKYRIE-6V-RB` | 검증된 수직 탑뷰 미확보 |
-| B-85 | 킬러 데스사이저.2V.Hn | `BEY-BURST-B-85-KILLER-DEATHSCYTHER-2V-HN` | 검증된 수직 탑뷰 미확보 |
-| BA-01 | 갓 발키리.6V.Rb | `BEY-BURST-BA-01-GOD-VALKYRIE-6V-RB` | 검증된 수직 탑뷰 미확보 |
-| BA-01 | 크라이스 사탄.2G.Lp | `BEY-BURST-BA-01-KREIS-SATAN-2G-LP` | 검증된 수직 탑뷰 미확보 |
+| B-00β | 발뒤르.β.β | `BEY-BURST-B-00-BALDUR-BETA-BETA` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-00 | 드래곤 스톰.W.X 골드 Ver. | `BEY-BURST-B-00-DRAGOON-STORM-W-X-GOLD` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-00 | 드래이거 슬래시.H.F | `BEY-BURST-B-00-DRIGER-SLASH-H-F` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-00 | 스톰 타이거.Il.Wd' | `BEY-BURST-B-00-DRIGER-V2-IL-WD-DASH` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-00 | 블레이즈 라그나로크.4S.B | `BEY-BURST-B-00-KR-BLAZE-RAGNARUK-4S-B` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-00 | 하운드 도그.8.Br | `BEY-BURST-B-00-WOLBORG-8-BR` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-102 | 트윈 네메시스.3H.Ul | `BEY-BURST-B-102-TWIN-NEMESIS-3H-UL` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-111 | 크래시 라그나로크.11R.Wd | `BEY-BURST-B-111-01-CRASH-RAGNARUK-11-R-WD` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-120 | 버스터 엑스칼리버.1'.Sw | `BEY-BURST-B-120-BUSTER-XCALIBUR-1DASH-SW` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-121 | 하운드 도그.8.Br | `BEY-BURST-B-121-WOLBORG-8-BR` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-122 | 가이스트 파브닐.8'.Ab | `BEY-BURST-B-122-GEIST-FAFNIR-8DASH-AB` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-127 | 초Z 발키리.Z.Ev | `BEY-BURST-B-127-CHO-Z-VALKYRIE-Z-EV` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-128 | 블러디 롱기누스.1D.Cy | `BEY-BURST-B-128-BLOODY-LONGINUS-1D-CY` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-128 | 크래시 라그나로크.5C.Vl' | `BEY-BURST-B-128-CRASH-RAGNARUK-5C-VL-DASH` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-128 | 얼브 이지스.Ω.Qs | `BEY-BURST-B-128-ORB-EGIS-OUTER-QS` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-129 | 초Z 아킬레스.00.Dm | `BEY-BURST-B-129-CHO-Z-ACHILLES-00-DM` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-130 | 엠퍼러 포르네우스.13M.S | `BEY-BURST-B-130-06-EMPEROR-FORNEUS-13-M-S` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-139 | 위저드 파브닐.Rt.Rs 섬 | `BEY-BURST-B-139-WIZARD-FAFNIR-RT-RS-SEN` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-144 | 츠바이 롱기누스.Dr.Sp' 멸 | `BEY-BURST-B-144-ZWEI-LONGINUS-DR-SP-DASH-METSU` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-145 | 베놈 디아볼로스.Vn.Bl | `BEY-BURST-B-145-VENOM-DIABOLOS-VN-BL` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-146 | 슬래시 조커.10.Kp 멸 | `BEY-BURST-B-146-04-SLASH-JOKER-10-KP-METSU` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-146 | 크래시 라그나로크.7B.F' | `BEY-BURST-B-146-05-CRASH-RAGNARUK-7-B-F-DASH` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-149 | 로드 스프리건.Bl.Dm' | `BEY-BURST-B-149-LORD-SPRIGGAN-BL-DM-DASH` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-149 | 슬래시 드래곤.00.Ω 멸 | `BEY-BURST-B-149-SLASH-DRAGON-00-OCTA-METSU` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-150 | 유니온 아킬레스.Cn.Xt+ 열 | `BEY-BURST-B-150-UNION-ACHILLES-CN-XT-PLUS-RETSU` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-153 | 코스모 드래곤.Vn.R 열 | `BEY-BURST-B-153-COSMO-DRAGON-VN-R-RETSU` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-153 | 이레이즈 파브닐.St.Tr 천 | `BEY-BURST-B-153-ERASE-FAFNIR-ST-TR-TEN` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-153 | 리겔리아 제네시스.Hy | `BEY-BURST-B-153-REGALIA-GENESIS-HY` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-154 | 임페리얼 드래곤.Ig' | `BEY-BURST-B-154-IMPERIAL-DRAGON-IG-DASH` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-155 | 마스터 디아볼로스.Gn | `BEY-BURST-B-155-MASTER-DIABOLOS-GN` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-156 | 드레드 파브닐.Pr.R 멸 | `BEY-BURST-B-156-03-DREAD-FAFNIR-PR-R-METSU` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-156 | 이레이즈 바하무트.1'S.Zt' 쌍 | `BEY-BURST-B-156-07-ERASE-BAHAMUT-1-DASH-S-ZT-DASH-SOU` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-157 | 빅뱅 제네시스.0.Ym | `BEY-BURST-B-157-BIGBANG-GENESIS-0-YM` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-158 | 그랜드 드래곤.α'L.Fl 굉 | `BEY-BURST-B-158-02-GRAND-DRAGON-DASH-L-FL-GOU` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-158 | 록 드래곤.5.J' 쌍 | `BEY-BURST-B-158-03-ROCK-DRAGON-5-J-DASH-SOU` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-158 | 포이즌 히드라.8'α.F' 환 | `BEY-BURST-B-158-04-POISON-HYDRA-8-DASH-ANGLE-F-DASH-GEN` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-158 | 넉아웃 오딘.12.Op' 천 | `BEY-BURST-B-158-05-KNOCKOUT-ODIN-12-OP-DASH-TEN` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-158 | 무신 아수라.13.αn 섬 | `BEY-BURST-B-158-06-BUSHIN-ASHURA-13-N-SEN` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-158 | 초Z 발키리.3.Gr | `BEY-BURST-B-158-07-CHO-Z-VALKYRIE-3-GR` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-158 | 샤이닝 아마테리오스.0.Ds' | `BEY-BURST-B-158-08-SHINING-AMATERIOS-0-DS-DASH` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-159 | 슈퍼 하이페리온.Xc 1A | `BEY-BURST-B-159-SUPER-HYPERION-XC-1A` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-160 | 킹 헬리오스.Zn 1B | `BEY-BURST-B-160-KING-HELIOS-ZN-1B` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-161 | 글라이드 라그나로크.Wh.R 1S | `BEY-BURST-B-161-GLIDE-RAGNARUK-WH-R-1S` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-162 | 킹 헬리오스.Zn 1B | `BEY-BURST-B-162-KING-HELIOS-ZN-1B` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-162 | 슈퍼 하이페리온.Xc 1A | `BEY-BURST-B-162-SUPER-HYPERION-XC-1A` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-163 | 브레이브 발키리.Ev' 2A | `BEY-BURST-B-163-BRAVE-VALKYRIE-EV-DASH-2A` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-164 | 택트 디아볼로스.2G.Lw 환 | `BEY-BURST-B-164-04-TACT-DIABOLOS-2-G-LW-GEN` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-167 | 미라지 파브닐.Nt 2S | `BEY-BURST-B-167-MIRAGE-FAFNIR-NT-2S` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-168 | 레이지 롱기누스.Ds' 3A | `BEY-BURST-B-168-RAGE-LONGINUS-DS-DASH-3A` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-170 | 데스 디아볼로스.4T.Mr' 1D | `BEY-BURST-B-170-01-DEATH-DIABOLOS-4-T-MR-DASH-1D` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-170 | 어비스 디아볼로스.5.F' 1S | `BEY-BURST-B-170-02-ABYSS-DIABOLOS-5-F-DASH-1S` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-172 | 월드 스프리건.U' 2B | `BEY-BURST-B-172-WORLD-SPRIGGAN-U-DASH-2B` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-174 | 헬리오스 볼케이노.왕.Zn'+Z | `BEY-BURST-B-174-HELIOS-VOLCANO-OU-ZN-DASH-Z` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-174 | 하이페리온 번.초.Xc'+X | `BEY-BURST-B-174-HYPERION-BURN-CHO-XC-DASH-X` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-178 | 킹 헬리오스.S 1B | `BEY-BURST-B-178-02-KING-HELIOS-S-1B` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-178 | 임페리얼 드래곤.7.Et | `BEY-BURST-B-178-06-IMPERIAL-DRAGON-7-ET` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-179 | 데스 솔로몬.MF 2B | `BEY-BURST-B-179-DEATH-SOLOMON-MF-2B` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-181 | 사이클론 라그나로크.Gg.Nv-6 | `BEY-BURST-B-181-01-CYCLONE-RAGNARUK-GG-NV-6` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-181 | 사이클론 라그나로크.Nx.Rs-2 | `BEY-BURST-B-181-02-CYCLONE-RAGNARUK-NX-RS-2` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-181 | 인피니트 데스사이저.Un 1A | `BEY-BURST-B-181-05-INFINITE-DEATHSCYTHER-UN-1A` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-185 | 배니시 파브닐.Tp.Kc-3 | `BEY-BURST-B-185-VANISH-FAFNIR-TP-KC-3` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-186 | 로어 파브닐.00.R-2 | `BEY-BURST-B-186-02-ROAR-FAFNIR-00-R-2` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-186 | 월드 드래곤.Ω.Mm 4A | `BEY-BURST-B-186-05-WORLD-DRAGON-OUTER-MM-4A` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-187 | 세이비어 발키리.Sh-7 | `BEY-BURST-B-187-SAVIOR-VALKYRIE-SH-7` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-189 | 길티 롱기누스.Kr.MDs-2 | `BEY-BURST-B-189-GUILTY-LONGINUS-KR-MDS-2` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-190 | 다이너마이트 벨리알.Nx.Vn-3 | `BEY-BURST-B-190-DYNAMITE-BELIAL-NX-VN-3` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-190 | 로어 바하무트.Kr.MDr-6 | `BEY-BURST-B-190-ROAR-BAHAMUT-KR-MDR-6` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-191 | 세이비어 페르세우스.Gg.Br'-3 | `BEY-BURST-B-191-SAVIOR-PERSEUS-GG-BR-DASH-3` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-196 | 인피니트 드래곤.Zn'+X 1A | `BEY-BURST-B-196-03-INFINITE-DRAGON-ZN-DASH-PLUS-X-1A` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-199 | 개틀링 드래곤.Kr.Cm'-10 | `BEY-BURST-B-199-GATLING-DRAGON-KR-CM-DASH-10` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-200 | 지포이드 엑스칼리버.Xn.Sw'-1 | `BEY-BURST-B-200-XIPHOID-XCALIBUR-XN-SW-DASH-1` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-202 | 데빌 엑스칼리버.Mn.HWv'-2 | `BEY-BURST-B-202-03-DEVIL-XCALIBUR-MN-HWV-DASH-2` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-202 | 지포이드 벨리알.Kr.Ds'-10 | `BEY-BURST-B-202-05-XIPHOID-BELIAL-KR-DS-DASH-10` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-203 | 슈퍼 하이페리온 MR.Tp.Xp-2 | `BEY-BURST-B-203-SUPER-HYPERION-MR-TP-XP-2` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-204 | 디바인 벨리알.Nx.Ad-6 | `BEY-BURST-B-204-DIVINE-BELIAL-NX-AD-6` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-205 | 버스트 스프리건.S'.F'-8 | `BEY-BURST-B-205-BURST-SPRIGGAN-S-DASH-F-DASH-8` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-205 | 얼티밋 발키리.W'.A'-9 | `BEY-BURST-B-205-ULTIMATE-VALKYRIE-W-DASH-A-DASH-9` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-41 | 와일드 와이번.V.O | `BEY-BURST-B-41-WILD-WYVERN-V-O` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-46 | 오벨리스크 오딘.T.X | `BEY-BURST-B-46-OBELISK-ODIN-T-X` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-57 | 빅토리 발키리.U.Q | `BEY-BURST-B-57-VICTORY-VALKYRIE-U-Q` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-63 | 비스트 베히모스.H.H | `BEY-BURST-B-63-BEAST-BEHEMOTH-H-H` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-64 | 빅토리 발키리.T.U | `BEY-BURST-B-64-VICTORY-VALKYRIE-T-U` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-65 | 카이저 케르베우스.D.O | `BEY-BURST-B-65-KAISER-KERBEUS-D-O` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-65 | 와일드 와이번.I.Y | `BEY-BURST-B-65-WILD-WYVERN-I-Y` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-73 | 갓 발키리.6V.Rb | `BEY-BURST-B-73-GOD-VALKYRIE-6V-RB` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-74 | 크라이스 사탄.2G.Lp | `BEY-BURST-B-74-KREIS-SATAN-2G-LP` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-75 | 블레이즈 라그나로크.4C.Fl | `BEY-BURST-B-75-BLAZE-RAGNARUK-4C-FL` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-76 | 갓 발키리.6V.Rb | `BEY-BURST-B-76-VALKYRIE-6V-RB` | 검증된 정확한 수직 탑뷰 미확보 |
+| B-85 | 킬러 데스사이저.2V.Hn | `BEY-BURST-B-85-KILLER-DEATHSCYTHER-2V-HN` | 검증된 정확한 수직 탑뷰 미확보 |
+| BA-01 | 갓 발키리.6V.Rb | `BEY-BURST-BA-01-GOD-VALKYRIE-6V-RB` | 검증된 정확한 수직 탑뷰 미확보 |
+| BA-01 | 크라이스 사탄.2G.Lp | `BEY-BURST-BA-01-KREIS-SATAN-2G-LP` | 검증된 정확한 수직 탑뷰 미확보 |

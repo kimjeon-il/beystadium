@@ -24,7 +24,7 @@ import numpy as np
 from PIL import Image, ImageFilter
 
 
-VERSION = "20260819-burst-orthographic-top-reaudit"
+VERSION = "20260819-burst-b07-b21-orthographic-fronts"
 CANVAS_SIZE = 448
 TARGET_FOREGROUND_SIZE = 360
 ALPHA_THRESHOLD = 3
@@ -792,6 +792,8 @@ def main() -> int:
             "generatedImagesAllowed": True,
             "generatedImagePolicy": "low-resolution exact strict-front sources only; original alpha reapplied",
             "unsafeSourcesRemainUnavailable": True,
+            "strictFrontDefinition": "orthographic vertical top view with no visible side thickness or perspective",
+            "manualPixelEvidenceRequired": True,
         },
         "selected": selected,
         "unavailable": unavailable,

@@ -10,7 +10,7 @@ import burstBeyFrontViewAudit from "../data/source/burst-bey-front-view-audit.js
 import burstBeyFandomFrontSources from "../data/source/burst-bey-fandom-front-sources.json" with { type: "json" };
 import { burstBeyImagePath } from "./burst-image-paths.mjs";
 
-const VERSION = "20260819-burst-orthographic-top-reaudit";
+const VERSION = "20260819-burst-b07-b21-orthographic-fronts";
 const burstBeys = beyItems.filter(item => item.series === "burst" && item.type === "bey");
 const byId = new Map(burstBeys.map(item => [item.id, item]));
 const selected = burstBeyPrimaryImageConfig.selected;
@@ -32,9 +32,17 @@ function assertOrthographicReview(review, id) {
   assert.equal(review.singleAssembledProduct, true, `${id}: image must contain one assembled Bey`);
   assert.equal(review.reviewedAt, "2026-08-19", `${id}: review date mismatch`);
   assert.equal(review.evidence?.type, "manual-pixel-review", `${id}: pixel review evidence is missing`);
-  assert.equal(review.evidence?.batch, "burst-orthographic-top-reaudit", `${id}: review batch mismatch`);
-  assert.match(review.evidence?.contactSheet || "", /^selected-\d{2}\.jpg$/, `${id}: review sheet evidence is missing`);
-  assert.ok(Number.isInteger(review.evidence?.cell) && review.evidence.cell >= 1 && review.evidence.cell <= 12, `${id}: invalid review cell`);
+  const batch = review.evidence?.batch;
+  const sheet = review.evidence?.contactSheet || "";
+  const cell = review.evidence?.cell;
+  if (batch === "burst-orthographic-top-reaudit") {
+    assert.match(sheet, /^selected-\d{2}\.jpg$/, `${id}: review sheet evidence is missing`);
+    assert.ok(Number.isInteger(cell) && cell >= 1 && cell <= 12, `${id}: invalid review cell`);
+  } else {
+    assert.equal(batch, "burst-user-sources-b07-b21", `${id}: review batch mismatch`);
+    assert.equal(sheet, "user-sources-b07-b21.jpg", `${id}: review sheet evidence is missing`);
+    assert.ok(Number.isInteger(cell) && cell >= 1 && cell <= 2, `${id}: invalid review cell`);
+  }
   assert.deepEqual(review.evidence?.reviewedScales, [448, 112], `${id}: required review scales are missing`);
 }
 
@@ -104,15 +112,16 @@ assert.deepEqual(burstBeyFrontViewAudit.summary, {
   orthographicTopKept: 340,
   orthographicTopReplacements: 0,
   newlyRejectedObliqueOrPerspective: 29,
-  finalSelected: 340,
-  finalUnavailable: 93
+  newlyRegisteredOrthographicTop: 2,
+  finalSelected: 342,
+  finalUnavailable: 91
 });
 assert.deepEqual(burstBeyFandomFrontSources.summary, {
   reviewed: 148,
-  approved: 57,
-  direct: 45,
+  approved: 59,
+  direct: 47,
   lowResolution: 12,
-  unavailable: 91
+  unavailable: 89
 });
 assert.equal(
   burstBeyFandomFrontSources.selected.length + burstBeyFandomFrontSources.unavailable.length,

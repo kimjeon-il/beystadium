@@ -1,6 +1,6 @@
 import { expect } from "@playwright/test";
 
-const X_ASSET_CACHE_VERSION = "20260819-burst-orthographic-top-reaudit";
+const X_ASSET_CACHE_VERSION = "20260819-burst-b07-b21-orthographic-fronts";
 
 const consoleErrors = page => {
   const errors = [];

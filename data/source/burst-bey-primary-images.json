@@ -1,5 +1,5 @@
 {
-  "version": "20260819-burst-orthographic-top-reaudit",
+  "version": "20260819-burst-b07-b21-orthographic-fronts",
   "normalization": {
     "method": "premultiplied-alpha-uniform-long-edge",
     "canvasSize": 448,
@@ -1477,6 +1477,53 @@
       "searchAudit": {
         "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
         "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B_06.png",
+        "officialOutcome": "checked; no safer isolated exact-combination source selected",
+        "databaseOutcome": "exact title and assembled top-view gallery image selected",
+        "shopOutcome": "not needed"
+      }
+    },
+    {
+      "id": "BEY-BURST-B-07-KERBEUS-W-F",
+      "image": "assets/images/burst/beys/bey-burst-b-07-kerbeus-w-f/bey-burst-b-07-kerbeus-w-f.webp",
+      "sourceKind": "verified-database",
+      "sourceSha256": "fcf7d503a29596c1bc58c5d11fd658110c8047ce126a50810dcdde5ac793e4ed",
+      "outputSha256": "43279a31b1e19c9f20e833aa21e041dbb6a0f5331c4a912f0530ca54a4cfcd6b",
+      "sourceTitle": "File:K wf.jpg",
+      "productNo": "B-07",
+      "combination": "Kerbeus.W.F",
+      "backgroundRemoval": "connected-light-background",
+      "normalizedForegroundBox": [
+        45,
+        44,
+        402,
+        404
+      ],
+      "alphaReview": {
+        "canvasSize": [
+          448,
+          448
+        ],
+        "targetForegroundSize": 360,
+        "transparentCorners": true,
+        "singleConnectedSubject": true,
+        "reviewedAt": "2026-08-19"
+      },
+      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/e/e9/K_wf.jpg/revision/latest?cb=20171104033557",
+      "checkedAt": "2026-08-19",
+      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Kerbeus_Wing_Fusion_(Takara_Tomy)",
+      "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:K_wf.jpg",
+      "mediawikiSha1": "9a95ff05de3fd602350d8b568f87223f14ff634a",
+      "sourceDimensions": [
+        600,
+        615
+      ],
+      "strictFrontReviewed": true,
+      "exactCombinationReviewed": true,
+      "assembledProductReviewed": true,
+      "processingClass": "direct",
+      "searchAudit": {
+        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
+        "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B_07.png",
         "officialOutcome": "checked; no safer isolated exact-combination source selected",
         "databaseOutcome": "exact title and assembled top-view gallery image selected",
         "shopOutcome": "not needed"
@@ -8974,6 +9021,53 @@
       }
     },
     {
+      "id": "BEY-BURST-B-21-MINOBOROS-O-Q",
+      "image": "assets/images/burst/beys/bey-burst-b-21-minoboros-o-q/bey-burst-b-21-minoboros-o-q.webp",
+      "sourceKind": "verified-database",
+      "sourceSha256": "273845284d03d926983b11a888f66ff35e2d320644ebd056fad3b7949b45456d",
+      "outputSha256": "dba4a860750c70cb8a60812839fc97d1ad8fbc1c355c71d14c1f5d37fea0126f",
+      "sourceTitle": "File:KCNuiZj.jpg",
+      "productNo": "B-21",
+      "combination": "Minoboros.O.Q",
+      "backgroundRemoval": "connected-light-background",
+      "normalizedForegroundBox": [
+        44,
+        45,
+        404,
+        402
+      ],
+      "alphaReview": {
+        "canvasSize": [
+          448,
+          448
+        ],
+        "targetForegroundSize": 360,
+        "transparentCorners": true,
+        "singleConnectedSubject": true,
+        "reviewedAt": "2026-08-19"
+      },
+      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/4/4e/KCNuiZj.jpg/revision/latest?cb=20171026235112",
+      "checkedAt": "2026-08-19",
+      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Minoboros_Oval_Quake_(Takara_Tomy)",
+      "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:KCNuiZj.jpg",
+      "mediawikiSha1": "d734da96b642a441200d1c6150bc949eb39ae42d",
+      "sourceDimensions": [
+        500,
+        500
+      ],
+      "strictFrontReviewed": true,
+      "exactCombinationReviewed": true,
+      "assembledProductReviewed": true,
+      "processingClass": "direct",
+      "searchAudit": {
+        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
+        "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B_21.png",
+        "officialOutcome": "checked; no safer isolated exact-combination source selected",
+        "databaseOutcome": "exact title and assembled top-view gallery image selected",
+        "shopOutcome": "not needed"
+      }
+    },
+    {
       "id": "BEY-BURST-B-21-SPRIGGAN-S-B",
       "image": "assets/images/burst/beys/bey-burst-b-21-spriggan-s-b/bey-burst-b-21-spriggan-s-b.webp",
       "sourceKind": "generated-enhancement",
@@ -13079,20 +13173,6 @@
       }
     },
     {
-      "id": "BEY-BURST-B-07-KERBEUS-W-F",
-      "productNo": "B-07",
-      "combination": "Kerbeus.W.F",
-      "reason": "only Hasbro variant; exact Takara Tomy B-07 color/printing not verified",
-      "searchAudit": {
-        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
-        "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B_07.png",
-        "officialOutcome": "checked; no safe isolated exact-combination source",
-        "databaseOutcome": "no exact verified assembled top-view source",
-        "shopOutcome": "no verified watermark-free exact source retained",
-        "checkedAt": "2026-08-19"
-      }
-    },
-    {
       "id": "BEY-BURST-B-102-TWIN-NEMESIS-3H-UL",
       "productNo": "B-102",
       "combination": "Twin Nemesis.3H.Ul",
@@ -14384,20 +14464,6 @@
       "searchAudit": {
         "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
         "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B-205.png",
-        "officialOutcome": "checked; no safe isolated exact-combination source",
-        "databaseOutcome": "no exact verified assembled top-view source",
-        "shopOutcome": "no verified watermark-free exact source retained",
-        "checkedAt": "2026-08-19"
-      }
-    },
-    {
-      "id": "BEY-BURST-B-21-MINOBOROS-O-Q",
-      "productNo": "B-21",
-      "combination": "Minoboros.O.Q",
-      "reason": "only Hasbro variant; exact Takara Tomy B-21 color/printing not verified",
-      "searchAudit": {
-        "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
-        "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B_21.png",
         "officialOutcome": "checked; no safe isolated exact-combination source",
         "databaseOutcome": "no exact verified assembled top-view source",
         "shopOutcome": "no verified watermark-free exact source retained",

@@ -1,5 +1,5 @@
 {
-  "version": "20260819-burst-orthographic-top-reaudit",
+  "version": "20260819-burst-b07-b21-orthographic-fronts",
   "source": "https://beyblade.fandom.com/",
   "scope": "previously unavailable Burst Beys only",
   "reviewedAt": "2026-08-19",
@@ -11,10 +11,10 @@
   },
   "summary": {
     "reviewed": 148,
-    "approved": 57,
-    "direct": 45,
+    "approved": 59,
+    "direct": 47,
     "lowResolution": 12,
-    "unavailable": 91
+    "unavailable": 89
   },
   "selected": [
     {
@@ -359,6 +359,46 @@
           "batch": "burst-orthographic-top-reaudit",
           "contactSheet": "selected-04.jpg",
           "cell": 2,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
+    },
+    {
+      "id": "BEY-BURST-B-07-KERBEUS-W-F",
+      "productNo": "B-07",
+      "combination": "Kerbeus.W.F",
+      "fandomPageTitle": "Kerbeus Wing Fusion (Takara Tomy)",
+      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Kerbeus_Wing_Fusion_(Takara_Tomy)",
+      "fileTitle": "File:K wf.jpg",
+      "filePageUrl": "https://beyblade.fandom.com/wiki/File:K_wf.jpg",
+      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/e/e9/K_wf.jpg/revision/latest?cb=20171104033557",
+      "mediawikiSha1": "9a95ff05de3fd602350d8b568f87223f14ff634a",
+      "sourceSha256": "fcf7d503a29596c1bc58c5d11fd658110c8047ce126a50810dcdde5ac793e4ed",
+      "sourceWidth": 600,
+      "sourceHeight": 615,
+      "sourceMime": "image/jpeg",
+      "strictFrontReviewed": true,
+      "exactCombinationReviewed": true,
+      "assembledProductReviewed": true,
+      "reviewedAt": "2026-08-19",
+      "processingClass": "direct",
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-user-sources-b07-b21",
+          "contactSheet": "user-sources-b07-b21.jpg",
+          "cell": 1,
           "reviewedScales": [
             448,
             112
@@ -1337,6 +1377,46 @@
           "batch": "burst-orthographic-top-reaudit",
           "contactSheet": "selected-22.jpg",
           "cell": 10,
+          "reviewedScales": [
+            448,
+            112
+          ]
+        },
+        "reviewedAt": "2026-08-19"
+      }
+    },
+    {
+      "id": "BEY-BURST-B-21-MINOBOROS-O-Q",
+      "productNo": "B-21",
+      "combination": "Minoboros.O.Q",
+      "fandomPageTitle": "Minoboros Oval Quake (Takara Tomy)",
+      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Minoboros_Oval_Quake_(Takara_Tomy)",
+      "fileTitle": "File:KCNuiZj.jpg",
+      "filePageUrl": "https://beyblade.fandom.com/wiki/File:KCNuiZj.jpg",
+      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/4/4e/KCNuiZj.jpg/revision/latest?cb=20171026235112",
+      "mediawikiSha1": "d734da96b642a441200d1c6150bc949eb39ae42d",
+      "sourceSha256": "273845284d03d926983b11a888f66ff35e2d320644ebd056fad3b7949b45456d",
+      "sourceWidth": 500,
+      "sourceHeight": 500,
+      "sourceMime": "image/jpeg",
+      "strictFrontReviewed": true,
+      "exactCombinationReviewed": true,
+      "assembledProductReviewed": true,
+      "reviewedAt": "2026-08-19",
+      "processingClass": "direct",
+      "generatedEnhancement": false,
+      "orthographicReview": {
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
+        "evidence": {
+          "type": "manual-pixel-review",
+          "batch": "burst-user-sources-b07-b21",
+          "contactSheet": "user-sources-b07-b21.jpg",
+          "cell": 2,
           "reviewedScales": [
             448,
             112
@@ -2454,18 +2534,6 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "reason": "Fandom image shows visible side thickness and an oblique camera angle"
-    },
-    {
-      "id": "BEY-BURST-B-07-KERBEUS-W-F",
-      "productNo": "B-07",
-      "combination": "Kerbeus.W.F",
-      "fandomPageTitle": "Kerbeus Wing Fusion (Hasbro)",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Kerbeus_Wing_Fusion_%28Hasbro%29",
-      "candidateCount": 1,
-      "reason": "only Hasbro variant; exact Takara Tomy B-07 color/printing not verified",
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "reviewedAt": "2026-08-19"
     },
     {
       "id": "BEY-BURST-B-102-TWIN-NEMESIS-3H-UL",
@@ -3950,18 +4018,6 @@
       "assembledProductReviewed": true,
       "reviewedAt": "2026-08-19",
       "reason": "Fandom candidate is byte-identical to the previously rejected non-front image"
-    },
-    {
-      "id": "BEY-BURST-B-21-MINOBOROS-O-Q",
-      "productNo": "B-21",
-      "combination": "Minoboros.O.Q",
-      "fandomPageTitle": "Minoboros Oval Quake (Hasbro)",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Minoboros_Oval_Quake_%28Hasbro%29",
-      "candidateCount": 2,
-      "reason": "only Hasbro variant; exact Takara Tomy B-21 color/printing not verified",
-      "strictFrontReviewed": true,
-      "exactCombinationReviewed": true,
-      "reviewedAt": "2026-08-19"
     },
     {
       "id": "BEY-BURST-B-41-WILD-WYVERN-V-O",

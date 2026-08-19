@@ -1,5 +1,5 @@
 {
-  "version": "20260819-burst-orthographic-top-reaudit",
+  "version": "20260819-burst-b07-b21-orthographic-fronts",
   "reviewedAt": "2026-08-19",
   "criteria": {
     "accepted": "one exact assembled Bey photographed or rendered with the camera axis directly above the rotation axis",
@@ -30,8 +30,9 @@
     "orthographicTopKept": 340,
     "orthographicTopReplacements": 0,
     "newlyRejectedObliqueOrPerspective": 29,
-    "finalSelected": 340,
-    "finalUnavailable": 93
+    "newlyRegisteredOrthographicTop": 2,
+    "finalSelected": 342,
+    "finalUnavailable": 91
   },
   "entries": [
     {
@@ -1942,37 +1943,45 @@
       "reviewedAt": "2026-08-19",
       "initialClassification": "unavailable",
       "initialReason": "no exact isolated top-view source found after official and verified database checks",
-      "finalClassification": "unavailable",
-      "action": "fandom-search-unavailable",
-      "searchOutcome": "only Hasbro variant; exact Takara Tomy B-07 color/printing not verified",
+      "finalClassification": "orthographic-top",
+      "action": "user-source-direct-registered",
+      "searchOutcome": "exact Takara Tomy assembled orthographic top-view source supplied and verified",
       "fandomSearch": {
-        "page": "https://beyblade.fandom.com/wiki/Kerbeus_Wing_Fusion_%28Hasbro%29",
-        "filePage": null,
-        "sourceUrl": null,
-        "fileTitle": null,
-        "mediawikiSha1": null,
-        "sourceSha256": null,
+        "page": "https://beyblade.fandom.com/wiki/Kerbeus_Wing_Fusion_(Takara_Tomy)",
+        "filePage": "https://beyblade.fandom.com/wiki/File:K_wf.jpg",
+        "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/e/e9/K_wf.jpg/revision/latest?cb=20171104033557",
+        "fileTitle": "File:K wf.jpg",
+        "mediawikiSha1": "9a95ff05de3fd602350d8b568f87223f14ff634a",
+        "sourceSha256": "fcf7d503a29596c1bc58c5d11fd658110c8047ce126a50810dcdde5ac793e4ed",
         "sourceDimensions": [
-          null,
-          null
+          600,
+          615
         ],
-        "strictFrontReviewed": false,
+        "strictFrontReviewed": true,
         "exactCombinationReviewed": true,
-        "assembledProductReviewed": false
+        "assembledProductReviewed": true
       },
       "orthographicReview": {
-        "classification": "unavailable",
-        "cameraAxis": "not-verifiable",
-        "perspectiveVisible": null,
-        "sideThicknessVisible": null,
-        "exactCombination": null,
-        "singleAssembledProduct": null,
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
         "evidence": {
-          "type": "source-search",
-          "outcome": "only Hasbro variant; exact Takara Tomy B-07 color/printing not verified"
+          "type": "manual-pixel-review",
+          "batch": "burst-user-sources-b07-b21",
+          "contactSheet": "user-sources-b07-b21.jpg",
+          "cell": 1,
+          "reviewedScales": [
+            448,
+            112
+          ]
         },
         "reviewedAt": "2026-08-19"
-      }
+      },
+      "finalImage": "assets/images/burst/beys/bey-burst-b-07-kerbeus-w-f/bey-burst-b-07-kerbeus-w-f.webp",
+      "finalOutputSha256": "43279a31b1e19c9f20e833aa21e041dbb6a0f5331c4a912f0530ca54a4cfcd6b"
     },
     {
       "id": "BEY-BURST-B-08-VALKYRIE-W-A",
@@ -14638,37 +14647,45 @@
       "reviewedAt": "2026-08-19",
       "initialClassification": "unavailable",
       "initialReason": "no exact isolated top-view source found after official and verified database checks",
-      "finalClassification": "unavailable",
-      "action": "fandom-search-unavailable",
-      "searchOutcome": "only Hasbro variant; exact Takara Tomy B-21 color/printing not verified",
+      "finalClassification": "orthographic-top",
+      "action": "user-source-direct-registered",
+      "searchOutcome": "exact Takara Tomy assembled orthographic top-view source supplied and verified",
       "fandomSearch": {
-        "page": "https://beyblade.fandom.com/wiki/Minoboros_Oval_Quake_%28Hasbro%29",
-        "filePage": null,
-        "sourceUrl": null,
-        "fileTitle": null,
-        "mediawikiSha1": null,
-        "sourceSha256": null,
+        "page": "https://beyblade.fandom.com/wiki/Minoboros_Oval_Quake_(Takara_Tomy)",
+        "filePage": "https://beyblade.fandom.com/wiki/File:KCNuiZj.jpg",
+        "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/4/4e/KCNuiZj.jpg/revision/latest?cb=20171026235112",
+        "fileTitle": "File:KCNuiZj.jpg",
+        "mediawikiSha1": "d734da96b642a441200d1c6150bc949eb39ae42d",
+        "sourceSha256": "273845284d03d926983b11a888f66ff35e2d320644ebd056fad3b7949b45456d",
         "sourceDimensions": [
-          null,
-          null
+          500,
+          500
         ],
-        "strictFrontReviewed": false,
+        "strictFrontReviewed": true,
         "exactCombinationReviewed": true,
-        "assembledProductReviewed": false
+        "assembledProductReviewed": true
       },
       "orthographicReview": {
-        "classification": "unavailable",
-        "cameraAxis": "not-verifiable",
-        "perspectiveVisible": null,
-        "sideThicknessVisible": null,
-        "exactCombination": null,
-        "singleAssembledProduct": null,
+        "classification": "orthographic-top",
+        "cameraAxis": "vertical",
+        "perspectiveVisible": false,
+        "sideThicknessVisible": false,
+        "exactCombination": true,
+        "singleAssembledProduct": true,
         "evidence": {
-          "type": "source-search",
-          "outcome": "only Hasbro variant; exact Takara Tomy B-21 color/printing not verified"
+          "type": "manual-pixel-review",
+          "batch": "burst-user-sources-b07-b21",
+          "contactSheet": "user-sources-b07-b21.jpg",
+          "cell": 2,
+          "reviewedScales": [
+            448,
+            112
+          ]
         },
         "reviewedAt": "2026-08-19"
-      }
+      },
+      "finalImage": "assets/images/burst/beys/bey-burst-b-21-minoboros-o-q/bey-burst-b-21-minoboros-o-q.webp",
+      "finalOutputSha256": "dba4a860750c70cb8a60812839fc97d1ad8fbc1c355c71d14c1f5d37fea0126f"
     },
     {
       "id": "BEY-BURST-B-21-SPRIGGAN-S-B",

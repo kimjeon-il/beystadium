@@ -8,7 +8,7 @@ const bookItems = [];
 const gameItems = [];
 const animeInfo = { title: "", overview: [], characters: [], episodes: [] };
 const searchIndexItems = [];
-const X_ASSET_CACHE_VERSION = "20260819-burst-orthographic-top-reaudit";
+const X_ASSET_CACHE_VERSION = "20260819-burst-b07-b21-orthographic-fronts";
 
 const versionAssetUrl = source => {
   const value = String(source || "");
