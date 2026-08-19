@@ -7,9 +7,9 @@ import {
   closeAllSearchPreviews,
   handleSearchPreviewKeydown,
   refreshSearchPreview,
-  renderGlobalCards,
-  searchPreviewScopeValue
+  renderGlobalCards
 } from "#app/search-feature";
+import { searchScopeForInput, setGlobalSearchScopePeers, setGlobalSearchState, syncGlobalSearchStateFromInput } from "#app/search-state";
 import { globalSearchQuery } from "#app/search-engine";
 import { activatePrimarySection, bindSearchInput, setMobileDrawerOpen } from "#app/shell-controller";
 import {
@@ -24,20 +24,14 @@ import {
   searchResultsSearch,
   searchResultsSearchScope,
   searchResultsSearchScopeValue,
-  setGlobalSearchScope,
-  setMobileDrawerSearchScope,
-  setOverviewSearchScope,
-  setSearchResultsSearchScope,
-  setSearchInputValue
-} from "#app/ui-core";
+  setSearchResultsSearchScope
+} from "#app/ui-elements";
 
 let initialized = false;
 let searchHashUpdateTimer = 0;
 let searchRenderTimer = 0;
 let searchRenderFrame = 0;
 let focusResultsSearchOnOpen = false;
-
-const globalSearchInputs = () => [globalSearch, mobileDrawerSearch, overviewSearch, searchResultsSearch].filter(Boolean);
 
 const updateGlobalSearchHash = () => {
   if (searchHashUpdateTimer) clearTimeout(searchHashUpdateTimer);
@@ -65,29 +59,6 @@ const scheduleGlobalSearchResultsRefresh = () => {
     });
   }, SEARCH_RENDER_DELAY);
 };
-const setGlobalSearchState = (query = "", scope = "all") => {
-  globalSearchInputs().forEach(input => setSearchInputValue(input, query));
-  setGlobalSearchScope(scope);
-  setMobileDrawerSearchScope(scope);
-  setOverviewSearchScope(scope);
-  setSearchResultsSearchScope(scope);
-};
-const syncGlobalSearchInputPeers = sourceInput => {
-  const query = sourceInput?.value || "";
-  globalSearchInputs().forEach(input => {
-    if (input && input !== sourceInput) setSearchInputValue(input, query);
-  });
-};
-const syncGlobalSearchScopePeers = scope => {
-  setGlobalSearchScope(scope);
-  setMobileDrawerSearchScope(scope);
-  setOverviewSearchScope(scope);
-  setSearchResultsSearchScope(scope);
-};
-const syncInputToPeers = input => {
-  syncGlobalSearchInputPeers(input);
-  syncGlobalSearchScopePeers(searchPreviewScopeValue(input));
-};
 const ensureSearchResultsScopeOptions = () => {
   const menu = searchResultsSearchScope?.querySelector(".catalog-dropdown-menu");
   if (!menu || menu.children.length) return;
@@ -101,7 +72,7 @@ const ensureSearchResultsScopeOptions = () => {
 };
 const openSearchResults = ({ replace = false, updateHash = true, focusSearch = false } = {}) => {
   if (focusSearch) focusResultsSearchOnOpen = true;
-  if (updateHash && !appState.applyingRoute) {
+  if (updateHash && !appState.routing.applying) {
     navigateToRoute({ type: "search", query: globalSearchQuery(), scope: globalSearchScopeValue() }, { replace });
     return;
   }
@@ -120,22 +91,22 @@ const bindSearchScopeControl = (dropdown, dataAttr, input, { preview = true } = 
     const button = event.target.closest(`button[${dataAttr}]`);
     if (!button || !dropdown.contains(button)) return;
     event.preventDefault();
-    syncGlobalSearchScopePeers(button.getAttribute(dataAttr) || "all");
+    setGlobalSearchScopePeers(button.getAttribute(dataAttr) || "all");
     if (preview) refreshSearchPreview(input, { resetActive: true });
     if (activeAppPanelName() === "all") openSearchResults({ replace: true });
   });
 };
 const bindGlobalSearchInput = (input, container, { preview = true } = {}) => {
   bindSearchInput(input, container, {
-    ensureSearchScope: searchPreviewScopeValue,
+    ensureSearchScope: searchScopeForInput,
     onKeydown: preview ? event => handleSearchPreviewKeydown(input, event) : undefined,
     onInput: () => {
-      syncInputToPeers(input);
+      syncGlobalSearchStateFromInput(input);
       if (preview) refreshSearchPreview(input, { resetActive: true });
       if (activeAppPanelName() === "all") scheduleGlobalSearchResultsRefresh();
     },
     onSubmit: () => {
-      syncInputToPeers(input);
+      syncGlobalSearchStateFromInput(input);
       openSearchResults({ focusSearch: input !== searchResultsSearch });
     }
   });

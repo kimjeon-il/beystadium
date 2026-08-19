@@ -1,11 +1,12 @@
 import { closeOpenCatalogDropdowns, closeSearchPreviews } from "#app/shell-controller";
 import { bindScrollAffordance, clearScrollAffordance, scheduleScrollAffordances } from "#app/scroll-affordance";
+import { clamp, visualViewportRect } from "#app/floating-layer";
 import {
   animeSearchHelpButton,
   animeSearchHelpPopover,
   catalogSearchHelpButton,
   catalogSearchHelpPopover
-} from "#app/ui-core";
+} from "#app/ui-elements";
 
 const searchHelpPopovers = [];
 const searchHelpSummaryClass = "is-summary-only";
@@ -17,7 +18,6 @@ const rootPixelValue = (name, fallback) => {
   const value = Number.parseFloat(getComputedStyle(document.documentElement).getPropertyValue(name));
   return Number.isFinite(value) ? value : fallback;
 };
-const clamp = (value, min, max) => Math.min(Math.max(value, min), Math.max(min, max));
 const resetSearchHelpPopoverLayout = popover => {
   popover.classList.remove(searchHelpSummaryClass);
   clearScrollAffordance(popover);
@@ -46,17 +46,13 @@ const positionSearchHelpPopover = (button, popover) => {
   const margin = rootPixelValue("--floating-layer-edge", 12);
   const gap = rootPixelValue("--floating-layer-gap", 8);
   const isCompact = window.matchMedia?.("(max-width: 63.999rem)")?.matches;
-  const viewport = window.visualViewport;
-  const viewportLeft = viewport?.offsetLeft || 0;
-  const viewportTop = viewport?.offsetTop || 0;
-  const viewportWidth = viewport?.width || window.innerWidth;
-  const viewportHeight = viewport?.height || window.innerHeight;
+  const viewport = visualViewportRect();
   const topbarRect = document.querySelector(".topbar")?.getBoundingClientRect();
-  const topbarBottom = topbarRect && topbarRect.height > 0 ? topbarRect.bottom : viewportTop;
-  const minLeft = viewportLeft + margin;
-  const maxLeft = viewportLeft + viewportWidth - margin;
-  const minTop = Math.max(viewportTop + margin, topbarBottom + margin);
-  const maxTop = viewportTop + viewportHeight - margin;
+  const topbarBottom = topbarRect && topbarRect.height > 0 ? topbarRect.bottom : viewport.top;
+  const minLeft = viewport.left + margin;
+  const maxLeft = viewport.right - margin;
+  const minTop = Math.max(viewport.top + margin, topbarBottom + margin);
+  const maxTop = viewport.bottom - margin;
   const buttonRect = button.getBoundingClientRect();
   resetSearchHelpPopoverLayout(popover);
   if (isCompact) {

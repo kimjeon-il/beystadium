@@ -27,6 +27,94 @@ test("empty global search shows an idle prompt instead of result items", async (
   await expect(page.locator("#globalGrid .search-empty")).toHaveText("검색결과가 없습니다.");
 });
 
+test("every public search scope survives its URL and filters actual results", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "The same route parser is shared by both layouts.");
+  const cases = [
+    {
+      scope: "all",
+      query: "BX-01",
+      assertKind: async results => {
+        const entries = await results.evaluateAll(items => items.map(item => item.dataset));
+        expect(entries.some(entry => entry.id === "BEY-X-BX-01-DRAN-SWORD-3-60F")).toBe(true);
+        expect(entries.some(entry => entry.productId === "PRODUCT-X-BX-01")).toBe(true);
+      }
+    },
+    {
+      scope: "bey",
+      query: "스톰 페가시스",
+      assertKind: async results => {
+        const ids = await results.evaluateAll(items => items.map(item => item.dataset.id || ""));
+        expect(ids.length).toBeGreaterThan(0);
+        expect(ids.every(id => id.startsWith("BEY-"))).toBe(true);
+      }
+    },
+    {
+      scope: "parts",
+      query: "드랜",
+      assertKind: async results => {
+        const ids = await results.evaluateAll(items => items.map(item => item.dataset.id || ""));
+        expect(ids.length).toBeGreaterThan(0);
+        expect(ids.every(id => id.startsWith("PART-"))).toBe(true);
+      }
+    },
+    {
+      scope: "character",
+      query: "강바람",
+      assertKind: async results => {
+        const kinds = await results.evaluateAll(items => items.map(item => ({
+          character: item.dataset.animeCharacterQuery || "",
+          otherId: item.dataset.id || item.dataset.productId || item.dataset.toolsId || ""
+        })));
+        expect(kinds.length).toBeGreaterThan(0);
+        expect(kinds.every(item => item.character && !item.otherId)).toBe(true);
+      }
+    },
+    {
+      scope: "tools",
+      query: "와인더런처",
+      assertKind: async results => {
+        const ids = await results.evaluateAll(items => items.map(item => item.dataset.toolsId || ""));
+        expect(ids.length).toBeGreaterThan(0);
+        expect(ids.every(id => id.startsWith("TOOLS-"))).toBe(true);
+      }
+    },
+    {
+      scope: "product",
+      query: "BX-01",
+      assertKind: async results => {
+        const ids = await results.evaluateAll(items => items.map(item => item.dataset.productId || ""));
+        expect(ids.length).toBeGreaterThan(0);
+        expect(ids.every(id => id.startsWith("PRODUCT-"))).toBe(true);
+      }
+    },
+    {
+      scope: "manga",
+      query: "필승 가이드",
+      assertKind: async results => {
+        const ids = await results.evaluateAll(items => items.map(item => item.dataset.bookId || ""));
+        expect(ids.length).toBeGreaterThan(0);
+        expect(ids.every(id => id.startsWith("BOOK-"))).toBe(true);
+      }
+    },
+    {
+      scope: "anime",
+      query: "운명의 시작",
+      assertKind: async results => {
+        const ids = await results.evaluateAll(items => items.map(item => item.dataset.animeEpisodeId || ""));
+        expect(ids.length).toBeGreaterThan(0);
+        expect(ids.every(Boolean)).toBe(true);
+      }
+    }
+  ];
+
+  for (const { scope, query, assertKind } of cases) {
+    await page.goto(`/#search?q=${encodeURIComponent(query)}&scope=${scope}`);
+    await expect(page).toHaveURL(new RegExp(`scope=${scope}(?:&|$)`));
+    await expect(page.locator("#searchResultsSearchScope")).toHaveAttribute("data-scope", scope);
+    await assertKind(page.locator("#globalGrid .search-result-item"));
+  }
+});
+
 test("real search data keeps representative result IDs and ordering", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "The same search data is shared by desktop and mobile layouts.");
 

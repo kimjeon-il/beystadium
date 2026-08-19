@@ -12,15 +12,15 @@ import { renderCategoryCollection, renderPagination, scrollGridIntoView } from "
 const CATALOG_PAGE_SIZE = 40;
 
 const syncCatalogRenderPage = renderKey => {
-  if (renderKey !== appState.currentCatalogRenderKey) {
-    appState.currentCatalogRenderKey = renderKey;
-    appState.currentCatalogPage = 1;
+  if (renderKey !== appState.catalog.renderKey) {
+    appState.catalog.renderKey = renderKey;
+    appState.catalog.page = 1;
   }
 };
 const renderCatalogPagination = totalPages => renderPagination({
   rootSelector: "#catalogPagination",
   totalPages,
-  currentPage: appState.currentCatalogPage,
+  currentPage: appState.catalog.page,
   dataAttr: "data-catalog-page",
   buttonClass: "catalog-page-button",
   stepClass: "catalog-page-step",
@@ -52,8 +52,8 @@ const catalogCollectionConfig = {
   getVisibleItems: visibleCatalogItems,
   renderKey: catalogRenderKey,
   syncRenderPage: syncCatalogRenderPage,
-  getCurrentPage: () => appState.currentCatalogPage,
-  setCurrentPage: page => { appState.currentCatalogPage = page; },
+  getCurrentPage: () => appState.catalog.page,
+  setCurrentPage: page => { appState.catalog.page = page; },
   cardTemplate: catalogCard,
   emptyMarkup: () => `<p class="catalog-empty search-empty">검색결과가 없습니다.</p>`,
   afterRender: updateCatalogCount,

@@ -1,7 +1,8 @@
 import { appState } from "#app/state";
 import { BeystadiumDataStore } from "#app/data-store";
 import { navigateToRoute } from "#app/navigation";
-import { defaultReleaseSeries, setSortDropdownLabel } from "#app/release-core";
+import { defaultReleaseSeries } from "#app/release-core";
+import { setSortDropdownLabel } from "#app/table-list-view";
 import { bindScrollAffordances, clearScrollAffordance, clearScrollAffordances, scheduleScrollAffordances } from "#app/scroll-affordance";
 import {
   activeAppPanelName,
@@ -19,7 +20,7 @@ import {
   sidebarCurrentButtonSelector,
   syncSearchInputState,
   toTop
-} from "#app/ui-core";
+} from "#app/ui-elements";
 
 const filterButtonAttrs = ["data-release-series", "data-anime-season", "data-catalog-sort", "data-release-sort-option"];
 const filterButtonAttr = button => filterButtonAttrs.find(attr => button.hasAttribute(attr));
@@ -82,7 +83,7 @@ const activateAppPanel = section => {
   document.body.dataset.activePanel = section;
   document.body.classList.toggle("is-overview", section === "overview");
   document.querySelectorAll(".search-preview").forEach(preview => { preview.hidden = true; });
-  appState.activeSearchPreview = null;
+  appState.search.activePreview = null;
   syncMobileTopbar(section);
 };
 const syncSidebarActiveState = section => {
@@ -225,7 +226,7 @@ const applyMobileFilterSheet = () => {
     type: "catalog",
     series,
     scope,
-    sort: appState.activeCatalogSort,
+    sort: appState.catalog.sort,
     page: 1,
     query
   }, {
@@ -281,7 +282,7 @@ const closeSearchHelpPopovers = () => {
 };
 const closeSearchPreviews = () => {
   document.querySelectorAll(".search-preview").forEach(preview => { preview.hidden = true; });
-  appState.activeSearchPreview = null;
+  appState.search.activePreview = null;
 };
 const openCatalogDropdown = dropdown => {
   if (!dropdown || dropdown.open) return;

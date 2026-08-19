@@ -91,157 +91,190 @@ const routeStyleKeys = (route, detailFeature) => {
   return [...backgroundStyles, "modal"];
 };
 
+const primaryRouteOpeners = {
+  overview: async (_route, { preserveSearch }) => {
+    activatePrimarySection("overview", { preserveSearch });
+  },
+  search: async (route, { originState }) => {
+    const search = await loadSearchFeature();
+    const scope = originState?.globalScope || route.scope || "all";
+    const query = typeof originState?.globalQuery === "string" ? originState.globalQuery : route.query || "";
+    search.setGlobalSearchState(query, scope);
+    search.openSearchResults({ replace: true, updateHash: false });
+  },
+  catalog: async (route, { originState, preserveSearch, syncRoute }) => {
+    const catalog = await loadCatalogFeature();
+    catalog.openCategoryCatalog({ ...route, updateHash: false, preserveSearch });
+    if (originState) catalog.restoreStoredCatalogOrigin(originState);
+    if (!syncRoute) return route;
+    catalog.syncCatalogRouteHash({ replace: true, force: true });
+    return catalog.catalogRouteFromState();
+  },
+  "category-release": async (route, { originState, preserveSearch }) => {
+    const release = await loadReleaseFeature();
+    const options = originState ? {
+      ...(route.options || {}),
+      region: originState.releaseRegion || route.options?.region,
+      series: originState.releaseSeries || route.options?.series,
+      releaseQuery: typeof originState.releaseQuery === "string" ? originState.releaseQuery : route.options?.releaseQuery,
+      releaseSort: originState.releaseSort || route.options?.releaseSort,
+      updateHash: false,
+      preserveSearch
+    } : { ...routeApplyOptions(route), preserveSearch };
+    await release.openCategoryReleaseDetail(options);
+  },
+  "category-anime": async (route, { originState, preserveSearch }) => {
+    const anime = await loadAnimeFeature();
+    anime.openCategoryAnimePage({
+      ...route,
+      ...(originState ? {
+        season: originState.animeSeason || route.season,
+        query: typeof originState.animeQuery === "string" ? originState.animeQuery : route.query,
+        page: originState.animePage || route.page
+      } : {}),
+      updateHash: false,
+      preserveSearch
+    });
+    if (originState) anime.restoreStoredAnimeOrigin(originState);
+  },
+  "category-anime-episodes": async (route, { originState, preserveSearch }) => {
+    const anime = await loadAnimeFeature();
+    const options = originState ? {
+      ...(route.options || {}),
+      animeSeason: originState.animeSeason || route.options?.animeSeason,
+      animeQuery: typeof originState.animeQuery === "string" ? originState.animeQuery : route.options?.animeQuery,
+      updateHash: false,
+      preserveSearch
+    } : { ...routeApplyOptions(route), preserveSearch };
+    await anime.openCategoryAnimeEpisodesDetail(options);
+  }
+};
+
+const openPrimaryRoute = async (route, options = {}) => {
+  const open = primaryRouteOpeners[route.type];
+  if (!open) throw new Error(`Unsupported primary route: ${route.type}`);
+  return open(route, options);
+};
+
 async function restoreDetailOriginPanel(context, detailFeature) {
   const originRoute = routeSnapshot(context?.originRoute);
   if (!originRoute || !isPrimaryRoute(originRoute)) return false;
   const originState = context?.originState || {};
-  appState.modalOriginRoute = routeSnapshot(originRoute);
-  appState.modalOriginRouteExplicit = context?.originExplicit === true;
+  appState.modal.originRoute = routeSnapshot(originRoute);
+  appState.modal.originExplicit = context?.originExplicit === true;
   rememberPrimaryRoute(originRoute);
 
-  if (originRoute.type === "catalog") {
-    const catalog = await loadCatalogFeature();
-    catalog.openCategoryCatalog({ ...originRoute, updateHash: false, preserveSearch: true });
-    catalog.restoreStoredCatalogOrigin(originState);
-  } else if (originRoute.type === "search") {
-    const search = await loadSearchFeature();
-    const scope = originState.globalScope || originRoute.scope || "all";
-    const query = typeof originState.globalQuery === "string" ? originState.globalQuery : originRoute.query || "";
-    search.setGlobalSearchState(query, scope);
-    search.openSearchResults({ replace: true, updateHash: false });
-  } else if (originRoute.type === "category-release") {
-    const release = await loadReleaseFeature();
-    await release.openCategoryReleaseDetail({
-      ...(originRoute.options || {}),
-      region: originState.releaseRegion || originRoute.options?.region,
-      series: originState.releaseSeries || originRoute.options?.series,
-      releaseQuery: typeof originState.releaseQuery === "string" ? originState.releaseQuery : originRoute.options?.releaseQuery,
-      releaseSort: originState.releaseSort || originRoute.options?.releaseSort,
-      updateHash: false,
-      preserveSearch: true
-    });
-  } else if (originRoute.type === "category-anime") {
-    const anime = await loadAnimeFeature();
-    anime.openCategoryAnimePage({
-      ...originRoute,
-      season: originState.animeSeason || originRoute.season,
-      query: typeof originState.animeQuery === "string" ? originState.animeQuery : originRoute.query,
-      page: originState.animePage || originRoute.page,
-      updateHash: false,
-      preserveSearch: true
-    });
-    anime.restoreStoredAnimeOrigin(originState);
-  } else if (originRoute.type === "category-anime-episodes") {
-    const anime = await loadAnimeFeature();
-    await anime.openCategoryAnimeEpisodesDetail({
-      ...(originRoute.options || {}),
-      animeSeason: originState.animeSeason || originRoute.options?.animeSeason,
-      animeQuery: typeof originState.animeQuery === "string" ? originState.animeQuery : originRoute.options?.animeQuery,
-      updateHash: false,
-      preserveSearch: true
-    });
-  } else {
-    activatePrimarySection("overview", { preserveSearch: true });
-  }
+  await openPrimaryRoute(originRoute, { originState, preserveSearch: true, syncRoute: false });
 
   detailFeature.modalController.scrollY = detailFeature.validScrollY(originState.scrollY);
   detailFeature.modalController.pendingScrollY = detailFeature.modalController.scrollY;
   detailFeature.restorePageScroll(detailFeature.modalController.scrollY);
   return true;
 }
+const restorableStoredOriginContext = context => {
+  const originRoute = routeSnapshot(context?.originRoute);
+  if (!originRoute || !isPrimaryRoute(originRoute)) return null;
+  if (originRoute.type === "overview" && context?.originExplicit !== true) return null;
+  return context;
+};
+const explicitModalOriginContext = detailFeature => {
+  if (!appState.modal.originExplicit || !appState.modal.originRoute || !isPrimaryRoute(appState.modal.originRoute)) return null;
+  return {
+    originRoute: appState.modal.originRoute,
+    originState: detailFeature.modalOriginState(appState.modal.originRoute),
+    originExplicit: true
+  };
+};
+const fallbackDetailOriginContext = fallbackOriginRoute => {
+  if (!fallbackOriginRoute || (appState.modal.originRoute && appState.modal.originRoute.type !== "overview")) return null;
+  return { originRoute: fallbackOriginRoute, originState: {} };
+};
 async function restoreDetailFallbackOriginIfNeeded(restoredContext, fallbackOriginRoute, detailFeature) {
-  const restoredOriginRoute = routeSnapshot(restoredContext?.originRoute);
-  if (restoredOriginRoute && isPrimaryRoute(restoredOriginRoute)
-    && (restoredOriginRoute.type !== "overview" || restoredContext?.originExplicit === true)) {
-    return restoreDetailOriginPanel(restoredContext, detailFeature);
-  }
-  if (appState.modalOriginRouteExplicit && appState.modalOriginRoute && isPrimaryRoute(appState.modalOriginRoute)) {
-    return restoreDetailOriginPanel({
-      originRoute: appState.modalOriginRoute,
-      originState: detailFeature.modalOriginState(appState.modalOriginRoute),
-      originExplicit: true
-    }, detailFeature);
-  }
-  if (fallbackOriginRoute && (!appState.modalOriginRoute || appState.modalOriginRoute.type === "overview")) {
-    return restoreDetailOriginPanel({ originRoute: fallbackOriginRoute, originState: {} }, detailFeature);
-  }
-  return false;
+  const originContext = restorableStoredOriginContext(restoredContext)
+    || explicitModalOriginContext(detailFeature)
+    || fallbackDetailOriginContext(fallbackOriginRoute);
+  return originContext ? restoreDetailOriginPanel(originContext, detailFeature) : false;
 }
 
 let routeApplyGeneration = 0;
-async function applyRoute(route = parseRouteFromHash(window.location.hash), { preserveScroll = false, preserveSearch = false } = {}) {
-  let normalizedRoute = normalizeRoute(route || { type: "overview" });
+async function openRareBeyGetRoute(route, detailFeature) {
+  const restoredContext = detailFeature.restoredModalContext("rare-bey-get-list");
+  const options = { ...(restoredContext?.options || {}), ...routeApplyOptions(route) };
+  await restoreDetailFallbackOriginIfNeeded(restoredContext, {
+    type: "category-release",
+    options: { region: options.region, series: options.series }
+  }, detailFeature);
+  detailFeature.openRareBeyGetListDetail(options);
+}
+async function openDetailRoute(route, detailFeature) {
+  const restoredContext = detailFeature.restoredModalContext(route.id);
+  await restoreDetailFallbackOriginIfNeeded(restoredContext, detailFallbackOriginRoute(route.id), detailFeature);
+  const options = { ...(restoredContext?.options || {}), ...routeApplyOptions(route) };
+  await detailFeature.openDetailByKind(restoredContext?.kind || "", route.id, options);
+}
+async function prepareRouteApplication(route) {
   const generation = ++routeApplyGeneration;
-  const primaryRoute = isPrimaryRoute(normalizedRoute);
+  const primaryRoute = isPrimaryRoute(route);
   const ready = primaryRoute
-    ? await preparePrimaryRoute(normalizedRoute)
-    : await BeystadiumDataStore.ensureRoute(normalizedRoute);
-  if (!ready || generation !== routeApplyGeneration) return false;
+    ? await preparePrimaryRoute(route)
+    : await BeystadiumDataStore.ensureRoute(route);
+  if (!ready || generation !== routeApplyGeneration) return null;
+
   const modalOpen = Boolean(document.querySelector("#detailModal")?.open);
-  const needsDetail = isDetailRoute(normalizedRoute) || normalizedRoute.type === "rare-bey-get-list" || modalOpen;
+  const needsDetail = isDetailRoute(route) || route.type === "rare-bey-get-list" || modalOpen;
   const detailFeature = needsDetail ? await loadDetailFeature() : null;
-  if (!primaryRoute) await ensureStyles(routeStyleKeys(normalizedRoute, detailFeature));
-  if (generation !== routeApplyGeneration) return false;
+  if (!primaryRoute) await ensureStyles(routeStyleKeys(route, detailFeature));
+  if (generation !== routeApplyGeneration) return null;
+  return { route, primaryRoute, modalOpen, detailFeature };
+}
+const beginRouteApplication = ({ route, primaryRoute, detailFeature }) => {
+  if (primaryRoute) {
+    rememberPrimaryRoute(route);
+    detailFeature?.closeModalSession();
+    return;
+  }
+  if (isDetailRoute(route)) syncModalOriginRoute(route);
+};
+async function openPreparedRoute(context, preserveSearch) {
+  const { route, primaryRoute, detailFeature } = context;
+  if (primaryRoute) {
+    return openPrimaryRoute(route, {
+      preserveSearch,
+      syncRoute: route.type === "catalog"
+    });
+  }
+  if (route.type === "rare-bey-get-list") return openRareBeyGetRoute(route, detailFeature);
+  if (isDetailRoute(route) && route.id) return openDetailRoute(route, detailFeature);
+  return null;
+}
+const restoreAppliedPrimaryScroll = (context, preserveScroll) => {
+  if (!context.primaryRoute) return;
+  if (preserveScroll) {
+    context.detailFeature?.restorePageScroll(context.detailFeature.modalController.scrollY);
+    return;
+  }
+  stabilizePrimaryRouteScroll();
+};
+async function applyRoute(route = parseRouteFromHash(window.location.hash), { preserveScroll = false, preserveSearch = false } = {}) {
+  const normalizedRoute = normalizeRoute(route || { type: "overview" });
+  const context = await prepareRouteApplication(normalizedRoute);
+  if (!context) return false;
 
   let normalizedRouteKey = appliedRouteKey(normalizedRoute);
-  const preservePrimaryReturn = Boolean(isPrimaryRoute(normalizedRoute) && (modalOpen || appState.modalOriginRoute));
+  const preservePrimaryReturn = Boolean(context.primaryRoute && (context.modalOpen || appState.modal.originRoute));
   const shouldPreserveScroll = preserveScroll || preservePrimaryReturn;
   const shouldPreserveSearch = preserveSearch || preservePrimaryReturn;
-  appState.applyingRoute = true;
+  appState.routing.applying = true;
   try {
-    if (isPrimaryRoute(normalizedRoute)) {
-      rememberPrimaryRoute(normalizedRoute);
-      detailFeature?.closeModalSession();
-    } else if (isDetailRoute(normalizedRoute)) {
-      syncModalOriginRoute(normalizedRoute);
-    }
-
-    if (normalizedRoute.type === "overview") {
-      activatePrimarySection("overview", { preserveSearch: shouldPreserveSearch });
-    } else if (normalizedRoute.type === "search") {
-      const search = await loadSearchFeature();
-      search.setGlobalSearchState(normalizedRoute.query || "", normalizedRoute.scope || "all");
-      search.openSearchResults({ replace: true, updateHash: false });
-    } else if (normalizedRoute.type === "catalog") {
-      const catalog = await loadCatalogFeature();
-      catalog.openCategoryCatalog({ ...normalizedRoute, updateHash: false, preserveSearch: shouldPreserveSearch });
-      catalog.syncCatalogRouteHash({ replace: true, force: true });
-      normalizedRouteKey = appliedRouteKey(catalog.catalogRouteFromState());
-    } else if (normalizedRoute.type === "category-release") {
-      const release = await loadReleaseFeature();
-      await release.openCategoryReleaseDetail({ ...routeApplyOptions(normalizedRoute), preserveSearch: shouldPreserveSearch });
-    } else if (normalizedRoute.type === "category-anime") {
-      const anime = await loadAnimeFeature();
-      anime.openCategoryAnimePage({ ...normalizedRoute, updateHash: false, preserveSearch: shouldPreserveSearch });
-    } else if (normalizedRoute.type === "category-anime-episodes") {
-      const anime = await loadAnimeFeature();
-      await anime.openCategoryAnimeEpisodesDetail({ ...routeApplyOptions(normalizedRoute), preserveSearch: shouldPreserveSearch });
-    } else if (normalizedRoute.type === "rare-bey-get-list") {
-      const restoredContext = detailFeature.restoredModalContext("rare-bey-get-list");
-      const options = { ...(restoredContext?.options || {}), ...routeApplyOptions(normalizedRoute) };
-      await restoreDetailFallbackOriginIfNeeded(restoredContext, {
-        type: "category-release",
-        options: { region: options.region, series: options.series }
-      }, detailFeature);
-      detailFeature.openRareBeyGetListDetail(options);
-    } else if (isDetailRoute(normalizedRoute) && normalizedRoute.id) {
-      const restoredContext = detailFeature.restoredModalContext(normalizedRoute.id);
-      await restoreDetailFallbackOriginIfNeeded(restoredContext, detailFallbackOriginRoute(normalizedRoute.id), detailFeature);
-      const options = { ...(restoredContext?.options || {}), ...routeApplyOptions(normalizedRoute) };
-      await detailFeature.openDetailByKind(restoredContext?.kind || "", normalizedRoute.id, options);
-    }
+    beginRouteApplication(context);
+    const appliedRoute = await openPreparedRoute(context, shouldPreserveSearch);
+    if (appliedRoute) normalizedRouteKey = appliedRouteKey(appliedRoute);
   } finally {
-    appState.applyingRoute = false;
-    appState.lastAppliedRouteKey = normalizedRouteKey;
+    appState.routing.applying = false;
+    appState.routing.lastAppliedKey = normalizedRouteKey;
   }
 
-  if (isPrimaryRoute(normalizedRoute)) {
-    if (shouldPreserveScroll) {
-      if (detailFeature) detailFeature.restorePageScroll(detailFeature.modalController.scrollY);
-    } else {
-      stabilizePrimaryRouteScroll();
-    }
-  }
+  restoreAppliedPrimaryScroll(context, shouldPreserveScroll);
   return true;
 }
 
@@ -250,7 +283,6 @@ registerAppServices({
   activatePrimarySection,
   applyRoute,
   bindSearchInput,
-  cleanupModelViewer: () => {},
   closeOpenCatalogDropdowns,
   closeSearchHelpPopovers,
   openAnimeEpisodeDetail,
@@ -273,7 +305,7 @@ const applyCurrentHashRoute = async () => {
   const canonicalHash = serializeRoute(route);
   const canonicalRouteKey = `${currentPathWithSearch()}${canonicalHash}`;
   try {
-    if (canonicalRouteKey === appState.lastAppliedRouteKey) return;
+    if (canonicalRouteKey === appState.routing.lastAppliedKey) return;
     if (window.location.hash !== canonicalHash) {
       try {
         history.replaceState(null, "", canonicalRouteKey);

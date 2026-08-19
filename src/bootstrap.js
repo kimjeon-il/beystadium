@@ -20,11 +20,13 @@ const categoryInteractionSelector = [
 
 let appPromise = null;
 let appLoaded = false;
+const startupListeners = new window.AbortController();
 
 const loadApp = () => {
   if (!appPromise) {
     appPromise = import("#app/entry").then(module => {
       appLoaded = true;
+      startupListeners.abort();
       return module;
     });
   }
@@ -75,12 +77,13 @@ try {
     await loadApp();
   } else {
     document.documentElement.classList.remove("route-booting");
-    document.addEventListener("pointerover", primeCategoryApp, { capture: true, passive: true });
-    document.addEventListener("pointerdown", primeApp, { capture: true, passive: true });
-    document.addEventListener("focusin", primeApp, true);
-    document.addEventListener("click", replayClickAfterLoad, true);
-    document.addEventListener("input", replayInputAfterLoad, true);
-    window.addEventListener("hashchange", () => void loadApp());
+    const { signal } = startupListeners;
+    document.addEventListener("pointerover", primeCategoryApp, { capture: true, passive: true, signal });
+    document.addEventListener("pointerdown", primeApp, { capture: true, passive: true, signal });
+    document.addEventListener("focusin", primeApp, { capture: true, signal });
+    document.addEventListener("click", replayClickAfterLoad, { capture: true, signal });
+    document.addEventListener("input", replayInputAfterLoad, { capture: true, signal });
+    window.addEventListener("hashchange", () => void loadApp(), { signal });
   }
 } catch (error) {
   document.documentElement.classList.remove("route-booting");

@@ -1,5 +1,6 @@
 import { bookItemsById, catalogCoreItemsById, gameItemsById, productItemsById, toolsItemsById, versionAssetUrl } from "#app/data-store";
 import { releaseRegionLabels } from "#app/release-core";
+import { clamp, visualViewportRect } from "#app/floating-layer";
 
 const previewSelector = "[data-image-preview-src], [data-image-preview-id], [data-image-preview-product-id]";
 const fineHover = window.matchMedia("(hover: hover) and (pointer: fine)");
@@ -59,19 +60,6 @@ function ensurePreviewElement(anchor) {
   return previewElement;
 }
 
-const previewViewport = () => {
-  const viewport = window.visualViewport;
-  const left = viewport?.offsetLeft || 0;
-  const top = viewport?.offsetTop || 0;
-  return {
-    left,
-    top,
-    right: left + (viewport?.width || window.innerWidth),
-    bottom: top + (viewport?.height || window.innerHeight)
-  };
-};
-const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
-
 function positionLinkImagePreview() {
   positionFrame = 0;
   if (!activeAnchor?.isConnected || !previewElement || previewElement.hidden) {
@@ -79,7 +67,7 @@ function positionLinkImagePreview() {
     return;
   }
   const anchorRect = activeAnchor.getBoundingClientRect();
-  const viewport = previewViewport();
+  const viewport = visualViewportRect();
   if (anchorRect.bottom <= viewport.top || anchorRect.top >= viewport.bottom
     || anchorRect.right <= viewport.left || anchorRect.left >= viewport.right) {
     hideLinkImagePreview();

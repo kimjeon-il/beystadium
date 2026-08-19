@@ -2,6 +2,7 @@ import { appState } from "#app/state";
 import { appServices } from "#app/services";
 import { catalogCoreItemsById } from "#app/data-store";
 import { escapeAttributeValue, escapeHtml } from "#app/markup-core";
+import { anchoredLayerPosition } from "#app/floating-layer";
 import {
   battleTypeDescription,
   battleTypeLabel,
@@ -11,7 +12,7 @@ import {
   spinLabel,
   structureLabels,
   structureTagDescriptions
-} from "#app/ui-core";
+} from "#app/catalog-metadata";
 
 const modalTagInfoMarkup = (label, description) => {
   return description
@@ -74,37 +75,23 @@ let modalTagPinned = false;
 const isHoverPointer = event => event.pointerType !== "touch";
 
 function closeModalTagPopover() {
-  if (appState.activeModalTagButton) {
-    appState.activeModalTagButton.setAttribute("aria-expanded", "false");
-    appState.activeModalTagButton.removeAttribute("aria-describedby");
+  if (appState.modal.activeTagButton) {
+    appState.modal.activeTagButton.setAttribute("aria-expanded", "false");
+    appState.modal.activeTagButton.removeAttribute("aria-describedby");
   }
   modalTagPopover?.remove();
-  appState.activeModalTagButton = null;
+  appState.modal.activeTagButton = null;
   modalTagPopover = null;
   modalTagPinned = false;
 }
 
 function positionModalTagPopover(button) {
   if (!modalTagPopover) return;
-  const margin = 14;
-  const gap = 8;
-  const viewport = window.visualViewport;
-  const viewportLeft = viewport?.offsetLeft || 0;
-  const viewportTop = viewport?.offsetTop || 0;
-  const viewportWidth = viewport?.width || window.innerWidth;
-  const viewportHeight = viewport?.height || window.innerHeight;
-  const minLeft = viewportLeft + margin;
-  const minTop = viewportTop + margin;
   const buttonRect = button.getBoundingClientRect();
   const popoverRect = modalTagPopover.getBoundingClientRect();
-  let left = buttonRect.left;
-  let top = buttonRect.bottom + gap;
-  const maxLeft = viewportLeft + viewportWidth - margin - popoverRect.width;
-  const maxTop = viewportTop + viewportHeight - margin - popoverRect.height;
-  if (left > maxLeft) left = maxLeft;
-  if (top > maxTop) top = buttonRect.top - popoverRect.height - gap;
-  modalTagPopover.style.left = `${Math.max(minLeft, Math.min(left, maxLeft))}px`;
-  modalTagPopover.style.top = `${Math.max(minTop, Math.min(top, maxTop))}px`;
+  const { left, top } = anchoredLayerPosition(buttonRect, popoverRect);
+  modalTagPopover.style.left = `${left}px`;
+  modalTagPopover.style.top = `${top}px`;
 }
 
 function revealModalTag(button) {
@@ -146,14 +133,14 @@ function openModalTagPopover(button, { pinned = false } = {}) {
   const label = button.dataset.tagLabel || button.textContent.trim();
   const description = button.dataset.tagDescription || "";
   if (!description) return;
-  if (appState.activeModalTagButton === button && modalTagPopover) {
+  if (appState.modal.activeTagButton === button && modalTagPopover) {
     modalTagPinned = modalTagPinned || pinned;
     button.setAttribute("aria-expanded", "true");
     positionModalTagPopover(button);
     return;
   }
-  if (appState.activeModalTagButton && appState.activeModalTagButton !== button) closeModalTagPopover();
-  appState.activeModalTagButton = button;
+  if (appState.modal.activeTagButton && appState.modal.activeTagButton !== button) closeModalTagPopover();
+  appState.modal.activeTagButton = button;
   modalTagPinned = pinned;
   modalTagPopover = document.createElement("div");
   modalTagPopover.id = `modal-tag-popover-${Date.now()}`;
@@ -189,11 +176,11 @@ function bindModalTagPopovers(scope = document) {
     button.addEventListener("click", event => {
       event.preventDefault();
       event.stopPropagation();
-      if (focusOpened && appState.activeModalTagButton === button) {
+      if (focusOpened && appState.modal.activeTagButton === button) {
         modalTagPinned = true;
         return;
       }
-      if (appState.activeModalTagButton === button && modalTagPinned) closeModalTagPopover();
+      if (appState.modal.activeTagButton === button && modalTagPinned) closeModalTagPopover();
       else openModalTagPopover(button, { pinned: true });
     });
   });
@@ -201,12 +188,12 @@ function bindModalTagPopovers(scope = document) {
     let positionFrame = 0;
     scroller.addEventListener("wheel", event => scrollModalTagsWithWheel(scroller, event), { passive: false });
     scroller.addEventListener("scroll", () => {
-      const button = appState.activeModalTagButton;
+      const button = appState.modal.activeTagButton;
       if (!modalTagPopover || !button || !scroller.contains(button)) return;
       cancelAnimationFrame(positionFrame);
       positionFrame = requestAnimationFrame(() => {
         positionFrame = 0;
-        if (modalTagPopover && appState.activeModalTagButton === button && scroller.contains(button)) {
+        if (modalTagPopover && appState.modal.activeTagButton === button && scroller.contains(button)) {
           positionModalTagPopover(button);
         }
       });
@@ -259,176 +246,11 @@ function beyDetailSections(item, region) {
   return `${mounted}${bundled}`;
 }
 
-let modelViewerCleanup = null;
-let threeModules = null;
-
-function cleanupModelViewer() {
-  if (!modelViewerCleanup) return;
-  modelViewerCleanup();
-  modelViewerCleanup = null;
-}
-
-async function loadThreeModules() {
-  if (!threeModules) {
-    const [THREE, { OBJLoader }, { OrbitControls }] = await Promise.all([
-      import("https://esm.sh/three@0.160.0"),
-      import("https://esm.sh/three@0.160.0/examples/jsm/loaders/OBJLoader.js"),
-      import("https://esm.sh/three@0.160.0/examples/jsm/controls/OrbitControls.js")
-    ]);
-    threeModules = { THREE, OBJLoader, OrbitControls };
-  }
-  return threeModules;
-}
-
-async function initModelViewer() {
-  cleanupModelViewer();
-  const container = document.querySelector(".model-viewer");
-  if (!container) return;
-
-  const { THREE, OBJLoader, OrbitControls } = await loadThreeModules();
-  if (!document.body.contains(container)) return;
-
-  const width = Math.max(container.clientWidth, 260);
-  const height = Math.max(container.clientHeight, 300);
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(38, width / height, 0.1, 100);
-  camera.position.set(0, 0, 5.35);
-
-  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-  renderer.setSize(width, height, false);
-  container.textContent = "";
-  container.appendChild(renderer.domElement);
-  const resetButton = document.createElement("button");
-  resetButton.className = "ui-button model-reset";
-  resetButton.type = "button";
-  resetButton.textContent = "기본 위치";
-  container.appendChild(resetButton);
-
-  const defaultCameraPosition = new THREE.Vector3(0, 0, 5.35);
-  const defaultControlsTarget = new THREE.Vector3(0, 0, 0);
-  const defaultModelRotation = new THREE.Euler(-Math.PI / 2, 0, 0);
-  const modelRoot = new THREE.Group();
-  scene.add(modelRoot);
-  const controls = new OrbitControls(camera, renderer.domElement);
-  controls.enableDamping = true;
-  controls.dampingFactor = 0.08;
-  controls.enablePan = true;
-  controls.screenSpacePanning = true;
-  controls.rotateSpeed = 0.72;
-  controls.panSpeed = 0.85;
-  controls.zoomSpeed = 0.88;
-  controls.minDistance = 2.6;
-  controls.maxDistance = 9;
-  controls.target.copy(defaultControlsTarget);
-  const orbitMouseButtons = {
-    LEFT: THREE.MOUSE.ROTATE,
-    MIDDLE: THREE.MOUSE.DOLLY,
-    RIGHT: THREE.MOUSE.PAN
-  };
-  const panMouseButtons = {
-    LEFT: THREE.MOUSE.PAN,
-    MIDDLE: THREE.MOUSE.DOLLY,
-    RIGHT: THREE.MOUSE.PAN
-  };
-  controls.mouseButtons = orbitMouseButtons;
-  controls.touches = {
-    ONE: THREE.TOUCH.ROTATE,
-    TWO: THREE.TOUCH.DOLLY_PAN
-  };
-  const resetView = () => {
-    camera.position.copy(defaultCameraPosition);
-    camera.zoom = 1;
-    camera.updateProjectionMatrix();
-    controls.target.copy(defaultControlsTarget);
-    modelRoot.rotation.copy(defaultModelRotation);
-    controls.update();
-  };
-  resetButton.addEventListener("click", resetView);
-
-  const usePanForShiftDrag = event => {
-    controls.mouseButtons = event.shiftKey && event.button === 0 ? panMouseButtons : orbitMouseButtons;
-  };
-  const restoreOrbitDrag = () => {
-    controls.mouseButtons = orbitMouseButtons;
-    container.classList.remove("is-grabbing");
-  };
-  const markDragging = () => container.classList.add("is-grabbing");
-  const preventContextMenu = event => event.preventDefault();
-  const resizeRenderer = () => {
-    if (!document.body.contains(container)) return;
-    const nextWidth = Math.max(container.clientWidth, 260);
-    const nextHeight = Math.max(container.clientHeight, 300);
-    renderer.setSize(nextWidth, nextHeight, false);
-    camera.aspect = nextWidth / nextHeight;
-    camera.updateProjectionMatrix();
-    controls.update();
-  };
-  const resizeObserver = new ResizeObserver(resizeRenderer);
-  resizeObserver.observe(container);
-  renderer.domElement.addEventListener("pointerdown", usePanForShiftDrag, true);
-  renderer.domElement.addEventListener("pointerdown", markDragging);
-  renderer.domElement.addEventListener("dblclick", resetView);
-  renderer.domElement.addEventListener("contextmenu", preventContextMenu);
-  window.addEventListener("pointerup", restoreOrbitDrag);
-  window.addEventListener("pointercancel", restoreOrbitDrag);
-
-  let active = true;
-  const loader = new OBJLoader();
-  const handleObject = object => {
-    if (!active) return;
-    object.traverse(child => {
-      if (child.isMesh) {
-        child.material = new THREE.MeshBasicMaterial({ color: 0xb8c3c8 });
-      }
-    });
-    const box = new THREE.Box3().setFromObject(object);
-    const center = box.getCenter(new THREE.Vector3());
-    const size = box.getSize(new THREE.Vector3());
-    object.position.sub(center);
-    const maxAxis = Math.max(size.x, size.y, size.z) || 1;
-    object.scale.multiplyScalar(1.62 / maxAxis);
-    object.rotation.x = -Math.PI / 2;
-    object.updateMatrixWorld(true);
-    const rotatedCenter = new THREE.Box3().setFromObject(object).getCenter(new THREE.Vector3());
-    object.position.sub(rotatedCenter);
-    modelRoot.add(object);
-    resetView();
-  };
-  loader.load(container.dataset.model, handleObject, undefined, () => {
-    container.innerHTML = "<p>3D 모델을 불러오지 못했습니다.</p>";
-  });
-
-  const render = () => {
-    if (!active) return;
-    controls.update();
-    renderer.render(scene, camera);
-    requestAnimationFrame(render);
-  };
-  render();
-
-  modelViewerCleanup = () => {
-    active = false;
-    resetButton.removeEventListener("click", resetView);
-    renderer.domElement.removeEventListener("pointerdown", usePanForShiftDrag, true);
-    renderer.domElement.removeEventListener("pointerdown", markDragging);
-    renderer.domElement.removeEventListener("dblclick", resetView);
-    renderer.domElement.removeEventListener("contextmenu", preventContextMenu);
-    window.removeEventListener("pointerup", restoreOrbitDrag);
-    window.removeEventListener("pointercancel", restoreOrbitDrag);
-    resizeObserver.disconnect();
-    controls.dispose();
-    renderer.dispose();
-  };
-}
-
 export {
   beyDetailSections,
   beyModalTags,
   bindModalTagPopovers,
-  cleanupModelViewer,
   closeModalTagPopover,
-  initModelViewer,
   modalInfoSlot,
   modalScrollArea,
   modalTagGroup,

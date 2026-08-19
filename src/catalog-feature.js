@@ -10,9 +10,9 @@ import { renderCatalogItems, scrollCatalogGridIntoView } from "#app/catalog-view
 import { navigateToRoute } from "#app/navigation";
 import { defaultCatalogSort, normalizeCatalogRouteSort, normalizeRoute } from "#app/route-parser";
 import {
-  normalizeCatalogSeries,
-  sortDropdownMarkup
+  normalizeCatalogSeries
 } from "#app/release-core";
+import { sortDropdownMarkup } from "#app/table-list-view";
 import {
   catalogQueryChips,
   catalogSearchQuery,
@@ -31,14 +31,14 @@ import {
   catalogSearch,
   catalogSearchScope,
   catalogSeriesFilter,
-  queryChipMarkup,
   setCatalogSearchScope,
   setCatalogSeriesFilter,
   setGlobalSearchScope,
   setMobileDrawerSearchScope,
   setOverviewSearchScope,
   setSearchInputValue
-} from "#app/ui-core";
+} from "#app/ui-elements";
+import { queryChipMarkup } from "#app/ui-markup";
 
 const SEARCH_RENDER_DELAY = 100;
 let initialized = false;
@@ -71,26 +71,26 @@ const scheduleCatalogRender = () => {
   }, SEARCH_RENDER_DELAY);
 };
 const setCatalogSeries = (series, { refresh = true } = {}) => {
-  appState.selectedCatalogSeries = normalizeCatalogSeries(series);
-  setCatalogSeriesFilter(appState.selectedCatalogSeries);
+  appState.catalog.series = normalizeCatalogSeries(series);
+  setCatalogSeriesFilter(appState.catalog.series);
   if (refresh) refreshCatalogState();
 };
 const setCatalogScope = (scope, { refresh = true } = {}) => {
-  appState.selectedCatalogKind = ["bey", "parts", "tools"].includes(scope) ? scope : "";
-  setCatalogSearchScope(appState.selectedCatalogKind || "all");
+  appState.catalog.kind = ["bey", "parts", "tools"].includes(scope) ? scope : "";
+  setCatalogSearchScope(appState.catalog.kind || "all");
   if (refresh) refreshCatalogState();
 };
 const catalogRouteFromState = (overrides = {}) => normalizeRoute({
   type: "catalog",
-  scope: appState.selectedCatalogKind || "all",
-  series: appState.selectedCatalogSeries || "all",
-  sort: appState.activeCatalogSort,
-  page: appState.currentCatalogPage,
+  scope: appState.catalog.kind || "all",
+  series: appState.catalog.series || "all",
+  sort: appState.catalog.sort,
+  page: appState.catalog.page,
   query: catalogSearchQuery(),
   ...overrides
 });
 const syncCatalogRouteHash = ({ replace = true, force = false, overrides = {} } = {}) => {
-  if (!force && (appState.applyingRoute || activeAppPanelName() !== "catalog")) return;
+  if (!force && (appState.routing.applying || activeAppPanelName() !== "catalog")) return;
   navigateToRoute(catalogRouteFromState(overrides), {
     replace,
     apply: false,
@@ -102,17 +102,17 @@ const applyCatalogRouteState = route => {
   const catalogRoute = normalizeRoute({ type: "catalog", ...route });
   setCatalogSeries(catalogRoute.series, { refresh: false });
   setCatalogScope(catalogRoute.scope, { refresh: false });
-  appState.activeCatalogSort = catalogRoute.sort;
+  appState.catalog.sort = catalogRoute.sort;
   setSearchInputValue(catalogSearch, catalogRoute.query);
-  appState.currentCatalogPage = catalogRoute.page;
-  appState.currentCatalogRenderKey = catalogRenderKey();
+  appState.catalog.page = catalogRoute.page;
+  appState.catalog.renderKey = catalogRenderKey();
   catalogVisibleItemsCache.clear();
   syncGlobalSearchScopePeers(["bey", "tools"].includes(catalogRoute.scope) ? catalogRoute.scope : "all");
   refreshCatalogState();
 };
 const openCategoryCatalog = ({ scope = "all", series = "all", sort = defaultCatalogSort(), page = 1, query = "", updateHash = true, replace = false, preserveSearch = false } = {}) => {
   const route = normalizeRoute({ type: "catalog", scope, series, sort, page, query });
-  if (updateHash && !appState.applyingRoute) {
+  if (updateHash && !appState.routing.applying) {
     navigateToRoute(route, { replace });
     return;
   }
@@ -152,12 +152,12 @@ const bindScopeControl = (dropdown, dataAttr, handler) => {
 };
 const restoreStoredCatalogOrigin = originState => {
   setCatalogSeries(originState?.catalogSeries || "all", { refresh: false });
-  appState.activeCatalogSort = normalizeCatalogRouteSort(originState?.catalogSort || appState.activeCatalogSort);
+  appState.catalog.sort = normalizeCatalogRouteSort(originState?.catalogSort || appState.catalog.sort);
   if (typeof originState?.catalogQuery === "string") setSearchInputValue(catalogSearch, originState.catalogQuery);
   refreshCatalogState();
   const page = Number(originState?.catalogPage);
   if (Number.isFinite(page) && page > 1) {
-    appState.currentCatalogPage = Math.floor(page);
+    appState.catalog.page = Math.floor(page);
     renderCatalogItems();
   }
 };
@@ -169,7 +169,7 @@ const initializeCatalogFeature = () => {
   bindSearchInput(catalogSearch, ".catalog-search-box", {
     onInput: input => {
       normalizeCatalogSearchInput(input);
-      appState.currentCatalogPage = 1;
+      appState.catalog.page = 1;
       scheduleCatalogRender();
       syncCatalogRouteHash({ overrides: { page: 1 } });
     }
@@ -192,7 +192,7 @@ const initializeCatalogFeature = () => {
     const chip = event.target.closest("[data-query-chip-key]");
     if (!chip) return;
     setSearchInputValue(catalogSearch, removeCatalogQueryChip(catalogSearchQuery(), chip.dataset.queryChipKey));
-    appState.currentCatalogPage = 1;
+    appState.catalog.page = 1;
     refreshCatalogState();
     syncCatalogRouteHash({ overrides: { page: 1 } });
     catalogSearch?.focus();
@@ -202,10 +202,10 @@ const initializeCatalogFeature = () => {
     if (!button) return;
     event.preventDefault();
     if (!catalogSortOptions.some(option => option.value === button.dataset.catalogSort)) return;
-    appState.activeCatalogSort = button.dataset.catalogSort;
+    appState.catalog.sort = button.dataset.catalogSort;
     setDropdownOption(button);
     catalogVisibleItemsCache.clear();
-    appState.currentCatalogPage = 1;
+    appState.catalog.page = 1;
     refreshCatalogState();
     syncCatalogRouteHash();
   });
@@ -213,7 +213,7 @@ const initializeCatalogFeature = () => {
     const button = event.target.closest("[data-catalog-page]");
     if (!button || button.disabled) return;
     event.preventDefault();
-    appState.currentCatalogPage = Number(button.dataset.catalogPage) || 1;
+    appState.catalog.page = Number(button.dataset.catalogPage) || 1;
     renderCatalogItems();
     syncCatalogRouteHash();
     scrollCatalogGridIntoView();

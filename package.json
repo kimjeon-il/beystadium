@@ -10,6 +10,7 @@
     "audit:app": "node scripts/audit-app.mjs",
     "lint:js": "eslint scripts tests \"src/**/*.js\" playwright.config.mjs eslint.config.js",
     "test:search": "node --test tests/search-core.test.mjs",
+    "test:routes": "node --test tests/route-parser.test.mjs",
     "test:ids": "node --test tests/x-bey-id.test.mjs",
     "test:address-ids": "node --test tests/address-id.test.mjs",
     "test:product-ids": "node --test tests/product-id.test.mjs",
@@ -26,10 +27,9 @@
     "x-images:review": "node scripts/record-x-image-review.mjs",
     "x-images:review:report": "node scripts/build-x-image-review-report.mjs",
     "x-images:alpha-review": "python scripts/record-x-image-alpha-review.py",
-    "x-images:recanvas": "python scripts/recanvas-x-images.py",
+    "x-images:map:build": "node scripts/build-x-image-map.mjs --write --emit-source",
     "x-bey-primary-images:build": "python scripts/process-x-images.py --report data/source/x-bey-primary-images.json --output-root . --source-cache .cache/x-alpha-sources",
     "x-bey-front-sizes:build": "python scripts/normalize-x-bey-front-images.py --write",
-    "x-bey-angle-corrections:build": "python scripts/build-x-bey-angle-corrections.py",
     "x-part-previews:build": "node scripts/build-x-part-preview-map.mjs --write",
     "x-part-previews:emit": "node scripts/build-x-part-preview-map.mjs --emit-source",
     "x-part-previews:hash-review": "node scripts/record-x-part-preview-output-hashes.mjs",
@@ -43,7 +43,7 @@
     "test:x-part-previews": "node scripts/validate-x-part-previews.mjs",
     "test:data": "node scripts/validate-data.mjs",
     "test:smoke": "playwright test",
-    "check": "pnpm lint:js && pnpm audit:app && pnpm data:check && pnpm test:data && pnpm test:search && pnpm test:ids && pnpm test:address-ids && pnpm test:product-ids && pnpm test:anime-episodes && pnpm test:burst-random-boosters && pnpm test:burst-random-layers && pnpm test:burst-remake-sets && pnpm test:x-tool-products && pnpm test:x-part-products && pnpm test:x-set-products && pnpm test:x-random-boosters && pnpm test:x-jp-part-details && pnpm test:x-kr-bey-details && pnpm test:x-images && pnpm test:x-material-part-previews && pnpm test:x-part-previews && pnpm test:x-bey-primary-images && pnpm test:smoke"
+    "check": "pnpm lint:js && pnpm audit:app && pnpm data:check && pnpm test:data && pnpm test:search && pnpm test:routes && pnpm test:ids && pnpm test:address-ids && pnpm test:product-ids && pnpm test:anime-episodes && pnpm test:burst-random-boosters && pnpm test:burst-random-layers && pnpm test:burst-remake-sets && pnpm test:x-tool-products && pnpm test:x-part-products && pnpm test:x-set-products && pnpm test:x-random-boosters && pnpm test:x-jp-part-details && pnpm test:x-kr-bey-details && pnpm test:x-images && pnpm test:x-material-part-previews && pnpm test:x-part-previews && pnpm test:x-bey-primary-images && pnpm test:smoke"
   },
   "devDependencies": {
     "@eslint/js": "^9.31.0",

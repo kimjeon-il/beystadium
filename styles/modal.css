@@ -96,27 +96,6 @@ dialog[open] #modalClose.modal-close:focus-visible{
   position: relative;
 }
 
-.model-viewer {
-  position: relative;
-  width: var(--model-viewer-width, min(100%, 520px));
-  height: var(--model-viewer-height, min(58vh, 520px));
-  min-height: var(--model-viewer-min-height, 300px);
-  overflow: hidden;
-}
-
-.model-viewer canvas {
-  display: block;
-  width: 100%;
-  height: 100%;
-  cursor: grab;
-  touch-action: none;
-  user-select: none;
-}
-
-.model-viewer.is-grabbing canvas {
-  cursor: grabbing;
-}
-
 .modal-info {
   background: var(--ui-surface-raised);
   background-image: none;
@@ -1427,9 +1406,6 @@ dialog[open] {
     --modal-art-max-height: none;
     --modal-art-padding: 0;
     --composition-list-max-height-default: min(calc(var(--composition-row-height) * var(--composition-visible-rows)), 45dvh);
-    --model-viewer-width: min(100%, clamp(420px, 58vw, 520px));
-    --model-viewer-height: min(52vh, clamp(420px, 58vw, 520px));
-    --model-viewer-min-height: clamp(280px, 32vh, 300px);
     --stat-value-column: 32px;
     --stat-row-gap: 6px;
   }

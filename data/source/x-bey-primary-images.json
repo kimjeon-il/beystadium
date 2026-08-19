@@ -2,7 +2,6 @@
   "version": "20260819-x-bey-canonical-image-paths",
   "sourceRoot": "",
   "policy": [
-    "official-angle-corrected",
     "official-assembled-front",
     "user-approved-generated-front",
     "verified-existing-front",

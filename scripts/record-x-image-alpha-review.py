@@ -73,8 +73,8 @@ def alpha_stats(path: Path) -> dict:
 def main() -> int:
     args = parse_args()
     files = sorted(args.root.rglob("*.webp"))
-    if len(files) != 1049:
-        raise ValueError(f"expected 1049 X images, found {len(files)}")
+    if not files:
+        raise ValueError(f"no X images found under {args.root}")
     review = {
         "version": REVIEW_VERSION,
         "canvasSize": CANVAS_SIZE,

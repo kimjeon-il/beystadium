@@ -15,7 +15,6 @@ from PIL import Image
 
 
 CONFIG_PATH = Path("data/source/x-bey-primary-images.json")
-ANGLE_CONFIG_PATH = Path("data/source/x-bey-angle-corrections.json")
 CONFIG_VERSION = "20260819-x-bey-canonical-image-paths"
 CANVAS_SIZE = 448
 TARGET_FOREGROUND_SIZE = 360
@@ -152,11 +151,6 @@ def main() -> int:
     if len(set(ids)) != len(ids) or len(set(paths)) != len(paths):
         raise ValueError("front-view normalization IDs and paths must be unique")
 
-    angle_config = json.loads(ANGLE_CONFIG_PATH.read_text(encoding="utf-8"))
-    angle_ids = {entry["id"] for entry in angle_config["entries"]}
-    if angle_ids.intersection(ids):
-        raise ValueError("angle-corrected Beys must be excluded from size normalization")
-
     changed = 0
     for entry in entries:
         image_path = Path(entry["image"])
@@ -193,17 +187,11 @@ def main() -> int:
 
     if args.write:
         config["version"] = CONFIG_VERSION
-        angle_config["version"] = CONFIG_VERSION
         CONFIG_PATH.write_text(
             f"{json.dumps(config, ensure_ascii=False, indent=2)}\n",
             encoding="utf-8",
         )
-        ANGLE_CONFIG_PATH.write_text(
-            f"{json.dumps(angle_config, ensure_ascii=False, indent=2)}\n",
-            encoding="utf-8",
-        )
-
-    print(f"X front-view Bey sizes: {len(entries)} verified, {changed} rewritten, {len(angle_ids)} angle views excluded")
+    print(f"X front-view Bey sizes: {len(entries)} verified, {changed} rewritten")
     return 0
 
 

@@ -6,6 +6,7 @@ await routerReady;
 
 const lazySearchSelector = ".topbar-search, .overview-search, .mobile-drawer-search";
 let searchFeatureReady = false;
+const searchStartupListeners = new window.AbortController();
 const searchInteractionTarget = target => target?.closest?.(lazySearchSelector) || null;
 const prepareCategoryInteraction = target => {
   const match = categoryRouteFromTrigger(target);
@@ -18,6 +19,7 @@ const prepareInteraction = async target => {
   if (!searchInteractionTarget(target)) return;
   await loadSearchFeature();
   searchFeatureReady = true;
+  searchStartupListeners.abort();
 };
 const primeSearchInteraction = event => {
   if (!searchFeatureReady && searchInteractionTarget(event.target)) void prepareInteraction(event.target);
@@ -37,14 +39,15 @@ const replaySearchEventAfterLoad = (event, replay) => {
 document.addEventListener("pointerover", primeCategoryInteraction, true);
 document.addEventListener("pointerdown", primeCategoryInteraction, true);
 document.addEventListener("focusin", primeCategoryInteraction, true);
-document.addEventListener("pointerdown", primeSearchInteraction, true);
-document.addEventListener("focusin", primeSearchInteraction, true);
+const { signal: searchStartupSignal } = searchStartupListeners;
+document.addEventListener("pointerdown", primeSearchInteraction, { capture: true, signal: searchStartupSignal });
+document.addEventListener("focusin", primeSearchInteraction, { capture: true, signal: searchStartupSignal });
 document.addEventListener("click", event => {
   replaySearchEventAfterLoad(event, target => target.click());
-}, true);
+}, { capture: true, signal: searchStartupSignal });
 document.addEventListener("input", event => {
   replaySearchEventAfterLoad(event, target => target.dispatchEvent(new Event("input", { bubbles: true })));
-}, true);
+}, { capture: true, signal: searchStartupSignal });
 document.addEventListener("keydown", event => {
   if (!searchInteractionTarget(event.target)) return;
   const init = {
@@ -58,6 +61,6 @@ document.addEventListener("keydown", event => {
     metaKey: event.metaKey
   };
   replaySearchEventAfterLoad(event, target => target.dispatchEvent(new window.KeyboardEvent("keydown", init)));
-}, true);
+}, { capture: true, signal: searchStartupSignal });
 
 export { prepareInteraction };

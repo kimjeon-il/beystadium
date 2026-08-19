@@ -4,8 +4,7 @@ export default [
   {
     ignores: [
       "data/**/*.js",
-      "data/**/*.json",
-      "styles.css"
+      "data/**/*.json"
     ]
   },
   js.configs.recommended,

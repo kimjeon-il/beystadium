@@ -1,13 +1,13 @@
 import { appState } from "#app/state";
 import { partItems } from "#app/data-store";
 import { zeroGBottomStartIndex } from "#app/catalog-model";
-import { cleanupModelViewer, closeModalTagPopover, positionModalTagPopover } from "#app/detail-view";
+import { closeModalTagPopover, positionModalTagPopover } from "#app/detail-view";
 import { hideLinkImagePreview } from "#app/image-preview";
 import { clearActiveDetailModalContext, clearModalContext, currentPageScrollY, rememberModalContext, restorePageScroll, validScrollY } from "#app/modal-context";
 import { clearModalOriginRoute, routeIfNeeded } from "#app/navigation";
-import { escapeAttributeValue } from "#app/release-core";
+import { escapeAttributeValue } from "#app/markup-core";
 import { bindScrollAffordances, clearScrollAffordances, scheduleScrollAffordances } from "#app/scroll-affordance";
-import { playEnterAnimation } from "#app/ui-core";
+import { playEnterAnimation } from "#app/ui-elements";
 
 const modal = document.querySelector("#detailModal");
 const modalTransitionKinds = new Set(["list", "drill", "composition", "back", "route", "step-prev", "step-next"]);
@@ -168,7 +168,7 @@ class ModalController {
       this.syncViewportMetrics();
       this.scheduleDescriptionMeasure(this.contentRoot || document);
       scheduleScrollAffordances(this.contentRoot || document);
-      if (appState.activeModalTagButton?.isConnected) positionModalTagPopover(appState.activeModalTagButton);
+      if (appState.modal.activeTagButton?.isConnected) positionModalTagPopover(appState.modal.activeTagButton);
     });
   }
 
@@ -282,12 +282,11 @@ function closeModal() {
 }
 function closeModalSession({ clearContext = true, clearOrigin = true } = {}) {
   closeModalTagPopover();
-  cleanupModelViewer();
   if (clearContext) {
     clearModalContext();
     clearActiveDetailModalContext();
   }
-  const shouldRestoreModalScroll = Boolean(appState.modalOriginRoute);
+  const shouldRestoreModalScroll = Boolean(appState.modal.originRoute);
   if (clearOrigin) clearModalOriginRoute();
   if (modal?.open) closeModal();
   else if (shouldRestoreModalScroll) restorePageScroll(modalController.scrollY);

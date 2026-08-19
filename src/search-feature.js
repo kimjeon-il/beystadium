@@ -3,8 +3,6 @@ import { appState } from "#app/state";
 import { animeInfo, BeystadiumDataStore, searchIndexItems } from "#app/data-store";
 import {
   animeAirDateLabel,
-  escapeAttributeValue,
-  escapeHtml,
   itemSeriesLabel,
   priceLabel,
   productDisplayName,
@@ -13,7 +11,9 @@ import {
   releaseDateLabel,
   seriesLabels
 } from "#app/release-core";
+import { escapeAttributeValue, escapeHtml } from "#app/markup-core";
 import { appServices } from "#app/services";
+import { searchScopeForInput, syncGlobalSearchStateFromInput } from "#app/search-state";
 import { navigateToRoute } from "#app/navigation";
 import {
   catalogItemSearchFields,
@@ -32,23 +32,10 @@ import {
 import { findCatalogItemById, productCompositionItems } from "#app/catalog-model";
 import { bindCatalogCardClicks, openCatalogCard } from "#app/collection-view";
 import {
-  globalSearch,
   globalSearchScopeValue,
-  mobileDrawerSearch,
-  mobileDrawerSearchScopeValue,
-  overviewSearch,
-  overviewSearchScopeValue,
-  partDetailTypeLabel,
-  playEnterAnimation,
-  searchResultsSearch,
-  searchResultsSearchScopeValue,
-  setGlobalSearchScope,
-  setMobileDrawerSearchScope,
-  setOverviewSearchScope,
-  setSearchResultsSearchScope,
-  setSearchInputValue,
-  structureLabels
-} from "#app/ui-core";
+  playEnterAnimation
+} from "#app/ui-elements";
+import { partDetailTypeLabel, structureLabels } from "#app/catalog-metadata";
 
 const mainSearchProductCompositionText = (item, region) => {
   const composition = productCompositionItems(item, region);
@@ -168,7 +155,7 @@ const searchResultCacheKey = (scope, query) => `${scope}\u0000${searchQueryFrom(
 const searchResultRenderKey = (scope, query) => [
   scope,
   searchQueryFrom(query).cacheKey,
-  appState.activeReleaseRegion,
+  appState.release.region,
   animeDisplayRegion
 ].join("\u0000");
 const searchResultRecordLists = () => {
@@ -246,7 +233,7 @@ const searchResultType = entry => {
 };
 const searchResultTitle = entry => {
   if (entry.kind === "tools") return entry.item.name;
-  if (entry.kind === "product") return productDisplayName(entry.item, appState.activeReleaseRegion);
+  if (entry.kind === "product") return productDisplayName(entry.item, appState.release.region);
   if (entry.kind === "book" || entry.kind === "game") return entry.item.name;
   if (entry.kind === "character") return entry.item.name || entry.item.title || "";
   if (entry.kind === "anime") return animeEpisodeTitle(entry.item, animeDisplayRegion);
@@ -254,7 +241,7 @@ const searchResultTitle = entry => {
   return `${entry.item.name}${suffix}`;
 };
 const searchProductSnippet = item => {
-  const region = productDisplayRegion(item, appState.activeReleaseRegion);
+  const region = productDisplayRegion(item, appState.release.region);
   const release = productRelease(item, region);
   return [
     release.no || item.no,
@@ -369,40 +356,6 @@ const bindSearchResultControls = gridRoot => {
 const SEARCH_PREVIEW_LIMIT = 6;
 const SEARCH_PREVIEW_RENDER_DELAY = 100;
 const searchPreviewControls = new Map();
-const searchPreviewScopeValue = input => {
-  if (input === overviewSearch) return overviewSearchScopeValue();
-  if (input === mobileDrawerSearch) return mobileDrawerSearchScopeValue();
-  if (input === searchResultsSearch) return searchResultsSearchScopeValue();
-  return globalSearchScopeValue();
-};
-const searchPreviewSyncToGlobal = input => {
-  if (input === overviewSearch) {
-    if (globalSearch) setSearchInputValue(globalSearch, overviewSearch.value);
-    if (mobileDrawerSearch) setSearchInputValue(mobileDrawerSearch, overviewSearch.value);
-    if (searchResultsSearch) setSearchInputValue(searchResultsSearch, overviewSearch.value);
-    setGlobalSearchScope(overviewSearchScopeValue());
-    setMobileDrawerSearchScope(overviewSearchScopeValue());
-    setSearchResultsSearchScope(overviewSearchScopeValue());
-    return;
-  }
-  if (input === mobileDrawerSearch) {
-    if (globalSearch) setSearchInputValue(globalSearch, mobileDrawerSearch.value);
-    if (overviewSearch) setSearchInputValue(overviewSearch, mobileDrawerSearch.value);
-    if (searchResultsSearch) setSearchInputValue(searchResultsSearch, mobileDrawerSearch.value);
-    setGlobalSearchScope(mobileDrawerSearchScopeValue());
-    setOverviewSearchScope(mobileDrawerSearchScopeValue());
-    setSearchResultsSearchScope(mobileDrawerSearchScopeValue());
-    return;
-  }
-  if (input === globalSearch) {
-    if (mobileDrawerSearch) setSearchInputValue(mobileDrawerSearch, globalSearch.value);
-    if (overviewSearch) setSearchInputValue(overviewSearch, globalSearch.value);
-    if (searchResultsSearch) setSearchInputValue(searchResultsSearch, globalSearch.value);
-    setMobileDrawerSearchScope(globalSearchScopeValue());
-    setOverviewSearchScope(globalSearchScopeValue());
-    setSearchResultsSearchScope(globalSearchScopeValue());
-  }
-};
 const searchPreviewOptionId = (control, index) => `${control.preview.id}-option-${index}`;
 const searchPreviewItemButton = (entry, control, index) => {
   const attr = searchResultAttributes(entry);
@@ -414,8 +367,8 @@ const searchPreviewItemButton = (entry, control, index) => {
   </button>`;
 };
 const closeSearchPreviewCompetingLayers = () => {
-  if (typeof appServices.closeOpenCatalogDropdowns === "function") appServices.closeOpenCatalogDropdowns();
-  if (typeof appServices.closeSearchHelpPopovers === "function") appServices.closeSearchHelpPopovers();
+  appServices.closeOpenCatalogDropdowns();
+  appServices.closeSearchHelpPopovers();
 };
 class SearchPreviewController {
   constructor(input, root) {
@@ -473,7 +426,7 @@ class SearchPreviewController {
     this.entries = [];
     this.input.setAttribute("aria-expanded", "false");
     this.input.removeAttribute("aria-activedescendant");
-    if (appState.activeSearchPreview === this) appState.activeSearchPreview = null;
+    if (appState.search.activePreview === this) appState.search.activePreview = null;
   }
 
   render() {
@@ -485,7 +438,7 @@ class SearchPreviewController {
     }
     closeSearchPreviewCompetingLayers();
     closeAllSearchPreviews(this);
-    this.entries = collectSearchPreviewItems(searchPreviewScopeValue(this.input), query);
+    this.entries = collectSearchPreviewItems(searchScopeForInput(this.input), query);
     if (this.highlightedIndex >= this.entries.length) this.highlightedIndex = -1;
     const wasHidden = this.preview.hidden;
     this.preview.innerHTML = this.entries.length
@@ -494,7 +447,7 @@ class SearchPreviewController {
       : `<div class="search-preview-empty">검색결과가 없습니다.</div>`;
     this.preview.hidden = false;
     if (wasHidden) playEnterAnimation(this.preview, "is-preview-entering");
-    appState.activeSearchPreview = this;
+    appState.search.activePreview = this;
     this.input.setAttribute("aria-expanded", "true");
     if (this.highlightedIndex >= 0) {
       this.input.setAttribute("aria-activedescendant", searchPreviewOptionId(this, this.highlightedIndex));
@@ -514,14 +467,14 @@ class SearchPreviewController {
     const generation = ++this.renderGeneration;
     this.renderTimer = setTimeout(async () => {
       this.renderTimer = 0;
-      await BeystadiumDataStore?.ensureSearch(searchPreviewScopeValue(this.input));
+      await BeystadiumDataStore?.ensureSearch(searchScopeForInput(this.input));
       if (generation !== this.renderGeneration) return;
       this.render();
     }, SEARCH_PREVIEW_RENDER_DELAY);
   }
 
   syncToGlobal() {
-    searchPreviewSyncToGlobal(this.input);
+    syncGlobalSearchStateFromInput(this.input);
   }
 
   openItem(button) {
@@ -631,6 +584,5 @@ export {
   closeAllSearchPreviews,
   handleSearchPreviewKeydown,
   refreshSearchPreview,
-  renderGlobalCards,
-  searchPreviewScopeValue
+  renderGlobalCards
 };

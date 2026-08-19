@@ -12,29 +12,29 @@ import {
 
 const currentPathWithSearch = () => `${window.location.pathname}${window.location.search}`;
 const rememberPrimaryRoute = route => {
-  if (isPrimaryRoute(route)) appState.lastPrimaryRoute = routeSnapshot(route) || { type: "overview" };
+  if (isPrimaryRoute(route)) appState.routing.lastPrimary = routeSnapshot(route) || { type: "overview" };
 };
 function syncModalOriginRoute(route = {}, { explicit = false } = {}) {
   if (isDetailRoute(route)) {
-    if (!appState.modalOriginRoute) {
+    if (!appState.modal.originRoute) {
       const currentRoute = parseRouteFromHash(window.location.hash);
-      appState.modalOriginRoute = isPrimaryRoute(currentRoute) ? routeSnapshot(currentRoute) : routeSnapshot(appState.lastPrimaryRoute);
-      appState.modalOriginRouteExplicit = Boolean(explicit && appState.modalOriginRoute);
+      appState.modal.originRoute = isPrimaryRoute(currentRoute) ? routeSnapshot(currentRoute) : routeSnapshot(appState.routing.lastPrimary);
+      appState.modal.originExplicit = Boolean(explicit && appState.modal.originRoute);
     } else if (explicit) {
-      appState.modalOriginRouteExplicit = true;
+      appState.modal.originExplicit = true;
     }
     return;
   }
   if (isPrimaryRoute(route)) {
     rememberPrimaryRoute(route);
-    appState.modalOriginRoute = null;
-    appState.modalOriginRouteExplicit = false;
+    appState.modal.originRoute = null;
+    appState.modal.originExplicit = false;
   }
 }
 const detailModalRouteOptions = (options = {}, keys = []) => Object.fromEntries(keys
   .map(key => [key, options[key]])
   .filter(([, value]) => value));
-const detailModalFallbackCloseRoute = (context = appState.activeDetailModalContext) => {
+const detailModalFallbackCloseRoute = (context = appState.modal.detailContext) => {
   const options = context?.options || {};
   if (options.backRelease) return {
     type: "category-release",
@@ -48,11 +48,11 @@ const detailModalFallbackCloseRoute = (context = appState.activeDetailModalConte
   if (catalogCoreItemsById.has(id) || toolsItemsById.has(id)) return { type: "catalog", scope: "all" };
   return { type: "overview" };
 };
-const getModalCloseRoute = () => routeSnapshot(appState.modalOriginRoute)
-  || detailModalFallbackCloseRoute(appState.activeDetailModalContext);
+const getModalCloseRoute = () => routeSnapshot(appState.modal.originRoute)
+  || detailModalFallbackCloseRoute(appState.modal.detailContext);
 const clearModalOriginRoute = () => {
-  appState.modalOriginRoute = null;
-  appState.modalOriginRouteExplicit = false;
+  appState.modal.originRoute = null;
+  appState.modal.originExplicit = false;
 };
 const stabilizePrimaryRouteScroll = () => requestAnimationFrame(() => {
   if (!appServices.modal?.open) window.scrollTo(0, 0);
@@ -75,7 +75,7 @@ function navigateToRoute(route, { replace = false, apply = true, preserveScroll 
   return result;
 }
 const routeIfNeeded = route => {
-  if (appState.applyingRoute) return false;
+  if (appState.routing.applying) return false;
   navigateToRoute(route);
   return true;
 };

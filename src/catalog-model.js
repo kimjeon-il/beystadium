@@ -14,7 +14,6 @@ import {
   versionAssetUrl
 } from "#app/data-store";
 import {
-  escapeAttributeValue,
   productRelease,
   productReleasedInRegion,
   productSerialNumber,
@@ -22,6 +21,7 @@ import {
   releaseRegionLabels,
   releaseSeriesOrder
 } from "#app/release-core";
+import { escapeAttributeValue } from "#app/markup-core";
 import {
   catalogItemSearchFields,
   catalogSearchQuery,
@@ -30,7 +30,7 @@ import {
   prepareCatalogSearchQuery,
   toolsSearchFields
 } from "#app/search-engine";
-import { partDisplayTypeLabel } from "#app/ui-core";
+import { partDisplayTypeLabel } from "#app/catalog-metadata";
 
 const catalogSourceOrder = item => {
   if (!item || typeof item !== "object") return Number.MAX_SAFE_INTEGER;
@@ -50,9 +50,6 @@ const findCatalogItemById = id => catalogCoreItemsById.get(id) || toolsItemsById
 const cardVisualMarkup = item => item.image
   ? `<img class="bey-image" src="${escapeAttributeValue(versionAssetUrl(item.image))}" alt="${escapeAttributeValue(item.name || "")}" width="240" height="240" sizes="(max-width: 639px) calc((100vw - 44px) / 2), (max-width: 1023px) 28vw, 220px" loading="lazy" decoding="async">`
   : "";
-const modalArtMarkup = item => item.model
-  ? `<div class="model-viewer" data-model="${item.model}"><p>3D 모델 로딩 중</p></div>`
-  : cardVisualMarkup(item);
 const partCategory = item => item.sub || "";
 const catalogCardTypeLabel = item => partDisplayTypeLabel(item);
 const catalogCardActionMarkup = item => `<button class="ui-card-button catalog-card-action" type="button" aria-label="${escapeAttributeValue(`${item.name || "항목"} 상세 보기`)}"></button>`;
@@ -112,7 +109,7 @@ const toolsCard = item => `
     <p class="card-full-en">${item.en}</p>
     <p class="card-full-ko">&nbsp;</p>
   </article>`;
-function productCompositionItems(item, region = appState.activeReleaseRegion) {
+function productCompositionItems(item, region = appState.release.region) {
   const release = productRelease(item, region);
   const releaseComposition = Array.isArray(release.composition) && release.composition.length ? release.composition : null;
   const regionComposition = releaseComposition || (region === "jp" ? item.compositionJp || item.compositionJapan : item.compositionKr || item.compositionKorea);
@@ -208,7 +205,7 @@ const catalogToolFirstReleaseProductNo = item => {
   const meta = toolsFirstReleaseMetaMap().get(item?.id);
   const product = Number.isInteger(meta?.productIndex) ? productItems[meta.productIndex] : null;
   if (!product) return "";
-  const region = releaseRegions[meta.regionIndex] || appState.activeReleaseRegion;
+  const region = releaseRegions[meta.regionIndex] || appState.release.region;
   const release = productRelease(product, region);
   return release.no || product.no || "";
 };
@@ -301,9 +298,9 @@ const catalogSortOptions = [
   { value: "latest", label: "최신순", compare: compareCatalogItemsByLatest },
   { value: "oldest", label: "오래된순", compare: compareCatalogItemsByOldest }
 ];
-const activeCatalogSortOption = () => catalogSortOptions.find(option => option.value === appState.activeCatalogSort) || catalogSortOptions[2];
-const catalogItemMatchesSeries = item => appState.selectedCatalogSeries === "all" || item?.series === appState.selectedCatalogSeries;
-const catalogUsesDefaultBrowseSet = query => !appState.selectedCatalogKind && query.isEmpty;
+const activeCatalogSortOption = () => catalogSortOptions.find(option => option.value === appState.catalog.sort) || catalogSortOptions[2];
+const catalogItemMatchesSeries = item => appState.catalog.series === "all" || item?.series === appState.catalog.series;
+const catalogUsesDefaultBrowseSet = query => !appState.catalog.kind && query.isEmpty;
 const CATALOG_VISIBLE_ITEMS_CACHE_LIMIT = 48;
 const catalogVisibleItemsCache = new Map();
 const invalidateCatalogDerivedCaches = () => {
@@ -343,17 +340,17 @@ const visibleToolsItems = () => visibleCatalogSubsetItems({
   bucket: "tools",
   items: toolsItems,
   includeItem: (item, query) => catalogItemMatchesSeries(item) && (
-    appState.selectedCatalogKind === "tools" ||
-    (!appState.selectedCatalogKind && !query.isEmpty)
+    appState.catalog.kind === "tools" ||
+    (!appState.catalog.kind && !query.isEmpty)
   )
 });
 const visibleCatalogCoreItems = () => visibleCatalogSubsetItems({
   bucket: "core",
   items: catalogCoreItems,
   includeItem: (item, query) => {
-    if (appState.selectedCatalogKind === "tools" || !catalogItemMatchesSeries(item)) return false;
+    if (appState.catalog.kind === "tools" || !catalogItemMatchesSeries(item)) return false;
     const useDefaultBrowseSet = catalogUsesDefaultBrowseSet(query);
-    const effectiveCatalogItemType = useDefaultBrowseSet ? "bey" : appState.selectedCatalogKind || "all";
+    const effectiveCatalogItemType = useDefaultBrowseSet ? "bey" : appState.catalog.kind || "all";
     if (effectiveCatalogItemType === "bey" && item.type !== "bey") return false;
     if (effectiveCatalogItemType === "parts" && item.type === "bey") return false;
     return true;
@@ -367,9 +364,9 @@ const visibleCatalogItems = () => {
 };
 
 const catalogRenderKey = () => [
-  appState.selectedCatalogKind || "",
-  appState.selectedCatalogSeries || "all",
-  appState.activeCatalogSort,
+  appState.catalog.kind || "",
+  appState.catalog.series || "all",
+  appState.catalog.sort,
   catalogSearchQuery()
 ].join("|");
 
@@ -384,7 +381,6 @@ export {
   compareToolsItemsByFirstRelease,
   findCatalogItemById,
   isCodedPartName,
-  modalArtMarkup,
   partCategory,
   partKoName,
   prepareCatalogSortMetadata,

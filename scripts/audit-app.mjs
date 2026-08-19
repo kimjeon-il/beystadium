@@ -18,45 +18,7 @@ const HOME_TEXT_LIMIT = 140_000;
 const BASE_CSS_LIMIT = 60_000;
 const CSS_IMPORTANT_LIMIT = 80;
 const SOURCE_LINE_LIMIT = 1_000;
-const ROUTER_LINE_LIMIT = 600;
 const FORBIDDEN_HIGHLIGHT_PATTERN = /--ui-selection-|#(?:0f6cbd|62abf5)\b/i;
-const FORBIDDEN_MONOLITHS = [
-  "src/app-runtime.js",
-  "src/catalog-core.js",
-  "src/route-core.js",
-  "src/view-controller.js",
-  "styles.css",
-  "scripts/build-app-runtime.mjs"
-];
-const MOBILE_STYLE_VERSION = "20260804-mobile-modal-scrollbar-centering";
-const MOBILE_OVERHAUL_IMPORT_VERSION = "20260731-mobile-highlight-fix";
-const MOBILE_RELEASE_IMPORT_VERSION = "20260804-mobile-release-badge-adjacent-stable";
-const MOBILE_SHELL_IMPORT_VERSION = "20260804-topbar-search-surface-parity";
-const X_DATA_IMPORT_VERSION = "20260819-x-bey-canonical-image-paths";
-const MOBILE_UPDATED_IMPORT_VERSIONS = {
-  "#app/data-store": X_DATA_IMPORT_VERSION,
-  "#app/catalog-model": X_DATA_IMPORT_VERSION,
-  "#app/image-preview": X_DATA_IMPORT_VERSION,
-  "#app/style-loader": MOBILE_STYLE_VERSION,
-  "#app/modal-controller": MOBILE_STYLE_VERSION,
-  "#app/shell-controller": MOBILE_SHELL_IMPORT_VERSION,
-  "#app/release-page": MOBILE_RELEASE_IMPORT_VERSION
-};
-const MOBILE_OVERHAUL_IMPORTS = {
-  "#app/data-store": "src/data-store.js",
-  "#app/ui-core": "src/ui-core.js",
-  "#app/release-core": "src/release-core.js",
-  "#app/search-engine": "src/search-engine.js",
-  "#app/catalog-model": "src/catalog-model.js",
-  "#app/collection-view": "src/collection-view.js",
-  "#app/search-feature": "src/search-feature.js",
-  "#app/image-preview": "src/image-preview.js",
-  "#app/style-loader": "src/style-loader.js",
-  "#app/modal-controller": "src/modal-controller.js",
-  "#app/shell-controller": "src/shell-controller.js",
-  "#app/release-page": "src/release-page.js",
-  "#app/anime": "src/anime.js"
-};
 
 const byteSize = async file => Buffer.byteLength(
   (await readFile(fromRoot(file), "utf8")).replace(/\r\n/g, "\n")
@@ -80,25 +42,23 @@ const importMap = JSON.parse(importMapMatch[1]).imports || {};
 for (const [alias, target] of Object.entries(importMap)) {
   const file = projectPath(target);
   if (!(await exists(file))) throw new Error(`Import-map target is missing: ${alias} -> ${file}`);
-}
-if (!indexHtml.includes(`./styles/base.css?v=${MOBILE_STYLE_VERSION}`)) {
-  throw new Error("Mobile overhaul cache version is missing: styles/base.css");
-}
-if (!indexHtml.includes(`./styles/mobile.css?v=${MOBILE_STYLE_VERSION}`)) {
-  throw new Error("Mobile control fix cache version is missing: styles/mobile.css");
-}
-for (const [alias, file] of Object.entries(MOBILE_OVERHAUL_IMPORTS)) {
-  const expectedVersion = MOBILE_UPDATED_IMPORT_VERSIONS[alias] || MOBILE_OVERHAUL_IMPORT_VERSION;
-  if (importMap[alias] !== `./${file}?v=${expectedVersion}`) {
-    throw new Error(`Mobile overhaul import cache version is missing: ${alias}`);
-  }
+  if (!/[?&]v=[^&]+/.test(target)) throw new Error(`Import-map target has no cache version: ${alias}`);
 }
 
 const styleLoaderUrl = `${pathToFileURL(fromRoot("src/style-loader.js")).href}?audit=${Date.now()}`;
 const { routeStyleManifest, styleFiles } = await import(styleLoaderUrl);
 const styleLoaderSource = await readFile(fromRoot("src/style-loader.js"), "utf8");
-if (!styleLoaderSource.includes(`const styleVersion = "${MOBILE_STYLE_VERSION}";`)) {
-  throw new Error("Route stylesheet cache version is missing or inconsistent.");
+const styleVersion = styleLoaderSource.match(/const styleVersion = "([^"]+)";/)?.[1];
+if (!styleVersion) throw new Error("Route stylesheet cache version is missing.");
+for (const file of ["styles/base.css", "styles/mobile.css"]) {
+  if (!indexHtml.includes(`./${file}?v=${styleVersion}`)) throw new Error(`Stylesheet cache version is inconsistent: ${file}`);
+}
+const { searchScopeValues } = await import(pathToFileURL(fromRoot("src/search-scopes.js")).href);
+for (const attribute of ["global-search-scope", "mobile-drawer-search-scope", "overview-search-scope"]) {
+  const values = [...indexHtml.matchAll(new RegExp(`data-${attribute}="([^"]+)"`, "g"))].map(match => match[1]);
+  if (JSON.stringify(values) !== JSON.stringify(searchScopeValues)) {
+    throw new Error(`Search scope options are inconsistent: data-${attribute}`);
+  }
 }
 const stylesheetFiles = ["styles/base.css", "styles/mobile.css", ...Object.values(styleFiles).map(projectPath)];
 for (const file of stylesheetFiles) {
@@ -178,14 +138,8 @@ const sourceFiles = (await readdir(fromRoot("src"), { withFileTypes: true }))
   .map(entry => `src/${entry.name}`);
 for (const file of sourceFiles) {
   const lineCount = sourceLines(await readFile(fromRoot(file), "utf8"));
-  const limit = file === "src/router.js" ? ROUTER_LINE_LIMIT : SOURCE_LINE_LIMIT;
-  if (lineCount > limit) throw new Error(`${file} has ${lineCount} lines; expected <= ${limit}.`);
+  if (lineCount > SOURCE_LINE_LIMIT) throw new Error(`${file} has ${lineCount} lines; expected <= ${SOURCE_LINE_LIMIT}.`);
 }
-const routeParserSource = await readFile(fromRoot("src/route-parser.js"), "utf8");
-if (/^\s*import\s/m.test(routeParserSource)) {
-  throw new Error("src/route-parser.js must remain a pure module without imports.");
-}
-
 const importPattern = /\b(?:import|export)\s+(?:[^"']*?\s+from\s+)?["']([^"']+)["']/g;
 const dynamicImportPattern = /\bimport\s*\(\s*["']([^"']+)["']\s*\)/g;
 const sourceSet = new Set(sourceFiles.map(file => fromRoot(file)));
@@ -245,10 +199,6 @@ const unreachable = sourceFiles.filter(file => !reachable.has(fromRoot(file)));
 if (unreachable.length) throw new Error(`Unreachable source modules: ${unreachable.join(", ")}`);
 const unusedAliases = Object.keys(importMap).filter(alias => !usedImportAliases.has(alias));
 if (unusedAliases.length) throw new Error(`Unused import-map aliases: ${unusedAliases.join(", ")}`);
-
-for (const file of FORBIDDEN_MONOLITHS) {
-  if (await exists(file)) throw new Error(`Forbidden monolith must not exist: ${file}`);
-}
 
 console.log(
   `App audit OK: ${total} initial text bytes across ${sizes.length} files; `

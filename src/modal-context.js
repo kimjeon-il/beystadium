@@ -1,6 +1,6 @@
 import { appState } from "#app/state";
 import { isPrimaryRoute, routeSnapshot } from "#app/route-parser";
-import { animeSearch, catalogSearch, globalSearch, globalSearchScopeValue, mobileDrawerSearch } from "#app/ui-core";
+import { animeSearch, catalogSearch, globalSearch, globalSearchScopeValue, mobileDrawerSearch } from "#app/ui-elements";
 
 const modalContextStorageKey = "beyArchiveModalContext";
 const inputQuery = input => input?.value?.trim() || "";
@@ -25,34 +25,34 @@ const restorePageScroll = value => {
   });
 };
 const modalOriginRouteSnapshot = () => {
-  const origin = routeSnapshot(appState.modalOriginRoute) || routeSnapshot(appState.lastPrimaryRoute);
+  const origin = routeSnapshot(appState.modal.originRoute) || routeSnapshot(appState.routing.lastPrimary);
   return origin && isPrimaryRoute(origin) ? origin : null;
 };
 const modalOriginStateGetters = {
   catalog: () => ({
     catalogQuery: catalogSearchQuery(),
-    catalogSeries: appState.selectedCatalogSeries,
-    catalogSort: appState.activeCatalogSort,
-    catalogPage: appState.currentCatalogPage
+    catalogSeries: appState.catalog.series,
+    catalogSort: appState.catalog.sort,
+    catalogPage: appState.catalog.page
   }),
   search: () => ({
     globalQuery: globalSearchQuery(),
     globalScope: globalSearchScopeValue()
   }),
   "category-release": () => ({
-    releaseQuery: appState.activeReleaseQuery,
-    releaseRegion: appState.activeReleaseRegion,
-    releaseSeries: appState.activeReleaseSeries,
-    releaseSort: { ...appState.activeReleaseSort }
+    releaseQuery: appState.release.query,
+    releaseRegion: appState.release.region,
+    releaseSeries: appState.release.series,
+    releaseSort: { ...appState.release.sort }
   }),
   "category-anime": () => ({
-    animeSeason: typeof appState.activeAnimeCharacterSeason === "string" ? appState.activeAnimeCharacterSeason : "all",
+    animeSeason: typeof appState.anime.characterSeason === "string" ? appState.anime.characterSeason : "all",
     animeQuery: animeSearchQuery(),
-    animePage: appState.currentAnimePage
+    animePage: appState.anime.page
   }),
   "category-anime-episodes": () => ({
-    animeSeason: appState.activeAnimeSeason,
-    animeQuery: appState.activeAnimeEpisodeQuery
+    animeSeason: appState.anime.season,
+    animeQuery: appState.anime.episodeQuery
   })
 };
 const modalOriginState = originRoute => ({
@@ -85,10 +85,10 @@ const modalContextOptions = options => {
 
 const rememberActiveDetailModalContext = context => {
   if (context?.kind === "category-release" || context?.kind === "category-anime-episodes") return;
-  appState.activeDetailModalContext = context;
+  appState.modal.detailContext = context;
 };
 const clearActiveDetailModalContext = () => {
-  appState.activeDetailModalContext = null;
+  appState.modal.detailContext = null;
 };
 function rememberModalContext(kind, id, options = {}) {
   const originRoute = modalOriginRouteSnapshot();
@@ -96,7 +96,7 @@ function rememberModalContext(kind, id, options = {}) {
   if (originRoute) {
     context.originRoute = originRoute;
     context.originState = modalOriginState(originRoute);
-    if (appState.modalOriginRouteExplicit) context.originExplicit = true;
+    if (appState.modal.originExplicit) context.originExplicit = true;
   }
   rememberActiveDetailModalContext(context);
   try {

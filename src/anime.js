@@ -12,14 +12,17 @@ import {
 import { renderCategoryCollection, renderPagination, scrollGridIntoView } from "#app/collection-view";
 import { animeSearchQuery, createSearchRecord, matchSearchRecord, matchesSearchText, prepareCatalogSearchQuery, searchFieldsFromValues } from "#app/search-engine";
 import { animeInfo } from "#app/data-store";
-import { TableListController, animeAirDateCompactLabel, animeAirDateLabel, escapeAttributeValue, escapeHtml, responsiveDateSpans, tableListControlsMarkup, tableListDropdownMarkup, tableListPageMarkup, tableListTableMarkup } from "#app/release-core";
+import { escapeAttributeValue, escapeHtml } from "#app/markup-core";
+import { animeAirDateCompactLabel, animeAirDateLabel, responsiveDateSpans } from "#app/release-core";
+import { TableListController, tableListControlsMarkup, tableListDropdownMarkup, tableListPageMarkup, tableListTableMarkup } from "#app/table-list-view";
 import { appServices, registerAppServices } from "#app/services";
 import { normalizeRoute } from "#app/route-parser";
 import { navigateToRoute } from "#app/navigation";
 import { initializeSearchHelpController } from "#app/search-help-controller";
-import { activeAppPanel, animeSearch, bindActionRows, setSearchInputValue } from "#app/ui-core";
+import { anchoredLayerPosition } from "#app/floating-layer";
+import { activeAppPanel, animeSearch, bindActionRows, setSearchInputValue } from "#app/ui-elements";
 
-if (!appState.activeAnimeSeason) appState.activeAnimeSeason = defaultAnimeSeason();
+if (!appState.anime.season) appState.anime.season = defaultAnimeSeason();
 
 const ANIME_PAGE_SIZE = 40;
 const SEARCH_RENDER_DELAY = 100;
@@ -33,19 +36,19 @@ let animeCharacterBeyPopover = null;
 let activeAnimeCharacterBeyButton = null;
 let animeCharacterResizeObserver = null;
 const animeRenderKey = () => [
-  typeof appState.activeAnimeCharacterSeason === "string" ? appState.activeAnimeCharacterSeason : "all",
+  typeof appState.anime.characterSeason === "string" ? appState.anime.characterSeason : "all",
   animeSearchQuery()
 ].join("|");
 const syncAnimeRenderPage = renderKey => {
-  if (renderKey !== appState.currentAnimeRenderKey) {
-    appState.currentAnimeRenderKey = renderKey;
-    appState.currentAnimePage = 1;
+  if (renderKey !== appState.anime.renderKey) {
+    appState.anime.renderKey = renderKey;
+    appState.anime.page = 1;
   }
 };
 const renderAnimePagination = totalPages => renderPagination({
   rootSelector: "#animePagination",
   totalPages,
-  currentPage: appState.currentAnimePage,
+  currentPage: appState.anime.page,
   dataAttr: "data-anime-page",
   buttonClass: "anime-page-button",
   stepClass: "anime-page-step",
@@ -70,13 +73,13 @@ const scheduleAnimeRender = () => {
 
 const animeRouteFromState = (overrides = {}) => normalizeRoute({
   type: "category-anime",
-  season: appState.activeAnimeCharacterSeason || "all",
-  page: appState.currentAnimePage,
+  season: appState.anime.characterSeason || "all",
+  page: appState.anime.page,
   query: animeSearchQuery(),
   ...overrides
 });
 const syncAnimeRouteHash = ({ replace = true, force = false, overrides = {} } = {}) => {
-  if (!force && (appState.applyingRoute || activeAppPanel()?.dataset.appPanel !== "anime")) return;
+  if (!force && (appState.routing.applying || activeAppPanel()?.dataset.appPanel !== "anime")) return;
   navigateToRoute(animeRouteFromState(overrides), {
     replace,
     apply: false,
@@ -87,26 +90,26 @@ const syncAnimeRouteHash = ({ replace = true, force = false, overrides = {} } = 
 const openCategoryAnimePage = (options = {}) => {
   const { updateHash = true, replace = false, preserveSearch = false } = options;
   const route = normalizeRoute({ type: "category-anime", ...options });
-  if (updateHash && !appState.applyingRoute) {
+  if (updateHash && !appState.routing.applying) {
     navigateToRoute(route, { replace });
     return;
   }
   appServices.activatePrimarySection("anime", { preserveSearch });
-  appState.activeAnimeCharacterSeason = normalizeAnimeCharacterSeason(route.season);
+  appState.anime.characterSeason = normalizeAnimeCharacterSeason(route.season);
   if (Object.hasOwn(options, "query") || Object.hasOwn(options, "q") || !preserveSearch) {
     setSearchInputValue(animeSearch, route.query);
   }
-  appState.currentAnimePage = route.page;
-  appState.currentAnimeRenderKey = animeRenderKey();
+  appState.anime.page = route.page;
+  appState.anime.renderKey = animeRenderKey();
   renderAnimePage();
 };
 const restoreStoredAnimeOrigin = originState => {
-  if (originState?.animeSeason) appState.activeAnimeCharacterSeason = normalizeAnimeCharacterSeason(originState.animeSeason);
+  if (originState?.animeSeason) appState.anime.characterSeason = normalizeAnimeCharacterSeason(originState.animeSeason);
   if (typeof originState?.animeQuery === "string") setSearchInputValue(animeSearch, originState.animeQuery);
   renderAnimePage();
   const page = Number(originState?.animePage);
   if (Number.isFinite(page) && page > 1) {
-    appState.currentAnimePage = Math.floor(page);
+    appState.anime.page = Math.floor(page);
     renderAnimePage();
   }
 };
@@ -116,27 +119,27 @@ const animeEpisodeControls = () => tableListControlsMarkup({
   className: "anime-episode-controls",
   attrs: "data-anime-controls",
   dropdown: {
-    label: animeSeasonLabels[appState.activeAnimeSeason] || "",
+    label: animeSeasonLabels[appState.anime.season] || "",
     entries: animeSeasonEntries(),
-    activeValue: appState.activeAnimeSeason,
+    activeValue: appState.anime.season,
     dataAttr: "data-anime-season"
   },
-  search: { id: "animeEpisodeSearchInput", value: appState.activeAnimeEpisodeQuery, placeholder: "방영목록에서 검색" }
+  search: { id: "animeEpisodeSearchInput", value: appState.anime.episodeQuery, placeholder: "방영목록에서 검색" }
 });
 const animeCharacterSeasonLabel = () =>
-  appState.activeAnimeCharacterSeason === animeCharacterAllSeason ? "전체 시리즈" : animeSeasonLabels[appState.activeAnimeCharacterSeason] || "전체 시리즈";
+  appState.anime.characterSeason === animeCharacterAllSeason ? "전체 시리즈" : animeSeasonLabels[appState.anime.characterSeason] || "전체 시리즈";
 const animeCharacterSeasonFilterRoot = () => document.querySelector("[data-anime-character-season-filter]");
 const animeCharacterSeasonFilterMarkup = () => tableListDropdownMarkup({
   label: animeCharacterSeasonLabel(),
   entries: animeCharacterSeasonEntries(),
-  activeValue: appState.activeAnimeCharacterSeason,
+  activeValue: appState.anime.characterSeason,
   dataAttr: "data-anime-character-season"
 });
 
 function renderAnimeCharacterSeasonFilter() {
   const root = animeCharacterSeasonFilterRoot();
   if (!root) return;
-  const renderKey = appState.activeAnimeCharacterSeason;
+  const renderKey = appState.anime.characterSeason;
   if (root.dataset.renderKey !== renderKey) {
     root.innerHTML = animeCharacterSeasonFilterMarkup();
     root.dataset.renderKey = renderKey;
@@ -146,9 +149,9 @@ function renderAnimeCharacterSeasonFilter() {
     button.dataset.animeCharacterSeasonBound = "true";
     button.addEventListener("click", event => {
       event.preventDefault();
-      appState.activeAnimeCharacterSeason = normalizeAnimeCharacterSeason(event.currentTarget.dataset.animeCharacterSeason);
+      appState.anime.characterSeason = normalizeAnimeCharacterSeason(event.currentTarget.dataset.animeCharacterSeason);
       event.currentTarget.closest(".catalog-dropdown")?.removeAttribute("open");
-      appState.currentAnimePage = 1;
+      appState.anime.page = 1;
       renderAnimePage();
       appServices.syncAnimeRouteHash({ overrides: { page: 1 } });
     });
@@ -175,24 +178,11 @@ function positionAnimeCharacterBeyPopover() {
     closeAnimeCharacterBeyPopover();
     return;
   }
-  const margin = 14;
-  const gap = 8;
-  const viewport = window.visualViewport;
-  const viewportLeft = viewport?.offsetLeft || 0;
-  const viewportTop = viewport?.offsetTop || 0;
-  const viewportWidth = viewport?.width || window.innerWidth;
-  const viewportHeight = viewport?.height || window.innerHeight;
-  const minLeft = viewportLeft + margin;
-  const minTop = viewportTop + margin;
   const buttonRect = activeAnimeCharacterBeyButton.getBoundingClientRect();
   const popoverRect = animeCharacterBeyPopover.getBoundingClientRect();
-  const maxLeft = Math.max(minLeft, viewportLeft + viewportWidth - margin - popoverRect.width);
-  const maxTop = Math.max(minTop, viewportTop + viewportHeight - margin - popoverRect.height);
-  const left = Math.max(minLeft, Math.min(buttonRect.left, maxLeft));
-  let top = buttonRect.bottom + gap;
-  if (top > maxTop) top = buttonRect.top - popoverRect.height - gap;
+  const { left, top } = anchoredLayerPosition(buttonRect, popoverRect);
   animeCharacterBeyPopover.style.left = `${left}px`;
-  animeCharacterBeyPopover.style.top = `${Math.max(minTop, Math.min(top, maxTop))}px`;
+  animeCharacterBeyPopover.style.top = `${top}px`;
 }
 
 const scheduleAnimeCharacterPopoverPosition = () => {
@@ -356,7 +346,7 @@ const visibleAnimeCharacters = () => {
   const characters = Array.isArray(animeInfo.characters) ? animeInfo.characters : [];
   const query = prepareCatalogSearchQuery(animeSearchQuery());
   return characters
-    .filter(character => appState.activeAnimeCharacterSeason === animeCharacterAllSeason || character?.season === appState.activeAnimeCharacterSeason)
+    .filter(character => appState.anime.characterSeason === animeCharacterAllSeason || character?.season === appState.anime.characterSeason)
     .map((character, index) => {
       const record = animeCharacterSearchRecord(character, index);
       const match = matchSearchRecord(record, query);
@@ -374,8 +364,8 @@ const animeCharacterCollectionConfig = {
   getVisibleItems: visibleAnimeCharacters,
   renderKey: animeRenderKey,
   syncRenderPage: syncAnimeRenderPage,
-  getCurrentPage: () => appState.currentAnimePage,
-  setCurrentPage: page => { appState.currentAnimePage = page; },
+  getCurrentPage: () => appState.anime.page,
+  setCurrentPage: page => { appState.anime.page = page; },
   cardTemplate: animeCharacterCardMarkup,
   emptyMarkup: () => `<p class="anime-page-empty panel-empty-state">${animeSearchQuery() ? "검색결과가 없습니다." : "등록된 등장인물 및 베이 정보가 없습니다."}</p>`,
   afterRender: scheduleAnimeCharacterBeyLayout,
@@ -397,10 +387,10 @@ const animeEpisodeSearchText = episode => [
 const animeEpisodeDisplayInitialSearchText = episode => episode.titles?.[animeDisplayRegion] || "";
 
 const visibleAnimeEpisodes = () => {
-  const query = appState.activeAnimeEpisodeQuery.trim();
+  const query = appState.anime.episodeQuery.trim();
   return animeInfo.episodes
     .map((episode, index) => ({ episode, index }))
-    .filter(({ episode }) => episode.season === appState.activeAnimeSeason)
+    .filter(({ episode }) => episode.season === appState.anime.season)
     .filter(({ episode }) => matchesSearchText(animeEpisodeSearchText(episode), query, animeEpisodeDisplayInitialSearchText(episode)));
 };
 
@@ -446,13 +436,13 @@ const animeEpisodeTableController = new TableListController({
     const animePanel = root.querySelector(".category-anime-episodes");
     if (!animePanel) return;
     animePanel.querySelectorAll("[data-anime-season]").forEach(button => button.addEventListener("click", event => {
-      appState.activeAnimeSeason = normalizeAnimeSeason(event.currentTarget.dataset.animeSeason);
+      appState.anime.season = normalizeAnimeSeason(event.currentTarget.dataset.animeSeason);
       event.currentTarget.closest(".catalog-dropdown")?.removeAttribute("open");
       controller.renderPage();
     }));
     const animeSearch = animePanel.querySelector("#animeEpisodeSearchInput");
     appServices.bindSearchInput(animeSearch, ".table-list-search-box", { onInput: searchInput => {
-      appState.activeAnimeEpisodeQuery = searchInput.value.trim();
+      appState.anime.episodeQuery = searchInput.value.trim();
       controller.renderPage();
       const nextInput = animeEpisodesPageRoot()?.querySelector("#animeEpisodeSearchInput");
       nextInput?.focus();
@@ -463,8 +453,8 @@ const animeEpisodeTableController = new TableListController({
       appServices.queueModalTransition("list");
       appServices.openAnimeEpisodeDetail(index, {
         fromAnimeList: true,
-        animeSeason: appState.activeAnimeSeason,
-        animeQuery: appState.activeAnimeEpisodeQuery
+        animeSeason: appState.anime.season,
+        animeQuery: appState.anime.episodeQuery
       });
     });
   }
@@ -477,10 +467,10 @@ function renderAnimeEpisodesPage() {
 function openCategoryAnimeEpisodesDetail(options = {}) {
   if (appServices.routeIfNeeded({ type: "category-anime-episodes", options }, options)) return;
   const preserveSearch = options.preserveSearch === true;
-  if (options.animeSeason) appState.activeAnimeSeason = normalizeAnimeSeason(options.animeSeason);
-  else if (!preserveSearch && !animeInfo.episodes.some(episode => episode.season === appState.activeAnimeSeason)) appState.activeAnimeSeason = defaultAnimeSeason();
-  if (typeof options.animeQuery === "string") appState.activeAnimeEpisodeQuery = options.animeQuery;
-  else if (!preserveSearch) appState.activeAnimeEpisodeQuery = "";
+  if (options.animeSeason) appState.anime.season = normalizeAnimeSeason(options.animeSeason);
+  else if (!preserveSearch && !animeInfo.episodes.some(episode => episode.season === appState.anime.season)) appState.anime.season = defaultAnimeSeason();
+  if (typeof options.animeQuery === "string") appState.anime.episodeQuery = options.animeQuery;
+  else if (!preserveSearch) appState.anime.episodeQuery = "";
   appServices.activatePrimarySection("anime-episodes", { preserveSearch });
   renderAnimeEpisodesPage();
 }
@@ -492,7 +482,7 @@ const initializeAnimeFeature = () => {
   initializeAnimeCharacterCards();
   appServices.bindSearchInput(animeSearch, ".anime-search-box", {
     onInput: () => {
-      appState.currentAnimePage = 1;
+      appState.anime.page = 1;
       scheduleAnimeRender();
       syncAnimeRouteHash({ overrides: { page: 1 } });
     }
@@ -501,7 +491,7 @@ const initializeAnimeFeature = () => {
     const button = event.target.closest("[data-anime-page]");
     if (!button || button.disabled) return;
     event.preventDefault();
-    appState.currentAnimePage = Number(button.dataset.animePage) || 1;
+    appState.anime.page = Number(button.dataset.animePage) || 1;
     renderAnimePage();
     syncAnimeRouteHash();
     scrollAnimeGridIntoView();

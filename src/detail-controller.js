@@ -1,8 +1,9 @@
 import { isAnimeEpisodeHash } from "#app/anime-core";
 import { appState } from "#app/state";
 import { bookItems, bookItemsById, catalogCoreItems, catalogCoreItemsById, gameItems, gameItemsById, productItems, productItemsById, toolsItems, toolsItemsById } from "#app/data-store";
-import { compareToolsItemsByFirstRelease, findCatalogItemById, isCodedPartName, modalArtMarkup, partCategory, partKoName, productCompositionItems, productLineupIds, productSerialNumber, visibleCatalogCoreItems, visibleToolsItems } from "#app/catalog-model";
-import { beyDetailSections, beyModalTags, bindModalTagPopovers, cleanupModelViewer, closeModalTagPopover, initModelViewer, modalInfoSlot, modalScrollArea, modalTagGroup, partModalTags } from "#app/detail-view";
+import { compareToolsItemsByFirstRelease, isCodedPartName, partCategory, partKoName, productLineupIds, productSerialNumber, visibleCatalogCoreItems, visibleToolsItems } from "#app/catalog-model";
+import { itemDisplayDesc, itemDisplayName, modalTitle, productDetailBody, productHeader, productLineup, productMetaSlot, rareBeyGetListMarkup } from "#app/detail-content";
+import { beyDetailSections, beyModalTags, bindModalTagPopovers, closeModalTagPopover, modalInfoSlot, modalScrollArea, modalTagGroup, partModalTags } from "#app/detail-view";
 import { openAnimeEpisodeDetail, openCategoryReleaseDetail } from "#app/feature-loaders";
 import { initializeImageLinkPreviews } from "#app/image-preview";
 import { bindModalDescriptionExpanders, cancelModalViewportSync, clearModalLockStyles, closeModalSession, finishModalOpen, modal, modalBackButtonMarkup, modalController, partStats, queueModalStepDirection, queueModalTransition, routeIfNeeded, scheduleModalDescriptionMeasure, setModalContent } from "#app/modal-controller";
@@ -10,16 +11,10 @@ import { restorePageScroll, validScrollY } from "#app/modal-context";
 import { normalizeRoute } from "#app/route-parser";
 import { getModalCloseRoute, navigateToRoute } from "#app/navigation";
 import { registerAppServices } from "#app/services";
-import { RARE_BEY_GET_BADGE, escapeAttributeValue, escapeHtml, productDisplayName, productDisplayRegion, productRelease, productReleasedInRegion, rareBeyGetEntryProductIds, rareBeyGetEntryRegion, rareBeyGetEntryStartSortValue, releaseDateSortValue, releaseHasBadge, releaseRegionLabels, releaseSeriesLabels, visibleRareBeyGetEntries } from "#app/release-core";
-import { partDisplayTypeLabel, typeLabels } from "#app/ui-core";
+import { escapeAttributeValue } from "#app/markup-core";
+import { RARE_BEY_GET_BADGE, productDisplayRegion, productReleasedInRegion, releaseHasBadge, releaseRegionLabels, releaseSeriesLabels } from "#app/release-core";
 
 initializeImageLinkPreviews();
-
-const hiddenModelViewerItemIds = new Set([
-  "PART-METAL-FIGHT-BOTTOM-BALL"
-]);
-const shouldShowModelViewer = item =>
-  Boolean(item?.model) && !hiddenModelViewerItemIds.has(item.id);
 
 const detailBackButton = (backId, backProductId, backRelease, backRegion) => {
   if (backId) {
@@ -33,10 +28,10 @@ const productBackButton = ({ backProductId, backRelease = false, region = "" } =
 };
 const rareBeyGetListBackButton = ({ region = "", series = "", backProductId = "", backRelease = false } = {}) =>
   modalBackButtonMarkup({ backRareBeyGetList: true, backProductId, backRelease, region, series, label: "레어 베이 겟 목록으로 돌아가기" });
-const productModalBackButton = (item, options = {}, region = appState.activeReleaseRegion) => {
+const productModalBackButton = (item, options = {}, region = appState.release.region) => {
   if (options.backRareBeyGetList) return rareBeyGetListBackButton({
     region: options.rareBeyGetListRegion || region,
-    series: options.rareBeyGetListSeries || item?.series || appState.activeReleaseSeries,
+    series: options.rareBeyGetListSeries || item?.series || appState.release.series,
     backProductId: options.rareBeyGetListBackProductId || "",
     backRelease: options.rareBeyGetListBackRelease === true
   });
@@ -57,8 +52,8 @@ function bindCatalogModalBack(scope = document, { fallbackRegion = "" } = {}) {
     if (backButton.dataset.backRareBeyGetList) {
       queueModalTransition("back");
       openRareBeyGetListDetail({
-        region: backOptions.region || appState.activeReleaseRegion,
-        series: backOptions.series || appState.activeReleaseSeries,
+        region: backOptions.region || appState.release.region,
+        series: backOptions.series || appState.release.series,
         backProductId: backButton.dataset.backProductId || "",
         backRelease: backOptions.backRelease === true
       });
@@ -75,7 +70,7 @@ function bindCatalogModalBack(scope = document, { fallbackRegion = "" } = {}) {
       openProductEntry(backButton.dataset.backProductId, backOptions);
       return;
     }
-    if (backButton.dataset.backRelease) openCategoryReleaseDetail({ region: backOptions.region || appState.activeReleaseRegion });
+    if (backButton.dataset.backRelease) openCategoryReleaseDetail({ region: backOptions.region || appState.release.region });
   });
 }
 const modalStepButtonMarkup = ({ direction, targetId, kind, label }) =>
@@ -111,10 +106,6 @@ async function openDetailByKind(kind, targetId, options = {}) {
   else if (kind === "game" || targetId.startsWith("GAME-")) openGameDetail(targetId, options);
   else openDetail(targetId, options);
 }
-function modalTitle(text, extraClass = "") {
-  const className = extraClass ? `modal-name ${extraClass}` : "modal-name";
-  return `<h3 class="${className}">${text}</h3>`;
-}
 function detailHeading(item, options = {}) {
   if (isCodedPartName(item)) {
     const numericTrack = item.type === "track" && /^\d+$/.test(item.name);
@@ -142,7 +133,6 @@ function openDetail(id, options = {}) {
   const detailOptions = { ...options, region: detailRegion };
   if (routeIfNeeded({ type: "detail", id, options: detailOptions })) return;
   closeModalTagPopover();
-  cleanupModelViewer();
   const description = itemDisplayDesc(item, detailRegion);
   const slot = item.type === "bey"
     ? modalInfoSlot(description, beyModalTags(item), "single-line-info-slot")
@@ -150,10 +140,8 @@ function openDetail(id, options = {}) {
   const body = item.type === "bey" ? beyDetailSections(item, detailRegion) : partStats(item);
   const visibleCoreItems = visibleCatalogCoreItems();
   const stepItems = visibleCoreItems.some(entry => entry.id === item.id) ? visibleCoreItems : catalogCoreItems;
-  const hasModel = shouldShowModelViewer(item);
-  const modalContentRoot = setModalContent(`${modalStepButtons(stepItems, item.id, "item")}<div class="modal-inner ${hasModel ? "modal-inner--model" : "modal-inner--content"}">
+  const modalContentRoot = setModalContent(`${modalStepButtons(stepItems, item.id, "item")}<div class="modal-inner modal-inner--content">
     ${detailBackButton(detailOptions.backId, detailOptions.backProductId, detailOptions.backRelease, detailRegion)}
-    ${hasModel ? `<div class="modal-art">${modalArtMarkup(item)}</div>` : ""}
     <div class="modal-info ${item.type === "bey" ? "bey-modal-info" : "part-modal-info"}">
     ${modalScrollArea(`${detailHeading(item, detailOptions)}
     ${slot}<div class="modal-body-block">${body}</div>`)}</div></div>`);
@@ -173,83 +161,6 @@ function openDetail(id, options = {}) {
   bindModalDescriptionExpanders(modalContentRoot);
   finishModalOpen({ contextKind: "item", contextId: item.id, contextOptions: detailOptions, root: modalContentRoot });
   scheduleModalDescriptionMeasure(modalContentRoot);
-  if (hasModel) requestAnimationFrame(initModelViewer);
-}
-function productHeader(item, region = appState.activeReleaseRegion) {
-  return modalTitle(productDisplayName(item, region), "product-modal-name");
-}
-function rareBeyGetMetaChip(item, region = appState.activeReleaseRegion) {
-  if (!releaseHasBadge(item, RARE_BEY_GET_BADGE, region)) return "";
-  return `<button class="ui-chip-button rare-bey-get-chip rare-bey-get-list-trigger" type="button" aria-label="역대 레어 베이 겟 상품 보기" data-release-region="${escapeAttributeValue(region)}" data-release-series="${escapeAttributeValue(item.series || "")}"><span>레어 베이 겟 목록</span><b aria-hidden="true">→</b></button>`;
-}
-function productMetaSlot(item = null, region = appState.activeReleaseRegion) {
-  const chip = item ? rareBeyGetMetaChip(item, region) : "";
-  if (chip) return `<div class="product-meta-slot product-rare-bey-get-slot">${chip}</div>`;
-  return `<div class="product-empty-info-slot"></div>`;
-}
-const productLineupTitle = product => product.lineupTitle || "등장 베이";
-const productLineupComposition = (product, part) => {
-  const lineupIds = productLineupIds(product);
-  if (!lineupIds.length) return false;
-  if (part.lineup) return true;
-  return Boolean(part.target && lineupIds.includes(part.target) && /무작위|레벨별/.test(part.name || compositionItemLabel(part)));
-};
-const compositionItemLabel = part => {
-  const target = part.target ? findCatalogItemById(part.target) : null;
-  if (!target) return "";
-  if (target.type === "bey") return "베이";
-  if (target.type && typeLabels[target.type]) return partDisplayTypeLabel(target);
-  if (target.category) return target.category;
-  return "";
-};
-
-function itemDisplayName(item, region = appState.activeReleaseRegion, options = {}) {
-  const name = region === "jp" ? item.jpName || item.name || "" : item.name || "";
-  const sub = options.withSub ? item.sub || "" : "";
-  return sub && !name.includes(sub) ? `${name} ${sub}` : name;
-}
-function itemDisplayDesc(item, region = appState.activeReleaseRegion) {
-  return region === "jp" && item.jpDesc ? item.jpDesc : item.desc || "";
-}
-const compositionDisplayName = name => (name || "").replace(/\([^)]*\)/g, "").replace(/\s+/g, " ").trim();
-function productComposition(item, region = appState.activeReleaseRegion) {
-  const composition = productCompositionItems(item, region);
-  if (!composition.length) return "";
-  return `<section class="modal-section product-composition"><h4 class="mounted-title">구성</h4><div class="modal-section-scroll product-composition-list">${composition.map(part => {
-    const name = compositionDisplayName(part.name || "");
-    const quantity = part.quantity || part.qty || "1개";
-    if (productLineupComposition(item, part)) return `<button class="ui-list-link product-composition-item product-lineup-trigger" type="button" data-product-id="${item.id}" data-target-id="${part.target || ""}" data-image-preview-id="${part.target || ""}"><span>${name} ${quantity}</span><b>→</b></button>`;
-    if (!part.target) return `<div class="ui-list-link product-composition-item"><span>${name} ${quantity}</span><b>→</b></div>`;
-    const target = findCatalogItemById(part.target);
-    const targetDisplayName = region === "jp" && target ? itemDisplayName(target, region) : "";
-    const displayName = targetDisplayName || name || compositionDisplayName(target?.name || "");
-    return `<a class="ui-list-link product-composition-item composition-link" href="#${part.target}" data-target-id="${part.target}" data-image-preview-id="${part.target}"><span>${displayName} ${quantity}</span><b>→</b></a>`;
-  }).join("")}</div></section>`;
-}
-const productDetailBody = (item, region = appState.activeReleaseRegion) =>
-  productComposition(item, region);
-const productLineupItemName = (item, region = appState.activeReleaseRegion) => {
-  if (productItemsById.has(item.id)) return productDisplayName(item, region);
-  const combo = item.type === "bey" ? partCategory(item) : "";
-  const name = itemDisplayName(item, region);
-  const displayName = combo ? `${name} ${combo}` : name;
-  const bundledNames = (item.bundledParts || []).map(partId => {
-    const part = findCatalogItemById(partId);
-    return part ? `${itemDisplayName(part, region)} ${partDisplayTypeLabel(part)}` : "";
-  }).filter(Boolean);
-  return bundledNames.length ? `${displayName} + ${bundledNames.join(" + ")}` : displayName;
-};
-function productLineup(item, region = appState.activeReleaseRegion) {
-  const lineupIds = productLineupIds(item);
-  if (!lineupIds.length) return "";
-  const lineupItems = lineupIds
-    .map(id => findCatalogItemById(id))
-    .filter(Boolean);
-  if (!lineupItems.length) return "";
-  return `<section class="modal-section product-composition"><h4 class="mounted-title">${productLineupTitle(item)}</h4><div class="modal-section-scroll product-composition-list">${lineupItems.map(lineupItem => {
-    const name = productLineupItemName(lineupItem, region);
-    return `<a class="ui-list-link product-composition-item composition-link" href="#${lineupItem.id}" data-target-id="${lineupItem.id}" data-image-preview-id="${lineupItem.id}"><span>${name}</span><b>→</b></a>`;
-  }).join("")}</div></section>`;
 }
 function bindProductCompositionLinks(product, root = document, options = {}) {
   root.querySelectorAll(".product-composition-list").forEach(compositionList => compositionList.addEventListener("click", event => {
@@ -273,67 +184,6 @@ function bindProductCompositionLinks(product, root = document, options = {}) {
     openDetailByKind("", targetId, backOptions);
   }));
 }
-const rareBeyGetFinishGroupOrder = ["익스트림피니시", "버스트피니시", "오버피니시", "스핀피니시"];
-const rareBeyGetFinishGroup = finish => {
-  const value = finish || "";
-  return rareBeyGetFinishGroupOrder.find(name => value.includes(name.replace("피니시", ""))) || "";
-};
-const rareBeyGetFinishRank = entry => {
-  const rank = rareBeyGetFinishGroupOrder.indexOf(rareBeyGetFinishGroup(entry?.finish));
-  return rank === -1 ? rareBeyGetFinishGroupOrder.length : rank;
-};
-const sortRareBeyGetCurrentEntries = entries => entries
-  .map((entry, index) => ({ entry, index }))
-  .sort((a, b) => rareBeyGetFinishRank(a.entry) - rareBeyGetFinishRank(b.entry) || a.index - b.index)
-  .map(({ entry }) => entry);
-const rareBeyGetEndSortValue = entry => releaseDateSortValue(entry?.endDate || "");
-const sortRareBeyGetEndedEntries = entries => entries
-  .map((entry, index) => ({ entry, index }))
-  .sort((a, b) => {
-    const endDiff = rareBeyGetEndSortValue(b.entry) - rareBeyGetEndSortValue(a.entry);
-    const startDiff = rareBeyGetEntryStartSortValue(b.entry) - rareBeyGetEntryStartSortValue(a.entry);
-    return endDiff || startDiff || a.index - b.index;
-  })
-  .map(({ entry }) => entry);
-const rareBeyGetListDisplayName = name => String(name || "").replace(/^부스터\s+/, "");
-const rareBeyGetListItemMarkup = (entry, region = appState.activeReleaseRegion) => {
-  const productIds = rareBeyGetEntryProductIds(entry);
-  const productId = entry?.productId || "";
-  const primaryProduct = productItemsById.get(productId) || productItemsById.get(productIds[0]);
-  if (!primaryProduct) return "";
-  const entryRegion = rareBeyGetEntryRegion(entry) || region;
-  const release = productRelease(primaryProduct, entryRegion);
-  const name = entry.name || release.name || productDisplayName(primaryProduct, entryRegion);
-  const displayName = rareBeyGetListDisplayName(name);
-  const finish = entry.finish || "";
-  const finishBadge = finish ? `<span class="rare-bey-get-list-item-finish">${escapeHtml(finish)}</span>` : "";
-  const content = `<span class="rare-bey-get-list-item-main">${finishBadge}<span class="rare-bey-get-list-item-title">${escapeHtml(displayName)}</span></span>`;
-  if (!productId) return `<div class="ui-list-link product-composition-item rare-bey-get-list-item rare-bey-get-list-item--static">${content}</div>`;
-  return `<a class="ui-list-link product-composition-item rare-bey-get-list-item rare-bey-get-list-link" href="#${productId}" data-product-id="${escapeAttributeValue(productId)}" data-release-region="${escapeAttributeValue(entryRegion)}" data-image-preview-product-id="${escapeAttributeValue(productId)}" data-image-preview-region="${escapeAttributeValue(entryRegion)}" aria-label="${escapeAttributeValue(`${displayName} 상세 보기`)}">${content}<b aria-hidden="true">→</b></a>`;
-};
-const rareBeyGetListSectionMarkup = (title, entries, { region = appState.activeReleaseRegion, current = false } = {}) => {
-  if (!entries.length) return "";
-  const orderedEntries = current ? sortRareBeyGetCurrentEntries(entries) : sortRareBeyGetEndedEntries(entries);
-  const rows = orderedEntries.map(entry => rareBeyGetListItemMarkup(entry, region)).filter(Boolean);
-  if (!rows.length) return "";
-  return `<section class="product-composition rare-bey-get-list-section${current ? " rare-bey-get-list-section--current" : " rare-bey-get-list-section--ended"}">
-    <h4 class="mounted-title rare-bey-get-list-panel-title"><span>${escapeHtml(title)}</span> <b>${rows.length}개</b></h4>
-    <div class="rare-bey-get-list-group-items">${rows.join("")}</div>
-  </section>`;
-};
-function rareBeyGetListMarkup({ region = appState.activeReleaseRegion, series = appState.activeReleaseSeries } = {}) {
-  const entries = visibleRareBeyGetEntries({ region, series });
-  const currentEntries = entries.filter(entry => entry?.isCurrent === true);
-  const endedEntries = entries.filter(entry => entry?.isCurrent !== true);
-  const groups = [
-    rareBeyGetListSectionMarkup("현행 경품", currentEntries, { region, current: true }),
-    rareBeyGetListSectionMarkup("종료 경품", endedEntries, { region })
-  ].filter(Boolean);
-  const body = groups.length
-    ? groups.join("")
-    : `<p class="rare-bey-get-empty">목록 준비 중입니다.</p>`;
-  return `<div class="modal-section rare-bey-get-list"><div class="modal-section-scroll rare-bey-get-list-scroll"><div class="rare-bey-get-list-items">${body}</div></div></div>`;
-}
 function bindRareBeyGetListLinks(root = document, options = {}) {
   root.querySelectorAll(".rare-bey-get-list-link").forEach(link => link.addEventListener("click", event => {
     event.preventDefault();
@@ -346,7 +196,7 @@ function bindRareBeyGetListLinks(root = document, options = {}) {
       region,
       backRareBeyGetList: true,
       rareBeyGetListRegion: region,
-      rareBeyGetListSeries: options.series || appState.activeReleaseSeries,
+      rareBeyGetListSeries: options.series || appState.release.series,
       rareBeyGetListBackProductId: options.backProductId || "",
       rareBeyGetListBackRelease: options.backRelease === true
     });
@@ -356,8 +206,8 @@ function openRareBeyGetListDetail(options = {}) {
   const { skipRoute = false, ...detailOptions } = options;
   const normalizedRoute = normalizeRoute({ type: "rare-bey-get-list", options: detailOptions });
   const routeOptions = normalizedRoute.options || {};
-  const region = routeOptions.region || appState.activeReleaseRegion;
-  const series = routeOptions.series || appState.activeReleaseSeries;
+  const region = routeOptions.region || appState.release.region;
+  const series = routeOptions.series || appState.release.series;
   const backProductId = routeOptions.backProductId || "";
   const backRelease = routeOptions.backRelease === true;
   if (!skipRoute && routeIfNeeded(normalizedRoute)) return;
@@ -378,10 +228,9 @@ function openProductLineupDetail(id, options = {}) {
   if (!item) return;
   const { skipRoute = false, ...detailOptions } = options;
   if (!skipRoute && routeIfNeeded({ type: "detail", id, options: detailOptions })) return;
-  const requestedRegion = releaseRegionLabels[detailOptions.region] ? detailOptions.region : (releaseRegionLabels[appState.activeReleaseRegion] ? appState.activeReleaseRegion : "kr");
+  const requestedRegion = releaseRegionLabels[detailOptions.region] ? detailOptions.region : (releaseRegionLabels[appState.release.region] ? appState.release.region : "kr");
   const region = productDisplayRegion(item, requestedRegion);
-  appState.activeReleaseRegion = region;
-  cleanupModelViewer();
+  appState.release.region = region;
   const backButton = productModalBackButton(item, detailOptions, region);
   const modalContentRoot = setModalContent(`<div class="modal-inner modal-inner--content">
     ${backButton}
@@ -407,11 +256,10 @@ function openProductDetail(id, options = {}) {
   const item = productItemsById.get(id);
   if (!item) return;
   if (routeIfNeeded({ type: "detail", id, options })) return;
-  const requestedRegion = releaseRegionLabels[options.region] ? options.region : (releaseRegionLabels[appState.activeReleaseRegion] ? appState.activeReleaseRegion : "kr");
+  const requestedRegion = releaseRegionLabels[options.region] ? options.region : (releaseRegionLabels[appState.release.region] ? appState.release.region : "kr");
   const region = productDisplayRegion(item, requestedRegion);
   const stepRegion = requestedRegion === "kr" ? "kr" : region;
-  appState.activeReleaseRegion = region;
-  cleanupModelViewer();
+  appState.release.region = region;
   const backButton = productModalBackButton(item, options, region);
   const productStepSource = productItems.filter(entry => !entry.lineupOnly).sort((a, b) => productSerialNumber(a, stepRegion) - productSerialNumber(b, stepRegion));
   const stepItems = productStepSource.filter(entry => productReleasedInRegion(entry, stepRegion));
@@ -443,7 +291,6 @@ function openProductDetail(id, options = {}) {
 }
 function openSimpleCatalogDetail({ item, options = {}, kind, stepItems, tags = "" }) {
   if (routeIfNeeded({ type: "detail", id: item.id, options })) return;
-  cleanupModelViewer();
   const backButton = productBackButton({ backProductId: options.backProductId, backRelease: options.backRelease, region: options.region });
   const modalContentRoot = setModalContent(`${modalStepButtons(stepItems, item.id, kind)}<div class="modal-inner modal-inner--content">
     ${backButton}
@@ -505,7 +352,7 @@ document.querySelector("#modalClose").addEventListener("click", closeDetail);
 document.querySelector("[data-modal-overlay]")?.addEventListener("click", closeDetail);
 modal.addEventListener("cancel", event => {
   event.preventDefault();
-  if (appState.activeModalTagButton) {
+  if (appState.modal.activeTagButton) {
     closeModalTagPopover();
     return;
   }
@@ -517,7 +364,6 @@ modal.addEventListener("close", () => {
 });
 
 registerAppServices({
-  cleanupModelViewer,
   finishModalOpen,
   itemDisplayName,
   modal,

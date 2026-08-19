@@ -7,12 +7,12 @@ import {
 } from "#app/anime-core";
 import { animeInfo } from "#app/data-store";
 import { rememberModalContext } from "#app/modal-context";
-import { escapeHtml } from "#app/release-core";
+import { escapeHtml } from "#app/markup-core";
 import { appServices } from "#app/services";
 
 const rememberAnimeModalContext = () => rememberModalContext("category-anime-episodes", "anime-episode", {
-  animeSeason: appState.activeAnimeSeason,
-  animeQuery: appState.activeAnimeEpisodeQuery
+  animeSeason: appState.anime.season,
+  animeQuery: appState.anime.episodeQuery
 });
 
 function openAnimeEpisodeDetail(indexOrId, options = {}) {
@@ -25,9 +25,8 @@ function openAnimeEpisodeDetail(indexOrId, options = {}) {
     if (options.fromAnimeList) rememberAnimeModalContext();
     return;
   }
-  appServices.cleanupModelViewer();
-  const backAnimeSeason = normalizeAnimeSeason(options.animeSeason || episode.season || appState.activeAnimeSeason);
-  const backAnimeQuery = typeof options.animeQuery === "string" ? options.animeQuery : appState.activeAnimeEpisodeQuery;
+  const backAnimeSeason = normalizeAnimeSeason(options.animeSeason || episode.season || appState.anime.season);
+  const backAnimeQuery = typeof options.animeQuery === "string" ? options.animeQuery : appState.anime.episodeQuery;
   const backButton = options.fromAnimeList
     ? appServices.modalBackButtonMarkup({ label: "방영목록으로 돌아가기", animeEpisodes: true })
     : "";

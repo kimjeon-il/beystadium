@@ -14,22 +14,19 @@ import {
   uniqueSearchValues
 } from "#app/search-core";
 import {
-  animeSearch,
   battleTypeLabel,
   battleTypeLabels,
-  catalogSearch,
-  globalSearch,
-  mobileDrawerSearch,
   partClassificationFilterDescriptors,
   partClassificationLabels,
   partClassificationSearchValues,
-  setSearchInputValue,
   spinLabel,
   spinLabels,
   structureLabels,
   toolsSubtypeOptions,
   typeLabels
-} from "#app/ui-core";
+} from "#app/catalog-metadata";
+import { animeSearch, catalogSearch, globalSearch, mobileDrawerSearch, setSearchInputValue } from "#app/ui-elements";
+import { normalizeSearchScope } from "./search-scopes.js";
 
 const mainSearchItemText = item => item
   ? [item.name, item.jpName, item.en, item.sub, item.no, item.productNo].filter(Boolean).join(" ")
@@ -245,9 +242,6 @@ const normalizeCatalogSearchInput = input => {
 const globalSearchQuery = () => (globalSearch?.value || mobileDrawerSearch?.value || "").trim();
 const catalogSearchQuery = () => catalogSearch?.value.trim() || "";
 const animeSearchQuery = () => animeSearch?.value.trim() || "";
-
-const searchScopeValues = ["all", "bey", "parts", "tools", "product", "character", "manga", "anime"];
-const normalizeSearchScope = scope => searchScopeValues.includes(scope) ? scope : "all";
 
 const itemAttributeLabels = item => [
   item.battleType ? battleTypeLabel(item.battleType, item) : "",

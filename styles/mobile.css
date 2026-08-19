@@ -998,11 +998,6 @@
     right: calc((var(--modal-vw) - var(--modal-w)) / 2 + var(--modal-step-end-offset) - var(--modal-scrollbar-center-shift, 0px));
   }
 
-  #detailModal[open] .model-viewer {
-    width: min(100%, 320px);
-    height: min(32dvh, 300px);
-    min-height: 220px;
-  }
 }
 
 @media (max-width: 22rem) {

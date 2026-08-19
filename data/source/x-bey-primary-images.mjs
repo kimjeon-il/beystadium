@@ -1,5 +1,4 @@
 import xBeyPrimaryImageConfig from "./x-bey-primary-images.json" with { type: "json" };
-import xBeyAngleCorrectionConfig from "./x-bey-angle-corrections.json" with { type: "json" };
 
 const selectedFrontById = new Map(
   xBeyPrimaryImageConfig.selected.map(entry => [entry.id, entry])
@@ -7,10 +6,6 @@ const selectedFrontById = new Map(
 const temporarySideIds = new Set(
   xBeyPrimaryImageConfig.temporarySideImages.map(entry => entry.id)
 );
-const angleCorrectionById = new Map(
-  xBeyAngleCorrectionConfig.entries.map(entry => [entry.id, entry])
-);
-
 const bladePartIds = item => item.parts?.filter(partId => partId.startsWith("PART-X-BLADE-")) || [];
 
 function applyXBeyPrimaryImages(items) {
@@ -18,10 +13,8 @@ function applyXBeyPrimaryImages(items) {
     if (item.series !== "x" || item.type !== "bey" || !item.image) continue;
     const bladeIds = bladePartIds(item);
     const selectedFront = selectedFrontById.get(item.id);
-    const angleCorrection = angleCorrectionById.get(item.id);
     const classifications = [
       Boolean(selectedFront),
-      Boolean(angleCorrection),
       temporarySideIds.has(item.id)
     ].filter(Boolean).length;
     if (classifications > 1) {
@@ -29,10 +22,6 @@ function applyXBeyPrimaryImages(items) {
     }
     if (selectedFront) {
       item.image = selectedFront.image;
-      continue;
-    }
-    if (angleCorrection) {
-      item.image = angleCorrection.image;
       continue;
     }
     if (temporarySideIds.has(item.id)) continue;
@@ -43,6 +32,5 @@ function applyXBeyPrimaryImages(items) {
 export {
   applyXBeyPrimaryImages,
   bladePartIds,
-  xBeyAngleCorrectionConfig,
   xBeyPrimaryImageConfig
 };
