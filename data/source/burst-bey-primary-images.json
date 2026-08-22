@@ -1,5 +1,5 @@
 {
-  "version": "20260819-burst-b07-b21-orthographic-fronts",
+  "version": "20260822-burst-b35-storm-spriggan-generated-front",
   "normalization": {
     "method": "premultiplied-alpha-uniform-long-edge",
     "canvasSize": 448,
@@ -21,7 +21,7 @@
       "shop"
     ],
     "generatedImagesAllowed": true,
-    "generatedImagePolicy": "low-resolution exact strict-front sources only; original alpha reapplied",
+    "generatedImagePolicy": "low-resolution exact strict-front enhancement or explicitly user-approved exact-front composite; original alpha reapplied",
     "unsafeSourcesRemainUnavailable": true,
     "strictFrontDefinition": "orthographic vertical top view with no visible side thickness or perspective",
     "manualPixelEvidenceRequired": true
@@ -9809,17 +9809,18 @@
     {
       "id": "BEY-BURST-B-35-STORM-SPRIGGAN-K-U",
       "image": "assets/images/burst/beys/bey-burst-b-35-storm-spriggan-k-u/bey-burst-b-35-storm-spriggan-k-u.webp",
-      "sourceKind": "verified-database",
-      "sourceSha256": "314864ba18b5018ac9aef7604efa4b527005a71a9a812869d6f8a1c0923e8369",
-      "outputSha256": "9983b511542f1ed13d6bbd4e24fa0d1340277507440aba89e852cd6436f2ff32",
-      "sourceTitle": "File:StormSprigganKU.jpg",
+      "sourceKind": "user-approved-generated-front",
+      "sourceSha256": "0a2c8bb67d4203a12433c4a66e3961f41cfec9ee7819e8b496e90c34247470ba",
+      "outputSha256": "cdda8ab1c8ad1f49c9c636f61bebb563862ae4a87216a7ca283644ede2bff057",
+      "sourceTitle": "User-supplied B-35 Storm Spriggan high-resolution reference",
+      "sourceRelativePath": "data/source/burst-bey-generated-fronts/bey-burst-b-35-storm-spriggan-k-u-target-reference.png",
       "productNo": "B-35",
       "combination": "Storm Spriggan.K.U",
-      "backgroundRemoval": "connected-light-background",
+      "backgroundRemoval": "approved-composite-alpha-reapplication",
       "normalizedForegroundBox": [
+        66,
         44,
-        44,
-        404,
+        382,
         404
       ],
       "alphaReview": {
@@ -9830,26 +9831,32 @@
         "targetForegroundSize": 360,
         "transparentCorners": true,
         "singleConnectedSubject": true,
-        "reviewedAt": "2026-08-19"
+        "reviewedAt": "2026-08-22"
       },
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/3/38/StormSprigganKU.jpg/revision/latest?cb=20160420190323",
-      "checkedAt": "2026-08-19",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Storm_Spriggan_Knuckle_Unite",
-      "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:StormSprigganKU.jpg",
-      "mediawikiSha1": "d60cbe8e95edc51fd07eb6d7024494eeb543fc03",
+      "checkedAt": "2026-08-22",
       "sourceDimensions": [
-        600,
-        600
+        1254,
+        1254
       ],
       "strictFrontReviewed": true,
       "exactCombinationReviewed": true,
       "assembledProductReviewed": true,
-      "processingClass": "direct",
+      "processingClass": "user-approved-imagegen-composite",
+      "generatedEnhancement": true,
+      "generatedSourcePath": "data/source/burst-bey-generated-fronts/bey-burst-b-35-storm-spriggan-k-u-generated-source.png",
+      "generatedSourceSha256": "50c41e10db34fea8f1c272138d197a85f5043338acd5aedc1abcdcdda02bdb09",
+      "normalizedSourcePath": "data/source/burst-bey-generated-fronts/bey-burst-b-35-storm-spriggan-k-u-normalized.png",
+      "normalizedSourceSha256": "45111b55e7a2ebce256b60dd48cadb60249b8b4d5131c05d1974ff8bf4279918",
+      "generationMode": "imagegen-edit",
+      "generationPrompt": "Change only the recessed drive geometry inside the two circular blue screw heads to match the rounded three-arm tri-wing/Y screw reference; preserve every other product pixel and the target composition.",
+      "originalAlphaReapplied": true,
+      "provenanceFile": "data/source/burst-bey-generated-fronts/bey-burst-b-35-storm-spriggan-k-u-provenance.json",
       "searchAudit": {
         "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
         "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B_35.png",
-        "officialOutcome": "checked; no safer isolated exact-combination source selected",
-        "databaseOutcome": "exact title and assembled top-view gallery image selected",
+        "officialOutcome": "checked as product identity reference",
+        "databaseOutcome": "previous exact top-view source retained as historical geometry evidence",
+        "userApprovedOutcome": "high-resolution B-35 candidate with corrected tri-wing screw recesses approved for deployment",
         "shopOutcome": "not needed"
       }
     },

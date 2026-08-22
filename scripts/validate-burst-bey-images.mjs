@@ -10,7 +10,7 @@ import burstBeyFrontViewAudit from "../data/source/burst-bey-front-view-audit.js
 import burstBeyFandomFrontSources from "../data/source/burst-bey-fandom-front-sources.json" with { type: "json" };
 import { burstBeyImagePath } from "./burst-image-paths.mjs";
 
-const VERSION = "20260819-burst-b07-b21-orthographic-fronts";
+const VERSION = "20260822-burst-b35-storm-spriggan-generated-front";
 const burstBeys = beyItems.filter(item => item.series === "burst" && item.type === "bey");
 const byId = new Map(burstBeys.map(item => [item.id, item]));
 const selected = burstBeyPrimaryImageConfig.selected;
@@ -30,7 +30,7 @@ function assertOrthographicReview(review, id) {
   assert.equal(review.sideThicknessVisible, false, `${id}: side thickness must not be visible`);
   assert.equal(review.exactCombination, true, `${id}: exact combination review failed`);
   assert.equal(review.singleAssembledProduct, true, `${id}: image must contain one assembled Bey`);
-  assert.equal(review.reviewedAt, "2026-08-19", `${id}: review date mismatch`);
+  assert.ok(["2026-08-19", "2026-08-22"].includes(review.reviewedAt), `${id}: review date mismatch`);
   assert.equal(review.evidence?.type, "manual-pixel-review", `${id}: pixel review evidence is missing`);
   const batch = review.evidence?.batch;
   const sheet = review.evidence?.contactSheet || "";
@@ -38,10 +38,19 @@ function assertOrthographicReview(review, id) {
   if (batch === "burst-orthographic-top-reaudit") {
     assert.match(sheet, /^selected-\d{2}\.jpg$/, `${id}: review sheet evidence is missing`);
     assert.ok(Number.isInteger(cell) && cell >= 1 && cell <= 12, `${id}: invalid review cell`);
-  } else {
+  } else if (batch === "burst-user-sources-b07-b21") {
     assert.equal(batch, "burst-user-sources-b07-b21", `${id}: review batch mismatch`);
     assert.equal(sheet, "user-sources-b07-b21.jpg", `${id}: review sheet evidence is missing`);
     assert.ok(Number.isInteger(cell) && cell >= 1 && cell <= 2, `${id}: invalid review cell`);
+  } else {
+    assert.equal(batch, "burst-user-approved-b35-v3", `${id}: review batch mismatch`);
+    assert.equal(
+      sheet,
+      "data/source/burst-bey-generated-fronts/bey-burst-b-35-storm-spriggan-k-u-comparison-board.png",
+      `${id}: review sheet evidence is missing`
+    );
+    assert.equal(existsSync(sheet), true, `${id}: review sheet file is missing`);
+    assert.equal(cell, 1, `${id}: invalid review cell`);
   }
   assert.deepEqual(review.evidence?.reviewedScales, [448, 112], `${id}: required review scales are missing`);
 }
@@ -149,8 +158,15 @@ for (const entry of selected) {
   assert.equal(item.image, entry.image, `${entry.id}: catalog image does not use selected path`);
   assert.match(entry.sourceSha256, /^[0-9a-f]{64}$/);
   assert.match(entry.outputSha256, /^[0-9a-f]{64}$/);
-  assert.ok(["local", "verified-database", "generated-enhancement", "official", "shop"].includes(entry.sourceKind));
-  if (entry.sourceKind === "local") {
+  assert.ok([
+    "local",
+    "verified-database",
+    "generated-enhancement",
+    "user-approved-generated-front",
+    "official",
+    "shop"
+  ].includes(entry.sourceKind));
+  if (["local", "user-approved-generated-front"].includes(entry.sourceKind)) {
     assert.ok(entry.sourceRelativePath && !path.isAbsolute(entry.sourceRelativePath));
     assert.ok(!entry.sourceUrl, `${entry.id}: local source should not claim a web URL`);
   } else {
@@ -185,6 +201,40 @@ for (const entry of selected) {
     assert.equal(existsSync(entry.generatedSourcePath), true);
     const generatedBytes = await readFile(entry.generatedSourcePath);
     assert.equal(createHash("sha256").update(generatedBytes).digest("hex"), entry.generatedSourceSha256);
+  } else if (entry.sourceKind === "user-approved-generated-front") {
+    assert.equal(entry.processingClass, "user-approved-imagegen-composite");
+    assert.equal(entry.generatedEnhancement, true);
+    assert.equal(entry.originalAlphaReapplied, true);
+    assert.equal(entry.generationMode, "imagegen-edit");
+    assert.ok(entry.generationPrompt);
+    assert.match(entry.generatedSourceSha256, /^[0-9a-f]{64}$/);
+    assert.match(entry.normalizedSourceSha256, /^[0-9a-f]{64}$/);
+    assert.equal(existsSync(entry.sourceRelativePath), true);
+    assert.equal(existsSync(entry.generatedSourcePath), true);
+    assert.equal(existsSync(entry.normalizedSourcePath), true);
+    assert.equal(existsSync(entry.provenanceFile), true);
+    const sourceBytes = await readFile(entry.sourceRelativePath);
+    const generatedBytes = await readFile(entry.generatedSourcePath);
+    const normalizedBytes = await readFile(entry.normalizedSourcePath);
+    assert.equal(createHash("sha256").update(sourceBytes).digest("hex"), entry.sourceSha256);
+    assert.equal(createHash("sha256").update(generatedBytes).digest("hex"), entry.generatedSourceSha256);
+    assert.equal(createHash("sha256").update(normalizedBytes).digest("hex"), entry.normalizedSourceSha256);
+    const provenance = JSON.parse(await readFile(entry.provenanceFile, "utf8"));
+    assert.equal(provenance.id, entry.id);
+    assert.equal(provenance.sourceKind, entry.sourceKind);
+    assert.equal(provenance.output.sha256, entry.outputSha256);
+    for (const resource of [
+      provenance.targetReference,
+      provenance.screwReference,
+      provenance.rawImagegenOutput,
+      provenance.generatedSource,
+      provenance.normalizedSource,
+      provenance.comparisonBoard
+    ]) {
+      assert.equal(existsSync(resource.file), true, `${entry.id}: provenance source is missing`);
+      const resourceBytes = await readFile(resource.file);
+      assert.equal(createHash("sha256").update(resourceBytes).digest("hex"), resource.sha256);
+    }
   }
 }
 

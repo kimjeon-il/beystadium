@@ -1,5 +1,5 @@
 {
-  "version": "20260819-burst-b07-b21-orthographic-fronts",
+  "version": "20260822-burst-b35-storm-spriggan-generated-front",
   "reviewedAt": "2026-08-19",
   "criteria": {
     "accepted": "one exact assembled Bey photographed or rendered with the camera axis directly above the rotation axis",
@@ -15503,7 +15503,7 @@
       "en": "Storm Spriggan.K.U",
       "productNo": "B-35",
       "combination": "Storm Spriggan.K.U",
-      "reviewedAt": "2026-08-19",
+      "reviewedAt": "2026-08-22",
       "initialImage": "assets/images/burst/beys/bey-burst-b-35-storm-spriggan-k-u/bey-burst-b-35-storm-spriggan-k-u.webp",
       "initialSourceKind": "local",
       "initialSource": "35_2.jpg",
@@ -15521,10 +15521,10 @@
         "criteria": "exact combination, exact color, single assembled Bey, strict vertical top view"
       },
       "finalClassification": "orthographic-top",
-      "action": "fandom-direct-registered",
-      "searchOutcome": "exact assembled vertical top-view Fandom gallery image registered",
+      "action": "user-approved-generated-front",
+      "searchOutcome": "user-approved high-resolution B-35 front with reference-matched tri-wing screw geometry registered",
       "finalImage": "assets/images/burst/beys/bey-burst-b-35-storm-spriggan-k-u/bey-burst-b-35-storm-spriggan-k-u.webp",
-      "finalOutputSha256": "9983b511542f1ed13d6bbd4e24fa0d1340277507440aba89e852cd6436f2ff32",
+      "finalOutputSha256": "cdda8ab1c8ad1f49c9c636f61bebb563862ae4a87216a7ca283644ede2bff057",
       "fandomSource": {
         "page": "https://beyblade.fandom.com/wiki/Storm_Spriggan_Knuckle_Unite",
         "filePage": "https://beyblade.fandom.com/wiki/File:StormSprigganKU.jpg",
@@ -15539,7 +15539,24 @@
         "strictFrontReviewed": true,
         "exactCombinationReviewed": true,
         "assembledProductReviewed": true,
-        "processingClass": "direct"
+        "processingClass": "direct",
+        "role": "historical strict-top reference superseded as the deployed primary image"
+      },
+      "generatedSource": {
+        "targetReference": "data/source/burst-bey-generated-fronts/bey-burst-b-35-storm-spriggan-k-u-target-reference.png",
+        "targetReferenceSha256": "0a2c8bb67d4203a12433c4a66e3961f41cfec9ee7819e8b496e90c34247470ba",
+        "screwReference": "data/source/burst-bey-generated-fronts/bey-burst-b-35-storm-spriggan-k-u-screw-reference.png",
+        "screwReferenceSha256": "5cb4e82a671d918b4b0938b5958d8667ea2220146909ab8062457b2f4b8c6067",
+        "generatedSource": "data/source/burst-bey-generated-fronts/bey-burst-b-35-storm-spriggan-k-u-generated-source.png",
+        "generatedSourceSha256": "50c41e10db34fea8f1c272138d197a85f5043338acd5aedc1abcdcdda02bdb09",
+        "normalizedSource": "data/source/burst-bey-generated-fronts/bey-burst-b-35-storm-spriggan-k-u-normalized.png",
+        "normalizedSourceSha256": "45111b55e7a2ebce256b60dd48cadb60249b8b4d5131c05d1974ff8bf4279918",
+        "provenanceFile": "data/source/burst-bey-generated-fronts/bey-burst-b-35-storm-spriggan-k-u-provenance.json",
+        "processingClass": "user-approved-imagegen-composite",
+        "originalAlphaReapplied": true,
+        "outsideScrewMaskRgbaMismatchPixels": 0,
+        "finalAlphaMismatchPixels": 0,
+        "approvedAt": "2026-08-22"
       },
       "orthographicReview": {
         "classification": "orthographic-top",
@@ -15550,17 +15567,17 @@
         "singleAssembledProduct": true,
         "evidence": {
           "type": "manual-pixel-review",
-          "batch": "burst-orthographic-top-reaudit",
-          "contactSheet": "selected-24.jpg",
-          "cell": 9,
+          "batch": "burst-user-approved-b35-v3",
+          "contactSheet": "data/source/burst-bey-generated-fronts/bey-burst-b-35-storm-spriggan-k-u-comparison-board.png",
+          "cell": 1,
           "reviewedScales": [
             448,
             112
           ]
         },
-        "reviewedAt": "2026-08-19"
+        "reviewedAt": "2026-08-22"
       },
-      "reauditAction": "kept"
+      "reauditAction": "replaced-with-user-approved-generated-front"
     },
     {
       "id": "BEY-BURST-B-36-RISING-RAGNARUK-G-R",

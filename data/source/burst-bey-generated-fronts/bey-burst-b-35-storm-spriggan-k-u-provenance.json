@@ -1,0 +1,64 @@
+{
+  "version": "20260822-burst-b35-storm-spriggan-generated-front",
+  "id": "BEY-BURST-B-35-STORM-SPRIGGAN-K-U",
+  "targetName": "스톰 스프리건.K.U",
+  "sourceKind": "user-approved-generated-front",
+  "processingClass": "user-approved-imagegen-composite",
+  "generationMode": "imagegen-edit",
+  "approvedAt": "2026-08-22",
+  "targetReference": {
+    "file": "data/source/burst-bey-generated-fronts/bey-burst-b-35-storm-spriggan-k-u-target-reference.png",
+    "sha256": "0a2c8bb67d4203a12433c4a66e3961f41cfec9ee7819e8b496e90c34247470ba",
+    "role": "exact product geometry, composition, color, artwork, and screw-seat authority"
+  },
+  "screwReference": {
+    "file": "data/source/burst-bey-generated-fronts/bey-burst-b-35-storm-spriggan-k-u-screw-reference.png",
+    "sha256": "5cb4e82a671d918b4b0938b5958d8667ea2220146909ab8062457b2f4b8c6067",
+    "role": "rounded three-arm tri-wing recess geometry only"
+  },
+  "rawImagegenOutput": {
+    "file": "data/source/burst-bey-generated-fronts/bey-burst-b-35-storm-spriggan-k-u-imagegen-screw-edit.png",
+    "sha256": "5cfe427b8094b17f1607b80f8f0896898271a784050ef8fbb8f76b7de4f70c07"
+  },
+  "generatedSource": {
+    "file": "data/source/burst-bey-generated-fronts/bey-burst-b-35-storm-spriggan-k-u-generated-source.png",
+    "sha256": "50c41e10db34fea8f1c272138d197a85f5043338acd5aedc1abcdcdda02bdb09"
+  },
+  "normalizedSource": {
+    "file": "data/source/burst-bey-generated-fronts/bey-burst-b-35-storm-spriggan-k-u-normalized.png",
+    "sha256": "45111b55e7a2ebce256b60dd48cadb60249b8b4d5131c05d1974ff8bf4279918"
+  },
+  "comparisonBoard": {
+    "file": "data/source/burst-bey-generated-fronts/bey-burst-b-35-storm-spriggan-k-u-comparison-board.png",
+    "sha256": "9140b54493a3e2fa7a75c0e3de4cde39e4acac2142e4357fca3507565974d74d"
+  },
+  "output": {
+    "file": "assets/images/burst/beys/bey-burst-b-35-storm-spriggan-k-u/bey-burst-b-35-storm-spriggan-k-u.webp",
+    "sha256": "cdda8ab1c8ad1f49c9c636f61bebb563862ae4a87216a7ca283644ede2bff057",
+    "format": "lossless-webp"
+  },
+  "prompt": "Use case: precise-object-edit. Image 1 is the exact edit target. Image 2 is the sole screw-geometry reference. Change only the recessed drive geometry inside the two circular blue screw heads so each matches the corresponding rounded three-arm tri-wing/Y recess, including orientation, arm lengths and widths, rounded junction, depth, rim bevel and highlight placement. Retain the target's blue metallic screw-face color, product framing, position, scale, rotation, perspective, geometry, artwork, printed details and background. Do not modify any pixel outside the two screw heads.",
+  "composite": {
+    "method": "high-resolution circular screw-mask composite followed by original-alpha reapplication and premultiplied-alpha Lanczos normalization",
+    "originalAlphaReapplied": true,
+    "highresOutsideMaskRgbaMismatchPixels": 0,
+    "finalOutsideMaskRgbaMismatchPixels": 0,
+    "finalAlphaMismatchPixels": 0,
+    "medianBlueHueDifferenceDegrees": 0,
+    "screwShapeReview": "passed: two rounded three-arm tri-wing recesses in fixed circular seats"
+  },
+  "normalization": {
+    "canvas": [448, 448],
+    "targetLongEdge": 360,
+    "center": [223.5, 223.5],
+    "normalizedForegroundBox": [66, 44, 382, 404],
+    "resample": "premultiplied-alpha-lanczos"
+  },
+  "validation": {
+    "transparentCorners": true,
+    "singleConnectedSubject": true,
+    "orthographicTop": true,
+    "exactCombination": true,
+    "userApproved": true
+  }
+}
