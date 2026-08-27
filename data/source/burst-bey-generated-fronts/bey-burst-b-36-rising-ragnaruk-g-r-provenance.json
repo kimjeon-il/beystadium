@@ -1,0 +1,71 @@
+{
+  "version": "20260827-burst-b36-official-front",
+  "id": "BEY-BURST-B-36-RISING-RAGNARUK-G-R",
+  "targetName": "라이징 라그나로크.G.R",
+  "sourceKind": "official",
+  "processingClass": "deterministic-official-similarity-color-adjustment",
+  "generationMode": "none",
+  "approvedAt": "2026-08-27",
+  "officialSource": {
+    "url": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B_36.png",
+    "file": "data/source/burst-bey-generated-fronts/bey-burst-b-36-rising-ragnaruk-g-r-official-source.png",
+    "sha256": "4decfeab0d4f04be129640e00966ee61bd374a63cd89b55ffc21c110d76cb321",
+    "dimensions": [208, 209],
+    "role": "exact B-36 geometry, artwork, materials and orthographic top-view source"
+  },
+  "orientationReference": {
+    "file": "data/source/burst-bey-generated-fronts/bey-burst-b-36-rising-ragnaruk-g-r-orientation-reference.png",
+    "sha256": "978b38f2bbcbd9730aa1ff6dab1037ce5cd0b3234d8af425f6298d8133a9a346",
+    "role": "site orientation only"
+  },
+  "alignedRaw": {
+    "file": "data/source/burst-bey-generated-fronts/bey-burst-b-36-rising-ragnaruk-g-r-aligned-raw.png",
+    "sha256": "94dcebb196f4dddafd21d2a1cf432923da8b444433cbc3bbe7c4797619c5d259"
+  },
+  "normalizedSource": {
+    "file": "data/source/burst-bey-generated-fronts/bey-burst-b-36-rising-ragnaruk-g-r-normalized.png",
+    "sha256": "e68d24afecbc4440aec8c4e5e46f51a74107aab0a726f6eaec52d1f0e6a568fa"
+  },
+  "comparisonBoard": {
+    "file": "data/source/burst-bey-generated-fronts/bey-burst-b-36-rising-ragnaruk-g-r-comparison-board.png",
+    "sha256": "d51a2b15434cb665c4a76b3b1000fbde03f9fd2b161d79e7d865034e5eb3ab1f"
+  },
+  "transform": {
+    "method": "single whole-image similarity transform",
+    "rotationDegreesClockwise": 30.624245,
+    "uniformScale": 1.69014084,
+    "translationIncluded": true,
+    "affineMatrix": [
+      [1.45441103, -0.86096722, 162.35412598],
+      [0.86096722, 1.45441103, -18.71394157]
+    ],
+    "localWarp": false,
+    "generatedPixels": false
+  },
+  "colorAdjustment": {
+    "scope": "warm chromatic pixels only",
+    "hueShiftDegrees": "0 to -4",
+    "saturationMultiplier": 1.055,
+    "midtoneContrastMultiplier": 1.035
+  },
+  "normalization": {
+    "canvas": [448, 448],
+    "targetLongEdge": 360,
+    "center": [223.5, 223.5],
+    "normalizedForegroundBox": [61, 44, 387, 404],
+    "resample": "premultiplied-alpha-lanczos"
+  },
+  "output": {
+    "file": "assets/images/burst/beys/bey-burst-b-36-rising-ragnaruk-g-r/bey-burst-b-36-rising-ragnaruk-g-r.webp",
+    "sha256": "216db5537e78fe6a36b63997e859bbef2191da1a0cafed5697583530cd93f905",
+    "format": "lossless-webp"
+  },
+  "validation": {
+    "transparentCorners": true,
+    "singleConnectedSubject": true,
+    "orthographicTop": true,
+    "exactCombination": true,
+    "imageGenUsed": false,
+    "userApproved": true
+  }
+}

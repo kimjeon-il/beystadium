@@ -8,7 +8,7 @@ const bookItems = [];
 const gameItems = [];
 const animeInfo = { title: "", overview: [], characters: [], episodes: [] };
 const searchIndexItems = [];
-const X_ASSET_CACHE_VERSION = "20260822-burst-b35-storm-spriggan-generated-front";
+const X_ASSET_CACHE_VERSION = "20260827-burst-b36-official-front";
 
 const versionAssetUrl = source => {
   const value = String(source || "");

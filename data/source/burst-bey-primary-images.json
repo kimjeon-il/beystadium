@@ -1,5 +1,5 @@
 {
-  "version": "20260822-burst-b35-storm-spriggan-generated-front",
+  "version": "20260827-burst-b36-official-front",
   "normalization": {
     "method": "premultiplied-alpha-uniform-long-edge",
     "canvasSize": 448,
@@ -9863,17 +9863,17 @@
     {
       "id": "BEY-BURST-B-36-RISING-RAGNARUK-G-R",
       "image": "assets/images/burst/beys/bey-burst-b-36-rising-ragnaruk-g-r/bey-burst-b-36-rising-ragnaruk-g-r.webp",
-      "sourceKind": "verified-database",
-      "sourceSha256": "3d3a8d51024332eccbd430843a7b6daae0a9281aa396be7882d40e11fb711ab6",
-      "outputSha256": "4d9eb883d6822112e4add5a5f2f6534c51143ffb1a17a46859a6474b960053f4",
-      "sourceTitle": "File:RisingRagnarukGR.jpg",
+      "sourceKind": "official",
+      "sourceSha256": "4decfeab0d4f04be129640e00966ee61bd374a63cd89b55ffc21c110d76cb321",
+      "outputSha256": "216db5537e78fe6a36b63997e859bbef2191da1a0cafed5697583530cd93f905",
+      "sourceTitle": "Takara Tomy B-36 official orthographic product image",
       "productNo": "B-36",
       "combination": "Rising Ragnaruk.G.R",
-      "backgroundRemoval": "connected-light-background",
+      "backgroundRemoval": "source-alpha",
       "normalizedForegroundBox": [
+        61,
         44,
-        44,
-        404,
+        387,
         404
       ],
       "alphaReview": {
@@ -9884,26 +9884,30 @@
         "targetForegroundSize": 360,
         "transparentCorners": true,
         "singleConnectedSubject": true,
-        "reviewedAt": "2026-08-19"
+        "reviewedAt": "2026-08-27"
       },
-      "sourceUrl": "https://static.wikia.nocookie.net/beyblade/images/c/c8/RisingRagnarukGR.jpg/revision/latest?cb=20160323210156",
-      "checkedAt": "2026-08-19",
-      "fandomPageUrl": "https://beyblade.fandom.com/wiki/Rising_Ragnaruk_Gravity_Revolve",
-      "fandomFilePageUrl": "https://beyblade.fandom.com/wiki/File:RisingRagnarukGR.jpg",
-      "mediawikiSha1": "8351b076360277f19ce21110f4924e33423f8899",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B_36.png",
+      "checkedAt": "2026-08-27",
       "sourceDimensions": [
-        600,
-        600
+        208,
+        209
       ],
       "strictFrontReviewed": true,
       "exactCombinationReviewed": true,
       "assembledProductReviewed": true,
-      "processingClass": "direct",
+      "processingClass": "deterministic-official-similarity-color-adjustment",
+      "generatedEnhancement": false,
+      "generationMode": "none",
+      "officialSourcePath": "data/source/burst-bey-generated-fronts/bey-burst-b-36-rising-ragnaruk-g-r-official-source.png",
+      "normalizedSourcePath": "data/source/burst-bey-generated-fronts/bey-burst-b-36-rising-ragnaruk-g-r-normalized.png",
+      "normalizedSourceSha256": "e68d24afecbc4440aec8c4e5e46f51a74107aab0a726f6eaec52d1f0e6a568fa",
+      "provenanceFile": "data/source/burst-bey-generated-fronts/bey-burst-b-36-rising-ragnaruk-g-r-provenance.json",
       "searchAudit": {
         "officialProductsPage": "https://beyblade.takaratomy.co.jp/burst/products.html",
         "officialProductImage": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B_36.png",
-        "officialOutcome": "checked; no safer isolated exact-combination source selected",
-        "databaseOutcome": "exact title and assembled top-view gallery image selected",
+        "officialOutcome": "exact isolated orthographic B-36 product image selected and user approved after whole-image similarity alignment",
+        "databaseOutcome": "previous exact top-view source retained as historical review evidence",
+        "userApprovedOutcome": "official B-36 product image approved after rotation, uniform scaling, centering and mild color adjustment",
         "shopOutcome": "not needed"
       }
     },

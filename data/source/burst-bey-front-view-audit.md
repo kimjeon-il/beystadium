@@ -1,7 +1,7 @@
 # 버스트 베이 수직 탑뷰 엄격 재감사
 
 - 검토일: `2026-08-19`
-- 버전: `20260822-burst-b35-storm-spriggan-generated-front`
+- 버전: `20260827-burst-b36-official-front`
 - 정면 기준: 카메라 축이 회전축 바로 위에 있는 수직 탑뷰
 - 파일명과 캡션은 증거로 사용하지 않고 448px과 112px 픽셀을 직접 검수함
 
@@ -320,7 +320,7 @@
 | B-31 | 이그드라실.R.G | `BEY-BURST-B-31-YGGDRASIL-R-G` | 수직 탑뷰 픽셀 검수 통과 |
 | B-34 | 빅토리 발키리.B.V | `BEY-BURST-B-34-VICTORY-VALKYRIE-B-V` | 수직 탑뷰 픽셀 검수 통과 |
 | B-35 | 스톰 스프리건.K.U | `BEY-BURST-B-35-STORM-SPRIGGAN-K-U` | 사용자 승인 v3 정면본·삼각나사 픽셀 검수 통과 |
-| B-36 | 라이징 라그나로크.G.R | `BEY-BURST-B-36-RISING-RAGNARUK-G-R` | 수직 탑뷰 픽셀 검수 통과 |
+| B-36 | 라이징 라그나로크.G.R | `BEY-BURST-B-36-RISING-RAGNARUK-G-R` | 타카라토미 공식 정면본 v7 회전·크기·색감 검수 통과 |
 | B-37 | 카이저 케르베우스.L.P | `BEY-BURST-B-37-KAISER-KERBEUS-L-P` | 수직 탑뷰 픽셀 검수 통과 |
 | B-38 | 빅토리 발키리.B.V | `BEY-BURST-B-38-VICTORY-VALKYRIE-B-V` | 수직 탑뷰 픽셀 검수 통과 |
 | B-42 | 다크 데스사이저.F.J | `BEY-BURST-B-42-DARK-DEATHSCYTHER-F-J` | 수직 탑뷰 픽셀 검수 통과 |

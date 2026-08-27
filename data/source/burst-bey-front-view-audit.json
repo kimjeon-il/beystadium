@@ -1,5 +1,5 @@
 {
-  "version": "20260822-burst-b35-storm-spriggan-generated-front",
+  "version": "20260827-burst-b36-official-front",
   "reviewedAt": "2026-08-19",
   "criteria": {
     "accepted": "one exact assembled Bey photographed or rendered with the camera axis directly above the rotation axis",
@@ -15585,7 +15585,7 @@
       "en": "Rising Ragnaruk.G.R",
       "productNo": "B-36",
       "combination": "Rising Ragnaruk.G.R",
-      "reviewedAt": "2026-08-19",
+      "reviewedAt": "2026-08-27",
       "initialImage": "assets/images/burst/beys/bey-burst-b-36-rising-ragnaruk-g-r/bey-burst-b-36-rising-ragnaruk-g-r.webp",
       "initialSourceKind": "local",
       "initialSource": "36_2.jpg",
@@ -15603,10 +15603,10 @@
         "criteria": "exact combination, exact color, single assembled Bey, strict vertical top view"
       },
       "finalClassification": "orthographic-top",
-      "action": "fandom-direct-registered",
-      "searchOutcome": "exact assembled vertical top-view Fandom gallery image registered",
+      "action": "official-front-aligned-and-color-adjusted",
+      "searchOutcome": "exact official B-36 orthographic product image aligned as a whole and user approved",
       "finalImage": "assets/images/burst/beys/bey-burst-b-36-rising-ragnaruk-g-r/bey-burst-b-36-rising-ragnaruk-g-r.webp",
-      "finalOutputSha256": "4d9eb883d6822112e4add5a5f2f6534c51143ffb1a17a46859a6474b960053f4",
+      "finalOutputSha256": "216db5537e78fe6a36b63997e859bbef2191da1a0cafed5697583530cd93f905",
       "fandomSource": {
         "page": "https://beyblade.fandom.com/wiki/Rising_Ragnaruk_Gravity_Revolve",
         "filePage": "https://beyblade.fandom.com/wiki/File:RisingRagnarukGR.jpg",
@@ -15621,7 +15621,20 @@
         "strictFrontReviewed": true,
         "exactCombinationReviewed": true,
         "assembledProductReviewed": true,
-        "processingClass": "direct"
+        "processingClass": "direct",
+        "role": "historical strict-top reference superseded as the deployed primary image"
+      },
+      "officialSource": {
+        "page": "https://beyblade.takaratomy.co.jp/burst/products.html",
+        "sourceUrl": "https://beyblade.takaratomy.co.jp/burst/public_html/category/img/products/B_36.png",
+        "sourceSha256": "4decfeab0d4f04be129640e00966ee61bd374a63cd89b55ffc21c110d76cb321",
+        "sourceDimensions": [208, 209],
+        "normalizedSource": "data/source/burst-bey-generated-fronts/bey-burst-b-36-rising-ragnaruk-g-r-normalized.png",
+        "normalizedSourceSha256": "e68d24afecbc4440aec8c4e5e46f51a74107aab0a726f6eaec52d1f0e6a568fa",
+        "provenanceFile": "data/source/burst-bey-generated-fronts/bey-burst-b-36-rising-ragnaruk-g-r-provenance.json",
+        "processingClass": "deterministic-official-similarity-color-adjustment",
+        "imageGenUsed": false,
+        "approvedAt": "2026-08-27"
       },
       "orthographicReview": {
         "classification": "orthographic-top",
@@ -15632,17 +15645,17 @@
         "singleAssembledProduct": true,
         "evidence": {
           "type": "manual-pixel-review",
-          "batch": "burst-orthographic-top-reaudit",
-          "contactSheet": "selected-24.jpg",
-          "cell": 10,
+          "batch": "burst-official-b36-v7",
+          "contactSheet": "data/source/burst-bey-generated-fronts/bey-burst-b-36-rising-ragnaruk-g-r-comparison-board.png",
+          "cell": 1,
           "reviewedScales": [
             448,
             112
           ]
         },
-        "reviewedAt": "2026-08-19"
+        "reviewedAt": "2026-08-27"
       },
-      "reauditAction": "kept"
+      "reauditAction": "replaced-with-user-approved-official-front"
     },
     {
       "id": "BEY-BURST-B-37-KAISER-KERBEUS-L-P",

@@ -24,7 +24,7 @@ import numpy as np
 from PIL import Image, ImageFilter
 
 
-VERSION = "20260822-burst-b35-storm-spriggan-generated-front"
+VERSION = "20260827-burst-b36-official-front"
 CANVAS_SIZE = 448
 TARGET_FOREGROUND_SIZE = 360
 ALPHA_THRESHOLD = 3
