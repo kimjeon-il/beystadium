@@ -29,8 +29,8 @@ if (baseMappings.length !== 502) {
 if (![0, 241].includes(existingDerivedMappings.length)) {
   throw new Error(`expected 0 or 241 existing derivations, found ${existingDerivedMappings.length}`);
 }
-if (![24, 265].includes(xPartPreviewUnavailable.length)) {
-  throw new Error(`expected 24 or 265 gaps, found ${xPartPreviewUnavailable.length}`);
+if (![55, 296].includes(xPartPreviewUnavailable.length)) {
+  throw new Error(`expected 55 or 296 gaps, found ${xPartPreviewUnavailable.length}`);
 }
 
 const derivationByKey = new Map(
@@ -68,7 +68,7 @@ for (const entry of manifest.derivations) {
 
 const mappings = [...baseMappings, ...derivedMappings].sort((left, right) =>
   contextKey(left.beyId, left.partId).localeCompare(contextKey(right.beyId, right.partId)));
-const unavailable = (xPartPreviewUnavailable.length === 24
+const unavailable = (xPartPreviewUnavailable.length === 55
   ? xPartPreviewUnavailable
   : xPartPreviewUnavailable.filter(entry =>
     !derivationByKey.has(contextKey(entry.beyId, entry.partId))))
@@ -83,7 +83,7 @@ const unavailable = (xPartPreviewUnavailable.length === 24
     contextKey(left.beyId, left.partId).localeCompare(contextKey(right.beyId, right.partId)));
 
 if (mappings.length !== 743) throw new Error(`expected 743 mappings, found ${mappings.length}`);
-if (unavailable.length !== 24) throw new Error(`expected 24 remaining gaps, found ${unavailable.length}`);
+if (unavailable.length !== 55) throw new Error(`expected 55 remaining gaps, found ${unavailable.length}`);
 
 const moduleSource = `const xPartPreviewMappings = ${JSON.stringify(mappings, null, 2)};\n\n`
   + `const xPartPreviewUnavailable = ${JSON.stringify(unavailable, null, 2)};\n\n`

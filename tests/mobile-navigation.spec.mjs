@@ -186,7 +186,9 @@ test.describe("mobile-first navigation and content", () => {
     await page.locator(".mobile-bottom-nav [data-category-catalog-open]").click();
     await page.waitForTimeout(250);
 
-    const firstCard = page.locator("#catalogGrid .catalog-card").first();
+    const firstCard = page.locator("#catalogGrid .catalog-card")
+      .filter({ has: page.locator(".bey-image") })
+      .first();
     await expect(firstCard).toBeVisible();
     await expect(page.locator("#mobileTopbarTitle")).toHaveText("완구 도감");
     await expect(page.locator("#mobileCatalogFilterOpen")).toBeVisible();

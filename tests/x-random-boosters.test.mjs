@@ -29,6 +29,11 @@ const expectedLineups = {
     "BEY-X-CX-18-02-BRACHIO-WHIP-OW-5-70NR",
     "BEY-X-CX-18-03-BRACHIO-WHIP-OW-5-70NR"
   ],
+  "PRODUCT-X-CX-19": [
+    "BEY-X-CX-19-01-CROCO-TREAD-TQ-5-50GN",
+    "BEY-X-CX-19-02-CROCO-TREAD-TQ-5-50GN",
+    "BEY-X-CX-19-03-CROCO-TREAD-TQ-5-50GN"
+  ],
   "PRODUCT-X-BX-50": [
     "BEY-X-BX-50-01-HEAVENS-RING-0-80DS",
     "BEY-X-BX-50-02-HEAVENS-RING-6-60TP",
@@ -49,7 +54,7 @@ const koreanReleasedRandomBoosters = new Set(["PRODUCT-X-CX-17", "PRODUCT-X-CX-1
 
 test("X random booster products expose exact regional lineups", () => {
   assert.deepEqual(xRandomBoosterLineups, expectedLineups);
-  assert.equal(xRandomBoosterBeyItems.length, 22);
+  assert.equal(xRandomBoosterBeyItems.length, 25);
 
   for (const [productId, lineup] of Object.entries(expectedLineups)) {
     const product = productsById.get(productId);
@@ -74,6 +79,7 @@ test("X random booster Beys keep canonical product numbers, types, and spins", (
     "attack", "balance", "defense", "stamina", "attack",
     "balance", "attack", "stamina", "balance", "defense", "balance",
     "stamina", "stamina", "stamina",
+    "defense", "defense", "defense",
     "defense", "balance", "stamina", "defense", "attack", "stamina",
     "attack", "attack"
   ];
@@ -84,7 +90,7 @@ test("X random booster Beys keep canonical product numbers, types, and spins", (
     "BEY-X-BX-00-01-LIGHTNING-L-DRAGO-UPPER-1-60F",
     "BEY-X-BX-00-02-LIGHTNING-L-DRAGO-BARRAGE-1-60F"
   ]);
-  assert.equal(xRandomBoosterBeyItems.filter(item => item.spin === "right").length, 19);
+  assert.equal(xRandomBoosterBeyItems.filter(item => item.spin === "right").length, 22);
 
   for (const [productId, lineup] of Object.entries(expectedLineups)) {
     const productNo = productId.match(/^PRODUCT-X-((?:BX|CX)-\d+)/)?.[1];
@@ -97,7 +103,7 @@ test("X random booster Beys keep canonical product numbers, types, and spins", (
 });
 
 test("new X parts preserve official names, roles, and stats", () => {
-  assert.equal(xRandomBoosterPartItems.length, 11);
+  assert.equal(xRandomBoosterPartItems.length, 16);
   assert.deepEqual(partsById.get("PART-X-BLADE-OVER-BLADE-PEAK") && {
     name: partsById.get("PART-X-BLADE-OVER-BLADE-PEAK").name,
     en: partsById.get("PART-X-BLADE-OVER-BLADE-PEAK").en,
@@ -115,6 +121,17 @@ test("new X parts preserve official names, roles, and stats", () => {
   }, { name: "O", en: "Outer", role: "overBlade" });
 
   assert.deepEqual(partsById.get("PART-X-BLADE-HEAVENS-RING")?.stats, [10, 60, 30]);
+  assert.deepEqual(partsById.get("PART-X-BLADE-OVER-BLADE-TAB") && {
+    name: partsById.get("PART-X-BLADE-OVER-BLADE-TAB").name,
+    en: partsById.get("PART-X-BLADE-OVER-BLADE-TAB").en,
+    role: partsById.get("PART-X-BLADE-OVER-BLADE-TAB").xBladeRole
+  }, { name: "T", en: "Tab", role: "overBlade" });
+  assert.deepEqual(partsById.get("PART-X-BLADE-ASSIST-BLADE-QUELL") && {
+    name: partsById.get("PART-X-BLADE-ASSIST-BLADE-QUELL").name,
+    en: partsById.get("PART-X-BLADE-ASSIST-BLADE-QUELL").en,
+    role: partsById.get("PART-X-BLADE-ASSIST-BLADE-QUELL").xBladeRole
+  }, { name: "Q", en: "Quell", role: "assistBlade" });
+  assert.deepEqual(partsById.get("PART-X-RATCHET-5-50")?.stats, [10, 9, 11]);
   assert.deepEqual(partsById.get("PART-X-BIT-GU")?.stats, [30, 20, 20]);
   assert.deepEqual(partsById.get("PART-X-BIT-NR")?.stats, [15, 20, 60]);
   assert.deepEqual(partsById.get("PART-X-BIT-DS")?.stats, [5, 55, 40]);
@@ -122,6 +139,14 @@ test("new X parts preserve official names, roles, and stats", () => {
 
 test("Brachio Whip color variants remain distinct slot entries", () => {
   const variants = expectedLineups["PRODUCT-X-CX-18"].map(id => beysById.get(id));
+  assert.equal(new Set(variants.map(item => item.id)).size, 3);
+  assert.equal(new Set(variants.map(item => item.productNo)).size, 3);
+  assert.equal(new Set(variants.map(item => item.name)).size, 1);
+  assert.equal(new Set(variants.map(item => item.parts.join("|"))).size, 1);
+});
+
+test("Croco Tread color variants remain distinct slot entries", () => {
+  const variants = expectedLineups["PRODUCT-X-CX-19"].map(id => beysById.get(id));
   assert.equal(new Set(variants.map(item => item.id)).size, 3);
   assert.equal(new Set(variants.map(item => item.productNo)).size, 3);
   assert.equal(new Set(variants.map(item => item.name)).size, 1);

@@ -97,7 +97,7 @@ async function validateOutputs() {
   uniqueValues(accountedIds, "accounted X item IDs");
   assert.deepEqual(new Set(accountedIds), xIds, "every X Bey and part must be mapped or unavailable");
   assert.equal(xImageMappings.length, 446);
-  assert.equal(xImageUnavailable.length, 19);
+  assert.equal(xImageUnavailable.length, 36);
   assert.equal(xImageReview.length, xImageMappings.length);
   const mappingById = new Map(xImageMappings.map(entry => [entry.id, entry]));
   const phoenixComposite = mappingById.get("BEY-X-BX-00-PHOENIX-SOAR-9-80DB");

@@ -10,8 +10,8 @@ import { xProductBaseNo, xProductBeyNumberIssues } from "../scripts/x-product-nu
 const productsById = new Map(productItems.map(product => [product.id, product]));
 const allTargetIds = new Set([...beyItems, ...partItems, ...toolsItems].map(item => item.id));
 
-test("24 requested X products expose the exact regional compositions", () => {
-  assert.equal(Object.keys(xSetProductCompositions).length, 24);
+test("25 requested X products expose the exact regional compositions", () => {
+  assert.equal(Object.keys(xSetProductCompositions).length, 25);
 
   for (const [productId, regionalCompositions] of Object.entries(xSetProductCompositions)) {
     const product = productsById.get(productId);
@@ -24,6 +24,14 @@ test("24 requested X products expose the exact regional compositions", () => {
 });
 
 test("set quantities and mixed Bey-part compositions stay exact", () => {
+  const ux21 = productsById.get("PRODUCT-X-UX-21");
+  assert.deepEqual(ux21.releases.kr, { status: "unreleased" });
+  assert.deepEqual(ux21.releases.jp.composition.map(entry => entry.target), [
+    "BEY-X-UX-21-HELLS-NETHER-Z",
+    "BEY-X-UX-21-SILVER-WOLF-9-70R",
+    "BEY-X-UX-21-WYVERN-HOVER-8-80B"
+  ]);
+
   const ux10 = productsById.get("PRODUCT-X-UX-10");
   assert.deepEqual(ux10.releases.kr.composition.map(entry => entry.target), [
     "BEY-X-UX-10-KNIGHT-MAIL-3-85BS",
@@ -93,6 +101,21 @@ test("25th anniversary Dran Sword has a dedicated BX-00 Bey entry", () => {
     .filter(target => target.startsWith("BEY-"));
   assert.equal(beyTargets.length, 4);
   assert.equal(beyTargets.every(target => target.startsWith("BEY-X-BX-00-")), true);
+});
+
+test("August 2026 limited Bey releases preserve official dates, prices, and dedicated identities", () => {
+  const dran = productsById.get("PRODUCT-X-BX-00-DRAN-SWORD-3-60F-VERSION-2-0");
+  assert.deepEqual(
+    [dran.releases.jp.releaseDate, dran.releases.jp.price, dran.releases.jp.composition[0].target],
+    ["2026-08-08", "1600", "BEY-X-BX-00-DRAN-SWORD-VERSION-2-0-3-60F"]
+  );
+  assert.deepEqual(partItems.find(item => item.id === "PART-X-BLADE-DRAN-SWORD-VERSION-2-0")?.stats, [60, 27, 23]);
+
+  const glory = productsById.get("PRODUCT-X-UX-00-GLORY-VALKYRIE-LF-METAL-COAT-BLUE");
+  assert.deepEqual(
+    [glory.releases.jp.releaseDate, glory.releases.jp.price, ...glory.releases.jp.composition.map(entry => entry.target)],
+    ["2026-08-29", "2800", "BEY-X-UX-00-GLORY-VALKYRIE-LF", "TOOLS-X-STRING-LAUNCHER"]
+  );
 });
 
 test("X product compositions only reference Beys with the same base product number", () => {

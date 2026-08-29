@@ -50,15 +50,15 @@ const styleAlignedDescriptions = Object.freeze({
 });
 
 test("일본 공식 상세 보강 대상과 입력 필드 수를 고정한다", () => {
-  assert.equal(Object.keys(xJapanPartDetails).length, 84);
-  assert.equal(Object.values(xJapanPartDetails).filter((details) => Object.hasOwn(details, "desc")).length, 83);
-  assert.equal(Object.values(xJapanPartDetails).filter((details) => Object.hasOwn(details, "stats")).length, 36);
-  assert.equal(xJapanPartDetailFullIds.length, 40);
-  assert.equal(xJapanPartDetailSplitIds.length, 44);
-  assert.equal(new Set([...xJapanPartDetailFullIds, ...xJapanPartDetailSplitIds]).size, 84);
+  assert.equal(Object.keys(xJapanPartDetails).length, 95);
+  assert.equal(Object.values(xJapanPartDetails).filter((details) => Object.hasOwn(details, "desc")).length, 94);
+  assert.equal(Object.values(xJapanPartDetails).filter((details) => Object.hasOwn(details, "stats")).length, 43);
+  assert.equal(xJapanPartDetailFullIds.length, 47);
+  assert.equal(xJapanPartDetailSplitIds.length, 48);
+  assert.equal(new Set([...xJapanPartDetailFullIds, ...xJapanPartDetailSplitIds]).size, 95);
 });
 
-test("기본·유니크·복각·컬래버 블레이드와 래칫·비트 40종은 설명과 스탯이 완성된다", () => {
+test("기본·유니크·복각·컬래버 블레이드와 래칫·비트 47종은 설명과 스탯이 완성된다", () => {
   for (const id of xJapanPartDetailFullIds) {
     const part = partsById.get(id);
     assert.ok(part, `${id}가 존재해야 합니다.`);
@@ -74,7 +74,7 @@ test("기본·유니크·복각·컬래버 블레이드와 래칫·비트 40종�
   ]);
 });
 
-test("CX 분할 부품 44종은 공식 설명만 기록하고 개별 스탯을 만들지 않는다", () => {
+test("CX 분할 부품 48종은 공식 설명만 기록하고 개별 스탯을 만들지 않는다", () => {
   for (const id of xJapanPartDetailSplitIds) {
     const part = partsById.get(id);
     assert.ok(part, `${id}가 존재해야 합니다.`);
@@ -137,8 +137,8 @@ test("생성된 X 검색 레코드에 새 한국어 설명을 포함한다", () 
   assert.equal(decoded.item.desc, "사다리꼴 형태의 6개 날로 상대의 공격을 흘려보내면서 카운터를 가한다.");
 });
 
-test("오버·어시스트블레이드 23종은 약칭과 한글 풀네임을 함께 기록한다", () => {
-  const roleCounts = { overBlade: 5, assistBlade: 18 };
+test("오버·어시스트블레이드 25종은 약칭과 한글 풀네임을 함께 기록한다", () => {
+  const roleCounts = { overBlade: 6, assistBlade: 19 };
 
   for (const [role, count] of Object.entries(roleCounts)) {
     const parts = partItems.filter(part => part.series === "x" && part.xBladeRole === role);

@@ -17,7 +17,10 @@ const xSetPartItems = [
   { id: "PART-X-BLADE-MOSASAURUS", series: "x", type: "blade", name: "모사사우루스", en: "Mosasaurus", battleType: "balance", spin: "right", desc: "", stats: [] },
   { id: "PART-X-BLADE-SPINOSAURUS", series: "x", type: "blade", name: "스피노사우루스", en: "Spinosaurus", battleType: "attack", spin: "right", desc: "", stats: [] },
   { id: "PART-X-BLADE-QUETZALCOATLUS", series: "x", type: "blade", name: "케찰코아틀루스", en: "Quetzalcoatlus", battleType: "defense", spin: "right", desc: "", stats: [] },
-  { id: "PART-X-BLADE-LOCK-CHIP-EVA", series: "x", type: "blade", name: "에바", en: "Eva", spin: "right", xLine: "custom", xBladeRole: "lockChip", desc: "", stats: [] }
+  { id: "PART-X-BLADE-LOCK-CHIP-EVA", series: "x", type: "blade", name: "에바", en: "Eva", spin: "right", xLine: "custom", xBladeRole: "lockChip", desc: "", stats: [] },
+  { id: "PART-X-BLADE-HELLS-NETHER", series: "x", type: "blade", name: "헬즈네더", en: "Hells Nether", battleType: "balance", spin: "right", xLine: "unique", desc: "", stats: [] },
+  { id: "PART-X-BLADE-WYVERN-HOVER", series: "x", type: "blade", name: "와이번호버", en: "Wyvern Hover", battleType: "stamina", spin: "right", xLine: "unique", desc: "", stats: [] },
+  { id: "PART-X-RATCHET-8-80", series: "x", type: "ratchet", name: "8-80", en: "8-80", battleType: "stamina", desc: "", stats: [], extraStats: [{ name: "높이", value: 80 }] }
 ];
 
 const xSetBeyItems = [
@@ -43,7 +46,10 @@ const xSetBeyItems = [
   { id: "BEY-X-CX-16-BAHAMUT-BLITZ-BK-1-50I", series: "x", type: "bey", name: "바하무트 블리츠BK 1-50I", en: "Bahamut Blitz BK 1-50I", productNo: "CX-16", battleType: "", spin: "", desc: "", parts: ["PART-X-BLADE-LOCK-CHIP-BAHAMUT", "PART-X-BLADE-MAIN-BLADE-BLITZ", "PART-X-BLADE-OVER-BLADE-BRAKE", "PART-X-BLADE-ASSIST-BLADE-KNUCKLE", "PART-X-RATCHET-1-50", "PART-X-BIT-I"] },
   { id: "BEY-X-CX-00-EVA-ARC-B-0-70E", series: "x", type: "bey", name: "에바 아크B 0-70E", en: "EvaArc B0-70E", productNo: "CX-00", battleType: "balance", spin: "right", desc: "", parts: ["PART-X-BLADE-LOCK-CHIP-EVA", "PART-X-BLADE-MAIN-BLADE-ARC", "PART-X-BLADE-ASSIST-BLADE-BUMPER", "PART-X-RATCHET-0-70", "PART-X-BIT-E"] },
   { id: "BEY-X-CX-00-EVA-BRAVE-A-1-70V", series: "x", type: "bey", name: "에바 브레이브A 1-70V", en: "EvaBrave A1-70V", productNo: "CX-00", battleType: "attack", spin: "right", desc: "", parts: ["PART-X-BLADE-LOCK-CHIP-EVA", "PART-X-BLADE-MAIN-BLADE-BRAVE", "PART-X-BLADE-ASSIST-BLADE-ASSAULT", "PART-X-RATCHET-1-70", "PART-X-BIT-V"] },
-  { id: "BEY-X-CX-00-EVA-BRUSH-T-2-70A", series: "x", type: "bey", name: "에바 브러시T 2-70A", en: "EvaBrush T2-70A", productNo: "CX-00", battleType: "attack", spin: "right", desc: "", parts: ["PART-X-BLADE-LOCK-CHIP-EVA", "PART-X-BLADE-MAIN-BLADE-BRUSH", "PART-X-BLADE-ASSIST-BLADE-TURN", "PART-X-RATCHET-2-70", "PART-X-BIT-A"] }
+  { id: "BEY-X-CX-00-EVA-BRUSH-T-2-70A", series: "x", type: "bey", name: "에바 브러시T 2-70A", en: "EvaBrush T2-70A", productNo: "CX-00", battleType: "attack", spin: "right", desc: "", parts: ["PART-X-BLADE-LOCK-CHIP-EVA", "PART-X-BLADE-MAIN-BLADE-BRUSH", "PART-X-BLADE-ASSIST-BLADE-TURN", "PART-X-RATCHET-2-70", "PART-X-BIT-A"] },
+  { id: "BEY-X-UX-21-HELLS-NETHER-Z", series: "x", type: "bey", name: "헬즈네더 Z", en: "Hells Nether Z", productNo: "UX-21", battleType: "balance", spin: "right", desc: "", parts: ["PART-X-BLADE-HELLS-NETHER", "PART-X-BIT-Z"] },
+  { id: "BEY-X-UX-21-SILVER-WOLF-9-70R", series: "x", type: "bey", name: "실버울프 9-70R", en: "Silver Wolf 9-70R", productNo: "UX-21", battleType: "stamina", spin: "right", desc: "", parts: ["PART-X-BLADE-SILVER-WOLF", "PART-X-RATCHET-9-70", "PART-X-BIT-R"] },
+  { id: "BEY-X-UX-21-WYVERN-HOVER-8-80B", series: "x", type: "bey", name: "와이번호버 8-80B", en: "Wyvern Hover 8-80B", productNo: "UX-21", battleType: "stamina", spin: "right", desc: "", parts: ["PART-X-BLADE-WYVERN-HOVER", "PART-X-RATCHET-8-80", "PART-X-BIT-B"] }
 ];
 
 const xSetProductCompositions = {
@@ -134,6 +140,9 @@ const xSetProductCompositions = {
   "PRODUCT-X-CX-16": {
     kr: [item("바하무트 블리츠BK 1-50I", "BEY-X-CX-16-BAHAMUT-BLITZ-BK-1-50I"), item("와인더런처", "TOOLS-X-WINDER-LAUNCHER"), item("런처그립", "TOOLS-X-LAUNCHER-GRIP"), item("익스트림스타디움", "TOOLS-X-XTREME-STADIUM")],
     jp: [item("바하무트 블리츠BK 1-50I", "BEY-X-CX-16-BAHAMUT-BLITZ-BK-1-50I"), item("와인더런처", "TOOLS-X-WINDER-LAUNCHER"), item("런처그립", "TOOLS-X-LAUNCHER-GRIP"), item("익스트림스타디움", "TOOLS-X-XTREME-STADIUM")]
+  },
+  "PRODUCT-X-UX-21": {
+    jp: [item("헬즈네더 Z", "BEY-X-UX-21-HELLS-NETHER-Z"), item("실버울프 9-70R", "BEY-X-UX-21-SILVER-WOLF-9-70R"), item("와이번호버 8-80B", "BEY-X-UX-21-WYVERN-HOVER-8-80B")]
   }
 };
 

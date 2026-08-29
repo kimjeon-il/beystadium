@@ -9751,7 +9751,7 @@
       }
     }
   },
-{
+  {
     id: "PRODUCT-X-CX-00-TIGA-RAGE-FT-3-60T", addressSlug: "TIGA-RAGE-FT-3-60T",
     series: "x",
     releases: {
@@ -9765,6 +9765,91 @@
         releaseDate: "2026-09-12",
         price: "2750",
         composition: [{ name: "티가 레이지FT 3-60T", quantity: "1개", target: "BEY-X-CX-00-TIGA-RAGE-FT-3-60T" }]
+      }
+    }
+  },
+  {
+    id: "PRODUCT-X-UX-21",
+    series: "x",
+    releases: {
+      kr: {
+        status: "unreleased"
+      },
+      jp: {
+        no: "UX-21",
+        name: "헬즈네더 덱 세트",
+        kind: "세트",
+        releaseDate: "2026-08-08",
+        price: "4500",
+        composition: []
+      }
+    }
+  },
+  {
+    id: "PRODUCT-X-BX-57",
+    series: "x",
+    releases: {
+      kr: {
+        status: "unreleased"
+      },
+      jp: {
+        no: "BX-57",
+        name: "3on3 덱 케이스 블랙 Ver.",
+        kind: "툴",
+        releaseDate: "2026-08-08",
+        price: "1100",
+        composition: [{ name: "배틀 덱 케이스", quantity: "1개", target: "TOOLS-X-BATTLE-DECK-CASE" }]
+      }
+    }
+  },
+  {
+    id: "PRODUCT-X-BX-00-DRAN-SWORD-3-60F-VERSION-2-0", addressSlug: "DRAN-SWORD-3-60F-VERSION-2-0",
+    series: "x",
+    releases: {
+      kr: {
+        status: "unreleased"
+      },
+      jp: {
+        no: "BX-00",
+        name: "드란소드 3-60F 버전 2.0",
+        kind: "부스터",
+        releaseDate: "2026-08-08",
+        price: "1600",
+        composition: [{ name: "드란소드 3-60F 버전 2.0", quantity: "1개", target: "BEY-X-BX-00-DRAN-SWORD-VERSION-2-0-3-60F" }]
+      }
+    }
+  },
+  {
+    id: "PRODUCT-X-UX-00-GLORY-VALKYRIE-LF-METAL-COAT-BLUE", addressSlug: "GLORY-VALKYRIE-LF-METAL-COAT-BLUE",
+    series: "x",
+    releases: {
+      kr: {
+        status: "unreleased"
+      },
+      jp: {
+        no: "UX-00",
+        name: "글로리왈큐레 LF 메탈 코트: 블루",
+        kind: "스타터",
+        releaseDate: "2026-08-29",
+        price: "2800",
+        composition: [{ name: "글로리왈큐레 LF", quantity: "1개", target: "BEY-X-UX-00-GLORY-VALKYRIE-LF" }, { name: "스트링런처 화이트×블루", quantity: "1개", target: "TOOLS-X-STRING-LAUNCHER" }]
+      }
+    }
+  },
+  {
+    id: "PRODUCT-X-CX-19",
+    series: "x",
+    releases: {
+      kr: {
+        status: "unreleased"
+      },
+      jp: {
+        no: "CX-19",
+        name: "랜덤부스터 크로코트레드 셀렉트",
+        kind: "랜덤부스터",
+        releaseDate: "2026-09-12",
+        price: "1600",
+        composition: []
       }
     }
   }

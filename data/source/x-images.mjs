@@ -3090,6 +3090,74 @@ const xImageUnavailable = [
   {
     "id": "PART-X-BLADE-ASSIST-BLADE-MASSIVE",
     "reason": "공식 랜덤부스터 상세에 조립된 블레이드 사진만 있다."
+  },
+  {
+    "id": "BEY-X-BX-00-DRAN-SWORD-VERSION-2-0-3-60F",
+    "reason": "신규 공식 이미지 자산의 색상·투명도 검수가 아직 완료되지 않았다."
+  },
+  {
+    "id": "BEY-X-UX-00-GLORY-VALKYRIE-LF",
+    "reason": "신규 공식 이미지 자산의 색상·투명도 검수가 아직 완료되지 않았다."
+  },
+  {
+    "id": "BEY-X-CX-19-01-CROCO-TREAD-TQ-5-50GN",
+    "reason": "신규 공식 이미지 자산의 색상·투명도 검수가 아직 완료되지 않았다."
+  },
+  {
+    "id": "BEY-X-CX-19-02-CROCO-TREAD-TQ-5-50GN",
+    "reason": "신규 공식 이미지 자산의 색상·투명도 검수가 아직 완료되지 않았다."
+  },
+  {
+    "id": "BEY-X-CX-19-03-CROCO-TREAD-TQ-5-50GN",
+    "reason": "신규 공식 이미지 자산의 색상·투명도 검수가 아직 완료되지 않았다."
+  },
+  {
+    "id": "BEY-X-UX-21-HELLS-NETHER-Z",
+    "reason": "신규 공식 이미지 자산의 색상·투명도 검수가 아직 완료되지 않았다."
+  },
+  {
+    "id": "BEY-X-UX-21-SILVER-WOLF-9-70R",
+    "reason": "신규 공식 이미지 자산의 색상·투명도 검수가 아직 완료되지 않았다."
+  },
+  {
+    "id": "BEY-X-UX-21-WYVERN-HOVER-8-80B",
+    "reason": "신규 공식 이미지 자산의 색상·투명도 검수가 아직 완료되지 않았다."
+  },
+  {
+    "id": "PART-X-BLADE-DRAN-SWORD-VERSION-2-0",
+    "reason": "신규 공식 이미지 자산의 색상·투명도 검수가 아직 완료되지 않았다."
+  },
+  {
+    "id": "PART-X-BLADE-HELLS-NETHER",
+    "reason": "신규 공식 이미지 자산의 색상·투명도 검수가 아직 완료되지 않았다."
+  },
+  {
+    "id": "PART-X-BLADE-WYVERN-HOVER",
+    "reason": "신규 공식 이미지 자산의 색상·투명도 검수가 아직 완료되지 않았다."
+  },
+  {
+    "id": "PART-X-BLADE-LOCK-CHIP-CROCO",
+    "reason": "신규 공식 이미지 자산의 색상·투명도 검수가 아직 완료되지 않았다."
+  },
+  {
+    "id": "PART-X-BLADE-MAIN-BLADE-TREAD",
+    "reason": "신규 공식 이미지 자산의 색상·투명도 검수가 아직 완료되지 않았다."
+  },
+  {
+    "id": "PART-X-BLADE-OVER-BLADE-TAB",
+    "reason": "신규 공식 이미지 자산의 색상·투명도 검수가 아직 완료되지 않았다."
+  },
+  {
+    "id": "PART-X-BLADE-ASSIST-BLADE-QUELL",
+    "reason": "신규 공식 이미지 자산의 색상·투명도 검수가 아직 완료되지 않았다."
+  },
+  {
+    "id": "PART-X-RATCHET-5-50",
+    "reason": "신규 공식 이미지 자산의 색상·투명도 검수가 아직 완료되지 않았다."
+  },
+  {
+    "id": "PART-X-RATCHET-8-80",
+    "reason": "신규 공식 이미지 자산의 색상·투명도 검수가 아직 완료되지 않았다."
   }
 ];
 

@@ -9,7 +9,12 @@ const xRandomBoosterPartItems = [
   { id: "PART-X-BLADE-HEAVENS-RING", series: "x", type: "blade", name: "헤븐즈링", en: "Heavens Ring", battleType: "defense", spin: "right", desc: "", stats: [10, 60, 30] },
   { id: "PART-X-BIT-GU", series: "x", type: "bit", name: "GU", en: "Gear Unite", sub: "기어 유나이트", battleType: "balance", desc: "", stats: [30, 20, 20], extraStats: [{ name: "대시력", value: 30 }, { name: "버스트 저항", value: 80 }] },
   { id: "PART-X-BIT-NR", series: "x", type: "bit", name: "Nr", en: "Narrow", sub: "내로우", battleType: "stamina", desc: "", stats: [15, 20, 60], extraStats: [{ name: "대시력", value: 5 }, { name: "버스트 저항", value: 30 }] },
-  { id: "PART-X-BIT-DS", series: "x", type: "bit", name: "DS", en: "Disc Spike", sub: "디스크 스파이크", battleType: "defense", desc: "", stats: [5, 55, 40], extraStats: [{ name: "대시력", value: 10 }, { name: "버스트 저항", value: 20 }] }
+  { id: "PART-X-BIT-DS", series: "x", type: "bit", name: "DS", en: "Disc Spike", sub: "디스크 스파이크", battleType: "defense", desc: "", stats: [5, 55, 40], extraStats: [{ name: "대시력", value: 10 }, { name: "버스트 저항", value: 20 }] },
+  { id: "PART-X-BLADE-LOCK-CHIP-CROCO", series: "x", type: "blade", name: "크로코", en: "Croco", spin: "right", xLine: "custom", xBladeRole: "lockChip", desc: "", stats: [] },
+  { id: "PART-X-BLADE-MAIN-BLADE-TREAD", series: "x", type: "blade", name: "트레드", en: "Tread", battleType: "defense", spin: "right", xLine: "custom", xBladeRole: "metalBlade", desc: "", stats: [] },
+  { id: "PART-X-BLADE-OVER-BLADE-TAB", series: "x", type: "blade", name: "T", en: "Tab", sub: "탭", battleType: "defense", spin: "right", xLine: "custom", xBladeRole: "overBlade", desc: "", stats: [] },
+  { id: "PART-X-BLADE-ASSIST-BLADE-QUELL", series: "x", type: "blade", name: "Q", en: "Quell", sub: "퀠", battleType: "defense", spin: "right", xLine: "custom", xBladeRole: "assistBlade", desc: "", stats: [] },
+  { id: "PART-X-RATCHET-5-50", series: "x", type: "ratchet", name: "5-50", en: "5-50", battleType: "defense", desc: "", stats: [], extraStats: [{ name: "높이", value: 50 }] }
 ];
 
 const xRandomBoosterBeyItems = [
@@ -27,6 +32,9 @@ const xRandomBoosterBeyItems = [
   { id: "BEY-X-CX-18-01-BRACHIO-WHIP-OW-5-70NR", series: "x", type: "bey", name: "브라키오 윕OW 5-70Nr", en: "Brachio Whip OW 5-70Nr", productNo: "CX-18-01", battleType: "stamina", spin: "right", desc: "", parts: ["PART-X-BLADE-LOCK-CHIP-BRACHIO", "PART-X-BLADE-MAIN-BLADE-WHIP", "PART-X-BLADE-OVER-BLADE-OUTER", "PART-X-BLADE-ASSIST-BLADE-WHEEL", "PART-X-RATCHET-5-70", "PART-X-BIT-NR"] },
   { id: "BEY-X-CX-18-02-BRACHIO-WHIP-OW-5-70NR", series: "x", type: "bey", name: "브라키오 윕OW 5-70Nr", en: "Brachio Whip OW 5-70Nr", productNo: "CX-18-02", battleType: "stamina", spin: "right", desc: "", parts: ["PART-X-BLADE-LOCK-CHIP-BRACHIO", "PART-X-BLADE-MAIN-BLADE-WHIP", "PART-X-BLADE-OVER-BLADE-OUTER", "PART-X-BLADE-ASSIST-BLADE-WHEEL", "PART-X-RATCHET-5-70", "PART-X-BIT-NR"] },
   { id: "BEY-X-CX-18-03-BRACHIO-WHIP-OW-5-70NR", series: "x", type: "bey", name: "브라키오 윕OW 5-70Nr", en: "Brachio Whip OW 5-70Nr", productNo: "CX-18-03", battleType: "stamina", spin: "right", desc: "", parts: ["PART-X-BLADE-LOCK-CHIP-BRACHIO", "PART-X-BLADE-MAIN-BLADE-WHIP", "PART-X-BLADE-OVER-BLADE-OUTER", "PART-X-BLADE-ASSIST-BLADE-WHEEL", "PART-X-RATCHET-5-70", "PART-X-BIT-NR"] },
+  { id: "BEY-X-CX-19-01-CROCO-TREAD-TQ-5-50GN", series: "x", type: "bey", name: "크로코 트레드TQ 5-50GN", en: "Croco Tread TQ 5-50GN", productNo: "CX-19-01", battleType: "defense", spin: "right", desc: "", parts: ["PART-X-BLADE-LOCK-CHIP-CROCO", "PART-X-BLADE-MAIN-BLADE-TREAD", "PART-X-BLADE-OVER-BLADE-TAB", "PART-X-BLADE-ASSIST-BLADE-QUELL", "PART-X-RATCHET-5-50", "PART-X-BIT-GN"] },
+  { id: "BEY-X-CX-19-02-CROCO-TREAD-TQ-5-50GN", series: "x", type: "bey", name: "크로코 트레드TQ 5-50GN", en: "Croco Tread TQ 5-50GN", productNo: "CX-19-02", battleType: "defense", spin: "right", desc: "", parts: ["PART-X-BLADE-LOCK-CHIP-CROCO", "PART-X-BLADE-MAIN-BLADE-TREAD", "PART-X-BLADE-OVER-BLADE-TAB", "PART-X-BLADE-ASSIST-BLADE-QUELL", "PART-X-RATCHET-5-50", "PART-X-BIT-GN"] },
+  { id: "BEY-X-CX-19-03-CROCO-TREAD-TQ-5-50GN", series: "x", type: "bey", name: "크로코 트레드TQ 5-50GN", en: "Croco Tread TQ 5-50GN", productNo: "CX-19-03", battleType: "defense", spin: "right", desc: "", parts: ["PART-X-BLADE-LOCK-CHIP-CROCO", "PART-X-BLADE-MAIN-BLADE-TREAD", "PART-X-BLADE-OVER-BLADE-TAB", "PART-X-BLADE-ASSIST-BLADE-QUELL", "PART-X-RATCHET-5-50", "PART-X-BIT-GN"] },
   { id: "BEY-X-BX-50-01-HEAVENS-RING-0-80DS", series: "x", type: "bey", name: "헤븐즈링 0-80DS", en: "Heavens Ring 0-80DS", productNo: "BX-50-01", battleType: "defense", spin: "right", desc: "", parts: ["PART-X-BLADE-HEAVENS-RING", "PART-X-RATCHET-0-80", "PART-X-BIT-DS"] },
   { id: "BEY-X-BX-50-02-HEAVENS-RING-6-60TP", series: "x", type: "bey", name: "헤븐즈링 6-60TP", en: "Heavens Ring 6-60TP", productNo: "BX-50-02", battleType: "balance", spin: "right", desc: "", parts: ["PART-X-BLADE-HEAVENS-RING", "PART-X-RATCHET-6-60", "PART-X-BIT-TP"] },
   { id: "BEY-X-BX-50-03-IMPACT-DRAKE-7-55FB", series: "x", type: "bey", name: "임팩트드레이크 7-55FB", en: "Impact Drake 7-55FB", productNo: "BX-50-03", battleType: "stamina", spin: "right", desc: "", parts: ["PART-X-BLADE-IMPACT-DRAKE", "PART-X-RATCHET-7-55", "PART-X-BIT-FB"] },
@@ -41,8 +49,9 @@ const xRandomBoosterLineups = {
   "PRODUCT-X-BX-48": xRandomBoosterBeyItems.slice(0, 5).map(item => item.id),
   "PRODUCT-X-CX-17": xRandomBoosterBeyItems.slice(5, 11).map(item => item.id),
   "PRODUCT-X-CX-18": xRandomBoosterBeyItems.slice(11, 14).map(item => item.id),
-  "PRODUCT-X-BX-50": xRandomBoosterBeyItems.slice(14, 20).map(item => item.id),
-  "PRODUCT-X-BX-00-LIGHTNING-L-DRAGO-1-60F": xRandomBoosterBeyItems.slice(20, 22).map(item => item.id)
+  "PRODUCT-X-CX-19": xRandomBoosterBeyItems.slice(14, 17).map(item => item.id),
+  "PRODUCT-X-BX-50": xRandomBoosterBeyItems.slice(17, 23).map(item => item.id),
+  "PRODUCT-X-BX-00-LIGHTNING-L-DRAGO-1-60F": xRandomBoosterBeyItems.slice(23, 25).map(item => item.id)
 };
 
 export {

@@ -111,7 +111,9 @@ test("every public search scope survives its URL and filters actual results", as
     await page.goto(`/#search?q=${encodeURIComponent(query)}&scope=${scope}`);
     await expect(page).toHaveURL(new RegExp(`scope=${scope}(?:&|$)`));
     await expect(page.locator("#searchResultsSearchScope")).toHaveAttribute("data-scope", scope);
-    await assertKind(page.locator("#globalGrid .search-result-item"));
+    await expect(async () => {
+      await assertKind(page.locator("#globalGrid .search-result-item"));
+    }).toPass({ timeout: 10_000 });
   }
 });
 

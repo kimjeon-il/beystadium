@@ -349,7 +349,7 @@ test("슈퍼킹 에피소드 주소·검색·레지스트리가 1화부터 52화
 
   assert.equal(runtimeAnime.episodes.length, 730);
   assert.equal(runtimeSearch.search.length, 730);
-  assert.equal(runtimeRegistry.items.length, 3547);
+  assert.equal(runtimeRegistry.items.length, 3569);
   assert.deepEqual(runtimeEpisodes.map(episodeTuple), expectedSuperkingRows);
   assert.deepEqual(searchEntries.map(entry => entry[1]), expectedSuperkingIds);
   assert.deepEqual(searchEntries.map(entry => [entry[3], entry[5], entry[6], entry[7], entry[8], entry[9]]), expectedSuperkingRows);
@@ -381,7 +381,7 @@ test("DB 에피소드 주소·검색·레지스트리가 1화부터 52화까지 
 
   assert.equal(runtimeAnime.episodes.length, 730);
   assert.equal(runtimeSearch.search.length, 730);
-  assert.equal(runtimeRegistry.items.length, 3547);
+  assert.equal(runtimeRegistry.items.length, 3569);
   assert.deepEqual(runtimeEpisodes.map(episodeTuple), expectedDbRows);
   assert.deepEqual(searchEntries.map(entry => entry[1]), expectedDbIds);
   assert.deepEqual(searchEntries.map(entry => [entry[3], entry[5], entry[6], entry[7], entry[8], entry[9]]), expectedDbRows);

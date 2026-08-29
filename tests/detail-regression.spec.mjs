@@ -256,6 +256,7 @@ test("X bey detail names use Japanese only from an explicit Japanese release con
 
 test("X random booster products open their ordered Bey lineups", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "lineup data is shared by desktop and mobile layouts");
+  test.setTimeout(60_000);
   const errors = consoleErrors(page);
   const cases = [
     {
@@ -275,6 +276,12 @@ test("X random booster products open their ordered Bey lineups", async ({ page }
       count: 3,
       firstId: "BEY-X-CX-18-01-BRACHIO-WHIP-OW-5-70NR",
       lastId: "BEY-X-CX-18-03-BRACHIO-WHIP-OW-5-70NR"
+    },
+    {
+      productId: "PRODUCT-X-CX-19",
+      count: 3,
+      firstId: "BEY-X-CX-19-01-CROCO-TREAD-TQ-5-50GN",
+      lastId: "BEY-X-CX-19-03-CROCO-TREAD-TQ-5-50GN"
     },
     {
       productId: "PRODUCT-X-BX-50",

@@ -226,6 +226,52 @@ const xJapanPartDetails = Object.freeze({
   },
   "PART-X-BIT-DS": {
     desc: "방어 성능이 높은 뾰족한 축 끝에 원반형 움직임을 더하고, 버스트 내성과 맞바꿔 자세 제어 성능을 높인다."
+  },
+  "PART-X-BLADE-DRAN-SWORD-VERSION-2-0": {
+    desc: "3개의 어퍼 날이 상대를 튕겨내는 데 유리하며, 블레이드의 공격 성능을 높인 버전 2.0 사양이다.",
+    stats: [60, 27, 23]
+  },
+  "PART-X-BLADE-HELLS-NETHER": {
+    desc: "블레이드의 높이를 바꿀 수 있어 연타에 강한 노멀 모드와 낮은 위치에서 공격하는 로우 모드를 선택할 수 있다.",
+    stats: [50, 50, 30],
+    modes: [
+      { name: "노멀 모드", stats: [50, 50, 30] },
+      { name: "로우 모드", stats: [70, 45, 15] }
+    ]
+  },
+  "PART-X-BLADE-WYVERN-HOVER": {
+    desc: "외주에 배치된 8개의 날로 상대의 공격을 흘려보내면서 안정적인 자세로 오래 회전한다.",
+    stats: [13, 60, 27]
+  },
+  "PART-X-BLADE-LOCK-CHIP-CROCO": {
+    desc: "악어를 모티브로 한 크로코의 록 칩이다."
+  },
+  "PART-X-BLADE-MAIN-BLADE-TREAD": {
+    desc: "거친 홈이 있는 7개의 날로 상대에게 잘게 연타 공격을 가한다."
+  },
+  "PART-X-BLADE-OVER-BLADE-TAB": {
+    desc: "두껍고 연타하기 쉬운 형상에 안쪽을 뾰족하게 설계해 충격을 분산하고 균형을 유지한다."
+  },
+  "PART-X-BLADE-ASSIST-BLADE-QUELL": {
+    desc: "낮은 위치의 갑옷형 7개 날로 아래에서 들어오는 공격을 막아낸다."
+  },
+  "PART-X-RATCHET-5-50": {
+    desc: "블레이드를 낮게 세팅하며, 충격 분산과 원심력에 뛰어난 5개의 날을 사용한다.",
+    stats: [10, 9, 11]
+  },
+  "PART-X-RATCHET-8-80": {
+    desc: "블레이드를 높은 위치에 세팅하며, 8개의 날로 충격을 분산해 자세를 유지한다.",
+    stats: [8, 9, 13]
+  },
+  "PART-X-BIT-Z": {
+    desc: "넓고 평평한 축 끝의 가장자리를 둥글게 설계해 공격·방어·지구력에 특화된 움직임을 균형 있게 발휘한다.",
+    stats: [30, 20, 15],
+    extraStats: dashAndBurst(35, 80)
+  },
+  "PART-X-BIT-LF": {
+    desc: "F 비트보다 축 끝을 1mm 낮게 설계해 익스트림 대시의 가속력을 높인다.",
+    stats: [45, 5, 10],
+    extraStats: dashAndBurst(40, 80)
   }
 });
 

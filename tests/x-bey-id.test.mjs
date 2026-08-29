@@ -73,7 +73,7 @@ test("X Valkyrie-line items use Valkyrion in Korean and preserve Valkyrie in Jap
   const items = [...xBeys, ...partItems.filter((item) => item.series === "x")]
     .filter((item) => item.jpName?.includes("왈큐레"));
 
-  assert.equal(items.length, 4);
+  assert.equal(items.length, 5);
   for (const item of items) {
     assert.match(item.name, /발키리언/);
     assert.match(item.jpName, /왈큐레/);
@@ -84,6 +84,7 @@ test("X Valkyrie-line items use Valkyrion in Korean and preserve Valkyrie in Jap
     [
       ["BEY-X-CX-00-VALKYRIE-BOLT-S-4-70V", "발키리언 볼트S 4-70V", "왈큐레 볼트S 4-70V"],
       ["BEY-X-UX-20-GLORY-VALKYRIE-LF", "글로리발키리언 LF", "글로리왈큐레 LF"],
+      ["BEY-X-UX-00-GLORY-VALKYRIE-LF", "글로리발키리언 LF", "글로리왈큐레 LF"],
       ["PART-X-BLADE-GLORY-VALKYRIE", "글로리발키리언", "글로리왈큐레"],
       ["PART-X-BLADE-LOCK-CHIP-VALKYRIE", "발키리언", "왈큐레"]
     ]

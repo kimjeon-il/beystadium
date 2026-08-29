@@ -11127,6 +11127,29 @@ const xPartPreviewMappings = [
   }
 ];
 
+const pendingXPartPreviewUnavailable = Object.entries({
+  "BEY-X-BX-00-DRAN-SWORD-VERSION-2-0-3-60F": ["PART-X-BLADE-DRAN-SWORD-VERSION-2-0", "PART-X-RATCHET-3-60", "PART-X-BIT-F"],
+  "BEY-X-UX-00-GLORY-VALKYRIE-LF": ["PART-X-BLADE-GLORY-VALKYRIE", "PART-X-BIT-LF"],
+  "BEY-X-CX-19-01-CROCO-TREAD-TQ-5-50GN": ["PART-X-BLADE-LOCK-CHIP-CROCO", "PART-X-BLADE-MAIN-BLADE-TREAD", "PART-X-BLADE-OVER-BLADE-TAB", "PART-X-BLADE-ASSIST-BLADE-QUELL", "PART-X-RATCHET-5-50", "PART-X-BIT-GN"],
+  "BEY-X-CX-19-02-CROCO-TREAD-TQ-5-50GN": ["PART-X-BLADE-LOCK-CHIP-CROCO", "PART-X-BLADE-MAIN-BLADE-TREAD", "PART-X-BLADE-OVER-BLADE-TAB", "PART-X-BLADE-ASSIST-BLADE-QUELL", "PART-X-RATCHET-5-50", "PART-X-BIT-GN"],
+  "BEY-X-CX-19-03-CROCO-TREAD-TQ-5-50GN": ["PART-X-BLADE-LOCK-CHIP-CROCO", "PART-X-BLADE-MAIN-BLADE-TREAD", "PART-X-BLADE-OVER-BLADE-TAB", "PART-X-BLADE-ASSIST-BLADE-QUELL", "PART-X-RATCHET-5-50", "PART-X-BIT-GN"],
+  "BEY-X-UX-21-HELLS-NETHER-Z": ["PART-X-BLADE-HELLS-NETHER", "PART-X-BIT-Z"],
+  "BEY-X-UX-21-SILVER-WOLF-9-70R": ["PART-X-BLADE-SILVER-WOLF", "PART-X-RATCHET-9-70", "PART-X-BIT-R"],
+  "BEY-X-UX-21-WYVERN-HOVER-8-80B": ["PART-X-BLADE-WYVERN-HOVER", "PART-X-RATCHET-8-80", "PART-X-BIT-B"]
+}).flatMap(([beyId, partIds]) => partIds.map((partId) => ({
+  beyId,
+  partId,
+  reason: "official-images-pending-review",
+  sourceKind: "unavailable",
+  evidenceUrl: beyId.includes("CX-19")
+    ? "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/cx19.html"
+    : beyId.includes("UX-21")
+      ? "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/ux21.html"
+      : beyId.includes("DRAN-SWORD-VERSION-2-0")
+        ? "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/bx00-ds_v2.html"
+        : "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/ux00-gv.html"
+})));
+
 const xPartPreviewUnavailable = [
   {
     "beyId": "BEY-X-BX-00-CROCO-CRUNCH-2-60Q",
@@ -11295,7 +11318,8 @@ const xPartPreviewUnavailable = [
     "reason": "official-assembled-view-cannot-isolate-split-blade-part",
     "sourceKind": "unavailable",
     "evidenceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/ux18.html"
-  }
+  },
+  ...pendingXPartPreviewUnavailable
 ];
 
 function applyXPartPreviewImages(items) {

@@ -67,9 +67,9 @@ uniqueValues(mappedKeys, "X part preview mappings");
 uniqueValues(unavailableKeys, "X unavailable part previews");
 uniqueValues([...mappedKeys, ...unavailableKeys], "accounted X part preview contexts");
 assert.deepEqual(new Set([...mappedKeys, ...unavailableKeys]), new Set(contextKeys));
-assert.equal(contexts.length, 767);
+assert.equal(contexts.length, 798);
 assert.equal(xPartPreviewMappings.length, 743);
-assert.equal(xPartPreviewUnavailable.length, 24);
+assert.equal(xPartPreviewUnavailable.length, 55);
 assert.deepEqual(
   Object.fromEntries([...new Set(xPartPreviewMappings.map(entry => entry.sourceKind))]
     .sort()
