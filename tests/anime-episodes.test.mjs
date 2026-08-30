@@ -347,9 +347,9 @@ test("슈퍼킹 에피소드 주소·검색·레지스트리가 1화부터 52화
   const searchEntries = runtimeSearch.search.filter(entry => entry[4] === "burst-superking");
   const registryEntries = runtimeRegistry.items.filter(([id]) => id.startsWith("BURST-SUPERKING-EPISODE-"));
 
-  assert.equal(runtimeAnime.episodes.length, 730);
-  assert.equal(runtimeSearch.search.length, 730);
-  assert.equal(runtimeRegistry.items.length, 3569);
+  assert.equal(runtimeAnime.episodes.length, 733);
+  assert.equal(runtimeSearch.search.length, 733);
+  assert.equal(runtimeRegistry.items.length, 3572);
   assert.deepEqual(runtimeEpisodes.map(episodeTuple), expectedSuperkingRows);
   assert.deepEqual(searchEntries.map(entry => entry[1]), expectedSuperkingIds);
   assert.deepEqual(searchEntries.map(entry => [entry[3], entry[5], entry[6], entry[7], entry[8], entry[9]]), expectedSuperkingRows);
@@ -379,12 +379,31 @@ test("DB 에피소드 주소·검색·레지스트리가 1화부터 52화까지 
   const searchEntries = runtimeSearch.search.filter(entry => entry[4] === "burst-db");
   const registryEntries = runtimeRegistry.items.filter(([id]) => id.startsWith("BURST-DB-EPISODE-"));
 
-  assert.equal(runtimeAnime.episodes.length, 730);
-  assert.equal(runtimeSearch.search.length, 730);
-  assert.equal(runtimeRegistry.items.length, 3569);
+  assert.equal(runtimeAnime.episodes.length, 733);
+  assert.equal(runtimeSearch.search.length, 733);
+  assert.equal(runtimeRegistry.items.length, 3572);
   assert.deepEqual(runtimeEpisodes.map(episodeTuple), expectedDbRows);
   assert.deepEqual(searchEntries.map(entry => entry[1]), expectedDbIds);
   assert.deepEqual(searchEntries.map(entry => [entry[3], entry[5], entry[6], entry[7], entry[8], entry[9]]), expectedDbRows);
   assert.deepEqual(registryEntries.map(([id]) => id), expectedDbIds);
   assert.ok(runtimeRegistry.items.some(([id]) => id === "BEYBLADE-X-EPISODE-1"));
+});
+
+test("베이블레이드 X 3 한일 공식 방영정보가 지역별 제목과 날짜로 생성된다", () => {
+  const expected = [
+    ["첫 방송", "베이블레이드X S3", "", "2026-07-07", "", "매주 화요일 오후 3시 투니버스"],
+    ["130화", "", "フォースステージだゆ～", "", "2026-08-28", ""],
+    ["131화", "", "未来をかけて", "", "2026-09-04", "다음 회차 예고"]
+  ];
+  const expectedIds = expected.map((_, index) => `BEYBLADE-X-3-EPISODE-${index + 1}`);
+  const sourceEpisodes = animeInfo.episodes.filter(episode => episode.season === "beyblade-x-3");
+  const runtimeEpisodes = runtimeAnime.episodes.filter(episode => episode.season === "beyblade-x-3");
+  const searchEntries = runtimeSearch.search.filter(entry => entry[4] === "beyblade-x-3");
+  const registryEntries = runtimeRegistry.items.filter(([id]) => id.startsWith("BEYBLADE-X-3-EPISODE-"));
+
+  assert.deepEqual(sourceEpisodes.map(episodeTuple), expected);
+  assert.deepEqual(runtimeEpisodes.map(episodeTuple), expected);
+  assert.deepEqual(searchEntries.map(entry => entry[1]), expectedIds);
+  assert.deepEqual(searchEntries.map(entry => [entry[3], entry[5], entry[6], entry[7], entry[8], entry[9]]), expected);
+  assert.deepEqual(registryEntries.map(([id]) => id), expectedIds);
 });

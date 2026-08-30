@@ -142,6 +142,7 @@ const primaryRouteOpeners = {
     const options = originState ? {
       ...(route.options || {}),
       animeSeason: originState.animeSeason || route.options?.animeSeason,
+      animeRegion: originState.animeRegion || route.options?.animeRegion,
       animeQuery: typeof originState.animeQuery === "string" ? originState.animeQuery : route.options?.animeQuery,
       updateHash: false,
       preserveSearch

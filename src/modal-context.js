@@ -52,6 +52,7 @@ const modalOriginStateGetters = {
   }),
   "category-anime-episodes": () => ({
     animeSeason: appState.anime.season,
+    animeRegion: appState.anime.region,
     animeQuery: appState.anime.episodeQuery
   })
 };
@@ -66,6 +67,7 @@ const modalContextOptionKeys = [
   "series",
   "releaseQuery",
   "animeSeason",
+  "animeRegion",
   "animeQuery",
   "rareBeyGetListRegion",
   "rareBeyGetListSeries",

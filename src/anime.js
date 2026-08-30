@@ -3,10 +3,12 @@ import {
   animeCharacterAllSeason,
   animeCharacterSeasonEntries,
   animeDisplayRegion,
+  animeRegionLabels,
   animeSeasonEntries,
   animeSeasonLabels,
   defaultAnimeSeason,
   normalizeAnimeCharacterSeason,
+  normalizeAnimeRegion,
   normalizeAnimeSeason
 } from "#app/anime-core";
 import { renderCategoryCollection, renderPagination, scrollGridIntoView } from "#app/collection-view";
@@ -15,6 +17,7 @@ import { animeInfo } from "#app/data-store";
 import { escapeAttributeValue, escapeHtml } from "#app/markup-core";
 import { animeAirDateCompactLabel, animeAirDateLabel, responsiveDateSpans } from "#app/release-core";
 import { TableListController, tableListControlsMarkup, tableListDropdownMarkup, tableListPageMarkup, tableListTableMarkup } from "#app/table-list-view";
+import { tabButtonMarkup } from "#app/ui-markup";
 import { appServices, registerAppServices } from "#app/services";
 import { normalizeRoute } from "#app/route-parser";
 import { navigateToRoute } from "#app/navigation";
@@ -114,10 +117,15 @@ const restoreStoredAnimeOrigin = originState => {
   }
 };
 
+const animeEpisodeRegion = () => normalizeAnimeRegion(appState.anime.region);
+const animeEpisodeRegionTabs = () => `<div class="table-list-region-tabs anime-region-tabs" role="group" aria-label="방영 지역">
+  ${Object.entries(animeRegionLabels).map(([value, label]) => tabButtonMarkup({ value, label, active: animeEpisodeRegion() === value, dataAttr: "data-anime-region" })).join("")}
+</div>`;
 const animeEpisodeControls = () => tableListControlsMarkup({
   label: "방영목록 필터",
   className: "anime-episode-controls",
   attrs: "data-anime-controls",
+  before: animeEpisodeRegionTabs(),
   dropdown: {
     label: animeSeasonLabels[appState.anime.season] || "",
     entries: animeSeasonEntries(),
@@ -378,28 +386,31 @@ function renderAnimePage() {
   renderCategoryCollection(animeCharacterCollectionConfig);
 }
 
-const animeEpisodeSearchText = episode => [
+const animeEpisodeSearchText = (episode, region = animeEpisodeRegion()) => [
   episode.no || "",
-  episode.titles?.[animeDisplayRegion] || "",
-  animeAirDateLabel(episode.airDates?.[animeDisplayRegion] || ""),
+  episode.titles?.[region] || "",
+  animeAirDateLabel(episode.airDates?.[region] || ""),
   episode.note || ""
 ].join(" ");
-const animeEpisodeDisplayInitialSearchText = episode => episode.titles?.[animeDisplayRegion] || "";
+const animeEpisodeDisplayInitialSearchText = (episode, region = animeEpisodeRegion()) => episode.titles?.[region] || "";
 
 const visibleAnimeEpisodes = () => {
   const query = appState.anime.episodeQuery.trim();
+  const region = animeEpisodeRegion();
   return animeInfo.episodes
     .map((episode, index) => ({ episode, index }))
     .filter(({ episode }) => episode.season === appState.anime.season)
-    .filter(({ episode }) => matchesSearchText(animeEpisodeSearchText(episode), query, animeEpisodeDisplayInitialSearchText(episode)));
+    .filter(({ episode }) => episode.titles?.[region] || episode.airDates?.[region])
+    .filter(({ episode }) => matchesSearchText(animeEpisodeSearchText(episode, region), query, animeEpisodeDisplayInitialSearchText(episode, region)));
 };
 
 const animeEpisodeRowsMarkup = visibleRows => {
+  const region = animeEpisodeRegion();
   const rows = visibleRows.map(({ episode, index }) => {
-    const airDate = episode.airDates?.[animeDisplayRegion] || "";
+    const airDate = episode.airDates?.[region] || "";
     return `<tr class="table-list-row anime-episode-row" data-anime-episode-index="${index}">
     <td>${escapeHtml(episode.no || "")}</td>
-    <td><button class="table-list-row-action table-list-primary-text anime-episode-title" type="button">${escapeHtml(episode.titles?.[animeDisplayRegion] || "")}</button><span class="mobile-row-meta"><span>${escapeHtml(animeAirDateCompactLabel(airDate))}</span></span></td>
+    <td><button class="table-list-row-action table-list-primary-text anime-episode-title" type="button">${escapeHtml(episode.titles?.[region] || "")}</button><span class="mobile-row-meta"><span>${escapeHtml(animeAirDateCompactLabel(airDate))}</span></span></td>
     <td>${responsiveDateSpans("anime-air-date-full", "anime-air-date-compact", animeAirDateLabel(airDate), animeAirDateCompactLabel(airDate))}</td>
   </tr>`;
   }).join("");
@@ -435,6 +446,10 @@ const animeEpisodeTableController = new TableListController({
   bind: (root, controller) => {
     const animePanel = root.querySelector(".category-anime-episodes");
     if (!animePanel) return;
+    animePanel.querySelectorAll("[data-anime-region]").forEach(button => button.addEventListener("click", event => {
+      appState.anime.region = normalizeAnimeRegion(event.currentTarget.dataset.animeRegion);
+      controller.renderPage();
+    }));
     animePanel.querySelectorAll("[data-anime-season]").forEach(button => button.addEventListener("click", event => {
       appState.anime.season = normalizeAnimeSeason(event.currentTarget.dataset.animeSeason);
       event.currentTarget.closest(".catalog-dropdown")?.removeAttribute("open");
@@ -453,6 +468,7 @@ const animeEpisodeTableController = new TableListController({
       appServices.queueModalTransition("list");
       appServices.openAnimeEpisodeDetail(index, {
         fromAnimeList: true,
+        animeRegion: animeEpisodeRegion(),
         animeSeason: appState.anime.season,
         animeQuery: appState.anime.episodeQuery
       });
@@ -467,6 +483,8 @@ function renderAnimeEpisodesPage() {
 function openCategoryAnimeEpisodesDetail(options = {}) {
   if (appServices.routeIfNeeded({ type: "category-anime-episodes", options }, options)) return;
   const preserveSearch = options.preserveSearch === true;
+  if (options.animeRegion) appState.anime.region = normalizeAnimeRegion(options.animeRegion);
+  else if (!preserveSearch) appState.anime.region = animeDisplayRegion;
   if (options.animeSeason) appState.anime.season = normalizeAnimeSeason(options.animeSeason);
   else if (!preserveSearch && !animeInfo.episodes.some(episode => episode.season === appState.anime.season)) appState.anime.season = defaultAnimeSeason();
   if (typeof options.animeQuery === "string") appState.anime.episodeQuery = options.animeQuery;

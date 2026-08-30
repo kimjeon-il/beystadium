@@ -3,6 +3,7 @@ import {
   animeEpisodeTitle,
   episodeHashId,
   episodeIndexFromHash,
+  normalizeAnimeRegion,
   normalizeAnimeSeason
 } from "#app/anime-core";
 import { animeInfo } from "#app/data-store";
@@ -12,6 +13,7 @@ import { appServices } from "#app/services";
 
 const rememberAnimeModalContext = () => rememberModalContext("category-anime-episodes", "anime-episode", {
   animeSeason: appState.anime.season,
+  animeRegion: appState.anime.region,
   animeQuery: appState.anime.episodeQuery
 });
 
@@ -26,6 +28,7 @@ function openAnimeEpisodeDetail(indexOrId, options = {}) {
     return;
   }
   const backAnimeSeason = normalizeAnimeSeason(options.animeSeason || episode.season || appState.anime.season);
+  const backAnimeRegion = normalizeAnimeRegion(options.animeRegion || appState.anime.region);
   const backAnimeQuery = typeof options.animeQuery === "string" ? options.animeQuery : appState.anime.episodeQuery;
   const backButton = options.fromAnimeList
     ? appServices.modalBackButtonMarkup({ label: "방영목록으로 돌아가기", animeEpisodes: true })
@@ -35,7 +38,7 @@ function openAnimeEpisodeDetail(indexOrId, options = {}) {
     <div class="modal-art product-modal-art"></div>
     <div class="modal-info product-modal-info">
       <div class="modal-scroll-area">
-        <h3 class="modal-name product-modal-name">${escapeHtml(animeEpisodeTitle(episode))}</h3>
+        <h3 class="modal-name product-modal-name">${escapeHtml(animeEpisodeTitle(episode, backAnimeRegion))}</h3>
         <div class="product-empty-info-slot" aria-hidden="true"></div>
       </div>
     </div>
@@ -44,6 +47,7 @@ function openAnimeEpisodeDetail(indexOrId, options = {}) {
   content.querySelector("[data-back-anime-episodes]")?.addEventListener("click", () => {
     appServices.openCategoryAnimeEpisodesDetail({
       animeSeason: backAnimeSeason,
+      animeRegion: backAnimeRegion,
       animeQuery: backAnimeQuery
     });
   });
@@ -53,6 +57,7 @@ function openAnimeEpisodeDetail(indexOrId, options = {}) {
     contextOptions: {
       fromAnimeList: options.fromAnimeList,
       animeSeason: backAnimeSeason,
+      animeRegion: backAnimeRegion,
       animeQuery: backAnimeQuery
     }
   });
