@@ -42,7 +42,7 @@ const detailModalFallbackCloseRoute = (context = appState.modal.detailContext) =
   };
   if (options.fromAnimeList) return {
     type: "category-anime-episodes",
-    options: detailModalRouteOptions(options, ["animeSeason", "animeRegion", "animeQuery"])
+    options: detailModalRouteOptions(options, ["animeSeason", "animeQuery"])
   };
   const id = context?.id || "";
   if (catalogCoreItemsById.has(id) || toolsItemsById.has(id)) return { type: "catalog", scope: "all" };

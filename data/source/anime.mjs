@@ -752,10 +752,7 @@ const animeInfo = {
     { no: "46화", season: "beyblade-x-2", titles: { kr: "스타배틀 최강전", jp: "" }, airDates: { kr: "2026-02-23", jp: "" }, note: "" },
     { no: "47화", season: "beyblade-x-2", titles: { kr: "절대로 지지 않아", jp: "" }, airDates: { kr: "2026-03-02", jp: "" }, note: "" },
     { no: "48화", season: "beyblade-x-2", titles: { kr: "초신성", jp: "" }, airDates: { kr: "2026-03-09", jp: "" }, note: "" },
-    { no: "49화", season: "beyblade-x-2", titles: { kr: "별을 삼키는 자", jp: "" }, airDates: { kr: "2026-03-16", jp: "" }, note: "" },
-    { no: "첫 방송", season: "beyblade-x-3", titles: { kr: "베이블레이드X S3", jp: "" }, airDates: { kr: "2026-07-07", jp: "" }, note: "매주 화요일 오후 3시 투니버스" },
-    { no: "130화", season: "beyblade-x-3", titles: { kr: "", jp: "フォースステージだゆ～" }, airDates: { kr: "", jp: "2026-08-28" }, note: "" },
-    { no: "131화", season: "beyblade-x-3", titles: { kr: "", jp: "未来をかけて" }, airDates: { kr: "", jp: "2026-09-04" }, note: "다음 회차 예고" }
+    { no: "49화", season: "beyblade-x-2", titles: { kr: "별을 삼키는 자", jp: "" }, airDates: { kr: "2026-03-16", jp: "" }, note: "" }
   ]
 };
 

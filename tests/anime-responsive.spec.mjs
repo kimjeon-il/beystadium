@@ -1,37 +1,6 @@
 import { expect, test } from "@playwright/test";
 import { X_ASSET_CACHE_VERSION, consoleErrors, expectModalBackAtShellTopLeft } from "./helpers/ui-assertions.mjs";
 
-test("베이블레이드 X 3 방영목록은 한국·일본 공식 일정을 지역별로 제공한다", async ({ page }, testInfo) => {
-  test.skip(testInfo.project.name !== "desktop", "한일 방영목록은 데스크톱 대표 화면에서 확인합니다.");
-  const errors = consoleErrors(page);
-
-  await page.goto("/#anime-episode");
-  await expect(page.locator('[data-anime-season="beyblade-x-3"].active')).toHaveCount(1);
-  await expect(page.locator('.anime-region-tabs [data-anime-region="kr"]')).toHaveAttribute("aria-pressed", "true");
-  await expect(page.locator(".anime-episode-row")).toHaveCount(1);
-  await expect(page.locator(".anime-episode-row td").nth(0)).toHaveText("첫 방송");
-  await expect(page.locator(".anime-episode-title")).toHaveText("베이블레이드X S3");
-  await expect(page.locator(".anime-air-date-full")).toHaveText("2026년 7월 7일");
-
-  await page.locator('.anime-region-tabs [data-anime-region="jp"]').click();
-  const rows = page.locator(".anime-episode-row");
-  await expect(page.locator('.anime-region-tabs [data-anime-region="jp"]')).toHaveAttribute("aria-pressed", "true");
-  await expect(rows).toHaveCount(2);
-  await expect(rows.first().locator("td").nth(0)).toHaveText("130화");
-  await expect(rows.first().locator(".anime-episode-title")).toHaveText("フォースステージだゆ～");
-  await expect(rows.first().locator(".anime-air-date-full")).toHaveText("2026년 8월 28일");
-  await expect(rows.last().locator(".anime-episode-title")).toHaveText("未来をかけて");
-  await expect(rows.last().locator(".anime-air-date-full")).toHaveText("2026년 9월 4일");
-
-  await rows.last().click();
-  await expect(page).toHaveURL(/#BEYBLADE-X-3-EPISODE-3$/);
-  await expect(page.locator("#detailModal .product-modal-name")).toHaveText("131화 未来をかけて");
-  await page.locator("#detailModal .modal-back[data-back-anime-episodes]").click();
-  await expect(page.locator('.anime-region-tabs [data-anime-region="jp"]')).toHaveAttribute("aria-pressed", "true");
-  await expect(page.locator(".anime-episode-row")).toHaveCount(2);
-  expect(errors).toEqual([]);
-});
-
 test("진검 방영목록은 52개 회차와 교정된 검색·상세 주소를 제공한다", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "진검 방영목록은 데스크톱 대표 화면에서 확인합니다.");
   const errors = consoleErrors(page);

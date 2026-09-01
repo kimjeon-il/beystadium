@@ -13,7 +13,6 @@ const appState = {
     renderKey: ""
   },
   anime: {
-    region: "kr",
     page: 1,
     renderKey: "",
     characterSeason: "all",

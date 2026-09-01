@@ -48,8 +48,6 @@ const defaultAnimeSeason = () => [...animeSeasonOrder].reverse().find(season =>
 const normalizeAnimeSeason = season => animeSeasonLabels[season] ? season : defaultAnimeSeason();
 const normalizeAnimeCharacterSeason = season => animeSeasonLabels[season] ? season : animeCharacterAllSeason;
 const animeDisplayRegion = "kr";
-const animeRegionLabels = { kr: "한국", jp: "일본" };
-const normalizeAnimeRegion = region => animeRegionLabels[region] ? region : animeDisplayRegion;
 
 const animeEpisodeHashPrefixes = {
   topblade: "TOPBLADE-EPISODE",
@@ -66,8 +64,7 @@ const animeEpisodeHashPrefixes = {
   "burst-superking": "BURST-SUPERKING-EPISODE",
   "burst-db": "BURST-DB-EPISODE",
   "beyblade-x": "BEYBLADE-X-EPISODE",
-  "beyblade-x-2": "BEYBLADE-X-2-EPISODE",
-  "beyblade-x-3": "BEYBLADE-X-3-EPISODE"
+  "beyblade-x-2": "BEYBLADE-X-2-EPISODE"
 };
 
 const animeEpisodeSeasonIndex = index => {
@@ -102,7 +99,7 @@ const episodeIndexFromHash = id => {
 };
 
 const animeEpisodeTitle = (episode, region = animeDisplayRegion) => {
-  const title = episode?.titles?.[region] || episode?.titles?.kr || episode?.titles?.jp || "";
+  const title = episode?.titles?.[region] || episode?.titles?.kr || "";
   return [episode?.no || "", title].filter(Boolean).join(" ");
 };
 
@@ -111,7 +108,6 @@ export {
   animeCharacterSeasonEntries,
   animeDisplayRegion,
   animeEpisodeTitle,
-  animeRegionLabels,
   animeSeasonEntries,
   animeSeasonLabels,
   defaultAnimeSeason,
@@ -119,6 +115,5 @@ export {
   episodeIndexFromHash,
   isAnimeEpisodeHash,
   normalizeAnimeCharacterSeason,
-  normalizeAnimeRegion,
   normalizeAnimeSeason
 };

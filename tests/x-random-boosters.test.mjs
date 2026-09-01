@@ -146,10 +146,13 @@ test("Brachio Whip color variants remain distinct slot entries", () => {
 });
 
 test("Croco Tread color variants remain distinct slot entries", () => {
+  const product = productsById.get("PRODUCT-X-CX-19");
   const variants = expectedLineups["PRODUCT-X-CX-19"].map(id => beysById.get(id));
+  assert.equal(product.releases.jp.name, "랜덤부스터 크로코 트레드 셀렉트");
   assert.equal(new Set(variants.map(item => item.id)).size, 3);
   assert.equal(new Set(variants.map(item => item.productNo)).size, 3);
   assert.equal(new Set(variants.map(item => item.name)).size, 1);
+  assert.equal(variants[0].name, "크로코 트레드TQ 5-50GN");
   assert.equal(new Set(variants.map(item => item.parts.join("|"))).size, 1);
 });
 

@@ -7,7 +7,7 @@ import { productItems } from "../data/source/products.mjs";
 import { rareBeyGetItems } from "../data/source/rare-bey-get.mjs";
 import { bookItems, gameItems, toolsItems } from "../data/source/secondary.mjs";
 
-const VERSION = "20260831-weekly-anime";
+const VERSION = "20260827-burst-b36-official-front";
 const SERIES_SLUGS = {
   "metal fight": "metal-fight",
   burst: "burst",
@@ -30,8 +30,7 @@ const ANIME_EPISODE_PREFIXES = {
   "burst-superking": "BURST-SUPERKING-EPISODE",
   "burst-db": "BURST-DB-EPISODE",
   "beyblade-x": "BEYBLADE-X-EPISODE",
-  "beyblade-x-2": "BEYBLADE-X-2-EPISODE",
-  "beyblade-x-3": "BEYBLADE-X-3-EPISODE"
+  "beyblade-x-2": "BEYBLADE-X-2-EPISODE"
 };
 
 const sourceData = {

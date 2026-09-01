@@ -209,7 +209,7 @@ const releaseKindSortValue = kind => {
   if (value.includes("게임")) return 3;
   return 4;
 };
-const releaseRegionTabs = () => `<div class="table-list-region-tabs release-region-tabs" role="group" aria-label="출시 지역">
+const releaseRegionTabs = () => `<div class="release-region-tabs" role="group" aria-label="출시 지역">
   ${Object.entries(releaseRegionLabels).map(([value, label]) => tabButtonMarkup({ value, label, active: appState.release.region === value, dataAttr: "data-release-region" })).join("")}
 </div>`;
 const releaseControls = () => tableListControlsMarkup({
