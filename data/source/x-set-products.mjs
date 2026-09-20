@@ -18,8 +18,10 @@ const xSetPartItems = [
   { id: "PART-X-BLADE-SPINOSAURUS", series: "x", type: "blade", name: "스피노사우루스", en: "Spinosaurus", battleType: "attack", spin: "right", desc: "", stats: [] },
   { id: "PART-X-BLADE-QUETZALCOATLUS", series: "x", type: "blade", name: "케찰코아틀루스", en: "Quetzalcoatlus", battleType: "defense", spin: "right", desc: "", stats: [] },
   { id: "PART-X-BLADE-LOCK-CHIP-EVA", series: "x", type: "blade", name: "에바", en: "Eva", spin: "right", xLine: "custom", xBladeRole: "lockChip", desc: "", stats: [] },
-  { id: "PART-X-BLADE-HELLS-NETHER", series: "x", type: "blade", name: "헬즈네더", en: "Hells Nether", battleType: "balance", spin: "right", xLine: "unique", desc: "", stats: [] },
-  { id: "PART-X-BLADE-WYVERN-HOVER", series: "x", type: "blade", name: "와이번호버", en: "Wyvern Hover", battleType: "stamina", spin: "right", xLine: "unique", desc: "", stats: [] },
+  { id: "PART-X-BLADE-HELLS-NETHER", series: "x", type: "blade", name: "헬즈 네더", jpName: "헬즈네더", en: "Hells Nether", battleType: "balance", spin: "right", xLine: "unique", desc: "", stats: [] },
+  { id: "PART-X-BLADE-WYVERN-HOVER", series: "x", type: "blade", name: "와이번 호버", jpName: "와이번호버", en: "Wyvern Hover", battleType: "stamina", spin: "right", xLine: "unique", desc: "", stats: [] },
+  { id: "PART-X-BLADE-WIZARD-ARROW-VERSION-2-0", series: "x", type: "blade", name: "위저드애로우 버전 2.0", en: "Wizard Arrow Version 2.0", battleType: "stamina", spin: "right", xLine: "basic", desc: "성능을 재검토하고 조정한 위저드애로우 블레이드.", stats: [] },
+  { id: "PART-X-BLADE-KNIGHT-SHIELD-VERSION-2-0", series: "x", type: "blade", name: "나이트실드 버전 2.0", en: "Knight Shield Version 2.0", battleType: "defense", spin: "right", xLine: "basic", desc: "성능을 재검토하고 조정한 나이트실드 블레이드.", stats: [] },
   { id: "PART-X-RATCHET-8-80", series: "x", type: "ratchet", name: "8-80", en: "8-80", battleType: "stamina", desc: "", stats: [], extraStats: [{ name: "높이", value: 80 }] }
 ];
 
@@ -47,9 +49,12 @@ const xSetBeyItems = [
   { id: "BEY-X-CX-00-EVA-ARC-B-0-70E", series: "x", type: "bey", name: "에바 아크B 0-70E", en: "EvaArc B0-70E", productNo: "CX-00", battleType: "balance", spin: "right", desc: "", parts: ["PART-X-BLADE-LOCK-CHIP-EVA", "PART-X-BLADE-MAIN-BLADE-ARC", "PART-X-BLADE-ASSIST-BLADE-BUMPER", "PART-X-RATCHET-0-70", "PART-X-BIT-E"] },
   { id: "BEY-X-CX-00-EVA-BRAVE-A-1-70V", series: "x", type: "bey", name: "에바 브레이브A 1-70V", en: "EvaBrave A1-70V", productNo: "CX-00", battleType: "attack", spin: "right", desc: "", parts: ["PART-X-BLADE-LOCK-CHIP-EVA", "PART-X-BLADE-MAIN-BLADE-BRAVE", "PART-X-BLADE-ASSIST-BLADE-ASSAULT", "PART-X-RATCHET-1-70", "PART-X-BIT-V"] },
   { id: "BEY-X-CX-00-EVA-BRUSH-T-2-70A", series: "x", type: "bey", name: "에바 브러시T 2-70A", en: "EvaBrush T2-70A", productNo: "CX-00", battleType: "attack", spin: "right", desc: "", parts: ["PART-X-BLADE-LOCK-CHIP-EVA", "PART-X-BLADE-MAIN-BLADE-BRUSH", "PART-X-BLADE-ASSIST-BLADE-TURN", "PART-X-RATCHET-2-70", "PART-X-BIT-A"] },
-  { id: "BEY-X-UX-21-HELLS-NETHER-Z", series: "x", type: "bey", name: "헬즈네더 Z", en: "Hells Nether Z", productNo: "UX-21", battleType: "balance", spin: "right", desc: "", parts: ["PART-X-BLADE-HELLS-NETHER", "PART-X-BIT-Z"] },
-  { id: "BEY-X-UX-21-SILVER-WOLF-9-70R", series: "x", type: "bey", name: "실버울프 9-70R", en: "Silver Wolf 9-70R", productNo: "UX-21", battleType: "stamina", spin: "right", desc: "", parts: ["PART-X-BLADE-SILVER-WOLF", "PART-X-RATCHET-9-70", "PART-X-BIT-R"] },
-  { id: "BEY-X-UX-21-WYVERN-HOVER-8-80B", series: "x", type: "bey", name: "와이번호버 8-80B", en: "Wyvern Hover 8-80B", productNo: "UX-21", battleType: "stamina", spin: "right", desc: "", parts: ["PART-X-BLADE-WYVERN-HOVER", "PART-X-RATCHET-8-80", "PART-X-BIT-B"] }
+  { id: "BEY-X-UX-21-HELLS-NETHER-Z", series: "x", type: "bey", name: "헬즈 네더 Z", jpName: "헬즈네더 Z", en: "Hells Nether Z", productNo: "UX-21", battleType: "balance", spin: "right", desc: "", parts: ["PART-X-BLADE-HELLS-NETHER", "PART-X-BIT-Z"] },
+  { id: "BEY-X-UX-21-SILVER-WOLF-9-70R", series: "x", type: "bey", name: "실버 울프 9-70R", jpName: "실버울프 9-70R", en: "Silver Wolf 9-70R", productNo: "UX-21", battleType: "stamina", spin: "right", desc: "", parts: ["PART-X-BLADE-SILVER-WOLF", "PART-X-RATCHET-9-70", "PART-X-BIT-R"] },
+  { id: "BEY-X-UX-21-WYVERN-HOVER-8-80B", series: "x", type: "bey", name: "와이번 호버 8-80B", jpName: "와이번호버 8-80B", en: "Wyvern Hover 8-80B", productNo: "UX-21", battleType: "stamina", spin: "right", desc: "", parts: ["PART-X-BLADE-WYVERN-HOVER", "PART-X-RATCHET-8-80", "PART-X-BIT-B"] },
+  { id: "BEY-X-BX-53-AERO-PEGASUS-3-70A", series: "x", type: "bey", name: "에어로페가서스 3-70A 더블 메탈 코트: 블루×시안", en: "Aero Pegasus 3-70A Double Metal Coat: Blue × Cyan", productNo: "BX-53", battleType: "attack", spin: "right", desc: "", parts: ["PART-X-BLADE-AERO-PEGASUS", "PART-X-RATCHET-3-70", "PART-X-BIT-A"] },
+  { id: "BEY-X-BX-53-WIZARD-ARROW-VERSION-2-0-4-80B", series: "x", type: "bey", name: "위저드애로우 4-80B 버전 2.0", en: "Wizard Arrow 4-80B Version 2.0", productNo: "BX-53", battleType: "stamina", spin: "right", desc: "", parts: ["PART-X-BLADE-WIZARD-ARROW-VERSION-2-0", "PART-X-RATCHET-4-80", "PART-X-BIT-B"] },
+  { id: "BEY-X-BX-53-KNIGHT-SHIELD-VERSION-2-0-3-80N", series: "x", type: "bey", name: "나이트실드 3-80N 버전 2.0", en: "Knight Shield 3-80N Version 2.0", productNo: "BX-53", battleType: "defense", spin: "right", desc: "", parts: ["PART-X-BLADE-KNIGHT-SHIELD-VERSION-2-0", "PART-X-RATCHET-3-80", "PART-X-BIT-N"] }
 ];
 
 const xSetProductCompositions = {
@@ -142,7 +147,11 @@ const xSetProductCompositions = {
     jp: [item("바하무트 블리츠BK 1-50I", "BEY-X-CX-16-BAHAMUT-BLITZ-BK-1-50I"), item("와인더런처", "TOOLS-X-WINDER-LAUNCHER"), item("런처그립", "TOOLS-X-LAUNCHER-GRIP"), item("익스트림스타디움", "TOOLS-X-XTREME-STADIUM")]
   },
   "PRODUCT-X-UX-21": {
+    kr: [item("헬즈 네더 Z", "BEY-X-UX-21-HELLS-NETHER-Z"), item("실버 울프 9-70R", "BEY-X-UX-21-SILVER-WOLF-9-70R"), item("와이번 호버 8-80B", "BEY-X-UX-21-WYVERN-HOVER-8-80B")],
     jp: [item("헬즈네더 Z", "BEY-X-UX-21-HELLS-NETHER-Z"), item("실버울프 9-70R", "BEY-X-UX-21-SILVER-WOLF-9-70R"), item("와이번호버 8-80B", "BEY-X-UX-21-WYVERN-HOVER-8-80B")]
+  },
+  "PRODUCT-X-BX-53": {
+    jp: [item("에어로페가서스 3-70A 더블 메탈 코트: 블루×시안", "BEY-X-BX-53-AERO-PEGASUS-3-70A"), item("위저드애로우 4-80B 버전 2.0", "BEY-X-BX-53-WIZARD-ARROW-VERSION-2-0-4-80B"), item("나이트실드 3-80N 버전 2.0", "BEY-X-BX-53-KNIGHT-SHIELD-VERSION-2-0-3-80N"), item("와인더런처", "TOOLS-X-WINDER-LAUNCHER"), item("스트링런처", "TOOLS-X-STRING-LAUNCHER"), item("익스트림스타디움", "TOOLS-X-XTREME-STADIUM")]
   }
 };
 

@@ -8583,7 +8583,13 @@
     series: "x",
     releases: {
       kr: {
-        status: "unreleased"
+        no: "CX-05",
+        name: "랜덤 부스터 Vol.06",
+        sale: "일반 판매",
+        kind: "랜덤부스터",
+        releaseDate: "2026-09",
+        price: "",
+        composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-X-CX-05-01-HELLS-REAPER-T-4-70K" }]
       },
       jp: {
         no: "CX-05",
@@ -9699,7 +9705,13 @@
     series: "x",
     releases: {
       kr: {
-        status: "unreleased"
+        no: "BX-50",
+        name: "랜덤 부스터 Vol.11",
+        sale: "일반 판매",
+        kind: "랜덤부스터",
+        releaseDate: "2026-09",
+        price: "",
+        composition: [{ name: "무작위 베이", quantity: "1개", target: "BEY-X-BX-50-01-HEAVENS-RING-0-80DS" }]
       },
       jp: {
         no: "BX-50",
@@ -9773,7 +9785,13 @@
     series: "x",
     releases: {
       kr: {
-        status: "unreleased"
+        no: "UX-21",
+        name: "헬즈 네더 덱 세트",
+        sale: "일반 판매",
+        kind: "세트",
+        releaseDate: "2026-09",
+        price: "",
+        composition: []
       },
       jp: {
         no: "UX-21",
@@ -9850,6 +9868,57 @@
         releaseDate: "2026-09-12",
         price: "1600",
         composition: []
+      }
+    }
+  },
+  {
+    id: "PRODUCT-X-BX-52",
+    series: "x",
+    releases: {
+      kr: {
+        status: "unreleased"
+      },
+      jp: {
+        no: "BX-52",
+        name: "라스터드라군 6-60LC",
+        kind: "스타터",
+        releaseDate: "2026-10-10",
+        price: "2300",
+        composition: [{ name: "라스터드라군 6-60LC", quantity: "1개", target: "BEY-X-BX-52-LUSTER-DRAGOON-6-60LC" }, { name: "롱와인더런처L", quantity: "1개", target: "TOOLS-X-WINDER-LAUNCHER-L" }]
+      }
+    }
+  },
+  {
+    id: "PRODUCT-X-BX-53",
+    series: "x",
+    releases: {
+      kr: {
+        status: "unreleased"
+      },
+      jp: {
+        no: "BX-53",
+        name: "올인원 세트",
+        kind: "세트",
+        releaseDate: "2026-10-10",
+        price: "7480",
+        composition: []
+      }
+    }
+  },
+  {
+    id: "PRODUCT-X-BX-56",
+    series: "x",
+    releases: {
+      kr: {
+        status: "unreleased"
+      },
+      jp: {
+        no: "BX-56",
+        name: "스트링런처L 화이트×바이올렛",
+        kind: "툴",
+        releaseDate: "2026-10-10",
+        price: "1100",
+        composition: [{ name: "스트링런처L", quantity: "1개", target: "TOOLS-X-STRING-LAUNCHER-L" }]
       }
     }
   }

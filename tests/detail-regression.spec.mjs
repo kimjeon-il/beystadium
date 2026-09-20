@@ -254,6 +254,37 @@ test("X bey detail names use Japanese only from an explicit Japanese release con
   expect(errors).toEqual([]);
 });
 
+test("September Korean releases keep official spacing across list, detail, and search", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "regional names are shared by desktop and mobile layouts");
+  const errors = consoleErrors(page);
+  const domClick = locator => locator.evaluate(element => element.click());
+
+  await page.goto("/#toy-release");
+  await domClick(page.locator('.release-region-tabs button[data-release-region="kr"]'));
+  await domClick(page.locator(".release-list-page .table-list-dropdown summary"));
+  await domClick(page.locator('[data-release-series="x"]'));
+  await page.locator("#releaseSearchInput").fill("UX-21");
+  const releaseRow = page.locator('.release-product-row[data-product-id="PRODUCT-X-UX-21"]');
+  await expect(releaseRow).toContainText("헬즈 네더 덱 세트");
+  await domClick(releaseRow.locator(".table-list-row-action"));
+  await expect(page.locator("#detailModal .modal-name")).toHaveText("헬즈 네더 덱 세트");
+  const compositionLinks = page.locator("#detailModal .product-composition-list .composition-link");
+  await expect(compositionLinks).toHaveText([
+    "헬즈 네더 Z 1개→",
+    "실버 울프 9-70R 1개→",
+    "와이번 호버 8-80B 1개→"
+  ]);
+
+  await page.goto(`/#toy-catalog?scope=bey&series=x&q=${encodeURIComponent("와이번 호버 8-80B")}`);
+  const catalogCard = page.locator('#catalogGrid .catalog-card[data-id="BEY-X-UX-21-WYVERN-HOVER-8-80B"]');
+  await expect(catalogCard).toBeVisible();
+  await expect(catalogCard.locator(".catalog-card-title")).toHaveText("와이번 호버 8-80B");
+  await domClick(catalogCard.locator(".catalog-card-action"));
+  await expect(page.locator("#detailModal .modal-name")).toHaveText("와이번 호버 8-80B");
+
+  expect(errors).toEqual([]);
+});
+
 test("X random booster products open their ordered Bey lineups", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "lineup data is shared by desktop and mobile layouts");
   test.setTimeout(60_000);

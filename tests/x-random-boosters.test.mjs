@@ -50,7 +50,7 @@ const expectedLineups = {
 const productsById = new Map(productItems.map(item => [item.id, item]));
 const beysById = new Map(beyItems.map(item => [item.id, item]));
 const partsById = new Map(partItems.map(item => [item.id, item]));
-const koreanReleasedRandomBoosters = new Set(["PRODUCT-X-CX-17", "PRODUCT-X-CX-18"]);
+const koreanReleasedRandomBoosters = new Set(["PRODUCT-X-CX-17", "PRODUCT-X-CX-18", "PRODUCT-X-BX-50"]);
 
 test("X random booster products expose exact regional lineups", () => {
   assert.deepEqual(xRandomBoosterLineups, expectedLineups);

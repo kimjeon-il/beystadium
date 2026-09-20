@@ -10,8 +10,8 @@ import { xProductBaseNo, xProductBeyNumberIssues } from "../scripts/x-product-nu
 const productsById = new Map(productItems.map(product => [product.id, product]));
 const allTargetIds = new Set([...beyItems, ...partItems, ...toolsItems].map(item => item.id));
 
-test("25 requested X products expose the exact regional compositions", () => {
-  assert.equal(Object.keys(xSetProductCompositions).length, 25);
+test("26 requested X products expose the exact regional compositions", () => {
+  assert.equal(Object.keys(xSetProductCompositions).length, 26);
 
   for (const [productId, regionalCompositions] of Object.entries(xSetProductCompositions)) {
     const product = productsById.get(productId);
@@ -25,11 +25,25 @@ test("25 requested X products expose the exact regional compositions", () => {
 
 test("set quantities and mixed Bey-part compositions stay exact", () => {
   const ux21 = productsById.get("PRODUCT-X-UX-21");
-  assert.deepEqual(ux21.releases.kr, { status: "unreleased" });
+  assert.deepEqual(ux21.releases.kr.composition.map(entry => entry.target), [
+    "BEY-X-UX-21-HELLS-NETHER-Z",
+    "BEY-X-UX-21-SILVER-WOLF-9-70R",
+    "BEY-X-UX-21-WYVERN-HOVER-8-80B"
+  ]);
   assert.deepEqual(ux21.releases.jp.composition.map(entry => entry.target), [
     "BEY-X-UX-21-HELLS-NETHER-Z",
     "BEY-X-UX-21-SILVER-WOLF-9-70R",
     "BEY-X-UX-21-WYVERN-HOVER-8-80B"
+  ]);
+
+  const bx53 = productsById.get("PRODUCT-X-BX-53");
+  assert.deepEqual(bx53.releases.jp.composition.map(entry => entry.target), [
+    "BEY-X-BX-53-AERO-PEGASUS-3-70A",
+    "BEY-X-BX-53-WIZARD-ARROW-VERSION-2-0-4-80B",
+    "BEY-X-BX-53-KNIGHT-SHIELD-VERSION-2-0-3-80N",
+    "TOOLS-X-WINDER-LAUNCHER",
+    "TOOLS-X-STRING-LAUNCHER",
+    "TOOLS-X-XTREME-STADIUM"
   ]);
 
   const ux10 = productsById.get("PRODUCT-X-UX-10");
