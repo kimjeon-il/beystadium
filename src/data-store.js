@@ -8,6 +8,7 @@ const bookItems = [];
 const gameItems = [];
 const animeInfo = { title: "", overview: [], characters: [], episodes: [] };
 const searchIndexItems = [];
+const DATA_CACHE_VERSION = "20261002-compact-relations";
 const X_ASSET_CACHE_VERSION = "20260827-burst-b36-official-front";
 
 const versionAssetUrl = source => {
@@ -203,7 +204,7 @@ const BeystadiumDataStore = (() => {
   const initialize = async () => {
     clearError();
     try {
-      indexData = await fetchJson(`./data/runtime/index.json?v=${X_ASSET_CACHE_VERSION}`);
+      indexData = await fetchJson(`./data/runtime/index.json?v=${DATA_CACHE_VERSION}`);
       if (detailHashOnBoot()) await ensureRegistry();
       document.querySelector("[data-load-retry]")?.addEventListener("click", () => window.location.reload());
       return true;
@@ -296,6 +297,7 @@ const BeystadiumDataStore = (() => {
     return [...seriesReady, ...extraReady].every(Boolean);
   };
   const ensureItem = async id => {
+    if (String(id).startsWith("CHARACTER-")) return ensureChunk("anime");
     if (!itemChunks.has(id)) await ensureRegistry();
     const chunk = itemChunks.get(id);
     if (!chunk) return false;
@@ -313,7 +315,13 @@ const BeystadiumDataStore = (() => {
     if (route.type === "category-release") return ensureSeries(route.options?.series || defaultReleaseSeries(route.options?.region || "kr"), options);
     if (route.type === "category-anime" || route.type === "category-anime-episodes") return ensureChunk("anime", options);
     if (route.type === "rare-bey-get-list") return ensureSeries(route.options?.series || "x", options);
-    if (route.type === "detail") return ensureItem(route.id);
+    if (route.type === "detail") {
+      const ready = await ensureItem(route.id);
+      if (!ready) return false;
+      // Bey relations need canonical character data even on a fresh direct URL.
+      if (catalogCoreItemsById.get(route.id)?.type === "bey") return ensureChunk("anime", options);
+      return true;
+    }
     return true;
   };
   const isSeriesLoaded = series => loadedChunks.has(String(series || "").replace(/\s+/g, "-"));

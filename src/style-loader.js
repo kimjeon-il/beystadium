@@ -1,4 +1,4 @@
-const styleVersion = "20260804-mobile-modal-scrollbar-centering";
+const styleVersion = "20261002-compact-relations";
 const styleOrder = ["page", "collection", "table", "release", "anime", "catalog", "search", "modal"];
 const styleFiles = Object.fromEntries(styleOrder.map(key => [key, `./styles/${key}.css?v=${styleVersion}`]));
 const stylePromises = new Map();

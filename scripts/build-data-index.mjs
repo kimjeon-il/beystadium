@@ -7,7 +7,7 @@ import { productItems } from "../data/source/products.mjs";
 import { rareBeyGetItems } from "../data/source/rare-bey-get.mjs";
 import { bookItems, gameItems, toolsItems } from "../data/source/secondary.mjs";
 
-const VERSION = "20260827-burst-b36-official-front";
+const VERSION = "20261002-compact-relations";
 const SERIES_SLUGS = {
   "metal fight": "metal-fight",
   burst: "burst",
@@ -172,6 +172,7 @@ function buildRegistry(chunks, data) {
   }
   data.bookItems.forEach(item => items.push([item.id, chunkCode("common")]));
   data.gameItems.forEach(item => items.push([item.id, chunkCode("common")]));
+  data.animeInfo.characters.filter(character => character.id).forEach(character => items.push([character.id, chunkCode("anime")]));
   episodeIds(data.animeInfo).filter(Boolean).forEach(id => items.push([id, chunkCode("anime")]));
   return { items };
 }

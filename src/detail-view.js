@@ -1,13 +1,14 @@
 import { appState } from "#app/state";
 import { appServices } from "#app/services";
-import { catalogCoreItemsById } from "#app/data-store";
+import { animeInfo, productItems, catalogCoreItemsById } from "#app/data-store";
 import { escapeAttributeValue, escapeHtml } from "#app/markup-core";
+import { resolveProductDisplayName } from "#app/product-relations-core";
+import { relatedBeyProducts, relatedBeyCharacters } from "#app/bey-relations";
 import { anchoredLayerPosition } from "#app/floating-layer";
 import {
   battleTypeDescription,
   battleTypeLabel,
   partClassificationDescriptors,
-  partMountedTypeLabel,
   spinDescription,
   spinLabel,
   structureLabels,
@@ -213,13 +214,13 @@ const beyDetailPartIds = item => {
     .sort((a, b) => a.order - b.order || a.index - b.index)
     .map(entry => entry.partId);
 };
-const mountedPartTypeLabelMarkup = part => {
-  const label = partMountedTypeLabel(part);
-  const escapedLabel = escapeHtml(label);
-  return part?.xBladeRole && label.endsWith("블레이드")
-    ? escapedLabel.replace(/블레이드$/, "<wbr>블레이드")
-    : escapedLabel;
+const beyPartBadgeName = (part, region) => {
+  if (region === "jp" && part.jpName) return part.jpName;
+  return ["bottom", "4dbottom", "bit"].includes(part.type) && part.sub
+    ? part.sub : appServices.itemDisplayName(part, region);
 };
+const beyRelationSection = (title, links, className = "") => links
+  ? `<section class="modal-section bey-relation-section ${className}"><h4 class="mounted-title">${title}</h4><div class="bey-relation-list">${links}</div></section>` : "";
 const beyPartPreviewAttribute = (bey, part) => {
   if (bey?.series !== "x") {
     return ` data-image-preview-id="${escapeAttributeValue(part.id)}"`;
@@ -232,18 +233,25 @@ const beyPartSection = (title, bey, partIds, region, className = "") => {
     const part = catalogCoreItemsById.get(partId);
     if (!part) return "";
     const previewAttribute = beyPartPreviewAttribute(bey, part);
-    return `<a class="ui-list-link mounted-link" href="#${part.id}" data-part-id="${part.id}"${previewAttribute}><span>${mountedPartTypeLabelMarkup(part)}</span><strong>${appServices.itemDisplayName(part, region)}</strong><b>→</b></a>`;
+    return `<a class="bey-relation-badge mounted-link" href="#${escapeAttributeValue(part.id)}" data-part-id="${escapeAttributeValue(part.id)}"${previewAttribute}>${escapeHtml(beyPartBadgeName(part, region))}</a>`;
   }).filter(Boolean).join("");
   if (!links) return "";
-  const classes = ["modal-section", "mounted-parts", className].filter(Boolean).join(" ");
-  return `<section class="${classes}"><h4 class="mounted-title">${title}</h4><div class="modal-section-scroll mounted-parts-list">${links}</div></section>`;
+  return beyRelationSection(title, links, `mounted-parts ${className}`);
 };
 
 function beyDetailSections(item, region) {
   const detailPartIds = beyDetailPartIds(item);
-  const mounted = beyPartSection("구성", item, detailPartIds, region);
+  const mounted = beyPartSection("부품", item, detailPartIds, region);
   const bundled = beyPartSection("동봉 부품", item, item.bundledParts, region, "bundled-parts");
-  return `${mounted}${bundled}`;
+  const products = relatedBeyProducts(item, productItems, region).map(({ product, region: productRegion, release, isRandom }) => {
+    const name = [release.no, resolveProductDisplayName(product, productRegion)].filter(Boolean).join(" ");
+    const label = `${name}${isRandom ? " (랜덤)" : ""}`;
+    return `<a class="bey-relation-badge bey-product-link" href="#${escapeAttributeValue(product.id)}" data-product-id="${escapeAttributeValue(product.id)}" data-release-region="${escapeAttributeValue(productRegion)}" aria-label="${escapeAttributeValue(`${name}${isRandom ? " · 무작위 구성 후보" : " · 포함 제품"} 상세 보기`)}">${escapeHtml(label)}</a>`;
+  }).join("");
+  const characters = relatedBeyCharacters(item, animeInfo.characters, catalogCoreItemsById).filter(character => character.id).map(character =>
+    `<a class="bey-relation-badge bey-character-link" href="#${escapeAttributeValue(character.id)}" data-character-id="${escapeAttributeValue(character.id)}" aria-label="${escapeAttributeValue(`${character.name} · 작품 속 모델 사용자 상세 보기`)}">${escapeHtml(character.name)}</a>`
+  ).join("");
+  return `${mounted}${bundled}${beyRelationSection("포함 제품", products, "bey-products")}${beyRelationSection("사용자", characters, "bey-users")}`;
 }
 
 export {

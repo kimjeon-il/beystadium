@@ -1,6 +1,7 @@
 import { appState } from "#app/state";
 import {
   BeystadiumDataStore,
+  animeInfo,
   bookItemsById,
   catalogCoreItemsById,
   gameItemsById,
@@ -53,6 +54,7 @@ function detailFallbackOriginRoute(id = "") {
   if (productItemsById.has(id)) return { type: "category-release" };
   if (toolsItemsById.has(id)) return { type: "catalog", scope: "tools" };
   if (catalogCoreItemsById.has(id)) return { type: "catalog", scope: catalogDetailFallbackScope(id) };
+  if (animeInfo.characters.some(character => character.id === id)) return { type: "category-anime" };
   if (isAnimeEpisodeDetailHash(id)) return { type: "category-anime-episodes" };
   if (bookItemsById.has(id)) return searchFallbackRouteForItem(bookItemsById.get(id));
   if (gameItemsById.has(id)) return searchFallbackRouteForItem(gameItemsById.get(id));
@@ -60,7 +62,8 @@ function detailFallbackOriginRoute(id = "") {
 }
 function detailRouteExists(id = "") {
   return Boolean(
-    BeystadiumDataStore.hasItem(id)
+    animeInfo.characters.some(character => character.id === id)
+    || BeystadiumDataStore.hasItem(id)
     || productItemsById.has(id)
     || catalogCoreItemsById.has(id)
     || toolsItemsById.has(id)
@@ -77,6 +80,7 @@ function routeWithKnownDetailFallback(route = {}) {
 
 const detailBackgroundStyleKeys = id => {
   if (productItemsById.has(id)) return routeStyleManifest["category-release"];
+  if (id.startsWith("CHARACTER-")) return routeStyleManifest["category-anime"];
   if (isAnimeEpisodeDetailHash(id)) return routeStyleManifest["category-anime-episodes"];
   if (bookItemsById.has(id) || gameItemsById.has(id)) return routeStyleManifest.search;
   if (catalogCoreItemsById.has(id) || toolsItemsById.has(id)) return routeStyleManifest.catalog;

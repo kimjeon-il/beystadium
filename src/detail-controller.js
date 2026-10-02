@@ -1,6 +1,6 @@
 import { isAnimeEpisodeHash } from "#app/anime-core";
 import { appState } from "#app/state";
-import { bookItems, bookItemsById, catalogCoreItems, catalogCoreItemsById, gameItems, gameItemsById, productItems, productItemsById, toolsItems, toolsItemsById } from "#app/data-store";
+import { animeInfo, bookItems, bookItemsById, catalogCoreItems, catalogCoreItemsById, gameItems, gameItemsById, productItems, productItemsById, toolsItems, toolsItemsById } from "#app/data-store";
 import { compareToolsItemsByFirstRelease, isCodedPartName, partCategory, partKoName, productLineupIds, productSerialNumber, visibleCatalogCoreItems, visibleToolsItems } from "#app/catalog-model";
 import { itemDisplayDesc, itemDisplayName, modalTitle, productDetailBody, productHeader, productLineup, productMetaSlot, rareBeyGetListMarkup } from "#app/detail-content";
 import { beyDetailSections, beyModalTags, bindModalTagPopovers, closeModalTagPopover, modalInfoSlot, modalScrollArea, modalTagGroup, partModalTags } from "#app/detail-view";
@@ -11,7 +11,7 @@ import { restorePageScroll, validScrollY } from "#app/modal-context";
 import { normalizeRoute } from "#app/route-parser";
 import { getModalCloseRoute, navigateToRoute } from "#app/navigation";
 import { registerAppServices } from "#app/services";
-import { escapeAttributeValue } from "#app/markup-core";
+import { escapeAttributeValue, escapeHtml } from "#app/markup-core";
 import { RARE_BEY_GET_BADGE, productDisplayRegion, productReleasedInRegion, releaseHasBadge, releaseRegionLabels, releaseSeriesLabels } from "#app/release-core";
 
 initializeImageLinkPreviews();
@@ -35,6 +35,7 @@ const productModalBackButton = (item, options = {}, region = appState.release.re
     backProductId: options.rareBeyGetListBackProductId || "",
     backRelease: options.rareBeyGetListBackRelease === true
   });
+  if (options.backId) return detailBackButton(options.backId, options.backProductId, options.backRelease, options.backRegion || region);
   if (options.backProductId) return productBackButton({ backProductId: options.backProductId, backRelease: options.backRelease, region });
   if (options.backRelease) return modalBackButtonMarkup({ backRelease: true, region, label: "발매목록으로 돌아가기" });
   return "";
@@ -98,7 +99,8 @@ function bindModalStepButtons(options = {}) {
 }
 async function openDetailByKind(kind, targetId, options = {}) {
   if (!targetId) return;
-  if (isAnimeEpisodeHash(targetId)) await openAnimeEpisodeDetail(targetId, options);
+  if (targetId.startsWith("CHARACTER-")) openCharacterDetail(targetId, options);
+  else if (isAnimeEpisodeHash(targetId)) await openAnimeEpisodeDetail(targetId, options);
   else if (kind === "product-lineup") openProductLineupDetail(targetId, options);
   else if (kind === "product" || targetId.startsWith("PRODUCT-")) openProductEntry(targetId, options);
   else if (kind === "tools" || targetId.startsWith("TOOLS-")) openToolsDetail(targetId, options);
@@ -157,10 +159,34 @@ function openDetail(id, options = {}) {
     queueModalTransition("composition", { sourceElement: link });
     openDetail(link.dataset.partId, linkOptions);
   }));
+  modalContentRoot.querySelectorAll(".bey-product-link, .bey-character-link").forEach(link => link.addEventListener("click", event => {
+    event.preventDefault();
+    const linkOptions = { backId: item.id, region: detailRegion, backRegion: detailRegion };
+    if (detailOptions.backProductId) linkOptions.backProductId = detailOptions.backProductId;
+    if (detailOptions.backRelease) linkOptions.backRelease = true;
+    queueModalTransition("composition", { sourceElement: link });
+    if (link.dataset.productId) openProductEntry(link.dataset.productId, { ...linkOptions, region: link.dataset.releaseRegion });
+    else openCharacterDetail(link.dataset.characterId, linkOptions);
+  }));
   bindModalTagPopovers(modalContentRoot);
   bindModalDescriptionExpanders(modalContentRoot);
   finishModalOpen({ contextKind: "item", contextId: item.id, contextOptions: detailOptions, root: modalContentRoot });
   scheduleModalDescriptionMeasure(modalContentRoot);
+}
+function openCharacterDetail(id, options = {}) {
+  const character = animeInfo.characters.find(entry => entry.id === id);
+  if (!character || routeIfNeeded({ type: "detail", id, options })) return;
+  const models = (character.beys || []).map(name => `<span class="bey-relation-badge">${escapeHtml(name)}</span>`).join("");
+  const root = setModalContent(`<div class="modal-inner modal-inner--content">
+    ${detailBackButton(options.backId, options.backProductId, options.backRelease, options.region)}
+    <div class="modal-info part-modal-info">${modalScrollArea(`${modalTitle(character.name)}
+      ${modalInfoSlot(character.role || "", modalTagGroup("<span>베이블레이드 X</span>"))}
+      <div class="modal-body-block"><section class="modal-section bey-relation-section"><h4 class="mounted-title">사용 베이</h4>
+        <div class="bey-relation-list">${models}</div>
+      </section><p class="stat-note">작품 속 모델 기준입니다. 개별 완구의 색상이나 제품 소유를 뜻하지 않습니다.</p></div>`)}</div></div>`);
+  if (!root) return;
+  bindCatalogModalBack(root);
+  finishModalOpen({ contextKind: "character", contextId: id, contextOptions: options, root });
 }
 function bindProductCompositionLinks(product, root = document, options = {}) {
   root.querySelectorAll(".product-composition-list").forEach(compositionList => compositionList.addEventListener("click", event => {
@@ -230,7 +256,8 @@ function openProductLineupDetail(id, options = {}) {
   if (!skipRoute && routeIfNeeded({ type: "detail", id, options: detailOptions })) return;
   const requestedRegion = releaseRegionLabels[detailOptions.region] ? detailOptions.region : (releaseRegionLabels[appState.release.region] ? appState.release.region : "kr");
   const region = productDisplayRegion(item, requestedRegion);
-  appState.release.region = region;
+  // A nested product locale must not change the release list behind the modal.
+  if (appState.modal.originRoute?.type !== "category-release") appState.release.region = region;
   const backButton = productModalBackButton(item, detailOptions, region);
   const modalContentRoot = setModalContent(`<div class="modal-inner modal-inner--content">
     ${backButton}
@@ -259,7 +286,8 @@ function openProductDetail(id, options = {}) {
   const requestedRegion = releaseRegionLabels[options.region] ? options.region : (releaseRegionLabels[appState.release.region] ? appState.release.region : "kr");
   const region = productDisplayRegion(item, requestedRegion);
   const stepRegion = requestedRegion === "kr" ? "kr" : region;
-  appState.release.region = region;
+  // A nested product locale must not change the release list behind the modal.
+  if (appState.modal.originRoute?.type !== "category-release") appState.release.region = region;
   const backButton = productModalBackButton(item, options, region);
   const productStepSource = productItems.filter(entry => !entry.lineupOnly).sort((a, b) => productSerialNumber(a, stepRegion) - productSerialNumber(b, stepRegion));
   const stepItems = productStepSource.filter(entry => productReleasedInRegion(entry, stepRegion));

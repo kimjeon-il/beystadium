@@ -33,3 +33,13 @@ pnpm check
 ```
 
 ESLint, 데이터 생성물 동기화, 참조 무결성, 데스크톱/모바일 Playwright 스모크 테스트를 실행합니다. 같은 검사는 GitHub Actions에서도 실행됩니다.
+
+## Bey detail relations
+
+The compact detail badges are derived from canonical data, not per-Bey reverse lists:
+
+- Parts use the Bey's `parts` / `bundledParts` IDs and catalog names
+- Products use the selected region's resolved composition and applicable `lineupPool`; random candidates are marked `(랜덤)`. A guaranteed Korean release does not inherit a Japanese random pool
+- Users use the character source's stable `CHARACTER-*` ID and `beys` model names. X models resolve by exact normalized blade names or CX lock-chip + main-blade names. Known versioned blades reuse their existing base model; unknown or ambiguous models do not guess users
+
+Character relations describe fictional model-family usage, not ownership of a particular retail color or combination. Keep character usage in `data/source/anime.mjs`; rebuild runtime data with `pnpm data:build` after source edits. `pnpm test:bey-relations` checks resolution and rendered badge markup.

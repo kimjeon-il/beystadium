@@ -9,6 +9,7 @@
     "data:check": "node scripts/build-data-index.mjs --check",
     "audit:app": "node scripts/audit-app.mjs",
     "lint:js": "eslint scripts tests \"src/**/*.js\" playwright.config.mjs eslint.config.js",
+    "test:bey-relations": "node --test tests/bey-relations.test.mjs tests/bey-badge-render.test.mjs",
     "test:search": "node --test tests/search-core.test.mjs",
     "test:routes": "node --test tests/route-parser.test.mjs",
     "test:ids": "node --test tests/x-bey-id.test.mjs",
@@ -44,7 +45,7 @@
     "test:x-part-previews": "node scripts/validate-x-part-previews.mjs",
     "test:data": "node scripts/validate-data.mjs",
     "test:smoke": "playwright test",
-    "check": "pnpm lint:js && pnpm audit:app && pnpm data:check && pnpm test:data && pnpm test:search && pnpm test:routes && pnpm test:ids && pnpm test:address-ids && pnpm test:product-ids && pnpm test:anime-episodes && pnpm test:burst-random-boosters && pnpm test:burst-random-layers && pnpm test:burst-remake-sets && pnpm test:burst-images && pnpm test:x-tool-products && pnpm test:x-part-products && pnpm test:x-set-products && pnpm test:x-random-boosters && pnpm test:x-jp-part-details && pnpm test:x-kr-bey-details && pnpm test:x-images && pnpm test:x-material-part-previews && pnpm test:x-part-previews && pnpm test:x-bey-primary-images && pnpm test:smoke"
+    "check": "pnpm lint:js && pnpm audit:app && pnpm data:check && pnpm test:data && pnpm test:bey-relations && pnpm test:search && pnpm test:routes && pnpm test:ids && pnpm test:address-ids && pnpm test:product-ids && pnpm test:anime-episodes && pnpm test:burst-random-boosters && pnpm test:burst-random-layers && pnpm test:burst-remake-sets && pnpm test:burst-images && pnpm test:x-tool-products && pnpm test:x-part-products && pnpm test:x-set-products && pnpm test:x-random-boosters && pnpm test:x-jp-part-details && pnpm test:x-kr-bey-details && pnpm test:x-images && pnpm test:x-material-part-previews && pnpm test:x-part-previews && pnpm test:x-bey-primary-images && pnpm test:smoke"
   },
   "devDependencies": {
     "@eslint/js": "^9.31.0",

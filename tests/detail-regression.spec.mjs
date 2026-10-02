@@ -124,8 +124,9 @@ test("B-181 Dragoon V2 separates its mounted combination from the bundled 6 Armo
   const armorLink = bundledSection.locator(".mounted-link");
   await expect(armorLink).toHaveCount(1);
   await expect(armorLink).toHaveAttribute("data-part-id", "PART-BURST-DBARMOR-6");
-  await expect(armorLink.locator("span")).toHaveText("아머");
-  await expect(armorLink.locator("strong")).toHaveText("6");
+  await expect(armorLink).toHaveText("6");
+  await expect(armorLink).toHaveAccessibleName("6");
+  await expect(armorLink.locator("*")).toHaveCount(0);
   await armorLink.click();
   await expect(page).toHaveURL(/#PART-BURST-DBARMOR-6$/);
   await expectModalBackAtShellTopLeft(page.locator("#detailModal .modal-back"));
@@ -667,70 +668,70 @@ test("X gold part products link to their base parts", async ({ page }, testInfo)
   expect(errors).toEqual([]);
 });
 
-test("mounted part names use the restored compact label column", async ({ page }) => {
+test("mounted parts use text-only compact badges with localized names and keyboard navigation", async ({ page }) => {
   const errors = consoleErrors(page);
   await page.goto("/#BEY-METAL-FIGHT-BB-80-GRAVITY-PERSEUS-AD145WD");
   await expect(page.locator("#detailModal")).toBeVisible();
 
-  const links = page.locator("#detailModal .mounted-parts .mounted-link");
+  const section = page.locator("#detailModal .mounted-parts:not(.bundled-parts)");
+  await expect(section.locator(".mounted-title")).toHaveText("부품");
+  const links = section.locator(".bey-relation-list .mounted-link");
   await expect(links).toHaveCount(5);
-  await expect(links.locator("strong")).toHaveText(["페르세우스", "페르세우스", "그라비티", "AD145", "WD"]);
-  const rows = await links.evaluateAll(elements => elements.map(element => {
-    const name = element.querySelector("strong");
-    const nameStyle = getComputedStyle(name);
+  await expect(links).toHaveText(["페르세우스", "페르세우스", "그라비티", "AD145", "와이드디펜스"]);
+  await expect(links.locator("*")).toHaveCount(0);
+  const badges = await links.evaluateAll(elements => elements.map(element => {
+    const rect = element.getBoundingClientRect();
+    const parent = element.parentElement.getBoundingClientRect();
     return {
-      arrow: element.querySelector("b")?.textContent,
-      firstColumn: Number.parseFloat(getComputedStyle(element).gridTemplateColumns),
-      nameLines: name.getBoundingClientRect().height / Number.parseFloat(nameStyle.lineHeight)
+      tagName: element.tagName,
+      href: element.getAttribute("href"),
+      partId: element.dataset.partId,
+      tabIndex: element.tabIndex,
+      width: rect.width,
+      height: rect.height,
+      parentWidth: parent.width
     };
   }));
-  rows.forEach(row => {
-    expect(row.firstColumn).toBe(84);
-    expect(row.nameLines).toBeLessThanOrEqual(1.1);
-    expect(row.arrow).toBe("→");
+  badges.forEach(badge => {
+    expect(badge.tagName).toBe("A");
+    expect(badge.href).toBe(`#${badge.partId}`);
+    expect(badge.tabIndex).toBe(0);
+    expect(badge.height).toBeGreaterThanOrEqual(44);
+    expect(badge.width).toBeLessThan(badge.parentWidth);
   });
 
-  await links.first().click();
+  await expect(links.first()).toHaveAccessibleName("페르세우스");
+  await links.first().focus();
+  await page.keyboard.press("Tab");
+  await expect(links.nth(1)).toBeFocused();
+  await links.first().focus();
+  await page.keyboard.press("Enter");
   await expect(page).toHaveURL(/#PART-METAL-FIGHT-FACE-PERSEUS$/);
   expect(errors).toEqual([]);
 });
 
-test("long X blade role labels wrap without overlapping mounted part names", async ({ page }) => {
+test("X part badges omit role columns while preserving codes and full bit names", async ({ page }) => {
   const errors = consoleErrors(page);
-  const routes = [
-    "BEY-X-CX-01-DRAN-BRAVE-S-6-60V",
-    "BEY-X-CX-13-BAHAMUT-BLITZ-BK-1-50I"
+  const cases = [
+    {
+      id: "BEY-X-CX-01-DRAN-BRAVE-S-6-60V",
+      names: ["드랜", "브레이브", "S", "6-60", "볼텍스"]
+    },
+    {
+      id: "BEY-X-CX-13-BAHAMUT-BLITZ-BK-1-50I",
+      names: ["바하무트", "블리츠", "B", "K", "1-50", "이그니션"]
+    }
   ];
 
-  for (const id of routes) {
-    await page.goto(`/#${id}`);
+  for (const entry of cases) {
+    await page.goto(`/#${entry.id}`);
     await expect(page.locator("#detailModal")).toBeVisible();
-    const links = page.locator("#detailModal .mounted-parts:not(.bundled-parts) .mounted-link");
-    const rows = await links.evaluateAll(elements => elements.map(element => {
-      const label = element.querySelector("span");
-      const name = element.querySelector("strong");
-      const labelRange = document.createRange();
-      const nameRange = document.createRange();
-      labelRange.selectNodeContents(label);
-      nameRange.selectNodeContents(name);
-      const labelRect = labelRange.getBoundingClientRect();
-      const nameRect = nameRange.getBoundingClientRect();
-      return {
-        label: label.textContent,
-        firstColumn: Number.parseFloat(getComputedStyle(element).gridTemplateColumns),
-        labelRight: labelRect.right,
-        nameLeft: nameRect.left,
-        nameLineCount: nameRange.getClientRects().length,
-        breakCount: label.querySelectorAll("wbr").length
-      };
-    }));
-
-    rows.forEach(row => {
-      expect(row.firstColumn).toBe(84);
-      expect(row.labelRight).toBeLessThanOrEqual(row.nameLeft);
-      expect(row.nameLineCount).toBe(1);
-      if (row.label.endsWith("블레이드")) expect(row.breakCount).toBe(1);
-    });
+    const links = page.locator("#detailModal .mounted-parts:not(.bundled-parts) .bey-relation-badge");
+    await expect(links).toHaveText(entry.names);
+    await expect(links.locator("span, strong, b, wbr")).toHaveCount(0);
+    for (const [index, name] of entry.names.entries()) {
+      await expect(links.nth(index)).toHaveAccessibleName(name);
+    }
   }
   expect(errors).toEqual([]);
 });
@@ -916,7 +917,7 @@ test("static details use a single-column layout without a photo pane", async ({ 
   expect(errors).toEqual([]);
 });
 
-test("composition sections use nested desktop scrolling and one modal-body mobile scroll", async ({ page }, testInfo) => {
+test("Bey badges wrap without nested scrolling while product lists retain responsive scrolling", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "representative viewport coverage only needs one browser project");
   const errors = consoleErrors(page);
   const viewports = [
@@ -929,21 +930,40 @@ test("composition sections use nested desktop scrolling and one modal-body mobil
   for (const viewport of viewports) {
     await page.setViewportSize(viewport);
     await page.goto("/#BEY-X-CX-13-BAHAMUT-BLITZ-BK-1-50I");
-    const mountedList = page.locator("#detailModal .mounted-parts-list");
+    const mountedList = page.locator("#detailModal .mounted-parts:not(.bundled-parts) .bey-relation-list");
     await expect(mountedList.locator(".mounted-link")).toHaveCount(6);
     const mountedLayout = await mountedList.evaluate(element => {
-      const scrollArea = element.closest(".modal-scroll-area");
+      const listRect = element.getBoundingClientRect();
+      const style = getComputedStyle(element);
+      const badges = Array.from(element.children, badge => {
+        const rect = badge.getBoundingClientRect();
+        return { left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom };
+      });
       return {
+        display: style.display,
+        flexWrap: style.flexWrap,
         clientHeight: element.clientHeight,
         scrollHeight: element.scrollHeight,
-        outerClientHeight: scrollArea.clientHeight,
-        outerScrollHeight: scrollArea.scrollHeight
+        clientWidth: element.clientWidth,
+        scrollWidth: element.scrollWidth,
+        rowCount: new Set(badges.map(badge => Math.round(badge.top))).size,
+        badgesInsideList: badges.every(badge => badge.left >= listRect.left - 1
+          && badge.right <= listRect.right + 1 && badge.bottom <= listRect.bottom + 1),
+        badgesOverlap: badges.some((badge, index) => badges.slice(index + 1).some(other =>
+          badge.left < other.right && badge.right > other.left
+          && badge.top < other.bottom && badge.bottom > other.top))
       };
     });
+    expect(mountedLayout).toMatchObject({
+      display: "flex",
+      flexWrap: "wrap",
+      badgesInsideList: true,
+      badgesOverlap: false
+    });
     expect(mountedLayout.scrollHeight).toBeLessThanOrEqual(mountedLayout.clientHeight + 1);
-    if (viewport.width > 639) {
-      expect(mountedLayout.outerScrollHeight).toBeLessThanOrEqual(mountedLayout.outerClientHeight + 1);
-    }
+    expect(mountedLayout.scrollWidth).toBeLessThanOrEqual(mountedLayout.clientWidth + 1);
+    expect(mountedLayout.rowCount).toBeLessThan(6);
+    if (viewport.width <= 639) expect(mountedLayout.rowCount).toBeGreaterThan(1);
 
     await page.goto("/#PRODUCT-X-UX-10");
     const productList = page.locator("#detailModal .product-composition-list");

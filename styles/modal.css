@@ -1438,3 +1438,54 @@ dialog[open][data-modal-layout="content"] {
   --modal-info-height: 100%;
 }
 }
+
+/* Content-width relations keep the Bey detail readable without row columns. */
+.modal-body-block > .bey-relation-section {
+  padding: 20px 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
+}
+.bey-relation-section + .bey-relation-section {
+  border-top: 1px solid var(--ui-line);
+}
+.bey-relation-section > .mounted-title {
+  margin: 0 0 12px;
+  padding: 0;
+  border: 0;
+}
+.bey-relation-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-width: 0;
+}
+.bey-relation-list > .bey-relation-badge {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  max-width: 100%;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: var(--radius-control-sm);
+  background: var(--ui-control);
+  color: var(--ui-text);
+  font-size: var(--font-md);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.4;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  box-sizing: border-box;
+}
+.bey-relation-list > .bey-relation-badge:focus-visible {
+  outline: 2px solid var(--ui-text);
+  outline-offset: 3px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .bey-relation-list > .bey-relation-badge:hover {
+    background: var(--ui-control-hover);
+  }
+}
+.bey-relation-badge::before { display: none; }

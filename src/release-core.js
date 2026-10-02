@@ -1,3 +1,4 @@
+import { productDisplayFallbackRegions, resolveProductDisplayName, resolveProductRelease } from "#app/product-relations-core";
 import { appState } from "#app/state";
 import { BeystadiumDataStore, productItems, productItemsById, rareBeyGetItems } from "#app/data-store";
 import { tableListControlsMarkup } from "#app/table-list-view";
@@ -14,10 +15,6 @@ const releaseSeriesLabels = {
   x: "베이블레이드 X"
 };
 const releaseSeriesOrderValues = Object.freeze(Object.keys(releaseSeriesLabels));
-const productDisplayFallbackRegionValues = Object.freeze({
-  kr: Object.freeze(["kr", "jp"]),
-  jp: Object.freeze(["jp", "kr"])
-});
 const RARE_BEY_GET_BADGE = "rare-bey-get";
 const releaseBadgeDefinitions = {
   [RARE_BEY_GET_BADGE]: {
@@ -70,40 +67,7 @@ const visibleRareBeyGetEntries = ({ region = appState.release.region, series = a
       const currentDiff = rareBeyGetEntryCurrentSortValue(a) - rareBeyGetEntryCurrentSortValue(b);
       return currentDiff || rareBeyGetEntryStartSortValue(a) - rareBeyGetEntryStartSortValue(b);
     });
-const normalizeProductKind = kind => kind === "기타" ? "" : kind || "";
-const baseProductRelease = item => ({
-  status: "released",
-  no: item.no || "",
-  name: item.name || "",
-  sale: item.sale || "",
-  kind: normalizeProductKind(item.kind),
-  tools: item.tools || "",
-  releaseDate: item.releaseDate || item.release || "",
-  price: item.price || "",
-  composition: item.composition || []
-});
-const blankProductRelease = () => ({
-  status: "unreleased",
-  no: "",
-  name: "",
-  sale: "",
-  kind: "",
-  tools: "",
-  releaseDate: "",
-  price: "",
-  composition: []
-});
 let productReleaseCache = new WeakMap();
-const resolveProductRelease = (item, region) => {
-  const base = baseProductRelease(item);
-  const blank = blankProductRelease();
-  if (!item.releases) return region === "kr" ? base : blank;
-  const release = item.releases?.[region];
-  if (!release) return region === "kr" ? base : blank;
-  if (release.status === "unreleased") return blank;
-  const merged = { ...(region === "kr" ? base : blank), ...release, status: release.status || "released" };
-  return { ...merged, kind: normalizeProductKind(merged.kind) };
-};
 const productRelease = (item, region = appState.release.region) => {
   let releasesByRegion = productReleaseCache.get(item);
   if (!releasesByRegion) {
@@ -125,24 +89,12 @@ const defaultReleaseSeries = (region = appState.release.region) => [...releaseSe
 ) || BeystadiumDataStore?.defaultReleaseSeries(region) || releaseSeriesOrder()[0] || "metal fight";
 const releaseSeriesForRegion = (series, region = appState.release.region) =>
   releaseSeriesHasProducts(series, region) ? series : defaultReleaseSeries(region);
-const productDisplayFallbackRegions = (region = "kr") =>
-  productDisplayFallbackRegionValues[region] || productDisplayFallbackRegionValues.kr;
 const productDisplayRegion = (item, region = "kr") =>
   productDisplayFallbackRegions(region).find(candidate => productReleasedInRegion(item, candidate)) || region;
-const productDisplayRelease = (item, region = "kr") => productRelease(item, productDisplayRegion(item, region));
 const seriesLabels = { topblade: "탑블레이드", "metal fight": "메탈베이블레이드", burst: "베이블레이드 버스트", x: "베이블레이드 X" };
 const normalizeCatalogSeries = series => seriesLabels[series] ? series : "all";
 const itemSeriesLabel = item => seriesLabels[item.series] || item.series || "";
-const productDisplayName = (item, region = appState.release.region) => {
-  const release = productDisplayRelease(item, region);
-  if (release.name) return release.name;
-  const fallbackReleases = productDisplayFallbackRegions(region).map(candidate => productRelease(item, candidate));
-  const fallbackName = fallbackReleases.map(candidateRelease => candidateRelease.name).find(Boolean);
-  if (fallbackName) return fallbackName;
-  const baseName = item.name || "";
-  const fallbackNo = fallbackReleases.map(candidateRelease => candidateRelease.no).find(Boolean);
-  return baseName || release.no || fallbackNo || item.no || "";
-};
+const productDisplayName = (item, region = appState.release.region) => resolveProductDisplayName(item, region);
 const isoDateParts = value => value ? String(value).match(/^(\d{4})-(\d{2})(?:-(\d{2}))?$/) : null;
 const dotDateLabel = (value, fallbackLabel, includeDay = false) => {
   const match = isoDateParts(value);

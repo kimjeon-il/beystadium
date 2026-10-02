@@ -1,3 +1,4 @@
+import { resolveProductComposition } from "#app/product-relations-core";
 import { appState } from "#app/state";
 import {
   bookItemsById,
@@ -110,12 +111,7 @@ const toolsCard = item => `
     <p class="card-full-ko">&nbsp;</p>
   </article>`;
 function productCompositionItems(item, region = appState.release.region) {
-  const release = productRelease(item, region);
-  const releaseComposition = Array.isArray(release.composition) && release.composition.length ? release.composition : null;
-  const regionComposition = releaseComposition || (region === "jp" ? item.compositionJp || item.compositionJapan : item.compositionKr || item.compositionKorea);
-  const krReleaseComposition = Array.isArray(item.releases?.kr?.composition) && item.releases.kr.composition.length ? item.releases.kr.composition : null;
-  const baseComposition = region === "jp" ? item.composition || krReleaseComposition : region === "kr" ? item.composition : null;
-  return regionComposition || baseComposition || [];
+  return resolveProductComposition(item, region, productRelease(item, region));
 }
 const productLineupIds = product => Array.isArray(product?.lineupPool) ? product.lineupPool : [];
 const compareCatalogFirstReleaseMeta = (a, b) =>

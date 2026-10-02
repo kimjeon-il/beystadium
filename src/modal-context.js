@@ -60,6 +60,7 @@ const modalOriginState = originRoute => ({
   ...(modalOriginStateGetters[originRoute?.type]?.() || {})
 });
 const modalContextOptionKeys = [
+  "backRegion",
   "backId",
   "backProductId",
   "region",
