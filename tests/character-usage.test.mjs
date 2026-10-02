@@ -41,16 +41,22 @@ test("season-two roster preserves exact editions and leaves unsupported combinat
   assert.equal(all.length, 64);
   assert.equal(second.length, 38);
   assert.deepEqual(all.filter(c => c.season === "metal-fight-2").map(c => c.name), [
-    "장군", "왕대상", "리 치윤", "메이메이", "챠우싱", "알렉세이", "도라", "노와구마",
-    "줄리어스 시저", "웨일즈", "소피", "게오르그", "나일", "다무레", "아르고", "아이언",
-    "셀린", "엔조", "토비", "제오", "데미안", "잭", "닥터 지구라트", "Marcus"
+    "장군", "왕대상", "리치윤", "메이메이", "챠우싱", "알렉세이", "도라", "노와구마",
+    "시저", "웨일즈", "소피", "게오르그", "나일", "다무레", "아르고", "아이언",
+    "셀린", "엔조", "파우스트", "제오", "데미안", "잭", "지구라트 박사", "Marcus"
   ]);
   assert.equal(new Set(all.map(c => c.id)).size, all.length);
   const byName = new Map(second.map(c => [c.name, c]));
   assert.deepEqual(byName.get("메이메이").beyIds, ["BEY-METAL-FIGHT-BB-72-AQUARIO-105F"]);
   assert.deepEqual(byName.get("웨일즈").beyIds, ["BEY-METAL-FIGHT-BB-82-GRAND-KETOS-WD145RS"]);
   assert.deepEqual(byName.get("소피").beyIds, ["BEY-METAL-FIGHT-BB-82-GRAND-KETOS-T125RS"]);
-  assert.deepEqual(byName.get("토비").aliases, ["파우스트"]);
+  assert.equal(byName.get("파우스트").id, "CHARACTER-METAL-FIGHT-TOBY");
+  assert.equal(byName.get("파우스트").aliases, undefined);
+  assert.equal(all.some(c => c.name.includes("토비") || c.aliases?.some(alias => /토비|Toby/i.test(alias))), false);
+  assert.equal(byName.get("지구라트 박사").id, "CHARACTER-METAL-FIGHT-DR-ZIGGURAT");
+  assert.equal(byName.get("시저").id, "CHARACTER-METAL-FIGHT-JULIUS-CAESAR");
+  assert.equal(byName.get("리치윤").id, "CHARACTER-METAL-FIGHT-LI-CHIYUN");
+  assert.deepEqual(byName.get("시저").aliases, ["줄리어스 시저"]);
   assert.equal(all.filter(c => c.name === "토비" || c.name === "파우스트").length, 1);
   for (const name of ["챠우싱", "알렉세이", "도라", "노와구마", "게오르그", "셀린", "엔조", "Marcus"]) {
     assert.deepEqual(byName.get(name).beyIds, [], name);
@@ -59,4 +65,21 @@ test("season-two roster preserves exact editions and leaves unsupported combinat
   assert.deepEqual(byName.get("드래곤").beyIds, ["BEY-METAL-FIGHT-BB-88-METEO-L-DRAGO-LW105LF"]);
   assert.equal(all.some(c => c.usages?.some(g => /4d|zerog/.test(g.season))), false);
   assert.equal(second.some(c => /SPIRAL-(FOX|LYRE)|BLITZ-UNICORNO/.test(c.beyIds.join(" "))), false);
+});
+
+test("corrected character names and approved alias are searchable without a Toby attribution", async () => {
+  const { animeInfo } = await import("../data/source/anime.mjs");
+  const { createSearchField, createSearchRecord, matchSearchRecord, prepareCatalogSearchQuery } = await import("../src/search-core.js");
+  const records = animeInfo.characters.map(character => createSearchRecord("anime-character", character, [
+    createSearchField("primaryName", character.name),
+    ...(character.aliases || []).map(alias => createSearchField("alias", alias)),
+    createSearchField("composition", character.beys.join(" "))
+  ]));
+  const found = text => records.filter(record => matchSearchRecord(record, prepareCatalogSearchQuery(text)).matched).map(record => record.item.name);
+  assert.deepEqual(found("파우스트"), ["파우스트"]);
+  assert.deepEqual(found("토비"), []);
+  assert.deepEqual(found("Toby"), []);
+  assert.deepEqual(found("지구라트 박사"), ["지구라트 박사"]);
+  assert.deepEqual(found("줄리어스 시저"), ["시저"]);
+  assert.deepEqual(found("리치윤"), ["리치윤"]);
 });

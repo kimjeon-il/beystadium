@@ -46,7 +46,7 @@ const seasonTwoNewCharacters = [
   },
   {
     "id": "CHARACTER-METAL-FIGHT-LI-CHIYUN",
-    "name": "리 치윤",
+    "name": "리치윤",
     "beyIds": [
       "BEY-METAL-FIGHT-BB-74-THERMAL-LACERTA-WA130HF"
     ]
@@ -93,7 +93,8 @@ const seasonTwoNewCharacters = [
   },
   {
     "id": "CHARACTER-METAL-FIGHT-JULIUS-CAESAR",
-    "name": "줄리어스 시저",
+    "name": "시저",
+    "aliases": ["줄리어스 시저"],
     "beyIds": [
       "BEY-METAL-FIGHT-BB-80-GRAVITY-PERSEUS-AD145WD"
     ]
@@ -169,12 +170,9 @@ const seasonTwoNewCharacters = [
   },
   {
     "id": "CHARACTER-METAL-FIGHT-TOBY",
-    "name": "토비",
+    "name": "파우스트",
     "beyIds": [
       "BEY-METAL-FIGHT-BB-104-BASALT-HOROGIUM-145WD"
-    ],
-    "aliases": [
-      "파우스트"
     ]
   },
   {
@@ -200,7 +198,7 @@ const seasonTwoNewCharacters = [
   },
   {
     "id": "CHARACTER-METAL-FIGHT-DR-ZIGGURAT",
-    "name": "닥터 지구라트",
+    "name": "지구라트 박사",
     "beyIds": [
       "BEY-METAL-FIGHT-BB-102-SCREW-CAPRICORNE-90MF"
     ]

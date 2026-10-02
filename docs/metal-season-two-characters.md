@@ -7,13 +7,15 @@ The canonical source is `data/source/metal-fight-characters.mjs`. Characters ret
 User links require explicit catalog IDs. No relation is inferred from a model name, wheel pair, combination, recolor, or set membership. The same restriction applies to existing season-one users. Storm Pegasis is linked to 강타 only through BB-28. Existing X name-only usage remains visible in character data but cannot establish a retail-edition user link.
 
 - 강타: BB-70 Galaxy Pegasis; 드래곤: BB-88 Meteo L-Drago; 장군: BB-71 Ray Unicorno. No season-three upgrades
-- 왕대상: BB-78 Rock Giraffe; 리 치윤: BB-74 Thermal Lacerta; 메이메이: **BB-72** Aquario, not the original BB-21 edition
-- 줄리어스 시저: BB-80 Gravity Perseus; 웨일즈: BB-82 blue Grand Ketos WD145RS; 소피: BB-82 white Grand Ketos T125RS
+- 왕대상: BB-78 Rock Giraffe; 리치윤: BB-74 Thermal Lacerta; 메이메이: **BB-72** Aquario, not the original BB-21 edition
+- 시저 (search alias 줄리어스 시저): BB-80 Gravity Perseus; 웨일즈: BB-82 blue Grand Ketos WD145RS; 소피: BB-82 white Grand Ketos T125RS
 - 나일: BB-P01 Vulcan Horuseus; 다무레: BB-86 Counter Escolpio, the anime black-clear-wheel edition
 - 아르고: BB-91 Ray Keel; 아이언: BB-94 Tornado Herculeo
-- 토비 (alias 파우스트): BB-104 Basalt Horogium, one identity; 제오: BB-95 Flame Byxis; 데미안: BB-99 Hell Kerbecs; 잭: BB-100 Killer Beafowl; 닥터 지구라트: BB-102 Screw Capricorne
+- 파우스트: BB-104 Basalt Horogium, one identity; 제오: BB-95 Flame Byxis; 데미안: BB-99 Hell Kerbecs; 잭: BB-100 Killer Beafowl; 지구라트 박사: BB-102 Screw Capricorne
 
 Returning users retain verified standard editions in season two. 크랩킹 has only Dark Cancer recorded for season two; his season-one Mad Cancer remains scoped to season one. Temporary borrowing, unverified past use, later-season upgrades, and generic one-off background users are omitted.
+
+The season-two record displays 파우스트 only, with no 토비 alias or usage attribution. A later-season 토비 record is outside this change. The existing opaque character ID is retained to preserve links.
 
 ## Text-only exceptions
 
@@ -31,7 +33,7 @@ English model text is retained for unmapped entries instead of inventing catalog
 
 ## Evidence
 
-- [Official TV Tokyo episode 101: Toby/Faust identity](https://www.tv-tokyo.co.jp/contents/mf-beyblade/episodes/episodes8/index.html)
+- [Official TV Tokyo episode 101: Faust appearance](https://www.tv-tokyo.co.jp/contents/mf-beyblade/episodes/episodes8/index.html)
 - [Licensed Korean comic publisher: 왕대상](https://m.yes24.com/goods/detail/11394097), [Garcia names](https://m.yes24.com/Goods/Detail/7343777)
 - [Aquario BB-21 versus anime BB-72 edition](https://beyblade.fandom.com/wiki/Aquario_105F), [independent language description](https://beyblade.fandom.com/fr/wiki/Aquario_105F)
 - [Counter Scorpio 145D edition differences](https://beyblade.fandom.com/wiki/Counter_Scorpio_145D)
@@ -40,3 +42,13 @@ English model text is retained for unmapped entries instead of inventing catalog
 - [Season-two episode 4 returning usage](https://beyblade.fandom.com/wiki/Beyblade:_Metal_Masters_-_Episode_04), [episode 46](https://beyblade.fandom.com/wiki/Beyblade:_Metal_Masters_-_Episode_46)
 
 Secondary character and episode references were cross-checked with existing catalog identities. Where exact retail color evidence remained unresolved, the source deliberately retains no target.
+
+## Source-only media appearance data
+
+`data/source/metal-fight-media-beys.mjs` stores six season-two anime appearances with names, known combinations, stable character references, medium/season provenance and evidence URLs. It is deliberately not imported into the runtime catalog: no new cards, modals, products, parts, images or stats are introduced.
+
+Three exact combinations are confirmed anime-only: Virgo ED145ES, Ray Cancer 135SF and Ray Cancer M145Q. Poison Virgo ED145ES, Burn Wolf SW145WD and Grand Capricorne 145D have Hasbro releases, so their status is `released-unmapped`, with no claim that an existing catalog edition matches the anime colors. Retail-backed Marcus and unresolved Russian recolors remain outside this adjunct.
+
+Poison Virgo ED145ES and Burn Wolf SW145WD also appear in an [official Hasbro PDF](https://www.hasbro.com/common/assets/image/Printables/d83b87d6e2ab4791a7be48878ece4410/FBB2851619B9F36910D5201B397F8C0A/CE0E59CF5056900B10237924391C9AD2.pdf). Grand Capricorne's retail source is the [Team Excalibur Set](https://beyblade.fandom.com/wiki/Team_Excalibur_Set). Catalog absence alone is never treated as evidence of no retail release.
+
+The integrity tests require each media appearance to agree with its character's existing season-two text-only usage. Missing images and stats are omitted, not invented. The current UI remains unchanged; future media-specific display is deferred.
