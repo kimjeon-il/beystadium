@@ -124,8 +124,8 @@ test("B-181 Dragoon V2 separates its mounted combination from the bundled 6 Armo
   const armorLink = bundledSection.locator(".mounted-link");
   await expect(armorLink).toHaveCount(1);
   await expect(armorLink).toHaveAttribute("data-part-id", "PART-BURST-DBARMOR-6");
-  await expect(armorLink).toHaveText("6");
-  await expect(armorLink).toHaveAccessibleName("6");
+  await expect(armorLink).toHaveText("식스");
+  await expect(armorLink).toHaveAccessibleName("식스");
   await expect(armorLink.locator("*")).toHaveCount(0);
   await armorLink.click();
   await expect(page).toHaveURL(/#PART-BURST-DBARMOR-6$/);
@@ -677,7 +677,7 @@ test("mounted parts use text-only compact badges with localized names and keyboa
   await expect(section.locator(".mounted-title")).toHaveText("부품");
   const links = section.locator(".bey-relation-list .mounted-link");
   await expect(links).toHaveCount(5);
-  await expect(links).toHaveText(["페르세우스", "페르세우스", "그라비티", "AD145", "와이드디펜스"]);
+  await expect(links).toHaveText(["페르세우스", "페르세우스", "그라비티", "아머디펜스145", "와이드디펜스"]);
   await expect(links.locator("*")).toHaveCount(0);
   const badges = await links.evaluateAll(elements => elements.map(element => {
     const rect = element.getBoundingClientRect();
@@ -710,16 +710,16 @@ test("mounted parts use text-only compact badges with localized names and keyboa
   expect(errors).toEqual([]);
 });
 
-test("X part badges omit role columns while preserving codes and full bit names", async ({ page }) => {
+test("X part badges omit role columns and match localized part detail names", async ({ page }) => {
   const errors = consoleErrors(page);
   const cases = [
     {
       id: "BEY-X-CX-01-DRAN-BRAVE-S-6-60V",
-      names: ["드랜", "브레이브", "S", "6-60", "볼텍스"]
+      names: ["드랜", "브레이브", "슬래시", "6-60", "볼텍스"]
     },
     {
       id: "BEY-X-CX-13-BAHAMUT-BLITZ-BK-1-50I",
-      names: ["바하무트", "블리츠", "B", "K", "1-50", "이그니션"]
+      names: ["바하무트", "블리츠", "브레이크", "너클", "1-50", "이그니션"]
     }
   ];
 

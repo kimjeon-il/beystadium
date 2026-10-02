@@ -1,7 +1,8 @@
+import { partDetailDisplayName } from "#app/part-name-core";
 import { isAnimeEpisodeHash } from "#app/anime-core";
 import { appState } from "#app/state";
 import { animeInfo, bookItems, bookItemsById, catalogCoreItems, catalogCoreItemsById, gameItems, gameItemsById, productItems, productItemsById, toolsItems, toolsItemsById } from "#app/data-store";
-import { compareToolsItemsByFirstRelease, isCodedPartName, partCategory, partKoName, productLineupIds, productSerialNumber, visibleCatalogCoreItems, visibleToolsItems } from "#app/catalog-model";
+import { compareToolsItemsByFirstRelease, partCategory, productLineupIds, productSerialNumber, visibleCatalogCoreItems, visibleToolsItems } from "#app/catalog-model";
 import { itemDisplayDesc, itemDisplayName, modalTitle, productDetailBody, productHeader, productLineup, productMetaSlot, rareBeyGetListMarkup } from "#app/detail-content";
 import { beyDetailSections, beyModalTags, bindModalTagPopovers, closeModalTagPopover, modalInfoSlot, modalScrollArea, modalTagGroup, partModalTags } from "#app/detail-view";
 import { openAnimeEpisodeDetail, openCategoryReleaseDetail } from "#app/feature-loaders";
@@ -109,20 +110,12 @@ async function openDetailByKind(kind, targetId, options = {}) {
   else openDetail(targetId, options);
 }
 function detailHeading(item, options = {}) {
-  if (isCodedPartName(item)) {
-    const numericTrack = item.type === "track" && /^\d+$/.test(item.name);
-    const koName = partKoName(item);
-    const displayName = itemDisplayName(item, options.region);
-    return numericTrack
-      ? modalTitle(displayName)
-      : modalTitle(options.region === "jp" && item.jpName ? displayName : koName);
-  }
   if (item.type === "bey") {
     const combo = partCategory(item);
     const name = itemDisplayName(item, options.region);
     return modalTitle(combo ? `${name} ${combo}` : name);
   }
-  return modalTitle(itemDisplayName(item, options.region));
+  return modalTitle(partDetailDisplayName(item, options.region));
 }
 const validReleaseRegion = region => releaseRegionLabels[region] ? region : "";
 function catalogDetailRegion(_item, options = {}) {

@@ -45,3 +45,27 @@ test('records without mapped relations do not show empty sections or invent link
   const html = beyDetailSections({ id: 'UNKNOWN', type: 'bey', series: 'x', parts: ['MISSING'] }, 'kr');
   assert.equal(html, '');
 });
+
+test('all abbreviated part categories use their existing localized modal title in Bey badges', async () => {
+  const { partItems } = await import('../data/source/catalog.mjs');
+  const { partDetailDisplayName } = await import('../src/part-name-core.js');
+  const originalNames = partItems.map(part => part.name);
+  const codedTypes = new Set(['track', 'bottom', '4dbottom', 'disk', 'coredisk', 'frame', 'dbdisk', 'dbarmor', 'driver', 'bit', 'superkingchassis']);
+  const codedRoles = new Set(['assistBlade', 'overBlade']);
+  const changedCategories = new Set();
+  for (const part of partItems) {
+    catalogCoreItemsById.set(part.id, part);
+    const coded = codedTypes.has(part.type) || (part.series === 'x' && codedRoles.has(part.xBladeRole));
+    const numericTrack = part.type === 'track' && /^\d+$/.test(part.name);
+    for (const region of ['kr', 'jp']) {
+      const fullName = region === 'jp' && part.jpName ? part.jpName : coded && !numericTrack ? part.sub : part.name;
+      assert.equal(partDetailDisplayName(part, region), fullName, `${part.id}: existing modal title must not change`);
+      const escaped = String(fullName).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#39;');
+      const html = beyDetailSections({ id: 'TEST', type: 'bey', series: part.series, parts: [part.id] }, region);
+      assert.ok(html.includes(`>${escaped}</a>`), `${part.id} (${region}): badge must use existing modal title ${fullName}`);
+      if (fullName !== part.name) changedCategories.add(part.xBladeRole || part.type);
+    }
+  }
+  assert.deepEqual(partItems.map(part => part.name), originalNames);
+  for (const category of [...codedTypes, ...codedRoles]) assert.ok(changedCategories.has(category), `Full-name coverage missing ${category}`);
+});

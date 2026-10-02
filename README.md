@@ -38,7 +38,7 @@ ESLint, 데이터 생성물 동기화, 참조 무결성, 데스크톱/모바일 
 
 The compact detail badges are derived from canonical data, not per-Bey reverse lists:
 
-- Parts use the Bey's `parts` / `bundledParts` IDs and catalog names
+- Parts use the Bey's `parts` / `bundledParts` IDs and the same localized names as their part-detail headings (including abbreviated drivers, disks, frames, armor, chassis, and X auxiliary blades)
 - Products use the selected region's resolved composition and applicable `lineupPool`; random candidates are marked `(랜덤)`. A guaranteed Korean release does not inherit a Japanese random pool
 - Users use the character source's stable `CHARACTER-*` ID and `beys` model names. X models resolve by exact normalized blade names or CX lock-chip + main-blade names. Known versioned blades reuse their existing base model; unknown or ambiguous models do not guess users
 

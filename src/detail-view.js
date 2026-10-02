@@ -1,3 +1,4 @@
+import { partDetailDisplayName } from "#app/part-name-core";
 import { appState } from "#app/state";
 import { appServices } from "#app/services";
 import { animeInfo, productItems, catalogCoreItemsById } from "#app/data-store";
@@ -214,11 +215,6 @@ const beyDetailPartIds = item => {
     .sort((a, b) => a.order - b.order || a.index - b.index)
     .map(entry => entry.partId);
 };
-const beyPartBadgeName = (part, region) => {
-  if (region === "jp" && part.jpName) return part.jpName;
-  return ["bottom", "4dbottom", "bit"].includes(part.type) && part.sub
-    ? part.sub : appServices.itemDisplayName(part, region);
-};
 const beyRelationSection = (title, links, className = "") => links
   ? `<section class="modal-section bey-relation-section ${className}"><h4 class="mounted-title">${title}</h4><div class="bey-relation-list">${links}</div></section>` : "";
 const beyPartPreviewAttribute = (bey, part) => {
@@ -233,7 +229,7 @@ const beyPartSection = (title, bey, partIds, region, className = "") => {
     const part = catalogCoreItemsById.get(partId);
     if (!part) return "";
     const previewAttribute = beyPartPreviewAttribute(bey, part);
-    return `<a class="bey-relation-badge mounted-link" href="#${escapeAttributeValue(part.id)}" data-part-id="${escapeAttributeValue(part.id)}"${previewAttribute}>${escapeHtml(beyPartBadgeName(part, region))}</a>`;
+    return `<a class="bey-relation-badge mounted-link" href="#${escapeAttributeValue(part.id)}" data-part-id="${escapeAttributeValue(part.id)}"${previewAttribute}>${escapeHtml(partDetailDisplayName(part, region))}</a>`;
   }).filter(Boolean).join("");
   if (!links) return "";
   return beyRelationSection(title, links, `mounted-parts ${className}`);

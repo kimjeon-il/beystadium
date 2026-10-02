@@ -1,3 +1,4 @@
+import { isCodedPartName, partKoName } from "#app/part-name-core";
 import { resolveProductComposition } from "#app/product-relations-core";
 import { appState } from "#app/state";
 import {
@@ -61,16 +62,6 @@ const catalogCardTitle = (label, title, className = "") => {
       <span class="catalog-card-badge">${label}</span>
       <span class="catalog-card-title">${title}</span>
     </h3>`;
-};
-const codedPartNameTypes = new Set(["track", "bottom", "4dbottom", "disk", "coredisk", "frame", "dbdisk", "dbarmor", "driver", "bit", "superkingchassis"]);
-const codedXBladeRoles = new Set(["assistBlade", "overBlade"]);
-const isCodedPartName = item => codedPartNameTypes.has(item?.type) || (
-  item?.series === "x" && codedXBladeRoles.has(item?.xBladeRole)
-);
-const partKoName = item => {
-  if (!isCodedPartName(item)) return "";
-  const detail = item.sub || "";
-  return detail.includes("높이") ? "" : detail;
 };
 const namedPartTypes = new Set(["face", "stoneface", "wheel", "clearwheel", "4dclearwheel", "lightwheel", "metalwheel", "4dmetalwheel", "chromewheel", "crystalwheel"]);
 const cardInfo = item => {

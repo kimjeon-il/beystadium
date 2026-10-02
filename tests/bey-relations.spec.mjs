@@ -158,3 +158,27 @@ for (const reloadDetail of [false, true]) {
     expect(errors).toEqual([]);
   });
 }
+
+test("every mounted and bundled badge matches its part detail title while Bey titles stay unchanged", async ({ page }) => {
+  const modal = page.locator("#detailModal");
+  for (const beyId of [
+    "BEY-BURST-B-181-03-DRAGOON-V2-WH-XC-DASH",
+    "BEY-METAL-FIGHT-BB-80-GRAVITY-PERSEUS-AD145WD",
+    "BEY-X-CX-13-BAHAMUT-BLITZ-BK-1-50I"
+  ]) {
+    await page.goto(`/#${beyId}`);
+    await expect(modal).toBeVisible();
+    const beyTitle = await modal.locator(".modal-name").innerText();
+    const partIds = await modal.locator(".mounted-link").evaluateAll(links => links.map(link => link.dataset.partId));
+    for (const id of partIds) {
+      const badge = modal.locator(`.mounted-link[data-part-id="${id}"]`);
+      const badgeTitle = await badge.innerText();
+      await badge.click();
+      await expect(page).toHaveURL(new RegExp(`#${id}$`));
+      await expect(modal.locator(".modal-name")).toHaveText(badgeTitle);
+      await modal.locator(".modal-back").click();
+      await expect(page).toHaveURL(new RegExp(`#${beyId}$`));
+      await expect(modal.locator(".modal-name")).toHaveText(beyTitle);
+    }
+  }
+});
