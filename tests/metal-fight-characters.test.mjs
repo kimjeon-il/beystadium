@@ -95,7 +95,7 @@ test("Metal Fight characters contain no invented biographies, roles or assets", 
   assert.equal(characters.length, 21);
   for (const character of characters) {
     assert.equal(character.role, "", character.name);
-    assert.deepEqual(Object.keys(character).sort(), (character.name === "피닉스"
+    assert.deepEqual(Object.keys(character).filter(key => key !== "additionalUsage").sort(), (character.name === "피닉스"
       ? ["id", "name", "season", "role", "beyIds", "beys", "usages", "aliases"]
       : ["id", "name", "season", "role", "beyIds", "beys", "usages"]).sort(), character.name);
   }

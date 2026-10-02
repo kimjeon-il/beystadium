@@ -298,3 +298,19 @@ test("only exact verified Metal retail variants expose character users", async (
   }
   expect(errors).toEqual([]);
 });
+
+test("additional upgraded usage is unscoped and preserves the exact Bey back flow", async ({ page }) => {
+  const id = "BEY-METAL-FIGHT-BB-105-BIG-BANG-PEGASIS-FD";
+  await page.goto(`/#${id}`);
+  const modal = page.locator("#detailModal");
+  await expect(modal.locator(".bey-character-link")).toHaveText("강타");
+  await modal.locator(".bey-character-link").click();
+  await expect(modal.locator(".modal-tags")).not.toContainText("등장인물");
+  await expect(modal.locator(".modal-tags")).not.toContainText("4D");
+  const additional = modal.locator(".bey-relation-section").filter({ has: page.getByRole("heading", { name: "사용 베이", exact: true }) });
+  await expect(additional).toContainText("빅뱅 페가시스 F:D");
+  await page.reload();
+  await expect(additional).toContainText("빅뱅 페가시스 F:D");
+  await modal.locator(".modal-back").click();
+  await expect(page).toHaveURL(new RegExp(`#${id}$`));
+});

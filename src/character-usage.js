@@ -1,7 +1,12 @@
 /** Preserve one identity while displaying only usage recorded for the chosen season. */
-export const characterUsageGroups = character => Array.isArray(character?.usages)
-  ? character.usages
-  : [{ season: character?.season || "", beys: character?.beys || [], beyIds: character?.beyIds || [] }];
+export const characterUsageGroups = character => {
+  const groups = Array.isArray(character?.usages)
+    ? character.usages
+    : [{ season: character?.season || "", beys: character?.beys || [], beyIds: character?.beyIds || [] }];
+  return character?.additionalUsage
+    ? [...groups, { ...character.additionalUsage, season: "" }]
+    : groups;
+};
 
 export const characterForSeason = (character, season = "all") => {
   if (season === "all") return character;

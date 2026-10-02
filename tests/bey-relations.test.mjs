@@ -202,6 +202,59 @@ test("usage groups override conflicting aggregate membership and validate each g
   assert.deepEqual(relatedBeyCharacters(galaxy, [character], catalogById), []);
 });
 
+test("additional exact usage links once without attributing same-family editions", () => {
+  const storm = catalogById.get("BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF");
+  const galaxy = catalogById.get("BEY-METAL-FIGHT-BB-70-GALAXY-PEGASIS-W105R2F");
+  const character = {
+    id: "ADDITIONAL", season: "metal-fight", beyIds: [storm.id, galaxy.id],
+    usages: [{ season: "metal-fight", beyIds: [storm.id] }],
+    additionalUsage: { beyIds: [galaxy.id, galaxy.id], beys: [galaxy.name] }
+  };
+  const before = JSON.stringify(character);
+  assert.deepEqual(relatedBeyCharacters(galaxy, [character, character, { ...character }], catalogById), [character]);
+  assert.deepEqual(relatedBeyCharacters(storm, [character], catalogById), [character]);
+  for (const id of [
+    "BEY-METAL-FIGHT-BB-75-GALAXY-PEGASIS-W105R2F",
+    "BEY-METAL-FIGHT-BB-76-GALAXY-PEGASIS-W105R2F",
+    "BEY-METAL-FIGHT-BB-92-GALAXY-PEGASIS-W105R2F"
+  ]) assert.deepEqual(relatedBeyCharacters(catalogById.get(id), [character], catalogById), [], id);
+  assert.equal(JSON.stringify(character), before);
+});
+
+test("additional usage derives compatible series from authoritative season groups", () => {
+  const storm = catalogById.get("BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF");
+  const character = { id: "ADDITIONAL", additionalUsage: { beyIds: [storm.id] } };
+  const grouped = { ...character, usages: [{ season: "metal-fight-2", beyIds: [] }] };
+  const legacy = { ...character, season: "metal-fight" };
+  assert.deepEqual(relatedBeyCharacters(storm, [grouped], catalogById), [grouped]);
+  assert.deepEqual(relatedBeyCharacters(storm, [legacy], catalogById), [legacy]);
+  for (const usages of [[], [null, {}], [{ season: "beyblade-x" }], [{ season: "metal-fight-other" }], [{ season: "" }]]) {
+    assert.deepEqual(relatedBeyCharacters(storm, [{ ...legacy, usages }], catalogById), []);
+  }
+  const x = catalogById.get("BEY-X-BX-01-DRAN-SWORD-3-60F");
+  assert.deepEqual(relatedBeyCharacters(x, [{ ...grouped, additionalUsage: { beyIds: [x.id] } }], catalogById), []);
+  assert.deepEqual(relatedBeyCharacters(storm, [{ ...character, season: "beyblade-x" }], catalogById), []);
+});
+
+test("additional usage never enables stale aggregate membership or text-only relations", () => {
+  const storm = catalogById.get("BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF");
+  const galaxy = catalogById.get("BEY-METAL-FIGHT-BB-70-GALAXY-PEGASIS-W105R2F");
+  const character = {
+    id: "ADDITIONAL", season: "metal-fight", beyIds: [storm.id, galaxy.id],
+    usages: [{ season: "metal-fight", beyIds: [] }],
+    additionalUsage: { beyIds: [galaxy.id] }
+  };
+  assert.deepEqual(relatedBeyCharacters(galaxy, [character], catalogById), [character]);
+  assert.deepEqual(relatedBeyCharacters(storm, [character], catalogById), []);
+  for (const additionalUsage of [
+    { beys: [storm.name], beyIds: [], unmappedBeys: [storm.name] },
+    { beys: [storm.name] },
+    { beyIds: storm.id },
+    { beyIds: ["UNKNOWN"] },
+    null
+  ]) assert.deepEqual(relatedBeyCharacters(storm, [{ ...character, additionalUsage }], catalogById), []);
+});
+
 test("missing, malformed, unregistered and non-Bey inputs cannot establish a usage relation", () => {
   const storm = catalogById.get("BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF");
   const part = catalogById.get(storm.parts[0]);

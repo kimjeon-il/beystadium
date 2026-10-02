@@ -52,3 +52,16 @@ Three exact combinations are confirmed anime-only: Virgo ED145ES, Ray Cancer 135
 Poison Virgo ED145ES and Burn Wolf SW145WD also appear in an [official Hasbro PDF](https://www.hasbro.com/common/assets/image/Printables/d83b87d6e2ab4791a7be48878ece4410/FBB2851619B9F36910D5201B397F8C0A/CE0E59CF5056900B10237924391C9AD2.pdf). Grand Capricorne's retail source is the [Team Excalibur Set](https://beyblade.fandom.com/wiki/Team_Excalibur_Set). Catalog absence alone is never treated as evidence of no retail release.
 
 The integrity tests require each media appearance to agree with its character's existing season-two text-only usage. Missing images and stats are omitted, not invented. The current UI remains unchanged; future media-specific display is deferred.
+
+## Additional model changes without seasonal appearances
+
+Six existing characters have one `additionalUsage` each. This adds no characters, duplicates no unchanged usage, and does not create a new season/appearance record. Existing season-one/two provenance remains unchanged. The aggregate character view/search and exact toy user links include the additions; legacy season-filtered lists retain their original scoped usage. Character detail uses the ordinary 사용 베이 heading for these unscoped additions.
+
+- 강타 → BB-105 빅뱅 페가시스 F:D. [Original color details](https://www.beywiki.com/index.php?title=Big_Bang_Pegasis_F%3AD); BB-107 is a white-frame DX recolor and is excluded
+- 태사자 → BB-106 팡 레온 130W²D. [Original edition and variants](https://beyblade.fandom.com/wiki/Fang_Leone_130W2D)
+- 노아 → BB-126 플래시 사지타리오 230WD. [Original edition](https://www.beywiki.com/index.php?title=Flash_Sagittario_230WD)
+- 드래곤 → BB-108 엘드라고 디스트로이 F:S. [Original edition and variants](https://www.beywiki.com/index.php?title=L-Drago_Destroy_F%3AS)
+- 장군 → BB-117 브릿츠 유니콘 100RSF. [Original Strongest Blader Set and recolor distinction](https://www.beywiki.com/index.php?title=Blitz_Unicorno_100RSF). A verified original set edition is allowed; unrelated editions are not inferred
+- 제오 → BB-116 스크류 폭스 TR145W²D. [Known color discrepancy](https://beyblade.fandom.com/wiki/Spiral_Fox_TR145W2D): the retail W²D is translucent black while the anime W²D is blue. The user explicitly approved linking this original edition despite that difference. This is a specific exception, not permission to link other recolors
+
+All prior usage remains intact. These changes do not add a 4D appearance roster or perform a broad migration of legacy season data.

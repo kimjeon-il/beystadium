@@ -222,8 +222,7 @@ const seasonTwoReplacements = {
   "CHARACTER-METAL-FIGHT-DRAGON": ["BEY-METAL-FIGHT-BB-88-METEO-L-DRAGO-LW105LF"],
   "CHARACTER-METAL-FIGHT-CRAB-KING": ["BEY-METAL-FIGHT-BB-55-DARK-CANCER-CH120SF"]
 };
-const usageGroup = (season, beyIds, unmappedBeys = []) => ({
-  season,
+const usageData = (beyIds, unmappedBeys = []) => ({
   beyIds,
   beys: [...beyIds.map(id => {
     const bey = beyById.get(id);
@@ -232,12 +231,28 @@ const usageGroup = (season, beyIds, unmappedBeys = []) => ({
   }), ...unmappedBeys],
   ...(unmappedBeys.length ? { unmappedBeys } : {})
 });
+const usageGroup = (season, beyIds, unmappedBeys = []) => ({ season, ...usageData(beyIds, unmappedBeys) });
+
+// Additional model usage is recorded without adding seasonal appearances.
+const additionalBeyIds = {
+  "CHARACTER-METAL-FIGHT-KANG-TA": ["BEY-METAL-FIGHT-BB-105-BIG-BANG-PEGASIS-FD"],
+  "CHARACTER-METAL-FIGHT-TAE-SAJA": ["BEY-METAL-FIGHT-BB-106-FANG-LEONE-130W2D"],
+  "CHARACTER-METAL-FIGHT-NOA": ["BEY-METAL-FIGHT-BB-126-FLASH-SAGITTARIO-230WD"],
+  "CHARACTER-METAL-FIGHT-DRAGON": ["BEY-METAL-FIGHT-BB-108-L-DRAGO-DESTROY-FS"],
+  "CHARACTER-METAL-FIGHT-JANGGUN": ["BEY-METAL-FIGHT-BB-117-BLITZ-UNICORNO-100RSF"],
+  // Explicitly approved original-edition exception: BB-116 has a black W²D; anime uses blue.
+  "CHARACTER-METAL-FIGHT-ZEO": ["BEY-METAL-FIGHT-BB-116-SCREW-FOX-TR145W2D"]
+};
 const metalFightCharacters = [...characterUsages, ...seasonTwoNewCharacters].map(character => {
   const firstSeason = characterUsages.includes(character) ? "metal-fight" : "metal-fight-2";
   const usages = [usageGroup(firstSeason, character.beyIds, character.unmappedBeys)];
   if (seasonTwoReturningIds.has(character.id)) {
     usages.push(usageGroup("metal-fight-2", seasonTwoReplacements[character.id] || character.beyIds));
   }
+  const additionalUsage = Object.hasOwn(additionalBeyIds, character.id)
+    ? usageData(additionalBeyIds[character.id])
+    : null;
+  const allUsage = additionalUsage ? [...usages, additionalUsage] : usages;
   return {
     id: character.id,
     name: character.name,
@@ -245,8 +260,9 @@ const metalFightCharacters = [...characterUsages, ...seasonTwoNewCharacters].map
     season: firstSeason,
     role: "",
     usages,
-    beyIds: [...new Set(usages.flatMap(usage => usage.beyIds))],
-    beys: [...new Set(usages.flatMap(usage => usage.beys))]
+    ...(additionalUsage ? { additionalUsage } : {}),
+    beyIds: [...new Set(allUsage.flatMap(usage => usage.beyIds))],
+    beys: [...new Set(allUsage.flatMap(usage => usage.beys))]
   };
 });
 

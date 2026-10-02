@@ -178,7 +178,7 @@ function openCharacterDetail(id, options = {}) {
   const root = setModalContent(`<div class="modal-inner modal-inner--content">
     ${detailBackButton(options.backId, options.backProductId, options.backRelease, options.region)}
     <div class="modal-info part-modal-info">${modalScrollArea(`${modalTitle(character.name)}
-      ${modalInfoSlot(character.role || "", modalTagGroup(groups.map(group => `<span>${escapeHtml(animeSeasonLabels[group.season] || "등장인물")}</span>`).join("")))}
+      ${modalInfoSlot(character.role || "", modalTagGroup(groups.filter(group => animeSeasonLabels[group.season]).map(group => `<span>${escapeHtml(animeSeasonLabels[group.season])}</span>`).join("")))}
       <div class="modal-body-block">${models}<p class="stat-note">베이의 사용자 표시는 사용이 확인된 개별 제품에만 연결합니다. 미확인 색상이나 세트판에는 연결하지 않습니다.</p></div>`)}</div></div>`);
   if (!root) return;
   bindCatalogModalBack(root);

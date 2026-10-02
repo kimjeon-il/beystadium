@@ -9,7 +9,7 @@
     "data:check": "node scripts/build-data-index.mjs --check",
     "audit:app": "node scripts/audit-app.mjs",
     "lint:js": "eslint scripts tests \"src/**/*.js\" playwright.config.mjs eslint.config.js",
-    "test:bey-relations": "node --test tests/bey-relations.test.mjs tests/bey-badge-render.test.mjs tests/metal-fight-characters.test.mjs tests/character-usage.test.mjs tests/metal-media-beys.test.mjs",
+    "test:bey-relations": "node --test tests/bey-relations.test.mjs tests/bey-badge-render.test.mjs tests/metal-fight-characters.test.mjs tests/character-usage.test.mjs tests/metal-media-beys.test.mjs tests/metal-character-upgrades.test.mjs",
     "test:search": "node --test tests/search-core.test.mjs",
     "test:routes": "node --test tests/route-parser.test.mjs",
     "test:ids": "node --test tests/x-bey-id.test.mjs",

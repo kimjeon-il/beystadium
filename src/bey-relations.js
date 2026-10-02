@@ -44,10 +44,12 @@ export const relatedBeyCharacters = (bey, characters = [], catalogById) => {
   const seen = new Set();
   return characters.filter(character => {
     if (typeof character?.id !== "string" || !character.id || seen.has(character.id)) return false;
-    const hasUsage = characterUsageGroups(character).some(group =>
+    const compatibleGroups = characterUsageGroups(character).filter(group =>
       typeof group?.season === "string" && seasonPattern.test(group.season)
-      && Array.isArray(group.beyIds) && group.beyIds.includes(bey.id)
     );
+    const hasUsage = compatibleGroups.some(group => Array.isArray(group.beyIds) && group.beyIds.includes(bey.id))
+      || (compatibleGroups.length > 0 && Array.isArray(character.additionalUsage?.beyIds)
+        && character.additionalUsage.beyIds.includes(bey.id));
     if (!hasUsage) return false;
     seen.add(character.id);
     return true;

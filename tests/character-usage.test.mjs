@@ -25,6 +25,27 @@ test("legacy single-season characters retain their names without inventing exact
   assert.equal(usage.characterForSeason(x, "metal-fight-2"), null);
 });
 
+test("additional usage appends one seasonless group without changing recorded season groups", () => {
+  const additionalUsage = { beys: ["Big Bang"], beyIds: ["B"] };
+  const supplemented = { ...character, beys: [...character.beys, "Big Bang"], beyIds: [...character.beyIds, "B"], additionalUsage };
+  const before = JSON.stringify(supplemented);
+  assert.deepEqual(usage.characterUsageGroups(supplemented), [...character.usages, { ...additionalUsage, season: "" }]);
+  assert.equal(usage.characterForSeason(supplemented, "all"), supplemented);
+  assert.deepEqual(usage.characterForSeason(supplemented, "metal-fight").beyIds, ["S"]);
+  assert.deepEqual(usage.characterForSeason(supplemented, "metal-fight-2").beys, ["Galaxy"]);
+  assert.equal(usage.characterForSeason(supplemented, "metal-fight-4d"), null);
+  assert.equal(usage.characterForSeason(supplemented, "metal-fight-zerog"), null);
+  assert.equal(JSON.stringify(supplemented), before);
+});
+
+test("text-only additional usage remains visible without a season or invented exact IDs", () => {
+  const additionalUsage = { beys: ["Spiral Fox"], beyIds: [], unmappedBeys: ["Spiral Fox"] };
+  const supplemented = { ...character, additionalUsage };
+  assert.deepEqual(usage.characterUsageGroups(supplemented), [...character.usages, { ...additionalUsage, season: "" }]);
+  assert.deepEqual(usage.characterForSeason(supplemented, "metal-fight-2").beyIds, ["G"]);
+  assert.equal(usage.characterForSeason(supplemented, "metal-fight-4d"), null);
+});
+
 test("Metal season two preserves the existing identity and season-one usages while adding upgrades", async () => {
   const { animeInfo } = await import("../data/source/anime.mjs");
   const kang = animeInfo.characters.find(c => c.name === "강타");

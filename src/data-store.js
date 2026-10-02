@@ -8,7 +8,7 @@ const bookItems = [];
 const gameItems = [];
 const animeInfo = { title: "", overview: [], characters: [], episodes: [] };
 const searchIndexItems = [];
-const DATA_CACHE_VERSION = "20261002-metal-character-names";
+const DATA_CACHE_VERSION = "20261002-metal-unscoped-upgrades";
 const X_ASSET_CACHE_VERSION = "20260827-burst-b36-official-front";
 
 const versionAssetUrl = source => {

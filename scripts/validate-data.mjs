@@ -63,13 +63,18 @@ const invalidCharacterUsages = animeInfo.characters.flatMap(character => {
   if (!character.usages) return [];
   const groups = character.usages;
   const seasons = groups.map(group => group.season);
-  const ids = [...new Set(groups.flatMap(group => group.beyIds || []))];
-  const names = [...new Set(groups.flatMap(group => group.beys || []))];
+  const additional = character.additionalUsage;
+  const allUsage = additional ? [...groups, additional] : groups;
+  const ids = [...new Set(allUsage.flatMap(group => group.beyIds || []))];
+  const names = [...new Set(allUsage.flatMap(group => group.beys || []))];
   const valid = groups.length && new Set(seasons).size === seasons.length
     && seasons[0] === character.season
     && groups.every(group => /^metal-fight(?:-2)?$/.test(group.season)
       && Array.isArray(group.beyIds) && Array.isArray(group.beys)
       && group.beyIds.every(id => beyItems.some(bey => bey.id === id && bey.series === "metal fight")))
+    && (!additional || (!Object.hasOwn(additional, "season") && Array.isArray(additional.beyIds)
+      && Array.isArray(additional.beys)
+      && additional.beyIds.every(id => beyItems.some(bey => bey.id === id && bey.series === "metal fight"))))
     && JSON.stringify(ids) === JSON.stringify(character.beyIds)
     && JSON.stringify(names) === JSON.stringify(character.beys);
   return valid ? [] : [character.id];
