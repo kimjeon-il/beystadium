@@ -9,7 +9,7 @@ test("scoped Metal season-two media appearances retain provenance without becomi
   assert.equal(new Set(metalFightMediaBeys.map(item => item.id)).size, 6);
   const characters = new Map(animeInfo.characters.map(character => [character.id, character]));
   for (const item of metalFightMediaBeys) {
-    assert.match(item.id, /^MEDIA-BEY-METAL-FIGHT-2-/);
+    assert.equal(item.id, `MEDIA-BEY-${item.name.toUpperCase().replaceAll(" ", "-")}-${item.combination}`);
     assert.equal(item.season, "metal-fight-2");
     assert.equal(item.medium, "anime");
     assert.ok(item.name && item.combination);
