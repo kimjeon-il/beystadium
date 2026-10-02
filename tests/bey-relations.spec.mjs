@@ -2,15 +2,18 @@ import { test, expect } from "@playwright/test";
 import { consoleErrors, expectModalBackAtShellTopLeft } from "./helpers/ui-assertions.mjs";
 
 const sword = "BEY-X-BX-01-DRAN-SWORD-3-60F";
+const storm = "BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF";
+const galaxy = "BEY-METAL-FIGHT-BB-70-GALAXY-PEGASIS-W105R2F";
+const kangTa = "CHARACTER-METAL-FIGHT-KANG-TA";
 
-test("Bey relation badges expose localized names and exact product, character, and part navigation", async ({ page }) => {
+test("X Bey badges preserve localized product and part navigation without unverified users", async ({ page }) => {
   const errors = consoleErrors(page);
   await page.goto(`/#${sword}`);
   const modal = page.locator("#detailModal");
   await expect(modal).toBeVisible();
   await expect(modal.locator(".mounted-parts .mounted-title")).toHaveText("부품");
   await expect(modal.locator(".bey-products .mounted-title")).toHaveText("포함 제품");
-  await expect(modal.locator(".bey-users .mounted-title")).toHaveText("사용자");
+  await expect(modal.locator(".bey-users, .bey-character-link")).toHaveCount(0);
   await expect(modal.locator('[data-part-id="PART-X-BIT-F"]')).toHaveText("플랫");
   await expect(modal.locator(".bey-relation-badge span, .bey-relation-badge strong, .bey-relation-badge b")).toHaveCount(0);
 
@@ -19,11 +22,6 @@ test("Bey relation badges expose localized names and exact product, character, a
       selector: '.bey-product-link[data-product-id="PRODUCT-X-BX-01"]',
       id: "PRODUCT-X-BX-01",
       accessibleName: /BX-01.*포함 제품 상세 보기/
-    },
-    {
-      selector: '.bey-character-link[data-character-id="CHARACTER-X-GU-ISU"]',
-      id: "CHARACTER-X-GU-ISU",
-      accessibleName: "구이수 · 작품 속 모델 사용자 상세 보기"
     },
     {
       selector: '.mounted-link[data-part-id="PART-X-BIT-F"]',
@@ -43,7 +41,7 @@ test("Bey relation badges expose localized names and exact product, character, a
     await modal.locator(".modal-back").click();
     await expect(page).toHaveURL(new RegExp(`#${sword}$`));
     await expect(modal.locator(destination.selector)).toBeVisible();
-    await expect(modal.locator(".bey-character-link")).toHaveText("구이수");
+    await expect(modal.locator(".bey-users, .bey-character-link")).toHaveCount(0);
     await expect(modal.locator(".mounted-parts .mounted-link")).toHaveCount(3);
   }
 
@@ -73,6 +71,41 @@ test("Bey relation badges expose localized names and exact product, character, a
   expect(errors).toEqual([]);
 });
 
+test("verified Metal Bey users support keyboard navigation and season-labeled character details", async ({ page }) => {
+  const errors = consoleErrors(page);
+  const modal = page.locator("#detailModal");
+  await page.goto(`/#${storm}`);
+  await expect(modal).toBeVisible();
+  await expect(modal.locator(".bey-users .mounted-title")).toHaveText("사용자");
+  const user = modal.locator(`.bey-character-link[data-character-id="${kangTa}"]`);
+  await expect(user).toHaveText("강타");
+  await expect(user).toHaveAttribute("href", `#${kangTa}`);
+  await expect(user).toHaveAccessibleName("강타 · 사용 확인된 제품 사용자 상세 보기");
+  const userBox = await user.evaluate(node => {
+    const rect = node.getBoundingClientRect();
+    const parent = node.parentElement.getBoundingClientRect();
+    return { height: rect.height, left: rect.left, right: rect.right, parentLeft: parent.left, parentRight: parent.right };
+  });
+  expect(userBox.height).toBeGreaterThanOrEqual(44);
+  expect(userBox.left).toBeGreaterThanOrEqual(userBox.parentLeft - 1);
+  expect(userBox.right).toBeLessThanOrEqual(userBox.parentRight + 1);
+  await expect(modal.locator(".bey-users .bey-relation-badge span, .bey-users .bey-relation-badge strong, .bey-users .bey-relation-badge b")).toHaveCount(0);
+  await user.focus();
+  await expect(user).toBeFocused();
+  await page.keyboard.press("Enter");
+  await expect(page).toHaveURL(new RegExp(`#${kangTa}$`));
+  await expect(modal.locator(".modal-name")).toHaveText("강타");
+  const sections = modal.locator(".bey-relation-section");
+  await expect(sections.locator(".mounted-title")).toHaveText(["메탈베이블레이드", "메탈베이블레이드 2"]);
+  await expect(sections.nth(0).locator(".bey-relation-badge")).toHaveText(["스톰 페가시스 105RF"]);
+  await expect(sections.nth(1).locator(".bey-relation-badge")).toHaveText(["갤럭시 페가시스 W105R²F"]);
+  await expectModalBackAtShellTopLeft(modal.locator(".modal-back"));
+  await modal.locator(".modal-back").click();
+  await expect(page).toHaveURL(new RegExp(`#${storm}$`));
+  await expect(user).toBeVisible();
+  expect(errors).toEqual([]);
+});
+
 const openKoreanReleaseProduct = async (page, { series, query, productId }) => {
   await page.goto("/#toy-release");
   await page.locator('.release-region-tabs button[data-release-region="kr"]').click();
@@ -92,32 +125,40 @@ const expectKoreanReleaseState = async (page, { series, query, productId }) => {
 };
 
 for (const relation of [
-  { name: "character", selector: '.bey-character-link[data-character-id="CHARACTER-X-GU-ISU"]', id: "CHARACTER-X-GU-ISU" },
-  { name: "product", selector: '.bey-product-link[data-product-id="PRODUCT-X-BX-01"]', id: "PRODUCT-X-BX-01" }
+  {
+    name: "character", selector: `.bey-character-link[data-character-id="${kangTa}"]`, id: kangTa,
+    beyId: storm, title: "스톰 페가시스 105RF",
+    origin: { series: "metal fight", query: "BB-28", productId: "PRODUCT-METAL-FIGHT-BB-28" }
+  },
+  {
+    name: "product", selector: '.bey-product-link[data-product-id="PRODUCT-X-BX-01"]', id: "PRODUCT-X-BX-01",
+    beyId: sword, title: "드랜소드 3-60F",
+    origin: { series: "x", query: "BX-01", productId: "PRODUCT-X-BX-01" }
+  }
 ]) {
   test(`Bey ${relation.name} navigation preserves its original release product back chain`, async ({ page }) => {
     const errors = consoleErrors(page);
-    const origin = { series: "x", query: "BX-01", productId: "PRODUCT-X-BX-01" };
+    const { origin, beyId, title } = relation;
     const modal = page.locator("#detailModal");
     await openKoreanReleaseProduct(page, origin);
-    await modal.locator(`.composition-link[data-target-id="${sword}"]`).click();
-    await expect(page).toHaveURL(new RegExp(`#${sword}$`));
+    await modal.locator(`.composition-link[data-target-id="${beyId}"]`).click();
+    await expect(page).toHaveURL(new RegExp(`#${beyId}$`));
 
     await modal.locator(relation.selector).click();
     await expect(page).toHaveURL(new RegExp(`#${relation.id}$`));
     const back = modal.locator(".modal-back");
-    await expect(back).toHaveAttribute("data-back-id", sword);
+    await expect(back).toHaveAttribute("data-back-id", beyId);
     await expect(back).toHaveAttribute("data-back-product-id", origin.productId);
     await expect(back).toHaveAttribute("data-back-release", "true");
     await back.click();
-    await expect(page).toHaveURL(new RegExp(`#${sword}$`));
-    await expect(modal.locator(".modal-name")).toHaveText("드랜소드 3-60F");
+    await expect(page).toHaveURL(new RegExp(`#${beyId}$`));
+    await expect(modal.locator(".modal-name")).toHaveText(title);
 
     await expect(back).toHaveAttribute("data-back-product-id", origin.productId);
     await expect(back).toHaveAttribute("data-back-release", "true");
     await back.click();
     await expect(page).toHaveURL(new RegExp(`#${origin.productId}$`));
-    await expect(modal.locator(".product-modal-name")).toHaveText("드랜소드 3-60F");
+    await expect(modal.locator(".product-modal-name")).toHaveText(title);
     await expect(back).toHaveAttribute("aria-label", "발매목록으로 돌아가기");
     await back.click();
     await expect(page).toHaveURL(/#toy-release$/);
@@ -183,7 +224,7 @@ test("every mounted and bundled badge matches its part detail title while Bey ti
   }
 });
 
-test("Metal season-one characters, alias search and automatic users preserve existing navigation", async ({ page }) => {
+test("Metal season-one characters, alias search and verified users preserve existing navigation", async ({ page }) => {
   const errors = consoleErrors(page);
   await page.goto("/#anime-character?season=metal-fight");
   await expect(page.locator(".anime-character-card")).toHaveCount(21);
@@ -204,5 +245,56 @@ test("Metal season-one characters, alias search and automatic users preserve exi
   await expect(modal.locator(".modal-name")).toHaveText("단");
   await modal.locator(".modal-back").click();
   await expect(page).toHaveURL(new RegExp(`#${gemios}$`));
+  expect(errors).toEqual([]);
+});
+
+test("Metal character cards show only the selected season's Bey usage", async ({ page }) => {
+  const errors = consoleErrors(page);
+  for (const { season, included, excluded } of [
+    { season: "metal-fight", included: "스톰 페가시스 105RF", excluded: "갤럭시 페가시스" },
+    { season: "metal-fight-2", included: "갤럭시 페가시스 W105R²F", excluded: "스톰 페가시스" }
+  ]) {
+    await page.goto(`/#anime-character?season=${season}&q=${encodeURIComponent("강타")}`);
+    const cards = page.locator(".anime-character-card");
+    await expect(cards).toHaveCount(1);
+    await expect(cards.locator("h3")).toHaveText("강타");
+    await expect(cards.locator(".anime-character-bey-chip")).toHaveText([included]);
+    await expect(cards).not.toContainText(excluded);
+    await page.reload();
+    await expect(cards.locator(".anime-character-bey-chip")).toHaveText([included]);
+    await expect(cards).not.toContainText(excluded);
+  }
+  expect(errors).toEqual([]);
+});
+
+test("only exact verified Metal retail variants expose character users", async ({ page }) => {
+  const errors = consoleErrors(page);
+  const modal = page.locator("#detailModal");
+  for (const beyId of [storm, galaxy]) {
+    await page.goto(`/#${beyId}`);
+    await expect(modal).toBeVisible();
+    await expect(modal.locator(".bey-character-link")).toHaveText(["강타"]);
+    await expect(modal.locator(".bey-character-link")).toHaveAttribute("href", `#${kangTa}`);
+    await modal.locator("#modalClose").click();
+    await expect(modal).not.toBeVisible();
+  }
+  for (const beyId of [
+    "BEY-METAL-FIGHT-BB-32-STORM-PEGASIS-105RF",
+    "BEY-METAL-FIGHT-BB-44-STORM-PEGASIS-100RF",
+    "BEY-METAL-FIGHT-BB-75-GALAXY-PEGASIS-W105R2F",
+    "BEY-METAL-FIGHT-BB-76-GALAXY-PEGASIS-W105R2F",
+    "BEY-METAL-FIGHT-BB-92-GALAXY-PEGASIS-W105R2F",
+    "BEY-METAL-FIGHT-GALAXY-PEGASIS-GB145MS",
+    sword,
+    "BEY-X-BX-00-STORM-PEGASIS-3-70RA"
+  ]) {
+    await page.goto(`/#${beyId}`);
+    await expect(modal).toBeVisible();
+    await expect(modal.locator(".bey-products")).toBeVisible();
+    await expect(modal.locator(".mounted-link").first()).toBeVisible();
+    await expect(modal.locator(".bey-users, .bey-character-link")).toHaveCount(0);
+    await modal.locator("#modalClose").click();
+    await expect(modal).not.toBeVisible();
+  }
   expect(errors).toEqual([]);
 });

@@ -2,8 +2,8 @@ import { beyItems } from "./catalog.mjs";
 
 const beyById = new Map(beyItems.map(bey => [bey.id, bey]));
 
-// Record usage once per character. Bey detail pages derive the reverse relation
-// from these representative catalog references and their canonical wheel parts.
+// Exact, verified toy editions only. Never expand usage to recolors or set variants.
+// Season provenance is retained while each character keeps one stable identity.
 const characterUsages = [
   { id: "CHARACTER-METAL-FIGHT-KANG-TA", name: "강타", beyIds: ["BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF"] },
   { id: "CHARACTER-METAL-FIGHT-TAE-SAJA", name: "태사자", beyIds: ["BEY-METAL-FIGHT-BB-30-ROCK-LEONE-145WB"] },
@@ -28,15 +28,228 @@ const characterUsages = [
   { id: "CHARACTER-METAL-FIGHT-DOKGO-CHUNG", name: "독고충", beyIds: ["BEY-METAL-FIGHT-BB-65-ROCK-ESCOLPIO-T125JB"] }
 ];
 
-const metalFightCharacters = characterUsages.map(character => ({
-  ...character,
-  season: "metal-fight",
-  role: "",
-  beys: character.beyIds.map(id => {
+// Verified season-two appearances; unresolved retail editions retain text only.
+const seasonTwoNewCharacters = [
+  {
+    "id": "CHARACTER-METAL-FIGHT-JANGGUN",
+    "name": "장군",
+    "beyIds": [
+      "BEY-METAL-FIGHT-BB-71-RAY-UNICORNO-D125CS"
+    ]
+  },
+  {
+    "id": "CHARACTER-METAL-FIGHT-WANG-DAESANG",
+    "name": "왕대상",
+    "beyIds": [
+      "BEY-METAL-FIGHT-BB-78-ROCK-GIRAFFE-R145WB"
+    ]
+  },
+  {
+    "id": "CHARACTER-METAL-FIGHT-LI-CHIYUN",
+    "name": "리 치윤",
+    "beyIds": [
+      "BEY-METAL-FIGHT-BB-74-THERMAL-LACERTA-WA130HF"
+    ]
+  },
+  {
+    "id": "CHARACTER-METAL-FIGHT-MEIMEI",
+    "name": "메이메이",
+    "beyIds": [
+      "BEY-METAL-FIGHT-BB-72-AQUARIO-105F"
+    ]
+  },
+  {
+    "id": "CHARACTER-METAL-FIGHT-CHAOXIN",
+    "name": "챠우싱",
+    "beyIds": [],
+    "unmappedBeys": [
+      "Virgo ED145ES",
+      "Poison Virgo ED145ES"
+    ]
+  },
+  {
+    "id": "CHARACTER-METAL-FIGHT-ALEXEI",
+    "name": "알렉세이",
+    "beyIds": [],
+    "unmappedBeys": [
+      "Burn Wolf SW145WD"
+    ]
+  },
+  {
+    "id": "CHARACTER-METAL-FIGHT-DORA",
+    "name": "도라",
+    "beyIds": [],
+    "unmappedBeys": [
+      "Rock Escolpio T125JB"
+    ]
+  },
+  {
+    "id": "CHARACTER-METAL-FIGHT-NOWAGUMA",
+    "name": "노와구마",
+    "beyIds": [],
+    "unmappedBeys": [
+      "Rock Orso D125B (red)"
+    ]
+  },
+  {
+    "id": "CHARACTER-METAL-FIGHT-JULIUS-CAESAR",
+    "name": "줄리어스 시저",
+    "beyIds": [
+      "BEY-METAL-FIGHT-BB-80-GRAVITY-PERSEUS-AD145WD"
+    ]
+  },
+  {
+    "id": "CHARACTER-METAL-FIGHT-WALES",
+    "name": "웨일즈",
+    "beyIds": [
+      "BEY-METAL-FIGHT-BB-82-GRAND-KETOS-WD145RS"
+    ]
+  },
+  {
+    "id": "CHARACTER-METAL-FIGHT-SOPHIE",
+    "name": "소피",
+    "beyIds": [
+      "BEY-METAL-FIGHT-BB-82-GRAND-KETOS-T125RS"
+    ]
+  },
+  {
+    "id": "CHARACTER-METAL-FIGHT-GEORG",
+    "name": "게오르그",
+    "beyIds": [],
+    "unmappedBeys": [
+      "Grand Capricorne 145D"
+    ]
+  },
+  {
+    "id": "CHARACTER-METAL-FIGHT-NILE",
+    "name": "나일",
+    "beyIds": [
+      "BEY-METAL-FIGHT-BB-P01-VULCAN-HORUSEUS-145D"
+    ]
+  },
+  {
+    "id": "CHARACTER-METAL-FIGHT-DAMOURE",
+    "name": "다무레",
+    "beyIds": [
+      "BEY-METAL-FIGHT-BB-86-COUNTER-ESCOLPIO-145D"
+    ],
+    "aliases": [
+      "Damoure"
+    ]
+  },
+  {
+    "id": "CHARACTER-METAL-FIGHT-ARGO",
+    "name": "아르고",
+    "beyIds": [
+      "BEY-METAL-FIGHT-BB-91-RAY-KEEL-100RSF"
+    ]
+  },
+  {
+    "id": "CHARACTER-METAL-FIGHT-IAN",
+    "name": "아이언",
+    "beyIds": [
+      "BEY-METAL-FIGHT-BB-94-TORNADO-HERCULEO-105F"
+    ]
+  },
+  {
+    "id": "CHARACTER-METAL-FIGHT-SELEN",
+    "name": "셀린",
+    "beyIds": [],
+    "unmappedBeys": [
+      "Ray Cancer 135SF"
+    ]
+  },
+  {
+    "id": "CHARACTER-METAL-FIGHT-ENZO",
+    "name": "엔조",
+    "beyIds": [],
+    "unmappedBeys": [
+      "Ray Cancer M145Q"
+    ]
+  },
+  {
+    "id": "CHARACTER-METAL-FIGHT-TOBY",
+    "name": "토비",
+    "beyIds": [
+      "BEY-METAL-FIGHT-BB-104-BASALT-HOROGIUM-145WD"
+    ],
+    "aliases": [
+      "파우스트"
+    ]
+  },
+  {
+    "id": "CHARACTER-METAL-FIGHT-ZEO",
+    "name": "제오",
+    "beyIds": [
+      "BEY-METAL-FIGHT-BB-95-FLAME-BYXIS-230WD"
+    ]
+  },
+  {
+    "id": "CHARACTER-METAL-FIGHT-DAMIAN",
+    "name": "데미안",
+    "beyIds": [
+      "BEY-METAL-FIGHT-BB-99-HELL-KERBECS-BD145DS"
+    ]
+  },
+  {
+    "id": "CHARACTER-METAL-FIGHT-JACK",
+    "name": "잭",
+    "beyIds": [
+      "BEY-METAL-FIGHT-BB-100-KILLER-BEAFOWL-UW145EWD"
+    ]
+  },
+  {
+    "id": "CHARACTER-METAL-FIGHT-DR-ZIGGURAT",
+    "name": "닥터 지구라트",
+    "beyIds": [
+      "BEY-METAL-FIGHT-BB-102-SCREW-CAPRICORNE-90MF"
+    ]
+  },
+  {
+    "id": "CHARACTER-METAL-FIGHT-MARCUS",
+    "name": "Marcus",
+    "beyIds": [],
+    "unmappedBeys": [
+      "Cyber Aquario 105RF"
+    ]
+  }
+];
+
+const seasonTwoReturningIds = new Set([
+  "KANG-TA", "TAE-SAJA", "NOA", "BAEK-DUSAN", "BANDI", "DONGSAN-DORYEONG", "GYEONU",
+  "JINI", "DRAGON", "CRAB-KING", "PHOENIX", "DEATH-CAPRI", "TARO", "LUMIE"
+].map(suffix => `CHARACTER-METAL-FIGHT-${suffix}`));
+const seasonTwoReplacements = {
+  "CHARACTER-METAL-FIGHT-KANG-TA": ["BEY-METAL-FIGHT-BB-70-GALAXY-PEGASIS-W105R2F"],
+  "CHARACTER-METAL-FIGHT-DRAGON": ["BEY-METAL-FIGHT-BB-88-METEO-L-DRAGO-LW105LF"],
+  "CHARACTER-METAL-FIGHT-CRAB-KING": ["BEY-METAL-FIGHT-BB-55-DARK-CANCER-CH120SF"]
+};
+const usageGroup = (season, beyIds, unmappedBeys = []) => ({
+  season,
+  beyIds,
+  beys: [...beyIds.map(id => {
     const bey = beyById.get(id);
     if (!bey) throw new Error(`Unknown Metal Fight character Bey: ${id}`);
     return [bey.name, bey.sub].filter(Boolean).join(" ");
-  })
-}));
+  }), ...unmappedBeys],
+  ...(unmappedBeys.length ? { unmappedBeys } : {})
+});
+const metalFightCharacters = [...characterUsages, ...seasonTwoNewCharacters].map(character => {
+  const firstSeason = characterUsages.includes(character) ? "metal-fight" : "metal-fight-2";
+  const usages = [usageGroup(firstSeason, character.beyIds, character.unmappedBeys)];
+  if (seasonTwoReturningIds.has(character.id)) {
+    usages.push(usageGroup("metal-fight-2", seasonTwoReplacements[character.id] || character.beyIds));
+  }
+  return {
+    id: character.id,
+    name: character.name,
+    ...(character.aliases ? { aliases: character.aliases } : {}),
+    season: firstSeason,
+    role: "",
+    usages,
+    beyIds: [...new Set(usages.flatMap(usage => usage.beyIds))],
+    beys: [...new Set(usages.flatMap(usage => usage.beys))]
+  };
+});
 
 export { metalFightCharacters };

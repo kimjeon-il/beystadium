@@ -4,7 +4,9 @@ import test from "node:test";
 import { animeInfo } from "../data/source/anime.mjs";
 import { beyItems } from "../data/source/catalog.mjs";
 
-const characters = animeInfo.characters.filter(character => character.season === "metal-fight");
+import { characterForSeason } from "../src/character-usage.js";
+
+const characters = animeInfo.characters.map(character => characterForSeason(character, "metal-fight")).filter(Boolean);
 const byName = new Map(characters.map(character => [character.name, character]));
 const beyById = new Map(beyItems.map(bey => [bey.id, bey]));
 const expectedRoster = [
@@ -94,8 +96,8 @@ test("Metal Fight characters contain no invented biographies, roles or assets", 
   for (const character of characters) {
     assert.equal(character.role, "", character.name);
     assert.deepEqual(Object.keys(character).sort(), (character.name === "피닉스"
-      ? ["id", "name", "season", "role", "beyIds", "beys", "aliases"]
-      : ["id", "name", "season", "role", "beyIds", "beys"]).sort(), character.name);
+      ? ["id", "name", "season", "role", "beyIds", "beys", "usages", "aliases"]
+      : ["id", "name", "season", "role", "beyIds", "beys", "usages"]).sort(), character.name);
   }
 });
 

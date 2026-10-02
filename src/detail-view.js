@@ -245,7 +245,7 @@ function beyDetailSections(item, region) {
     return `<a class="bey-relation-badge bey-product-link" href="#${escapeAttributeValue(product.id)}" data-product-id="${escapeAttributeValue(product.id)}" data-release-region="${escapeAttributeValue(productRegion)}" aria-label="${escapeAttributeValue(`${name}${isRandom ? " · 무작위 구성 후보" : " · 포함 제품"} 상세 보기`)}">${escapeHtml(label)}</a>`;
   }).join("");
   const characters = relatedBeyCharacters(item, animeInfo.characters, catalogCoreItemsById).filter(character => character.id).map(character =>
-    `<a class="bey-relation-badge bey-character-link" href="#${escapeAttributeValue(character.id)}" data-character-id="${escapeAttributeValue(character.id)}" aria-label="${escapeAttributeValue(`${character.name} · 작품 속 모델 사용자 상세 보기`)}">${escapeHtml(character.name)}</a>`
+    `<a class="bey-relation-badge bey-character-link" href="#${escapeAttributeValue(character.id)}" data-character-id="${escapeAttributeValue(character.id)}" aria-label="${escapeAttributeValue(`${character.name} · 사용 확인된 제품 사용자 상세 보기`)}">${escapeHtml(character.name)}</a>`
   ).join("");
   return `${mounted}${bundled}${beyRelationSection("포함 제품", products, "bey-products")}${beyRelationSection("사용자", characters, "bey-users")}`;
 }

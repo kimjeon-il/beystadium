@@ -1,3 +1,4 @@
+import { characterUsageGroups } from "#app/character-usage";
 import { partDetailDisplayName } from "#app/part-name-core";
 import { animeSeasonLabels, isAnimeEpisodeHash } from "#app/anime-core";
 import { appState } from "#app/state";
@@ -169,14 +170,16 @@ function openDetail(id, options = {}) {
 function openCharacterDetail(id, options = {}) {
   const character = animeInfo.characters.find(entry => entry.id === id);
   if (!character || routeIfNeeded({ type: "detail", id, options })) return;
-  const models = (character.beys || []).map(name => `<span class="bey-relation-badge">${escapeHtml(name)}</span>`).join("");
+  const groups = characterUsageGroups(character);
+  const models = groups.map(group => `<section class="modal-section bey-relation-section">
+    <h4 class="mounted-title">${escapeHtml(animeSeasonLabels[group.season] || "사용 베이")}</h4>
+    <div class="bey-relation-list">${(group.beys || []).map(name => `<span class="bey-relation-badge">${escapeHtml(name)}</span>`).join("")}</div>
+  </section>`).join("");
   const root = setModalContent(`<div class="modal-inner modal-inner--content">
     ${detailBackButton(options.backId, options.backProductId, options.backRelease, options.region)}
     <div class="modal-info part-modal-info">${modalScrollArea(`${modalTitle(character.name)}
-      ${modalInfoSlot(character.role || "", modalTagGroup(`<span>${escapeHtml(animeSeasonLabels[character.season] || "등장인물")}</span>`))}
-      <div class="modal-body-block"><section class="modal-section bey-relation-section"><h4 class="mounted-title">사용 베이</h4>
-        <div class="bey-relation-list">${models}</div>
-      </section><p class="stat-note">작품 속 모델 기준입니다. 개별 완구의 색상이나 제품 소유를 뜻하지 않습니다.</p></div>`)}</div></div>`);
+      ${modalInfoSlot(character.role || "", modalTagGroup(groups.map(group => `<span>${escapeHtml(animeSeasonLabels[group.season] || "등장인물")}</span>`).join("")))}
+      <div class="modal-body-block">${models}<p class="stat-note">베이의 사용자 표시는 사용이 확인된 개별 제품에만 연결합니다. 미확인 색상이나 세트판에는 연결하지 않습니다.</p></div>`)}</div></div>`);
   if (!root) return;
   bindCatalogModalBack(root);
   finishModalOpen({ contextKind: "character", contextId: id, contextOptions: options, root });

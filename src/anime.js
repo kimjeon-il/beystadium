@@ -1,3 +1,4 @@
+import { characterForSeason } from "#app/character-usage";
 import { appState } from "#app/state";
 import {
   animeCharacterAllSeason,
@@ -346,7 +347,8 @@ const visibleAnimeCharacters = () => {
   const characters = Array.isArray(animeInfo.characters) ? animeInfo.characters : [];
   const query = prepareCatalogSearchQuery(animeSearchQuery());
   return characters
-    .filter(character => appState.anime.characterSeason === animeCharacterAllSeason || character?.season === appState.anime.characterSeason)
+    .map(character => characterForSeason(character, appState.anime.characterSeason))
+    .filter(Boolean)
     .map((character, index) => {
       const record = animeCharacterSearchRecord(character, index);
       const match = matchSearchRecord(record, query);
