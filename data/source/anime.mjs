@@ -1,7 +1,10 @@
+import { metalFightCharacters } from "./metal-fight-characters.mjs";
+
 const animeInfo = {
   title: "메탈베이블레이드",
   overview: [],
   characters: [
+    ...metalFightCharacters,
     { id: "CHARACTER-X-GU-ISU", name: "구이수", season: "beyblade-x", role: "팀 페르소나", beys: ["드랜소드", "드랜대거", "드랜버스터", "드랜브레이브"] },
     { id: "CHARACTER-X-KANG-BARAM", name: "강바람", season: "beyblade-x", role: "팀 페르소나", beys: ["스트라이크호크", "헬즈사이드", "헬즈체인", "헬즈해머", "헬즈리퍼"] },
     { id: "CHARACTER-X-NA-DAUN", name: "나다운", season: "beyblade-x", role: "팀 페르소나", beys: ["위저드애로우", "위저드로드", "위저드아크", "위저드마이트", "나이트실드", "나이트랜스", "나이트메일", "나이트포트리스"] },

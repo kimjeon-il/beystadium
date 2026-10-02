@@ -151,9 +151,10 @@ test("character matching is exact, series-scoped, normalized and emits each cano
 });
 
 test("existing canonical characters have stable unique IDs without adding usage records", () => {
-  assert.equal(animeInfo.characters.length, 19);
-  assert.equal(new Set(animeInfo.characters.map(character => character.id)).size, 19);
-  for (const character of animeInfo.characters) assert.match(character.id, /^CHARACTER-X-[A-Z0-9]+(?:-[A-Z0-9]+)*$/);
+  const xCharacters = animeInfo.characters.filter(character => character.season === "beyblade-x");
+  assert.equal(xCharacters.length, 19);
+  assert.equal(new Set(xCharacters.map(character => character.id)).size, 19);
+  for (const character of xCharacters) assert.match(character.id, /^CHARACTER-X-[A-Z0-9]+(?:-[A-Z0-9]+)*$/);
   assert.deepEqual(animeInfo.characters.find(character => character.name === "구이수").beys, ["드랜소드", "드랜대거", "드랜버스터", "드랜브레이브"]);
 });
 
@@ -161,4 +162,47 @@ test("missing and non-Bey input returns empty relationships", () => {
   assert.deepEqual(relatedBeyProducts(null, productItems), []);
   assert.deepEqual(relatedBeyProducts({ ...bey, type: "blade" }, productItems), []);
   assert.deepEqual(relatedBeyCharacters({ ...bey, type: "blade", parts: ["PART-X-BLADE-DRAN-SWORD"] }, animeInfo.characters, catalogById), []);
+});
+
+test("Metal Fight users resolve by exact wheel-family identity from canonical usage IDs", () => {
+  const storm = catalogById.get("BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF");
+  const user = { id: "CHARACTER-METAL-FIGHT-TEST", name: "강타", season: "metal-fight", beyIds: [storm.id], beys: ["스톰 페가시스 105RF"] };
+  assert.deepEqual(relatedBeyCharacters(storm, [user], catalogById), [user]);
+  assert.deepEqual(relatedBeyCharacters(catalogById.get("BEY-METAL-FIGHT-BB-32-STORM-PEGASIS-105RF"), [user], catalogById), [user]);
+  const later = [...catalogById.values()].find(item => item.type === "bey" && item.name === "갤럭시 페가시스");
+  assert.ok(later);
+  assert.deepEqual(relatedBeyCharacters(later, [user], catalogById), []);
+  const cyber = catalogById.get("BEY-METAL-FIGHT-CYBER-PEGASIS-100HF");
+  assert.deepEqual(relatedBeyCharacters(cyber, [user], catalogById), []);
+});
+
+test("Metal family matching does not invent users for unknown, ambiguous, cross-series or name-only records", () => {
+  const storm = catalogById.get("BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF");
+  const user = { season: "metal-fight", beyIds: [storm.id] };
+  const malformed = [
+    { ...storm, parts: ["MISSING"] },
+    { ...storm, parts: [...storm.parts, "PART-METAL-FIGHT-METALWHEEL-DARK"] },
+    { ...storm, series: "x" }
+  ];
+  for (const item of malformed) assert.deepEqual(relatedBeyCharacters(item, [user], catalogById), []);
+  assert.deepEqual(relatedBeyCharacters(storm, [{ ...user, season: "beyblade-x" }], catalogById), []);
+  assert.deepEqual(relatedBeyCharacters(storm, [{ season: "metal-fight", beys: [storm.name] }], catalogById), []);
+  assert.deepEqual(relatedBeyCharacters(storm, [{ ...user, beyIds: ["UNKNOWN"] }], catalogById), []);
+});
+
+test("every approved Metal season-one usage derives its user without per-Bey reverse lists", () => {
+  const characters = animeInfo.characters.filter(character => character.season === "metal-fight");
+  assert.equal(characters.length, 21);
+  for (const character of characters) {
+    for (const id of character.beyIds) {
+      assert.ok(relatedBeyCharacters(catalogById.get(id), animeInfo.characters, catalogById).some(user => user.id === character.id), `${character.name}: ${id}`);
+    }
+  }
+  const gemios = catalogById.get("BEY-METAL-FIGHT-BB-56-KILLER-GEMIOS-DF145FS");
+  assert.deepEqual(relatedBeyCharacters(gemios, animeInfo.characters, catalogById).map(user => user.name), ["단", "레이크"]);
+  const phoenix = catalogById.get("BEY-METAL-FIGHT-BB-59-BURN-PHOENIX-135MS");
+  assert.deepEqual(relatedBeyCharacters(phoenix, animeInfo.characters, catalogById).map(user => user.name), ["피닉스"]);
+  for (const id of ["BEY-METAL-FIGHT-BB-31-MAD-CANCER-CH120FS", "BEY-METAL-FIGHT-BB-55-DARK-CANCER-CH120SF"]) {
+    assert.deepEqual(relatedBeyCharacters(catalogById.get(id), animeInfo.characters, catalogById).map(user => user.name), ["크랩킹"]);
+  }
 });

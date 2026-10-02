@@ -1,5 +1,5 @@
 import { partDetailDisplayName } from "#app/part-name-core";
-import { isAnimeEpisodeHash } from "#app/anime-core";
+import { animeSeasonLabels, isAnimeEpisodeHash } from "#app/anime-core";
 import { appState } from "#app/state";
 import { animeInfo, bookItems, bookItemsById, catalogCoreItems, catalogCoreItemsById, gameItems, gameItemsById, productItems, productItemsById, toolsItems, toolsItemsById } from "#app/data-store";
 import { compareToolsItemsByFirstRelease, partCategory, productLineupIds, productSerialNumber, visibleCatalogCoreItems, visibleToolsItems } from "#app/catalog-model";
@@ -173,7 +173,7 @@ function openCharacterDetail(id, options = {}) {
   const root = setModalContent(`<div class="modal-inner modal-inner--content">
     ${detailBackButton(options.backId, options.backProductId, options.backRelease, options.region)}
     <div class="modal-info part-modal-info">${modalScrollArea(`${modalTitle(character.name)}
-      ${modalInfoSlot(character.role || "", modalTagGroup("<span>베이블레이드 X</span>"))}
+      ${modalInfoSlot(character.role || "", modalTagGroup(`<span>${escapeHtml(animeSeasonLabels[character.season] || "등장인물")}</span>`))}
       <div class="modal-body-block"><section class="modal-section bey-relation-section"><h4 class="mounted-title">사용 베이</h4>
         <div class="bey-relation-list">${models}</div>
       </section><p class="stat-note">작품 속 모델 기준입니다. 개별 완구의 색상이나 제품 소유를 뜻하지 않습니다.</p></div>`)}</div></div>`);

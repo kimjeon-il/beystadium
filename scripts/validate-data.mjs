@@ -53,7 +53,15 @@ const missingRareProducts = rareBeyGetItems.flatMap(entry => [entry.productId, .
 const invalidEpisodes = (animeInfo.episodes || []).flatMap((episode, index) =>
   episode?.season && episode?.titles ? [] : [`episode index ${index}`]);
 
+const characterIds = animeInfo.characters.map(character => character.id);
+const duplicateCharacterIds = characterIds.filter((id, index) => !id || characterIds.indexOf(id) !== index);
+const missingCharacterBeys = animeInfo.characters.flatMap(character => (character.beyIds || [])
+  .filter(id => !beyItems.some(bey => bey.id === id))
+  .map(id => `${character.id} -> ${id}`));
+
 const failures = [
+  ["duplicate or missing character IDs", duplicateCharacterIds],
+  ["missing character Bey references", missingCharacterBeys],
   ["duplicate IDs", duplicateIds],
   ["invalid X Bey IDs", invalidXBeyIds],
   ["legacy-qualified X Bey IDs", legacyQualifiedXBeyIds],

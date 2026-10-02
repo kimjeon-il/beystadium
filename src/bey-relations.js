@@ -62,8 +62,30 @@ export const beyModelNames = (bey, catalogById) => {
   return [...new Set(names.map(normalizeModelName).filter(Boolean))];
 };
 
+// Hybrid Metal models are defined by the exact clear wheel + attack wheel.
+// Track/bottom and retail colors are variants; replacing either model wheel is not.
+const metalBeyModelKey = (bey, catalogById) => {
+  if (bey?.type !== "bey" || bey.series !== "metal fight" || !catalogById?.get) return "";
+  const parts = [...new Set(bey.parts || [])].map(id => catalogById.get(id));
+  if (parts.some(part => !part || part.series !== bey.series || typeof part.type !== "string")) return "";
+  const wheels = parts.filter(part => part.type.endsWith("wheel"));
+  const clear = wheels.filter(part => part.type === "clearwheel");
+  const attack = wheels.filter(part => ["metalwheel", "lightwheel"].includes(part.type));
+  if (wheels.length !== 2 || clear.length !== 1 || attack.length !== 1) return "";
+  return `${bey.series}:${attack[0].id}:${clear[0].id}`;
+};
+
 /** Family-level anime usage, not a claim that the character used a retail recolor or combination. */
 export const relatedBeyCharacters = (bey, characters = [], catalogById) => {
+  if (bey?.series === "metal fight") {
+    const modelKey = metalBeyModelKey(bey, catalogById);
+    if (!modelKey) return [];
+    return characters.filter(character =>
+      /^metal-fight(?:-(?:2|4d|zerog))?$/.test(character?.season || "")
+      && Array.isArray(character.beyIds)
+      && character.beyIds.some(id => metalBeyModelKey(catalogById.get(id), catalogById) === modelKey)
+    );
+  }
   const names = new Set(beyModelNames(bey, catalogById));
   if (!names.size) return [];
   return characters.filter(character =>

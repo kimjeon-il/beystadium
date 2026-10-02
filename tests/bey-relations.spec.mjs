@@ -182,3 +182,27 @@ test("every mounted and bundled badge matches its part detail title while Bey ti
     }
   }
 });
+
+test("Metal season-one characters, alias search and automatic users preserve existing navigation", async ({ page }) => {
+  const errors = consoleErrors(page);
+  await page.goto("/#anime-character?season=metal-fight");
+  await expect(page.locator(".anime-character-card")).toHaveCount(21);
+  await expect(page.locator(".anime-character-card img")).toHaveCount(0);
+  await page.goto(`/#anime-character?season=metal-fight&q=${encodeURIComponent("강유성")}`);
+  await expect(page.locator(".anime-character-card")).toHaveCount(1);
+  await expect(page.locator(".anime-character-card h3")).toHaveText("피닉스");
+  await page.goto(`/#search?q=${encodeURIComponent("강유성")}&scope=character`);
+  await expect(page.locator('.search-result-item[data-anime-character-query="피닉스"]')).toHaveCount(1);
+  const gemios = "BEY-METAL-FIGHT-BB-56-KILLER-GEMIOS-DF145FS";
+  await page.goto(`/#${gemios}`);
+  const modal = page.locator("#detailModal");
+  await expect(modal.locator(".bey-character-link")).toHaveText(["단", "레이크"]);
+  await modal.locator(".bey-character-link").first().click();
+  await expect(modal.locator(".modal-tags")).toHaveText("메탈베이블레이드");
+  await expect(modal.locator(".modal-name")).toHaveText("단");
+  await page.reload();
+  await expect(modal.locator(".modal-name")).toHaveText("단");
+  await modal.locator(".modal-back").click();
+  await expect(page).toHaveURL(new RegExp(`#${gemios}$`));
+  expect(errors).toEqual([]);
+});

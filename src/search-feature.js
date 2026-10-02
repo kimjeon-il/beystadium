@@ -79,7 +79,7 @@ const animeSearchFields = episode => [
 ];
 const animeCharacterSearchFields = character => [
   ...searchFieldsFromValues("primaryName", [character?.name, character?.title]),
-  ...searchFieldsFromValues("alias", [character?.jpName, character?.en]),
+  ...searchFieldsFromValues("alias", [character?.jpName, character?.en, ...(character?.aliases || [])]),
   ...searchFieldsFromValues("category", [character?.season, character?.role]),
   ...searchFieldsFromValues("composition", [Array.isArray(character?.beys) ? character.beys.join(" ") : ""]),
   ...searchFieldsFromValues("description", [character?.desc])
