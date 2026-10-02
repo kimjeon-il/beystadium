@@ -3457,6 +3457,136 @@ const xImageReview = [
         354
       ]
     ]
+  },
+  {
+    "id": "BEY-X-BX-52-LUSTER-DRAGOON-6-60LC",
+    "image": "assets/images/x/beys/bey-x-bx-52-luster-dragoon-6-60lc/bey-x-bx-52-luster-dragoon-6-60lc.webp",
+    "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX52_01@1.png",
+    "sourceSha256": "9fead6131aa2e1eedde434dbeee3820645f1a29c62f1cdb93dba49eac8036b38",
+    "outputSha256": "5412b5b8dd889a5c9e1453f74595f6651937aafd16206185fb2a9ecac00acc09",
+    "keepLargestComponent": true,
+    "sourceKind": "official-assembled-front",
+    "segmentationModel": "u2netp",
+    "alphaMatting": false,
+    "preserveSourcePixels": true
+  },
+  {
+    "id": "BEY-X-BX-53-AERO-PEGASUS-3-70A",
+    "image": "assets/images/x/beys/bey-x-bx-53-aero-pegasus-3-70a/bey-x-bx-53-aero-pegasus-3-70a.webp",
+    "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX53_04@1.png",
+    "sourceSha256": "daec371b58a86afead4c7b713d2aad8e0dc1b8de55066199a176b9551306f25d",
+    "outputSha256": "bea59aba6a796509965d2ecbd155183312eafaac7a9e6753337cd40aa511fe65",
+    "keepLargestComponent": true,
+    "sourceKind": "official-assembled-front",
+    "segmentationModel": "u2netp",
+    "alphaMatting": false,
+    "preserveSourcePixels": true
+  },
+  {
+    "id": "BEY-X-BX-53-KNIGHT-SHIELD-VERSION-2-0-3-80N",
+    "image": "assets/images/x/beys/bey-x-bx-53-knight-shield-version-2-0-3-80n/bey-x-bx-53-knight-shield-version-2-0-3-80n.webp",
+    "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX53_06@1.png",
+    "sourceSha256": "6c6d440f264bec727731198a566beaf2454b4afad6407437fd7752b8de79bdcf",
+    "outputSha256": "75a916c883ea404ac830e956b6b475049c5e4ea6ef51595e718d649320e1de34",
+    "sourceClearPoints": [
+      [
+        299,
+        211
+      ],
+      [
+        161,
+        419
+      ],
+      [
+        414,
+        431
+      ]
+    ],
+    "keepLargestComponent": true,
+    "sourceKind": "official-assembled-front",
+    "segmentationModel": "u2netp",
+    "alphaMatting": false,
+    "preserveSourcePixels": true
+  },
+  {
+    "id": "BEY-X-BX-53-WIZARD-ARROW-VERSION-2-0-4-80B",
+    "image": "assets/images/x/beys/bey-x-bx-53-wizard-arrow-version-2-0-4-80b/bey-x-bx-53-wizard-arrow-version-2-0-4-80b.webp",
+    "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX53_05@1.png",
+    "sourceSha256": "c34623cee5a1c22447d7150502d7d9d304941c4455ed0e38e5dfc71a4f26910d",
+    "outputSha256": "0c1900035b52cb576dd4373f4467828a67300c5ca5aae58bd3e56405549fc4a0",
+    "sourceClearPoints": [
+      [
+        290,
+        213
+      ],
+      [
+        293,
+        496
+      ]
+    ],
+    "keepLargestComponent": true,
+    "sourceKind": "official-assembled-front",
+    "segmentationModel": "u2netp",
+    "alphaMatting": false,
+    "preserveSourcePixels": true
+  },
+  {
+    "id": "PART-X-BIT-LC",
+    "image": "assets/images/x/parts/bit/part-x-bit-lc.webp",
+    "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX52_04@1.png",
+    "sourceSha256": "2bc3ebe35365f170b1a1fcf42cda8297d6e5f69ce8f4656c53b74a3db27e43c6",
+    "outputSha256": "cdb91d2e47b141c83e6cb3059e7b0c718cf8ff87f980646e1c4ccbba20dff10c",
+    "keepLargestComponent": true,
+    "segmentationModel": "u2netp",
+    "alphaMatting": false,
+    "preserveSourcePixels": true
+  },
+  {
+    "id": "PART-X-BLADE-KNIGHT-SHIELD-VERSION-2-0",
+    "image": "assets/images/x/parts/blade/part-x-blade-knight-shield-version-2-0.webp",
+    "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX53_09@1.png",
+    "sourceSha256": "cc011e20dcebc3c4368dd3859627176688325106e12cac6cb7ea4ba3e73b9632",
+    "outputSha256": "fb348554bb55a7008e898eb109e6d44287bc1f75c5586398687c60d71828cbe1",
+    "keepLargestComponent": true,
+    "segmentationModel": "u2netp",
+    "alphaMatting": false,
+    "preserveSourcePixels": true
+  },
+  {
+    "id": "PART-X-BLADE-LUSTER-DRAGOON",
+    "image": "assets/images/x/parts/blade/part-x-blade-luster-dragoon.webp",
+    "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX52_02@1.png",
+    "sourceSha256": "e19caa9f2954c4869bb3eff6725f5b5985e2865fd86b084981ea3e868b8c0107",
+    "outputSha256": "20e54cc866232581781c7c70abe1bb1a0e25c5cce4eaef275de3cc0015911e80",
+    "keepLargestComponent": true,
+    "segmentationModel": "u2netp",
+    "alphaMatting": false,
+    "preserveSourcePixels": true
+  },
+  {
+    "id": "PART-X-BLADE-WIZARD-ARROW-VERSION-2-0",
+    "image": "assets/images/x/parts/blade/part-x-blade-wizard-arrow-version-2-0.webp",
+    "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX53_08@1.png",
+    "sourceSha256": "9352cdb1bf789a4595862cc425d90da5e8e6a14e17ede9ceb6f2ccc46f7028a4",
+    "outputSha256": "9bcc4d2f24d7c587cf87c8effb1b006a7999eaac5d8fb4eb503f37e0a283ccf8",
+    "sourceRestorePoints": [
+      [
+        401,
+        450
+      ],
+      [
+        442,
+        400
+      ],
+      [
+        420,
+        426
+      ]
+    ],
+    "keepLargestComponent": true,
+    "segmentationModel": "u2netp",
+    "alphaMatting": false,
+    "preserveSourcePixels": true
   }
 ];
 

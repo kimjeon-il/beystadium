@@ -17557,6 +17557,158 @@
         46,
         61
       ]
+    },
+    {
+      "image": "assets/images/x/beys/bey-x-bx-52-luster-dragoon-6-60lc/bey-x-bx-52-luster-dragoon-6-60lc.webp",
+      "outputSha256": "5412b5b8dd889a5c9e1453f74595f6651937aafd16206185fb2a9ecac00acc09",
+      "alphaLevels": 224,
+      "partialPixels": 3821,
+      "foregroundPixels": 95486,
+      "bbox": [
+        47,
+        44,
+        400,
+        404
+      ],
+      "margins": [
+        47,
+        44,
+        48,
+        44
+      ]
+    },
+    {
+      "image": "assets/images/x/beys/bey-x-bx-53-aero-pegasus-3-70a/bey-x-bx-53-aero-pegasus-3-70a.webp",
+      "outputSha256": "bea59aba6a796509965d2ecbd155183312eafaac7a9e6753337cd40aa511fe65",
+      "alphaLevels": 254,
+      "partialPixels": 4272,
+      "foregroundPixels": 95374,
+      "bbox": [
+        48,
+        44,
+        399,
+        404
+      ],
+      "margins": [
+        48,
+        44,
+        49,
+        44
+      ]
+    },
+    {
+      "image": "assets/images/x/beys/bey-x-bx-53-knight-shield-version-2-0-3-80n/bey-x-bx-53-knight-shield-version-2-0-3-80n.webp",
+      "outputSha256": "75a916c883ea404ac830e956b6b475049c5e4ea6ef51595e718d649320e1de34",
+      "alphaLevels": 245,
+      "partialPixels": 5304,
+      "foregroundPixels": 99568,
+      "bbox": [
+        44,
+        44,
+        403,
+        404
+      ],
+      "margins": [
+        44,
+        44,
+        45,
+        44
+      ]
+    },
+    {
+      "image": "assets/images/x/beys/bey-x-bx-53-wizard-arrow-version-2-0-4-80b/bey-x-bx-53-wizard-arrow-version-2-0-4-80b.webp",
+      "outputSha256": "0c1900035b52cb576dd4373f4467828a67300c5ca5aae58bd3e56405549fc4a0",
+      "alphaLevels": 235,
+      "partialPixels": 4357,
+      "foregroundPixels": 97894,
+      "bbox": [
+        44,
+        49,
+        404,
+        399
+      ],
+      "margins": [
+        44,
+        49,
+        44,
+        49
+      ]
+    },
+    {
+      "image": "assets/images/x/parts/bit/part-x-bit-lc.webp",
+      "outputSha256": "cdb91d2e47b141c83e6cb3059e7b0c718cf8ff87f980646e1c4ccbba20dff10c",
+      "alphaLevels": 22,
+      "partialPixels": 1462,
+      "foregroundPixels": 30904,
+      "bbox": [
+        137,
+        83,
+        310,
+        364
+      ],
+      "margins": [
+        137,
+        83,
+        138,
+        84
+      ]
+    },
+    {
+      "image": "assets/images/x/parts/blade/part-x-blade-knight-shield-version-2-0.webp",
+      "outputSha256": "fb348554bb55a7008e898eb109e6d44287bc1f75c5586398687c60d71828cbe1",
+      "alphaLevels": 22,
+      "partialPixels": 2138,
+      "foregroundPixels": 92970,
+      "bbox": [
+        46,
+        54,
+        401,
+        394
+      ],
+      "margins": [
+        46,
+        54,
+        47,
+        54
+      ]
+    },
+    {
+      "image": "assets/images/x/parts/blade/part-x-blade-luster-dragoon.webp",
+      "outputSha256": "20e54cc866232581781c7c70abe1bb1a0e25c5cce4eaef275de3cc0015911e80",
+      "alphaLevels": 21,
+      "partialPixels": 2237,
+      "foregroundPixels": 91606,
+      "bbox": [
+        46,
+        52,
+        402,
+        395
+      ],
+      "margins": [
+        46,
+        52,
+        46,
+        53
+      ]
+    },
+    {
+      "image": "assets/images/x/parts/blade/part-x-blade-wizard-arrow-version-2-0.webp",
+      "outputSha256": "9bcc4d2f24d7c587cf87c8effb1b006a7999eaac5d8fb4eb503f37e0a283ccf8",
+      "alphaLevels": 25,
+      "partialPixels": 2257,
+      "foregroundPixels": 87960,
+      "bbox": [
+        46,
+        65,
+        401,
+        382
+      ],
+      "margins": [
+        46,
+        65,
+        47,
+        66
+      ]
     }
   ]
 }

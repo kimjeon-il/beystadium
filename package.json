@@ -40,7 +40,7 @@
     "x-material-part-previews:build": "python scripts/build-x-material-part-previews.py",
     "x-material-part-previews:apply": "node scripts/apply-x-material-part-preview-derivations.mjs",
     "test:x-material-part-previews": "node scripts/validate-x-material-part-previews.mjs",
-    "test:x-images": "node scripts/validate-x-images.mjs",
+    "test:x-images": "node scripts/validate-x-images.mjs && node --test tests/x-october-images.test.mjs",
     "test:x-bey-primary-images": "node scripts/validate-x-bey-primary-images.mjs",
     "test:x-part-previews": "node scripts/validate-x-part-previews.mjs",
     "test:data": "node scripts/validate-data.mjs",

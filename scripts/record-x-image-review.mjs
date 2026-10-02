@@ -23,6 +23,7 @@ for (const entry of xImageMappings) {
     ...(entry.sourceCrop ? { sourceCrop: entry.sourceCrop } : {}),
     ...(entry.sourceExcludeRects ? { sourceExcludeRects: entry.sourceExcludeRects } : {}),
     ...(entry.sourceClearPoints ? { sourceClearPoints: entry.sourceClearPoints } : {}),
+    ...(entry.sourceRestorePoints ? { sourceRestorePoints: entry.sourceRestorePoints } : {}),
     ...(entry.keepLargestComponent ? { keepLargestComponent: true } : {}),
     ...(entry.sourceKind ? { sourceKind: entry.sourceKind } : {}),
     ...(entry.backgroundRemoval ? { backgroundRemoval: entry.backgroundRemoval } : {}),
@@ -31,6 +32,8 @@ for (const entry of xImageMappings) {
     ...(entry.foregroundErode ? { foregroundErode: entry.foregroundErode } : {}),
     ...(entry.targetForegroundSize ? { targetForegroundSize: entry.targetForegroundSize } : {}),
     ...(entry.normalizationInput ? { normalizationInput: entry.normalizationInput } : {}),
+    ...(entry.segmentationModel ? { segmentationModel: entry.segmentationModel } : {}),
+    ...(entry.alphaMatting !== undefined ? { alphaMatting: entry.alphaMatting } : {}),
     ...(entry.preserveSourcePixels ? { preserveSourcePixels: true } : {})
   });
 }

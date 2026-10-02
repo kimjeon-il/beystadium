@@ -206,6 +206,7 @@ def process_image(
     background_chroma: int = 12,
     foreground_erode: int = 0,
     target_foreground_size: int | None = None,
+    source_restore_points: list[list[int]] | None = None,
 ) -> None:
     original = Image.open(source).convert("RGB")
     if source_crop:
@@ -273,6 +274,14 @@ def process_image(
         ImageDraw.floodfill(probe, (x, y), fill_color, thresh=24)
         cleared = np.all(np.asarray(probe) == fill_color, axis=2)
         alpha[cleared] = 0
+    # Restore only reviewed, source-connected reflective details misclassified
+    # by segmentation. This changes alpha, never the original RGB pixels.
+    for x, y in source_restore_points or ():
+        probe = original.copy()
+        fill_color = (255, 0, 255)
+        ImageDraw.floodfill(probe, (x, y), fill_color, thresh=24)
+        restored = np.all(np.asarray(probe) == fill_color, axis=2)
+        alpha[restored] = 255
     if keep_largest_component:
         import cv2
 
@@ -544,6 +553,7 @@ def main() -> int:
                 entry.get("backgroundChroma", 12),
                 entry.get("foregroundErode", 0),
                 entry.get("targetForegroundSize"),
+                entry.get("sourceRestorePoints"),
             )
             print(f"[{index}/{len(entries)}] wrote {entry['id']}", flush=True)
         except Exception as error:  # keep the batch auditable

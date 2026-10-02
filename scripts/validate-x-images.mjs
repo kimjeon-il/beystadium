@@ -96,7 +96,7 @@ async function validateOutputs() {
   ];
   uniqueValues(accountedIds, "accounted X item IDs");
   assert.deepEqual(new Set(accountedIds), xIds, "every X Bey and part must be mapped or unavailable");
-  assert.equal(xImageMappings.length, 446);
+  assert.equal(xImageMappings.length, 454);
   assert.equal(xImageUnavailable.length, 36);
   assert.equal(xImageReview.length, xImageMappings.length);
   const mappingById = new Map(xImageMappings.map(entry => [entry.id, entry]));
@@ -222,7 +222,7 @@ async function validateOutputs() {
   }
 
   const files = await webpFiles(path.resolve("assets/images/x"));
-  assert.equal(files.length, 924, "X image file count changed");
+  assert.equal(files.length, 932, "X image file count changed");
   assert.equal(
     files.some(file => file.includes(`${path.sep}part-previews${path.sep}`)),
     false,

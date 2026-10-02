@@ -2662,6 +2662,106 @@
       "sourceSha256": "0d936c0c1b3ec0ca1e453556b720c078cf2078b09758d36e9f079f14a7c8c0c9"
     },
     {
+      "id": "BEY-X-BX-52-LUSTER-DRAGOON-6-60LC",
+      "image": "assets/images/x/beys/bey-x-bx-52-luster-dragoon-6-60lc/bey-x-bx-52-luster-dragoon-6-60lc.webp",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX52_01@1.png",
+      "sourceSha256": "9fead6131aa2e1eedde434dbeee3820645f1a29c62f1cdb93dba49eac8036b38",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true,
+      "sourceKind": "official-assembled-front",
+      "preNormalizationSha256": "20aea3368de0c96322fa374388376d8982e2c1843c99c769aa9e5cd27f7368d1",
+      "outputSha256": "5412b5b8dd889a5c9e1453f74595f6651937aafd16206185fb2a9ecac00acc09",
+      "normalizedForegroundBox": [
+        47,
+        44,
+        400,
+        404
+      ]
+    },
+    {
+      "id": "BEY-X-BX-53-AERO-PEGASUS-3-70A",
+      "image": "assets/images/x/beys/bey-x-bx-53-aero-pegasus-3-70a/bey-x-bx-53-aero-pegasus-3-70a.webp",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX53_04@1.png",
+      "sourceSha256": "daec371b58a86afead4c7b713d2aad8e0dc1b8de55066199a176b9551306f25d",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true,
+      "sourceKind": "official-assembled-front",
+      "preNormalizationSha256": "70b26366a3e84cfebeede0725d39b7a0bd7af8501e6f47ab2f0c5c08a219c573",
+      "outputSha256": "bea59aba6a796509965d2ecbd155183312eafaac7a9e6753337cd40aa511fe65",
+      "normalizedForegroundBox": [
+        48,
+        44,
+        399,
+        404
+      ]
+    },
+    {
+      "id": "BEY-X-BX-53-KNIGHT-SHIELD-VERSION-2-0-3-80N",
+      "image": "assets/images/x/beys/bey-x-bx-53-knight-shield-version-2-0-3-80n/bey-x-bx-53-knight-shield-version-2-0-3-80n.webp",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX53_06@1.png",
+      "sourceSha256": "6c6d440f264bec727731198a566beaf2454b4afad6407437fd7752b8de79bdcf",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true,
+      "sourceClearPoints": [
+        [
+          299,
+          211
+        ],
+        [
+          161,
+          419
+        ],
+        [
+          414,
+          431
+        ]
+      ],
+      "sourceKind": "official-assembled-front",
+      "preNormalizationSha256": "19e79a117c4b9d021c9f1cc09bd5447cbff528ed63528f61cff87158cf5c9d07",
+      "outputSha256": "75a916c883ea404ac830e956b6b475049c5e4ea6ef51595e718d649320e1de34",
+      "normalizedForegroundBox": [
+        44,
+        44,
+        403,
+        404
+      ]
+    },
+    {
+      "id": "BEY-X-BX-53-WIZARD-ARROW-VERSION-2-0-4-80B",
+      "image": "assets/images/x/beys/bey-x-bx-53-wizard-arrow-version-2-0-4-80b/bey-x-bx-53-wizard-arrow-version-2-0-4-80b.webp",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX53_05@1.png",
+      "sourceSha256": "c34623cee5a1c22447d7150502d7d9d304941c4455ed0e38e5dfc71a4f26910d",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true,
+      "sourceClearPoints": [
+        [
+          290,
+          213
+        ],
+        [
+          293,
+          496
+        ]
+      ],
+      "sourceKind": "official-assembled-front",
+      "preNormalizationSha256": "ab1b831d5fbee2add47afc2e2334c2da4b983286615df2c856db4c6ef08abe92",
+      "outputSha256": "0c1900035b52cb576dd4373f4467828a67300c5ca5aae58bd3e56405549fc4a0",
+      "normalizedForegroundBox": [
+        44,
+        49,
+        404,
+        399
+      ]
+    },
+    {
       "id": "BEY-X-CX-00-BUGS-ANTLERS-B-2-60D",
       "view": "front-top",
       "sourceRef": "x-images",

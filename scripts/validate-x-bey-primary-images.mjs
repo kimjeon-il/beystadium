@@ -94,10 +94,10 @@ assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
     "verified-existing-front"
   ]
 });
-assert.equal(xBeyPrimaryImageConfig.selected.length, 224);
+assert.equal(xBeyPrimaryImageConfig.selected.length, 228);
 assert.equal(
   new Set(xBeyPrimaryImageConfig.selected.map(entry => entry.image)).size,
-  224,
+  228,
   "front-view normalization paths must be unique"
 );
 
@@ -770,7 +770,7 @@ const alphaReview = JSON.parse(await readFile(ALPHA_REVIEW_PATH, "utf8"));
 assert.equal(alphaReview.version, "20260819-x-bey-canonical-image-paths");
 const alphaReviewByImage = new Map(alphaReview.files.map(entry => [entry.image, entry]));
 const normalizedEntries = xBeyPrimaryImageConfig.selected;
-assert.equal(normalizedEntries.length, 224);
+assert.equal(normalizedEntries.length, 228);
 for (const entry of normalizedEntries) {
   const itemSlug = entry.id.toLowerCase();
   assert.equal(
@@ -800,7 +800,7 @@ const counts = {
   temporarySide: 0
 };
 const xBeys = beyItems.filter(item => item.series === "x" && item.image);
-assert.equal(xBeys.length, 224);
+assert.equal(xBeys.length, 228);
 
 for (const item of xBeys) {
   const bladeIds = bladePartIds(item);
@@ -852,7 +852,7 @@ for (const item of xBeys) {
 }
 
 assert.deepEqual(counts, {
-  officialAssembledFront: 116,
+  officialAssembledFront: 120,
   userApprovedGeneratedFront: 23,
   verifiedExistingFront: 85,
   temporarySide: 0
