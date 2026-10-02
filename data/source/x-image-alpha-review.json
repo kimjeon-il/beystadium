@@ -17709,6 +17709,158 @@
         47,
         66
       ]
+    },
+    {
+      "image": "assets/images/x/beys/bey-x-bx-52-luster-dragoon-6-60lc/parts/part-x-ratchet-6-60.webp",
+      "outputSha256": "2ca5465514c96d5687379a8753d299c437d2cdf8b83e68ba5728e1b8be52fc59",
+      "alphaLevels": 17,
+      "partialPixels": 2100,
+      "foregroundPixels": 82818,
+      "bbox": [
+        47,
+        62,
+        400,
+        385
+      ],
+      "margins": [
+        47,
+        62,
+        48,
+        63
+      ]
+    },
+    {
+      "image": "assets/images/x/beys/bey-x-bx-53-aero-pegasus-3-70a/parts/part-x-blade-aero-pegasus.webp",
+      "outputSha256": "a24a7692d24fabe7bc79a7ed267603fa2b06065b65743d831bcff30df53313e4",
+      "alphaLevels": 22,
+      "partialPixels": 2322,
+      "foregroundPixels": 90886,
+      "bbox": [
+        48,
+        53,
+        400,
+        395
+      ],
+      "margins": [
+        48,
+        53,
+        48,
+        53
+      ]
+    },
+    {
+      "image": "assets/images/x/beys/bey-x-bx-53-aero-pegasus-3-70a/parts/part-x-ratchet-3-70.webp",
+      "outputSha256": "3dbff82824375019163527af2a20746c31a080f9923fec579ae43d099171a2c0",
+      "alphaLevels": 17,
+      "partialPixels": 2105,
+      "foregroundPixels": 88022,
+      "bbox": [
+        44,
+        60,
+        403,
+        388
+      ],
+      "margins": [
+        44,
+        60,
+        45,
+        60
+      ]
+    },
+    {
+      "image": "assets/images/x/beys/bey-x-bx-53-aero-pegasus-3-70a/parts/part-x-bit-a.webp",
+      "outputSha256": "2761dfcf520213d3446d4381d23a37e3a6b4fe3065c6bb36f569d332848b3d76",
+      "alphaLevels": 19,
+      "partialPixels": 1423,
+      "foregroundPixels": 32068,
+      "bbox": [
+        138,
+        86,
+        310,
+        362
+      ],
+      "margins": [
+        138,
+        86,
+        138,
+        86
+      ]
+    },
+    {
+      "image": "assets/images/x/beys/bey-x-bx-53-wizard-arrow-version-2-0-4-80b/parts/part-x-ratchet-4-80.webp",
+      "outputSha256": "170a29c9784b6be413954e2e66b60afe1896db0c57ac34af47d708a50821b851",
+      "alphaLevels": 19,
+      "partialPixels": 2022,
+      "foregroundPixels": 79177,
+      "bbox": [
+        48,
+        63,
+        400,
+        384
+      ],
+      "margins": [
+        48,
+        63,
+        48,
+        64
+      ]
+    },
+    {
+      "image": "assets/images/x/beys/bey-x-bx-53-wizard-arrow-version-2-0-4-80b/parts/part-x-bit-b.webp",
+      "outputSha256": "d29409f9c6295321daf1bc2511fce6185346380e3854391719833e1afa05b234",
+      "alphaLevels": 22,
+      "partialPixels": 1388,
+      "foregroundPixels": 29190,
+      "bbox": [
+        139,
+        89,
+        309,
+        358
+      ],
+      "margins": [
+        139,
+        89,
+        139,
+        90
+      ]
+    },
+    {
+      "image": "assets/images/x/beys/bey-x-bx-53-knight-shield-version-2-0-3-80n/parts/part-x-ratchet-3-80.webp",
+      "outputSha256": "9323dc2b0fa75722c22be2a431d55d7cb595350757b8cb7d1520c6528f131cd3",
+      "alphaLevels": 17,
+      "partialPixels": 2064,
+      "foregroundPixels": 84695,
+      "bbox": [
+        48,
+        61,
+        400,
+        386
+      ],
+      "margins": [
+        48,
+        61,
+        48,
+        62
+      ]
+    },
+    {
+      "image": "assets/images/x/beys/bey-x-bx-53-knight-shield-version-2-0-3-80n/parts/part-x-bit-n.webp",
+      "outputSha256": "abb41bd49a59fb25f1a058e88b06c54a2afdec9a11194352652b1da385a27cbc",
+      "alphaLevels": 20,
+      "partialPixels": 1371,
+      "foregroundPixels": 28885,
+      "bbox": [
+        139,
+        92,
+        309,
+        356
+      ],
+      "margins": [
+        139,
+        92,
+        139,
+        92
+      ]
     }
   ]
 }

@@ -1,0 +1,169 @@
+{
+  "sourceRoot": "",
+  "selected": [
+    {
+      "id": "BEY-X-BX-52-LUSTER-DRAGOON-6-60LC::PART-X-RATCHET-6-60",
+      "image": "assets/images/x/beys/bey-x-bx-52-luster-dragoon-6-60lc/parts/part-x-ratchet-6-60.webp",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX52_03@1.png",
+      "sourceSha256": "7ff3bfa4233286a541930337478c676680fef8e78871feac5d44fadfec28fc14",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true,
+      "sourceClearPoints": [
+        [
+          293,
+          354
+        ]
+      ],
+      "sourceForegroundBox": [
+        116,
+        193,
+        469,
+        516
+      ],
+      "sourceRestorePoints": [
+        [
+          175,
+          249
+        ]
+      ]
+    },
+    {
+      "id": "BEY-X-BX-53-AERO-PEGASUS-3-70A::PART-X-BLADE-AERO-PEGASUS",
+      "image": "assets/images/x/beys/bey-x-bx-53-aero-pegasus-3-70a/parts/part-x-blade-aero-pegasus.webp",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX53_07@1.png",
+      "sourceSha256": "0360646eaa9a6131bbeb93c9341e777e1af284e1a9e2f1e9c988d7768a57879c",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true,
+      "sourceForegroundBox": [
+        117,
+        184,
+        469,
+        526
+      ],
+      "sourceRestorePoints": [
+        [
+          450,
+          349
+        ]
+      ]
+    },
+    {
+      "id": "BEY-X-BX-53-AERO-PEGASUS-3-70A::PART-X-RATCHET-3-70",
+      "image": "assets/images/x/beys/bey-x-bx-53-aero-pegasus-3-70a/parts/part-x-ratchet-3-70.webp",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX53_10@1.png",
+      "sourceSha256": "63ebd74edc54c93c074405273ab0b2770364b7bf3bd52113ac205b2ea08769d6",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true,
+      "sourceClearPoints": [
+        [
+          293,
+          354
+        ]
+      ],
+      "sourceForegroundBox": [
+        116,
+        191,
+        475,
+        519
+      ]
+    },
+    {
+      "id": "BEY-X-BX-53-AERO-PEGASUS-3-70A::PART-X-BIT-A",
+      "image": "assets/images/x/beys/bey-x-bx-53-aero-pegasus-3-70a/parts/part-x-bit-a.webp",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX53_13@1.png",
+      "sourceSha256": "abfee2d993402ddfb465244bd261e694ac5813d1d567290b5c9db945d4e4766a",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true,
+      "sourceForegroundBox": [
+        207,
+        214,
+        379,
+        490
+      ]
+    },
+    {
+      "id": "BEY-X-BX-53-WIZARD-ARROW-VERSION-2-0-4-80B::PART-X-RATCHET-4-80",
+      "image": "assets/images/x/beys/bey-x-bx-53-wizard-arrow-version-2-0-4-80b/parts/part-x-ratchet-4-80.webp",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX53_11@1.png",
+      "sourceSha256": "72140cd43ef9dc8bd069c4b1afcd7dc01cbf322c8ecbb5919ca8f5b16e072f2e",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true,
+      "sourceClearPoints": [
+        [
+          290,
+          375
+        ]
+      ],
+      "sourceForegroundBox": [
+        117,
+        194,
+        469,
+        515
+      ]
+    },
+    {
+      "id": "BEY-X-BX-53-WIZARD-ARROW-VERSION-2-0-4-80B::PART-X-BIT-B",
+      "image": "assets/images/x/beys/bey-x-bx-53-wizard-arrow-version-2-0-4-80b/parts/part-x-bit-b.webp",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX53_14@1.png",
+      "sourceSha256": "b270600c6502fa7ca4b613fee3162c28b7ebaaf0370873d9c3f8e2a7609b0c8e",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true,
+      "sourceForegroundBox": [
+        208,
+        217,
+        378,
+        486
+      ]
+    },
+    {
+      "id": "BEY-X-BX-53-KNIGHT-SHIELD-VERSION-2-0-3-80N::PART-X-RATCHET-3-80",
+      "image": "assets/images/x/beys/bey-x-bx-53-knight-shield-version-2-0-3-80n/parts/part-x-ratchet-3-80.webp",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX53_12@1.png",
+      "sourceSha256": "2f52dc1092dd44d592edef1dcd61cd17ead3580d9d8eb883917e235f146f287d",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true,
+      "sourceClearPoints": [
+        [
+          293,
+          354
+        ]
+      ],
+      "sourceForegroundBox": [
+        118,
+        192,
+        470,
+        517
+      ]
+    },
+    {
+      "id": "BEY-X-BX-53-KNIGHT-SHIELD-VERSION-2-0-3-80N::PART-X-BIT-N",
+      "image": "assets/images/x/beys/bey-x-bx-53-knight-shield-version-2-0-3-80n/parts/part-x-bit-n.webp",
+      "sourceUrl": "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/BX53_15@1.png",
+      "sourceSha256": "b90b02a8af93fe1f925c3309e23801e10f4d3bfe1a0914d1147504d315e08924",
+      "segmentationModel": "u2netp",
+      "alphaMatting": false,
+      "keepLargestComponent": true,
+      "preserveSourcePixels": true,
+      "sourceForegroundBox": [
+        208,
+        224,
+        378,
+        488
+      ]
+    }
+  ]
+}

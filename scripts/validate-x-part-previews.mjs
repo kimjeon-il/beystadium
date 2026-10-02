@@ -67,8 +67,8 @@ uniqueValues(mappedKeys, "X part preview mappings");
 uniqueValues(unavailableKeys, "X unavailable part previews");
 uniqueValues([...mappedKeys, ...unavailableKeys], "accounted X part preview contexts");
 assert.deepEqual(new Set([...mappedKeys, ...unavailableKeys]), new Set(contextKeys));
-assert.equal(contexts.length, 798);
-assert.equal(xPartPreviewMappings.length, 743);
+assert.equal(contexts.length, 810);
+assert.equal(xPartPreviewMappings.length, 755);
 assert.equal(xPartPreviewUnavailable.length, 55);
 assert.deepEqual(
   Object.fromEntries([...new Set(xPartPreviewMappings.map(entry => entry.sourceKind))]
@@ -81,7 +81,7 @@ assert.deepEqual(
     "official-color-derived": 238,
     "official-direct": 3,
     "official-assembled-bey-view": 65,
-    "official-individual": 436,
+    "official-individual": 448,
     "user-approved-generated-bey-view": 1
   }
 );
@@ -146,7 +146,7 @@ const contextualOutputPaths = xPartPreviewMappings
   .filter(entry => entry.image === xPartPreviewImagePath(entry.beyId, entry.partId))
   .map(entry => entry.image);
 uniqueValues(contextualOutputPaths, "contextual part preview output paths");
-assert.equal(contextualOutputPaths.length, 467);
+assert.equal(contextualOutputPaths.length, 475);
 
 for (const entry of xPartPreviewMappings) {
   const bey = beyById.get(entry.beyId);

@@ -32,6 +32,22 @@ Checks: `pnpm test:x-images`, `pnpm test:x-bey-primary-images`,
 `node --test tests/x-october-images.test.mjs`, and
 `python tests/x-image-mask.test.py` (Pillow and NumPy required).
 
-This change does not add the separate twelve Bey-specific part-preview contexts
-for these four new Beys. Their existing 798/810 coverage failure remains distinct
-from the now-complete catalog-image registry.
+The twelve Bey-specific part-preview contexts are now covered as well. Four reuse
+identical-source catalog cutouts (Luster blade, LC, Wizard V2 blade, Knight V2 blade).
+Eight new contextual images use the exact BX-52/BX-53 edition's individual photos,
+including the blue/cyan Aero blade, each ratchet color, and cyan/yellow/green bits.
+All are `official-individual`; no recoloring or assembled-view fallback is used.
+
+Reproduce those eight new contextual files with:
+`python scripts/process-x-images.py --report data/source/x-october-part-preview-sources.json`
+The report retains source hashes, mask corrections and source foreground boxes.
+Run the same command with `--validate-only` to audit native-scale visible RGB
+against the downloaded official originals. All eight passed exact RGB comparison.
+
+The Luster ratchet's bright outer-ring patch and a small reflective Aero blade
+patch use reviewed restore points. Ratchet clear points remove only the visible
+through-opening, preserving its inner wall and translucent plastic.
+
+Part-preview coverage is now 755 mappings plus 55 existing unavailable contexts,
+accounting for all 810 contexts. There are 475 dedicated contextual paths and
+940 total X WebP assets. Existing assets and unavailable reasons are unchanged.

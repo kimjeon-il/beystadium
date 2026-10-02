@@ -222,7 +222,7 @@ async function validateOutputs() {
   }
 
   const files = await webpFiles(path.resolve("assets/images/x"));
-  assert.equal(files.length, 932, "X image file count changed");
+  assert.equal(files.length, 940, "X image file count changed");
   assert.equal(
     files.some(file => file.includes(`${path.sep}part-previews${path.sep}`)),
     false,
