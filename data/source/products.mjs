@@ -564,7 +564,7 @@
     jp: { no: "", name: "팬텀 오리온 개조 부품 세트", sale: "한정 판매", kind: "", releaseDate: "2011-09-17", price: "525", composition: [{ name: "85 트랙", quantity: "1개", target: "PART-METAL-FIGHT-TRACK-85" }, { name: "230 트랙", quantity: "1개", target: "PART-METAL-FIGHT-TRACK-230" }, { name: "CH120 트랙", quantity: "1개", target: "PART-METAL-FIGHT-TRACK-CHANGE-HEIGHT-120" }, { name: "XF 버텀", quantity: "1개", target: "PART-METAL-FIGHT-BOTTOM-EXTREME-FLAT" }, { name: "SF 버텀", quantity: "1개", target: "PART-METAL-FIGHT-BOTTOM-SEMI-FLAT" }, { name: "WD 버텀", quantity: "1개", target: "PART-METAL-FIGHT-BOTTOM-WIDE-DEFENSE" }] }} },
   { id: "PRODUCT-METAL-FIGHT-PHANTOM-ORION-BD-SKELETON", series: "metal fight", releases: {
     kr: { status: "unreleased" },
-    jp: { no: "", name: "팬텀 오리온 B:D 스켈레톤 Ver.", sale: "한정 배포", kind: "", releaseDate: "2011-10-15", price: "", composition: [{ name: "팬텀 오리온 B:D 스켈레톤 Ver.", quantity: "1개", target: "BEY-METAL-FIGHT-BB-118-PHANTOM-ORION-BD" }, { name: "툴", quantity: "1개", target: "TOOLS-METAL-FIGHT-TOOL" }] }} },
+    jp: { no: "", name: "팬텀 오리온 B:D 스켈레톤 Ver.", sale: "한정 배포", kind: "", releaseDate: "2011-10-15", price: "", composition: [{ name: "팬텀 오리온 B:D 스켈레톤 Ver.", quantity: "1개" }, { name: "툴", quantity: "1개", target: "TOOLS-METAL-FIGHT-TOOL" }] }} },
   { id: "PRODUCT-METAL-FIGHT-WING-PEGASIS-S130RB", series: "metal fight", releases: {
     kr: { status: "unreleased" },
     jp: { no: "", name: "윙 페가시스 S130RB", sale: "한정 판매", kind: "부스터", releaseDate: "2012-01-15", price: "840", composition: [{ name: "윙 페가시스 S130RB", quantity: "1개", target: "BEY-METAL-FIGHT-WING-PEGASIS-S130RB" }, { name: "툴", quantity: "1개", target: "TOOLS-METAL-FIGHT-TOOL" }] }} },

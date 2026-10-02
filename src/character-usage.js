@@ -2,7 +2,9 @@
 export const characterUsageGroups = character => {
   const groups = Array.isArray(character?.usages)
     ? character.usages
-    : [{ season: character?.season || "", beys: character?.beys || [], beyIds: character?.beyIds || [] }];
+    : character?.additionalUsage && !Object.hasOwn(character, "season")
+      ? []
+      : [{ season: character?.season || "", beys: character?.beys || [], beyIds: character?.beyIds || [] }];
   return character?.additionalUsage
     ? [...groups, { ...character.additionalUsage, season: "" }]
     : groups;

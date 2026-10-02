@@ -15,7 +15,7 @@ User links require explicit catalog IDs. No relation is inferred from a model na
 
 Returning users retain verified standard editions in season two. 크랩킹 has only Dark Cancer recorded for season two; his season-one Mad Cancer remains scoped to season one. Temporary borrowing, unverified past use, later-season upgrades, and generic one-off background users are omitted.
 
-The season-two record displays 파우스트 only, with no 토비 alias or usage attribution. A later-season 토비 record is outside this change. The existing opaque character ID is retained to preserve links.
+The season-two record displays 파우스트 only, with no 토비 alias or usage attribution. 토비 is now a separate unscoped Screw Lyra user, documented in [new character usage](metal-new-character-usages.md); the season-two 파우스트 record still has no 토비 alias or usage attribution. The existing opaque character ID is retained to preserve links.
 
 ## Text-only exceptions
 

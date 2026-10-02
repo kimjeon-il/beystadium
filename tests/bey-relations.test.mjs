@@ -255,6 +255,46 @@ test("additional usage never enables stale aggregate membership or text-only rel
   ]) assert.deepEqual(relatedBeyCharacters(storm, [{ ...character, additionalUsage }], catalogById), []);
 });
 
+test("new unscoped characters resolve exact additional IDs through their explicit series", () => {
+  const storm = catalogById.get("BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF");
+  const variant = catalogById.get("BEY-METAL-FIGHT-BB-32-STORM-PEGASIS-105RF");
+  const character = {
+    id: "UNSCOPED", name: "New Character", series: "metal fight", role: "",
+    additionalUsage: { beyIds: [storm.id, storm.id], beys: [storm.name] },
+    beyIds: [storm.id], beys: [storm.name]
+  };
+  const before = JSON.stringify(character);
+  assert.deepEqual(relatedBeyCharacters(storm, [character, character, { ...character }], catalogById), [character]);
+  assert.deepEqual(relatedBeyCharacters(variant, [character], catalogById), []);
+  assert.equal(JSON.stringify(character), before);
+});
+
+test("explicit series cannot bypass incompatible legacy seasons or authoritative usage groups", () => {
+  const storm = catalogById.get("BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF");
+  const character = { id: "UNSCOPED", series: "metal fight", additionalUsage: { beyIds: [storm.id] } };
+  for (const legacy of [
+    { season: "beyblade-x" }, { season: "metal-fight-other" }, { season: "" }, { season: null }, { season: undefined },
+    { usages: [] }, { usages: null }, { usages: undefined },
+    { usages: [{ season: "beyblade-x", beyIds: [storm.id] }] },
+    { season: "metal-fight", usages: [] }
+  ]) assert.deepEqual(relatedBeyCharacters(storm, [{ ...character, ...legacy }], catalogById), []);
+});
+
+test("unscoped additional usage requires exact IDs and a matching explicit series", () => {
+  const storm = catalogById.get("BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF");
+  const character = {
+    id: "UNSCOPED", series: "metal fight", beyIds: [storm.id], beys: [storm.name],
+    additionalUsage: { beyIds: [storm.id] }
+  };
+  for (const series of [undefined, "x", "burst", "metal-fight", "", "constructor", "__proto__"]) {
+    assert.deepEqual(relatedBeyCharacters(storm, [{ ...character, series }], catalogById), []);
+  }
+  for (const additionalUsage of [
+    { beyIds: [] }, { beyIds: storm.id }, { beyIds: ["UNKNOWN"] },
+    { beys: [storm.name], unmappedBeys: [storm.name] }, null
+  ]) assert.deepEqual(relatedBeyCharacters(storm, [{ ...character, additionalUsage }], catalogById), []);
+});
+
 test("missing, malformed, unregistered and non-Bey inputs cannot establish a usage relation", () => {
   const storm = catalogById.get("BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF");
   const part = catalogById.get(storm.parts[0]);

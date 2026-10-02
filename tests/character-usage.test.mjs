@@ -46,6 +46,32 @@ test("text-only additional usage remains visible without a season or invented ex
   assert.equal(usage.characterForSeason(supplemented, "metal-fight-4d"), null);
 });
 
+test("new unscoped characters display only their additional usage without duplicating aggregate fields", () => {
+  const additionalUsage = { beys: ["Spiral Lyra", "Unmapped Bey"], beyIds: ["L"], unmappedBeys: ["Unmapped Bey"] };
+  const unscoped = {
+    id: "NEW", name: "New Character", series: "metal fight", role: "",
+    additionalUsage, beys: [...additionalUsage.beys], beyIds: [...additionalUsage.beyIds]
+  };
+  const before = JSON.stringify(unscoped);
+  assert.deepEqual(usage.characterUsageGroups(unscoped), [{ ...additionalUsage, season: "" }]);
+  assert.equal(usage.characterForSeason(unscoped, "all"), unscoped);
+  for (const season of ["metal-fight", "metal-fight-2", "metal-fight-4d", "metal-fight-zerog", "beyblade-x"]) {
+    assert.equal(usage.characterForSeason(unscoped, season), null, season);
+  }
+  assert.equal(JSON.stringify(unscoped), before);
+});
+
+test("legacy single-season records keep their original group when additional usage is present", () => {
+  const legacy = {
+    season: "metal-fight", beys: ["Storm"], beyIds: ["S"],
+    additionalUsage: { beys: ["Galaxy"], beyIds: ["G"] }
+  };
+  assert.deepEqual(usage.characterUsageGroups(legacy), [
+    { season: "metal-fight", beys: ["Storm"], beyIds: ["S"] },
+    { season: "", beys: ["Galaxy"], beyIds: ["G"] }
+  ]);
+});
+
 test("Metal season two preserves the existing identity and season-one usages while adding upgrades", async () => {
   const { animeInfo } = await import("../data/source/anime.mjs");
   const kang = animeInfo.characters.find(c => c.name === "강타");
@@ -59,7 +85,7 @@ test("season-two roster preserves exact editions and leaves unsupported combinat
   const { animeInfo } = await import("../data/source/anime.mjs");
   const all = animeInfo.characters;
   const second = all.map(c => usage.characterForSeason(c, "metal-fight-2")).filter(Boolean);
-  assert.equal(all.length, 64);
+  assert.equal(all.length, 80);
   assert.equal(second.length, 38);
   assert.deepEqual(all.filter(c => c.season === "metal-fight-2").map(c => c.name), [
     "장군", "왕대상", "리치윤", "메이메이", "챠우싱", "알렉세이", "도라", "노와구마",
@@ -73,12 +99,19 @@ test("season-two roster preserves exact editions and leaves unsupported combinat
   assert.deepEqual(byName.get("소피").beyIds, ["BEY-METAL-FIGHT-BB-82-GRAND-KETOS-T125RS"]);
   assert.equal(byName.get("파우스트").id, "CHARACTER-METAL-FIGHT-TOBY");
   assert.equal(byName.get("파우스트").aliases, undefined);
-  assert.equal(all.some(c => c.name.includes("토비") || c.aliases?.some(alias => /토비|Toby/i.test(alias))), false);
+  assert.equal(second.some(c => c.name.includes("토비") || c.aliases?.some(alias => /토비|Toby/i.test(alias))), false);
   assert.equal(byName.get("지구라트 박사").id, "CHARACTER-METAL-FIGHT-DR-ZIGGURAT");
   assert.equal(byName.get("시저").id, "CHARACTER-METAL-FIGHT-JULIUS-CAESAR");
   assert.equal(byName.get("리치윤").id, "CHARACTER-METAL-FIGHT-LI-CHIYUN");
   assert.deepEqual(byName.get("시저").aliases, ["줄리어스 시저"]);
-  assert.equal(all.filter(c => c.name === "토비" || c.name === "파우스트").length, 1);
+  assert.equal(second.filter(c => c.name === "토비" || c.name === "파우스트").length, 1);
+  const toby = all.find(c => c.name === "토비");
+  assert.equal(toby?.id, "CHARACTER-METAL-FIGHT-TOBY-LYRA");
+  assert.equal(toby.series, "metal fight");
+  assert.equal(Object.hasOwn(toby, "season"), false);
+  assert.equal(Object.hasOwn(toby, "usages"), false);
+  assert.notEqual(toby.id, byName.get("파우스트").id);
+  assert.equal(usage.characterForSeason(toby, "metal-fight-2"), null);
   for (const name of ["챠우싱", "알렉세이", "도라", "노와구마", "게오르그", "셀린", "엔조", "Marcus"]) {
     assert.deepEqual(byName.get(name).beyIds, [], name);
     assert.ok(byName.get(name).beys.length, name);
@@ -88,7 +121,7 @@ test("season-two roster preserves exact editions and leaves unsupported combinat
   assert.equal(second.some(c => /SPIRAL-(FOX|LYRE)|BLITZ-UNICORNO/.test(c.beyIds.join(" "))), false);
 });
 
-test("corrected character names and approved alias are searchable without a Toby attribution", async () => {
+test("corrected names and approved alias remain searchable with Toby distinct from Faust", async () => {
   const { animeInfo } = await import("../data/source/anime.mjs");
   const { createSearchField, createSearchRecord, matchSearchRecord, prepareCatalogSearchQuery } = await import("../src/search-core.js");
   const records = animeInfo.characters.map(character => createSearchRecord("anime-character", character, [
@@ -98,7 +131,7 @@ test("corrected character names and approved alias are searchable without a Toby
   ]));
   const found = text => records.filter(record => matchSearchRecord(record, prepareCatalogSearchQuery(text)).matched).map(record => record.item.name);
   assert.deepEqual(found("파우스트"), ["파우스트"]);
-  assert.deepEqual(found("토비"), []);
+  assert.deepEqual(found("토비"), ["토비"]);
   assert.deepEqual(found("Toby"), []);
   assert.deepEqual(found("지구라트 박사"), ["지구라트 박사"]);
   assert.deepEqual(found("줄리어스 시저"), ["시저"]);

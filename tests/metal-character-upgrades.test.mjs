@@ -12,11 +12,11 @@ const expected = [
   ["ZEO", "BEY-METAL-FIGHT-BB-116-SCREW-FOX-TR145W2D"]
 ];
 test("only the six requested existing characters gain unscoped new usage", () => {
-  assert.equal(metalFightCharacters.length, 45);
-  assert.deepEqual(metalFightCharacters.filter(character => character.additionalUsage).map(character => character.id).sort(), [
+  assert.equal(metalFightCharacters.filter(character => character.usages).length, 45);
+  assert.deepEqual(metalFightCharacters.filter(character => character.usages && character.additionalUsage).map(character => character.id).sort(), [
     ...expected.map(([suffix]) => `CHARACTER-METAL-FIGHT-${suffix}`)
   ].sort());
-  for (const character of metalFightCharacters) {
+  for (const character of metalFightCharacters.filter(character => character.usages)) {
     assert.equal(character.usages.some(group => !["metal-fight", "metal-fight-2"].includes(group.season)), false);
     if (character.additionalUsage) assert.equal("season" in character.additionalUsage, false);
     assert.equal(new Set(character.beyIds).size, character.beyIds.length);

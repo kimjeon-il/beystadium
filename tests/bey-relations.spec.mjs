@@ -314,3 +314,21 @@ test("additional upgraded usage is unscoped and preserves the exact Bey back flo
   await modal.locator(".modal-back").click();
   await expect(page).toHaveURL(new RegExp(`#${id}$`));
 });
+
+test("new unscoped characters keep Toby and Faust separate without seasonal tags", async ({ page }) => {
+  const modal = page.locator("#detailModal");
+  await page.goto("/#BEY-METAL-FIGHT-BB-116-SCREW-LYRA-ED145MF");
+  await expect(modal.locator(".bey-character-link")).toHaveText("토비");
+  await modal.locator(".bey-character-link").click();
+  await expect(modal.locator(".modal-name")).toHaveText("토비");
+  await expect(modal.locator(".mounted-title")).toHaveText("사용 베이");
+  await expect(modal).toContainText("스크류 레이라 ED145MF");
+  await expect(modal).not.toContainText("호로지움");
+  await expect(modal.locator(".modal-tags")).toHaveCount(0);
+  await page.reload();
+  await expect(modal.locator(".modal-name")).toHaveText("토비");
+  await modal.locator(".modal-back").click();
+  await expect(page).toHaveURL(/#BEY-METAL-FIGHT-BB-116-SCREW-LYRA-ED145MF$/);
+  await page.goto("/#BEY-METAL-FIGHT-BB-104-BASALT-HOROGIUM-145WD");
+  await expect(modal.locator(".bey-character-link")).toHaveText("파우스트");
+});

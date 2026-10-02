@@ -47,8 +47,10 @@ export const relatedBeyCharacters = (bey, characters = [], catalogById) => {
     const compatibleGroups = characterUsageGroups(character).filter(group =>
       typeof group?.season === "string" && seasonPattern.test(group.season)
     );
+    const isUnscopedSeries = character.series === bey.series
+      && !Object.hasOwn(character, "season") && !Object.hasOwn(character, "usages");
     const hasUsage = compatibleGroups.some(group => Array.isArray(group.beyIds) && group.beyIds.includes(bey.id))
-      || (compatibleGroups.length > 0 && Array.isArray(character.additionalUsage?.beyIds)
+      || ((compatibleGroups.length > 0 || isUnscopedSeries) && Array.isArray(character.additionalUsage?.beyIds)
         && character.additionalUsage.beyIds.includes(bey.id));
     if (!hasUsage) return false;
     seen.add(character.id);

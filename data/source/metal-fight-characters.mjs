@@ -1,3 +1,4 @@
+import { unscopedMetalCharacterUsages } from "./metal-fight-unscoped-characters.mjs";
 import { beyItems } from "./catalog.mjs";
 
 const beyById = new Map(beyItems.map(bey => [bey.id, bey]));
@@ -243,7 +244,7 @@ const additionalBeyIds = {
   // Explicitly approved original-edition exception: BB-116 has a black W²D; anime uses blue.
   "CHARACTER-METAL-FIGHT-ZEO": ["BEY-METAL-FIGHT-BB-116-SCREW-FOX-TR145W2D"]
 };
-const metalFightCharacters = [...characterUsages, ...seasonTwoNewCharacters].map(character => {
+const legacyMetalFightCharacters = [...characterUsages, ...seasonTwoNewCharacters].map(character => {
   const firstSeason = characterUsages.includes(character) ? "metal-fight" : "metal-fight-2";
   const usages = [usageGroup(firstSeason, character.beyIds, character.unmappedBeys)];
   if (seasonTwoReturningIds.has(character.id)) {
@@ -265,5 +266,16 @@ const metalFightCharacters = [...characterUsages, ...seasonTwoNewCharacters].map
     beys: [...new Set(allUsage.flatMap(usage => usage.beys))]
   };
 });
+
+const metalFightCharacters = [
+  ...legacyMetalFightCharacters,
+  ...unscopedMetalCharacterUsages.map(character => {
+    const additionalUsage = usageData(character.beyIds, character.unmappedBeys);
+    return {
+      id: character.id, name: character.name, series: "metal fight", role: "",
+      additionalUsage, beyIds: additionalUsage.beyIds, beys: additionalUsage.beys
+    };
+  })
+];
 
 export { metalFightCharacters };
