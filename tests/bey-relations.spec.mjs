@@ -249,6 +249,27 @@ test("Metal season-one characters, alias search and verified users preserve exis
   expect(errors).toEqual([]);
 });
 
+test("media Bey labels are Korean in cards, overflow, details and search while English queries and character addresses stay valid", async ({ page }) => {
+  const errors = consoleErrors(page);
+  for (const query of ["포이즌 비르고", "Poison Virgo"]) {
+    await page.goto(`/#anime-character?season=metal-fight-2&q=${encodeURIComponent(query)}`);
+    await page.reload();
+    const card = page.locator('.anime-character-card[data-anime-character-card="챠우싱"]');
+    await expect(card.locator(".anime-character-bey-chip")).toHaveText(["비르고", "포이즌 비르고"]);
+    await expect(card.locator("[data-anime-character-bey-list]")).toHaveAttribute("data-anime-character-beys", JSON.stringify(["비르고", "포이즌 비르고"]));
+    await page.goto(`/#search?q=${encodeURIComponent(query)}&scope=character`);
+    await page.reload();
+    const result = page.locator('.search-result-item[data-anime-character-query="챠우싱"]');
+    await expect(result.locator(".search-result-snippet")).toHaveText("비르고 ED145ES · 포이즌 비르고 ED145ES");
+  }
+  const characterId = "CHARACTER-METAL-FIGHT-CHAOXIN";
+  await page.goto(`/#${characterId}`);
+  await page.reload();
+  await expect(page).toHaveURL(new RegExp(`#${characterId}$`));
+  await expect(page.locator("#detailModal .bey-relation-badge")).toHaveText(["비르고", "포이즌 비르고"]);
+  expect(errors).toEqual([]);
+});
+
 test("character cards and their overflow data use short model names on direct entry", async ({ page }) => {
   for (const [season, names] of [
     ["all", ["스톰 페가시스", "갤럭시 페가시스", "빅뱅 페가시스"]],

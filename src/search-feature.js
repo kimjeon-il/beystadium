@@ -1,4 +1,5 @@
 import { animeDisplayRegion, animeEpisodeTitle, animeSeasonLabels, episodeHashId } from "#app/anime-core";
+import { characterBeyDisplayName, characterBeyNames } from "#app/character-usage";
 import { appState } from "#app/state";
 import { animeInfo, BeystadiumDataStore, searchIndexItems } from "#app/data-store";
 import {
@@ -81,7 +82,7 @@ const animeCharacterSearchFields = character => [
   ...searchFieldsFromValues("primaryName", [character?.name, character?.title]),
   ...searchFieldsFromValues("alias", [character?.jpName, character?.en, ...(character?.aliases || [])]),
   ...searchFieldsFromValues("category", [character?.season, character?.role]),
-  ...searchFieldsFromValues("composition", [Array.isArray(character?.beys) ? character.beys.join(" ") : ""]),
+  ...searchFieldsFromValues("composition", [Array.isArray(character?.beys) ? character.beys.join(" ") : "", characterBeyNames(character).join(" ")]),
   ...searchFieldsFromValues("description", [character?.desc])
 ];
 let searchResultRecordCache = null;
@@ -265,7 +266,7 @@ const searchResultSnippet = entry => {
   if (entry.kind === "game") return [entry.item.category, entry.item.desc].filter(Boolean).join(" · ") || "게임 정보를 확인할 수 있습니다.";
   if (entry.kind === "anime") return searchAnimeEpisodeSnippet(entry.item) || "애니 회차 정보를 확인할 수 있습니다.";
   if (entry.kind === "character") {
-    return [entry.item.role, ...(Array.isArray(entry.item.beys) ? entry.item.beys : []), entry.item.desc]
+    return [entry.item.role, ...(Array.isArray(entry.item.beys) ? entry.item.beys.map(characterBeyDisplayName) : []), entry.item.desc]
       .filter(Boolean)
       .join(" · ") || "등장인물 정보를 확인할 수 있습니다.";
   }
