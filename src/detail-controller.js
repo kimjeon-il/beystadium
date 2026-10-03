@@ -1,4 +1,4 @@
-import { characterUsageGroups } from "#app/character-usage";
+import { characterBeyNames, characterUsageGroups } from "#app/character-usage";
 import { partDetailDisplayName } from "#app/part-name-core";
 import { animeSeasonLabels, isAnimeEpisodeHash } from "#app/anime-core";
 import { appState } from "#app/state";
@@ -173,7 +173,7 @@ function openCharacterDetail(id, options = {}) {
   const groups = characterUsageGroups(character);
   const models = groups.map(group => `<section class="modal-section bey-relation-section">
     <h4 class="mounted-title">${escapeHtml(animeSeasonLabels[group.season] || "사용 베이")}</h4>
-    <div class="bey-relation-list">${(group.beys || []).map(name => `<span class="bey-relation-badge">${escapeHtml(name)}</span>`).join("")}</div>
+    <div class="bey-relation-list">${characterBeyNames(group).map(name => `<span class="bey-relation-badge">${escapeHtml(name)}</span>`).join("")}</div>
   </section>`).join("");
   const root = setModalContent(`<div class="modal-inner modal-inner--content">
     ${detailBackButton(options.backId, options.backProductId, options.backRelease, options.region)}

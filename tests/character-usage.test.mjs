@@ -2,6 +2,18 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import * as usage from "../src/character-usage.js";
 
+test("character display uses model names while preserving full combinations and exact editions", async () => {
+  const { animeInfo } = await import("../data/source/anime.mjs");
+  const before = JSON.stringify(animeInfo.characters);
+  const kang = animeInfo.characters.find(c => c.name === "강타");
+  assert.deepEqual(usage.characterBeyNames(kang), ["스톰 페가시스", "갤럭시 페가시스", "빅뱅 페가시스"]);
+  assert.deepEqual(usage.characterBeyNames(usage.characterForSeason(kang, "metal-fight")), ["스톰 페가시스"]);
+  assert.deepEqual(usage.characterBeyNames({ beys: ["그랜드 케토스 WD145RS", "그랜드 케토스 T125RS", "팬텀 오리온 B:D", "Ray Cancer M145Q", "프로토타입 네메시스"] }), ["그랜드 케토스", "팬텀 오리온", "Ray Cancer", "프로토타입 네메시스"]);
+  assert.deepEqual(usage.characterBeyNames({ beys: ["빅토리 발키리.B.V", "드랜소드 3-60F", "드래곤 V2"] }), ["빅토리 발키리", "드랜소드", "드래곤 V2"]);
+  assert.deepEqual(usage.characterBeyNames({ beys: ["Rock Orso D125B (red)", "머큐리 아누비우스 85XF 레전드 Ver.", "드랜소드"] }), ["Rock Orso", "머큐리 아누비우스", "드랜소드"]);
+  assert.equal(JSON.stringify(animeInfo.characters), before);
+});
+
 const character = { id: "C", season: "metal-fight", beys: ["Storm", "Galaxy"], beyIds: ["S", "G"], usages: [
   { season: "metal-fight", beys: ["Storm"], beyIds: ["S"] },
   { season: "metal-fight-2", beys: ["Galaxy"], beyIds: ["G"] }

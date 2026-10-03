@@ -1,3 +1,10 @@
+/** Short labels for character displays; keep source combinations and edition IDs intact. */
+export const characterBeyNames = character => [...new Set((character?.beys || [])
+  .map(name => String(name || "").trim()
+    .replace(/\s+(?:[A-Z]*\d+[A-Z][A-Z\d²³/:-]*|\d+-\d+[A-Z][A-Z\d]*|[A-Z]:[A-Z])(?=\s|$).*$/i, "")
+    .replace(/[.·].*$/, ""))
+  .filter(Boolean))];
+
 /** Preserve one identity while displaying only usage recorded for the chosen season. */
 export const characterUsageGroups = character => {
   const groups = Array.isArray(character?.usages)

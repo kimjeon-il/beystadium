@@ -1,4 +1,4 @@
-import { characterForSeason } from "#app/character-usage";
+import { characterBeyNames, characterForSeason } from "#app/character-usage";
 import { appState } from "#app/state";
 import {
   animeCharacterAllSeason,
@@ -308,9 +308,7 @@ const animeCharacterCardMarkup = character => {
   const name = String(character?.name || character?.title || "").trim();
   const role = String(character?.role || "").trim();
   const description = String(character?.desc || "").trim();
-  const beys = Array.isArray(character?.beys)
-    ? character.beys.map(bey => String(bey || "").trim()).filter(Boolean)
-    : [];
+  const beys = characterBeyNames(character);
   const beyChips = beys.map(bey =>
     `<span class="anime-character-bey-chip" data-anime-character-bey-chip>${escapeHtml(bey)}</span>`).join("");
   return `<article class="category-card anime-character-card" data-anime-character-card="${escapeAttributeValue(name)}">

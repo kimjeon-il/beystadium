@@ -96,9 +96,10 @@ test("verified Metal Bey users support keyboard navigation and season-labeled ch
   await expect(page).toHaveURL(new RegExp(`#${kangTa}$`));
   await expect(modal.locator(".modal-name")).toHaveText("강타");
   const sections = modal.locator(".bey-relation-section");
-  await expect(sections.locator(".mounted-title")).toHaveText(["메탈베이블레이드", "메탈베이블레이드 2"]);
-  await expect(sections.nth(0).locator(".bey-relation-badge")).toHaveText(["스톰 페가시스 105RF"]);
-  await expect(sections.nth(1).locator(".bey-relation-badge")).toHaveText(["갤럭시 페가시스 W105R²F"]);
+  await expect(sections.locator(".mounted-title")).toHaveText(["메탈베이블레이드", "메탈베이블레이드 2", "사용 베이"]);
+  await expect(sections.nth(0).locator(".bey-relation-badge")).toHaveText(["스톰 페가시스"]);
+  await expect(sections.nth(1).locator(".bey-relation-badge")).toHaveText(["갤럭시 페가시스"]);
+  await expect(sections.nth(2).locator(".bey-relation-badge")).toHaveText(["빅뱅 페가시스"]);
   await expectModalBackAtShellTopLeft(modal.locator(".modal-back"));
   await modal.locator(".modal-back").click();
   await expect(page).toHaveURL(new RegExp(`#${storm}$`));
@@ -248,11 +249,29 @@ test("Metal season-one characters, alias search and verified users preserve exis
   expect(errors).toEqual([]);
 });
 
+test("character cards and their overflow data use short model names on direct entry", async ({ page }) => {
+  for (const [season, names] of [
+    ["all", ["스톰 페가시스", "갤럭시 페가시스", "빅뱅 페가시스"]],
+    ["metal-fight", ["스톰 페가시스"]],
+    ["metal-fight-2", ["갤럭시 페가시스"]]
+  ]) {
+    await page.goto("/");
+    await page.goto(`/#anime-character?season=${season}&q=${encodeURIComponent("강타")}`);
+    await page.reload();
+    const card = page.locator('.anime-character-card[data-anime-character-card="강타"]');
+    await expect(card.locator(".anime-character-bey-chip")).toHaveText(names);
+    await expect(card.locator("[data-anime-character-bey-list]")).toHaveAttribute("data-anime-character-beys", JSON.stringify(names));
+  }
+  await page.goto(`/#${kangTa}`);
+  await page.reload();
+  await expect(page.locator("#detailModal .bey-relation-badge")).toHaveText(["스톰 페가시스", "갤럭시 페가시스", "빅뱅 페가시스"]);
+});
+
 test("Metal character cards show only the selected season's Bey usage", async ({ page }) => {
   const errors = consoleErrors(page);
   for (const { season, included, excluded } of [
-    { season: "metal-fight", included: "스톰 페가시스 105RF", excluded: "갤럭시 페가시스" },
-    { season: "metal-fight-2", included: "갤럭시 페가시스 W105R²F", excluded: "스톰 페가시스" }
+    { season: "metal-fight", included: "스톰 페가시스", excluded: "갤럭시 페가시스" },
+    { season: "metal-fight-2", included: "갤럭시 페가시스", excluded: "스톰 페가시스" }
   ]) {
     await page.goto(`/#anime-character?season=${season}&q=${encodeURIComponent("강타")}`);
     const cards = page.locator(".anime-character-card");
@@ -308,9 +327,9 @@ test("additional upgraded usage is unscoped and preserves the exact Bey back flo
   await expect(modal.locator(".modal-tags")).not.toContainText("등장인물");
   await expect(modal.locator(".modal-tags")).not.toContainText("4D");
   const additional = modal.locator(".bey-relation-section").filter({ has: page.getByRole("heading", { name: "사용 베이", exact: true }) });
-  await expect(additional).toContainText("빅뱅 페가시스 F:D");
+  await expect(additional.locator(".bey-relation-badge")).toHaveText(["빅뱅 페가시스"]);
   await page.reload();
-  await expect(additional).toContainText("빅뱅 페가시스 F:D");
+  await expect(additional.locator(".bey-relation-badge")).toHaveText(["빅뱅 페가시스"]);
   await modal.locator(".modal-back").click();
   await expect(page).toHaveURL(new RegExp(`#${id}$`));
 });
@@ -322,7 +341,7 @@ test("new unscoped characters keep Toby and Faust separate without seasonal tags
   await modal.locator(".bey-character-link").click();
   await expect(modal.locator(".modal-name")).toHaveText("토비");
   await expect(modal.locator(".mounted-title")).toHaveText("사용 베이");
-  await expect(modal).toContainText("스크류 레이라 ED145MF");
+  await expect(modal.locator(".bey-relation-badge")).toHaveText(["스크류 레이라"]);
   await expect(modal).not.toContainText("호로지움");
   await expect(modal.locator(".modal-tags")).toHaveCount(0);
   await page.reload();
