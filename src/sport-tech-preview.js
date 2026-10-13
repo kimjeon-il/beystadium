@@ -5,7 +5,9 @@
  */
 const root = document.documentElement;
 const allowed = new Set(["light", "dark"]);
-const selected = allowed.has(root.dataset.sportTheme) ? root.dataset.sportTheme : "light";
+const selected = allowed.has(root.dataset.sportTheme)
+  ? root.dataset.sportTheme
+  : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
 
 const switcher = document.createElement("div");
 switcher.className = "sport-theme-switch";
