@@ -20,8 +20,17 @@
       type="font/woff2"
       crossorigin
     >
+    <script>
+      (() => {
+        const requested = new URLSearchParams(window.location.search).get("theme");
+        const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        document.documentElement.dataset.sportTheme =
+          requested === "light" || requested === "dark" ? requested : preferred;
+      })();
+    </script>
     <link rel="stylesheet" href="./styles/base.css?v=20261013-navigation-rounded-underline" data-style-key="base">
     <link rel="stylesheet" href="./styles/mobile.css?v=20261013-navigation-rounded-underline" data-style-key="mobile">
+    <link rel="stylesheet" href="./styles/sport-tech-preview.css?v=20261013" data-style-key="sport-tech-preview">
   </head>
   <body class="is-overview" data-active-panel="overview">
     <div class="data-load-status" id="dataLoadStatus" role="status" aria-live="polite" hidden>
@@ -528,5 +537,6 @@
     }
   </script>
   <script type="module" src="./src/bootstrap.js?v=20260715-category-preload"></script>
+  <script type="module" src="./src/sport-tech-preview.js?v=20261013"></script>
   </body>
 </html>
