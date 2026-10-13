@@ -561,7 +561,7 @@ test.describe("mobile visual layout contracts", { tag: "@design-flow" }, () => {
     }));
     if (visual) {
       await expect.poll(resultSurface).toEqual({
-        background: "rgba(0, 0, 0, 0)", borderWidth: "0px", padding: "11px 10px", minHeight: "auto"
+        background: "rgb(255, 255, 255)", borderWidth: "1px", padding: "12px", minHeight: "auto"
       });
     }
     expect(errors).toEqual([]);
