@@ -39,6 +39,7 @@ import {
   setSearchInputValue
 } from "#app/ui-elements";
 import { queryChipMarkup } from "#app/ui-markup";
+import { initializeP1CatalogSidebar } from "./p1-catalog-sidebar.js";
 
 const SEARCH_RENDER_DELAY = 100;
 let initialized = false;
@@ -166,6 +167,7 @@ const initializeCatalogFeature = () => {
   if (initialized) return;
   initialized = true;
   initializeSearchHelpController();
+  initializeP1CatalogSidebar();
   bindSearchInput(catalogSearch, ".catalog-search-box", {
     onInput: input => {
       normalizeCatalogSearchInput(input);

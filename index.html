@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="./styles/mobile.css?v=20261014-navigation-focus" data-style-key="mobile">
     <link rel="stylesheet" href="./styles/sport-tech-preview.css?v=20261013" data-style-key="sport-tech-preview">
     <link rel="stylesheet" href="./styles/p0-shell.css?v=20261014" data-style-key="p0-shell">
+    <link rel="stylesheet" href="./styles/p1-layout.css?v=20261014" data-style-key="p1-layout">
   </head>
   <body class="is-overview" data-active-panel="overview">
     <div class="data-load-status" id="dataLoadStatus" role="status" aria-live="polite" hidden>
@@ -236,6 +237,10 @@
                 </div>
               </div>
             </div>
+            <section class="overview-series" aria-label="시리즈별 탐색">
+              <h2>시리즈별 탐색</h2>
+              <div class="overview-series-links"><a class="overview-series-link" href="#toy-catalog?scope=bey&series=topblade">탑블레이드</a><a class="overview-series-link" href="#toy-catalog?scope=bey&series=metal%20fight">메탈베이블레이드</a><a class="overview-series-link" href="#toy-catalog?scope=bey&series=burst">베이블레이드 버스트</a><a class="overview-series-link" href="#toy-catalog?scope=bey&series=x">베이블레이드 X</a></div>
+            </section>
           </div>
         </div>
 
@@ -265,6 +270,8 @@
               <h2>완구 도감</h2>
             </div>
           </div>
+
+          <aside class="catalog-filter-rail" aria-label="완구 도감 필터"></aside>
 
           <div class="catalog-control-bar">
             <div class="toolbar catalog-toolbar">
@@ -351,6 +358,8 @@
             </div>
           </div>
 
+          <nav class="media-section-tabs" aria-label="미디어 메뉴"><a href="#anime-character" aria-current="page">등장인물</a><a href="#anime-episode">방영목록</a></nav>
+
           <div class="catalog-control-bar anime-control-bar">
             <div class="toolbar catalog-toolbar anime-toolbar">
               <div class="anime-character-season-filter" data-anime-character-season-filter></div>
@@ -385,6 +394,8 @@
               <h2>애니메이션 방영목록</h2>
             </div>
           </div>
+
+          <nav class="media-section-tabs" aria-label="미디어 메뉴"><a href="#anime-character">등장인물</a><a href="#anime-episode" aria-current="page">방영목록</a></nav>
 
           <div class="table-list-shell anime-episodes-page-shell" data-anime-episodes-page-content></div>
         </div>
@@ -527,7 +538,7 @@
         "#app/style-loader": "./src/style-loader.js?v=20261014-validation-metadata",
         "#app/feature-loaders": "./src/feature-loaders.js?v=20260717-dead-code-cleanup",
         "#app/shell-controller": "./src/shell-controller.js?v=20260804-topbar-search-surface-parity",
-        "#app/catalog-feature": "./src/catalog-feature.js?v=20260716-html5-conformance",
+        "#app/catalog-feature": "./src/catalog-feature.js?v=20261014-p1-layout",
         "#app/modal-controller": "./src/modal-controller.js?v=20261014-rendered-detail-identity",
         "#app/detail-controller": "./src/detail-controller.js?v=20261014-detail-return-loading",
         "#app/route-controller": "./src/route-controller.js?v=20261014-detail-hash-loading",

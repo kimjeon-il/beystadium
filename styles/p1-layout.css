@@ -1,0 +1,596 @@
+/*
+ * P1 layout layer: presentation only. No search ranking, data relationships,
+ * route grammar, modal navigation, or model calculations are changed.
+ */
+@layer base, page, collection, table, release, anime, catalog, search, modal, mobile, sport-tech-preview, layout-p0, layout-p1;
+
+@layer layout-p1 {
+  /* Home: search first, task cards second, generation entry points third. */
+  body.is-overview .app-shell {
+    display: block;
+    min-height: calc(100svh - var(--topbar-height));
+    padding: clamp(28px, 5vh, 64px) var(--page-gutter) 80px;
+  }
+  .overview-home {
+    width: min(100%, 1120px);
+    transform: none;
+    align-content: start;
+    gap: 28px;
+  }
+  .overview-hero {
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr);
+    justify-content: stretch;
+    padding: clamp(24px, 4vw, 48px);
+    border: var(--border-subtle);
+    border-radius: 24px;
+    background: var(--ui-surface-raised);
+  }
+  .overview-copy {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    justify-items: start;
+    text-align: left;
+  }
+  .overview-hero h1 {
+    max-width: 100%;
+    font-size: clamp(2.15rem, 4.5vw, 3.7rem);
+    white-space: normal;
+    line-height: 1.12;
+  }
+  .overview-intro {
+    margin: 10px 0 24px;
+    color: var(--ui-muted);
+    font-weight: var(--font-weight-medium);
+    text-align: left;
+  }
+  .overview-search {
+    width: min(100%, 720px);
+    max-width: 100%;
+    margin: 0;
+  }
+  .overview-quick-links {
+    width: 100%;
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .overview-quick-links > button {
+    appearance: none;
+    min-width: 0;
+    min-height: 100px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 12px;
+    border: var(--border-subtle);
+    border-radius: var(--radius-card);
+    background: var(--ui-surface);
+    color: var(--ui-text);
+    box-shadow: none;
+    text-align: left;
+    font-size: var(--font-md);
+    font-weight: var(--font-weight-strong);
+    transition: var(--transition-surface);
+  }
+  .overview-quick-links__icon {
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    border-radius: var(--radius-control-sm);
+    background: var(--ui-control);
+    color: var(--ui-accent);
+  }
+  .overview-quick-links__icon svg {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .overview-quick-links > button:focus-visible,
+  .overview-series-link:focus-visible {
+    outline: 0;
+    box-shadow: var(--ui-focus-ring);
+  }
+  .overview-series {
+    display: grid;
+    gap: 14px;
+  }
+  .overview-series h2 {
+    margin: 0;
+    color: var(--ui-text);
+    font-size: var(--font-xl);
+    font-weight: var(--font-weight-strong);
+  }
+  .overview-series-links {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .overview-series-link {
+    min-height: 68px;
+    min-width: 0;
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    border: var(--border-subtle);
+    border-radius: var(--radius-card);
+    background: var(--ui-surface-raised);
+    color: var(--ui-text);
+    font-size: var(--font-md);
+    font-weight: var(--font-weight-strong);
+    text-decoration: none;
+    white-space: normal;
+    transition: var(--transition-surface);
+  }
+  .overview-series-link::after {
+    content: "↗";
+    flex: 0 0 auto;
+    color: var(--ui-muted);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .overview-quick-links > button:hover,
+    .overview-series-link:hover {
+      border-color: color-mix(in srgb, var(--ui-accent) 36%, var(--ui-stroke-subtle));
+      background: color-mix(in srgb, var(--ui-accent) 5%, var(--ui-surface-raised));
+      box-shadow: var(--shadow-hover);
+      transform: none;
+    }
+  }
+
+  /* Catalog: desktop filter rail next to existing search, sort and grid. */
+  .catalog-filter-rail {
+    display: none;
+  }
+  @media (min-width: 64rem) {
+    .catalog-panel.active {
+      display: grid;
+      grid-template-columns: 244px minmax(0, 1fr);
+      column-gap: 24px;
+      align-content: start;
+      align-items: start;
+      --catalog-grid-columns: repeat(3, minmax(0, 1fr));
+      --catalog-card-min-height: 222px;
+      --catalog-card-padding: 14px;
+      --catalog-grid-gap: 12px;
+    }
+    .catalog-panel > .section-heading {
+      grid-row: 1;
+      grid-column: 1 / -1;
+      width: 100%;
+      max-width: none;
+    }
+    .catalog-panel > .catalog-filter-rail {
+      grid-row: 2 / span 2;
+      grid-column: 1;
+    }
+    .catalog-panel > .catalog-control-bar {
+      grid-row: 2;
+      grid-column: 2;
+      max-width: none;
+      min-width: 0;
+      padding-top: 0;
+      margin: 0 0 14px;
+    }
+    .catalog-panel > .catalog-combined {
+      grid-row: 3;
+      grid-column: 2;
+      max-width: none;
+      min-width: 0;
+    }
+    .catalog-panel .catalog-toolbar {
+      --catalog-toolbar-columns: minmax(0, 1fr);
+      width: 100%;
+    }
+    .catalog-panel .catalog-toolbar > .catalog-series-dropdown {
+      display: none;
+    }
+    .catalog-filter-rail {
+      position: sticky;
+      top: calc(var(--topbar-height) + 18px);
+      display: grid;
+      gap: 18px;
+      max-height: calc(100dvh - var(--topbar-height) - 34px);
+      padding: 18px;
+      overflow-x: hidden;
+      overflow-y: auto;
+      border: var(--border-subtle);
+      border-radius: var(--radius-section);
+      background: var(--ui-surface-raised);
+      scrollbar-width: thin;
+      scrollbar-color: var(--ui-line) transparent;
+    }
+    .catalog-rail-heading h3 {
+      margin: 0 0 5px;
+      font-size: var(--font-xl);
+      font-weight: var(--font-weight-strong);
+    }
+    .catalog-rail-heading p {
+      margin: 0;
+      color: var(--ui-muted);
+      font-size: var(--font-xs);
+      line-height: 1.45;
+    }
+    .catalog-rail-group {
+      min-width: 0;
+      display: grid;
+      gap: 8px;
+      padding-top: 12px;
+      border-top: 1px solid var(--ui-stroke-subtle);
+    }
+    .catalog-rail-group[hidden] {
+      display: none;
+    }
+    .catalog-rail-group h4 {
+      margin: 0;
+      color: var(--ui-muted);
+      font-size: var(--font-sm);
+      font-weight: var(--font-weight-strong);
+    }
+    .catalog-rail-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      min-width: 0;
+    }
+    .catalog-rail-option {
+      min-height: var(--touch-target-min);
+      min-width: 0;
+      padding: 9px 11px;
+      border: var(--border-subtle);
+      border-radius: 9px;
+      background: var(--ui-surface);
+      color: var(--ui-text);
+      font-size: var(--font-sm);
+      line-height: 1.2;
+      text-align: left;
+      white-space: normal;
+      word-break: keep-all;
+      transition: var(--transition-control);
+    }
+    .catalog-rail-option.active,
+    .catalog-rail-option[aria-pressed="true"] {
+      border-color: color-mix(in srgb, var(--ui-accent) 43%, var(--ui-stroke-subtle));
+      background: color-mix(in srgb, var(--ui-accent) 12%, var(--ui-surface-raised));
+      color: var(--ui-accent);
+    }
+    .catalog-rail-option[hidden] {
+      display: none;
+    }
+    .catalog-rail-option:focus-visible {
+      outline: 0;
+      box-shadow: var(--ui-focus-ring);
+    }
+    .catalog-panel .catalog-card {
+      min-height: var(--catalog-card-min-height);
+    }
+  }
+  @media (min-width: 80rem) {
+    .catalog-panel.active {
+      --catalog-grid-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  /* Cards: consistent image area followed by a two-line title and badge. */
+  .catalog-panel .catalog-card {
+    --catalog-card-min-height: 206px;
+    --catalog-card-padding: 12px;
+    min-width: 0;
+  }
+  .catalog-panel .catalog-card-visual {
+    inset: var(--catalog-card-padding) var(--catalog-card-padding) 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: color-mix(in srgb, var(--ui-control) 35%, transparent);
+    border-radius: 8px;
+  }
+  .catalog-panel .catalog-card-visual:empty {
+    display: none;
+  }
+  .catalog-panel .catalog-card-visual .bey-image {
+    max-width: min(88%, 180px);
+    max-height: 92%;
+    object-fit: contain;
+  }
+  .catalog-panel .card-name {
+    width: 100%;
+    min-width: 0;
+    margin: auto 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    white-space: normal;
+  }
+  .catalog-panel .catalog-card-badge {
+    flex: 0 0 auto;
+    min-height: 21px;
+  }
+  .catalog-panel .catalog-card-title {
+    flex: 0 0 auto;
+    width: 100%;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    white-space: normal;
+    text-overflow: ellipsis;
+    line-height: 1.25;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+  .catalog-panel .catalog-grid {
+    align-items: stretch;
+  }
+
+  /* Release/episode tables retain factual columns on desktop. */
+  .release-panel,
+  .anime-episodes-panel,
+  .anime-panel {
+    max-width: min(100%, 1320px);
+  }
+  .release-page-shell .table-list-section,
+  .anime-episodes-page-shell .table-list-section {
+    border-radius: var(--radius-section);
+  }
+
+  /* Media tabs: shared navigation in the character and episode pages. */
+  .media-section-tabs {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0 0 18px;
+    padding: 4px;
+    border: var(--border-subtle);
+    border-radius: var(--radius-control);
+    background: var(--ui-surface-raised);
+  }
+  .media-section-tabs a {
+    display: inline-flex;
+    min-width: 108px;
+    min-height: var(--touch-target-min);
+    padding: 0 14px;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-control-sm);
+    color: var(--ui-muted);
+    font-size: var(--font-sm);
+    font-weight: var(--font-weight-strong);
+    text-decoration: none;
+  }
+  .media-section-tabs a[aria-current="page"] {
+    background: color-mix(in srgb, var(--ui-accent) 12%, var(--ui-surface-raised));
+    color: var(--ui-accent);
+  }
+  .media-section-tabs a:focus-visible {
+    outline: 0;
+    box-shadow: var(--ui-focus-ring);
+  }
+  .anime-panel .anime-character-grid {
+    --catalog-grid-columns: repeat(3, minmax(0, 1fr));
+    --catalog-grid-gap: 14px;
+  }
+  .anime-panel .anime-character-card {
+    min-height: 242px;
+    padding: 20px;
+    gap: 14px;
+    border-radius: var(--radius-card);
+  }
+  .anime-panel .anime-character-card__header {
+    min-height: 54px;
+    padding-bottom: 13px;
+    border-bottom: 1px solid var(--ui-stroke-subtle);
+  }
+  .anime-panel .anime-character-beys {
+    padding-top: 10px;
+    border-top: 1px solid var(--ui-stroke-subtle);
+  }
+
+  /* Detail: products already have artwork/information columns.
+     Content-only detail types receive information/relations columns. */
+  @media (min-width: 68.75rem) {
+    #detailModal[open] {
+      --modal-w: min(960px, calc(var(--modal-vw) - var(--modal-edge-gap)));
+      --modal-h: min(680px, calc(var(--modal-vh) - var(--modal-edge-gap)));
+      --modal-inner-columns: minmax(290px, 36%) minmax(0, 1fr);
+    }
+    #detailModal[open] .modal-inner--content .modal-info {
+      --modal-body-width: 100%;
+    }
+    #detailModal[open] .modal-inner--content .modal-scroll-area {
+      display: grid;
+      grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+      grid-template-rows: auto minmax(0, 1fr);
+      gap: 0 clamp(20px, 3vw, 34px);
+      justify-content: stretch;
+      align-content: start;
+      align-items: start;
+    }
+    #detailModal[open] .modal-inner--content .modal-name {
+      grid-column: 1;
+      grid-row: 1;
+      width: 100%;
+      min-width: 0;
+      margin: 0 0 18px;
+      overflow-wrap: anywhere;
+    }
+    #detailModal[open] .modal-inner--content .modal-info-slot {
+      grid-column: 1;
+      grid-row: 2;
+      width: 100%;
+      min-width: 0;
+      margin: 0;
+    }
+    #detailModal[open] .modal-inner--content .modal-body-block {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+      margin: 0;
+    }
+  }
+
+  @media (max-width: 79.999rem) and (min-width: 40rem) {
+    .anime-panel .anime-character-grid {
+      --catalog-grid-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 39.999rem) {
+    body.is-overview .app-shell {
+      min-height: calc(100svh - var(--mobile-topbar-height) - var(--mobile-nav-height) - var(--mobile-safe-bottom));
+      padding: 16px var(--page-gutter) 28px;
+      display: block;
+    }
+    .overview-home {
+      min-height: 0;
+      gap: 22px;
+      align-content: start;
+    }
+    .overview-hero {
+      padding: 22px 16px;
+      border-radius: 18px;
+    }
+    .overview-copy {
+      justify-items: stretch;
+      text-align: left;
+    }
+    .overview-hero h1 {
+      font-size: clamp(2rem, 8vw, 2.8rem);
+      text-align: left;
+    }
+    .overview-intro {
+      margin: 8px 0 16px;
+      font-size: var(--font-sm);
+      text-align: left;
+    }
+    .overview-search {
+      --primary-search-height: 54px;
+      margin: 0;
+    }
+    .overview-quick-links {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .overview-quick-links > button {
+      min-height: 84px;
+      padding: 12px;
+      display: grid;
+      grid-template-columns: 30px minmax(0, 1fr);
+      gap: 8px;
+      align-items: center;
+      font-size: var(--font-sm);
+    }
+    .overview-quick-links__icon {
+      width: 30px;
+      height: 30px;
+    }
+    .overview-series {
+      gap: 10px;
+    }
+    .overview-series-links {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .overview-series-link {
+      min-height: 62px;
+      padding: 12px;
+      font-size: var(--font-sm);
+    }
+    .catalog-panel .catalog-card {
+      --catalog-card-min-height: 194px;
+      --catalog-card-padding: 11px;
+    }
+    .catalog-panel .catalog-card-visual {
+      inset: 10px 10px 70px;
+    }
+    .catalog-panel .catalog-card-visual .bey-image {
+      max-width: 94%;
+      max-height: 92%;
+    }
+    .catalog-panel .card-name {
+      gap: 5px;
+    }
+
+    /* Mobile release: product number at left; name, release and price at right. */
+    .release-table tbody {
+      gap: 8px;
+    }
+    .release-table tbody .release-product-row {
+      min-height: 92px;
+      padding: 13px;
+      grid-template-columns: 58px minmax(0, 1fr);
+      gap: 6px 10px;
+      align-items: start;
+      border: var(--border-subtle);
+      border-radius: var(--radius-card);
+      background: var(--ui-surface-raised);
+    }
+    .release-table tbody .release-product-row td:first-child {
+      padding: 4px 0 0;
+      color: var(--ui-accent);
+      font-weight: var(--font-weight-strong);
+      font-variant-numeric: tabular-nums;
+    }
+    .release-table .release-product-cell > .mobile-row-meta {
+      justify-content: flex-start;
+      color: var(--ui-muted);
+      font-size: var(--font-sm);
+    }
+    .release-table .release-product-heading {
+      gap: 5px;
+    }
+    .release-table .release-product-link {
+      line-height: 1.4;
+    }
+    .anime-panel .anime-character-grid {
+      --catalog-grid-columns: minmax(0, 1fr);
+    }
+    .anime-panel .anime-character-card {
+      min-height: 214px;
+      padding: 16px;
+      gap: 12px;
+    }
+    .anime-panel .anime-character-card__header {
+      min-height: 42px;
+    }
+    .anime-episode-table tbody {
+      gap: 8px;
+    }
+    .anime-episode-table tbody .anime-episode-row {
+      min-height: 72px;
+      padding: 13px;
+      grid-template-columns: 42px minmax(0, 1fr);
+      gap: 4px 12px;
+      border: var(--border-subtle);
+      border-radius: var(--radius-card);
+      background: var(--ui-surface-raised);
+    }
+    .anime-episode-table tbody .anime-episode-row td:first-child {
+      color: var(--ui-accent);
+      font-weight: var(--font-weight-strong);
+    }
+    .media-section-tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      width: 100%;
+      margin-bottom: 14px;
+    }
+    .media-section-tabs a {
+      min-width: 0;
+    }
+  }
+}
