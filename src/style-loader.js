@@ -1,4 +1,4 @@
-const styleVersion = "20261013-navigation-rounded-underline";
+const styleVersion = "20261014-navigation-focus";
 const styleOrder = ["page", "collection", "table", "release", "anime", "catalog", "search", "modal"];
 const styleFiles = Object.fromEntries(styleOrder.map(key => [key, `./styles/${key}.css?v=${styleVersion}`]));
 const stylePromises = new Map();

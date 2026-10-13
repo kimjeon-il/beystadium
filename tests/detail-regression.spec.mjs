@@ -1,5 +1,5 @@
 import { expect, test } from "@playwright/test";
-import { X_ASSET_CACHE_VERSION, consoleErrors, expectModalBackAtShellTopLeft, injectRegionalProductPreviewImages } from "./helpers/ui-assertions.mjs";
+import { X_ASSET_CACHE_VERSION, consoleErrors, expectModalBackAtShellTopLeft, injectRegionalProductPreviewImages, waitForModalAnimations } from "./helpers/ui-assertions.mjs";
 
 test("detail route restores modal and internal navigation hash", async ({ page }) => {
   const errors = consoleErrors(page);
@@ -679,6 +679,7 @@ test("mounted parts use text-only compact badges with localized names and keyboa
   await expect(links).toHaveCount(5);
   await expect(links).toHaveText(["페르세우스", "페르세우스", "그라비티", "아머디펜스145", "와이드디펜스"]);
   await expect(links.locator("*")).toHaveCount(0);
+  await waitForModalAnimations(page.locator("#detailModal"));
   const badges = await links.evaluateAll(elements => elements.map(element => {
     const rect = element.getBoundingClientRect();
     const parent = element.parentElement.getBoundingClientRect();
@@ -902,6 +903,7 @@ test("static details use a single-column layout without a photo pane", async ({ 
   const shell = page.locator("#detailModal .modal-inner--content");
   await expect(shell).toBeVisible();
   await expect(shell.locator(".modal-art")).toHaveCount(0);
+  await waitForModalAnimations(page.locator("#detailModal"));
   const layout = await shell.evaluate(element => {
     const rect = element.getBoundingClientRect();
     const style = getComputedStyle(element);

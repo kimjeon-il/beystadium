@@ -1,8 +1,11 @@
 import { expect, test } from "@playwright/test";
+import { waitForAnimations } from "./helpers/ui-assertions.mjs";
 
 test("Sport-Tech preview switches both themes without moving catalog layout", async ({ page }) => {
   await page.goto("/?theme=light#toy-catalog?scope=bey&series=x");
   await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
+  await page.evaluate(() => document.fonts.ready);
+  await waitForAnimations(page.locator(".catalog-panel.active"), { subtree: false });
 
   const lightState = await page.evaluate(() => ({
     background: getComputedStyle(document.body).backgroundColor,
@@ -15,6 +18,7 @@ test("Sport-Tech preview switches both themes without moving catalog layout", as
   await expect(page.locator('html')).toHaveAttribute("data-sport-theme", "dark");
   await expect(page.locator('[data-preview-mode="dark"]')).toHaveAttribute("aria-pressed", "true");
   await expect(page).toHaveURL(/\?theme=dark#toy-catalog/);
+  await waitForAnimations(page.locator("body"), { subtree: false });
 
   const darkState = await page.evaluate(() => ({
     background: getComputedStyle(document.body).backgroundColor,

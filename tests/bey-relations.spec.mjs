@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { consoleErrors, expectModalBackAtShellTopLeft } from "./helpers/ui-assertions.mjs";
+import { consoleErrors, expectModalBackAtShellTopLeft, waitForModalAnimations } from "./helpers/ui-assertions.mjs";
 
 const sword = "BEY-X-BX-01-DRAN-SWORD-3-60F";
 const storm = "BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF";
@@ -45,6 +45,7 @@ test("X Bey badges preserve localized product and part navigation without unveri
     await expect(modal.locator(".mounted-parts .mounted-link")).toHaveCount(3);
   }
 
+  await waitForModalAnimations(modal);
   const boxes = await modal.locator(".bey-relation-badge").evaluateAll(nodes => nodes.map(node => {
     const rect = node.getBoundingClientRect();
     const parent = node.parentElement.getBoundingClientRect();
@@ -81,6 +82,7 @@ test("verified Metal Bey users support keyboard navigation and season-labeled ch
   await expect(user).toHaveText("강타");
   await expect(user).toHaveAttribute("href", `#${kangTa}`);
   await expect(user).toHaveAccessibleName("강타 · 사용 확인된 제품 사용자 상세 보기");
+  await waitForModalAnimations(modal);
   const userBox = await user.evaluate(node => {
     const rect = node.getBoundingClientRect();
     const parent = node.parentElement.getBoundingClientRect();
@@ -253,17 +255,20 @@ test("media Bey labels are Korean in cards, overflow, details and search while E
   const errors = consoleErrors(page);
   for (const query of ["포이즌 비르고", "Poison Virgo"]) {
     await page.goto(`/#anime-character?season=metal-fight-2&q=${encodeURIComponent(query)}`);
+    await expect(page.locator('.anime-character-card[data-anime-character-card="챠우싱"]')).toBeVisible();
     await page.reload();
     const card = page.locator('.anime-character-card[data-anime-character-card="챠우싱"]');
     await expect(card.locator(".anime-character-bey-chip")).toHaveText(["비르고", "포이즌 비르고"]);
     await expect(card.locator("[data-anime-character-bey-list]")).toHaveAttribute("data-anime-character-beys", JSON.stringify(["비르고", "포이즌 비르고"]));
     await page.goto(`/#search?q=${encodeURIComponent(query)}&scope=character`);
+    await expect(page.locator('.search-result-item[data-anime-character-query="챠우싱"]')).toBeVisible();
     await page.reload();
     const result = page.locator('.search-result-item[data-anime-character-query="챠우싱"]');
     await expect(result.locator(".search-result-snippet")).toHaveText("비르고 ED145ES · 포이즌 비르고 ED145ES");
   }
   const characterId = "CHARACTER-METAL-FIGHT-CHAOXIN";
   await page.goto(`/#${characterId}`);
+  await expect(page.locator("#detailModal .bey-relation-badge")).toHaveText(["비르고", "포이즌 비르고"]);
   await page.reload();
   await expect(page).toHaveURL(new RegExp(`#${characterId}$`));
   await expect(page.locator("#detailModal .bey-relation-badge")).toHaveText(["비르고", "포이즌 비르고"]);
@@ -305,6 +310,19 @@ test("Metal character cards show only the selected season's Bey usage", async ({
     await expect(cards).not.toContainText(excluded);
   }
   expect(errors).toEqual([]);
+});
+
+test("season dropdown refreshes Bey usage when the character IDs stay the same", async ({ page }) => {
+  await page.goto(`/#anime-character?season=metal-fight&q=${encodeURIComponent("강타")}`);
+  const card = page.locator('.anime-character-card[data-anime-character-card="강타"]');
+  await expect(card.locator(".anime-character-bey-chip")).toHaveText(["스톰 페가시스"]);
+  for (const [season, name] of [["metal-fight-2", "갤럭시 페가시스"], ["metal-fight", "스톰 페가시스"]]) {
+    await page.locator("[data-anime-character-season-filter] summary").click();
+    await page.locator(`[data-anime-character-season="${season}"]`).click();
+    await expect(page).toHaveURL(new RegExp(`season=${season}&`));
+    await expect(card.locator(".anime-character-bey-chip")).toHaveText([name]);
+    await expect(card.locator("[data-anime-character-bey-list]")).toHaveAttribute("data-anime-character-beys", JSON.stringify([name]));
+  }
 });
 
 test("only exact verified Metal retail variants expose character users", async ({ page }) => {
@@ -353,6 +371,8 @@ test("additional upgraded usage is unscoped and preserves the exact Bey back flo
   await expect(additional.locator(".bey-relation-badge")).toHaveText(["빅뱅 페가시스"]);
   await modal.locator(".modal-back").click();
   await expect(page).toHaveURL(new RegExp(`#${id}$`));
+  await expect(modal.locator(".modal-name")).toContainText("빅뱅 페가시스");
+  await expect(modal.locator(".bey-character-link")).toHaveText("강타");
 });
 
 test("new unscoped characters keep Toby and Faust separate without seasonal tags", async ({ page }) => {
@@ -369,6 +389,8 @@ test("new unscoped characters keep Toby and Faust separate without seasonal tags
   await expect(modal.locator(".modal-name")).toHaveText("토비");
   await modal.locator(".modal-back").click();
   await expect(page).toHaveURL(/#BEY-METAL-FIGHT-BB-116-SCREW-LYRA-ED145MF$/);
+  await expect(modal.locator(".modal-name")).toContainText("스크류 레이라");
+  await expect(modal.locator(".bey-character-link")).toHaveText("토비");
   await page.goto("/#BEY-METAL-FIGHT-BB-104-BASALT-HOROGIUM-145WD");
   await expect(modal.locator(".bey-character-link")).toHaveText("파우스트");
 });

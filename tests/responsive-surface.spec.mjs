@@ -1,5 +1,5 @@
 import { expect, test } from "@playwright/test";
-import { consoleErrors } from "./helpers/ui-assertions.mjs";
+import { consoleErrors, expectNavigationUnderline } from "./helpers/ui-assertions.mjs";
 
 test("desktop release title group preserves the existing inline layout", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "desktop layout only needs one browser project");
@@ -41,7 +41,7 @@ test("desktop release title group preserves the existing inline layout", async (
   expect(errors).toEqual([]);
 });
 
-test("phone navigation uses one common hover and current surface", async ({ page }, testInfo) => {
+test("phone navigation keeps transparent surfaces and visible current underlines", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "pointer hover is verified in one desktop browser");
   await page.setViewportSize({ width: 474, height: 800 });
 
@@ -51,6 +51,7 @@ test("phone navigation uses one common hover and current surface", async ({ page
     const currentTab = page.locator(".mobile-bottom-nav [data-sidebar-home]");
     const hoverTab = page.locator(".mobile-bottom-nav [data-category-catalog-open]");
     await expect(currentTab).toBeVisible();
+    await expectNavigationUnderline(currentTab);
     await hoverTab.hover();
     await expect.poll(() => page.evaluate(() => {
       const current = document.querySelector(".mobile-bottom-nav [data-sidebar-home]");
@@ -74,8 +75,8 @@ test("phone navigation uses one common hover and current surface", async ({ page
       };
     });
 
-    expect(surfaces.currentHeight).toBeCloseTo(44, 3);
-    expect(surfaces.hoverHeight).toBeCloseTo(44, 3);
+    expect(surfaces.currentHeight).toBeCloseTo(52, 3);
+    expect(surfaces.hoverHeight).toBeCloseTo(52, 3);
     expect(surfaces.hoverBackground).toBe(surfaces.currentBackground);
     expect(surfaces.hoverRadius).toBe(surfaces.currentRadius);
     expect(surfaces.markerDisplay).toBe("none");
@@ -381,10 +382,10 @@ test("tablet primary menu keeps desktop active and focus states", async ({ page 
 
     const activeButton = page.locator(".topbar .topbar-primary-button[data-category-catalog-open]");
     await expect(activeButton).toHaveClass(/active/);
-    await page.waitForTimeout(250);
+    await expectNavigationUnderline(activeButton);
     const activeColors = await activeButton.evaluate(element => {
       const probe = document.createElement("i");
-      probe.style.cssText = "position:fixed;background:var(--ui-control-hover);color:var(--ui-control-text-active)";
+      probe.style.cssText = "position:fixed;background:transparent;color:var(--ui-accent)";
       document.body.append(probe);
       const actual = getComputedStyle(element);
       const expected = getComputedStyle(probe);

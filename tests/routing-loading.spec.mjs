@@ -1,6 +1,22 @@
 import { expect, test } from "@playwright/test";
 import { animeLayoutSnapshot, consoleErrors } from "./helpers/ui-assertions.mjs";
 
+test("detail hashes entered after home resolve unloaded items and preserve unknown-ID fallback", async ({ page }) => {
+  const errors = consoleErrors(page);
+  await page.goto("/");
+  await expect(page.locator("html")).not.toHaveClass(/route-booting/);
+  await page.evaluate(() => { window.location.hash = "BEY-METAL-FIGHT-BB-56-KILLER-GEMIOS-DF145FS"; });
+  const modal = page.locator("#detailModal");
+  await expect(modal).toBeVisible();
+  await expect(modal.locator(".bey-character-link")).toHaveText(["단", "레이크"]);
+  await modal.locator("#modalClose").click();
+  await expect(modal).not.toBeVisible();
+  await page.evaluate(() => { window.location.hash = "BEY-NOT-A-REGISTERED-ITEM"; });
+  await expect(page).toHaveURL(/\/$/);
+  await expect(modal).not.toBeVisible();
+  expect(errors).toEqual([]);
+});
+
 test("primary routes render without runtime errors", async ({ page }) => {
   const errors = consoleErrors(page);
   for (const hash of ["", "#toy-catalog?scope=bey&series=x", "#toy-release", "#anime-character", "#anime-episode"]) {
@@ -9,6 +25,45 @@ test("primary routes render without runtime errors", async ({ page }) => {
     await expect(page.locator(".app-panel.active")).toBeVisible();
   }
   expect(errors).toEqual([]);
+});
+
+test("a failed late detail registry load keeps its address for retry", async ({ page }) => {
+  const registryPattern = "**/data/runtime/registry.json*";
+  await page.route(registryPattern, route => route.abort("failed"));
+  await page.goto("/");
+  await expect(page.locator("html")).not.toHaveClass(/route-booting/);
+  const id = "BEY-METAL-FIGHT-BB-56-KILLER-GEMIOS-DF145FS";
+  await page.evaluate(value => { window.location.hash = value; }, id);
+  await expect(page.locator("#dataLoadStatus.is-error")).toBeVisible();
+  // Let error rendering and the hash handler finish before exercising reload.
+  await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+  await expect(page).toHaveURL(new RegExp(`#${id}$`));
+  await page.unroute(registryPattern);
+  await page.locator("[data-load-retry]").click();
+  await expect(page.locator("#detailModal")).toBeVisible();
+  await expect(page.locator("#detailModal .bey-character-link")).toHaveText(["단", "레이크"]);
+});
+
+test("a pending detail registry load cannot replace a newer primary hash", async ({ page }) => {
+  let releaseRegistry;
+  const registryGate = new Promise(resolve => { releaseRegistry = resolve; });
+  await page.route("**/data/runtime/registry.json*", async route => {
+    await registryGate;
+    await route.continue();
+  });
+  await page.goto("/");
+  await expect(page.locator("html")).not.toHaveClass(/route-booting/);
+  const requestedRegistry = page.waitForRequest("**/data/runtime/registry.json*");
+  await page.evaluate(() => { window.location.hash = "BEY-METAL-FIGHT-BB-56-KILLER-GEMIOS-DF145FS"; });
+  await requestedRegistry;
+  await page.evaluate(() => { window.location.hash = "anime-character?season=metal-fight"; });
+  await expect(page.locator(".anime-character-card")).toHaveCount(21);
+  const registryResponse = page.waitForResponse("**/data/runtime/registry.json*");
+  releaseRegistry();
+  await registryResponse;
+  await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+  await expect(page).toHaveURL(/#anime-character\?season=metal-fight$/);
+  await expect(page.locator("#detailModal")).not.toBeVisible();
 });
 
 test("runtime data is loaded by route instead of during home boot", async ({ page }, testInfo) => {

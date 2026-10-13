@@ -12,7 +12,7 @@ const consoleErrors = page => {
 };
 
 const injectRegionalProductPreviewImages = async page => {
-  await page.route("**/assets/images/beys/storm-pegasis*.png", route => route.fulfill({
+  await page.route(/\/assets\/images\/beys\/storm-pegasis[^/?]*\.png(?:\?.*)?$/, route => route.fulfill({
     status: 200,
     contentType: "image/svg+xml",
     body: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><rect width="32" height="32" fill="#94a3b8"/></svg>'
@@ -29,24 +29,59 @@ const injectRegionalProductPreviewImages = async page => {
   });
 };
 
-const expectFocusIndicator = async locator => {
+const waitForAnimations = async (locator, { subtree = true } = {}) => {
+  await expect(locator).toBeVisible();
+  await locator.evaluate(async (element, includeDescendants) => {
+    const runningAnimations = () => element.getAnimations({ subtree: includeDescendants }).filter(animation =>
+      animation.playState === "running" && Number.isFinite(animation.effect?.getComputedTiming().endTime)
+    );
+    let animations = runningAnimations();
+    while (animations.length) {
+      await Promise.all(animations.map(animation => animation.finished.catch(() => {})));
+      await new Promise(resolve => requestAnimationFrame(resolve));
+      animations = runningAnimations();
+    }
+  }, subtree);
+};
+const waitForModalAnimations = waitForAnimations;
+
+const expectNavigationUnderline = async button => {
+  await expect(button).toHaveAttribute("aria-current", "page");
+  await expect(button).toHaveCSS("background-color", "rgba(0, 0, 0, 0)");
+  await expect.poll(() => button.evaluate(element => {
+    const marker = getComputedStyle(element, "::after");
+    const probe = document.createElement("i");
+    probe.style.color = "var(--ui-accent)";
+    document.body.append(probe);
+    const accent = getComputedStyle(probe).color;
+    probe.remove();
+    return marker.opacity === "1" && Number.parseFloat(marker.width) > 0
+      && Number.parseFloat(marker.height) === 3 && Number.parseFloat(marker.borderRadius) > 0
+      && marker.backgroundColor === accent && getComputedStyle(element).color === accent;
+  })).toBe(true);
+};
+
+const expectFocusIndicator = async (locator, surface = locator) => {
   const readIndicator = element => {
     const style = getComputedStyle(element);
     return {
       boxShadow: style.boxShadow,
+      borderColor: style.borderColor,
       outlineStyle: style.outlineStyle,
       outlineWidth: style.outlineWidth,
       focusVisible: element.matches(":focus-visible")
     };
   };
-  const before = await locator.evaluate(readIndicator);
+  const before = await surface.evaluate(readIndicator);
   await locator.press("Tab");
   await locator.focus();
   await expect(locator).toBeFocused();
-  const after = await locator.evaluate(readIndicator);
-  const visibleOutline = after.outlineStyle !== "none" && Number.parseFloat(after.outlineWidth) > 0;
-  expect(after.focusVisible).toBe(true);
-  expect(after.boxShadow !== before.boxShadow || visibleOutline).toBe(true);
+  await expect.poll(() => locator.evaluate(element => element.matches(":focus-visible"))).toBe(true);
+  await expect.poll(async () => {
+    const after = await surface.evaluate(readIndicator);
+    const visibleOutline = after.outlineStyle !== "none" && Number.parseFloat(after.outlineWidth) > 0;
+    return after.boxShadow !== before.boxShadow || after.borderColor !== before.borderColor || visibleOutline;
+  }).toBe(true);
 };
 
 const expectActionRowFocusIndicator = async row => {
@@ -66,6 +101,7 @@ const expectActionRowFocusIndicator = async row => {
 
 const expectModalBackAtShellTopLeft = async backButton => {
   await expect(backButton).toBeVisible();
+  await waitForModalAnimations(backButton.locator("xpath=ancestor::dialog"));
   const geometry = await backButton.evaluate(button => {
     const shell = button.closest(".modal-inner");
     const rect = button.getBoundingClientRect();
@@ -162,7 +198,10 @@ export {
   expectActionRowFocusIndicator,
   expectFocusIndicator,
   expectModalBackAtShellTopLeft,
+  expectNavigationUnderline,
   expectTableListTitleSnapshot,
   injectRegionalProductPreviewImages,
-  tableListTitleSnapshot
+  tableListTitleSnapshot,
+  waitForAnimations,
+  waitForModalAnimations
 };

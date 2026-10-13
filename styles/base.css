@@ -799,8 +799,7 @@ body[data-active-panel="all"] .topbar-search {
   appearance:none;position:relative;z-index:1;flex:0 0 auto;width:max-content;min-width:0;min-height:var(--topbar-side-size);justify-self:center;padding:0 14px;border:0;border-radius:var(--radius-control-sm);background:transparent;color:var(--ui-muted);box-shadow:var(--shadow-rest);font-family:inherit;font-size:var(--font-md);font-weight:var(--font-weight-strong);line-height:1;text-align:center;white-space:nowrap;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:var(--transition-control);
 }
 .topbar-primary-button::after{content:"";position:absolute;inset-inline:18px;bottom:4px;height:3px;border-radius:var(--radius-pill);background:currentColor;opacity:0;pointer-events:none;transition:opacity var(--motion-fast) var(--ease-standard)}
-.topbar-primary-button:not(:disabled):focus-visible{background:transparent;color:var(--ui-control-text-active);transform:none}
-.topbar-primary-button:focus-visible{outline:0;box-shadow:var(--ui-focus-ring)}
+.topbar-primary-button:not(:disabled):focus-visible{background:transparent;color:var(--ui-control-text-active);transform:none;outline:0;box-shadow:var(--ui-focus-ring)}
 .topbar-primary-button:not(:disabled):active{transform:none}
 .topbar-primary-button.active,.topbar-primary-button[aria-current="page"]{background:transparent;color:var(--ui-control-text-active);box-shadow:var(--shadow-rest)}
 .topbar-primary-button:not(:disabled).active::after,.topbar-primary-button:not(:disabled)[aria-current="page"]::after,.topbar-primary-button:not(:disabled):focus-visible::after{opacity:1}

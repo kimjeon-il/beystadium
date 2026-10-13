@@ -336,6 +336,7 @@ const BeystadiumDataStore = (() => {
     defaultReleaseSeries,
     ensureAllSeries,
     ensureItem,
+    ensureRegistry,
     ensureRoute,
     ensureSearch,
     ensureSeries,

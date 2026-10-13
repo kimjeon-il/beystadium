@@ -1,5 +1,5 @@
 import { expect, test } from "@playwright/test";
-import { consoleErrors } from "./helpers/ui-assertions.mjs";
+import { consoleErrors, expectNavigationUnderline, waitForModalAnimations } from "./helpers/ui-assertions.mjs";
 
 test.describe("mobile-first navigation and content", () => {
   test.beforeEach(({ page: _page }, testInfo) => {
@@ -62,13 +62,13 @@ test.describe("mobile-first navigation and content", () => {
 
     const activeTab = page.locator(".mobile-bottom-nav [data-category-catalog-open]");
     await expect(activeTab).toHaveAttribute("aria-current", "page");
-    await page.waitForTimeout(250);
+    await expectNavigationUnderline(activeTab);
     const tabSurface = await activeTab.evaluate(element => {
       const style = getComputedStyle(element);
       const marker = getComputedStyle(element, "::before");
       const inactiveStyle = getComputedStyle(document.querySelector(".mobile-bottom-nav [data-sidebar-home]"));
       const probe = document.createElement("i");
-      probe.style.cssText = "position:fixed;background:var(--ui-control-hover);border-radius:var(--radius-control)";
+      probe.style.cssText = "position:fixed;background:transparent;border-radius:var(--radius-control-sm)";
       document.body.append(probe);
       const probeStyle = getComputedStyle(probe);
       const expectedBackground = probeStyle.backgroundColor;
@@ -84,7 +84,7 @@ test.describe("mobile-first navigation and content", () => {
         inactiveBackground: inactiveStyle.backgroundColor
       };
     });
-    expect(tabSurface.height).toBeCloseTo(44, 3);
+    expect(tabSurface.height).toBeCloseTo(52, 3);
     expect(tabSurface.background).toBe(tabSurface.expectedBackground);
     expect(tabSurface.radius).toBe(tabSurface.expectedRadius);
     expect(tabSurface.markerDisplay).toBe("none");
@@ -200,7 +200,7 @@ test.describe("mobile-first navigation and content", () => {
       const help = document.querySelector("#catalogSearchHelpButton");
       const activeTab = document.querySelector('.mobile-bottom-nav > button[aria-current="page"]');
       const probe = document.createElement("i");
-      probe.style.cssText = "position:fixed;background:var(--ui-control-hover);color:var(--ui-text)";
+      probe.style.cssText = "position:fixed;background:transparent;color:var(--ui-text)";
       const controlProbe = document.createElement("i");
       controlProbe.style.cssText = "position:fixed;background:var(--ui-control)";
       document.body.append(probe);
@@ -292,8 +292,12 @@ test.describe("mobile-first navigation and content", () => {
       probe.style.cssText = "position:fixed;background:var(--ui-control-hover);border-radius:var(--radius-control-sm)";
       document.body.append(probe);
       const probeStyle = getComputedStyle(probe);
+      const selectedProbe = document.createElement("i");
+      selectedProbe.style.background = "color-mix(in srgb,var(--ui-accent) 12%,var(--ui-surface-raised))";
+      document.body.append(selectedProbe);
       const result = {
         background: style.backgroundColor,
+        expectedBackground: getComputedStyle(selectedProbe).backgroundColor,
         height: element.getBoundingClientRect().height,
         borderWidth: style.borderTopWidth,
         radius: style.borderRadius,
@@ -302,10 +306,11 @@ test.describe("mobile-first navigation and content", () => {
         expectedSurfaceBackground: probeStyle.backgroundColor,
         surfaceOpacity: surface.opacity
       };
+      selectedProbe.remove();
       probe.remove();
       return result;
     });
-    expect(selectedFilterStyle.background).toBe("rgba(0, 0, 0, 0)");
+    expect(selectedFilterStyle.background).toBe(selectedFilterStyle.expectedBackground);
     expect(selectedFilterStyle.height).toBeCloseTo(38, 3);
     expect(selectedFilterStyle.borderWidth).toBe("0px");
     expect(selectedFilterStyle.radius).toBe(selectedFilterStyle.expectedRadius);
@@ -537,6 +542,7 @@ test.describe("mobile-first navigation and content", () => {
 
     const contextualBack = dialog.locator(".modal-back[data-back-release]");
     await expect(contextualBack).toBeVisible();
+    await waitForModalAnimations(dialog);
     const backGeometry = await contextualBack.evaluate(element => {
       const rect = element.getBoundingClientRect();
       return {
@@ -607,6 +613,7 @@ test.describe("mobile-first navigation and content", () => {
       await expect(dialog).toBeVisible();
       await expect(dialog.locator("#modalMobileBack")).toHaveCount(0);
       await expect(dialog.locator(".modal-back")).toHaveCount(0);
+      await waitForModalAnimations(dialog);
       const appearance = await dialog.locator(".modal-inner").evaluate(element => {
         const rect = element.getBoundingClientRect();
         const style = getComputedStyle(element);
@@ -824,7 +831,7 @@ test.describe("mobile-first navigation and content", () => {
       const shell = document.querySelector("#detailModal .modal-inner").getBoundingClientRect();
       const activeTab = document.querySelector('.mobile-bottom-nav > button[aria-current="page"]');
       const probe = document.createElement("i");
-      probe.style.cssText = "position:fixed;background:var(--ui-control-hover)";
+      probe.style.cssText = "position:fixed;background:transparent";
       document.body.append(probe);
       const expectedActiveBackground = getComputedStyle(probe).backgroundColor;
       probe.remove();
@@ -847,6 +854,6 @@ test.describe("mobile-first navigation and content", () => {
     expect(layout.shellRight).toBeLessThanOrEqual(12);
     expect(layout.shellRadius).toBe(0);
     expect(layout.activeBackground).toBe(layout.expectedActiveBackground);
-    expect(layout.activeTargetMinHeight).toBe(44);
+    expect(layout.activeTargetMinHeight).toBe(52);
   });
 });

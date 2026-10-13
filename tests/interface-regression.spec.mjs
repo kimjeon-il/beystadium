@@ -1,5 +1,5 @@
 import { expect, test } from "@playwright/test";
-import { consoleErrors, expectActionRowFocusIndicator, expectFocusIndicator, expectTableListTitleSnapshot, tableListTitleSnapshot } from "./helpers/ui-assertions.mjs";
+import { consoleErrors, expectActionRowFocusIndicator, expectFocusIndicator, expectNavigationUnderline, expectTableListTitleSnapshot, tableListTitleSnapshot } from "./helpers/ui-assertions.mjs";
 
 test("anime character profile cards keep optional roles and overflow beys readable", async ({ page }, testInfo) => {
   await page.goto("/#anime-character?season=beyblade-x");
@@ -85,6 +85,10 @@ test("anime character profile cards keep optional roles and overflow beys readab
   await expect(page.locator("#animeCharacterBeyPopover")).toBeVisible();
   await page.locator('[data-anime-character-season="all"]').evaluate(element => element.click());
   await expect(page.locator("#animeCharacterBeyPopover")).toHaveCount(0);
+  await expect(rolelessCard).toHaveCount(0);
+  await page.locator('#animePagination .anime-page-step[data-anime-page="2"]').click();
+  await expect(rolelessCard).toBeVisible();
+  await expect(rolelessCard.locator(".anime-character-role")).toHaveCount(0);
 
   for (const colorScheme of ["light", "dark"]) {
     await page.emulateMedia({ colorScheme, reducedMotion: "reduce" });
@@ -526,7 +530,7 @@ test("long query chip truncates inside the mobile viewport", async ({ page }, te
   expect(layout.valueScrollWidth).toBeGreaterThan(layout.valueWidth);
 });
 
-test("persistent selections use the existing neutral highlight in light and dark themes", async ({ page }, testInfo) => {
+test("persistent selections use theme accents and underlines in light and dark themes", async ({ page }, testInfo) => {
   for (const colorScheme of ["light", "dark"]) {
     await page.emulateMedia({ colorScheme, reducedMotion: "reduce" });
     await page.goto(`/#toy-catalog?scope=all&series=all&sort=latest&page=1&q=${encodeURIComponent("공격형")}`);
@@ -537,6 +541,9 @@ test("persistent selections use the existing neutral highlight in light and dark
         : ".catalog-pagination-nav .ui-button.active"
     )).toBeVisible();
     await expect(page.locator('[data-catalog-filter-chips="catalog"] .active-query-chip')).toBeVisible();
+    await expectNavigationUnderline(page.locator(testInfo.project.name === "mobile"
+      ? ".mobile-bottom-nav [data-category-catalog-open]"
+      : ".topbar .topbar-primary-button[data-category-catalog-open]"));
     if (testInfo.project.name === "desktop") await page.mouse.move(1, 1);
     const colors = await page.evaluate(() => ({
       ...(() => {
@@ -551,9 +558,21 @@ test("persistent selections use the existing neutral highlight in light and dark
         const neutralBackground = getComputedStyle(hoverProbe).backgroundColor;
         const neutralBorder = getComputedStyle(probe).borderColor;
         const neutralText = getComputedStyle(hoverProbe).color;
+        const activeProbe = document.createElement("i");
+        activeProbe.style.cssText = "background:color-mix(in srgb,var(--ui-accent) 12%,var(--ui-surface-raised));color:var(--ui-accent)";
+        document.body.append(activeProbe);
+        const activeBackground = getComputedStyle(activeProbe).backgroundColor;
+        const accentText = getComputedStyle(activeProbe).color;
+        const chipProbe = document.createElement("i");
+        chipProbe.style.cssText = "background:color-mix(in srgb,var(--ui-accent) 9%,var(--ui-surface-raised));border:1px solid color-mix(in srgb,var(--ui-accent) 38%,var(--ui-line))";
+        document.body.append(chipProbe);
+        const expectedChipBackground = getComputedStyle(chipProbe).backgroundColor;
+        const expectedChipBorder = getComputedStyle(chipProbe).borderColor;
+        activeProbe.remove();
+        chipProbe.remove();
         probe.remove();
         hoverProbe.remove();
-        return { controlBackground, controlText, neutralBackground, neutralBorder, neutralText };
+        return { controlBackground, controlText, neutralBackground, neutralBorder, neutralText, activeBackground, accentText, expectedChipBackground, expectedChipBorder };
       })(),
       menuBackground: getComputedStyle(document.querySelector(".topbar-primary-button.active")).backgroundColor,
       menuText: getComputedStyle(document.querySelector(".topbar-primary-button.active")).color,
@@ -584,26 +603,26 @@ test("persistent selections use the existing neutral highlight in light and dark
         };
       })()
     }));
-    expect(colors.menuBackground).toBe(colors.neutralBackground);
-    expect(colors.menuText).toBe(colors.neutralText);
+    expect(colors.menuBackground).toBe("rgba(0, 0, 0, 0)");
+    expect(colors.menuText).toBe(colors.accentText);
     expect(colors.dropdownBackground).toBe(colors.neutralBackground);
-    expect(colors.dropdownText).toBe(colors.neutralText);
-    expect(colors.pageBackground).toBe(colors.neutralBackground);
-    expect(colors.pageText).toBe(colors.neutralText);
-    expect(colors.chipBackground).toBe(colors.controlBackground);
-    expect(colors.chipBorder).toBe(colors.neutralBorder);
+    expect(colors.dropdownText).toBe(colors.accentText);
+    expect(colors.pageBackground).toBe(colors.activeBackground);
+    expect(colors.pageText).toBe(colors.accentText);
+    expect(colors.chipBackground).toBe(colors.expectedChipBackground);
+    expect(colors.chipBorder).toBe(colors.expectedChipBorder);
     expect(colors.chipText).toBe(colors.controlText);
     expect(colors.sidebarBackground).toBe(colors.neutralBackground);
-    expect(colors.sidebarText).toBe(colors.neutralText);
-    expect(colors.sidebarAccentToken).toContain("light-dark(#334155, #d7dee8) 84%");
-    expect(colors.sidebarAccentToken).toContain("light-dark(#101827, #f3f6fa) 16%");
+    expect(colors.sidebarText).toBe(colors.accentText);
+    expect(colors.sidebarAccentToken).toContain("light-dark(#175cd3, #5aa8ff) 84%");
+    expect(colors.sidebarAccentToken).toContain("light-dark(#111827, #f8fafc) 16%");
     expect(colors.sidebarChannels.marker).toEqual(colors.sidebarChannels.icon);
 
     if (testInfo.project.name === "desktop") {
       const chip = page.locator('[data-catalog-filter-chips="catalog"] .active-query-chip');
       await chip.hover();
-      await expect(chip).toHaveCSS("background-color", colors.neutralBackground);
-      await expect(chip).toHaveCSS("color", colors.neutralText);
+      await expect(chip).toHaveCSS("background-color", colors.chipBackground);
+      await expect(chip).toHaveCSS("color", colors.controlText);
     }
 
     await page.goto("/#toy-release");
@@ -612,8 +631,8 @@ test("persistent selections use the existing neutral highlight in light and dark
       background: getComputedStyle(element).backgroundColor,
       text: getComputedStyle(element).color
     }));
-    expect(releaseTabColors.background).toBe(colors.neutralBackground);
-    expect(releaseTabColors.text).toBe(colors.neutralText);
+    expect(releaseTabColors.background).toBe(colors.activeBackground);
+    expect(releaseTabColors.text).toBe(colors.accentText);
   }
 });
 
@@ -862,7 +881,8 @@ test("keyboard focus indicators stay visible across interface surfaces", async (
     await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
 
     await expectFocusIndicator(page.locator(mobile ? ".mobile-bottom-nav [data-category-catalog-open]" : ".topbar > .brand"));
-    await expectFocusIndicator(page.locator("#catalogGrid .catalog-card-action").first());
+    const card = page.locator("#catalogGrid .catalog-card").first();
+    await expectFocusIndicator(card.locator(".catalog-card-action"), card);
     await expectFocusIndicator(page.locator("#toTop"));
 
     if (mobile) {

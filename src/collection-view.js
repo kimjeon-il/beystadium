@@ -21,10 +21,11 @@ const bindCatalogCardClicks = gridRoot => {
 };
 const categoryCollectionRenderKeys = new Map();
 const categoryCollectionItemKey = (item, index) => item?.id || item?.name || item?.title || String(index);
-const renderCategoryCollectionGrid = ({ cacheKey, grid, items, cardTemplate, emptyMarkup, itemKey = categoryCollectionItemKey }) => {
-  const nextKey = items.length
+const renderCategoryCollectionGrid = ({ cacheKey, renderKey, grid, items, cardTemplate, emptyMarkup, itemKey = categoryCollectionItemKey }) => {
+  const itemKeys = items.length
     ? items.map((item, index) => itemKey(item, index)).join("|")
     : `__empty__:${emptyMarkup}`;
+  const nextKey = `${renderKey}\n${itemKeys}`;
   if (categoryCollectionRenderKeys.get(cacheKey) !== nextKey) {
     grid.innerHTML = items.length ? items.map(cardTemplate).join("") : emptyMarkup;
     categoryCollectionRenderKeys.set(cacheKey, nextKey);
@@ -34,7 +35,8 @@ const renderCategoryCollectionGrid = ({ cacheKey, grid, items, cardTemplate, emp
 const renderCategoryCollection = config => {
   const grid = document.querySelector(config.gridSelector);
   if (!grid) return [];
-  config.syncRenderPage(config.renderKey());
+  const renderKey = config.renderKey();
+  config.syncRenderPage(renderKey);
   const visible = config.getVisibleItems();
   const totalPages = Math.max(1, Math.ceil(visible.length / config.pageSize));
   const currentPage = Math.min(Math.max(1, config.getCurrentPage()), totalPages);
@@ -45,6 +47,7 @@ const renderCategoryCollection = config => {
   if (count) count.textContent = visible.length;
   renderCategoryCollectionGrid({
     cacheKey: config.key,
+    renderKey,
     grid,
     items: pageItems,
     cardTemplate: config.cardTemplate,

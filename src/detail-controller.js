@@ -119,15 +119,15 @@ function detailHeading(item, options = {}) {
   return modalTitle(partDetailDisplayName(item, options.region));
 }
 const validReleaseRegion = region => releaseRegionLabels[region] ? region : "";
-function catalogDetailRegion(_item, options = {}) {
+function catalogDetailRegion(options = {}) {
   return validReleaseRegion(options.region) || "kr";
 }
 function openDetail(id, options = {}) {
-  const item = catalogCoreItemsById.get(id);
-  if (!item) return;
-  const detailRegion = catalogDetailRegion(item, options);
+  const detailRegion = catalogDetailRegion(options);
   const detailOptions = { ...options, region: detailRegion };
   if (routeIfNeeded({ type: "detail", id, options: detailOptions })) return;
+  const item = catalogCoreItemsById.get(id);
+  if (!item) return;
   closeModalTagPopover();
   const description = itemDisplayDesc(item, detailRegion);
   const slot = item.type === "bey"

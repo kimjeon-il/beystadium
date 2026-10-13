@@ -71,9 +71,11 @@ function detailRouteExists(id = "") {
     || gameItemsById.has(id)
   );
 }
-function routeWithKnownDetailFallback(route = {}) {
+async function routeWithKnownDetailFallback(route = {}) {
   const normalized = normalizeRoute(route || { type: "overview" });
   if (!isDetailRoute(normalized) || !normalized.id) return normalized;
+  // A listing or home boot intentionally omits the detail registry and series.
+  if (!detailRouteExists(normalized.id) && !await BeystadiumDataStore.ensureRegistry()) return null;
   if (detailRouteExists(normalized.id)) return normalized;
   return detailFallbackOriginRoute(normalized.id) || { type: "overview" };
 }
@@ -305,7 +307,13 @@ registerAppServices({
 });
 
 const applyCurrentHashRoute = async () => {
-  const route = routeWithKnownDetailFallback(parseRouteFromHash(window.location.hash));
+  const requestedHash = window.location.hash;
+  const route = await routeWithKnownDetailFallback(parseRouteFromHash(requestedHash));
+  if (window.location.hash !== requestedHash) return;
+  if (!route) {
+    document.documentElement.classList.remove("route-booting");
+    return;
+  }
   const canonicalHash = serializeRoute(route);
   const canonicalRouteKey = `${currentPathWithSearch()}${canonicalHash}`;
   try {
