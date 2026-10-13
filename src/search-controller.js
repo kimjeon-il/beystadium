@@ -33,6 +33,18 @@ let searchRenderTimer = 0;
 let searchRenderFrame = 0;
 let focusResultsSearchOnOpen = false;
 
+// Presentation-only shortcuts: all search scopes still use the existing dropdown,
+// shared search state, index and hash route.
+const searchCategoryNav = document.querySelector(".search-category-nav");
+const syncSearchCategoryTabs = () => {
+  const activeScope = globalSearchScopeValue();
+  searchCategoryNav?.querySelectorAll("[data-search-results-scope-tab]").forEach(button => {
+    const active = button.dataset.searchResultsScopeTab === activeScope;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+};
+
 const updateGlobalSearchHash = () => {
   if (searchHashUpdateTimer) clearTimeout(searchHashUpdateTimer);
   searchHashUpdateTimer = 0;
@@ -44,6 +56,7 @@ const scheduleGlobalSearchHashUpdate = () => {
   searchHashUpdateTimer = setTimeout(updateGlobalSearchHash, SEARCH_HASH_UPDATE_DELAY);
 };
 const refreshGlobalSearchResults = ({ deferHash = true } = {}) => {
+  syncSearchCategoryTabs();
   renderGlobalCards();
   if (deferHash) scheduleGlobalSearchHashUpdate();
   else updateGlobalSearchHash();
@@ -80,6 +93,7 @@ const openSearchResults = ({ replace = false, updateHash = true, focusSearch = f
   focusResultsSearchOnOpen = false;
   closeAllSearchPreviews();
   activatePrimarySection("all", { preserveSearch: true });
+  syncSearchCategoryTabs();
   renderGlobalCards();
   setMobileDrawerOpen(false);
   if (shouldFocusSearch) requestAnimationFrame(() => searchResultsSearch?.focus({ preventScroll: true }));
@@ -116,6 +130,15 @@ const initializeSearchFeature = () => {
   if (initialized) return;
   initialized = true;
   ensureSearchResultsScopeOptions();
+  searchCategoryNav?.addEventListener("click", event => {
+    const button = event.target.closest("[data-search-results-scope-tab]");
+    if (!button || !searchCategoryNav.contains(button)) return;
+    event.preventDefault();
+    setGlobalSearchScopePeers(button.dataset.searchResultsScopeTab);
+    syncSearchCategoryTabs();
+    openSearchResults({ replace: true });
+  });
+  syncSearchCategoryTabs();
   bindGlobalSearchInput(globalSearch, ".search-box");
   bindGlobalSearchInput(overviewSearch, ".overview-search");
   bindGlobalSearchInput(mobileDrawerSearch, ".mobile-drawer-search");
