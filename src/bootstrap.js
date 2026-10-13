@@ -1,3 +1,4 @@
+import "./sport-tech-preview.js";
 import { BeystadiumDataStore } from "#app/data-store";
 
 const lazyInteractionSelector = [
@@ -33,7 +34,7 @@ const loadApp = () => {
   return appPromise;
 };
 
-const appInteractionTarget = target => target?.closest?.(lazyInteractionSelector) || null;
+const appInteractionTarget = target => target?.closest?.(".sport-theme-switch") ? null : (target?.closest?.(lazyInteractionSelector) || null);
 const categoryInteractionTarget = target => target?.closest?.(categoryInteractionSelector) || null;
 
 const primeApp = event => {

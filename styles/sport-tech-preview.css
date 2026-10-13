@@ -1,0 +1,266 @@
+/*
+ * Sport-Tech Archive — two-theme visual prototype.
+ * Deliberately changes colors, elevation and visual feedback only.
+ * All sizing, grid, positioning and route logic remain in the existing styles.
+ */
+@layer base, page, collection, table, release, anime, catalog, search, modal, mobile, sport-tech-preview;
+
+@layer sport-tech-preview {
+  :root {
+    --ui-bg: light-dark(#f5f7fb, #080f1f);
+    --ui-surface: light-dark(#f9fbfe, #111a2b);
+    --ui-surface-raised: light-dark(#ffffff, #172338);
+    --ui-section-bg: light-dark(#eaf0f8, #16243a);
+    --ui-control: light-dark(#eaf0fa, #1b2a42);
+    --ui-control-hover: light-dark(#e2ebfa, #253959);
+    --ui-control-text-active: light-dark(#111827, #f8fafc);
+    --ui-line: light-dark(#d6e0ed, #314159);
+    --ui-stroke-subtle: light-dark(#dce5f0, #2c3d55);
+    --ui-text: light-dark(#111827, #f8fafc);
+    --ui-muted: light-dark(#59677a, #a7b5cb);
+    --ui-control-text-muted: light-dark(#59677a, #a7b5cb);
+    --ui-accent: light-dark(#175cd3, #5aa8ff);
+    --ui-brand-bg: light-dark(#152e53, #1850a0);
+    --ui-brand-text: #ffffff;
+    --ui-topbar-bg: light-dark(#ffffff, #101b2d);
+    --ui-surface-glass: light-dark(rgb(255 255 255 / 93%), rgb(17 26 43 / 92%));
+    --ui-scrim: rgb(4 10 23 / 66%);
+    --ui-elevation-1: 0 2px 8px light-dark(rgb(13 36 73 / 8%), rgb(0 0 0 / 22%)), 0 12px 26px light-dark(rgb(13 36 73 / 6%), rgb(0 0 0 / 16%));
+    --ui-elevation-2: 0 6px 18px light-dark(rgb(13 36 73 / 11%), rgb(0 0 0 / 30%)), 0 20px 44px light-dark(rgb(13 36 73 / 8%), rgb(0 0 0 / 23%));
+    --shadow-card-rest: 0 2px 10px light-dark(rgb(23 43 77 / 5%), rgb(0 0 0 / 15%));
+    --shadow-hover: var(--ui-elevation-1);
+    --shadow-floating: var(--ui-elevation-2);
+    --ui-focus-color: color-mix(in srgb, var(--ui-accent) 29%, transparent);
+    --primary-search-scope-bg: var(--ui-control);
+    --primary-search-scope-bg-hover: var(--ui-control-hover);
+  }
+
+  html[data-sport-theme="light"] { color-scheme: light; }
+  html[data-sport-theme="dark"] { color-scheme: dark; }
+  html { accent-color: var(--ui-accent); }
+
+  /* Preserve page layout. Introduce restrained energy in the overview background. */
+  body.is-overview {
+    background-image: radial-gradient(
+      ellipse at 50% 42%,
+      color-mix(in srgb, var(--ui-accent) 7%, transparent),
+      transparent 64%
+    );
+  }
+
+  .topbar {
+    background: var(--ui-topbar-bg);
+    border-color: var(--ui-stroke-subtle);
+    box-shadow: 0 1px 0 var(--ui-stroke-subtle);
+  }
+
+  .brand .brand-mark {
+    background: linear-gradient(145deg, #183963 0%, #175cd3 72%, #159bbf 100%);
+    color: #fff;
+    box-shadow: 0 2px 9px rgb(16 71 152 / 18%);
+  }
+
+  .topbar-primary-button.active,
+  .topbar-primary-button[aria-current="page"],
+  .sidebar-button.active,
+  .sidebar-button[aria-current="page"],
+  .mobile-bottom-nav .topbar-primary-button.active,
+  .mobile-bottom-nav .topbar-primary-button[aria-current="page"] {
+    color: var(--ui-accent);
+  }
+
+  .topbar-primary-button::after {
+    background: var(--ui-accent);
+  }
+
+  .overview-hero h1 {
+    letter-spacing: -.048em;
+    background: linear-gradient(100deg, var(--ui-text), color-mix(in srgb, var(--ui-text) 75%, var(--ui-accent)));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .overview-intro {
+    color: var(--ui-muted);
+  }
+
+  .search-box,
+  .overview-search {
+    border-color: var(--ui-line);
+    background: var(--ui-surface-raised);
+    box-shadow: var(--shadow-card-rest);
+  }
+
+  .search-box:focus-within,
+  .overview-search:focus-within {
+    border-color: var(--ui-accent);
+    box-shadow: var(--ui-focus-ring), var(--shadow-hover);
+  }
+
+  .catalog-dropdown-menu,
+  .search-preview,
+  .catalog-search-help-popover,
+  .mobile-drawer {
+    background: var(--ui-surface-raised);
+    border-color: var(--ui-line);
+    box-shadow: var(--shadow-floating);
+  }
+
+  .ui-dropdown-item.active,
+  .ui-dropdown-item[aria-selected="true"] {
+    background: color-mix(in srgb, var(--ui-accent) 12%, var(--ui-surface-raised));
+    color: var(--ui-accent);
+  }
+
+  .ui-button.active,
+  .ui-button[aria-selected="true"],
+  .release-region-tabs button.active,
+  .release-region-tabs button[aria-selected="true"] {
+    background: color-mix(in srgb, var(--ui-accent) 12%, var(--ui-surface-raised));
+    color: var(--ui-accent);
+  }
+
+  .overview-quick-links .ui-card-button {
+    background: var(--ui-surface-raised);
+    border-color: var(--ui-stroke-subtle);
+    box-shadow: var(--shadow-card-rest);
+  }
+
+  .overview-quick-links__icon {
+    color: var(--ui-accent);
+  }
+
+  .category-collection__meta-row,
+  .catalog-query-row,
+  .table-list-section {
+    border-color: var(--ui-stroke-subtle);
+    background: var(--ui-surface-raised);
+    box-shadow: var(--shadow-card-rest);
+  }
+
+  .catalog-card,
+  .category-card,
+  .product-card {
+    border-color: var(--ui-stroke-subtle);
+    background: var(--ui-surface-raised);
+    box-shadow: var(--shadow-card-rest);
+  }
+
+  .catalog-card-badge {
+    background: color-mix(in srgb, var(--ui-accent) 13%, var(--ui-surface-raised));
+    color: var(--ui-accent);
+  }
+
+  .catalog-filter-chips .active-query-chip,
+  .active-query-chip {
+    background: color-mix(in srgb, var(--ui-accent) 9%, var(--ui-surface-raised));
+    border-color: color-mix(in srgb, var(--ui-accent) 38%, var(--ui-line));
+    color: var(--ui-text);
+  }
+
+  .modal-info,
+  .modal-art {
+    border-color: var(--ui-stroke-subtle);
+  }
+
+  .modal-art {
+    background: color-mix(in srgb, var(--ui-section-bg) 84%, var(--ui-surface-raised));
+  }
+
+  .mobile-bottom-nav {
+    background: var(--ui-surface-glass);
+    border-color: var(--ui-stroke-subtle);
+  }
+
+  /* Hover and keyboard focus communicate action without shifting the grid. */
+  @media (hover: hover) and (pointer: fine) {
+    .catalog-card:hover,
+    .category-card:hover,
+    .product-card:hover,
+    .overview-quick-links .ui-card-button:hover {
+      border-color: color-mix(in srgb, var(--ui-accent) 37%, var(--ui-stroke-subtle));
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-2px);
+    }
+  }
+
+  .catalog-card:focus-within,
+  .category-card:focus-within,
+  .product-card:focus-within,
+  .overview-quick-links .ui-card-button:focus-visible {
+    border-color: var(--ui-accent);
+    box-shadow: var(--ui-focus-ring);
+  }
+
+  /* Preview-only switch: fixed overlay; does not consume header/grid space. */
+  .sport-theme-switch {
+    position: fixed;
+    z-index: 920;
+    left: max(12px, var(--page-gutter));
+    bottom: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 5px;
+    border: 1px solid var(--ui-line);
+    border-radius: 999px;
+    background: var(--ui-surface-glass);
+    color: var(--ui-text);
+    box-shadow: var(--shadow-floating);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    font-family: inherit;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .sport-theme-switch__label {
+    padding: 0 8px;
+    font-weight: 650;
+    color: var(--ui-muted);
+  }
+
+  .sport-theme-switch button {
+    appearance: none;
+    min-height: 34px;
+    padding: 0 12px;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--ui-muted);
+    font: inherit;
+    font-weight: 650;
+    cursor: pointer;
+    transition: var(--transition-control);
+  }
+
+  .sport-theme-switch button[aria-pressed="true"] {
+    background: var(--ui-accent);
+    color: light-dark(#fff, #071326);
+  }
+
+  .sport-theme-switch button:focus-visible {
+    outline: 2px solid var(--ui-accent);
+    outline-offset: 2px;
+  }
+
+  @media (max-width: 39.999rem) {
+    .sport-theme-switch {
+      left: 12px;
+      bottom: calc(var(--mobile-nav-height, 64px) + var(--mobile-safe-bottom, 0px) + 10px);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sport-theme-switch *,
+    .catalog-card,
+    .category-card,
+    .product-card,
+    .overview-quick-links .ui-card-button {
+      animation: none !important;
+      transition: none !important;
+      transform: none !important;
+    }
+  }
+}

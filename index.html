@@ -20,8 +20,18 @@
       type="font/woff2"
       crossorigin
     >
+    <script>
+      (() => {
+        const requested = new URLSearchParams(window.location.search).get("theme");
+        // Keep automatic OS theme changes active unless preview query explicitly overrides them.
+        if (requested === "light" || requested === "dark") {
+          document.documentElement.dataset.sportTheme = requested;
+        }
+      })();
+    </script>
     <link rel="stylesheet" href="./styles/base.css?v=20261013-navigation-rounded-underline" data-style-key="base">
     <link rel="stylesheet" href="./styles/mobile.css?v=20261013-navigation-rounded-underline" data-style-key="mobile">
+    <link rel="stylesheet" href="./styles/sport-tech-preview.css?v=20261013" data-style-key="sport-tech-preview">
   </head>
   <body class="is-overview" data-active-panel="overview">
     <div class="data-load-status" id="dataLoadStatus" role="status" aria-live="polite" hidden>
