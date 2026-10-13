@@ -33,7 +33,7 @@ test("runtime data is loaded by route instead of during home boot", async ({ pag
   expect(moduleRequests).toContain("/src/data-store.js");
   expect(moduleRequests).not.toContain("/src/app-entry.js");
   expect(moduleRequests).not.toContain("/src/router.js");
-  expect(styleRequests).toEqual(["/styles/base.css", "/styles/mobile.css"]);
+  expect(styleRequests).toEqual(["/styles/base.css", "/styles/mobile.css", "/styles/sport-tech-preview.css"]);
 
   await page.goto("/#toy-release");
   await expect(page.locator(".release-product-row").first()).toBeVisible();
