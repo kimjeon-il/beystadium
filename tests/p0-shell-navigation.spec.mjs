@@ -35,8 +35,8 @@ test("unified-search shortcuts retain the query and synchronize the existing sco
 
 test("mobile navigation centers search and returns to a filtered catalog URL", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "mobile", "mobile bottom navigation");
-  await page.goto("/#toy-catalog?scope=bey&series=x&sort=no-desc&page=1&q=%EB%93%9C%EB%9E%98%EA%B3%A4");
-  await expect(page.locator("#catalogSearchInput")).toHaveValue("드래곤");
+  await page.goto("/#toy-catalog?scope=bey&series=x&sort=no-desc&page=1&q=%EB%93%9C%EB%9E%9C");
+  await expect(page.locator("#catalogSearchInput")).toHaveValue("드랜");
   const buttons = page.locator(".mobile-bottom-nav > button");
   await expect(buttons).toHaveCount(5);
   await expect(buttons.nth(0)).toHaveAttribute("data-sidebar-home", "");
@@ -49,13 +49,13 @@ test("mobile navigation centers search and returns to a filtered catalog URL", a
   await expect(page.locator("#searchResultsSearchInput")).toBeFocused();
   await page.locator("#mobileTopbarBack").click();
   await expect(page).toHaveURL(/#toy-catalog\?scope=bey&series=x/);
-  await expect(page.locator("#catalogSearchInput")).toHaveValue("드래곤");
+  await expect(page.locator("#catalogSearchInput")).toHaveValue("드랜");
   await expect(page.locator("#catalogSearchScope")).toHaveAttribute("data-scope", "bey");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBe(true);
 });
 
 test("closing a detail returns to its existing catalog route and filter state", async ({ page }) => {
-  await page.goto("/#toy-catalog?scope=bey&series=x&sort=no-desc&page=1&q=%EB%93%9C%EB%9E%98%EA%B3%A4");
+  await page.goto("/#toy-catalog?scope=bey&series=x&sort=no-desc&page=1&q=%EB%93%9C%EB%9E%9C");
   const action = page.locator("#catalogGrid .catalog-card-action").first();
   await expect(action).toBeVisible();
   await action.click();
@@ -63,6 +63,6 @@ test("closing a detail returns to its existing catalog route and filter state", 
   await page.locator("#modalClose").click();
   await expect(page.locator("#detailModal")).toBeHidden();
   await expect(page).toHaveURL(/#toy-catalog\?scope=bey&series=x/);
-  await expect(page.locator("#catalogSearchInput")).toHaveValue("드래곤");
+  await expect(page.locator("#catalogSearchInput")).toHaveValue("드랜");
   await expect(page.locator("#catalogSeriesFilter")).toHaveAttribute("data-scope", "x");
 });
