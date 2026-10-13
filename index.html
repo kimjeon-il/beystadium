@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="./styles/base.css?v=20261014-navigation-focus" data-style-key="base">
     <link rel="stylesheet" href="./styles/mobile.css?v=20261014-navigation-focus" data-style-key="mobile">
     <link rel="stylesheet" href="./styles/sport-tech-preview.css?v=20261013" data-style-key="sport-tech-preview">
+    <link rel="stylesheet" href="./styles/p0-shell.css?v=20261014" data-style-key="p0-shell">
   </head>
   <body class="is-overview" data-active-panel="overview">
     <div class="data-load-status" id="dataLoadStatus" role="status" aria-live="polite" hidden>
@@ -53,21 +54,22 @@
         <span>베이 아카이브</span>
       </a>
       <nav class="topbar-primary-nav" aria-label="주 메뉴">
-        <button class="topbar-primary-button" type="button" data-category-catalog-open>
-          완구 도감
-        </button>
-        <button class="topbar-primary-button" type="button" data-category-release-open>
-          발매목록
-        </button>
-        <button class="topbar-primary-button" type="button" data-category-anime-open>
-          등장인물
-        </button>
-        <button class="topbar-primary-button" type="button" data-category-anime-episodes-open>
-          방영목록
-        </button>
-        <button class="topbar-primary-button disabled" type="button" disabled>
-          연재목록
-        </button>
+        <div class="topbar-nav-group" role="group" aria-label="완구">
+          <span class="topbar-nav-label" aria-hidden="true">완구</span>
+          <div class="topbar-nav-links">
+            <button class="topbar-primary-button" type="button" data-category-catalog-open>도감</button>
+            <button class="topbar-primary-button" type="button" data-category-release-open>발매목록</button>
+          </div>
+        </div>
+        <span class="topbar-nav-divider" aria-hidden="true"></span>
+        <div class="topbar-nav-group" role="group" aria-label="미디어">
+          <span class="topbar-nav-label" aria-hidden="true">미디어</span>
+          <div class="topbar-nav-links">
+            <button class="topbar-primary-button" type="button" data-category-anime-open>등장인물</button>
+            <button class="topbar-primary-button" type="button" data-category-anime-episodes-open>방영목록</button>
+            <button class="topbar-primary-button disabled" type="button" disabled aria-label="연재목록 (준비 중)">연재목록</button>
+          </div>
+        </div>
       </nav>
       <div class="unified-search topbar-search" id="topbarSearch" role="search">
         <div class="search-box global-search-box topbar-search-box">
@@ -90,6 +92,10 @@
       </div>
       <button class="ui-icon-button topbar-search-toggle" id="topbarSearchToggle" type="button" aria-label="검색창 열기" aria-controls="topbarSearch" aria-expanded="false">
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="5.8" /><path d="m15 15 4.5 4.5" /></svg>
+      </button>
+      <button class="topbar-primary-button" type="button" data-mobile-search-open>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="5.8" /><path d="m15 15 4.5 4.5" /></svg>
+        <span>검색</span>
       </button>
       <button class="menu-button topbar-menu-button" id="menuButton" type="button" aria-label="메뉴 열기" aria-controls="mobileDrawer" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -181,15 +187,6 @@
 
     <main>
       <div class="app-shell active">
-        <div class="unified-search search-results-search" role="search">
-          <div class="search-box global-search-box search-results-search-box">
-            <details class="search-scope catalog-dropdown" id="searchResultsSearchScope" data-scope="all" aria-label="검색 범위">
-              <summary><b class="catalog-dropdown-value">전체</b></summary><div class="catalog-dropdown-menu"></div>
-            </details>
-            <span class="search-icon" aria-hidden="true"></span><input id="searchResultsSearchInput" type="search" placeholder="검색어를 입력해주세요." aria-label="검색어">
-          </div>
-        </div>
-
         <div class="app-panel active overview-panel" data-app-panel="overview">
           <div class="overview-home">
             <div class="overview-hero">
@@ -250,7 +247,26 @@
           <section class="search-results-page" aria-labelledby="searchResultsTitle">
             <div class="search-results-heading">
               <h2 id="searchResultsTitle">검색결과</h2>
+              <p class="search-results-description">베이·부품·제품·미디어를 한 번에 검색합니다.</p>
               <p class="search-results-summary"><b id="globalCount">0</b>개 항목</p>
+            </div>
+    <div class="unified-search search-results-search" role="search">
+              <div class="search-box global-search-box search-results-search-box">
+                <details class="search-scope catalog-dropdown" id="searchResultsSearchScope" data-scope="all" aria-label="검색 범위">
+                  <summary><b class="catalog-dropdown-value">전체</b></summary><div class="catalog-dropdown-menu"></div>
+                </details>
+                <span class="search-icon" aria-hidden="true"></span><input id="searchResultsSearchInput" type="search" placeholder="검색어를 입력해주세요." aria-label="검색어">
+              </div>
+            </div>
+            <div class="search-category-nav" role="group" aria-label="검색 결과 분류 바로 선택">
+              <button type="button" class="search-category-button active" data-search-results-scope-tab="all" aria-pressed="true">전체</button>
+              <button type="button" class="search-category-button" data-search-results-scope-tab="bey" aria-pressed="false">베이</button>
+              <button type="button" class="search-category-button" data-search-results-scope-tab="parts" aria-pressed="false">부품</button>
+              <button type="button" class="search-category-button" data-search-results-scope-tab="tools" aria-pressed="false">장비</button>
+              <button type="button" class="search-category-button" data-search-results-scope-tab="product" aria-pressed="false">제품</button>
+              <button type="button" class="search-category-button" data-search-results-scope-tab="character" aria-pressed="false">인물</button>
+              <button type="button" class="search-category-button" data-search-results-scope-tab="manga" aria-pressed="false">만화·도서</button>
+              <button type="button" class="search-category-button" data-search-results-scope-tab="anime" aria-pressed="false">방영</button>
             </div>
             <div class="search-results-list" id="globalGrid" aria-live="polite"></div>
           </section>
@@ -480,10 +496,7 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16v11H4zM9.5 9.2l5 2.8-5 2.8z" /></svg>
         <span>미디어</span>
       </button>
-      <button class="topbar-primary-button" type="button" data-mobile-search-open>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="5.8" /><path d="m15 15 4.5 4.5" /></svg>
-        <span>검색</span>
-      </button>
+
     </nav>
 
     <button class="to-top" id="toTop" type="button" aria-label="맨 위로 이동">↑</button>
