@@ -1,0 +1,290 @@
+/*
+ * P0 common shell only: desktop navigation grouping, mobile bottom navigation,
+ * and the unified search page. Catalog/release/anime layouts are P1 work.
+ * The existing route, search ranking, data loading and modal mechanics are unchanged.
+ */
+@layer base, page, collection, table, release, anime, catalog, search, modal, mobile, sport-tech-preview, layout-p0;
+
+@layer layout-p0 {
+  /* Group direct destinations without turning them into nested menus. */
+  @media (min-width: 40rem) {
+    .topbar-primary-nav {
+      gap: clamp(8px, 1vw, 18px);
+    }
+
+    .topbar-nav-group,
+    .topbar-nav-links {
+      display: flex;
+      align-items: center;
+      min-width: 0;
+    }
+
+    .topbar-nav-group {
+      gap: clamp(5px, .7vw, 10px);
+    }
+
+    .topbar-nav-links {
+      gap: 2px;
+    }
+
+    .topbar-nav-label {
+      flex: 0 0 auto;
+      color: var(--ui-muted);
+      font-size: .6875rem;
+      font-weight: var(--font-weight-strong);
+      letter-spacing: .015em;
+      white-space: nowrap;
+    }
+
+    .topbar-nav-divider {
+      flex: 0 0 1px;
+      height: 22px;
+      background: var(--ui-stroke-subtle);
+    }
+
+    .topbar-primary-nav .topbar-primary-button {
+      min-height: var(--touch-target-min);
+      padding-inline: clamp(8px, .9vw, 13px);
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .topbar {
+      grid-template-columns: minmax(130px, 1fr) auto minmax(180px, 1fr);
+      gap: clamp(10px, 2vw, 28px);
+    }
+
+    .topbar-search {
+      width: min(300px, 100%);
+      min-width: 180px;
+    }
+  }
+
+  @media (min-width: 40rem) and (max-width: 79.999rem) {
+    .topbar-nav-label,
+    .topbar-nav-divider {
+      display: none;
+    }
+
+    .topbar-nav-group,
+    .topbar-nav-links {
+      gap: 0;
+    }
+
+    .topbar-primary-nav .topbar-primary-button {
+      padding-inline: clamp(5px, .7vw, 10px);
+    }
+  }
+
+  @media (min-width: 50rem) and (max-width: 63.999rem) {
+    .topbar {
+      grid-template-columns: auto minmax(0, 1fr) minmax(160px, 220px);
+      gap: clamp(8px, 1vw, 14px);
+    }
+
+    .topbar-primary-nav {
+      justify-self: center;
+      gap: 0;
+    }
+
+    .topbar-search {
+      width: 100%;
+      min-width: 0;
+    }
+  }
+
+  /* Keep search, filters and results in one semantic page. */
+  .search-results-panel {
+    max-width: 1040px;
+  }
+
+  .search-results-page {
+    width: 100%;
+    padding: 0 0 56px;
+  }
+
+  .search-results-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "title count"
+      "description count";
+    align-items: center;
+    gap: 8px 16px;
+    margin-bottom: 22px;
+  }
+
+  .search-results-heading h2 {
+    font-size: var(--font-title);
+    line-height: 1.2;
+  }
+
+  .search-results-description {
+    grid-area: description;
+    margin: 0;
+    color: var(--ui-muted);
+    font-size: var(--font-sm);
+    line-height: 1.5;
+  }
+
+  .search-results-summary {
+    justify-self: end;
+    align-self: center;
+  }
+
+  .search-results-page > .search-results-search {
+    --unified-search-width: 100%;
+    --unified-search-max-width: none;
+    --unified-search-justify: stretch;
+    --unified-search-margin: 0 0 16px;
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .search-results-page > .search-results-search > .search-results-search-box {
+    --global-search-box-flex: 1 1 auto;
+    --search-box-width: 100%;
+    --search-box-min-width: 0;
+    --search-box-max-width: none;
+    --search-box-block-height: 56px;
+    --search-box-padding: 0 16px 0 8px;
+    --search-box-gap: 12px;
+    --search-scope-min-width: 68px;
+    --search-scope-max-width: 84px;
+    --search-scope-height: 38px;
+    --search-scope-summary-height: 38px;
+    --search-scope-summary-padding: 0 24px 0 10px;
+    --search-scope-summary-bg: var(--ui-control);
+    --search-scope-summary-hover-bg: var(--ui-control-hover);
+    min-width: 0;
+  }
+
+  .search-category-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 22px;
+  }
+
+  .search-category-button {
+    flex: 0 0 auto;
+    min-height: var(--touch-target-min);
+    padding: 0 16px;
+    border: var(--border-subtle);
+    border-radius: var(--radius-control);
+    background: var(--ui-surface-raised);
+    color: var(--ui-muted);
+    font-size: var(--font-sm);
+    font-weight: var(--font-weight-strong);
+    line-height: 1;
+    white-space: nowrap;
+    transition: var(--transition-control);
+  }
+
+  .search-category-button.active,
+  .search-category-button[aria-pressed="true"] {
+    border-color: color-mix(in srgb, var(--ui-accent) 45%, var(--ui-stroke-subtle));
+    background: color-mix(in srgb, var(--ui-accent) 12%, var(--ui-surface-raised));
+    color: var(--ui-accent);
+  }
+
+  .search-category-button:focus-visible {
+    outline: 0;
+    box-shadow: var(--ui-focus-ring);
+  }
+
+  .search-results-list {
+    gap: 8px;
+  }
+
+  #globalGrid > .search-result-item {
+    --search-result-padding: 16px;
+    --search-result-gap: 8px 12px;
+    border: var(--border-subtle);
+    border-radius: var(--radius-card);
+    background: var(--ui-surface-raised);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .search-category-button:not(.active):hover {
+      background: var(--ui-control-hover);
+      color: var(--ui-text);
+    }
+
+    #globalGrid > .search-result-item:hover {
+      background: var(--ui-control-hover);
+      border-color: color-mix(in srgb, var(--ui-accent) 24%, var(--ui-stroke-subtle));
+    }
+  }
+
+  @media (max-width: 39.999rem) {
+    /* Home / Catalog / Search / Release / Media; search is the central action. */
+    .mobile-bottom-nav > button {
+      width: min(100%, 56px);
+      max-width: 56px;
+      min-width: var(--touch-target-min);
+    }
+
+    .mobile-bottom-nav > [data-mobile-search-open] {
+      justify-self: center;
+    }
+
+    .search-results-page {
+      padding: 0 0 28px;
+    }
+
+    .search-results-heading {
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 6px 8px;
+      margin-bottom: 16px;
+    }
+
+    .search-results-heading h2 {
+      font-size: var(--font-xl);
+    }
+
+    .search-results-description {
+      font-size: var(--font-xs);
+    }
+
+    .search-results-page > .search-results-search {
+      position: sticky;
+      top: calc(var(--mobile-topbar-height) + 8px);
+      z-index: 70;
+      margin-bottom: 12px;
+    }
+
+    .search-results-page > .search-results-search > .search-results-search-box {
+      --search-box-block-height: 50px;
+      --search-scope-height: var(--control-height-compact);
+      --search-scope-summary-height: var(--control-height-compact);
+      --search-box-gap: 8px;
+    }
+
+    .search-category-nav {
+      flex-wrap: nowrap;
+      gap: 6px;
+      width: 100%;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scrollbar-width: none;
+      margin-bottom: 14px;
+      padding: 2px 2px 8px;
+    }
+
+    .search-category-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .search-category-button {
+      min-height: var(--touch-target-min);
+      padding-inline: 13px;
+    }
+
+    #globalGrid > .search-result-item {
+      --search-result-padding: 12px;
+      --search-result-gap: 6px 8px;
+    }
+  }
+}
