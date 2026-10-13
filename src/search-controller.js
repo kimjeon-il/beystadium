@@ -36,6 +36,23 @@ let focusResultsSearchOnOpen = false;
 // Presentation-only shortcuts: all search scopes still use the existing dropdown,
 // shared search state, index and hash route.
 const searchCategoryNav = document.querySelector(".search-category-nav");
+const searchCategoryOptions = [
+  ["all", "전체"], ["bey", "베이"], ["parts", "부품"], ["tools", "장비"],
+  ["product", "제품"], ["character", "인물"], ["manga", "만화·도서"], ["anime", "방영"]
+];
+const prepareSearchCategoryTabs = () => {
+  if (!searchCategoryNav || searchCategoryNav.childElementCount) return;
+  const fragment = document.createDocumentFragment();
+  searchCategoryOptions.forEach(([scope, label]) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "search-category-button";
+    button.dataset.searchResultsScopeTab = scope;
+    button.textContent = label;
+    fragment.append(button);
+  });
+  searchCategoryNav.append(fragment);
+};
 const syncSearchCategoryTabs = () => {
   const activeScope = globalSearchScopeValue();
   searchCategoryNav?.querySelectorAll("[data-search-results-scope-tab]").forEach(button => {
@@ -130,6 +147,7 @@ const initializeSearchFeature = () => {
   if (initialized) return;
   initialized = true;
   ensureSearchResultsScopeOptions();
+  prepareSearchCategoryTabs();
   searchCategoryNav?.addEventListener("click", event => {
     const button = event.target.closest("[data-search-results-scope-tab]");
     if (!button || !searchCategoryNav.contains(button)) return;
