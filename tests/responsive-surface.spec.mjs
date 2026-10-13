@@ -210,12 +210,16 @@ test("mobile table rows use one parent highlight surface", { tag: "@design-flow"
       await page.mouse.move(0, 0);
       const action = row.locator(".table-list-row-action");
       await expectFocusIndicator(action, row);
-      const focused = await highlightState(row);
       if (visual) {
-        expect(sameRgb(focused.rowBackground, focused.expectedBackground)).toBe(true);
-        expect(focused.cellBackgrounds.every(background => background === "rgba(0, 0, 0, 0)")).toBe(true);
-        expect(Number.parseFloat(focused.rowRadius)).toBeGreaterThan(0);
-        expect(Number.parseFloat(focused.rowOutlineWidth)).toBeGreaterThan(0);
+        await expect.poll(async () => {
+          const focused = await highlightState(row);
+          return {
+            highlighted: sameRgb(focused.rowBackground, focused.expectedBackground),
+            cellsTransparent: focused.cellBackgrounds.every(background => background === "rgba(0, 0, 0, 0)"),
+            radius: Number.parseFloat(focused.rowRadius) > 0,
+            outline: Number.parseFloat(focused.rowOutlineWidth) > 0
+          };
+        }).toEqual({ highlighted: true, cellsTransparent: true, radius: true, outline: true });
       }
     }
   }

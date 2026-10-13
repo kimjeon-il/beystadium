@@ -1046,26 +1046,20 @@ test("scroll affordances appear only while internal content remains below", asyn
   await page.setViewportSize({ width: 1280, height: 260 });
   await page.goto("/#toy-catalog?scope=bey&series=x");
   await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
-  const seriesMenu = page.locator("#catalogSeriesFilter > .catalog-dropdown-menu");
-  await page.locator("#catalogSeriesFilter > summary").evaluate(element => element.click());
-  await expect(seriesMenu).not.toHaveClass(/has-scroll-content-below/);
-  const activeDropdownState = await seriesMenu.evaluate(element => ({
+  // The P1 desktop catalog uses a sticky scrollable filter rail instead of a series dropdown.
+  const rail = page.locator(".catalog-filter-rail");
+  await expect(rail).toBeVisible();
+  const railState = await rail.evaluate(element => ({
     clientHeight: element.clientHeight,
     scrollHeight: element.scrollHeight,
-    shadow: getComputedStyle(element).boxShadow
+    overflowY: getComputedStyle(element).overflowY
   }));
-  expect(activeDropdownState.scrollHeight).toBeGreaterThan(activeDropdownState.clientHeight + 2);
-  expect(activeDropdownState.shadow).not.toBe("none");
-  expect(activeDropdownState.shadow).not.toContain("inset");
-
-  await seriesMenu.evaluate(element => { element.scrollTop = element.scrollHeight; });
-  await expect(seriesMenu).not.toHaveClass(/has-scroll-content-below/);
-  const bottomShadow = await seriesMenu.evaluate(element => getComputedStyle(element).boxShadow);
-  expect(bottomShadow).not.toContain("inset");
-
-  await seriesMenu.evaluate(element => { element.scrollTop = 0; });
-  await expect(seriesMenu).not.toHaveClass(/has-scroll-content-below/);
-  await page.locator("#catalogSeriesFilter > summary").evaluate(element => element.click());
+  expect(railState.scrollHeight).toBeGreaterThan(railState.clientHeight + 2);
+  expect(railState.overflowY).toBe("auto");
+  await rail.evaluate(element => { element.scrollTop = element.scrollHeight; });
+  await expect.poll(() => rail.evaluate(element => element.scrollTop)).toBeGreaterThan(0);
+  await rail.evaluate(element => { element.scrollTop = 0; });
+  await expect.poll(() => rail.evaluate(element => element.scrollTop)).toBe(0);
   await expect(seriesMenu).not.toHaveClass(/has-scroll-content-below/);
 
   await page.setViewportSize({ width: 1280, height: 900 });

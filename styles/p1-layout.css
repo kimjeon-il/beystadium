@@ -400,7 +400,7 @@
   /* Detail: products already have artwork/information columns.
      Content-only detail types receive information/relations columns. */
   @media (min-width: 68.75rem) {
-    #detailModal[open] {
+    #detailModal[open]:not(:has(.modal-inner--rare-bey-get-list)) {
       --modal-w: min(960px, calc(var(--modal-vw) - var(--modal-edge-gap)));
       --modal-h: min(680px, calc(var(--modal-vh) - var(--modal-edge-gap)));
       --modal-inner-columns: minmax(290px, 36%) minmax(0, 1fr);
@@ -606,6 +606,8 @@
     }
   }
   @media (max-width: 39.999rem) {
+    .release-table tbody .release-product-row:focus-within,
+    .anime-episode-table tbody .anime-episode-row:focus-within,
     .release-table tbody .release-product-row:has(.table-list-row-action:focus-visible),
     .anime-episode-table tbody .anime-episode-row:has(.table-list-row-action:focus-visible) {
       background: var(--ui-control-hover);

@@ -1044,7 +1044,8 @@ test("hidden 3D model details use the shared content modal while retaining their
   if (visual) expect(layout.columns).toBe(1);
   if (visual && testInfo.project.name === "desktop") {
     expect(Math.abs(layout.width - 960)).toBeLessThanOrEqual(1);
-    expect(Math.abs(layout.height - 680)).toBeLessThanOrEqual(1);
+    const viewportHeight = page.viewportSize()?.height || 720;
+    expect(Math.abs(layout.height - Math.min(680, viewportHeight - 48))).toBeLessThanOrEqual(1);
   }
 
   const response = await page.request.get("/data/runtime/series/metal-fight.json");

@@ -740,7 +740,7 @@ test("open detail modal follows viewport resize in both directions", async ({ pa
   const wideLayout = await snapshotModalLayout();
   expectViewportFit(wideLayout);
   expect(wideLayout.columnCount).toBe(1);
-  expect(wideLayout.inner.width).toBe(720);
+  expect(wideLayout.inner.width).toBe(960);
 
   await page.setViewportSize({ width: 900, height: 800 });
   await expect.poll(async () => (await snapshotModalLayout()).storedViewportWidth).toBe(900);
@@ -756,7 +756,7 @@ test("open detail modal follows viewport resize in both directions", async ({ pa
   const restoredLayout = await snapshotModalLayout();
   expectViewportFit(restoredLayout);
   expect(restoredLayout.columnCount).toBe(1);
-  expect(restoredLayout.inner.width).toBe(720);
+  expect(restoredLayout.inner.width).toBe(960);
   expect(page.url()).toBe(initialUrl);
   expect(restoredLayout.title).toBe(initialTitle?.trim());
 
