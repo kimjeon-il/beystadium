@@ -43,6 +43,7 @@
     }
 
     .topbar-primary-nav .topbar-primary-button {
+      min-width: var(--touch-target-min);
       min-height: var(--touch-target-min);
       padding-inline: clamp(8px, .9vw, 13px);
     }
