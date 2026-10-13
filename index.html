@@ -23,9 +23,10 @@
     <script>
       (() => {
         const requested = new URLSearchParams(window.location.search).get("theme");
-        const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-        document.documentElement.dataset.sportTheme =
-          requested === "light" || requested === "dark" ? requested : preferred;
+        // Keep automatic OS theme changes active unless preview query explicitly overrides them.
+        if (requested === "light" || requested === "dark") {
+          document.documentElement.dataset.sportTheme = requested;
+        }
       })();
     </script>
     <link rel="stylesheet" href="./styles/base.css?v=20261013-navigation-rounded-underline" data-style-key="base">
