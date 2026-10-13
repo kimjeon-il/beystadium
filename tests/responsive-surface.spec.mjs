@@ -163,14 +163,19 @@ test("mobile table rows use one parent highlight surface", { tag: "@design-flow"
     probe.style.cssText = "position:fixed;background:var(--ui-control-hover)";
     document.body.append(probe);
     const visibleCells = [...element.querySelectorAll("td")].filter(cell => getComputedStyle(cell).display !== "none");
+    const surfaceProbe = document.createElement("i");
+    surfaceProbe.style.cssText = "position:fixed;background:var(--ui-surface-raised)";
+    document.body.append(surfaceProbe);
     const result = {
       rowBackground: getComputedStyle(element).backgroundColor,
+      expectedRestBackground: getComputedStyle(surfaceProbe).backgroundColor,
       rowRadius: getComputedStyle(element).borderRadius,
       rowOutlineWidth: getComputedStyle(element).outlineWidth,
       expectedBackground: getComputedStyle(probe).backgroundColor,
       cellBackgrounds: visibleCells.map(cell => getComputedStyle(cell).backgroundColor)
     };
     probe.remove();
+    surfaceProbe.remove();
     return result;
   });
   const sameRgb = (actual, expected) =>
@@ -186,7 +191,7 @@ test("mobile table rows use one parent highlight surface", { tag: "@design-flow"
 
       const rest = await highlightState(row);
       if (visual) {
-        expect(rest.rowBackground).toBe("rgba(0, 0, 0, 0)");
+        expect(rest.rowBackground).toBe(rest.expectedRestBackground);
         expect(rest.cellBackgrounds.every(background => background === "rgba(0, 0, 0, 0)")).toBe(true);
       }
 

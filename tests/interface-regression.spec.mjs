@@ -738,8 +738,8 @@ test("dropdown chevrons share the same open and close rotation", { tag: "@visual
   await page.goto("/#toy-catalog?scope=bey&series=x");
   await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
 
+  await expect(page.locator('.catalog-filter-rail [data-rail-option="series"]').first()).toBeVisible();
   const dropdowns = [
-    page.locator("#catalogSeriesFilter"),
     page.locator("#catalogSearchScope"),
     page.locator(".catalog-sort-dropdown")
   ];
@@ -801,8 +801,7 @@ test("shared interface controls keep tokenized sizes and timings", { tag: "@visu
     await page.locator("#mobileCatalogFilterOpen").click();
     await expect(page.locator("#mobileCatalogFilters .mobile-filter-options button").first()).toBeVisible();
   } else {
-    await page.locator("#catalogSeriesFilter > summary").click();
-    await expect(page.locator("#catalogSeriesFilter .ui-dropdown-item").first()).toBeVisible();
+    await expect(page.locator('.catalog-filter-rail [data-rail-option="series"]').first()).toBeVisible();
   }
 
   const catalogControls = await page.evaluate(isMobile => {
@@ -826,10 +825,10 @@ test("shared interface controls keep tokenized sizes and timings", { tag: "@visu
       searchScope: size("#catalogSearchScope > summary"),
       dropdownItem: size(isMobile
         ? "#mobileCatalogFilters .mobile-filter-options button"
-        : "#catalogSeriesFilter .ui-dropdown-item"),
+        : '.catalog-filter-rail [data-rail-option="series"]'),
       toTop: size("#toTop"),
       drawerClose: size(".mobile-drawer-close"),
-      dropdownMotion: transitionDurations("#catalogSeriesFilter > summary", "::after"),
+      dropdownMotion: transitionDurations("#catalogSearchScope > summary", "::after"),
       menuMotion: transitionDurations("#menuButton"),
       menuLineMotion: transitionDurations("#menuButton span"),
       toTopMotion: transitionDurations("#toTop")
@@ -846,7 +845,7 @@ test("shared interface controls keep tokenized sizes and timings", { tag: "@visu
   });
   expect(catalogControls.help).toEqual([30, 30]);
   expect(catalogControls.searchScope[1]).toBe(32);
-  expect(catalogControls.dropdownItem[1]).toBe(38);
+  expect(catalogControls.dropdownItem[1]).toBe(mobile ? 38 : 44);
   expect(catalogControls.toTop).toEqual([44, 44]);
   expect(catalogControls.drawerClose).toEqual(mobile ? [0, 0] : [44, 44]);
   expect(catalogControls.dropdownMotion).toEqual(["0.16s", "0.16s"]);
@@ -901,11 +900,9 @@ test("keyboard focus indicators stay visible across interface surfaces", async (
       await page.keyboard.press("Escape");
       await expect(page.locator("#mobileCatalogFilters")).toBeHidden();
     } else {
-      const seriesFilter = page.locator("#catalogSeriesFilter");
-      await seriesFilter.locator("summary").click();
-      await expect(seriesFilter.locator(".ui-dropdown-item").first()).toBeVisible();
-      await expectFocusIndicator(seriesFilter.locator(".ui-dropdown-item").first());
-      await seriesFilter.locator("summary").click();
+      const seriesOption = page.locator('.catalog-filter-rail [data-rail-option="series"]').first();
+      await expect(seriesOption).toBeVisible();
+      await expectFocusIndicator(seriesOption);
     }
 
     await page.goto("/#toy-release");

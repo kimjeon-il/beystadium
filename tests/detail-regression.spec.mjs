@@ -934,7 +934,7 @@ test("static details use a single-column layout without a photo pane", { tag: "@
   if (visual) {
     expect(layout.columns).toBe(1);
     expect(layout.radius).toBe(testInfo.project.name === "mobile" ? "0px" : "24px");
-    if (testInfo.project.name === "desktop") expect(Math.abs(layout.width - 720)).toBeLessThanOrEqual(1);
+    if (testInfo.project.name === "desktop") expect(Math.abs(layout.width - 960)).toBeLessThanOrEqual(1);
   }
   expect(errors).toEqual([]);
 });
@@ -1043,8 +1043,8 @@ test("hidden 3D model details use the shared content modal while retaining their
   });
   if (visual) expect(layout.columns).toBe(1);
   if (visual && testInfo.project.name === "desktop") {
-    expect(Math.abs(layout.width - 720)).toBeLessThanOrEqual(1);
-    expect(Math.abs(layout.height - 620)).toBeLessThanOrEqual(1);
+    expect(Math.abs(layout.width - 960)).toBeLessThanOrEqual(1);
+    expect(Math.abs(layout.height - 680)).toBeLessThanOrEqual(1);
   }
 
   const response = await page.request.get("/data/runtime/series/metal-fight.json");

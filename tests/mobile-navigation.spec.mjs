@@ -22,7 +22,7 @@ test.describe("mobile visual layout contracts", { tag: "@design-flow" }, () => {
 
     const layout = await page.evaluate(() => {
       const probe = document.createElement("i");
-      probe.style.cssText = "position:fixed;border-radius:var(--radius-card);background:var(--ui-surface-raised)";
+      probe.style.cssText = "position:fixed;border-radius:var(--radius-card);background:var(--ui-surface)";
       document.body.append(probe);
       const probeStyle = getComputedStyle(probe);
       const quickLinkStyle = getComputedStyle(document.querySelector(".overview-quick-links > button"));
@@ -49,8 +49,8 @@ test.describe("mobile visual layout contracts", { tag: "@design-flow" }, () => {
     expect(layout.documentWidth).toBeLessThanOrEqual(layout.viewportWidth + 1);
     expect(layout.minimumTarget).toBeGreaterThanOrEqual(44);
     if (visual) {
-      expect(layout.heroAlignment).toBe("center");
-      expect(layout.searchHeight).toBeCloseTo(62, 3);
+      expect(layout.heroAlignment).toBe("left");
+      expect(layout.searchHeight).toBeCloseTo(54, 3);
       expect(layout.searchScopeHeight).toBeCloseTo(44, 3);
       expect(layout.searchRadius).toBe("12px");
       expect(layout.searchScopeRadius).toBe("10px");
@@ -275,10 +275,10 @@ test.describe("mobile visual layout contracts", { tag: "@design-flow" }, () => {
       };
     });
     if (visual) {
-      expect(cardParity.minHeight).toBe(132);
-      expect(cardParity.imageMaxWidth).toBe("min(78%, 112px)");
+      expect(cardParity.minHeight).toBe(194);
+      expect(cardParity.imageMaxWidth).toBe("94%");
     }
-    expect(cardParity.titleWhiteSpace).toBe("nowrap");
+    expect(cardParity.titleWhiteSpace).toBe("normal");
     if (visual) {
       expect(cardParity.radius).toBe("12px");
     }
@@ -371,6 +371,9 @@ test.describe("mobile visual layout contracts", { tag: "@design-flow" }, () => {
       document.body.append(probe);
       const probeStyle = getComputedStyle(probe);
       const metaStyle = getComputedStyle(element.querySelector(".mobile-row-meta"));
+      const mutedProbe = document.createElement("i");
+      mutedProbe.style.cssText = "position:fixed;color:var(--ui-muted);font-size:var(--font-sm)";
+      document.body.append(mutedProbe);
       const result = {
         sectionBackground: sectionStyle.backgroundColor,
         expectedSectionBackground: probeStyle.backgroundColor,
@@ -383,20 +386,21 @@ test.describe("mobile visual layout contracts", { tag: "@design-flow" }, () => {
         rowMinHeight: rowStyle.minHeight,
         metaColor: metaStyle.color,
         metaFontSize: metaStyle.fontSize,
-        expectedMetaColor: probeStyle.color,
-        expectedMetaFontSize: probeStyle.fontSize
+        expectedMetaColor: getComputedStyle(mutedProbe).color,
+        expectedMetaFontSize: getComputedStyle(mutedProbe).fontSize
       };
       probe.remove();
+      mutedProbe.remove();
       return result;
     });
     if (visual) {
       expect(releaseSurface.sectionBackground).toBe(releaseSurface.expectedSectionBackground);
       expect(releaseSurface.sectionBorderWidth).toBe("1px");
-      expect(releaseSurface.rowBackground).toBe("rgba(0, 0, 0, 0)");
+      expect(releaseSurface.rowBackground).toBe(releaseSurface.expectedSectionBackground);
       expect(releaseSurface.rowShadow).toBe("none");
       expect(releaseSurface.rowRadius).toBe(releaseSurface.expectedRowRadius);
       expect(Number(releaseSurface.titleWeight)).toBeLessThanOrEqual(500);
-      expect(releaseSurface.rowMinHeight).toBe("auto");
+      expect(releaseSurface.rowMinHeight).toBe("92px");
       expect(releaseSurface.metaColor).toBe(releaseSurface.expectedMetaColor);
       expect(releaseSurface.metaFontSize).toBe(releaseSurface.expectedMetaFontSize);
     }
@@ -459,7 +463,7 @@ test.describe("mobile visual layout contracts", { tag: "@design-flow" }, () => {
       expect(layout.metaGridRowStart).toBe("auto");
       expect(layout.metaGridColumnStart).toBe("1");
       expect(layout.metaGridColumnEnd).toBe("-1");
-      expect(layout.metaJustify).toBe("flex-end");
+      expect(layout.metaJustify).toBe("flex-start");
       if (width === 442) if (visual) { expect(layout.titleLines).toBe(1); }
     }
 
