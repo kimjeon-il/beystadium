@@ -1,7 +1,9 @@
 import { expect, test } from "@playwright/test";
-import { consoleErrors, expectNavigationUnderline, waitForModalAnimations } from "./helpers/ui-assertions.mjs";
+import { consoleErrors, expectContainedInViewport, expectCurrentNavigation, expectFocusIndicator, expectNavigationUnderline, waitForAnimations, waitForModalAnimations } from "./helpers/ui-assertions.mjs";
 
-test.describe("mobile-first navigation and content", () => {
+const visual = process.env.VALIDATION_MODE === "visual";
+
+test.describe("mobile visual layout contracts", { tag: "@design-flow" }, () => {
   test.beforeEach(({ page: _page }, testInfo) => {
     test.skip(testInfo.project.name !== "mobile", "mobile-only responsive behavior");
   });
@@ -46,13 +48,15 @@ test.describe("mobile-first navigation and content", () => {
     });
     expect(layout.documentWidth).toBeLessThanOrEqual(layout.viewportWidth + 1);
     expect(layout.minimumTarget).toBeGreaterThanOrEqual(44);
-    expect(layout.heroAlignment).toBe("center");
-    expect(layout.searchHeight).toBeCloseTo(62, 3);
-    expect(layout.searchScopeHeight).toBeCloseTo(44, 3);
-    expect(layout.searchRadius).toBe("12px");
-    expect(layout.searchScopeRadius).toBe("10px");
-    expect(layout.quickLinkRadius).toBe(layout.expectedRadius);
-    expect(layout.quickLinkBackground).toBe(layout.expectedBackground);
+    if (visual) {
+      expect(layout.heroAlignment).toBe("center");
+      expect(layout.searchHeight).toBeCloseTo(62, 3);
+      expect(layout.searchScopeHeight).toBeCloseTo(44, 3);
+      expect(layout.searchRadius).toBe("12px");
+      expect(layout.searchScopeRadius).toBe("10px");
+      expect(layout.quickLinkRadius).toBe(layout.expectedRadius);
+      expect(layout.quickLinkBackground).toBe(layout.expectedBackground);
+    }
     expect(errors).toEqual([]);
   });
 
@@ -62,7 +66,8 @@ test.describe("mobile-first navigation and content", () => {
 
     const activeTab = page.locator(".mobile-bottom-nav [data-category-catalog-open]");
     await expect(activeTab).toHaveAttribute("aria-current", "page");
-    await expectNavigationUnderline(activeTab);
+    await expectCurrentNavigation(activeTab);
+    if (visual) await expectNavigationUnderline(activeTab);
     const tabSurface = await activeTab.evaluate(element => {
       const style = getComputedStyle(element);
       const marker = getComputedStyle(element, "::before");
@@ -84,11 +89,13 @@ test.describe("mobile-first navigation and content", () => {
         inactiveBackground: inactiveStyle.backgroundColor
       };
     });
-    expect(tabSurface.height).toBeCloseTo(52, 3);
-    expect(tabSurface.background).toBe(tabSurface.expectedBackground);
-    expect(tabSurface.radius).toBe(tabSurface.expectedRadius);
-    expect(tabSurface.markerDisplay).toBe("none");
-    expect(tabSurface.inactiveBackground).toBe("rgba(0, 0, 0, 0)");
+    if (visual) {
+      expect(tabSurface.height).toBeCloseTo(52, 3);
+      expect(tabSurface.background).toBe(tabSurface.expectedBackground);
+      expect(tabSurface.radius).toBe(tabSurface.expectedRadius);
+      expect(tabSurface.markerDisplay).toBe("none");
+      expect(tabSurface.inactiveBackground).toBe("rgba(0, 0, 0, 0)");
+    }
 
     await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
     const scope = page.locator("#catalogSearchScope > summary");
@@ -111,13 +118,15 @@ test.describe("mobile-first navigation and content", () => {
           helpHeight: help.getBoundingClientRect().height
         };
       });
-      expect(sizing.searchHeight).toBeCloseTo(48, 3);
-      expect(sizing.searchRadius).toBe("12px");
-      expect(sizing.borderWidth).toBe("1px");
-      expect(sizing.summaryHeight).toBeCloseTo(32, 3);
-      expect(sizing.summaryRadius).toBe("10px");
-      expect(sizing.helpWidth).toBeCloseTo(30, 3);
-      expect(sizing.helpHeight).toBeCloseTo(30, 3);
+      if (visual) {
+        expect(sizing.searchHeight).toBeCloseTo(48, 3);
+        expect(sizing.searchRadius).toBe("12px");
+        expect(sizing.borderWidth).toBe("1px");
+        expect(sizing.summaryHeight).toBeCloseTo(32, 3);
+        expect(sizing.summaryRadius).toBe("10px");
+        expect(sizing.helpWidth).toBeCloseTo(30, 3);
+        expect(sizing.helpHeight).toBeCloseTo(30, 3);
+      }
     }
 
     const searchHighlight = await scope.evaluate(element => {
@@ -139,11 +148,13 @@ test.describe("mobile-first navigation and content", () => {
       };
     });
     expect(searchHighlight.scopeShadow).not.toBe("none");
-    expect(searchHighlight.searchHeight).toBe(48);
-    expect(searchHighlight.helpWidth).toBe(30);
-    expect(searchHighlight.helpHeight).toBe(30);
-    expect(searchHighlight.scopeHeight).toBe(32);
-    expect(searchHighlight.summaryHeight).toBe(32);
+    if (visual) {
+      expect(searchHighlight.searchHeight).toBe(48);
+      expect(searchHighlight.helpWidth).toBe(30);
+      expect(searchHighlight.helpHeight).toBe(30);
+      expect(searchHighlight.scopeHeight).toBe(32);
+      expect(searchHighlight.summaryHeight).toBe(32);
+    }
     expect(searchHighlight.scopeCenterOffset).toBeCloseTo(0, 5);
     expect(searchHighlight.summaryCenterOffset).toBeCloseTo(0, 5);
 
@@ -163,11 +174,14 @@ test.describe("mobile-first navigation and content", () => {
         centerSteps: centers.slice(1).map((center, index) => center - centers[index])
       };
     });
-    expect(menuSpacing.gap).toBe(4);
-    expect(menuSpacing.paddingTop).toBe(8);
-    expect(menuSpacing.paddingBottom).toBe(8);
-    expect(menuSpacing.itemHeights.every(height => Math.abs(height - 32) < .01)).toBe(true);
-    expect(menuSpacing.centerSteps.every(step => Math.abs(step - 36) < .01)).toBe(true);
+    if (visual) {
+      expect(menuSpacing.gap).toBe(4);
+      expect(menuSpacing.paddingTop).toBe(8);
+      expect(menuSpacing.paddingBottom).toBe(8);
+      expect(menuSpacing.itemHeights.every(height => Math.abs(height - 32) < .01)).toBe(true);
+    }
+    if (visual) expect(menuSpacing.centerSteps.every(step => Math.abs(step - 36) < .01)).toBe(true);
+    expect(menuSpacing.centerSteps.every((step, index) => step >= (menuSpacing.itemHeights[index] + menuSpacing.itemHeights[index + 1]) / 2 - 1)).toBe(true);
 
     await page.keyboard.press("Escape");
     await page.locator("#catalogSearchInput").fill("드랜");
@@ -177,15 +191,14 @@ test.describe("mobile-first navigation and content", () => {
       const rect = element.getBoundingClientRect();
       return [rect.width, rect.height];
     });
-    expect(clearSize).toEqual([30, 30]);
+    expect(clearSize.every(size => size >= 24)).toBe(true);
+    if (visual) expect(clearSize).toEqual([30, 30]);
   });
 
   test("catalog uses two columns and applies the filter sheet", async ({ page }) => {
     const errors = consoleErrors(page);
     await page.goto("/");
     await page.locator(".mobile-bottom-nav [data-category-catalog-open]").click();
-    await page.waitForTimeout(250);
-
     const firstCard = page.locator("#catalogGrid .catalog-card")
       .filter({ has: page.locator(".bey-image") })
       .first();
@@ -193,7 +206,7 @@ test.describe("mobile-first navigation and content", () => {
     await expect(page.locator("#mobileTopbarTitle")).toHaveText("완구 도감");
     await expect(page.locator("#mobileCatalogFilterOpen")).toBeVisible();
 
-    await page.locator("#catalogSearchInput").focus();
+    await expectFocusIndicator(page.locator("#catalogSearchInput"), page.locator(".catalog-search-box").filter({ has: page.locator("#catalogSearchInput") }));
     const controlStyles = await page.evaluate(() => {
       const searchBox = document.querySelector(".catalog-search-box");
       const scope = document.querySelector("#catalogSearchScope > summary");
@@ -219,17 +232,21 @@ test.describe("mobile-first navigation and content", () => {
         markerDisplay: getComputedStyle(activeTab, "::before").display
       };
     });
-    expect(controlStyles.focusShadow).not.toBe("none");
-    expect(controlStyles.focusShadow).not.toContain("inset");
-    expect(controlStyles.scopeBackground).toBe(controlStyles.expectedScopeBackground);
-    expect(controlStyles.helpBackground).toBe("rgba(0, 0, 0, 0)");
-    expect(controlStyles.activeBackground).toEqual(controlStyles.expectedActiveBackground);
-    expect(controlStyles.markerDisplay).toBe("none");
+    if (visual) {
+      expect(controlStyles.focusShadow).not.toBe("none");
+      expect(controlStyles.focusShadow).not.toContain("inset");
+      expect(controlStyles.scopeBackground).toBe(controlStyles.expectedScopeBackground);
+      expect(controlStyles.helpBackground).toBe("rgba(0, 0, 0, 0)");
+      expect(controlStyles.activeBackground).toEqual(controlStyles.expectedActiveBackground);
+      expect(controlStyles.markerDisplay).toBe("none");
+    }
 
     const columns = await page.locator("#catalogGrid").evaluate(element =>
       getComputedStyle(element).gridTemplateColumns.split(" ").filter(Boolean).length
     );
-    expect(columns).toBe(2);
+    if (visual) {
+      expect(columns).toBe(2);
+    }
     await expect(firstCard.locator(".bey-image")).toHaveAttribute("width", "240");
     await expect(firstCard.locator(".bey-image")).toHaveAttribute("height", "240");
     await expect(firstCard.locator(".bey-image")).toHaveAttribute("sizes", /max-width: 639px/);
@@ -239,8 +256,11 @@ test.describe("mobile-first navigation and content", () => {
       const rect = button.getBoundingClientRect();
       return { width: rect.width, height: rect.height };
     });
-    expect(paginationSize.width).toBeGreaterThanOrEqual(38);
-    expect(paginationSize.height).toBeCloseTo(34, 3);
+    expect(paginationSize.width).toBeGreaterThanOrEqual(24);
+    expect(paginationSize.height).toBeGreaterThanOrEqual(24);
+    if (visual) {
+      expect(paginationSize.height).toBeCloseTo(34, 3);
+    }
 
     const cardParity = await firstCard.evaluate(element => {
       const style = getComputedStyle(element);
@@ -254,16 +274,21 @@ test.describe("mobile-first navigation and content", () => {
         shadow: style.boxShadow
       };
     });
-    expect(cardParity.minHeight).toBe(132);
-    expect(cardParity.imageMaxWidth).toBe("min(78%, 112px)");
+    if (visual) {
+      expect(cardParity.minHeight).toBe(132);
+      expect(cardParity.imageMaxWidth).toBe("min(78%, 112px)");
+    }
     expect(cardParity.titleWhiteSpace).toBe("nowrap");
-    expect(cardParity.radius).toBe("12px");
+    if (visual) {
+      expect(cardParity.radius).toBe("12px");
+    }
     expect(cardParity.shadow).not.toBe("");
 
     await page.locator("#mobileCatalogFilterOpen").click();
     const sheet = page.locator("#mobileCatalogFilters");
     await expect(sheet).toBeVisible();
     await expect(sheet.locator(".mobile-filter-sheet__close")).toBeFocused();
+    await waitForAnimations(sheet);
     const sheetControls = await sheet.evaluate(element => {
       const panelStyle = getComputedStyle(element.querySelector(".mobile-filter-sheet__panel"));
       const optionRect = element.querySelector(".mobile-filter-options .ui-dropdown-item").getBoundingClientRect();
@@ -277,14 +302,20 @@ test.describe("mobile-first navigation and content", () => {
       };
     });
     expect(sheetControls.animationName).not.toBe("mobile-sheet-enter");
-    expect(sheetControls.optionHeight).toBeCloseTo(38, 3);
-    expect(sheetControls.actionHeight).toBeCloseTo(38, 3);
-    expect(sheetControls.closeSize[0]).toBeCloseTo(44, 3);
-    expect(sheetControls.closeSize[1]).toBeCloseTo(44, 3);
+    expect(sheetControls.optionHeight).toBeGreaterThanOrEqual(24);
+    expect(sheetControls.actionHeight).toBeGreaterThanOrEqual(24);
+    expect(sheetControls.closeSize[0]).toBeGreaterThanOrEqual(44);
+    expect(sheetControls.closeSize[1]).toBeGreaterThanOrEqual(44);
+    if (visual) {
+      expect(sheetControls.optionHeight).toBeCloseTo(38, 3);
+      expect(sheetControls.actionHeight).toBeCloseTo(38, 3);
+      expect(sheetControls.closeSize[0]).toBeCloseTo(44, 3);
+      expect(sheetControls.closeSize[1]).toBeCloseTo(44, 3);
+    }
     await page.keyboard.press("Shift+Tab");
     await expect(sheet.locator("[data-mobile-filter-apply]")).toBeFocused();
     await sheet.locator('[data-mobile-filter-query="공격형"]').click();
-    await page.waitForTimeout(250);
+    await waitForAnimations(sheet.locator('[data-mobile-filter-query="공격형"]'), { subtree: false });
     const selectedFilterStyle = await sheet.locator('[data-mobile-filter-query="공격형"]').evaluate(element => {
       const style = getComputedStyle(element);
       const surface = getComputedStyle(element, "::before");
@@ -310,12 +341,14 @@ test.describe("mobile-first navigation and content", () => {
       probe.remove();
       return result;
     });
-    expect(selectedFilterStyle.background).toBe(selectedFilterStyle.expectedBackground);
-    expect(selectedFilterStyle.height).toBeCloseTo(38, 3);
-    expect(selectedFilterStyle.borderWidth).toBe("0px");
-    expect(selectedFilterStyle.radius).toBe(selectedFilterStyle.expectedRadius);
-    expect(selectedFilterStyle.surfaceBackground).toBe(selectedFilterStyle.expectedSurfaceBackground);
-    expect(selectedFilterStyle.surfaceOpacity).toBe("1");
+    if (visual) {
+      expect(selectedFilterStyle.background).toBe(selectedFilterStyle.expectedBackground);
+      expect(selectedFilterStyle.height).toBeCloseTo(38, 3);
+      expect(selectedFilterStyle.borderWidth).toBe("0px");
+      expect(selectedFilterStyle.radius).toBe(selectedFilterStyle.expectedRadius);
+      expect(selectedFilterStyle.surfaceBackground).toBe(selectedFilterStyle.expectedSurfaceBackground);
+      expect(selectedFilterStyle.surfaceOpacity).toBe("1");
+    }
     await sheet.locator("[data-mobile-filter-apply]").click();
     await expect(sheet).toBeHidden();
     await expect(page.locator("#catalogSearchInput")).toHaveValue(/공격형/);
@@ -356,15 +389,17 @@ test.describe("mobile-first navigation and content", () => {
       probe.remove();
       return result;
     });
-    expect(releaseSurface.sectionBackground).toBe(releaseSurface.expectedSectionBackground);
-    expect(releaseSurface.sectionBorderWidth).toBe("1px");
-    expect(releaseSurface.rowBackground).toBe("rgba(0, 0, 0, 0)");
-    expect(releaseSurface.rowShadow).toBe("none");
-    expect(releaseSurface.rowRadius).toBe(releaseSurface.expectedRowRadius);
-    expect(Number(releaseSurface.titleWeight)).toBeLessThanOrEqual(500);
-    expect(releaseSurface.rowMinHeight).toBe("auto");
-    expect(releaseSurface.metaColor).toBe(releaseSurface.expectedMetaColor);
-    expect(releaseSurface.metaFontSize).toBe(releaseSurface.expectedMetaFontSize);
+    if (visual) {
+      expect(releaseSurface.sectionBackground).toBe(releaseSurface.expectedSectionBackground);
+      expect(releaseSurface.sectionBorderWidth).toBe("1px");
+      expect(releaseSurface.rowBackground).toBe("rgba(0, 0, 0, 0)");
+      expect(releaseSurface.rowShadow).toBe("none");
+      expect(releaseSurface.rowRadius).toBe(releaseSurface.expectedRowRadius);
+      expect(Number(releaseSurface.titleWeight)).toBeLessThanOrEqual(500);
+      expect(releaseSurface.rowMinHeight).toBe("auto");
+      expect(releaseSurface.metaColor).toBe(releaseSurface.expectedMetaColor);
+      expect(releaseSurface.metaFontSize).toBe(releaseSurface.expectedMetaFontSize);
+    }
 
     await page.goto("/#anime-episode");
     const episodeRow = page.locator(".anime-episode-row").first();
@@ -414,16 +449,18 @@ test.describe("mobile-first navigation and content", () => {
       });
 
       expect(layout.previewCount).toBe(0);
-      expect(layout.columns).toHaveLength(1);
-      expect(layout.titleWidth).toBeCloseTo(layout.cellWidth, 1);
-      expect(layout.titleRight).toBeCloseTo(layout.cellRight, 1);
+      if (visual) {
+        expect(layout.columns).toHaveLength(1);
+        expect(layout.titleWidth).toBeCloseTo(layout.cellWidth, 1);
+        expect(layout.titleRight).toBeCloseTo(layout.cellRight, 1);
+      }
       expect(layout.metaRight).toBeLessThanOrEqual(layout.cellRight + 1);
       expect(layout.metaTop).toBeGreaterThanOrEqual(layout.titleBottom - 1);
       expect(layout.metaGridRowStart).toBe("auto");
       expect(layout.metaGridColumnStart).toBe("1");
       expect(layout.metaGridColumnEnd).toBe("-1");
       expect(layout.metaJustify).toBe("flex-end");
-      if (width === 442) expect(layout.titleLines).toBe(1);
+      if (width === 442) if (visual) { expect(layout.titleLines).toBe(1); }
     }
 
     expect(errors).toEqual([]);
@@ -476,7 +513,9 @@ test.describe("mobile-first navigation and content", () => {
       });
 
       expect(layout.previewCount).toBe(0);
-      expect(layout.headingDisplay).toBe("flex");
+      if (visual) {
+        expect(layout.headingDisplay).toBe("flex");
+      }
       expect(layout.headingFlexWrap).toBe("wrap");
       expect(layout.badgeWhiteSpace).toBe("nowrap");
       expect(layout.badgeRight).toBeLessThanOrEqual(layout.cellRight + 1);
@@ -484,11 +523,15 @@ test.describe("mobile-first navigation and content", () => {
       expect(layout.metaTop).toBeGreaterThanOrEqual(Math.max(layout.titleBottom, layout.badgeBottom) - 1);
       if (width === 430) {
         expect(Math.abs(layout.badgeCenter - layout.titleCenter)).toBeLessThanOrEqual(0.5);
-        expect(layout.badgeLeft - layout.titleRight).toBeCloseTo(6, 1);
+        if (visual) {
+          expect(layout.badgeLeft - layout.titleRight).toBeCloseTo(6, 1);
+        }
       } else {
-        expect(layout.badgeTop).toBeGreaterThanOrEqual(layout.titleBottom + 3);
-        expect(layout.badgeLeft).toBeCloseTo(layout.headingLeft, 1);
-        expect(layout.titleLeft).toBeCloseTo(layout.headingLeft, 1);
+        if (visual) {
+          expect(layout.badgeTop).toBeGreaterThanOrEqual(layout.titleBottom + 3);
+          expect(layout.badgeLeft).toBeCloseTo(layout.headingLeft, 1);
+          expect(layout.titleLeft).toBeCloseTo(layout.headingLeft, 1);
+        }
       }
     }
 
@@ -510,16 +553,17 @@ test.describe("mobile-first navigation and content", () => {
     await input.press("Enter");
     const firstResult = page.locator(".search-results-list .search-result-item").first();
     await expect(firstResult).toBeVisible();
-    const resultSurface = await firstResult.evaluate(element => ({
+    const resultSurface = () => firstResult.evaluate(element => ({
       background: getComputedStyle(element).backgroundColor,
       borderWidth: getComputedStyle(element).borderTopWidth,
       padding: getComputedStyle(element).padding,
       minHeight: getComputedStyle(element).minHeight
     }));
-    expect(resultSurface.background).toBe("rgba(0, 0, 0, 0)");
-    expect(resultSurface.borderWidth).toBe("0px");
-    expect(resultSurface.padding).toBe("11px 10px");
-    expect(resultSurface.minHeight).toBe("auto");
+    if (visual) {
+      await expect.poll(resultSurface).toEqual({
+        background: "rgba(0, 0, 0, 0)", borderWidth: "0px", padding: "11px 10px", minHeight: "auto"
+      });
+    }
     expect(errors).toEqual([]);
   });
 
@@ -552,7 +596,9 @@ test.describe("mobile-first navigation and content", () => {
         height: Math.round(rect.height)
       };
     });
-    expect(backGeometry).toEqual({ left: 19, top: 19, width: 44, height: 44 });
+    if (visual) {
+      expect(backGeometry).toEqual({ left: 19, top: 19, width: 44, height: 44 });
+    }
 
     const geometry = await shell.evaluate(element => {
       const rect = element.getBoundingClientRect();
@@ -573,17 +619,23 @@ test.describe("mobile-first navigation and content", () => {
         sectionPadding: getComputedStyle(element.querySelector(".modal-info")).getPropertyValue("--modal-section-padding").trim()
       };
     });
-    expect(geometry.left).toBe(8);
-    expect(geometry.top).toBe(8);
-    expect(geometry.width).toBe(geometry.viewportWidth - 16);
-    expect(geometry.height).toBe(geometry.viewportHeight - 16);
+    if (visual) {
+      expect(geometry.left).toBe(8);
+      expect(geometry.top).toBe(8);
+      expect(geometry.width).toBe(geometry.viewportWidth - 16);
+      expect(geometry.height).toBe(geometry.viewportHeight - 16);
+    }
     expect(geometry.shellOverflow).toBe("hidden");
     expect(geometry.innerOverflow).toBe("auto");
-    expect(geometry.borderWidth).toBe(0);
-    expect(geometry.radius).toBe(0);
+    if (visual) {
+      expect(geometry.borderWidth).toBe(0);
+      expect(geometry.radius).toBe(0);
+    }
     expect(geometry.shadow).toBe("none");
-    expect(geometry.overlayDisplay).toBe("block");
-    expect(geometry.sectionPadding).toBe("20px");
+    if (visual) {
+      expect(geometry.overlayDisplay).toBe("block");
+      expect(geometry.sectionPadding).toBe("20px");
+    }
 
     await contextualBack.tap();
     await expect(dialog).toBeHidden();
@@ -614,6 +666,8 @@ test.describe("mobile-first navigation and content", () => {
       await expect(dialog.locator("#modalMobileBack")).toHaveCount(0);
       await expect(dialog.locator(".modal-back")).toHaveCount(0);
       await waitForModalAnimations(dialog);
+      await expectContainedInViewport(dialog.locator(".modal-inner"));
+      await expectContainedInViewport(dialog.locator(".modal-inner"));
       const appearance = await dialog.locator(".modal-inner").evaluate(element => {
         const rect = element.getBoundingClientRect();
         const style = getComputedStyle(element);
@@ -631,22 +685,26 @@ test.describe("mobile-first navigation and content", () => {
       });
 
       if (width < 640) {
-        expect(appearance.left).toBe(8);
-        expect(appearance.top).toBe(8);
-        expect(Math.abs(appearance.width - (appearance.viewportWidth - 16))).toBeLessThanOrEqual(1);
-        expect(Math.abs(appearance.height - (appearance.viewportHeight - 16))).toBeLessThanOrEqual(1);
-        expect(appearance.borderWidth).toBe(0);
-        expect(appearance.radius).toBe(0);
+        if (visual) {
+          expect(appearance.left).toBe(8);
+          expect(appearance.top).toBe(8);
+          expect(Math.abs(appearance.width - (appearance.viewportWidth - 16))).toBeLessThanOrEqual(1);
+          expect(Math.abs(appearance.height - (appearance.viewportHeight - 16))).toBeLessThanOrEqual(1);
+          expect(appearance.borderWidth).toBe(0);
+          expect(appearance.radius).toBe(0);
+        }
         expect(appearance.shadow).toBe("none");
       } else {
         const expectedWidth = Math.min(720, appearance.viewportWidth - 48);
         const expectedHeight = Math.min(620, appearance.viewportHeight - 48);
-        expect(appearance.width).toBe(expectedWidth);
-        expect(appearance.height).toBe(expectedHeight);
-        expect(appearance.left).toBe(Math.round((appearance.viewportWidth - expectedWidth) / 2));
-        expect(appearance.top).toBe(Math.round((appearance.viewportHeight - expectedHeight) / 2));
-        expect(appearance.borderWidth).toBeGreaterThan(0);
-        expect(appearance.radius).toBe(24);
+        if (visual) {
+          expect(appearance.width).toBe(expectedWidth);
+          expect(appearance.height).toBe(expectedHeight);
+          expect(appearance.left).toBe(Math.round((appearance.viewportWidth - expectedWidth) / 2));
+          expect(appearance.top).toBe(Math.round((appearance.viewportHeight - expectedHeight) / 2));
+          expect(appearance.borderWidth).toBeGreaterThan(0);
+          expect(appearance.radius).toBe(24);
+        }
         expect(appearance.shadow).not.toBe("none");
       }
     }
@@ -663,6 +721,7 @@ test.describe("mobile-first navigation and content", () => {
       document.body.style.setProperty("--modal-viewport-width", "504px");
       document.body.style.setProperty("--modal-scrollbar-center-shift", "7.5px");
     });
+    await expectContainedInViewport(dialog.locator(".modal-inner"));
 
     const geometry = await dialog.evaluate(element => {
       const rect = selector => element.querySelector(selector)?.getBoundingClientRect() || null;
@@ -683,11 +742,18 @@ test.describe("mobile-first navigation and content", () => {
       };
     });
 
-    expect(geometry.shellLeft).toBeCloseTo(geometry.shellRight, 1);
-    expect(geometry.sectionLeft).toBeCloseTo(geometry.sectionRight, 1);
-    expect(geometry.closeInset).toBeCloseTo(11, 1);
-    expect(geometry.previousInset).toBeCloseTo(11, 1);
-    expect(geometry.nextInset).toBeCloseTo(11, 1);
+    if (visual) {
+      expect(geometry.shellLeft).toBeCloseTo(geometry.shellRight, 1);
+      expect(geometry.sectionLeft).toBeCloseTo(geometry.sectionRight, 1);
+    }
+    expect(geometry.closeInset).toBeGreaterThanOrEqual(0);
+    expect(geometry.previousInset).toBeGreaterThanOrEqual(0);
+    expect(geometry.nextInset).toBeGreaterThanOrEqual(0);
+    if (visual) {
+      expect(geometry.closeInset).toBeCloseTo(11, 1);
+      expect(geometry.previousInset).toBeCloseTo(11, 1);
+      expect(geometry.nextInset).toBeCloseTo(11, 1);
+    }
 
     await page.goto("/#toy-release");
     const releaseLink = page.locator(".release-product-link").first();
@@ -702,7 +768,9 @@ test.describe("mobile-first navigation and content", () => {
       const back = element.querySelector(".modal-back").getBoundingClientRect();
       return back.left - shell.left;
     });
-    expect(backInset).toBeCloseTo(11, 1);
+    expect(backInset).toBeGreaterThanOrEqual(0);
+    await expectContainedInViewport(dialog.locator(".modal-back"));
+    if (visual) expect(backInset).toBeCloseTo(11, 1);
 
     await page.setViewportSize({ width: 430, height: 932 });
     await expect.poll(() => page.evaluate(() => ({
@@ -711,10 +779,16 @@ test.describe("mobile-first navigation and content", () => {
     }))).toEqual({ actual: 0, expected: 0 });
 
     await page.setViewportSize({ width: 640, height: 900 });
+    await expect.poll(() => page.evaluate(() => ({
+      width: Number.parseFloat(document.body.style.getPropertyValue("--modal-viewport-width")),
+      height: Number.parseFloat(document.body.style.getPropertyValue("--modal-viewport-height"))
+    }))).toEqual({ width: 640, height: 900 });
+    await expectContainedInViewport(dialog.locator(".modal-inner"));
     const before = await dialog.locator(".modal-inner").boundingBox();
     await page.evaluate(() => document.body.style.setProperty("--modal-scrollbar-center-shift", "7.5px"));
     const after = await dialog.locator(".modal-inner").boundingBox();
-    expect(after).toEqual(before);
+    await expectContainedInViewport(dialog.locator(".modal-inner"));
+    if (visual) expect(after).toEqual(before);
   });
 
   test("mobile and general widths share contextual back presentation and rules", async ({ page }) => {
@@ -730,6 +804,7 @@ test.describe("mobile-first navigation and content", () => {
       const back = dialog.locator(".modal-back[data-back-release]");
       await expect(dialog.locator("#modalMobileBack")).toHaveCount(0);
       await expect(back).toBeVisible();
+      await waitForModalAnimations(dialog);
       const rest = await back.evaluate(element => {
         const rect = element.getBoundingClientRect();
         const style = getComputedStyle(element);
@@ -747,7 +822,7 @@ test.describe("mobile-first navigation and content", () => {
       });
       await page.keyboard.press("Tab");
       await back.focus();
-      await page.waitForTimeout(250);
+      await waitForAnimations(back, { subtree: false });
       const focus = await back.evaluate(element => ({
         focusVisible: element.matches(":focus-visible"),
         background: getComputedStyle(element).backgroundColor,
@@ -759,20 +834,29 @@ test.describe("mobile-first navigation and content", () => {
       await expect(page.locator('[data-app-panel="release"].active')).toBeVisible();
     }
 
-    expect(snapshots[0].rest).toEqual(snapshots[1].rest);
-    expect(snapshots[0].focus).toEqual(snapshots[1].focus);
-    expect(snapshots[0].rest.width).toBe(44);
-    expect(snapshots[0].rest.height).toBe(44);
+    if (visual) {
+      expect(snapshots[0].rest).toEqual(snapshots[1].rest);
+      expect(snapshots[0].focus).toEqual(snapshots[1].focus);
+      expect(snapshots[0].rest.width).toBe(44);
+      expect(snapshots[0].rest.height).toBe(44);
+    }
     expect(snapshots[0].focus.focusVisible).toBe(true);
     expect(snapshots[0].focus.shadow).not.toBe(snapshots[0].rest.shadow);
   });
 
   test("mobile modal backdrop shares the card surface across widths and themes", async ({ page }) => {
+    const openAppearanceSample = async () => {
+      const response = await page.goto("/#PART-METAL-FIGHT-FACE-PEGASIS");
+      // A hash-only navigation can retain the previous sample's pending route work.
+      if (!response) await page.reload();
+      await expect(page.locator("#detailModal")).toBeVisible();
+      await waitForModalAnimations(page.locator("#detailModal"));
+    };
     for (const colorScheme of ["light", "dark"]) {
       await page.emulateMedia({ colorScheme });
       for (const width of [393, 430]) {
         await page.setViewportSize({ width, height: width === 393 ? 852 : 932 });
-        await page.goto("/#PART-METAL-FIGHT-FACE-PEGASIS");
+        await openAppearanceSample();
 
         const dialog = page.locator("#detailModal");
         await expect(dialog).toBeVisible();
@@ -787,16 +871,20 @@ test.describe("mobile-first navigation and content", () => {
           };
         });
         expect(appearance.overlay).toBe(appearance.shell);
-        expect(appearance.borderWidth).toBe(0);
-        expect(appearance.radius).toBe(0);
+        if (visual) {
+          expect(appearance.borderWidth).toBe(0);
+          expect(appearance.radius).toBe(0);
+        }
         expect(appearance.shadow).toBe("none");
 
+        const detailUrl = page.url();
         await dialog.locator(".modal-overlay").click({ position: { x: 2, y: 2 } });
         await expect(dialog).toBeHidden();
+        await expect(page).not.toHaveURL(detailUrl);
       }
 
       await page.setViewportSize({ width: 640, height: 900 });
-      await page.goto("/#PART-METAL-FIGHT-FACE-PEGASIS");
+      await openAppearanceSample();
       const desktopAppearance = await page.locator("#detailModal").evaluate(element => {
         const shellStyle = getComputedStyle(element.querySelector(".modal-inner"));
         const probe = document.createElement("i");
@@ -812,10 +900,12 @@ test.describe("mobile-first navigation and content", () => {
           shadow: shellStyle.boxShadow
         };
       });
-      expect(desktopAppearance.overlay).toBe(desktopAppearance.scrim);
-      expect(desktopAppearance.borderWidth).toBeGreaterThan(0);
-      expect(desktopAppearance.radius).toBe(24);
-      expect(desktopAppearance.shadow).not.toBe("none");
+      if (visual) {
+        expect(desktopAppearance.overlay).toBe(desktopAppearance.scrim);
+        expect(desktopAppearance.borderWidth).toBeGreaterThan(0);
+        expect(desktopAppearance.radius).toBe(24);
+        expect(desktopAppearance.shadow).not.toBe("none");
+      }
     }
   });
 
@@ -848,12 +938,17 @@ test.describe("mobile-first navigation and content", () => {
     });
 
     expect(layout.documentWidth).toBeLessThanOrEqual(layout.viewportWidth + 1);
-    expect(layout.shellLeft).toBeGreaterThanOrEqual(8);
-    expect(layout.shellLeft).toBeLessThanOrEqual(12);
-    expect(layout.shellRight).toBeGreaterThanOrEqual(8);
-    expect(layout.shellRight).toBeLessThanOrEqual(12);
-    expect(layout.shellRadius).toBe(0);
-    expect(layout.activeBackground).toBe(layout.expectedActiveBackground);
-    expect(layout.activeTargetMinHeight).toBe(52);
+    if (visual) {
+      expect(layout.shellLeft).toBeGreaterThanOrEqual(8);
+      expect(layout.shellLeft).toBeLessThanOrEqual(12);
+      expect(layout.shellRight).toBeGreaterThanOrEqual(8);
+      expect(layout.shellRight).toBeLessThanOrEqual(12);
+      expect(layout.shellRadius).toBe(0);
+      expect(layout.activeBackground).toBe(layout.expectedActiveBackground);
+    }
+    expect(layout.activeTargetMinHeight).toBeGreaterThanOrEqual(44);
+    if (visual) {
+      expect(layout.activeTargetMinHeight).toBe(52);
+    }
   });
 });

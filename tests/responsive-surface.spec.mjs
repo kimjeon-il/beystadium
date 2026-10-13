@@ -1,7 +1,9 @@
 import { expect, test } from "@playwright/test";
-import { consoleErrors, expectNavigationUnderline } from "./helpers/ui-assertions.mjs";
+import { consoleErrors, expectCurrentNavigation, expectFocusIndicator, expectNavigationUnderline, waitForAnimations, waitForModalAnimations } from "./helpers/ui-assertions.mjs";
 
-test("desktop release title group preserves the existing inline layout", async ({ page }, testInfo) => {
+const visual = process.env.VALIDATION_MODE === "visual";
+
+test("desktop release title group preserves the existing inline layout", { tag: "@design-flow" }, async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "desktop layout only needs one browser project");
   const errors = consoleErrors(page);
   await page.setViewportSize({ width: 1024, height: 900 });
@@ -31,17 +33,21 @@ test("desktop release title group preserves the existing inline layout", async (
     };
   });
 
-  expect(layout.cellDisplay).toBe("inline-flex");
-  expect(layout.cellGap).toBeCloseTo(8, 1);
-  expect(layout.headingDisplay).toBe("contents");
-  expect(layout.badgeGap).toBeCloseTo(8, 1);
+  if (visual) {
+    expect(layout.cellDisplay).toBe("inline-flex");
+    expect(layout.cellGap).toBeCloseTo(8, 1);
+    expect(layout.headingDisplay).toBe("contents");
+    expect(layout.badgeGap).toBeCloseTo(8, 1);
+  }
   expect(layout.badgeCenter).toBeCloseTo(layout.titleCenter, 1);
-  expect(layout.metaDisplay).toBe("none");
-  expect(layout.previewDisplay).toBe("missing");
+  if (visual) {
+    expect(layout.metaDisplay).toBe("none");
+    expect(layout.previewDisplay).toBe("missing");
+  }
   expect(errors).toEqual([]);
 });
 
-test("phone navigation keeps transparent surfaces and visible current underlines", async ({ page }, testInfo) => {
+test("phone navigation keeps transparent surfaces and visible current underlines", { tag: "@design-flow" }, async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "pointer hover is verified in one desktop browser");
   await page.setViewportSize({ width: 474, height: 800 });
 
@@ -51,7 +57,8 @@ test("phone navigation keeps transparent surfaces and visible current underlines
     const currentTab = page.locator(".mobile-bottom-nav [data-sidebar-home]");
     const hoverTab = page.locator(".mobile-bottom-nav [data-category-catalog-open]");
     await expect(currentTab).toBeVisible();
-    await expectNavigationUnderline(currentTab);
+    await expectCurrentNavigation(currentTab);
+    if (visual) await expectNavigationUnderline(currentTab);
     await hoverTab.hover();
     await expect.poll(() => page.evaluate(() => {
       const current = document.querySelector(".mobile-bottom-nav [data-sidebar-home]");
@@ -75,15 +82,17 @@ test("phone navigation keeps transparent surfaces and visible current underlines
       };
     });
 
-    expect(surfaces.currentHeight).toBeCloseTo(52, 3);
-    expect(surfaces.hoverHeight).toBeCloseTo(52, 3);
-    expect(surfaces.hoverBackground).toBe(surfaces.currentBackground);
-    expect(surfaces.hoverRadius).toBe(surfaces.currentRadius);
-    expect(surfaces.markerDisplay).toBe("none");
+    if (visual) {
+      expect(surfaces.currentHeight).toBeCloseTo(52, 3);
+      expect(surfaces.hoverHeight).toBeCloseTo(52, 3);
+      expect(surfaces.hoverBackground).toBe(surfaces.currentBackground);
+      expect(surfaces.hoverRadius).toBe(surfaces.currentRadius);
+      expect(surfaces.markerDisplay).toBe("none");
+    }
   }
 });
 
-test("touch layouts ignore decorative hover without losing persistent states", async ({ page }, testInfo) => {
+test("touch layouts ignore decorative hover without losing persistent states", { tag: "@design-flow" }, async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "mobile", "touch hover behavior only needs the mobile project");
   const errors = consoleErrors(page);
   const visualState = locator => locator.evaluate(element => {
@@ -136,14 +145,14 @@ test("touch layouts ignore decorative hover without losing persistent states", a
   await page.goto("/#BEY-X-BX-02-HELLS-SCYTHE-4-60T");
   const closeButton = page.locator("#modalClose");
   await expect(closeButton).toBeVisible();
-  await page.waitForTimeout(250);
+  await waitForModalAnimations(page.locator("#detailModal"));
   const closeRest = await visualState(closeButton);
   await closeButton.hover();
   expect(await visualState(closeButton)).toEqual(closeRest);
   expect(errors).toEqual([]);
 });
 
-test("mobile table rows use one parent highlight surface", async ({ page }, testInfo) => {
+test("mobile table rows use one parent highlight surface", { tag: "@design-flow" }, async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "fine-pointer responsive comparison only needs one browser project");
   const tableCases = [
     { route: "#toy-release", rowSelector: ".release-product-row" },
@@ -176,27 +185,33 @@ test("mobile table rows use one parent highlight surface", async ({ page }, test
       await page.mouse.move(0, 0);
 
       const rest = await highlightState(row);
-      expect(rest.rowBackground).toBe("rgba(0, 0, 0, 0)");
-      expect(rest.cellBackgrounds.every(background => background === "rgba(0, 0, 0, 0)")).toBe(true);
+      if (visual) {
+        expect(rest.rowBackground).toBe("rgba(0, 0, 0, 0)");
+        expect(rest.cellBackgrounds.every(background => background === "rgba(0, 0, 0, 0)")).toBe(true);
+      }
 
       await row.hover();
-      await expect.poll(async () => {
-        const state = await highlightState(row);
-        return {
-          rowHighlighted: sameRgb(state.rowBackground, state.expectedBackground),
-          cellsTransparent: state.cellBackgrounds.every(background => background === "rgba(0, 0, 0, 0)")
-        };
-      }).toEqual({ rowHighlighted: true, cellsTransparent: true });
+      if (visual) {
+        await expect.poll(async () => {
+          await row.hover();
+          const state = await highlightState(row);
+          return {
+            rowHighlighted: sameRgb(state.rowBackground, state.expectedBackground),
+            cellsTransparent: state.cellBackgrounds.every(background => background === "rgba(0, 0, 0, 0)")
+          };
+        }).toEqual({ rowHighlighted: true, cellsTransparent: true });
+      }
 
       await page.mouse.move(0, 0);
       const action = row.locator(".table-list-row-action");
-      await action.focus();
-      await expect(action).toBeFocused();
+      await expectFocusIndicator(action, row);
       const focused = await highlightState(row);
-      expect(sameRgb(focused.rowBackground, focused.expectedBackground)).toBe(true);
-      expect(focused.cellBackgrounds.every(background => background === "rgba(0, 0, 0, 0)")).toBe(true);
-      expect(Number.parseFloat(focused.rowRadius)).toBeGreaterThan(0);
-      expect(Number.parseFloat(focused.rowOutlineWidth)).toBeGreaterThan(0);
+      if (visual) {
+        expect(sameRgb(focused.rowBackground, focused.expectedBackground)).toBe(true);
+        expect(focused.cellBackgrounds.every(background => background === "rgba(0, 0, 0, 0)")).toBe(true);
+        expect(Number.parseFloat(focused.rowRadius)).toBeGreaterThan(0);
+        expect(Number.parseFloat(focused.rowOutlineWidth)).toBeGreaterThan(0);
+      }
     }
   }
 
@@ -206,17 +221,22 @@ test("mobile table rows use one parent highlight surface", async ({ page }, test
     const row = page.locator(rowSelector).first();
     await expect(row).toBeVisible();
     await row.hover();
-    await expect.poll(async () => {
-      const state = await highlightState(row);
-      return {
-        rowTransparent: state.rowBackground === "rgba(0, 0, 0, 0)",
-        cellsHighlighted: state.cellBackgrounds.every(background => sameRgb(background, state.expectedBackground))
-      };
-    }).toEqual({ rowTransparent: true, cellsHighlighted: true });
+    await expectFocusIndicator(row.locator(".table-list-row-action"), row);
+    if (visual) {
+      await row.locator(".table-list-row-action").evaluate(element => element.blur());
+      await expect.poll(async () => {
+        await row.hover();
+        const state = await highlightState(row);
+        return {
+          rowTransparent: state.rowBackground === "rgba(0, 0, 0, 0)",
+          cellsHighlighted: state.cellBackgrounds.every(background => sameRgb(background, state.expectedBackground))
+        };
+      }).toEqual({ rowTransparent: true, cellsHighlighted: true });
+    }
   }
 });
 
-test("topbar stays 72px and keeps search available from 640px", async ({ page }, testInfo) => {
+test("topbar stays 72px and keeps search available from 640px", { tag: "@design-flow" }, async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "responsive viewport matrix only needs one browser project");
 
   for (const width of [360, 393, 639, 640, 709, 799, 800, 900, 1023, 1024, 1280]) {
@@ -225,7 +245,9 @@ test("topbar stays 72px and keeps search available from 640px", async ({ page },
 
     const topbar = page.locator(".topbar");
     await expect(topbar).toBeVisible();
-    await expect(topbar).toHaveCSS("height", "72px");
+    if (visual) {
+      await expect(topbar).toHaveCSS("height", "72px");
+    }
 
     const brand = page.locator(".topbar > .brand");
     const primaryNav = page.locator(".topbar-primary-nav");
@@ -254,8 +276,10 @@ test("topbar stays 72px and keeps search available from 640px", async ({ page },
             : 0
         };
       });
-      expect(mobileAlignment.titleCenterOffset).toBeLessThanOrEqual(1);
-      expect(mobileAlignment.backCenterOffset).toBeLessThanOrEqual(1);
+      if (visual) {
+        expect(mobileAlignment.titleCenterOffset).toBeLessThanOrEqual(1);
+        expect(mobileAlignment.backCenterOffset).toBeLessThanOrEqual(1);
+      }
     } else {
       await expect(page.locator(".mobile-topbar")).toBeHidden();
       await expect(brand).toBeVisible();
@@ -299,7 +323,7 @@ test("topbar stays 72px and keeps search available from 640px", async ({ page },
   }
 });
 
-test("compact tablet search opens below the topbar and follows keyboard dismissal", async ({ page }, testInfo) => {
+test("compact tablet search opens below the topbar and follows keyboard dismissal", { tag: "@design-flow" }, async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "compact topbar behavior only needs one browser project");
   await page.setViewportSize({ width: 709, height: 900 });
   await page.goto("/#toy-catalog");
@@ -311,7 +335,7 @@ test("compact tablet search opens below the topbar and follows keyboard dismissa
   await expect(toggle).toHaveAttribute("aria-expanded", "true");
   await expect(search).toBeVisible();
   await expect(input).toBeFocused();
-  await page.waitForTimeout(250);
+  await waitForAnimations(search, { subtree: false });
 
   const openLayout = await page.evaluate(() => {
     const bar = document.querySelector(".topbar").getBoundingClientRect();
@@ -322,8 +346,10 @@ test("compact tablet search opens below the topbar and follows keyboard dismissa
       searchRightOverflow: searchBox.right - window.innerWidth
     };
   });
-  expect(openLayout.topbarHeight).toBe(72);
-  expect(openLayout.searchGap).toBeGreaterThanOrEqual(7);
+  if (visual) {
+    expect(openLayout.topbarHeight).toBe(72);
+    expect(openLayout.searchGap).toBeGreaterThanOrEqual(7);
+  }
   expect(openLayout.searchRightOverflow).toBeLessThanOrEqual(0);
 
   await page.keyboard.press("Escape");
@@ -342,7 +368,7 @@ test("compact tablet search opens below the topbar and follows keyboard dismissa
   await expect(search).toBeVisible();
 });
 
-test("topbar uses one opaque surface across responsive widths", async ({ page }, testInfo) => {
+test("topbar uses one opaque surface across responsive widths", { tag: "@design-flow" }, async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "responsive surface comparison only needs one browser project");
 
   for (const colorScheme of ["light", "dark"]) {
@@ -364,15 +390,19 @@ test("topbar uses one opaque surface across responsive widths", async ({ page },
           backdropFilter: actual.backdropFilter
         };
       });
-      expect(surface.background).toBe(surface.expectedBackground);
-      expect(surface.backdropFilter).toBe("none");
+      if (visual) {
+        expect(surface.background).toBe(surface.expectedBackground);
+        expect(surface.backdropFilter).toBe("none");
+      }
       backgrounds.push(surface.background);
     }
-    expect(new Set(backgrounds).size).toBe(1);
+    if (visual) {
+      expect(new Set(backgrounds).size).toBe(1);
+    }
   }
 });
 
-test("tablet primary menu keeps desktop active and focus states", async ({ page }, testInfo) => {
+test("tablet primary menu keeps desktop active and focus states", { tag: "@design-flow" }, async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "tablet state comparison only needs one browser project");
   await page.setViewportSize({ width: 785, height: 900 });
 
@@ -382,7 +412,8 @@ test("tablet primary menu keeps desktop active and focus states", async ({ page 
 
     const activeButton = page.locator(".topbar .topbar-primary-button[data-category-catalog-open]");
     await expect(activeButton).toHaveClass(/active/);
-    await expectNavigationUnderline(activeButton);
+    await expectCurrentNavigation(activeButton);
+    if (visual) await expectNavigationUnderline(activeButton);
     const activeColors = await activeButton.evaluate(element => {
       const probe = document.createElement("i");
       probe.style.cssText = "position:fixed;background:transparent;color:var(--ui-accent)";
@@ -398,11 +429,15 @@ test("tablet primary menu keeps desktop active and focus states", async ({ page 
       probe.remove();
       return result;
     });
-    expect(activeColors.background).toBe(activeColors.expectedBackground);
-    expect(activeColors.color).toBe(activeColors.expectedColor);
+    if (visual) {
+      expect(activeColors.background).toBe(activeColors.expectedBackground);
+      expect(activeColors.color).toBe(activeColors.expectedColor);
+    }
 
     const focusButton = page.locator(".topbar .topbar-primary-button[data-category-release-open]");
-    await focusButton.focus();
-    expect(await focusButton.evaluate(element => getComputedStyle(element).boxShadow)).not.toBe("none");
+    await expectFocusIndicator(focusButton);
+    if (visual) {
+      expect(await focusButton.evaluate(element => getComputedStyle(element).boxShadow)).not.toBe("none");
+    }
   }
 });

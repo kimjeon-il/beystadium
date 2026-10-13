@@ -241,6 +241,7 @@ class ModalController {
       return root;
     }
     hideLinkImagePreview();
+    this.modal?.removeAttribute("data-detail-id");
     root.innerHTML = html;
     bindScrollAffordances(root);
     const { transition, origin } = takeModalTransition();
@@ -258,6 +259,7 @@ class ModalController {
 
   finishOpen({ contextKind, contextId, contextOptions = {}, root = document } = {}) {
     if (contextKind && contextId) rememberModalContext(contextKind, contextId, contextOptions);
+    if (this.modal && contextId) this.modal.dataset.detailId = contextId;
     this.open();
     scheduleScrollAffordances(root);
     return root;

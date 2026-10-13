@@ -5,11 +5,13 @@ export default defineConfig({
   timeout: 60_000,
   expect: { timeout: 10_000 },
   fullyParallel: false,
+  workers: 2,
   retries: process.env.CI ? 1 : 0,
   reporter: process.env.CI ? "github" : "line",
   use: {
     baseURL: "http://127.0.0.1:4175",
-    trace: "retain-on-failure"
+    trace: "on-first-retry",
+    screenshot: "only-on-failure"
   },
   webServer: {
     command: "node scripts/serve.mjs --port 4175",

@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { consoleErrors, expectModalBackAtShellTopLeft, waitForModalAnimations } from "./helpers/ui-assertions.mjs";
+import { consoleErrors, expectModalBackAtShellTopLeft, waitForDetail, waitForModalAnimations } from "./helpers/ui-assertions.mjs";
 
 const sword = "BEY-X-BX-01-DRAN-SWORD-3-60F";
 const storm = "BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF";
@@ -111,9 +111,17 @@ test("verified Metal Bey users support keyboard navigation and season-labeled ch
 
 const openKoreanReleaseProduct = async (page, { series, query, productId }) => {
   await page.goto("/#toy-release");
+  await expect(page.locator(".release-product-row").first()).toBeVisible();
   await page.locator('.release-region-tabs button[data-release-region="kr"]').click();
   await page.locator(".release-list-page .table-list-dropdown summary").click();
-  await page.locator(`[data-release-series="${series}"]`).click();
+  const seriesButton = page.locator(`[data-release-series="${series}"]`);
+  if ((await seriesButton.getAttribute("class"))?.split(/\s+/).includes("active")) {
+    await page.locator(".release-list-page .table-list-dropdown summary").click();
+  } else {
+    await seriesButton.click();
+  }
+  await expect(seriesButton).toBeHidden();
+  await expect(page.locator(`.release-product-row[data-product-id="${productId}"]`)).toBeVisible();
   await page.locator("#releaseSearchInput").fill(query);
   await page.locator(`.release-product-row[data-product-id="${productId}"] .release-product-link`).click();
   await expect(page).toHaveURL(new RegExp(`#${productId}$`));
@@ -211,7 +219,7 @@ test("every mounted and bundled badge matches its part detail title while Bey ti
     "BEY-X-CX-13-BAHAMUT-BLITZ-BK-1-50I"
   ]) {
     await page.goto(`/#${beyId}`);
-    await expect(modal).toBeVisible();
+    await waitForDetail(page, beyId);
     const beyTitle = await modal.locator(".modal-name").innerText();
     const partIds = await modal.locator(".mounted-link").evaluateAll(links => links.map(link => link.dataset.partId));
     for (const id of partIds) {

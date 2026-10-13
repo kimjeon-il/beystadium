@@ -2,7 +2,8 @@ import assert from 'node:assert/strict';
 import { registerHooks } from 'node:module';
 import { readFileSync } from 'node:fs';
 import test from 'node:test';
-const imports = JSON.parse(readFileSync(new URL('../index.html', import.meta.url), 'utf8').match(/<script\s+type="importmap">([\s\S]*?)<\/script>/)[1]).imports;
+import { readImportMap } from '../scripts/app-audit-model.mjs';
+const imports = readImportMap(readFileSync(new URL('../index.html', import.meta.url), 'utf8'));
 registerHooks({ resolve(specifier, context, nextResolve) {
   return nextResolve(imports[specifier] ? new URL(`../${imports[specifier].split('?')[0]}`, import.meta.url).href : specifier, context);
 }});

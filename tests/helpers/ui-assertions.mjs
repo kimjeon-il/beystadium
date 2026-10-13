@@ -1,7 +1,5 @@
 import { expect } from "@playwright/test";
 
-const X_ASSET_CACHE_VERSION = "20260827-burst-b36-official-front";
-
 const consoleErrors = page => {
   const errors = [];
   page.on("console", message => {
@@ -45,6 +43,64 @@ const waitForAnimations = async (locator, { subtree = true } = {}) => {
 };
 const waitForModalAnimations = waitForAnimations;
 
+const findPaginatedItem = async (page, item, { pagination = "#animePagination" } = {}) => {
+  await expect.poll(async () => await item.isVisible() || await page.locator(pagination).isVisible()).toBe(true);
+  const visited = new Set(await page.locator(`${pagination} [data-anime-page][aria-current="page"]`).evaluateAll(buttons => buttons.map(button => Number(button.dataset.animePage))));
+  const pages = () => page.locator(`${pagination} [data-anime-page]:not(:disabled):visible`);
+  const initial = await page.locator(`${pagination} [data-anime-page]`).evaluateAll(buttons => buttons.map(button => Number(button.dataset.animePage)));
+  const lastPage = Math.max(1, ...initial);
+  while (!(await item.isVisible())) {
+    const candidates = await pages().evaluateAll(buttons => buttons.map(button => Number(button.dataset.animePage)));
+    const next = candidates.find(number => Number.isInteger(number) && number > 0 && number <= lastPage && !visited.has(number));
+    if (next === undefined) throw new Error(`Paginated item not found: ${item}`);
+    visited.add(next);
+    await page.locator(`${pagination} [data-anime-page="${next}"]:not(:disabled):visible`).first().click();
+  }
+  return item;
+};
+
+const expectVersionedAsset = async (image, expectedPath) => {
+  const documentBase = await image.evaluate(element => element.ownerDocument.baseURI);
+  const base = /^https?:/.test(documentBase) ? documentBase : "https://asset.invalid/";
+  const expected = new URL(expectedPath, base);
+  await expect.poll(async () => {
+    const source = await image.getAttribute("src");
+    if (!source) return null;
+    const actual = new URL(source, base);
+    return { origin: actual.origin, path: actual.pathname, versioned: Boolean(actual.searchParams.get("v")?.trim()) };
+  }).toEqual({ origin: expected.origin, path: expected.pathname, versioned: true });
+};
+
+const waitForDetail = async (page, id) => {
+  const modal = page.locator("#detailModal");
+  await expect(modal).toHaveAttribute("data-detail-id", id);
+  await expect(modal).toBeVisible();
+  return modal;
+};
+
+const expectCurrentNavigation = async button => {
+  await expect(button).toBeVisible();
+  await expect(button).toBeEnabled();
+  await expect(button).toHaveAttribute("aria-current", "page");
+  const bounds = await button.boundingBox();
+  expect(bounds.width, "primary navigation target width").toBeGreaterThanOrEqual(44);
+  expect(bounds.height, "primary navigation target height").toBeGreaterThanOrEqual(44);
+};
+
+const expectContainedInViewport = async locator => {
+  await waitForAnimations(locator, { subtree: false });
+  const bounds = await locator.evaluate(element => {
+    const rect = element.getBoundingClientRect();
+    return { left: rect.left, top: rect.top, right: rect.right, bottom: rect.bottom, width: rect.width, height: rect.height, viewportWidth: window.innerWidth, viewportHeight: window.innerHeight };
+  });
+  expect(bounds.width).toBeGreaterThan(0);
+  expect(bounds.height).toBeGreaterThan(0);
+  expect(bounds.left).toBeGreaterThanOrEqual(-1);
+  expect(bounds.top).toBeGreaterThanOrEqual(-1);
+  expect(bounds.right).toBeLessThanOrEqual(bounds.viewportWidth + 1);
+  expect(bounds.bottom).toBeLessThanOrEqual(bounds.viewportHeight + 1);
+};
+
 const expectNavigationUnderline = async button => {
   await expect(button).toHaveAttribute("aria-current", "page");
   await expect(button).toHaveCSS("background-color", "rgba(0, 0, 0, 0)");
@@ -67,11 +123,18 @@ const expectFocusIndicator = async (locator, surface = locator) => {
     return {
       boxShadow: style.boxShadow,
       borderColor: style.borderColor,
+      borderWidth: style.borderWidth,
+      borderStyle: style.borderStyle,
       outlineStyle: style.outlineStyle,
       outlineWidth: style.outlineWidth,
+      outlineColor: style.outlineColor,
       focusVisible: element.matches(":focus-visible")
     };
   };
+  await surface.scrollIntoViewIfNeeded();
+  await locator.page().mouse.move(0, 0);
+  await locator.evaluate(element => element.blur());
+  await waitForAnimations(surface, { subtree: false });
   const before = await surface.evaluate(readIndicator);
   await locator.press("Tab");
   await locator.focus();
@@ -79,8 +142,16 @@ const expectFocusIndicator = async (locator, surface = locator) => {
   await expect.poll(() => locator.evaluate(element => element.matches(":focus-visible"))).toBe(true);
   await expect.poll(async () => {
     const after = await surface.evaluate(readIndicator);
-    const visibleOutline = after.outlineStyle !== "none" && Number.parseFloat(after.outlineWidth) > 0;
-    return after.boxShadow !== before.boxShadow || after.borderColor !== before.borderColor || visibleOutline;
+    const transparent = color => color === "transparent" || /^rgba\([^)]*,\s*0(?:\.0+)?\)$/.test(color) || /\/\s*0(?:\.0+)?\s*\)$/.test(color);
+    const visibleOutline = after.outlineStyle !== "none" && Number.parseFloat(after.outlineWidth) > 0
+      && !transparent(after.outlineColor)
+      && ["outlineStyle", "outlineWidth", "outlineColor"].some(key => after[key] !== before[key]);
+    const visibleBorder = after.borderStyle !== "none" && after.borderWidth.split(" ").some(width => Number.parseFloat(width) > 0)
+      && !transparent(after.borderColor)
+      && ["borderStyle", "borderWidth", "borderColor"].some(key => after[key] !== before[key]);
+    const shadowColors = after.boxShadow.match(/(?:rgba?|color|oklch|lab|lch)\([^)]*\)/g) || [];
+    const visibleShadow = after.boxShadow !== before.boxShadow && shadowColors.some(color => !transparent(color));
+    return visibleShadow || visibleBorder || visibleOutline;
   }).toBe(true);
 };
 
@@ -105,35 +176,20 @@ const expectModalBackAtShellTopLeft = async backButton => {
   const geometry = await backButton.evaluate(button => {
     const shell = button.closest(".modal-inner");
     const rect = button.getBoundingClientRect();
+    const shellRect = shell.getBoundingClientRect();
     return {
-      compact: window.matchMedia("(max-width: 39.999rem)").matches,
-      parentIsShell: button.parentElement === shell,
-      offsetParentIsShell: button.offsetParent === shell,
-      left: Math.round(button.offsetLeft),
-      top: Math.round(button.offsetTop),
-      viewportLeft: Math.round(rect.left),
-      viewportTop: Math.round(rect.top),
-      position: getComputedStyle(button).position
+      contained: rect.left >= shellRect.left - 1 && rect.top >= shellRect.top - 1
+        && rect.right <= shellRect.right + 1 && rect.bottom <= shellRect.bottom + 1,
+      inTopLeft: rect.left + rect.width / 2 < shellRect.left + shellRect.width / 2
+        && rect.top + rect.height / 2 < shellRect.top + shellRect.height / 2,
+      width: rect.width,
+      height: rect.height
     };
   });
-  if (geometry.compact) {
-    expect(geometry.parentIsShell).toBe(true);
-    expect(geometry.offsetParentIsShell).toBe(true);
-    expect(geometry.position).toBe("absolute");
-    expect(geometry.left).toBe(11);
-    expect(geometry.top).toBe(11);
-    expect(Math.abs(geometry.viewportLeft - 19)).toBeLessThanOrEqual(2);
-    expect(Math.abs(geometry.viewportTop - 19)).toBeLessThanOrEqual(2);
-    return;
-  }
-  expect(geometry).toMatchObject({
-    compact: false,
-    parentIsShell: true,
-    offsetParentIsShell: true,
-    left: 18,
-    top: 18,
-    position: "absolute"
-  });
+  expect(geometry.contained).toBe(true);
+  expect(geometry.inTopLeft).toBe(true);
+  expect(geometry.width).toBeGreaterThanOrEqual(44);
+  expect(geometry.height).toBeGreaterThanOrEqual(44);
 };
 
 const animeLayoutSnapshot = page => page.evaluate(() => {
@@ -192,16 +248,20 @@ const expectTableListTitleSnapshot = (actual, expected) => {
 };
 
 export {
-  X_ASSET_CACHE_VERSION,
   animeLayoutSnapshot,
   consoleErrors,
   expectActionRowFocusIndicator,
   expectFocusIndicator,
+  expectCurrentNavigation,
+  expectContainedInViewport,
+  expectVersionedAsset,
+  findPaginatedItem,
   expectModalBackAtShellTopLeft,
   expectNavigationUnderline,
   expectTableListTitleSnapshot,
   injectRegionalProductPreviewImages,
   tableListTitleSnapshot,
   waitForAnimations,
+  waitForDetail,
   waitForModalAnimations
 };

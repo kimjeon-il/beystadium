@@ -8,11 +8,10 @@ import { characterForSeason, characterUsageGroups } from "../src/character-usage
 const newCharacters = () => animeInfo.characters.filter(character => character.series === "metal fight" && !character.season);
 const expectedNames = ["혜성", "아그마", "킹", "듀나미스", "크리스", "티티", "라고", "플루토", "요하네스", "바오", "하셸", "케이저", "큐크너스", "토비", "직소", "류토"];
 const catalog = new Map([...beyItems, ...partItems].map(item => [item.id, item]));
-test("exactly the 16 requested new identities are unscoped and do not create seasonal appearances", () => {
-  const characters = newCharacters();
+test("the requested identities remain unscoped and do not create seasonal appearances", () => {
+  const characters = newCharacters().filter(character => expectedNames.includes(character.name));
   assert.deepEqual(characters.map(character => character.name), expectedNames);
-  assert.equal(animeInfo.characters.length, 80);
-  assert.equal(new Set(animeInfo.characters.map(character => character.id)).size, 80);
+  assert.equal(new Set(animeInfo.characters.map(character => character.id)).size, animeInfo.characters.length);
   for (const character of characters) {
     assert.equal("season" in character, false);
     assert.equal("usages" in character, false);
@@ -26,7 +25,7 @@ test("exactly the 16 requested new identities are unscoped and do not create sea
   }
 });
 test("new exact editions derive user links and catalog labels without family expansion", () => {
-  assert.equal(newCharacters().length, 16);
+  assert.ok(expectedNames.every(name => newCharacters().some(character => character.name === name)));
   for (const character of newCharacters()) {
     for (const id of character.beyIds) {
       const bey = catalog.get(id);

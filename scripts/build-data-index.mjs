@@ -237,12 +237,12 @@ export async function buildGeneratedData() {
   return runtime;
 }
 
-export async function checkGeneratedData() {
+export async function checkGeneratedData({ read = readFile } = {}) {
   const mismatches = [];
   for (const [path, payload] of generatedFiles(buildRuntimeData())) {
     try {
-      const current = await readFile(new URL(`../${path}`, import.meta.url), "utf8");
-      if (current !== jsonText(payload)) mismatches.push(path);
+      const current = await read(new URL(`../${path}`, import.meta.url), "utf8");
+      if (current.replace(/\r\n/g, "\n") !== jsonText(payload)) mismatches.push(path);
     } catch {
       mismatches.push(path);
     }

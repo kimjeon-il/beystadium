@@ -1,23 +1,13 @@
 import { Buffer } from "node:buffer";
-import { access, readFile, readdir } from "node:fs/promises";
-import { dirname, extname, relative, resolve } from "node:path";
+import { access, readFile } from "node:fs/promises";
+import { dirname, relative, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
+import { htmlResources, moduleImports, readImportMap, requireModuleFile, sourceModules } from "./app-audit-model.mjs";
+import { searchScopeValues } from "../src/search-scopes.js";
+import { HOME_TEXT_LIMIT, BASE_CSS_LIMIT, CSS_IMPORTANT_LIMIT, SOURCE_LINE_LIMIT } from "./validation-budgets.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const fromRoot = file => resolve(root, file);
-const HOME_TEXT_FILES = [
-  "index.html",
-  "styles/base.css",
-  "styles/mobile.css",
-  "favicon.svg",
-  "src/bootstrap.js",
-  "src/data-store.js",
-  "data/runtime/index.json"
-];
-const HOME_TEXT_LIMIT = 140_000;
-const BASE_CSS_LIMIT = 60_000;
-const CSS_IMPORTANT_LIMIT = 80;
-const SOURCE_LINE_LIMIT = 1_000;
 const FORBIDDEN_HIGHLIGHT_PATTERN = /--ui-selection-|#(?:0f6cbd|62abf5)\b/i;
 
 const byteSize = async file => Buffer.byteLength(
@@ -36,31 +26,39 @@ const stripQuery = value => String(value || "").split("?")[0].split("#")[0];
 const projectPath = value => stripQuery(value).replace(/^\.\//, "");
 
 const indexHtml = await readFile(fromRoot("index.html"), "utf8");
-const importMapMatch = indexHtml.match(/<script\s+type="importmap">([\s\S]*?)<\/script>/i);
-if (!importMapMatch) throw new Error("index.html import map is missing.");
-const importMap = JSON.parse(importMapMatch[1]).imports || {};
+const importMap = readImportMap(indexHtml);
+const resources = htmlResources(indexHtml);
+const moduleEntries = resources.filter(entry => entry.tag === "script" && entry.type === "module");
+if (!moduleEntries.length) throw new Error("No module entry point in index.html");
+const baseStyle = resources.find(entry => entry["data-style-key"] === "base");
+if (!baseStyle) throw new Error("Base stylesheet resource is missing");
+// Preserve the existing core-text budget scope; discover its paths from declared roles.
+const homeTextFiles = [...new Set([
+  "index.html",
+  ...resources.filter(entry => ["base", "mobile"].includes(entry["data-style-key"]) || entry.rel === "icon").map(entry => projectPath(entry.href)),
+  ...moduleEntries.map(entry => projectPath(entry.src)),
+  projectPath(importMap["#app/data-store"]),
+  "data/runtime/index.json"
+])];
 for (const [alias, target] of Object.entries(importMap)) {
   const file = projectPath(target);
   if (!(await exists(file))) throw new Error(`Import-map target is missing: ${alias} -> ${file}`);
   if (!/[?&]v=[^&]+/.test(target)) throw new Error(`Import-map target has no cache version: ${alias}`);
 }
 
-const styleLoaderUrl = `${pathToFileURL(fromRoot("src/style-loader.js")).href}?audit=${Date.now()}`;
-const { routeStyleManifest, styleFiles } = await import(styleLoaderUrl);
-const styleLoaderSource = await readFile(fromRoot("src/style-loader.js"), "utf8");
-const styleVersion = styleLoaderSource.match(/const styleVersion = "([^"]+)";/)?.[1];
+const styleLoaderUrl = `${pathToFileURL(fromRoot(projectPath(importMap["#app/style-loader"]))).href}?audit=${Date.now()}`;
+const { routeStyleManifest, styleFiles, styleVersion, styleLayerOrder } = await import(styleLoaderUrl);
 if (!styleVersion) throw new Error("Route stylesheet cache version is missing.");
-for (const file of ["styles/base.css", "styles/mobile.css"]) {
-  if (!indexHtml.includes(`./${file}?v=${styleVersion}`)) throw new Error(`Stylesheet cache version is inconsistent: ${file}`);
+for (const entry of resources.filter(entry => ["base", "mobile"].includes(entry["data-style-key"]))) {
+  if (new URL(entry.href, "https://audit.invalid/").searchParams.get("v") !== styleVersion) throw new Error(`Stylesheet cache version is inconsistent: ${entry.href}`);
 }
-const { searchScopeValues } = await import(pathToFileURL(fromRoot("src/search-scopes.js")).href);
 for (const attribute of ["global-search-scope", "mobile-drawer-search-scope", "overview-search-scope"]) {
   const values = [...indexHtml.matchAll(new RegExp(`data-${attribute}="([^"]+)"`, "g"))].map(match => match[1]);
   if (JSON.stringify(values) !== JSON.stringify(searchScopeValues)) {
     throw new Error(`Search scope options are inconsistent: data-${attribute}`);
   }
 }
-const stylesheetFiles = ["styles/base.css", "styles/mobile.css", ...Object.values(styleFiles).map(projectPath)];
+const stylesheetFiles = [...new Set([...resources.filter(entry => entry.rel === "stylesheet").map(entry => projectPath(entry.href)), ...Object.values(styleFiles).map(projectPath)])];
 for (const file of stylesheetFiles) {
   if (!(await exists(file))) throw new Error(`Style manifest target is missing: ${file}`);
 }
@@ -70,12 +68,12 @@ for (const [route, keys] of Object.entries(routeStyleManifest)) {
     if (!styleKeys.has(key)) throw new Error(`Unknown style key in route manifest: ${route} -> ${key}`);
   }
 }
-const expectedLayerOrder = "@layer base, page, collection, table, release, anime, catalog, search, modal, mobile;";
-const baseStylesheet = await readFile(fromRoot("styles/base.css"), "utf8");
-if (!baseStylesheet.startsWith(expectedLayerOrder)) throw new Error("Global CSS layer order is missing or changed.");
+const baseStylesheet = await readFile(fromRoot(projectPath(baseStyle.href)), "utf8");
+const declaredLayers = baseStylesheet.replace(/\/\*[\s\S]*?\*\//g, "").match(/@layer\s+([^;{]+);/)?.[1].split(",").map(layer => layer.trim());
+if (JSON.stringify(declaredLayers) !== JSON.stringify(styleLayerOrder)) throw new Error("Global CSS layer order does not match the style manifest.");
 for (const [key, target] of Object.entries(styleFiles)) {
   const stylesheet = await readFile(fromRoot(projectPath(target)), "utf8");
-  if (!stylesheet.includes(`@layer ${key} {`)) throw new Error(`Stylesheet is missing its layer wrapper: ${key}`);
+  if (!new RegExp(`@layer\\s+${key}\\s*\\{`).test(stylesheet)) throw new Error(`Stylesheet is missing its layer wrapper: ${key}`);
 }
 for (const file of stylesheetFiles) {
   const stylesheet = await readFile(fromRoot(file), "utf8");
@@ -114,12 +112,12 @@ if (unscopedHoverSelectors.length) {
   throw new Error(`Touch-visible hover selectors must be fine-pointer scoped:\n${unscopedHoverSelectors.join("\n")}`);
 }
 
-const sizes = await Promise.all(HOME_TEXT_FILES.map(async file => [file, await byteSize(file)]));
+const sizes = await Promise.all(homeTextFiles.map(async file => [file, await byteSize(file)]));
 const total = sizes.reduce((sum, [, size]) => sum + size, 0);
 if (total > HOME_TEXT_LIMIT) {
   throw new Error(`Home text payload is ${total} bytes; expected <= ${HOME_TEXT_LIMIT}.`);
 }
-const baseCssSize = await byteSize("styles/base.css");
+const baseCssSize = await byteSize(projectPath(baseStyle.href));
 if (baseCssSize > BASE_CSS_LIMIT) {
   throw new Error(`Base stylesheet is ${baseCssSize} bytes; expected <= ${BASE_CSS_LIMIT}.`);
 }
@@ -133,15 +131,11 @@ if (importantCount > CSS_IMPORTANT_LIMIT) {
   throw new Error(`Stylesheets contain ${importantCount} !important declarations; expected <= ${CSS_IMPORTANT_LIMIT}.`);
 }
 
-const sourceFiles = (await readdir(fromRoot("src"), { withFileTypes: true }))
-  .filter(entry => entry.isFile() && extname(entry.name) === ".js")
-  .map(entry => `src/${entry.name}`);
+const sourceFiles = (await sourceModules(fromRoot("src"))).map(file => relative(root, file));
 for (const file of sourceFiles) {
   const lineCount = sourceLines(await readFile(fromRoot(file), "utf8"));
   if (lineCount > SOURCE_LINE_LIMIT) throw new Error(`${file} has ${lineCount} lines; expected <= ${SOURCE_LINE_LIMIT}.`);
 }
-const importPattern = /\b(?:import|export)\s+(?:[^"']*?\s+from\s+)?["']([^"']+)["']/g;
-const dynamicImportPattern = /\bimport\s*\(\s*["']([^"']+)["']\s*\)/g;
 const sourceSet = new Set(sourceFiles.map(file => fromRoot(file)));
 const resolveImport = (specifier, importer) => {
   const mapped = importMap[specifier];
@@ -155,17 +149,22 @@ const usedImportAliases = new Set();
 for (const file of sourceFiles) {
   const absolute = fromRoot(file);
   const source = await readFile(absolute, "utf8");
+  const imports = moduleImports(source);
   const dependencies = [];
-  for (const match of source.matchAll(importPattern)) {
-    if (importMap[match[1]]) usedImportAliases.add(match[1]);
-    const dependency = resolveImport(match[1], absolute);
+  for (const specifier of imports.static) {
+    if (specifier.startsWith("#") && !importMap[specifier]) throw new Error(`Unmapped module: ${specifier}`);
+    if (importMap[specifier]) usedImportAliases.add(specifier);
+    const dependency = resolveImport(specifier, absolute);
+    if (dependency) await requireModuleFile(dependency);
     if (dependency && sourceSet.has(dependency)) dependencies.push(dependency);
   }
   graph.set(absolute, dependencies);
   const runtimeDependencies = [...dependencies];
-  for (const match of source.matchAll(dynamicImportPattern)) {
-    if (importMap[match[1]]) usedImportAliases.add(match[1]);
-    const dependency = resolveImport(match[1], absolute);
+  for (const specifier of imports.dynamic) {
+    if (specifier.startsWith("#") && !importMap[specifier]) throw new Error(`Unmapped module: ${specifier}`);
+    if (importMap[specifier]) usedImportAliases.add(specifier);
+    const dependency = resolveImport(specifier, absolute);
+    if (dependency) await requireModuleFile(dependency);
     if (dependency && sourceSet.has(dependency)) runtimeDependencies.push(dependency);
   }
   runtimeGraph.set(absolute, [...new Set(runtimeDependencies)]);
@@ -186,9 +185,8 @@ const visit = (file, stack = []) => {
 };
 for (const file of graph.keys()) visit(file);
 
-const runtimeEntry = fromRoot("src/bootstrap.js");
 const reachable = new Set();
-const pending = [runtimeEntry];
+const pending = moduleEntries.map(entry => fromRoot(projectPath(entry.src)));
 while (pending.length) {
   const file = pending.pop();
   if (reachable.has(file)) continue;
@@ -201,7 +199,7 @@ const unusedAliases = Object.keys(importMap).filter(alias => !usedImportAliases.
 if (unusedAliases.length) throw new Error(`Unused import-map aliases: ${unusedAliases.join(", ")}`);
 
 console.log(
-  `App audit OK: ${total} initial text bytes across ${sizes.length} files; `
+  `App audit OK: ${total} core text bytes across ${sizes.length} files; `
   + `${sourceFiles.length} reachable source modules; 0 static import cycles; `
   + `${importantCount} !important declarations.`
 );

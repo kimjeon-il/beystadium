@@ -5,7 +5,6 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 
 const MANIFEST_PATH = path.resolve("data/source/x-part-preview-color-derivations.json");
-const VERSION = "20260726-x-material-previews";
 
 function sha256(bytes) {
   return createHash("sha256").update(bytes).digest("hex");
@@ -51,7 +50,7 @@ function pngInfo(bytes) {
 }
 
 const report = JSON.parse(await readFile(MANIFEST_PATH, "utf8"));
-assert.equal(report.version, VERSION);
+assert.ok(report.version?.trim(), "material preview report needs a version");
 assert.deepEqual(
   {
     generated: report.totals.generated,
@@ -61,11 +60,11 @@ assert.deepEqual(
     materialDerived: report.totals.materialDerived
   },
   {
-    generated: 241,
-    unavailable: 6,
-    uniqueMaterialMasks: 97,
-    officialDirect: 3,
-    materialDerived: 238
+    generated: report.derivations.length,
+    unavailable: report.unavailable.length,
+    uniqueMaterialMasks: new Set(report.derivations.map(entry => entry.materialMask)).size,
+    officialDirect: report.derivations.filter(entry => entry.sourceKind === "official-direct").length,
+    materialDerived: report.derivations.filter(entry => entry.sourceKind === "material-derived").length
   }
 );
 
@@ -117,9 +116,13 @@ for (const record of report.derivations) {
   }
 }
 
-assert.equal(contexts.size, 241);
-assert.equal(masks.size, 97);
-assert.equal(report.unavailable.length, 6);
+assert.ok(contexts.size > 0, "material derivations must not be empty");
+assert.equal(contexts.size, report.totals.generated);
+assert.equal(masks.size, report.totals.uniqueMaterialMasks);
+const unavailableContexts = report.unavailable.map(entry => `${entry.beyId}\0${entry.partId}`);
+assert.equal(new Set(unavailableContexts).size, unavailableContexts.length, "duplicate unavailable contexts");
+assert.ok(unavailableContexts.every(key => !contexts.has(key)), "derived/unavailable contexts overlap");
+assert.ok(report.unavailable.every(entry => entry.reason?.trim()), "unavailable material previews need reasons");
 console.log(
   `X material previews: ${contexts.size} generated, ${masks.size} masks, ` +
     `${report.unavailable.length} unresolved candidates`

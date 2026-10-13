@@ -1,5 +1,6 @@
+import { modulePath, resourcePattern, stylePath } from "./helpers/app-resources.mjs";
 import { expect, test } from "@playwright/test";
-import { consoleErrors, expectActionRowFocusIndicator, expectFocusIndicator, expectNavigationUnderline, expectTableListTitleSnapshot, tableListTitleSnapshot } from "./helpers/ui-assertions.mjs";
+import { consoleErrors, expectActionRowFocusIndicator, expectFocusIndicator, expectNavigationUnderline, expectTableListTitleSnapshot, findPaginatedItem, tableListTitleSnapshot } from "./helpers/ui-assertions.mjs";
 
 test("anime character profile cards keep optional roles and overflow beys readable", async ({ page }, testInfo) => {
   await page.goto("/#anime-character?season=beyblade-x");
@@ -85,8 +86,7 @@ test("anime character profile cards keep optional roles and overflow beys readab
   await expect(page.locator("#animeCharacterBeyPopover")).toBeVisible();
   await page.locator('[data-anime-character-season="all"]').evaluate(element => element.click());
   await expect(page.locator("#animeCharacterBeyPopover")).toHaveCount(0);
-  await expect(rolelessCard).toHaveCount(0);
-  await page.locator('#animePagination .anime-page-step[data-anime-page="2"]').click();
+  await findPaginatedItem(page, rolelessCard);
   await expect(rolelessCard).toBeVisible();
   await expect(rolelessCard.locator(".anime-character-role")).toHaveCount(0);
 
@@ -127,9 +127,9 @@ test("episode and release table styles are independent of navigation order", asy
   expect(directEpisodeTitle.overflow).toBe("hidden");
   expect(directEpisodeTitle.textOverflow).toBe("ellipsis");
   expect(directEpisodeTitle.whiteSpace).toBe("nowrap");
-  expect(directStyleRequests).toContain("/styles/table.css");
-  expect(directStyleRequests).toContain("/styles/anime.css");
-  expect(directStyleRequests).not.toContain("/styles/release.css");
+  expect(directStyleRequests).toContain(stylePath("table"));
+  expect(directStyleRequests).toContain(stylePath("anime"));
+  expect(directStyleRequests).not.toContain(stylePath("release"));
   await expect(directPage.locator(".anime-episode-controls .table-list-search-box")).toBeVisible();
   await expect(directPage.locator(".anime-episode-controls .table-list-dropdown")).toBeVisible();
   expect(await directPage.locator("[data-anime-episodes-page-content] [class]").evaluateAll(elements =>
@@ -152,9 +152,9 @@ test("episode and release table styles are independent of navigation order", asy
   await expect(crossPage.locator(".release-product-link").first()).toBeVisible();
   const directReleaseTitle = await tableListTitleSnapshot(crossPage, ".release-product-link");
   const releaseStylesBeforeAnime = [...crossStyleRequests];
-  expect(releaseStylesBeforeAnime).toContain("/styles/table.css");
-  expect(releaseStylesBeforeAnime).toContain("/styles/release.css");
-  expect(releaseStylesBeforeAnime).not.toContain("/styles/anime.css");
+  expect(releaseStylesBeforeAnime).toContain(stylePath("table"));
+  expect(releaseStylesBeforeAnime).toContain(stylePath("release"));
+  expect(releaseStylesBeforeAnime).not.toContain(stylePath("anime"));
 
   await crossPage.goto("/#anime-episode");
   await expect(crossPage.locator(".anime-episode-title").first()).toBeVisible();
@@ -530,7 +530,7 @@ test("long query chip truncates inside the mobile viewport", async ({ page }, te
   expect(layout.valueScrollWidth).toBeGreaterThan(layout.valueWidth);
 });
 
-test("persistent selections use theme accents and underlines in light and dark themes", async ({ page }, testInfo) => {
+test("persistent selections use theme accents and underlines in light and dark themes", { tag: "@visual" }, async ({ page }, testInfo) => {
   for (const colorScheme of ["light", "dark"]) {
     await page.emulateMedia({ colorScheme, reducedMotion: "reduce" });
     await page.goto(`/#toy-catalog?scope=all&series=all&sort=latest&page=1&q=${encodeURIComponent("공격형")}`);
@@ -636,7 +636,8 @@ test("persistent selections use theme accents and underlines in light and dark t
   }
 });
 
-test("secondary control text and modal colors use accessible semantic tokens", async ({ page }, testInfo) => {
+test("secondary control text and modal colors use accessible semantic tokens", { tag: "@design-flow" }, async ({ page }, testInfo) => {
+  const visual = process.env.VALIDATION_MODE === "visual";
   const controlColorState = locator => locator.evaluate(element => {
     const parseRgb = value => (value.match(/[\d.]+/g) || []).slice(0, 3).map(Number);
     const luminance = value => {
@@ -678,22 +679,28 @@ test("secondary control text and modal colors use accessible semantic tokens", a
       : ".catalog-pagination-nav .catalog-page-button:not(.active)").first();
     await expect(pageButton).toBeVisible();
     const pageButtonColors = await controlColorState(pageButton);
-    expect(pageButtonColors.background).toBe(pageButtonColors.tokenBackground);
-    expect(pageButtonColors.color).toBe(pageButtonColors.tokenColor);
+    if (visual) {
+      expect(pageButtonColors.background).toBe(pageButtonColors.tokenBackground);
+      expect(pageButtonColors.color).toBe(pageButtonColors.tokenColor);
+    }
     expect(pageButtonColors.contrast).toBeGreaterThanOrEqual(4.5);
 
     if (testInfo.project.name === "desktop") {
       await pageButton.hover();
-      await expect(pageButton).toHaveCSS("background-color", pageButtonColors.hoverBackground);
-      await expect(pageButton).toHaveCSS("color", pageButtonColors.hoverColor);
+      if (visual) {
+        await expect(pageButton).toHaveCSS("background-color", pageButtonColors.hoverBackground);
+        await expect(pageButton).toHaveCSS("color", pageButtonColors.hoverColor);
+      }
     }
 
     await page.goto(`/#search?q=${encodeURIComponent("드래곤")}&scope=bey`);
     const searchSummary = page.locator(".search-results-summary");
     await expect(searchSummary).toBeVisible();
     const searchSummaryColors = await controlColorState(searchSummary);
-    expect(searchSummaryColors.background).toBe(searchSummaryColors.tokenBackground);
-    expect(searchSummaryColors.color).toBe(searchSummaryColors.tokenColor);
+    if (visual) {
+      expect(searchSummaryColors.background).toBe(searchSummaryColors.tokenBackground);
+      expect(searchSummaryColors.color).toBe(searchSummaryColors.tokenColor);
+    }
     expect(searchSummaryColors.contrast).toBeGreaterThanOrEqual(4.5);
 
     await page.goto("/#PART-METAL-FIGHT-FACE-PEGASIS");
@@ -719,12 +726,14 @@ test("secondary control text and modal colors use accessible semantic tokens", a
       accentProbe.remove();
       return state;
     });
-    expect(modalColors.overlay).toBe(testInfo.project.name === "mobile" ? modalColors.surface : modalColors.scrim);
-    expect(modalColors.statFill).toBe(modalColors.accent);
+    if (visual) {
+      expect(modalColors.overlay).toBe(testInfo.project.name === "mobile" ? modalColors.surface : modalColors.scrim);
+      expect(modalColors.statFill).toBe(modalColors.accent);
+    }
   }
 });
 
-test("dropdown chevrons share the same open and close rotation", async ({ page }, testInfo) => {
+test("dropdown chevrons share the same open and close rotation", { tag: "@visual" }, async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "motion coverage only needs one browser");
   await page.goto("/#toy-catalog?scope=bey&series=x");
   await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
@@ -784,7 +793,7 @@ test("dropdown chevrons share the same open and close rotation", async ({ page }
   expect(new Set(openTransforms).size).toBe(1);
 });
 
-test("shared interface controls keep tokenized sizes and timings", async ({ page }, testInfo) => {
+test("shared interface controls keep tokenized sizes and timings", { tag: "@visual" }, async ({ page }, testInfo) => {
   const mobile = testInfo.project.name === "mobile";
   await page.goto("/#toy-catalog?scope=bey&series=x");
   await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
@@ -1202,7 +1211,7 @@ test("anime route stays masked until collection styles are ready", async ({ page
   let markStyleBlocked;
   const styleGate = new Promise(resolve => { unblockStyle = resolve; });
   const styleBlocked = new Promise(resolve => { markStyleBlocked = resolve; });
-  await page.route("**/styles/collection.css*", async route => {
+  await page.route(resourcePattern(stylePath("collection")), async route => {
     markStyleBlocked();
     await styleGate;
     await route.continue();
@@ -1232,22 +1241,22 @@ test("catalog and anime listings do not preload detail controllers", async ({ br
     const modules = [];
     page.on("request", request => {
       const pathname = new URL(request.url()).pathname;
-      if (pathname.includes("/src/")) modules.push(pathname);
+      if (request.resourceType() === "script") modules.push(pathname);
     });
     await page.goto(`/${hash}`);
     await expect(page.locator(readySelector).first()).toBeVisible();
-    forbidden.forEach(name => expect(modules, `${hash} loaded ${name}`).not.toContain(`/src/${name}.js`));
+    forbidden.forEach(name => expect(modules, `${hash} loaded ${name}`).not.toContain(modulePath(`#app/${name}`)));
     if (hash.startsWith("#toy-catalog")) {
       await page.locator(readySelector).first().click();
       await expect(page.locator("#detailModal")).toBeVisible();
-      expect(modules).toContain("/src/detail-controller.js");
-      expect(modules).toContain("/src/modal-controller.js");
+      expect(modules).toContain(modulePath("#app/detail-controller"));
+      expect(modules).toContain(modulePath("#app/modal-controller"));
     }
     if (hash === "#anime-episode") {
       await page.locator(readySelector).first().click();
       await expect(page.locator("#detailModal")).toBeVisible();
-      expect(modules).toContain("/src/anime-detail.js");
-      expect(modules).toContain("/src/modal-controller.js");
+      expect(modules).toContain(modulePath("#app/anime-detail"));
+      expect(modules).toContain(modulePath("#app/modal-controller"));
     }
     await context.close();
   }
@@ -1258,21 +1267,21 @@ test("first home search interaction loads search feature once and preserves fast
   const requests = [];
   page.on("request", request => requests.push(new URL(request.url()).pathname));
   await page.goto("/");
-  expect(requests).not.toContain("/src/search-controller.js");
-  expect(requests).not.toContain("/styles/search.css");
+  expect(requests).not.toContain(modulePath("#app/search-controller"));
+  expect(requests).not.toContain(stylePath("search"));
 
   const input = page.locator("#overviewSearchInput");
   await input.click();
   await input.fill("드랜소드");
   await expect(input).toHaveValue("드랜소드");
   await expect(page.locator("#overviewSearchInputPreview")).toBeVisible();
-  expect(requests.filter(path => path === "/src/search-controller.js")).toHaveLength(1);
-  expect(requests.filter(path => path === "/styles/search.css")).toHaveLength(1);
+  expect(requests.filter(path => path === modulePath("#app/search-controller"))).toHaveLength(1);
+  expect(requests.filter(path => path === stylePath("search"))).toHaveLength(1);
 
   await input.fill("드랜소드 3-60F");
   await expect(input).toHaveValue("드랜소드 3-60F");
-  expect(requests.filter(path => path === "/src/search-controller.js")).toHaveLength(1);
-  expect(requests.filter(path => path === "/styles/search.css")).toHaveLength(1);
+  expect(requests.filter(path => path === modulePath("#app/search-controller"))).toHaveLength(1);
+  expect(requests.filter(path => path === stylePath("search"))).toHaveLength(1);
 });
 
 test("feature loaders initialize controls idempotently", async ({ page }, testInfo) => {

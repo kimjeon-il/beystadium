@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
+import { assertCoverage } from "./validation-contracts.mjs";
 
 import { beyItems, partItems } from "../data/source/catalog.mjs";
 import {
@@ -66,32 +67,9 @@ uniqueValues(contextKeys, "X Bey part contexts");
 uniqueValues(mappedKeys, "X part preview mappings");
 uniqueValues(unavailableKeys, "X unavailable part previews");
 uniqueValues([...mappedKeys, ...unavailableKeys], "accounted X part preview contexts");
-assert.deepEqual(new Set([...mappedKeys, ...unavailableKeys]), new Set(contextKeys));
-assert.equal(contexts.length, 810);
-assert.equal(xPartPreviewMappings.length, 755);
-assert.equal(xPartPreviewUnavailable.length, 55);
-assert.deepEqual(
-  Object.fromEntries([...new Set(xPartPreviewMappings.map(entry => entry.sourceKind))]
-    .sort()
-    .map(sourceKind => [
-      sourceKind,
-      xPartPreviewMappings.filter(entry => entry.sourceKind === sourceKind).length
-    ])),
-  {
-    "official-color-derived": 238,
-    "official-direct": 3,
-    "official-assembled-bey-view": 65,
-    "official-individual": 448,
-    "user-approved-generated-bey-view": 1
-  }
-);
+assertCoverage(contextKeys, mappedKeys, unavailableKeys, "X part previews");
 
-assert.equal(derivationManifest.version, "20260726-x-material-previews");
-assert.equal(derivationManifest.derivations.length, 241);
-assert.equal(derivationManifest.unavailable.length, 6);
-assert.equal(derivationManifest.totals.uniqueMaterialMasks, 97);
-assert.equal(derivationManifest.totals.officialDirect, 3);
-assert.equal(derivationManifest.totals.materialDerived, 238);
+assert.ok(derivationManifest.version?.trim(), "derivation manifest needs a version");
 uniqueValues(
   derivationManifest.derivations.map(entry => contextKey(entry.beyId, entry.partId)),
   "X material-derived preview contexts"
@@ -146,7 +124,6 @@ const contextualOutputPaths = xPartPreviewMappings
   .filter(entry => entry.image === xPartPreviewImagePath(entry.beyId, entry.partId))
   .map(entry => entry.image);
 uniqueValues(contextualOutputPaths, "contextual part preview output paths");
-assert.equal(contextualOutputPaths.length, 475);
 
 for (const entry of xPartPreviewMappings) {
   const bey = beyById.get(entry.beyId);

@@ -1,5 +1,5 @@
 import { expect, test } from "@playwright/test";
-import { X_ASSET_CACHE_VERSION, consoleErrors, expectModalBackAtShellTopLeft } from "./helpers/ui-assertions.mjs";
+import { expectVersionedAsset, consoleErrors, expectModalBackAtShellTopLeft } from "./helpers/ui-assertions.mjs";
 
 test("진검 방영목록은 52개 회차와 교정된 검색·상세 주소를 제공한다", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "진검 방영목록은 데스크톱 대표 화면에서 확인합니다.");
@@ -894,10 +894,7 @@ test("X catalog cards use top-view primary images without adding a detail art pa
   const cardImage = card.locator(".bey-image");
   await expect(cardImage).toHaveAttribute("loading", "lazy");
   await expect(cardImage).toHaveAttribute("decoding", "async");
-  await expect(cardImage).toHaveAttribute(
-    "src",
-    `assets/images/x/beys/bey-x-bx-01-dran-sword-3-60f/bey-x-bx-01-dran-sword-3-60f.webp?v=${X_ASSET_CACHE_VERSION}`
-  );
+  await expectVersionedAsset(cardImage, `assets/images/x/beys/bey-x-bx-01-dran-sword-3-60f/bey-x-bx-01-dran-sword-3-60f.webp`);
   await cardImage.evaluate(image => {
     image.scrollIntoView({ block: "center" });
     image.loading = "eager";
@@ -983,7 +980,7 @@ test("X catalog cards use top-view primary images without adding a detail art pa
   ];
   for (const [id, query, image] of primaryImages) {
     await page.goto(`/#toy-catalog?scope=bey&series=x&q=${encodeURIComponent(query)}`);
-    await expect(page.locator(`#catalogGrid .catalog-card[data-id="${id}"] .bey-image`)).toHaveAttribute("src", `${image}?v=${X_ASSET_CACHE_VERSION}`);
+    await expectVersionedAsset(page.locator(`#catalogGrid .catalog-card[data-id="${id}"] .bey-image`), `${image}`);
   }
   expect(failedImages).toEqual([]);
 });

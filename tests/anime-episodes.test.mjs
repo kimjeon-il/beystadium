@@ -347,9 +347,8 @@ test("슈퍼킹 에피소드 주소·검색·레지스트리가 1화부터 52화
   const searchEntries = runtimeSearch.search.filter(entry => entry[4] === "burst-superking");
   const registryEntries = runtimeRegistry.items.filter(([id]) => id.startsWith("BURST-SUPERKING-EPISODE-"));
 
-  assert.equal(runtimeAnime.episodes.length, 730);
-  assert.equal(runtimeSearch.search.length, 730);
-  assert.equal(runtimeRegistry.items.length, 3580 + animeInfo.characters.length);
+  assert.deepEqual(runtimeAnime.episodes, animeInfo.episodes);
+  assert.equal(runtimeSearch.search.length, animeInfo.episodes.length);
   assert.deepEqual(runtimeEpisodes.map(episodeTuple), expectedSuperkingRows);
   assert.deepEqual(searchEntries.map(entry => entry[1]), expectedSuperkingIds);
   assert.deepEqual(searchEntries.map(entry => [entry[3], entry[5], entry[6], entry[7], entry[8], entry[9]]), expectedSuperkingRows);
@@ -379,9 +378,8 @@ test("DB 에피소드 주소·검색·레지스트리가 1화부터 52화까지 
   const searchEntries = runtimeSearch.search.filter(entry => entry[4] === "burst-db");
   const registryEntries = runtimeRegistry.items.filter(([id]) => id.startsWith("BURST-DB-EPISODE-"));
 
-  assert.equal(runtimeAnime.episodes.length, 730);
-  assert.equal(runtimeSearch.search.length, 730);
-  assert.equal(runtimeRegistry.items.length, 3580 + animeInfo.characters.length);
+  assert.deepEqual(runtimeAnime.episodes, animeInfo.episodes);
+  assert.equal(runtimeSearch.search.length, animeInfo.episodes.length);
   assert.deepEqual(runtimeEpisodes.map(episodeTuple), expectedDbRows);
   assert.deepEqual(searchEntries.map(entry => entry[1]), expectedDbIds);
   assert.deepEqual(searchEntries.map(entry => [entry[3], entry[5], entry[6], entry[7], entry[8], entry[9]]), expectedDbRows);

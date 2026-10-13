@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { readdir, readFile, stat } from "node:fs/promises";
 import path from "node:path";
+import { assertCoverage } from "./validation-contracts.mjs";
 
 import { beyItems, partItems } from "../data/source/catalog.mjs";
 import { xImageMappings, xImageUnavailable } from "../data/source/x-images.mjs";
@@ -95,9 +96,7 @@ async function validateOutputs() {
     ...xImageUnavailable.map(entry => entry.id)
   ];
   uniqueValues(accountedIds, "accounted X item IDs");
-  assert.deepEqual(new Set(accountedIds), xIds, "every X Bey and part must be mapped or unavailable");
-  assert.equal(xImageMappings.length, 454);
-  assert.equal(xImageUnavailable.length, 36);
+  assertCoverage([...xIds], xImageMappings.map(entry => entry.id), xImageUnavailable.map(entry => entry.id), "X images");
   assert.equal(xImageReview.length, xImageMappings.length);
   const mappingById = new Map(xImageMappings.map(entry => [entry.id, entry]));
   const phoenixComposite = mappingById.get("BEY-X-BX-00-PHOENIX-SOAR-9-80DB");

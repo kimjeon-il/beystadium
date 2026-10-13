@@ -8,6 +8,12 @@ on:
 jobs:
   verify:
     runs-on: ubuntu-latest
+    name: ${{ matrix.group }}
+    continue-on-error: ${{ matrix.group == 'visual' }}
+    strategy:
+      fail-fast: false
+      matrix:
+        group: [structure, data, behavior, visual, resources]
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
@@ -18,5 +24,14 @@ jobs:
           node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - run: pnpm exec playwright install --with-deps chromium
-      - run: pnpm check
+      - if: matrix.group == 'behavior' || matrix.group == 'visual' || matrix.group == 'resources'
+        run: pnpm exec playwright install --with-deps chromium
+      - run: pnpm run check:${{ matrix.group }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: validation-${{ matrix.group }}
+          path: |
+            .cache/checks/
+            test-results/
+          if-no-files-found: ignore

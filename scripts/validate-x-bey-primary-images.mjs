@@ -81,7 +81,7 @@ uniqueValues([
   ...selectedFrontById.keys(),
   ...temporarySideById.keys()
 ], "explicit primary image classifications");
-assert.equal(xBeyPrimaryImageConfig.version, "20260819-x-bey-canonical-image-paths");
+assert.ok(xBeyPrimaryImageConfig.version?.trim(), "X primary images need a version");
 assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
   method: "premultiplied-alpha-uniform-long-edge",
   canvasSize: 448,
@@ -94,10 +94,10 @@ assert.deepEqual(xBeyPrimaryImageConfig.normalization, {
     "verified-existing-front"
   ]
 });
-assert.equal(xBeyPrimaryImageConfig.selected.length, 228);
+assert.ok(xBeyPrimaryImageConfig.selected.length > 0, "X selected fronts must not be empty");
 assert.equal(
   new Set(xBeyPrimaryImageConfig.selected.map(entry => entry.image)).size,
-  228,
+  xBeyPrimaryImageConfig.selected.length,
   "front-view normalization paths must be unique"
 );
 
@@ -767,10 +767,11 @@ for (const entry of xBeyPrimaryImageConfig.temporarySideImages) {
 }
 
 const alphaReview = JSON.parse(await readFile(ALPHA_REVIEW_PATH, "utf8"));
-assert.equal(alphaReview.version, "20260819-x-bey-canonical-image-paths");
+assert.ok(alphaReview.version?.trim(), "alpha review needs a version");
 const alphaReviewByImage = new Map(alphaReview.files.map(entry => [entry.image, entry]));
 const normalizedEntries = xBeyPrimaryImageConfig.selected;
-assert.equal(normalizedEntries.length, 228);
+assert.ok(normalizedEntries.length > 0, "normalized entries must not be empty");
+assert.equal(new Set(normalizedEntries.map(entry => entry.id)).size, normalizedEntries.length);
 for (const entry of normalizedEntries) {
   const itemSlug = entry.id.toLowerCase();
   assert.equal(
@@ -800,7 +801,7 @@ const counts = {
   temporarySide: 0
 };
 const xBeys = beyItems.filter(item => item.series === "x" && item.image);
-assert.equal(xBeys.length, 228);
+assert.deepEqual(new Set(normalizedEntries.map(entry => entry.id)), new Set(xBeys.map(entry => entry.id)), "normalized fronts must cover the current X Bey catalog");
 
 for (const item of xBeys) {
   const bladeIds = bladePartIds(item);
@@ -851,12 +852,8 @@ for (const item of xBeys) {
   });
 }
 
-assert.deepEqual(counts, {
-  officialAssembledFront: 120,
-  userApprovedGeneratedFront: 23,
-  verifiedExistingFront: 85,
-  temporarySide: 0
-});
+assert.equal(Object.values(counts).reduce((sum, count) => sum + count, 0), xBeys.length, "front classifications must account for the current catalog");
+assert.equal(counts.temporarySide, 0, "temporary side images must not replace normalized fronts");
 
 if (REPORT_PATH) {
   const reportPath = path.resolve(REPORT_PATH);

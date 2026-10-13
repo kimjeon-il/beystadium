@@ -44,8 +44,18 @@
     "test:x-bey-primary-images": "node scripts/validate-x-bey-primary-images.mjs",
     "test:x-part-previews": "node scripts/validate-x-part-previews.mjs",
     "test:data": "node scripts/validate-data.mjs",
-    "test:smoke": "playwright test",
-    "check": "pnpm lint:js && pnpm audit:app && pnpm data:check && pnpm test:data && pnpm test:bey-relations && pnpm test:search && pnpm test:routes && pnpm test:ids && pnpm test:address-ids && pnpm test:product-ids && pnpm test:anime-episodes && pnpm test:burst-random-boosters && pnpm test:burst-random-layers && pnpm test:burst-remake-sets && pnpm test:burst-images && pnpm test:x-tool-products && pnpm test:x-part-products && pnpm test:x-set-products && pnpm test:x-random-boosters && pnpm test:x-jp-part-details && pnpm test:x-kr-bey-details && pnpm test:x-images && pnpm test:x-material-part-previews && pnpm test:x-part-previews && pnpm test:x-bey-primary-images && pnpm test:smoke"
+    "test:smoke": "node scripts/run-browser-tests.mjs all",
+    "check": "node scripts/run-checks.mjs",
+    "test:unit": "node scripts/run-unit-tests.mjs",
+    "test:contracts": "node --test tests/validation-contracts.test.mjs tests/generated-data.test.mjs tests/app-audit.test.mjs tests/check-runner.test.mjs tests/resource-observer.test.mjs",
+    "test:behavior": "node scripts/run-browser-tests.mjs behavior",
+    "test:visual": "node scripts/run-browser-tests.mjs visual",
+    "test:resources": "node scripts/run-browser-tests.mjs resources",
+    "check:structure": "node scripts/run-checks.mjs --group=structure",
+    "check:data": "node scripts/run-checks.mjs --group=data",
+    "check:behavior": "node scripts/run-checks.mjs --group=behavior",
+    "check:visual": "node scripts/run-checks.mjs --group=visual",
+    "check:resources": "node scripts/run-checks.mjs --group=resources"
   },
   "devDependencies": {
     "@eslint/js": "^9.31.0",

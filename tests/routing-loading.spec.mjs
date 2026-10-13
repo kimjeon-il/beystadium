@@ -1,3 +1,4 @@
+import { animeDataPath, homeModulePaths, homeStylePaths, modulePath, registryDataPath, resourcePattern, routeStylePaths, searchPaths, seriesPath, seriesPaths, stylePath } from "./helpers/app-resources.mjs";
 import { expect, test } from "@playwright/test";
 import { animeLayoutSnapshot, consoleErrors } from "./helpers/ui-assertions.mjs";
 
@@ -28,7 +29,7 @@ test("primary routes render without runtime errors", async ({ page }) => {
 });
 
 test("a failed late detail registry load keeps its address for retry", async ({ page }) => {
-  const registryPattern = "**/data/runtime/registry.json*";
+  const registryPattern = resourcePattern(registryDataPath);
   await page.route(registryPattern, route => route.abort("failed"));
   await page.goto("/");
   await expect(page.locator("html")).not.toHaveClass(/route-booting/);
@@ -47,18 +48,18 @@ test("a failed late detail registry load keeps its address for retry", async ({ 
 test("a pending detail registry load cannot replace a newer primary hash", async ({ page }) => {
   let releaseRegistry;
   const registryGate = new Promise(resolve => { releaseRegistry = resolve; });
-  await page.route("**/data/runtime/registry.json*", async route => {
+  await page.route(resourcePattern(registryDataPath), async route => {
     await registryGate;
     await route.continue();
   });
   await page.goto("/");
   await expect(page.locator("html")).not.toHaveClass(/route-booting/);
-  const requestedRegistry = page.waitForRequest("**/data/runtime/registry.json*");
+  const requestedRegistry = page.waitForRequest(resourcePattern(registryDataPath));
   await page.evaluate(() => { window.location.hash = "BEY-METAL-FIGHT-BB-56-KILLER-GEMIOS-DF145FS"; });
   await requestedRegistry;
   await page.evaluate(() => { window.location.hash = "anime-character?season=metal-fight"; });
-  await expect(page.locator(".anime-character-card")).toHaveCount(21);
-  const registryResponse = page.waitForResponse("**/data/runtime/registry.json*");
+  await expect(page.locator(".anime-character-card").first()).toBeVisible();
+  const registryResponse = page.waitForResponse(resourcePattern(registryDataPath));
   releaseRegistry();
   await registryResponse;
   await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
@@ -74,61 +75,60 @@ test("runtime data is loaded by route instead of during home boot", async ({ pag
   page.on("request", request => {
     const pathname = new URL(request.url()).pathname;
     if (pathname.includes("/data/runtime/")) runtimeRequests.push(pathname);
-    if (pathname.includes("/src/")) moduleRequests.push(pathname);
-    if (pathname.includes("/styles/")) styleRequests.push(pathname);
+    if (request.resourceType() === "script") moduleRequests.push(pathname);
+    if (request.resourceType() === "stylesheet") styleRequests.push(pathname);
   });
 
   await page.goto("/");
   await expect(page.locator("html")).not.toHaveClass(/route-booting/);
   expect(runtimeRequests).toContain("/data/runtime/index.json");
-  expect(runtimeRequests.some(path => path.includes("/series/"))).toBe(false);
-  expect(runtimeRequests.some(path => path.includes("/search/"))).toBe(false);
-  expect(runtimeRequests).not.toContain("/data/runtime/registry.json");
-  expect(moduleRequests).toContain("/src/bootstrap.js");
-  expect(moduleRequests).toContain("/src/data-store.js");
-  expect(moduleRequests).not.toContain("/src/app-entry.js");
-  expect(moduleRequests).not.toContain("/src/router.js");
-  expect(styleRequests).toEqual(["/styles/base.css", "/styles/mobile.css", "/styles/sport-tech-preview.css"]);
+  expect(runtimeRequests.some(path => seriesPaths.includes(path))).toBe(false);
+  expect(runtimeRequests.some(path => searchPaths.includes(path))).toBe(false);
+  expect(runtimeRequests).not.toContain(registryDataPath);
+  expect(moduleRequests).toContain(homeModulePaths[0]);
+  expect(moduleRequests).toContain(modulePath("#app/data-store"));
+  expect(moduleRequests).not.toContain(modulePath("#app/entry"));
+  expect(moduleRequests).not.toContain(modulePath("#app/router"));
+  expect(new Set(styleRequests)).toEqual(new Set(homeStylePaths));
 
   await page.goto("/#toy-release");
   await expect(page.locator(".release-product-row").first()).toBeVisible();
-  expect(moduleRequests).toContain("/src/release-page.js");
-  expect(moduleRequests).not.toContain("/src/view-controller.js");
-  expect(moduleRequests).not.toContain("/src/collection-view.js");
-  expect(moduleRequests).not.toContain("/src/catalog-feature.js");
-  expect(moduleRequests).not.toContain("/src/search-controller.js");
-  expect(moduleRequests).not.toContain("/src/search-feature.js");
-  expect(moduleRequests).not.toContain("/src/catalog-model.js");
-  expect(moduleRequests).not.toContain("/src/detail-controller.js");
-  expect(moduleRequests).not.toContain("/src/detail-view.js");
-  expect(moduleRequests).not.toContain("/src/modal-controller.js");
-  expect(moduleRequests).not.toContain("/src/anime.js");
-  expect(styleRequests).toContain("/styles/table.css");
-  expect(styleRequests).toContain("/styles/release.css");
-  expect(styleRequests).toContain("/styles/page.css");
-  expect(styleRequests).not.toContain("/styles/catalog.css");
-  expect(styleRequests).not.toContain("/styles/modal.css");
+  expect(moduleRequests).toContain(modulePath("#app/release-page"));
+  expect(moduleRequests).not.toContain(modulePath("#app/collection-view"));
+  expect(moduleRequests).not.toContain(modulePath("#app/catalog-feature"));
+  expect(moduleRequests).not.toContain(modulePath("#app/search-controller"));
+  expect(moduleRequests).not.toContain(modulePath("#app/search-feature"));
+  expect(moduleRequests).not.toContain(modulePath("#app/catalog-model"));
+  expect(moduleRequests).not.toContain(modulePath("#app/detail-controller"));
+  expect(moduleRequests).not.toContain(modulePath("#app/detail-view"));
+  expect(moduleRequests).not.toContain(modulePath("#app/modal-controller"));
+  expect(moduleRequests).not.toContain(modulePath("#app/anime"));
+  expect(styleRequests).toContain(stylePath("table"));
+  expect(styleRequests).toContain(stylePath("release"));
+  expect(styleRequests).toContain(stylePath("page"));
+  expect(styleRequests).not.toContain(stylePath("catalog"));
+  expect(styleRequests).not.toContain(stylePath("modal"));
 
   await page.goto("/#toy-catalog?scope=bey&series=x");
   await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
-  expect(runtimeRequests).toContain("/data/runtime/series/x.json");
-  expect(runtimeRequests.some(path => path.includes("/search/"))).toBe(false);
-  expect(moduleRequests).toContain("/src/router.js");
-  expect(moduleRequests).toContain("/src/catalog-feature.js");
-  expect(moduleRequests).toContain("/src/catalog-view.js");
-  expect(moduleRequests).toContain("/src/catalog-model.js");
-  expect(moduleRequests).toContain("/src/collection-view.js");
-  expect(moduleRequests).toContain("/src/search-engine.js");
-  expect(moduleRequests).not.toContain("/src/anime.js");
-  expect(styleRequests).toContain("/styles/collection.css");
-  expect(styleRequests).toContain("/styles/catalog.css");
-  expect(styleRequests).toContain("/styles/search.css");
+  expect(runtimeRequests).toContain(seriesPath("x"));
+  expect(runtimeRequests.some(path => searchPaths.includes(path))).toBe(false);
+  expect(moduleRequests).toContain(modulePath("#app/router"));
+  expect(moduleRequests).toContain(modulePath("#app/catalog-feature"));
+  expect(moduleRequests).toContain(modulePath("#app/catalog-view"));
+  expect(moduleRequests).toContain(modulePath("#app/catalog-model"));
+  expect(moduleRequests).toContain(modulePath("#app/collection-view"));
+  expect(moduleRequests).toContain(modulePath("#app/search-engine"));
+  expect(moduleRequests).not.toContain(modulePath("#app/anime"));
+  expect(styleRequests).toContain(stylePath("collection"));
+  expect(styleRequests).toContain(stylePath("catalog"));
+  expect(styleRequests).toContain(stylePath("search"));
 
   await page.goto("/#anime-character");
   await expect(page.locator('[data-app-panel="anime"].active')).toBeVisible();
-  expect(moduleRequests).toContain("/src/anime.js");
-  expect(styleRequests).toContain("/styles/anime.css");
-  expect(styleRequests).toContain("/styles/search.css");
+  expect(moduleRequests).toContain(modulePath("#app/anime"));
+  expect(styleRequests).toContain(stylePath("anime"));
+  expect(styleRequests).toContain(stylePath("search"));
 });
 
 test("catalog intent preload stays silent and is reused by navigation", async ({ page }, testInfo) => {
@@ -138,7 +138,7 @@ test("catalog intent preload stays silent and is reused by navigation", async ({
   let releaseData;
   const dataGate = new Promise(resolve => { releaseData = resolve; });
   page.on("request", request => requests.push(new URL(request.url()).pathname));
-  await page.route("**/data/runtime/series/*.json*", async route => {
+  await page.route(url => seriesPaths.includes(url.pathname), async route => {
     heldRoutes.push(route);
     await dataGate;
     await route.continue();
@@ -147,7 +147,7 @@ test("catalog intent preload stays silent and is reused by navigation", async ({
   await page.goto("/");
   const catalogButton = page.locator("[data-category-catalog-open]").first();
   await catalogButton.hover();
-  await expect.poll(() => heldRoutes.length).toBe(3);
+  await expect.poll(() => heldRoutes.length).toBe(seriesPaths.length);
   await expect(page.locator("#dataLoadStatus")).toBeHidden();
   await expect(page.locator("body")).toHaveAttribute("aria-busy", "false");
   await expect(page).toHaveURL(/\/$/);
@@ -159,9 +159,9 @@ test("catalog intent preload stays silent and is reused by navigation", async ({
   releaseData();
   await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
   await expect(page.locator("#dataLoadStatus")).toBeHidden();
-  expect(requests.filter(path => path.includes("/data/runtime/series/"))).toHaveLength(3);
-  expect(requests.filter(path => path === "/src/catalog-feature.js")).toHaveLength(1);
-  expect(requests.filter(path => path === "/styles/catalog.css")).toHaveLength(1);
+  expect(requests.filter(path => seriesPaths.includes(path))).toHaveLength(seriesPaths.length);
+  expect(requests.filter(path => path === modulePath("#app/catalog-feature"))).toHaveLength(1);
+  expect(requests.filter(path => path === stylePath("catalog"))).toHaveLength(1);
 });
 
 test("focus and touch intent preload only their category", async ({ browser }, testInfo) => {
@@ -169,14 +169,14 @@ test("focus and touch intent preload only their category", async ({ browser }, t
   const cases = [
     {
       selector: "[data-category-release-open]",
-      expectedData: "/data/runtime/series/x.json",
-      expectedModule: "/src/release-page.js",
+      expectedData: seriesPath("x"),
+      expectedModule: modulePath("#app/release-page"),
       trigger: locator => locator.focus()
     },
     {
       selector: "[data-category-anime-open]",
-      expectedData: "/data/runtime/anime.json",
-      expectedModule: "/src/anime.js",
+      expectedData: animeDataPath,
+      expectedModule: modulePath("#app/anime"),
       trigger: locator => locator.dispatchEvent("pointerdown", { pointerType: "touch", bubbles: true })
     }
   ];
@@ -212,9 +212,9 @@ test("cold catalog route requests data styles and feature in parallel", async ({
     await requestGate;
     await route.continue();
   });
-  await hold("data", "**/data/runtime/series/x.json*");
-  await hold("feature", "**/src/catalog-feature.js*");
-  await hold("style", "**/styles/catalog.css*");
+  await hold("data", resourcePattern(seriesPath("x")));
+  await hold("feature", resourcePattern(modulePath("#app/catalog-feature")));
+  await hold("style", resourcePattern(stylePath("catalog")));
 
   const navigation = page.goto("/#toy-catalog?scope=bey&series=x");
   try {
@@ -269,21 +269,15 @@ test("direct anime character route owns its shared layout styles", async ({ brow
   const styleRequests = [];
   page.on("request", request => {
     const pathname = new URL(request.url()).pathname;
-    if (pathname.includes("/styles/")) styleRequests.push(pathname);
+    if (request.resourceType() === "stylesheet") styleRequests.push(pathname);
   });
 
   await page.goto("/#anime-character");
   await expect(page.locator("#animeCharacterGrid .anime-character-card").first()).toBeVisible();
   await expect(page.locator("html")).not.toHaveClass(/route-booting/);
 
-  expect(styleRequests).toEqual(expect.arrayContaining([
-    "/styles/base.css",
-    "/styles/page.css",
-    "/styles/collection.css",
-    "/styles/anime.css",
-    "/styles/search.css"
-  ]));
-  expect(styleRequests).not.toContain("/styles/catalog.css");
+  expect(styleRequests).toEqual(expect.arrayContaining([...homeStylePaths, ...routeStylePaths("category-anime")]));
+  expect(styleRequests).not.toContain(stylePath("catalog"));
 
   const layout = await animeLayoutSnapshot(page);
   expect(layout.control.display).toBe("grid");

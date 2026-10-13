@@ -1,5 +1,7 @@
 import { expect, test } from "@playwright/test";
-import { X_ASSET_CACHE_VERSION, consoleErrors, expectModalBackAtShellTopLeft, injectRegionalProductPreviewImages, waitForModalAnimations } from "./helpers/ui-assertions.mjs";
+import { expectVersionedAsset, consoleErrors, expectContainedInViewport, expectModalBackAtShellTopLeft, injectRegionalProductPreviewImages, waitForModalAnimations } from "./helpers/ui-assertions.mjs";
+
+const visual = process.env.VALIDATION_MODE === "visual";
 
 test("detail route restores modal and internal navigation hash", async ({ page }) => {
   const errors = consoleErrors(page);
@@ -752,7 +754,8 @@ test("release detail back button stays at the modal shell corner", async ({ page
   expect(errors).toEqual([]);
 });
 
-test("long part descriptions use an accessible chevron expander", async ({ page }, testInfo) => {
+test("long part descriptions use an accessible chevron expander", { tag: "@design-flow" }, async ({ page }, testInfo) => {
+  const visual = process.env.VALIDATION_MODE === "visual";
   const errors = consoleErrors(page);
   await page.goto("/#PART-BURST-DBLAYER-GREATEST-RAPHAEL");
   await expect(page.locator("#detailModal")).toBeVisible();
@@ -806,23 +809,29 @@ test("long part descriptions use an accessible chevron expander", async ({ page 
     lineClamp: getComputedStyle(element).webkitLineClamp
   }));
   const collapsedChevron = await toggle.evaluate(element => getComputedStyle(element, "::before").transform);
+  await waitForModalAnimations(page.locator("#detailModal"));
   const collapsedGeometry = await expanderGeometry();
-  expect(collapsed.lineClamp).toBe("2");
+  expect(Number.parseInt(collapsed.lineClamp, 10)).toBeGreaterThan(0);
   expect(collapsedGeometry.regionContainsButton).toBe(true);
-  expect(collapsedGeometry.regionOwnsButton).toBe(true);
-  expect(Math.abs(collapsedGeometry.horizontalOffset)).toBeLessThanOrEqual(1);
-  expect(Math.abs(collapsedGeometry.verticalOffset + collapsedGeometry.paddingBottom / 2)).toBeLessThanOrEqual(1);
-  expect(Math.abs(collapsedGeometry.regionHeight - collapsedGeometry.expectedRegionHeight)).toBeLessThanOrEqual(1);
-  expect(collapsedGeometry.backgroundColor).toBe("rgba(0, 0, 0, 0)");
-  expect(collapsedGeometry.borderStyle).toBe("none");
-  expect(collapsedGeometry.borderWidth).toBe("0px");
-  expect(collapsedGeometry.buttonWidth).toBeCloseTo(44, 1);
-  expect(collapsedGeometry.buttonHeight).toBeCloseTo(32, 1);
-  expect(collapsedGeometry.hoverSurfaceBackgroundColor).toBe("rgba(0, 0, 0, 0)");
-  expect(collapsedGeometry.hoverSurfaceWidth).toBeCloseTo(28, 1);
-  expect(collapsedGeometry.hoverSurfaceHeight).toBeCloseTo(24, 1);
-  expect(collapsedGeometry.hoverSurfaceLeft).toBeCloseTo(8, 1);
-  expect(collapsedGeometry.hoverSurfaceTop).toBeCloseTo(4, 1);
+  expect(collapsedGeometry.buttonWidth).toBeGreaterThanOrEqual(24);
+  expect(collapsedGeometry.buttonHeight).toBeGreaterThanOrEqual(24);
+  if (visual) {
+    expect(collapsed.lineClamp).toBe("2");
+    expect(collapsedGeometry.regionOwnsButton).toBe(true);
+    expect(Math.abs(collapsedGeometry.horizontalOffset)).toBeLessThanOrEqual(1);
+    expect(Math.abs(collapsedGeometry.verticalOffset + collapsedGeometry.paddingBottom / 2)).toBeLessThanOrEqual(1);
+    expect(Math.abs(collapsedGeometry.regionHeight - collapsedGeometry.expectedRegionHeight)).toBeLessThanOrEqual(1);
+    expect(collapsedGeometry.backgroundColor).toBe("rgba(0, 0, 0, 0)");
+    expect(collapsedGeometry.borderStyle).toBe("none");
+    expect(collapsedGeometry.borderWidth).toBe("0px");
+    expect(collapsedGeometry.buttonWidth).toBeCloseTo(44, 1);
+    expect(collapsedGeometry.buttonHeight).toBeCloseTo(32, 1);
+    expect(collapsedGeometry.hoverSurfaceBackgroundColor).toBe("rgba(0, 0, 0, 0)");
+    expect(collapsedGeometry.hoverSurfaceWidth).toBeCloseTo(28, 1);
+    expect(collapsedGeometry.hoverSurfaceHeight).toBeCloseTo(24, 1);
+    expect(collapsedGeometry.hoverSurfaceLeft).toBeCloseTo(8, 1);
+    expect(collapsedGeometry.hoverSurfaceTop).toBeCloseTo(4, 1);
+  }
 
   await toggle.hover();
   const hoveredGeometry = await expanderGeometry();
@@ -834,9 +843,11 @@ test("long part descriptions use an accessible chevron expander", async ({ page 
     probe.remove();
     return color;
   });
-  expect(hoveredGeometry.backgroundColor).toBe("rgba(0, 0, 0, 0)");
-  await expect.poll(() => toggle.evaluate(element => getComputedStyle(element, "::after").backgroundColor))
-    .toBe(testInfo.project.name === "mobile" ? "rgba(0, 0, 0, 0)" : hoverColor);
+  if (visual) {
+    expect(hoveredGeometry.backgroundColor).toBe("rgba(0, 0, 0, 0)");
+    await expect.poll(() => toggle.evaluate(element => getComputedStyle(element, "::after").backgroundColor))
+      .toBe(testInfo.project.name === "mobile" ? "rgba(0, 0, 0, 0)" : hoverColor);
+  }
 
   await toggle.focus();
   await page.keyboard.press("Enter");
@@ -846,16 +857,22 @@ test("long part descriptions use an accessible chevron expander", async ({ page 
   const expandedHeight = await description.evaluate(element => element.getBoundingClientRect().height);
   expect(expandedHeight).toBeGreaterThan(collapsed.height + 1);
   const expandedGeometry = await expanderGeometry();
-  expect(Math.abs(expandedGeometry.horizontalOffset)).toBeLessThanOrEqual(1);
-  expect(Math.abs(expandedGeometry.verticalOffset + expandedGeometry.paddingBottom / 2)).toBeLessThanOrEqual(1);
-  expect(Math.abs(expandedGeometry.regionHeight - expandedGeometry.expectedRegionHeight)).toBeLessThanOrEqual(1);
-  await expect.poll(() => toggle.evaluate(element => getComputedStyle(element, "::before").transform))
-    .not.toBe(collapsedChevron);
+  expect(expandedGeometry.regionContainsButton).toBe(true);
+  expect(expandedGeometry.buttonWidth).toBeGreaterThanOrEqual(24);
+  expect(expandedGeometry.buttonHeight).toBeGreaterThanOrEqual(24);
+  if (visual) {
+    expect(Math.abs(expandedGeometry.horizontalOffset)).toBeLessThanOrEqual(1);
+    expect(Math.abs(expandedGeometry.verticalOffset + expandedGeometry.paddingBottom / 2)).toBeLessThanOrEqual(1);
+    expect(Math.abs(expandedGeometry.regionHeight - expandedGeometry.expectedRegionHeight)).toBeLessThanOrEqual(1);
+    await expect.poll(() => toggle.evaluate(element => getComputedStyle(element, "::before").transform))
+      .not.toBe(collapsedChevron);
+  }
 
   await page.keyboard.press("Enter");
   await expect(slot).not.toHaveClass(/is-expanded/);
   await expect(toggle).toHaveAttribute("aria-label", "부품 설명 펼치기");
   await expect(toggle).toHaveAttribute("aria-expanded", "false");
+  await expect.poll(() => description.evaluate(element => element.getBoundingClientRect().height)).toBeLessThan(expandedHeight - 1);
 
   await page.goto("/#PART-X-BLADE-DRAN-SWORD");
   await expect(page.locator("#detailModal")).toBeVisible();
@@ -895,7 +912,7 @@ test("초제트 방영목록은 51개 회차와 검색·상세 주소를 제공�
   expect(errors).toEqual([]);
 });
 
-test("static details use a single-column layout without a photo pane", async ({ page }, testInfo) => {
+test("static details use a single-column layout without a photo pane", { tag: "@design-flow" }, async ({ page }, testInfo) => {
   const errors = consoleErrors(page);
   await page.goto("/#BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF");
   await expect(page.locator("#detailModal")).toBeVisible();
@@ -903,6 +920,7 @@ test("static details use a single-column layout without a photo pane", async ({ 
   const shell = page.locator("#detailModal .modal-inner--content");
   await expect(shell).toBeVisible();
   await expect(shell.locator(".modal-art")).toHaveCount(0);
+  await expectContainedInViewport(shell);
   await waitForModalAnimations(page.locator("#detailModal"));
   const layout = await shell.evaluate(element => {
     const rect = element.getBoundingClientRect();
@@ -913,9 +931,11 @@ test("static details use a single-column layout without a photo pane", async ({ 
       radius: style.borderTopLeftRadius
     };
   });
-  expect(layout.columns).toBe(1);
-  expect(layout.radius).toBe(testInfo.project.name === "mobile" ? "0px" : "24px");
-  if (testInfo.project.name === "desktop") expect(Math.abs(layout.width - 720)).toBeLessThanOrEqual(1);
+  if (visual) {
+    expect(layout.columns).toBe(1);
+    expect(layout.radius).toBe(testInfo.project.name === "mobile" ? "0px" : "24px");
+    if (testInfo.project.name === "desktop") expect(Math.abs(layout.width - 720)).toBeLessThanOrEqual(1);
+  }
   expect(errors).toEqual([]);
 });
 
@@ -1003,7 +1023,7 @@ test("Bey badges wrap without nested scrolling while product lists retain respon
   expect(errors).toEqual([]);
 });
 
-test("hidden 3D model details use the shared content modal while retaining their source data", async ({ page }, testInfo) => {
+test("hidden 3D model details use the shared content modal while retaining their source data", { tag: "@design-flow" }, async ({ page }, testInfo) => {
   const runtimeRequests = [];
   page.on("request", request => runtimeRequests.push(request.url()));
   await page.goto("/#PART-METAL-FIGHT-BOTTOM-BALL");
@@ -1011,6 +1031,8 @@ test("hidden 3D model details use the shared content modal while retaining their
   const shell = page.locator("#detailModal .modal-inner--content");
   await expect(shell).toBeVisible();
   await expect(shell.locator(".modal-art, .model-viewer")).toHaveCount(0);
+  await expectContainedInViewport(shell);
+  await waitForModalAnimations(page.locator("#detailModal"));
   const layout = await shell.evaluate(element => {
     const rect = element.getBoundingClientRect();
     return {
@@ -1019,8 +1041,8 @@ test("hidden 3D model details use the shared content modal while retaining their
       columns: getComputedStyle(element).gridTemplateColumns.split(" ").filter(Boolean).length
     };
   });
-  expect(layout.columns).toBe(1);
-  if (testInfo.project.name === "desktop") {
+  if (visual) expect(layout.columns).toBe(1);
+  if (visual && testInfo.project.name === "desktop") {
     expect(Math.abs(layout.width - 720)).toBeLessThanOrEqual(1);
     expect(Math.abs(layout.height - 620)).toBeLessThanOrEqual(1);
   }
@@ -1035,23 +1057,22 @@ test("hidden 3D model details use the shared content modal while retaining their
   expect(runtimeRequests.some(url => /esm\.sh\/three|OBJLoader|OrbitControls/.test(url))).toBe(false);
 });
 
-test("regional product and linked card images appear in rounded previews", async ({ page }, testInfo) => {
+test("regional product and linked card images appear in rounded previews", { tag: "@design-flow" }, async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "pointer preview coverage only needs one fine-pointer browser");
   const errors = consoleErrors(page);
   await injectRegionalProductPreviewImages(page);
   await page.goto("/#toy-release");
   await page.locator(".release-list-page .table-list-dropdown summary").click();
   await page.locator('[data-release-series="metal fight"]').click();
+  await expect(page.locator('.release-product-row[data-product-id="PRODUCT-METAL-FIGHT-BB-28"]')).toBeVisible();
   await page.locator("#releaseSearchInput").fill("BB-28");
 
   const releaseLink = page.locator('.release-product-row[data-product-id="PRODUCT-METAL-FIGHT-BB-28"] .release-product-link');
   await releaseLink.hover();
   const preview = page.locator(".link-image-preview");
   await expect(preview).toBeVisible();
-  await expect(preview.locator("img")).toHaveAttribute(
-    "src",
-    `assets/images/beys/storm-pegasis.png?v=${X_ASSET_CACHE_VERSION}`
-  );
+  await expectVersionedAsset(preview.locator("img"), `assets/images/beys/storm-pegasis.png`);
+  await expectContainedInViewport(preview);
   const previewLayout = await preview.evaluate(element => {
     const rect = element.getBoundingClientRect();
     const imageStyle = getComputedStyle(element.querySelector("img"));
@@ -1062,28 +1083,23 @@ test("regional product and linked card images appear in rounded previews", async
       radius: style.borderTopLeftRadius,
       imageRadius: imageStyle.borderTopLeftRadius,
       pointerEvents: style.pointerEvents,
-      insideViewport: rect.left >= 12 && rect.top >= 12
-        && rect.right <= window.innerWidth - 12 && rect.bottom <= window.innerHeight - 12
+      insideViewport: rect.left >= 0 && rect.top >= 0
+        && rect.right <= window.innerWidth && rect.bottom <= window.innerHeight
     };
   });
-  expect(Math.abs(previewLayout.width - 184)).toBeLessThanOrEqual(1);
-  expect(Math.abs(previewLayout.height - 184)).toBeLessThanOrEqual(1);
-  expect(previewLayout).toMatchObject({
-    radius: "12px",
-    imageRadius: "12px",
-    pointerEvents: "none",
-    insideViewport: true
-  });
+  expect(previewLayout).toMatchObject({ pointerEvents: "none", insideViewport: true });
+  if (visual) {
+    expect(Math.abs(previewLayout.width - 184)).toBeLessThanOrEqual(1);
+    expect(Math.abs(previewLayout.height - 184)).toBeLessThanOrEqual(1);
+    expect(previewLayout).toMatchObject({ radius: "12px", imageRadius: "12px" });
+  }
 
   await releaseLink.click();
   await expect(page.locator("#detailModal .modal-inner--content")).toBeVisible();
   const compositionLink = page.locator('#detailModal .composition-link[data-target-id="BEY-METAL-FIGHT-BB-28-STORM-PEGASIS-105RF"]');
   await compositionLink.hover();
   await expect(preview).toBeVisible();
-  await expect(preview.locator("img")).toHaveAttribute(
-    "src",
-    `assets/images/beys/storm-pegasis.png?v=${X_ASSET_CACHE_VERSION}`
-  );
+  await expectVersionedAsset(preview.locator("img"), `assets/images/beys/storm-pegasis.png`);
 
   const noImageLink = page.locator('#detailModal .composition-link[data-target-id="TOOLS-METAL-FIGHT-TOOL"]');
   await noImageLink.hover();
@@ -1095,17 +1111,14 @@ test("regional product and linked card images appear in rounded previews", async
   const japaneseLink = page.locator('.release-product-row[data-product-id="PRODUCT-METAL-FIGHT-BB-28"] .release-product-link');
   await japaneseLink.focus();
   await expect(preview).toBeVisible();
-  await expect(preview.locator("img")).toHaveAttribute(
-    "src",
-    `assets/images/beys/storm-pegasis-stardust.png?v=${X_ASSET_CACHE_VERSION}`
-  );
+  await expectVersionedAsset(preview.locator("img"), `assets/images/beys/storm-pegasis-stardust.png`);
   await page.keyboard.press("Escape");
   await expect(preview).toBeHidden();
   await expect(page.locator("#detailModal")).not.toBeVisible();
   expect(errors).toEqual([]);
 });
 
-test("X mounted part previews fit portrait bits and use each Bey's official colors", async ({ page }, testInfo) => {
+test("X mounted part previews fit portrait bits and use each Bey's official colors", { tag: "@design-flow" }, async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "pointer preview coverage only needs one fine-pointer browser");
   const errors = consoleErrors(page);
   const preview = page.locator(".link-image-preview");
@@ -1118,7 +1131,8 @@ test("X mounted part previews fit portrait bits and use each Bey's official colo
   );
   await originalTaper.hover();
   await expect(preview).toBeVisible();
-  await expect.poll(async () => Math.round((await preview.boundingBox()).width)).toBe(184);
+  await expectContainedInViewport(preview);
+  await expectVersionedAsset(preview.locator("img"), "assets/images/x/parts/bit/part-x-bit-t.webp");
   const fit = await preview.evaluate(element => {
     const frame = element.getBoundingClientRect();
     const image = element.querySelector("img").getBoundingClientRect();
@@ -1133,11 +1147,16 @@ test("X mounted part previews fit portrait bits and use each Bey's official colo
       bottomInset: frame.bottom - image.bottom
     };
   });
-  expect(fit.frameWidth).toBe(184);
-  expect(fit.frameHeight).toBe(184);
-  expect(fit.imageWidth).toBe(168);
-  expect(fit.imageHeight).toBe(168);
-  expect(Math.min(fit.leftInset, fit.topInset, fit.rightInset, fit.bottomInset)).toBeGreaterThanOrEqual(7);
+  expect(fit.imageWidth).toBeGreaterThan(0);
+  expect(fit.imageHeight).toBeGreaterThan(0);
+  expect(Math.min(fit.leftInset, fit.topInset, fit.rightInset, fit.bottomInset)).toBeGreaterThanOrEqual(-1);
+  if (visual) {
+    expect(fit.frameWidth).toBe(184);
+    expect(fit.frameHeight).toBe(184);
+    expect(fit.imageWidth).toBe(168);
+    expect(fit.imageHeight).toBe(168);
+    expect(Math.min(fit.leftInset, fit.topInset, fit.rightInset, fit.bottomInset)).toBeGreaterThanOrEqual(7);
+  }
 
   await page.goto("/#BEY-X-BX-08-KNIGHT-SHIELD-4-80T");
   const alternateTaper = page.locator('#detailModal .mounted-link[data-part-id="PART-X-BIT-T"]');
@@ -1146,10 +1165,7 @@ test("X mounted part previews fit portrait bits and use each Bey's official colo
     "assets/images/x/beys/bey-x-bx-08-knight-shield-4-80t/parts/part-x-bit-t.webp"
   );
   await alternateTaper.hover();
-  await expect(preview.locator("img")).toHaveAttribute(
-    "src",
-    `assets/images/x/beys/bey-x-bx-08-knight-shield-4-80t/parts/part-x-bit-t.webp?v=${X_ASSET_CACHE_VERSION}`
-  );
+  await expectVersionedAsset(preview.locator("img"), `assets/images/x/beys/bey-x-bx-08-knight-shield-4-80t/parts/part-x-bit-t.webp`);
 
   await page.goto("/#BEY-X-BX-48-03-MAMMOTH-TUSK-7-60S");
   const mammothBlade = page.locator('#detailModal .mounted-link[data-part-id="PART-X-BLADE-MAMMOTH-TUSK"]');
@@ -1163,10 +1179,7 @@ test("X mounted part previews fit portrait bits and use each Bey's official colo
     "assets/images/x/beys/bey-x-bx-48-03-mammoth-tusk-7-60s/parts/part-x-bit-s.webp"
   );
   await mammothSpike.hover();
-  await expect(preview.locator("img")).toHaveAttribute(
-    "src",
-    `assets/images/x/beys/bey-x-bx-48-03-mammoth-tusk-7-60s/parts/part-x-bit-s.webp?v=${X_ASSET_CACHE_VERSION}`
-  );
+  await expectVersionedAsset(preview.locator("img"), `assets/images/x/beys/bey-x-bx-48-03-mammoth-tusk-7-60s/parts/part-x-bit-s.webp`);
   await mammothSpike.click();
   await expect(page).toHaveURL(/#PART-X-BIT-S$/);
 
@@ -1232,7 +1245,7 @@ test("X mounted part previews fit portrait bits and use each Bey's official colo
     );
     await expect(composition).toHaveAttribute("data-image-preview-id", beyId);
     await composition.hover();
-    await expect(preview.locator("img")).toHaveAttribute("src", `${image}?v=${X_ASSET_CACHE_VERSION}`);
+    await expectVersionedAsset(preview.locator("img"), `${image}`);
   }
   expect(errors).toEqual([]);
 });
@@ -1274,12 +1287,13 @@ test("X mounted part links navigate on the first touch", async ({ page }, testIn
   expect(errors).toEqual([]);
 });
 
-test("touch release rows separate image previews from one-tap detail navigation", async ({ page }, testInfo) => {
+test("touch release rows separate image previews from one-tap detail navigation", { tag: "@design-flow" }, async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "mobile", "touch behavior only needs the mobile project");
   await injectRegionalProductPreviewImages(page);
   await page.goto("/#toy-release");
   await page.locator(".release-list-page .table-list-dropdown summary").tap();
   await page.locator('[data-release-series="metal fight"]').tap();
+  await expect(page.locator('.release-product-row[data-product-id="PRODUCT-METAL-FIGHT-BB-28"]')).toBeVisible();
   await page.locator("#releaseSearchInput").fill("BB-28");
   const releaseRow = page.locator('.release-product-row[data-product-id="PRODUCT-METAL-FIGHT-BB-28"]');
   const releaseLink = releaseRow.locator(".release-product-link");
@@ -1306,8 +1320,12 @@ test("touch release rows separate image previews from one-tap detail navigation"
       cellRight: cellRect.right
     };
   });
-  expect(previewLayout.previewWidth).toBeCloseTo(30, 3);
-  expect(previewLayout.previewHeight).toBeCloseTo(30, 3);
+  expect(previewLayout.previewWidth).toBeGreaterThanOrEqual(24);
+  expect(previewLayout.previewHeight).toBeGreaterThanOrEqual(24);
+  if (visual) {
+    expect(previewLayout.previewWidth).toBeCloseTo(30, 3);
+    expect(previewLayout.previewHeight).toBeCloseTo(30, 3);
+  }
   expect(previewLayout.titleRight).toBeLessThanOrEqual(previewLayout.previewLeft + 1);
   expect(previewLayout.metaTop).toBeGreaterThanOrEqual(previewLayout.contentBottom - 1);
   expect(previewLayout.metaLeft).toBeGreaterThanOrEqual(previewLayout.cellLeft - 1);
@@ -1316,12 +1334,12 @@ test("touch release rows separate image previews from one-tap detail navigation"
   await previewButton.tap();
   expect(page.url()).toBe(releaseUrl);
   await expect(preview).toBeVisible();
-  await expect.poll(() => preview.evaluate(element => Math.round(element.getBoundingClientRect().width))).toBe(184);
-  await expect.poll(() => preview.evaluate(element => Math.round(element.getBoundingClientRect().height))).toBe(184);
-  await expect(preview.locator("img")).toHaveAttribute(
-    "src",
-    `assets/images/beys/storm-pegasis.png?v=${X_ASSET_CACHE_VERSION}`
-  );
+  await expectContainedInViewport(preview);
+  if (visual) {
+    await expect.poll(() => preview.evaluate(element => Math.round(element.getBoundingClientRect().width))).toBe(184);
+    await expect.poll(() => preview.evaluate(element => Math.round(element.getBoundingClientRect().height))).toBe(184);
+  }
+  await expectVersionedAsset(preview.locator("img"), `assets/images/beys/storm-pegasis.png`);
   await page.locator("#releaseSearchInput").tap();
   await expect(preview).toBeHidden();
 

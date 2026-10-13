@@ -9,8 +9,9 @@ import { burstBeyPrimaryImageConfig } from "../data/source/burst-bey-primary-ima
 import burstBeyFrontViewAudit from "../data/source/burst-bey-front-view-audit.json" with { type: "json" };
 import burstBeyFandomFrontSources from "../data/source/burst-bey-fandom-front-sources.json" with { type: "json" };
 import { burstBeyImagePath } from "./burst-image-paths.mjs";
+import { assertCoverage } from "./validation-contracts.mjs";
 
-const VERSION = "20260827-burst-b36-official-front";
+const VERSION = burstBeyPrimaryImageConfig.version;
 const burstBeys = beyItems.filter(item => item.series === "burst" && item.type === "bey");
 const byId = new Map(burstBeys.map(item => [item.id, item]));
 const selected = burstBeyPrimaryImageConfig.selected;
@@ -103,9 +104,9 @@ function webpInfo(bytes) {
 assert.equal(burstBeyPrimaryImageConfig.version, VERSION);
 assert.equal(burstBeyFrontViewAudit.version, VERSION);
 assert.equal(burstBeyFandomFrontSources.version, VERSION);
-assert.equal(burstBeys.length, 433);
-assert.equal(selected.length + unavailable.length, 433);
-assert.equal(burstBeyFrontViewAudit.entries.length, 433);
+assert.ok(VERSION?.trim(), "Burst primary images need a version");
+assertCoverage(burstBeys.map(entry => entry.id), selected.map(entry => entry.id), unavailable.map(entry => entry.id), "Burst fronts");
+assertCoverage(burstBeys.map(entry => entry.id), burstBeyFrontViewAudit.entries.map(entry => entry.id), [], "Burst front reviews");
 unique([...selected.map(entry => entry.id), ...unavailable.map(entry => entry.id)], "classifications");
 unique(burstBeyFrontViewAudit.entries.map(entry => entry.id), "front-view audit entries");
 unique(selected.map(entry => entry.image), "selected image paths");

@@ -1,5 +1,6 @@
 const styleVersion = "20261014-navigation-focus";
 const styleOrder = ["page", "collection", "table", "release", "anime", "catalog", "search", "modal"];
+const styleLayerOrder = ["base", ...styleOrder, "mobile"];
 const styleFiles = Object.fromEntries(styleOrder.map(key => [key, `./styles/${key}.css?v=${styleVersion}`]));
 const stylePromises = new Map();
 
@@ -61,4 +62,4 @@ const prepareStyles = (keys, options = {}) => {
 };
 const ensureStyles = (...keys) => prepareStyles(keys);
 
-export { ensureStyles, prepareStyles, routeStyleManifest, styleFiles };
+export { ensureStyles, prepareStyles, routeStyleManifest, styleFiles, styleVersion, styleLayerOrder };

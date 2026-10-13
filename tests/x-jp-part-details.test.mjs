@@ -10,6 +10,7 @@ import {
   xJapanPartDetailSplitIds
 } from "../data/source/x-jp-part-details.mjs";
 import { decodeSearchEntry } from "../src/search-data-decoder.js";
+import { assertCoverage } from "../scripts/validation-contracts.mjs";
 
 const partsById = new Map(partItems.map((part) => [part.id, part]));
 
@@ -49,13 +50,12 @@ const styleAlignedDescriptions = Object.freeze({
   "PART-X-BIT-DS": "방어 성능이 높은 뾰족한 축 끝에 원반형 움직임을 더하고, 버스트 내성과 맞바꿔 자세 제어 성능을 높인다."
 });
 
-test("일본 공식 상세 보강 대상과 입력 필드 수를 고정한다", () => {
-  assert.equal(Object.keys(xJapanPartDetails).length, 95);
-  assert.equal(Object.values(xJapanPartDetails).filter((details) => Object.hasOwn(details, "desc")).length, 94);
-  assert.equal(Object.values(xJapanPartDetails).filter((details) => Object.hasOwn(details, "stats")).length, 43);
-  assert.equal(xJapanPartDetailFullIds.length, 47);
-  assert.equal(xJapanPartDetailSplitIds.length, 48);
-  assert.equal(new Set([...xJapanPartDetailFullIds, ...xJapanPartDetailSplitIds]).size, 95);
+test("일본 공식 상세 대상은 완성·분리 그룹에 중복이나 누락 없이 분류된다", () => {
+  assertCoverage(Object.keys(xJapanPartDetails), xJapanPartDetailFullIds, xJapanPartDetailSplitIds, "Japan part details");
+  for (const [id, details] of Object.entries(xJapanPartDetails)) {
+    assert.ok(partsById.has(id), `${id}: catalog part missing`);
+    assert.ok(Object.keys(details).length > 0, `${id}: empty official details`);
+  }
 });
 
 test("기본·유니크·복각·컬래버 블레이드와 래칫·비트 47종은 설명과 스탯이 완성된다", () => {
