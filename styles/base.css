@@ -796,61 +796,15 @@ body[data-active-panel="all"] .topbar-search {
 }
 
 .topbar-primary-button {
-  appearance: none;
-  position: relative;
-  z-index: 1;
-  flex: 0 0 auto;
-  width: max-content;
-  min-width: 0;
-  min-height: var(--topbar-side-size);
-  justify-self: center;
-  padding: 0 14px;
-  border: 0;
-  border-radius: var(--radius-control);
-  background: transparent;
-  color: var(--ui-muted);
-  box-shadow: var(--shadow-rest);
-  font-family: inherit;
-  font-size: var(--font-md);
-  font-weight: var(--font-weight-strong);
-  line-height: 1;
-  text-align: center;
-  white-space: nowrap;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-  transition: var(--transition-control);
+  appearance:none;position:relative;z-index:1;flex:0 0 auto;width:max-content;min-width:0;min-height:var(--topbar-side-size);justify-self:center;padding:0 14px;border:0;border-radius:var(--radius-control-sm);background:transparent;color:var(--ui-muted);box-shadow:var(--shadow-rest);font-family:inherit;font-size:var(--font-md);font-weight:var(--font-weight-strong);line-height:1;text-align:center;white-space:nowrap;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:var(--transition-control);
 }
-
-.topbar-primary-button:not(:disabled):focus-visible {
-  background: var(--ui-control-hover);
-  color: var(--ui-text);
-  box-shadow: var(--shadow-hover);
-  transform: none;
-}
-
-.topbar-primary-button:focus-visible {
-  outline: 0;
-  box-shadow: var(--ui-focus-ring), var(--shadow-hover);
-}
-
-.topbar-primary-button:not(:disabled):active {
-  transform: none;
-}
-
-.topbar-primary-button.active,
-.topbar-primary-button[aria-current="page"] {
-  background: var(--ui-control-hover);
-  color: var(--ui-control-text-active);
-  box-shadow: var(--shadow-rest);
-}
-
-.topbar-primary-button.disabled,
-.topbar-primary-button:disabled {
-  color: color-mix(in srgb, var(--ui-muted) 58%, transparent);
-  cursor: not-allowed;
-  opacity: .72;
-  pointer-events: none;
-}
+.topbar-primary-button::after{content:"";position:absolute;inset-inline:18px;bottom:4px;height:3px;border-radius:var(--radius-pill);background:currentColor;opacity:0;pointer-events:none;transition:opacity var(--motion-fast) var(--ease-standard)}
+.topbar-primary-button:not(:disabled):focus-visible{background:transparent;color:var(--ui-control-text-active);transform:none}
+.topbar-primary-button:focus-visible{outline:0;box-shadow:var(--ui-focus-ring)}
+.topbar-primary-button:not(:disabled):active{transform:none}
+.topbar-primary-button.active,.topbar-primary-button[aria-current="page"]{background:transparent;color:var(--ui-control-text-active);box-shadow:var(--shadow-rest)}
+.topbar-primary-button:not(:disabled).active::after,.topbar-primary-button:not(:disabled)[aria-current="page"]::after,.topbar-primary-button:not(:disabled):focus-visible::after{opacity:1}
+.topbar-primary-button.disabled,.topbar-primary-button:disabled{color:color-mix(in srgb,var(--ui-muted) 58%,transparent);cursor:not-allowed;opacity:.72;pointer-events:none}
 
 .topbar .menu-button {
   position: relative;
@@ -1956,12 +1910,8 @@ body.is-overview .app-shell {
     transform: translateY(var(--hover-lift-y));
   }
 
-  .topbar-primary-button:not(:disabled):hover {
-    background: var(--ui-control-hover);
-    color: var(--ui-text);
-    box-shadow: var(--shadow-hover);
-    transform: none;
-  }
+  .topbar-primary-button:not(:disabled):hover{background:transparent;color:var(--ui-control-text-active);box-shadow:var(--shadow-rest);transform:none}
+  .topbar-primary-button:not(:disabled):hover::after{opacity:1}
 
   .to-top:hover,
   .ui-button:hover,

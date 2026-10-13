@@ -355,9 +355,9 @@
     width: var(--icon-control-size);
     max-width: var(--icon-control-size);
     min-width: var(--icon-control-size);
-    height: var(--icon-control-size);
-    min-height: var(--icon-control-size);
-    padding: 3px 0 2px;
+    height: calc(var(--icon-control-size) + var(--space-2));
+    min-height: calc(var(--icon-control-size) + var(--space-2));
+    padding: 2px 0 10px;
     display: grid;
     grid-template-rows: 22px auto;
     place-items: center;
@@ -365,7 +365,12 @@
     justify-self: center;
     gap: 2px;
     font-size: var(--font-sm);
-    line-height: 1;
+    line-height: 1.2;
+  }
+
+  .mobile-bottom-nav > button::after {
+    inset-inline: 11px;
+    bottom: 0;
   }
 
   .mobile-bottom-nav > button::before {
