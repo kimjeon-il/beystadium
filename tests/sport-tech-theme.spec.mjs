@@ -14,7 +14,7 @@ test("Sport-Tech preview switches both themes without moving catalog layout", as
   await page.locator('[data-preview-mode="dark"]').click();
   await expect(page.locator('html')).toHaveAttribute("data-sport-theme", "dark");
   await expect(page.locator('[data-preview-mode="dark"]')).toHaveAttribute("aria-pressed", "true");
-  await expect(page).toHaveURL(/\\?theme=dark#toy-catalog/);
+  await expect(page).toHaveURL(/\?theme=dark#toy-catalog/);
 
   const darkState = await page.evaluate(() => ({
     background: getComputedStyle(document.body).backgroundColor,
