@@ -305,6 +305,9 @@ test("modal tag popovers follow the active pointer type", async ({ page }, testI
   await expect(popover).toHaveCount(0);
 
   await page.locator("#modalClose").focus();
+  // The tag's blur handler closes the previous tooltip in a zero-delay task.
+  // Flush that pending blur before testing a new keyboard focus opening.
+  await page.evaluate(() => new Promise(resolve => setTimeout(resolve, 0)));
   await tag.focus();
   await expect(popover).toBeVisible();
   await page.keyboard.press("Tab");
