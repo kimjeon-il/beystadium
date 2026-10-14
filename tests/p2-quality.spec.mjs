@@ -215,7 +215,7 @@ test("P2 mobile bottom navigation never occludes the last catalog card", async (
     await expect(page.locator("#catalogPagination .pagination-status")).toBeVisible();
     await page.locator("#catalogPagination").scrollIntoViewIfNeeded();
     await expect.poll(async () => {
-      await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+      await page.evaluate(() => window.scrollTo({ top: document.documentElement.scrollHeight, behavior: "instant" }));
       return page.evaluate(() => {
         const last = document.querySelector("#catalogGrid .catalog-card:last-child").getBoundingClientRect();
         const tabs = document.querySelector(".mobile-bottom-nav").getBoundingClientRect();
