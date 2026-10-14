@@ -606,18 +606,49 @@
     }
   }
   @media (max-width: 39.999rem) {
-    /* The design-review theme switch must not cover the new home series
-       cards or the bottom navigation on narrow screens. */
+    /* Keep the preview control on-screen without covering narrow home cards.
+       One 44px action occupies the otherwise empty right side of the header. */
     .sport-theme-switch {
-      position: relative;
-      inset: auto;
-      z-index: auto;
-      width: max-content;
-      max-width: calc(100vw - (var(--page-gutter) * 2));
-      margin: 12px 0 12px var(--page-gutter);
+      position: fixed;
+      top: calc((var(--mobile-topbar-height) - var(--touch-target-min)) / 2);
+      right: 8px;
+      bottom: auto;
+      left: auto;
+      z-index: 125;
+      width: var(--touch-target-min);
+      max-width: var(--touch-target-min);
+      padding: 0;
+      gap: 0;
+      border: 0;
+      border-radius: var(--radius-control);
+      background: transparent;
+      box-shadow: none;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+    .sport-theme-switch__label,
+    .sport-theme-switch button[aria-pressed="true"] {
+      display: none;
     }
     .sport-theme-switch button {
+      width: var(--touch-target-min);
+      min-width: var(--touch-target-min);
+      height: var(--touch-target-min);
       min-height: var(--touch-target-min);
+      padding: 0;
+      border: var(--border-subtle);
+      border-radius: var(--radius-control);
+      background: var(--ui-surface-raised);
+      color: var(--ui-text);
+      font-size: 0;
+    }
+    .sport-theme-switch button[data-preview-mode="light"]::before {
+      content: "☀";
+      font-size: 21px;
+    }
+    .sport-theme-switch button[data-preview-mode="dark"]::before {
+      content: "☾";
+      font-size: 24px;
     }
     .release-table tbody .release-product-row:focus-within,
     .anime-episode-table tbody .anime-episode-row:focus-within,
