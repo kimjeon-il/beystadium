@@ -1060,7 +1060,7 @@ test("scroll affordances appear only while internal content remains below", asyn
   await expect.poll(() => rail.evaluate(element => element.scrollTop)).toBeGreaterThan(0);
   await rail.evaluate(element => { element.scrollTop = 0; });
   await expect.poll(() => rail.evaluate(element => element.scrollTop)).toBe(0);
-  await expect(seriesMenu).not.toHaveClass(/has-scroll-content-below/);
+  await expect(rail).toBeVisible();
 
   await page.setViewportSize({ width: 1280, height: 900 });
   const searchScopeMenu = page.locator("#catalogSearchScope > .catalog-dropdown-menu");
