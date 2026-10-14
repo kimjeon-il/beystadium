@@ -124,9 +124,12 @@ test("P2 catalog and character pagination preserve route and page after reload",
   const cards = page.locator("#catalogGrid .catalog-card");
   await expect(cards.first()).toBeVisible();
   const firstId = await cards.first().getAttribute("data-id");
-  await page.locator('#catalogPagination .catalog-page-button[data-catalog-page="2"]').click();
+  const catalogNext = page.locator('#catalogPagination .catalog-page-step[data-catalog-page="2"]');
+  await expect(catalogNext).toBeVisible();
+  await catalogNext.click();
   await expect(page).toHaveURL(/#toy-catalog\?scope=bey&series=x&sort=no-desc&page=2/);
-  await expect(page.locator('#catalogPagination [data-catalog-page="2"][aria-current="page"]')).toBeVisible();
+  await expect(page.locator('#catalogPagination [data-catalog-page="2"][aria-current="page"]')).toHaveCount(1);
+  await expect(page.locator("#catalogPagination .pagination-status")).toHaveAttribute("aria-label", /^2\/\d+ 페이지$/);
   const secondId = await cards.first().getAttribute("data-id");
   expect(secondId).not.toBe(firstId);
   await page.reload();
@@ -141,11 +144,14 @@ test("P2 catalog and character pagination preserve route and page after reload",
   const characters = page.locator("#animeCharacterGrid .anime-character-card");
   await expect(characters.first()).toBeVisible();
   const firstCharacter = await characters.first().getAttribute("data-anime-character-card");
-  await page.locator('#animePagination .anime-page-button[data-anime-page="2"]').click();
+  const animeNext = page.locator('#animePagination .anime-page-step[data-anime-page="2"]');
+  await expect(animeNext).toBeVisible();
+  await animeNext.click();
   await expect(page).toHaveURL(/#anime-character\?page=2/);
   expect(await characters.first().getAttribute("data-anime-character-card")).not.toBe(firstCharacter);
   await page.reload();
-  await expect(page.locator('#animePagination [data-anime-page="2"][aria-current="page"]')).toBeVisible();
+  await expect(page.locator('#animePagination [data-anime-page="2"][aria-current="page"]')).toHaveCount(1);
+  await expect(page.locator("#animePagination .pagination-status")).toHaveAttribute("aria-label", /^2\/\d+ 페이지$/);
 });
 
 test("P2 search pagination and scope buttons keep consistent active state", async ({ page }) => {
@@ -153,13 +159,16 @@ test("P2 search pagination and scope buttons keep consistent active state", asyn
   for (const query of ["드랜", "베이"]) {
     await page.goto("/#search?q=" + encodeURIComponent(query) + "&scope=all");
     await expect(page.locator("#searchResultsSearchInput")).toHaveValue(query);
-    if (await page.locator('#globalGrid .search-results-page-button[data-search-results-page="2"]').isVisible()) break;
+    if (await page.locator('#globalGrid .search-results-page-step[data-search-results-page="2"]').isVisible()) break;
   }
   const items = page.locator("#globalGrid .search-result-item");
   await expect(items.first()).toBeVisible();
   const firstTitle = await items.first().locator("strong").innerText();
-  await page.locator('#globalGrid .search-results-page-button[data-search-results-page="2"]').click();
-  await expect(page.locator('#globalGrid [data-search-results-page="2"][aria-current="page"]')).toBeVisible();
+  const searchNext = page.locator('#globalGrid .search-results-page-step[data-search-results-page="2"]');
+  await expect(searchNext).toBeVisible();
+  await searchNext.click();
+  await expect(page.locator('#globalGrid [data-search-results-page="2"][aria-current="page"]')).toHaveCount(1);
+  await expect(page.locator("#globalGrid .pagination-status")).toHaveAttribute("aria-label", /^2\/\d+ 페이지$/);
   expect(await items.first().locator("strong").innerText()).not.toBe(firstTitle);
   await page.locator('.search-category-button[data-search-results-scope-tab="bey"]').click();
   await expect(page.locator("#searchResultsSearchScope")).toHaveAttribute("data-scope", "bey");
@@ -203,13 +212,17 @@ test("P2 mobile bottom navigation never occludes the last catalog card", async (
     await page.setViewportSize({ width, height: 800 });
     await page.goto("/#toy-catalog?scope=bey&series=x&sort=no-desc&page=1");
     await expect(page.locator("#catalogGrid .catalog-card").last()).toBeVisible();
-    await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
-    const layout = await page.evaluate(() => {
-      const last = document.querySelector("#catalogGrid .catalog-card:last-child").getBoundingClientRect();
-      const tabs = document.querySelector(".mobile-bottom-nav").getBoundingClientRect();
-      return { cardBottom: last.bottom, tabTop: tabs.top };
-    });
-    expect(layout.cardBottom, "Catalog card covered at " + width + "px").toBeLessThanOrEqual(layout.tabTop + 1);
+    await expect(page.locator("#catalogPagination .pagination-status")).toBeVisible();
+    await page.locator("#catalogPagination").scrollIntoViewIfNeeded();
+    await expect.poll(async () => {
+      await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+      return page.evaluate(() => {
+        const last = document.querySelector("#catalogGrid .catalog-card:last-child").getBoundingClientRect();
+        const tabs = document.querySelector(".mobile-bottom-nav").getBoundingClientRect();
+        return last.bottom - tabs.top;
+      });
+    }, { message: "Last catalog card must remain above the fixed bottom bar at " + width + "px" })
+      .toBeLessThanOrEqual(1);
     await noHorizontalOverflow(page, "Bottom navigation at " + width + "px");
   }
 });
