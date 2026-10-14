@@ -109,6 +109,14 @@ export const initializeP1CatalogSidebar = () => {
   for (const control of [seriesControl, scopeControl]) {
     if (control) observer.observe(control, { attributes: true, attributeFilter: ["data-scope"] });
   }
+  // Route restoration can change only the query; those changes render the
+  // catalog/chips but do not mutate the series or scope controls.
+  for (const view of [
+    document.querySelector("#catalogGrid"),
+    document.querySelector('[data-catalog-filter-chips="catalog"]')
+  ]) {
+    if (view) observer.observe(view, { childList: true });
+  }
   window.addEventListener("popstate", syncRail);
   window.addEventListener("hashchange", syncRail);
 };

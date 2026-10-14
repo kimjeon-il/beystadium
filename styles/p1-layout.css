@@ -606,6 +606,19 @@
     }
   }
   @media (max-width: 39.999rem) {
+    /* The design-review theme switch must not cover the new home series
+       cards or the bottom navigation on narrow screens. */
+    .sport-theme-switch {
+      position: relative;
+      inset: auto;
+      z-index: auto;
+      width: max-content;
+      max-width: calc(100vw - (var(--page-gutter) * 2));
+      margin: 12px 0 12px var(--page-gutter);
+    }
+    .sport-theme-switch button {
+      min-height: var(--touch-target-min);
+    }
     .release-table tbody .release-product-row:focus-within,
     .anime-episode-table tbody .anime-episode-row:focus-within,
     .release-table tbody .release-product-row:has(.table-list-row-action:focus-visible),

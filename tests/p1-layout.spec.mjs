@@ -99,3 +99,36 @@ test("P1 content-only detail uses two columns on desktop but one scrollable colu
   else expect(columns).toBeLessThanOrEqual(1);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBe(true);
 });
+
+test("P1 catalog rail reflects hash-only query restoration with unchanged series and scope", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "Desktop filter rail state.");
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/#toy-catalog?scope=bey&series=x&q=%EA%B3%B5%EA%B2%A9%ED%98%95");
+  const rail = page.locator(".catalog-filter-rail");
+  await expect(rail.locator('[data-rail-option="type"][data-rail-value="공격형"]')).toHaveAttribute("aria-pressed", "true");
+  await page.evaluate(() => { window.location.hash = "#toy-catalog?scope=bey&series=x&q=%EB%B0%A9%EC%96%B4%ED%98%95"; });
+  await expect(page.locator("#catalogSearchInput")).toHaveValue("방어형");
+  await expect(rail.locator('[data-rail-option="type"][data-rail-value="방어형"]')).toHaveAttribute("aria-pressed", "true");
+  await expect(rail.locator('[data-rail-option="type"][data-rail-value="공격형"]')).toHaveAttribute("aria-pressed", "false");
+});
+
+test("P1 narrow home does not place the preview theme switch over series shortcuts", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "mobile", "Narrow viewport layout.");
+  await page.setViewportSize({ width: 320, height: 720 });
+  await page.goto("/?theme=light");
+  await expect(page.locator(".overview-series-link")).toHaveCount(4);
+  const geometry = await page.evaluate(() => {
+    const series = document.querySelector(".overview-series").getBoundingClientRect();
+    const switcher = document.querySelector(".sport-theme-switch");
+    const switchRect = switcher.getBoundingClientRect();
+    return {
+      position: getComputedStyle(switcher).position,
+      bottomOfSeries: series.bottom,
+      switchTop: switchRect.top,
+      overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth
+    };
+  });
+  expect(geometry.position).toBe("relative");
+  expect(geometry.switchTop).toBeGreaterThanOrEqual(geometry.bottomOfSeries);
+  expect(geometry.overflow).toBeLessThanOrEqual(1);
+});
