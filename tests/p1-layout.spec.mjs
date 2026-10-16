@@ -112,30 +112,13 @@ test("P1 catalog rail reflects hash-only query restoration with unchanged series
   await expect(rail.locator('[data-rail-option="type"][data-rail-value="공격형"]')).toHaveAttribute("aria-pressed", "false");
 });
 
-test("P1 compact theme switch stays in the header without overlapping the home shortcuts", async ({ page }, testInfo) => {
+test("P1 compact home has no preview theme control or horizontal overflow", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "mobile", "Narrow viewport layout.");
   await page.setViewportSize({ width: 320, height: 720 });
-  await page.goto("/?theme=light");
+  await page.goto("/");
   await expect(page.locator(".overview-series-link")).toHaveCount(4);
-  await expect(page.locator('[data-preview-mode="dark"]')).toBeVisible();
-  const geometry = await page.evaluate(() => {
-    const brand = document.querySelector(".mobile-topbar-title").getBoundingClientRect();
-    const header = document.querySelector(".topbar").getBoundingClientRect();
-    const switcher = document.querySelector(".sport-theme-switch");
-    const switchRect = switcher.getBoundingClientRect();
-    return {
-      position: getComputedStyle(switcher).position,
-      switchLeft: switchRect.left,
-      switchBottom: switchRect.bottom,
-      switchWidth: switchRect.width,
-      brandRight: brand.right,
-      headerBottom: header.bottom,
-      overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth
-    };
-  });
-  expect(geometry.position).toBe("fixed");
-  expect(geometry.switchLeft).toBeGreaterThanOrEqual(geometry.brandRight + 4);
-  expect(geometry.switchBottom).toBeLessThanOrEqual(geometry.headerBottom);
-  expect(geometry.switchWidth).toBe(44);
-  expect(geometry.overflow).toBeLessThanOrEqual(1);
+  await expect(page.locator(".sport-theme-switch, [data-preview-mode]")).toHaveCount(0);
+  const overflow = await page.evaluate(() =>
+    document.documentElement.scrollWidth - document.documentElement.clientWidth);
+  expect(overflow).toBeLessThanOrEqual(1);
 });
