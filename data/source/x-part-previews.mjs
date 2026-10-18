@@ -11303,7 +11303,9 @@ const pendingXPartPreviewUnavailable = Object.entries({
   "BEY-X-CX-19-03-CROCO-TREAD-TQ-5-50GN": ["PART-X-BLADE-LOCK-CHIP-CROCO", "PART-X-BLADE-MAIN-BLADE-TREAD", "PART-X-BLADE-OVER-BLADE-TAB", "PART-X-BLADE-ASSIST-BLADE-QUELL", "PART-X-RATCHET-5-50", "PART-X-BIT-GN"],
   "BEY-X-UX-21-HELLS-NETHER-Z": ["PART-X-BLADE-HELLS-NETHER", "PART-X-BIT-Z"],
   "BEY-X-UX-21-SILVER-WOLF-9-70R": ["PART-X-BLADE-SILVER-WOLF", "PART-X-RATCHET-9-70", "PART-X-BIT-R"],
-  "BEY-X-UX-21-WYVERN-HOVER-8-80B": ["PART-X-BLADE-WYVERN-HOVER", "PART-X-RATCHET-8-80", "PART-X-BIT-B"]
+  "BEY-X-UX-21-WYVERN-HOVER-8-80B": ["PART-X-BLADE-WYVERN-HOVER", "PART-X-RATCHET-8-80", "PART-X-BIT-B"],
+  "BEY-X-BX-54-SIEG-SUPERION-0-70LP": ["PART-X-BLADE-SIEG-SUPERION", "PART-X-RATCHET-0-70", "PART-X-BIT-LP"],
+  "BEY-X-CX-20-PHOENIX-FORCE-WH-M-65MT": ["PART-X-BLADE-LOCK-CHIP-PHOENIX", "PART-X-BLADE-MAIN-BLADE-FORCE", "PART-X-BLADE-OVER-BLADE-WIDE", "PART-X-BLADE-ASSIST-BLADE-HEAVY", "PART-X-RATCHET-M-65", "PART-X-BIT-MT"]
 }).flatMap(([beyId, partIds]) => partIds.map((partId) => ({
   beyId,
   partId,
@@ -11315,7 +11317,11 @@ const pendingXPartPreviewUnavailable = Object.entries({
       ? "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/ux21.html"
       : beyId.includes("DRAN-SWORD-VERSION-2-0")
         ? "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/bx00-ds_v2.html"
-        : "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/ux00-gv.html"
+      : beyId.includes("BX-54")
+        ? "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/bx54.html"
+        : beyId.includes("CX-20")
+          ? "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/cx20.html"
+          : "https://beyblade.takaratomy.co.jp/beyblade-x/lineup/ux00-gv.html"
 })));
 
 const xPartPreviewUnavailable = [

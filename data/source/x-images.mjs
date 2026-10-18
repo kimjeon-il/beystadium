@@ -3271,6 +3271,42 @@ const xImageUnavailable = [
   {
     "id": "PART-X-RATCHET-8-80",
     "reason": "신규 공식 이미지 자산의 색상·투명도 검수가 아직 완료되지 않았다."
+  },
+  {
+    "id": "BEY-X-BX-54-SIEG-SUPERION-0-70LP",
+    "reason": "신규 공식 이미지 자산의 색상·투명도 검수가 아직 완료되지 않았다."
+  },
+  {
+    "id": "BEY-X-CX-20-PHOENIX-FORCE-WH-M-65MT",
+    "reason": "신규 공식 이미지 자산의 색상·투명도 검수가 아직 완료되지 않았다."
+  },
+  {
+    "id": "PART-X-BIT-LP",
+    "reason": "신규 공식 이미지 자산의 색상·투명도 검수가 아직 완료되지 않았다."
+  },
+  {
+    "id": "PART-X-BIT-MT",
+    "reason": "신규 공식 이미지 자산의 색상·투명도 검수가 아직 완료되지 않았다."
+  },
+  {
+    "id": "PART-X-BLADE-HELLS-SCYTHE-VERSION-2-0",
+    "reason": "신규 공식 이미지 자산의 색상·투명도 검수가 아직 완료되지 않았다."
+  },
+  {
+    "id": "PART-X-BLADE-MAIN-BLADE-FORCE",
+    "reason": "신규 공식 이미지 자산의 색상·투명도 검수가 아직 완료되지 않았다."
+  },
+  {
+    "id": "PART-X-BLADE-OVER-BLADE-WIDE",
+    "reason": "신규 공식 이미지 자산의 색상·투명도 검수가 아직 완료되지 않았다."
+  },
+  {
+    "id": "PART-X-BLADE-SIEG-SUPERION",
+    "reason": "신규 공식 이미지 자산의 색상·투명도 검수가 아직 완료되지 않았다."
+  },
+  {
+    "id": "PART-X-RATCHET-M-65",
+    "reason": "신규 공식 이미지 자산의 색상·투명도 검수가 아직 완료되지 않았다."
   }
 ];
 

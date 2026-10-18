@@ -22,7 +22,12 @@ const xSetPartItems = [
   { id: "PART-X-BLADE-WYVERN-HOVER", series: "x", type: "blade", name: "와이번 호버", jpName: "와이번호버", en: "Wyvern Hover", battleType: "stamina", spin: "right", xLine: "unique", desc: "", stats: [] },
   { id: "PART-X-BLADE-WIZARD-ARROW-VERSION-2-0", series: "x", type: "blade", name: "위저드애로우 버전 2.0", en: "Wizard Arrow Version 2.0", battleType: "stamina", spin: "right", xLine: "basic", desc: "성능을 재검토하고 조정한 위저드애로우 블레이드.", stats: [] },
   { id: "PART-X-BLADE-KNIGHT-SHIELD-VERSION-2-0", series: "x", type: "blade", name: "나이트실드 버전 2.0", en: "Knight Shield Version 2.0", battleType: "defense", spin: "right", xLine: "basic", desc: "성능을 재검토하고 조정한 나이트실드 블레이드.", stats: [] },
-  { id: "PART-X-RATCHET-8-80", series: "x", type: "ratchet", name: "8-80", en: "8-80", battleType: "stamina", desc: "", stats: [], extraStats: [{ name: "높이", value: 80 }] }
+  { id: "PART-X-RATCHET-8-80", series: "x", type: "ratchet", name: "8-80", en: "8-80", battleType: "stamina", desc: "", stats: [], extraStats: [{ name: "높이", value: 80 }] },
+  { id: "PART-X-BLADE-MAIN-BLADE-FORCE", series: "x", type: "blade", name: "포스", en: "Force", battleType: "balance", spin: "right", xLine: "custom", xBladeRole: "mainBlade", desc: "", stats: [] },
+  { id: "PART-X-BLADE-OVER-BLADE-WIDE", series: "x", type: "blade", name: "W", en: "Wide", sub: "와이드", battleType: "stamina", spin: "right", xLine: "custom", xBladeRole: "overBlade", desc: "", stats: [] },
+  { id: "PART-X-BLADE-HELLS-SCYTHE-VERSION-2-0", series: "x", type: "blade", name: "헬즈사이드 버전 2.0", jpName: "헬즈사이즈 버전 2.0", en: "Hells Scythe Version 2.0", battleType: "balance", spin: "right", xLine: "basic", desc: "성능을 재검토하고 조정한 헬즈사이드 블레이드.", stats: [] },
+  { id: "PART-X-RATCHET-M-65", series: "x", type: "ratchet", name: "M-65", en: "Metal 65", battleType: "balance", desc: "메탈 파츠를 탑재한 높이 65의 래칫.", stats: [], extraStats: [{ name: "높이", value: 65 }] },
+  { id: "PART-X-BIT-MT", series: "x", type: "bit", name: "MT", en: "Metal Taper", sub: "메탈 테이퍼", battleType: "balance", desc: "축 끝에 메탈 파츠를 탑재한 테이퍼형 비트.", stats: [] }
 ];
 
 const xSetBeyItems = [
@@ -54,7 +59,8 @@ const xSetBeyItems = [
   { id: "BEY-X-UX-21-WYVERN-HOVER-8-80B", series: "x", type: "bey", name: "와이번 호버 8-80B", jpName: "와이번호버 8-80B", en: "Wyvern Hover 8-80B", productNo: "UX-21", battleType: "stamina", spin: "right", desc: "", parts: ["PART-X-BLADE-WYVERN-HOVER", "PART-X-RATCHET-8-80", "PART-X-BIT-B"] },
   { id: "BEY-X-BX-53-AERO-PEGASUS-3-70A", series: "x", type: "bey", name: "에어로페가서스 3-70A 더블 메탈 코트: 블루×시안", en: "Aero Pegasus 3-70A Double Metal Coat: Blue × Cyan", productNo: "BX-53", battleType: "attack", spin: "right", desc: "", parts: ["PART-X-BLADE-AERO-PEGASUS", "PART-X-RATCHET-3-70", "PART-X-BIT-A"] },
   { id: "BEY-X-BX-53-WIZARD-ARROW-VERSION-2-0-4-80B", series: "x", type: "bey", name: "위저드애로우 4-80B 버전 2.0", en: "Wizard Arrow 4-80B Version 2.0", productNo: "BX-53", battleType: "stamina", spin: "right", desc: "", parts: ["PART-X-BLADE-WIZARD-ARROW-VERSION-2-0", "PART-X-RATCHET-4-80", "PART-X-BIT-B"] },
-  { id: "BEY-X-BX-53-KNIGHT-SHIELD-VERSION-2-0-3-80N", series: "x", type: "bey", name: "나이트실드 3-80N 버전 2.0", en: "Knight Shield 3-80N Version 2.0", productNo: "BX-53", battleType: "defense", spin: "right", desc: "", parts: ["PART-X-BLADE-KNIGHT-SHIELD-VERSION-2-0", "PART-X-RATCHET-3-80", "PART-X-BIT-N"] }
+  { id: "BEY-X-BX-53-KNIGHT-SHIELD-VERSION-2-0-3-80N", series: "x", type: "bey", name: "나이트실드 3-80N 버전 2.0", en: "Knight Shield 3-80N Version 2.0", productNo: "BX-53", battleType: "defense", spin: "right", desc: "", parts: ["PART-X-BLADE-KNIGHT-SHIELD-VERSION-2-0", "PART-X-RATCHET-3-80", "PART-X-BIT-N"] },
+  { id: "BEY-X-CX-20-PHOENIX-FORCE-WH-M-65MT", series: "x", type: "bey", name: "피닉스 포스WH M-65MT", en: "Phoenix Force WH M-65MT", productNo: "CX-20", battleType: "balance", spin: "right", desc: "", parts: ["PART-X-BLADE-LOCK-CHIP-PHOENIX", "PART-X-BLADE-MAIN-BLADE-FORCE", "PART-X-BLADE-OVER-BLADE-WIDE", "PART-X-BLADE-ASSIST-BLADE-HEAVY", "PART-X-RATCHET-M-65", "PART-X-BIT-MT"] }
 ];
 
 const xSetProductCompositions = {
@@ -152,6 +158,9 @@ const xSetProductCompositions = {
   },
   "PRODUCT-X-BX-53": {
     jp: [item("에어로페가서스 3-70A 더블 메탈 코트: 블루×시안", "BEY-X-BX-53-AERO-PEGASUS-3-70A"), item("위저드애로우 4-80B 버전 2.0", "BEY-X-BX-53-WIZARD-ARROW-VERSION-2-0-4-80B"), item("나이트실드 3-80N 버전 2.0", "BEY-X-BX-53-KNIGHT-SHIELD-VERSION-2-0-3-80N"), item("와인더런처", "TOOLS-X-WINDER-LAUNCHER"), item("스트링런처", "TOOLS-X-STRING-LAUNCHER"), item("익스트림스타디움", "TOOLS-X-XTREME-STADIUM")]
+  },
+  "PRODUCT-X-CX-20": {
+    jp: [item("피닉스 포스WH M-65MT", "BEY-X-CX-20-PHOENIX-FORCE-WH-M-65MT"), item("샤크스케일", "PART-X-BLADE-SHARK-SCALE"), item("위저드로드", "PART-X-BLADE-WIZARD-ROD"), item("헬즈사이즈 버전 2.0", "PART-X-BLADE-HELLS-SCYTHE-VERSION-2-0"), item("1-70", "PART-X-RATCHET-1-70"), item("8-80", "PART-X-RATCHET-8-80"), item("언더 플랫", "PART-X-BIT-UF"), item("킥", "PART-X-BIT-K"), item("로우 러시", "PART-X-BIT-LR"), item("로우 오브", "PART-X-BIT-LO"), item("하이 니들", "PART-X-BIT-HN")]
   }
 };
 

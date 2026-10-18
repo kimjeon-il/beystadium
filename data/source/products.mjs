@@ -9921,6 +9921,60 @@
         composition: [{ name: "스트링런처L", quantity: "1개", target: "TOOLS-X-STRING-LAUNCHER-L" }]
       }
     }
+  },
+  {
+    id: "PRODUCT-X-CX-00-VALKYRIE-BOLT-S-4-70V-GUNMETAL", addressSlug: "VALKYRIE-BOLT-S-4-70V-GUNMETAL",
+    series: "x",
+    releases: {
+      kr: {
+        status: "unreleased"
+      },
+      jp: {
+        no: "CX-00",
+        name: "왈큐레 볼트S 4-70V 건메탈 Ver.",
+        sale: "앱·이벤트 한정",
+        kind: "부스터",
+        releaseDate: "2026-11-05",
+        price: "1800",
+        composition: [{ name: "왈큐레 볼트S 4-70V 건메탈 Ver.", quantity: "1개", target: "BEY-X-CX-00-VALKYRIE-BOLT-S-4-70V" }]
+      }
+    }
+  },
+  {
+    id: "PRODUCT-X-BX-54",
+    series: "x",
+    releases: {
+      kr: {
+        status: "unreleased"
+      },
+      jp: {
+        no: "BX-54",
+        name: "지크스페리온 0-70LP",
+        sale: "추첨 판매",
+        kind: "부스터",
+        releaseDate: "2026-11-21",
+        price: "1600",
+        composition: [{ name: "지크스페리온 0-70LP", quantity: "1개", target: "BEY-X-BX-54-SIEG-SUPERION-0-70LP" }]
+      }
+    }
+  },
+  {
+    id: "PRODUCT-X-CX-20",
+    series: "x",
+    releases: {
+      kr: {
+        status: "unreleased"
+      },
+      jp: {
+        no: "CX-20",
+        name: "커스터마이즈 세트C",
+        sale: "추첨 판매",
+        kind: "세트",
+        releaseDate: "2026-11-21",
+        price: "6600",
+        composition: []
+      }
+    }
   }
 ];
 

@@ -10,8 +10,8 @@ import { xProductBaseNo, xProductBeyNumberIssues } from "../scripts/x-product-nu
 const productsById = new Map(productItems.map(product => [product.id, product]));
 const allTargetIds = new Set([...beyItems, ...partItems, ...toolsItems].map(item => item.id));
 
-test("26 requested X products expose the exact regional compositions", () => {
-  assert.equal(Object.keys(xSetProductCompositions).length, 26);
+test("27 requested X products expose the exact regional compositions", () => {
+  assert.equal(Object.keys(xSetProductCompositions).length, 27);
 
   for (const [productId, regionalCompositions] of Object.entries(xSetProductCompositions)) {
     const product = productsById.get(productId);
@@ -44,6 +44,21 @@ test("set quantities and mixed Bey-part compositions stay exact", () => {
     "TOOLS-X-WINDER-LAUNCHER",
     "TOOLS-X-STRING-LAUNCHER",
     "TOOLS-X-XTREME-STADIUM"
+  ]);
+
+  const cx20 = productsById.get("PRODUCT-X-CX-20");
+  assert.deepEqual(cx20.releases.jp.composition.map(entry => entry.target), [
+    "BEY-X-CX-20-PHOENIX-FORCE-WH-M-65MT",
+    "PART-X-BLADE-SHARK-SCALE",
+    "PART-X-BLADE-WIZARD-ROD",
+    "PART-X-BLADE-HELLS-SCYTHE-VERSION-2-0",
+    "PART-X-RATCHET-1-70",
+    "PART-X-RATCHET-8-80",
+    "PART-X-BIT-UF",
+    "PART-X-BIT-K",
+    "PART-X-BIT-LR",
+    "PART-X-BIT-LO",
+    "PART-X-BIT-HN"
   ]);
 
   const ux10 = productsById.get("PRODUCT-X-UX-10");

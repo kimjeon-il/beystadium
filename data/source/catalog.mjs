@@ -634,6 +634,7 @@ const beyItems = [
   { id: "BEY-X-CX-08-05-BLACK-TURTLE-7-70WB", series: "x", type: "bey", name: "블랙터틀 7-70WB", productNo: "CX-08-05", battleType: "", spin: "", desc: "", parts: ["PART-X-BLADE-BLACK-TURTLE", "PART-X-RATCHET-7-70", "PART-X-BIT-WB"] },
   { id: "BEY-X-CX-08-06-COBALT-DRAGOON-4-55WB", series: "x", type: "bey", name: "코발트드래군 4-55WB", jpName: "코발트드라군 4-55WB", productNo: "CX-08-06", battleType: "", spin: "", desc: "", parts: ["PART-X-BLADE-COBALT-DRAGOON", "PART-X-RATCHET-4-55", "PART-X-BIT-WB"] },
   { id: "BEY-X-BX-52-LUSTER-DRAGOON-6-60LC", series: "x", type: "bey", name: "라스터드라군 6-60LC", en: "Luster Dragoon 6-60LC", productNo: "BX-52", battleType: "attack", spin: "left", desc: "", parts: ["PART-X-BLADE-LUSTER-DRAGOON", "PART-X-RATCHET-6-60", "PART-X-BIT-LC"] },
+  { id: "BEY-X-BX-54-SIEG-SUPERION-0-70LP", series: "x", type: "bey", name: "지크스페리온 0-70LP", en: "Sieg Superion 0-70LP", productNo: "BX-54", battleType: "balance", spin: "right", desc: "", parts: ["PART-X-BLADE-SIEG-SUPERION", "PART-X-RATCHET-0-70", "PART-X-BIT-LP"] },
 ];
 
 const partItems = [
@@ -1521,6 +1522,7 @@ const partItems = [
   {"id":"PART-X-BLADE-SILVER-WOLF","series":"x","type":"blade","name":"실버 울프","jpName":"실버울프","en":"Silver Wolf","battleType":"stamina","spin":"right","xLine":"unique","desc":"블레이드 하부의 프리 링이 회전하여 상대의 공격을 받아넘기고 회전력을 유지.","stats":[15,30,65]},
   {"id":"PART-X-BLADE-LUSTER-DRAGOON","series":"x","type":"blade","name":"라스터드라군","en":"Luster Dragoon","battleType":"attack","spin":"left","xLine":"basic","desc":"강력한 공격 포인트를 다수 배치해 어느 위치에서든 치명적인 일격을 가하도록 설계된 좌회전 BX 익스팬드 블레이드.","stats":[]},
   {"id":"PART-X-BIT-LC","series":"x","type":"bit","name":"LC","en":"Low Cyclone","sub":"로우 사이클론","battleType":"attack","desc":"","stats":[]},
+  {"id":"PART-X-BLADE-SIEG-SUPERION","series":"x","type":"blade","name":"지크스페리온","en":"Sieg Superion","battleType":"balance","spin":"right","xLine":"basic","desc":"상단의 어퍼 날로 공격하고 하단의 카운터 날로 방어하는 밸런스형 블레이드.","stats":[]},
   {"id":"PART-X-BLADE-WARRIOR-SABER","series":"x","type":"blade","name":"워리어세이버","jpName":"사무라이세이버","en":"Warrior Saber","battleType":"attack","spin":"right","xLine":"unique","desc":"상대와 부딪힐 때 작은 메탈 블레이드가 움직이며 공격력이 변하는 구조.","stats":[65,20,25]},
   {"id":"PART-X-BLADE-KNIGHT-MAIL","series":"x","type":"blade","name":"나이트메일","en":"Knight Mail","battleType":"defense","spin":"right","xLine":"unique","desc":"원형의 12개 날에 내장된 3개의 메탈볼이 위아래로 움직이며 충격을 완화하는 구조.","stats":[10,65,35]},
   {"id":"PART-X-BLADE-IMPACT-DRAKE","series":"x","type":"blade","name":"임팩트드레이크","en":"Impact Drake","battleType":"attack","spin":"right","xLine":"unique","desc":"두꺼운 4개의 날에 장착된 러버의 마찰력과 반발력으로 상대를 튕겨내는 설계.","stats":[75,25,10]},
@@ -1672,6 +1674,7 @@ const partItems = [
   {"id":"PART-X-BIT-LF","series":"x","type":"bit","name":"LF","en":"Low Flat","sub":"로우 플랫","battleType":"attack","desc":"","stats":[45,5,10],"extraStats":[{"name":"대시력","value":40},{"name":"버스트 저항","value":80}]},
   {"id":"PART-X-BIT-LR","series":"x","type":"bit","name":"LR","en":"Low Rush","sub":"로우 러시","battleType":"attack","desc":"","stats":[45,5,15],"extraStats":[{"name":"대시력","value":35},{"name":"버스트 저항","value":80}]},
   {"id":"PART-X-BIT-LO","series":"x","type":"bit","name":"LO","en":"Low Orb","sub":"로우 오브","battleType":"stamina","desc":"","stats":[]},
+  {"id":"PART-X-BIT-LP","series":"x","type":"bit","name":"LP","en":"Low Point","sub":"로우 포인트","battleType":"balance","desc":"포인트 비트보다 1mm 낮게 설계되어 X 대시 성능과 방어 성능을 높인 비트.","stats":[]},
   {"id":"PART-X-BIT-UN","series":"x","type":"bit","name":"UN","en":"Under Needle","sub":"언더 니들","battleType":"defense","desc":"","stats":[10,60,20],"extraStats":[{"name":"대시력","value":10},{"name":"버스트 저항","value":30}]},
   {"id":"PART-X-BIT-UF","series":"x","type":"bit","name":"UF","en":"Under Flat","sub":"언더 플랫","battleType":"attack","desc":"","stats":[]},
   {"id":"PART-X-BIT-GF","series":"x","type":"bit","name":"GF","en":"Gear Flat","sub":"기어 플랫","battleType":"attack","desc":"","stats":[50,5,5],"extraStats":[{"name":"대시력","value":40},{"name":"버스트 저항","value":80}]},
