@@ -192,18 +192,35 @@ const syncRail = () => {
   if (resetButton) resetButton.disabled = appliedGroups === 0;
 };
 
+const typeSearchTerm = (value, series) => {
+  if (!value) return "";
+  if (["x", "burst"].includes(series)) return battleTypeLabels.modern[value];
+  if (series === "all") return value;
+  return battleTypeLabels.classic[value];
+};
+// Context switches preserve free-text queries while removing incompatible
+// facet selections that would otherwise strand the next list at zero results.
+const queryForContext = (series, scope) => queryTerms()
+  .filter(term => {
+    if (scope === "tools" && ["system", "type", "spin"].some(group => belongsToGroup(group, term))) return false;
+    if (scope === "parts" && ["type", "spin"].some(group => belongsToGroup(group, term))) return false;
+    if (scope !== "tools" && belongsToGroup("tools", term)) return false;
+    if (scope === "bey" && series === "burst" && belongsToGroup("system", term)) return false;
+    if (series !== appState.catalog.series && belongsToGroup("system", term)) return false;
+    return true;
+  })
+  .map(term => typeAliases.has(term) ? typeSearchTerm(typeAliases.get(term), series) : term)
+  .join(" ");
+
 const activateRailOption = button => {
   const group = button.dataset.railOption;
   const value = button.dataset.railValue || "";
   let route = catalogRoute();
-  if (group === "series") route = catalogRoute({ series: value });
-  else if (group === "scope") route = catalogRoute({ scope: value });
+  if (group === "series") route = catalogRoute({ series: value, query: queryForContext(value, route.scope) });
+  else if (group === "scope") route = catalogRoute({ scope: value, query: queryForContext(route.series, value) });
   else {
     const remaining = queryTerms().filter(term => !belongsToGroup(group, term));
-    const term = group === "type" && value
-      ? (["x", "burst"].includes(appState.catalog.series) ? battleTypeLabels.modern[value]
-        : appState.catalog.series === "all" ? value : battleTypeLabels.classic[value])
-      : value;
+    const term = group === "type" ? typeSearchTerm(value, appState.catalog.series) : value;
     route.query = [...remaining, term].filter(Boolean).join(" ");
   }
   void navigateToRoute(route, { replace: true, preserveSearch: true, preserveScroll: true }).then(syncRail);
