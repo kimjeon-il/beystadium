@@ -14,10 +14,19 @@ test("anime character profile cards keep optional roles and overflow beys readab
 
   const cardLayout = await grid.evaluate(element => {
     const cards = [...element.querySelectorAll(".anime-character-card")];
-    const heights = cards.map(card => card.getBoundingClientRect().height);
+    // Cards in a visual row align; independent rows may be more compact
+    // when a character has no description or only a few used Beys.
+    const rows = new Map();
+    cards.forEach(card => {
+      const top = Math.round(card.getBoundingClientRect().top);
+      const heights = rows.get(top) || [];
+      heights.push(card.getBoundingClientRect().height);
+      rows.set(top, heights);
+    });
+    const spreads = [...rows.values()].map(heights => Math.max(...heights) - Math.min(...heights));
     return {
       columnCount: getComputedStyle(element).gridTemplateColumns.split(" ").filter(Boolean).length,
-      heightSpread: Math.max(...heights) - Math.min(...heights),
+      heightSpread: Math.max(0, ...spreads),
       overflowX: element.scrollWidth - element.clientWidth
     };
   });
