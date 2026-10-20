@@ -132,3 +132,63 @@ test("P1 rail remains keyboard operable and 768px returns to the existing compac
   await expect(rail).toBeHidden();
   await expect(page.locator("#catalogSeriesFilter")).toBeVisible();
 });
+
+
+test("P1 lower sidebar groups have even label lines and no isolated syllables", { tag: "@design-flow" }, async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "Desktop filter labels.");
+  await page.setViewportSize({ width: 1024, height: 900 });
+  await page.goto(catalogUrl);
+  const rail = page.locator(".catalog-filter-rail");
+  await rail.locator('[data-rail-group="spin"]').scrollIntoViewIfNeeded();
+  const rows = await rail.evaluate(root => ["scope", "type", "spin"].map(id => {
+    const group = root.querySelector('[data-rail-group="' + id + '"]');
+    const optionGrid = group.querySelector(".catalog-rail-options");
+    const entries = [...optionGrid.querySelectorAll("button:not([hidden])")].map(button => {
+      const span = button.querySelector(".catalog-rail-option__text");
+      const textStyle = getComputedStyle(span);
+      const rect = span.getBoundingClientRect();
+      return {
+        label: span.textContent,
+        height: rect.height,
+        lineHeight: parseFloat(textStyle.lineHeight),
+        fullWidth: button.getBoundingClientRect().width
+      };
+    });
+    return { id, columns: getComputedStyle(optionGrid).gridTemplateColumns.split(" ").length, entries };
+  }));
+  for (const group of rows) {
+    expect(group.columns, group.id + " uses balanced columns").toBe(2);
+    for (const item of group.entries) {
+      expect(item.height, group.id + ": " + item.label).toBeLessThanOrEqual(item.lineHeight + 2);
+      expect(item.fullWidth).toBeGreaterThanOrEqual(100);
+    }
+  }
+  await page.screenshot({ path: testInfo.outputPath("catalog-rail-1024-lower-groups.png"), animations: "disabled" });
+});
+
+test("P1 catalog items without source artwork display an explicit neutral placeholder", { tag: "@design-flow" }, async ({ page }) => {
+  await page.goto(catalogUrl);
+  const grid = page.locator("#catalogGrid");
+  await expect(grid.locator(".catalog-card").first()).toBeVisible();
+  const appearance = await grid.evaluate(element => {
+    const card = element.querySelector(".catalog-card:not(.product-card)");
+    if (!card) throw new Error("A catalog card is required");
+    const copy = card.cloneNode(true);
+    copy.querySelector(".catalog-card-visual").replaceChildren();
+    copy.style.contentVisibility = "visible";
+    element.append(copy);
+    const visual = copy.querySelector(".catalog-card-visual");
+    const result = {
+      display: getComputedStyle(visual).display,
+      placeholder: getComputedStyle(visual, "::after").content,
+      width: visual.getBoundingClientRect().width,
+      height: visual.getBoundingClientRect().height
+    };
+    copy.remove();
+    return result;
+  });
+  expect(appearance.display).toBe("grid");
+  expect(appearance.placeholder).toContain("이미지 미등록");
+  expect(appearance.width).toBeGreaterThan(0);
+  expect(appearance.height).toBeGreaterThan(0);
+});
