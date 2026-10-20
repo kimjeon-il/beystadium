@@ -409,6 +409,20 @@
   .catalog-panel .catalog-card-visual:empty {
     display: none;
   }
+  /* An intentionally missing source image must not look like a broken card. */
+  .catalog-panel .catalog-card:not(.product-card) .catalog-card-visual:empty {
+    display: grid;
+    place-items: center;
+    background: color-mix(in srgb, var(--ui-control) 35%, transparent);
+  }
+  .catalog-panel .catalog-card:not(.product-card) .catalog-card-visual:empty::after {
+    content: "이미지 미등록";
+    color: var(--ui-muted);
+    font-size: var(--font-xs);
+    font-weight: var(--font-weight-regular);
+    line-height: 1.4;
+    white-space: nowrap;
+  }
   .catalog-panel .catalog-card-visual .bey-image {
     max-width: min(88%, 180px);
     max-height: 92%;
