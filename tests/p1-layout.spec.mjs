@@ -30,10 +30,11 @@ test("P1 desktop catalog sidebar updates the existing route and query without ch
   await rail.locator('[data-rail-option="type"][data-rail-value="attack"]').click();
   await expect.poll(() => page.locator("#catalogSearchInput").inputValue()).toContain("어택형");
   await expect(rail.locator('[data-rail-option="type"][data-rail-value="attack"]')).toHaveAttribute("aria-pressed", "true");
+  await rail.locator('[data-rail-option="type"][data-rail-value=""]').click();
+  await expect(page.locator("#catalogSearchInput")).toHaveValue("");
   await rail.locator('[data-rail-option="scope"][data-rail-value="parts"]').click();
   await expect(page.locator("#catalogSearchScope")).toHaveAttribute("data-scope", "parts");
-  await expect(page.locator("#catalogSearchInput")).toHaveValue("어택형");
-  await rail.locator('[data-rail-option="type"][data-rail-value=""]').click();
+  await expect(rail.locator('[data-rail-group="type"]')).toBeHidden();
   await expect(page.locator("#catalogSearchInput")).toHaveValue("");
 });
 
@@ -108,7 +109,7 @@ test("P1 catalog rail reflects hash-only query restoration with unchanged series
   await expect(rail.locator('[data-rail-option="type"][data-rail-value="attack"]')).toHaveAttribute("aria-pressed", "true");
   await page.evaluate(() => { window.location.hash = "#toy-catalog?scope=bey&series=x&q=%EB%B0%A9%EC%96%B4%ED%98%95"; });
   await expect(page.locator("#catalogSearchInput")).toHaveValue("방어형");
-  await expect(rail.locator('[data-rail-option="type"][data-rail-value="방어형"]')).toHaveAttribute("aria-pressed", "true");
+  await expect(rail.locator('[data-rail-option="type"][data-rail-value="defense"]')).toHaveAttribute("aria-pressed", "true");
   await expect(rail.locator('[data-rail-option="type"][data-rail-value="attack"]')).toHaveAttribute("aria-pressed", "false");
 });
 
