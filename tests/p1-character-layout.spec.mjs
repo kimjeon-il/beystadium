@@ -20,7 +20,7 @@ test("Characters without descriptions keep used-Bey information close to the tit
       };
     });
     expect(geometry.contentGap, "Empty description must not reserve a blank flexible row").toBeLessThanOrEqual(20);
-    expect(geometry.cardHeight).toBeGreaterThanOrEqual(width >= 640 ? 196 : 190);
+    expect(geometry.cardHeight).toBeGreaterThanOrEqual(width >= 640 ? 178 : 174);
     expect(geometry.beysBottom).toBeLessThanOrEqual(geometry.cardBottom);
     expect(geometry.gridRows).toBeGreaterThanOrEqual(2);
     await page.screenshot({ path: testInfo.outputPath("compact-characters-" + width + ".png"), animations: "disabled" });

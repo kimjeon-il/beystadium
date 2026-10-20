@@ -508,17 +508,17 @@
     grid-auto-rows: auto;
   }
   .anime-panel .anime-character-card {
-    min-height: 196px;
+    min-height: 178px;
     padding: 20px;
     grid-template-rows: auto auto auto;
     align-content: start;
-    gap: 12px;
+    gap: 10px;
     border-radius: var(--radius-card);
   }
   .anime-panel .anime-character-card__header {
-    min-height: 54px;
-    padding-bottom: 13px;
-    border-bottom: 1px solid var(--ui-stroke-subtle);
+    min-height: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
   }
   .anime-panel .anime-character-beys {
     padding-top: 10px;
@@ -697,7 +697,7 @@
       --catalog-grid-columns: minmax(0, 1fr);
     }
     .anime-panel .anime-character-card {
-      min-height: 190px;
+      min-height: 174px;
       padding: 16px;
       gap: 12px;
     }
