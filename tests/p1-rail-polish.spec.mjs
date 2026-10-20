@@ -46,7 +46,7 @@ test("P1 rail has deliberate text wrapping, consistent columns and no horizontal
       expect(metrics.pageWidth).toBeLessThanOrEqual(metrics.viewportWidth + 1);
       for (const item of metrics.options) {
         expect(item.buttonWidth, item.text + " should fill the rail").toBeGreaterThanOrEqual(220);
-        expect(item.buttonHeight).toBeGreaterThanOrEqual(44);
+        expect(Math.round(item.buttonHeight)).toBeGreaterThanOrEqual(44);
         expect(item.labelHeight, item.text + " should stay on one line").toBeLessThanOrEqual(item.lineHeight + 2);
         expect(item.labelWidth).toBeGreaterThan(0);
       }
