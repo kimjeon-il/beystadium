@@ -192,3 +192,28 @@ test("P1 catalog items without source artwork display an explicit neutral placeh
   expect(appearance.width).toBeGreaterThan(0);
   expect(appearance.height).toBeGreaterThan(0);
 });
+
+
+test("P1 rail context changes remove incompatible facets without dropping free-text searches", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "Desktop context-switch UI.");
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/#toy-catalog?scope=bey&series=x&q=" + encodeURIComponent("드랜 어택형"));
+  const rail = page.locator(".catalog-filter-rail");
+  await expect(page.locator("#catalogSearchInput")).toHaveValue("드랜 어택형");
+  await rail.locator('[data-rail-option="scope"][data-rail-value="parts"]').click();
+  await expect(page.locator("#catalogSearchInput")).toHaveValue("드랜");
+  await expect(page.locator("#catalogSearchScope")).toHaveAttribute("data-scope", "parts");
+
+  await page.goto("/#toy-catalog?scope=parts&series=burst&q=" + encodeURIComponent("진검레이어"));
+  await expect(rail.locator('[data-rail-option="system"][data-rail-value="진검레이어"]')).toHaveAttribute("aria-pressed", "true");
+  await rail.locator('[data-rail-option="scope"][data-rail-value="tools"]').click();
+  await expect(page.locator("#catalogSearchInput")).toHaveValue("");
+  await expect(rail.locator('[data-rail-group="tools"]')).toBeVisible();
+  await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
+
+  await page.goto("/#toy-catalog?scope=bey&series=x&q=" + encodeURIComponent("어택형"));
+  await rail.locator('[data-rail-option="series"][data-rail-value="metal fight"]').click();
+  await expect(page.locator("#catalogSearchInput")).toHaveValue("공격형");
+  await expect(rail.locator('[data-rail-option="type"][data-rail-value="attack"]')).toHaveText("공격형");
+  await expect(page.locator("#catalogGrid .catalog-card").first()).toBeVisible();
+});
