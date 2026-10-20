@@ -39,7 +39,7 @@ import {
   setSearchInputValue
 } from "#app/ui-elements";
 import { queryChipMarkup } from "#app/ui-markup";
-import { initializeP1CatalogSidebar } from "./p1-catalog-sidebar.js";
+import { initializeP1CatalogSidebar } from "./p1-catalog-sidebar.js?v=20261020-rail-polish";
 
 const SEARCH_RENDER_DELAY = 100;
 let initialized = false;
