@@ -9688,7 +9688,13 @@
     series: "x",
     releases: {
       kr: {
-        status: "unreleased"
+        no: "BX-00",
+        name: "스톰 페가시스 3-70RA",
+        sale: "일반 판매",
+        kind: "스타터",
+        releaseDate: "2026-10",
+        price: "",
+        composition: [{ name: "스톰 페가시스 3-70RA", quantity: "1개", target: "BEY-X-BX-00-STORM-PEGASIS-3-70RA" }, { name: "스트링런처", quantity: "1개", target: "TOOLS-X-STRING-LAUNCHER" }]
       },
       jp: {
         no: "BX-00",
@@ -9696,7 +9702,7 @@
         kind: "스타터",
         releaseDate: "2026-07-11",
         price: "2620",
-        composition: [{ name: "스톰 페가시스 3-70RA", quantity: "1개", target: "BEY-X-BX-00-STORM-PEGASIS-3-70RA" }]
+        composition: [{ name: "스톰 페가시스 3-70RA", quantity: "1개", target: "BEY-X-BX-00-STORM-PEGASIS-3-70RA" }, { name: "스트링런처", quantity: "1개", target: "TOOLS-X-STRING-LAUNCHER" }]
       }
     }
   },
@@ -9808,7 +9814,13 @@
     series: "x",
     releases: {
       kr: {
-        status: "unreleased"
+        no: "BX-57",
+        name: "3on3 덱케이스 블랙 Ver.",
+        sale: "일반 판매",
+        kind: "툴",
+        releaseDate: "2026-10",
+        price: "",
+        composition: [{ name: "배틀 덱 케이스", quantity: "1개", target: "TOOLS-X-BATTLE-DECK-CASE" }]
       },
       jp: {
         no: "BX-57",
@@ -9876,7 +9888,13 @@
     series: "x",
     releases: {
       kr: {
-        status: "unreleased"
+        no: "BX-52",
+        name: "러스터 드래군 6-60LC",
+        sale: "일반 판매",
+        kind: "스타터",
+        releaseDate: "2026-10",
+        price: "",
+        composition: [{ name: "러스터 드래군 6-60LC", quantity: "1개", target: "BEY-X-BX-52-LUSTER-DRAGOON-6-60LC" }, { name: "와인더런처L", quantity: "1개", target: "TOOLS-X-WINDER-LAUNCHER-L" }]
       },
       jp: {
         no: "BX-52",
@@ -9893,7 +9911,13 @@
     series: "x",
     releases: {
       kr: {
-        status: "unreleased"
+        no: "BX-53",
+        name: "올인원 세트",
+        sale: "일반 판매",
+        kind: "세트",
+        releaseDate: "2026-10",
+        price: "",
+        composition: []
       },
       jp: {
         no: "BX-53",

@@ -557,7 +557,11 @@ test("X 한국 발매목록은 기존 제품명과 보강된 출시 정보를 �
     ["UX-19", "PRODUCT-X-UX-19", "불릿그리폰 H", "2026년 7월", "₩19,900"],
     ["CX-18", "PRODUCT-X-CX-18", "랜덤부스터 브라키오 윕 셀렉트", "2026년 8월", ""],
     ["UX-20", "PRODUCT-X-UX-20", "글로리 발키리언LF", "2026년 8월", ""],
-    ["BX-51", "PRODUCT-X-BX-51", "스트링런처 블랙×그린", "2026년 8월", ""]
+    ["BX-51", "PRODUCT-X-BX-51", "스트링런처 블랙×그린", "2026년 8월", ""],
+    ["BX-00", "PRODUCT-X-BX-00-STORM-PEGASIS-3-70RA", "스톰 페가시스 3-70RA", "2026년 10월", ""],
+    ["BX-52", "PRODUCT-X-BX-52", "러스터 드래군 6-60LC", "2026년 10월", ""],
+    ["BX-53", "PRODUCT-X-BX-53", "올인원 세트", "2026년 10월", ""],
+    ["BX-57", "PRODUCT-X-BX-57", "3on3 덱케이스 블랙 Ver.", "2026년 10월", ""]
   ];
 
   for (const [query, productId, name, date, price] of cases) {
@@ -568,6 +572,13 @@ test("X 한국 발매목록은 기존 제품명과 보강된 출시 정보를 �
     await expect(row.locator(".release-date-full")).toHaveText(date);
     await expect(row.locator("td").nth(4)).toHaveText(price);
   }
+
+  await page.goto("/#PRODUCT-X-BX-52");
+  await expect(page.locator("#detailModal .modal-name")).toHaveText("러스터 드래군 6-60LC");
+  await expect(page.locator('#detailModal .composition-link[data-target-id="BEY-X-BX-52-LUSTER-DRAGOON-6-60LC"]')).toContainText("러스터 드래군 6-60LC");
+
+  await page.goto(`/#search?q=${encodeURIComponent("러스터 드래군")}&scope=product`);
+  await expect(page.locator('.search-results-panel .search-result-item[data-product-id="PRODUCT-X-BX-52"]')).toBeVisible();
 
   expect(errors).toEqual([]);
 });

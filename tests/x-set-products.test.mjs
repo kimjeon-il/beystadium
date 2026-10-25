@@ -37,6 +37,14 @@ test("set quantities and mixed Bey-part compositions stay exact", () => {
   ]);
 
   const bx53 = productsById.get("PRODUCT-X-BX-53");
+  assert.deepEqual(bx53.releases.kr.composition.map(entry => entry.target), [
+    "BEY-X-BX-53-AERO-PEGASUS-3-70A",
+    "BEY-X-BX-53-WIZARD-ARROW-VERSION-2-0-4-80B",
+    "BEY-X-BX-53-KNIGHT-SHIELD-VERSION-2-0-3-80N",
+    "TOOLS-X-WINDER-LAUNCHER",
+    "TOOLS-X-STRING-LAUNCHER",
+    "TOOLS-X-XTREME-STADIUM"
+  ]);
   assert.deepEqual(bx53.releases.jp.composition.map(entry => entry.target), [
     "BEY-X-BX-53-AERO-PEGASUS-3-70A",
     "BEY-X-BX-53-WIZARD-ARROW-VERSION-2-0-4-80B",

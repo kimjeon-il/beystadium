@@ -157,6 +157,7 @@ const xSetProductCompositions = {
     jp: [item("헬즈네더 Z", "BEY-X-UX-21-HELLS-NETHER-Z"), item("실버울프 9-70R", "BEY-X-UX-21-SILVER-WOLF-9-70R"), item("와이번호버 8-80B", "BEY-X-UX-21-WYVERN-HOVER-8-80B")]
   },
   "PRODUCT-X-BX-53": {
+    kr: [item("에어로페가시우스 3-70A 더블 메탈 코트: 블루×시안", "BEY-X-BX-53-AERO-PEGASUS-3-70A"), item("위저드애로우 4-80B 버전 2.0", "BEY-X-BX-53-WIZARD-ARROW-VERSION-2-0-4-80B"), item("나이트실드 3-80N 버전 2.0", "BEY-X-BX-53-KNIGHT-SHIELD-VERSION-2-0-3-80N"), item("와인더런처", "TOOLS-X-WINDER-LAUNCHER"), item("스트링런처", "TOOLS-X-STRING-LAUNCHER"), item("익스트림스타디움", "TOOLS-X-XTREME-STADIUM")],
     jp: [item("에어로페가서스 3-70A 더블 메탈 코트: 블루×시안", "BEY-X-BX-53-AERO-PEGASUS-3-70A"), item("위저드애로우 4-80B 버전 2.0", "BEY-X-BX-53-WIZARD-ARROW-VERSION-2-0-4-80B"), item("나이트실드 3-80N 버전 2.0", "BEY-X-BX-53-KNIGHT-SHIELD-VERSION-2-0-3-80N"), item("와인더런처", "TOOLS-X-WINDER-LAUNCHER"), item("스트링런처", "TOOLS-X-STRING-LAUNCHER"), item("익스트림스타디움", "TOOLS-X-XTREME-STADIUM")]
   },
   "PRODUCT-X-CX-20": {

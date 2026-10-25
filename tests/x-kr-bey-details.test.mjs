@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
 
-import { beyItems } from "../data/source/catalog.mjs";
+import { beyItems, partItems } from "../data/source/catalog.mjs";
 import { productItems } from "../data/source/products.mjs";
 import { xKoreaBeyDescriptions } from "../data/source/x-kr-bey-details.mjs";
 import { decodeSearchEntry } from "../src/search-data-decoder.js";
@@ -33,7 +33,11 @@ const koreanReleaseProducts = Object.freeze({
   "PRODUCT-X-UX-20": ["UX-20", "글로리 발키리언LF", "스타터", "2026-08-21", ""],
   "PRODUCT-X-CX-05": ["CX-05", "랜덤 부스터 Vol.06", "랜덤부스터", "2026-09", ""],
   "PRODUCT-X-BX-50": ["BX-50", "랜덤 부스터 Vol.11", "랜덤부스터", "2026-09", ""],
-  "PRODUCT-X-UX-21": ["UX-21", "헬즈 네더 덱 세트", "세트", "2026-09", ""]
+  "PRODUCT-X-UX-21": ["UX-21", "헬즈 네더 덱 세트", "세트", "2026-09", ""],
+  "PRODUCT-X-BX-00-STORM-PEGASIS-3-70RA": ["BX-00", "스톰 페가시스 3-70RA", "스타터", "2026-10", ""],
+  "PRODUCT-X-BX-52": ["BX-52", "러스터 드래군 6-60LC", "스타터", "2026-10", ""],
+  "PRODUCT-X-BX-53": ["BX-53", "올인원 세트", "세트", "2026-10", ""],
+  "PRODUCT-X-BX-57": ["BX-57", "3on3 덱케이스 블랙 Ver.", "툴", "2026-10", ""]
 });
 
 const japaneseFallbackProductNames = Object.freeze({
@@ -57,8 +61,8 @@ test("한국 공식 성능 설명 12건을 정확한 X 베이에 적용한다", 
   );
 });
 
-test("국내 출시 제품 20건은 공식 이름과 확인된 날짜·가격·구성 순서를 유지한다", () => {
-  assert.equal(Object.keys(koreanReleaseProducts).length, 20);
+test("국내 출시 제품 24건은 공식 이름과 확인된 날짜·가격·구성 순서를 유지한다", () => {
+  assert.equal(Object.keys(koreanReleaseProducts).length, 24);
 
   for (const [id, [no, name, kind, releaseDate, price]] of Object.entries(koreanReleaseProducts)) {
     const product = productsById.get(id);
@@ -99,6 +103,11 @@ test("국내 출시 제품 20건은 공식 이름과 확인된 날짜·가격·�
     { name: "글로리왈큐레 LF", quantity: "1개", target: "BEY-X-UX-20-GLORY-VALKYRIE-LF" },
     { name: "스트링런처", quantity: "1개", target: "TOOLS-X-STRING-LAUNCHER" }
   ]);
+
+  const lusterBey = beysById.get("BEY-X-BX-52-LUSTER-DRAGOON-6-60LC");
+  assert.deepEqual([lusterBey.name, lusterBey.jpName], ["러스터 드래군 6-60LC", "라스터드라군 6-60LC"]);
+  const lusterBlade = partItems.find((part) => part.id === "PART-X-BLADE-LUSTER-DRAGOON");
+  assert.deepEqual([lusterBlade.name, lusterBlade.jpName], ["러스터 드래군", "라스터드라군"]);
 });
 
 test("국내 발매 X 베이 중 공식 설명이 없는 항목은 빈 설명을 유지한다", () => {

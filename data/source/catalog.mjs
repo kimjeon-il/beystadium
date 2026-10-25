@@ -633,7 +633,7 @@ const beyItems = [
   { id: "BEY-X-CX-08-04-DRAN-BUSTER-5-80MN", series: "x", type: "bey", name: "드랜버스터 5-80MN", jpName: "드란버스터 5-80MN", productNo: "CX-08-04", battleType: "attack", spin: "right", desc: "", parts: ["PART-X-BLADE-DRAN-BUSTER", "PART-X-RATCHET-5-80", "PART-X-BIT-MN"] },
   { id: "BEY-X-CX-08-05-BLACK-TURTLE-7-70WB", series: "x", type: "bey", name: "블랙터틀 7-70WB", productNo: "CX-08-05", battleType: "", spin: "", desc: "", parts: ["PART-X-BLADE-BLACK-TURTLE", "PART-X-RATCHET-7-70", "PART-X-BIT-WB"] },
   { id: "BEY-X-CX-08-06-COBALT-DRAGOON-4-55WB", series: "x", type: "bey", name: "코발트드래군 4-55WB", jpName: "코발트드라군 4-55WB", productNo: "CX-08-06", battleType: "", spin: "", desc: "", parts: ["PART-X-BLADE-COBALT-DRAGOON", "PART-X-RATCHET-4-55", "PART-X-BIT-WB"] },
-  { id: "BEY-X-BX-52-LUSTER-DRAGOON-6-60LC", series: "x", type: "bey", name: "라스터드라군 6-60LC", en: "Luster Dragoon 6-60LC", productNo: "BX-52", battleType: "attack", spin: "left", desc: "", parts: ["PART-X-BLADE-LUSTER-DRAGOON", "PART-X-RATCHET-6-60", "PART-X-BIT-LC"] },
+  { id: "BEY-X-BX-52-LUSTER-DRAGOON-6-60LC", series: "x", type: "bey", name: "러스터 드래군 6-60LC", jpName: "라스터드라군 6-60LC", en: "Luster Dragoon 6-60LC", productNo: "BX-52", battleType: "attack", spin: "left", desc: "", parts: ["PART-X-BLADE-LUSTER-DRAGOON", "PART-X-RATCHET-6-60", "PART-X-BIT-LC"] },
   { id: "BEY-X-BX-54-SIEG-SUPERION-0-70LP", series: "x", type: "bey", name: "지크스페리온 0-70LP", en: "Sieg Superion 0-70LP", productNo: "BX-54", battleType: "balance", spin: "right", desc: "", parts: ["PART-X-BLADE-SIEG-SUPERION", "PART-X-RATCHET-0-70", "PART-X-BIT-LP"] },
 ];
 
@@ -1520,7 +1520,7 @@ const partItems = [
   {"id":"PART-X-BLADE-PHOENIX-RUDDER","series":"x","type":"blade","name":"피닉스러더","en":"Phoenix Rudder","battleType":"stamina","spin":"right","xLine":"unique","desc":"튀어나온 6개의 역사다리꼴 날로 상대를 위에서 짓눌러 지구력을 깎도록 설계되었다.","stats":[10,35,55]},
   {"id":"PART-X-BLADE-AERO-PEGASUS","series":"x","type":"blade","name":"에어로페가시우스","jpName":"에어로페가서스","en":"Aero Pegasus","battleType":"attack","spin":"right","xLine":"unique","desc":"3개의 대형 블레이드가 강한 타격을 만들어낸다.","stats":[70,30,35]},
   {"id":"PART-X-BLADE-SILVER-WOLF","series":"x","type":"blade","name":"실버 울프","jpName":"실버울프","en":"Silver Wolf","battleType":"stamina","spin":"right","xLine":"unique","desc":"블레이드 하부의 프리 링이 회전하여 상대의 공격을 받아넘기고 회전력을 유지.","stats":[15,30,65]},
-  {"id":"PART-X-BLADE-LUSTER-DRAGOON","series":"x","type":"blade","name":"라스터드라군","en":"Luster Dragoon","battleType":"attack","spin":"left","xLine":"basic","desc":"강력한 공격 포인트를 다수 배치해 어느 위치에서든 치명적인 일격을 가하도록 설계된 좌회전 BX 익스팬드 블레이드.","stats":[]},
+  {"id":"PART-X-BLADE-LUSTER-DRAGOON","series":"x","type":"blade","name":"러스터 드래군","jpName":"라스터드라군","en":"Luster Dragoon","battleType":"attack","spin":"left","xLine":"basic","desc":"강력한 공격 포인트를 다수 배치해 어느 위치에서든 치명적인 일격을 가하도록 설계된 좌회전 BX 익스팬드 블레이드.","stats":[]},
   {"id":"PART-X-BIT-LC","series":"x","type":"bit","name":"LC","en":"Low Cyclone","sub":"로우 사이클론","battleType":"attack","desc":"","stats":[]},
   {"id":"PART-X-BLADE-SIEG-SUPERION","series":"x","type":"blade","name":"지크스페리온","en":"Sieg Superion","battleType":"balance","spin":"right","xLine":"basic","desc":"상단의 어퍼 날로 공격하고 하단의 카운터 날로 방어하는 밸런스형 블레이드.","stats":[]},
   {"id":"PART-X-BLADE-WARRIOR-SABER","series":"x","type":"blade","name":"워리어세이버","jpName":"사무라이세이버","en":"Warrior Saber","battleType":"attack","spin":"right","xLine":"unique","desc":"상대와 부딪힐 때 작은 메탈 블레이드가 움직이며 공격력이 변하는 구조.","stats":[65,20,25]},
