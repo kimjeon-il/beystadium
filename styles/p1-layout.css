@@ -155,8 +155,8 @@
   @media (min-width: 64rem) {
     .catalog-panel.active {
       display: grid;
-      grid-template-columns: 244px minmax(0, 1fr);
-      column-gap: 24px;
+      grid-template-columns: clamp(262px, 21vw, 292px) minmax(0, 1fr);
+      column-gap: clamp(18px, 1.8vw, 28px);
       align-content: start;
       align-items: start;
       --catalog-grid-columns: repeat(3, minmax(0, 1fr));
@@ -195,74 +195,178 @@
     .catalog-panel .catalog-toolbar > .catalog-series-dropdown {
       display: none;
     }
+
+    /* One full row per generation, two consistent columns for short facets. */
     .catalog-filter-rail {
       position: sticky;
-      top: calc(var(--topbar-height) + 18px);
-      display: grid;
-      gap: 18px;
-      max-height: calc(100dvh - var(--topbar-height) - 34px);
-      padding: 18px;
+      top: calc(var(--topbar-height) + 16px);
+      display: block;
+      align-self: start;
+      min-width: 0;
+      max-height: calc(100dvh - var(--topbar-height) - 32px);
+      padding: 0;
       overflow-x: hidden;
       overflow-y: auto;
+      overscroll-behavior: contain;
       border: var(--border-subtle);
       border-radius: var(--radius-section);
       background: var(--ui-surface-raised);
       scrollbar-width: thin;
       scrollbar-color: var(--ui-line) transparent;
     }
+    .catalog-rail-heading {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      padding: 16px 16px 14px;
+      border-bottom: 1px solid var(--ui-stroke-subtle);
+      background: var(--ui-surface-raised);
+    }
+    .catalog-rail-heading__row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-width: 0;
+    }
     .catalog-rail-heading h3 {
-      margin: 0 0 5px;
+      min-width: 0;
+      margin: 0;
+      color: var(--ui-text);
       font-size: var(--font-xl);
       font-weight: var(--font-weight-strong);
+      line-height: 1.25;
+      white-space: nowrap;
     }
-    .catalog-rail-heading p {
-      margin: 0;
+    .catalog-rail-status {
+      margin: 2px 0 0;
       color: var(--ui-muted);
       font-size: var(--font-xs);
       line-height: 1.45;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+    .catalog-rail-reset {
+      flex: 0 0 auto;
+      min-width: 44px;
+      min-height: 44px;
+      padding: 0 8px;
+      border: 0;
+      border-radius: var(--radius-control-sm);
+      background: transparent;
+      color: var(--ui-accent);
+      font-size: var(--font-sm);
+      font-weight: var(--font-weight-medium);
+      white-space: nowrap;
+      transition: var(--transition-control);
+    }
+    .catalog-rail-reset:disabled {
+      color: var(--ui-muted);
+      cursor: default;
+      opacity: .65;
+    }
+    .catalog-rail-reset:focus-visible {
+      outline: 0;
+      box-shadow: var(--ui-focus-ring);
     }
     .catalog-rail-group {
       min-width: 0;
       display: grid;
-      gap: 8px;
-      padding-top: 12px;
-      border-top: 1px solid var(--ui-stroke-subtle);
+      grid-template-columns: minmax(0, 1fr);
+      gap: 9px;
+      padding: 14px 16px 16px;
+      border-bottom: 1px solid var(--ui-stroke-subtle);
+    }
+    .catalog-rail-group:last-child {
+      border-bottom: 0;
     }
     .catalog-rail-group[hidden] {
       display: none;
     }
     .catalog-rail-group h4 {
+      min-width: 0;
       margin: 0;
       color: var(--ui-muted);
       font-size: var(--font-sm);
       font-weight: var(--font-weight-strong);
+      line-height: 1.4;
+      white-space: nowrap;
     }
     .catalog-rail-options {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: start;
       gap: 6px;
       min-width: 0;
     }
+    .catalog-rail-options[data-rail-layout="stack"] {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 3px;
+    }
     .catalog-rail-option {
-      min-height: var(--touch-target-min);
+      box-sizing: border-box;
+      width: 100%;
       min-width: 0;
-      padding: 9px 11px;
-      border: var(--border-subtle);
-      border-radius: 9px;
+      min-height: var(--touch-target-min);
+      padding: 8px 9px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      align-items: center;
+      justify-items: center;
+      border: 1px solid transparent;
+      border-radius: var(--radius-control-sm);
       background: var(--ui-surface);
       color: var(--ui-text);
       font-size: var(--font-sm);
-      line-height: 1.2;
-      text-align: left;
+      font-weight: var(--font-weight-medium);
+      line-height: 1.35;
+      text-align: center;
       white-space: normal;
       word-break: keep-all;
+      overflow-wrap: break-word;
       transition: var(--transition-control);
+    }
+    .catalog-rail-options[data-rail-layout="stack"] .catalog-rail-option {
+      grid-template-columns: minmax(0, 1fr) 16px;
+      column-gap: 8px;
+      justify-items: start;
+      padding: 8px 12px;
+      background: transparent;
+      text-align: left;
+    }
+    .catalog-rail-option__text {
+      min-width: 0;
+      max-width: 100%;
+      white-space: normal;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+      hyphens: none;
+    }
+    .catalog-rail-options[data-rail-layout="stack"] .catalog-rail-option__text {
+      text-align: left;
+    }
+    .catalog-rail-options[data-rail-layout="stack"] .catalog-rail-option::after {
+      grid-column: 2;
+      content: "";
+      width: 14px;
+      height: 14px;
+    }
+    .catalog-rail-options[data-rail-layout="stack"] .catalog-rail-option.active::after {
+      content: "✓";
+      color: var(--ui-accent);
+      font-weight: 700;
+      font-size: var(--font-md);
+      line-height: 1;
     }
     .catalog-rail-option.active,
     .catalog-rail-option[aria-pressed="true"] {
-      border-color: color-mix(in srgb, var(--ui-accent) 43%, var(--ui-stroke-subtle));
-      background: color-mix(in srgb, var(--ui-accent) 12%, var(--ui-surface-raised));
+      border-color: color-mix(in srgb, var(--ui-accent) 23%, var(--ui-stroke-subtle));
+      background: color-mix(in srgb, var(--ui-accent) 11%, var(--ui-surface-raised));
       color: var(--ui-accent);
+      font-weight: var(--font-weight-strong);
+    }
+    .catalog-rail-options[data-rail-layout="stack"] .catalog-rail-option.active {
+      background: color-mix(in srgb, var(--ui-accent) 10%, var(--ui-surface-raised));
     }
     .catalog-rail-option[hidden] {
       display: none;
@@ -270,6 +374,13 @@
     .catalog-rail-option:focus-visible {
       outline: 0;
       box-shadow: var(--ui-focus-ring);
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .catalog-rail-option:not(.active):hover,
+      .catalog-rail-reset:not(:disabled):hover {
+        background: var(--ui-control-hover);
+        color: var(--ui-text);
+      }
     }
     .catalog-panel .catalog-card {
       min-height: var(--catalog-card-min-height);
@@ -297,6 +408,20 @@
   }
   .catalog-panel .catalog-card-visual:empty {
     display: none;
+  }
+  /* An intentionally missing source image must not look like a broken card. */
+  .catalog-panel .catalog-card:not(.product-card) .catalog-card-visual:empty {
+    display: grid;
+    place-items: center;
+    background: color-mix(in srgb, var(--ui-control) 35%, transparent);
+  }
+  .catalog-panel .catalog-card:not(.product-card) .catalog-card-visual:empty::after {
+    content: "이미지 미등록";
+    color: var(--ui-muted);
+    font-size: var(--font-xs);
+    font-weight: var(--font-weight-regular);
+    line-height: 1.4;
+    white-space: nowrap;
   }
   .catalog-panel .catalog-card-visual .bey-image {
     max-width: min(88%, 180px);
@@ -380,21 +505,28 @@
   .anime-panel .anime-character-grid {
     --catalog-grid-columns: repeat(3, minmax(0, 1fr));
     --catalog-grid-gap: 14px;
+    grid-auto-rows: auto;
   }
   .anime-panel .anime-character-card {
-    min-height: 242px;
+    min-height: 178px;
     padding: 20px;
-    gap: 14px;
+    grid-template-rows: auto auto auto;
+    align-content: start;
+    gap: 10px;
     border-radius: var(--radius-card);
   }
   .anime-panel .anime-character-card__header {
-    min-height: 54px;
-    padding-bottom: 13px;
-    border-bottom: 1px solid var(--ui-stroke-subtle);
+    min-height: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
   }
   .anime-panel .anime-character-beys {
     padding-top: 10px;
     border-top: 1px solid var(--ui-stroke-subtle);
+    align-self: start;
+  }
+  .anime-panel .anime-character-card:not(:has(.anime-character-summary)) .anime-character-beys {
+    grid-row: 2;
   }
 
   /* Detail: products already have artwork/information columns.
@@ -565,7 +697,7 @@
       --catalog-grid-columns: minmax(0, 1fr);
     }
     .anime-panel .anime-character-card {
-      min-height: 214px;
+      min-height: 174px;
       padding: 16px;
       gap: 12px;
     }
