@@ -3129,6 +3129,14 @@ const xImageMappings = [
 
 const xImageUnavailable = [
   {
+    "id": "BEY-X-CX-00-KID-HUNT-K-4-70TK",
+    "reason": "신규 공식 이미지 자산의 색상·투명도 검수가 아직 완료되지 않았다."
+  },
+  {
+    "id": "PART-X-BLADE-LOCK-CHIP-KID",
+    "reason": "신규 공식 이미지 자산의 색상·투명도 검수가 아직 완료되지 않았다."
+  },
+  {
     "id": "PART-X-BLADE-NINJA-KNIFE",
     "reason": "공식 게임 특전 홍보 이미지에 개별 블레이드 사진이 없다."
   },

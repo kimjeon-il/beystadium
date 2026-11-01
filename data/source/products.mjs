@@ -9947,6 +9947,22 @@
     }
   },
   {
+    id: "PRODUCT-X-CX-00-KID-HUNT-K-4-70TK-WHITE", addressSlug: "KID-HUNT-K-4-70TK-WHITE",
+    series: "x",
+    releases: {
+      kr: { status: "unreleased" },
+      jp: {
+        no: "CX-00",
+        name: "키드 헌트K 4-70TK 메탈 코트: 화이트",
+        sale: "코로코로 코믹 유료 응모자 전원 서비스",
+        kind: "부스터",
+        releaseDate: "2026-10-15",
+        price: "2600",
+        composition: [{ name: "키드 헌트K 4-70TK 메탈 코트: 화이트", quantity: "1개", target: "BEY-X-CX-00-KID-HUNT-K-4-70TK" }]
+      }
+    }
+  },
+  {
     id: "PRODUCT-X-CX-00-VALKYRIE-BOLT-S-4-70V-GUNMETAL", addressSlug: "VALKYRIE-BOLT-S-4-70V-GUNMETAL",
     series: "x",
     releases: {
