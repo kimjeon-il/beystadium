@@ -3,13 +3,13 @@ const fallbackRegions = Object.freeze({
   kr: Object.freeze(["kr", "jp"]),
   jp: Object.freeze(["jp", "kr"])
 });
-const normalizeProductKind = kind => kind === "기타" ? "" : kind || "";
+const normalizeProductKind = (kind, series) => kind === "기타" && series !== "topblade" ? "" : kind || "";
 const baseProductRelease = item => ({
   status: "released",
   no: item.no || "",
   name: item.name || "",
   sale: item.sale || "",
-  kind: normalizeProductKind(item.kind),
+  kind: normalizeProductKind(item.kind, item.series),
   tools: item.tools || "",
   releaseDate: item.releaseDate || item.release || "",
   price: item.price || "",
@@ -35,7 +35,7 @@ export const resolveProductRelease = (item, region = "kr") => {
   if (!release) return region === "kr" ? base : blank;
   if (release.status === "unreleased") return blank;
   const merged = { ...(region === "kr" ? base : blank), ...release, status: release.status || "released" };
-  return { ...merged, kind: normalizeProductKind(merged.kind) };
+  return { ...merged, kind: normalizeProductKind(merged.kind, item.series) };
 };
 
 export const productDisplayFallbackRegions = (region = "kr") => fallbackRegions[region] || fallbackRegions.kr;

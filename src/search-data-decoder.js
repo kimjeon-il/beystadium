@@ -1,4 +1,4 @@
-const chunkNames = { m: "metal-fight", b: "burst", x: "x", a: "anime", o: "common" };
+const chunkNames = { t: "topblade", m: "metal-fight", b: "burst", x: "x", a: "anime", o: "common" };
 const compactValue = value => value === "" || value === null ? undefined : value;
 const compactRelease = values => values ? {
   status: compactValue(values[0]),

@@ -8,7 +8,7 @@ const bookItems = [];
 const gameItems = [];
 const animeInfo = { title: "", overview: [], characters: [], episodes: [] };
 const searchIndexItems = [];
-const DATA_CACHE_VERSION = "20261002-metal-new-characters";
+const DATA_CACHE_VERSION = "20261103-topblade-kr-products";
 const X_ASSET_CACHE_VERSION = "20260827-burst-b36-official-front";
 
 const versionAssetUrl = source => {
@@ -29,7 +29,7 @@ const catalogCoreItemOrder = new Map();
 const toolsItemOrder = new Map();
 
 const BeystadiumDataStore = (() => {
-  const SERIES_KEYS = new Set(["metal-fight", "burst", "x"]);
+  const SERIES_KEYS = new Set(["topblade", "metal-fight", "burst", "x"]);
   const PRIMARY_HASH_IDS = new Set([
     "toy-catalog",
     "toy-release",
@@ -50,10 +50,10 @@ const BeystadiumDataStore = (() => {
   let registryLoaded = false;
   let decodeSearchEntryPromise = null;
   let loadingCount = 0;
-  const seriesOrder = { "metal-fight": 0, burst: 1, x: 2 };
+  const seriesOrder = { topblade: -1, "metal-fight": 0, burst: 1, x: 2 };
   const searchChunkOrder = { ...seriesOrder, common: 3, anime: 4 };
 
-  const chunkNames = { m: "metal-fight", b: "burst", x: "x", a: "anime", o: "common" };
+  const chunkNames = { t: "topblade", m: "metal-fight", b: "burst", x: "x", a: "anime", o: "common" };
   const loadSearchEntryDecoder = () => decodeSearchEntryPromise ||= import("#app/search-data-decoder")
     .then(module => module.decodeSearchEntry)
     .catch(error => {

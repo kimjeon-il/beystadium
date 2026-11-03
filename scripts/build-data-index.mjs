@@ -7,14 +7,15 @@ import { productItems } from "../data/source/products.mjs";
 import { rareBeyGetItems } from "../data/source/rare-bey-get.mjs";
 import { bookItems, gameItems, toolsItems } from "../data/source/secondary.mjs";
 
-const VERSION = "20261002-metal-new-characters";
+const VERSION = "20261103-topblade-kr-products";
 const SERIES_SLUGS = {
+  topblade: "topblade",
   "metal fight": "metal-fight",
   burst: "burst",
   x: "x"
 };
-const SERIES_ORDER = ["metal fight", "burst", "x"];
-const CHUNK_CODES = { "metal-fight": "m", burst: "b", x: "x", anime: "a", common: "o" };
+const SERIES_ORDER = ["topblade", "metal fight", "burst", "x"];
+const CHUNK_CODES = { topblade: "t", "metal-fight": "m", burst: "b", x: "x", anime: "a", common: "o" };
 const ANIME_EPISODE_PREFIXES = {
   topblade: "TOPBLADE-EPISODE",
   "topblade-v": "TOPBLADE-V-EPISODE",
@@ -186,6 +187,7 @@ function buildManifest(chunks) {
       return [slug, `./data/runtime/series/${slug}.json?v=${VERSION}`];
     })),
     searchChunks: {
+      topblade: './data/runtime/search/topblade.json?v=' + VERSION,
       "metal-fight": `./data/runtime/search/metal-fight.json?v=${VERSION}`,
       burst: `./data/runtime/search/burst.json?v=${VERSION}`,
       x: `./data/runtime/search/x.json?v=${VERSION}`,

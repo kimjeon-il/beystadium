@@ -1,6 +1,6 @@
 import { addressIdPrefix, hasAddressNamespace } from "./address-id.mjs";
 
-const PRODUCT_ID_PREFIXES = Object.fromEntries(["metal fight", "burst", "x"]
+const PRODUCT_ID_PREFIXES = Object.fromEntries(["topblade", "metal fight", "burst", "x"]
   .map(series => [series, addressIdPrefix("product", series)]));
 
 const normalizeProductIdToken = value => String(value || "")

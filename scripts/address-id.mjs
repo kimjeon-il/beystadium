@@ -1,4 +1,5 @@
 const SERIES_ID_TOKENS = {
+  topblade: 'TOPBLADE',
   "metal fight": "METAL-FIGHT",
   burst: "BURST",
   x: "X"

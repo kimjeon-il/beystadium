@@ -1,4 +1,7 @@
-﻿const productItems = [
+﻿import { topbladeKrProducts } from './topblade-kr-products.mjs';
+
+const productItems = [
+...topbladeKrProducts,
 { id: "PRODUCT-METAL-FIGHT-BB-01", series: "metal fight", releases: {
   kr: { no: "BB-01", name: "페가시스 105F", sale: "일반 판매", kind: "리미티드스타터세트", releaseDate: "2008-10", price: "17600", composition: [{ name: "페가시스 105F", quantity: "1개", target: "BEY-METAL-FIGHT-BB-01-PEGASIS-105F" }, { name: "툴", quantity: "1개", target: "TOOLS-METAL-FIGHT-TOOL" }, { name: "포인터", quantity: "1개", target: "TOOLS-METAL-FIGHT-POINTER" }, { name: "라이트런처", quantity: "1개", target: "TOOLS-METAL-FIGHT-LIGHT-LAUNCHER" }] },
   jp: { no: "BB-01", name: "페가시스 105F", sale: "일반 판매", kind: "스타터", releaseDate: "2008-08-09", price: "1544", composition: [{ name: "페가시스 105F", quantity: "1개", target: "BEY-METAL-FIGHT-BB-01-PEGASIS-105F" }, { name: "툴", quantity: "1개", target: "TOOLS-METAL-FIGHT-TOOL" }, { name: "베이포인터", quantity: "1개", target: "TOOLS-METAL-FIGHT-POINTER" }, { name: "라이트런처", quantity: "1개", target: "TOOLS-METAL-FIGHT-LIGHT-LAUNCHER" }] } } },
