@@ -27,13 +27,14 @@ test("P1 desktop catalog sidebar updates the existing route and query without ch
     return { leftRail: a.left, rightRail: a.right, gridLeft: b.left };
   });
   expect(geometry.rightRail).toBeLessThan(geometry.gridLeft);
-  await rail.locator('[data-rail-option="type"][data-rail-value="공격형"]').click();
-  await expect.poll(() => page.locator("#catalogSearchInput").inputValue()).toContain("공격형");
-  await expect(rail.locator('[data-rail-option="type"][data-rail-value="공격형"]')).toHaveAttribute("aria-pressed", "true");
+  await rail.locator('[data-rail-option="type"][data-rail-value="attack"]').click();
+  await expect.poll(() => page.locator("#catalogSearchInput").inputValue()).toContain("어택형");
+  await expect(rail.locator('[data-rail-option="type"][data-rail-value="attack"]')).toHaveAttribute("aria-pressed", "true");
+  await rail.locator('[data-rail-option="type"][data-rail-value=""]').click();
+  await expect(page.locator("#catalogSearchInput")).toHaveValue("");
   await rail.locator('[data-rail-option="scope"][data-rail-value="parts"]').click();
   await expect(page.locator("#catalogSearchScope")).toHaveAttribute("data-scope", "parts");
-  await expect(page.locator("#catalogSearchInput")).toHaveValue("공격형");
-  await rail.locator('[data-rail-option="type"][data-rail-value=""]').click();
+  await expect(rail.locator('[data-rail-group="type"]')).toBeHidden();
   await expect(page.locator("#catalogSearchInput")).toHaveValue("");
 });
 
@@ -105,11 +106,11 @@ test("P1 catalog rail reflects hash-only query restoration with unchanged series
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/#toy-catalog?scope=bey&series=x&q=%EA%B3%B5%EA%B2%A9%ED%98%95");
   const rail = page.locator(".catalog-filter-rail");
-  await expect(rail.locator('[data-rail-option="type"][data-rail-value="공격형"]')).toHaveAttribute("aria-pressed", "true");
+  await expect(rail.locator('[data-rail-option="type"][data-rail-value="attack"]')).toHaveAttribute("aria-pressed", "true");
   await page.evaluate(() => { window.location.hash = "#toy-catalog?scope=bey&series=x&q=%EB%B0%A9%EC%96%B4%ED%98%95"; });
   await expect(page.locator("#catalogSearchInput")).toHaveValue("방어형");
-  await expect(rail.locator('[data-rail-option="type"][data-rail-value="방어형"]')).toHaveAttribute("aria-pressed", "true");
-  await expect(rail.locator('[data-rail-option="type"][data-rail-value="공격형"]')).toHaveAttribute("aria-pressed", "false");
+  await expect(rail.locator('[data-rail-option="type"][data-rail-value="defense"]')).toHaveAttribute("aria-pressed", "true");
+  await expect(rail.locator('[data-rail-option="type"][data-rail-value="attack"]')).toHaveAttribute("aria-pressed", "false");
 });
 
 test("P1 compact home has no preview theme control or horizontal overflow", async ({ page }, testInfo) => {
